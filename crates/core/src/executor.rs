@@ -19,9 +19,10 @@ use crate::model::{
 };
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::query_access::contract::{
-    AccessRequest, IndexAccessProvider, InputEstimate, OfferList,
+    AccessExecution, AccessOffer, AccessRequest, IndexAccessProvider, InputEstimate, OfferList,
 };
 use crate::query_access::native::NativeCollectionProvider;
+use crate::query_access::registry::ProviderCatalog;
 use crate::query_plan::selection::ordered_offer_ids;
 use crate::query_predicate::{PreparedPredicates, TermId};
 use crate::reference::{
@@ -1163,6 +1164,122 @@ impl PlanContext {
         self.term_ids.insert(key, id);
         id
     }
+
+    fn execute_native_term(
+        &mut self,
+        repo: &Repository,
+        collection: &CollectionState,
+        term: &BoundTerm,
+        input: &RoaringBitmap,
+    ) -> Result<(Option<RoaringBitmap>, Option<AccessOffer>, Vec<AccessPathEstimate>), String> {
+        let term_id = self.term_id(collection, term);
+        let provider = NativeCollectionProvider::new(
+            repo,
+            collection,
+            collection.stats.record_count as u64,
+            None,
+        );
+        let input_estimate = InputEstimate {
+            domain_len: collection.stats.record_count as u64,
+            input_len: input.len(),
+            mean_record_bytes: collection.stats.mean_record_bytes(),
+            mean_records_per_file: collection.stats.mean_records_per_file(),
+            file_count: collection.stats.file_count as u64,
+        };
+        #[cfg(test)]
+        let test_providers =
+            crate::query_execution::request::test_access_providers(repo.instance_id);
+        let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
+        providers.push(&provider);
+        #[cfg(test)]
+        for test_provider in &test_providers {
+            providers.push(test_provider.as_ref());
+        }
+        let catalog = ProviderCatalog::new(providers);
+        let offers = match &self.predicates {
+            Some(predicates) => catalog
+                .propose_prepared(predicates, term_id, input_estimate)
+                .map_err(|error| error.to_string())?,
+            None => catalog
+                .propose(
+                    term_id,
+                    AccessRequest::Structured(term),
+                    input_estimate,
+                )
+                .map_err(|error| error.to_string())?,
+        };
+        let offers = ordered_offer_ids(&offers, input.len());
+        let Some(chosen) = offers.first() else {
+            return Ok((None, None, Vec::new()));
+        };
+        let paths = offers
+            .iter()
+            .map(|offer| {
+                provider
+                    .path_for(offer.id())
+                    .unwrap_or_else(|| estimate_from_offer(offer, input.len() as u64))
+            })
+            .collect::<Vec<_>>();
+        let restricted = catalog
+            .apply(
+                term_id,
+                AccessRequest::Structured(term),
+                chosen.id(),
+                provider.input_for(input),
+                &AccessExecution { context: None },
+            )
+            .map_err(|error| error.to_string())?;
+        let slots = match restricted.into_slots() {
+            crate::query_access::membership::SlotSet::Unrestricted => None,
+            crate::query_access::membership::SlotSet::Empty => Some(RoaringBitmap::new()),
+            crate::query_access::membership::SlotSet::Owned(bitmap) => Some(bitmap),
+            crate::query_access::membership::SlotSet::Borrowed(bitmap) => Some(bitmap & input),
+            crate::query_access::membership::SlotSet::Shared(bitmap) => {
+                Some(bitmap.as_ref() & input)
+            }
+        };
+        Ok((slots, Some(chosen.clone()), paths))
+    }
+
+    fn estimate_prepared_term(
+        &self,
+        repo: &Repository,
+        collection: &CollectionState,
+        predicates: &PreparedPredicates,
+        term_id: TermId,
+        term: &BoundTerm,
+        input_len: u64,
+    ) -> Result<Option<(u64, f64)>, String> {
+        let provider =
+            NativeCollectionProvider::new(repo, collection, input_len, None);
+        #[cfg(test)]
+        let test_providers =
+            crate::query_execution::request::test_access_providers(repo.instance_id);
+        let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
+        providers.push(&provider);
+        #[cfg(test)]
+        for test_provider in &test_providers {
+            providers.push(test_provider.as_ref());
+        }
+        let catalog = ProviderCatalog::new(providers);
+        let offers = catalog
+            .propose_prepared(
+                predicates,
+                term_id,
+                InputEstimate {
+                    domain_len: collection.stats.record_count as u64,
+                    input_len,
+                    mean_record_bytes: collection.stats.mean_record_bytes(),
+                    mean_records_per_file: collection.stats.mean_records_per_file(),
+                    file_count: collection.stats.file_count as u64,
+                },
+            )
+            .map_err(|error| error.to_string())?;
+        let _ = term;
+        Ok(crate::query_plan::selection::choose_offer(term_id, &offers, input_len)
+            .map_err(|error| error.to_string())?
+            .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))))
+    }
 }
 
 fn rescore_paths(
@@ -1921,6 +2038,29 @@ fn sort_key(value: &Value) -> Option<SortKey> {
     })
 }
 
+fn estimate_from_offer(offer: &AccessOffer, input_len: u64) -> AccessPathEstimate {
+    use crate::query_access::contract::{AccessKind, ProofStrength};
+
+    AccessPathEstimate {
+        kind: match offer.kind() {
+            AccessKind::ExactMembership | AccessKind::CandidateMembership => {
+                AccessPathKind::Posting
+            }
+            AccessKind::Metadata => AccessPathKind::Metadata,
+            AccessKind::OrderedColumn => AccessPathKind::SortColumn,
+            AccessKind::Relation => AccessPathKind::RelationSourceRestricted,
+            AccessKind::SourceScan => AccessPathKind::Scanner,
+        },
+        exact: offer.proof() == ProofStrength::Exact,
+        coverage: offer.estimated_output().min(u32::MAX as u64) as u32,
+        estimated_output: offer.estimated_output(),
+        estimated_work: offer.estimated_work(input_len),
+        estimated_files: 0.0,
+        estimated_bytes: 0.0,
+        posting: None,
+    }
+}
+
 fn order_matches(order: std::cmp::Ordering, op: Operator) -> bool {
     match op {
         Operator::Eq => order.is_eq(),
@@ -1973,6 +2113,24 @@ pub(crate) fn estimate_plan_expr(
         choices: node.choices,
         planning: context.counters,
     })
+}
+
+pub(crate) fn estimate_prepared_filter_term(
+    repo: &Repository,
+    collection: &CollectionState,
+    predicates: &PreparedPredicates,
+    term_id: TermId,
+    term: &BoundTerm,
+    input_len: u64,
+) -> Result<Option<(u64, f64)>, String> {
+    PlanContext::default().estimate_prepared_term(
+        repo,
+        collection,
+        predicates,
+        term_id,
+        term,
+        input_len,
+    )
 }
 
 fn estimate_plan_node(
@@ -2389,21 +2547,19 @@ fn plan_logical_expr(
 ) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let mut paths = context.paths(collection, term, input.len())?;
-            let selected = paths.remove(0);
-            context.counters.candidate_bitmap_builds +=
-                u64::from(selected.kind != AccessPathKind::Scanner);
-            let candidates =
-                execute_path(repo, collection, term, domain, input, &selected)?.map(|set| {
-                    if matches!(
-                        selected.kind,
-                        AccessPathKind::Metadata | AccessPathKind::Posting
-                    ) {
-                        set
-                    } else {
-                        &set & input
-                    }
-                });
+            let (candidates, chosen, mut paths) =
+                context.execute_native_term(repo, collection, term, input)?;
+            let selected = paths
+                .first()
+                .cloned()
+                .ok_or("selected access path missing")?;
+            paths.remove(0);
+            if chosen
+                .as_ref()
+                .is_some_and(|choice| choice.kind() != crate::query_access::contract::AccessKind::SourceScan)
+            {
+                context.counters.candidate_bitmap_builds += 1;
+            }
             if selected.exact && candidates.is_none() {
                 return Err("selected exact access path did not return a proof".into());
             }

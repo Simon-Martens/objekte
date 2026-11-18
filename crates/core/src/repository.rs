@@ -1255,7 +1255,14 @@ impl Repository {
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
-        let result = if self.has_native_segments() {
+        #[cfg(test)]
+        let use_test_provider_pipeline = !crate::query_execution::request::test_access_providers(
+            self.instance_id,
+        )
+        .is_empty();
+        #[cfg(not(test))]
+        let use_test_provider_pipeline = false;
+        let result = if self.has_native_segments() && !use_test_provider_pipeline {
             let snapshot = self.native_snapshot();
             let cache = crate::run::LifecycleCacheScope {
                 store: &self.verified,

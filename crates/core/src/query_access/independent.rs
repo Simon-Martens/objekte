@@ -1,6 +1,6 @@
 //! Independent sorted-table backing used by conformance tests.
 
-use std::cell::Cell;
+use std::sync::Mutex;
 
 use roaring::RoaringBitmap;
 
@@ -19,16 +19,44 @@ use super::membership::{DomainId, SlotInput, SlotSet};
 
 const INDEPENDENT_PROVIDER: ProviderId = ProviderId(90);
 
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub(crate) struct BackingObservation {
+    pub(crate) kind: u32,
+    pub(crate) input: Vec<u32>,
+    pub(crate) output: Vec<u32>,
+}
+
 pub(crate) struct SortedBackingProvider {
+    id: ProviderId,
     domain: DomainId,
+    field: String,
+    supports_text: bool,
     rows: Vec<(String, Vec<u32>)>,
     grams: Vec<((bool, u64), Vec<u32>)>,
-    proposals: Cell<u64>,
-    applications: Cell<u64>,
+    state: Mutex<IndependentState>,
+}
+
+#[derive(Default)]
+struct IndependentState {
+    scalar_work: f64,
+    gram_work: f64,
+    operations: Vec<(TermId, u32)>,
+    next_operation: u32,
+    observations: Vec<BackingObservation>,
+    proposals: u64,
+    applications: u64,
 }
 
 impl SortedBackingProvider {
     pub(crate) fn from_fixture(domain: DomainId, records: &[&str]) -> Self {
+        Self::from_field_fixture(domain, "text", records)
+    }
+
+    pub(crate) fn from_field_fixture(
+        domain: DomainId,
+        field: &str,
+        records: &[&str],
+    ) -> Self {
         let mut rows: Vec<(String, Vec<u32>)> = records
             .iter()
             .enumerate()
@@ -56,11 +84,16 @@ impl SortedBackingProvider {
             }
         }
         Self {
+            id: INDEPENDENT_PROVIDER,
             domain,
+            field: field.into(),
+            supports_text: true,
             rows: merged,
             grams,
-            proposals: Cell::new(0),
-            applications: Cell::new(0),
+            state: Mutex::new(IndependentState {
+                scalar_work: 10.0,
+                ..IndependentState::default()
+            }),
         }
     }
 
@@ -69,10 +102,48 @@ impl SortedBackingProvider {
     }
 
     pub(crate) fn counters(&self) -> (u64, u64) {
-        (self.proposals.get(), self.applications.get())
+        let state = self.state.lock().expect("backing state poisoned");
+        (state.proposals, state.applications)
+    }
+
+    pub(crate) fn set_costs(&self, scalar_work: f64, gram_work: f64) {
+        let mut state = self.state.lock().expect("backing state poisoned");
+        state.scalar_work = scalar_work;
+        state.gram_work = gram_work;
+    }
+
+    pub(crate) fn with_provider_id(mut self, id: ProviderId) -> Self {
+        self.id = id;
+        self
+    }
+
+    pub(crate) fn scalar_only(self) -> Self {
+        Self {
+            supports_text: false,
+            ..self
+        }
+    }
+
+    pub(crate) fn observations(&self) -> Vec<BackingObservation> {
+        self.state
+            .lock()
+            .expect("backing state poisoned")
+            .observations
+            .clone()
+    }
+
+    pub(crate) fn clear_observations(&self) {
+        self.state
+            .lock()
+            .expect("backing state poisoned")
+            .observations
+            .clear();
     }
 
     fn scalar(&self, term: &BoundTerm) -> Option<Vec<u32>> {
+        if term.path.segments.len() != 1 || term.path.segments[0] != self.field {
+            return None;
+        }
         if !matches!(
             term.operator,
             Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
@@ -80,21 +151,30 @@ impl SortedBackingProvider {
             || term.related.is_some()
             || term.operation.is_some()
             || term.matcher.is_some()
-            || !matches!(term.literal, crate::model::Value::String(_))
+            || !matches!(
+                term.literal,
+                crate::model::Value::String(_) | crate::model::Value::Number(_)
+            )
         {
             return None;
         }
-        let crate::model::Value::String(literal) = &term.literal else {
-            unreachable!()
+        let literal = match &term.literal {
+            crate::model::Value::String(literal) => literal.clone(),
+            crate::model::Value::Number(literal) => match literal {
+                crate::model::Number::Integer(value) => value.to_string(),
+                crate::model::Number::Float(value) => format!("{value:?}"),
+                crate::model::Number::ExactDecimal(value) => format!("{value:?}"),
+            },
+            _ => unreachable!(),
         };
         let mut slots = Vec::new();
         for (value, members) in &self.rows {
             let matches = match term.operator {
-                Operator::Eq => value == literal,
-                Operator::Gt => value > literal,
-                Operator::Ge => value >= literal,
-                Operator::Lt => value < literal,
-                Operator::Le => value <= literal,
+                Operator::Eq => value == &literal,
+                Operator::Gt => value > &literal,
+                Operator::Ge => value >= &literal,
+                Operator::Lt => value < &literal,
+                Operator::Le => value <= &literal,
                 _ => unreachable!(),
             };
             if matches {
@@ -126,11 +206,28 @@ impl SortedBackingProvider {
             .ok()
             .map(|index| self.grams[index].1.as_slice())
     }
+
+    fn prepare_operation(&self, term: TermId, kind: u32) -> OperationId {
+        let mut state = self.state.lock().expect("backing state poisoned");
+        let operation = state.next_operation;
+        state.next_operation += 1;
+        state.operations.push((term, kind));
+        OperationId(operation)
+    }
+
+    fn operation(&self, id: OperationId) -> Option<(TermId, u32)> {
+        self.state
+            .lock()
+            .expect("backing state poisoned")
+            .operations
+            .get(id.0 as usize)
+            .copied()
+    }
 }
 
 impl IndexAccessProvider for SortedBackingProvider {
     fn provider_id(&self) -> ProviderId {
-        INDEPENDENT_PROVIDER
+        self.id
     }
 
     fn propose(
@@ -140,21 +237,25 @@ impl IndexAccessProvider for SortedBackingProvider {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
-        self.proposals.set(self.proposals.get() + 1);
+        let (scalar_work, gram_work) = {
+            let mut state = self.state.lock().expect("backing state poisoned");
+            state.proposals += 1;
+            (state.scalar_work, state.gram_work)
+        };
         match request {
             AccessRequest::Structured(bound) => {
                 if let Some(slots) = self.scalar(bound) {
                     offers.push(AccessOffer::new(
                         AccessId {
-                            provider: INDEPENDENT_PROVIDER,
-                            operation: OperationId(0),
+                            provider: self.id,
+                            operation: self.prepare_operation(term, 0),
                         },
                         term,
                         AccessKind::ExactMembership,
                         Coverage::Complete,
                         ProofStrength::Exact,
                         slots.len() as u64,
-                        10.0 + (self.rows.len() as f64).log2(),
+                        scalar_work + (self.rows.len() as f64).log2(),
                         0.0,
                         false,
                         false,
@@ -165,15 +266,15 @@ impl IndexAccessProvider for SortedBackingProvider {
                 {
                     offers.push(AccessOffer::new(
                         AccessId {
-                            provider: INDEPENDENT_PROVIDER,
-                            operation: OperationId(1),
+                            provider: self.id,
+                            operation: self.prepare_operation(term, 1),
                         },
                         term,
                         AccessKind::CandidateMembership,
                         Coverage::CandidateOnly,
                         ProofStrength::Candidate,
                         slots.len() as u64,
-                        request.gram_count(BigramAlphabet::Unicode) as f64,
+                        gram_work + request.gram_count(BigramAlphabet::Unicode) as f64,
                         0.0,
                         true,
                         false,
@@ -181,18 +282,21 @@ impl IndexAccessProvider for SortedBackingProvider {
                 }
             }
             AccessRequest::Text(fts) => {
+                if !self.supports_text {
+                    return Ok(());
+                }
                 if let Some(slots) = self.grams(&fts.gram_request) {
                     offers.push(AccessOffer::new(
                         AccessId {
-                            provider: INDEPENDENT_PROVIDER,
-                            operation: OperationId(2),
+                            provider: self.id,
+                            operation: self.prepare_operation(term, 2),
                         },
                         term,
                         AccessKind::CandidateMembership,
                         Coverage::CandidateOnly,
                         ProofStrength::Candidate,
                         slots.len().min(input.input_len as usize) as u64,
-                        fts.gram_request.gram_count(BigramAlphabet::Unicode) as f64,
+                        gram_work + fts.gram_request.gram_count(BigramAlphabet::Unicode) as f64,
                         0.0,
                         true,
                         false,
@@ -205,17 +309,26 @@ impl IndexAccessProvider for SortedBackingProvider {
 
     fn apply<'a>(
         &self,
-        _term: TermId,
+        term: TermId,
         request: AccessRequest<'_>,
         choice: AccessId,
         input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
     ) -> AccessResult<SlotInput<'a>> {
         execution.check()?;
-        if choice.provider != INDEPENDENT_PROVIDER || input.domain() != self.domain {
+        if choice.provider != self.id || input.domain() != self.domain {
             return Err(AccessError::DomainMismatch);
         }
-        let slots = match (choice.operation.0, request) {
+        if input.is_empty() {
+            return Ok(input);
+        }
+        let Some((operation_term, operation)) = self.operation(choice.operation) else {
+            return Err(AccessError::StaleHandle);
+        };
+        if operation_term != term {
+            return Err(AccessError::StaleHandle);
+        }
+        let slots = match (operation, request) {
             (0, AccessRequest::Structured(bound)) => {
                 self.scalar(bound).ok_or(AccessError::CapabilityUnavailable)?
             }
@@ -232,14 +345,30 @@ impl IndexAccessProvider for SortedBackingProvider {
                 .ok_or(AccessError::CapabilityUnavailable)?,
             _ => return Err(AccessError::StaleHandle),
         };
-        self.applications.set(self.applications.get() + 1);
-        let input_ref = input.input();
-        let bitmap = slots.into_iter().collect::<RoaringBitmap>() & input_ref;
-        Ok(SlotInput::new(
-            self.domain,
-            input_ref,
-            SlotSet::from_owned(bitmap),
-        ))
+        self.state
+            .lock()
+            .expect("backing state poisoned")
+            .applications += 1;
+        let observation_input = input.iter().collect::<Vec<_>>();
+        let input_ref = input
+            .effective_bitmap()
+            .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+        let mut bitmap = RoaringBitmap::new();
+        for slot in slots {
+            if input_ref.contains(slot) {
+                bitmap.insert(slot);
+            }
+        }
+        self.state
+            .lock()
+            .expect("backing state poisoned")
+            .observations
+            .push(BackingObservation {
+                kind: operation,
+                input: observation_input,
+                output: bitmap.iter().collect(),
+            });
+        Ok(input.replace_slots(SlotSet::from_owned(bitmap)))
     }
 }
 
@@ -424,21 +553,18 @@ mod tests {
             .find(|offer| offer.proof() == ProofStrength::Exact)
             .unwrap()
             .clone();
-        let input = restricted.input();
+        let restricted_len = restricted.len();
         let result = provider
             .apply(
                 structured_term,
                 AccessRequest::Structured(&term),
                 structured_choice.id(),
-                SlotInput::new(
-                    restricted.domain(),
-                    input,
-                    SlotSet::Owned(restricted.iter().collect()),
-                ),
+                restricted,
                 &AccessExecution { context: None },
             )
             .unwrap();
         assert_eq!(result.iter().collect::<Vec<_>>(), [3]);
+        assert_eq!(restricted_len, 1);
         assert_eq!(result.len(), 1);
     }
 }

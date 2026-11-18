@@ -12532,7 +12532,14 @@ fn search_impl_with_collector<'a>(
         entries: Vec::new(),
         planning_ns: 0,
     };
-    if cache_members.is_none() && exact_collector.is_none() {
+    #[cfg(test)]
+    let test_provider_order = !crate::query_execution::request::test_access_providers(
+        repo.instance_id,
+    )
+    .is_empty();
+    #[cfg(not(test))]
+    let test_provider_order = false;
+    if !test_provider_order && cache_members.is_none() && exact_collector.is_none() {
         if let Some(result) = try_inferred_order_page(
             repo,
             query,
@@ -12613,9 +12620,41 @@ fn search_impl_with_collector<'a>(
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
         let domain = collection_domain(collection, collection_index, active);
-        let text_estimate = fts
-            .as_ref()
-            .and_then(|fts| estimate_fts_candidates(collection, fts));
+        let prepared_text_estimate = entry
+            .text_term
+            .map(|term| {
+                crate::query_access::text::prepared_text_estimate(
+                    &predicates,
+                    term,
+                    collection,
+                    repo.instance_id,
+                    domain.len(),
+                )
+            })
+            .transpose()?
+            .flatten();
+        let prepared_filter_estimate = match (filter.as_ref(), entry.filter_leaves.as_slice()) {
+            (Some(BoundExpr::Term(term)), leaves) => leaves
+                .iter()
+                .find(|leaf| leaf.display_path != "@fts")
+                .map(|leaf| {
+                    crate::executor::estimate_prepared_filter_term(
+                        repo,
+                        collection,
+                        &predicates,
+                        leaf.id,
+                        term,
+                        domain.len(),
+                    )
+                })
+                .transpose()?
+                .flatten(),
+            _ => None,
+        };
+        let text_estimate = prepared_text_estimate.or_else(|| {
+            fts.as_ref()
+                .and_then(|fts| estimate_fts_candidates(collection, fts))
+        });
         let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
         let (plan, mut candidates, text_first) = if let Some((mut plan, candidates)) =
             reused_order.next()
@@ -12624,17 +12663,25 @@ fn search_impl_with_collector<'a>(
             (plan, candidates, false)
         } else {
             let mut input = domain.clone();
-            let filter_estimate = filter
-                .as_ref()
-                .map(|f| estimate_expr(collection, f, domain.len()))
-                .transpose()?;
-            let text_first = match (text_estimate, filter_estimate) {
-                (Some((text_count, text_lookup)), Some((filter_work, filter_count))) => {
-                    text_lookup + text_count as f64 * source_unit * 0.1
+            let filter_estimate = prepared_filter_estimate
+                .map(|(output, work)| (work, output))
+                .or(filter
+                    .as_ref()
+                    .map(|filter| estimate_expr(collection, filter, domain.len()))
+                    .transpose()?);
+            let text_first = if let (Some((text_count, text_work)), Some((filter_work, filter_count))) =
+                (text_estimate, filter_estimate)
+            {
+                let prepared_costs = prepared_text_estimate.is_some()
+                    && prepared_filter_estimate.is_some();
+                if prepared_costs {
+                    text_work < filter_work
+                } else {
+                    text_work + text_count as f64 * source_unit * 0.1
                         < filter_work + filter_count as f64 * source_unit * 0.1
                 }
-                (Some(_), None) => true,
-                _ => false,
+            } else {
+                text_estimate.is_some()
             };
             if text_first {
                 if fts.is_some() {
@@ -12642,6 +12689,8 @@ fn search_impl_with_collector<'a>(
                         &predicates,
                         entry.text_term.expect("prepared FTS term"),
                         collection,
+                        repo.instance_id,
+                        &input,
                     )? {
                         input &= text;
                     }
@@ -12682,6 +12731,8 @@ fn search_impl_with_collector<'a>(
                                 &predicates,
                                 entry.text_term.expect("prepared FTS term"),
                                 collection,
+                                repo.instance_id,
+                                &candidates,
                             )?
                         {
                             candidates &= text_candidates;

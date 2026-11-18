@@ -1,6 +1,7 @@
 //! Native in-memory adapters for structured and text access.
 
-use std::cell::{Cell, RefCell};
+use std::sync::Mutex;
+use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::executor::{
     AccessPathEstimate, AccessPathKind, enumerate_paths, execute_path,
@@ -20,9 +21,9 @@ pub(crate) const NATIVE_COLLECTION_PROVIDER: ProviderId = ProviderId(1);
 
 #[derive(Default)]
 pub(crate) struct ProviderCounters {
-    pub(crate) proposals: Cell<u64>,
-    pub(crate) applications: Cell<u64>,
-    pub(crate) dictionary_keys_visited: Cell<u64>,
+    pub(crate) proposals: AtomicU64,
+    pub(crate) applications: AtomicU64,
+    pub(crate) dictionary_keys_visited: AtomicU64,
 }
 
 /// Adapter around the existing monomorphic native lookup kernels. The planner
@@ -33,8 +34,14 @@ pub(crate) struct NativeCollectionProvider<'a> {
     collection: &'a CollectionState,
     domain: DomainId,
     input_len: u64,
-    paths: RefCell<Vec<AccessPathEstimate>>,
+    prepared: Mutex<PreparedNativePaths>,
     counters: ProviderCounters,
+}
+
+#[derive(Default)]
+struct PreparedNativePaths {
+    paths: Vec<AccessPathEstimate>,
+    terms: Vec<TermId>,
 }
 
 impl<'a> NativeCollectionProvider<'a> {
@@ -48,12 +55,13 @@ impl<'a> NativeCollectionProvider<'a> {
             repo: Some(repo),
             collection,
             domain: domain_id(
+                repo.instance_id,
                 collection.generation.collection.0,
                 collection.generation.generation,
-                segment_index.unwrap_or(u32::MAX),
+                segment_index.map(u64::from),
             ),
             input_len: domain_len,
-            paths: RefCell::new(Vec::new()),
+            prepared: Mutex::new(PreparedNativePaths::default()),
             counters: ProviderCounters::default(),
         }
     }
@@ -63,35 +71,62 @@ impl<'a> NativeCollectionProvider<'a> {
             repo: None,
             collection,
             domain: domain_id(
+                0,
                 collection.generation.collection.0,
                 collection.generation.generation,
-                u32::MAX,
+                None,
             ),
             input_len: domain_len,
-            paths: RefCell::new(Vec::new()),
+            prepared: Mutex::new(PreparedNativePaths::default()),
             counters: ProviderCounters::default(),
         }
     }
 
     pub(crate) fn counter_snapshot(&self) -> (u64, u64) {
         (
-            self.counters.proposals.get(),
-            self.counters.applications.get(),
+            self.counters.proposals.load(Ordering::Relaxed),
+            self.counters.applications.load(Ordering::Relaxed),
         )
     }
 
     pub(crate) fn path_for(&self, id: AccessId) -> Option<AccessPathEstimate> {
         (id.provider == NATIVE_COLLECTION_PROVIDER)
-            .then(|| self.paths.borrow().get(id.operation.0 as usize).cloned())
+            .then(|| {
+                self.prepared
+                    .lock()
+                    .expect("native provider state poisoned")
+                    .paths
+                    .get(id.operation.0 as usize)
+                    .cloned()
+            })
             .flatten()
     }
 
+    fn path_for_term(&self, id: AccessId, term: TermId) -> Option<AccessPathEstimate> {
+        let prepared = self
+            .prepared
+            .lock()
+            .expect("native provider state poisoned");
+        if id.provider != NATIVE_COLLECTION_PROVIDER
+            || prepared.terms.get(id.operation.0 as usize) != Some(&term)
+        {
+            return None;
+        }
+        prepared.paths.get(id.operation.0 as usize).cloned()
+    }
+
     pub(crate) fn prepared_paths(&self) -> Vec<AccessPathEstimate> {
-        self.paths.borrow().clone()
+        self.prepared
+            .lock()
+            .expect("native provider state poisoned")
+            .paths
+            .clone()
     }
 
     pub(crate) fn dictionary_keys_visited(&self) -> u64 {
-        self.counters.dictionary_keys_visited.get()
+        self.counters
+            .dictionary_keys_visited
+            .load(Ordering::Relaxed)
     }
 
     pub(crate) fn input_for<'b>(&self, input: &'b roaring::RoaringBitmap) -> SlotInput<'b> {
@@ -115,7 +150,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
-        self.counters.proposals.set(self.counters.proposals.get() + 1);
+        self.counters.proposals.fetch_add(1, Ordering::Relaxed);
         let AccessRequest::Structured(bound) = request else {
             return Ok(());
         };
@@ -129,16 +164,25 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         .map_err(AccessError::Internal)?;
         self.counters
             .dictionary_keys_visited
-            .set(self.counters.dictionary_keys_visited.get() + visits);
+            .fetch_add(visits, Ordering::Relaxed);
         let coverage_len = self.collection.stats.record_count as u64;
-        let mut prepared = self.paths.borrow_mut();
-        prepared.clear();
-        prepared.extend(paths.iter().cloned());
+        let start = {
+            let mut prepared = self
+                .prepared
+                .lock()
+                .expect("native provider state poisoned");
+            let start = prepared.paths.len();
+            prepared.paths.extend(paths.iter().cloned());
+            prepared
+                .terms
+                .extend(std::iter::repeat_n(term, paths.len()));
+            start
+        };
         for (index, path) in paths.iter().enumerate() {
             offers.push(AccessOffer::new(
                 AccessId {
                     provider: NATIVE_COLLECTION_PROVIDER,
-                    operation: OperationId(index as u32),
+                    operation: OperationId((start + index) as u32),
                 },
                 term,
                 access_kind(path.kind),
@@ -173,30 +217,34 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
             return Err(AccessError::DomainMismatch);
         }
         execution.check()?;
+        if input.is_empty() {
+            return Ok(input);
+        }
         let AccessRequest::Structured(bound) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
         let path = self
-            .path_for(choice)
+            .path_for_term(choice, term)
             .ok_or(AccessError::StaleHandle)?;
-        self.counters
-            .applications
-            .set(self.counters.applications.get() + 1);
+        self.counters.applications.fetch_add(1, Ordering::Relaxed);
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
-        let result = execute_path(
-            self.repo.ok_or(AccessError::CapabilityUnavailable)?,
-            self.collection,
-            bound,
-            input.input(),
-            input.input(),
-            &path,
-        )
-        .map_err(AccessError::Internal)?;
-        let _ = term;
-        let input_ref = input.input();
-        let slots = result.map_or(SlotSet::Unrestricted, SlotSet::from_owned);
-        Ok(SlotInput::new(self.domain, input_ref, slots))
+        let slots = {
+            let input_ref = input
+                .effective_bitmap()
+                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+            let result = execute_path(
+                self.repo.ok_or(AccessError::CapabilityUnavailable)?,
+                self.collection,
+                bound,
+                input_ref,
+                input_ref,
+                &path,
+            )
+            .map_err(AccessError::Internal)?;
+            result.map_or(SlotSet::Unrestricted, SlotSet::from_owned)
+        };
+        Ok(input.replace_slots(slots))
     }
 }
 

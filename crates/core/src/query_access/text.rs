@@ -1,6 +1,7 @@
 //! Native FTS provider adapter.
 
-use std::cell::Cell;
+use std::sync::Mutex;
+use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
@@ -20,20 +21,29 @@ use super::contract::{
     ProviderId,
 };
 use super::membership::{DomainId, SlotInput, SlotSet};
+use super::registry::ProviderCatalog;
 
 pub(crate) const NATIVE_TEXT_PROVIDER: ProviderId = ProviderId(2);
 
 pub(crate) struct NativeTextProvider<'a> {
     collection: &'a CollectionState,
     domain: DomainId,
-    proposals: Cell<u64>,
-    applications: Cell<u64>,
+    operations: Mutex<TextProviderState>,
+    proposals: AtomicU64,
+    applications: AtomicU64,
+}
+
+#[derive(Default)]
+struct TextProviderState {
+    operations: Vec<TermId>,
+    next_operation: u32,
 }
 
 pub(crate) struct NativeSegmentTextProvider<'a> {
     segment: &'a IndexedCollectionSegment,
     collection: &'a CollectionState,
     domain: DomainId,
+    operations: Mutex<TextProviderState>,
 }
 
 impl<'a> NativeSegmentTextProvider<'a> {
@@ -45,10 +55,12 @@ impl<'a> NativeSegmentTextProvider<'a> {
             segment,
             collection,
             domain: domain_id(
+                0,
                 collection.generation.collection.0,
                 collection.generation.generation,
-                segment.id.get() as u32,
+                Some(segment.id.get()),
             ),
+            operations: Mutex::new(TextProviderState::default()),
         }
     }
 
@@ -63,15 +75,25 @@ impl<'a> NativeSegmentTextProvider<'a> {
 
 impl<'a> NativeTextProvider<'a> {
     pub(crate) fn new(collection: &'a CollectionState, segment_index: Option<u32>) -> Self {
+        Self::with_instance(collection, segment_index, 0)
+    }
+
+    pub(crate) fn with_instance(
+        collection: &'a CollectionState,
+        segment_index: Option<u32>,
+        instance_id: u64,
+    ) -> Self {
         Self {
             collection,
             domain: domain_id(
+                instance_id,
                 collection.generation.collection.0,
                 collection.generation.generation,
-                segment_index.unwrap_or(u32::MAX),
+                segment_index.map(u64::from),
             ),
-            proposals: Cell::new(0),
-            applications: Cell::new(0),
+            operations: Mutex::new(TextProviderState::default()),
+            proposals: AtomicU64::new(0),
+            applications: AtomicU64::new(0),
         }
     }
 
@@ -84,7 +106,10 @@ impl<'a> NativeTextProvider<'a> {
     }
 
     pub(crate) fn counter_snapshot(&self) -> (u64, u64) {
-        (self.proposals.get(), self.applications.get())
+        (
+            self.proposals.load(Ordering::Relaxed),
+            self.applications.load(Ordering::Relaxed),
+        )
     }
 }
 
@@ -100,17 +125,27 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
-        self.proposals.set(self.proposals.get() + 1);
+        self.proposals.fetch_add(1, Ordering::Relaxed);
         let AccessRequest::Text(fts) = request else {
             return Ok(());
         };
         let Some((output, work)) = native_estimate_fts_candidates(self.collection, fts) else {
             return Ok(());
         };
+        let operation = {
+            let mut state = self
+                .operations
+                .lock()
+                .expect("text provider state poisoned");
+            let operation = state.next_operation;
+            state.next_operation += 1;
+            state.operations.push(term);
+            operation
+        };
         offers.push(AccessOffer::new(
             AccessId {
                 provider: NATIVE_TEXT_PROVIDER,
-                operation: OperationId(0),
+                operation: OperationId(operation),
             },
             term,
             AccessKind::CandidateMembership,
@@ -138,26 +173,38 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         execution: &AccessExecution<'_>,
     ) -> AccessResult<SlotInput<'a>> {
         execution.check()?;
-        if choice.provider != NATIVE_TEXT_PROVIDER || choice.operation != OperationId(0) {
+        if choice.provider != NATIVE_TEXT_PROVIDER
+            || self
+                .operations
+                .lock()
+                .expect("text provider state poisoned")
+                .operations
+                .get(choice.operation.0 as usize)
+                != Some(&_term)
+        {
             return Err(AccessError::StaleHandle);
         }
         if input.domain() != self.domain {
             return Err(AccessError::DomainMismatch);
         }
+        if input.is_empty() {
+            return Ok(input);
+        }
         let AccessRequest::Text(fts) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
-        let result = native_fts_candidates(self.collection, fts)
-            .ok_or(AccessError::CapabilityUnavailable)?;
-        self.applications.set(self.applications.get() + 1);
+        let slots = {
+            let result = native_fts_candidates(self.collection, fts)
+                .ok_or(AccessError::CapabilityUnavailable)?;
+            let input_ref = input
+                .effective_bitmap()
+                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+            SlotSet::from_owned(result & input_ref)
+        };
+        self.applications.fetch_add(1, Ordering::Relaxed);
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
-        let input_ref = input.input();
-        Ok(SlotInput::new(
-            self.domain,
-            input_ref,
-            SlotSet::from_owned(result & input_ref),
-        ))
+        Ok(input.replace_slots(slots))
     }
 }
 
@@ -181,10 +228,20 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         else {
             return Ok(());
         };
+        let operation = {
+            let mut state = self
+                .operations
+                .lock()
+                .expect("text provider state poisoned");
+            let operation = state.next_operation;
+            state.next_operation += 1;
+            state.operations.push(term);
+            operation
+        };
         offers.push(AccessOffer::new(
             AccessId {
                 provider: NATIVE_TEXT_PROVIDER,
-                operation: OperationId(1),
+                operation: OperationId(operation),
             },
             term,
             AccessKind::CandidateMembership,
@@ -208,27 +265,39 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         execution: &AccessExecution<'_>,
     ) -> AccessResult<SlotInput<'a>> {
         execution.check()?;
-        if choice.provider != NATIVE_TEXT_PROVIDER || choice.operation != OperationId(1) {
+        if choice.provider != NATIVE_TEXT_PROVIDER
+            || self
+                .operations
+                .lock()
+                .expect("text provider state poisoned")
+                .operations
+                .get(choice.operation.0 as usize)
+                != Some(&_term)
+        {
             return Err(AccessError::StaleHandle);
         }
         if input.domain() != self.domain {
             return Err(AccessError::DomainMismatch);
         }
+        if input.is_empty() {
+            return Ok(input);
+        }
         let AccessRequest::Text(fts) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
-        let result =
-            native_segment_fts_candidates(self.segment, self.collection, fts)
-                .map_err(AccessError::Internal)?
-                .ok_or(AccessError::CapabilityUnavailable)?;
+        let slots = {
+            let result =
+                native_segment_fts_candidates(self.segment, self.collection, fts)
+                    .map_err(AccessError::Internal)?
+                    .ok_or(AccessError::CapabilityUnavailable)?;
+            let input_ref = input
+                .effective_bitmap()
+                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+            SlotSet::from_owned(result & input_ref)
+        };
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
-        let input_ref = input.input();
-        Ok(SlotInput::new(
-            self.domain,
-            input_ref,
-            SlotSet::from_owned(result & input_ref),
-        ))
+        Ok(input.replace_slots(slots))
     }
 }
 
@@ -236,39 +305,47 @@ pub(crate) fn prepared_text_candidates(
     predicates: &PreparedPredicates,
     term: TermId,
     collection: &CollectionState,
+    instance_id: u64,
+    input: &RoaringBitmap,
 ) -> Result<Option<RoaringBitmap>, String> {
-    let provider = NativeTextProvider::new(collection, None);
-    let mut offers = OfferList::new();
-    predicates
-        .propose(
-            term,
-            &provider,
-            InputEstimate {
-                domain_len: collection.stats.record_count as u64,
-                input_len: collection.stats.record_count as u64,
-                mean_record_bytes: collection.stats.mean_record_bytes(),
-                mean_records_per_file: collection.stats.mean_records_per_file(),
-                file_count: collection.stats.file_count as u64,
-            },
-            &mut offers,
-        )
+    let provider = NativeTextProvider::with_instance(collection, None, instance_id);
+    #[cfg(test)]
+    let test_providers =
+        crate::query_execution::request::test_access_providers(instance_id);
+    let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> = smallvec::SmallVec::new();
+    providers.push(&provider);
+    #[cfg(test)]
+    for test_provider in &test_providers {
+        providers.push(test_provider.as_ref());
+    }
+    let catalog = ProviderCatalog::new(providers);
+    let input_estimate = InputEstimate {
+        domain_len: collection.stats.record_count as u64,
+        input_len: input.len(),
+        mean_record_bytes: collection.stats.mean_record_bytes(),
+        mean_records_per_file: collection.stats.mean_records_per_file(),
+        file_count: collection.stats.file_count as u64,
+    };
+    let offers = catalog
+        .propose_prepared(predicates, term, input_estimate)
         .map_err(|error| error.to_string())?;
     let Some(chosen) = crate::query_plan::selection::choose_offer(
         term,
         &offers,
-        collection.stats.record_count as u64,
+        input.len(),
     )
     .map_err(|error| error.to_string())?
     else {
         return Ok(None);
     };
-    let input = (0..collection.stats.record_count as u32).collect::<RoaringBitmap>();
-    let applied = predicates
-        .restrict(
+    let applied = catalog
+        .apply(
             term,
-            &provider,
+            predicates
+                .request(term)
+                .map_err(|error| error.to_string())?,
             chosen.id(),
-            provider.input_for(&input),
+            provider.input_for(input),
             &AccessExecution { context: None },
         )
         .map_err(|error| error.to_string())?;
@@ -278,4 +355,40 @@ pub(crate) fn prepared_text_candidates(
         SlotSet::Empty => Ok(Some(RoaringBitmap::new())),
         _ => Err("text predicate facade returned a non-owned bitmap".into()),
     }
+}
+
+pub(crate) fn prepared_text_estimate(
+    predicates: &PreparedPredicates,
+    term: TermId,
+    collection: &CollectionState,
+    instance_id: u64,
+    input_len: u64,
+) -> Result<Option<(u64, f64)>, String> {
+    let provider = NativeTextProvider::with_instance(collection, None, instance_id);
+    #[cfg(test)]
+    let test_providers =
+        crate::query_execution::request::test_access_providers(instance_id);
+    let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> = smallvec::SmallVec::new();
+    providers.push(&provider);
+    #[cfg(test)]
+    for test_provider in &test_providers {
+        providers.push(test_provider.as_ref());
+    }
+    let catalog = ProviderCatalog::new(providers);
+    let offers = catalog
+        .propose_prepared(
+            predicates,
+            term,
+            InputEstimate {
+                domain_len: collection.stats.record_count as u64,
+                input_len,
+                mean_record_bytes: collection.stats.mean_record_bytes(),
+                mean_records_per_file: collection.stats.mean_records_per_file(),
+                file_count: collection.stats.file_count as u64,
+            },
+        )
+        .map_err(|error| error.to_string())?;
+    Ok(crate::query_plan::selection::choose_offer(term, &offers, input_len)
+        .map_err(|error| error.to_string())?
+        .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))))
 }

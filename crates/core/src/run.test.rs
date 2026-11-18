@@ -7,6 +7,187 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn gate_a_public_search_selects_either_provider_in_either_order() {
+    use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
+    use crate::query_access::contract::ProviderId;
+    use crate::query_access::independent::SortedBackingProvider;
+    use crate::query_execution::request::install_test_access_providers;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-query-execution-gate-a-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let records = [
+        ("rare find", 1799),
+        ("common", 1800),
+        ("ordinary", 1799),
+        ("rare", 1800),
+        ("ra ar re rxr axe", 1800),
+        ("common", 1799),
+        ("ordinary", 1800),
+        ("plain", 1799),
+    ];
+    for (id, (title, year)) in records.iter().enumerate() {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            serde_json::json!({"title": title, "year": year}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut definition =
+        CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Filename;
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["year".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = crate::repository::Repository::open_with_options(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let collection = &repo.collections()[0];
+    let domain = crate::query_execution::domain::domain_id(
+        repo.instance_id,
+        collection.generation.collection.0,
+        collection.generation.generation,
+        None,
+    );
+    let title_values = records
+        .iter()
+        .map(|(title, _)| *title)
+        .collect::<Vec<_>>();
+    let year_values = records
+        .iter()
+        .map(|(_, year)| year.to_string())
+        .collect::<Vec<_>>();
+    let year_refs = year_values.iter().map(String::as_str).collect::<Vec<_>>();
+    let title = std::sync::Arc::new(
+        SortedBackingProvider::from_field_fixture(domain, "title", &title_values)
+            .with_provider_id(ProviderId(200)),
+    );
+    let year = std::sync::Arc::new(
+        SortedBackingProvider::from_field_fixture(domain, "year", &year_refs)
+            .with_provider_id(ProviderId(201))
+            .scalar_only(),
+    );
+    let providers: Vec<
+        std::sync::Arc<dyn crate::query_access::contract::IndexAccessProvider>,
+    > = vec![title.clone(), year.clone()];
+    let guard = install_test_access_providers(repo.instance_id, providers);
+    assert_eq!(
+        crate::query_execution::request::test_access_providers(repo.instance_id).len(),
+        2
+    );
+    let query = |_text_first: bool| Query {
+        collections: vec!["data".into()],
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "rare".into(),
+            pattern_parameter: None,
+            fields: vec![FtsField {
+                path: crate::model::FieldPath::parse("title").unwrap(),
+                binding: None,
+                query_path: None,
+            }],
+        }),
+        filter: Some(parse_filter("year = 1800").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 100,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+
+    for text_first in [true, false] {
+        title.clear_observations();
+        year.clear_observations();
+        if text_first {
+            title.set_costs(20.0, -10.0);
+            year.set_costs(20.0, 0.0);
+        } else {
+            title.set_costs(20.0, 20.0);
+            year.set_costs(-10.0, 0.0);
+        }
+        let request = query(text_first);
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(
+            actual.count,
+            Some(1),
+            "text_first={text_first} hits={:?} title={:?} year={:?} counters={:?}",
+            actual.hits,
+            title.observations(),
+            year.observations(),
+            actual.counters
+        );
+        assert_eq!(actual.hits, reference.hits);
+        assert_eq!(actual.hits[0].record_id, "3");
+        assert_eq!(actual.hits[0].matched_fields, ["title", "year"]);
+
+        let title_observations = title.observations();
+        let year_observations = year.observations();
+        assert_eq!(
+            title_observations.len(),
+            1,
+            "title counters={:?} year counters={:?} work={:?}",
+            title.counters(),
+            year.counters(),
+            actual.counters
+        );
+        assert_eq!(year_observations.len(), 1);
+        if text_first {
+            assert_eq!(title_observations[0].input, (0..8).collect::<Vec<_>>());
+            assert_eq!(title_observations[0].output, [0, 3, 4]);
+            assert_eq!(year_observations[0].input, [0, 3, 4]);
+            assert_eq!(year_observations[0].output, [3, 4]);
+        } else {
+            assert_eq!(year_observations[0].input, (0..8).collect::<Vec<_>>());
+            assert_eq!(year_observations[0].output, [1, 3, 4, 6]);
+            assert_eq!(title_observations[0].input, [1, 3, 4, 6]);
+            assert_eq!(title_observations[0].output, [3, 4]);
+        }
+    }
+    drop(guard);
+
+    let unindexed = repo.search(&query(true)).unwrap();
+    assert_eq!(unindexed.count, Some(1));
+    assert_eq!(unindexed.hits[0].record_id, "3");
+    assert!(unindexed.counters.record_parses > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
     let root = std::env::temp_dir().join(format!(
         "objekte-metadata-dependent-rhs-{}-{}",

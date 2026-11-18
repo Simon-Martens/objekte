@@ -2,7 +2,7 @@
 
 use smallvec::SmallVec;
 
-use crate::query_predicate::TermId;
+use crate::query_predicate::{PreparedPredicates, TermId};
 
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessRequest, AccessResult, IndexAccessProvider,
@@ -34,6 +34,19 @@ impl<'a> ProviderCatalog<'a> {
         Ok(offers)
     }
 
+    pub(crate) fn propose_prepared(
+        &self,
+        predicates: &PreparedPredicates,
+        term: TermId,
+        input: InputEstimate,
+    ) -> AccessResult<OfferList> {
+        let mut offers = OfferList::new();
+        for provider in &self.providers {
+            predicates.propose(term, *provider, input, &mut offers)?;
+        }
+        Ok(offers)
+    }
+
     pub(crate) fn apply<'b>(
         &self,
         term: TermId,
@@ -58,7 +71,7 @@ pub(crate) fn provider_ids(offers: &[super::contract::AccessOffer]) -> Vec<Provi
 
 #[cfg(test)]
 mod tests {
-    use std::cell::Cell;
+    use std::sync::atomic::{AtomicU64, Ordering};
 
     use roaring::RoaringBitmap;
 
@@ -76,8 +89,8 @@ mod tests {
         work: f64,
         output: u32,
         advertised_term: TermId,
-        proposals: Cell<u64>,
-        applications: Cell<u64>,
+        proposals: AtomicU64,
+        applications: AtomicU64,
         fail_apply: bool,
     }
 
@@ -93,7 +106,7 @@ mod tests {
             _input: InputEstimate,
             offers: &mut OfferList,
         ) -> AccessResult<()> {
-            self.proposals.set(self.proposals.get() + 1);
+            self.proposals.fetch_add(1, Ordering::Relaxed);
             offers.push(AccessOffer::new(
                 AccessId {
                     provider: self.id,
@@ -120,17 +133,19 @@ mod tests {
             input: SlotInput<'a>,
             _execution: &AccessExecution<'_>,
         ) -> AccessResult<SlotInput<'a>> {
-            self.applications.set(self.applications.get() + 1);
+            self.applications.fetch_add(1, Ordering::Relaxed);
             if self.fail_apply {
                 return Err(AccessError::Corrupt("injected failure".into()));
             }
-            let input_ref = input.input();
-            let slots = (0..self.output).collect::<RoaringBitmap>();
-            Ok(SlotInput::new(
-                input.domain(),
-                input_ref,
-                SlotSet::from_owned(slots),
-            ))
+            let slots = {
+                let input_ref = input
+                    .effective_bitmap()
+                    .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+                (0..self.output)
+                    .filter(|slot| input_ref.contains(*slot))
+                    .collect::<RoaringBitmap>()
+            };
+            Ok(input.replace_slots(SlotSet::from_owned(slots)))
         }
     }
 
@@ -145,8 +160,8 @@ mod tests {
             work,
             output: 2,
             advertised_term,
-            proposals: Cell::new(0),
-            applications: Cell::new(0),
+            proposals: AtomicU64::new(0),
+            applications: AtomicU64::new(0),
             fail_apply: false,
         }
     }
@@ -177,9 +192,9 @@ mod tests {
                 ProviderId(1)
             );
         }
-        assert_eq!(cheap.proposals.get(), 2);
-        assert_eq!(expensive.proposals.get(), 2);
-        assert_eq!(cheap.applications.get(), 0);
+        assert_eq!(cheap.proposals.load(Ordering::Relaxed), 2);
+        assert_eq!(expensive.proposals.load(Ordering::Relaxed), 2);
+        assert_eq!(cheap.applications.load(Ordering::Relaxed), 0);
     }
 
     #[test]

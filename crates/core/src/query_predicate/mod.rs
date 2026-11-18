@@ -295,7 +295,7 @@ impl PreparedPredicates {
         }
     }
 
-    fn request(&self, leaf: TermId) -> AccessResult<AccessRequest<'_>> {
+    pub(crate) fn request(&self, leaf: TermId) -> AccessResult<AccessRequest<'_>> {
         let entry = self
             .get(leaf)
             .ok_or(crate::query_access::contract::AccessError::StaleHandle)?;

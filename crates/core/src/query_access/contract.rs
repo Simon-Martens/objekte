@@ -218,7 +218,7 @@ impl AccessExecution<'_> {
 
 /// Storage providers expose only capability and cost information plus checked
 /// bulk application. Concrete index types stay in adapter modules.
-pub(crate) trait IndexAccessProvider {
+pub(crate) trait IndexAccessProvider: Send + Sync {
     fn provider_id(&self) -> ProviderId;
 
     fn propose(
