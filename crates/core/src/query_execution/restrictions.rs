@@ -709,64 +709,35 @@ pub(crate) fn segment_fts_bounds_with_term(
     input: &RoaringBitmap,
     context: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
-    use crate::query_access::contract::{AccessExecution, IndexAccessProvider, InputEstimate};
-    use crate::query_access::text::NativeSegmentTextProvider;
-
-    let provider = NativeSegmentTextProvider::new(segment, collection);
-    #[cfg(test)]
-    let test_providers = crate::query_execution::request::all_test_access_providers();
-    let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
-    #[cfg(test)]
-    let suppress_native = crate::query_execution::request::test_native_access_suppressed(
-        collection.repository_instance,
-    );
-    #[cfg(not(test))]
-    let suppress_native = false;
-    if !suppress_native {
-        providers.push(&provider);
-    }
-    #[cfg(test)]
-    for test_provider in &test_providers {
-        providers.push(test_provider.as_ref());
-    }
-    let catalog = ProviderCatalog::new(providers);
-    let offers = catalog
-        .propose(
-            term,
-            AccessRequest::Text(fts),
-            InputEstimate {
-                domain: provider.domain(),
-                domain_len: segment.record_count() as u64,
-                input_len: input.len() as u64,
-                mean_record_bytes: collection.stats.mean_record_bytes(),
-                mean_records_per_file: collection.stats.mean_records_per_file(),
-                file_count: segment.file_count() as u64,
-            },
-        )
-        .map_err(|error| error.to_string())?;
-    let Some(chosen) =
-        crate::query_plan::selection::choose_offer(term, &offers, input.len() as u64)
-            .map_err(|error| error.to_string())?
-    else {
-        return Ok(SegmentCandidateBounds::candidate(input.clone()));
-    };
-    let applied = catalog
-        .apply(
-            term,
-            AccessRequest::Text(fts),
-            chosen.id(),
-            provider.input_for(input),
-            &AccessExecution { context },
-        )
-        .map_err(|error| error.to_string())?;
-    let possible = applied.possible;
-    let may = shared_bitmap_from_slot_input(possible)?;
-    let must = match applied.proven {
-        Proven::None => Arc::new(RoaringBitmap::new()),
-        Proven::All => Arc::clone(&may),
-        Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
-    };
-    Ok(SegmentCandidateBounds { may, must })
+    with_segment_text_offer(
+        segment,
+        collection,
+        fts,
+        term,
+        input.len() as u64,
+        |provider, catalog, chosen| {
+            let Some(chosen) = chosen else {
+                return Ok(SegmentCandidateBounds::candidate(input.clone()));
+            };
+            let applied = catalog
+                .apply(
+                    term,
+                    AccessRequest::Text(fts),
+                    chosen.id(),
+                    provider.input_for(input),
+                    &AccessExecution { context },
+                )
+                .map_err(|error| error.to_string())?;
+            let possible = applied.possible;
+            let may = shared_bitmap_from_slot_input(possible)?;
+            let must = match applied.proven {
+                Proven::None => Arc::new(RoaringBitmap::new()),
+                Proven::All => Arc::clone(&may),
+                Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
+            };
+            Ok(SegmentCandidateBounds { may, must })
+        },
+    )
 }
 
 pub(crate) fn segment_fts_estimate_with_term(
@@ -776,7 +747,23 @@ pub(crate) fn segment_fts_estimate_with_term(
     term: TermId,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
-    use crate::query_access::contract::{IndexAccessProvider, InputEstimate};
+    with_segment_text_offer(segment, collection, fts, term, input_len, |_, _, chosen| {
+        Ok(chosen.map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))))
+    })
+}
+
+fn with_segment_text_offer<T>(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    fts: &BoundFts,
+    term: TermId,
+    input_len: u64,
+    selected: impl FnOnce(
+        &crate::query_access::text::NativeSegmentTextProvider<'_>,
+        &ProviderCatalog<'_>,
+        Option<&AccessOffer>,
+    ) -> Result<T, String>,
+) -> Result<T, String> {
     use crate::query_access::text::NativeSegmentTextProvider;
 
     let provider = NativeSegmentTextProvider::new(segment, collection);
@@ -811,11 +798,9 @@ pub(crate) fn segment_fts_estimate_with_term(
             },
         )
         .map_err(|error| error.to_string())?;
-    Ok(
-        crate::query_plan::selection::choose_offer(term, &offers, input_len)
-            .map_err(|error| error.to_string())?
-            .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
-    )
+    let chosen = crate::query_plan::selection::choose_offer(term, &offers, input_len)
+        .map_err(|error| error.to_string())?;
+    selected(&provider, &catalog, chosen)
 }
 
 fn segment_text_candidates(
