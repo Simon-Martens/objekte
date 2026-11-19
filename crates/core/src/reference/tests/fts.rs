@@ -1,4 +1,4 @@
-use super::super::*;
+use super::prelude::*;
 use super::{fixture_schema, with_record};
 #[test]
 fn fts_exact_modes_preserve_original_and_folded_literals() {

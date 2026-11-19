@@ -28,7 +28,6 @@ pub(crate) use crate::schema::{
     Transform,
 };
 pub(crate) use crate::source::TextDerivation;
-pub(crate) use crate::source::TextSegment;
 
 pub(crate) const MAX_RELATION_HOPS: usize = 8;
 pub(crate) const MAX_PATH_STEPS: usize = 64;
@@ -37,7 +36,3 @@ pub mod filter;
 pub mod fts;
 pub(crate) mod matcher;
 pub mod relation;
-
-pub(crate) use filter::*;
-pub(crate) use fts::*;
-pub(crate) use matcher::*;

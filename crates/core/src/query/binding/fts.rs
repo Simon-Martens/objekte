@@ -402,4 +402,6 @@ pub(crate) fn text_contains_with_folded(
     }
 }
 
+use crate::query::binding::matcher::{MappedTextMatcher, RegexTextMatcher};
+
 use super::*;

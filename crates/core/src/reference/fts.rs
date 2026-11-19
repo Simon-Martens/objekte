@@ -415,8 +415,6 @@ pub fn eval_fts_query(
     eval_bound_fts(&bound, segments, ctx, evidence)
 }
 
-use super::*;
-
 pub fn eval_fts(
     literal: &str,
     selected: &[FieldPath],
@@ -442,3 +440,15 @@ pub fn eval_fts(
     }
     matched
 }
+use std::collections::HashSet;
+
+use crate::model::{FieldPath, PathRoot, Value};
+use crate::query::binding::filter::BoundTerm;
+use crate::query::binding::fts::{
+    BoundFts, BoundFtsField, bind_fts, text_contains, text_contains_with_folded,
+};
+use crate::query::semantics::folding::{with_folded_candidate, with_folded_candidate_str};
+use crate::query::semantics::record::{RecordContext, metadata_value, walk_query_steps};
+use crate::query::{CaseSensitivity, FtsQuery, Operator};
+use crate::schema::{Schema, Transform};
+use crate::source::TextSegment;

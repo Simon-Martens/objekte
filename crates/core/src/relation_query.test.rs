@@ -1273,6 +1273,337 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
 }
 
 #[test]
+fn segmented_reference_first_last_ignores_unavailable_contribution() {
+    use crate::index::segment::PublishedSegment;
+    use crate::model::{CollectionId, Value};
+    use crate::repository::Payload;
+
+    let (root, definitions) = fixture();
+    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Alpha"}"#).unwrap();
+    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Zulu"}"#).unwrap();
+    std::fs::remove_file(root.join("mentions/m2.json")).unwrap();
+    std::fs::remove_file(root.join("mentions/m3.json")).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    for (name, items) in [
+        (
+            "m2",
+            r#"[{"entry":null},{"entry":"B"},{"entry":"A"},{"entry":"A"}]"#,
+        ),
+        ("m3", r#"[{"entry":"A"},{"entry":"B"}]"#),
+    ] {
+        std::fs::write(
+            root.join(format!("mentions/{name}.json")),
+            format!(r#"{{"id":"{name}","items":{items}}}"#),
+        )
+        .unwrap();
+        index
+            .add_file(&root.join(format!("mentions/{name}.json")))
+            .unwrap();
+    }
+
+    let pinned = index.view().unwrap();
+    let repo = pinned.repository();
+    let relation_index = repo.collections[1]
+        .relations
+        .iter()
+        .position(|relation| relation.declaration.path == ["items", "entry"])
+        .expect("items.entry relation");
+    let mut perturbed = pinned.0.segments.clone();
+    perturbed[1] = Arc::new(
+        pinned.0.segments[1]
+            .iter()
+            .map(|published| {
+                let mut segment = (*published.index).clone();
+                if let Some(slot) = segment.id_lookup.get("m2").copied() {
+                    segment.relations[relation_index].mark_unavailable_for_test(slot);
+                }
+                Arc::new(PublishedSegment {
+                    id: published.id,
+                    index: Arc::new(segment),
+                    active: published.active.clone(),
+                })
+            })
+            .collect::<Vec<_>>(),
+    );
+    let diagnostic_view =
+        super::MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog)
+            .unwrap();
+    let m2 = diagnostic_view
+        .resolve_id(CollectionId(1), "m2")
+        .unwrap()
+        .unwrap();
+    assert!(diagnostic_view.forward_edges(m2, relation_index).unwrap().4);
+    drop(diagnostic_view);
+
+    for (reducer, expected) in [("FIRST", ["m3", "m2"]), ("LAST", ["m2", "m3"])] {
+        let mut request = query(
+            "mentions",
+            Some(&format!(
+                "(id = 'm2' || id = 'm3') SORT BY {reducer}(items.entry.title)"
+            )),
+            None,
+            None,
+            false,
+        );
+        request.options.return_mode = ReturnMode::Logical;
+        request.options.limit = 10;
+        let reference = crate::reference::relations::search_segmented(
+            repo,
+            &request,
+            &pinned.0.active,
+            &perturbed,
+            &pinned.0.catalog,
+            pinned.revision(),
+        )
+        .unwrap();
+        assert_eq!(reference.count, Some(2), "{reducer}");
+        assert_eq!(
+            reference
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{reducer}"
+        );
+        assert!(reference.hits.iter().all(|hit| matches!(
+            &hit.payload,
+            Some(Payload::Logical(Value::Object(fields)))
+                if fields.get("id") == Some(&Value::Id(hit.record_id.clone()))
+        )));
+    }
+
+    drop(pinned);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
+    use crate::index::sorting::SortKey;
+    use crate::model::{FieldPath, RecordSlot};
+
+    let (root, mut definitions) = fixture();
+    definitions[1]
+        .sort_fields
+        .push(FieldPath::parse("title").unwrap());
+    let mut repo = base_repository(&root, definitions);
+    let m1 = repo.collections[1].id_lookup["m1"].0 as usize;
+    let m2 = repo.collections[1].id_lookup["m2"].0 as usize;
+    let column = repo.collections[1]
+        .sorting
+        .columns
+        .get_mut(&FieldPath::parse("title").unwrap())
+        .expect("resident title order");
+    column.keys.swap(m1, m2);
+    assert_ne!(column.keys[m1], SortKey::Missing);
+
+    let stored = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY title"),
+        None,
+        None,
+        false,
+    );
+    let reference = repo.search_reference(&stored).unwrap();
+    assert_eq!(reference.count, Some(2));
+    assert_eq!(
+        reference
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1", "m2"]
+    );
+    assert!(
+        reference
+            .hits
+            .iter()
+            .all(|hit| hit.matched_fields == ["id"])
+    );
+    let optimized = repo.search(&stored).unwrap();
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1"]
+    );
+
+    let relation_index = repo.collections[1]
+        .relations
+        .iter()
+        .position(|relation| relation.declaration.path == ["entry"])
+        .expect("entry relation");
+    repo.collections[1].relations[relation_index].mark_unavailable_for_test(RecordSlot(m1 as u32));
+    repo.collections[1].relations[relation_index].mark_unavailable_for_test(RecordSlot(m2 as u32));
+    let related = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY entry.title"),
+        None,
+        None,
+        false,
+    );
+    let reference = repo.search_reference(&related).unwrap();
+    assert_eq!(reference.count, Some(2));
+    assert_eq!(
+        reference
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1"]
+    );
+    assert_eq!(
+        repo.search(&related)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1", "m2"]
+    );
+
+    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+    let unavailable = repo.search_reference(&related).unwrap();
+    assert_eq!(unavailable.count, None);
+    assert!(unavailable.counters.source_unavailable_events > 0);
+    assert!(!unavailable.counters.source_diagnostics.is_empty());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes() {
+    use crate::model::Value;
+    use crate::repository::Payload;
+    let (root, definitions) = fixture();
+    let mut repo = base_repository(&root, definitions);
+    repo.collections[0]
+        .id_lookup
+        .remove(&crate::model::RecordId("A".into()));
+
+    let filter = query("mentions", Some("entry.title = 'Hymn'"), None, None, false);
+    let reference = repo.search_reference(&filter).unwrap();
+    assert_eq!(reference.count, Some(1));
+    assert_eq!(
+        reference
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1"]
+    );
+    assert_ne!(repo.search(&filter).unwrap().count, Some(1));
+
+    let related = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY entry.title"),
+        None,
+        None,
+        false,
+    );
+    let locator = repo.search_reference(&related).unwrap();
+    assert_eq!(locator.count, Some(2));
+    assert!(locator.hits.iter().all(|hit| hit.payload.is_none()));
+    let mut logical = related.clone();
+    logical.options.return_mode = ReturnMode::Logical;
+    let logical = repo.search_reference(&logical).unwrap();
+    assert_eq!(
+        logical
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1"]
+    );
+    assert!(logical.hits.iter().all(|hit| matches!(
+        &hit.payload,
+        Some(Payload::Logical(Value::Object(fields)))
+            if fields.get("id") == Some(&Value::Id(hit.record_id.clone()))
+    )));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn base_reference_multi_target_backlinks_scan_each_relation_once() {
+    use crate::model::CollectionId;
+    use crate::relation::RelationId;
+
+    let (root, definitions) = fixture();
+    let repo = base_repository(&root, definitions);
+    let relation_index = repo.collections[1]
+        .relations
+        .iter()
+        .position(|relation| relation.declaration.path == ["contributors"])
+        .expect("contributors relation");
+    let relation = RelationId {
+        source: CollectionId(1),
+        ordinal: u32::try_from(relation_index).unwrap(),
+    };
+    let view =
+        super::MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+    let mut work = super::RelationWork::default();
+    assert_eq!(
+        view.reference_backlink_sources(relation, "A", Some(&mut work))
+            .unwrap()
+            .len(),
+        1
+    );
+    assert_eq!(
+        view.reference_backlink_sources(relation, "B", Some(&mut work))
+            .unwrap()
+            .len(),
+        1
+    );
+    let visible_sources = repo.collections[1]
+        .generation
+        .records
+        .iter()
+        .filter(|record| record.class == crate::inventory::RecordClass::Logical)
+        .count() as u64;
+    assert_eq!(work.source_reads, visible_sources);
+    assert!(work.bytes_read > 0);
+    drop(view);
+
+    let request = query(
+        "entries",
+        Some("@backlinks.contributions.title = 'Both'"),
+        None,
+        None,
+        false,
+    );
+    let reference = repo.search_reference(&request).unwrap();
+    assert_eq!(reference.count, Some(2));
+    assert_eq!(
+        reference
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A", "B"]
+    );
+    assert!(reference.counters.relation_bytes_read > 0);
+    assert_eq!(
+        repo.search(&request)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A", "B"]
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnostics() {
     use crate::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
@@ -1541,6 +1872,83 @@ fn fixture() -> (PathBuf, Vec<CollectionDefinition>) {
             definition("mentions", mentions),
         ],
     )
+}
+
+fn base_repository(root: &std::path::Path, definitions: Vec<CollectionDefinition>) -> Repository {
+    let mut repo = crate::lifecycle::Index::build_repository_for_test(
+        root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let file_count = repo.files.files.len();
+    let mut relation_contributions = Vec::with_capacity(repo.collections.len());
+    for collection_index in 0..repo.collections.len() {
+        assert_eq!(
+            repo.segments[collection_index].len(),
+            1,
+            "test fixture expects one native segment per collection"
+        );
+        let segment = Arc::clone(&repo.segments[collection_index][0].index);
+        let records = segment.records.clone();
+        let files = segment
+            .files
+            .iter()
+            .map(|file| file.entry.id)
+            .collect::<Vec<_>>();
+        let mut slots_by_file = vec![Vec::new(); file_count];
+        for record in &records {
+            slots_by_file[record.file.0 as usize].push(record.slot);
+        }
+        let mut offsets = Vec::with_capacity(file_count + 1);
+        let mut slots = Vec::with_capacity(records.len());
+        offsets.push(0);
+        for file_slots in slots_by_file {
+            slots.extend(file_slots);
+            offsets.push(u32::try_from(slots.len()).unwrap());
+        }
+
+        let state = &mut repo.collections[collection_index];
+        state.generation.files = files;
+        state.generation.records = records;
+        state.generation.file_records = crate::inventory::FileRecordIndex {
+            file_count: u32::try_from(file_count).unwrap(),
+            offsets,
+            slots,
+        };
+        state.postings = segment.postings.clone();
+        state.inference = segment.inference.clone();
+        state.custom_postings = segment.custom_postings.clone();
+        state.raw = segment.raw.clone();
+        state.fallback_text = segment.fallback_text.clone();
+        state.logical_records = segment.logical_records.clone();
+        state.empty_array_records = segment.empty_array_records.clone();
+        state.custom_text = segment.custom_text.clone();
+        state.sorting = segment.sorting.clone();
+        state.index_family_bytes = segment.accounting.index_family_bytes;
+        state.id_lookup = segment.id_lookup.clone();
+        state.identity_order = segment.identity_order.clone();
+        state.stats.record_count = state.generation.records.len();
+        relation_contributions.push(segment.relations.clone());
+        repo.active[collection_index] =
+            crate::inventory::ActiveRecords::all(state.generation.records.len()).unwrap();
+        repo.segments[collection_index] = Arc::new(Vec::new());
+    }
+    for (collection_index, contributions) in relation_contributions.into_iter().enumerate() {
+        let source = repo.collections[collection_index].generation.collection;
+        let relations = contributions
+            .into_iter()
+            .enumerate()
+            .map(|(ordinal, contribution)| {
+                contribution.resolve(source, u32::try_from(ordinal).unwrap(), &repo.collections)
+            })
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap();
+        repo.collections[collection_index].relations = relations;
+    }
+    repo
 }
 
 fn query(

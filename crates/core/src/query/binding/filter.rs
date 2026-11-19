@@ -716,4 +716,6 @@ fn prepare_literal(
 }
 
 /// Record data and inventory metadata available during evaluation.
+use crate::query::binding::matcher::MappedFilterMatcher;
+
 use super::*;

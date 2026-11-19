@@ -1,3 +1,14 @@
+use std::collections::HashSet;
+
+use crate::inventory::RecordEntry;
+use crate::model::{MetadataField, Number, PathRoot, Value};
+use crate::query::binding::filter::{BoundExpr, BoundTerm, Derived};
+use crate::query::semantics::comparison::{compare_bound, compare_scalar, eval_field_term};
+use crate::query::semantics::record::{RecordContext, metadata_value, select_values};
+use crate::query::semantics::state::selected_matches;
+use crate::query::{Operator, Quantifier};
+use crate::schema::{ExactInput, Transform};
+
 pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, String> {
     #[cfg(test)]
     if let Some(result) = crate::query::semantics::test_matcher::alternate_term_result(term, ctx) {
@@ -236,6 +247,7 @@ pub fn eval_unavailable_filter(
 }
 
 /// Three-valued membership on raw fallback records without evidence storage.
+#[cfg(test)]
 pub(crate) fn eval_unavailable_filter_membership(
     expr: &BoundExpr,
     ctx: &RecordContext<'_>,
@@ -282,6 +294,3 @@ pub(crate) fn eval_unavailable_filter_membership(
         }
     }
 }
-
-use super::*;
-use crate::schema::ExactInput;

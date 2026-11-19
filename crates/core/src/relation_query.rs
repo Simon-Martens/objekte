@@ -84,6 +84,8 @@ pub(crate) struct MergedRelationView<'a> {
     catalog: &'a FileCatalog,
     segment_positions: Arc<HashMap<(CollectionId, SegmentId), usize>>,
     source_errors: RefCell<SourceAvailabilityLog>,
+    reference_identity: RefCell<HashMap<CollectionId, Arc<HashMap<String, MergedRecordSlot>>>>,
+    reference_backlinks: RefCell<HashMap<RelationId, Arc<HashMap<String, Vec<MergedRecordSlot>>>>>,
     // Source-dependent comparisons often revisit one target for many source
     // records. Keep only small decoded targets for this query publication.
     target_values: Arc<Vec<Mutex<(HashMap<MergedRecordSlot, Arc<Value>>, usize)>>>,
@@ -100,6 +102,8 @@ impl<'a> MergedRelationView<'a> {
             catalog: self.catalog,
             segment_positions: Arc::clone(&self.segment_positions),
             source_errors: RefCell::new(SourceAvailabilityLog::default()),
+            reference_identity: RefCell::new(HashMap::new()),
+            reference_backlinks: RefCell::new(HashMap::new()),
             target_values: self.target_values.clone(),
         }
     }
@@ -225,6 +229,8 @@ impl<'a> MergedRelationView<'a> {
             catalog,
             segment_positions: Arc::new(segment_positions),
             source_errors: RefCell::new(SourceAvailabilityLog::default()),
+            reference_identity: RefCell::new(HashMap::new()),
+            reference_backlinks: RefCell::new(HashMap::new()),
             target_values: Arc::new((0..16).map(|_| Mutex::new((HashMap::new(), 0))).collect()),
         })
     }
@@ -601,58 +607,135 @@ impl<'a> MergedRelationView<'a> {
         target_id: &str,
         mut work: Option<&mut RelationWork>,
     ) -> Result<Vec<MergedRecordSlot>, String> {
-        let collection = relation.source.0 as usize;
-        let declaration = &self.repo.collections[collection]
+        self.reference_backlink_sources_with(relation, target_id, |address| {
+            self.reference_value(address, work.as_deref_mut())
+        })
+    }
+
+    pub(crate) fn reference_backlink_sources_with(
+        &self,
+        relation: RelationId,
+        target_id: &str,
+        mut load: impl FnMut(MergedRecordSlot) -> Result<Option<Arc<Value>>, String>,
+    ) -> Result<Vec<MergedRecordSlot>, String> {
+        let cached = self.reference_backlinks.borrow().get(&relation).cloned();
+        if let Some(cached) = cached {
+            return Ok(cached.get(target_id).cloned().unwrap_or_default());
+        }
+        let declaration = &self.repo.collections[relation.source.0 as usize]
             .relations
             .get(relation.ordinal as usize)
             .ok_or("reference backlink declaration missing")?
-            .declaration;
+            .declaration
+            .clone();
+        let mut keyed = self
+            .visible_addresses(relation.source)?
+            .into_iter()
+            .map(|address| {
+                let record = self
+                    .record(address)?
+                    .ok_or("active reference source record missing")?;
+                if record.record.class != crate::inventory::RecordClass::Logical {
+                    return Ok(None);
+                }
+                Ok(Some((record.record.id.0.to_string(), address)))
+            })
+            .filter_map(|entry| entry.transpose())
+            .collect::<Result<Vec<_>, String>>()?;
+        keyed.sort_unstable_by(|left, right| left.0.cmp(&right.0));
+        let mut backlinks = HashMap::<String, Vec<MergedRecordSlot>>::new();
+        for (_, address) in keyed {
+            let Some(value) = load(address)? else {
+                continue;
+            };
+            let references = logical_references(&value, &declaration.path)?;
+            let mut seen = std::collections::HashSet::new();
+            for (target, _) in references.values {
+                if seen.insert(target.clone()) {
+                    backlinks.entry(target).or_default().push(address);
+                }
+            }
+        }
+        let backlinks = Arc::new(backlinks);
+        self.reference_backlinks
+            .borrow_mut()
+            .insert(relation, Arc::clone(&backlinks));
+        Ok(backlinks.get(target_id).cloned().unwrap_or_default())
+    }
+
+    pub(crate) fn reference_resolve_id(
+        &self,
+        collection: CollectionId,
+        id: &str,
+    ) -> Result<Option<MergedRecordSlot>, String> {
+        if let Some(identity) = self.reference_identity.borrow().get(&collection).cloned() {
+            return Ok(identity.get(id).copied());
+        }
+        let identity = Arc::new(self.build_reference_identity(collection)?);
+        let result = identity.get(id).copied();
+        self.reference_identity
+            .borrow_mut()
+            .insert(collection, identity);
+        Ok(result)
+    }
+
+    fn build_reference_identity(
+        &self,
+        collection: CollectionId,
+    ) -> Result<HashMap<String, MergedRecordSlot>, String> {
+        let collection_index = collection.0 as usize;
+        let mut identity = HashMap::new();
+        for address in self.visible_addresses(collection)? {
+            let record = self
+                .record(address)?
+                .ok_or("active reference identity record missing")?;
+            if identity
+                .insert(record.record.id.0.to_string(), address)
+                .is_some()
+            {
+                return Err("duplicate active merged record ID".into());
+            }
+        }
+        for segment in self.segments[collection_index].iter() {
+            if segment.index.collection != collection {
+                return Err("reference identity segment collection mismatch".into());
+            }
+        }
+        Ok(identity)
+    }
+
+    fn visible_addresses(&self, collection: CollectionId) -> Result<Vec<MergedRecordSlot>, String> {
+        let collection_index = collection.0 as usize;
+        let state = self
+            .repo
+            .collections
+            .get(collection_index)
+            .ok_or("reference collection missing")?;
         let mut addresses = Vec::new();
-        let base_count = self.repo.collections[collection].generation.records.len();
+        let base_count = state.generation.records.len();
         for slot in 0..base_count {
             let slot = RecordSlot(slot as u32);
-            if self.base_active[collection].contains(slot) {
+            if self.base_active[collection_index].contains(slot) {
                 addresses.push(MergedRecordSlot {
-                    collection: relation.source,
+                    collection,
                     segment: None,
                     slot,
                 });
             }
         }
-        for (segment, published) in self.segments[collection].iter().enumerate() {
+        for (segment, published) in self.segments[collection_index].iter().enumerate() {
             for slot in 0..published.index.record_count() {
                 let slot = RecordSlot(slot as u32);
                 if published.active.contains(slot) {
                     addresses.push(MergedRecordSlot {
-                        collection: relation.source,
+                        collection,
                         segment: Some(segment),
                         slot,
                     });
                 }
             }
         }
-        let mut keyed = Vec::with_capacity(addresses.len());
-        for address in addresses {
-            let Some(resolved) = self.record(address)? else {
-                continue;
-            };
-            keyed.push((resolved.record.id.0.to_string(), address));
-        }
-        keyed.sort_unstable_by(|left, right| left.0.cmp(&right.0));
-        let mut sources = Vec::new();
-        for (_, address) in keyed {
-            let Some(value) = self.reference_value(address, work.as_deref_mut())? else {
-                continue;
-            };
-            if logical_references(&value, &declaration.path)?
-                .values
-                .iter()
-                .any(|(id, _)| id == target_id)
-            {
-                sources.push(address);
-            }
-        }
-        Ok(sources)
+        Ok(addresses)
     }
 }
 
@@ -689,10 +772,6 @@ impl RelationWork {
     pub(crate) fn attach(&mut self, execution: Option<&crate::streaming::ExecutionContext>) {
         self.execution = execution.cloned();
         self.active = execution.and_then(|context| context.active_records_arc());
-    }
-
-    pub(crate) fn attach_active(&mut self, active: Option<Arc<Vec<ActiveRecords>>>) {
-        self.active = active;
     }
 
     fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
@@ -1323,7 +1402,7 @@ fn visit_merged_hop(
                     }
                     work.edge()?;
                     selected += 1;
-                    if let Some(target) = view.resolve_id(hop.to, &target_id)? {
+                    if let Some(target) = view.reference_resolve_id(hop.to, &target_id)? {
                         visit_merged_hop(
                             view,
                             hops,

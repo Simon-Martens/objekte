@@ -37,6 +37,7 @@ pub(crate) struct MergedPageHit {
     pub(crate) key: RankKey,
     pub(crate) hit: SearchHit,
     pub(crate) segment: Option<(usize, usize)>,
+    pub(crate) record_address: Option<crate::relation_query::MergedRecordSlot>,
     pub(crate) retained_bytes: usize,
 }
 
