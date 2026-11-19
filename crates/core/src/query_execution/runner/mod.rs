@@ -1111,18 +1111,17 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
             {
                 return None;
             }
-            let mut fields = if term.derived == Derived::None
+            let mut fields = Vec::new();
+            if term.derived == Derived::None
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
-                vec![term.query_path.display.clone()]
-            } else {
-                Vec::new()
-            };
-            if let Some(rhs) = &term.rhs
-                && matches!(term.path.root, PathRoot::Metadata(_))
-                && matches!(rhs.path.root, PathRoot::Metadata(_))
-            {
-                fields.push(rhs.query_path.display.clone());
+                fields.push(term.query_path.display.clone());
+                if let Some(rhs) = &term.rhs
+                    && matches!(term.path.root, PathRoot::Metadata(_))
+                    && matches!(rhs.path.root, PathRoot::Metadata(_))
+                {
+                    fields.push(rhs.query_path.display.clone());
+                }
                 fields.sort();
                 fields.dedup();
             }

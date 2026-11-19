@@ -705,6 +705,9 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     std::fs::write(root.join("data/records.jsonl"), format!("{source}\n")).unwrap();
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .sort_fields
+        .push(crate::model::FieldPath::parse("id").unwrap());
     for (field, kind, indexed) in [
         ("title", LogicalType::String, true),
         ("year", LogicalType::Number, true),
@@ -1122,6 +1125,109 @@ fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
             "{filter}"
         );
     }
+
+    let evidence_query = |filter: &str, offset: usize, limit: usize| Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("id", false)],
+            limit,
+            offset,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    for (filter, expected) in [
+        (
+            "@collection.name != @record.id",
+            vec![("other", Vec::<&str>::new())],
+        ),
+        (
+            "@collection.name = @record.id",
+            vec![("items", vec!["@collection.name", "@record.id"])],
+        ),
+        (
+            "@collection.name != @record.id || id = 'items'",
+            vec![("items", vec!["id"]), ("other", vec![])],
+        ),
+    ] {
+        let request = evidence_query(filter, 0, 10);
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(actual.count, reference.count, "{filter}");
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| (
+                    hit.record_id.as_str(),
+                    hit.matched_fields
+                        .iter()
+                        .map(String::as_str)
+                        .collect::<Vec<_>>()
+                ))
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+    }
+
+    let stream_query = evidence_query(
+        "@collection.name != @record.id || @record.id = @collection.name",
+        1,
+        1,
+    );
+    let not_equal_bound = crate::query::prepared::prepare(
+        &repo,
+        &evidence_query("@collection.name != @record.id", 0, 1),
+    )
+    .unwrap();
+    assert_eq!(
+        segment_static_evidence_fields(not_equal_bound.collections[0].filter.as_ref().unwrap()),
+        Some(Vec::new())
+    );
+    let equal_bound = crate::query::prepared::prepare(
+        &repo,
+        &evidence_query("@collection.name = @record.id", 0, 1),
+    )
+    .unwrap();
+    assert_eq!(
+        segment_static_evidence_fields(equal_bound.collections[0].filter.as_ref().unwrap()),
+        Some(vec!["@collection.name".into(), "@record.id".into()])
+    );
+    let mut streamed = Vec::new();
+    let outcome = repo
+        .search_stream(
+            &stream_query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(streamed[0].record_id, "other");
+    assert!(streamed[0].matched_fields.is_empty());
+
+    repo.configure_verified_cache(1024 * 1024).unwrap();
+    let or = evidence_query("@collection.name != @record.id || id = 'items'", 0, 1);
+    let cold = repo.search(&or).unwrap();
+    assert!(!cold.counters.verified_result_hit);
+    assert_eq!(cold.hits[0].record_id, "items");
+    assert_eq!(cold.hits[0].matched_fields, ["id"]);
+    let mut next = or;
+    next.options.offset = 1;
+    let warm = repo.search(&next).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.hits[0].record_id, "other");
+    assert!(warm.hits[0].matched_fields.is_empty());
 
     std::fs::remove_dir_all(root).unwrap();
 }
