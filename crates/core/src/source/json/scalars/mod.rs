@@ -1,17 +1,22 @@
 //! Scalar text and projected logical values from JSON, retaining lexical number tokens.
 
-use std::cell::RefCell;
 use std::collections::{BTreeMap, HashSet};
 use std::ops::Range;
 
 use crate::model::{ArrayValue, Number, Value};
-use crate::reference::{BoundFts, BoundTerm, match_borrowed_source_segment};
+use crate::reference::match_borrowed_source_segment;
 use crate::source::{ScanProjection, TextSegment};
 
 mod scan;
 mod strings;
 
-use scan::scan_borrowed_segments;
+use scan::BorrowedEvent;
+pub(crate) use scan::{
+    BorrowedScanQuery, BorrowedScanResult, extract_query_record_borrowed_fts_worker,
+    scan_borrowed_segments_worker,
+};
+#[cfg(test)]
+pub(crate) use scan::{borrowed_scan_calls, combined_scan_calls};
 use strings::with_next_quoted_text;
 
 #[cfg(test)]
@@ -19,7 +24,6 @@ thread_local! {
     static OWNED_VALUE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     static OWNED_SEGMENT_PUSHES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     static OWNED_SEGMENT_TEXT_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-    static BORROWED_NODE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
 #[cfg(test)]
@@ -50,35 +54,6 @@ struct ScalarWalker<'a> {
     paths: bool,
     collect_text: bool,
     validate: bool,
-}
-
-/// Match source scalars while the required logical projection is constructed.
-/// The path owns only active member names; scalar text is consumed before the
-/// required Value takes ownership or before reusable decoding storage is reset.
-struct CombinedFts<'a> {
-    fts: &'a BoundFts,
-    path: &'a mut Vec<String>,
-    decoded: &'a mut String,
-    events: &'a mut Vec<BorrowedEvent>,
-    retain_evidence: bool,
-}
-
-impl CombinedFts<'_> {
-    fn push_text(&mut self, text: &str) -> Result<(), String> {
-        let mut event = BorrowedEvent {
-            visible: true,
-            ..Default::default()
-        };
-        event.fts_hit = match_borrowed_source_segment(
-            self.fts,
-            self.path.as_slice(),
-            text,
-            &mut event.evidence,
-            self.retain_evidence,
-        )?;
-        self.events.push(event);
-        Ok(())
-    }
 }
 
 impl ScalarWalker<'_> {
@@ -228,7 +203,7 @@ impl ScalarWalker<'_> {
         depth: usize,
         retain: bool,
         selected_top: Option<&HashSet<String>>,
-        mut combined: Option<&mut CombinedFts<'_>>,
+        mut combined: Option<&mut scan::CombinedFts<'_>>,
     ) -> Result<Option<Value>, String> {
         #[cfg(test)]
         OWNED_VALUE_VISITS.with(|count| count.set(count.get() + 1));
@@ -514,101 +489,6 @@ impl ScalarWalker<'_> {
     }
 }
 
-const MAX_SCAN_SCRATCH_CAPACITY: usize = 256 * 1024;
-
-/// Reusable decoded text and provisional decisions owned by one scan worker.
-#[derive(Default)]
-pub(crate) struct BorrowedScanScratch {
-    decoded_text: String,
-    events: Vec<BorrowedEvent>,
-    combined_path: Vec<String>,
-}
-
-impl BorrowedScanScratch {
-    fn trim(&mut self) {
-        self.decoded_text.clear();
-        self.events.clear();
-        self.combined_path.clear();
-        if self.decoded_text.capacity() > MAX_SCAN_SCRATCH_CAPACITY {
-            self.decoded_text = String::new();
-        }
-        if self
-            .events
-            .capacity()
-            .saturating_mul(std::mem::size_of::<BorrowedEvent>())
-            > MAX_SCAN_SCRATCH_CAPACITY
-        {
-            self.events = Vec::new();
-        }
-    }
-}
-
-/// One scalar's provisional match state before object duplicates are resolved.
-#[derive(Default)]
-struct BorrowedEvent {
-    visible: bool,
-    fts_hit: bool,
-    filter_selected: bool,
-    filter_hit: bool,
-    evidence: Vec<String>,
-}
-
-/// Result of matching borrowed source segments in one trusted record.
-pub(crate) struct BorrowedScanResult {
-    pub(crate) fts_match: bool,
-    pub(crate) filter_match: bool,
-    pub(crate) evidence: HashSet<String>,
-}
-
-/// Query bindings supported by the direct source consumer.
-pub(crate) struct BorrowedScanQuery<'a> {
-    pub(crate) fts: Option<&'a BoundFts>,
-    pub(crate) filter: Option<&'a BoundTerm>,
-    pub(crate) decoded_scalars: bool,
-    pub(crate) retain_evidence: bool,
-}
-
-thread_local! {
-    static BORROWED_SCAN_SCRATCH: RefCell<BorrowedScanScratch> =
-        RefCell::new(BorrowedScanScratch::default());
-}
-
-#[cfg(test)]
-static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
-#[cfg(test)]
-static COMBINED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
-
-#[cfg(test)]
-pub(crate) fn borrowed_scan_calls() -> usize {
-    BORROWED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
-}
-
-#[cfg(test)]
-pub(crate) fn borrowed_node_visits() -> usize {
-    BORROWED_NODE_VISITS.with(std::cell::Cell::get)
-}
-
-#[cfg(test)]
-pub(crate) fn combined_scan_calls() -> usize {
-    COMBINED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
-}
-
-/// Preserve decoder and provisional-match capacities across a worker's files.
-pub(crate) fn scan_borrowed_segments_worker(
-    bytes: &[u8],
-    query: &BorrowedScanQuery<'_>,
-) -> Result<BorrowedScanResult, String> {
-    let _fold_record = crate::reference::FoldRecordGuard::new();
-    #[cfg(test)]
-    BORROWED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-    BORROWED_SCAN_SCRATCH.with(|scratch| {
-        let mut scratch = scratch.borrow_mut();
-        let result = scan_borrowed_segments(bytes, query, &mut scratch);
-        scratch.trim();
-        result
-    })
-}
-
 /// Parse one complete document once while retaining all scalar occurrences.
 /// Object fields still resolve to their last occurrence in the logical value.
 pub(crate) fn build_record(bytes: &[u8]) -> Result<(Value, Vec<TextSegment>), String> {
@@ -647,73 +527,6 @@ pub(crate) fn extract_query_record(
         projection.resolved_text_only,
         trusted,
     )
-}
-
-/// Build required logical values and match decoded source scalars in one walk.
-/// Unscoped decoded FTS retains every occurrence; selected fields retain only
-/// events visible after duplicate member replacement.
-pub(crate) fn extract_query_record_borrowed_fts_worker(
-    bytes: &[u8],
-    projection: &ScanProjection,
-    fts: &BoundFts,
-    retain_evidence: bool,
-) -> Result<(Value, BorrowedScanResult), String> {
-    let _fold_record = crate::reference::FoldRecordGuard::new();
-    #[cfg(test)]
-    COMBINED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-    BORROWED_SCAN_SCRATCH.with(|scratch| {
-        let mut scratch = scratch.borrow_mut();
-        scratch.decoded_text.clear();
-        scratch.events.clear();
-        scratch.combined_path.clear();
-        let BorrowedScanScratch {
-            decoded_text,
-            events,
-            combined_path,
-        } = &mut *scratch;
-        let mut combined = CombinedFts {
-            fts,
-            path: combined_path,
-            decoded: decoded_text,
-            events,
-            retain_evidence,
-        };
-        let mut walker = ScalarWalker {
-            bytes,
-            pos: 0,
-            path: Vec::new(),
-            segments: Vec::new(),
-            resolved_only: false,
-            paths: false,
-            collect_text: false,
-            validate: false,
-        };
-        let result = (|| {
-            let value = walker
-                .build_value(0, true, projection.top_level.as_ref(), Some(&mut combined))?
-                .ok_or("root JSON value missing")?;
-            let mut fts_match = false;
-            let mut evidence = HashSet::new();
-            for event in combined.events.iter() {
-                if event.fts_hit && (event.visible || fts.fields.is_empty()) {
-                    fts_match = true;
-                    if retain_evidence {
-                        evidence.extend(event.evidence.iter().cloned());
-                    }
-                }
-            }
-            Ok((
-                value,
-                BorrowedScanResult {
-                    fts_match,
-                    filter_match: true,
-                    evidence,
-                },
-            ))
-        })();
-        scratch.trim();
-        result
-    })
 }
 
 /// Parse only the logical projection for readers whose text comes from the

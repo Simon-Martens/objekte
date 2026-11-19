@@ -63,6 +63,10 @@ fn next_quoted_delimiter<const STRATEGY: u8>(bytes: &[u8], cursor: usize) -> Res
     }
 }
 
+#[cfg(test)]
+#[path = "string_tests.rs"]
+mod tests;
+
 fn decode_quoted_escape(bytes: &[u8], cursor: &mut usize) -> Result<char, String> {
     let escape = *bytes.get(*cursor).ok_or("short JSON escape")?;
     match escape {

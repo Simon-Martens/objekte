@@ -20,7 +20,13 @@ pub struct SourceRegistration {
 
 /// Prepared source handle resolved once per collection.
 #[derive(Clone)]
-pub struct PreparedSource(Arc<SourceRegistration>, bool);
+pub struct PreparedSource(Arc<SourceRegistration>, SourceProvenance);
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum SourceProvenance {
+    Extension,
+    Builtin(ScalarVerification),
+}
 
 impl PreparedSource {
     pub fn id(&self) -> &str {
@@ -40,17 +46,13 @@ impl PreparedSource {
     }
 
     pub(crate) fn is_extension(&self) -> bool {
-        !self.1
+        self.1 == SourceProvenance::Extension
     }
 
     pub(crate) fn scalar_verification(&self) -> Option<ScalarVerification> {
-        if !self.1 {
-            return None;
-        }
-        match self.0.id.as_str() {
-            "json" | "jsonl" => Some(ScalarVerification::ResolvedStrings),
-            "json_decoded_scalars" => Some(ScalarVerification::DecodedScalars),
-            _ => None,
+        match self.1 {
+            SourceProvenance::Extension => None,
+            SourceProvenance::Builtin(verification) => Some(verification),
         }
     }
 }
@@ -117,7 +119,22 @@ impl SourceRegistry {
         self.entries
             .get(format.id())
             .cloned()
-            .map(|source| PreparedSource(source, self.builtin_ids.contains(format.id())))
+            .map(|source| {
+                let provenance = if self.builtin_ids.contains(&source.id) {
+                    match source.id.as_str() {
+                        "json" | "jsonl" => {
+                            SourceProvenance::Builtin(ScalarVerification::ResolvedStrings)
+                        }
+                        "json_decoded_scalars" => {
+                            SourceProvenance::Builtin(ScalarVerification::DecodedScalars)
+                        }
+                        _ => SourceProvenance::Extension,
+                    }
+                } else {
+                    SourceProvenance::Extension
+                };
+                PreparedSource(source, provenance)
+            })
             .ok_or_else(|| format!("unknown source registration: {}", format.id()))
     }
 }

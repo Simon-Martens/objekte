@@ -18,11 +18,14 @@ use super::super::{
     registry::SourceRegistry,
 };
 
-struct CustomReader(Arc<AtomicUsize>);
+struct CustomReader {
+    parses: Arc<AtomicUsize>,
+    name: &'static str,
+}
 
 impl SourceReader for CustomReader {
     fn name(&self) -> &'static str {
-        "custom-builtin-name"
+        self.name
     }
 
     fn logical_text_coverage(&self) -> super::super::LogicalTextCoverage {
@@ -55,11 +58,12 @@ impl SourceReader for CustomReader {
     }
 
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-        self.0.fetch_add(1, Ordering::Relaxed);
+        self.parses.fetch_add(1, Ordering::Relaxed);
         let line = std::str::from_utf8(bytes).map_err(|error| error.to_string())?;
         let (title, body) = line.split_once('|').ok_or("missing custom separator")?;
         Ok(ExtractedRecord {
             value: Value::Object(std::collections::BTreeMap::from([
+                ("id".into(), Value::String(format!("{title}-{body}"))),
                 ("title".into(), Value::String(title.into())),
                 ("body".into(), Value::String(body.into())),
             ])),
@@ -79,7 +83,7 @@ impl SourceReader for CustomReader {
 
 fn schema() -> Schema {
     let mut schema = Schema::default();
-    for (name, indexed) in [("title", true), ("body", false)] {
+    for (name, indexed) in [("id", false), ("title", true), ("body", false)] {
         schema
             .register_field(FieldDefinition {
                 path: vec![name.into()],
@@ -145,7 +149,29 @@ fn combined_query(expression: &str) -> Query {
 
 #[test]
 fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
-    for registration_id in ["json", "json_decoded_scalars", "custom-control"] {
+    use crate::source::verification::ScalarVerification;
+
+    let builtins = SourceRegistry::builtin();
+    for (format, expected) in [
+        (
+            SourceFormat::Json,
+            Some(ScalarVerification::ResolvedStrings),
+        ),
+        (
+            SourceFormat::JsonLines,
+            Some(ScalarVerification::ResolvedStrings),
+        ),
+        (
+            SourceFormat::JsonDecodedScalars,
+            Some(ScalarVerification::DecodedScalars),
+        ),
+    ] {
+        let source = builtins.resolve(&format).unwrap();
+        assert!(!source.is_extension());
+        assert_eq!(source.scalar_verification(), expected);
+    }
+
+    for registration_id in ["json", "jsonl", "json_decoded_scalars", "custom-control"] {
         let root = std::env::temp_dir().join(format!(
             "objekte-custom-builtin-{registration_id}-{}-{}",
             std::process::id(),
@@ -168,14 +194,26 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
                 registration_id,
                 1,
                 "txt",
-                Arc::new(CustomReader(parses.clone())),
+                Arc::new(CustomReader {
+                    parses: parses.clone(),
+                    name: if registration_id == "json" {
+                        "json"
+                    } else {
+                        "custom-builtin-name"
+                    },
+                }),
             )
             .unwrap();
+        let resolved = sources
+            .resolve(&SourceFormat::registered(registration_id))
+            .unwrap();
+        assert!(resolved.is_extension());
+        assert_eq!(resolved.scalar_verification(), None);
         let definition = CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
             format: SourceFormat::registered(registration_id),
-            identity: IdentityPolicy::Generated,
+            identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema: schema(),
             sort_fields: Vec::new(),
@@ -200,24 +238,41 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
         let fts_reference = view.search_reference(&fts).unwrap();
         assert_eq!(fts_found.hits, fts_reference.hits);
         assert_eq!(fts_found.count, Some(2));
+        assert_eq!(
+            fts_found
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["needle-alpha", "needle-beta"]
+        );
         assert!(fts_found.hits.iter().all(|hit| {
-            hit.matched_fields == ["title"]
+            hit.file_path.ends_with("data/records.txt")
+                && hit.byte_end > hit.byte_start
+                && hit.matched_fields == ["title"]
                 && matches!(&hit.payload, Some(Payload::Logical(Value::Object(value)))
                     if matches!(value["title"], Value::String(ref title) if title == "needle"))
         }));
 
+        let parses_before_filter = parses.load(Ordering::Relaxed);
         let filter = filter_query("body ~ 'alpha'");
         let filter_found = view.search(&filter).unwrap();
         let filter_reference = view.search_reference(&filter).unwrap();
         assert_eq!(filter_found.hits, filter_reference.hits);
         assert_eq!(filter_found.count, Some(1));
+        assert_eq!(filter_found.hits[0].record_id, "needle-alpha");
         assert_eq!(filter_found.hits[0].matched_fields, ["body"]);
+        assert!(
+            parses.load(Ordering::Relaxed) > parses_before_filter,
+            "custom reader must run for residual FILTER verification"
+        );
 
         let combined = combined_query("body ~ 'alpha'");
         let found = view.search(&combined).unwrap();
         let reference = view.search_reference(&combined).unwrap();
         assert_eq!(found.hits, reference.hits);
         assert_eq!(found.count, Some(1));
+        assert_eq!(found.hits[0].record_id, "needle-alpha");
         assert_eq!(found.hits[0].matched_fields.len(), 2);
         assert!(
             found.hits[0]
