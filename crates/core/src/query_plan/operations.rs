@@ -1,5 +1,15 @@
 //! Explicit physical traversal operations selected before execution.
 
+#[cfg(test)]
+thread_local! {
+    static PRODUCTION_RELATION_PLAN_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn production_relation_plan_calls() -> usize {
+    PRODUCTION_RELATION_PLAN_CALLS.with(std::cell::Cell::get)
+}
+
 /// Whole-page relation routes. Per-term relation choices are represented by
 /// provider offers; these operations coordinate a complete ordered page.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -18,6 +28,8 @@ pub(crate) fn relation_page_plan(
     cache_admission: bool,
     bounded_parallel: bool,
 ) -> Vec<RelationPageOperation> {
+    #[cfg(test)]
+    PRODUCTION_RELATION_PLAN_CALLS.with(|calls| calls.set(calls.get() + 1));
     let mut operations = Vec::with_capacity(4);
     if prune_segments && !cache_admission {
         operations.push(RelationPageOperation::QualifiedSemijoin);
