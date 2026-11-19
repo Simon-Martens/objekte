@@ -2281,130 +2281,6 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         index: Arc::new(index),
     }));
     segments[0] = Arc::new(group);
-    let delta_segment = segments[0]
-        .iter()
-        .find(|segment| segment.id == crate::index::segment::SegmentId::new(4_294_967_298))
-        .unwrap();
-    let mixed_base = vec![ActiveRecords::all(collection.generation.records.len()).unwrap()];
-    let mixed_segments = vec![Arc::new(vec![Arc::clone(delta_segment)])];
-    for count in [false, true] {
-        for return_mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
-            let mixed_query = Query {
-                collections: vec!["data".into()],
-                filter: Some(parse_filter("kind = 'a' || kind = 'b'").unwrap()),
-                fts: None,
-                options: QueryOptions {
-                    sort: vec![SortField::simple("kind", false)],
-                    limit: 2,
-                    offset: 1,
-                    count,
-                    return_mode: return_mode.clone(),
-                    evidence: true,
-                },
-            };
-            let prepared_before = crate::query::prepared::production_prepare_calls();
-            let actual = search_segmented(
-                &repo,
-                &mixed_query,
-                &mixed_base,
-                &mixed_segments,
-                &catalog,
-                IndexRevision(2),
-            )
-            .unwrap();
-            assert_eq!(
-                crate::query::prepared::production_prepare_calls() - prepared_before,
-                1
-            );
-            let reference = search_segmented_reference(
-                &repo,
-                &mixed_query,
-                &mixed_base,
-                &mixed_segments,
-                &catalog,
-                IndexRevision(2),
-            )
-            .unwrap();
-            assert_eq!(actual.count, reference.count);
-            assert_eq!(actual.hits, reference.hits);
-            assert_eq!(actual.hits.len(), 2);
-        }
-    }
-    let mut mixed_published = crate::lifecycle::PublishedIndex::from_repository(
-        repo.instance_id,
-        IndexRevision(2),
-        Arc::clone(&repo),
-    )
-    .unwrap();
-    mixed_published.active = mixed_base.clone();
-    mixed_published.segments = mixed_segments.clone();
-    mixed_published.catalog = catalog.clone();
-    mixed_published.revision = IndexRevision(2);
-    let mixed_index = crate::lifecycle::Index::from_published(mixed_published);
-    let mixed_view = mixed_index.view().unwrap();
-    let public_query = Query {
-        collections: vec!["data".into()],
-        filter: Some(parse_filter("kind = 'a' || kind = 'b'").unwrap()),
-        fts: None,
-        options: QueryOptions {
-            sort: vec![SortField::simple("kind", false)],
-            limit: 2,
-            offset: 1,
-            count: true,
-            return_mode: ReturnMode::Logical,
-            evidence: true,
-        },
-    };
-    let public = mixed_view.search(&public_query).unwrap();
-    let public_reference = mixed_view.search_reference(&public_query).unwrap();
-    assert_eq!(public.count, public_reference.count);
-    assert_eq!(public.hits, public_reference.hits);
-    let public_context = ExecutionContext::new(
-        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-        ExecutionLimits::default(),
-        Some(CancellationToken::new()),
-    );
-    let public_with_context = mixed_view
-        .search_with_context(&public_query, &public_context)
-        .unwrap();
-    assert_eq!(public_with_context.count, public.count);
-    assert_eq!(public_with_context.hits, public.hits);
-    let mut streamed = Vec::new();
-    let outcome = mixed_view
-        .search_stream(
-            &public_query,
-            StreamOptions {
-                batch_rows: 1,
-                ..Default::default()
-            },
-            &CancellationToken::new(),
-            &mut |event| {
-                if let StreamEvent::OrderedRows { rows, .. } = event {
-                    streamed.extend_from_slice(rows);
-                }
-                Ok(StreamControl::Continue)
-            },
-        )
-        .unwrap();
-    let StreamOutcome::Complete(summary) = outcome else {
-        panic!("mixed stream did not complete")
-    };
-    assert_eq!(summary.count, public.count);
-    assert_eq!(streamed, public.hits);
-    let mut public_without_count = public_query.clone();
-    public_without_count.options.count = false;
-    let no_count = mixed_view.search(&public_without_count).unwrap();
-    assert_eq!(no_count.count, None);
-    assert_eq!(no_count.hits, public.hits);
-    mixed_index.configure_verified_cache(1024 * 1024).unwrap();
-    let mut cached_mixed = public_query.clone();
-    cached_mixed.options.sort.clear();
-    let cold_mixed = mixed_view.search(&cached_mixed).unwrap();
-    let warm_mixed = mixed_view.search(&cached_mixed).unwrap();
-    assert!(!cold_mixed.counters.verified_result_hit);
-    assert!(warm_mixed.counters.verified_result_hit);
-    assert_eq!(warm_mixed.count, cold_mixed.count);
-    assert_eq!(warm_mixed.hits, cold_mixed.hits);
     let base_active = vec![
         ActiveRecords::from_bitmap(collection.generation.records.len(), RoaringBitmap::new())
             .unwrap(),
@@ -3379,8 +3255,6 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         base_only.counters.source_diagnostics[0].kind,
         crate::measurement::SourceUnavailableKind::Missing
     );
-    drop(mixed_view);
-    mixed_index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

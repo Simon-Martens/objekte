@@ -9,7 +9,6 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 use crate::index::sorting::{SortColumn, SortKey, SortOptions};
 use crate::inventory::RecordEntry;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
 use crate::query::Query;
@@ -22,9 +21,6 @@ use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::query_results::cache::CacheBudget;
 use crate::query_results::verified::CachedMember;
 use crate::repository::Repository;
-use crate::source::access::read_record_range_for_search;
-use crate::source::preparation::prepare_query_record_with_execution;
-use crate::source::{ExtractedRecord, ScanProjection};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 
@@ -425,67 +421,6 @@ pub(crate) fn segment_compare_to_rank(
             .ok_or("segment sort slot missing")?,
     )
         .cmp(&(worst.collection.as_str(), worst.id.as_str())))
-}
-
-pub(crate) fn base_rank_key_merged(
-    repo: &Repository,
-    sort: &ResolvedSort<'_>,
-    collection_index: usize,
-    record: &RecordEntry,
-    catalog: &FileCatalog,
-    context: Option<&ExecutionContext>,
-) -> Result<RankKey, String> {
-    if !sort.bound.has_computed {
-        return Ok(rank_key(sort, repo, collection_index, record));
-    }
-    let collection = &repo.collections[collection_index];
-    let file = catalog.entry(record.file).ok_or("base sort file retired")?;
-    let bytes = if sort.bound.needs_source {
-        if let Some(context) = context {
-            context.check_string()?;
-            if record.range.len() > context.limits.source_record_bytes {
-                return Err(context.fail(
-                    ExecutionErrorKind::Resource,
-                    "base sort record exceeds source read allowance",
-                ));
-            }
-            context.charge_reads(1)?;
-            context.charge_bytes(record.range.len())?;
-        }
-        let path = repo.files.root.join(&file.relative_path);
-        Some(if let Some(context) = context {
-            read_record_range_for_search(&path, file.revision, record.range, Some(context))?
-        } else {
-            read_record_range_for_search(&path, file.revision, record.range, None)?
-        })
-    } else {
-        None
-    };
-    let extracted = if let Some(bytes) = bytes.as_ref() {
-        prepare_query_record_with_execution(
-            record.class,
-            &collection.source,
-            &collection.definition.schema,
-            bytes,
-            &ScanProjection::full(false),
-            false,
-            context,
-        )?
-    } else {
-        ExtractedRecord {
-            value: Value::Object(Default::default()),
-            text: Vec::new(),
-        }
-    };
-    let ctx = RecordContext {
-        value: &extracted.value,
-        source_bytes: bytes.as_deref(),
-        record,
-        file,
-        collection_name: &collection.definition.name,
-        repository_root: &repo.files.root,
-    };
-    rank_key_from_context(sort, repo, collection_index, &ctx, None)
 }
 
 pub(crate) fn relation_rank_key_merged(

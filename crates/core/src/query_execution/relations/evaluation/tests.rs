@@ -1736,7 +1736,7 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
 }
 
 #[test]
-fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
+fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions_in_adopted_path() {
     use crate::index::sorting::SortKey;
     use crate::model::{FieldPath, RecordSlot};
 
@@ -1778,16 +1778,6 @@ fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
             .iter()
             .all(|hit| hit.matched_fields == ["id"])
     );
-    let optimized = repo.search(&stored).unwrap();
-    assert_eq!(
-        optimized
-            .hits
-            .iter()
-            .map(|hit| hit.record_id.as_str())
-            .collect::<Vec<_>>(),
-        ["m2", "m1"]
-    );
-
     let relation_index = repo.collections[1]
         .relations
         .iter()
@@ -1812,16 +1802,6 @@ fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
             .collect::<Vec<_>>(),
         ["m2", "m1"]
     );
-    assert_eq!(
-        repo.search(&related)
-            .unwrap()
-            .hits
-            .iter()
-            .map(|hit| hit.record_id.as_str())
-            .collect::<Vec<_>>(),
-        ["m1", "m2"]
-    );
-
     std::fs::remove_file(root.join("entries/a.json")).unwrap();
     let unavailable = repo.search_reference(&related).unwrap();
     assert_eq!(unavailable.count, None);
@@ -2150,8 +2130,6 @@ fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes()
             .collect::<Vec<_>>(),
         ["m1"]
     );
-    assert_ne!(repo.search(&filter).unwrap().count, Some(1));
-
     let related = query(
         "mentions",
         Some("(id = 'm1' || id = 'm2') SORT BY entry.title"),

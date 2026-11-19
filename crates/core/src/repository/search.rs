@@ -12,6 +12,9 @@ use super::Repository;
 impl Repository {
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
+        if self.active.iter().any(|active| active.len() != 0) {
+            return self.search_reference(&resolved);
+        }
         let snapshot = self.native_snapshot();
         let cache = crate::query_execution::runner::LifecycleCacheScope {
             store: &self.verified,
@@ -74,6 +77,11 @@ impl Repository {
                 message,
             )
         })?;
+        if self.active.iter().any(|active| active.len() != 0) {
+            return self
+                .search_reference(&resolved)
+                .map_err(|message| context.recorded_error(message));
+        }
         let cache = crate::query_execution::runner::LifecycleCacheScope {
             store: &self.verified,
             instance_id: self.instance_id,

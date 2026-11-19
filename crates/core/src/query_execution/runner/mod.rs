@@ -70,10 +70,9 @@ use crate::query_results::payload::{
     materialize, payload_from_bytes, payload_from_bytes_with_execution,
 };
 use crate::query_results::ranking::{
-    MergedPageHit, RankKey, ResolvedSort, Winner, base_rank_key_merged, offer, offer_merged,
-    rank_key, rank_key_bytes, rank_key_from_context, relation_rank_key_merged,
-    segment_compare_to_rank, segment_rank_key, winner_bytes, would_enter_page,
-    would_enter_rank_key_with,
+    MergedPageHit, RankKey, ResolvedSort, Winner, offer, offer_merged, rank_key, rank_key_bytes,
+    rank_key_from_context, relation_rank_key_merged, segment_compare_to_rank, segment_rank_key,
+    winner_bytes, would_enter_page, would_enter_rank_key_with,
 };
 use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
 use crate::query_results::{Payload, SearchHit, SearchResult};
@@ -845,6 +844,9 @@ pub(crate) fn search_segmented_lifecycle(
     revision: IndexRevision,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
+    if base_active.iter().any(|active| active.len() != 0) {
+        return search_segmented_reference(repo, query, base_active, segments, catalog, revision);
+    }
     let mut result = match search_segmented_impl(
         repo,
         query,
@@ -940,6 +942,10 @@ fn search_segmented_with_context_lifecycle_budget(
     bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
+    if base_active.iter().any(|active| active.len() != 0) {
+        return search_segmented_reference(repo, query, base_active, segments, catalog, revision)
+            .map_err(|message| context.recorded_error(message));
+    }
     let result = search_segmented_impl(
         repo,
         query,
@@ -1866,6 +1872,9 @@ fn search_segmented_impl(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
+    if base_active.iter().any(|active| active.len() != 0) {
+        return Err("populated flat-base search is not a supported optimized state".into());
+    }
     query
         .options
         .offset
@@ -2016,73 +2025,16 @@ fn search_segmented_impl(
         }
         return Ok(result);
     }
-    // This merged planner already verifies the full segment domain, even when
-    // the caller does not request a count. Retain compact ordered addresses
-    // only if every base record has moved to lifecycle partitions; otherwise
-    // the base top-k call does not expose all members.
     let cap = query
         .options
         .offset
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
-    let base_empty = base_active.iter().all(|active| active.len() == 0);
-    let base_cache_eligible =
-        !base_empty && !sort.bound.has_computed && !related_sort && cache_key.is_some();
-    let mut cache_builder = cache_key.as_ref().and_then(|(_, _, budget)| {
-        (*budget > 0 && (base_empty || base_cache_eligible))
-            .then(|| LifecycleCacheBuilder::new(*budget))
-    });
-    let mut base_cache_members = Vec::new();
-    let base_cache_budget = cache_key
+    let mut cache_builder = cache_key
         .as_ref()
-        .filter(|_| base_cache_eligible)
-        .map(|(_, _, budget)| CacheBudget::new(*budget));
-    let base = if base_empty {
-        // The bound query and sort above already validate the request. An
-        // empty base domain contributes no rows, so avoid planning it again.
-        SearchResult {
-            count: query.options.count.then_some(0),
-            hits: Vec::new(),
-            counters: WorkCounters {
-                match_count_complete: true,
-                ..WorkCounters::default()
-            },
-        }
-    } else {
-        let mut base_query = query.clone();
-        base_query.options.offset = 0;
-        base_query.options.limit = cap;
-        // A page request must not exhaust the base merely to calculate a
-        // total. Its top `cap` rows suffice for the merged page.
-        base_query.options.count = query.options.count;
-        search_active_with_prepared(
-            repo,
-            &base_query,
-            base_active,
-            &sort,
-            &prepared,
-            context,
-            base_cache_eligible.then_some(&mut base_cache_members),
-            base_cache_budget.as_ref(),
-        )?
-    };
-    if let Some(builder) = cache_builder.as_mut() {
-        for member in std::mem::take(&mut base_cache_members) {
-            let record = repo.collections[member.collection_index]
-                .generation
-                .records
-                .get(member.slot as usize)
-                .ok_or("base cache slot missing")?;
-            let key =
-                base_rank_key_merged(repo, &sort, member.collection_index, record, catalog, None)?;
-            builder.push(&key, member);
-        }
-    }
-    let mut total = base
-        .count
-        .map_or(base.counters.total_matches, |count| count as u64);
-    let base_count_complete = base_empty || base.counters.match_count_complete;
-    let mut counters = base.counters;
+        .and_then(|(_, _, budget)| (*budget > 0).then(|| LifecycleCacheBuilder::new(*budget)));
+    let mut total = 0u64;
+    let mut counters = WorkCounters::default();
     let mut exact_or_members = 0;
     for entry in &prepared.collections {
         if let Some(filter) = entry.filter.as_ref() {
@@ -2093,38 +2045,6 @@ fn search_segmented_impl(
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let winner_budget = retained_budget.zip(context);
-    for mut hit in base.hits {
-        let collection_index = repo
-            .collections
-            .iter()
-            .position(|collection| collection.definition.name == hit.collection)
-            .ok_or("base hit collection missing")?;
-        let collection = &repo.collections[collection_index];
-        let slot = collection
-            .id_lookup
-            .get(hit.record_id.as_str())
-            .ok_or("base hit ID missing")?;
-        let record = collection
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("base hit slot missing")?;
-        let key = base_rank_key_merged(repo, &sort, collection_index, record, catalog, context)?;
-        repo.stamp_native_hit_at(&mut hit, revision);
-        offer_merged(
-            &mut winners,
-            cap,
-            MergedPageHit {
-                key,
-                hit,
-                segment: None,
-                record_address: None,
-                retained_bytes: 0,
-            },
-            winner_budget,
-            &mut winner_bytes,
-        )?;
-    }
     if context.is_none()
         && retained_budget.is_none()
         && cache_key.is_none()
@@ -2980,7 +2900,7 @@ fn search_segmented_impl(
                 .saturating_sub(exact_or_members);
         }
     }
-    counters.match_count_complete = base_count_complete && counters.source_unavailable_events == 0;
+    counters.match_count_complete = counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     counters.distinct_files += delta_opened.len() as u64;
     if counters.match_count_complete {
@@ -4743,42 +4663,6 @@ fn search_active_inner(
         None,
         (query.options.count && query.options.limit == 0)
             .then_some(ExactCollector { members: None }),
-        Some(&scoped_context),
-        Some(active),
-    )
-}
-
-fn search_active_with_prepared(
-    repo: &Repository,
-    query: &Query,
-    active: &[ActiveRecords],
-    sort: &ResolvedSort<'_>,
-    prepared: &crate::query::prepared::PreparedQuery,
-    context: Option<&ExecutionContext>,
-    cache_members: Option<&mut Vec<CachedMember>>,
-    cache_budget: Option<&CacheBudget>,
-) -> Result<SearchResult, String> {
-    let scoped_context = context
-        .cloned()
-        .unwrap_or_else(|| {
-            ExecutionContext::new(
-                crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-                ExecutionLimits::default(),
-                None,
-            )
-        })
-        .with_active(active);
-    search_impl_with_resolved_sort(
-        repo,
-        query,
-        None,
-        cache_members,
-        cache_budget,
-        sort,
-        Some(prepared),
-        None,
-        None,
-        None,
         Some(&scoped_context),
         Some(active),
     )

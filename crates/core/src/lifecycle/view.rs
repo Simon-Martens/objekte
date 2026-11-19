@@ -626,6 +626,9 @@ impl IndexView {
 
     fn search_published(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
+        if self.0.active.iter().any(|active| active.len() != 0) {
+            return self.search_reference(query);
+        }
         let owner = self.1.upgrade();
         let cache =
             owner.as_ref().map(
@@ -700,6 +703,11 @@ impl IndexView {
                 message,
             )
         })?;
+        if self.0.active.iter().any(|active| active.len() != 0) {
+            return self
+                .search_reference(&resolved)
+                .map_err(|message| context.recorded_error(message));
+        }
         let owner = self.1.upgrade();
         let cache =
             owner.as_ref().map(
