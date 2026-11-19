@@ -116,6 +116,12 @@ const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 thread_local! {
     static SEGMENT_SLOT_EVIDENCE_CALLS: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_LIVE_PAGE_ROWS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_LIVE_PAGE_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_READ_ATTEMPTS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
 }
 
 #[cfg(test)]
@@ -126,6 +132,22 @@ pub(crate) fn reset_segment_slot_evidence_calls() {
 #[cfg(test)]
 pub(crate) fn segment_slot_evidence_calls() -> usize {
     SEGMENT_SLOT_EVIDENCE_CALLS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+pub(crate) fn reset_ordered_tail_observations() {
+    ORDERED_TAIL_LIVE_PAGE_ROWS.with(|value| value.set(0));
+    ORDERED_TAIL_LIVE_PAGE_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_READ_ATTEMPTS.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_tail_observations() -> (usize, usize, usize) {
+    (
+        ORDERED_TAIL_LIVE_PAGE_ROWS.with(std::cell::Cell::get),
+        ORDERED_TAIL_LIVE_PAGE_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_READ_ATTEMPTS.with(std::cell::Cell::get),
+    )
 }
 
 /// The native scheduling boundary for parallel file scans. A segment whose
@@ -3829,6 +3851,20 @@ fn try_lifecycle_ordered_stream(
         let mut bytes = None;
         let mut verification_parsed = false;
         let matched = if must_verify {
+            #[cfg(test)]
+            if page_captured {
+                ORDERED_TAIL_READ_ATTEMPTS.with(|value| value.set(value.get() + 1));
+                ORDERED_TAIL_LIVE_PAGE_ROWS.with(|value| value.set(page.len()));
+                ORDERED_TAIL_LIVE_PAGE_BYTES.with(|value| {
+                    value.set(
+                        page_bytes
+                            + page
+                                .iter()
+                                .map(crate::query_execution::streaming::hit_bytes)
+                                .sum::<usize>(),
+                    )
+                });
+            }
             if record.range.len() > context.limits.source_record_bytes {
                 return Err(context.fail(
                     ExecutionErrorKind::Resource,
@@ -4122,7 +4158,11 @@ fn try_lifecycle_ordered_stream(
                 }
             }
             page_captured = true;
-            page_bytes = 0;
+            if page_output.is_some() || options.mode == StreamMode::OrderedRows {
+                page.clear();
+                page.shrink_to_fit();
+                page_bytes = 0;
+            }
             if (!request.options.count || known_exact_count.is_some())
                 && (page_output.is_some() || options.mode == StreamMode::OrderedRows)
             {
