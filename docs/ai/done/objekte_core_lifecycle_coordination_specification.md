@@ -231,7 +231,7 @@ decision.
 ### Repair amendment
 
 Repair branch `repair/core-lifecycle-coordination` tested code revision
-`d1170ac5b6429783b05e508c3e40c5dc69dd828b`. It completes the lifecycle type,
+`aa3b7628ce2e7d77fd4daa58bca1b9276e787894`. It completes the lifecycle type,
 task, preparation, staging and scheduling ownership split, removes the
 compatibility root re-exports, and replaces the synthetic maintenance admission
 test with a bounded real-worker entry barrier.

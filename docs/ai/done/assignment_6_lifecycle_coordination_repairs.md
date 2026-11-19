@@ -54,18 +54,25 @@ RUSTDOCFLAGS='-D rustdoc::broken_intra_doc_links' cargo doc --locked --workspace
 - **Task:** `core-lifecycle-coordination-repairs`
 - **Completion date:** 2026-11-19
 - **Starting R5:** `e81a0711417503d55ddd707735b8a31bd72c9338`
+- **Final accepted R5 merged:** `18f877b11d3b2565212b41a495d4904a5996d2a8`
 - **Frozen A6 merged:** `4df92f741782d8556448cac454478057d790416b`
-- **Ordinary merge commit:** `160a17582f52810eb5b745dacb124a161f136856`
+- **Ordinary merge commits:** `160a17582f52810eb5b745dacb124a161f136856` (A6), `aa3b7628ce2e7d77fd4daa58bca1b9276e787894` (final R5 probe)
 - **Repair branch:** `repair/core-lifecycle-coordination`
 - **Repair worktree:** `/home/simon/source/objekte-repair-core-lifecycle-coordination`
-- **Tested code revision:** `d1170ac5b6429783b05e508c3e40c5dc69dd828b`
-- **Implementation commits:** `160a17582f52810eb5b745dacb124a161f136856`, `d1170ac5b6429783b05e508c3e40c5dc69dd828b`
-- **Original comparison:** [R5 to tested R6 code](https://github.com/Simon-Martens/objekte/compare/e81a0711417503d55ddd707735b8a31bd72c9338...d1170ac5b6429783b05e508c3e40c5dc69dd828b)
+- **Tested code revision:** `aa3b7628ce2e7d77fd4daa58bca1b9276e787894`
+- **Implementation commits:** `160a17582f52810eb5b745dacb124a161f136856`, `d1170ac5b6429783b05e508c3e40c5dc69dd828b`, `aa3b7628ce2e7d77fd4daa58bca1b9276e787894`
+- **Original comparison:** [final R5 to tested R6 code](https://github.com/Simon-Martens/objekte/compare/18f877b11d3b2565212b41a495d4904a5996d2a8...aa3b7628ce2e7d77fd4daa58bca1b9276e787894)
 - **Status:** complete and ready for review; no merge into `master` was performed
 
 R5 and frozen A6 are both ancestors of this branch. The A6 merge completed
 without conflict. The repair preserved the thirteen original root removals,
 publication/locking ownership and the specified public `IndexView` home.
+
+The final accepted R5 tip was merged after the A6 ownership repair. Its
+reference-entry regression now uses thread-local production prepare/planner
+probes and exercises both forward and backlink source truth through
+`reference::relations::search_segmented`. Because the R5 follow-up is test-only,
+it does not change the lifecycle synchronization contract or production work.
 
 ### Completed lifecycle ownership
 
@@ -158,7 +165,7 @@ retry limits and segment budgets were retained.
 ### Validation actually run
 
 The following commands passed at tested code revision
-`d1170ac5b6429783b05e508c3e40c5dc69dd828b`:
+`aa3b7628ce2e7d77fd4daa58bca1b9276e787894`:
 
 ```text
 cargo fmt --all -- --check
@@ -233,5 +240,5 @@ pinned-view and rebuild-conflict tests cover the unchanged work contract.
 
 No unresolved functional issue or blocked check remains. The report-only commit
 follows tested code revision
-`d1170ac5b6429783b05e508c3e40c5dc69dd828b`; its only delta is completion
+`aa3b7628ce2e7d77fd4daa58bca1b9276e787894`; its only delta is completion
 documentation. The branch and worktree remain for the owner's review.
