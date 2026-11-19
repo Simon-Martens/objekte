@@ -117,7 +117,7 @@ struct RelationTargetPrune {
 
 struct PrunedRelationCandidates {
     candidates: Option<Arc<RoaringBitmap>>,
-    relation_candidates: Option<Arc<RoaringBitmap>>,
+    relation_available: bool,
 }
 
 fn eligible_one_hop_relation_term<'a>(
@@ -391,15 +391,15 @@ fn prune_relation_candidates(
         .map(|fts| segment_fts_candidates(&published.index, collection, fts))
         .transpose()?
         .flatten();
-    let candidates = match (filter_may, fts_may) {
-        (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
-        (Some(filter), None) => Some(filter.as_ref().clone()),
-        (None, Some(fts)) => Some(fts),
+    let local_candidates = match (filter_may, fts_may) {
+        (Some(filter), Some(fts)) => Some(Arc::new(filter.as_ref() & fts)),
+        (Some(filter), None) => Some(filter),
+        (None, Some(fts)) => Some(Arc::new(fts)),
         (None, None) => None,
     };
-    let local_count = candidates
+    let local_count = local_candidates
         .as_ref()
-        .map_or_else(|| published.active.len(), RoaringBitmap::len);
+        .map_or_else(|| published.active.len(), |candidates| candidates.len());
     if local_count > 256 && relation_prune.is_none() {
         *relation_prune = Some(relation_target_prune(
             repo,
@@ -415,16 +415,26 @@ fn prune_relation_candidates(
         .map(|plan| relation_source_candidates(published, plan))
         .transpose()?
         .flatten();
-    let candidates = match (candidates, relation_candidates.as_ref()) {
-        (Some(candidates), Some(relation)) => Some(Arc::new(candidates & relation.as_ref())),
-        (Some(candidates), None) => Some(Arc::new(candidates)),
-        (None, Some(relation)) => Some(Arc::clone(relation)),
-        (None, None) => None,
-    };
+    let (candidates, relation_available) =
+        combine_relation_candidates(local_candidates, relation_candidates);
     Ok(PrunedRelationCandidates {
         candidates,
-        relation_candidates,
+        relation_available,
     })
+}
+
+fn combine_relation_candidates(
+    local: Option<Arc<RoaringBitmap>>,
+    relation: Option<Arc<RoaringBitmap>>,
+) -> (Option<Arc<RoaringBitmap>>, bool) {
+    let relation_available = relation.is_some();
+    let candidates = match (local, relation) {
+        (Some(local), Some(relation)) => Some(Arc::new(local.as_ref() & relation.as_ref())),
+        (Some(local), None) => Some(local),
+        (None, Some(relation)) => Some(relation),
+        (None, None) => None,
+    };
+    (candidates, relation_available)
 }
 
 enum DirectRelationPredicate<'a> {
@@ -1711,10 +1721,10 @@ fn try_parallel_relation_page(
         } else {
             PrunedRelationCandidates {
                 candidates: None,
-                relation_candidates: None,
+                relation_available: false,
             }
         };
-        if prune_segments && exact_plan.is_some() && pruned.relation_candidates.is_none() {
+        if prune_segments && exact_plan.is_some() && !pruned.relation_available {
             return Ok(None);
         }
         let candidates = pruned.candidates;
@@ -2493,10 +2503,10 @@ pub(super) fn search_segmented_relations(
             } else {
                 PrunedRelationCandidates {
                     candidates: None,
-                    relation_candidates: None,
+                    relation_available: false,
                 }
             };
-            let exact_filter_fields = if pruned.relation_candidates.is_some()
+            let exact_filter_fields = if pruned.relation_available
                 && let Some(plan) = relation_prune
                     .as_ref()
                     .and_then(Option::as_ref)
@@ -3239,4 +3249,47 @@ pub(crate) fn explain_segmented(
         }
     }
     Ok(traces)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn relation_candidate_composition_preserves_ownership_and_membership() {
+        let (unrestricted, relation_available) = combine_relation_candidates(None, None);
+        assert!(unrestricted.is_none());
+        assert!(!relation_available);
+
+        let filter = Arc::new(RoaringBitmap::from_iter([1, 4]));
+        let (filter_only, relation_available) =
+            combine_relation_candidates(Some(Arc::clone(&filter)), None);
+        assert!(Arc::ptr_eq(filter_only.as_ref().unwrap(), &filter));
+        assert!(!relation_available);
+
+        let relation = Arc::new(RoaringBitmap::from_iter([3, 4]));
+        let (relation_only, relation_available) =
+            combine_relation_candidates(None, Some(Arc::clone(&relation)));
+        assert!(Arc::ptr_eq(relation_only.as_ref().unwrap(), &relation));
+        assert!(relation_available);
+
+        let (intersection, relation_available) =
+            combine_relation_candidates(Some(Arc::clone(&filter)), Some(relation));
+        assert_eq!(
+            intersection.as_deref(),
+            Some(&RoaringBitmap::from_iter([4]))
+        );
+        assert!(relation_available);
+
+        let (empty_result, relation_available) = combine_relation_candidates(
+            Some(Arc::new(RoaringBitmap::from_iter([2]))),
+            Some(Arc::new(RoaringBitmap::new())),
+        );
+        assert!(
+            empty_result
+                .as_ref()
+                .is_some_and(|result| result.is_empty())
+        );
+        assert!(relation_available);
+    }
 }
