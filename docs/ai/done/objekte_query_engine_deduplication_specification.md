@@ -137,30 +137,27 @@ all-evidence visitation, and count-only versus cache-completing admission behavi
 
 ### Source-size account
 
-The specification’s reviewed baseline is 71,813 production Rust lines. The same
-file-line method was used on the implementation tip and excludes dedicated test
-modules and `#[cfg(test)]` items while retaining comments and blank lines. The
-uncommitted test timing probes are excluded from production accounting.
+The original per-commit account was incorrect: it assigned deleted test-only
+lines to production. The independently verified endpoint comparison for the
+merged deduplication, including comments and blank lines, is:
 
-Production additions and deletions, including shared helpers and the new Boolean
-module, are `+874/-958`, a net reduction of 84 lines. Applying that exact production
-delta to the reviewed baseline gives 71,729 production lines. File moves: none.
-Formatting-only churn: none. Test churn is reported separately below.
+| Scope in `crates/core/src` | Before (`d35ddde`) | After (`d064445`) | Added | Removed | Net |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Production Rust lines | 71,813 | 71,743 | 872 | 942 | -70 |
+| Test-only Rust lines | 53,778 | 54,001 | 239 | 16 | +223 |
 
-Test-only additions are +95 lines in the Boolean walker unit tests, +48 in the
-target-batch tests, +38 in ranking tests, and +56 in fixture timing probes, for
-+237 test lines. There are no test deletions.
+Physical lines were counted from Rust modules reachable through `lib.rs`, with
+dedicated test modules and inline `#[cfg(test)]` items classified as test-only.
+Removed lines were classified against the old tree and added lines against the
+new tree. The independently verified endpoint counts are recorded in
+`docs/ai/generated/query-engine-deduplication-repair/source-size-account.json`.
+The accompanying `count_core_rust_lines.py` verifies repository totals and
+classifies changed lines against the old and new trees.
 
-| Commit | Production additions | Production deletions | Production net | Test additions |
-| --- | ---: | ---: | ---: | ---: |
-| `69347160d6` | 333 | 385 | -52 | 95 |
-| `5c62d84f2f` | 87 | 91 | -4 | 0 |
-| `5a68799971` | 163 | 168 | -5 | 0 |
-| `66c26ec48c` | 135 | 199 | -64 | 48 |
-| `4fb6ffdc98` | 156 | 115 | +41 | 38 |
-| `093726e6b4` | 0 | 0 | 0 | 56 |
-
-The combined production diff is 84 lines smaller.
+This follow-up repair's own source delta, measured from `d064445` to the repair
+implementation tip, is `+98/-109` production lines (net `-11`) and `+371/-23`
+test-only lines (net `+348`). File moves: none. The replacement helpers therefore remain
+net-negative, and the original endpoint reduction is corrected to 70 lines.
 
 ### Validation
 
