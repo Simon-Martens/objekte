@@ -403,12 +403,14 @@ two-read incompatible-key fallback.
 
 ### Integration scope and cleanup
 
-The complete diff from the pinned base modifies 13 core source/test files and
-adds or deletes no file. All former A4 source-root removals, A5 schema/binding
-root removals, and A6 lifecycle root removals remain removed. Public method
-signatures, query grammar, snapshot format and dependency set are unchanged.
-Production changes are confined to the cited query and lifecycle paths; the
-only additional source-access code is a `cfg(test)` scoped read observation.
+Before the report-only commit, the complete implementation diff from the pinned
+base modifies 13 core source/test files and adds or deletes no file. The report
+commit adds only this completed task document. All former A4 source-root
+removals, A5 schema/binding root removals, and A6 lifecycle root removals remain
+removed. Public method signatures, query grammar, snapshot format and dependency
+set are unchanged. Production changes are confined to the cited query and
+lifecycle paths; the only additional source-access code is a `cfg(test)` scoped
+read observation.
 
 No subordinate worktrees were created. The integration worktree and branch are
 retained for owner review. There are no outstanding issues. The final
