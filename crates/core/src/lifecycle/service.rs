@@ -1,8 +1,9 @@
-#[cfg(test)]
 use std::sync::Arc;
 use std::sync::atomic::Ordering;
 
-use crate::lifecycle::maintenance::{MaintenanceJob, MaintenanceTask};
+#[cfg(test)]
+use crate::lifecycle::maintenance::MaintenanceJob;
+use crate::lifecycle::maintenance::MaintenanceTask;
 use crate::lifecycle::reconciliation::{ReconciliationReport, ReconciliationTask};
 use crate::lifecycle::{Index, IndexError};
 
