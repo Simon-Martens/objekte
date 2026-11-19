@@ -1,11 +1,222 @@
 use super::*;
 use crate::execution_options::ReturnMode;
+use crate::index::sorting::Placement;
 use crate::model::{ArrayValue, LogicalType, Number};
 use crate::query::QueryOptions;
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, operation::RegisteredBinding};
 use crate::source::SourceFormat;
+
+fn stored_string_sort_definition(
+    name: &str,
+    defaults: SortOptions,
+    effective: Option<SortConfig>,
+) -> CollectionDefinition {
+    let mut definition = CollectionDefinition::folder(name, name, SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition.sort_locale = "en".into();
+    definition.sort_options = defaults;
+    for (path, kind, nullable) in [
+        ("id", LogicalType::Id, false),
+        ("title", LogicalType::String, true),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: !nullable,
+                nullable,
+                indexed: false,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let path = QueryPath::parse("title").unwrap().field;
+    definition.sort_fields.push(path.clone());
+    if let Some(effective) = effective {
+        definition.sort_overrides.insert(path, effective);
+    }
+    definition
+}
+
+fn stored_title_query(collections: &[&str]) -> Query {
+    Query {
+        collections: collections.iter().map(|name| (*name).into()).collect(),
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("title", false)],
+            limit: 20,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    }
+}
+
+fn hit_ids(result: &crate::repository::SearchResult) -> Vec<&str> {
+    result
+        .hits
+        .iter()
+        .map(|hit| hit.record_id.as_str())
+        .collect()
+}
+
+#[test]
+fn reference_stored_sort_uses_numeric_and_null_override() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sort-binding-collation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, document) in [
+        ("ten", r#"{"id":"ten","title":"item10"}"#),
+        ("two", r#"{"id":"two","title":"item2"}"#),
+        ("null", r#"{"id":"null","title":null}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+    }
+    let defaults = SortOptions {
+        numeric: false,
+        nulls: Placement::Last,
+        missing: Placement::Last,
+        ..Default::default()
+    };
+    let effective = SortConfig {
+        locale: "en".into(),
+        options: SortOptions {
+            numeric: true,
+            nulls: Placement::First,
+            missing: Placement::First,
+            ..Default::default()
+        },
+    };
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![stored_string_sort_definition(
+            "data",
+            defaults,
+            Some(effective),
+        )],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let query = stored_title_query(&["data"]);
+
+    let optimized = repo.search(&query).unwrap();
+    let reference = repo.search_reference(&query).unwrap();
+    assert_eq!(hit_ids(&optimized), ["null", "two", "ten"]);
+    assert_eq!(hit_ids(&reference), hit_ids(&optimized));
+    assert_eq!(optimized.count, Some(3));
+    assert_eq!(reference.count, optimized.count);
+
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn cross_collection_sort_uses_effective_override_compatibility() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sort-binding-cross-collation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    for collection in ["a", "b"] {
+        std::fs::create_dir_all(root.join(collection)).unwrap();
+        std::fs::write(
+            root.join(collection).join("ten.json"),
+            format!(r#"{{"id":"{collection}10","title":"item10"}}"#),
+        )
+        .unwrap();
+        std::fs::write(
+            root.join(collection).join("two.json"),
+            format!(r#"{{"id":"{collection}2","title":"item2"}}"#),
+        )
+        .unwrap();
+    }
+    let defaults_a = SortOptions {
+        numeric: false,
+        nulls: Placement::Last,
+        missing: Placement::Last,
+        ..Default::default()
+    };
+    let defaults_b = SortOptions {
+        numeric: false,
+        nulls: Placement::First,
+        missing: Placement::First,
+        ..Default::default()
+    };
+    let numeric = SortConfig {
+        locale: "en".into(),
+        options: SortOptions {
+            numeric: true,
+            nulls: Placement::First,
+            missing: Placement::First,
+            ..Default::default()
+        },
+    };
+    let equal = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![
+            stored_string_sort_definition("a", defaults_a, Some(numeric.clone())),
+            stored_string_sort_definition("b", defaults_b, Some(numeric.clone())),
+        ],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let query = stored_title_query(&["a", "b"]);
+    let optimized = equal.search(&query).unwrap();
+    let reference = equal.search_reference(&query).unwrap();
+    assert_eq!(hit_ids(&optimized), ["a2", "b2", "a10", "b10"]);
+    assert_eq!(hit_ids(&reference), hit_ids(&optimized));
+    drop(equal);
+
+    let nonnumeric = SortConfig {
+        locale: "en".into(),
+        options: defaults_a,
+    };
+    let differing = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![
+            stored_string_sort_definition("a", defaults_a, Some(numeric)),
+            stored_string_sort_definition("b", defaults_a, Some(nonnumeric)),
+        ],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    assert!(
+        differing
+            .search(&query)
+            .unwrap_err()
+            .contains("incompatible cross-collection sort")
+    );
+    assert!(
+        differing
+            .search_reference(&query)
+            .unwrap_err()
+            .contains("incompatible cross-collection sort")
+    );
+
+    drop(differing);
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn optimized_binding_defers_reference_sort_preparation() {
