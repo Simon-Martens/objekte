@@ -612,6 +612,35 @@ fn emit_relation_probe(
     );
 }
 
+fn emit_relation_timing(
+    case_id: &str,
+    repo: &Repository,
+    request: &Query,
+    repetitions: usize,
+) {
+    if std::env::var_os("OBJEKTE_RELATION_TIMING").is_none() {
+        return;
+    }
+    repo.search(request).unwrap();
+    let mut samples = Vec::with_capacity(repetitions);
+    for _ in 0..repetitions {
+        let started = std::time::Instant::now();
+        let result = repo.search(request).unwrap();
+        assert!(result.count.is_some());
+        samples.push(started.elapsed().as_nanos() as u64);
+    }
+    samples.sort_unstable();
+    println!(
+        "RELATION_TIMING {}",
+        serde_json::json!({
+            "case_id": case_id,
+            "repetitions": repetitions,
+            "samples_ns": samples,
+            "median_ns": samples[samples.len() / 2],
+        })
+    );
+}
+
 #[test]
 fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
     let root = std::env::temp_dir().join(format!(
@@ -1279,6 +1308,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             == crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst));
         if alphabet == BigramAlphabet::Ascii {
             emit_relation_probe("indexed_relation_filter", alphabet, &actual, &trace[0]);
+            emit_relation_timing("indexed_relation_filter", &repo, &request, 21);
         }
 
         let selective = query("title = 'rare' && entry.title ?~ 'H'");
@@ -1302,6 +1332,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         );
         if alphabet == BigramAlphabet::Ascii {
             emit_relation_probe("selected_relation_fts", alphabet, &selective_fts, &trace[0]);
+            emit_relation_timing("selected_relation_fts", &repo, &selective_fts_query, 21);
         }
 
         let multi = query("entry.related_entry.title ?= 'Festival'");
