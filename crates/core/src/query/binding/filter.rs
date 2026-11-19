@@ -26,80 +26,6 @@ impl Derived {
     }
 }
 
-/// Substring pattern parsed once for a bound literal.
-#[derive(Clone, Debug)]
-pub(crate) enum PreparedContains {
-    Literal(Finder<'static>),
-    Unescaped(Finder<'static>),
-    Wildcards(Vec<Finder<'static>>),
-}
-
-#[cfg(test)]
-thread_local! {
-    pub(crate) static PREPARED_CONTAINS_BUILDS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-}
-
-pub(crate) fn split_contains_wildcards(pattern: &str) -> (bool, Vec<String>) {
-    let mut pieces = Vec::new();
-    let mut current = String::new();
-    let mut chars = pattern.chars().peekable();
-    let mut wildcard = false;
-    while let Some(ch) = chars.next() {
-        if ch == '\\' && chars.peek() == Some(&'%') {
-            current.push(chars.next().unwrap());
-        } else if ch == '%' {
-            pieces.push(std::mem::take(&mut current));
-            wildcard = true;
-        } else {
-            current.push(ch);
-        }
-    }
-    pieces.push(current);
-    (wildcard, pieces)
-}
-
-impl PreparedContains {
-    pub(crate) fn new(pattern: &str) -> Self {
-        #[cfg(test)]
-        PREPARED_CONTAINS_BUILDS.with(|count| count.set(count.get() + 1));
-        if !pattern.as_bytes().contains(&b'%') {
-            return Self::Literal(Finder::new(pattern).into_owned());
-        }
-        let (wildcard, mut pieces) = split_contains_wildcards(pattern);
-        if wildcard {
-            Self::Wildcards(
-                pieces
-                    .into_iter()
-                    .filter(|piece| !piece.is_empty())
-                    .map(|piece| Finder::new(&piece).into_owned())
-                    .collect(),
-            )
-        } else {
-            Self::Unescaped(Finder::new(&pieces.pop().unwrap()).into_owned())
-        }
-    }
-
-    pub(crate) fn matches_bytes(&self, text: &[u8]) -> bool {
-        match self {
-            Self::Literal(finder) | Self::Unescaped(finder) => finder.find(text).is_some(),
-            Self::Wildcards(pieces) => {
-                let mut rest = text;
-                for finder in pieces {
-                    let Some(index) = finder.find(rest) else {
-                        return false;
-                    };
-                    rest = &rest[index + finder.needle().len()..];
-                }
-                true
-            }
-        }
-    }
-
-    pub(crate) fn matches(&self, text: &str, _literal: &str) -> bool {
-        self.matches_bytes(text.as_bytes())
-    }
-}
-
 /// Typed predicate with its resolved path, literal, and binding.
 #[derive(Clone, Debug)]
 pub struct BoundTerm {
@@ -113,7 +39,7 @@ pub struct BoundTerm {
     pub quantifier: Quantifier,
     pub literal: Value,
     pub period: Option<TemporalBounds>,
-    pub(crate) prepared_contains: Option<PreparedContains>,
+    pub(crate) prepared_contains: Option<crate::query::semantics::comparison::PreparedContains>,
     pub(crate) gram_request: Option<BigramRequest>,
     pub derived: Derived,
     pub transform: Transform,
@@ -708,7 +634,9 @@ fn bind_literal_term(
         && matches!(term.operator, Operator::Contains | Operator::NotContains)
     {
         match &literal {
-            Value::String(pattern) => Some(PreparedContains::new(pattern)),
+            Value::String(pattern) => Some(
+                crate::query::semantics::comparison::PreparedContains::new(pattern),
+            ),
             _ => None,
         }
     } else {

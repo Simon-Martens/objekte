@@ -962,6 +962,263 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
 }
 
 #[test]
+fn segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock() {
+    use crate::execution_options::{SortExpression, SortField};
+    use crate::model::FieldPath;
+    use std::collections::HashMap;
+
+    let (root, mut definitions) = fixture();
+    definitions[1]
+        .sort_fields
+        .push(FieldPath::parse("title").unwrap());
+    std::fs::write(
+        root.join("entries/a.json"),
+        r#"{"id":"A","title":"Target"}"#,
+    )
+    .unwrap();
+    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Other"}"#).unwrap();
+    std::fs::write(
+        root.join("mentions/m1.json"),
+        r#"{"id":"m1","entry":"A","title":"tie","local_title":"residual alpha"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m2.json"),
+        r#"{"id":"m2","entry":"A","title":"retired old","local_title":"not selected"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m4.json"),
+        r#"{"id":"m4","entry":"B","title":"zzz","local_title":"residual needle"}"#,
+    )
+    .unwrap();
+    std::fs::remove_file(root.join("mentions/m3.json")).unwrap();
+
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let before = index.view().unwrap();
+    let m2 = before
+        .file_handle_for_path(std::path::Path::new("mentions/m2.json"))
+        .unwrap();
+    std::fs::write(
+        root.join("mentions/m2.json"),
+        r#"{"id":"m2","entry":"A","title":"tie","local_title":"residual beta"}"#,
+    )
+    .unwrap();
+    index
+        .update_file(m2, &root.join("mentions/m2.json"))
+        .unwrap();
+    std::fs::write(
+        root.join("mentions/m3.json"),
+        r#"{"id":"m3","entry":"A","title":"tie","local_title":"residual gamma"}"#,
+    )
+    .unwrap();
+    index.add_file(&root.join("mentions/m3.json")).unwrap();
+
+    let view = index.view().unwrap();
+    let mut request = query(
+        "mentions",
+        Some(
+            "local_title ~ $needle && (entry = 'A' || entry = 'B') && @file.modified >= @yearStart",
+        ),
+        Some("Target"),
+        Some("entry.title"),
+        false,
+    );
+    request.options.sort = vec![SortField::computed(
+        SortExpression {
+            path: "title".into(),
+            binding: None,
+            reducer: None,
+        },
+        false,
+    )];
+    request.options.limit = 2;
+    request.options.count = true;
+    request = request
+        .with_clock(time::OffsetDateTime::from_unix_timestamp(946684800).unwrap())
+        .unwrap();
+    let parameters = HashMap::from([(
+        "needle".into(),
+        crate::model::Value::String("residual%".into()),
+    )]);
+
+    let reference = view
+        .search_reference_with_parameters(&request, &parameters)
+        .unwrap();
+    assert_eq!(reference.count, Some(3));
+    assert_eq!(
+        reference
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1", "m2"]
+    );
+    assert!(
+        reference.hits[0]
+            .matched_fields
+            .iter()
+            .any(|field| field == "entry.title")
+    );
+    assert!(
+        reference.hits[0]
+            .matched_fields
+            .iter()
+            .any(|field| field == "local_title")
+    );
+    assert!(
+        reference.hits.iter().all(|hit| hit.record_id != "m4"),
+        "source truth must reject the related-FTS false positive"
+    );
+
+    let optimized = view
+        .search(&request.with_parameters(&parameters).unwrap())
+        .unwrap();
+    assert_eq!(optimized.count, reference.count);
+    assert_eq!(optimized.hits, reference.hits);
+
+    let mut unresolved = query(
+        "mentions",
+        Some("@file.modified >= @yearStart"),
+        None,
+        None,
+        false,
+    );
+    unresolved.options.limit = 100;
+    let smoke = view.search_reference(&unresolved).unwrap();
+    assert!(smoke.count.unwrap_or_default() > 0);
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contributions() {
+    use crate::index::posting::ScalarKey;
+    use crate::lifecycle::PublishedSegment;
+    use crate::model::CollectionId;
+    use crate::relation::RelationId;
+
+    let (root, definitions) = fixture();
+    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Hymn"}"#).unwrap();
+    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Other"}"#).unwrap();
+    std::fs::write(
+        root.join("mentions/m1.json"),
+        r#"{"id":"m1","entry":"B","title":"base"}"#,
+    )
+    .unwrap();
+    std::fs::remove_file(root.join("mentions/m2.json")).unwrap();
+    std::fs::remove_file(root.join("mentions/m3.json")).unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m2.json"),
+        r#"{"id":"m2","entry":"A","title":"segment"}"#,
+    )
+    .unwrap();
+    index.add_file(&root.join("mentions/m2.json")).unwrap();
+    std::fs::write(
+        root.join("mentions/m3.json"),
+        r#"{"id":"m3","entry":"A","title":"segment"}"#,
+    )
+    .unwrap();
+    index.add_file(&root.join("mentions/m3.json")).unwrap();
+
+    let pinned = index.view().unwrap();
+    let repo = pinned.repository();
+    let relation_index = repo.collections[1]
+        .relations
+        .iter()
+        .position(|relation| relation.declaration.path == ["entry"])
+        .expect("entry relation");
+    let relation = RelationId {
+        source: CollectionId(1),
+        ordinal: u32::try_from(relation_index).unwrap(),
+    };
+    let relation_path = repo.collections[1].relations[relation_index]
+        .declaration
+        .path
+        .clone();
+    let source = CollectionId(1);
+    let mut perturbed = pinned.0.segments.clone();
+    let source_segments = pinned.0.segments[1]
+        .iter()
+        .map(|published| {
+            let mut index = (*published.index).clone();
+            index.relations[relation_index].remove_references_to_for_test("A");
+            if let Some(posting) = index.postings.fields.get_mut(&relation_path) {
+                posting.values.remove(&ScalarKey::Id("A".into()));
+            }
+            Arc::new(PublishedSegment {
+                id: published.id,
+                index: Arc::new(index),
+                active: published.active.clone(),
+            })
+        })
+        .collect::<Vec<_>>();
+    perturbed[1] = Arc::new(source_segments);
+    let view =
+        super::MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog)
+            .unwrap();
+    let m2 = view
+        .resolve_id(source, "m2")
+        .unwrap()
+        .expect("segmented m2 remains visible");
+    let optimized_forward = view.forward_edges(m2, relation_index).unwrap();
+    assert!(optimized_forward.0.is_empty());
+    let reference_forward = view
+        .reference_forward_edges(m2, relation, None)
+        .unwrap()
+        .expect("source-backed m2 value");
+    assert_eq!(
+        reference_forward
+            .values
+            .iter()
+            .map(|(id, positions)| (id.as_str(), positions.as_slice()))
+            .collect::<Vec<_>>(),
+        [("A", &[][..])]
+    );
+
+    let optimized_backlinks = view.backlink_sources(relation, "A").unwrap();
+    assert!(optimized_backlinks.is_empty());
+    let reference_backlinks = view
+        .reference_backlink_sources(relation, "A", None)
+        .unwrap();
+    let mut ids = reference_backlinks
+        .iter()
+        .map(|address| {
+            view.record(*address)
+                .unwrap()
+                .unwrap()
+                .record
+                .id
+                .0
+                .to_string()
+        })
+        .collect::<Vec<_>>();
+    ids.sort();
+    assert_eq!(ids, ["m2", "m3"]);
+
+    drop(view);
+    drop(pinned);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnostics() {
     use crate::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,

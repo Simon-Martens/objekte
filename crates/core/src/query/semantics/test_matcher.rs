@@ -9,7 +9,7 @@ use crate::schema::operation::Transform;
 
 struct AlternateMatcher {
     field: String,
-    _literal: String,
+    literal: String,
     invocations: AtomicU64,
 }
 
@@ -28,7 +28,7 @@ pub(crate) fn install_alternate_matcher(field: &str, literal: &str) -> Alternate
         .lock()
         .expect("alternate matcher registry poisoned") = Some(AlternateMatcher {
         field: field.into(),
-        _literal: literal.into(),
+        literal: literal.into(),
         invocations: AtomicU64::new(0),
     });
     AlternateMatcherGuard
@@ -48,7 +48,10 @@ fn matcher_accepts(matcher: &AlternateMatcher, term: &BoundTerm) -> bool {
         && term.path.segments[0] == matcher.field
         && term.operator == crate::query::Operator::Contains
         && term.transform == Transform::Identity
-        && matches!(term.literal, crate::model::Value::String(_))
+        && matches!(
+            &term.literal,
+            crate::model::Value::String(literal) if literal == &matcher.literal
+        )
 }
 
 pub(crate) fn alternate_term_matches(term: &BoundTerm) -> bool {
@@ -84,10 +87,13 @@ pub(crate) fn alternate_term_result(
         _ => None,
     };
     Some(Ok(match selected {
-        Some(crate::model::Value::String(text)) => text
-            .as_bytes()
-            .windows(literal.len())
-            .any(|window| window == literal.as_bytes()),
+        Some(crate::model::Value::String(text)) => {
+            literal.is_empty()
+                || text
+                    .as_bytes()
+                    .windows(literal.len())
+                    .any(|window| window == literal.as_bytes())
+        }
         _ => false,
     }))
 }

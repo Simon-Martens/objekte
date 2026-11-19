@@ -401,6 +401,45 @@ impl<'a> BoundSort<'a> {
             })
             .collect()
     }
+
+    pub(crate) fn reference_keys(
+        &self,
+        _repo: &Repository,
+        collection_index: usize,
+        view: &MergedRelationView<'_>,
+        address: MergedRecordSlot,
+        ctx: &RecordContext<'_>,
+        target_cache: &mut MergedSortTargetCache,
+    ) -> Result<Vec<(SortKey, bool, SortOptions)>, String> {
+        self.terms[collection_index]
+            .as_ref()
+            .ok_or("sort collection is not selected")?
+            .iter()
+            .map(|term| {
+                let key = match &term.source {
+                    BoundSortSource::Stored(column) => {
+                        let path = QueryPath::parse(&column.path.display())?;
+                        let collator = make_collator(&SortConfig {
+                            locale: column.locale.clone(),
+                            options: column.options,
+                        })?;
+                        ComputedSort {
+                            path,
+                            related: None,
+                            reducer: None,
+                            transform: SortTransform::Identity,
+                            collator,
+                        }
+                        .key_local(ctx)?
+                    }
+                    BoundSortSource::Computed(computed) => {
+                        computed.key_merged(view, address, ctx, target_cache, true)?
+                    }
+                };
+                Ok((key, term.descending, term.options))
+            })
+            .collect()
+    }
 }
 
 impl ComputedSort {
@@ -456,6 +495,7 @@ impl ComputedSort {
         address: MergedRecordSlot,
         ctx: &RecordContext<'_>,
         cache: &mut MergedSortTargetCache,
+        reference: bool,
     ) -> Result<SortKey, String> {
         let Some((hops, terminal)) = &self.related else {
             return self.key_local(ctx);
@@ -470,6 +510,7 @@ impl ComputedSort {
             Some(ctx.value),
             cache,
             &mut reduced,
+            reference,
         )?;
         reduced.finish(self)
     }
@@ -528,6 +569,7 @@ impl ComputedSort {
         source_value: Option<&Value>,
         cache: &mut MergedSortTargetCache,
         reduced: &mut SortAccumulator,
+        reference: bool,
     ) -> Result<(), String> {
         let Some(current) = view.record(address)? else {
             reduced.observe_unavailable()?;
@@ -584,6 +626,41 @@ impl ComputedSort {
         };
         match hop.direction {
             HopDirection::Forward => {
+                if reference
+                    && !matches!(self.reducer, Some(SortReducer::First | SortReducer::Last))
+                {
+                    let Some(references) =
+                        view.reference_forward_edges(address, hop.relation, None)?
+                    else {
+                        reduced.observe_unavailable()?;
+                        return Ok(());
+                    };
+                    for (id, positions) in references.values {
+                        if !positions_match(&hop.selectors, &positions) {
+                            continue;
+                        }
+                        cache.edge()?;
+                        if let Some(target) = view.resolve_id(hop.to, &id)? {
+                            self.visit_related_merged(
+                                view,
+                                hops,
+                                terminal,
+                                depth + 1,
+                                target,
+                                None,
+                                cache,
+                                reduced,
+                                true,
+                            )?;
+                        } else {
+                            reduced.observe_unavailable()?;
+                        }
+                    }
+                    if references.null {
+                        reduced.observe_value(&Value::Null, self)?;
+                    }
+                    return Ok(());
+                }
                 let (edges, _present, null, _empty, unavailable) =
                     view.forward_edges(address, hop.relation.ordinal as usize)?;
                 if unavailable {
@@ -623,6 +700,7 @@ impl ComputedSort {
                                         None,
                                         cache,
                                         reduced,
+                                        reference,
                                     )
                                 } else {
                                     reduced.observe_unavailable()
@@ -648,6 +726,7 @@ impl ComputedSort {
                                 None,
                                 cache,
                                 reduced,
+                                reference,
                             )?;
                         } else {
                             reduced.observe_unavailable()?;
@@ -659,11 +738,12 @@ impl ComputedSort {
                 }
             }
             HopDirection::Backlink => {
-                for (position, source) in view
-                    .backlink_sources(hop.relation, &current.record.id.0)?
-                    .into_iter()
-                    .enumerate()
-                {
+                let sources = if reference {
+                    view.reference_backlink_sources(hop.relation, &current.record.id.0, None)?
+                } else {
+                    view.backlink_sources(hop.relation, &current.record.id.0)?
+                };
+                for (position, source) in sources.into_iter().enumerate() {
                     cache.edge()?;
                     if hop.selectors.first().is_some_and(|selector| {
                         selector.is_some_and(|index| index as usize != position)
@@ -679,6 +759,7 @@ impl ComputedSort {
                         None,
                         cache,
                         reduced,
+                        reference,
                     )?;
                 }
             }

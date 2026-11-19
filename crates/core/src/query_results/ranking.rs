@@ -458,11 +458,21 @@ pub(crate) fn relation_rank_key_merged(
     ctx: &RecordContext<'_>,
     cache: &mut MergedSortTargetCache,
     filter: Option<&BoundExpr>,
+    reference: bool,
 ) -> Result<RankKey, String> {
     let collection_index = address.collection.0 as usize;
     let terms = sort.bound.terms[collection_index]
         .as_ref()
         .ok_or("merged sort collection missing")?;
+    if reference {
+        return Ok(RankKey {
+            parts: sort
+                .bound
+                .reference_keys(repo, collection_index, view, address, ctx, cache)?,
+            collection: repo.collections[collection_index].definition.name.clone(),
+            id: ctx.record.id.0.to_string(),
+        });
+    }
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
         let key = match &term.source {
@@ -493,7 +503,7 @@ pub(crate) fn relation_rank_key_merged(
                 {
                     key
                 } else {
-                    computed.key_merged(view, address, ctx, cache)?
+                    computed.key_merged(view, address, ctx, cache, false)?
                 }
             }
         };

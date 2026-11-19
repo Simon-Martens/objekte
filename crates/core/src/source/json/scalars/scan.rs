@@ -5,9 +5,9 @@ use std::ops::Range;
 
 use smallvec::SmallVec;
 
+use crate::query::Quantifier;
 use crate::query::binding::filter::BoundTerm;
 use crate::query::binding::fts::BoundFts;
-use crate::query::Quantifier;
 use crate::reference::fts::{
     fts_field_selects_path, match_borrowed_source_filter, match_borrowed_source_pair,
     match_borrowed_source_segment,

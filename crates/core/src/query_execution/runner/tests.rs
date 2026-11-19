@@ -981,8 +981,28 @@ fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries
                 .collect::<Vec<_>>(),
             "{filter}"
         );
+
+        let invocations = alternate_matcher_invocations();
+        let unrelated = make_query("alt_title ~ 'other'");
+        let unrelated_actual = repo.search(&unrelated).unwrap();
+        let unrelated_reference = repo.search_reference(&unrelated).unwrap();
+        assert_eq!(unrelated_actual.hits, unrelated_reference.hits);
+        assert_eq!(
+            alternate_matcher_invocations(),
+            invocations,
+            "a live alternate matcher must not claim an unrelated literal"
+        );
         drop(guard);
     }
+
+    let empty_guard = install_alternate_matcher("alt_title", "");
+    let empty_query = make_query("alt_title ~ ''");
+    let empty_actual = repo.search(&empty_query).unwrap();
+    let empty_reference = repo.search_reference(&empty_query).unwrap();
+    assert!(alternate_matcher_invocations() > 0);
+    assert_eq!(empty_actual.hits, empty_reference.hits);
+    assert_eq!(empty_actual.count, empty_reference.count);
+    drop(empty_guard);
     std::fs::remove_dir_all(root).unwrap();
 }
 

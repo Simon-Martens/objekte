@@ -98,7 +98,9 @@ use ordered::{
     try_inferred_order_page, try_inferred_segment_order_page, try_stored_order_page,
 };
 use relations::search_segmented_relations;
-pub(crate) use relations::{explain_segmented, search_segmented_reference};
+pub(crate) use relations::{
+    explain_segmented, search_segmented_reference, search_segmented_reference_records,
+};
 use segment_scan::{scan_segment_file_parallel, verify_local_segment_record};
 use source_scan::scan_file;
 
@@ -924,6 +926,7 @@ fn search_segmented_with_context_lifecycle_budget(
                     None,
                     None,
                     false,
+                    false,
                 )
                 .map_err(|message| context.recorded_error(message))
             } else {
@@ -998,6 +1001,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
                 Some(context),
                 None,
                 None,
+                false,
                 false,
             )
             .map_err(|message| context.recorded_error(message))
@@ -1875,6 +1879,7 @@ fn search_segmented_impl(
             relation_cache.as_mut(),
             retained_budget,
             true,
+            false,
         )?;
         if result.counters.match_count_complete
             && let (Some(builder), Some((scope, key, _))) = (relation_cache, cache_key)

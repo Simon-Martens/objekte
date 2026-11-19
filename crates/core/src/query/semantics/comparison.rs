@@ -1,3 +1,79 @@
+use memchr::memmem::Finder;
+
+/// Substring pattern parsed once for a bound literal.
+#[derive(Clone, Debug)]
+pub(crate) enum PreparedContains {
+    Literal(Finder<'static>),
+    Unescaped(Finder<'static>),
+    Wildcards(Vec<Finder<'static>>),
+}
+
+#[cfg(test)]
+thread_local! {
+    pub(crate) static PREPARED_CONTAINS_BUILDS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+pub(crate) fn split_contains_wildcards(pattern: &str) -> (bool, Vec<String>) {
+    let mut pieces = Vec::new();
+    let mut current = String::new();
+    let mut chars = pattern.chars().peekable();
+    let mut wildcard = false;
+    while let Some(ch) = chars.next() {
+        if ch == '\\' && chars.peek() == Some(&'%') {
+            current.push(chars.next().unwrap());
+        } else if ch == '%' {
+            pieces.push(std::mem::take(&mut current));
+            wildcard = true;
+        } else {
+            current.push(ch);
+        }
+    }
+    pieces.push(current);
+    (wildcard, pieces)
+}
+
+impl PreparedContains {
+    pub(crate) fn new(pattern: &str) -> Self {
+        #[cfg(test)]
+        PREPARED_CONTAINS_BUILDS.with(|count| count.set(count.get() + 1));
+        if !pattern.as_bytes().contains(&b'%') {
+            return Self::Literal(Finder::new(pattern).into_owned());
+        }
+        let (wildcard, mut pieces) = split_contains_wildcards(pattern);
+        if wildcard {
+            Self::Wildcards(
+                pieces
+                    .into_iter()
+                    .filter(|piece| !piece.is_empty())
+                    .map(|piece| Finder::new(&piece).into_owned())
+                    .collect(),
+            )
+        } else {
+            Self::Unescaped(Finder::new(&pieces.pop().unwrap()).into_owned())
+        }
+    }
+
+    pub(crate) fn matches_bytes(&self, text: &[u8]) -> bool {
+        match self {
+            Self::Literal(finder) | Self::Unescaped(finder) => finder.find(text).is_some(),
+            Self::Wildcards(pieces) => {
+                let mut rest = text;
+                for finder in pieces {
+                    let Some(index) = finder.find(rest) else {
+                        return false;
+                    };
+                    rest = &rest[index + finder.needle().len()..];
+                }
+                true
+            }
+        }
+    }
+
+    pub(crate) fn matches(&self, text: &str, _literal: &str) -> bool {
+        self.matches_bytes(text.as_bytes())
+    }
+}
+
 pub(crate) fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) -> bool {
     if matches!(rhs, Value::Null) {
         return match op {
@@ -54,7 +130,7 @@ pub(crate) fn contains_pattern(text: &str, pattern: &str) -> bool {
     if !pattern.as_bytes().contains(&b'%') {
         return text.contains(pattern);
     }
-    let (wildcard, pieces) = crate::query::binding::filter::split_contains_wildcards(pattern);
+    let (wildcard, pieces) = split_contains_wildcards(pattern);
     if !wildcard {
         return text.contains(&pieces[0]);
     }

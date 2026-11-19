@@ -1249,6 +1249,7 @@ fn scan_relation_file_parallel(
                 &ctx,
                 &mut evidence,
                 &mut relation_work,
+                false,
             )? == Some(true)
         }
     } else {
@@ -1285,6 +1286,7 @@ fn scan_relation_file_parallel(
                     &ctx,
                     &mut evidence,
                     &mut relation_work,
+                    false,
                 )?
             }
         } else {
@@ -1720,24 +1722,64 @@ pub(super) fn search_segmented_relations(
     mut cache_builder: Option<&mut LifecycleCacheBuilder>,
     retained_budget: Option<usize>,
     prune_segments: bool,
+    reference: bool,
 ) -> Result<SearchResult, String> {
-    if prepared.len() == 1
-        && let Some(filter) = prepared[0].filter.as_ref()
-    {
-        let mut relation_terms = Vec::new();
-        collect_positive_relation_terms(filter, &mut relation_terms);
-        let has_local = matches!(
-            filter,
-            BoundExpr::And(parts)
-                if parts
-                    .iter()
-                    .any(|part| matches!(part, BoundExpr::Term(term) if term.related.is_none()))
-        );
-        for relation_term in relation_terms {
-            let term_id = prepared[0]
-                .term_id_for_bound_term(relation_term)
-                .map_or(crate::query_predicate::TermId::new(u32::MAX), |id| id);
+    let mut exact_relation_plan = None;
+    if !reference {
+        if prepared.len() == 1
+            && let Some(filter) = prepared[0].filter.as_ref()
+        {
+            let mut relation_terms = Vec::new();
+            collect_positive_relation_terms(filter, &mut relation_terms);
+            let has_local = matches!(
+                filter,
+                BoundExpr::And(parts)
+                    if parts
+                        .iter()
+                        .any(|part| matches!(part, BoundExpr::Term(term) if term.related.is_none()))
+            );
+            for relation_term in relation_terms {
+                let term_id = prepared[0]
+                    .term_id_for_bound_term(relation_term)
+                    .map_or(crate::query_predicate::TermId::new(u32::MAX), |id| id);
+                let collection = &repo.collections[prepared[0].collection_index];
+                crate::query_execution::request::record_observation_with_kind(
+                    repo.instance_id,
+                    term_id,
+                    crate::query_execution::domain::domain_id(
+                        repo.instance_id,
+                        collection.generation.collection.0,
+                        collection.generation.generation,
+                        None,
+                    ),
+                    crate::query_access::contract::AccessId {
+                        provider: crate::query_access::contract::ProviderId(4),
+                        operation: crate::query_access::contract::OperationId(2),
+                    },
+                    collection.generation.collection.0,
+                    collection.generation.records.len() as u64,
+                    0,
+                    0,
+                    Some(if has_local {
+                        "relation_source_restricted"
+                    } else {
+                        "relation_target_first"
+                    }),
+                );
+            }
+        }
+        if prepared.len() == 1
+            && prepared[0]
+                .fts
+                .as_ref()
+                .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+            && let Some(term_id) = prepared[0].text_term
+        {
             let collection = &repo.collections[prepared[0].collection_index];
+            let has_local = prepared[0]
+                .filter
+                .as_ref()
+                .is_some_and(|filter| !bound_expr_has_relations(filter));
             crate::query_execution::request::record_observation_with_kind(
                 repo.instance_id,
                 term_id,
@@ -1749,7 +1791,7 @@ pub(super) fn search_segmented_relations(
                 ),
                 crate::query_access::contract::AccessId {
                     provider: crate::query_access::contract::ProviderId(4),
-                    operation: crate::query_access::contract::OperationId(2),
+                    operation: crate::query_access::contract::OperationId(3),
                 },
                 collection.generation.collection.0,
                 collection.generation.records.len() as u64,
@@ -1762,109 +1804,73 @@ pub(super) fn search_segmented_relations(
                 }),
             );
         }
-    }
-    if prepared.len() == 1
-        && prepared[0]
-            .fts
-            .as_ref()
-            .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
-        && let Some(term_id) = prepared[0].text_term
-    {
-        let collection = &repo.collections[prepared[0].collection_index];
-        let has_local = prepared[0]
-            .filter
-            .as_ref()
-            .is_some_and(|filter| !bound_expr_has_relations(filter));
-        crate::query_execution::request::record_observation_with_kind(
-            repo.instance_id,
-            term_id,
-            crate::query_execution::domain::domain_id(
-                repo.instance_id,
-                collection.generation.collection.0,
-                collection.generation.generation,
-                None,
-            ),
-            crate::query_access::contract::AccessId {
-                provider: crate::query_access::contract::ProviderId(4),
-                operation: crate::query_access::contract::OperationId(3),
-            },
-            collection.generation.collection.0,
-            collection.generation.records.len() as u64,
-            0,
-            0,
-            Some(if has_local {
-                "relation_source_restricted"
-            } else {
-                "relation_target_first"
-            }),
+        let traversal_plan = crate::query_plan::operations::relation_page_plan(
+            prune_segments,
+            cache_builder.is_some(),
+            context.is_none() && cache_builder.is_none() && retained_budget.is_none(),
         );
-    }
-    let traversal_plan = crate::query_plan::operations::relation_page_plan(
-        prune_segments,
-        cache_builder.is_some(),
-        context.is_none() && cache_builder.is_none() && retained_budget.is_none(),
-    );
-    let mut exact_relation_plan = if prune_segments
-        && prepared.len() == 1
-        && query.options.return_mode == ReturnMode::Locator
-    {
-        prepared[0]
-            .filter
-            .as_ref()
-            .map(|filter| exact_relation_source_plan(repo, base_active, segments, filter))
-            .transpose()?
-            .flatten()
-    } else {
-        None
-    };
-    for operation in traversal_plan {
-        let result = match operation {
-            crate::query_plan::operations::RelationPageOperation::QualifiedSemijoin => {
-                try_semijoin_relation_page(
-                    repo,
-                    query,
-                    base_active,
-                    segments,
-                    catalog,
-                    revision,
-                    sort,
-                    prepared,
-                    context,
-                )?
-            }
-            crate::query_plan::operations::RelationPageOperation::DirectTargetPrune => {
-                try_direct_relation_page(
-                    repo,
-                    query,
-                    base_active,
-                    segments,
-                    catalog,
-                    revision,
-                    sort,
-                    prepared,
-                    context,
-                    cache_builder.as_deref_mut(),
-                    retained_budget,
-                )?
-            }
-            crate::query_plan::operations::RelationPageOperation::ParallelFileScan => {
-                try_parallel_relation_page(
-                    repo,
-                    query,
-                    base_active,
-                    segments,
-                    catalog,
-                    revision,
-                    sort,
-                    prepared,
-                    prune_segments,
-                    exact_relation_plan.as_ref(),
-                )?
-            }
-            crate::query_plan::operations::RelationPageOperation::ReferenceScan => None,
+        exact_relation_plan = if prune_segments
+            && prepared.len() == 1
+            && query.options.return_mode == ReturnMode::Locator
+        {
+            prepared[0]
+                .filter
+                .as_ref()
+                .map(|filter| exact_relation_source_plan(repo, base_active, segments, filter))
+                .transpose()?
+                .flatten()
+        } else {
+            None
         };
-        if let Some(result) = result {
-            return Ok(result);
+        for operation in traversal_plan {
+            let result = match operation {
+                crate::query_plan::operations::RelationPageOperation::QualifiedSemijoin => {
+                    try_semijoin_relation_page(
+                        repo,
+                        query,
+                        base_active,
+                        segments,
+                        catalog,
+                        revision,
+                        sort,
+                        prepared,
+                        context,
+                    )?
+                }
+                crate::query_plan::operations::RelationPageOperation::DirectTargetPrune => {
+                    try_direct_relation_page(
+                        repo,
+                        query,
+                        base_active,
+                        segments,
+                        catalog,
+                        revision,
+                        sort,
+                        prepared,
+                        context,
+                        cache_builder.as_deref_mut(),
+                        retained_budget,
+                    )?
+                }
+                crate::query_plan::operations::RelationPageOperation::ParallelFileScan => {
+                    try_parallel_relation_page(
+                        repo,
+                        query,
+                        base_active,
+                        segments,
+                        catalog,
+                        revision,
+                        sort,
+                        prepared,
+                        prune_segments,
+                        exact_relation_plan.as_ref(),
+                    )?
+                }
+                crate::query_plan::operations::RelationPageOperation::ReferenceScan => None,
+            };
+            if let Some(result) = result {
+                return Ok(result);
+            }
         }
     }
     let view =
@@ -1889,7 +1895,7 @@ pub(super) fn search_segmented_relations(
         let fts = &entry.fts;
         let collection_id = repo.collections[collection_index].generation.collection;
         let collection_plan = &repo.collections[collection_index];
-        let direct_plan = prune_segments
+        let direct_plan = (!reference && prune_segments)
             .then(|| {
                 DirectSourcePlan::prepare_bound(
                     collection_plan,
@@ -1900,17 +1906,18 @@ pub(super) fn search_segmented_relations(
             })
             .flatten();
         let borrowed_value_text = borrowed_value_text(collection_plan, fts.as_ref());
-        let combined_fts = fts.as_ref().filter(|fts| {
+        let combined_fts = (!reference).then_some(()).and(fts.as_ref().filter(|fts| {
             collection_plan.source.scalar_verification()
                 == Some(crate::source::verification::ScalarVerification::DecodedScalars)
                 && source_fts_eligible(collection_plan, fts, true)
-        });
+        }));
         let mut projection = ScanProjection::full(
             fts.is_some()
                 && !borrowed_value_text
                 && !borrowed_relation_source_text(collection_plan, fts.as_ref()),
         );
-        if fts.is_none()
+        if !reference
+            && fts.is_none()
             && !sort.bound.has_computed
             && collection_plan.source.scalar_verification()
                 == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
@@ -2023,6 +2030,7 @@ pub(super) fn search_segmented_relations(
                         &ctx,
                         &mut evidence,
                         &mut relation_work,
+                        reference,
                     )? == Some(true)
                 }
             } else {
@@ -2072,6 +2080,7 @@ pub(super) fn search_segmented_relations(
                             &ctx,
                             &mut evidence,
                             &mut relation_work,
+                            reference,
                         )?
                     }
                 } else {
@@ -2114,6 +2123,7 @@ pub(super) fn search_segmented_relations(
                 &ctx,
                 &mut sort_cache,
                 filter.as_ref(),
+                reference,
             )?;
             if view.source_error_events() > source_errors_before_sort {
                 return Ok(());
@@ -2133,7 +2143,10 @@ pub(super) fn search_segmented_relations(
                     Vec::new()
                 },
             );
-            if let Some(builder) = cache_builder.as_mut() {
+            if let Some(builder) = (!reference)
+                .then_some(cache_builder.as_deref_mut())
+                .flatten()
+            {
                 builder.push(
                     &key,
                     CachedMember {
@@ -2538,7 +2551,7 @@ pub(super) fn search_segmented_relations(
     counters.files_opened += sort_cache.reads;
     counters.record_parses += sort_cache.reads;
     counters.bytes_read += sort_cache.bytes_read;
-    if prepared.len() == 1 {
+    if !reference && prepared.len() == 1 {
         record_source_candidates(
             repo,
             context,
@@ -2563,11 +2576,39 @@ pub(crate) fn search_segmented_reference(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
+    crate::reference::relations::search_segmented(
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+    )
+}
+
+pub(crate) fn search_segmented_reference_records(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    collections: &[crate::reference::relations::ReferenceCollectionQuery],
+) -> Result<SearchResult, String> {
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
     let sort = ResolvedSort::new(repo, query)?;
-    let prepared = crate::query::prepared::prepare(repo, query)?;
+    let prepared = collections
+        .iter()
+        .map(|entry| PreparedCollectionQuery {
+            collection_index: entry.collection_index,
+            filter: entry.filter.clone(),
+            fts: entry.fts.clone(),
+            filter_shape: None,
+            text_term: None,
+        })
+        .collect::<Vec<_>>();
     search_segmented_relations(
         repo,
         query,
@@ -2576,11 +2617,12 @@ pub(crate) fn search_segmented_reference(
         catalog,
         revision,
         &sort,
-        &prepared.collections,
+        &prepared,
         None,
         None,
         None,
         false,
+        true,
     )
 }
 

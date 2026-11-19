@@ -515,6 +515,145 @@ impl<'a> MergedRelationView<'a> {
         keyed.dedup_by(|a, b| a.1 == b.1);
         Ok(keyed.into_iter().map(|(_, address)| address).collect())
     }
+
+    fn reference_value(
+        &self,
+        address: MergedRecordSlot,
+        work: Option<&mut RelationWork>,
+    ) -> Result<Option<Arc<Value>>, String> {
+        if let Some(value) = self.cached_value(address) {
+            return Ok(Some(value));
+        }
+        let Some(resolved) = self.record(address)? else {
+            return Ok(None);
+        };
+        if resolved.record.class == RecordClass::RawFallback {
+            return Ok(None);
+        }
+        let mut work = work;
+        if let Some(work) = work.as_deref_mut() {
+            work.before_read(resolved.record.range.len(), false)?;
+            if let Some(execution) = work.execution.as_ref() {
+                execution.check_string()?;
+            }
+        }
+        let path = self.repo.files.root.join(&resolved.file.relative_path);
+        let bytes = match read_record_range_for_search(
+            &path,
+            resolved.file.revision,
+            resolved.record.range,
+            work.as_deref().and_then(|work| work.execution.as_ref()),
+        ) {
+            Ok(bytes) => bytes,
+            Err(message) => {
+                self.record_source_failure(resolved.file, resolved.record.range, message);
+                return Ok(None);
+            }
+        };
+        if let Some(work) = work.as_deref_mut() {
+            work.source_read(bytes.len() as u64)?;
+        }
+        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            resolved.record.class,
+            &resolved.collection.source,
+            &resolved.collection.definition.schema,
+            &bytes,
+            &ScanProjection::full(false),
+            false,
+            work.as_deref().and_then(|work| work.execution.as_ref()),
+        )?;
+        let value = Arc::new(extracted.value);
+        if bytes.len() <= 64 * 1024 {
+            let shard = (address.slot.0 as usize
+                ^ address.segment.unwrap_or(0).wrapping_mul(131)
+                ^ (address.collection.0 as usize).wrapping_mul(17))
+                % self.target_values.len();
+            if let Ok(mut cache) = self.target_values[shard].lock()
+                && cache.1.saturating_add(bytes.len()) <= 512 * 1024
+            {
+                cache.1 += bytes.len();
+                cache.0.insert(address, value.clone());
+            }
+        }
+        Ok(Some(value))
+    }
+
+    pub(crate) fn reference_forward_edges(
+        &self,
+        address: MergedRecordSlot,
+        relation: RelationId,
+        work: Option<&mut RelationWork>,
+    ) -> Result<Option<LogicalReferences>, String> {
+        let Some(value) = self.reference_value(address, work)? else {
+            return Ok(None);
+        };
+        let declaration = &self.repo.collections[relation.source.0 as usize]
+            .relations
+            .get(relation.ordinal as usize)
+            .ok_or("reference relation declaration missing")?
+            .declaration;
+        logical_references(&value, &declaration.path).map(Some)
+    }
+
+    pub(crate) fn reference_backlink_sources(
+        &self,
+        relation: RelationId,
+        target_id: &str,
+        mut work: Option<&mut RelationWork>,
+    ) -> Result<Vec<MergedRecordSlot>, String> {
+        let collection = relation.source.0 as usize;
+        let declaration = &self.repo.collections[collection]
+            .relations
+            .get(relation.ordinal as usize)
+            .ok_or("reference backlink declaration missing")?
+            .declaration;
+        let mut addresses = Vec::new();
+        let base_count = self.repo.collections[collection].generation.records.len();
+        for slot in 0..base_count {
+            let slot = RecordSlot(slot as u32);
+            if self.base_active[collection].contains(slot) {
+                addresses.push(MergedRecordSlot {
+                    collection: relation.source,
+                    segment: None,
+                    slot,
+                });
+            }
+        }
+        for (segment, published) in self.segments[collection].iter().enumerate() {
+            for slot in 0..published.index.record_count() {
+                let slot = RecordSlot(slot as u32);
+                if published.active.contains(slot) {
+                    addresses.push(MergedRecordSlot {
+                        collection: relation.source,
+                        segment: Some(segment),
+                        slot,
+                    });
+                }
+            }
+        }
+        let mut keyed = Vec::with_capacity(addresses.len());
+        for address in addresses {
+            let Some(resolved) = self.record(address)? else {
+                continue;
+            };
+            keyed.push((resolved.record.id.0.to_string(), address));
+        }
+        keyed.sort_unstable_by(|left, right| left.0.cmp(&right.0));
+        let mut sources = Vec::new();
+        for (_, address) in keyed {
+            let Some(value) = self.reference_value(address, work.as_deref_mut())? else {
+                continue;
+            };
+            if logical_references(&value, &declaration.path)?
+                .values
+                .iter()
+                .any(|(id, _)| id == target_id)
+            {
+                sources.push(address);
+            }
+        }
+        Ok(sources)
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1046,6 +1185,7 @@ fn visit_merged_hop(
     cache_values: bool,
     truth: &mut Option<bool>,
     work: &mut RelationWork,
+    reference: bool,
     source_positions: &[u32],
     terminal: &mut impl FnMut(&RecordContext<'_>, &[TextSegment], &[u32]) -> Result<bool, String>,
 ) -> Result<(), String> {
@@ -1169,6 +1309,55 @@ fn visit_merged_hop(
     let relation_index = hop.relation.ordinal as usize;
     match hop.direction {
         HopDirection::Forward => {
+            if reference {
+                let Some(references) =
+                    view.reference_forward_edges(address, hop.relation, Some(&mut *work))?
+                else {
+                    merge_truth(truth, None, quantifier);
+                    return Ok(());
+                };
+                let mut selected = 0usize;
+                for (target_id, positions) in references.values {
+                    if !positions_match(&hop.selectors, &positions) {
+                        continue;
+                    }
+                    work.edge()?;
+                    selected += 1;
+                    if let Some(target) = view.resolve_id(hop.to, &target_id)? {
+                        visit_merged_hop(
+                            view,
+                            hops,
+                            depth + 1,
+                            target,
+                            quantifier,
+                            collect_text,
+                            cache_values,
+                            truth,
+                            work,
+                            true,
+                            if depth == 0 {
+                                &positions
+                            } else {
+                                source_positions
+                            },
+                            terminal,
+                        )?;
+                    } else {
+                        merge_truth(truth, None, quantifier);
+                    }
+                    if decisive(*truth, quantifier) {
+                        break;
+                    }
+                }
+                if selected == 0
+                    && (!references.present
+                        || references.null
+                        || hop.selectors.iter().any(Option::is_some))
+                {
+                    merge_truth(truth, Some(false), quantifier);
+                }
+                return Ok(());
+            }
             let (references, present, null, _, unavailable) =
                 view.forward_edges(address, relation_index)?;
             if unavailable {
@@ -1193,6 +1382,7 @@ fn visit_merged_hop(
                         cache_values,
                         truth,
                         work,
+                        reference,
                         if depth == 0 {
                             positions
                         } else {
@@ -1213,7 +1403,11 @@ fn visit_merged_hop(
         }
         HopDirection::Backlink => {
             let target_id = current.record.id.0.as_ref();
-            let sources = view.backlink_sources(hop.relation, target_id)?;
+            let sources = if reference {
+                view.reference_backlink_sources(hop.relation, target_id, Some(&mut *work))?
+            } else {
+                view.backlink_sources(hop.relation, target_id)?
+            };
             let mut selected = 0usize;
             for (position, source) in sources.into_iter().enumerate() {
                 work.backlink_probe()?;
@@ -1234,6 +1428,7 @@ fn visit_merged_hop(
                     cache_values,
                     truth,
                     work,
+                    reference,
                     source_positions,
                     terminal,
                 )?;
@@ -1255,6 +1450,7 @@ fn eval_related_term_merged(
     source_slot: MergedRecordSlot,
     source: &RecordContext<'_>,
     work: &mut RelationWork,
+    reference: bool,
 ) -> Result<Option<bool>, String> {
     let related = term
         .related
@@ -1271,6 +1467,7 @@ fn eval_related_term_merged(
         related.source_operand.is_some() && related.terminal.path.root == PathRoot::Data,
         &mut truth,
         work,
+        reference,
         &[],
         &mut |target, _, positions| {
             if let Some(source_operand) = &related.source_operand {
@@ -1298,11 +1495,12 @@ pub(crate) fn eval_filter_truth_merged(
     source: &RecordContext<'_>,
     evidence: &mut std::collections::HashSet<String>,
     work: &mut RelationWork,
+    reference: bool,
 ) -> Result<Option<bool>, String> {
     match expr {
         BoundExpr::Term(term) => {
             let result = if term.related.is_some() {
-                eval_related_term_merged(view, term, source_slot, source, work)?
+                eval_related_term_merged(view, term, source_slot, source, work, reference)?
             } else {
                 Some(eval_term(term, source)?)
             };
@@ -1330,8 +1528,15 @@ pub(crate) fn eval_filter_truth_merged(
                 if truth == Some(false) {
                     break;
                 }
-                let next =
-                    eval_filter_truth_merged(view, part, source_slot, source, &mut fields, work)?;
+                let next = eval_filter_truth_merged(
+                    view,
+                    part,
+                    source_slot,
+                    source,
+                    &mut fields,
+                    work,
+                    reference,
+                )?;
                 truth = match (truth, next) {
                     (Some(false), _) | (_, Some(false)) => Some(false),
                     (None, _) | (_, None) => None,
@@ -1347,8 +1552,15 @@ pub(crate) fn eval_filter_truth_merged(
             let mut truth = Some(false);
             for part in parts {
                 let mut fields = std::collections::HashSet::new();
-                let next =
-                    eval_filter_truth_merged(view, part, source_slot, source, &mut fields, work)?;
+                let next = eval_filter_truth_merged(
+                    view,
+                    part,
+                    source_slot,
+                    source,
+                    &mut fields,
+                    work,
+                    reference,
+                )?;
                 truth = match (truth, next) {
                     (Some(true), _) | (_, Some(true)) => Some(true),
                     (None, _) | (_, None) => None,
@@ -1367,6 +1579,7 @@ pub(crate) fn eval_filter_truth_merged(
             source,
             &mut Default::default(),
             work,
+            reference,
         )
         .map(|truth| truth.map(|value| !value)),
     }
@@ -1380,6 +1593,7 @@ pub(crate) fn eval_fts_with_relations_merged(
     source: &RecordContext<'_>,
     evidence: &mut std::collections::HashSet<String>,
     work: &mut RelationWork,
+    reference: bool,
 ) -> Result<bool, String> {
     if fts.fields.iter().all(|field| field.related.is_none()) {
         return eval_bound_fts(fts, segments, source, evidence);
@@ -1403,6 +1617,7 @@ pub(crate) fn eval_fts_with_relations_merged(
                 false,
                 &mut truth,
                 work,
+                reference,
                 &[],
                 &mut |target, target_segments, _| {
                     if borrowed_text {
@@ -1842,10 +2057,10 @@ fn read_reference_value(
 }
 
 /// Independent logical ID occurrences and presence/null state.
-struct LogicalReferences {
-    present: bool,
-    null: bool,
-    values: Vec<(String, Vec<u32>)>,
+pub(crate) struct LogicalReferences {
+    pub(crate) present: bool,
+    pub(crate) null: bool,
+    pub(crate) values: Vec<(String, Vec<u32>)>,
 }
 
 /// An intentionally separate, iterative oracle for declared ID occurrences.

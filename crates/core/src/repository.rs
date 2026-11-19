@@ -1645,7 +1645,7 @@ impl Repository {
         let query = resolved.as_ref();
         if self.has_native_segments() {
             let domains = active.unwrap_or(&self.active);
-            let result = crate::query_execution::runner::search_segmented_reference(
+            let result = crate::reference::relations::search_segmented(
                 self,
                 query,
                 domains,

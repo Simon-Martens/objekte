@@ -1046,8 +1046,10 @@ impl IndexView {
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
         self.ensure_initial_complete()?;
+        let resolved = query.resolve_current_clock()?;
+        let query = resolved.as_ref();
         if self.0.segments.iter().any(|segments| !segments.is_empty()) {
-            return crate::query_execution::runner::search_segmented_reference(
+            return crate::reference::relations::search_segmented(
                 self.repository(),
                 query,
                 &self.0.active,

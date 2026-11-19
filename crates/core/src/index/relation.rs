@@ -331,6 +331,12 @@ impl RelationContribution {
         &self.declaration
     }
 
+    #[cfg(test)]
+    pub(crate) fn remove_references_to_for_test(&mut self, target_id: &str) {
+        self.references
+            .retain(|reference| reference.target_id != target_id);
+    }
+
     pub(crate) fn record_count(&self) -> u32 {
         self.record_count
     }
