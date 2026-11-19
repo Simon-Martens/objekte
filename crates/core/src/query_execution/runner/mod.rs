@@ -98,6 +98,8 @@ use ordered::{
     offer_cached_key, posting_order_eligible, read_lifecycle_ordered_record,
     try_inferred_order_page, try_inferred_segment_order_page, try_stored_order_page,
 };
+#[cfg(test)]
+pub(crate) use relations::arm_reference_row_visits;
 use relations::search_segmented_relations;
 pub(crate) use relations::{
     explain_segmented, search_segmented_reference, search_segmented_reference_records,

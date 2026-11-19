@@ -1,8 +1,25 @@
+use std::sync::Arc;
 use std::sync::atomic::Ordering;
 
+#[cfg(test)]
+use crate::lifecycle::maintenance::MaintenanceJob;
 use crate::lifecycle::maintenance::MaintenanceTask;
 use crate::lifecycle::reconciliation::{ReconciliationReport, ReconciliationTask};
 use crate::lifecycle::{Index, IndexError};
+
+#[cfg(test)]
+fn observe_quiesce_slot(index: &Index, operation: Option<&Arc<MaintenanceJob>>) {
+    let sender = index
+        .0
+        .quiesce_slot_observation
+        .lock()
+        .ok()
+        .and_then(|sender| sender.clone());
+    if let Some(sender) = sender {
+        let identity = operation.map(|job| Arc::as_ptr(job) as usize);
+        let _ = sender.send(identity);
+    }
+}
 impl Index {
     /// Prevent new data publications, stop recurring work, and wait for every
     /// currently owned mutation worker. The resulting view is stable for a
@@ -17,14 +34,18 @@ impl Index {
             self.0.quiescing.store(true, Ordering::Release);
         }
         self.stop_periodic_reconciliation()?;
-        let operation = self
-            .0
-            .maintenance_operation
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .take();
-        let operation_error = if let Some(job) = operation {
-            let task = MaintenanceTask(job);
+        let operation = {
+            let slot = self
+                .0
+                .maintenance_operation
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            slot.clone()
+        };
+        #[cfg(test)]
+        observe_quiesce_slot(self, operation.as_ref());
+        let operation_error = if let Some(job) = operation.as_ref() {
+            let task = MaintenanceTask(Arc::clone(job));
             task.cancel();
             match task.wait() {
                 Ok(_) | Err(IndexError::Cancelled) => None,
@@ -33,6 +54,19 @@ impl Index {
         } else {
             None
         };
+        if let Some(completed) = operation.as_ref() {
+            let mut slot = self
+                .0
+                .maintenance_operation
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            if slot
+                .as_ref()
+                .is_some_and(|current| Arc::ptr_eq(current, completed))
+            {
+                *slot = None;
+            }
+        }
         let current = self
             .0
             .maintenance

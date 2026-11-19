@@ -23,6 +23,10 @@ use crate::schema::{operation::BindingOperation, operation::Transform};
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
 
+pub(crate) fn stored_column_matches_config(column: &SortColumn, config: &SortConfig) -> bool {
+    column.locale == config.locale && column.options == config.options
+}
+
 #[cfg(test)]
 thread_local! {
     static REFERENCE_STORED_SORT_PREPARATIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
@@ -50,6 +54,7 @@ pub(crate) struct ComputedSort {
     pub reducer: Option<SortReducer>,
     transform: SortTransform,
     collator: CollatorBorrowed<'static>,
+    sort_config: SortConfig,
 }
 
 /// A bound, stable scalar transformation rather than an exact matcher.
@@ -372,7 +377,7 @@ impl<'a> BoundSort<'a> {
                         target
                             .definition
                             .sort_overrides
-                            .get(&path.field)
+                            .get(&terminal.field)
                             .cloned()
                             .unwrap_or_else(|| SortConfig {
                                 locale: target.definition.sort_locale.clone(),
@@ -392,6 +397,7 @@ impl<'a> BoundSort<'a> {
                             reducer: expression.reducer,
                             transform,
                             collator,
+                            sort_config: config.clone(),
                         })),
                         config.locale,
                         config.options,
@@ -473,23 +479,28 @@ impl<'a> BoundSort<'a> {
         address: MergedRecordSlot,
         ctx: &RecordContext<'_>,
         target_cache: &mut MergedSortTargetCache,
-    ) -> Result<Vec<(SortKey, bool, SortOptions)>, String> {
-        self.terms[collection_index]
+    ) -> Result<Option<Vec<(SortKey, bool, SortOptions)>>, String> {
+        let mut parts = Vec::new();
+        for term in self.terms[collection_index]
             .as_ref()
             .ok_or("sort collection is not selected")?
             .iter()
-            .map(|term| {
-                let key = match &term.source {
-                    BoundSortSource::Stored(_) => {
-                        return Err("reference stored sort is not source-derived".into());
-                    }
-                    BoundSortSource::Computed(computed) => {
-                        computed.key_merged(view, address, ctx, target_cache, true)?
-                    }
-                };
-                Ok((key, term.descending, term.options))
-            })
-            .collect()
+        {
+            let key = match &term.source {
+                BoundSortSource::Stored(_) => {
+                    return Err("reference stored sort is not source-derived".into());
+                }
+                BoundSortSource::Computed(computed) => {
+                    let Some(key) = computed.key_merged(view, address, ctx, target_cache, true)?
+                    else {
+                        return Ok(None);
+                    };
+                    key
+                }
+            };
+            parts.push((key, term.descending, term.options));
+        }
+        Ok(Some(parts))
     }
 }
 
@@ -547,10 +558,11 @@ impl ComputedSort {
         ctx: &RecordContext<'_>,
         cache: &mut MergedSortTargetCache,
         reference: bool,
-    ) -> Result<SortKey, String> {
+    ) -> Result<Option<SortKey>, String> {
         let Some((hops, terminal)) = &self.related else {
-            return self.key_local(ctx);
+            return self.key_local(ctx).map(Some);
         };
+        let mut unverifiable = false;
         let mut reduced = SortAccumulator::new(self.reducer);
         self.visit_related_merged(
             view,
@@ -562,8 +574,13 @@ impl ComputedSort {
             cache,
             &mut reduced,
             reference,
+            &mut unverifiable,
         )?;
-        reduced.finish(self)
+        if unverifiable {
+            Ok(None)
+        } else {
+            reduced.finish(self).map(Some)
+        }
     }
 
     /// A simple one-hop related sort can reuse the target's resident key.
@@ -572,6 +589,7 @@ impl ComputedSort {
     pub(crate) fn direct_related_target_column(&self, hop: &BoundRelationHop) -> Option<&str> {
         let (hops, terminal) = self.related.as_ref()?;
         if hops.as_slice() != std::slice::from_ref(hop)
+            || !hop.selectors.is_empty()
             || self.reducer.is_some()
             || !matches!(self.transform, SortTransform::Identity)
             || terminal.field.root != PathRoot::Data
@@ -586,6 +604,10 @@ impl ComputedSort {
             return None;
         }
         Some(&terminal.display)
+    }
+
+    pub(crate) fn sort_config(&self) -> &SortConfig {
+        &self.sort_config
     }
 
     pub(crate) fn key_from_related_target_value(
@@ -621,7 +643,11 @@ impl ComputedSort {
         cache: &mut MergedSortTargetCache,
         reduced: &mut SortAccumulator,
         reference: bool,
+        unverifiable: &mut bool,
     ) -> Result<(), String> {
+        if *unverifiable {
+            return Ok(());
+        }
         let Some(current) = view.record(address)? else {
             reduced.observe_unavailable()?;
             return Ok(());
@@ -696,6 +722,9 @@ impl ComputedSort {
                             .path,
                         &mut positions,
                         &mut |id, positions| {
+                            if *unverifiable {
+                                return Ok(());
+                            }
                             if !positions_match(&hop.selectors, positions) {
                                 return Ok(());
                             }
@@ -712,6 +741,7 @@ impl ComputedSort {
                                         cache,
                                         reduced,
                                         true,
+                                        unverifiable,
                                     )
                                 } else {
                                     reduced.observe_unavailable()
@@ -726,13 +756,24 @@ impl ComputedSort {
                 if reference
                     && !matches!(self.reducer, Some(SortReducer::First | SortReducer::Last))
                 {
-                    let Some(references) =
-                        view.reference_forward_edges(address, hop.relation, None)?
+                    let mut discovery = crate::relation_query::RelationWork::default();
+                    discovery.attach(cache.execution.as_ref());
+                    let Some(references) = view.reference_forward_edges_with_source(
+                        address,
+                        hop.relation,
+                        source_value,
+                        Some(&mut discovery),
+                    )?
                     else {
                         reduced.observe_unavailable()?;
                         return Ok(());
                     };
+                    cache.relation_source_reads += discovery.source_reads;
+                    cache.relation_source_bytes += discovery.bytes_read;
                     for (id, positions) in references.values {
+                        if *unverifiable {
+                            return Ok(());
+                        }
                         if !positions_match(&hop.selectors, &positions) {
                             continue;
                         }
@@ -748,6 +789,7 @@ impl ComputedSort {
                                 cache,
                                 reduced,
                                 true,
+                                unverifiable,
                             )?;
                         } else {
                             reduced.observe_unavailable()?;
@@ -782,6 +824,9 @@ impl ComputedSort {
                             .path,
                         &mut positions,
                         &mut |id, positions| {
+                            if *unverifiable {
+                                return Ok(());
+                            }
                             if !positions_match(&hop.selectors, positions) {
                                 return Ok(());
                             }
@@ -798,6 +843,7 @@ impl ComputedSort {
                                         cache,
                                         reduced,
                                         reference,
+                                        unverifiable,
                                     )
                                 } else {
                                     reduced.observe_unavailable()
@@ -809,6 +855,9 @@ impl ComputedSort {
                     )?;
                 } else {
                     for (id, positions) in edges {
+                        if *unverifiable {
+                            return Ok(());
+                        }
                         if !positions_match(&hop.selectors, positions) {
                             continue;
                         }
@@ -824,6 +873,7 @@ impl ComputedSort {
                                 cache,
                                 reduced,
                                 reference,
+                                unverifiable,
                             )?;
                         } else {
                             reduced.observe_unavailable()?;
@@ -838,18 +888,25 @@ impl ComputedSort {
                 let sources = if reference {
                     let mut discovery = crate::relation_query::RelationWork::default();
                     discovery.attach(cache.execution.as_ref());
-                    let sources = view.reference_backlink_sources(
+                    let lookup = view.reference_backlink_sources_with_completeness(
                         hop.relation,
                         &current.record.id.0,
                         Some(&mut discovery),
                     )?;
                     cache.relation_source_reads += discovery.source_reads;
                     cache.relation_source_bytes += discovery.bytes_read;
-                    sources
+                    if !lookup.complete {
+                        *unverifiable = true;
+                        return Ok(());
+                    }
+                    lookup.sources
                 } else {
                     view.backlink_sources(hop.relation, &current.record.id.0)?
                 };
                 for (position, source) in sources.into_iter().enumerate() {
+                    if *unverifiable {
+                        return Ok(());
+                    }
                     cache.edge()?;
                     if hop.selectors.first().is_some_and(|selector| {
                         selector.is_some_and(|index| index as usize != position)
@@ -866,6 +923,7 @@ impl ComputedSort {
                         cache,
                         reduced,
                         reference,
+                        unverifiable,
                     )?;
                 }
             }

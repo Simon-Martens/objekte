@@ -76,6 +76,8 @@ impl Index {
             periodic: Mutex::new(None),
             #[cfg(test)]
             maintenance_worker_hook: Mutex::new(None),
+            #[cfg(test)]
+            quiesce_slot_observation: Mutex::new(None),
         }))
     }
 }

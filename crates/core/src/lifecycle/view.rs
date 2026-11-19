@@ -1048,20 +1048,15 @@ impl IndexView {
         self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
         let query = resolved.as_ref();
-        if self.0.segments.iter().any(|segments| !segments.is_empty()) {
-            return crate::reference::relations::search_segmented(
-                self.repository(),
-                query,
-                &self.0.active,
-                &self.0.segments,
-                &self.0.catalog,
-                self.revision(),
-            )
-            .map(|result| self.stamp_result(result));
-        }
-        self.repository()
-            .search_reference_with_active(query, Some(&self.0.active))
-            .map(|result| self.stamp_result(result))
+        crate::reference::relations::search_segmented(
+            self.repository(),
+            query,
+            &self.0.active,
+            &self.0.segments,
+            &self.0.catalog,
+            self.revision(),
+        )
+        .map(|result| self.stamp_result(result))
     }
 
     pub fn search_reference_with_parameters(

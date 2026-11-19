@@ -159,3 +159,136 @@ fn maintenance_admission_shares_only_the_real_worker() {
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn concurrent_quiesce_and_shutdown_wait_for_the_same_worker() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-concurrent-shutdown-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/records.jsonl"),
+        b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n",
+    )
+    .unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let pinned = index.view().unwrap();
+    let pinned_revision = pinned.revision();
+    let retired = pinned
+        .file_handle_for_path(std::path::Path::new("data/records.jsonl"))
+        .unwrap();
+    index.delete_file(retired).unwrap();
+    std::fs::remove_file(root.join("data/records.jsonl")).unwrap();
+    let revision = index.view().unwrap().revision();
+
+    let (reached, arrivals) = mpsc::channel();
+    let (release, released) = mpsc::channel();
+    *index.0.maintenance_worker_hook.lock().unwrap() =
+        Some(std::sync::Arc::new(MaintenanceWorkerEntryHook {
+            reached,
+            release: std::sync::Mutex::new(released),
+        }));
+    let mut release_guard = ReleaseGuard {
+        release: Some(release),
+    };
+    let compaction = index.start_compaction().unwrap();
+    assert_eq!(
+        arrivals
+            .recv_timeout(HOOK_TIMEOUT)
+            .expect("compaction worker did not reach its entry barrier"),
+        MaintenanceOperation::Compact
+    );
+    let expected_identity = std::sync::Arc::as_ptr(&compaction.0) as usize;
+
+    let (observed_slot, observations) = mpsc::channel();
+    *index.0.quiesce_slot_observation.lock().unwrap() = Some(observed_slot);
+    let (first_done, first_result) = mpsc::channel();
+    let first_owner = index.clone();
+    let first = std::thread::spawn(move || {
+        let _ = first_done.send(first_owner.quiesce());
+    });
+    assert_eq!(
+        observations
+            .recv_timeout(HOOK_TIMEOUT)
+            .expect("first quiesce did not inspect the maintenance slot"),
+        Some(expected_identity)
+    );
+
+    let (second_done, second_result) = mpsc::channel();
+    let second_owner = index.clone();
+    let second = std::thread::spawn(move || {
+        let _ = second_done.send(second_owner.shutdown());
+    });
+    assert_eq!(
+        observations
+            .recv_timeout(HOOK_TIMEOUT)
+            .expect("shutdown did not inspect the maintenance slot"),
+        Some(expected_identity)
+    );
+
+    assert!(matches!(
+        first_result.try_recv(),
+        Err(mpsc::TryRecvError::Empty)
+    ));
+    assert!(matches!(
+        second_result.try_recv(),
+        Err(mpsc::TryRecvError::Empty)
+    ));
+    assert!(matches!(
+        index.start_compaction(),
+        Err(IndexError::Cancelled)
+    ));
+    assert!(matches!(
+        index.start_reconcile(),
+        Err(IndexError::Cancelled)
+    ));
+    assert_eq!(index.view().unwrap().revision(), revision);
+
+    *index.0.maintenance_worker_hook.lock().unwrap() = None;
+    release_guard.release();
+    first_result
+        .recv_timeout(HOOK_TIMEOUT)
+        .expect("first quiesce did not return")
+        .expect("first quiesce failed");
+    second_result
+        .recv_timeout(HOOK_TIMEOUT)
+        .expect("shutdown did not return")
+        .expect("shutdown failed");
+    first.join().expect("first quiesce harness panicked");
+    second.join().expect("shutdown harness panicked");
+
+    assert_eq!(
+        compaction.progress().unwrap().phase,
+        MaintenancePhase::Cancelled
+    );
+    assert!(matches!(compaction.wait(), Err(IndexError::Cancelled)));
+    assert_eq!(index.view().unwrap().revision(), revision);
+    assert_eq!(pinned.revision(), pinned_revision);
+    assert!(matches!(
+        arrivals.try_recv(),
+        Err(mpsc::TryRecvError::Empty | mpsc::TryRecvError::Disconnected)
+    ));
+    index.shutdown().unwrap();
+
+    index.resume_after_quiesce().unwrap();
+    let rebuilt = wait_bounded(index.start_rebuild().unwrap());
+    assert!(matches!(rebuilt, MaintenanceReport::Rebuild(_)));
+
+    drop(pinned);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

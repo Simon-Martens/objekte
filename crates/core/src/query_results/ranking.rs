@@ -465,19 +465,23 @@ pub(crate) fn relation_rank_key_merged(
     cache: &mut MergedSortTargetCache,
     filter: Option<&BoundExpr>,
     reference: bool,
-) -> Result<RankKey, String> {
+) -> Result<Option<RankKey>, String> {
     let collection_index = address.collection.0 as usize;
     let terms = sort.bound.terms[collection_index]
         .as_ref()
         .ok_or("merged sort collection missing")?;
     if reference {
-        return Ok(RankKey {
-            parts: sort
-                .bound
-                .reference_keys(repo, collection_index, view, address, ctx, cache)?,
+        let Some(parts) =
+            sort.bound
+                .reference_keys(repo, collection_index, view, address, ctx, cache)?
+        else {
+            return Ok(None);
+        };
+        return Ok(Some(RankKey {
+            parts,
             collection: repo.collections[collection_index].definition.name.clone(),
             id: ctx.record.id.0.to_string(),
-        });
+        }));
     }
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
@@ -509,20 +513,22 @@ pub(crate) fn relation_rank_key_merged(
                 {
                     key
                 } else {
-                    computed.key_merged(view, address, ctx, cache, false)?
+                    computed
+                        .key_merged(view, address, ctx, cache, false)?
+                        .ok_or("optimized merged sort key is unavailable")?
                 }
             }
         };
         parts.push((key, term.descending, term.options));
     }
-    Ok(RankKey {
+    Ok(Some(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
         id: ctx.record.id.0.to_string(),
-    })
+    }))
 }
 
-fn cached_filter_target_sort_key(
+pub(crate) fn cached_filter_target_sort_key(
     view: &crate::relation_query::MergedRelationView<'_>,
     address: crate::relation_query::MergedRecordSlot,
     computed: &crate::query::sort_binding::ComputedSort,
@@ -541,6 +547,11 @@ fn cached_filter_target_sort_key(
         return Ok(None);
     }
     if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+        return Ok(None);
+    }
+    if hop.direction != crate::query::binding::relation::HopDirection::Forward
+        || !hop.selectors.is_empty()
+    {
         return Ok(None);
     }
     let (edges, _present, _null, _empty, unavailable) =
@@ -589,7 +600,7 @@ fn filter_projects_related_field(filter: &BoundExpr, field: &str) -> bool {
     }
 }
 
-fn direct_related_target_sort_key(
+pub(crate) fn direct_related_target_sort_key(
     repo: &Repository,
     view: &crate::relation_query::MergedRelationView<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
@@ -603,6 +614,11 @@ fn direct_related_target_sort_key(
         return Ok(None);
     };
     if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+        return Ok(None);
+    }
+    if hop.direction != crate::query::binding::relation::HopDirection::Forward
+        || !hop.selectors.is_empty()
+    {
         return Ok(None);
     }
     let Some(path) = computed.direct_related_target_column(hop) else {
@@ -619,6 +635,7 @@ fn direct_related_target_sort_key(
     let Some(target) = view.resolve_id(hop.to, target_id)? else {
         return Ok(None);
     };
+    let config = computed.sort_config();
     let target_index = target.collection.0 as usize;
     let column = if let Some(segment_index) = target.segment {
         let Ok(column) = segments[target_index][segment_index]
@@ -635,6 +652,9 @@ fn direct_related_target_sort_key(
         };
         column
     };
+    if !crate::query::sort_binding::stored_column_matches_config(column, config) {
+        return Ok(None);
+    }
     Ok(Some(
         column
             .keys

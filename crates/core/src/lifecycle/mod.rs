@@ -318,6 +318,8 @@ struct IndexInner {
     periodic: Mutex<Option<PeriodicReconciliation>>,
     #[cfg(test)]
     maintenance_worker_hook: Mutex<Option<Arc<maintenance::MaintenanceWorkerEntryHook>>>,
+    #[cfg(test)]
+    quiesce_slot_observation: Mutex<Option<std::sync::mpsc::Sender<Option<usize>>>>,
 }
 
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
