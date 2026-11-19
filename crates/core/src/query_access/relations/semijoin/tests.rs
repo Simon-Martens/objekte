@@ -642,7 +642,12 @@ fn emit_relation_probe(
     );
 }
 
-fn emit_relation_timing(case_id: &str, repo: &Repository, request: &Query, repetitions: usize) {
+fn emit_relation_timing(
+    case_id: &str,
+    repo: &Repository,
+    request: &Query,
+    repetitions: usize,
+) {
     if std::env::var_os("OBJEKTE_RELATION_TIMING").is_none() {
         return;
     }
