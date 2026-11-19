@@ -6,6 +6,39 @@ use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
+fn emit_segment_repair_timing(
+    case_id: &str,
+    repetitions: usize,
+    mut run: impl FnMut() -> SearchResult,
+) {
+    if std::env::var_os("OBJEKTE_REPAIR_TIMING").is_none() {
+        return;
+    }
+    run();
+    let mut samples = Vec::with_capacity(repetitions);
+    let mut result = None;
+    for _ in 0..repetitions {
+        let started = std::time::Instant::now();
+        let current = run();
+        samples.push(started.elapsed().as_nanos() as u64);
+        result = Some(current);
+    }
+    samples.sort_unstable();
+    let result = result.unwrap();
+    println!(
+        "SEGMENT_REPAIR_TIMING {}",
+        serde_json::json!({
+            "case_id": case_id,
+            "repetitions": repetitions,
+            "samples_ns": samples,
+            "median_ns": samples[samples.len() / 2],
+            "count": result.count,
+            "ids": result.hits.iter().map(|hit| hit.record_id.as_str()).collect::<Vec<_>>(),
+            "counters": result.counters,
+        })
+    );
+}
+
 #[test]
 fn gate_a_public_search_selects_either_provider_in_either_order() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
@@ -4070,6 +4103,19 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
         ["000", "001", "002", "003", "004"]
     );
     assert_eq!(super::segment_slot_evidence_calls(), 5);
+    emit_segment_repair_timing("exact_segment_page_no_cache", 21, || {
+        super::search_segmented_with_context(
+            &repo,
+            &paged,
+            &base_active,
+            &repo.segments,
+            &catalog,
+            IndexRevision(1),
+            &context,
+        )
+        .map_err(|error| error.message)
+        .unwrap()
+    });
 
     let lifecycle_cache = Mutex::new(VerifiedCache::new(1 << 20));
     let cache_scope = LifecycleCacheScope {

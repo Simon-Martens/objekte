@@ -3151,6 +3151,39 @@ fn emit_relation_timing(case_id: &str, repo: &Repository, request: &Query, repet
     );
 }
 
+fn emit_segment_repair_timing(
+    case_id: &str,
+    repetitions: usize,
+    mut run: impl FnMut() -> crate::query_results::SearchResult,
+) {
+    if std::env::var_os("OBJEKTE_REPAIR_TIMING").is_none() {
+        return;
+    }
+    run();
+    let mut samples = Vec::with_capacity(repetitions);
+    let mut result = None;
+    for _ in 0..repetitions {
+        let started = std::time::Instant::now();
+        let current = run();
+        samples.push(started.elapsed().as_nanos() as u64);
+        result = Some(current);
+    }
+    samples.sort_unstable();
+    let result = result.unwrap();
+    println!(
+        "SEGMENT_REPAIR_TIMING {}",
+        serde_json::json!({
+            "case_id": case_id,
+            "repetitions": repetitions,
+            "samples_ns": samples,
+            "median_ns": samples[samples.len() / 2],
+            "count": result.count,
+            "ids": result.hits.iter().map(|hit| hit.record_id.as_str()).collect::<Vec<_>>(),
+            "counters": result.counters,
+        })
+    );
+}
+
 fn ids(repo: &Repository, request: Query) -> Vec<String> {
     let optimized = repo.search(&request).unwrap();
     let reference = repo.search_reference(&request).unwrap();
@@ -3699,6 +3732,80 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
         std::collections::HashSet::from(["entry.title".into(), "local_title".into()])
     );
     assert_eq!(merged_fields, base_fields);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn broad_relation_or_filter_uses_filter_only_pruning() {
+    let (root, definitions) = fixture();
+    let repo = Arc::new(
+        crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            definitions,
+            RepositoryOptions {
+                verified_cache_bytes: 0,
+                ..Default::default()
+            },
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap(),
+    );
+    let catalog =
+        crate::lifecycle::catalog::FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+    let base_active = repo.active.clone();
+    let revision = crate::lifecycle::IndexRevision(1);
+    let request = query(
+        "mentions",
+        Some("@file.status = 1 || entry.title = 'Hymn'"),
+        None,
+        None,
+        true,
+    );
+    let result = crate::query_execution::runner::search_segmented(
+        &repo,
+        &request,
+        &base_active,
+        &repo.segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
+    emit_segment_repair_timing("broad_filter_no_relation_prune", 21, || {
+        crate::query_execution::runner::search_segmented(
+            &repo,
+            &request,
+            &base_active,
+            &repo.segments,
+            &catalog,
+            revision,
+        )
+        .unwrap()
+    });
+    let reference = crate::query_execution::runner::search_segmented_reference(
+        &repo,
+        &request,
+        &base_active,
+        &repo.segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
+    assert_eq!(result.count, reference.count);
+    assert_eq!(result.hits, reference.hits);
+    let traces = crate::query_execution::runner::explain_segmented(
+        &repo,
+        &request,
+        &base_active,
+        &repo.segments,
+        revision,
+    )
+    .unwrap();
+    assert!(traces[0].terms.iter().all(|term| !matches!(
+        term.selected.kind,
+        crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst
+            | crate::query_execution::restrictions::AccessPathKind::RelationSourceRestricted
+    )));
     std::fs::remove_dir_all(root).unwrap();
 }
 
