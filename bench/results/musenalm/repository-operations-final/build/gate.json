@@ -1,0 +1,25 @@
+{
+  "revision": "3bf4c1f7c9167bfed012fe7011c553bc72a16dd9",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "binary": "/home/simon/source/objekte-integration-core-repository-operations-and-state/target/release/examples/bench_build_musenalm",
+  "baseline": null,
+  "summary": {
+    "ascii": {
+      "samples": 3,
+      "median_wall_ns": 650233878,
+      "median_peak_resident_bytes": 652931072,
+      "min_wall_ns": 649350201,
+      "max_wall_ns": 796331748,
+      "index_signature_sha256": "48c51070ba30ef89b88308d2e538d8ad60beed691335869e3452bc9fd5fbabc5"
+    },
+    "unicode": {
+      "samples": 3,
+      "median_wall_ns": 710167759,
+      "median_peak_resident_bytes": 668315648,
+      "min_wall_ns": 683055715,
+      "max_wall_ns": 731282868,
+      "index_signature_sha256": "1555c1a08d357028c96e8455706f68831c967d7042de83244db064bdbb1e06bb"
+    }
+  },
+  "failures": []
+}
