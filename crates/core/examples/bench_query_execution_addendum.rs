@@ -375,6 +375,113 @@ fn residual_order_cases() -> Result<Vec<serde_json::Value>, String> {
     Ok(results)
 }
 
+fn indexed_or_case() -> Result<serde_json::Value, String> {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-addendum-or-{}-{}",
+        std::process::id(),
+        SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut source = String::new();
+    for score in 0..1000 {
+        source.push_str(&format!(
+            r#"{{"a":{},"b":{},"score":{score}}}"#,
+            score % 3 == 0 || score % 3 == 2,
+            score % 3 == 1 || score % 3 == 2
+        ));
+        source.push('\n');
+    }
+    std::fs::write(root.join("data/all.jsonl"), source).unwrap();
+    let mut schema = Schema::default();
+    for name in ["a", "b"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::Bool,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![FieldPath::parse("score").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())?;
+    let view = index.view().map_err(|error| error.to_string())?;
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || b = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("score", false)],
+            limit: 50,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let expected = view.search_reference(&query)?;
+    let mut samples = Vec::new();
+    let mut actual = None;
+    for _ in 0..21 {
+        let started = Instant::now();
+        let result = view.search(&query)?;
+        samples.push(started.elapsed().as_nanos() as u64);
+        actual = Some(result);
+    }
+    let actual = actual.ok_or("missing OR result")?;
+    if actual.hits != expected.hits || actual.count != expected.count {
+        return Err("OR case differs from reference".into());
+    }
+    samples.sort_unstable();
+    drop(view);
+    index.shutdown().map_err(|error| error.to_string())?;
+    std::fs::remove_dir_all(root).unwrap();
+    Ok(serde_json::json!({
+        "case": "indexed-heterogeneous-or",
+        "median_ns": samples[samples.len() / 2],
+        "count": actual.count,
+        "counters": actual.counters,
+    }))
+}
+
 fn main() -> Result<(), String> {
     let root = std::env::args()
         .nth(1)
@@ -402,5 +509,6 @@ fn main() -> Result<(), String> {
     for result in residual_order_cases()? {
         println!("{result}");
     }
+    println!("{}", indexed_or_case()?);
     Ok(())
 }
