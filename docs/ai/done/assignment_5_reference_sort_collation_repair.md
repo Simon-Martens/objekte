@@ -76,9 +76,38 @@ No separate benchmark was required. The change selects an existing logical
 configuration on the reference path and does not add production source reads,
 copies, or index data.
 
+### R6 integration validation
+
+- Source report head: `a6d89a820da7557781c37540684910d161ebc0b0`
+- Tested R6 merge revision: `601a8e597513701d5933094eece7b0ad9ce555e2`
+- R6 branch: `repair/core-lifecycle-coordination`
+
+The corrected collation repair merged into the reviewed R6 head without
+conflict. The combined tree passed:
+
+- `cargo fmt --all -- --check`
+- `cargo check --locked --workspace --all-targets`
+- `cargo test --locked --workspace` (594 core unit tests passed, 16 ignored,
+  plus all workspace integration and doc tests)
+- `cargo test --locked -p objekte-search-core --all-features` (595 core unit
+  tests passed, 16 ignored, plus all integration and doc tests)
+- `RUSTDOCFLAGS='-D rustdoc::broken_intra_doc_links' cargo doc --locked --workspace --no-deps`
+- `cargo test --locked -p objekte-search-core --lib lifecycle::` (88 passed,
+  6 ignored on the clean full-suite rerun)
+
+One initial lifecycle-suite run hit the bounded scheduling timeout in
+`lifecycle::initial::tests::private_final_drain_consumes_worker_error_before_returning`.
+That test passed alone and passed again in the successful complete lifecycle
+rerun.
+
+The ignored release regression used the default record count with the
+environment override unset. It reported `records=262144`, `attempts=2`,
+`before=262146`, `after=262145`, `retired=1`, and exactly one passing test.
+
 ### Review notes
 
-No unresolved functional issue or blocked check remains. The report-only commit
-follows tested code commit
-`d9c44623c1274217c2ad8c9c3ec572c50e34d00c`; its only source delta is moving
-this specification to `done/` and appending this report.
+No unresolved functional issue or blocked check remains. The source report-only
+commit follows tested code commit
+`d9c44623c1274217c2ad8c9c3ec572c50e34d00c`. This R6 report-only commit follows
+tested merge `601a8e597513701d5933094eece7b0ad9ce555e2`. Each report commit's
+only delta is completion documentation.
