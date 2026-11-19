@@ -935,19 +935,17 @@ fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries
             })
             .unwrap();
     }
-    let repo = Arc::new(
-        crate::lifecycle::Index::build_repository_for_test(
-            &root,
-            vec![definition],
-            crate::repository::configuration::RepositoryOptions {
-                verified_cache_bytes: 0,
-                ..Default::default()
-            },
-            crate::source::registry::SourceRegistry::builtin(),
-        )
-        .map_err(|error| error.to_string())
-        .unwrap(),
-    );
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        crate::repository::configuration::RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
     let make_query = |filter: &str| Query {
         collections: vec!["data".into()],
         fts: None,
