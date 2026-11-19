@@ -7000,6 +7000,147 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
 }
 
 #[test]
+fn exact_stored_page_calculates_identical_segment_restrictions_once() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-restriction-once-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, kind, score) in [
+        ("a", "match", 2),
+        ("b", "other", 4),
+        ("c", "match", 1),
+        ("d", "other", 3),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"kind":"{kind}","score":{score}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("score").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::configuration::RepositoryOptions {
+            verified_cache_bytes: 0,
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let first = Arc::clone(&repo.segments[0][0]);
+    repo.segments[0] = Arc::new(vec![
+        first,
+        Arc::new(crate::index::segment::PublishedSegment {
+            id: crate::index::segment::SegmentId::new(4_294_967_298),
+            index: Arc::clone(&repo.segments[0][0].index),
+            active: ActiveRecords::from_bitmap(
+                repo.segments[0][0].index.record_count(),
+                RoaringBitmap::new(),
+            )
+            .unwrap(),
+        }),
+    ]);
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(view.0.segments[0].len(), 2);
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("kind = 'match'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("score", false)],
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let before = (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    );
+    let actual = view.search(&query).unwrap();
+    let after_search = (
+        crate::query::prepared::production_prepare_calls() - before.0,
+        crate::query::sort_binding::production_bound_sort_calls() - before.1,
+        crate::query_execution::restrictions::predicate_bounds_calls() - before.2,
+    );
+    assert_eq!(after_search, (1, 1, 2), "public page restriction work");
+    assert_eq!(actual.count, None);
+    assert_eq!(actual.hits, view.search_reference(&query).unwrap().hits);
+
+    let before_stream = (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    );
+    let outcome = view
+        .search_stream(
+            &query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(
+        (
+            crate::query::prepared::production_prepare_calls() - before_stream.0,
+            crate::query::sort_binding::production_bound_sort_calls() - before_stream.1,
+            crate::query_execution::restrictions::predicate_bounds_calls() - before_stream.2,
+        ),
+        (1, 1, 2)
+    );
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn typed_temporal_fields_survive_postings_payload_and_reopen() {
     let root = std::env::temp_dir().join(format!("objekte-temporal-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();

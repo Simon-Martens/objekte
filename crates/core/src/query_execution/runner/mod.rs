@@ -1942,6 +1942,26 @@ fn search_segmented_impl(
         return Ok(result);
     }
     if !has_relations
+        && base_active.iter().all(|active| active.len() == 0)
+        && context.is_none()
+        && retained_budget.is_none()
+        && cache_key.is_none()
+        && query.options.return_mode == ReturnMode::Locator
+        && let Some(result) = try_exact_segment_ordered_page(
+            repo,
+            query,
+            &sort,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            &prepared.collections,
+            &WorkCounters::default(),
+        )?
+    {
+        return Ok(result);
+    }
+    if !has_relations
         && let Some(result) = try_lifecycle_ordered_page(
             repo,
             query,
