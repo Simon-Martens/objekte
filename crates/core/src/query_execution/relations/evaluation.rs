@@ -140,22 +140,7 @@ pub(crate) fn eval_filter_truth(
                 } else {
                     Some(eval_term(term, ctx)?)
                 };
-                if result == Some(true)
-                    && term.derived == crate::query::binding::filter::Derived::None
-                    && !matches!(
-                        term.operator,
-                        crate::query::Operator::Ne | crate::query::Operator::NotContains
-                    )
-                    && let Some(fields) = fields
-                {
-                    fields.insert(term.query_path.display.clone());
-                    if let Some(rhs) = &term.rhs {
-                        fields.insert(rhs.query_path.display.clone());
-                    }
-                    if let Some(related) = &term.related {
-                        fields.insert(related.evidence_path.clone());
-                    }
-                }
+                emit_bound_filter_evidence(term, result, fields);
                 Ok(result)
             }
             BoundExpr::And(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {
@@ -187,6 +172,35 @@ pub(crate) fn eval_filter_truth_membership(
             unreachable!("Boolean leaf evaluator received a branch node")
         }
     })
+}
+
+fn emit_bound_filter_evidence(
+    term: &BoundTerm,
+    result: Option<bool>,
+    evidence: Option<&mut std::collections::HashSet<String>>,
+) {
+    let Some(evidence) = evidence else {
+        return;
+    };
+    if result != Some(true)
+        || term.derived != crate::query::binding::filter::Derived::None
+        || matches!(
+            term.operator,
+            crate::query::Operator::Ne | crate::query::Operator::NotContains
+        )
+    {
+        return;
+    }
+    evidence.insert(term.query_path.display.clone());
+    if let Some(rhs) = &term.rhs {
+        evidence.insert(rhs.query_path.display.clone());
+    }
+    if let Some(related) = &term.related {
+        if let Some(source_operand) = &related.source_operand {
+            evidence.insert(source_operand.query_path.display.clone());
+        }
+        evidence.insert(related.evidence_path.clone());
+    }
 }
 
 /// Evaluate selected local and relation FTS fields with source identity intact.
@@ -762,22 +776,7 @@ pub(crate) fn eval_filter_truth_merged(
                 } else {
                     Some(eval_term(term, source)?)
                 };
-                if result == Some(true)
-                    && term.derived == crate::query::binding::filter::Derived::None
-                    && !matches!(
-                        term.operator,
-                        crate::query::Operator::Ne | crate::query::Operator::NotContains
-                    )
-                    && let Some(fields) = fields
-                {
-                    fields.insert(term.query_path.display.clone());
-                    if let Some(rhs) = &term.rhs {
-                        fields.insert(rhs.query_path.display.clone());
-                    }
-                    if let Some(related) = &term.related {
-                        fields.insert(related.evidence_path.clone());
-                    }
-                }
+                emit_bound_filter_evidence(term, result, fields);
                 Ok(result)
             }
             BoundExpr::And(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {

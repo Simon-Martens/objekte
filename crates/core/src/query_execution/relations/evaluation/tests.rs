@@ -3549,6 +3549,160 @@ fn finite_relation_paths_have_independent_reference_answers() {
 }
 
 #[test]
+fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
+    let (root, definitions) = fixture();
+    let repo = Arc::new(
+        crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            definitions,
+            RepositoryOptions {
+                ..Default::default()
+            },
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap(),
+    );
+    let bind_term = |filter: &str| {
+        let request = query("mentions", Some(filter), None, None, false);
+        let prepared = crate::query::prepared::prepare(&repo, &request).unwrap();
+        let crate::query::binding::filter::BoundExpr::Term(term) =
+            prepared.collections[0].filter().unwrap()
+        else {
+            panic!("expected one bound term")
+        };
+        term.clone()
+    };
+
+    let mut fields = std::collections::HashSet::new();
+    let field_comparison = bind_term("entry.title = local_title");
+    super::emit_bound_filter_evidence(&field_comparison, Some(true), Some(&mut fields));
+    assert_eq!(
+        fields,
+        std::collections::HashSet::from(["entry.title".into(), "local_title".into()])
+    );
+
+    fields.clear();
+    let relation_comparison = bind_term("entry.title = 'Hymn'");
+    super::emit_bound_filter_evidence(&relation_comparison, Some(true), Some(&mut fields));
+    assert_eq!(
+        fields,
+        std::collections::HashSet::from(["entry.title".into()])
+    );
+
+    fields.clear();
+    let negative = bind_term("entry.title != 'Hymn'");
+    super::emit_bound_filter_evidence(&negative, Some(true), Some(&mut fields));
+    assert!(fields.is_empty());
+
+    let mut derived = relation_comparison.clone();
+    derived.derived = crate::query::binding::filter::Derived::Length;
+    super::emit_bound_filter_evidence(&derived, Some(true), Some(&mut fields));
+    assert!(fields.is_empty());
+
+    super::emit_bound_filter_evidence(&relation_comparison, None, Some(&mut fields));
+    assert!(fields.is_empty());
+
+    let request = query(
+        "mentions",
+        Some("entry.title = local_title"),
+        None,
+        None,
+        true,
+    );
+    let prepared = crate::query::prepared::prepare(&repo, &request).unwrap();
+    let filter = prepared.collections[0].filter().unwrap();
+    let collection_index = repo
+        .collections
+        .iter()
+        .position(|collection| collection.definition.name == "mentions")
+        .unwrap();
+    let collection = &repo.collections[collection_index];
+    let slot = collection.id_lookup["m1"];
+    let record = &collection.generation.records[slot.0 as usize];
+    let file = &repo.files.files[record.file.0 as usize];
+    let path = repo.files.native_path(record.file).unwrap();
+    let bytes = crate::source::access::read_record_range_for_search(
+        &path,
+        record.revision,
+        record.range,
+        None,
+    )
+    .unwrap();
+    let extracted = crate::source::preparation::prepare_query_record_with_execution(
+        record.class,
+        &collection.source,
+        &collection.definition.schema,
+        &bytes,
+        &crate::source::ScanProjection::full(true),
+        false,
+        None,
+    )
+    .unwrap();
+    let base_ctx = crate::query::semantics::record::RecordContext {
+        value: &extracted.value,
+        source_bytes: Some(&bytes),
+        record,
+        file,
+        collection_name: &collection.definition.name,
+        repository_root: &repo.files.root,
+    };
+    let mut base_fields = std::collections::HashSet::new();
+    let mut work = RelationWork::default();
+    assert_eq!(
+        super::eval_filter_truth(
+            &repo,
+            filter,
+            &base_ctx,
+            &mut base_fields,
+            super::EvaluationMode::Indexed,
+            &mut work,
+        )
+        .unwrap(),
+        Some(true)
+    );
+
+    let catalog =
+        crate::lifecycle::catalog::FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+    let merged = MergedRelationView::new(&repo, &repo.active, &repo.segments, &catalog).unwrap();
+    let address = merged
+        .resolve_id(crate::model::CollectionId(collection_index as u32), "m1")
+        .unwrap()
+        .unwrap();
+    let value = merged.reference_value(address, None).unwrap().unwrap();
+    let resolved = merged.record(address).unwrap().unwrap();
+    let merged_ctx = crate::query::semantics::record::RecordContext {
+        value: &value,
+        source_bytes: None,
+        record: resolved.record,
+        file: resolved.file,
+        collection_name: &resolved.collection.definition.name,
+        repository_root: merged.repository_root(),
+    };
+    let mut merged_fields = std::collections::HashSet::new();
+    let mut work = RelationWork::default();
+    assert_eq!(
+        super::eval_filter_truth_merged(
+            &merged,
+            filter,
+            address,
+            &merged_ctx,
+            &mut merged_fields,
+            &mut work,
+            false,
+        )
+        .unwrap(),
+        Some(true)
+    );
+    assert_eq!(
+        base_fields,
+        std::collections::HashSet::from(["entry.title".into(), "local_title".into()])
+    );
+    assert_eq!(merged_fields, base_fields);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
     let (root, definitions) = fixture();
     let repo = crate::lifecycle::Index::build_repository_for_test(
