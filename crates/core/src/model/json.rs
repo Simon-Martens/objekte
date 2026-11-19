@@ -3,6 +3,7 @@
 use super::decimal::ExactDecimal;
 use super::{ArrayValue, Number, Value};
 
+
 impl Number {
     pub fn from_json(value: &serde_json::Number) -> Result<Self, String> {
         if let Some(n) = value.as_i64() {
@@ -37,6 +38,7 @@ impl Number {
         Self::from_json(&parsed)
     }
 }
+
 
 impl Value {
     pub fn from_json(value: serde_json::Value) -> Result<Self, String> {

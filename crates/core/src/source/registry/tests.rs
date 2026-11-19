@@ -827,9 +827,17 @@ fn registered_readers_do_not_enable_relative_path_identity() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("json")).unwrap();
+    std::fs::create_dir_all(root.join("custom")).unwrap();
     std::fs::create_dir_all(root.join("tiny")).unwrap();
+    std::fs::create_dir_all(root.join("multi")).unwrap();
     std::fs::write(root.join("json/one.json"), br#"{"title":"one"}"#).unwrap();
+    std::fs::write(root.join("custom/one.json"), br#"{"title":"one"}"#).unwrap();
     std::fs::write(root.join("tiny/records.tiny"), b"first|ordinary\n").unwrap();
+    std::fs::write(
+        root.join("multi/records.tiny"),
+        b"first|ordinary\nsecond|ordinary\n",
+    )
+    .unwrap();
 
     let custom_json = {
         let mut sources = SourceRegistry::default();
@@ -837,8 +845,8 @@ fn registered_readers_do_not_enable_relative_path_identity() {
             .register(
                 "json",
                 1,
-                "tiny",
-                Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+                "json",
+                Arc::new(crate::source::json::JsonDecodedScalarsReader),
             )
             .unwrap();
         sources
@@ -861,7 +869,11 @@ fn registered_readers_do_not_enable_relative_path_identity() {
             "json",
             SourceRegistry::builtin(),
         ),
-        (SourceFormat::registered("json"), "tiny", custom_json),
+        (
+            SourceFormat::registered("json"),
+            "custom",
+            custom_json.clone(),
+        ),
         (SourceFormat::registered("tiny"), "tiny", custom_non_json),
     ] {
         let mut definition = CollectionDefinition::folder("data", source_path, format.clone());
@@ -880,6 +892,62 @@ fn registered_readers_do_not_enable_relative_path_identity() {
             "{format:?}: {error}"
         );
     }
+
+    let custom = custom_json
+        .resolve(&SourceFormat::registered("json"))
+        .unwrap();
+    assert!(custom.reader().supports_trusted_query_extraction());
+    assert_eq!(custom.scalar_verification(), None);
+    let successful = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "custom",
+            SourceFormat::registered("json"),
+        )],
+        RepositoryOptions::default(),
+        custom_json,
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = successful.search(&query).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert!(result.hits[0].record_id.starts_with("~generated:"));
+
+    let mut multi_sources = SourceRegistry::default();
+    multi_sources
+        .register(
+            "json",
+            1,
+            "tiny",
+            Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+        )
+        .unwrap();
+    let mut declared_json = CollectionDefinition::folder("data", "multi", SourceFormat::Json);
+    declared_json.identity = IdentityPolicy::RelativePath;
+    let error = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![declared_json],
+        RepositoryOptions::default(),
+        multi_sources,
+    )
+    .err()
+    .expect("multiple records must collide under path identity")
+    .to_string();
+    assert!(error.contains("duplicate record ID"), "{error}");
     std::fs::remove_dir_all(root).unwrap();
 }
 
