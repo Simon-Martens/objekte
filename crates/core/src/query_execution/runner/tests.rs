@@ -4767,6 +4767,58 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
                     }
                 }
             }
+            repo.configure_verified_cache(0).unwrap();
+            let stream_query = Query {
+                collections: vec!["data".into()],
+                filter: Some(parse_filter(critical).unwrap()),
+                fts: None,
+                options: QueryOptions {
+                    sort: vec![crate::query::options::SortField {
+                        field: "@file.status".into(),
+                        descending: false,
+                        expression: None,
+                    }],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            assert_eq!(
+                repo.explain(&stream_query).unwrap()[0].sort_strategy,
+                "bounded_top_k"
+            );
+            let before = (
+                crate::query::prepared::production_prepare_calls(),
+                crate::query::sort_binding::production_bound_sort_calls(),
+                crate::query_execution::restrictions::predicate_bounds_calls(),
+            );
+            let mut streamed = Vec::new();
+            let outcome = repo
+                .search_stream(
+                    &stream_query,
+                    StreamOptions::default(),
+                    &CancellationToken::new(),
+                    &mut |event| {
+                        if let StreamEvent::OrderedRows { rows, .. } = event {
+                            streamed.extend_from_slice(rows);
+                        }
+                        Ok(StreamControl::Continue)
+                    },
+                )
+                .unwrap();
+            assert!(matches!(outcome, StreamOutcome::Complete(_)));
+            assert_eq!(streamed, repo.search_reference(&stream_query).unwrap().hits);
+            assert_eq!(
+                (
+                    crate::query::prepared::production_prepare_calls() - before.0,
+                    crate::query::sort_binding::production_bound_sort_calls() - before.1,
+                    crate::query_execution::restrictions::predicate_bounds_calls() - before.2,
+                ),
+                (1, 1, 3),
+                "one preparation, one sort binding, and one application per OR predicate"
+            );
         }
     }
     std::fs::remove_dir_all(root).unwrap();

@@ -904,6 +904,7 @@ pub(crate) fn search_segmented_lifecycle(
         cache,
         None,
         None,
+        false,
     ) {
         Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
             search_segmented_reference(repo, query, base_active, segments, catalog, revision)
@@ -971,6 +972,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
         cache,
         None,
         None,
+        false,
     )
 }
 
@@ -986,6 +988,7 @@ fn search_segmented_with_context_lifecycle_budget(
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
     bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
+    ordered_already_declined: bool,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
     if base_active.iter().any(|active| active.len() != 0) {
@@ -1003,6 +1006,7 @@ fn search_segmented_with_context_lifecycle_budget(
         cache,
         retained_budget,
         bound,
+        ordered_already_declined,
     );
     match result {
         Err(message) => {
@@ -1901,6 +1905,7 @@ fn search_segmented_impl(
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
     bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
+    ordered_already_declined: bool,
 ) -> Result<SearchResult, String> {
     if query.options.count
         && query.options.limit == 0
@@ -2022,6 +2027,7 @@ fn search_segmented_impl(
         return Ok(result);
     }
     if !has_relations
+        && !ordered_already_declined
         && let Some(result) = try_lifecycle_ordered_page(
             repo,
             query,
@@ -4540,6 +4546,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         query_cache,
         (all && !relation_scope).then(|| delivery.max_buffered_bytes() / 2),
         Some((&sort, &prepared)),
+        true,
     ) {
         Ok(result) => result,
         Err(error) => return segmented_stream_error(&mut delivery, context, error.message),
