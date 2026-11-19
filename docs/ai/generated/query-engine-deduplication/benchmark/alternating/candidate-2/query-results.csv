@@ -1,0 +1,2 @@
+case_id,profile,status,min_ns,median_ns,p95_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,verified_result_hits,preparation_median_ns,planning_median_ns
+Q042,ascii-off,ok,95706,103344,200882,200882,3,1520,50,1520,0,0,0,1520,0,0,0,0,0
