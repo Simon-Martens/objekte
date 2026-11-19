@@ -201,7 +201,7 @@ impl MergedSortTargetCache {
                 return Ok(None);
             }
         };
-        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+        let extracted = crate::source::preparation::prepare_query_record_with_execution(
             current.record.class,
             &current.collection.source,
             &current.collection.definition.schema,
@@ -1239,7 +1239,7 @@ impl SortTargetCache {
             {
                 return Err("stream cancelled".into());
             }
-            let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            let extracted = crate::source::preparation::prepare_query_record_with_execution(
                 record.class,
                 &collection.source,
                 &collection.definition.schema,

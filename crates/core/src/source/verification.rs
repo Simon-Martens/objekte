@@ -2,9 +2,11 @@
 
 use crate::query::binding::filter::BoundTerm;
 use crate::query::binding::fts::BoundFts;
+use crate::query_execution::streaming::ExecutionContext;
+use crate::schema::Schema;
 
-use super::ScanProjection;
 use super::json::scalars;
+use super::{ExtractedRecord, ScanProjection, registry::PreparedSource};
 
 pub(crate) use super::json::scalars::BorrowedScanResult;
 #[cfg(test)]
@@ -53,4 +55,36 @@ impl ScalarVerification {
         }
         scalars::extract_query_record_borrowed_fts_worker(bytes, projection, fts, retain_evidence)
     }
+}
+
+/// Trusted decoded-scalar JSON keeps its source corpus while producing only
+/// the logical projection required by residual evaluation or output.
+pub(crate) fn prepare_decoded_record_with_borrowed_fts(
+    source: &PreparedSource,
+    schema: &Schema,
+    bytes: &[u8],
+    projection: &ScanProjection,
+    fts: &BoundFts,
+    evidence: bool,
+    execution: Option<&ExecutionContext>,
+) -> Result<(ExtractedRecord, BorrowedScanResult), String> {
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
+    let verification = source
+        .scalar_verification()
+        .ok_or("combined decoded-scalar verification requires a built-in reader")?;
+    let (mut value, matched) =
+        verification.extract_decoded_record(bytes, projection, fts, evidence)?;
+    schema.convert_indexed_record(&mut value, projection.top_level.as_ref())?;
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
+    Ok((
+        ExtractedRecord {
+            value,
+            text: Vec::new(),
+        },
+        matched,
+    ))
 }

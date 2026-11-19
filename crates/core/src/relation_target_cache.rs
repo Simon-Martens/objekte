@@ -502,16 +502,17 @@ fn prepare_with_limits(
                     ) {
                         return Err("stream cancelled".into());
                     }
-                    let projected = crate::record_preparation::prepare_query_record_with_execution(
-                        collection.generation.records[slot as usize].class,
-                        &collection.source,
-                        &collection.definition.schema,
-                        &bytes,
-                        &projection,
-                        false,
-                        execution,
-                    )?
-                    .value;
+                    let projected =
+                        crate::source::preparation::prepare_query_record_with_execution(
+                            collection.generation.records[slot as usize].class,
+                            &collection.source,
+                            &collection.definition.schema,
+                            &bytes,
+                            &projection,
+                            false,
+                            execution,
+                        )?
+                        .value;
                     if let Some(execution) = execution {
                         execution.check_string()?;
                     }

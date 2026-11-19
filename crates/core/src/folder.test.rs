@@ -8,6 +8,39 @@ fn root(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
+fn folder_identity_defaults_and_relative_path_eligibility_follow_format() {
+    for (format, supports_relative_path, expected_identity) in [
+        (SourceFormat::Json, true, IdentityPolicy::RelativePath),
+        (
+            SourceFormat::JsonDecodedScalars,
+            true,
+            IdentityPolicy::RelativePath,
+        ),
+        (SourceFormat::JsonLines, false, IdentityPolicy::Generated),
+        (
+            SourceFormat::registered("json"),
+            false,
+            IdentityPolicy::Generated,
+        ),
+        (
+            SourceFormat::registered("custom"),
+            false,
+            IdentityPolicy::Generated,
+        ),
+    ] {
+        assert_eq!(
+            format.supports_relative_path_identity(),
+            supports_relative_path,
+            "{format:?}"
+        );
+        assert_eq!(
+            CollectionDefinition::folder("data", "data", format).identity,
+            expected_identity
+        );
+    }
+}
+
+#[test]
 fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields() {
     let root = root("nested");
     let _ = std::fs::remove_dir_all(&root);

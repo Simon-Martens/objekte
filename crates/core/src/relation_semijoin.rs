@@ -684,7 +684,7 @@ fn verify_target_records(
             for (slot, bytes) in batch.records {
                 let record = &collection.generation.records[slot as usize];
                 let file = &repo.files.files[file_id.0 as usize];
-                let prepared = crate::record_preparation::prepare_query_record_with_execution(
+                let prepared = crate::source::preparation::prepare_query_record_with_execution(
                     record.class,
                     &collection.source,
                     &collection.definition.schema,
@@ -951,7 +951,7 @@ fn verify_qualified_targets(
                 let Some(resolved) = view.record(view.view_address(address)?)? else {
                     continue;
                 };
-                let prepared = crate::record_preparation::prepare_query_record_with_execution(
+                let prepared = crate::source::preparation::prepare_query_record_with_execution(
                     resolved.record.class,
                     &resolved.collection.source,
                     &resolved.collection.definition.schema,

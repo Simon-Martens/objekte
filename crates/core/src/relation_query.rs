@@ -576,7 +576,7 @@ impl<'a> MergedRelationView<'a> {
         if let Some(work) = work.as_deref_mut() {
             work.source_read(bytes.len() as u64)?;
         }
-        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+        let extracted = crate::source::preparation::prepare_query_record_with_execution(
             resolved.record.class,
             &resolved.collection.source,
             &resolved.collection.definition.schema,
@@ -745,7 +745,7 @@ impl<'a> MergedRelationView<'a> {
         if let Some(work) = work.as_deref_mut() {
             work.source_read(bytes.len() as u64)?;
         }
-        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+        let extracted = crate::source::preparation::prepare_query_record_with_execution(
             resolved.record.class,
             &resolved.collection.source,
             &resolved.collection.definition.schema,
@@ -1430,7 +1430,7 @@ fn visit_merged_hop(
             }
         };
         work.target_read(bytes.len() as u64)?;
-        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+        let extracted = crate::source::preparation::prepare_query_record_with_execution(
             current.record.class,
             &current.collection.source,
             &current.collection.definition.schema,
@@ -1912,7 +1912,7 @@ fn visit_hop(
             work.execution.as_ref(),
         )?;
         work.target_read(bytes.len() as u64)?;
-        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+        let extracted = crate::source::preparation::prepare_query_record_with_execution(
             record.class,
             &collection.source,
             &collection.definition.schema,
@@ -2221,7 +2221,7 @@ fn read_reference_value(
         work.execution.as_ref(),
     )?;
     work.source_read(bytes.len() as u64)?;
-    let extracted = crate::record_preparation::prepare_query_record_with_execution(
+    let extracted = crate::source::preparation::prepare_query_record_with_execution(
         record.class,
         &collection.source,
         &collection.definition.schema,

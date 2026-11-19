@@ -3,6 +3,7 @@
 use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
+use crate::construction::file_preparation::finish_build_record;
 use crate::inventory::discovery::discover;
 use crate::inventory::{
     DiagnosticRef, FileEntry, FileInventory, RecordClass, RecordEntry, SourceDiagnostic,
@@ -18,15 +19,13 @@ use crate::query::options::ReturnMode;
 use crate::query::semantics::record::RecordContext;
 use crate::query_execution::streaming::CancellationToken;
 use crate::query_results::{Payload, SearchHit, SearchResult};
-use crate::record_preparation::finish_build_record;
 use crate::reference::{eval_unavailable_filter, filter::eval_filter};
 use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{
-    ExtractedRecord, ReaderDiagnostic, SourceFormat, SourceOutcome,
-    extraction::extract_file_outcomes_for_search, registry::PreparedSource,
-    registry::SourceRegistry, text::finalize_extracted_text,
+    ExtractedRecord, ReaderDiagnostic, SourceOutcome, extraction::extract_file_outcomes_for_search,
+    registry::PreparedSource, registry::SourceRegistry, text::finalize_extracted_text,
 };
 
 struct ScanCollection {
@@ -409,10 +408,7 @@ fn record_id(
                 .ok_or("non-UTF-8 filename identity")?,
         ),
         IdentityPolicy::RelativePath => {
-            if !matches!(
-                definition.format,
-                SourceFormat::Json | SourceFormat::JsonDecodedScalars
-            ) {
+            if !definition.format.supports_relative_path_identity() {
                 return Err("relative-path identity requires a single-record JSON reader".into());
             }
             let relative = path
@@ -438,96 +434,4 @@ fn record_id(
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::model::LogicalType;
-    use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, parse_filter};
-    use crate::repository::configuration::RepositoryOptions;
-    use crate::schema::FieldDefinition;
-
-    #[test]
-    fn source_scan_matches_reference_search_before_an_index_exists() {
-        let root = std::env::temp_dir().join(format!(
-            "objekte-source-scan-{}-{}",
-            std::process::id(),
-            std::time::SystemTime::now()
-                .duration_since(std::time::SystemTime::UNIX_EPOCH)
-                .unwrap()
-                .as_nanos(),
-        ));
-        std::fs::create_dir_all(root.join("data")).unwrap();
-        std::fs::write(
-            root.join("data/a.json"),
-            br#"{"title":"Alpha","meta":{"tag":"x"}}"#,
-        )
-        .unwrap();
-        std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
-        std::fs::write(root.join("data/c.json"), br#"{"title":"broken""#).unwrap();
-        let mut definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
-        definition
-            .schema
-            .register_field(FieldDefinition {
-                path: vec!["meta".into(), "tag".into()],
-                kind: LogicalType::String,
-                required: false,
-                nullable: false,
-                indexed: true,
-                multi: false,
-                element_nullable: Vec::new(),
-            })
-            .unwrap();
-        let scan = SourceScan::open(&root, vec![definition.clone()]).unwrap();
-        let indexed = crate::lifecycle::Index::build_repository_for_test(
-            &root,
-            vec![definition],
-            RepositoryOptions {
-                ..RepositoryOptions::default()
-            },
-            crate::source::registry::SourceRegistry::builtin(),
-        )
-        .map_err(|error| error.to_string())
-        .unwrap();
-        let mut query = Query {
-            collections: vec!["files".into()],
-            fts: None,
-            filter: None,
-            options: QueryOptions {
-                sort: Vec::new(),
-                limit: 1,
-                offset: 0,
-                count: true,
-                return_mode: ReturnMode::Bytes,
-                evidence: true,
-            },
-        };
-        let cancellation = CancellationToken::new();
-        for (offset, fts, filter) in [
-            (0, None, None),
-            (1, None, None),
-            (0, Some("Alpha"), None),
-            (0, Some("broken"), None),
-            (0, None, Some("meta.tag = 'x'")),
-        ] {
-            query.options.offset = offset;
-            query.fts = fts.map(|literal| FtsQuery {
-                case_sensitivity: CaseSensitivity::Sensitive,
-                mode: FtsMode::Literal,
-                literal: literal.into(),
-                pattern_parameter: None,
-                fields: Vec::new(),
-            });
-            query.filter = filter.map(|expression| parse_filter(expression).unwrap());
-            let expected = indexed.search_reference(&query).unwrap();
-            let actual = scan.search(&query, &cancellation).unwrap();
-            assert_eq!(
-                actual.count, expected.count,
-                "offset={offset} fts={fts:?} filter={filter:?}"
-            );
-            assert_eq!(
-                actual.hits, expected.hits,
-                "offset={offset} fts={fts:?} filter={filter:?}"
-            );
-        }
-        std::fs::remove_dir_all(root).unwrap();
-    }
-}
+mod tests;

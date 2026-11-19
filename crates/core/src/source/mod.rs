@@ -12,6 +12,7 @@ pub mod extraction;
 pub(crate) mod framing;
 pub mod json;
 pub mod json_lines;
+pub(crate) mod preparation;
 pub mod registry;
 #[cfg(test)]
 mod test_support;
@@ -39,6 +40,10 @@ impl SourceFormat {
             Self::JsonLines => "jsonl",
             Self::Registered(id) => id,
         }
+    }
+
+    pub(crate) fn supports_relative_path_identity(&self) -> bool {
+        matches!(self, Self::Json | Self::JsonDecodedScalars)
     }
 }
 
