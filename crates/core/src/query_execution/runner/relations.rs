@@ -1557,6 +1557,76 @@ fn merge_parallel_relation_work(
 }
 
 #[allow(clippy::too_many_arguments)]
+fn read_relation_source_file(
+    file: &FileEntry,
+    path: &std::path::Path,
+    ranges: &[(u32, ByteRange)],
+    first_address: crate::query_execution::relations::view::MergedRecordSlot,
+    context: Option<&crate::query_execution::streaming::ExecutionContext>,
+    source_errors: &mut SourceAvailabilityLog,
+    opened: &mut HashSet<u32>,
+    proof_fields: Option<&[String]>,
+    mut process: impl FnMut(
+        crate::query_execution::relations::view::MergedRecordSlot,
+        Vec<u8>,
+        bool,
+        Option<&[String]>,
+    ) -> Result<(), String>,
+) -> Result<(), String> {
+    let mut reader = match RecordRangeReader::open_for_search(path, file.revision, context) {
+        Ok(reader) => reader,
+        Err(message) => {
+            source_errors.record(SourceDiagnostic {
+                file_id: file.id.0,
+                file_path: file.relative_path.to_path_buf(),
+                kind: classify_source_read_failure_for_search(path, file.revision, None),
+                message,
+            });
+            return Ok(());
+        }
+    };
+    if let Some(context) = context {
+        context.charge_reads(1)?;
+    }
+    opened.insert(file.id.0);
+    let mut cursor = 0;
+    while cursor < ranges.len() {
+        let start = cursor;
+        let mut batch_bytes = 0u64;
+        while cursor < ranges.len() && cursor - start < 128 {
+            let next = ranges[cursor].1.len();
+            if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
+                break;
+            }
+            batch_bytes = batch_bytes.saturating_add(next);
+            cursor += 1;
+        }
+        let read = match reader.read(&ranges[start..cursor]) {
+            Ok((read, _)) => read,
+            Err(message) => {
+                source_errors.record(SourceDiagnostic {
+                    file_id: file.id.0,
+                    file_path: file.relative_path.to_path_buf(),
+                    kind: classify_source_read_failure_for_search(
+                        path,
+                        file.revision,
+                        Some(ranges[start].1),
+                    ),
+                    message,
+                });
+                break;
+            }
+        };
+        for (index, (slot, bytes)) in read.into_iter().enumerate() {
+            let mut address = first_address;
+            address.slot = RecordSlot(slot);
+            process(address, bytes, start == 0 && index == 0, proof_fields)?;
+        }
+    }
+    Ok(())
+}
+
+#[allow(clippy::too_many_arguments)]
 fn try_parallel_relation_page(
     repo: &Repository,
     query: &Query,
@@ -2389,68 +2459,17 @@ pub(super) fn search_segmented_relations(
                 .record(first)?
                 .ok_or("active merged base file missing")?;
             let path = repo.files.root.join(&resolved.file.relative_path);
-            let mut reader =
-                match RecordRangeReader::open_for_search(&path, resolved.file.revision, context) {
-                    Ok(reader) => reader,
-                    Err(message) => {
-                        source_errors.record(SourceDiagnostic {
-                            file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.to_path_buf(),
-                            kind: classify_source_read_failure_for_search(
-                                &path,
-                                resolved.file.revision,
-                                None,
-                            ),
-                            message,
-                        });
-                        continue;
-                    }
-                };
-            if let Some(context) = context {
-                context.charge_reads(1)?;
-            }
-            opened.insert(file_id.0);
-            let mut cursor = 0;
-            while cursor < ranges.len() {
-                let start = cursor;
-                let mut batch_bytes = 0u64;
-                while cursor < ranges.len() && cursor - start < 128 {
-                    let next = ranges[cursor].1.len();
-                    if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
-                        break;
-                    }
-                    batch_bytes = batch_bytes.saturating_add(next);
-                    cursor += 1;
-                }
-                let read = match reader.read(&ranges[start..cursor]) {
-                    Ok((read, _)) => read,
-                    Err(message) => {
-                        source_errors.record(SourceDiagnostic {
-                            file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.to_path_buf(),
-                            kind: classify_source_read_failure_for_search(
-                                &path,
-                                resolved.file.revision,
-                                Some(ranges[start].1),
-                            ),
-                            message,
-                        });
-                        break;
-                    }
-                };
-                for (index, (slot, bytes)) in read.into_iter().enumerate() {
-                    process(
-                        crate::query_execution::relations::view::MergedRecordSlot {
-                            collection: collection_id,
-                            segment: None,
-                            slot: RecordSlot(slot),
-                        },
-                        bytes,
-                        start == 0 && index == 0,
-                        None,
-                    )?;
-                }
-            }
+            read_relation_source_file(
+                resolved.file,
+                &path,
+                &ranges,
+                first,
+                context,
+                &mut source_errors,
+                &mut opened,
+                None,
+                &mut process,
+            )?;
         }
         let mut relation_prune: Option<Option<RelationTargetPrune>> =
             if let Some(plan) = exact_relation_plan.take() {
@@ -2562,71 +2581,17 @@ pub(super) fn search_segmented_relations(
                     .record(first)?
                     .ok_or("active merged segment file missing")?;
                 let path = repo.files.root.join(&resolved.file.relative_path);
-                let mut reader = match RecordRangeReader::open_for_search(
+                read_relation_source_file(
+                    resolved.file,
                     &path,
-                    resolved.file.revision,
+                    &ranges,
+                    first,
                     context,
-                ) {
-                    Ok(reader) => reader,
-                    Err(message) => {
-                        source_errors.record(SourceDiagnostic {
-                            file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.to_path_buf(),
-                            kind: classify_source_read_failure_for_search(
-                                &path,
-                                resolved.file.revision,
-                                None,
-                            ),
-                            message,
-                        });
-                        continue;
-                    }
-                };
-                if let Some(context) = context {
-                    context.charge_reads(1)?;
-                }
-                opened.insert(file.entry.id.0);
-                let mut cursor = 0;
-                while cursor < ranges.len() {
-                    let start = cursor;
-                    let mut batch_bytes = 0u64;
-                    while cursor < ranges.len() && cursor - start < 128 {
-                        let next = ranges[cursor].1.len();
-                        if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
-                            break;
-                        }
-                        batch_bytes = batch_bytes.saturating_add(next);
-                        cursor += 1;
-                    }
-                    let read = match reader.read(&ranges[start..cursor]) {
-                        Ok((read, _)) => read,
-                        Err(message) => {
-                            source_errors.record(SourceDiagnostic {
-                                file_id: resolved.file.id.0,
-                                file_path: resolved.file.relative_path.to_path_buf(),
-                                kind: classify_source_read_failure_for_search(
-                                    &path,
-                                    resolved.file.revision,
-                                    Some(ranges[start].1),
-                                ),
-                                message,
-                            });
-                            break;
-                        }
-                    };
-                    for (index, (slot, bytes)) in read.into_iter().enumerate() {
-                        process(
-                            crate::query_execution::relations::view::MergedRecordSlot {
-                                collection: collection_id,
-                                segment: Some(segment_index),
-                                slot: RecordSlot(slot),
-                            },
-                            bytes,
-                            start == 0 && index == 0,
-                            exact_filter_fields,
-                        )?;
-                    }
-                }
+                    &mut source_errors,
+                    &mut opened,
+                    exact_filter_fields,
+                    &mut process,
+                )?;
             }
         }
     }

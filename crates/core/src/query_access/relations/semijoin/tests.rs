@@ -165,6 +165,54 @@ fn intermediate_limits_report_errors_instead_of_truncating_membership() {
 }
 
 #[test]
+fn target_batch_bounds_handle_empty_oversized_and_later_failures() {
+    use crate::inventory::ByteRange;
+    use crate::query_execution::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
+
+    let empty: Vec<ByteRange> = Vec::new();
+    assert_eq!(
+        super::target_batch_bounds(&empty, 0, None, |range| *range).unwrap(),
+        (0, 0)
+    );
+
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            target_record_bytes: 1024,
+            ..Default::default()
+        },
+        None,
+    );
+    let oversized = [ByteRange {
+        start: 0,
+        end: 1025,
+    }];
+    let error =
+        super::target_batch_bounds(&oversized, 0, Some(&context), |range| *range).unwrap_err();
+    assert_eq!(
+        context.recorded_error(error).kind,
+        ExecutionErrorKind::Resource
+    );
+
+    let mut ranges = vec![ByteRange { start: 0, end: 1 }; 128];
+    ranges.push(ByteRange {
+        start: 0,
+        end: 1025,
+    });
+    let (next, bytes) =
+        super::target_batch_bounds(&ranges, 0, Some(&context), |range| *range).unwrap();
+    assert_eq!((next, bytes), (128, 128));
+    let error =
+        super::target_batch_bounds(&ranges, next, Some(&context), |range| *range).unwrap_err();
+    assert_eq!(
+        context.recorded_error(error).kind,
+        ExecutionErrorKind::Resource
+    );
+}
+
+#[test]
 fn second_target_in_batch_is_checked_before_source_read() {
     use crate::query_execution::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits,

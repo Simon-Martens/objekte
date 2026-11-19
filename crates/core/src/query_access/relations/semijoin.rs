@@ -41,6 +41,47 @@ const MAX_VISITED_EDGES: u64 = 32_000_000;
 const MAX_TARGET_RECORD_BYTES: u64 = 64 * 1024 * 1024;
 const TARGET_BATCH_BYTES: u64 = 1024 * 1024;
 
+fn target_batch_bounds<T>(
+    ranges: &[T],
+    start: usize,
+    execution: Option<&ExecutionContext>,
+    byte_range: impl Fn(&T) -> crate::inventory::ByteRange,
+) -> Result<(usize, u64), String> {
+    if start >= ranges.len() {
+        return Ok((start, 0));
+    }
+    let validate = |bytes: u64| {
+        if let Some(execution) = execution
+            && bytes > execution.limits.target_record_bytes
+        {
+            return Err(execution.fail(
+                ExecutionErrorKind::Resource,
+                "relation target record exceeds source read allowance",
+            ));
+        }
+        if bytes > MAX_TARGET_RECORD_BYTES {
+            return Err(format!(
+                "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
+            ));
+        }
+        Ok(())
+    };
+    let first_bytes = byte_range(&ranges[start]).len();
+    validate(first_bytes)?;
+    let mut end = start + 1;
+    let mut batch_bytes = first_bytes;
+    while end < ranges.len() && end - start < 128 {
+        let next_bytes = byte_range(&ranges[end]).len();
+        if batch_bytes.saturating_add(next_bytes) > TARGET_BATCH_BYTES {
+            break;
+        }
+        validate(next_bytes)?;
+        batch_bytes += next_bytes;
+        end += 1;
+    }
+    Ok((end, batch_bytes))
+}
+
 /// Physical strategy chosen for one positive relation term.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum Strategy {
@@ -635,43 +676,8 @@ fn verify_target_records(
             if let Some(execution) = execution {
                 execution.check_string()?;
             }
-            let first_bytes = ranges[start].1.len();
-            if let Some(execution) = execution
-                && first_bytes > execution.limits.target_record_bytes
-            {
-                return Err(execution.fail(
-                    ExecutionErrorKind::Resource,
-                    "relation target record exceeds source read allowance",
-                ));
-            }
-            if first_bytes > MAX_TARGET_RECORD_BYTES {
-                return Err(format!(
-                    "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
-                ));
-            }
-            let mut end = start + 1;
-            let mut batch_bytes = first_bytes;
-            while end < ranges.len() && end - start < 128 {
-                let next_bytes = ranges[end].1.len();
-                if batch_bytes.saturating_add(next_bytes) > TARGET_BATCH_BYTES {
-                    break;
-                }
-                if let Some(execution) = execution
-                    && next_bytes > execution.limits.target_record_bytes
-                {
-                    return Err(execution.fail(
-                        ExecutionErrorKind::Resource,
-                        "relation target record exceeds source read allowance",
-                    ));
-                }
-                if next_bytes > MAX_TARGET_RECORD_BYTES {
-                    return Err(format!(
-                        "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
-                    ));
-                }
-                batch_bytes += next_bytes;
-                end += 1;
-            }
+            let (end, batch_bytes) =
+                target_batch_bounds(&ranges, start, execution, |(_, range)| *range)?;
             let chunk = &ranges[start..end];
             start = end;
             if let Some(execution) = execution {
@@ -896,43 +902,8 @@ fn verify_qualified_targets(
             if let Some(execution) = execution {
                 execution.check_string()?;
             }
-            let first_bytes = ranges[start].1.len();
-            if let Some(execution) = execution
-                && first_bytes > execution.limits.target_record_bytes
-            {
-                return Err(execution.fail(
-                    ExecutionErrorKind::Resource,
-                    "relation target record exceeds source read allowance",
-                ));
-            }
-            if first_bytes > MAX_TARGET_RECORD_BYTES {
-                return Err(format!(
-                    "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
-                ));
-            }
-            let mut end = start + 1;
-            let mut batch_bytes = first_bytes;
-            while end < ranges.len() && end - start < 128 {
-                let next_bytes = ranges[end].1.len();
-                if batch_bytes.saturating_add(next_bytes) > TARGET_BATCH_BYTES {
-                    break;
-                }
-                if let Some(execution) = execution
-                    && next_bytes > execution.limits.target_record_bytes
-                {
-                    return Err(execution.fail(
-                        ExecutionErrorKind::Resource,
-                        "relation target record exceeds source read allowance",
-                    ));
-                }
-                if next_bytes > MAX_TARGET_RECORD_BYTES {
-                    return Err(format!(
-                        "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
-                    ));
-                }
-                batch_bytes += next_bytes;
-                end += 1;
-            }
+            let (end, batch_bytes) =
+                target_batch_bounds(&ranges, start, execution, |(_, range)| *range)?;
             let chunk = ranges[start..end]
                 .iter()
                 .enumerate()
