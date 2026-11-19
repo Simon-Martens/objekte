@@ -6,6 +6,39 @@ use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
+fn emit_segment_repair_timing(
+    case_id: &str,
+    repetitions: usize,
+    mut run: impl FnMut() -> SearchResult,
+) {
+    if std::env::var_os("OBJEKTE_REPAIR_TIMING").is_none() {
+        return;
+    }
+    run();
+    let mut samples = Vec::with_capacity(repetitions);
+    let mut result = None;
+    for _ in 0..repetitions {
+        let started = std::time::Instant::now();
+        let current = run();
+        samples.push(started.elapsed().as_nanos() as u64);
+        result = Some(current);
+    }
+    samples.sort_unstable();
+    let result = result.unwrap();
+    println!(
+        "SEGMENT_REPAIR_TIMING {}",
+        serde_json::json!({
+            "case_id": case_id,
+            "repetitions": repetitions,
+            "samples_ns": samples,
+            "median_ns": samples[samples.len() / 2],
+            "count": result.count,
+            "ids": result.hits.iter().map(|hit| hit.record_id.as_str()).collect::<Vec<_>>(),
+            "counters": result.counters,
+        })
+    );
+}
+
 #[test]
 fn gate_a_public_search_selects_either_provider_in_either_order() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
@@ -3939,7 +3972,7 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
     for number in 0..100 {
         std::fs::write(
             root.join(format!("data/{number:03}.json")),
-            r#"{"kind":"x"}"#,
+            format!(r#"{{"kind":"x","rank":{number}}}"#),
         )
         .unwrap();
     }
@@ -3955,28 +3988,43 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
             element_nullable: vec![],
         })
         .unwrap();
-    let repo = crate::lifecycle::Index::build_repository_for_test(
-        &root,
-        vec![CollectionDefinition {
-            name: "data".into(),
-            source_path: "data".into(),
-            format: SourceFormat::Json,
-            identity: IdentityPolicy::Filename,
-            discovery: Default::default(),
-            schema,
-            sort_fields: vec![],
-            sort_locale: "de".into(),
-            sort_options: Default::default(),
-            sort_overrides: Default::default(),
-        }],
-        crate::repository::configuration::RepositoryOptions {
-            verified_cache_bytes: 0,
-            ..Default::default()
-        },
-        crate::source::registry::SourceRegistry::builtin(),
-    )
-    .map_err(|error| error.to_string())
-    .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["rank".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let mut definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    definition.sort_fields = vec![FieldPath::parse("rank").unwrap()];
+    let repo = Arc::new(
+        crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![definition],
+            crate::repository::configuration::RepositoryOptions {
+                verified_cache_bytes: 0,
+                ..Default::default()
+            },
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap(),
+    );
     let query = Query {
         collections: vec!["data".into()],
         filter: Some(parse_filter("kind = 'x'").unwrap()),
@@ -4013,6 +4061,111 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
             assert_eq!(cached.hits, result.hits);
         }
     }
+    let paged = Query {
+        collections: vec!["data".into()],
+        filter: Some(parse_filter("kind = 'x'").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("rank", false)],
+            limit: 5,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    repo.configure_verified_cache(0).unwrap();
+    super::reset_segment_slot_evidence_calls();
+    let context = crate::query_execution::streaming::ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        crate::query_execution::streaming::ExecutionLimits::default(),
+        None,
+    );
+    let catalog = FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+    let base_active = repo.active.clone();
+    let unscoped = super::search_segmented_with_context(
+        &repo,
+        &paged,
+        &base_active,
+        &repo.segments,
+        &catalog,
+        IndexRevision(1),
+        &context,
+    )
+    .map_err(|error| error.message)
+    .unwrap();
+    assert_eq!(
+        unscoped
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["000", "001", "002", "003", "004"]
+    );
+    assert_eq!(super::segment_slot_evidence_calls(), 5);
+    emit_segment_repair_timing("exact_segment_page_no_cache", 21, || {
+        super::search_segmented_with_context(
+            &repo,
+            &paged,
+            &base_active,
+            &repo.segments,
+            &catalog,
+            IndexRevision(1),
+            &context,
+        )
+        .map_err(|error| error.message)
+        .unwrap()
+    });
+
+    let lifecycle_cache = Mutex::new(VerifiedCache::new(1 << 20));
+    let cache_scope = LifecycleCacheScope {
+        store: &lifecycle_cache,
+        instance_id: 73,
+    };
+    super::reset_segment_slot_evidence_calls();
+    let first = super::search_segmented_lifecycle(
+        &repo,
+        &paged,
+        &base_active,
+        &repo.segments,
+        &catalog,
+        IndexRevision(1),
+        Some(cache_scope),
+    )
+    .unwrap();
+    assert_eq!(super::segment_slot_evidence_calls(), 100);
+    assert_eq!(
+        first
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["000", "001", "002", "003", "004"]
+    );
+    let mut second_page = paged.clone();
+    second_page.options.offset = 5;
+    super::reset_segment_slot_evidence_calls();
+    let second = super::search_segmented_lifecycle(
+        &repo,
+        &second_page,
+        &base_active,
+        &repo.segments,
+        &catalog,
+        IndexRevision(1),
+        Some(cache_scope),
+    )
+    .unwrap();
+    assert!(second.counters.verified_result_hit);
+    assert_eq!(super::segment_slot_evidence_calls(), 0);
+    assert_eq!(
+        second
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["005", "006", "007", "008", "009"]
+    );
+    assert!(second.hits.iter().all(|hit| hit.matched_fields.is_empty()));
     std::fs::remove_dir_all(root).unwrap();
 }
 

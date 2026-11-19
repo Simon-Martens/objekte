@@ -210,6 +210,36 @@ fn target_batch_bounds_handle_empty_oversized_and_later_failures() {
         context.recorded_error(error).kind,
         ExecutionErrorKind::Resource
     );
+
+    let large = super::TARGET_BATCH_BYTES + 1;
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            target_record_bytes: large,
+            ..Default::default()
+        },
+        None,
+    );
+    let legal_oversized_first = [
+        ByteRange {
+            start: 0,
+            end: large,
+        },
+        ByteRange {
+            start: large,
+            end: large + 1,
+        },
+    ];
+    assert_eq!(
+        super::target_batch_bounds(&legal_oversized_first, 0, Some(&context), |range| *range)
+            .unwrap(),
+        (1, large)
+    );
+    assert_eq!(
+        super::target_batch_bounds(&legal_oversized_first, 1, Some(&context), |range| *range)
+            .unwrap(),
+        (2, 1)
+    );
 }
 
 #[test]

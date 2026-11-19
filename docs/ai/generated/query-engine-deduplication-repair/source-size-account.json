@@ -1,0 +1,26 @@
+{
+  "original_merge": {
+    "before": {
+      "revision": "d35ddde56e17114da35d1a76e776615262897409",
+      "production_lines": 71813,
+      "test_lines": 53778,
+      "physical_lines": 125591
+    },
+    "after": {
+      "revision": "d06444547660693cf168bce45a9db8ee360c31cd",
+      "production_lines": 71743,
+      "test_lines": 54001,
+      "physical_lines": 125744
+    }
+  },
+  "repair": {
+    "from": "d06444547660693cf168bce45a9db8ee360c31cd",
+    "to": "da7a1e57faf29f0889592e5b3df56b2a9c4ffcf2",
+    "production_added": 98,
+    "production_removed": 109,
+    "production_net": -11,
+    "test_added": 524,
+    "test_removed": 23,
+    "test_net": 501
+  }
+}
