@@ -71,7 +71,7 @@ pub(crate) fn search_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
-    let collections = bind(repo, query)?;
+    let mut collections = bind(repo, query)?;
     crate::query_execution::runner::search_segmented_reference_records(
         repo,
         query,
@@ -79,6 +79,6 @@ pub(crate) fn search_segmented(
         segments,
         catalog,
         revision,
-        &collections,
+        &mut collections,
     )
 }

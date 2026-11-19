@@ -1,4 +1,4 @@
-use super::super::*;
+use super::prelude::*;
 use super::{fixture_schema, with_record};
 use crate::query::parse_filter;
 #[test]

@@ -222,6 +222,11 @@ impl RelationIndex {
         }
         Ok(())
     }
+
+    #[cfg(test)]
+    pub(crate) fn mark_unavailable_for_test(&mut self, slot: RecordSlot) {
+        self.unavailable.insert(slot.0);
+    }
 }
 
 /// One local ID occurrence before target inventories are available.
@@ -335,6 +340,11 @@ impl RelationContribution {
     pub(crate) fn remove_references_to_for_test(&mut self, target_id: &str) {
         self.references
             .retain(|reference| reference.target_id != target_id);
+    }
+
+    #[cfg(test)]
+    pub(crate) fn mark_unavailable_for_test(&mut self, slot: RecordSlot) {
+        self.unavailable.insert(slot.0);
     }
 
     pub(crate) fn record_count(&self) -> u32 {

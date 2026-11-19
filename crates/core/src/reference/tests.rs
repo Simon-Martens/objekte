@@ -1,12 +1,13 @@
-use super::*;
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::{FileId, RecordId, RecordSlot};
 use crate::schema::{CustomBinding, FieldDefinition, Schema, Transform};
+use prelude::*;
 
 mod comparison;
 mod filter;
 mod folding;
 mod fts;
+mod prelude;
 mod schema;
 
 fn fixture_schema() -> Schema {

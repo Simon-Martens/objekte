@@ -1,3 +1,9 @@
+use crate::query::semantics::folding::{
+    with_folded_candidate, with_folded_candidate_str, with_folded_value_str,
+};
+use crate::query::semantics::record::{RecordContext, metadata_value};
+use crate::query::semantics::state::value_matches;
+
 use memchr::memmem::Finder;
 
 /// Substring pattern parsed once for a bound literal.

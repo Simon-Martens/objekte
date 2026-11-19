@@ -104,4 +104,6 @@ impl PreparedTextMatcher for RegexTextMatcher {
     }
 }
 
+use crate::query::binding::fts::value_retained_heap_bytes;
+
 use super::*;

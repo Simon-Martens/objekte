@@ -4,7 +4,7 @@ use smallvec::SmallVec;
 use std::borrow::Cow;
 use std::cell::RefCell;
 use std::cmp::Ordering;
-pub(crate) use std::collections::{HashMap, HashSet};
+pub(crate) use std::collections::HashMap;
 pub(crate) use std::path::Path;
 pub(crate) use std::sync::Arc;
 
@@ -24,8 +24,3 @@ pub mod record;
 pub(crate) mod state;
 #[cfg(test)]
 pub(crate) mod test_matcher;
-
-pub(crate) use comparison::*;
-pub(crate) use folding::*;
-pub(crate) use record::*;
-pub(crate) use state::*;

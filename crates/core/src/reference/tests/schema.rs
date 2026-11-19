@@ -1,4 +1,4 @@
-use super::super::*;
+use super::prelude::*;
 use crate::query::parse_filter;
 use crate::schema::CustomBinding;
 #[test]

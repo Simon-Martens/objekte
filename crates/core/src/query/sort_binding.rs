@@ -28,6 +28,7 @@ type SortTargetCell = OnceLock<Result<Arc<Value>, String>>;
 /// A prepared sort term with no source access in its comparator.
 pub(crate) struct BoundSortTerm<'a> {
     pub source: BoundSortSource<'a>,
+    pub(crate) reference: Option<ComputedSort>,
     pub descending: bool,
     pub options: SortOptions,
 }
@@ -100,6 +101,8 @@ pub(crate) struct MergedSortTargetCache {
     pub reads: u64,
     pub reuse: u64,
     pub bytes_read: u64,
+    pub relation_source_reads: u64,
+    pub relation_source_bytes: u64,
 }
 
 impl MergedSortTargetCache {
@@ -128,6 +131,23 @@ impl MergedSortTargetCache {
         &mut self,
         view: &MergedRelationView<'_>,
         address: MergedRecordSlot,
+    ) -> Result<Option<Arc<Value>>, String> {
+        self.load_kind(view, address, false)
+    }
+
+    fn load_source(
+        &mut self,
+        view: &MergedRelationView<'_>,
+        address: MergedRecordSlot,
+    ) -> Result<Option<Arc<Value>>, String> {
+        self.load_kind(view, address, true)
+    }
+
+    fn load_kind(
+        &mut self,
+        view: &MergedRelationView<'_>,
+        address: MergedRecordSlot,
+        source: bool,
     ) -> Result<Option<Arc<Value>>, String> {
         if let Some(value) = self.values.get(&address) {
             self.reuse += 1;
@@ -183,7 +203,13 @@ impl MergedSortTargetCache {
         let value = Arc::new(extracted.value);
         self.retained_bytes = next;
         self.reads += 1;
+        if source {
+            self.relation_source_reads += 1;
+        }
         self.bytes_read += bytes.len() as u64;
+        if source {
+            self.relation_source_bytes += bytes.len() as u64;
+        }
         self.values.insert(address, value.clone());
         Ok(Some(value))
     }
@@ -313,11 +339,23 @@ impl<'a> BoundSort<'a> {
                 } else {
                     None
                 };
-                let (source, locale, options) = if let Some(column) = column {
+                let (source, reference, locale, options) = if let Some(column) = column {
+                    let config = SortConfig {
+                        locale: column.locale.clone(),
+                        options: column.options,
+                    };
+                    let collator = make_collator(&config)?;
                     (
                         BoundSortSource::Stored(column),
-                        column.locale.clone(),
-                        column.options,
+                        Some(ComputedSort {
+                            path,
+                            related: None,
+                            reducer: None,
+                            transform: SortTransform::Identity,
+                            collator,
+                        }),
+                        config.locale,
+                        config.options,
                     )
                 } else {
                     has_computed = true;
@@ -335,6 +373,7 @@ impl<'a> BoundSort<'a> {
                             transform,
                             collator,
                         })),
+                        None,
                         config.locale,
                         config.options,
                     )
@@ -352,6 +391,7 @@ impl<'a> BoundSort<'a> {
                 expected_config[position] = Some(config);
                 selected.push(BoundSortTerm {
                     source,
+                    reference,
                     descending: field.descending,
                     options,
                 });
@@ -417,21 +457,11 @@ impl<'a> BoundSort<'a> {
             .iter()
             .map(|term| {
                 let key = match &term.source {
-                    BoundSortSource::Stored(column) => {
-                        let path = QueryPath::parse(&column.path.display())?;
-                        let collator = make_collator(&SortConfig {
-                            locale: column.locale.clone(),
-                            options: column.options,
-                        })?;
-                        ComputedSort {
-                            path,
-                            related: None,
-                            reducer: None,
-                            transform: SortTransform::Identity,
-                            collator,
-                        }
-                        .key_local(ctx)?
-                    }
+                    BoundSortSource::Stored(_) => term
+                        .reference
+                        .as_ref()
+                        .ok_or("reference stored sort preparation missing")?
+                        .key_local(ctx)?,
                     BoundSortSource::Computed(computed) => {
                         computed.key_merged(view, address, ctx, target_cache, true)?
                     }
@@ -626,6 +656,52 @@ impl ComputedSort {
         };
         match hop.direction {
             HopDirection::Forward => {
+                if reference && matches!(self.reducer, Some(SortReducer::First | SortReducer::Last))
+                {
+                    let owned = if source_value.is_none() {
+                        cache.load(view, address)?
+                    } else {
+                        None
+                    };
+                    let Some(value) = source_value.or(owned.as_deref()) else {
+                        reduced.observe_unavailable()?;
+                        return Ok(());
+                    };
+                    let mut positions = Vec::new();
+                    visit_reference_occurrences(
+                        value,
+                        &current.collection.relations[hop.relation.ordinal as usize]
+                            .declaration
+                            .path,
+                        &mut positions,
+                        &mut |id, positions| {
+                            if !positions_match(&hop.selectors, positions) {
+                                return Ok(());
+                            }
+                            cache.edge()?;
+                            if let Some(id) = id {
+                                if let Some(target) = view.reference_resolve_id(hop.to, id)? {
+                                    self.visit_related_merged(
+                                        view,
+                                        hops,
+                                        terminal,
+                                        depth + 1,
+                                        target,
+                                        None,
+                                        cache,
+                                        reduced,
+                                        true,
+                                    )
+                                } else {
+                                    reduced.observe_unavailable()
+                                }
+                            } else {
+                                reduced.observe_value(&Value::Null, self)
+                            }
+                        },
+                    )?;
+                    return Ok(());
+                }
                 if reference
                     && !matches!(self.reducer, Some(SortReducer::First | SortReducer::Last))
                 {
@@ -640,7 +716,7 @@ impl ComputedSort {
                             continue;
                         }
                         cache.edge()?;
-                        if let Some(target) = view.resolve_id(hop.to, &id)? {
+                        if let Some(target) = view.reference_resolve_id(hop.to, &id)? {
                             self.visit_related_merged(
                                 view,
                                 hops,
@@ -739,7 +815,11 @@ impl ComputedSort {
             }
             HopDirection::Backlink => {
                 let sources = if reference {
-                    view.reference_backlink_sources(hop.relation, &current.record.id.0, None)?
+                    view.reference_backlink_sources_with(
+                        hop.relation,
+                        &current.record.id.0,
+                        |address| cache.load_source(view, address),
+                    )?
                 } else {
                     view.backlink_sources(hop.relation, &current.record.id.0)?
                 };

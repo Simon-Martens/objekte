@@ -2,6 +2,60 @@
 
 use super::*;
 
+fn materialize_merged_address(
+    repo: &Repository,
+    view: &crate::relation_query::MergedRelationView<'_>,
+    address: crate::relation_query::MergedRecordSlot,
+    return_mode: ReturnMode,
+) -> Result<Option<SearchHit>, String> {
+    let Some(resolved) = view.record(address)? else {
+        return Ok(None);
+    };
+    let record = resolved.record;
+    let file = resolved.file;
+    let payload = match return_mode {
+        ReturnMode::Locator => None,
+        ReturnMode::Logical if record.class == RecordClass::RawFallback => {
+            Some(Payload::LogicalUnavailable {
+                diagnostic_ref: record.diagnostic_ref,
+            })
+        }
+        ReturnMode::Bytes | ReturnMode::Logical => {
+            let path = repo.files.root.join(&file.relative_path);
+            let bytes = crate::source::access::read_record_range_for_search(
+                &path,
+                file.revision,
+                record.range,
+                None,
+            )?;
+            super::payload_from_bytes(
+                record.class,
+                Some(&resolved.collection),
+                &return_mode,
+                bytes,
+            )?
+            .0
+        }
+    };
+    Ok(Some(SearchHit {
+        collection: resolved.collection.definition.name.clone(),
+        record_id: record.id.0.to_string(),
+        generation: address.collection.0 as u64,
+        file_id: file.id.0,
+        file_path: file.relative_path.to_path_buf(),
+        file_size: file.revision.size,
+        file_created_ns: file.created_ns,
+        byte_start: record.range.start,
+        byte_end: record.range.end,
+        modified_ns: record.revision.modified_ns,
+        matched_fields: Vec::new(),
+        file_status: file.status,
+        record_class: record.class,
+        diagnostic_ref: record.diagnostic_ref,
+        payload,
+    }))
+}
+
 #[derive(Clone)]
 struct RelationTargetPrune {
     source_path: Vec<String>,
@@ -887,6 +941,7 @@ fn try_direct_relation_page(
                     key,
                     hit,
                     segment: Some((*source_index, segment_index)),
+                    record_address: None,
                     retained_bytes: 0,
                 },
                 retained_budget.zip(context),
@@ -1338,6 +1393,7 @@ fn scan_relation_file_parallel(
             key,
             hit,
             segment: Some((collection_index, job.segment_index)),
+            record_address: None,
             retained_bytes: 0,
         });
     }
@@ -2166,6 +2222,7 @@ pub(super) fn search_segmented_relations(
                     segment: address
                         .segment
                         .map(|segment_index| (collection_index, segment_index)),
+                    record_address: Some(address),
                     retained_bytes: 0,
                 },
                 winner_budget,
@@ -2496,7 +2553,9 @@ pub(super) fn search_segmented_relations(
                 context.charge_reads(1)?;
                 context.charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
             }
-            let payload_hit = if let Some((collection_index, segment_index)) = winner.segment {
+            let payload_hit = if let Some(address) = winner.record_address {
+                materialize_merged_address(repo, &view, address, query.options.return_mode.clone())
+            } else if let Some((collection_index, segment_index)) = winner.segment {
                 let published = &segments[collection_index][segment_index];
                 get_segment_record_by_id(
                     repo,
@@ -2548,6 +2607,8 @@ pub(super) fn search_segmented_relations(
     counters.sort_target_reads += sort_cache.reads;
     counters.sort_target_reuse += sort_cache.reuse;
     counters.relation_edge_visits += sort_cache.edge_visits;
+    counters.relation_source_reads += sort_cache.relation_source_reads;
+    counters.relation_bytes_read += sort_cache.relation_source_bytes;
     counters.files_opened += sort_cache.reads;
     counters.record_parses += sort_cache.reads;
     counters.bytes_read += sort_cache.bytes_read;
@@ -2593,18 +2654,18 @@ pub(crate) fn search_segmented_reference_records(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
     revision: IndexRevision,
-    collections: &[crate::reference::relations::ReferenceCollectionQuery],
+    collections: &mut [crate::reference::relations::ReferenceCollectionQuery],
 ) -> Result<SearchResult, String> {
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
     let sort = ResolvedSort::new(repo, query)?;
     let prepared = collections
-        .iter()
+        .iter_mut()
         .map(|entry| PreparedCollectionQuery {
             collection_index: entry.collection_index,
-            filter: entry.filter.clone(),
-            fts: entry.fts.clone(),
+            filter: entry.filter.take(),
+            fts: entry.fts.take(),
             filter_shape: None,
             text_term: None,
         })

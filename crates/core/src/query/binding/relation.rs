@@ -515,4 +515,9 @@ fn selector(step: &PathStep) -> Option<Option<u32>> {
     }
 }
 
+use crate::query::binding::filter::{
+    BoundExpr, BoundTerm, bind_field_probe, bind_filter_with_parameters,
+};
+use crate::query::binding::fts::{BoundFts, bind_fts};
+
 use super::*;
