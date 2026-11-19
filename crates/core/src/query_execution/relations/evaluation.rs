@@ -12,6 +12,7 @@ use crate::query::binding::fts::{BoundFts, BoundFtsField};
 use crate::query::binding::relation::{BoundRelationHop, HopDirection};
 use crate::query::semantics::boolean;
 use crate::query::semantics::comparison::eval_cross_record_field_term;
+use crate::query::semantics::filter::emit_bound_filter_evidence;
 use crate::query::semantics::record::RecordContext;
 use crate::query_execution::relations::target_cache::TargetValueCache;
 use crate::reference::filter::eval_term;
@@ -172,35 +173,6 @@ pub(crate) fn eval_filter_truth_membership(
             unreachable!("Boolean leaf evaluator received a branch node")
         }
     })
-}
-
-fn emit_bound_filter_evidence(
-    term: &BoundTerm,
-    result: Option<bool>,
-    evidence: Option<&mut std::collections::HashSet<String>>,
-) {
-    let Some(evidence) = evidence else {
-        return;
-    };
-    if result != Some(true)
-        || term.derived != crate::query::binding::filter::Derived::None
-        || matches!(
-            term.operator,
-            crate::query::Operator::Ne | crate::query::Operator::NotContains
-        )
-    {
-        return;
-    }
-    evidence.insert(term.query_path.display.clone());
-    if let Some(rhs) = &term.rhs {
-        evidence.insert(rhs.query_path.display.clone());
-    }
-    if let Some(related) = &term.related {
-        if let Some(source_operand) = &related.source_operand {
-            evidence.insert(source_operand.query_path.display.clone());
-        }
-        evidence.insert(related.evidence_path.clone());
-    }
 }
 
 /// Evaluate selected local and relation FTS fields with source identity intact.

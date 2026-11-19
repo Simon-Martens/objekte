@@ -3609,7 +3609,11 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
 
     let mut fields = std::collections::HashSet::new();
     let field_comparison = bind_term("entry.title = local_title");
-    super::emit_bound_filter_evidence(&field_comparison, Some(true), Some(&mut fields));
+    crate::query::semantics::filter::emit_bound_filter_evidence(
+        &field_comparison,
+        Some(true),
+        Some(&mut fields),
+    );
     assert_eq!(
         fields,
         std::collections::HashSet::from(["entry.title".into(), "local_title".into()])
@@ -3617,7 +3621,11 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
 
     fields.clear();
     let relation_comparison = bind_term("entry.title = 'Hymn'");
-    super::emit_bound_filter_evidence(&relation_comparison, Some(true), Some(&mut fields));
+    crate::query::semantics::filter::emit_bound_filter_evidence(
+        &relation_comparison,
+        Some(true),
+        Some(&mut fields),
+    );
     assert_eq!(
         fields,
         std::collections::HashSet::from(["entry.title".into()])
@@ -3625,15 +3633,27 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
 
     fields.clear();
     let negative = bind_term("entry.title != 'Hymn'");
-    super::emit_bound_filter_evidence(&negative, Some(true), Some(&mut fields));
+    crate::query::semantics::filter::emit_bound_filter_evidence(
+        &negative,
+        Some(true),
+        Some(&mut fields),
+    );
     assert!(fields.is_empty());
 
     let mut derived = relation_comparison.clone();
     derived.derived = crate::query::binding::filter::Derived::Length;
-    super::emit_bound_filter_evidence(&derived, Some(true), Some(&mut fields));
+    crate::query::semantics::filter::emit_bound_filter_evidence(
+        &derived,
+        Some(true),
+        Some(&mut fields),
+    );
     assert!(fields.is_empty());
 
-    super::emit_bound_filter_evidence(&relation_comparison, None, Some(&mut fields));
+    crate::query::semantics::filter::emit_bound_filter_evidence(
+        &relation_comparison,
+        None,
+        Some(&mut fields),
+    );
     assert!(fields.is_empty());
 
     let request = query(
@@ -3732,6 +3752,88 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
         std::collections::HashSet::from(["entry.title".into(), "local_title".into()])
     );
     assert_eq!(merged_fields, base_fields);
+    let residual = crate::query_predicate::prepare_residual(
+        filter,
+        &[],
+        collection,
+        collection.generation.records.len() as u64,
+        &prepared.predicates,
+    );
+    let mut residual_fields = std::collections::HashSet::new();
+    let mut residual_evaluations = 0;
+    let mut work = RelationWork::default();
+    assert_eq!(
+        residual
+            .with_evidence(
+                &repo,
+                slot.0,
+                &base_ctx,
+                &mut residual_fields,
+                &mut residual_evaluations,
+                &mut work,
+                None,
+            )
+            .unwrap(),
+        Some(true)
+    );
+    assert_eq!(
+        residual_fields,
+        std::collections::HashSet::from(["entry.title".into(), "local_title".into()])
+    );
+
+    let reverse = query(
+        "mentions",
+        Some("local_title = entry.title"),
+        None,
+        None,
+        true,
+    );
+    let prepared_reverse = crate::query::prepared::prepare(&repo, &reverse).unwrap();
+    let filter_reverse = prepared_reverse.collections[0].filter().unwrap();
+    let mut reverse_merged = std::collections::HashSet::new();
+    let mut work = RelationWork::default();
+    assert_eq!(
+        super::eval_filter_truth_merged(
+            &merged,
+            filter_reverse,
+            address,
+            &merged_ctx,
+            &mut reverse_merged,
+            &mut work,
+            false,
+        )
+        .unwrap(),
+        Some(true)
+    );
+    let reverse_residual = crate::query_predicate::prepare_residual(
+        filter_reverse,
+        &[],
+        collection,
+        collection.generation.records.len() as u64,
+        &prepared_reverse.predicates,
+    );
+    let mut reverse_residual_fields = std::collections::HashSet::new();
+    let mut residual_evaluations = 0;
+    let mut work = RelationWork::default();
+    assert_eq!(
+        reverse_residual
+            .with_evidence(
+                &repo,
+                slot.0,
+                &base_ctx,
+                &mut reverse_residual_fields,
+                &mut residual_evaluations,
+                &mut work,
+                None,
+            )
+            .unwrap(),
+        Some(true)
+    );
+    assert_eq!(
+        reverse_merged,
+        std::collections::HashSet::from(["entry.title".into(), "local_title".into()])
+    );
+    assert_eq!(reverse_residual_fields, reverse_merged);
     std::fs::remove_dir_all(root).unwrap();
 }
 
