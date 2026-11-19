@@ -727,6 +727,81 @@ fn ordered_rows_arrive_before_count_finishes_and_reconstruct_page() {
 }
 
 #[test]
+fn ordered_search_and_stream_prepare_once_per_invocation() {
+    let fixture = fixture();
+    fixture.repo.configure_verified_cache(0).unwrap();
+    let exact = query("kind = 'yes'", false, true, ReturnMode::Locator);
+    let before = preparation_counts();
+    let expected = fixture.repo.search(&exact).unwrap();
+    assert_eq!(preparation_delta(before), (1, 1, 1));
+    let repeated = fixture.repo.search(&exact).unwrap();
+    assert_eq!(preparation_delta(before), (2, 2, 2));
+    assert_eq!(repeated.hits, expected.hits);
+
+    let before_stream = preparation_counts();
+    let mut stream_query = exact.clone();
+    stream_query.options.count = false;
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &stream_query,
+            StreamOptions {
+                batch_rows: 2,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(preparation_delta(before_stream), (1, 1, 1));
+
+    let residual = query("body ~ 'needle'", false, true, ReturnMode::Locator);
+    let before_residual = preparation_counts();
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &residual,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(preparation_delta(before_residual), (1, 1, 1));
+
+    let declined = query("kind = 'yes'", true, false, ReturnMode::Locator);
+    let before_declined = preparation_counts();
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &declined,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(
+        crate::query::prepared::production_prepare_calls() - before_declined.0,
+        1
+    );
+}
+
+fn preparation_counts() -> (usize, usize, usize) {
+    (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    )
+}
+
+fn preparation_delta(before: (usize, usize, usize)) -> (usize, usize, usize) {
+    let after = preparation_counts();
+    (after.0 - before.0, after.1 - before.1, after.2 - before.2)
+}
+
+#[test]
 fn replacements_correct_late_better_sort_key_and_preserve_payloads() {
     let fixture = fixture();
     let query = query("body ~ 'needle'", true, true, ReturnMode::Logical);

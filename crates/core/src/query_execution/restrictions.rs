@@ -46,6 +46,16 @@ use serde::Serialize;
 
 const MAX_INDEXED_PATH_SCAN: usize = 8192;
 
+#[cfg(test)]
+thread_local! {
+    static PREDICATE_BOUNDS_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn predicate_bounds_calls() -> usize {
+    PREDICATE_BOUNDS_CALLS.with(std::cell::Cell::get)
+}
+
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
 /// superset of true records; `must` is a subset. Carrying both through NOT
 /// prevents an unavailable or unindexed value from becoming a false proof.
@@ -506,6 +516,8 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     predicates: Option<&PreparedPredicates>,
     execution: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
+    #[cfg(test)]
+    PREDICATE_BOUNDS_CALLS.with(|calls| calls.set(calls.get() + 1));
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }

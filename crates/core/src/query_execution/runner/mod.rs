@@ -833,6 +833,7 @@ pub(crate) fn search_segmented_lifecycle(
         None,
         cache,
         None,
+        None,
     ) {
         Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
             search_segmented_reference(repo, query, base_active, segments, catalog, revision)
@@ -899,6 +900,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
         context,
         cache,
         None,
+        None,
     )
 }
 
@@ -913,6 +915,7 @@ fn search_segmented_with_context_lifecycle_budget(
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
+    bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
     let result = search_segmented_impl(
@@ -925,6 +928,7 @@ fn search_segmented_with_context_lifecycle_budget(
         Some(context),
         cache,
         retained_budget,
+        bound,
     );
     match result {
         Err(message) => {
@@ -935,10 +939,17 @@ fn search_segmented_with_context_lifecycle_budget(
             ) && has_unavailable_active_source(repo, base_active, segments, catalog)
             {
                 context.clear_recovered_source_changed();
-                let sort = ResolvedSort::new(repo, query)
-                    .map_err(|message| context.recorded_error(message))?;
-                let prepared = crate::query::prepared::prepare(repo, query)
-                    .map_err(|message| context.recorded_error(message))?;
+                let owned_sort;
+                let owned_prepared;
+                let (sort, prepared) = if let Some((sort, prepared)) = bound {
+                    (sort, prepared)
+                } else {
+                    owned_sort = ResolvedSort::new(repo, query)
+                        .map_err(|message| context.recorded_error(message))?;
+                    owned_prepared = crate::query::prepared::prepare(repo, query)
+                        .map_err(|message| context.recorded_error(message))?;
+                    (&owned_sort, &owned_prepared)
+                };
                 search_segmented_relations(
                     repo,
                     query,
@@ -946,7 +957,7 @@ fn search_segmented_with_context_lifecycle_budget(
                     segments,
                     catalog,
                     revision,
-                    &sort,
+                    sort,
                     &prepared.collections,
                     Some(context),
                     None,
@@ -1619,6 +1630,7 @@ fn exact_or_branch_members(
 fn try_lifecycle_ordered_page(
     repo: &Repository,
     query: &Query,
+    sort: &ResolvedSort<'_>,
     prepared: &crate::query::prepared::PreparedQuery,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
@@ -1648,38 +1660,6 @@ fn try_lifecycle_ordered_page(
     {
         return Ok(None);
     }
-    let single_collection = prepared.collections.len() == 1;
-    let mut all_exact = true;
-    for entry in &prepared.collections {
-        let collection_index = entry.collection_index;
-        let filter = entry.filter.as_ref();
-        let fts = entry.fts.as_ref();
-        if fts.is_some() {
-            all_exact = false;
-            continue;
-        }
-        let filter = filter.ok_or("ordered filter missing")?;
-        for segment in segments[collection_index].iter() {
-            let bounds = segment_filter_bounds_with_catalog(
-                &segment.index,
-                &segment.active,
-                filter,
-                &repo.collections[collection_index],
-                Some(catalog),
-            )?;
-            let logical = &segment.active.bitmap() & &segment.index.logical_records;
-            let exact = bounds.may == bounds.must
-                || (excludes_raw_fallback(filter)
-                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
-            all_exact &= exact;
-        }
-    }
-    if single_collection && all_exact && !query.options.sort.is_empty() {
-        return Ok(None);
-    }
-    if query.options.sort.is_empty() && !all_exact {
-        return Ok(None);
-    }
     let fallback_context;
     let execution = if let Some(context) = context {
         context
@@ -1691,25 +1671,9 @@ fn try_lifecycle_ordered_page(
         );
         &fallback_context
     };
-    let cancellation = execution.cancellation().cloned().unwrap_or_default();
-    let mut page_query = query.clone();
-    page_query.options.count = false;
     let mut hits = Vec::new();
-    let mut sink = |event: crate::query_execution::streaming::StreamEvent<'_>| {
-        match event {
-            crate::query_execution::streaming::StreamEvent::OrderedRows { rows, .. }
-            | crate::query_execution::streaming::StreamEvent::PageReplacement { rows, .. } => {
-                hits.extend(rows.iter().cloned());
-            }
-            crate::query_execution::streaming::StreamEvent::Progress { .. } => {}
-        }
-        Ok(crate::query_execution::streaming::StreamControl::Continue)
-    };
-    let mut delivery = Delivery::new(
-        crate::query_execution::streaming::StreamOptions::default(),
-        &cancellation,
-        &mut sink,
-    );
+    let options = crate::query_execution::streaming::StreamOptions::default();
+    let max_buffered_bytes = options.max_buffered_bytes;
     let scope = crate::query_execution::streaming::ResultScope::Page {
         offset: query.options.offset,
         limit: query.options.limit,
@@ -1720,7 +1684,9 @@ fn try_lifecycle_ordered_page(
     }
     let outcome = try_lifecycle_ordered_stream(
         repo,
-        &page_query,
+        query,
+        sort,
+        prepared,
         query.options.return_mode.clone(),
         scope,
         base_active,
@@ -1729,36 +1695,16 @@ fn try_lifecycle_ordered_page(
         revision,
         execution,
         cache,
-        &mut delivery,
+        &options,
+        max_buffered_bytes,
+        None,
+        Some(&mut hits),
     )?;
     let Some(crate::query_execution::streaming::StreamOutcome::Complete(summary)) = outcome else {
         return Ok(None);
     };
     let mut counters = summary.counters;
-    let mut count = None;
-    if query.options.count {
-        let _count_phase = crate::query_execution::request::observation_phase("exact_count");
-        if let Some(collector) = context.and_then(|context| context.observation_collector()) {
-            collector.set_phase("exact_count");
-        }
-        let mut count_query = query.clone();
-        count_query.options.offset = 0;
-        count_query.options.limit = 0;
-        count_query.options.return_mode = ReturnMode::Locator;
-        let counted = search_segmented_with_context_lifecycle(
-            repo,
-            &count_query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            execution,
-            cache,
-        )
-        .map_err(|error| error.message)?;
-        counters = counted.counters;
-        count = counted.count;
-    }
+    let mut count = summary.count;
     if let Some(collector) = context.and_then(|context| context.observation_collector()) {
         collector.set_phase("search");
     }
@@ -1884,6 +1830,7 @@ fn search_segmented_impl(
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
+    bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
 ) -> Result<SearchResult, String> {
     if query.options.count
         && query.options.limit == 0
@@ -1933,18 +1880,25 @@ fn search_segmented_impl(
     } else {
         None
     };
-    let sort = ResolvedSort::new(repo, query).map_err(|message| match context {
-        Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
-        None => message,
-    })?;
-    let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
-        matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
-    });
-    let prepared =
-        crate::query::prepared::prepare(repo, query).map_err(|message| match context {
+    let owned_sort;
+    let owned_prepared;
+    let (sort, prepared) = if let Some((sort, prepared)) = bound {
+        (sort, prepared)
+    } else {
+        owned_sort = ResolvedSort::new(repo, query).map_err(|message| match context {
             Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
             None => message,
         })?;
+        owned_prepared =
+            crate::query::prepared::prepare(repo, query).map_err(|message| match context {
+                Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
+                None => message,
+            })?;
+        (&owned_sort, &owned_prepared)
+    };
+    let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
+        matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
+    });
     let has_relations = prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
             || entry
@@ -1971,6 +1925,7 @@ fn search_segmented_impl(
         && let Some(result) = try_lifecycle_ordered_page(
             repo,
             query,
+            &sort,
             &prepared,
             base_active,
             segments,
@@ -2126,10 +2081,10 @@ fn search_segmented_impl(
     }
     let mut delta_opened = HashSet::new();
     let predicates = Arc::clone(&prepared.predicates);
-    for entry in prepared.collections {
+    for entry in &prepared.collections {
         let collection_index = entry.collection_index;
-        let filter = entry.filter;
-        let fts = entry.fts;
+        let filter = entry.filter.clone();
+        let fts = entry.fts.clone();
         let collection = &repo.collections[collection_index];
         let direct_plan =
             DirectSourcePlan::prepare_bound(collection, &sort, fts.as_ref(), filter.as_ref());
@@ -3456,6 +3411,8 @@ fn push_lifecycle_order_cursor(
 fn try_lifecycle_ordered_stream(
     repo: &Repository,
     request: &Query,
+    sort: &ResolvedSort<'_>,
+    prepared: &crate::query::prepared::PreparedQuery,
     output_mode: ReturnMode,
     scope: ResultScope,
     base_active: &[ActiveRecords],
@@ -3464,14 +3421,16 @@ fn try_lifecycle_ordered_stream(
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
-    delivery: &mut Delivery<'_>,
+    options: &StreamOptions,
+    max_buffered_bytes: usize,
+    mut delivery: Option<&mut Delivery<'_>>,
+    mut page_output: Option<&mut Vec<SearchHit>>,
 ) -> Result<Option<StreamOutcome>, String> {
     if base_active.iter().any(|active| active.len() != 0)
         || matches!(scope, ResultScope::Page { limit: 0, .. })
     {
         return Ok(None);
     }
-    let sort = ResolvedSort::new(repo, request)?;
     if sort.bound.has_computed
         || sort
             .bound
@@ -3483,7 +3442,6 @@ fn try_lifecycle_ordered_stream(
     {
         return Ok(None);
     }
-    let prepared = crate::query::prepared::prepare(repo, request)?;
     let predicates = Arc::clone(&prepared.predicates);
     if prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
@@ -3492,6 +3450,12 @@ fn try_lifecycle_ordered_stream(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     }) {
+        return Ok(None);
+    }
+    if page_output.is_some()
+        && request.options.sort.is_empty()
+        && prepared.collections.iter().any(|entry| entry.fts.is_some())
+    {
         return Ok(None);
     }
     for entry in &prepared.collections {
@@ -3513,10 +3477,10 @@ fn try_lifecycle_ordered_stream(
         .iter()
         .map(|group| vec![false; group.len()])
         .collect::<Vec<_>>();
-    for entry in prepared.collections {
+    for entry in &prepared.collections {
         let collection_index = entry.collection_index;
-        let filter = entry.filter;
-        let fts = entry.fts;
+        let filter = entry.filter.clone();
+        let fts = entry.fts.clone();
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
             let filter_may = filter
@@ -3573,6 +3537,21 @@ fn try_lifecycle_ordered_stream(
         }
         filters[collection_index] = Some((filter, fts));
     }
+    if page_output.is_some() {
+        let all_exact = prepared.collections.iter().all(|entry| {
+            entry.fts.is_none()
+                && filter_exact[entry.collection_index]
+                    .iter()
+                    .all(|exact| *exact)
+        });
+        let single_collection = prepared.collections.len() == 1;
+        if single_collection && all_exact && !request.options.sort.is_empty() {
+            return Ok(None);
+        }
+        if request.options.sort.is_empty() && !all_exact {
+            return Ok(None);
+        }
+    }
     let candidate_total = candidates
         .iter()
         .flatten()
@@ -3586,6 +3565,39 @@ fn try_lifecycle_ordered_stream(
                 "ordered candidate count overflow",
             )
         })?;
+    let cache_entry = if request.options.count
+        && matches!(scope, ResultScope::Page { .. })
+        && context.limits == ExecutionLimits::default()
+        && let Some(scope) = cache
+    {
+        let key =
+            crate::query_results::verified::lifecycle_key(request, scope.instance_id, revision.0)?;
+        let budget = scope
+            .store
+            .lock()
+            .map_err(|error| error.to_string())?
+            .budget();
+        (budget > 0).then(|| {
+            (
+                scope,
+                budget.saturating_sub(key.len().saturating_add(128)),
+                key,
+            )
+        })
+    } else {
+        None
+    };
+    let known_exact_count = (request.options.count
+        && request.options.limit > 0
+        && cache_entry.is_none()
+        && filters
+            .iter()
+            .all(|selected| selected.as_ref().is_some_and(|(_, fts)| fts.is_none()))
+        && filters
+            .iter()
+            .zip(&filter_exact)
+            .all(|(selected, exact)| selected.is_none() || exact.iter().all(|exact| *exact)))
+    .then_some(candidate_total);
     if candidate_total > 256
         && repo.options.query_workers > 1
         && filters.iter().any(|selected| {
@@ -3660,7 +3672,7 @@ fn try_lifecycle_ordered_stream(
                 "ordered cursor memory overflow",
             )
         })?;
-    if heap_bytes > delivery.max_buffered_bytes() {
+    if heap_bytes > max_buffered_bytes {
         return Err(context.fail(
             ExecutionErrorKind::Resource,
             "ordered cursors exceed stream memory budget",
@@ -3689,7 +3701,7 @@ fn try_lifecycle_ordered_stream(
                 0,
                 &mut heap,
                 &mut heap_bytes,
-                delivery.max_buffered_bytes(),
+                max_buffered_bytes,
                 context,
             )?;
         }
@@ -3703,14 +3715,17 @@ fn try_lifecycle_ordered_stream(
         match_count_complete: true,
         ..WorkCounters::default()
     };
+    let mut cache_builder = cache_entry
+        .as_ref()
+        .map(|(_, budget, _)| LifecycleCacheBuilder::new(*budget));
     let offset = scope.offset();
     let limit = match scope {
         ResultScope::Page { limit, .. } => Some(limit),
         ResultScope::All { .. } => None,
     };
     let mut stopped_early = false;
+    let mut page_captured = false;
     while let Some(Reverse(cursor)) = heap.pop() {
-        delivery.check()?;
         context.check_string()?;
         heap_bytes = heap_bytes.saturating_sub(cursor.bytes);
         push_lifecycle_order_cursor(
@@ -3724,7 +3739,7 @@ fn try_lifecycle_ordered_stream(
             cursor.position,
             &mut heap,
             &mut heap_bytes,
-            delivery.max_buffered_bytes().saturating_sub(page_bytes),
+            max_buffered_bytes.saturating_sub(page_bytes),
             context,
         )?;
         let published = &segments[cursor.collection_index][cursor.segment_index];
@@ -3745,18 +3760,21 @@ fn try_lifecycle_ordered_stream(
             || (filter.is_some() && !filter_exact[cursor.collection_index][cursor.segment_index]);
         if limit.is_none() && !page.is_empty() {
             let upcoming = usize::try_from(record.range.len()).unwrap_or(usize::MAX);
-            if page.len() >= delivery.options().batch_rows
+            if page.len() >= options.batch_rows
                 || page_bytes
                     .saturating_add(upcoming)
                     .saturating_add(heap_bytes)
-                    > delivery.max_buffered_bytes()
+                    > max_buffered_bytes
             {
-                delivery.ordered_batch(&page, &counters)?;
+                if let Some(delivery) = delivery.as_deref_mut() {
+                    delivery.ordered_batch(&page, &counters)?;
+                }
                 page.clear();
                 page_bytes = 0;
             }
         }
         let mut bytes = None;
+        let mut verification_parsed = false;
         let matched = if must_verify {
             if record.range.len() > context.limits.source_record_bytes {
                 return Err(context.fail(
@@ -3767,18 +3785,20 @@ fn try_lifecycle_ordered_stream(
             let source_len = usize::try_from(record.range.len()).map_err(|_| {
                 context.fail(ExecutionErrorKind::Resource, "ordered source size overflow")
             })?;
-            delivery.check_record_bytes(source_len)?;
-            delivery.check_buffer(
-                page_bytes
-                    .checked_add(heap_bytes)
-                    .and_then(|used| used.checked_add(source_len))
-                    .ok_or_else(|| {
-                        context.fail(
-                            ExecutionErrorKind::Resource,
-                            "ordered source memory overflow",
-                        )
-                    })?,
-            )?;
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.check_record_bytes(source_len)?;
+                delivery.check_buffer(
+                    page_bytes
+                        .checked_add(heap_bytes)
+                        .and_then(|used| used.checked_add(source_len))
+                        .ok_or_else(|| {
+                            context.fail(
+                                ExecutionErrorKind::Resource,
+                                "ordered source memory overflow",
+                            )
+                        })?,
+                )?;
+            }
             context.charge_reads(1)?;
             context.charge_bytes(record.range.len())?;
             let read = match read_lifecycle_ordered_record(
@@ -3788,8 +3808,7 @@ fn try_lifecycle_ordered_stream(
                 record,
                 cursor.slot,
                 &mut reader,
-                delivery
-                    .max_buffered_bytes()
+                max_buffered_bytes
                     .saturating_sub(heap_bytes)
                     .saturating_sub(page_bytes),
                 context,
@@ -3803,8 +3822,10 @@ fn try_lifecycle_ordered_stream(
                     read
                 }
                 Err(message) => {
-                    if delivery.options().mode == StreamMode::PageReplacements
-                        && delivery.last_page_sequence() > 0
+                    if options.mode == StreamMode::PageReplacements
+                        && delivery
+                            .as_ref()
+                            .is_some_and(|delivery| delivery.last_page_sequence() > 0)
                     {
                         return Err(message);
                     }
@@ -3823,7 +3844,7 @@ fn try_lifecycle_ordered_stream(
             };
             counters.bytes_read += read.len() as u64;
             counters.scanned_records += 1;
-            counters.record_parses += u64::from(record.class == RecordClass::Logical);
+            verification_parsed = record.class == RecordClass::Logical;
             counters.residual_evaluations += u64::from(filter.is_some());
             let (_, matched, found_evidence, raw_checked) = verify_local_segment_record(
                 repo,
@@ -3855,11 +3876,34 @@ fn try_lifecycle_ordered_stream(
             true
         };
         if !matched {
+            counters.record_parses += u64::from(verification_parsed);
             continue;
+        }
+        if let Some(builder) = cache_builder.as_mut() {
+            let key = segment_rank_key(
+                repo,
+                &sort,
+                cursor.collection_index,
+                &published.index,
+                record,
+                None,
+            )?;
+            let mut matched_fields = evidence.iter().cloned().collect::<Vec<_>>();
+            matched_fields.sort();
+            builder.push(
+                &key,
+                CachedMember {
+                    collection_index: cursor.collection_index,
+                    segment_index: Some(cursor.segment_index),
+                    slot: cursor.slot.0,
+                    matched_fields: matched_fields.into(),
+                },
+            );
         }
         let position = counters.total_matches as usize;
         counters.total_matches += 1;
-        if position < offset || limit.is_some_and(|limit| page.len() >= limit) {
+        if page_captured || position < offset {
+            counters.record_parses += u64::from(verification_parsed);
             continue;
         }
         let mut hit = segment_locator_hit(
@@ -3878,6 +3922,7 @@ fn try_lifecycle_ordered_stream(
                 hit.payload = Some(Payload::LogicalUnavailable {
                     diagnostic_ref: record.diagnostic_ref,
                 });
+                counters.record_parses += u64::from(verification_parsed);
             } else {
                 let source = if let Some(bytes) = bytes.take() {
                     bytes
@@ -3891,18 +3936,20 @@ fn try_lifecycle_ordered_stream(
                     let source_len = usize::try_from(record.range.len()).map_err(|_| {
                         context.fail(ExecutionErrorKind::Resource, "ordered output size overflow")
                     })?;
-                    delivery.check_record_bytes(source_len)?;
-                    delivery.check_buffer(
-                        page_bytes
-                            .checked_add(heap_bytes)
-                            .and_then(|used| used.checked_add(source_len))
-                            .ok_or_else(|| {
-                                context.fail(
-                                    ExecutionErrorKind::Resource,
-                                    "ordered output memory overflow",
-                                )
-                            })?,
-                    )?;
+                    if let Some(delivery) = delivery.as_deref_mut() {
+                        delivery.check_record_bytes(source_len)?;
+                        delivery.check_buffer(
+                            page_bytes
+                                .checked_add(heap_bytes)
+                                .and_then(|used| used.checked_add(source_len))
+                                .ok_or_else(|| {
+                                    context.fail(
+                                        ExecutionErrorKind::Resource,
+                                        "ordered output memory overflow",
+                                    )
+                                })?,
+                        )?;
+                    }
                     context.charge_reads(1)?;
                     context.charge_bytes(record.range.len())?;
                     let read = read_lifecycle_ordered_record(
@@ -3912,8 +3959,7 @@ fn try_lifecycle_ordered_stream(
                         record,
                         cursor.slot,
                         &mut reader,
-                        delivery
-                            .max_buffered_bytes()
+                        max_buffered_bytes
                             .saturating_sub(heap_bytes)
                             .saturating_sub(page_bytes),
                         context,
@@ -3921,8 +3967,10 @@ fn try_lifecycle_ordered_stream(
                     let (read, opened) = match read {
                         Ok(read) => read,
                         Err(message) => {
-                            if delivery.options().mode == StreamMode::PageReplacements
-                                && delivery.last_page_sequence() > 0
+                            if options.mode == StreamMode::PageReplacements
+                                && delivery
+                                    .as_ref()
+                                    .is_some_and(|delivery| delivery.last_page_sequence() > 0)
                             {
                                 return Err(message);
                             }
@@ -3955,15 +4003,22 @@ fn try_lifecycle_ordered_stream(
                 )?;
                 hit.payload = payload;
                 counters.record_parses += parses;
+                if output_mode == ReturnMode::Bytes {
+                    counters.record_parses += u64::from(verification_parsed);
+                }
             }
+        } else {
+            counters.record_parses += u64::from(verification_parsed);
         }
         let bytes = crate::query_execution::streaming::hit_bytes(&hit);
         if limit.is_none()
             && !page.is_empty()
-            && (page.len() >= delivery.options().batch_rows
-                || page_bytes.saturating_add(bytes) > delivery.options().max_event_bytes)
+            && (page.len() >= options.batch_rows
+                || page_bytes.saturating_add(bytes) > options.max_event_bytes)
         {
-            delivery.ordered_batch(&page, &counters)?;
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.ordered_batch(&page, &counters)?;
+            }
             page.clear();
             page_bytes = 0;
         }
@@ -3973,38 +4028,58 @@ fn try_lifecycle_ordered_stream(
                 "ordered page byte count overflow",
             )
         })?;
-        delivery.check_buffer(retained.saturating_add(heap_bytes))?;
+        if page_output.is_some() && retained.saturating_add(heap_bytes) > max_buffered_bytes {
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered page exceeds stream memory budget",
+            ));
+        }
+        if let Some(delivery) = delivery.as_deref_mut() {
+            delivery.check_buffer(retained.saturating_add(heap_bytes))?;
+        }
         page_bytes = retained;
         page.push(hit);
-        if delivery.options().mode == StreamMode::PageReplacements
-            && files_since_checkpoint >= delivery.options().checkpoint_files
+        if options.mode == StreamMode::PageReplacements
+            && files_since_checkpoint >= options.checkpoint_files
         {
-            delivery.replacement(&page, &counters, heap_bytes)?;
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.replacement(&page, &counters, heap_bytes)?;
+            }
             files_since_checkpoint = 0;
         }
         if let Some(limit) = limit
             && page.len() == limit
         {
-            match delivery.options().mode {
-                StreamMode::OrderedRows => {
-                    delivery.ordered_rows(&page, &counters, true)?;
-                    stopped_early = true;
-                }
-                StreamMode::PageReplacements => {
-                    delivery.replacement(&page, &counters, heap_bytes)?
+            if let Some(output) = page_output.as_deref_mut() {
+                output.extend(std::mem::take(&mut page));
+            } else if let Some(delivery) = delivery.as_deref_mut() {
+                match options.mode {
+                    StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
+                    StreamMode::PageReplacements => {
+                        delivery.replacement(&page, &counters, heap_bytes)?
+                    }
                 }
             }
-            if stopped_early {
+            page_captured = true;
+            page_bytes = 0;
+            if (!request.options.count || known_exact_count.is_some())
+                && (page_output.is_some() || options.mode == StreamMode::OrderedRows)
+            {
+                stopped_early = true;
                 break;
             }
         }
     }
-    if !stopped_early {
+    if !page_captured {
         if limit.is_none() {
-            delivery.ordered_batch(&page, &counters)?;
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.ordered_batch(&page, &counters)?;
+            }
             page.clear();
-        } else {
-            match delivery.options().mode {
+        } else if let Some(output) = page_output.as_deref_mut() {
+            output.extend(std::mem::take(&mut page));
+        } else if let Some(delivery) = delivery.as_deref_mut() {
+            match options.mode {
                 StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
                 StreamMode::PageReplacements => {
                     delivery.replacement(&page, &counters, heap_bytes)?
@@ -4012,44 +4087,59 @@ fn try_lifecycle_ordered_stream(
             }
         }
     }
-    let mut count = None;
-    // A Locator-only count pass cannot erase a failed Bytes/Logical page read.
-    if request.options.count && limit.is_some() && counters.source_unavailable_events == 0 {
-        let mut count_query = request.clone();
-        count_query.options.offset = 0;
-        count_query.options.limit = 0;
-        count_query.options.return_mode = ReturnMode::Locator;
-        let result = search_segmented_with_context_lifecycle(
-            repo,
-            &count_query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            context,
-            cache,
-        )
-        .map_err(|error| error.message)?;
-        count = result.count;
-        counters = result.counters;
-    } else if (request.options.count || limit.is_none()) && counters.source_unavailable_events == 0
-    {
-        count = Some(counters.total_matches as usize);
+    let complete_source = counters.source_unavailable_events == 0;
+    let known_exact_count = known_exact_count.filter(|_| complete_source);
+    if let Some(exact) = known_exact_count {
+        counters.total_matches = exact as u64;
+        counters.exact_posting_matches = counters.exact_posting_matches.max(exact as u64);
     }
+    let count = known_exact_count.or_else(|| {
+        (!stopped_early && (request.options.count || limit.is_none()) && complete_source)
+            .then_some(counters.total_matches as usize)
+    });
     if stopped_early && count.is_none() {
         counters.match_count_complete = false;
     }
-    counters.returned_records = delivery.progress.emitted_rows;
+    let emitted_rows = page_output.as_deref().map_or_else(
+        || {
+            delivery
+                .as_ref()
+                .map_or(0, |delivery| delivery.progress.emitted_rows)
+        },
+        |output| output.len() as u64,
+    );
+    counters.returned_records = emitted_rows;
     counters.files_opened = counters.files_opened.max(opened_files.len() as u64);
     counters.distinct_files = opened_files.len() as u64;
-    delivery.observe(&counters);
-    delivery.check()?;
+    if let Some(delivery) = delivery.as_deref_mut() {
+        delivery.observe(&counters);
+        delivery.check()?;
+    }
+    if !stopped_early
+        && counters.source_unavailable_events == 0
+        && let (Some(cache_builder), Some((scope, _, key))) = (cache_builder, cache_entry)
+        && let Some(members) = cache_builder.finish(counters.total_matches)
+    {
+        context.check_string()?;
+        let displaced = scope
+            .store
+            .lock()
+            .map_err(|error| error.to_string())?
+            .insert(key, members);
+        drop(displaced);
+    }
+    let progress = delivery
+        .as_ref()
+        .map_or_else(Default::default, |delivery| delivery.progress);
+    let final_sequence = delivery
+        .as_ref()
+        .map_or(0, |delivery| delivery.last_page_sequence());
     Ok(Some(StreamOutcome::Complete(Box::new(StreamSummary {
         count,
-        returned_rows: delivery.progress.emitted_rows as usize,
-        final_sequence: delivery.last_page_sequence(),
+        returned_rows: emitted_rows as usize,
+        final_sequence,
         counters,
-        progress: delivery.progress,
+        progress,
     }))))
 }
 
@@ -4156,20 +4246,6 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             request.options.return_mode = ReturnMode::Locator;
         }
     }
-    crate::query::sort_binding::BoundSort::bind(repo, &request).map_err(|message| {
-        StreamError::Execution {
-            kind: ExecutionErrorKind::InvalidQuery,
-            message,
-            progress: delivery.progress,
-        }
-    })?;
-    let prepared = crate::query::prepared::prepare(repo, &request).map_err(|message| {
-        StreamError::Execution {
-            kind: ExecutionErrorKind::InvalidQuery,
-            message,
-            progress: delivery.progress,
-        }
-    })?;
     if let ResultScope::Page { .. } = scope
         && let Some(cache) = cache
         && context.limits == ExecutionLimits::default()
@@ -4236,6 +4312,22 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             })));
         }
     }
+    let bound_sort =
+        crate::query::sort_binding::BoundSort::bind(repo, &request).map_err(|message| {
+            StreamError::Execution {
+                kind: ExecutionErrorKind::InvalidQuery,
+                message,
+                progress: delivery.progress,
+            }
+        })?;
+    let sort = ResolvedSort::from_bound(repo, &request, bound_sort);
+    let prepared = crate::query::prepared::prepare(repo, &request).map_err(|message| {
+        StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
+            message,
+            progress: delivery.progress,
+        }
+    })?;
     let relation_scope = prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
             || entry
@@ -4246,6 +4338,8 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     match try_lifecycle_ordered_stream(
         repo,
         &request,
+        &sort,
+        &prepared,
         query.options.return_mode.clone(),
         scope,
         base_active,
@@ -4254,7 +4348,10 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         revision,
         context,
         cache,
-        &mut delivery,
+        &options,
+        options.max_buffered_bytes,
+        Some(&mut delivery),
+        None,
     ) {
         Ok(Some(outcome)) => return Ok(outcome),
         Ok(None) => {}
@@ -4295,6 +4392,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         context,
         query_cache,
         (all && !relation_scope).then(|| delivery.max_buffered_bytes() / 2),
+        Some((&sort, &prepared)),
     ) {
         Ok(result) => result,
         Err(error) => return segmented_stream_error(&mut delivery, context, error.message),

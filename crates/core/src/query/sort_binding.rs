@@ -30,6 +30,12 @@ pub(crate) fn stored_column_matches_config(column: &SortColumn, config: &SortCon
 #[cfg(test)]
 thread_local! {
     static REFERENCE_STORED_SORT_PREPARATIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static PRODUCTION_BOUND_SORT_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn production_bound_sort_calls() -> usize {
+    PRODUCTION_BOUND_SORT_CALLS.with(std::cell::Cell::get)
 }
 
 type SortTargetCell = OnceLock<Result<Arc<Value>, String>>;
@@ -310,6 +316,10 @@ impl<'a> BoundSort<'a> {
     }
 
     fn bind_mode(repo: &'a Repository, query: &Query, reference: bool) -> Result<Self, String> {
+        #[cfg(test)]
+        if !reference {
+            PRODUCTION_BOUND_SORT_CALLS.with(|calls| calls.set(calls.get() + 1));
+        }
         let mut terms = Vec::with_capacity(repo.collections.len());
         let mut has_computed = false;
         let mut needs_source = false;
