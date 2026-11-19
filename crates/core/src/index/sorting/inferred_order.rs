@@ -224,7 +224,7 @@ impl SortColumn {
         locale: &str,
         options: SortOptions,
         descending: bool,
-        execution: Option<&crate::streaming::ExecutionContext>,
+        execution: Option<&crate::query_execution::streaming::ExecutionContext>,
     ) -> Result<Option<Self>, String> {
         const MAX_QUERY_ORDER_BYTES: usize = 128 * 1024 * 1024;
         if let Some(execution) = execution {
@@ -247,7 +247,7 @@ impl SortColumn {
                 .filter(|execution| execution.limits.inferred_order_bytes < MAX_QUERY_ORDER_BYTES)
             {
                 return Err(execution.fail(
-                    crate::streaming::ExecutionErrorKind::Resource,
+                    crate::query_execution::streaming::ExecutionErrorKind::Resource,
                     "inferred order exceeds retained-byte limit",
                 ));
             }
@@ -311,7 +311,7 @@ impl SortColumn {
                             execution.limits.inferred_order_bytes < MAX_QUERY_ORDER_BYTES
                         }) {
                             return Err(execution.fail(
-                                crate::streaming::ExecutionErrorKind::Resource,
+                                crate::query_execution::streaming::ExecutionErrorKind::Resource,
                                 "inferred order exceeds retained-byte limit",
                             ));
                         }

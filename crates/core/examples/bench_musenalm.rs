@@ -7,7 +7,7 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
-use objekte_search_core::execution_options::BigramAlphabet;
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::measurement::WorkCounters;

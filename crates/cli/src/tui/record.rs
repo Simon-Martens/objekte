@@ -2,7 +2,7 @@
 
 use std::collections::BTreeSet;
 
-use objekte_search_core::diagnostics::signed_milliseconds_3;
+use objekte_search_core::measurement::format::signed_milliseconds_3;
 use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query::path::{PathStep, QueryPath};
 use objekte_search_core::query_results::{Payload, SearchHit};

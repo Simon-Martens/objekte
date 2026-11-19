@@ -1,0 +1,1164 @@
+use super::*;
+
+use crate::index::bigram::BigramAlphabet;
+use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
+use crate::model::LogicalType;
+use crate::model::RecordSlot;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::{FieldDefinition, Schema};
+use crate::source::SourceFormat;
+
+#[test]
+fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-live-posting-values-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("00", r#"{"tag":"a"}"#),
+        ("01", r#"{"tag":"a"}"#),
+        ("02", r#"{"tag":"b"}"#),
+        ("03", r#"{"tag":"c"}"#),
+        ("04", "{"),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["tag".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let all = repo.active.clone();
+    let mut live_segments = repo.segments.clone();
+    {
+        let group = Arc::make_mut(&mut live_segments[0]);
+        let segment = Arc::make_mut(&mut group[0]);
+        segment.active = segment
+            .active
+            .retired(&[RecordSlot(1), RecordSlot(3), RecordSlot(4)])
+            .unwrap();
+    }
+    let live = all.clone();
+    let old_revision = IndexRevision::INITIAL;
+    let new_revision = old_revision.next().unwrap();
+    let mut request = PostingValuesRequest::new("data", "tag", 1);
+    let old_first = posting_values_segmented(
+        &repo,
+        &request,
+        old_revision,
+        &all,
+        &repo.segments,
+        &repo.catalog,
+    )
+    .unwrap();
+    assert_eq!(old_first.values[0].count, 2);
+    assert_eq!(old_first.coverage.unavailable_records, 1);
+    let first = posting_values_segmented(
+        &repo,
+        &request,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
+    assert_eq!(first.values[0].value, ScalarKey::String("a".into()));
+    assert_eq!(first.values[0].count, 1);
+    assert_eq!(first.coverage.eligible_records, 2);
+    assert_eq!(first.coverage.unavailable_records, 0);
+    assert_eq!(first.coverage.present_records, 2);
+    assert_eq!(first.coverage.indexed_records, 2);
+    assert!(first.coverage.value_counts_complete);
+    request.continuation = old_first.continuation;
+    assert!(
+        posting_values_segmented(
+            &repo,
+            &request,
+            new_revision,
+            &live,
+            &live_segments,
+            &repo.catalog,
+        )
+        .is_err()
+    );
+    request.continuation = first.continuation;
+    let second = posting_values_segmented(
+        &repo,
+        &request,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
+    assert_eq!(second.values[0].value, ScalarKey::String("b".into()));
+    assert_eq!(second.values[0].count, 1);
+    assert!(second.continuation.is_none());
+
+    let query = crate::query::Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("tag = 'a'").unwrap()),
+        options: crate::query::QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: crate::query::options::ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let old_selection = select_exact_segmented(
+        &repo,
+        "data",
+        &query,
+        old_revision,
+        &all,
+        &repo.segments,
+        &repo.catalog,
+    )
+    .unwrap();
+    assert_eq!(old_selection.len(), 2);
+    let live_selection = select_exact_segmented(
+        &repo,
+        "data",
+        &query,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
+    assert_eq!(live_selection.len(), 1);
+    request.continuation = None;
+    request.selection = Some(old_selection);
+    assert!(
+        posting_values_segmented(
+            &repo,
+            &request,
+            new_revision,
+            &live,
+            &live_segments,
+            &repo.catalog,
+        )
+        .is_err()
+    );
+    request.selection = Some(live_selection);
+    let selected = posting_values_segmented(
+        &repo,
+        &request,
+        new_revision,
+        &live,
+        &live_segments,
+        &repo.catalog,
+    )
+    .unwrap();
+    assert_eq!(selected.values[0].count, 1);
+    assert_eq!(selected.coverage.selected_records, Some(1));
+    assert_eq!(
+        repo.posting_values(&PostingValuesRequest::new("data", "tag", 10))
+            .unwrap()
+            .values
+            .len(),
+        3
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
+    let root = std::env::temp_dir().join(format!("objekte-inferred-values-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, content) in [
+        ("00", r#"{"code":"A1","flag":true}"#),
+        ("01", r#"{"code":"B2","flag":false}"#),
+        ("02", r#"{"code":"Long","flag":true}"#),
+        ("03", r#"{"code":null}"#),
+        ("04", r#"{"flag":false}"#),
+        ("05", "{"),
+        ("06", r#"{"code":["A1","Long"]}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), content).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["flag".into()],
+            kind: LogicalType::Bool,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let options = RepositoryOptions {
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            policy: InferencePolicy {
+                short_string_max_utf8_bytes: 2,
+                ..Default::default()
+            },
+        },
+        ..Default::default()
+    };
+    let check = |repo: &Repository| {
+        let mut request = PostingValuesRequest::new("data", "code", 1);
+        let first = repo.posting_values(&request).unwrap();
+        assert_eq!(first.values[0].value, ScalarKey::String("A1".into()));
+        assert!(first.continuation.is_some());
+        assert_eq!(first.values[0].count, 2);
+        assert_eq!(first.coverage.eligible_records, 6);
+        assert_eq!(first.coverage.unavailable_records, 1);
+        assert_eq!(first.coverage.indexed_records, 2);
+        assert_eq!(first.coverage.unresolved_records, 4);
+        assert!(!first.coverage.value_counts_complete);
+        request.continuation = first.continuation;
+        let second = repo.posting_values(&request).unwrap();
+        assert_eq!(second.values[0].value, ScalarKey::String("B2".into()));
+        assert!(second.continuation.is_none());
+        assert_eq!(second.coverage, first.coverage);
+
+        let query = |filter: &str| crate::query::Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(crate::query::parse_filter(filter).unwrap()),
+            options: crate::query::QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: false,
+                return_mode: crate::query::options::ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        request.continuation = None;
+        request.selection = Some(repo.select_exact("data", &query("code = 'A1'")).unwrap());
+        let short = repo.posting_values(&request).unwrap();
+        assert_eq!(short.coverage.indexed_records, 1);
+        assert_eq!(short.coverage.unresolved_records, 0);
+        assert!(short.coverage.value_counts_complete);
+        assert_eq!(short.values[0].count, 1);
+        request.selection = Some(repo.select_exact("data", &query("code = 'Long'")).unwrap());
+        let long = repo.posting_values(&request).unwrap();
+        assert_eq!(long.coverage.indexed_records, 0);
+        assert_eq!(long.coverage.unresolved_records, 1);
+        assert!(long.values.is_empty());
+        assert!(!long.coverage.value_counts_complete);
+        request.selection = Some(
+            repo.select_exact("data", &query("@record.class = 1"))
+                .unwrap(),
+        );
+        let fallback = repo.posting_values(&request).unwrap();
+        assert_eq!(fallback.coverage.unavailable_records, 1);
+        assert_eq!(fallback.coverage.eligible_records, 0);
+        assert!(fallback.coverage.value_counts_complete);
+        let flag = repo
+            .posting_values(&PostingValuesRequest::new("data", "flag", 10))
+            .unwrap();
+        assert!(flag.coverage.value_counts_complete);
+        assert_eq!(flag.coverage.unresolved_records, 0);
+        let mut unsupported = PostingValuesRequest::new("data", "code", 10);
+        unsupported.binding = Some("other".into());
+        assert!(repo.posting_values(&unsupported).is_err());
+    };
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition.clone()],
+        options,
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    check(&repo);
+    let restored = Arc::new(
+        crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![definition],
+            options,
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap(),
+    );
+    check(&restored);
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
+    use crate::index::segment::PublishedSegment;
+    use crate::inventory::SourceRevision;
+    use crate::lifecycle::IndexRevision;
+    use crate::lifecycle::catalog::FileCatalog;
+    use crate::model::{CollectionId, FileId};
+    for (name, body) in [
+        ("07", r#"{"code":"A1"}"#),
+        ("08", r#"{"code":"Long2"}"#),
+        ("09", r#"{"code":123}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let state = &restored.collections()[0];
+    let mut admission = None;
+    for (index, name) in ["07", "08", "09"].into_iter().enumerate() {
+        let relative_path = format!("data/{name}.json");
+        let path = root.join(&relative_path);
+        let prepared = prepare_file_build(
+            &root,
+            SourceFileInput {
+                id: FileId((restored.files().files.len() + index) as u32),
+                relative_path: relative_path.into(),
+                revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap())
+                    .unwrap(),
+                created_ns: None,
+            },
+            &[FilePreparationBinding {
+                collection: CollectionId(0),
+                definition: &state.definition,
+                source: &state.source,
+            }],
+            restored.options().bigram_alphabet,
+            restored.options().inference,
+            1,
+        )
+        .unwrap();
+        let batch =
+            admission.get_or_insert_with(|| SegmentAdmission::new(CollectionId(0), &state.source));
+        batch
+            .admit(
+                &prepared.source,
+                prepared.collections.into_iter().next().unwrap(),
+            )
+            .unwrap();
+    }
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let index = admission
+        .unwrap()
+        .finish()
+        .into_indexed(
+            &state.definition,
+            restored.options().bigram_alphabet,
+            restored.options().inference,
+            1,
+            &pool,
+        )
+        .unwrap();
+    let mut catalog = FileCatalog::from_repository(Arc::clone(&restored)).unwrap();
+    for file in &index.files {
+        catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
+    }
+    let active = restored.active.clone();
+    let mut all_segments = restored.segments.clone();
+    let mut first_group = (*all_segments[0]).clone();
+    let next_id = first_group
+        .iter()
+        .map(|segment| segment.id.get())
+        .max()
+        .unwrap_or(0)
+        + 1;
+    first_group.push(Arc::new(PublishedSegment {
+        id: crate::index::segment::SegmentId::new(next_id),
+        active: ActiveRecords::all(index.records.len()).unwrap(),
+        index: Arc::new(index),
+    }));
+    all_segments[0] = Arc::new(first_group);
+    let segments = all_segments;
+    let page = posting_values_segmented(
+        &restored,
+        &PostingValuesRequest::new("data", "code", 10),
+        IndexRevision(2),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(page.coverage.eligible_records, 9);
+    assert_eq!(page.coverage.indexed_records, 3);
+    assert_eq!(page.coverage.unresolved_records, 6);
+    assert!(!page.coverage.value_counts_complete);
+    assert_eq!(
+        page.values
+            .iter()
+            .find(|entry| { entry.value == ScalarKey::String("A1".into()) })
+            .unwrap()
+            .count,
+        3
+    );
+    assert!(
+        !page
+            .values
+            .iter()
+            .any(|entry| { entry.value == ScalarKey::String("Long2".into()) })
+    );
+    assert!(
+        page.values
+            .iter()
+            .any(|entry| { matches!(entry.value, ScalarKey::Number(_)) && entry.count == 1 })
+    );
+    let mut request = PostingValuesRequest::new("data", "code", 1);
+    let mut paged = Vec::new();
+    loop {
+        let next = posting_values_segmented(
+            &restored,
+            &request,
+            IndexRevision(2),
+            &active,
+            &segments,
+            &catalog,
+        )
+        .unwrap();
+        assert_eq!(next.coverage, page.coverage);
+        paged.extend(next.values);
+        let Some(cursor) = next.continuation else {
+            break;
+        };
+        request.continuation = Some(cursor);
+    }
+    assert_eq!(paged, page.values);
+    std::fs::remove_file(root.join("data/08.json")).unwrap();
+    assert!(
+        posting_values_segmented(
+            &restored,
+            &PostingValuesRequest::new("data", "code", 10),
+            IndexRevision(2),
+            &active,
+            &segments,
+            &catalog,
+        )
+        .is_err()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn typed_posting_values_count_distinct_records_without_source_reads() {
+    let root = std::env::temp_dir().join(format!("objekte-posting-values-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/multi.jsonl");
+    std::fs::write(&path, b"{\"tags\":[\"a\",\"a\",\"b\"]}\n{\"tags\":[\"a\",\"c\"]}\n{\"tags\":null}\n{}\n{\"tags\":\n").unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["tags".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::String)),
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            ..Default::default()
+        };
+        let repo = crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![definition.clone()],
+            options,
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap();
+        let mut request = PostingValuesRequest::new("data", "tags", 2);
+        let first = repo.posting_values(&request).unwrap();
+        assert_eq!(
+            first.values,
+            [
+                PostingValueCount {
+                    value: ScalarKey::String("a".into()),
+                    count: 2
+                },
+                PostingValueCount {
+                    value: ScalarKey::String("b".into()),
+                    count: 1
+                }
+            ]
+        );
+        assert_eq!(
+            first.coverage,
+            PostingValuesCoverage {
+                eligible_records: 4,
+                unavailable_records: 1,
+                selected_records: None,
+                present_records: 3,
+                explicit_null_records: 1,
+                indexed_records: 4,
+                unresolved_records: 0,
+                value_counts_complete: true,
+            }
+        );
+        assert_eq!(first.visited_keys, 3);
+        request.continuation = first.continuation;
+        let second = repo.posting_values(&request).unwrap();
+        assert_eq!(
+            second.values,
+            [PostingValueCount {
+                value: ScalarKey::String("c".into()),
+                count: 1
+            }]
+        );
+        assert!(second.continuation.is_none());
+        request.descending = true;
+        request.continuation = None;
+        let reverse = repo.posting_values(&request).unwrap();
+        assert_eq!(
+            reverse
+                .values
+                .iter()
+                .map(|entry| &entry.value)
+                .collect::<Vec<_>>(),
+            [
+                &ScalarKey::String("c".into()),
+                &ScalarKey::String("b".into())
+            ]
+        );
+        let selected_query = crate::query::Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(crate::query::parse_filter("tags ?= 'b'").unwrap()),
+            options: crate::query::QueryOptions {
+                sort: vec![],
+                limit: 1,
+                offset: 0,
+                count: false,
+                return_mode: crate::query::options::ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let selection = repo.select_exact("data", &selected_query).unwrap();
+        assert_eq!(selection.len(), 1);
+        let parameter_query = crate::query::Query {
+            filter: Some(crate::query::parse_filter("tags ?= $chosen_tag").unwrap()),
+            ..selected_query.clone()
+        };
+        assert!(repo.select_exact("data", &parameter_query).is_err());
+        let parameter_query = parameter_query
+            .with_parameters(&std::collections::HashMap::from([(
+                "chosen_tag".into(),
+                crate::model::Value::String("a".into()),
+            )]))
+            .unwrap();
+        assert_eq!(
+            repo.select_exact("data", &parameter_query).unwrap().len(),
+            2
+        );
+        let text_query = crate::query::Query {
+            filter: None,
+            fts: Some(crate::query::FtsQuery {
+                pattern_parameter: None,
+                mode: crate::query::FtsMode::Literal,
+                case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+                literal: "a".into(),
+                fields: vec![],
+            }),
+            ..selected_query.clone()
+        };
+        let text_selection = repo.select_exact("data", &text_query).unwrap();
+        assert_eq!(text_selection.len(), 3);
+        let mut text_request = PostingValuesRequest::new("data", "tags", 10);
+        text_request.selection = Some(text_selection);
+        let text_values = repo.posting_values(&text_request).unwrap();
+        assert_eq!(text_values.coverage.eligible_records, 2);
+        assert_eq!(text_values.coverage.unavailable_records, 1);
+        assert_eq!(
+            text_values
+                .values
+                .iter()
+                .map(|entry| entry.count)
+                .collect::<Vec<_>>(),
+            [2, 1, 1]
+        );
+        let mut selected_request = PostingValuesRequest::new("data", "tags", 1);
+        selected_request.selection = Some(selection.clone());
+        let first_selected = repo.posting_values(&selected_request).unwrap();
+        assert_eq!(
+            first_selected.values,
+            [PostingValueCount {
+                value: ScalarKey::String("a".into()),
+                count: 1
+            }]
+        );
+        assert_eq!(
+            first_selected.coverage,
+            PostingValuesCoverage {
+                eligible_records: 1,
+                unavailable_records: 0,
+                selected_records: Some(1),
+                present_records: 1,
+                explicit_null_records: 0,
+                indexed_records: 1,
+                unresolved_records: 0,
+                value_counts_complete: true,
+            }
+        );
+        selected_request.continuation = first_selected.continuation;
+        let second_selected = repo.posting_values(&selected_request).unwrap();
+        assert_eq!(
+            second_selected.values,
+            [PostingValueCount {
+                value: ScalarKey::String("b".into()),
+                count: 1
+            }]
+        );
+        assert!(second_selected.continuation.is_none());
+        selected_request.selection = Some(repo.select_exact("data", &selected_query).unwrap());
+        assert!(repo.posting_values(&selected_request).is_err());
+        let fallback_query = crate::query::Query {
+            filter: Some(crate::query::parse_filter("@record.class = 1").unwrap()),
+            ..selected_query.clone()
+        };
+        let fallback_selection = repo.select_exact("data", &fallback_query).unwrap();
+        assert_eq!(fallback_selection.len(), 1);
+        let mut fallback_count = fallback_query.clone();
+        fallback_count.options.count = true;
+        fallback_count.options.limit = 0;
+        fallback_count.options.offset = 3;
+        let fallback_count = repo.search(&fallback_count).unwrap();
+        assert_eq!(fallback_count.count, Some(1));
+        assert_eq!(fallback_count.counters.files_opened, 0);
+        selected_request.selection = Some(fallback_selection);
+        selected_request.continuation = None;
+        assert_eq!(
+            repo.posting_values(&selected_request).unwrap().coverage,
+            PostingValuesCoverage {
+                eligible_records: 0,
+                unavailable_records: 1,
+                selected_records: Some(1),
+                present_records: 0,
+                explicit_null_records: 0,
+                indexed_records: 0,
+                unresolved_records: 0,
+                value_counts_complete: true,
+            }
+        );
+        assert!(
+            repo.posting_values(&selected_request)
+                .unwrap()
+                .values
+                .is_empty()
+        );
+        let held = root.join("held.jsonl");
+        std::fs::rename(&path, &held).unwrap();
+        assert_eq!(repo.select_exact("data", &selected_query).unwrap().len(), 1);
+        assert_eq!(
+            repo.posting_values(&request).unwrap().values,
+            reverse.values
+        );
+        assert!(
+            repo.posting_values(&selected_request)
+                .unwrap()
+                .values
+                .is_empty()
+        );
+        std::fs::rename(&held, &path).unwrap();
+        let restored = crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![definition.clone()],
+            options,
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap();
+        assert_eq!(
+            restored.posting_values(&request).unwrap().values,
+            reverse.values
+        );
+        selected_request.selection = Some(selection);
+        assert!(restored.posting_values(&selected_request).is_err());
+        request.continuation = reverse.continuation;
+        assert!(restored.posting_values(&request).is_err());
+        request.continuation = None;
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn numeric_and_temporal_keys_keep_their_types_and_order() {
+    use crate::model::Number;
+    let root = std::env::temp_dir().join(format!("objekte-posting-typed-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("a", r#"{"amount":1,"published":"2026-01-02"}"#),
+        ("b", r#"{"amount":1.5,"published":"2026-01-01"}"#),
+        (
+            "c",
+            r#"{"amount":100000000000000000000,"published":"2026-01-02"}"#,
+        ),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut schema = Schema::default();
+    for (name, kind) in [
+        ("amount", LogicalType::Number),
+        ("published", LogicalType::Date),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let numbers = repo
+        .posting_values(&PostingValuesRequest::new("data", "amount", 10))
+        .unwrap();
+    assert_eq!(
+        numbers.values,
+        [
+            PostingValueCount {
+                value: ScalarKey::Number(Number::integer(1)),
+                count: 1
+            },
+            PostingValueCount {
+                value: ScalarKey::Number(Number::float(1.5).unwrap()),
+                count: 1
+            },
+            PostingValueCount {
+                value: ScalarKey::Number(Number::integer(100000000000000000000)),
+                count: 1
+            },
+        ]
+    );
+    let dates = repo
+        .posting_values(&PostingValuesRequest::new("data", "published", 10))
+        .unwrap();
+    assert_eq!(dates.values.len(), 2);
+    assert!(matches!(dates.values[0].value, ScalarKey::Date(_)));
+    assert_eq!((dates.values[0].count, dates.values[1].count), (1, 2));
+    let mut narrowed = PostingValuesRequest::new("data", "amount", 10);
+    narrowed.lower = Some(PostingValueBound {
+        value: ScalarKey::Number(Number::integer(1)),
+        inclusive: false,
+    });
+    narrowed.upper = Some(PostingValueBound {
+        value: ScalarKey::Number(Number::integer(2)),
+        inclusive: true,
+    });
+    assert_eq!(
+        repo.posting_values(&narrowed).unwrap().values,
+        [PostingValueCount {
+            value: ScalarKey::Number(Number::float(1.5).unwrap()),
+            count: 1
+        }]
+    );
+    narrowed.prefix = Some("1".into());
+    assert!(repo.posting_values(&narrowed).is_err());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[derive(Debug)]
+struct FoldPosting {
+    complete: bool,
+}
+
+impl crate::schema::operation::BindingOperation for FoldPosting {
+    fn accepts(&self, kind: &LogicalType, operator: crate::query::Operator, _: bool) -> bool {
+        *kind == LogicalType::String && operator == crate::query::Operator::Eq
+    }
+
+    fn prepare_literal(
+        &self,
+        literal: &crate::query::Literal,
+        _: &LogicalType,
+    ) -> Result<crate::model::Value, String> {
+        match literal {
+            crate::query::Literal::String(text) => {
+                Ok(crate::model::Value::String(text.to_ascii_lowercase()))
+            }
+            _ => Err("text required".into()),
+        }
+    }
+
+    fn map_value(&self, value: &crate::model::Value) -> Option<crate::model::Value> {
+        match value {
+            crate::model::Value::String(text) => {
+                Some(crate::model::Value::String(text.to_ascii_lowercase()))
+            }
+            _ => None,
+        }
+    }
+
+    fn map_text(&self, text: &str) -> String {
+        text.to_ascii_lowercase()
+    }
+
+    fn prepare_posting_prefix(&self, prefix: &str) -> Result<Option<String>, String> {
+        Ok(Some(prefix.to_ascii_lowercase()))
+    }
+
+    fn posting(&self) -> bool {
+        true
+    }
+
+    fn complete_coverage(&self) -> bool {
+        self.complete
+    }
+}
+
+#[test]
+fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
+    use crate::schema::operation::RegisteredBinding;
+    use std::sync::Arc;
+    let root = std::env::temp_dir().join(format!("objekte-posting-binding-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, title) in [("a", "HELLO"), ("b", "hello"), ("c", "World")] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"title":"{title}"}}"#),
+        )
+        .unwrap();
+    }
+    for complete in [true, false] {
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["title".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+        schema
+            .register_operation(
+                vec!["title".into()],
+                RegisteredBinding {
+                    name: "fold".into(),
+                    version: 3,
+                    operation: Arc::new(FoldPosting { complete }),
+                },
+            )
+            .unwrap();
+        schema
+            .set_default_binding(vec!["title".into()], "fold")
+            .unwrap();
+        let definition = CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        };
+        let options = RepositoryOptions {
+            ..Default::default()
+        };
+        let repo = crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![definition.clone()],
+            options,
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap();
+        let request = PostingValuesRequest::new("data", "title", 10);
+        if complete {
+            assert_eq!(
+                repo.posting_values(&request).unwrap().values,
+                [
+                    PostingValueCount {
+                        value: ScalarKey::String("hello".into()),
+                        count: 2
+                    },
+                    PostingValueCount {
+                        value: ScalarKey::String("world".into()),
+                        count: 1
+                    }
+                ]
+            );
+            let mut prefixed = request.clone();
+            prefixed.prefix = Some("HE".into());
+            assert_eq!(
+                repo.posting_values(&prefixed).unwrap().values,
+                [PostingValueCount {
+                    value: ScalarKey::String("hello".into()),
+                    count: 2
+                }]
+            );
+            let mut paged = PostingValuesRequest::new("data", "title", 1);
+            let first = repo.posting_values(&paged).unwrap();
+            paged.continuation = first.continuation.clone();
+            let mut changed_binding = paged.clone();
+            changed_binding.binding = Some("default".into());
+            assert!(
+                repo.posting_values(&changed_binding)
+                    .unwrap_err()
+                    .contains("continuation scope")
+            );
+
+            let restored = crate::lifecycle::Index::start_build(
+                &root,
+                vec![definition.clone()],
+                options,
+                crate::source::registry::SourceRegistry::builtin(),
+            )
+            .and_then(|task| task.wait_complete())
+            .unwrap();
+            let restored = restored.view().unwrap();
+            assert_eq!(
+                restored.posting_values(&request).unwrap().values,
+                repo.posting_values(&request).unwrap().values
+            );
+            assert!(
+                restored
+                    .posting_values(&paged)
+                    .unwrap_err()
+                    .contains("continuation scope")
+            );
+        } else {
+            assert!(
+                repo.posting_values(&request)
+                    .unwrap_err()
+                    .contains("incomplete")
+            );
+        }
+        let mut explicit = request;
+        explicit.binding = Some("default".into());
+        assert_eq!(repo.posting_values(&explicit).unwrap().values.len(), 3);
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
+    let root = std::env::temp_dir().join(format!("objekte-posting-bounded-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut lines = String::new();
+    for number in 0..1000 {
+        lines.push_str(&format!(r#"{{"key":"k{number:04}"}}"#));
+        lines.push('\n');
+    }
+    for value in ["\u{10ffff}", "\u{10ffff}x"] {
+        lines.push_str(&serde_json::json!({"key":value}).to_string());
+        lines.push('\n');
+    }
+    std::fs::write(root.join("data/values.jsonl"), lines).unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["key".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let mut request = PostingValuesRequest::new("data", "key", 3);
+    request.prefix = Some("k099".into());
+    let first = repo.posting_values(&request).unwrap();
+    assert_eq!(
+        first
+            .values
+            .iter()
+            .map(|entry| entry.value.clone())
+            .collect::<Vec<_>>(),
+        ["k0990", "k0991", "k0992"].map(|key| ScalarKey::String(key.into()))
+    );
+    assert_eq!(first.visited_keys, 4);
+    let cursor = first.continuation.clone().unwrap();
+    let mut changed = request.clone();
+    changed.prefix = Some("k098".into());
+    changed.continuation = Some(cursor.clone());
+    assert!(repo.posting_values(&changed).is_err());
+    changed.prefix = request.prefix.clone();
+    changed.limit = 0;
+    changed.descending = true;
+    assert!(repo.posting_values(&changed).is_err());
+    changed.descending = false;
+    changed.lower = Some(PostingValueBound {
+        value: ScalarKey::String("k0991".into()),
+        inclusive: true,
+    });
+    assert!(repo.posting_values(&changed).is_err());
+    request.continuation = Some(cursor);
+    let mut collected = first
+        .values
+        .into_iter()
+        .map(|entry| entry.value)
+        .collect::<Vec<_>>();
+    loop {
+        let page = repo.posting_values(&request).unwrap();
+        assert!(page.visited_keys <= 4);
+        collected.extend(page.values.into_iter().map(|entry| entry.value));
+        match page.continuation {
+            Some(next) => request.continuation = Some(next),
+            None => break,
+        }
+    }
+    assert_eq!(
+        collected,
+        (990..1000)
+            .map(|number| ScalarKey::String(format!("k{number:04}")))
+            .collect::<Vec<_>>()
+    );
+    request.continuation = None;
+    request.prefix = None;
+    request.lower = Some(PostingValueBound {
+        value: ScalarKey::String("k0500".into()),
+        inclusive: true,
+    });
+    request.upper = Some(PostingValueBound {
+        value: ScalarKey::String("k0503".into()),
+        inclusive: false,
+    });
+    let range = repo.posting_values(&request).unwrap();
+    assert_eq!(
+        range
+            .values
+            .iter()
+            .map(|entry| entry.value.clone())
+            .collect::<Vec<_>>(),
+        (500..503)
+            .map(|number| ScalarKey::String(format!("k{number:04}")))
+            .collect::<Vec<_>>()
+    );
+    assert_eq!(range.visited_keys, 3);
+    request.descending = true;
+    let descending = repo.posting_values(&request).unwrap();
+    assert_eq!(
+        descending
+            .values
+            .iter()
+            .map(|entry| entry.value.clone())
+            .collect::<Vec<_>>(),
+        (500..503)
+            .rev()
+            .map(|number| ScalarKey::String(format!("k{number:04}")))
+            .collect::<Vec<_>>()
+    );
+    request.lower = Some(PostingValueBound {
+        value: ScalarKey::String("k0501".into()),
+        inclusive: true,
+    });
+    request.upper = Some(PostingValueBound {
+        value: ScalarKey::String("k0501".into()),
+        inclusive: true,
+    });
+    assert_eq!(repo.posting_values(&request).unwrap().values.len(), 1);
+    request.upper.as_mut().unwrap().inclusive = false;
+    assert!(repo.posting_values(&request).unwrap().values.is_empty());
+    request.lower = None;
+    request.upper = None;
+    request.descending = false;
+    request.prefix = Some("\u{10ffff}".into());
+    let unicode = repo.posting_values(&request).unwrap();
+    assert_eq!(
+        unicode
+            .values
+            .iter()
+            .map(|entry| entry.value.clone())
+            .collect::<Vec<_>>(),
+        [
+            ScalarKey::String("\u{10ffff}".into()),
+            ScalarKey::String("\u{10ffff}x".into())
+        ]
+    );
+    request.prefix = Some(String::new());
+    assert_eq!(
+        repo.posting_values(&request).unwrap().values[0].value,
+        ScalarKey::String("k0000".into())
+    );
+    request.lower = Some(PostingValueBound {
+        value: ScalarKey::Number(crate::model::Number::integer(1)),
+        inclusive: true,
+    });
+    assert!(repo.posting_values(&request).is_err());
+    request.lower = None;
+    request.limit = MAX_POSTING_VALUES_PAGE + 1;
+    assert!(repo.posting_values(&request).is_err());
+    std::fs::remove_dir_all(root).unwrap();
+}

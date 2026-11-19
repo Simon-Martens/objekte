@@ -15,11 +15,12 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
+use crate::construction::inference::InferenceObservation;
 use crate::index::bigram::BigramIndex;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
-use crate::inference::{InferenceObservation, InferenceState};
+use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
@@ -636,7 +637,7 @@ fn sort_bytes(sorting: &SortCollection) -> usize {
         total = total
             .saturating_add(
                 composite.fields.capacity()
-                    * std::mem::size_of::<crate::execution_options::CompositeSortPart>(),
+                    * std::mem::size_of::<crate::index::sorting::CompositeSortPart>(),
             )
             .saturating_add(composite.order.capacity() * std::mem::size_of::<RecordSlot>());
         for part in &composite.fields {

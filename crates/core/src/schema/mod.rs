@@ -1,8 +1,8 @@
 //! Schema declarations, field policy, extension operations, and validation.
 
-use crate::execution_options::SortField;
 use crate::model::{FieldPath, LogicalType, MetadataField, PathRoot};
 use crate::query::Operator;
+use crate::query::options::SortField;
 use crate::relation::RelationDefinition;
 use std::collections::{BTreeMap, HashMap, HashSet};
 
@@ -75,13 +75,13 @@ impl Schema {
         }
         let normalized = fields
             .iter()
-            .map(crate::execution_options::simple_composite_part)
+            .map(crate::index::sorting::simple_composite_part)
             .collect::<Option<Vec<_>>>()
             .ok_or("composite sort requires resident scalar fields")?;
         if self.composite_sorts.iter().any(|existing| {
             existing
                 .iter()
-                .map(crate::execution_options::simple_composite_part)
+                .map(crate::index::sorting::simple_composite_part)
                 .collect::<Option<Vec<_>>>()
                 .as_ref()
                 == Some(&normalized)

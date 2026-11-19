@@ -5,18 +5,18 @@ use std::collections::HashMap;
 use std::ops::Deref;
 use std::sync::Arc;
 
-use crate::execution_options::ReturnMode;
 use crate::inventory::{DiagnosticRef, SourceDiagnostic};
 use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::model::{FileId, Value};
 use crate::query::Query;
-use crate::query_results::{SearchHit, SearchResult};
-use crate::repository::Repository;
-use crate::repository::statistics::StartupStats;
-use crate::streaming::{
+use crate::query::options::ReturnMode;
+use crate::query_execution::streaming::{
     CancellationToken, ExecutionErrorKind, ResultScope, StreamControl, StreamError, StreamEvent,
     StreamOptions, StreamOutcome,
 };
+use crate::query_results::{SearchHit, SearchResult};
+use crate::repository::Repository;
+use crate::repository::statistics::StartupStats;
 
 /// A live index retaining lightweight repository metadata for frontends.
 /// Search and inspection acquire a fresh view unless explicitly pinned for a
@@ -138,7 +138,7 @@ impl IndexedRepository {
         source_id: &str,
         offset: usize,
         limit: usize,
-    ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
+    ) -> Result<crate::repository::relations::OutgoingReferencePage, String> {
         self.read_view()
             .map_err(|error| error.to_string())?
             .relation_outgoing_page(source_collection, relation_path, source_id, offset, limit)
@@ -151,13 +151,15 @@ impl IndexedRepository {
         target_id: &str,
         offset: usize,
         limit: usize,
-    ) -> Result<crate::relation_inspection::BacklinkPage, String> {
+    ) -> Result<crate::repository::relations::BacklinkPage, String> {
         self.read_view()
             .map_err(|error| error.to_string())?
             .relation_backlink_page(target_collection, reverse_alias, target_id, offset, limit)
     }
 
-    pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
+    pub fn collection_graph(
+        &self,
+    ) -> Result<crate::repository::relations::CollectionGraph, String> {
         self.read_view()
             .map_err(|error| error.to_string())?
             .collection_graph()
@@ -165,8 +167,8 @@ impl IndexedRepository {
 
     pub fn posting_values(
         &self,
-        request: &crate::posting_values::PostingValuesRequest,
-    ) -> Result<crate::posting_values::PostingValuesPage, String> {
+        request: &crate::repository::posting_values::PostingValuesRequest,
+    ) -> Result<crate::repository::posting_values::PostingValuesPage, String> {
         self.read_view()
             .map_err(|error| error.to_string())?
             .posting_values(request)

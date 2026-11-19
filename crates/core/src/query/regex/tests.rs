@@ -1,7 +1,8 @@
 use super::*;
-use crate::execution_options::{BigramAlphabet, ReturnMode};
+use crate::index::bigram::BigramAlphabet;
 use crate::model::{FieldPath, LogicalType, RecordSlot};
 use crate::query::binding::fts::bind_fts;
+use crate::query::options::ReturnMode;
 use crate::query::{FtsField, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::query_execution::restrictions::fts_candidates;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};

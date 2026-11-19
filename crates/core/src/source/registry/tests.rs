@@ -2,9 +2,9 @@ use std::path::Path;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-use crate::execution_options::ReturnMode;
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::{LogicalType, Value};
+use crate::query::options::ReturnMode;
 use crate::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
@@ -344,8 +344,9 @@ impl SourceReader for TemporalSegmentsReader {
 
 #[test]
 fn temporal_registration_does_not_replace_reader_owned_text() {
-    use crate::execution_options::{BigramAlphabet, ReturnMode};
+    use crate::index::bigram::BigramAlphabet;
     use crate::model::LogicalType;
+    use crate::query::options::ReturnMode;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -617,7 +618,7 @@ fn seeded_reader_ranges_obey_checked_nonoverlap_contract() {
 
 #[test]
 fn registered_recoverable_error_survives_repository_query_and_restore() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::query_results::Payload;
     use crate::repository::configuration::{
@@ -711,8 +712,9 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
 
 #[test]
 fn body_only_reader_does_not_prune_unindexed_title() {
-    use crate::execution_options::{BigramAlphabet, ReturnMode};
+    use crate::index::bigram::BigramAlphabet;
     use crate::model::LogicalType;
+    use crate::query::options::ReturnMode;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -819,8 +821,8 @@ fn body_only_reader_does_not_prune_unindexed_title() {
 
 #[test]
 fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
-    use crate::execution_options::ReturnMode;
     use crate::model::LogicalType;
+    use crate::query::options::ReturnMode;
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::query_results::Payload;
     use crate::repository::configuration::{
@@ -962,7 +964,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
 
 #[test]
 fn discovery_and_intrinsic_ids_share_build_restore_rules() {
-    use crate::discovery::{Discovery, SymlinkPolicy};
+    use crate::inventory::discovery::{Discovery, SymlinkPolicy};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
@@ -1186,7 +1188,7 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
 #[cfg(unix)]
 #[test]
 fn discovery_symlink_policy_confines_sources_and_avoids_cycles() {
-    use crate::discovery::{Discovery, SymlinkPolicy, discover};
+    use crate::inventory::discovery::{Discovery, SymlinkPolicy, discover};
     use std::os::unix::fs::symlink;
 
     let root = std::env::temp_dir().join(format!("objekte-symlinks-{}", std::process::id()));

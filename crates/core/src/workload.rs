@@ -5,9 +5,10 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::ops::Deref;
 use std::path::Path;
 
-use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
+use crate::index::bigram::BigramAlphabet;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
+use crate::query::options::{ReturnMode, SortField};
 
 /// Fixed benchmark query and expected execution options.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -210,5 +211,4 @@ pub fn validate_manifest(cases: &[WorkloadCase]) -> Result<(), String> {
 }
 
 #[cfg(test)]
-#[path = "workload.test.rs"]
 mod tests;

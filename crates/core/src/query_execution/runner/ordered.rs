@@ -191,7 +191,7 @@ pub(super) fn check_stream_page_read(
         ReturnMode::Logical => source_bytes.saturating_mul(4),
     };
     let current = page.iter().fold(0usize, |total, hit| {
-        total.saturating_add(crate::streaming::hit_bytes(hit))
+        total.saturating_add(crate::query_execution::streaming::hit_bytes(hit))
     });
     delivery.check_buffer(current.saturating_add(payload_bytes))
 }
@@ -203,7 +203,7 @@ pub(super) fn prepare_all_batch(
     record: &RecordEntry,
 ) -> Result<(), String> {
     let current = page.iter().fold(0usize, |total, hit| {
-        total.saturating_add(crate::streaming::hit_bytes(hit))
+        total.saturating_add(crate::query_execution::streaming::hit_bytes(hit))
     });
     let next = usize::try_from(record.range.len()).unwrap_or(usize::MAX);
     if !page.is_empty()
@@ -223,13 +223,13 @@ pub(super) fn flush_all_batch_if_full(
     counters: &WorkCounters,
 ) -> Result<(), String> {
     let mut bytes = batch.iter().fold(0usize, |total, hit| {
-        total.saturating_add(crate::streaming::hit_bytes(hit))
+        total.saturating_add(crate::query_execution::streaming::hit_bytes(hit))
     });
     if bytes > delivery.options().max_event_bytes && batch.len() > 1 {
         let last = batch.pop().ok_or("all-results batch missing final row")?;
         delivery.ordered_batch(batch, counters)?;
         batch.clear();
-        bytes = crate::streaming::hit_bytes(&last);
+        bytes = crate::query_execution::streaming::hit_bytes(&last);
         batch.push(last);
     }
     if batch.len() >= delivery.options().batch_rows || bytes > delivery.options().max_event_bytes {
@@ -1209,8 +1209,11 @@ pub(super) fn try_stored_order_page(
                     }
                     counters.total_matches += 1;
                     if let Some(delivery) = delivery.as_deref_mut() {
-                        delivery
-                            .check_buffer(page.iter().map(crate::streaming::hit_bytes).sum())?;
+                        delivery.check_buffer(
+                            page.iter()
+                                .map(crate::query_execution::streaming::hit_bytes)
+                                .sum(),
+                        )?;
                         if all_offset.is_some() {
                             flush_all_batch_if_full(delivery, &mut page, &counters)?;
                         } else {

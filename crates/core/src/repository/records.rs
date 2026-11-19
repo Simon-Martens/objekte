@@ -1,9 +1,9 @@
 //! Repository record lookup and hit stamping.
 
-use crate::execution_options::ReturnMode;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::RecordId;
+use crate::query::options::ReturnMode;
 use crate::query_results::{Payload, SearchHit, SearchResult};
 use crate::source::access::SourceAccessSession;
 
@@ -106,7 +106,7 @@ impl Repository {
         query: &crate::query::Query,
         mut result: SearchResult,
     ) -> SearchResult {
-        if query.options.return_mode != crate::execution_options::ReturnMode::Locator
+        if query.options.return_mode != crate::query::options::ReturnMode::Locator
             && result.counters.source_unavailable_events > 0
         {
             result.count = None;

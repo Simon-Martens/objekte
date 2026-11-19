@@ -1,12 +1,12 @@
 //! Conversion of source bytes into a requested page payload.
 
 use super::Payload;
-use crate::execution_options::ReturnMode;
 use crate::inventory::RecordClass;
+use crate::query::options::ReturnMode;
+use crate::query_execution::streaming::ExecutionContext;
 use crate::record_preparation::{materialize, prepare_query_record_with_execution};
 use crate::repository::state::CollectionState;
 use crate::source::ScanProjection;
-use crate::streaming::ExecutionContext;
 
 /// Returns the payload and the number of logical record parses to account for.
 /// Source access remains with each caller so grouped and bounded reads keep

@@ -2,9 +2,10 @@ use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-use crate::execution_options::{BigramAlphabet, ReturnMode};
+use crate::index::bigram::BigramAlphabet;
 use crate::model::{LogicalType, Value};
 use crate::query::binding::filter::BoundExpr;
+use crate::query::options::ReturnMode;
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::Repository;
@@ -165,7 +166,9 @@ fn intermediate_limits_report_errors_instead_of_truncating_membership() {
 
 #[test]
 fn second_target_in_batch_is_checked_before_source_read() {
-    use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
+    use crate::query_execution::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
     let root = std::env::temp_dir().join(format!(
         "objekte-semijoin-batch-limit-{}-{:?}",
         std::process::id(),
@@ -229,7 +232,7 @@ fn second_target_in_batch_is_checked_before_source_read() {
 
 #[test]
 fn relation_planning_limit_has_ordinary_and_stream_resource_class() {
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamError, StreamOptions,
     };
@@ -270,7 +273,7 @@ fn relation_planning_limit_has_ordinary_and_stream_resource_class() {
 
 #[test]
 fn relation_edge_planning_and_target_verification_cancel_mid_work() {
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     };
     let (root, repo) = fixture(BigramAlphabet::Ascii);
@@ -597,20 +600,24 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
     let stream = repo
         .search_stream(
             &stream_request,
-            crate::streaming::StreamOptions {
-                mode: crate::streaming::StreamMode::PageReplacements,
+            crate::query_execution::streaming::StreamOptions {
+                mode: crate::query_execution::streaming::StreamMode::PageReplacements,
                 ..Default::default()
             },
-            &crate::streaming::CancellationToken::new(),
+            &crate::query_execution::streaming::CancellationToken::new(),
             &mut |event| {
-                if let crate::streaming::StreamEvent::PageReplacement { rows, .. } = event {
+                if let crate::query_execution::streaming::StreamEvent::PageReplacement {
+                    rows,
+                    ..
+                } = event
+                {
                     streamed.extend(rows.iter().map(|row| row.record_id.clone()));
                 }
-                Ok(crate::streaming::StreamControl::Continue)
+                Ok(crate::query_execution::streaming::StreamControl::Continue)
             },
         )
         .unwrap();
-    let crate::streaming::StreamOutcome::Complete(summary) = stream else {
+    let crate::query_execution::streaming::StreamOutcome::Complete(summary) = stream else {
         panic!("selected relation stream did not complete");
     };
     assert_eq!(summary.count, Some(1));
@@ -622,20 +629,24 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
     let outcome = repo
         .search_stream(
             &stream_request,
-            crate::streaming::StreamOptions {
-                mode: crate::streaming::StreamMode::PageReplacements,
+            crate::query_execution::streaming::StreamOptions {
+                mode: crate::query_execution::streaming::StreamMode::PageReplacements,
                 ..Default::default()
             },
-            &crate::streaming::CancellationToken::new(),
+            &crate::query_execution::streaming::CancellationToken::new(),
             &mut |event| {
-                if let crate::streaming::StreamEvent::PageReplacement { rows, .. } = event {
+                if let crate::query_execution::streaming::StreamEvent::PageReplacement {
+                    rows,
+                    ..
+                } = event
+                {
                     uncached.extend(rows.iter().map(|row| row.record_id.clone()));
                 }
-                Ok(crate::streaming::StreamControl::Continue)
+                Ok(crate::query_execution::streaming::StreamControl::Continue)
             },
         )
         .unwrap();
-    let crate::streaming::StreamOutcome::Complete(summary) = outcome else {
+    let crate::query_execution::streaming::StreamOutcome::Complete(summary) = outcome else {
         panic!("uncached relation stream did not complete");
     };
     assert_eq!(summary.count, Some(1));

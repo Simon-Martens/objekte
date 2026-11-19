@@ -8,11 +8,12 @@ use std::time::Instant;
 use roaring::RoaringBitmap;
 
 use crate::construction::batch::canonical_custom_text_key;
+use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortBuilder;
-use crate::inference::{InferenceBuildStats, InferenceBuilder};
+use crate::inference::InferenceBuildStats;
 use crate::inventory::{
     ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
 };
@@ -461,14 +462,14 @@ pub(crate) fn assemble_final_repository(
     started: Instant,
     mut profile: Option<BuildProfileStats>,
 ) -> Result<Repository, crate::lifecycle::IndexError> {
-    let finalization_started = crate::detailed_timer::DetailedInstant::now();
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let finalization_started = crate::measurement::timer::DetailedInstant::now();
+    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
     let base_fingerprints =
         finish_fresh_fingerprints(&discovered, digest_bindings).map_err(IndexError::Build)?;
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
     }
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
     let mut final_repository = crate::construction::repository_state::initialize_empty(
         root,
         definitions,
@@ -541,7 +542,7 @@ pub(crate) fn assemble_final_repository(
         }
         pending_relations.push(relations);
         let (_, stats) = state.finish_summary(options).map_err(IndexError::Build)?;
-        collection.global_inference = crate::inference::build::aggregate_segment_inference(
+        collection.global_inference = crate::construction::inference::aggregate_segment_inference(
             options.inference,
             &collection.definition.schema,
             segments,

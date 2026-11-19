@@ -10,11 +10,11 @@ use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
-use objekte_search_core::execution_options::BigramAlphabet;
-use objekte_search_core::execution_options::ReturnMode;
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::inference::InferenceMode;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::session::IndexedRepository;
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
@@ -576,7 +576,7 @@ fn select_storage_probe(repo: &IndexView) -> Result<StorageProbeSample, String> 
 fn probe_storage_operations(repo: &IndexView) -> Result<serde_json::Value, String> {
     let sample = select_storage_probe(repo)?;
     let path = sample.relative_path.as_path();
-    let path_key = objekte_search_core::path_repr::query_path(path);
+    let path_key = objekte_search_core::model::path_representation::query_path(path);
     let id = sample.record_id.as_str();
     let collection_name = sample.collection.as_str();
     let exact_lookup_ns = median_probe_ns(100_000, || {

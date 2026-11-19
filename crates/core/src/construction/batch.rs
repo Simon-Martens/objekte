@@ -7,12 +7,13 @@ use std::path::Path;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 
-use crate::execution_options::BigramAlphabet;
+use crate::construction::inference::InferenceBuilder;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::{SortBuilder, SortKey};
-use crate::inference::{InferenceBuilder, InferenceConfig};
+use crate::inference::InferenceConfig;
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceDiagnostic, SourceRevision,
@@ -478,7 +479,7 @@ impl<'a> BatchBuilder<'a> {
         if sample {
             self.profile.sampled_component_records += 1;
         }
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         if let Err(error) = finish_build_record(&self.definition.schema, &mut extracted) {
             let issue = ReaderDiagnostic::new(
                 DiagnosticCategory::LogicalValidation,
@@ -518,7 +519,10 @@ impl<'a> BatchBuilder<'a> {
                     let relative = path
                         .strip_prefix(&source_dir)
                         .map_err(|_| "source path is outside the collection directory")?;
-                    RecordId::intrinsic(format!("path:{}", crate::path_repr::query_path(relative)))
+                    RecordId::intrinsic(format!(
+                        "path:{}",
+                        crate::model::path_representation::query_path(relative)
+                    ))
                 }
                 IdentityPolicy::Generated => Ok(RecordId::generated(
                     file.id,
@@ -548,12 +552,12 @@ impl<'a> BatchBuilder<'a> {
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
         });
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         self.postings.add(slot, &extracted.value)?;
         if let Some(started) = stage_started {
             self.profile.postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         if let Some(inference) = &mut self.inference {
             inference.observe_record_with_schema(
                 slot,
@@ -564,14 +568,14 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.inference_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         for relation in &mut self.relations {
             relation.add_logical(slot, &extracted.value)?;
         }
         if let Some(started) = stage_started {
             self.profile.relations_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         for (key, custom) in &mut self.custom_postings {
             let binding = &self.definition.schema.operations[key];
             let selected = data_values(&extracted.value, &key.0);
@@ -597,7 +601,7 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         let has_empty_array;
         if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
             if let Some(binding) = &self.definition.schema.raw {
@@ -617,7 +621,7 @@ impl<'a> BatchBuilder<'a> {
                 has_empty_array = observed_empty;
             }
         } else {
-            has_empty_array = crate::structural::contains_empty_array(&extracted.value);
+            has_empty_array = crate::model::structure::contains_empty_array(&extracted.value);
             if let Some(binding) = &self.definition.schema.raw {
                 self.raw.add_record(
                     slot,
@@ -641,7 +645,7 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.text_bigram_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         self.sorting.add(
             slot,
             &extracted.value,
@@ -653,7 +657,7 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.sorting_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = crate::detailed_timer::start_if_enabled(sample);
+        let stage_started = crate::measurement::timer::start_if_enabled(sample);
         for (key, index) in &mut self.custom_text {
             let values = data_values(&extracted.value, &key.0).unwrap_or_default();
             if let Some(binding) = self.definition.schema.operations.get(key) {
@@ -817,7 +821,7 @@ pub(crate) fn process_batch_profiled(
             sampled.then_some(&mut source_sample),
             Some(&mut input_buffer_profile),
             |outcome| {
-                let started = crate::detailed_timer::start_if_enabled(sampled);
+                let started = crate::measurement::timer::start_if_enabled(sampled);
                 let result = builder.outcome(&mut file, &path, outcome, None);
                 if let Some(started) = started {
                     callback_ns += started.elapsed().as_nanos() as u64;
@@ -859,7 +863,7 @@ pub(crate) fn process_batch_profiled(
         builder.profile.input_buffer_peak_capacity_bytes = input_buffer_profile.peak_capacity_bytes;
         builder.profile.input_buffer_batch_end_capacity_bytes += input_buffer.capacity() as u64;
     }
-    let finish_started = crate::detailed_timer::start_if_enabled(profile_build);
+    let finish_started = crate::measurement::timer::start_if_enabled(profile_build);
     let mut batch = builder.finish(files, record_parses, failed_parses)?;
     if let Some(started) = finish_started {
         batch.profile.batch_finish_ns += started.elapsed().as_nanos() as u64;

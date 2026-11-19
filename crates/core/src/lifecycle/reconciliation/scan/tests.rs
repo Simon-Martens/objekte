@@ -1,7 +1,7 @@
 use std::collections::BTreeMap;
 
 use super::{ScanChange, scan_sources_batched};
-use crate::discovery::Discovery;
+use crate::inventory::discovery::Discovery;
 use crate::model::{CollectionId, FileId};
 use crate::repository::configuration::CollectionDefinition;
 use crate::source::{SourceFormat, registry::SourceRegistry};

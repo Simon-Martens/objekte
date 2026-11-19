@@ -1,13 +1,13 @@
 //! Bounded record and resident relation access for the detail panel.
 
-use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query_execution::runner::DirectLookupResult;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 use objekte_search_core::query_results::SearchHit;
-use objekte_search_core::relation_inspection::{
+use objekte_search_core::repository::relations::{
     BacklinkPage, CollectionGraph, OutgoingReferencePage,
 };
-use objekte_search_core::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind, OpenedSession};
 

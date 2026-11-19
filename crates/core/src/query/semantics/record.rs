@@ -18,9 +18,9 @@ pub(crate) fn metadata_value(
         MetadataField::RecordByteEnd => number(ctx.record.range.end),
         MetadataField::RecordByteLength => number(ctx.record.range.len()),
         MetadataField::FileId => number(ctx.file.id.0 as u64),
-        MetadataField::FilePath => {
-            Value::String(crate::path_repr::query_path(&ctx.file.relative_path))
-        }
+        MetadataField::FilePath => Value::String(crate::model::path_representation::query_path(
+            &ctx.file.relative_path,
+        )),
         MetadataField::FileSize => number(ctx.file.revision.size),
         MetadataField::FileCreated => ctx
             .file
@@ -32,9 +32,9 @@ pub(crate) fn metadata_value(
         MetadataField::FileStatus => number(ctx.file.status.code() as u64),
         MetadataField::RecordClass => number(ctx.record.class.code() as u64),
         MetadataField::CollectionName => Value::String(ctx.collection_name.into()),
-        MetadataField::RepositoryRoot => {
-            Value::String(crate::path_repr::query_path(ctx.repository_root))
-        }
+        MetadataField::RepositoryRoot => Value::String(
+            crate::model::path_representation::query_path(ctx.repository_root),
+        ),
     })
 }
 

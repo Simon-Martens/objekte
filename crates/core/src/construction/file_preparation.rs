@@ -11,7 +11,7 @@ use std::sync::mpsc;
 use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
 
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
@@ -650,7 +650,7 @@ fn process_unframed_large_file(
         .file_fingerprints()
         .first()
         .map(|(_, digest)| (file_id, *digest));
-    let started = crate::detailed_timer::DetailedInstant::now();
+    let started = crate::measurement::timer::DetailedInstant::now();
     admit(batch)?;
     Ok(BuildScheduleStats {
         file_fingerprint,
@@ -822,7 +822,7 @@ pub(crate) fn process_framed_file_profiled(
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
         }
-        let wait_started = crate::detailed_timer::DetailedInstant::now();
+        let wait_started = crate::measurement::timer::DetailedInstant::now();
         let received = receiver.recv();
         stats.receive_wait_ns = stats
             .receive_wait_ns
@@ -832,7 +832,7 @@ pub(crate) fn process_framed_file_profiled(
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
             admitted_bytes -= chunks[next].1;
-            let admission_started = crate::detailed_timer::DetailedInstant::now();
+            let admission_started = crate::measurement::timer::DetailedInstant::now();
             let outcome = result.and_then(&mut admit);
             stats.admission_ns = stats
                 .admission_ns
@@ -968,7 +968,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     // A failure before any contribution can still use the ordinary unreadable
     // outcome. Once a chunk is admitted, an I/O failure aborts this private
     // generation instead of publishing a partially indexed file.
-    let first_started = crate::detailed_timer::start_if_enabled(profile_build);
+    let first_started = crate::measurement::timer::start_if_enabled(profile_build);
     let first = match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
         Ok(Some(chunk)) => chunk,
         Ok(None) => BoundedBuildChunk {
@@ -1014,7 +1014,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     while failure.is_none() {
         while dispatched - next < max_jobs {
             if pending.is_none() && !eof {
-                let started = crate::detailed_timer::start_if_enabled(profile_build);
+                let started = crate::measurement::timer::start_if_enabled(profile_build);
                 match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
                     Ok(Some(chunk)) => {
                         if let Some(started) = started {
@@ -1084,7 +1084,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
             }
             continue;
         }
-        let wait_started = crate::detailed_timer::DetailedInstant::now();
+        let wait_started = crate::measurement::timer::DetailedInstant::now();
         let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
         stats.receive_wait_ns = stats
             .receive_wait_ns
@@ -1098,7 +1098,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
             admitted_bytes = admitted_bytes
                 .checked_sub(weight)
                 .ok_or("chunk reservation underflow")?;
-            let started = crate::detailed_timer::DetailedInstant::now();
+            let started = crate::measurement::timer::DetailedInstant::now();
             let outcome = result.and_then(&mut admit);
             stats.admission_ns = stats
                 .admission_ns

@@ -8,7 +8,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 
 use super::{BigramIndex, for_each_segment_gram};
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::model::RecordSlot;
 
 #[derive(Clone, Copy, Debug)]
@@ -291,7 +291,7 @@ impl BigramContribution {
 
     pub fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         let validation_started =
-            crate::detailed_timer::start_if_enabled(storage_diagnostic_enabled());
+            crate::measurement::timer::start_if_enabled(storage_diagnostic_enabled());
         if self.alphabet != batch.alphabet || self.record_count != base {
             return Err("bigram batch coverage or alphabet mismatch".into());
         }
@@ -303,7 +303,8 @@ impl BigramContribution {
         }
         validate_chunks(&batch.chunks, batch.record_count)?;
         let validation_ns = diagnostic_elapsed_ns(validation_started);
-        let merge_started = crate::detailed_timer::start_if_enabled(storage_diagnostic_enabled());
+        let merge_started =
+            crate::measurement::timer::start_if_enabled(storage_diagnostic_enabled());
         let admitted_chunks = batch.chunks.len() as u64;
         self.chunks.reserve(batch.chunks.len());
         for mut chunk in batch.chunks {
@@ -436,7 +437,7 @@ fn pack_columns(
     if pending.is_empty() {
         return Ok(PackedColumns::default());
     }
-    let sort_started = crate::detailed_timer::start_if_enabled(contribution.work.is_some());
+    let sort_started = crate::measurement::timer::start_if_enabled(contribution.work.is_some());
     if let Some(work) = contribution.work.as_mut() {
         work.sorted_entries = work.sorted_entries.saturating_add(pending.len() as u64);
     }
@@ -446,7 +447,7 @@ fn pack_columns(
             .sort_ns
             .saturating_add(diagnostic_elapsed_ns(sort_started));
     }
-    let pack_started = crate::detailed_timer::start_if_enabled(contribution.work.is_some());
+    let pack_started = crate::measurement::timer::start_if_enabled(contribution.work.is_some());
     let mut packed = PackedColumns {
         spans: Vec::new(),
         blocks: Vec::with_capacity(pending.len()),
@@ -714,7 +715,7 @@ impl BigramBuilder {
         let alphabet = self.contribution.alphabet;
         let (normal, skip) = (&mut self.normal, &mut self.skip);
         if self.storage_diagnostic {
-            let started = crate::detailed_timer::DetailedInstant::now();
+            let started = crate::measurement::timer::DetailedInstant::now();
             let (mut lookups, mut duplicates) = (0, 0);
             for_each_segment_gram(segment, alphabet, |is_skip, key| {
                 if is_skip {
@@ -759,7 +760,7 @@ impl BigramBuilder {
                         + self.skip.capacity_bytes_lower_bound(),
                 );
         }
-        let drain_started = crate::detailed_timer::start_if_enabled(diagnostic);
+        let drain_started = crate::measurement::timer::start_if_enabled(diagnostic);
         self.normal.drain(|key, word| {
             self.contribution.pending_normal.push(PendingBlock {
                 key,
@@ -818,7 +819,8 @@ impl BigramBuilder {
                 skip,
             });
         }
-        let validation_started = crate::detailed_timer::start_if_enabled(self.storage_diagnostic);
+        let validation_started =
+            crate::measurement::timer::start_if_enabled(self.storage_diagnostic);
         validate_chunks(&self.contribution.chunks, self.contribution.record_count)?;
         if let Some(work) = self.contribution.work.as_mut() {
             work.validation_ns = work

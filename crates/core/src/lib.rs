@@ -3,21 +3,13 @@
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
 
-pub mod completion;
 mod construction;
-mod decimal;
-mod detailed_timer;
-pub mod diagnostics;
-pub mod discovery;
-pub mod execution_options;
 pub mod index;
 pub mod inference;
 pub mod inventory;
 pub mod lifecycle;
 pub mod measurement;
 pub mod model;
-pub mod path_repr;
-pub mod posting_values;
 pub mod query;
 mod query_access;
 pub mod query_diagnostics;
@@ -28,15 +20,12 @@ pub mod query_results;
 mod record_preparation;
 pub mod reference;
 pub mod relation;
-pub mod relation_inspection;
 mod relation_query;
 mod relation_semijoin;
 mod relation_target_cache;
 pub mod repository;
 pub mod schema;
 pub mod source;
-pub mod streaming;
-mod structural;
 pub mod workload;
 
 #[cfg(test)]

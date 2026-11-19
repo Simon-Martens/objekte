@@ -5,15 +5,16 @@ use std::collections::HashMap;
 use std::io::Write;
 use std::path::PathBuf;
 
-use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::lifecycle::session::IndexedRepository;
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{FtsMode, Query, RegexOptions};
-use objekte_search_core::query_results::{Payload, SearchHit};
-use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::streaming::{
+use objekte_search_core::query_execution::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
     StreamProgress,
 };
+use objekte_search_core::query_results::{Payload, SearchHit};
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::workload::{WorkloadCase, load_manifest};
 
 fn main() {
@@ -332,11 +333,18 @@ fn run() -> Result<(), String> {
             }),
             Err(error) => {
                 let progress = match &error {
-                    objekte_search_core::streaming::StreamError::Execution { progress, .. }
-                    | objekte_search_core::streaming::StreamError::Sink { progress, .. }
-                    | objekte_search_core::streaming::StreamError::Resource { progress, .. } => {
-                        *progress
+                    objekte_search_core::query_execution::streaming::StreamError::Execution {
+                        progress,
+                        ..
                     }
+                    | objekte_search_core::query_execution::streaming::StreamError::Sink {
+                        progress,
+                        ..
+                    }
+                    | objekte_search_core::query_execution::streaming::StreamError::Resource {
+                        progress,
+                        ..
+                    } => *progress,
                 };
                 serde_json::json!({
                     "version": 1, "type": "error", "sequence": progress.sequence + 1,

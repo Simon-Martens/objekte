@@ -8,8 +8,8 @@ use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
-use crate::discovery::{PreparedScanSelection, SymlinkPolicy, discover_stream};
 use crate::inventory::SourceRevision;
+use crate::inventory::discovery::{PreparedScanSelection, SymlinkPolicy, discover_stream};
 use crate::model::{CollectionId, FileId};
 use crate::repository::configuration::CollectionDefinition;
 use crate::source::{registry::PreparedSource, registry::SourceRegistry};

@@ -849,7 +849,7 @@ pub(crate) struct RelationWork {
     pub edge_visits: u64,
     pub backlink_probe_visits: u64,
     pub bytes_read: u64,
-    execution: Option<crate::streaming::ExecutionContext>,
+    execution: Option<crate::query_execution::streaming::ExecutionContext>,
     active: Option<Arc<Vec<ActiveRecords>>>,
 }
 
@@ -864,7 +864,10 @@ fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), 
 }
 
 impl RelationWork {
-    pub(crate) fn attach(&mut self, execution: Option<&crate::streaming::ExecutionContext>) {
+    pub(crate) fn attach(
+        &mut self,
+        execution: Option<&crate::query_execution::streaming::ExecutionContext>,
+    ) {
         self.execution = execution.cloned();
         self.active = execution.and_then(|context| context.active_records_arc());
     }
@@ -885,7 +888,7 @@ impl RelationWork {
             };
             if bytes > limit {
                 return Err(execution.fail(
-                    crate::streaming::ExecutionErrorKind::Resource,
+                    crate::query_execution::streaming::ExecutionErrorKind::Resource,
                     "relation record exceeds source read allowance",
                 ));
             }

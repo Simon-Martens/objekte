@@ -11,12 +11,12 @@ use crate::construction::scheduling::{
     process_repository_file_batches, resolve_build_workers,
 };
 use crate::construction::segment_admission::SegmentAdmission;
-use crate::execution_options::BigramAlphabet;
-use crate::execution_options::ReturnMode;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramIndex;
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, FileInventory, FileStatus, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot, Value};
+use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema, operation::CustomBinding, operation::Transform};

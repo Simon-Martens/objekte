@@ -8,16 +8,31 @@ use roaring::RoaringBitmap;
 use crate::index::posting::{
     PostingIndex, PostingStats, ScalarKey, StructuralFacts, StructuralKey,
 };
+use crate::inference::{
+    InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode,
+    InferencePathDiagnostic, InferencePolicy, InferenceReport, InferenceState, InferredFieldReport,
+};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::state::{StatePredicate, value_matches};
 use crate::schema::Schema;
 
-use super::{
-    InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode,
-    InferencePathDiagnostic, InferencePolicy, InferenceReport, InferenceState, InferredFieldReport,
-    ObservedStep, typed_path,
-};
+/// Typed intern key; automatic observation visits field steps only, while
+/// positional query steps remain a separate path kind and are never inferred.
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub(crate) enum ObservedStep {
+    Field(Arc<str>),
+    // Automatic inference observes named fields only. Keep the typed key so a
+    // future positional observer cannot conflate index 0 with object key "0".
+    #[allow(dead_code)]
+    ArrayIndex(u32),
+}
+
+fn typed_path(path: &[String]) -> Vec<ObservedStep> {
+    path.iter()
+        .map(|name| ObservedStep::Field(Arc::from(name.as_str())))
+        .collect()
+}
 
 /// Compact segment-local observations retained independently from candidate
 /// postings. Global admission is derived from these observations, never from
@@ -1565,7 +1580,7 @@ impl InferenceBuilder {
 
     pub(crate) fn merge_shifted(&mut self, other: Self, base: u32) -> Result<(), String> {
         #[cfg(feature = "detailed-profiling")]
-        let started = crate::detailed_timer::DetailedInstant::now();
+        let started = crate::measurement::timer::DetailedInstant::now();
         if self.config != other.config || self.batch || !other.batch {
             return Err("inference batch policy mismatch".into());
         }
@@ -1979,5 +1994,4 @@ impl InferenceBuilder {
 }
 
 #[cfg(test)]
-#[path = "../inference_build.test.rs"]
-mod allocation_tests;
+mod tests;

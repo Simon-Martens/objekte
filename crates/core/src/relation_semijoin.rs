@@ -24,6 +24,7 @@ use crate::query_access::relations::NativeRelationProvider;
 use crate::query_execution::restrictions::{
     AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
 };
+use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::query_plan::selection::choose_offer;
 use crate::reference::filter::eval_term;
 use crate::reference::fts::eval_bound_fts_membership;
@@ -32,7 +33,6 @@ use crate::relation_query::{MergedRelationView, positions_match};
 use crate::repository::Repository;
 use crate::source::access::SourceAccessSession;
 use crate::source::{ScanProjection, TextSegment};
-use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 // These are query-local limits. Hitting one is an explicit error, never a
 // silently truncated candidate set or count.

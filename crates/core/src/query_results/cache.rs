@@ -5,7 +5,6 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::{Payload, SearchHit, SearchResult};
-use crate::execution_options::ReturnMode;
 use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
@@ -13,18 +12,19 @@ use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::RecordSlot;
 use crate::query::Query;
+use crate::query::options::ReturnMode;
 use crate::query_diagnostics::trace::PlanActual;
 use crate::query_execution::runner::{
     SegmentRecordRef, SourceHitLocator, direct_payload, get_segment_record_by_id, make_hit,
     record_unavailable_hit, segment_locator_hit, segment_record_ref,
 };
+use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
 use crate::query_results::payload::payload_from_bytes;
 use crate::query_results::ranking::ResolvedSort;
 use crate::query_results::verified::{CachedMember, CachedResult};
 use crate::repository::Repository;
 use crate::source::access::SourceAccessSession;
 use crate::source::access::read_record_range_for_search;
-use crate::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
 
 /// One cached member that needs a source read to compute its sort key.
 pub(crate) struct CachedSortRead {
@@ -355,13 +355,13 @@ pub(crate) fn materialize_cached_stream(
     repo: &Repository,
     query: &Query,
     cached: &CachedResult,
-    delivery: &mut crate::streaming::Delivery<'_>,
+    delivery: &mut crate::query_execution::streaming::Delivery<'_>,
     execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
     record_base_cache_hits(repo, cached);
     delivery.check()?;
     #[cfg(feature = "detailed-profiling")]
-    let started = crate::detailed_timer::DetailedInstant::now();
+    let started = crate::measurement::timer::DetailedInstant::now();
     let mut counters = WorkCounters {
         total_matches: cached.members.len() as u64,
         match_count_complete: true,
@@ -408,7 +408,7 @@ pub(crate) fn materialize_cached_stream(
             member.matched_fields.to_vec(),
             payload,
         );
-        page_bytes = page_bytes.saturating_add(crate::streaming::hit_bytes(&hit));
+        page_bytes = page_bytes.saturating_add(crate::query_execution::streaming::hit_bytes(&hit));
         page.push(hit);
         delivery.check_buffer(page_bytes)?;
         match delivery.options().mode {
@@ -435,7 +435,7 @@ pub(crate) fn materialize_cached(
 ) -> Result<SearchResult, String> {
     record_base_cache_hits(repo, cached);
     #[cfg(feature = "detailed-profiling")]
-    let preparation_start = crate::detailed_timer::DetailedInstant::now();
+    let preparation_start = crate::measurement::timer::DetailedInstant::now();
     let cap = query
         .options
         .limit

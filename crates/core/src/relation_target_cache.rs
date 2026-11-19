@@ -9,10 +9,10 @@ use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, PathRoot, RecordSlot, Value};
 use crate::query::binding::relation::HopDirection;
 use crate::query::{binding::filter::BoundExpr, binding::filter::BoundTerm};
+use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::repository::Repository;
 use crate::source::ScanProjection;
 use crate::source::access::SourceAccessSession;
-use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 const MAX_TARGET_SLOTS: u64 = 5_000_000;
 const MAX_EDGE_VISITS: u64 = 32_000_000;
@@ -156,7 +156,7 @@ pub(crate) fn prepare_stream(
     source_collection: usize,
     expr: &BoundExpr,
     candidates: &RoaringBitmap,
-    cancellation: &crate::streaming::CancellationToken,
+    cancellation: &crate::query_execution::streaming::CancellationToken,
     max_retained_bytes: usize,
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<TargetValueCache>, String> {
@@ -215,7 +215,7 @@ fn prepare_with_limits(
     source_collection: usize,
     expr: &BoundExpr,
     candidates: &RoaringBitmap,
-    cancellation: Option<&crate::streaming::CancellationToken>,
+    cancellation: Option<&crate::query_execution::streaming::CancellationToken>,
     max_retained_bytes: Option<u64>,
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<TargetValueCache>, String> {
@@ -261,7 +261,9 @@ fn prepare_with_limits(
                 if let Some(execution) = execution {
                     execution.check_string()?;
                 }
-                if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+                if cancellation
+                    .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
+                {
                     return Err("stream cancelled".into());
                 }
                 if relation.unavailable().contains(slot) {
@@ -367,7 +369,9 @@ fn prepare_with_limits(
         access.configure_target_execution(execution);
     }
     for (collection_id, (slots, fields)) in targets {
-        if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+        if cancellation
+            .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
+        {
             return Err("stream cancelled".into());
         }
         work.target_candidates = work.target_candidates.saturating_add(slots.len());
@@ -412,12 +416,16 @@ fn prepare_with_limits(
             resolved_text_only: false,
         };
         for (file_id, ranges) in grouped {
-            if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+            if cancellation
+                .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
+            {
                 return Err("stream cancelled".into());
             }
             let mut start = 0;
             while start < ranges.len() {
-                if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+                if cancellation
+                    .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
+                {
                     return Err("stream cancelled".into());
                 }
                 let remaining = max_retained_bytes.map(|limit| limit.saturating_sub(retained));
@@ -489,7 +497,9 @@ fn prepare_with_limits(
                 work.target_file_opens += read.opened;
                 work.bytes_read += read.bytes_read;
                 for (slot, bytes) in read.records {
-                    if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+                    if cancellation.is_some_and(
+                        crate::query_execution::streaming::CancellationToken::is_cancelled,
+                    ) {
                         return Err("stream cancelled".into());
                     }
                     let projected = crate::record_preparation::prepare_query_record_with_execution(

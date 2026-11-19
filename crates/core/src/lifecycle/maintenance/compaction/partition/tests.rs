@@ -1,9 +1,9 @@
 use super::{compact_source_parts_with_limits, partition_base_with_limits};
 use std::sync::Arc;
 
-use crate::execution_options::ReturnMode;
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::lifecycle::{Index, IndexRevision, PublishedIndex};
+use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;

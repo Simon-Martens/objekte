@@ -17,8 +17,8 @@ use crate::construction::batch::{BatchContribution, SourceFileInput};
 use crate::construction::discovery::{prepare_discovered_file, prepare_discovered_window};
 use crate::construction::scheduling::RepositoryFileJob;
 use crate::construction::segment_admission::{AdmissionBreakdown, SegmentAdmission};
-use crate::discovery::discover;
 use crate::index::segment::SegmentId;
+use crate::inventory::discovery::discover;
 use crate::inventory::{CollectionBuilder, FileInventory, append_shifted_bitmap};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{CollectionId, FileId};
@@ -93,7 +93,7 @@ impl IncrementalCollection {
             .observed_batches
             .checked_add(1)
             .ok_or("inference batch count overflow")?;
-        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
         append_shifted_bitmap(&mut self.logical_records, batch.logical_records(), base)?;
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
@@ -109,7 +109,7 @@ impl IncrementalCollection {
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<Option<crate::construction::segment_admission::CollectionSegment>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
-        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
         let sealed = if !self.admission.can_admit_batch(&batch) {
             self.take_segment()
         } else {
@@ -130,7 +130,7 @@ impl IncrementalCollection {
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<Option<crate::construction::segment_admission::CollectionSegment>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
-        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
         let sealed = if self.admission.file_count() != 0 && !self.admission.can_admit_batch(&batch)
         {
             self.take_segment()
@@ -243,7 +243,7 @@ fn publish_indexed_segment(
     publication_ns: &mut u64,
     profile: &mut Option<BuildProfileStats>,
 ) -> Result<(), IndexError> {
-    let started = crate::detailed_timer::DetailedInstant::now();
+    let started = crate::measurement::timer::DetailedInstant::now();
     let IndexedSegmentBuild {
         index: indexed,
         profile: mut segment_profile,
@@ -268,7 +268,7 @@ fn publish_indexed_segment(
         segment.prepare_ns = phases.preparation_ns;
         segment.install_ns = phases.install_ns;
     }
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
     on_publication(index)?;
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         let ns = started.elapsed().as_nanos() as u64;
@@ -323,7 +323,7 @@ fn publish_private_segment_group(
     if let Some(profile) = profile.as_mut() {
         profile.publication_index_ns = profile.publication_index_ns.saturating_add(index_build_ns);
     }
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
     let (revision, phases) = index.publish_initial_segments(
         *expected,
         builds
@@ -441,7 +441,7 @@ fn admit_normal(
     if cancelled() {
         return Err("initial construction cancelled".into());
     }
-    let admission_started = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let admission_started = crate::measurement::timer::start_if_enabled(profile.is_some());
     let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
         batches: 1,
         files: batch.new_file_count() as u64,
@@ -562,7 +562,7 @@ impl Repository {
         let root = root
             .canonicalize()
             .map_err(|error| IndexError::Io(error.to_string()))?;
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let build_workers = crate::construction::scheduling::resolve_build_workers(
             options.build_workers,
             std::thread::available_parallelism().ok(),
@@ -607,7 +607,7 @@ impl Repository {
             let source = sources
                 .resolve(&definition.format)
                 .map_err(IndexError::Build)?;
-            let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+            let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
             let paths = discover(
                 &root,
                 &definition.source_path,
@@ -630,7 +630,7 @@ impl Repository {
                 if window.is_empty() {
                     break;
                 }
-                let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+                let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
                 let prepared = if build_workers == 1 {
                     window
                         .into_iter()
@@ -644,7 +644,7 @@ impl Repository {
                         .discovery_metadata_prepare_ns
                         .saturating_add(started.elapsed().as_nanos() as u64);
                 }
-                let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+                let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
                 for entry in prepared {
                     let entry = entry.map_err(IndexError::Build)?;
                     members.push(
@@ -668,7 +668,7 @@ impl Repository {
             profile.discovery_metadata_peak_active = metadata_peak_active.load(Ordering::Relaxed);
             profile.discovery_rss_bytes = build_profile_rss_bytes();
         }
-        let setup_started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let setup_started = crate::measurement::timer::start_if_enabled(profile.is_some());
         let discovered = Arc::new(files);
         let source_files = Arc::new(
             discovered
@@ -736,7 +736,7 @@ impl Repository {
         let mut expected = IndexRevision::INITIAL;
         let mut scheduler =
             SegmentBuildScheduler::new(pool.current_num_threads(), pending.len(), gate);
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
             for batch in crate::construction::batch::file_batches(&state.member_files, &discovered)
@@ -765,7 +765,7 @@ impl Repository {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.job_scheduling_ns = started.elapsed().as_nanos() as u64;
         }
-        let extraction_started = crate::detailed_timer::DetailedInstant::now();
+        let extraction_started = crate::measurement::timer::DetailedInstant::now();
         let mut digest_bindings = vec![Vec::new(); discovered.files.len()];
         let mut build_parses = 0u64;
         let mut failed_parses = 0u64;
@@ -871,7 +871,7 @@ impl Repository {
                                     return Err("initial construction cancelled".into());
                                 }
                                 let admission_started =
-                                    crate::detailed_timer::start_if_enabled(profile.is_some());
+                                    crate::measurement::timer::start_if_enabled(profile.is_some());
                                 let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
                                     batches: 1,
                                     files: batch.new_file_count() as u64,
@@ -1065,7 +1065,7 @@ impl Repository {
             profile.admission_schedule = schedule_stats.admission_schedule;
             profile.extraction_rss_bytes = build_profile_rss_bytes();
         }
-        let flush_started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let flush_started = crate::measurement::timer::start_if_enabled(profile.is_some());
         for number in 0..pending.len() {
             if cancelled() {
                 return Err(IndexError::Cancelled);

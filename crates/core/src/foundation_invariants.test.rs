@@ -2,9 +2,10 @@
 
 use std::collections::HashSet;
 
-use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
+use crate::index::bigram::BigramAlphabet;
 use crate::inventory::{FileStatus, RecordClass};
 use crate::model::{FieldPath, LogicalType};
+use crate::query::options::{ReturnMode, SortField};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};

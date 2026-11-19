@@ -3,7 +3,7 @@ use crate::construction::batch::{SourceFileInput, process_batch};
 use crate::construction::file_preparation::{
     FilePreparationBinding, PreparedFileBuild, prepare_file_build,
 };
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::posting::ScalarKey;
 use crate::inference::InferenceConfig;
 use crate::inference::{InferenceMode, InferencePolicy};

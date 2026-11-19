@@ -1,5 +1,6 @@
-use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::{FieldPath, LogicalType};
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_filter,
 };

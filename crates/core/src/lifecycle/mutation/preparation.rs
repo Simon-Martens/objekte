@@ -8,8 +8,8 @@ use crate::construction::file_preparation::{
     prepare_file_build, prepare_file_build_from_bytes,
 };
 use crate::construction::segment_admission::SegmentAdmission;
-use crate::discovery::selects_file;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::inventory::discovery::selects_file;
 use crate::inventory::{FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView};
 use crate::model::FileId;

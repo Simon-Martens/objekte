@@ -8,8 +8,8 @@ use std::path::{Component, Path, PathBuf};
 use sha2::{Digest, Sha256};
 
 use crate::construction::file_preparation::PreparedFileBuild;
-use crate::discovery::selects_file;
 use crate::inventory::SourceRevision;
+use crate::inventory::discovery::selects_file;
 use crate::lifecycle::maintenance::compaction::compact_published;
 use crate::lifecycle::mutation::preparation::PreparedReplacement;
 use crate::lifecycle::mutation::verified::{

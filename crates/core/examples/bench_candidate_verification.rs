@@ -10,7 +10,6 @@ use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::time::Instant;
 
-use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SourceRevision,
 };
@@ -18,6 +17,7 @@ use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{CollectionId, FileId, RecordId, RecordSlot};
 use objekte_search_core::query::binding::filter::bind_filter;
 use objekte_search_core::query::binding::fts::bind_fts;
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::semantics::record::RecordContext;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::query_results::Payload;

@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 
-use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{LogicalType, Number, Value};
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,

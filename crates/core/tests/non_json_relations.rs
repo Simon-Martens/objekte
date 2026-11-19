@@ -1,9 +1,10 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::inventory::ByteRange;
 use objekte_search_core::model::{LogicalType, Value};
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::configuration::{

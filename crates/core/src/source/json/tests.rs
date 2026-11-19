@@ -98,7 +98,7 @@ fn direct_build_json_matches_existing_logical_reader_and_diagnostics() {
 
 #[test]
 fn root_queries_match_reference_over_mixed_json_documents() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 
@@ -225,8 +225,8 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
 
 #[test]
 fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
-    use crate::execution_options::ReturnMode;
     use crate::inventory::RecordClass;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -488,7 +488,8 @@ fn decoded_scalar_build_uses_exact_json_whitespace() {
 
 #[test]
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
-    use crate::execution_options::{BigramAlphabet, ReturnMode};
+    use crate::index::bigram::BigramAlphabet;
+    use crate::query::options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -590,7 +591,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
 
 #[test]
 fn build_json_borrows_logical_strings_after_temporal_conversion() {
-    use crate::execution_options::BigramAlphabet;
+    use crate::index::bigram::BigramAlphabet;
     use crate::index::bigram::BigramBuilder;
     use crate::model::LogicalType;
     use crate::record_preparation::finish_build_record;

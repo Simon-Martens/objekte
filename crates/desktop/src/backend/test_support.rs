@@ -6,7 +6,7 @@ use tempfile::TempDir;
 
 use super::{OpenSpec, OpenedSession, open};
 use objekte_cli::arguments::Arguments;
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 
 /// Owned documents and their opened repository stay alive for a whole test.
 pub(crate) struct Fixture {

@@ -1,6 +1,6 @@
 use super::*;
 use crate::backend::{query_page, test_support::fixture};
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 
 #[test]
 fn metadata_columns_show_captured_values_without_a_json_payload() {
@@ -111,9 +111,9 @@ fn metadata_cells_agree_with_filters_combining_metadata_and_record_fields() {
     let size = std::fs::metadata(fixture._root.path().join("a.json"))
         .unwrap()
         .len();
-    let root = serde_json::to_string(&objekte_search_core::path_repr::query_path(
-        fixture._root.path(),
-    ))
+    let root = serde_json::to_string(
+        &objekte_search_core::model::path_representation::query_path(fixture._root.path()),
+    )
     .unwrap();
     for filter in [
         "@file.size < 2KB && year = 2024".to_owned(),

@@ -7,13 +7,13 @@ use std::sync::{Arc, Mutex, OnceLock};
 use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
-use crate::execution_options::{SortExpression, SortField, SortReducer};
 use crate::index::relation::RelationTarget;
 use crate::index::sorting::{SortColumn, SortConfig, SortKey, SortOptions, make_collator};
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;
 use crate::query::binding::relation::{BoundRelationHop, HopDirection, resolve_path};
+use crate::query::options::{SortExpression, SortField, SortReducer};
 use crate::query::path::{PathStep, QueryPath, split_path_binding};
 use crate::query::{semantics::record::RecordContext, semantics::record::metadata_value};
 use crate::relation_query::{MergedRecordSlot, MergedRelationView};
@@ -93,8 +93,8 @@ pub(crate) struct SortTargetCache {
     values: HashMap<(usize, u32), Arc<SortTargetCell>>,
     retained_bytes: u64,
     stream_limit: Option<u64>,
-    cancellation: Option<crate::streaming::CancellationToken>,
-    execution: Option<crate::streaming::ExecutionContext>,
+    cancellation: Option<crate::query_execution::streaming::CancellationToken>,
+    execution: Option<crate::query_execution::streaming::ExecutionContext>,
     pub reads: u64,
     pub reuse: u64,
     pub edge_visits: u64,
@@ -105,7 +105,7 @@ pub(crate) struct SortTargetCache {
 pub(crate) struct MergedSortTargetCache {
     values: HashMap<MergedRecordSlot, Arc<Value>>,
     retained_bytes: u64,
-    execution: Option<crate::streaming::ExecutionContext>,
+    execution: Option<crate::query_execution::streaming::ExecutionContext>,
     pub edge_visits: u64,
     pub reads: u64,
     pub reuse: u64,
@@ -117,7 +117,7 @@ pub(crate) struct MergedSortTargetCache {
 impl MergedSortTargetCache {
     pub(crate) fn configure_execution(
         &mut self,
-        execution: Option<&crate::streaming::ExecutionContext>,
+        execution: Option<&crate::query_execution::streaming::ExecutionContext>,
     ) {
         self.execution = execution.cloned();
     }
@@ -1027,14 +1027,17 @@ fn select_values<'a>(
 }
 
 impl SortTargetCache {
-    pub(crate) fn configure_execution(&mut self, execution: &crate::streaming::ExecutionContext) {
+    pub(crate) fn configure_execution(
+        &mut self,
+        execution: &crate::query_execution::streaming::ExecutionContext,
+    ) {
         self.execution = Some(execution.clone());
     }
 
     pub(crate) fn configure_stream(
         &mut self,
         max_buffered_bytes: usize,
-        cancellation: &crate::streaming::CancellationToken,
+        cancellation: &crate::query_execution::streaming::CancellationToken,
     ) {
         self.stream_limit = Some((max_buffered_bytes / 4) as u64);
         self.cancellation = Some(cancellation.clone());
@@ -1095,7 +1098,7 @@ impl SortTargetCache {
         if state
             .cancellation
             .as_ref()
-            .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+            .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
         {
             return Err("stream cancelled".into());
         }
@@ -1108,7 +1111,7 @@ impl SortTargetCache {
                 || "sort relation edge budget exceeded".to_owned(),
                 |execution| {
                     execution.fail(
-                        crate::streaming::ExecutionErrorKind::Resource,
+                        crate::query_execution::streaming::ExecutionErrorKind::Resource,
                         "sort relation edge budget exceeded",
                     )
                 },
@@ -1150,7 +1153,7 @@ impl SortTargetCache {
             if state
                 .cancellation
                 .as_ref()
-                .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+                .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
             {
                 return Err("stream cancelled".into());
             }
@@ -1161,7 +1164,7 @@ impl SortTargetCache {
                 execution.check_string()?;
                 if record.range.len() > execution.limits.target_record_bytes {
                     return Err(execution.fail(
-                        crate::streaming::ExecutionErrorKind::Resource,
+                        crate::query_execution::streaming::ExecutionErrorKind::Resource,
                         "sort target record exceeds source read allowance",
                     ));
                 }
@@ -1186,7 +1189,7 @@ impl SortTargetCache {
                         || "sort target cache budget exceeded".to_owned(),
                         |execution| {
                             execution.fail(
-                                crate::streaming::ExecutionErrorKind::Resource,
+                                crate::query_execution::streaming::ExecutionErrorKind::Resource,
                                 "sort target cache budget exceeded",
                             )
                         },
@@ -1200,7 +1203,7 @@ impl SortTargetCache {
                         },
                         |execution| {
                             execution.fail(
-                                crate::streaming::ExecutionErrorKind::Resource,
+                                crate::query_execution::streaming::ExecutionErrorKind::Resource,
                                 "stream resource: sort target cache exceeds buffered-byte limit",
                             )
                         },
@@ -1232,7 +1235,7 @@ impl SortTargetCache {
             )?;
             if cancellation
                 .as_ref()
-                .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+                .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
             {
                 return Err("stream cancelled".into());
             }
@@ -1252,7 +1255,7 @@ impl SortTargetCache {
         });
         if cancellation
             .as_ref()
-            .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+            .is_some_and(crate::query_execution::streaming::CancellationToken::is_cancelled)
         {
             return Err("stream cancelled".into());
         }

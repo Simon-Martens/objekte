@@ -12,7 +12,7 @@ use std::sync::mpsc;
 use rayon::ThreadPool;
 use serde::Serialize;
 
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::storage_diagnostic_enabled;
 use crate::inference::InferenceConfig;
 use crate::model::{CollectionId, FileId};
@@ -154,7 +154,7 @@ impl JobCounters {
         let active = self.active.fetch_add(1, Ordering::Relaxed) + 1;
         self.peak_active.fetch_max(active, Ordering::Relaxed);
         #[cfg(feature = "detailed-profiling")]
-        let started = crate::detailed_timer::DetailedInstant::now();
+        let started = crate::measurement::timer::DetailedInstant::now();
         let result = job();
         #[cfg(feature = "detailed-profiling")]
         self.execution_ns
@@ -309,9 +309,9 @@ pub(crate) fn process_repository_file_batches_profiled(
             let collection = jobs[index].collection;
             let source_files = Arc::clone(&source_files);
             let counters = Arc::clone(&counters);
-            let dispatched_at = crate::detailed_timer::start_if_enabled(profile_build);
+            let dispatched_at = crate::measurement::timer::start_if_enabled(profile_build);
             pool.spawn(move || {
-                let started_at = crate::detailed_timer::start_if_enabled(profile_build);
+                let started_at = crate::measurement::timer::start_if_enabled(profile_build);
                 let result = counters.run(|| {
                     process_batch_profiled(
                         &root,
@@ -326,7 +326,7 @@ pub(crate) fn process_repository_file_batches_profiled(
                         profile_build,
                     )
                 });
-                let completed_at = crate::detailed_timer::start_if_enabled(profile_build);
+                let completed_at = crate::measurement::timer::start_if_enabled(profile_build);
                 let _ = sender.send((index, result, dispatched_at, started_at, completed_at));
             });
             admitted_bytes = admitted_bytes.saturating_add(weight);
@@ -336,9 +336,9 @@ pub(crate) fn process_repository_file_batches_profiled(
         if profile_build && dispatched < jobs.len() && dispatched - next >= max_jobs {
             stats.admission_schedule.job_limit_blocks += 1;
         }
-        let wait_started = crate::detailed_timer::DetailedInstant::now();
+        let wait_started = crate::measurement::timer::DetailedInstant::now();
         let received = receiver.recv();
-        let received_at = crate::detailed_timer::DetailedInstant::now();
+        let received_at = crate::measurement::timer::DetailedInstant::now();
         let receive_ns = received_at.duration_since(wait_started).as_nanos() as u64;
         stats.receive_wait_ns = stats.receive_wait_ns.saturating_add(receive_ns);
         let (index, result, dispatched_at, started_at, completed_at) =
@@ -384,7 +384,7 @@ pub(crate) fn process_repository_file_batches_profiled(
                 stats.ready_wait_max_ns = stats.ready_wait_max_ns.max(wait);
             }
             admitted_bytes -= weights[next];
-            let admission_started = crate::detailed_timer::DetailedInstant::now();
+            let admission_started = crate::measurement::timer::DetailedInstant::now();
             let possible_idle = profile_build
                 && dispatched < jobs.len()
                 && dispatched.saturating_sub(completed) < pool.current_num_threads();

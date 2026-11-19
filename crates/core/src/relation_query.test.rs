@@ -212,7 +212,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         )),
         ["A"]
     );
-    let outgoing = crate::relation_inspection::relation_outgoing_page_segmented(
+    let outgoing = crate::repository::relations::relation_outgoing_page_segmented(
         &repo,
         "mentions",
         &["entry".into()],
@@ -236,7 +236,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             .segment_ordinal,
         Some(1)
     );
-    let nested = crate::relation_inspection::relation_outgoing_page_segmented(
+    let nested = crate::repository::relations::relation_outgoing_page_segmented(
         &repo,
         "mentions",
         &["items".into(), "entry".into()],
@@ -260,7 +260,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             .segment_ordinal,
         Some(1)
     );
-    let null = crate::relation_inspection::relation_outgoing_page_segmented(
+    let null = crate::repository::relations::relation_outgoing_page_segmented(
         &repo,
         "mentions",
         &["entry".into()],
@@ -275,11 +275,11 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     .unwrap();
     assert_eq!(
         null.presence,
-        crate::relation_inspection::RelationPresence::Present
+        crate::repository::relations::RelationPresence::Present
     );
     assert!(null.contains_null);
     assert_eq!(null.total_occurrences, 0);
-    let backlinks = crate::relation_inspection::relation_backlink_page_segmented(
+    let backlinks = crate::repository::relations::relation_backlink_page_segmented(
         &repo,
         "entries",
         "mentions",
@@ -295,7 +295,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     assert_eq!(backlinks.total_sources, 2);
     assert_eq!(backlinks.next_offset, Some(1));
     assert_eq!(backlinks.sources[0].id, "m1");
-    let backlink_tail = crate::relation_inspection::relation_backlink_page_segmented(
+    let backlink_tail = crate::repository::relations::relation_backlink_page_segmented(
         &repo,
         "entries",
         "mentions",
@@ -310,7 +310,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     .unwrap();
     assert_eq!(backlink_tail.sources[0].id, "m8");
     assert_eq!(backlink_tail.sources[0].segment_ordinal, Some(2));
-    let graph = crate::relation_inspection::collection_graph_segmented(
+    let graph = crate::repository::relations::collection_graph_segmented(
         &repo,
         IndexRevision(3),
         &active,
@@ -336,7 +336,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         Arc::clone(&segments[0]),
         Arc::new(vec![Arc::new(retired_source)]),
     ];
-    let source_retired_backlinks = crate::relation_inspection::relation_backlink_page_segmented(
+    let source_retired_backlinks = crate::repository::relations::relation_backlink_page_segmented(
         &repo,
         "entries",
         "mentions",
@@ -351,7 +351,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     .unwrap();
     assert_eq!(source_retired_backlinks.total_sources, 1);
     assert_eq!(source_retired_backlinks.sources[0].id, "m1");
-    let source_retired_graph = crate::relation_inspection::collection_graph_segmented(
+    let source_retired_graph = crate::repository::relations::collection_graph_segmented(
         &repo,
         IndexRevision(4),
         &active,
@@ -379,8 +379,8 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         ["A"]
     );
     let mut sorted = query("mentions", None, None, None, false);
-    sorted.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::execution_options::SortExpression {
+    sorted.options.sort = vec![crate::query::options::SortField::computed(
+        crate::query::options::SortExpression {
             path: "entry.title".into(),
             binding: Some("lower".into()),
             reducer: None,
@@ -392,11 +392,11 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     assert!(at("m2") < at("m1"));
     assert!(at("m1") < at("m8"));
     let mut first = query("mentions", None, None, None, false);
-    first.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::execution_options::SortExpression {
+    first.options.sort = vec![crate::query::options::SortField::computed(
+        crate::query::options::SortExpression {
             path: "items.entry.title".into(),
             binding: None,
-            reducer: Some(crate::execution_options::SortReducer::First),
+            reducer: Some(crate::query::options::SortReducer::First),
         },
         false,
     )];
@@ -404,11 +404,11 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     let first_at = |id: &str| first_order.iter().position(|found| found == id).unwrap();
     assert!(first_at("m2") < first_at("m1"));
     let mut last = query("mentions", None, None, None, false);
-    last.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::execution_options::SortExpression {
+    last.options.sort = vec![crate::query::options::SortField::computed(
+        crate::query::options::SortExpression {
             path: "items.entry.title".into(),
             binding: None,
-            reducer: Some(crate::execution_options::SortReducer::Last),
+            reducer: Some(crate::query::options::SortReducer::Last),
         },
         false,
     )];
@@ -416,11 +416,11 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     let last_at = |id: &str| last_order.iter().position(|found| found == id).unwrap();
     assert!(last_at("m1") < last_at("m2"));
     let mut backlink_sort = query("entries", None, None, None, false);
-    backlink_sort.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::execution_options::SortExpression {
+    backlink_sort.options.sort = vec![crate::query::options::SortField::computed(
+        crate::query::options::SortExpression {
             path: "@backlinks.mentions.title".into(),
             binding: None,
-            reducer: Some(crate::execution_options::SortReducer::Min),
+            reducer: Some(crate::query::options::SortReducer::Min),
         },
         false,
     )];
@@ -468,7 +468,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         ))
         .is_empty()
     );
-    let unresolved = crate::relation_inspection::relation_outgoing_page_segmented(
+    let unresolved = crate::repository::relations::relation_outgoing_page_segmented(
         &repo,
         "mentions",
         &["entry".into()],
@@ -483,7 +483,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     .unwrap();
     assert!(unresolved.references[0].resolved.is_none());
     assert!(
-        crate::relation_inspection::relation_backlink_page_segmented(
+        crate::repository::relations::relation_backlink_page_segmented(
             &repo,
             "entries",
             "mentions",
@@ -497,7 +497,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         )
         .is_err()
     );
-    let retired_graph = crate::relation_inspection::collection_graph_segmented(
+    let retired_graph = crate::repository::relations::collection_graph_segmented(
         &repo,
         IndexRevision(4),
         &active,
@@ -540,8 +540,8 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             .any(|hit| hit.record_id == "m1" || hit.record_id == "m8")
     );
     let mut unavailable_sort = query("mentions", None, None, None, false);
-    unavailable_sort.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::execution_options::SortExpression {
+    unavailable_sort.options.sort = vec![crate::query::options::SortField::computed(
+        crate::query::options::SortExpression {
             path: "entry.title".into(),
             binding: Some("lower".into()),
             reducer: None,
@@ -669,27 +669,27 @@ fn merged_relation_walker_matches_static_reference_semantics() {
         (
             "mentions",
             "items.entry.title",
-            Some(crate::execution_options::SortReducer::First),
+            Some(crate::query::options::SortReducer::First),
         ),
         (
             "mentions",
             "items.entry.title",
-            Some(crate::execution_options::SortReducer::Last),
+            Some(crate::query::options::SortReducer::Last),
         ),
         (
             "mentions",
             "contributors.title",
-            Some(crate::execution_options::SortReducer::Min),
+            Some(crate::query::options::SortReducer::Min),
         ),
         (
             "entries",
             "@backlinks.mentions.title",
-            Some(crate::execution_options::SortReducer::Min),
+            Some(crate::query::options::SortReducer::Min),
         ),
     ] {
         let mut request = query(collection, None, None, None, false);
-        request.options.sort = vec![crate::execution_options::SortField::computed(
-            crate::execution_options::SortExpression {
+        request.options.sort = vec![crate::query::options::SortField::computed(
+            crate::query::options::SortExpression {
                 path: path.into(),
                 binding: None,
                 reducer,
@@ -723,8 +723,8 @@ fn merged_relation_walker_matches_static_reference_semantics() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
-use crate::execution_options::ReturnMode;
-use crate::streaming::{
+use crate::query::options::ReturnMode;
+use crate::query_execution::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamError, StreamEvent, StreamOptions,
     StreamOutcome,
 };
@@ -892,8 +892,8 @@ fn lifecycle_related_sort_uses_target_stored_column() {
         None,
         false,
     );
-    request.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::execution_options::SortExpression {
+    request.options.sort = vec![crate::query::options::SortField::computed(
+        crate::query::options::SortExpression {
             path: "entry.title".into(),
             binding: None,
             reducer: None,
@@ -1330,7 +1330,7 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
             for count in [false, true] {
                 let mut request =
                     query("mentions", Some("entry.title = 'Hymn'"), None, None, false);
-                request.options.sort = vec![crate::execution_options::SortField::simple(
+                request.options.sort = vec![crate::query::options::SortField::simple(
                     "title", descending,
                 )];
                 request.options.offset = offset;
@@ -1351,8 +1351,8 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
 
 #[test]
 fn segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock() {
-    use crate::execution_options::{SortExpression, SortField};
     use crate::model::FieldPath;
+    use crate::query::options::{SortExpression, SortField};
     use std::collections::HashMap;
 
     let (root, mut definitions) = fixture();
@@ -1869,7 +1869,7 @@ fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
 
 #[test]
 fn adopted_base_view_reference_search_uses_pinned_publication() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
@@ -2000,7 +2000,7 @@ fn adopted_base_view_reference_search_keeps_retired_rows_on_the_old_pin() {
 
 #[test]
 fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
@@ -2128,8 +2128,8 @@ fn base_related_sort_declines_an_incompatible_stored_key() {
     let view = index.view().unwrap();
 
     let mut related = query("sources", None, None, None, false);
-    related.options.sort = vec![crate::execution_options::SortField::computed(
-        crate::execution_options::SortExpression {
+    related.options.sort = vec![crate::query::options::SortField::computed(
+        crate::query::options::SortExpression {
             path: "entry.title".into(),
             binding: None,
             reducer: None,
@@ -2151,7 +2151,7 @@ fn base_related_sort_declines_an_incompatible_stored_key() {
     assert_eq!(optimized.counters.sort_target_reads, 2);
 
     let mut direct = query("targets", None, None, None, false);
-    direct.options.sort = vec![crate::execution_options::SortField::simple("title", false)];
+    direct.options.sort = vec![crate::query::options::SortField::simple("title", false)];
     assert_eq!(
         view.search(&direct)
             .unwrap()
@@ -2727,7 +2727,7 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
 
 #[test]
 fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnostics() {
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     };
 
@@ -3372,7 +3372,7 @@ fn related_sort_stream_reports_target_budget_as_resource_error() {
                 ..Default::default()
             },
             &CancellationToken::new(),
-            &mut |_| Ok(crate::streaming::StreamControl::Continue),
+            &mut |_| Ok(crate::query_execution::streaming::StreamControl::Continue),
         )
         .unwrap_err();
     assert!(matches!(error, StreamError::Resource { .. }), "{error:?}");
@@ -3483,7 +3483,7 @@ fn finite_relation_paths_have_independent_reference_answers() {
         .is_err()
     );
     let mut sort = query("mentions", None, None, None, false);
-    sort.options.sort.push(crate::execution_options::SortField {
+    sort.options.sort.push(crate::query::options::SortField {
         field: "entry.title".into(),
         descending: false,
         expression: None,

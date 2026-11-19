@@ -4,19 +4,19 @@ use std::time::{Duration, Instant};
 use super::mutation::DeleteStrategy;
 use super::reconciliation::periodic::PeriodicSignal;
 use super::{Index, IndexError, IndexRevision, PublishedIndex};
-use crate::execution_options::ReturnMode;
-use crate::execution_options::{SortExpression, SortField};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
+use crate::query::options::ReturnMode;
+use crate::query::options::{SortExpression, SortField};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
+use crate::query_execution::streaming::{
+    CancellationToken, ExecutionContext, ExecutionLimits, ResultScope, StreamControl, StreamEvent,
+    StreamOptions, StreamOutcome,
+};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
-use crate::streaming::{
-    CancellationToken, ExecutionContext, ExecutionLimits, ResultScope, StreamControl, StreamEvent,
-    StreamOptions, StreamOutcome,
-};
 
 #[test]
 fn pinned_catalogue_metadata_tracks_each_publication_independently() {

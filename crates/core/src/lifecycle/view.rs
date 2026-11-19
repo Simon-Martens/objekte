@@ -5,17 +5,17 @@ use std::sync::{Arc, Weak};
 
 use roaring::RoaringBitmap;
 
-use crate::execution_options::ReturnMode;
 use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, Value};
 use crate::query::Query;
-use crate::query_results::{SearchHit, SearchResult};
-use crate::repository::Repository;
-use crate::streaming::{
+use crate::query::options::ReturnMode;
+use crate::query_execution::streaming::{
     CancellationToken, ExecutionContext, ExecutionError, ResultScope, StreamControl, StreamError,
     StreamEvent, StreamOptions, StreamOutcome,
 };
+use crate::query_results::{SearchHit, SearchResult};
+use crate::repository::Repository;
 
 use super::{
     AvailableSearchResult, FileCatalogueRow, FileHandle, FileVersion, Index, IndexError,
@@ -692,7 +692,7 @@ impl IndexView {
     ) -> Result<SearchResult, ExecutionError> {
         if !self.initial_construction_complete() {
             return Err(context.error(
-                crate::streaming::ExecutionErrorKind::Execution,
+                crate::query_execution::streaming::ExecutionErrorKind::Execution,
                 "initial index construction is incomplete; use search_available_with_context",
             ));
         }
@@ -706,7 +706,10 @@ impl IndexView {
     ) -> Result<SearchResult, ExecutionError> {
         context.enter()?;
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
-            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+            context.error(
+                crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
+                message,
+            )
         })?;
         let owner = self.1.upgrade();
         let cache =
@@ -747,7 +750,10 @@ impl IndexView {
         context: &ExecutionContext,
     ) -> Result<AvailableSearchResult, ExecutionError> {
         self.ensure_local_partial_query(query).map_err(|message| {
-            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+            context.error(
+                crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
+                message,
+            )
         })?;
         let mut result = self.search_published_with_context(query, context)?;
         let complete = self.initial_construction_complete();
@@ -773,7 +779,7 @@ impl IndexView {
     ) -> Result<AvailableSearchResult, ExecutionError> {
         let context = ExecutionContext::new(
             crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-            crate::streaming::ExecutionLimits::default(),
+            crate::query_execution::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
         self.search_available_with_context(query, &context)
@@ -790,7 +796,7 @@ impl IndexView {
     ) -> Result<Option<AvailableSearchResult>, String> {
         let context = ExecutionContext::new(
             crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-            crate::streaming::ExecutionLimits::default(),
+            crate::query_execution::streaming::ExecutionLimits::default(),
             None,
         );
         self.search_added_since_with_context(previous, query, &context)
@@ -805,7 +811,7 @@ impl IndexView {
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
         let context = ExecutionContext::new(
             crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-            crate::streaming::ExecutionLimits::default(),
+            crate::query_execution::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
         self.search_added_since_with_context(previous, query, &context)
@@ -822,7 +828,7 @@ impl IndexView {
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
         let context = ExecutionContext::new(
             crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-            crate::streaming::ExecutionLimits::default(),
+            crate::query_execution::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
         self.search_added_since_with_context_limit(previous, query, &context, Some(limit))
@@ -839,7 +845,7 @@ impl IndexView {
     ) -> Result<bool, ExecutionError> {
         let context = ExecutionContext::new(
             crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-            crate::streaming::ExecutionLimits::default(),
+            crate::query_execution::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
         self.delta_query_if_appendable(previous, query, &context)
@@ -879,11 +885,17 @@ impl IndexView {
             return Ok(None);
         }
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
-            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+            context.error(
+                crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
+                message,
+            )
         })?;
         self.ensure_record_local_query(&resolved)
             .map_err(|message| {
-                context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+                context.error(
+                    crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
+                    message,
+                )
             })?;
         for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
             if old.len() > current.len()
@@ -971,7 +983,7 @@ impl IndexView {
         let result = self.search_with_context(query, context)?;
         if !result.counters.match_count_complete {
             return Err(context.error(
-                crate::streaming::ExecutionErrorKind::SourceChanged,
+                crate::query_execution::streaming::ExecutionErrorKind::SourceChanged,
                 "search source data is incomplete",
             ));
         }
@@ -1000,7 +1012,7 @@ impl IndexView {
         self.search_strict_with_context(&request, context)?
             .count
             .ok_or_else(|| ExecutionError {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
+                kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                 message: "count result missing".into(),
             })
     }
@@ -1072,10 +1084,10 @@ impl IndexView {
         &self,
         collection: &str,
         query: &Query,
-    ) -> Result<crate::posting_values::ExactSelection, String> {
+    ) -> Result<crate::repository::posting_values::ExactSelection, String> {
         self.ensure_initial_complete()?;
         if self.has_segments() {
-            return crate::posting_values::select_exact_segmented(
+            return crate::repository::posting_values::select_exact_segmented(
                 self.repository(),
                 collection,
                 query,
@@ -1091,11 +1103,11 @@ impl IndexView {
 
     pub fn posting_values(
         &self,
-        request: &crate::posting_values::PostingValuesRequest,
-    ) -> Result<crate::posting_values::PostingValuesPage, String> {
+        request: &crate::repository::posting_values::PostingValuesRequest,
+    ) -> Result<crate::repository::posting_values::PostingValuesPage, String> {
         self.ensure_initial_complete()?;
         if self.has_segments() {
-            return crate::posting_values::posting_values_segmented(
+            return crate::repository::posting_values::posting_values_segmented(
                 self.repository(),
                 request,
                 self.revision(),
@@ -1115,10 +1127,10 @@ impl IndexView {
         source_id: &str,
         offset: usize,
         limit: usize,
-    ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
+    ) -> Result<crate::repository::relations::OutgoingReferencePage, String> {
         self.ensure_initial_complete()?;
         if self.has_segments() {
-            return crate::relation_inspection::relation_outgoing_page_segmented(
+            return crate::repository::relations::relation_outgoing_page_segmented(
                 self.repository(),
                 source_collection,
                 relation_path,
@@ -1148,10 +1160,10 @@ impl IndexView {
         target_id: &str,
         offset: usize,
         limit: usize,
-    ) -> Result<crate::relation_inspection::BacklinkPage, String> {
+    ) -> Result<crate::repository::relations::BacklinkPage, String> {
         self.ensure_initial_complete()?;
         if self.has_segments() {
-            return crate::relation_inspection::relation_backlink_page_segmented(
+            return crate::repository::relations::relation_backlink_page_segmented(
                 self.repository(),
                 target_collection,
                 reverse_alias,
@@ -1174,10 +1186,12 @@ impl IndexView {
         )
     }
 
-    pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
+    pub fn collection_graph(
+        &self,
+    ) -> Result<crate::repository::relations::CollectionGraph, String> {
         self.ensure_initial_complete()?;
         if self.has_segments() {
-            return crate::relation_inspection::collection_graph_segmented(
+            return crate::repository::relations::collection_graph_segmented(
                 self.repository(),
                 self.revision(),
                 &self.0.active,
@@ -1299,9 +1313,9 @@ impl IndexView {
             query
                 .with_parameters(parameters)
                 .map_err(|message| StreamError::Execution {
-                    kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
+                    kind: crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
                     message,
-                    progress: crate::streaming::StreamProgress::default(),
+                    progress: crate::query_execution::streaming::StreamProgress::default(),
                 })?;
         self.search_stream(&bound, options, cancellation, sink)
     }
@@ -1319,7 +1333,7 @@ impl IndexView {
     {
         let context = ExecutionContext::new(
             crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-            crate::streaming::ExecutionLimits::default(),
+            crate::query_execution::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
         self.search_stream_scoped_with_context(query, scope, options, &context, sink)
@@ -1338,9 +1352,9 @@ impl IndexView {
     {
         if !self.initial_construction_complete() {
             return Err(StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
+                kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                 message: "initial index construction is incomplete; use search_available".into(),
-                progress: crate::streaming::StreamProgress::default(),
+                progress: crate::query_execution::streaming::StreamProgress::default(),
             });
         }
         let owner = self.1.upgrade();

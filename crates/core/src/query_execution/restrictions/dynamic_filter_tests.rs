@@ -1,6 +1,7 @@
 use super::*;
-use crate::execution_options::{BigramAlphabet, ReturnMode};
+use crate::index::bigram::BigramAlphabet;
 use crate::model::Value;
+use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;

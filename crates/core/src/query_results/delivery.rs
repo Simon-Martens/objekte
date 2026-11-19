@@ -6,10 +6,10 @@ use roaring::RoaringBitmap;
 
 use crate::measurement::WorkCounters;
 use crate::query::Query;
+use crate::query_execution::streaming::{Delivery, ExecutionContext, StreamMode};
 use crate::query_results::materialize::materialize_winner_page;
 use crate::query_results::ranking::{Winner, winner_bytes};
 use crate::repository::Repository;
-use crate::streaming::{Delivery, ExecutionContext, StreamMode};
 
 /// Publish a bounded provisional top-k page after a completed source batch.
 pub(crate) fn emit_provisional_page(
@@ -81,7 +81,10 @@ pub(crate) fn emit_provisional_page(
         ));
         hits.push(winner.hit);
     }
-    let delivered = hits.iter().map(crate::streaming::hit_bytes).sum::<usize>();
+    let delivered = hits
+        .iter()
+        .map(crate::query_execution::streaming::hit_bytes)
+        .sum::<usize>();
     let retained_without_page = retained.saturating_sub(moved_live_bytes);
     delivery.replacement(
         &hits,

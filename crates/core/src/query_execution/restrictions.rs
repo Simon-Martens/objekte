@@ -192,7 +192,7 @@ struct SegmentPlanContext<'a> {
     provider: NativeSegmentProvider<'a>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
     predicates: Option<&'a PreparedPredicates>,
-    execution: Option<&'a crate::streaming::ExecutionContext>,
+    execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
     offers: HashMap<TermId, OfferList>,
     terms: Vec<(BoundTerm, TermId)>,
     next_term: u32,
@@ -212,7 +212,7 @@ impl<'a> SegmentPlanContext<'a> {
         collection: &'a CollectionState,
         file_catalog: Option<&'a FileCatalog>,
         predicates: Option<&'a PreparedPredicates>,
-        execution: Option<&'a crate::streaming::ExecutionContext>,
+        execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
     ) -> Self {
         let test_providers = {
             #[cfg(test)]
@@ -504,7 +504,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     catalog: Option<&FileCatalog>,
     input: &RoaringBitmap,
     predicates: Option<&PreparedPredicates>,
-    execution: Option<&crate::streaming::ExecutionContext>,
+    execution: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
@@ -707,7 +707,7 @@ pub(crate) fn segment_fts_bounds_with_term(
     fts: &BoundFts,
     term: TermId,
     input: &RoaringBitmap,
-    context: Option<&crate::streaming::ExecutionContext>,
+    context: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
     use crate::query_access::contract::{AccessExecution, IndexAccessProvider, InputEstimate};
     use crate::query_access::text::NativeSegmentTextProvider;
@@ -979,7 +979,7 @@ fn segment_file_path_matches(
         let Some(entry) = catalog.entry(id) else {
             continue;
         };
-        let path = crate::path_repr::query_path(&entry.relative_path);
+        let path = crate::model::path_representation::query_path(&entry.relative_path);
         if file_path_matches(&path, operator, literal) {
             extend_segment_file_slots(segment, index, &mut matches)?;
         }
@@ -2328,7 +2328,8 @@ fn term_set(
                     let file_id = collection.generation.records[slot as usize].file;
                     let matches = *matched_files.entry(file_id).or_insert_with(|| {
                         let file = &repo.files.files[file_id.0 as usize];
-                        let path = crate::path_repr::query_path(&file.relative_path);
+                        let path =
+                            crate::model::path_representation::query_path(&file.relative_path);
                         file_path_matches(&path, operator, literal)
                     });
                     if matches {
@@ -3138,7 +3139,7 @@ pub(crate) fn plan_expr_restricted_with_execution(
     input: &RoaringBitmap,
     evidence: bool,
     diagnostics: bool,
-    execution: Option<&crate::streaming::ExecutionContext>,
+    execution: Option<&crate::query_execution::streaming::ExecutionContext>,
     predicates: Option<Arc<PreparedPredicates>>,
 ) -> Result<Plan, String> {
     if let Some(execution) = execution {
@@ -3169,7 +3170,7 @@ fn plan_expr_restricted_inner<'a>(
     input: &RoaringBitmap,
     evidence: bool,
     context: &mut PlanContext<'a>,
-    execution: Option<&crate::streaming::ExecutionContext>,
+    execution: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<Plan, String> {
     if let Some(execution) = execution {
         execution.check_string()?;

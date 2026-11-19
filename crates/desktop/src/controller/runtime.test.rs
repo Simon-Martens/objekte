@@ -219,7 +219,7 @@ fn desktop_delta_bounds_bytes_and_evidence_before_materialization() {
     let query = backend::build_query(&spec).unwrap();
     assert_eq!(
         query.options.return_mode,
-        objekte_search_core::execution_options::ReturnMode::Bytes
+        objekte_search_core::query::options::ReturnMode::Bytes
     );
     assert!(query.options.evidence);
     let all = current

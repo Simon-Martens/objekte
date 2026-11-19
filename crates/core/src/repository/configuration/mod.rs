@@ -7,10 +7,10 @@ use std::collections::HashMap;
 use std::num::NonZeroUsize;
 use std::path::PathBuf;
 
-use crate::discovery::Discovery;
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::sorting::{SortConfig, SortOptions};
 use crate::inference::InferenceConfig;
+use crate::inventory::discovery::Discovery;
 use crate::model::FieldPath;
 use crate::schema::Schema;
 use crate::source::SourceFormat;

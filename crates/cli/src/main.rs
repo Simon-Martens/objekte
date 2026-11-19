@@ -4,7 +4,7 @@ use std::time::Instant;
 use std::time::SystemTime;
 
 use clap::Parser;
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 
 use objekte_cli::arguments::Arguments;
 use objekte_cli::execution;

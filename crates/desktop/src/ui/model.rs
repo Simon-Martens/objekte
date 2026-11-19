@@ -624,8 +624,10 @@ impl FileCatalogue {
                 .copied()
                 .filter(|id| {
                     self.view.catalogue_row(*id).is_some_and(|row| {
-                        objekte_search_core::path_repr::query_path(row.relative_path)
-                            .starts_with(&prefix)
+                        objekte_search_core::model::path_representation::query_path(
+                            row.relative_path,
+                        )
+                        .starts_with(&prefix)
                     })
                 })
                 .collect(),

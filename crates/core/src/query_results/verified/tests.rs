@@ -33,8 +33,8 @@ fn shared_cache_publication_reuses_the_existing_result_owner() {
 
 #[test]
 fn structural_key_distinguishes_bound_values_sort_and_fts_mode() {
-    use crate::execution_options::{ReturnMode, SortField};
     use crate::model::{LogicalType, Value};
+    use crate::query::options::{ReturnMode, SortField};
     use crate::query::{CaseSensitivity, FtsQuery, QueryOptions, parse_filter};
 
     let template = Query {

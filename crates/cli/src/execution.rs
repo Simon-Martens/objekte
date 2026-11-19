@@ -10,9 +10,9 @@ use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{IndexRevision, IndexView};
-use objekte_search_core::path_repr;
+use objekte_search_core::model::path_representation;
 use objekte_search_core::query::Query;
-use objekte_search_core::streaming::{
+use objekte_search_core::query_execution::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,
 };
@@ -368,7 +368,7 @@ fn open_incremental_repository(
             query.options.offset = 0;
             query.options.limit = 100;
             query.options.count = false;
-            query.options.return_mode = objekte_search_core::execution_options::ReturnMode::Locator;
+            query.options.return_mode = objekte_search_core::query::options::ReturnMode::Locator;
             query.options.evidence = false;
             query
         })
@@ -448,7 +448,7 @@ fn run_start_event(
         "type": "run_start",
         "protocol_version": crate::output::PROTOCOL_VERSION,
         "executable_version": env!("CARGO_PKG_VERSION"),
-        "root": path_repr::query_path(&paths.root),
+        "root": path_representation::query_path(&paths.root),
         "collection": (!args.multiple_collections()).then_some("files"),
         "collections": collection_names,
         "recursive": if args.repo.is_some() { false } else { !args.no_recurse },
@@ -458,8 +458,14 @@ fn run_start_event(
         "alphabet": match args.index_alphabet { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
         "text_policy": if args.repo.is_some() { "configured" } else { "decoded_scalar_values" },
         "schema_fields": schema_fields,
-        "schema_file": paths.schema_file.as_deref().map(path_repr::query_path),
-        "schema_files": schema_files.iter().map(|path| path_repr::query_path(path)).collect::<Vec<_>>(),
+        "schema_file": paths
+            .schema_file
+            .as_deref()
+            .map(path_representation::query_path),
+        "schema_files": schema_files
+            .iter()
+            .map(|path| path_representation::query_path(path))
+            .collect::<Vec<_>>(),
         "schema_repository_metadata_ignored": ignored_repository_metadata,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "input_mode": input_mode,
@@ -865,11 +871,18 @@ fn execute_query<W: Write>(
         Err(error) => {
             eprintln!("obj: query {query_id}: {error}");
             let progress = match &error {
-                objekte_search_core::streaming::StreamError::Execution { progress, .. }
-                | objekte_search_core::streaming::StreamError::Sink { progress, .. }
-                | objekte_search_core::streaming::StreamError::Resource { progress, .. } => {
-                    progress
+                objekte_search_core::query_execution::streaming::StreamError::Execution {
+                    progress,
+                    ..
                 }
+                | objekte_search_core::query_execution::streaming::StreamError::Sink {
+                    progress,
+                    ..
+                }
+                | objekte_search_core::query_execution::streaming::StreamError::Resource {
+                    progress,
+                    ..
+                } => progress,
             };
             if let Err(write_error) = output
                 .emit(detailed_query_event(

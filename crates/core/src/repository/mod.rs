@@ -26,7 +26,9 @@ pub(crate) fn next_repository_instance() -> u64 {
 
 pub mod configuration;
 mod inspection;
+pub mod posting_values;
 mod records;
+pub mod relations;
 mod search;
 pub mod state;
 pub mod statistics;

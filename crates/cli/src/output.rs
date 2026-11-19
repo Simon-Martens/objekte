@@ -4,12 +4,12 @@ use std::io::{self, Write};
 use std::str::FromStr;
 use std::time::Instant;
 
-use objekte_search_core::diagnostics::{milliseconds_3, signed_milliseconds_3};
 use objekte_search_core::inventory::{FileStatus, RecordClass};
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::measurement::WorkCounters;
+use objekte_search_core::measurement::format::{milliseconds_3, signed_milliseconds_3};
 use objekte_search_core::model::FileId;
-use objekte_search_core::path_repr;
+use objekte_search_core::model::path_representation;
 use objekte_search_core::query_results::{Payload, SearchHit};
 use serde::de::IgnoredAny;
 use serde_json::{Number, Value, json};
@@ -179,7 +179,7 @@ impl<W: Write> EventWriter<W> {
             "requested_offset": offset,
             "collection": hit.collection,
             "file": {
-                "path": path_repr::query_path(&hit.file_path),
+                "path": path_representation::query_path(&hit.file_path),
                 "record_id": hit.record_id,
                 "file_id": hit.file_id,
                 "size_bytes": hit.file_size,

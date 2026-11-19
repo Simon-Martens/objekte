@@ -6,10 +6,10 @@ pub(super) mod theme;
 use super::app::{App, Focus, Overlay, View};
 use super::input::Input;
 use super::record;
-use objekte_search_core::diagnostics::milliseconds_3;
 use objekte_search_core::inventory::FileStatus;
 use objekte_search_core::lifecycle::initial::InitialBuildPhase;
-use objekte_search_core::path_repr;
+use objekte_search_core::measurement::format::milliseconds_3;
+use objekte_search_core::model::path_representation;
 use objekte_search_core::query_results::SearchHit;
 use ratatui::{
     Frame,
@@ -568,7 +568,7 @@ fn files(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         } else {
             Style::new()
         };
-        let path = path_repr::query_path(file.relative_path);
+        let path = path_representation::query_path(file.relative_path);
         frame.render_widget(
             Paragraph::new(Line::from(vec![
                 Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),

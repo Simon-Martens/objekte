@@ -1,6 +1,6 @@
 use super::*;
-use crate::execution_options::ReturnMode;
 use crate::model::LogicalType;
+use crate::query::options::ReturnMode;
 use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
@@ -58,7 +58,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .resolve(&SourceFormat::JsonLines)
         .unwrap();
     let inference = crate::inference::InferenceConfig::default();
-    let alphabet = crate::execution_options::BigramAlphabet::Ascii;
+    let alphabet = crate::index::bigram::BigramAlphabet::Ascii;
     let prepared = prepare_file_build(
         &root,
         SourceFileInput {
@@ -436,8 +436,8 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
         },
     };
     for alphabet in [
-        crate::execution_options::BigramAlphabet::Ascii,
-        crate::execution_options::BigramAlphabet::Unicode,
+        crate::index::bigram::BigramAlphabet::Ascii,
+        crate::index::bigram::BigramAlphabet::Unicode,
     ] {
         let options = crate::repository::configuration::RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -909,8 +909,8 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         },
     };
     for alphabet in [
-        crate::execution_options::BigramAlphabet::Ascii,
-        crate::execution_options::BigramAlphabet::Unicode,
+        crate::index::bigram::BigramAlphabet::Ascii,
+        crate::index::bigram::BigramAlphabet::Unicode,
     ] {
         for (posting, bigram, complete) in [
             (true, true, true),
@@ -1135,8 +1135,8 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
         }
     };
     for alphabet in [
-        crate::execution_options::BigramAlphabet::Ascii,
-        crate::execution_options::BigramAlphabet::Unicode,
+        crate::index::bigram::BigramAlphabet::Ascii,
+        crate::index::bigram::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -1249,8 +1249,8 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
         sort_overrides: Default::default(),
     };
     for alphabet in [
-        crate::execution_options::BigramAlphabet::Ascii,
-        crate::execution_options::BigramAlphabet::Unicode,
+        crate::index::bigram::BigramAlphabet::Ascii,
+        crate::index::bigram::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -1534,7 +1534,8 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         .map_err(|error| error.to_string())
         .unwrap();
         if posting && complete {
-            let mut request = crate::posting_values::PostingValuesRequest::new("data", "title", 10);
+            let mut request =
+                crate::repository::posting_values::PostingValuesRequest::new("data", "title", 10);
             request.prefix = Some("alp".into());
             assert!(
                 repo.posting_values(&request)
