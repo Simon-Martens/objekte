@@ -5,3 +5,9 @@
 10 1.100004 openat(AT_FDCWD, "/fixture/data/01.json", O_RDONLY) = 4</fixture/data/01.json>
 10 1.100005 read(4</fixture/data/01.json>, "abc"..., 3 <unfinished ...>
 10 1.100006 <... read resumed>"abc", 3) = 3
+11 1.100010 pread64(3</fixture/data/00.json>,  <unfinished ...>
+11 1.100011 <... pread64 resumed>"hi", 9, 7) = 2
+12 1.100012 pread64(3</fixture/data/00.json>, "hi", 9, <unfinished ...>
+12 1.100013 <... pread64 resumed>7) = 2
+13 1.100014 pread64(3</fixture/data/00.json>, "hi", 9, 7 <unfinished ...>
+13 1.100015 <... pread64 resumed>) = 2

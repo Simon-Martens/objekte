@@ -281,3 +281,20 @@ available. The known formatter disagreement also remains explicit: plain
 rustfmt requests one blank line before the two `impl` blocks in `model/json.rs`,
 while the repository spacing convention accepts two and the script still
 reports its inherited 199-file baseline.
+
+## Resumed pread64 parser repair
+
+The split-call handler now reassembles the saved text before
+`<unfinished ...>` with the text after the matching
+`<... pread64 resumed>` prefix before parsing the final positioned-read
+arguments. The successful return remains the byte count, and the resumed-line
+timestamp remains the event timestamp. Sequential file offsets are not changed
+by a positioned read.
+
+The optimized-Python self-test covers three equivalent layouts: offset printed
+only on resumption, offset printed before the unfinished marker with only the
+closing parenthesis resumed, and the complete argument list before the marker.
+Each requires exactly one `data/00.json` read event at offset 7 with 2 bytes at
+timestamp `1100011000`. The focused command
+`python3 -O docs/ai/generated/core-refactoring-completion/assignment-2-source-preparation/trace_io.py --self-test`
+passes.
