@@ -910,6 +910,213 @@ fn lifecycle_related_sort_uses_target_stored_column() {
 }
 
 #[test]
+fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
+    use crate::model::{CollectionId, FieldPath};
+
+    let (root, mut definitions) = fixture();
+    definitions[0]
+        .sort_fields
+        .push(FieldPath::parse("title").unwrap());
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..RepositoryOptions::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let view = index.view().unwrap();
+
+    let wildcard = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY entry[*].title ASC"),
+        None,
+        None,
+        false,
+    );
+    let optimized = view.search(&wildcard).unwrap();
+    let reference = view.search_reference(&wildcard).unwrap();
+    assert_eq!(optimized.count, Some(2));
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1", "m2"]
+    );
+    assert_eq!(optimized.hits, reference.hits);
+    let mut first = wildcard.clone();
+    first.options.limit = 1;
+    assert_eq!(
+        view.search(&first)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1"]
+    );
+
+    let selector_free = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY entry.title ASC"),
+        None,
+        None,
+        false,
+    );
+    let optimized = view.search(&selector_free).unwrap();
+    let reference = view.search_reference(&selector_free).unwrap();
+    assert_eq!(optimized.count, Some(2));
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1"]
+    );
+    assert_eq!(optimized.hits, reference.hits);
+    assert_eq!(optimized.counters.sort_target_reads, 0);
+    let mut first = selector_free.clone();
+    first.options.limit = 1;
+    assert_eq!(
+        view.search(&first)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2"]
+    );
+
+    for request in [
+        query(
+            "mentions",
+            Some("entry[*].title = 'Hymn'"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            None,
+            Some("Hymn"),
+            Some("entry[*].title"),
+            false,
+        ),
+    ] {
+        let optimized = view.search(&request).unwrap();
+        let reference = view.search_reference(&request).unwrap();
+        assert_eq!(optimized.count, reference.count, "{request:?}");
+        assert_eq!(optimized.hits, reference.hits, "{request:?}");
+    }
+
+    let projected = query(
+        "mentions",
+        Some("entry.title = local_title SORT BY entry[*].title ASC"),
+        None,
+        None,
+        false,
+    );
+    let projected_result = view.search(&projected).unwrap();
+    assert_eq!(
+        projected_result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m1"]
+    );
+    assert_eq!(
+        projected_result.hits,
+        view.search_reference(&projected).unwrap().hits
+    );
+
+    let bound = crate::query::sort_binding::BoundSort::bind(view.repository(), &projected).unwrap();
+    let crate::query::sort_binding::BoundSortSource::Computed(computed) =
+        &bound.terms[1].as_ref().unwrap()[0].source
+    else {
+        panic!("related sort must use a computed source evaluator");
+    };
+    let prepared = crate::query::prepared::prepare(view.repository(), &projected).unwrap();
+    let filter = prepared.collections[0].filter().unwrap();
+    let merged = super::MergedRelationView::new(
+        view.repository(),
+        &view.0.active,
+        &view.0.segments,
+        &view.0.catalog,
+    )
+    .unwrap();
+    let address = merged.resolve_id(CollectionId(1), "m1").unwrap().unwrap();
+    let value = merged.reference_value(address, None).unwrap().unwrap();
+    let resolved = merged.record(address).unwrap().unwrap();
+    let ctx = crate::query::semantics::record::RecordContext {
+        value: &value,
+        source_bytes: None,
+        record: resolved.record,
+        file: resolved.file,
+        collection_name: &resolved.collection.definition.name,
+        repository_root: merged.repository_root(),
+    };
+    let mut evidence = std::collections::HashSet::new();
+    let mut work = super::RelationWork::default();
+    assert_eq!(
+        super::eval_filter_truth_merged(
+            &merged,
+            filter,
+            address,
+            &ctx,
+            &mut evidence,
+            &mut work,
+            false,
+        )
+        .unwrap(),
+        Some(true)
+    );
+    assert!(
+        crate::query_results::ranking::cached_filter_target_sort_key(
+            &merged,
+            address,
+            computed,
+            Some(filter),
+        )
+        .unwrap()
+        .is_none()
+    );
+    assert!(
+        crate::query_results::ranking::direct_related_target_sort_key(
+            view.repository(),
+            &merged,
+            &view.0.segments,
+            address,
+            computed,
+        )
+        .unwrap()
+        .is_none()
+    );
+
+    let array_control = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY MIN(items.entry[*].title)"),
+        None,
+        None,
+        false,
+    );
+    let optimized = view.search(&array_control).unwrap();
+    let reference = view.search_reference(&array_control).unwrap();
+    assert_eq!(optimized.count, Some(2));
+    assert_eq!(optimized.hits, reference.hits);
+    assert!(optimized.counters.sort_target_reads > 0);
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn backlink_sort_does_not_use_a_forward_relation_at_the_same_ordinal() {
     use crate::model::CollectionId;
     use crate::model::FieldPath;
@@ -2177,12 +2384,9 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         .count() as u64;
     drop(view);
 
-    let _ = crate::query_execution::runner::take_reference_row_visits();
+    let observations = crate::query_execution::runner::arm_reference_row_visits();
     let reference = pinned.search_reference(&request).unwrap();
-    assert_eq!(
-        crate::query_execution::runner::take_reference_row_visits(),
-        ["A", "B"]
-    );
+    assert_eq!(observations.finish(), ["A", "B"]);
     assert_eq!(reference.count, Some(2));
     assert_eq!(
         reference
@@ -2310,7 +2514,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
     .unwrap();
     let reverse_pin = reverse.view().unwrap();
     std::fs::remove_file(reverse_root.join("mentions/z-unlinked.json")).unwrap();
-    let _ = crate::query_execution::runner::take_reference_row_visits();
+    let observations = crate::query_execution::runner::arm_reference_row_visits();
     let reverse_request = query(
         "entries",
         Some(
@@ -2322,10 +2526,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         false,
     );
     let reverse_result = reverse_pin.search_reference(&reverse_request).unwrap();
-    assert_eq!(
-        crate::query_execution::runner::take_reference_row_visits(),
-        ["B", "C", "A"]
-    );
+    assert_eq!(observations.finish(), ["B", "C", "A"]);
     assert!(reverse_result.hits.is_empty());
     assert_eq!(reverse_result.count, None);
     assert_eq!(reverse_result.counters.total_matches, 0);
@@ -2343,6 +2544,156 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
     drop(reverse_pin);
     reverse.shutdown().unwrap();
     std::fs::remove_dir_all(reverse_root).unwrap();
+}
+
+#[test]
+fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
+    const RECORD_BYTES: usize = 2 * 1024 * 1024;
+    const LINKED_SOURCES: usize = 8;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-incomplete-backlink-short-circuit-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    for directory in ["entries", "mentions"] {
+        std::fs::create_dir_all(root.join(directory)).unwrap();
+    }
+    std::fs::write(
+        root.join("entries/a.json"),
+        r#"{"id":"A","title":"Target"}"#,
+    )
+    .unwrap();
+    for number in 0..LINKED_SOURCES {
+        let prefix = format!(r#"{{"id":"s{number}","contributors":["A"],"title":"T{number}""#);
+        let suffix = "}";
+        let padding = RECORD_BYTES - prefix.len() - suffix.len();
+        let document = format!("{prefix}{}{suffix}", " ".repeat(padding));
+        assert_eq!(document.len(), RECORD_BYTES);
+        std::fs::write(root.join(format!("mentions/s{number}.json")), document).unwrap();
+    }
+    std::fs::write(
+        root.join("mentions/ninth.json"),
+        r#"{"id":"ninth","contributors":["B"],"title":"Unlinked"}"#,
+    )
+    .unwrap();
+
+    let mut entries = Schema::default();
+    field(&mut entries, "id", LogicalType::Id, false);
+    field(&mut entries, "title", LogicalType::String, false);
+    let mut mentions = Schema::default();
+    field(&mut mentions, "id", LogicalType::Id, false);
+    field(&mut mentions, "title", LogicalType::String, false);
+    field(
+        &mut mentions,
+        "contributors",
+        LogicalType::Array(Box::new(LogicalType::Id)),
+        true,
+    );
+    relation(
+        &mut mentions,
+        "contributors",
+        "entries",
+        true,
+        "contributions",
+    );
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![
+            definition("entries", entries),
+            definition("mentions", mentions),
+        ],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..RepositoryOptions::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let pinned = index.view().unwrap();
+    std::fs::remove_file(root.join("mentions/ninth.json")).unwrap();
+    let request = query(
+        "entries",
+        Some("SORT BY MIN(@backlinks.contributions.title)"),
+        None,
+        None,
+        false,
+    );
+    let owner_view = super::MergedRelationView::new(
+        pinned.repository(),
+        &pinned.0.active,
+        &pinned.0.segments,
+        &pinned.0.catalog,
+    )
+    .unwrap();
+    let owner_address = owner_view
+        .resolve_id(crate::model::CollectionId(0), "A")
+        .unwrap()
+        .unwrap();
+    let owner_value = owner_view
+        .reference_value(owner_address, None)
+        .unwrap()
+        .unwrap();
+    let owner_record = owner_view.record(owner_address).unwrap().unwrap();
+    let owner_ctx = crate::query::semantics::record::RecordContext {
+        value: &owner_value,
+        source_bytes: None,
+        record: owner_record.record,
+        file: owner_record.file,
+        collection_name: &owner_record.collection.definition.name,
+        repository_root: owner_view.repository_root(),
+    };
+    let owner_sort =
+        crate::query_results::ranking::ResolvedSort::new_reference(pinned.repository(), &request)
+            .unwrap();
+    let mut owner_cache = crate::query::sort_binding::MergedSortTargetCache::default();
+    let owner_key = crate::query_results::ranking::relation_rank_key_merged(
+        pinned.repository(),
+        &owner_sort,
+        &owner_view,
+        &pinned.0.segments,
+        owner_address,
+        &owner_ctx,
+        &mut owner_cache,
+        None,
+        true,
+    )
+    .unwrap();
+    assert!(owner_key.is_none());
+    assert_eq!(owner_cache.relation_source_reads, LINKED_SOURCES as u64);
+    assert_eq!(
+        owner_cache.relation_source_bytes,
+        (LINKED_SOURCES * RECORD_BYTES) as u64
+    );
+    assert_eq!(owner_cache.reads, 0);
+    let result = pinned.search_reference(&request).unwrap();
+    assert!(result.hits.is_empty());
+    assert_eq!(result.count, None);
+    assert_eq!(result.counters.total_matches, 0);
+    assert!(!result.counters.match_count_complete);
+    assert_eq!(result.counters.sort_target_reads, 0);
+    assert_eq!(
+        result.counters.relation_source_reads, LINKED_SOURCES as u64,
+        "{:?}",
+        result.counters
+    );
+    assert_eq!(
+        result.counters.relation_bytes_read,
+        (LINKED_SOURCES * RECORD_BYTES) as u64
+    );
+    assert_eq!(result.counters.files_opened, 9);
+    assert_eq!(result.counters.record_parses, 9);
+    assert_eq!(result.counters.bytes_read, 16_777_243);
+    assert!(
+        result.counters.source_diagnostics.iter().any(|diagnostic| {
+            diagnostic.file_path == std::path::Path::new("mentions/ninth.json")
+        })
+    );
+
+    drop(pinned);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

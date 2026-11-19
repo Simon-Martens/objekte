@@ -1022,7 +1022,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let _ = crate::source::access::take_search_read_observations();
+    let observations = crate::source::access::arm_search_read_observations();
     let result = repo.search_reference(&sort_query("entry.title")).unwrap();
     assert_eq!(hit_ids(&result), ["R1", "R2"], "{:?}", result.counters);
     assert_eq!(result.count, Some(2));
@@ -1030,7 +1030,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
     assert_eq!(result.counters.sort_target_reads, 2);
     assert_eq!(result.counters.files_opened, 4);
     assert_eq!(result.counters.record_parses, 4);
-    let observations = crate::source::access::take_search_read_observations();
+    let observations = observations.finish();
     assert_eq!(observations.len(), 2);
     assert!(observations.iter().all(|(path, _, _)| {
         path.file_name()
@@ -1076,7 +1076,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let _ = crate::source::access::take_search_read_observations();
+    let observations = crate::source::access::arm_search_read_observations();
     let result = repo
         .search_reference(&sort_query("entry.entry.title"))
         .unwrap();
@@ -1087,7 +1087,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
     assert_eq!(result.counters.sort_target_reuse, 1);
     assert_eq!(result.counters.files_opened, 4);
     assert_eq!(result.counters.record_parses, 4);
-    let observations = crate::source::access::take_search_read_observations();
+    let observations = observations.finish();
     let observed_names = observations
         .iter()
         .map(|(path, _, _)| path.file_name().unwrap().to_str().unwrap())

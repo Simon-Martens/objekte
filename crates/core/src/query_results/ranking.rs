@@ -550,7 +550,7 @@ pub(crate) fn cached_filter_target_sort_key(
         return Ok(None);
     }
     if hop.direction != crate::query::binding::relation::HopDirection::Forward
-        || hop.selectors.iter().any(Option::is_some)
+        || !hop.selectors.is_empty()
     {
         return Ok(None);
     }
@@ -617,7 +617,7 @@ pub(crate) fn direct_related_target_sort_key(
         return Ok(None);
     }
     if hop.direction != crate::query::binding::relation::HopDirection::Forward
-        || hop.selectors.iter().any(Option::is_some)
+        || !hop.selectors.is_empty()
     {
         return Ok(None);
     }

@@ -4,18 +4,53 @@ use super::*;
 
 #[cfg(test)]
 thread_local! {
-    static REFERENCE_ROW_VISITS: std::cell::RefCell<Vec<String>> =
-        const { std::cell::RefCell::new(Vec::new()) };
+    static REFERENCE_ROW_VISITS: std::cell::RefCell<Option<Vec<String>>> =
+        const { std::cell::RefCell::new(None) };
 }
 
 #[cfg(test)]
-pub(crate) fn take_reference_row_visits() -> Vec<String> {
-    REFERENCE_ROW_VISITS.with(|visits| std::mem::take(&mut *visits.borrow_mut()))
+pub(crate) struct ReferenceRowVisitScope {
+    armed: bool,
+}
+
+#[cfg(test)]
+impl ReferenceRowVisitScope {
+    pub(crate) fn finish(mut self) -> Vec<String> {
+        let visits = take_reference_row_visits();
+        self.armed = false;
+        visits
+    }
+}
+
+#[cfg(test)]
+impl Drop for ReferenceRowVisitScope {
+    fn drop(&mut self) {
+        if self.armed {
+            let _ = take_reference_row_visits();
+        }
+    }
+}
+
+#[cfg(test)]
+pub(crate) fn arm_reference_row_visits() -> ReferenceRowVisitScope {
+    REFERENCE_ROW_VISITS.with(|visits| {
+        *visits.borrow_mut() = Some(Vec::new());
+    });
+    ReferenceRowVisitScope { armed: true }
+}
+
+#[cfg(test)]
+fn take_reference_row_visits() -> Vec<String> {
+    REFERENCE_ROW_VISITS.with(|visits| visits.borrow_mut().take().unwrap_or_default())
 }
 
 #[cfg(test)]
 fn record_reference_row_visit(id: &str) {
-    REFERENCE_ROW_VISITS.with(|visits| visits.borrow_mut().push(id.to_owned()));
+    REFERENCE_ROW_VISITS.with(|visits| {
+        if let Some(visits) = visits.borrow_mut().as_mut() {
+            visits.push(id.to_owned());
+        }
+    });
 }
 
 fn materialize_merged_address(
@@ -93,7 +128,7 @@ fn eligible_one_hop_relation_term<'a>(
     };
     if related.source_operand.is_some()
         || hop.direction != crate::query::binding::relation::HopDirection::Forward
-        || hop.selectors.iter().any(Option::is_some)
+        || !hop.selectors.is_empty()
         || !matches!(term.quantifier, Quantifier::Default | Quantifier::Any)
     {
         return None;
@@ -284,7 +319,7 @@ fn relation_target_prune(
         && let Some(hops) = field.related.as_ref()
         && let [hop] = hops.as_slice()
         && hop.direction == crate::query::binding::relation::HopDirection::Forward
-        && !hop.selectors.iter().any(Option::is_some)
+        && hop.selectors.is_empty()
         && field.query_path.is_none()
     {
         let mut local = fts.clone();
@@ -506,7 +541,7 @@ fn try_direct_relation_page(
         && let Some(hops) = field.related.as_ref()
         && let [hop] = hops.as_slice()
         && hop.direction == crate::query::binding::relation::HopDirection::Forward
-        && !hop.selectors.iter().any(Option::is_some)
+        && hop.selectors.is_empty()
         && field.query_path.is_none()
     {
         let mut local = fts.clone();
@@ -1039,6 +1074,14 @@ fn try_semijoin_relation_page(
     let Some(fts) = prepared[0].fts.as_ref() else {
         return Ok(None);
     };
+    if fts.fields.iter().any(|field| {
+        field
+            .related
+            .as_ref()
+            .is_some_and(|hops| hops.iter().any(|hop| !hop.selectors.is_empty()))
+    }) {
+        return Ok(None);
+    }
     if filter.is_some_and(bound_expr_has_relations) {
         return Ok(None);
     }

@@ -589,6 +589,7 @@ impl ComputedSort {
     pub(crate) fn direct_related_target_column(&self, hop: &BoundRelationHop) -> Option<&str> {
         let (hops, terminal) = self.related.as_ref()?;
         if hops.as_slice() != std::slice::from_ref(hop)
+            || !hop.selectors.is_empty()
             || self.reducer.is_some()
             || !matches!(self.transform, SortTransform::Identity)
             || terminal.field.root != PathRoot::Data
@@ -644,6 +645,9 @@ impl ComputedSort {
         reference: bool,
         unverifiable: &mut bool,
     ) -> Result<(), String> {
+        if *unverifiable {
+            return Ok(());
+        }
         let Some(current) = view.record(address)? else {
             reduced.observe_unavailable()?;
             return Ok(());
@@ -718,6 +722,9 @@ impl ComputedSort {
                             .path,
                         &mut positions,
                         &mut |id, positions| {
+                            if *unverifiable {
+                                return Ok(());
+                            }
                             if !positions_match(&hop.selectors, positions) {
                                 return Ok(());
                             }
@@ -764,6 +771,9 @@ impl ComputedSort {
                     cache.relation_source_reads += discovery.source_reads;
                     cache.relation_source_bytes += discovery.bytes_read;
                     for (id, positions) in references.values {
+                        if *unverifiable {
+                            return Ok(());
+                        }
                         if !positions_match(&hop.selectors, &positions) {
                             continue;
                         }
@@ -814,6 +824,9 @@ impl ComputedSort {
                             .path,
                         &mut positions,
                         &mut |id, positions| {
+                            if *unverifiable {
+                                return Ok(());
+                            }
                             if !positions_match(&hop.selectors, positions) {
                                 return Ok(());
                             }
@@ -842,6 +855,9 @@ impl ComputedSort {
                     )?;
                 } else {
                     for (id, positions) in edges {
+                        if *unverifiable {
+                            return Ok(());
+                        }
                         if !positions_match(&hop.selectors, positions) {
                             continue;
                         }
@@ -881,12 +897,16 @@ impl ComputedSort {
                     cache.relation_source_bytes += discovery.bytes_read;
                     if !lookup.complete {
                         *unverifiable = true;
+                        return Ok(());
                     }
                     lookup.sources
                 } else {
                     view.backlink_sources(hop.relation, &current.record.id.0)?
                 };
                 for (position, source) in sources.into_iter().enumerate() {
+                    if *unverifiable {
+                        return Ok(());
+                    }
                     cache.edge()?;
                     if hop.selectors.first().is_some_and(|selector| {
                         selector.is_some_and(|index| index as usize != position)
