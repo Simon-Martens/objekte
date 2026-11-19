@@ -1126,6 +1126,46 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
+fn exact_or_branch_evidence_fields(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    filter: &BoundExpr,
+    collection: &CollectionState,
+    catalog: &FileCatalog,
+    predicates: &crate::query_predicate::PreparedPredicates,
+    context: &ExecutionContext,
+) -> Result<Option<Vec<(RoaringBitmap, Vec<String>)>>, String> {
+    let BoundExpr::Or(parts) = filter else {
+        return Ok(None);
+    };
+    let input = active.bitmap();
+    let mut branches = Vec::with_capacity(parts.len());
+    for part in parts {
+        let Some(fields) = segment_static_evidence_fields(part) else {
+            return Ok(None);
+        };
+        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+            segment,
+            active,
+            part,
+            collection,
+            Some(catalog),
+            &input,
+            Some(predicates),
+            Some(context),
+        )?;
+        let logical = &input & &segment.logical_records;
+        let exact = bounds.may == bounds.must
+            || (excludes_raw_fallback(part)
+                && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+        if !exact {
+            return Ok(None);
+        }
+        branches.push((bounds.must.as_ref() & &input, fields));
+    }
+    Ok(Some(branches))
+}
+
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
 struct SegmentFileScan {
@@ -3462,6 +3502,10 @@ fn try_lifecycle_ordered_stream(
         .iter()
         .map(|group| vec![false; group.len()])
         .collect::<Vec<_>>();
+    let mut evidence_branches = segments
+        .iter()
+        .map(|group| vec![None; group.len()])
+        .collect::<Vec<_>>();
     for entry in &prepared.collections {
         let collection_index = entry.collection_index;
         let filter = entry.filter.clone();
@@ -3494,6 +3538,30 @@ fn try_lifecycle_ordered_stream(
                     })
                 })
                 .transpose()?;
+            if request.options.evidence
+                && fts.is_none()
+                && filter_exact[collection_index][segment_index]
+                && filter
+                    .as_ref()
+                    .is_some_and(|filter| segment_static_evidence_fields(filter).is_none())
+            {
+                let Some(filter) = filter.as_ref() else {
+                    return Ok(None);
+                };
+                let Some(branches) = exact_or_branch_evidence_fields(
+                    &segment.index,
+                    &segment.active,
+                    filter,
+                    collection,
+                    catalog,
+                    &predicates,
+                    context,
+                )?
+                else {
+                    return Ok(None);
+                };
+                evidence_branches[collection_index][segment_index] = Some(branches);
+            }
             let fts_may = fts
                 .as_ref()
                 .zip(entry.text_term)
@@ -3853,10 +3921,18 @@ fn try_lifecycle_ordered_stream(
             matched
         } else {
             counters.exact_posting_matches += 1;
-            if request.options.evidence
-                && let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields)
-            {
-                evidence.extend(fields);
+            if request.options.evidence {
+                if let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields) {
+                    evidence.extend(fields);
+                } else if let Some(branches) =
+                    evidence_branches[cursor.collection_index][cursor.segment_index].as_ref()
+                {
+                    for (members, fields) in branches {
+                        if members.contains(cursor.slot.0) {
+                            evidence.extend(fields.iter().cloned());
+                        }
+                    }
+                }
             }
             true
         };

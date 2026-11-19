@@ -6833,6 +6833,173 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
 }
 
 #[test]
+fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordered-or-evidence-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, a, b, order) in [
+        ("A", true, false, 1),
+        ("B", false, true, 2),
+        ("C", true, true, 3),
+        ("D", false, false, 4),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"a":{a},"b":{b},"order":{order}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    for name in ["a", "b"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::Bool,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["order".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repository = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("order").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::configuration::RepositoryOptions {
+            verified_cache_bytes: 1024 * 1024,
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(10).unwrap(),
+                max_files: std::num::NonZeroUsize::new(10).unwrap(),
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let index = crate::lifecycle::Index::from_repository(repository).unwrap();
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let view = index.view().unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || b = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("order", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let trace = view.explain(&query).unwrap();
+    assert_eq!(trace[0].sort_strategy, "stored_order_page");
+    let mut rows = Vec::new();
+    let outcome = view
+        .search_stream(
+            &query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                    rows.extend_from_slice(batch);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("ordered stream did not complete")
+    };
+    assert_eq!(summary.count, Some(3));
+    assert_eq!(view.search_reference(&query).unwrap().hits, rows);
+    assert_eq!(rows[0].matched_fields, ["a"]);
+
+    let mut later = query.clone();
+    later.options.offset = 1;
+    later.options.limit = 2;
+    let cached = view.search(&later).unwrap();
+    assert!(cached.counters.verified_result_hit);
+    let fields = cached
+        .hits
+        .iter()
+        .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+        .collect::<HashMap<_, _>>();
+    assert_eq!(fields["B"], ["b"]);
+    assert_eq!(fields["C"], ["a", "b"]);
+
+    index.configure_verified_cache(0).unwrap();
+    let mut direct_query = query.clone();
+    direct_query.options.limit = 3;
+    let direct = view.search(&direct_query).unwrap();
+    assert!(!direct.counters.verified_result_hit);
+    let direct_fields = direct
+        .hits
+        .iter()
+        .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+        .collect::<HashMap<_, _>>();
+    assert_eq!(direct_fields["A"], ["a"]);
+    assert_eq!(direct_fields["B"], ["b"]);
+    assert_eq!(direct_fields["C"], ["a", "b"]);
+    let mut without_evidence = direct_query;
+    without_evidence.options.evidence = false;
+    let without_evidence_result = view.search(&without_evidence).unwrap();
+    assert_eq!(
+        without_evidence_result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A", "B", "C"]
+    );
+    assert!(
+        without_evidence_result
+            .hits
+            .iter()
+            .all(|hit| hit.matched_fields.is_empty())
+    );
+    let mut count_only = without_evidence;
+    count_only.options.limit = 0;
+    count_only.options.count = true;
+    let counted = view.search(&count_only).unwrap();
+    assert_eq!(counted.count, Some(3));
+    assert_eq!(counted.counters.files_opened, 0);
+    assert_eq!(counted.counters.bytes_read, 0);
+    assert_eq!(counted.counters.record_parses, 0);
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn typed_temporal_fields_survive_postings_payload_and_reopen() {
     let root = std::env::temp_dir().join(format!("objekte-temporal-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
