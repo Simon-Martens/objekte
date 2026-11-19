@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 import sys
 
 
@@ -12,3 +13,7 @@ data.mkdir()
 )
 (data / "02.json").write_text('{"title":"miss","text":"new","n":1e0,"rating":0}')
 (data / "03.json").write_text('{"title":"miss","text":"old","n":2,"rating":5}')
+
+timestamp_ns = 1_795_097_068_000_000_000
+for path in data.iterdir():
+    os.utime(path, ns=(timestamp_ns, timestamp_ns))

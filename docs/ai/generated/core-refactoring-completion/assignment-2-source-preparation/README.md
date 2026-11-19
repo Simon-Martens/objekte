@@ -1,15 +1,16 @@
 # Assignment 2 source-read comparison
 
-This probe compares A1 and the Assignment 2 source at C with identical fixture
-bytes, worker count, verified-cache size, query text and payload mode.
+This evidence runs the same three queries against one fixture at A1 and the
+repaired Assignment 2 source. It records public result counters separately
+from a narrowly filtered OS trace of successful source-file opens and reads.
 
 | Revision | SHA |
 |---|---|
 | A1 | `b4172a1749750ee1c87ef74a56f5ee7cec6c40ee` |
-| Candidate C | `c34294489f0011ca7a0009b54e0af5a6d6b600b3` |
+| Repaired source | `d07b700a7188efd6b45ec542f197b78a211cb88a` |
 
-The four source files have modification-time seconds `1795097068` and these
-SHA-256 hashes:
+The fixture generator sets every source file to Unix timestamp
+`1795097068`. It reproduces these hashes:
 
 | File | SHA-256 |
 |---|---|
@@ -20,46 +21,98 @@ SHA-256 hashes:
 
 ## Reproduction
 
+Use an explicitly named evidence directory:
+
 ```sh
-fixture_root=$(mktemp -d)
-python3 fixture.py "$fixture_root"
+evidence_dir=/tmp/objekte-assignment-2-evidence
+rm -rf "$evidence_dir"
+mkdir -p "$evidence_dir/a1-markers" "$evidence_dir/candidate-markers"
+python3 fixture.py "$evidence_dir"
+sha256sum "$evidence_dir"/data/*.json
+stat -c '%Y %n' "$evidence_dir"/data/*.json
 ```
 
-Copy `read_probe.rs` to `crates/core/examples/assignment_2_read_probe.rs` in
-the A1 worktree and run:
+In the A1 checkout, copy `read_probe.rs` to
+`crates/core/examples/assignment_2_read_probe.rs` and run:
 
 ```sh
-cargo run --quiet --locked -p objekte-search-core \
+strace -f -ttt -yy -e trace=openat,read,pread64,lseek,close \
+  -o "$evidence_dir/a1-trace.log" \
+  cargo run --quiet --locked -p objekte-search-core \
   --example assignment_2_read_probe -- \
-  --root "$fixture_root" \
-  --tested-sha b4172a1749750ee1c87ef74a56f5ee7cec6c40ee \
-  > a1-reads.json
+  --root "$evidence_dir" \
+  --expected-sha b4172a1749750ee1c87ef74a56f5ee7cec6c40ee \
+  --trace-dir "$evidence_dir/a1-markers" \
+  > "$evidence_dir/a1-reads.json"
 ```
 
-Copy the same file to the candidate worktree and run:
+Repeat in the repaired checkout with:
 
 ```sh
-cargo run --quiet --locked -p objekte-search-core \
-  --example assignment_2_read_probe -- \
-  --root "$fixture_root" \
-  --tested-sha c34294489f0011ca7a0009b54e0af5a6d6b600b3 \
-  > candidate-reads.json
+--expected-sha d07b700a7188efd6b45ec542f197b78a211cb88a \
+--trace-dir "$evidence_dir/candidate-markers"
 ```
 
-Validate the six recorded query executions:
+The probe derives its tested SHA with `git rev-parse HEAD` in the checkout and
+fails unless it equals `--expected-sha`. It writes query start/end timestamps
+for `strace` filtering. Extract compact reads for each query:
 
 ```sh
-python3 verify.py
+python3 trace_io.py \
+  --trace "$evidence_dir/a1-trace.log" \
+  --markers-dir "$evidence_dir/a1-markers" \
+  --fixture-root "$evidence_dir" \
+  --output "$evidence_dir/a1-trace.json"
 ```
 
-| Query | Count | IDs | Files opened | Distinct files | Bytes read | Record parses | Residual |
-|---|---:|---|---:|---:|---:|---:|---:|
-| Exact indexed page | 2 | `00.json` | 1 | 1 | 0 | 1 | 0 |
-| `old` + combined filter | 3 | `00`, `01`, `03` | 3 | 6 | 165 | 3 | 3 |
-| `1e0` + combined filter | 2 | `00`, `01` | 3 | 5 | 167 | 3 | 3 |
+Repeat for the candidate. Validate both recorded runs and the source traces,
+including all negative self-tests:
 
-The results are byte-for-byte equal across A1 and C after excluding the
-revision SHA. `verify.py` also asserts the expected values independently.
+```sh
+python3 -O verify.py \
+  --input-dir docs/ai/generated/core-refactoring-completion/assignment-2-source-preparation \
+  --self-test
+```
+
+## Public counters
+
+These fields are retained as historical observations. They do not represent
+complete physical I/O for the combined queries.
+
+| Query | Count / returned | Opens | Distinct files | Bytes | Parses | Selected payload |
+|---|---:|---:|---:|---:|---:|---:|
+| `exact_page` | 2 / 1 | 1 | 1 | 0 | 1 | 0 reads, 0 bytes |
+| `combined_old` | 3 / 3 | 3 | 6 | 165 | 3 | 3 reads, 165 bytes |
+| `combined_number` | 2 / 2 | 3 | 5 | 167 | 3 | 2 reads, 119 bytes |
+
+Adding selected-payload bytes explains the physical totals below. The
+impossible 5/6 distinct-file values are the inherited
+[counter-accounting defect](../../../issues/bug/query_source_counter_semantics.md).
+
+## Successful source I/O
+
+The trace contains only successful `openat`, `read`, `pread64`, `lseek` and
+`close` operations for the four fixture paths inside each query interval.
+A1 and the repaired source produced identical ordered opens and reads.
+
+| Query | Opens | Distinct paths | Read ranges | Bytes |
+|---|---:|---:|---|---:|
+| `exact_page` | 1 | 1 | `00@0+60` | 60 |
+| `combined_old` | 6 | 3 | `00@0+60, 01@0+59, 03@0+46` twice | 330 |
+| `combined_number` | 5 | 3 | `00@0+60, 01@0+59, 02@0+48, 00@0+60, 01@0+59` | 286 |
+
+The exact page reads only `00.json`; it does not read the other matching
+logical file. The combined queries retain repeated range reads rather than
+collapsing them. `record_parses` and the isolated combined-scan control remain
+separate evidence from the successful byte reads.
+
+## Verifier controls
+
+`verify.py` validates each revision independently, requires exactly one result
+for each expected query, rejects missing/duplicate/unknown fields and values,
+and writes `results_equal: true` only after validation. Its `--self-test`
+mode exercises paired empty, missing, duplicate and unknown results plus a
+one-sided count mutation in temporary directories under `python3 -O`.
 
 The production JSON ownership review is in
 [`json-use-inventory.md`](json-use-inventory.md).

@@ -1,4 +1,6 @@
 use std::path::PathBuf;
+use std::process::Command;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::LogicalType;
@@ -45,7 +47,32 @@ fn query(filter: Option<&str>, fts: Option<&str>, evidence: bool) -> Query {
 
 fn run() -> Result<(), String> {
     let root = PathBuf::from(argument("--root")?);
-    let tested_sha = argument("--tested-sha")?;
+    let expected_sha = argument("--expected-sha")?;
+    let trace_dir = PathBuf::from(argument("--trace-dir")?);
+    std::fs::create_dir_all(&trace_dir).map_err(|error| error.to_string())?;
+    let repository_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .and_then(|path| path.parent())
+        .ok_or("missing repository root")?
+        .to_path_buf();
+    let tested_sha = Command::new("git")
+        .arg("-C")
+        .arg(repository_root)
+        .args(["rev-parse", "HEAD"])
+        .output()
+        .map_err(|error| error.to_string())?;
+    if !tested_sha.status.success() {
+        return Err("git rev-parse HEAD failed".into());
+    }
+    let tested_sha = String::from_utf8(tested_sha.stdout)
+        .map_err(|error| error.to_string())?
+        .trim()
+        .to_owned();
+    if tested_sha != expected_sha {
+        return Err(format!(
+            "checkout SHA {tested_sha} does not match expected {expected_sha}"
+        ));
+    }
     let mut definition =
         CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
     definition.schema.register_field(FieldDefinition {
@@ -86,7 +113,20 @@ fn run() -> Result<(), String> {
     ];
     let mut results = Vec::new();
     for (name, query) in queries {
+        let started = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .map_err(|error| error.to_string())?
+            .as_nanos();
         let result = view.search(&query)?;
+        let ended = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .map_err(|error| error.to_string())?
+            .as_nanos();
+        std::fs::write(
+            trace_dir.join(format!("{name}.markers")),
+            format!("{started}\t{ended}\n"),
+        )
+        .map_err(|error| error.to_string())?;
         results.push(json!({
             "name": name,
             "count": result.count,
@@ -99,6 +139,8 @@ fn run() -> Result<(), String> {
                 "candidates": result.counters.candidates,
                 "scanned_records": result.counters.scanned_records,
                 "residual_evaluations": result.counters.residual_evaluations,
+                "selected_payload_reads": result.counters.selected_payload_reads,
+                "selected_payload_bytes": result.counters.selected_payload_bytes,
             },
         }));
     }

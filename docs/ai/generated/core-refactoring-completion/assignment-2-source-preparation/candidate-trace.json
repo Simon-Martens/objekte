@@ -1,0 +1,114 @@
+{
+  "exact_page": {
+    "opens": [
+      "data/00.json"
+    ],
+    "reads": [
+      {
+        "path": "data/00.json",
+        "offset": 0,
+        "bytes": 60
+      }
+    ],
+    "open_count": 1,
+    "distinct_paths": [
+      "data/00.json"
+    ],
+    "read_count": 1,
+    "bytes_read": 60
+  },
+  "combined_old": {
+    "opens": [
+      "data/00.json",
+      "data/01.json",
+      "data/03.json",
+      "data/00.json",
+      "data/01.json",
+      "data/03.json"
+    ],
+    "reads": [
+      {
+        "path": "data/00.json",
+        "offset": 0,
+        "bytes": 60
+      },
+      {
+        "path": "data/01.json",
+        "offset": 0,
+        "bytes": 59
+      },
+      {
+        "path": "data/03.json",
+        "offset": 0,
+        "bytes": 46
+      },
+      {
+        "path": "data/00.json",
+        "offset": 0,
+        "bytes": 60
+      },
+      {
+        "path": "data/01.json",
+        "offset": 0,
+        "bytes": 59
+      },
+      {
+        "path": "data/03.json",
+        "offset": 0,
+        "bytes": 46
+      }
+    ],
+    "open_count": 6,
+    "distinct_paths": [
+      "data/00.json",
+      "data/01.json",
+      "data/03.json"
+    ],
+    "read_count": 6,
+    "bytes_read": 330
+  },
+  "combined_number": {
+    "opens": [
+      "data/00.json",
+      "data/01.json",
+      "data/02.json",
+      "data/00.json",
+      "data/01.json"
+    ],
+    "reads": [
+      {
+        "path": "data/00.json",
+        "offset": 0,
+        "bytes": 60
+      },
+      {
+        "path": "data/01.json",
+        "offset": 0,
+        "bytes": 59
+      },
+      {
+        "path": "data/02.json",
+        "offset": 0,
+        "bytes": 48
+      },
+      {
+        "path": "data/00.json",
+        "offset": 0,
+        "bytes": 60
+      },
+      {
+        "path": "data/01.json",
+        "offset": 0,
+        "bytes": 59
+      }
+    ],
+    "open_count": 5,
+    "distinct_paths": [
+      "data/00.json",
+      "data/01.json",
+      "data/02.json"
+    ],
+    "read_count": 5,
+    "bytes_read": 286
+  }
+}

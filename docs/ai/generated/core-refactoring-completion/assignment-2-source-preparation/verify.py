@@ -1,16 +1,28 @@
+#!/usr/bin/env python3
+
+import argparse
+import copy
 import json
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
 
 
-root = Path(__file__).parent
-a1 = json.loads((root / "a1-reads.json").read_text())
-candidate = json.loads((root / "candidate-reads.json").read_text())
-
-assert a1["tested_sha"] == "b4172a1749750ee1c87ef74a56f5ee7cec6c40ee"
-assert candidate["tested_sha"] == "c34294489f0011ca7a0009b54e0af5a6d6b600b3"
-assert a1["results"] == candidate["results"]
-
-expected = {
+A1_SHA = "b4172a1749750ee1c87ef74a56f5ee7cec6c40ee"
+CANDIDATE_SHA = "d07b700a7188efd6b45ec542f197b78a211cb88a"
+COUNTER_FIELDS = (
+    "files_opened",
+    "distinct_files",
+    "bytes_read",
+    "record_parses",
+    "candidates",
+    "scanned_records",
+    "residual_evaluations",
+    "selected_payload_reads",
+    "selected_payload_bytes",
+)
+EXPECTED = {
     "exact_page": {
         "count": 2,
         "ids": ["path:00.json"],
@@ -21,6 +33,8 @@ expected = {
         "candidates": 2,
         "scanned_records": 0,
         "residual_evaluations": 0,
+        "selected_payload_reads": 0,
+        "selected_payload_bytes": 0,
     },
     "combined_old": {
         "count": 3,
@@ -32,6 +46,8 @@ expected = {
         "candidates": 3,
         "scanned_records": 3,
         "residual_evaluations": 3,
+        "selected_payload_reads": 3,
+        "selected_payload_bytes": 165,
     },
     "combined_number": {
         "count": 2,
@@ -43,33 +59,355 @@ expected = {
         "candidates": 3,
         "scanned_records": 3,
         "residual_evaluations": 3,
+        "selected_payload_reads": 2,
+        "selected_payload_bytes": 119,
+    },
+}
+EXPECTED_TRACE = {
+    "exact_page": {
+        "opens": ["data/00.json"],
+        "reads": [{"path": "data/00.json", "offset": 0, "bytes": 60}],
+        "open_count": 1,
+        "distinct_paths": ["data/00.json"],
+        "read_count": 1,
+        "bytes_read": 60,
+    },
+    "combined_old": {
+        "opens": [
+            "data/00.json",
+            "data/01.json",
+            "data/03.json",
+            "data/00.json",
+            "data/01.json",
+            "data/03.json",
+        ],
+        "reads": [
+            {"path": "data/00.json", "offset": 0, "bytes": 60},
+            {"path": "data/01.json", "offset": 0, "bytes": 59},
+            {"path": "data/03.json", "offset": 0, "bytes": 46},
+            {"path": "data/00.json", "offset": 0, "bytes": 60},
+            {"path": "data/01.json", "offset": 0, "bytes": 59},
+            {"path": "data/03.json", "offset": 0, "bytes": 46},
+        ],
+        "open_count": 6,
+        "distinct_paths": ["data/00.json", "data/01.json", "data/03.json"],
+        "read_count": 6,
+        "bytes_read": 330,
+    },
+    "combined_number": {
+        "opens": [
+            "data/00.json",
+            "data/01.json",
+            "data/02.json",
+            "data/00.json",
+            "data/01.json",
+        ],
+        "reads": [
+            {"path": "data/00.json", "offset": 0, "bytes": 60},
+            {"path": "data/01.json", "offset": 0, "bytes": 59},
+            {"path": "data/02.json", "offset": 0, "bytes": 48},
+            {"path": "data/00.json", "offset": 0, "bytes": 60},
+            {"path": "data/01.json", "offset": 0, "bytes": 59},
+        ],
+        "open_count": 5,
+        "distinct_paths": ["data/00.json", "data/01.json", "data/02.json"],
+        "read_count": 5,
+        "bytes_read": 286,
     },
 }
 
-for revision in (a1, candidate):
-    for result in revision["results"]:
-        counters = result["counters"]
-        expected_counters = expected[result["name"]]
-        assert result["count"] == expected_counters["count"]
-        assert result["ids"] == expected_counters["ids"]
-        for key in (
-            "files_opened",
-            "distinct_files",
-            "bytes_read",
-            "record_parses",
-            "candidates",
-            "scanned_records",
-            "residual_evaluations",
-        ):
-            assert counters[key] == expected_counters[key]
 
-comparison = {
-    "a1_sha": a1["tested_sha"],
-    "candidate_sha": candidate["tested_sha"],
-    "results_equal": True,
-    "results": a1["results"],
-}
-(root / "comparison.json").write_text(
-    json.dumps(comparison, separators=(",", ":")) + "\n"
-)
-print(json.dumps(comparison, indent=2))
+class VerificationError(Exception):
+    pass
+
+
+def require(condition, revision, query, field, message):
+    if not condition:
+        location = revision
+        if query is not None:
+            location += f"/{query}"
+        if field is not None:
+            location += f"/{field}"
+        raise VerificationError(f"{location}: {message}")
+
+
+def validate_revision(revision, document, expected_sha):
+    require(isinstance(document, dict), revision, None, "root", "must be an object")
+    require(
+        document.get("tested_sha") == expected_sha,
+        revision,
+        None,
+        "tested_sha",
+        f"expected {expected_sha}, found {document.get('tested_sha')!r}",
+    )
+    results = document.get("results")
+    require(isinstance(results, list), revision, None, "results", "must be a list")
+    require(
+        len(results) == len(EXPECTED),
+        revision,
+        None,
+        "results",
+        f"expected {len(EXPECTED)} entries, found {len(results)}",
+    )
+
+    by_name = {}
+    for index, result in enumerate(results):
+        require(
+            isinstance(result, dict),
+            revision,
+            None,
+            f"results[{index}]",
+            "must be an object",
+        )
+        name = result.get("name")
+        require(
+            name in EXPECTED,
+            revision,
+            name if isinstance(name, str) else f"results[{index}]",
+            "name",
+            f"unknown or missing query name {name!r}",
+        )
+        require(
+            name not in by_name,
+            revision,
+            name,
+            "name",
+            "duplicate query result",
+        )
+        by_name[name] = result
+        counters = result.get("counters")
+        require(
+            isinstance(counters, dict),
+            revision,
+            name,
+            "counters",
+            "must be an object",
+        )
+        required_fields = {"name", "count", "ids", "counters"}
+        require(
+            set(result) == required_fields,
+            revision,
+            name,
+            "fields",
+            f"expected {sorted(required_fields)}, found {sorted(result)}",
+        )
+        require(
+            set(counters) == set(COUNTER_FIELDS),
+            revision,
+            name,
+            "counters.fields",
+            f"expected {list(COUNTER_FIELDS)}, found {sorted(counters)}",
+        )
+
+        expected = EXPECTED[name]
+        require(
+            result["count"] == expected["count"],
+            revision,
+            name,
+            "count",
+            f"expected {expected['count']}, found {result['count']!r}",
+        )
+        require(
+            result["ids"] == expected["ids"],
+            revision,
+            name,
+            "ids",
+            f"expected {expected['ids']}, found {result['ids']!r}",
+        )
+        for field in COUNTER_FIELDS:
+            require(
+                counters[field] == expected[field],
+                revision,
+                name,
+                f"counters.{field}",
+                f"expected {expected[field]}, found {counters[field]!r}",
+            )
+
+    require(
+        set(by_name) == set(EXPECTED),
+        revision,
+        None,
+        "results",
+        f"expected {sorted(EXPECTED)}, found {sorted(by_name)}",
+    )
+    return by_name
+
+
+def load_json(path, revision):
+    try:
+        return json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as error:
+        raise VerificationError(f"{revision}: cannot read {path}: {error}") from error
+
+
+def validate_trace(revision, document):
+    require(
+        isinstance(document, dict),
+        revision,
+        None,
+        "source_trace",
+        "must be an object",
+    )
+    require(
+        set(document) == set(EXPECTED_TRACE),
+        revision,
+        None,
+        "source_trace",
+        f"expected {sorted(EXPECTED_TRACE)}, found {sorted(document)}",
+    )
+    for query, expected in EXPECTED_TRACE.items():
+        require(
+            document[query] == expected,
+            revision,
+            query,
+            "source_trace",
+            f"expected {expected!r}, found {document[query]!r}",
+        )
+    return document
+
+
+def verify_files(a1_path, candidate_path, a1_trace_path, candidate_trace_path):
+    a1 = load_json(a1_path, "A1")
+    candidate = load_json(candidate_path, "candidate")
+    a1_trace = load_json(a1_trace_path, "A1 source trace")
+    candidate_trace = load_json(candidate_trace_path, "candidate source trace")
+    a1_queries = validate_revision("A1", a1, A1_SHA)
+    candidate_queries = validate_revision("candidate", candidate, CANDIDATE_SHA)
+    a1_io = validate_trace("A1", a1_trace)
+    candidate_io = validate_trace("candidate", candidate_trace)
+    require(
+        a1_queries == candidate_queries,
+        "cross-revision",
+        None,
+        "results",
+        "validated query results differ",
+    )
+    require(
+        a1_io == candidate_io,
+        "cross-revision",
+        None,
+        "source_trace",
+        "validated source I/O differs",
+    )
+    return {
+        "a1_sha": A1_SHA,
+        "candidate_sha": CANDIDATE_SHA,
+        "results_equal": True,
+        "source_io_equal": True,
+        "results": a1["results"],
+        "source_io": a1_io,
+    }
+
+
+def run_self_tests(
+    valid_a1,
+    valid_candidate,
+    valid_a1_trace,
+    valid_candidate_trace,
+):
+    mutations = (
+        ("paired-empty", lambda value: value.update(results=[])),
+        (
+            "paired-missing",
+            lambda value: value["results"].pop(
+                next(
+                    index
+                    for index, result in enumerate(value["results"])
+                    if result["name"] == "combined_old"
+                )
+            ),
+        ),
+        (
+            "paired-duplicate",
+            lambda value: value["results"].append(copy.deepcopy(value["results"][0])),
+        ),
+        (
+            "paired-unknown",
+            lambda value: value["results"][0].update(name="unknown_query"),
+        ),
+        (
+            "one-sided-count",
+            lambda value: value["results"][0].update(count=999),
+        ),
+    )
+    for name, mutate in mutations:
+        with tempfile.TemporaryDirectory(prefix=f"objekte-verify-{name}-") as directory:
+            root = Path(directory)
+            a1 = copy.deepcopy(valid_a1)
+            candidate = copy.deepcopy(valid_candidate)
+            if name == "one-sided-count":
+                mutate(candidate)
+            else:
+                mutate(a1)
+                mutate(candidate)
+            a1_path = root / "a1.json"
+            candidate_path = root / "candidate.json"
+            a1_trace_path = root / "a1-trace.json"
+            candidate_trace_path = root / "candidate-trace.json"
+            a1_path.write_text(json.dumps(a1))
+            candidate_path.write_text(json.dumps(candidate))
+            a1_trace_path.write_text(json.dumps(valid_a1_trace))
+            candidate_trace_path.write_text(json.dumps(valid_candidate_trace))
+            output_path = root / "must-not-exist.json"
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    "-O",
+                    __file__,
+                    "--input-dir",
+                    str(root),
+                    "--output",
+                    str(output_path),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            if completed.returncode == 0:
+                raise VerificationError(
+                    f"self-test {name}: invalid input exited successfully"
+                )
+            if output_path.exists():
+                raise VerificationError(
+                    f"self-test {name}: invalid input wrote a success result"
+                )
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--input-dir",
+        type=Path,
+        default=Path(__file__).resolve().parent,
+        help="directory containing a1-reads.json and candidate-reads.json",
+    )
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--self-test", action="store_true")
+    args = parser.parse_args()
+    a1_path = args.input_dir / "a1-reads.json"
+    candidate_path = args.input_dir / "candidate-reads.json"
+    a1_trace_path = args.input_dir / "a1-trace.json"
+    candidate_trace_path = args.input_dir / "candidate-trace.json"
+    output_path = args.output or args.input_dir / "comparison.json"
+    a1 = load_json(a1_path, "A1")
+    candidate = load_json(candidate_path, "candidate")
+    a1_trace = load_json(a1_trace_path, "A1 source trace")
+    candidate_trace = load_json(candidate_trace_path, "candidate source trace")
+    if args.self_test:
+        run_self_tests(a1, candidate, a1_trace, candidate_trace)
+    comparison = verify_files(
+        a1_path,
+        candidate_path,
+        a1_trace_path,
+        candidate_trace_path,
+    )
+    output_path.write_text(json.dumps(comparison, separators=(",", ":")) + "\n")
+    print(json.dumps(comparison, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except VerificationError as error:
+        print(f"verification failed: {error}", file=sys.stderr)
+        raise SystemExit(1)

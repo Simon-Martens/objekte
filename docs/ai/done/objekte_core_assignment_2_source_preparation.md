@@ -192,3 +192,46 @@ The six moved tests account for no count change. The three added tests are `fold
 ### Cleanup and handoff
 
 The detached A1 comparison worktree was clean and removed after its test and read results were saved. The temporary Cargo example and fixture directory were removed. The integration worktree and branch are retained for owner review. The full-corpus build/query comparison remains Assignment 3 work.
+
+## Post-review repair results
+
+The identity test module now lives at
+`query_execution/preindex/tests.rs`. Its replacement tests independently
+specify whole-file ranges, JSONL ranges, classes and identities; validate
+native repository-relative paths and exact `0..17`, `18..36` and `37..54`
+bounds; check generated and fallback constructors; reject duplicate, missing,
+extra and wrong-file locators; and verify logical fallback diagnostics.
+
+Portable percent paths use the platform path encoder. The literal-backslash
+assertion remains Unix-only and checks `path:nested/back%5Cslash.json`.
+Rejected overrides now isolate one valid file per case and assert the specific
+native filename plus exact construction range. Built-in `Registered("json")`
+successfully uses generated IDs and `ResolvedStrings`. A fresh custom reader
+under `json` opts into trusted extraction while exposing no built-in scalar
+operation; declared `Registered("json")` remains ineligible for path identity.
+Declared `Json` with a custom multi-record reader retains path eligibility and
+fails indexed admission on duplicate IDs.
+
+The [replacement evidence](../generated/core-refactoring-completion/assignment-2-source-preparation/README.md)
+now includes robust public-result validation, explicit query start/end markers,
+a filtered successful-I/O trace, compact per-query read records and negative
+verifier self-tests. The repaired source is
+`d07b700a7188efd6b45ec542f197b78a211cb88a`; the final report commit is the
+Assignment 2 repair handoff.
+
+Public counters remain inherited observations: `combined_old` reports three
+opens, six distinct files and 165 bytes, while the trace records six successful
+opens across three paths and 330 bytes. `combined_number` reports three opens,
+five distinct files and 167 bytes, while the trace records five opens across
+three paths and 286 bytes. Selected payload fields explain the byte
+difference. The counter defect is recorded in
+[query_source_counter_semantics.md](../issues/bug/query_source_counter_semantics.md);
+changing public semantics remains separate maintenance work.
+
+The repaired combined suites pass with 611 default and 612 all-feature tests,
+16 ignored in each profile. The review's original 608/609 counts are retained
+as its historical execution record. No Windows runner was available; focused
+tests and traces ran on Linux. Plain rustfmt requests one blank line around the
+two `impl` blocks in `model/json.rs`, while the repository spacing script
+accepts the required two blank lines and still rejects its pre-existing
+199-file baseline.
