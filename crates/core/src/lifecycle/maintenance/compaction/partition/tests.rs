@@ -172,7 +172,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
     let converted = Index::from_published(partitioned);
     let after = converted.view().unwrap().search(&query).unwrap();
     assert_eq!(before.count, after.count);
-    let paths = |result: crate::repository::SearchResult| {
+    let paths = |result: crate::query_results::SearchResult| {
         result
             .hits
             .into_iter()

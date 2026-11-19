@@ -19,7 +19,7 @@ use objekte_search_core::lifecycle::reconciliation::{ReconciliationState, Reconc
 use objekte_search_core::lifecycle::{IndexRevision, IndexStatus, IndexView};
 use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::query_execution::runner::DirectLookupResult;
-use objekte_search_core::repository::SearchHit;
+use objekte_search_core::query_results::SearchHit;
 use objekte_search_core::streaming::CancellationToken;
 
 use crate::backend::{self, OpenSpec, OpenedSession};
@@ -276,7 +276,7 @@ fn incremental_delta_page(
     } else {
         view.can_append_added_since_with_cancellation(previous, &query, token)
             .map(|appendable| {
-                appendable.then(|| objekte_search_core::repository::SearchResult {
+                appendable.then(|| objekte_search_core::query_results::SearchResult {
                     count: None,
                     hits: Vec::new(),
                     counters: objekte_search_core::measurement::WorkCounters::default(),

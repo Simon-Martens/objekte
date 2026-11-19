@@ -786,7 +786,7 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
     assert_eq!(hit.file_path, std::path::PathBuf::from("data/renamed.json"));
     assert_eq!(
         hit.payload,
-        Some(crate::repository::Payload::Bytes(bytes.to_vec()))
+        Some(crate::query_results::Payload::Bytes(bytes.to_vec()))
     );
     assert!(old.get_record("data", "A", ReturnMode::Bytes).is_err());
     index.shutdown().unwrap();

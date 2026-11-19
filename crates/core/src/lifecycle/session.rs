@@ -10,7 +10,8 @@ use crate::inventory::{DiagnosticRef, SourceDiagnostic};
 use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::model::{FileId, Value};
 use crate::query::Query;
-use crate::repository::{Repository, SearchHit, SearchResult, StartupStats};
+use crate::query_results::{SearchHit, SearchResult};
+use crate::repository::{Repository, StartupStats};
 use crate::streaming::{
     CancellationToken, ExecutionErrorKind, ResultScope, StreamControl, StreamError, StreamEvent,
     StreamOptions, StreamOutcome,

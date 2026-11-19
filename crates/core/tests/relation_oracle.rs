@@ -200,7 +200,7 @@ fn query(collection: &str, filter: &str, return_mode: ReturnMode) -> Query {
     .unwrap()
 }
 
-fn sorted_ids(result: &objekte_search_core::repository::SearchResult) -> Vec<String> {
+fn sorted_ids(result: &objekte_search_core::query_results::SearchResult) -> Vec<String> {
     let mut ids = result
         .hits
         .iter()

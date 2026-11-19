@@ -10,7 +10,8 @@ use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, Value};
 use crate::query::Query;
-use crate::repository::{Repository, SearchHit, SearchResult};
+use crate::query_results::{SearchHit, SearchResult};
+use crate::repository::Repository;
 use crate::streaming::{
     CancellationToken, ExecutionContext, ExecutionError, ResultScope, StreamControl, StreamError,
     StreamEvent, StreamOptions, StreamOutcome,
@@ -462,7 +463,7 @@ impl IndexView {
             };
             let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
             hit.diagnostic_ref = reference;
-            if let Some(crate::repository::Payload::LogicalUnavailable { diagnostic_ref }) =
+            if let Some(crate::query_results::Payload::LogicalUnavailable { diagnostic_ref }) =
                 &mut hit.payload
             {
                 *diagnostic_ref = reference;

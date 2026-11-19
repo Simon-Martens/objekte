@@ -147,7 +147,7 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
                 if let Some(hit) = actual.hits.first() {
                     assert!(matches!(
                         hit.payload,
-                        Some(objekte_search_core::repository::Payload::Logical(
+                        Some(objekte_search_core::query_results::Payload::Logical(
                             Value::Object(_)
                         ))
                     ));

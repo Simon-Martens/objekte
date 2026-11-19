@@ -429,7 +429,7 @@ fn final_mutated_view_matches_independent_fresh_build() {
     let actual = live.view().unwrap().search(&query).unwrap();
     let expected = fresh.view().unwrap().search(&query).unwrap();
     assert_eq!(actual.count, expected.count);
-    let rows = |result: crate::repository::SearchResult| {
+    let rows = |result: crate::query_results::SearchResult| {
         result
             .hits
             .into_iter()
@@ -544,7 +544,7 @@ fn compatible_move_keeps_index_contributions_and_advances_file_version() {
 
 #[test]
 fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() {
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let root = test_root("move-same-metadata");
     let original = root.join("data/original.jsonl");
@@ -723,7 +723,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
 
 #[test]
 fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let root = test_root("move-persistence-routing");
     let original = root.join("data/original.jsonl");

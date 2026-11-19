@@ -143,7 +143,7 @@ fn exact_posting_payload_uses_published_range_after_external_edit() {
         .unwrap();
     assert!(result.hits.iter().any(|hit| {
         hit.record_id == "000"
-            && matches!(&hit.payload, Some(crate::repository::Payload::Bytes(bytes)) if bytes == edited.as_bytes())
+            && matches!(&hit.payload, Some(crate::query_results::Payload::Bytes(bytes)) if bytes == edited.as_bytes())
     }));
 }
 
@@ -367,7 +367,7 @@ fn all_scope_streams_more_than_fifty_rows_once_in_bounded_batches() {
     assert_eq!(rows[0].record_id, "003");
     assert!(
         rows.iter()
-            .all(|row| matches!(row.payload, Some(crate::repository::Payload::Bytes(_))))
+            .all(|row| matches!(row.payload, Some(crate::query_results::Payload::Bytes(_))))
     );
     assert!(first_seen.unwrap() < 73);
     assert_eq!(summary.counters.scanned_records, 73);

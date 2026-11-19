@@ -16,10 +16,11 @@ use crate::query::Query;
 use crate::query::binding::filter::bind_filter;
 use crate::query::binding::fts::bind_fts;
 use crate::query::semantics::record::RecordContext;
+use crate::query_results::{Payload, SearchHit, SearchResult};
 use crate::record_preparation::finish_build_record;
 use crate::reference::{eval_unavailable_filter, filter::eval_filter};
 use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, SearchHit, SearchResult};
+use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{
     ExtractedRecord, ReaderDiagnostic, SourceFormat, SourceOutcome,

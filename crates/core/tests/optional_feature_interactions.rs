@@ -106,7 +106,7 @@ fn query(filter: &str, sort: Vec<SortField>, return_mode: ReturnMode) -> Query {
     }
 }
 
-fn ids(result: &objekte_search_core::repository::SearchResult) -> Vec<String> {
+fn ids(result: &objekte_search_core::query_results::SearchResult) -> Vec<String> {
     result
         .hits
         .iter()

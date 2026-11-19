@@ -3,7 +3,8 @@ use crate::index::posting::ScalarKey;
 use crate::model::{FieldPath, LogicalType, RecordId, Value};
 use crate::posting_values::PostingValuesRequest;
 use crate::query::{CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
+use crate::query_results::Payload;
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 

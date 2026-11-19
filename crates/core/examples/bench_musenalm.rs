@@ -12,8 +12,8 @@ use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::measurement::WorkCounters;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::SearchResult;
-use objekte_search_core::repository::{RepositoryOptions, SearchHit};
+use objekte_search_core::query_results::{SearchHit, SearchResult};
+use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::{
     BenchmarkCase, Profile, TimingSample, load_extended_manifest, load_manifest,
 };

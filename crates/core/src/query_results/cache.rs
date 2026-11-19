@@ -4,6 +4,7 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
+use super::{Payload, SearchHit, SearchResult};
 use crate::execution_options::ReturnMode;
 use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
@@ -20,7 +21,7 @@ use crate::query_execution::runner::{
 use crate::query_results::payload::payload_from_bytes;
 use crate::query_results::ranking::ResolvedSort;
 use crate::query_results::verified::{CachedMember, CachedResult};
-use crate::repository::{Payload, Repository, SearchHit, SearchResult};
+use crate::repository::Repository;
 use crate::source::access::SourceAccessSession;
 use crate::source::access::read_record_range_for_search;
 use crate::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};

@@ -393,7 +393,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         logical_query.options.return_mode = ReturnMode::Logical;
         let logical = repo.search(&logical_query).unwrap();
         assert!(
-            matches!(&logical.hits[0].payload, Some(crate::repository::Payload::Logical(Value::Object(fields))) if fields.get("count") == Some(&Value::Number(Number::integer(8))))
+            matches!(&logical.hits[0].payload, Some(crate::query_results::Payload::Logical(Value::Object(fields))) if fields.get("count") == Some(&Value::Number(Number::integer(8))))
         );
     }
     let persisted = RepositoryOptions {

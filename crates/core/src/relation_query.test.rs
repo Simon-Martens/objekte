@@ -1634,7 +1634,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
 fn segmented_reference_first_last_ignores_unavailable_contribution() {
     use crate::index::segment::PublishedSegment;
     use crate::model::{CollectionId, Value};
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
     std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Alpha"}"#).unwrap();
@@ -1841,7 +1841,7 @@ fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
 #[test]
 fn adopted_base_view_reference_search_uses_pinned_publication() {
     use crate::execution_options::ReturnMode;
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
     let repo = base_repository(&root, definitions);
@@ -1972,7 +1972,7 @@ fn adopted_base_view_reference_search_keeps_retired_rows_on_the_old_pin() {
 #[test]
 fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     use crate::execution_options::ReturnMode;
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
     let repo = base_repository(&root, definitions);
@@ -2140,7 +2140,7 @@ fn base_related_sort_declines_an_incompatible_stored_key() {
 #[test]
 fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes() {
     use crate::model::Value;
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
     let (root, definitions) = fixture();
     let mut repo = base_repository(&root, definitions);
     repo.collections[0]

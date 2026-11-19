@@ -584,7 +584,7 @@ fn main() -> Result<(), String> {
             .iter()
             .map(|value| (*value).to_owned())
             .collect::<Vec<_>>();
-        let normalize = |result: &objekte_search_core::repository::SearchResult| {
+        let normalize = |result: &objekte_search_core::query_results::SearchResult| {
             let mut ids = result
                 .hits
                 .iter()

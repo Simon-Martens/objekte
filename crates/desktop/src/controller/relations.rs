@@ -1,8 +1,8 @@
 //! Resident relation rows for the detail view.
 
 use objekte_search_core::lifecycle::session::IndexedRepository;
+use objekte_search_core::query_results::SearchHit;
 use objekte_search_core::relation_inspection::{MAX_RELATION_PAGE_SIZE, RelationPresence};
-use objekte_search_core::repository::SearchHit;
 
 const PAGE_SIZE: usize = 100;
 

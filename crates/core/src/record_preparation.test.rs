@@ -8,7 +8,7 @@ fn built_and_trusted_logical(
     projection: &ScanProjection,
 ) -> (Value, Value) {
     use crate::inventory::RecordClass;
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
     use crate::source::{SourceFormat, registry::SourceRegistry};
 
     let source = SourceRegistry::builtin()

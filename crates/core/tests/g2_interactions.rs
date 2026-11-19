@@ -133,7 +133,7 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
                 assert_eq!(actual.hits[0].record_id, id);
                 assert!(matches!(
                     actual.hits[0].payload,
-                    Some(objekte_search_core::repository::Payload::Logical(
+                    Some(objekte_search_core::query_results::Payload::Logical(
                         Value::Object(_)
                     ))
                 ));

@@ -13,7 +13,7 @@ use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, RegexOptions, parse_structured_filter,
 };
 use objekte_search_core::query_results::fts_preview::PreviewMatcher;
-use objekte_search_core::repository::{Payload, SearchHit};
+use objekte_search_core::query_results::{Payload, SearchHit};
 use serde_json::Value;
 
 use crate::backend::{QueryPage, QuerySpec};

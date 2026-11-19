@@ -10,7 +10,8 @@ use crate::lifecycle::catalog::FileCatalog;
 use crate::query::Query;
 use crate::query::binding::filter::BoundExpr;
 use crate::query::binding::fts::BoundFts;
-use crate::repository::{Repository, SearchResult};
+use crate::query_results::SearchResult;
+use crate::repository::Repository;
 
 pub(crate) struct ReferenceCollectionQuery {
     pub(crate) collection_index: usize,

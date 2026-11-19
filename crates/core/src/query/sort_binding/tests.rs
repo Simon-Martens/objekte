@@ -58,7 +58,7 @@ fn stored_title_query(collections: &[&str]) -> Query {
     }
 }
 
-fn hit_ids(result: &crate::repository::SearchResult) -> Vec<&str> {
+fn hit_ids(result: &crate::query_results::SearchResult) -> Vec<&str> {
     result
         .hits
         .iter()

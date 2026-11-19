@@ -1,6 +1,6 @@
 use super::*;
 use crate::tui::test_support::fixture;
-use objekte_search_core::repository::Payload;
+use objekte_search_core::query_results::Payload;
 
 fn sample() -> SearchHit {
     let mut fixture = fixture(1);

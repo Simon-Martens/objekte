@@ -8,7 +8,8 @@ use std::path::PathBuf;
 use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::{FtsMode, Query, RegexOptions};
-use objekte_search_core::repository::{Payload, RepositoryOptions, SearchHit};
+use objekte_search_core::query_results::{Payload, SearchHit};
+use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
     StreamProgress,

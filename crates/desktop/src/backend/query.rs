@@ -10,7 +10,7 @@ use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions,
     parse_structured_filter,
 };
-use objekte_search_core::repository::SearchHit;
+use objekte_search_core::query_results::SearchHit;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };

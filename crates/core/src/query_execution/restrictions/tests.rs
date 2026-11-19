@@ -1017,7 +1017,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 let result = repo.search(&logical).unwrap();
                 assert_eq!(result.counters.record_parses, 1);
                 assert!(matches!(&result.hits[0].payload,
-                    Some(crate::repository::Payload::Logical(Value::Object(fields)))
+                    Some(crate::query_results::Payload::Logical(Value::Object(fields)))
                     if fields.get("title") == Some(&Value::String("A-l_pha".into()))));
             }
         }

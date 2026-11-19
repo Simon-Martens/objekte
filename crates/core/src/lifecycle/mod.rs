@@ -13,7 +13,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::inventory::FileVersion;
 use crate::model::{CollectionId, FileId};
-use crate::repository::SearchResult;
+use crate::query_results::SearchResult;
 
 pub(crate) mod catalog;
 pub mod initial;

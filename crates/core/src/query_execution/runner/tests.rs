@@ -4103,7 +4103,8 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
 fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
     use crate::inventory::{FileStatus, RecordClass};
     use crate::query::FtsQuery;
-    use crate::repository::{Payload, RepositoryOptions};
+    use crate::query_results::Payload;
+    use crate::repository::RepositoryOptions;
     let root = std::env::temp_dir().join(format!("objekte-malformed-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
@@ -4603,7 +4604,8 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
 
 #[test]
 fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
-    use crate::repository::{Payload, RepositoryOptions};
+    use crate::query_results::Payload;
+    use crate::repository::RepositoryOptions;
     let root = std::env::temp_dir().join(format!("objekte-malformed-json-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/empty.json"), b"").unwrap();
@@ -5702,7 +5704,7 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
                     expanded_locator_bytes += rows
                         .iter()
                         .map(|hit| {
-                            std::mem::size_of::<crate::repository::SearchHit>()
+                            std::mem::size_of::<crate::query_results::SearchHit>()
                                 + hit.file_path.to_string_lossy().len()
                         })
                         .sum::<usize>();

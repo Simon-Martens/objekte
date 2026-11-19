@@ -164,7 +164,7 @@ fn root_queries_match_reference_over_mixed_json_documents() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        let ids = |result: &crate::repository::SearchResult| {
+        let ids = |result: &crate::query_results::SearchResult| {
             result
                 .hits
                 .iter()
@@ -281,7 +281,7 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        let ids = |result: &crate::repository::SearchResult| {
+        let ids = |result: &crate::query_results::SearchResult| {
             result
                 .hits
                 .iter()
@@ -559,7 +559,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
                 },
             };
             let optimized = repo.search(&query).unwrap();
-            let ids = |result: &crate::repository::SearchResult| {
+            let ids = |result: &crate::query_results::SearchResult| {
                 result
                     .hits
                     .iter()

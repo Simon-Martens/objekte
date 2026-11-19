@@ -1445,7 +1445,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         let view = index.view().unwrap();
         let actual = view.search(&query).unwrap();
         assert_eq!(actual.count, expected.count);
-        let hits = |result: crate::repository::SearchResult| {
+        let hits = |result: crate::query_results::SearchResult| {
             let mut hits = result
                 .hits
                 .into_iter()

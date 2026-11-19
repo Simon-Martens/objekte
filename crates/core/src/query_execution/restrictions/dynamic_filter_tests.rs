@@ -21,7 +21,7 @@ fn query(filter: &str) -> Query {
     }
 }
 
-fn ids(result: &crate::repository::SearchResult) -> Vec<String> {
+fn ids(result: &crate::query_results::SearchResult) -> Vec<String> {
     result
         .hits
         .iter()
