@@ -4,8 +4,8 @@ use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::query::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
-use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
 

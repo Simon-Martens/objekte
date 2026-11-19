@@ -40,8 +40,8 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
     use objekte_search_core::inference::{InferenceConfig, InferenceMode};
     use objekte_search_core::lifecycle::session::IndexedRepository;
     use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
-    use objekte_search_core::reference::FieldDefinition;
     use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+    use objekte_search_core::schema::FieldDefinition;
     use objekte_search_core::source::SourceFormat;
 
     let root = tempfile::tempdir().unwrap();
@@ -569,8 +569,8 @@ fn presentation_refresh_keeps_selection_after_preview_is_closed() {
 #[test]
 fn completion_uses_bounded_postings_and_keeps_typed_literals() {
     use objekte_search_core::model::LogicalType;
-    use objekte_search_core::reference::FieldDefinition;
     use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+    use objekte_search_core::schema::FieldDefinition;
     use objekte_search_core::source::SourceFormat;
 
     let fixture = crate::backend::test_support::fixture();

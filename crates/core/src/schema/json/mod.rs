@@ -8,8 +8,8 @@ use serde_json::Value;
 use crate::execution_options::SortField;
 use crate::model::{FieldPath, LogicalType, PathRoot};
 use crate::query::path::QueryPath;
-use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
+use crate::schema::{FieldDefinition, Schema};
 
 pub struct CompiledSchema {
     pub schema: Schema,
@@ -547,5 +547,4 @@ fn display_path(path: &[String]) -> String {
 }
 
 #[cfg(test)]
-#[path = "schema_adapter.test.rs"]
 mod tests;

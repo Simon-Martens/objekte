@@ -1,4 +1,6 @@
 use super::*;
+use crate::schema::validation::{ValidationNode, converted_kind};
+use crate::schema::{CustomBinding, FieldDefinition, PreparedTextMatcher, Schema, Transform};
 
 #[test]
 fn borrowed_value_visitation_uses_original_strings_and_key_storage() {

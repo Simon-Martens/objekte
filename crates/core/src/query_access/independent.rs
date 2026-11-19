@@ -7,8 +7,8 @@ use roaring::RoaringBitmap;
 use crate::execution_options::BigramAlphabet;
 use crate::index::bigram::BigramRequest;
 use crate::query::Operator;
+use crate::query::binding::filter::BoundTerm;
 use crate::query_predicate::TermId;
-use crate::reference::BoundTerm;
 
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
@@ -410,8 +410,9 @@ impl IndexAccessProvider for SortedBackingProvider {
 mod tests {
     use super::*;
     use crate::query::FtsMode;
+    use crate::query::binding::filter::BoundExpr;
     use crate::query_plan::selection::choose_offer;
-    use crate::reference::{BoundExpr, Schema};
+    use crate::schema::Schema;
 
     #[test]
     fn sorted_scalar_and_gram_backing_match_reference_membership() {
@@ -419,7 +420,9 @@ mod tests {
         let provider = SortedBackingProvider::from_fixture(DomainId::new(11), &records);
         let schema = Schema::default();
         let filter = crate::query::parse_filter("text = 'alpha'").unwrap();
-        let BoundExpr::Term(term) = crate::reference::bind_filter(&filter, &schema).unwrap() else {
+        let BoundExpr::Term(term) =
+            crate::query::binding::filter::bind_filter(&filter, &schema).unwrap()
+        else {
             unreachable!()
         };
         let term_id = TermId::new(1);
@@ -460,7 +463,7 @@ mod tests {
             pattern_parameter: None,
             fields: Vec::new(),
         };
-        let bound_fts = crate::reference::bind_fts(&fts, &schema).unwrap();
+        let bound_fts = crate::query::binding::fts::bind_fts(&fts, &schema).unwrap();
         let mut offers = OfferList::new();
         provider
             .propose(
@@ -508,7 +511,7 @@ mod tests {
             pattern_parameter: None,
             fields: Vec::new(),
         };
-        let bound_fts = crate::reference::bind_fts(&fts, &schema).unwrap();
+        let bound_fts = crate::query::binding::fts::bind_fts(&fts, &schema).unwrap();
         let text_term = TermId::new(10);
         let mut text_offers = OfferList::new();
         provider
@@ -526,7 +529,9 @@ mod tests {
             .unwrap();
 
         let filter = crate::query::parse_filter("text = 'rare'").unwrap();
-        let BoundExpr::Term(term) = crate::reference::bind_filter(&filter, &schema).unwrap() else {
+        let BoundExpr::Term(term) =
+            crate::query::binding::filter::bind_filter(&filter, &schema).unwrap()
+        else {
             unreachable!()
         };
         let structured_term = TermId::new(11);

@@ -3,8 +3,8 @@ use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_filter,
 };
-use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 
 fn definition() -> CollectionDefinition {

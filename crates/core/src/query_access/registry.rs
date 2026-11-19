@@ -76,12 +76,12 @@ mod tests {
     use roaring::RoaringBitmap;
 
     use super::*;
+    use crate::query::binding::filter::BoundTerm;
     use crate::query_access::contract::{
         AccessKind, AccessOffer, Coverage, OperationId, ProofStrength,
     };
     use crate::query_access::membership::{DomainId, SlotSet};
     use crate::query_plan::selection::choose_offer;
-    use crate::reference::BoundTerm;
 
     struct TestProvider {
         id: ProviderId,
@@ -351,10 +351,10 @@ mod tests {
     fn empty_term_ref() -> &'static BoundTerm {
         static TERM: std::sync::OnceLock<BoundTerm> = std::sync::OnceLock::new();
         TERM.get_or_init(|| {
-            let schema = crate::reference::Schema::default();
+            let schema = crate::schema::Schema::default();
             let filter = crate::query::parse_filter("field = 'x'").unwrap();
-            let crate::reference::BoundExpr::Term(term) =
-                crate::reference::bind_filter(&filter, &schema).unwrap()
+            let crate::query::binding::filter::BoundExpr::Term(term) =
+                crate::query::binding::filter::bind_filter(&filter, &schema).unwrap()
             else {
                 unreachable!()
             };

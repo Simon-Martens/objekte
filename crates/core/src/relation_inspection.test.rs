@@ -1,8 +1,8 @@
 use super::*;
 use crate::model::LogicalType;
-use crate::reference::{FieldDefinition, Schema};
 use crate::relation::RelationDefinition;
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {

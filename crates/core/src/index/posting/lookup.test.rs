@@ -39,7 +39,8 @@ fn broad_id_union_matches_individual_lookups() {
 #[test]
 fn temporal_period_estimates_probe_bounded_keys_and_ranges_keep_exact_membership() {
     use crate::query::parse_filter;
-    use crate::reference::{BoundExpr, Schema, bind_filter};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
+    use crate::schema::Schema;
 
     let field = FieldDefinition {
         path: vec!["issued".into()],
@@ -156,7 +157,8 @@ fn presence_null_array_dedup_and_cardinality() {
 #[test]
 fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
     use crate::query::parse_filter;
-    use crate::reference::{BoundExpr, Schema, bind_filter};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
+    use crate::schema::Schema;
 
     let field = FieldDefinition {
         path: vec!["values".into()],
@@ -220,7 +222,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
         std::fs::write(path.join(format!("{id}.json")), json).unwrap();
     }
     for indexed in [false, true] {
-        let mut schema = crate::reference::Schema::default();
+        let mut schema = crate::schema::Schema::default();
         schema
             .register_field(FieldDefinition {
                 path: vec!["tags".into()],
@@ -356,7 +358,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
         std::fs::write(root.join(format!("data/{id}.json")), json).unwrap();
     }
     for indexed in [false, true] {
-        let mut schema = crate::reference::Schema::default();
+        let mut schema = crate::schema::Schema::default();
         schema
             .register_field(FieldDefinition {
                 path: vec!["groups".into(), "tags".into()],
@@ -390,7 +392,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
         .map_err(|error| error.to_string())
         .unwrap();
         {
-            use crate::reference::{BoundExpr, bind_filter};
+            use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
             let collection = &repo.collections()[0];
             let segment = &repo.segments[0][0].index;
             let posting = &segment.postings.fields[&vec!["groups".into(), "tags".into()]];
@@ -554,7 +556,8 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
     );
 
     use crate::query::parse_filter;
-    use crate::reference::{BoundExpr, Schema, bind_filter};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
+    use crate::schema::Schema;
     let field = FieldDefinition {
         path: vec!["n".into()],
         kind: LogicalType::Number,
@@ -600,7 +603,8 @@ fn narrow_ordered_ranges_visit_only_matching_dictionary_keys() {
 #[test]
 fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
     use crate::query::parse_filter;
-    use crate::reference::{BoundExpr, Schema, bind_filter};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
+    use crate::schema::Schema;
 
     let number = FieldDefinition {
         path: vec!["n".into()],
@@ -678,8 +682,9 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
 fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::reference::{BoundExpr, Schema, bind_filter};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::Schema;
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-structural-{}", std::process::id()));
@@ -857,8 +862,8 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
 
     use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::Schema;
     use crate::source::{SourceFormat, registry::SourceRegistry};
 
     let root = std::env::temp_dir().join(format!("objekte-state-posting-{}", std::process::id()));
@@ -1027,7 +1032,8 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
 #[test]
 fn mixed_selected_occurrences_have_independent_exact_state_facts() {
     use crate::query::parse_filter;
-    use crate::reference::{BoundExpr, Schema, bind_filter};
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
+    use crate::schema::Schema;
 
     let field = FieldDefinition {
         path: vec!["x".into()],
@@ -1118,8 +1124,8 @@ fn mixed_selected_occurrences_have_independent_exact_state_facts() {
 fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
     use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::Schema;
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-state-sparse-{}", std::process::id()));
@@ -1202,8 +1208,8 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
     use crate::execution_options::ReturnMode;
     use crate::lifecycle::Index;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::Schema;
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-state-mutation-{}", std::process::id()));
@@ -1322,8 +1328,8 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
 fn bounded_mixed_values_match_source_oracle_for_state_composition() {
     use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::Schema;
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-state-mixed-{}", std::process::id()));

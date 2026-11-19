@@ -13,7 +13,7 @@ use super::{JsonDecodedScalarsReader, JsonReader};
 
 #[test]
 fn schema_free_json_reader_admits_every_root_shape() {
-    use crate::reference::Schema;
+    use crate::schema::Schema;
     let reader = JsonReader;
     for text in [
         r#"{}"#,
@@ -30,7 +30,7 @@ fn schema_free_json_reader_admits_every_root_shape() {
     }
     let mut declared = Schema::default();
     declared
-        .register_field(crate::reference::FieldDefinition {
+        .register_field(crate::schema::FieldDefinition {
             path: vec!["title".into()],
             kind: crate::model::LogicalType::String,
             required: false,
@@ -181,8 +181,8 @@ fn root_queries_match_reference_over_mixed_json_documents() {
 fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
-    use crate::reference::FieldDefinition;
     use crate::repository::{CollectionDefinition, RepositoryOptions};
+    use crate::schema::FieldDefinition;
 
     let root = std::env::temp_dir().join(format!("objekte-declared-root-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -590,7 +590,7 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     use crate::index::bigram::BigramBuilder;
     use crate::model::LogicalType;
     use crate::record_preparation::finish_build_record;
-    use crate::reference::{FieldDefinition, Schema};
+    use crate::schema::{FieldDefinition, Schema};
 
     let source = SourceRegistry::builtin()
         .resolve(&SourceFormat::Json)

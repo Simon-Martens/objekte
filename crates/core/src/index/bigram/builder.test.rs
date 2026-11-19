@@ -1,5 +1,6 @@
 use super::super::*;
 use super::*;
+use crate::model::text::{fold, folded_chars};
 
 #[derive(Default)]
 struct StreamCollector(String);
@@ -591,8 +592,8 @@ fn diagnostic_gram_set_counts_existing_record_bits() {
 #[test]
 fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     use crate::model::LogicalType;
-    use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::{FieldDefinition, Schema, operation::CustomBinding, operation::Transform};
     use crate::source::SourceFormat;
     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();

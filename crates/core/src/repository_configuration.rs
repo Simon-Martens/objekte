@@ -10,7 +10,7 @@ use std::path::{Component, Path, PathBuf};
 use serde_json::Value;
 
 use crate::repository::{CollectionDefinition, IdentityPolicy};
-use crate::schema_adapter::{CompiledSchema, compile_schema};
+use crate::schema::json::{CompiledSchema, compile_schema};
 use crate::source::SourceFormat;
 
 /// Prepare collection definitions for the live configuration identity and

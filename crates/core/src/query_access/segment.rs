@@ -4,11 +4,11 @@ use std::sync::{Arc, Mutex};
 
 use crate::index::segment::IndexedCollectionSegment;
 use crate::lifecycle_catalog::FileCatalog;
+use crate::query::binding::filter::BoundTerm;
 use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::query_execution::domain::domain_id;
 use crate::query_execution::restrictions::{AccessPathKind, segment_access_path_kind};
 use crate::query_predicate::TermId;
-use crate::reference::BoundTerm;
 use crate::repository::CollectionState;
 
 use super::contract::{
@@ -104,7 +104,7 @@ impl<'a> NativeSegmentProvider<'a> {
         if let Some((index, _)) = operations.iter().enumerate().find(|(_, candidate)| {
             candidate.term == term
                 && candidate.physical == physical
-                && crate::reference::same_bound_term(&candidate.bound, bound)
+                && crate::query::binding::filter::same_bound_term(&candidate.bound, bound)
         }) {
             return OperationId(index as u32);
         }
@@ -138,7 +138,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             return Ok(());
         };
         let direct_posting_compatible = bound.path.root == crate::model::PathRoot::Data
-            && bound.derived == crate::reference::Derived::None
+            && bound.derived == crate::query::binding::filter::Derived::None
             && bound.related.is_none()
             && bound.rhs.is_none()
             && bound.operation.is_none()
@@ -270,7 +270,9 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             let prepared = operations
                 .get(choice.operation.0 as usize)
                 .ok_or(AccessError::StaleHandle)?;
-            if prepared.term != term || !crate::reference::same_bound_term(&prepared.bound, bound) {
+            if prepared.term != term
+                || !crate::query::binding::filter::same_bound_term(&prepared.bound, bound)
+            {
                 return Err(AccessError::StaleHandle);
             }
             (prepared.physical, prepared.access_kind)
@@ -288,7 +290,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                 let fallback = effective - &self.segment.logical_records;
                 let bounds = crate::query_execution::restrictions::segment_expr_bounds(
                     self.segment,
-                    &crate::reference::BoundExpr::Term(bound.clone()),
+                    &crate::query::binding::filter::BoundExpr::Term(bound.clone()),
                     self.collection,
                     effective,
                     &logical,
@@ -396,10 +398,10 @@ mod tests {
     use roaring::RoaringBitmap;
 
     use super::*;
+    use crate::query::binding::filter::BoundExpr;
     use crate::query_access::contract::{
         AccessExecution, AccessKind, AccessRequest, InputEstimate, OfferList, ProofStrength, Proven,
     };
-    use crate::reference::BoundExpr;
     use crate::repository::{CollectionDefinition, RepositoryOptions};
     use crate::source::SourceFormat;
 
@@ -420,7 +422,7 @@ mod tests {
         definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
         definition
             .schema
-            .register_field(crate::reference::FieldDefinition {
+            .register_field(crate::schema::FieldDefinition {
                 path: vec!["value".into()],
                 kind: crate::model::LogicalType::Number,
                 required: false,
@@ -446,7 +448,7 @@ mod tests {
         let published = &view.segments(crate::model::CollectionId(0)).unwrap()[0];
         let filter = crate::query::parse_filter("value >= 20").unwrap();
         let BoundExpr::Term(term) =
-            crate::reference::bind_filter(&filter, &definition.schema).unwrap()
+            crate::query::binding::filter::bind_filter(&filter, &definition.schema).unwrap()
         else {
             unreachable!()
         };

@@ -266,7 +266,7 @@ pub(super) fn scan_file(
                 if let Some(fts) = fts {
                     if fts.fields.is_empty() {
                         outcome.raw_text_verifications += 1;
-                        let matched = crate::reference::raw_fallback_contains(
+                        let matched = crate::reference::fts::raw_fallback_contains(
                             fts,
                             &String::from_utf8_lossy(&bytes),
                         );
@@ -300,7 +300,7 @@ pub(super) fn scan_file(
                     true
                 }
             } else if borrowed_value_text && fts.is_some() {
-                crate::reference::eval_borrowed_value_fts(
+                crate::reference::fts::eval_borrowed_value_fts(
                     fts.expect("checked above"),
                     &ctx,
                     query.options.evidence.then_some(&mut evidence),

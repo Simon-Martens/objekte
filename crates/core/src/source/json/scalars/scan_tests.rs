@@ -1,8 +1,10 @@
 use super::super::{owned_query_construction_counts, owned_segment_text_bytes};
 use super::*;
 use crate::model::{FieldPath, Value};
+use crate::query::binding::filter::{BoundExpr, bind_filter};
+use crate::query::binding::fts::bind_fts;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
-use crate::reference::{BoundExpr, Schema, bind_filter, bind_fts};
+use crate::schema::Schema;
 use crate::source::ScanProjection;
 
 #[test]

@@ -16,11 +16,14 @@ use objekte_search_core::inventory::{
 };
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{CollectionId, FileId, RecordId, RecordSlot};
+use objekte_search_core::query::binding::filter::bind_filter;
+use objekte_search_core::query::binding::fts::bind_fts;
+use objekte_search_core::query::semantics::record::RecordContext;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
-use objekte_search_core::reference::{
-    RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts, eval_filter,
-};
+use objekte_search_core::reference::filter::eval_filter;
+use objekte_search_core::reference::fts::eval_bound_fts;
 use objekte_search_core::repository::{CollectionDefinition, Payload, RepositoryOptions};
+use objekte_search_core::schema::Schema;
 use objekte_search_core::source::json::JsonDecodedScalarsReader;
 use objekte_search_core::source::{ScanProjection, SourceFormat, SourceReader};
 use objekte_search_core::workload::WorkloadCase;

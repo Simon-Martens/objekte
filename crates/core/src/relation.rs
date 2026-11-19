@@ -5,8 +5,8 @@ use std::collections::{BTreeMap, HashMap};
 use serde::{Deserialize, Serialize};
 
 use crate::model::{CollectionId, LogicalType};
-use crate::reference::{FieldDefinition, Schema};
 use crate::repository::CollectionDefinition;
+use crate::schema::{FieldDefinition, Schema};
 
 /// Declared cardinality of a source relation field.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]

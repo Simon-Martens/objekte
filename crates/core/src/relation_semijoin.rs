@@ -11,6 +11,12 @@ use crate::inventory::RecordClass;
 use crate::lifecycle::PublishedSegment;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query::Quantifier;
+use crate::query::binding::fts::BoundFts;
+use crate::query::binding::relation::{BoundRelationHop, HopDirection};
+use crate::query::semantics::record::RecordContext;
+use crate::query::{
+    binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::same_bound_term,
+};
 use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimate};
 use crate::query_access::membership::SlotInput;
 use crate::query_access::registry::ProviderCatalog;
@@ -19,12 +25,10 @@ use crate::query_execution::restrictions::{
     AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
 };
 use crate::query_plan::selection::choose_offer;
-use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
-    same_bound_term,
-};
+use crate::reference::filter::eval_term;
+use crate::reference::fts::eval_bound_fts_membership;
 use crate::relation::RelationCardinality;
-use crate::relation_query::{BoundRelationHop, HopDirection, MergedRelationView, positions_match};
+use crate::relation_query::{MergedRelationView, positions_match};
 use crate::repository::Repository;
 use crate::source::access::SourceAccessSession;
 use crate::source::{ScanProjection, TextSegment};

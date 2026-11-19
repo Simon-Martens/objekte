@@ -178,8 +178,8 @@ fn workload_fts_binding_colon_stays_outside_quoted_path_properties() {
 #[test]
 fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     use crate::model::{FieldPath, LogicalType};
-    use crate::reference::FieldDefinition;
     use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+    use crate::schema::FieldDefinition;
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!(

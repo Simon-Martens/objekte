@@ -7,9 +7,9 @@ use crate::inventory::SourceRevision;
 use crate::lifecycle::DeleteStrategy;
 use crate::model::{CollectionId, FieldPath, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
-use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
 fn test_root(label: &str) -> std::path::PathBuf {

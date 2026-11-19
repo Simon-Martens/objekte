@@ -17,7 +17,12 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{
     FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
+use crate::query::binding::fts::BoundFts;
+use crate::query::semantics::record::RecordContext;
 use crate::query::{FtsMode, Operator, Quantifier};
+use crate::query::{
+    binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
+};
 use crate::query_access::catalog::{
     IndexCatalog, PostingId, PostingOperation, self_comparison_shape,
 };
@@ -32,10 +37,9 @@ use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::segment::NativeSegmentProvider;
 use crate::query_plan::selection::ordered_offer_ids;
 use crate::query_predicate::{PreparedPredicates, TermId};
-use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
-};
+use crate::reference::filter::eval_term;
 use crate::repository::{CollectionState, Repository};
+use crate::schema::operation::Transform;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
 
@@ -261,7 +265,7 @@ impl<'a> SegmentPlanContext<'a> {
         if let Some((_, term_id)) = self
             .terms
             .iter()
-            .find(|(candidate, _)| crate::reference::same_bound_term(candidate, term))
+            .find(|(candidate, _)| crate::query::binding::filter::same_bound_term(candidate, term))
         {
             return *term_id;
         }
@@ -1489,7 +1493,7 @@ pub(crate) fn segment_expr_bounds(
             }
             if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
                 && term.operator == Operator::Eq
-                && term.transform == crate::reference::Transform::Identity
+                && term.transform == crate::schema::operation::Transform::Identity
                 && let Value::Id(id) = &term.literal
             {
                 let mut matches = RoaringBitmap::new();
@@ -1895,7 +1899,7 @@ impl<'a> PlanContext<'a> {
                 .iter()
                 .find(|(candidate_collection, candidate, _)| {
                     *candidate_collection == collection_id
-                        && crate::reference::same_bound_term(candidate, term)
+                        && crate::query::binding::filter::same_bound_term(candidate, term)
                 })
         {
             return *id;

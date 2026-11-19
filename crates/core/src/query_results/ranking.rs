@@ -12,13 +12,14 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
 use crate::query::Query;
+use crate::query::binding::filter::BoundExpr;
+use crate::query::semantics::record::RecordContext;
 use crate::query::sort_binding::{
     BoundSort, BoundSortSource, MergedSortTargetCache, SortTargetCache,
 };
 use crate::query_results::cache::CacheBudget;
 use crate::query_results::verified::CachedMember;
 use crate::record_preparation::prepare_query_record_with_execution;
-use crate::reference::{BoundExpr, RecordContext};
 use crate::repository::{Payload, Repository, SearchHit};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{ExtractedRecord, ScanProjection};

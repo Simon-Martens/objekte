@@ -13,9 +13,9 @@ use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_mutation::{UpdateOptions, UpdateStrategy};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions};
-use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use objekte_search_core::repository_configuration::load_repository_configuration;
+use objekte_search_core::schema::FieldDefinition;
 use objekte_search_core::source::SourceFormat;
 
 struct QueryProbe {

@@ -11,7 +11,7 @@ use crate::inference::{InferenceConfig, InferenceMode};
 use crate::inventory::ByteRange;
 use crate::model::{FileId, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
-use crate::reference::FieldDefinition;
+use crate::schema::FieldDefinition;
 use crate::source::json_lines::JsonLinesReader;
 use crate::source::{ExtractedRecord, SourceFormat, SourceReader, registry::SourceRegistry};
 

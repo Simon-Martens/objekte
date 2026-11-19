@@ -9,6 +9,8 @@ use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
 use crate::decimal::ExactDecimal;
 
+pub mod text;
+
 /// Exact numeric value; finite floats may be compared across representations.
 /// Direct non-finite `Float` variants have IEEE total order and are rejected
 /// by deserialization and repository build admission.

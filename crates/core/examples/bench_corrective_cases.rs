@@ -12,10 +12,11 @@ use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::posting_values::{PostingValueBound, PostingValuesRequest};
 use objekte_search_core::query::{FtsQuery, Literal, Operator, Query, QueryOptions, parse_filter};
-use objekte_search_core::reference::{
-    BindingOperation, FieldDefinition, PreparedFilterMatcher, RegisteredBinding, Schema,
-};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::schema::{
+    FieldDefinition, Schema, operation::BindingOperation, operation::PreparedFilterMatcher,
+    operation::RegisteredBinding,
+};
 use objekte_search_core::source::SourceFormat;
 
 fn main() {

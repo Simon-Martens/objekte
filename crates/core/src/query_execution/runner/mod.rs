@@ -11,9 +11,10 @@ use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::execution_options::ReturnMode;
+use crate::execution_options::simple_composite_part;
 use crate::index::posting::PostingIndex;
 use crate::index::segment::IndexedCollectionSegment;
-use crate::index::sorting::{InferredOrderKey, SortColumn, simple_composite_part};
+use crate::index::sorting::{InferredOrderKey, SortColumn};
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
@@ -23,11 +24,17 @@ use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, Work
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 #[cfg(test)]
 use crate::query::FtsMode;
+use crate::query::binding::fts::BoundFts;
 use crate::query::prepared::PreparedCollectionQuery;
+use crate::query::semantics::folding::FoldRecordGuard;
+use crate::query::semantics::record::RecordContext;
 use crate::query::sort_binding::{
     BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache,
 };
 use crate::query::{Operator, Quantifier, Query};
+use crate::query::{
+    binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
+};
 use crate::query_diagnostics::trace::{PlanActual, QueryPlanTrace};
 pub(crate) use crate::query_diagnostics::trace::{
     attach_execution_observations, bound_term_diagnostics, finish_trace, fts_covered_target,
@@ -63,10 +70,8 @@ use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
 };
-use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, FoldRecordGuard, RecordContext, eval_bound_fts,
-    eval_term, eval_unavailable_filter,
-};
+use crate::reference::fts::eval_bound_fts;
+use crate::reference::{eval_unavailable_filter, filter::eval_term};
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::source::access::{
     RecordRangeReader, SourceAccessSession, classify_source_read_failure_for_search,
@@ -2938,7 +2943,7 @@ fn search_segmented_impl(
 
 fn collect_positive_relation_terms<'a>(
     expr: &'a BoundExpr,
-    output: &mut Vec<&'a crate::reference::BoundTerm>,
+    output: &mut Vec<&'a crate::query::binding::filter::BoundTerm>,
 ) {
     match expr {
         BoundExpr::Term(term) if term.related.is_some() => output.push(term),
@@ -2969,7 +2974,7 @@ fn collect_plain_terms<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundTerm>)
 
 fn collect_file_path_terms<'a>(
     expr: &'a BoundExpr,
-    output: &mut Vec<&'a crate::reference::BoundTerm>,
+    output: &mut Vec<&'a crate::query::binding::filter::BoundTerm>,
 ) {
     match expr {
         BoundExpr::Term(term)
@@ -3016,7 +3021,7 @@ fn relation_source_input_estimate(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     collection_index: usize,
     filter: &BoundExpr,
-    relation_term: &crate::reference::BoundTerm,
+    relation_term: &crate::query::binding::filter::BoundTerm,
 ) -> Result<u64, String> {
     let _ = relation_term;
     segment_filter_input_estimate(repo, segments, collection_index, Some(filter))

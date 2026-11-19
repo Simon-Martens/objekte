@@ -8,8 +8,8 @@ use crate::model::{LogicalType, Value};
 use crate::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
-use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
+use crate::schema::{FieldDefinition, Schema};
 use crate::source::extraction::extract_file_outcomes;
 use crate::source::test_support::{OutcomeReader, TinyReader};
 
@@ -346,8 +346,8 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
-    use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::{FieldDefinition, Schema};
 
     let root =
         std::env::temp_dir().join(format!("objekte-temporal-segments-{}", std::process::id()));
@@ -616,8 +616,8 @@ fn seeded_reader_ranges_obey_checked_nonoverlap_contract() {
 fn registered_recoverable_error_survives_repository_query_and_restore() {
     use crate::execution_options::ReturnMode;
     use crate::query::{FtsQuery, Query, QueryOptions};
-    use crate::reference::Schema;
     use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
+    use crate::schema::Schema;
     let root = std::env::temp_dir().join(format!(
         "objekte-registered-fallback-{}",
         std::process::id()
@@ -708,8 +708,8 @@ fn body_only_reader_does_not_prune_unindexed_title() {
     use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
-    use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::schema::{FieldDefinition, Schema};
 
     let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -814,8 +814,8 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     use crate::execution_options::ReturnMode;
     use crate::model::LogicalType;
     use crate::query::{FtsQuery, Query, QueryOptions};
-    use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
+    use crate::schema::{FieldDefinition, Schema};
 
     let root = std::env::temp_dir().join(format!("objekte-tiny-source-{}", std::process::id()));
     std::fs::create_dir_all(root.join("tiny")).unwrap();

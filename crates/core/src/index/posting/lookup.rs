@@ -6,7 +6,8 @@ use roaring::RoaringBitmap;
 use super::{PostingIndex, ScalarKey, StructuralKey};
 use crate::model::{LogicalType, Number, Value};
 use crate::query::{Operator, Quantifier};
-use crate::reference::{BoundTerm, Derived, Transform};
+use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
+use crate::schema::operation::Transform;
 
 /// Borrowed ordered traversal over one posting dictionary's values.
 pub(crate) enum PostingValueCursor<'a> {

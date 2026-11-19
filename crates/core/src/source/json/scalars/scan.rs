@@ -5,10 +5,12 @@ use std::ops::Range;
 
 use smallvec::SmallVec;
 
+use crate::query::binding::filter::BoundTerm;
+use crate::query::binding::fts::BoundFts;
 use crate::query::Quantifier;
-use crate::reference::{
-    BoundFts, BoundTerm, fts_field_selects_path, match_borrowed_source_filter,
-    match_borrowed_source_pair, match_borrowed_source_segment,
+use crate::reference::fts::{
+    fts_field_selects_path, match_borrowed_source_filter, match_borrowed_source_pair,
+    match_borrowed_source_segment,
 };
 
 use super::strings::{with_next_quoted_text, with_quoted_text};

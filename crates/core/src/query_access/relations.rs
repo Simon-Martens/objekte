@@ -128,7 +128,7 @@ impl<'a> NativeRelationProvider<'a> {
 
     fn apply_qualified(
         &self,
-        term: &crate::reference::BoundTerm,
+        term: &crate::query::binding::filter::BoundTerm,
         input: &RoaringBitmap,
         strategy: Strategy,
         execution: &AccessExecution<'_>,

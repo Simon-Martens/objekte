@@ -5,11 +5,11 @@ use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::{
     Literal, Operator, Query, QueryOptions, parse_filter, parse_structured_filter,
 };
-use objekte_search_core::reference::{
-    BindingOperation, FieldDefinition, RegisteredBinding, Schema,
-};
 use objekte_search_core::repository::{
     CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions,
+};
+use objekte_search_core::schema::{
+    FieldDefinition, Schema, operation::BindingOperation, operation::RegisteredBinding,
 };
 use objekte_search_core::source::SourceFormat;
 

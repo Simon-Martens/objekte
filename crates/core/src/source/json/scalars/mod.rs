@@ -4,7 +4,7 @@ use std::collections::{BTreeMap, HashSet};
 use std::ops::Range;
 
 use crate::model::{ArrayValue, Number, Value};
-use crate::reference::match_borrowed_source_segment;
+use crate::reference::fts::match_borrowed_source_segment;
 use crate::source::{ScanProjection, TextSegment};
 
 mod scan;

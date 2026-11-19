@@ -6,9 +6,9 @@ use crate::execution_options::ReturnMode;
 use crate::execution_options::{SortExpression, SortField};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
-use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 use crate::streaming::{
     CancellationToken, ExecutionContext, ExecutionLimits, ResultScope, StreamControl, StreamEvent,
@@ -2174,7 +2174,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
     definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
-        .register_field(crate::reference::FieldDefinition {
+        .register_field(crate::schema::FieldDefinition {
             path: vec!["id".into()],
             kind: crate::model::LogicalType::Id,
             required: true,

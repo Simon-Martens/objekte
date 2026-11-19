@@ -4,7 +4,7 @@
 use std::ops::Range;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
-use crate::index::bigram::fold;
+use crate::model::text::fold;
 use crate::query::regex::CompiledRegex;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
 

@@ -5,9 +5,10 @@ use serde::Serialize;
 use crate::execution_options::{BigramAlphabet, SortField};
 use crate::measurement::WorkCounters;
 use crate::model::Value;
+use crate::query::binding::filter::BoundExpr;
+use crate::query::binding::fts::BoundFts;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier};
 use crate::query_execution::restrictions::{PlanningCounters, TermChoice, estimate_fts_candidates};
-use crate::reference::{BoundExpr, BoundFts};
 use crate::repository::{CollectionState, Repository};
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize)]

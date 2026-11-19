@@ -1,10 +1,12 @@
 //! Separate literal FTS and structured FILTER parsing.
 
+pub mod binding;
 pub mod clock;
 pub mod parameters;
 pub mod path;
 pub(crate) mod prepared;
 pub mod regex;
+pub mod semantics;
 mod size_literal;
 pub(crate) mod sort_binding;
 pub mod temporal;

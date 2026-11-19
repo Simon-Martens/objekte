@@ -13,11 +13,12 @@ use crate::measurement::WorkCounters;
 use crate::measurement::{SourceDiagnostic as QuerySourceDiagnostic, SourceUnavailableKind};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot, Value};
 use crate::query::Query;
+use crate::query::binding::filter::bind_filter;
+use crate::query::binding::fts::bind_fts;
+use crate::query::semantics::record::RecordContext;
 use crate::record_preparation::finish_build_record;
-use crate::reference::{
-    RecordContext, bind_filter, bind_fts, eval_bound_fts, eval_filter, eval_unavailable_filter,
-    raw_fallback_contains,
-};
+use crate::reference::{eval_unavailable_filter, filter::eval_filter};
+use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, SearchHit, SearchResult};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{
@@ -437,8 +438,8 @@ mod tests {
     use super::*;
     use crate::model::LogicalType;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, parse_filter};
-    use crate::reference::FieldDefinition;
     use crate::repository::RepositoryOptions;
+    use crate::schema::FieldDefinition;
 
     #[test]
     fn source_scan_matches_reference_search_before_an_index_exists() {

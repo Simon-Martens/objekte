@@ -18,8 +18,8 @@ use crate::inventory::{
     SharedPath, SourceDiagnostic, SourceRevision,
 };
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
+use crate::query::semantics::record::data_values;
 use crate::record_preparation::finish_build_record;
-use crate::reference::data_values;
 use crate::repository::{
     CollectionDefinition, IdentityPolicy, canonical_custom_text_key, map_binding_value,
     string_values,

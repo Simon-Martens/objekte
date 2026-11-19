@@ -3,8 +3,8 @@
 use std::collections::HashMap;
 
 use crate::query::Query;
+use crate::query::binding::relation::{bind_filter_with_relations, bind_fts_with_relations};
 use crate::query::sort_binding::BoundSort;
-use crate::relation_query::{bind_filter_with_relations, bind_fts_with_relations};
 use crate::repository::Repository;
 
 impl Repository {

@@ -16,8 +16,8 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;
 use crate::record_preparation::prepare_query_record_with_execution;
-use crate::reference::FieldDefinition;
 use crate::repository::{CollectionState, Repository};
+use crate::schema::FieldDefinition;
 use crate::source::ScanProjection;
 use crate::source::access::RecordRangeReader;
 
@@ -395,7 +395,7 @@ fn scan_inferred_segment(
                 )?
                 .value;
                 index.add(crate::model::RecordSlot(slot), &value)?;
-                if crate::reference::data_values(&value, &path.segments).map_or(
+                if crate::query::semantics::record::data_values(&value, &path.segments).map_or(
                     max_short_string.is_none(),
                     |values| {
                         (max_short_string.is_none() || !values.is_empty())
@@ -640,9 +640,9 @@ pub(crate) fn select_exact_segmented(
     })))
 }
 
-fn filter_excludes_raw_fallback(expr: &crate::reference::BoundExpr) -> bool {
+fn filter_excludes_raw_fallback(expr: &crate::query::binding::filter::BoundExpr) -> bool {
     match expr {
-        crate::reference::BoundExpr::Term(term) => {
+        crate::query::binding::filter::BoundExpr::Term(term) => {
             term.path.root == crate::model::PathRoot::Data
                 && term.related.is_none()
                 && !matches!(
@@ -650,8 +650,11 @@ fn filter_excludes_raw_fallback(expr: &crate::reference::BoundExpr) -> bool {
                     crate::query::Operator::Contains | crate::query::Operator::NotContains
                 )
         }
-        crate::reference::BoundExpr::And(parts) => parts.iter().all(filter_excludes_raw_fallback),
-        crate::reference::BoundExpr::Or(_) | crate::reference::BoundExpr::Not(_) => false,
+        crate::query::binding::filter::BoundExpr::And(parts) => {
+            parts.iter().all(filter_excludes_raw_fallback)
+        }
+        crate::query::binding::filter::BoundExpr::Or(_)
+        | crate::query::binding::filter::BoundExpr::Not(_) => false,
     }
 }
 

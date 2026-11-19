@@ -13,8 +13,9 @@ use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
 use crate::query::{Operator, Quantifier};
-use crate::reference::{BoundTerm, Derived, Schema, Transform};
+use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
 use crate::repository::CollectionState;
+use crate::schema::{Schema, operation::Transform};
 
 /// Physical identity is used only to resolve a selected borrowed access. It
 /// does not change applicability, proof, or cost.
@@ -300,7 +301,7 @@ impl PostingAccess<'_> {
                         return Err("string posting dictionary has non-string key".into());
                     };
                     let contains = term.prepared_contains.as_ref().map_or_else(
-                        || crate::reference::contains_pattern(value, pattern),
+                        || crate::query::semantics::comparison::contains_pattern(value, pattern),
                         |prepared| prepared.matches(value, pattern),
                     );
                     if contains == (term.operator == Operator::Contains) {

@@ -1,5 +1,5 @@
 use super::*;
-use crate::reference::FieldDefinition;
+use crate::schema::FieldDefinition;
 
 #[test]
 fn declared_and_prohibited_paths_keep_observations_without_posting_maps() {

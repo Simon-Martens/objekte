@@ -2,9 +2,9 @@
 
 use crate::execution_options::ReturnMode;
 use crate::inventory::RecordClass;
-use crate::reference::BoundFts;
-use crate::reference::Schema;
+use crate::query::binding::fts::BoundFts;
 use crate::repository::Payload;
+use crate::schema::Schema;
 use crate::source::verification::BorrowedScanResult;
 use crate::source::{
     ExtractedRecord, ScanProjection, registry::PreparedSource, text::finalize_extracted_text,

@@ -636,7 +636,7 @@ fn sort_bytes(sorting: &SortCollection) -> usize {
         total = total
             .saturating_add(
                 composite.fields.capacity()
-                    * std::mem::size_of::<crate::index::sorting::CompositeSortPart>(),
+                    * std::mem::size_of::<crate::execution_options::CompositeSortPart>(),
             )
             .saturating_add(composite.order.capacity() * std::mem::size_of::<RecordSlot>());
         for part in &composite.fields {

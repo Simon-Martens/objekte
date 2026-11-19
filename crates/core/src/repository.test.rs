@@ -4,7 +4,7 @@ use crate::execution_options::ReturnMode;
 use crate::inventory::RecordClass;
 use crate::model::{LogicalType, Value};
 use crate::query::{Query, QueryOptions};
-use crate::reference::FieldDefinition;
+use crate::schema::FieldDefinition;
 use crate::source::SourceFormat;
 use crate::streaming::{ExecutionContext, ExecutionLimits};
 

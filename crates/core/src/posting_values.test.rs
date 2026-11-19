@@ -4,8 +4,8 @@ use crate::execution_options::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::model::LogicalType;
 use crate::model::RecordSlot;
-use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
 #[test]
@@ -815,7 +815,7 @@ struct FoldPosting {
     complete: bool,
 }
 
-impl crate::reference::BindingOperation for FoldPosting {
+impl crate::schema::operation::BindingOperation for FoldPosting {
     fn accepts(&self, kind: &LogicalType, operator: crate::query::Operator, _: bool) -> bool {
         *kind == LogicalType::String && operator == crate::query::Operator::Eq
     }
@@ -861,7 +861,7 @@ impl crate::reference::BindingOperation for FoldPosting {
 
 #[test]
 fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
-    use crate::reference::RegisteredBinding;
+    use crate::schema::operation::RegisteredBinding;
     use std::sync::Arc;
     let root = std::env::temp_dir().join(format!("objekte-posting-binding-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
