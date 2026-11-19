@@ -99,6 +99,8 @@ use ordered::{
     try_inferred_order_page, try_inferred_segment_order_page, try_stored_order_page,
 };
 use relations::search_segmented_relations;
+#[cfg(test)]
+pub(crate) use relations::take_reference_row_visits;
 pub(crate) use relations::{
     explain_segmented, search_segmented_reference, search_segmented_reference_records,
 };

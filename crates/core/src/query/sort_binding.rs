@@ -479,23 +479,28 @@ impl<'a> BoundSort<'a> {
         address: MergedRecordSlot,
         ctx: &RecordContext<'_>,
         target_cache: &mut MergedSortTargetCache,
-    ) -> Result<Vec<(SortKey, bool, SortOptions)>, String> {
-        self.terms[collection_index]
+    ) -> Result<Option<Vec<(SortKey, bool, SortOptions)>>, String> {
+        let mut parts = Vec::new();
+        for term in self.terms[collection_index]
             .as_ref()
             .ok_or("sort collection is not selected")?
             .iter()
-            .map(|term| {
-                let key = match &term.source {
-                    BoundSortSource::Stored(_) => {
-                        return Err("reference stored sort is not source-derived".into());
-                    }
-                    BoundSortSource::Computed(computed) => {
-                        computed.key_merged(view, address, ctx, target_cache, true)?
-                    }
-                };
-                Ok((key, term.descending, term.options))
-            })
-            .collect()
+        {
+            let key = match &term.source {
+                BoundSortSource::Stored(_) => {
+                    return Err("reference stored sort is not source-derived".into());
+                }
+                BoundSortSource::Computed(computed) => {
+                    let Some(key) = computed.key_merged(view, address, ctx, target_cache, true)?
+                    else {
+                        return Ok(None);
+                    };
+                    key
+                }
+            };
+            parts.push((key, term.descending, term.options));
+        }
+        Ok(Some(parts))
     }
 }
 
@@ -553,10 +558,11 @@ impl ComputedSort {
         ctx: &RecordContext<'_>,
         cache: &mut MergedSortTargetCache,
         reference: bool,
-    ) -> Result<SortKey, String> {
+    ) -> Result<Option<SortKey>, String> {
         let Some((hops, terminal)) = &self.related else {
-            return self.key_local(ctx);
+            return self.key_local(ctx).map(Some);
         };
+        let mut unverifiable = false;
         let mut reduced = SortAccumulator::new(self.reducer);
         self.visit_related_merged(
             view,
@@ -568,8 +574,13 @@ impl ComputedSort {
             cache,
             &mut reduced,
             reference,
+            &mut unverifiable,
         )?;
-        reduced.finish(self)
+        if unverifiable {
+            Ok(None)
+        } else {
+            reduced.finish(self).map(Some)
+        }
     }
 
     /// A simple one-hop related sort can reuse the target's resident key.
@@ -631,6 +642,7 @@ impl ComputedSort {
         cache: &mut MergedSortTargetCache,
         reduced: &mut SortAccumulator,
         reference: bool,
+        unverifiable: &mut bool,
     ) -> Result<(), String> {
         let Some(current) = view.record(address)? else {
             reduced.observe_unavailable()?;
@@ -722,6 +734,7 @@ impl ComputedSort {
                                         cache,
                                         reduced,
                                         true,
+                                        unverifiable,
                                     )
                                 } else {
                                     reduced.observe_unavailable()
@@ -758,6 +771,7 @@ impl ComputedSort {
                                 cache,
                                 reduced,
                                 true,
+                                unverifiable,
                             )?;
                         } else {
                             reduced.observe_unavailable()?;
@@ -808,6 +822,7 @@ impl ComputedSort {
                                         cache,
                                         reduced,
                                         reference,
+                                        unverifiable,
                                     )
                                 } else {
                                     reduced.observe_unavailable()
@@ -834,6 +849,7 @@ impl ComputedSort {
                                 cache,
                                 reduced,
                                 reference,
+                                unverifiable,
                             )?;
                         } else {
                             reduced.observe_unavailable()?;
@@ -848,14 +864,17 @@ impl ComputedSort {
                 let sources = if reference {
                     let mut discovery = crate::relation_query::RelationWork::default();
                     discovery.attach(cache.execution.as_ref());
-                    let sources = view.reference_backlink_sources(
+                    let lookup = view.reference_backlink_sources_with_completeness(
                         hop.relation,
                         &current.record.id.0,
                         Some(&mut discovery),
                     )?;
                     cache.relation_source_reads += discovery.source_reads;
                     cache.relation_source_bytes += discovery.bytes_read;
-                    sources
+                    if !lookup.complete {
+                        *unverifiable = true;
+                    }
+                    lookup.sources
                 } else {
                     view.backlink_sources(hop.relation, &current.record.id.0)?
                 };
@@ -876,6 +895,7 @@ impl ComputedSort {
                         cache,
                         reduced,
                         reference,
+                        unverifiable,
                     )?;
                 }
             }

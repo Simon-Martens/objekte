@@ -2063,6 +2063,25 @@ fn base_reference_multi_target_backlinks_scan_each_relation_once() {
             .collect::<Vec<_>>(),
         ["A", "B"]
     );
+
+    std::fs::remove_file(root.join("mentions/m1.json")).unwrap();
+    let incomplete =
+        super::MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+    let mut first_work = super::RelationWork::default();
+    let first = incomplete
+        .reference_backlink_sources_with_completeness(relation, "A", Some(&mut first_work))
+        .unwrap();
+    assert!(!first.complete);
+    let diagnostics = incomplete.source_error_events();
+    assert!(diagnostics > 0);
+    let mut cached_work = super::RelationWork::default();
+    let cached = incomplete
+        .reference_backlink_sources_with_completeness(relation, "B", Some(&mut cached_work))
+        .unwrap();
+    assert!(!cached.complete);
+    assert_eq!(cached_work.source_reads, 0);
+    assert_eq!(incomplete.source_error_events(), diagnostics);
+
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -2098,7 +2117,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
     }
     let index = crate::lifecycle::Index::start_build(
         &root,
-        definitions,
+        definitions.clone(),
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -2155,7 +2174,12 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         .count() as u64;
     drop(view);
 
+    let _ = crate::query_execution::runner::take_reference_row_visits();
     let reference = pinned.search_reference(&request).unwrap();
+    assert_eq!(
+        crate::query_execution::runner::take_reference_row_visits(),
+        ["A", "B"]
+    );
     assert_eq!(reference.count, Some(2));
     assert_eq!(
         reference
@@ -2175,25 +2199,147 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
     let unavailable_path = root.join("mentions/unlinked-00.json");
     std::fs::remove_file(&unavailable_path).unwrap();
     let unavailable = pinned.search_reference(&request).unwrap();
-    assert_eq!(
+    assert!(
+        unavailable.hits.is_empty(),
+        "incomplete backlink discovery must exclude every dependent row: {:?}",
+        unavailable.counters
+    );
+    assert_eq!(unavailable.count, None);
+    assert_eq!(unavailable.counters.total_matches, 0);
+    assert!(unavailable.counters.source_unavailable_events > 0);
+    assert!(!unavailable.counters.match_count_complete);
+    assert!(
         unavailable
+            .counters
+            .source_diagnostics
+            .iter()
+            .any(|diagnostic| {
+                diagnostic.file_path == std::path::Path::new("mentions/unlinked-00.json")
+            })
+    );
+
+    let filtered = query(
+        "entries",
+        Some(
+            "@backlinks.contributions.title = 'Both' \
+             SORT BY MIN(@backlinks.contributions.title), title",
+        ),
+        None,
+        None,
+        false,
+    );
+    let filtered = pinned.search_reference(&filtered).unwrap();
+    assert!(filtered.hits.is_empty());
+    assert_eq!(filtered.count, None);
+    assert_eq!(filtered.counters.total_matches, 0);
+    assert!(!filtered.counters.match_count_complete);
+
+    let nested = query(
+        "entries",
+        Some("SORT BY MIN(@backlinks.contributions.related_entry.title)"),
+        None,
+        None,
+        false,
+    );
+    let nested = pinned.search_reference(&nested).unwrap();
+    assert!(nested.hits.is_empty());
+    assert_eq!(nested.count, None);
+    assert_eq!(nested.counters.total_matches, 0);
+    assert!(!nested.counters.match_count_complete);
+
+    let independent = query(
+        "entries",
+        Some("SORT BY MIN(@backlinks.related_from.title)"),
+        None,
+        None,
+        false,
+    );
+    let independent = pinned.search_reference(&independent).unwrap();
+    assert_eq!(
+        independent
             .hits
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["B"],
-        "{:?}",
-        unavailable.counters
+        ["A", "B"]
     );
-    assert_eq!(unavailable.count, None);
-    assert_eq!(unavailable.counters.total_matches, 1);
-    assert!(unavailable.counters.source_unavailable_events > 0);
-    assert!(!unavailable.counters.match_count_complete);
-    assert!(!unavailable.counters.source_diagnostics.is_empty());
+    assert_eq!(independent.count, Some(2));
+    assert!(independent.counters.match_count_complete);
 
     drop(pinned);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
+
+    let reverse_root = std::env::temp_dir().join(format!(
+        "objekte-reference-backlink-reverse-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    for directory in ["entries", "mentions"] {
+        std::fs::create_dir_all(reverse_root.join(directory)).unwrap();
+    }
+    for (relative, document) in [
+        ("entries/00-b.json", r#"{"id":"B","title":"Bravo"}"#),
+        ("entries/50-c.json", r#"{"id":"C","title":"Charlie"}"#),
+        ("entries/99-a.json", r#"{"id":"A","title":"Zulu"}"#),
+        (
+            "mentions/m1.json",
+            r#"{"id":"m1","entry":"A","title":"Zulu"}"#,
+        ),
+        (
+            "mentions/m2.json",
+            r#"{"id":"m2","entry":"B","title":"Bravo"}"#,
+        ),
+        (
+            "mentions/z-unlinked.json",
+            r#"{"id":"unlinked","entry":"Z"}"#,
+        ),
+    ] {
+        std::fs::write(reverse_root.join(relative), document).unwrap();
+    }
+    let reverse = crate::lifecycle::Index::start_build(
+        &reverse_root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let reverse_pin = reverse.view().unwrap();
+    std::fs::remove_file(reverse_root.join("mentions/z-unlinked.json")).unwrap();
+    let _ = crate::query_execution::runner::take_reference_row_visits();
+    let reverse_request = query(
+        "entries",
+        Some(
+            "(id = 'A' || id = 'B' || id = 'C') \
+             SORT BY MIN(@backlinks.mentions.title)",
+        ),
+        None,
+        None,
+        false,
+    );
+    let reverse_result = reverse_pin.search_reference(&reverse_request).unwrap();
+    assert_eq!(
+        crate::query_execution::runner::take_reference_row_visits(),
+        ["B", "C", "A"]
+    );
+    assert!(reverse_result.hits.is_empty());
+    assert_eq!(reverse_result.count, None);
+    assert_eq!(reverse_result.counters.total_matches, 0);
+    assert!(!reverse_result.counters.match_count_complete);
+    assert!(
+        reverse_result
+            .counters
+            .source_diagnostics
+            .iter()
+            .any(|diagnostic| {
+                diagnostic.file_path == std::path::Path::new("mentions/z-unlinked.json")
+            })
+    );
+
+    drop(reverse_pin);
+    reverse.shutdown().unwrap();
+    std::fs::remove_dir_all(reverse_root).unwrap();
 }
 
 #[test]

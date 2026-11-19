@@ -2,6 +2,22 @@
 
 use super::*;
 
+#[cfg(test)]
+thread_local! {
+    static REFERENCE_ROW_VISITS: std::cell::RefCell<Vec<String>> =
+        const { std::cell::RefCell::new(Vec::new()) };
+}
+
+#[cfg(test)]
+pub(crate) fn take_reference_row_visits() -> Vec<String> {
+    REFERENCE_ROW_VISITS.with(|visits| std::mem::take(&mut *visits.borrow_mut()))
+}
+
+#[cfg(test)]
+fn record_reference_row_visit(id: &str) {
+    REFERENCE_ROW_VISITS.with(|visits| visits.borrow_mut().push(id.to_owned()));
+}
+
 fn materialize_merged_address(
     repo: &Repository,
     view: &crate::relation_query::MergedRelationView<'_>,
@@ -1996,6 +2012,10 @@ pub(super) fn search_segmented_relations(
             let Some(resolved) = view.record(address)? else {
                 return Ok(());
             };
+            #[cfg(test)]
+            if reference {
+                record_reference_row_visit(&resolved.record.id.0);
+            }
             counters.candidates += 1;
             let record = resolved.record;
             let direct_result = if record.class == RecordClass::Logical {
@@ -2169,7 +2189,7 @@ pub(super) fn search_segmented_relations(
                 return Ok(());
             }
             let source_errors_before_sort = view.source_error_events();
-            let key = relation_rank_key_merged(
+            let Some(key) = relation_rank_key_merged(
                 repo,
                 sort,
                 &view,
@@ -2179,7 +2199,10 @@ pub(super) fn search_segmented_relations(
                 &mut sort_cache,
                 filter.as_ref(),
                 reference,
-            )?;
+            )?
+            else {
+                return Ok(());
+            };
             if view.source_error_events() > source_errors_before_sort {
                 return Ok(());
             }

@@ -85,10 +85,27 @@ pub(crate) struct MergedRelationView<'a> {
     segment_positions: Arc<HashMap<(CollectionId, SegmentId), usize>>,
     source_errors: RefCell<SourceAvailabilityLog>,
     reference_identity: RefCell<HashMap<CollectionId, Arc<HashMap<String, MergedRecordSlot>>>>,
-    reference_backlinks: RefCell<HashMap<RelationId, Arc<HashMap<String, Vec<MergedRecordSlot>>>>>,
+    reference_backlinks: RefCell<HashMap<RelationId, Arc<ReferenceBacklinkLookup>>>,
     // Source-dependent comparisons often revisit one target for many source
     // records. Keep only small decoded targets for this query publication.
     target_values: Arc<Vec<Mutex<(HashMap<MergedRecordSlot, Arc<Value>>, usize)>>>,
+}
+
+struct ReferenceBacklinkLookup {
+    by_target: HashMap<String, Vec<MergedRecordSlot>>,
+    complete: bool,
+}
+
+pub(crate) struct ReferenceBacklinkSources {
+    pub(crate) sources: Vec<MergedRecordSlot>,
+    pub(crate) complete: bool,
+}
+
+#[derive(Clone, Copy, Eq, PartialEq)]
+enum ReferenceValueVisit {
+    Visited,
+    SkippedRawFallback,
+    Unavailable,
 }
 
 impl<'a> MergedRelationView<'a> {
@@ -605,11 +622,24 @@ impl<'a> MergedRelationView<'a> {
         &self,
         relation: RelationId,
         target_id: &str,
-        mut work: Option<&mut RelationWork>,
+        work: Option<&mut RelationWork>,
     ) -> Result<Vec<MergedRecordSlot>, String> {
+        self.reference_backlink_sources_with_completeness(relation, target_id, work)
+            .map(|lookup| lookup.sources)
+    }
+
+    pub(crate) fn reference_backlink_sources_with_completeness(
+        &self,
+        relation: RelationId,
+        target_id: &str,
+        mut work: Option<&mut RelationWork>,
+    ) -> Result<ReferenceBacklinkSources, String> {
         let cached = self.reference_backlinks.borrow().get(&relation).cloned();
         if let Some(cached) = cached {
-            return Ok(cached.get(target_id).cloned().unwrap_or_default());
+            return Ok(ReferenceBacklinkSources {
+                sources: cached.by_target.get(target_id).cloned().unwrap_or_default(),
+                complete: cached.complete,
+            });
         }
         let declaration = &self.repo.collections[relation.source.0 as usize]
             .relations
@@ -633,8 +663,9 @@ impl<'a> MergedRelationView<'a> {
             .collect::<Result<Vec<_>, String>>()?;
         keyed.sort_unstable_by(|left, right| left.0.cmp(&right.0));
         let mut backlinks = HashMap::<String, Vec<MergedRecordSlot>>::new();
+        let mut complete = true;
         for (_, address) in keyed {
-            self.visit_reference_value(address, work.as_deref_mut(), |value| {
+            let visited = self.visit_reference_value(address, work.as_deref_mut(), |value| {
                 let references = logical_references(value, &declaration.path)?;
                 let mut seen = std::collections::HashSet::new();
                 for (target, _) in references.values {
@@ -644,12 +675,19 @@ impl<'a> MergedRelationView<'a> {
                 }
                 Ok(())
             })?;
+            complete &= visited != ReferenceValueVisit::Unavailable;
         }
-        let backlinks = Arc::new(backlinks);
+        let lookup = Arc::new(ReferenceBacklinkLookup {
+            by_target: backlinks,
+            complete,
+        });
         self.reference_backlinks
             .borrow_mut()
-            .insert(relation, Arc::clone(&backlinks));
-        Ok(backlinks.get(target_id).cloned().unwrap_or_default())
+            .insert(relation, Arc::clone(&lookup));
+        Ok(ReferenceBacklinkSources {
+            sources: lookup.by_target.get(target_id).cloned().unwrap_or_default(),
+            complete,
+        })
     }
 
     fn visit_reference_value(
@@ -657,16 +695,16 @@ impl<'a> MergedRelationView<'a> {
         address: MergedRecordSlot,
         mut work: Option<&mut RelationWork>,
         mut visit: impl FnMut(&Value) -> Result<(), String>,
-    ) -> Result<bool, String> {
+    ) -> Result<ReferenceValueVisit, String> {
         if let Some(value) = self.cached_value(address) {
             visit(&value)?;
-            return Ok(true);
+            return Ok(ReferenceValueVisit::Visited);
         }
         let Some(resolved) = self.record(address)? else {
-            return Ok(false);
+            return Ok(ReferenceValueVisit::Unavailable);
         };
         if resolved.record.class == RecordClass::RawFallback {
-            return Ok(false);
+            return Ok(ReferenceValueVisit::SkippedRawFallback);
         }
         if let Some(work) = work.as_deref_mut() {
             work.before_read(resolved.record.range.len(), false)?;
@@ -684,7 +722,7 @@ impl<'a> MergedRelationView<'a> {
             Ok(bytes) => bytes,
             Err(message) => {
                 self.record_source_failure(resolved.file, resolved.record.range, message);
-                return Ok(false);
+                return Ok(ReferenceValueVisit::Unavailable);
             }
         };
         if let Some(work) = work.as_deref_mut() {
@@ -700,7 +738,7 @@ impl<'a> MergedRelationView<'a> {
             work.as_deref().and_then(|work| work.execution.as_ref()),
         )?;
         visit(&extracted.value)?;
-        Ok(true)
+        Ok(ReferenceValueVisit::Visited)
     }
 
     pub(crate) fn reference_resolve_id(

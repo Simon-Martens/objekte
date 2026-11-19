@@ -465,19 +465,23 @@ pub(crate) fn relation_rank_key_merged(
     cache: &mut MergedSortTargetCache,
     filter: Option<&BoundExpr>,
     reference: bool,
-) -> Result<RankKey, String> {
+) -> Result<Option<RankKey>, String> {
     let collection_index = address.collection.0 as usize;
     let terms = sort.bound.terms[collection_index]
         .as_ref()
         .ok_or("merged sort collection missing")?;
     if reference {
-        return Ok(RankKey {
-            parts: sort
-                .bound
-                .reference_keys(repo, collection_index, view, address, ctx, cache)?,
+        let Some(parts) =
+            sort.bound
+                .reference_keys(repo, collection_index, view, address, ctx, cache)?
+        else {
+            return Ok(None);
+        };
+        return Ok(Some(RankKey {
+            parts,
             collection: repo.collections[collection_index].definition.name.clone(),
             id: ctx.record.id.0.to_string(),
-        });
+        }));
     }
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
@@ -509,17 +513,19 @@ pub(crate) fn relation_rank_key_merged(
                 {
                     key
                 } else {
-                    computed.key_merged(view, address, ctx, cache, false)?
+                    computed
+                        .key_merged(view, address, ctx, cache, false)?
+                        .ok_or("optimized merged sort key is unavailable")?
                 }
             }
         };
         parts.push((key, term.descending, term.options));
     }
-    Ok(RankKey {
+    Ok(Some(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
         id: ctx.record.id.0.to_string(),
-    })
+    }))
 }
 
 pub(crate) fn cached_filter_target_sort_key(
