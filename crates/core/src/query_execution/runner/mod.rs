@@ -664,6 +664,10 @@ impl LifecycleCacheBuilder {
         }
     }
 
+    fn is_accepting(&self) -> bool {
+        self.ranked.is_some()
+    }
+
     fn push(&mut self, key: &RankKey, member: CachedMember) {
         let Some(ranked) = self.ranked.as_mut() else {
             return;
@@ -1802,7 +1806,10 @@ fn offer_admitted_segment_slot(
                 .map(|order| order.is_lt())
         },
     )?;
-    if !enters_page && cache_builder.is_none() {
+    let cache_accepting = cache_builder
+        .as_ref()
+        .is_some_and(|builder| builder.is_accepting());
+    if !enters_page && !cache_accepting {
         return Ok(());
     }
     #[cfg(test)]
@@ -1813,17 +1820,21 @@ fn offer_admitted_segment_slot(
     let key = segment_rank_key(repo, sort, collection_index, segment, resolved.record, None)?;
     let hit_fields = match cache_builder {
         Some(builder) => {
-            let matched_fields: Arc<[String]> = matched_fields.into();
-            builder.push(
-                &key,
-                CachedMember {
-                    collection_index,
-                    segment_index: Some(segment_index),
-                    slot: slot.0,
-                    matched_fields: Arc::clone(&matched_fields),
-                },
-            );
-            enters_page.then(|| matched_fields.to_vec())
+            if !builder.is_accepting() {
+                enters_page.then_some(matched_fields)
+            } else {
+                let matched_fields: Arc<[String]> = matched_fields.into();
+                builder.push(
+                    &key,
+                    CachedMember {
+                        collection_index,
+                        segment_index: Some(segment_index),
+                        slot: slot.0,
+                        matched_fields: Arc::clone(&matched_fields),
+                    },
+                );
+                enters_page.then(|| matched_fields.to_vec())
+            }
         }
         None => Some(matched_fields),
     };

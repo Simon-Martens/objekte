@@ -4166,6 +4166,55 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
         ["005", "006", "007", "008", "009"]
     );
     assert!(second.hits.iter().all(|hit| hit.matched_fields.is_empty()));
+
+    let key = crate::query_results::verified::lifecycle_key(&paged, 91, 1).unwrap();
+    let exhausted_cache = Mutex::new(VerifiedCache::new(key.len().saturating_add(129)));
+    let exhausted_scope = LifecycleCacheScope {
+        store: &exhausted_cache,
+        instance_id: 91,
+    };
+    super::reset_segment_slot_evidence_calls();
+    let exhausted = super::search_segmented_lifecycle(
+        &repo,
+        &paged,
+        &base_active,
+        &repo.segments,
+        &catalog,
+        IndexRevision(1),
+        Some(exhausted_scope),
+    )
+    .unwrap();
+    assert_eq!(exhausted.count, Some(100));
+    assert_eq!(super::segment_slot_evidence_calls(), 5);
+    assert_eq!(
+        exhausted
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["000", "001", "002", "003", "004"]
+    );
+    super::reset_segment_slot_evidence_calls();
+    let exhausted_second = super::search_segmented_lifecycle(
+        &repo,
+        &second_page,
+        &base_active,
+        &repo.segments,
+        &catalog,
+        IndexRevision(1),
+        Some(exhausted_scope),
+    )
+    .unwrap();
+    assert!(!exhausted_second.counters.verified_result_hit);
+    assert_eq!(exhausted_second.count, Some(100));
+    assert_eq!(
+        exhausted_second
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["005", "006", "007", "008", "009"]
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
