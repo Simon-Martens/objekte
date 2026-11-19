@@ -16,8 +16,8 @@ RESUMED = re.compile(r"^<\.\.\.\s+(?P<call>\w+)\s+resumed>")
 QUOTED_PATH = re.compile(r'"(/[^"]+/data/[^"]+)"')
 FD_PATH = re.compile(r"\d+<(/[^>]+/data/[^>]+)>")
 RESULT = re.compile(r"\)\s+=\s+(-?\d+)")
-PREAD_ARGS = re.compile(r",\s*(-?\d+),\s*(-?\d+)(?:\s+<unfinished|\))")
-READ_ARGS = re.compile(r",\s*(-?\d+)(?:\s+<unfinished|\))")
+PREAD_ARGS = re.compile(r",\s*(-?\d+),\s*(-?\d+)\s*(?:<unfinished|\))")
+READ_ARGS = re.compile(r",\s*(-?\d+)\s*(?:<unfinished|\))")
 
 
 class TraceError(Exception):
@@ -106,9 +106,13 @@ def parse_events(lines, fixture_root):
             if call == "pread64":
                 if count <= 0:
                     continue
-                args = PREAD_ARGS.search(original["text"])
+                completed = (
+                    original["text"].replace("<unfinished ...>", "")
+                    + text[resumed.end() :]
+                )
+                args = PREAD_ARGS.search(completed)
                 if args is None:
-                    raise TraceError(f"unsupported split pread64 arguments: {original['line']}")
+                    raise TraceError(f"unsupported split pread64 arguments: {completed}")
                 offset = int(args.group(2))
             elif call == "read":
                 if count <= 0:
@@ -259,6 +263,38 @@ def self_test():
         raise TraceError(f"trace self-test mismatch: {exact['reads']}")
     if [read["bytes"] for read in exact["reads"]].count(3) != 3:
         raise TraceError("trace self-test lost a split call occurrence")
+    split_pread64 = [
+        (
+            'pread64(3</fixture/data/00.json>,  <unfinished ...>',
+            '"hi", 9, 7) = 2',
+        ),
+        (
+            'pread64(3</fixture/data/00.json>, "hi", 9, <unfinished ...>',
+            '7) = 2',
+        ),
+        (
+            'pread64(3</fixture/data/00.json>, "hi", 9, 7 <unfinished ...>',
+            ') = 2',
+        ),
+    ]
+    for before, after in split_pread64:
+        events = parse_events(
+            [
+                f"11 1.100010 {before}",
+                f"11 1.100011 <... pread64 resumed>{after}",
+            ],
+            Path("/fixture"),
+        )
+        reads = [event for event in events if event["kind"] == "read"]
+        expected_read = {
+            "timestamp": 1_100_011_000,
+            "kind": "read",
+            "path": "/fixture/data/00.json",
+            "offset": 7,
+            "bytes": 2,
+        }
+        if reads != [expected_read]:
+            raise TraceError(f"split pread64 mismatch: {reads}")
     try:
         parse_events(
             ['10 1.100000 mmap(NULL, 10, PROT_READ, MAP_SHARED, 3</fixture/data/00.json>, 0) = 1'],

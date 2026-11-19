@@ -106,7 +106,8 @@ The trace contains only successful `openat`, `read`, `pread64`, `lseek` and
 `close` operations for the four fixture paths inside each query interval.
 A1 and the repaired source produced identical ordered opens and reads.
 `trace_io.py --self-test` exercises a nonzero-offset positioned read, a split
-open/read resumed pair, and a normal read following `SEEK_SET`; a small raw
+open/read resumed pair, three resumed-`pread64` argument layouts, and a normal
+read following `SEEK_SET`; a small raw
 [trace excerpt](trace-excerpt.log) is retained beside the compact results.
 
 | Query | Opens | Distinct paths | Read ranges | Bytes |
