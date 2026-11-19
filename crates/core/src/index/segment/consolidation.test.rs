@@ -2,7 +2,7 @@ use super::*;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
 use crate::construction::segment_admission::SegmentAdmission;
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FieldPath, LogicalType};
@@ -57,12 +57,12 @@ fn consolidation_matches_direct_admission_without_source_files() {
     definition
         .schema
         .register_composite_sort(vec![
-            crate::execution_options::SortField {
+            crate::query::options::SortField {
                 field: "n".into(),
                 descending: false,
                 expression: None,
             },
-            crate::execution_options::SortField {
+            crate::query::options::SortField {
                 field: "ref".into(),
                 descending: true,
                 expression: None,

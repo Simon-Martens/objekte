@@ -3,7 +3,7 @@
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 
-use objekte_search_core::execution_options::BigramAlphabet;
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::inventory::discovery::SymlinkPolicy;
 use objekte_search_core::repository::configuration::loader::{

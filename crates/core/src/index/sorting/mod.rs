@@ -12,9 +12,9 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::execution_options::{CompositeSortPart, SortField, simple_composite_part};
 use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
+use crate::query::options::SortField;
 use crate::query::{
     semantics::record::RecordContext, semantics::record::data_values_small,
     semantics::record::metadata_value,
@@ -28,6 +28,25 @@ pub(crate) use inferred_order::{InferredOrderCache, InferredOrderKey};
 pub const COLLATION_VERSION: &str =
     "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";
 pub(crate) const INFERRED_ORDER_CACHE_BYTES: usize = 128 * 1024 * 1024;
+
+/// Fixed binary identity for one resident composite constituent.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CompositeSortPart {
+    pub path: FieldPath,
+    pub descending: bool,
+}
+
+pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPart> {
+    let expression = field.expression.as_ref();
+    if expression.is_some_and(|expr| expr.binding.is_some() || expr.reducer.is_some()) {
+        return None;
+    }
+    Some(CompositeSortPart {
+        path: FieldPath::parse(expression.map_or(field.field.as_str(), |expr| expr.path.as_str()))
+            .ok()?,
+        descending: field.descending,
+    })
+}
 
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub enum CollationStrength {

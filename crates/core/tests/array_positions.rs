@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
-use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::model::{LogicalType, Value};
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{
     Literal, Operator, Query, QueryOptions, parse_filter, parse_structured_filter,
 };

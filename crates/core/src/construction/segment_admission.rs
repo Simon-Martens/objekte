@@ -8,7 +8,7 @@ use serde::Serialize;
 
 use crate::construction::batch::BatchContribution;
 use crate::construction::batch::canonical_custom_text_key;
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;

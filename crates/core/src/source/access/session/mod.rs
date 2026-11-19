@@ -34,7 +34,7 @@ pub(crate) struct SourceAccessSession<'a> {
     open: Vec<OpenSource>,
     distinct: RoaringBitmap,
     clock: u64,
-    execution: Option<crate::streaming::ExecutionContext>,
+    execution: Option<crate::query_execution::streaming::ExecutionContext>,
     record_limit: Option<u64>,
 }
 
@@ -67,14 +67,17 @@ impl<'a> SourceAccessSession<'a> {
         }
     }
 
-    pub(crate) fn configure_execution(&mut self, execution: &crate::streaming::ExecutionContext) {
+    pub(crate) fn configure_execution(
+        &mut self,
+        execution: &crate::query_execution::streaming::ExecutionContext,
+    ) {
         self.execution = Some(execution.clone());
         self.record_limit = Some(execution.limits.source_record_bytes);
     }
 
     pub(crate) fn configure_target_execution(
         &mut self,
-        execution: &crate::streaming::ExecutionContext,
+        execution: &crate::query_execution::streaming::ExecutionContext,
     ) {
         self.execution = Some(execution.clone());
         self.record_limit = Some(execution.limits.target_record_bytes);
@@ -96,7 +99,7 @@ impl<'a> SourceAccessSession<'a> {
                 .any(|(_, range)| range.len() > self.record_limit.unwrap_or(u64::MAX))
             {
                 return Err(execution.fail(
-                    crate::streaming::ExecutionErrorKind::Resource,
+                    crate::query_execution::streaming::ExecutionErrorKind::Resource,
                     "source record exceeds read allowance",
                 ));
             }

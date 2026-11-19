@@ -1,6 +1,6 @@
 use super::*;
-use crate::execution_options::ReturnMode;
 use crate::model::CollectionId;
+use crate::query::options::ReturnMode;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;

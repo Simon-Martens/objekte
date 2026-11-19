@@ -294,7 +294,7 @@ fn missing_null_empty_truth_table() {
 
 #[test]
 fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -424,7 +424,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
 
 #[test]
 fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions};
     use crate::repository::Repository;
     use crate::repository::configuration::{

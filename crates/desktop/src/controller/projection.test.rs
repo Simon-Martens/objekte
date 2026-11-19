@@ -1,6 +1,6 @@
 use super::*;
 use crate::backend::{query_page, test_support::fixture};
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 
 #[test]
 fn metadata_columns_show_captured_values_without_a_json_payload() {

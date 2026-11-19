@@ -18,20 +18,20 @@ use crate::query::semantics::record::RecordContext;
 use crate::query::sort_binding::{
     BoundSort, BoundSortSource, MergedSortTargetCache, SortTargetCache,
 };
+use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::query_results::cache::CacheBudget;
 use crate::query_results::verified::CachedMember;
 use crate::record_preparation::prepare_query_record_with_execution;
 use crate::repository::Repository;
 use crate::source::access::read_record_range_for_search;
 use crate::source::{ExtractedRecord, ScanProjection};
-use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 
 pub(crate) fn winner_bytes(winner: &Winner) -> usize {
     std::mem::size_of::<Winner>()
         + rank_key_bytes(&winner.key) as usize
-        + crate::streaming::hit_bytes(&winner.hit)
+        + crate::query_execution::streaming::hit_bytes(&winner.hit)
 }
 
 pub(crate) struct MergedPageHit {
@@ -84,7 +84,7 @@ pub(crate) fn offer_merged(
     if let Some((limit, context)) = budget {
         candidate.retained_bytes = std::mem::size_of::<MergedPageHit>()
             .saturating_add(usize::try_from(rank_key_bytes(&candidate.key)).unwrap_or(usize::MAX))
-            .saturating_add(crate::streaming::hit_bytes(&candidate.hit));
+            .saturating_add(crate::query_execution::streaming::hit_bytes(&candidate.hit));
         let next = used_bytes
             .checked_sub(replace.unwrap_or(0))
             .and_then(|bytes| bytes.checked_add(candidate.retained_bytes))
@@ -177,7 +177,7 @@ pub(crate) fn offer(
         .max(*retained_key_bytes);
     let retained_bytes = if payload.is_some() {
         if sort.bound.has_computed
-            && query.options.return_mode == crate::execution_options::ReturnMode::Logical
+            && query.options.return_mode == crate::query::options::ReturnMode::Logical
         {
             record
                 .range

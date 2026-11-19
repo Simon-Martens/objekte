@@ -4,7 +4,7 @@ use std::sync::Mutex;
 
 use roaring::RoaringBitmap;
 
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramRequest;
 use crate::query::Operator;
 use crate::query::binding::filter::BoundTerm;

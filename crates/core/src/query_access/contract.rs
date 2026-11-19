@@ -279,15 +279,17 @@ pub(crate) enum AccessRequest<'a> {
 }
 
 pub(crate) struct AccessExecution<'a> {
-    pub(crate) context: Option<&'a crate::streaming::ExecutionContext>,
+    pub(crate) context: Option<&'a crate::query_execution::streaming::ExecutionContext>,
 }
 
 impl AccessExecution<'_> {
     pub(crate) fn check(&self) -> AccessResult<()> {
         match self.context {
             Some(context) => context.check().map_err(|error| match error.kind {
-                crate::streaming::ExecutionErrorKind::Cancelled => AccessError::Cancelled,
-                crate::streaming::ExecutionErrorKind::Resource => {
+                crate::query_execution::streaming::ExecutionErrorKind::Cancelled => {
+                    AccessError::Cancelled
+                }
+                crate::query_execution::streaming::ExecutionErrorKind::Resource => {
                     AccessError::Resource(error.message)
                 }
                 _ => AccessError::Internal(error.message),

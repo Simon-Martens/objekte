@@ -280,10 +280,10 @@ fn recorded_validation_selects_trusted_or_validating_extraction() {
 fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
+    use crate::query_execution::streaming::ExecutionContext;
     use crate::schema::FieldDefinition;
     use crate::source::json::JsonReader;
     use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
-    use crate::streaming::ExecutionContext;
     use std::collections::HashSet;
     use std::sync::{
         Arc,
@@ -455,8 +455,10 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
 
 #[test]
 fn registered_reader_expansion_and_failures_keep_typed_classes() {
+    use crate::query_execution::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
     use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
-    use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
     use std::sync::{
         Arc,
         atomic::{AtomicUsize, Ordering},

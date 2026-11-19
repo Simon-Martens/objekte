@@ -779,5 +779,4 @@ fn value_bytes(value: &crate::model::Value) -> usize {
 }
 
 #[cfg(test)]
-#[path = "streaming.test.rs"]
 mod tests;

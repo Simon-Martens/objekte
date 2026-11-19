@@ -21,7 +21,7 @@ use objekte_search_core::lifecycle::initial::{
     InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask,
 };
 use objekte_search_core::lifecycle::session::IndexedRepository;
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{
         self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers, MouseButton, MouseEvent,

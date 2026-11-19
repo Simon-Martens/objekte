@@ -2,18 +2,18 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-use objekte_search_core::execution_options::{ReturnMode, SortField};
 use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{LogicalType, Number, Value};
+use objekte_search_core::query::options::{ReturnMode, SortField};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
+use objekte_search_core::query_execution::streaming::{
+    CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
+};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
-use objekte_search_core::streaming::{
-    CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
-};
 
 static NEXT_ROOT: AtomicUsize = AtomicUsize::new(0);
 

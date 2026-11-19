@@ -3,7 +3,6 @@
 use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
-use crate::execution_options::ReturnMode;
 use crate::inventory::discovery::discover;
 use crate::inventory::{
     DiagnosticRef, FileEntry, FileInventory, RecordClass, RecordEntry, SourceDiagnostic,
@@ -15,7 +14,9 @@ use crate::model::{CollectionId, FileId, RecordId, RecordSlot, Value};
 use crate::query::Query;
 use crate::query::binding::filter::bind_filter;
 use crate::query::binding::fts::bind_fts;
+use crate::query::options::ReturnMode;
 use crate::query::semantics::record::RecordContext;
+use crate::query_execution::streaming::CancellationToken;
 use crate::query_results::{Payload, SearchHit, SearchResult};
 use crate::record_preparation::finish_build_record;
 use crate::reference::{eval_unavailable_filter, filter::eval_filter};
@@ -27,7 +28,6 @@ use crate::source::{
     extraction::extract_file_outcomes_for_search, registry::PreparedSource,
     registry::SourceRegistry, text::finalize_extracted_text,
 };
-use crate::streaming::CancellationToken;
 
 struct ScanCollection {
     definition: CollectionDefinition,

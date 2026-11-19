@@ -1,6 +1,6 @@
 use super::*;
-use crate::execution_options::SortField;
 use crate::model::LogicalType;
+use crate::query::options::SortField;
 use crate::query::{CaseSensitivity, QueryOptions, parse_filter};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{FieldDefinition, Schema};
@@ -320,17 +320,20 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     let outcome = segmented
         .search_stream(
             &ordered_query,
-            crate::streaming::StreamOptions::default(),
-            &crate::streaming::CancellationToken::new(),
+            crate::query_execution::streaming::StreamOptions::default(),
+            &crate::query_execution::streaming::CancellationToken::new(),
             &mut |event| {
-                if let crate::streaming::StreamEvent::OrderedRows { rows, .. } = event {
+                if let crate::query_execution::streaming::StreamEvent::OrderedRows {
+                    rows, ..
+                } = event
+                {
                     streamed.extend_from_slice(rows);
                 }
-                Ok(crate::streaming::StreamControl::Continue)
+                Ok(crate::query_execution::streaming::StreamControl::Continue)
             },
         )
         .unwrap();
-    let crate::streaming::StreamOutcome::Complete(summary) = outcome else {
+    let crate::query_execution::streaming::StreamOutcome::Complete(summary) = outcome else {
         panic!("expected a complete segmented stream")
     };
     assert_eq!(summary.count, expected.count);
@@ -822,19 +825,22 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     let outcome = view
         .search_stream(
             &sorted,
-            crate::streaming::StreamOptions::default(),
-            &crate::streaming::CancellationToken::new(),
+            crate::query_execution::streaming::StreamOptions::default(),
+            &crate::query_execution::streaming::CancellationToken::new(),
             &mut |event| {
-                if let crate::streaming::StreamEvent::OrderedRows { rows, .. } = event {
+                if let crate::query_execution::streaming::StreamEvent::OrderedRows {
+                    rows, ..
+                } = event
+                {
                     streamed.extend(rows.iter().map(|hit| hit.record_id.clone()));
                 }
-                Ok(crate::streaming::StreamControl::Continue)
+                Ok(crate::query_execution::streaming::StreamControl::Continue)
             },
         )
         .unwrap();
     assert!(matches!(
         outcome,
-        crate::streaming::StreamOutcome::Complete(_)
+        crate::query_execution::streaming::StreamOutcome::Complete(_)
     ));
     assert_eq!(
         streamed,
@@ -1777,7 +1783,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
 
 #[test]
 fn segmented_array_step_state_predicates_use_exact_structural_postings() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
     use crate::repository::configuration::RepositoryOptions;
 
@@ -2613,7 +2619,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let segments = full_segments.clone();
     let result =
         search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
-    let selection = crate::posting_values::select_exact_segmented(
+    let selection = crate::repository::posting_values::select_exact_segmented(
         &repo,
         "data",
         &query,
@@ -2624,8 +2630,9 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     )
     .unwrap();
     assert_eq!(selection.len(), 3);
-    let mut values_request = crate::posting_values::PostingValuesRequest::new("data", "kind", 1);
-    let first_values = crate::posting_values::posting_values_segmented(
+    let mut values_request =
+        crate::repository::posting_values::PostingValuesRequest::new("data", "kind", 1);
+    let first_values = crate::repository::posting_values::posting_values_segmented(
         &repo,
         &values_request,
         revision,
@@ -2642,7 +2649,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(first_values.coverage.eligible_records, 5);
     let old_cursor = first_values.continuation.clone();
     values_request.continuation = first_values.continuation;
-    let second_values = crate::posting_values::posting_values_segmented(
+    let second_values = crate::repository::posting_values::posting_values_segmented(
         &repo,
         &values_request,
         revision,
@@ -2657,7 +2664,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     );
     assert_eq!(second_values.values[0].count, 2);
     values_request.continuation = second_values.continuation;
-    let third_values = crate::posting_values::posting_values_segmented(
+    let third_values = crate::repository::posting_values::posting_values_segmented(
         &repo,
         &values_request,
         revision,
@@ -2674,7 +2681,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert!(third_values.continuation.is_none());
     values_request.continuation = None;
     values_request.selection = Some(selection);
-    let selected_values = crate::posting_values::posting_values_segmented(
+    let selected_values = crate::repository::posting_values::posting_values_segmented(
         &repo,
         &values_request,
         revision,
@@ -2687,7 +2694,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(selected_values.values[0].count, 2);
     values_request.selection = None;
     values_request.descending = true;
-    let descending = crate::posting_values::posting_values_segmented(
+    let descending = crate::repository::posting_values::posting_values_segmented(
         &repo,
         &values_request,
         revision,
@@ -2782,7 +2789,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     );
     query.fts = None;
     query.options.sort = vec![SortField::computed(
-        crate::execution_options::SortExpression {
+        crate::query::options::SortExpression {
             path: "title".into(),
             binding: Some("lower".into()),
             reducer: None,
@@ -2854,7 +2861,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             limit: 2,
         },
         StreamOptions {
-            mode: crate::streaming::StreamMode::PageReplacements,
+            mode: crate::query_execution::streaming::StreamMode::PageReplacements,
             ..Default::default()
         },
         &page_context,
@@ -2980,7 +2987,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     .unwrap();
     assert_eq!(live.count, Some(3));
     values_request.selection = None;
-    let live_values = crate::posting_values::posting_values_segmented(
+    let live_values = crate::repository::posting_values::posting_values_segmented(
         &repo,
         &values_request,
         IndexRevision(3),
@@ -2993,7 +3000,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(live_values.values[0].count, 2);
     values_request.continuation = old_cursor;
     assert!(
-        crate::posting_values::posting_values_segmented(
+        crate::repository::posting_values::posting_values_segmented(
             &repo,
             &values_request,
             IndexRevision(3),
@@ -3646,13 +3653,13 @@ fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf
 
 #[test]
 fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
-    use crate::execution_options::SortField;
     use crate::inference::{InferenceConfig, InferenceMode};
-    use crate::repository::configuration::RepositoryOptions;
-    use crate::streaming::{
+    use crate::query::options::SortField;
+    use crate::query_execution::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamError, StreamOptions,
     };
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = write_inferred_order_fixture("inferred-order-limit", 32);
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -3722,7 +3729,7 @@ fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
 #[test]
 fn inferred_order_construction_observes_mid_build_cancellation() {
     use crate::inference::{InferenceConfig, InferenceMode};
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     };
     let root = write_inferred_order_fixture("inferred-order-cancel", 32);
@@ -3779,8 +3786,8 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
 
 #[test]
 fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
-    use crate::execution_options::SortField;
     use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::query::options::SortField;
     use crate::repository::configuration::RepositoryOptions;
 
     let root = write_inferred_order_fixture("inferred-order-cache", 150);
@@ -3857,7 +3864,7 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
 
 #[test]
 fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
-    use crate::execution_options::SortField;
+    use crate::query::options::SortField;
 
     let root = std::env::temp_dir().join(format!("objekte-plan-reuse-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -4151,8 +4158,8 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         },
     };
     for alphabet in [
-        crate::execution_options::BigramAlphabet::Ascii,
-        crate::execution_options::BigramAlphabet::Unicode,
+        crate::index::bigram::BigramAlphabet::Ascii,
+        crate::index::bigram::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -4272,7 +4279,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         );
         assert_eq!(built.search(&selected).unwrap().count, Some(0));
         let mut sorted = all.clone();
-        sorted.options.sort = vec![crate::execution_options::SortField {
+        sorted.options.sort = vec![crate::query::options::SortField {
             field: "@file.status".into(),
             descending: false,
             expression: None,
@@ -4375,8 +4382,8 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
         ("!(!(@record.class = 1))", true, &[]),
     ];
     for alphabet in [
-        crate::execution_options::BigramAlphabet::Ascii,
-        crate::execution_options::BigramAlphabet::Unicode,
+        crate::index::bigram::BigramAlphabet::Ascii,
+        crate::index::bigram::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -4410,7 +4417,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
                                 fts: None,
                                 options: QueryOptions {
                                     sort: if sorted {
-                                        vec![crate::execution_options::SortField {
+                                        vec![crate::query::options::SortField {
                                             field: "@file.status".into(),
                                             descending: false,
                                             expression: None,
@@ -4511,8 +4518,8 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
         sort_overrides: Default::default(),
     }];
     for alphabet in [
-        crate::execution_options::BigramAlphabet::Ascii,
-        crate::execution_options::BigramAlphabet::Unicode,
+        crate::index::bigram::BigramAlphabet::Ascii,
+        crate::index::bigram::BigramAlphabet::Unicode,
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
@@ -5029,7 +5036,7 @@ fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
 
 #[test]
 fn stored_order_pages_stop_globally_and_count_remains_optional() {
-    use crate::execution_options::SortField;
+    use crate::query::options::SortField;
 
     let root = std::env::temp_dir().join(format!("objekte-page-only-{}", std::process::id()));
     for collection in ["a", "b"] {
@@ -5158,18 +5165,18 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     let streamed = repo
         .search_stream(
             &direct_count_query,
-            crate::streaming::StreamOptions::default(),
-            &crate::streaming::CancellationToken::new(),
+            crate::query_execution::streaming::StreamOptions::default(),
+            &crate::query_execution::streaming::CancellationToken::new(),
             &mut |event| {
                 assert!(!matches!(
                     event,
-                    crate::streaming::StreamEvent::OrderedRows { .. }
+                    crate::query_execution::streaming::StreamEvent::OrderedRows { .. }
                 ));
-                Ok(crate::streaming::StreamControl::Continue)
+                Ok(crate::query_execution::streaming::StreamControl::Continue)
             },
         )
         .unwrap();
-    let crate::streaming::StreamOutcome::Complete(streamed) = streamed else {
+    let crate::query_execution::streaming::StreamOutcome::Complete(streamed) = streamed else {
         panic!("expected complete stream")
     };
     assert_eq!(streamed.count, direct_count.count);
@@ -5735,7 +5742,7 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
 
 #[test]
 fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
-    use crate::execution_options::SortField;
+    use crate::query::options::SortField;
     let root = std::env::temp_dir().join(format!("objekte-ordered-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     let mut data = Vec::new();
@@ -5858,7 +5865,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
 
 #[test]
 fn interleaved_stored_order_records_keep_bounded_file_handles() {
-    use crate::execution_options::SortField;
+    use crate::query::options::SortField;
     let root =
         std::env::temp_dir().join(format!("objekte-interleaved-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -6171,7 +6178,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
         repo.search(query).unwrap()
     };
     let mut sorted = query.clone();
-    sorted.options.sort = vec![crate::execution_options::SortField {
+    sorted.options.sort = vec![crate::query::options::SortField {
         field: "sequence".into(),
         descending: true,
         expression: None,
@@ -6545,7 +6552,7 @@ fn typed_temporal_fields_survive_postings_payload_and_reopen() {
         fts: None,
         filter: Some(parse_filter("day >= '2026-01-15' && seconds >= 1769904000").unwrap()),
         options: QueryOptions {
-            sort: vec![crate::execution_options::SortField {
+            sort: vec![crate::query::options::SortField {
                 field: "day".into(),
                 descending: false,
                 expression: None,
@@ -7029,7 +7036,7 @@ fn computed_sort_combines_payload_key_and_target_budgets() {
 
 #[test]
 fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamError, StreamOptions,
     };
@@ -7067,7 +7074,7 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::execution_options::SortExpression {
+                crate::query::options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7112,11 +7119,11 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
 
 #[test]
 fn computed_sort_cancels_after_worker_has_parsed_source_records() {
-    use crate::source::json::JsonReader;
-    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, registry::SourceRegistry};
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     };
+    use crate::source::json::JsonReader;
+    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, registry::SourceRegistry};
     use std::sync::atomic::{AtomicUsize, Ordering};
 
     struct CancellingReader {
@@ -7198,7 +7205,7 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::execution_options::SortExpression {
+                crate::query::options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7226,12 +7233,12 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
 
 #[test]
 fn extension_query_failure_has_ordinary_and_stream_class() {
-    use crate::source::json::JsonReader;
-    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, registry::SourceRegistry};
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamOptions,
     };
+    use crate::source::json::JsonReader;
+    use crate::source::{ExtractedRecord, ScanProjection, SourceReader, registry::SourceRegistry};
 
     struct FailingReader;
 
@@ -7288,7 +7295,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::execution_options::SortExpression {
+                crate::query::options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7333,7 +7340,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
 
 #[test]
 fn computed_sort_pages_match_reference_across_workers_and_file_layouts() {
-    let expression = crate::execution_options::SortExpression {
+    let expression = crate::query::options::SortExpression {
         path: "title".into(),
         binding: Some("lower".into()),
         reducer: None,
@@ -7450,7 +7457,7 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
         fts: None,
         options: QueryOptions {
             sort: vec![SortField::computed(
-                crate::execution_options::SortExpression {
+                crate::query::options::SortExpression {
                     path: "title".into(),
                     binding: Some("lower".into()),
                     reducer: None,
@@ -7474,7 +7481,7 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
 
 #[test]
 fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
-    use crate::execution_options::SortField;
+    use crate::query::options::SortField;
     use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(

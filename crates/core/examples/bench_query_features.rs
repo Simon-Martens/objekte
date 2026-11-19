@@ -5,8 +5,9 @@ use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
-use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::configuration::{

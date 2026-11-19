@@ -2,10 +2,10 @@ use super::{
     FileMutationKind, FileMutationStrategy, Index, IndexError, UpdateOptions, UpdateStrategy,
     VerifiedFallbackReason,
 };
-use crate::execution_options::{ReturnMode, SortField};
 use crate::inventory::SourceRevision;
 use crate::lifecycle::mutation::DeleteStrategy;
 use crate::model::{CollectionId, FieldPath, LogicalType, RecordSlot};
+use crate::query::options::{ReturnMode, SortField};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};

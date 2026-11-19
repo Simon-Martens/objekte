@@ -4,7 +4,7 @@ use std::path::Path;
 
 use objekte_cli::execution::{PreparedQuery, run_prepared_on_repository};
 use objekte_search_core::lifecycle::IndexView;
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 use serde_json::json;
 
 use super::batch::{

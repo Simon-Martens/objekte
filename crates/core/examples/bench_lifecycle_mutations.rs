@@ -8,10 +8,10 @@ use std::sync::{Arc, mpsc};
 use std::thread;
 use std::time::{Duration, Instant};
 
-use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle::mutation::{UpdateOptions, UpdateStrategy};
 use objekte_search_core::model::LogicalType;
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{Query, QueryOptions};
 use objekte_search_core::repository::configuration::loader::load_repository_configuration;
 use objekte_search_core::repository::configuration::{

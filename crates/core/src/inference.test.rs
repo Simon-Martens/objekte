@@ -4,10 +4,11 @@ use super::{
     InferenceBuilder, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
     ObservedStep,
 };
-use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
+use crate::index::bigram::BigramAlphabet;
 use crate::inventory::ByteRange;
 use crate::model::LogicalType;
 use crate::model::{RecordSlot, Value};
+use crate::query::options::{ReturnMode, SortField};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::query_execution::restrictions::AccessPathKind;
 use crate::repository::Repository;

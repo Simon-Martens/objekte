@@ -7,7 +7,7 @@ use std::sync::Arc;
 use objekte_cli::execution::{ExistingRun, Exit, run_on_repository};
 use objekte_cli::query_input::QuerySource;
 use objekte_search_core::lifecycle::IndexView;
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind, OpenedSession};
 

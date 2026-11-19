@@ -51,16 +51,16 @@ impl Repository {
     pub fn count_exact_with_context(
         &self,
         query: &Query,
-        context: &crate::streaming::ExecutionContext,
-    ) -> Result<usize, crate::streaming::ExecutionError> {
+        context: &crate::query_execution::streaming::ExecutionContext,
+    ) -> Result<usize, crate::query_execution::streaming::ExecutionError> {
         let mut request = query.clone();
         request.options.count = true;
         request.options.limit = 0;
         request.options.offset = 0;
         self.search_with_context(&request, context)?
             .count
-            .ok_or_else(|| crate::streaming::ExecutionError {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
+            .ok_or_else(|| crate::query_execution::streaming::ExecutionError {
+                kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                 message: "count result missing".into(),
             })
     }
@@ -69,11 +69,14 @@ impl Repository {
     pub fn search_with_context(
         &self,
         query: &Query,
-        context: &crate::streaming::ExecutionContext,
-    ) -> Result<SearchResult, crate::streaming::ExecutionError> {
+        context: &crate::query_execution::streaming::ExecutionContext,
+    ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
         context.enter()?;
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
-            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+            context.error(
+                crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
+                message,
+            )
         })?;
         let result = if self.has_native_segments() {
             let cache = crate::query_execution::runner::LifecycleCacheScope {
@@ -100,18 +103,22 @@ impl Repository {
     pub fn search_stream<F>(
         &self,
         query: &Query,
-        options: crate::streaming::StreamOptions,
-        cancellation: &crate::streaming::CancellationToken,
+        options: crate::query_execution::streaming::StreamOptions,
+        cancellation: &crate::query_execution::streaming::CancellationToken,
         sink: &mut F,
-    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    ) -> Result<
+        crate::query_execution::streaming::StreamOutcome,
+        crate::query_execution::streaming::StreamError,
+    >
     where
         F: for<'e> FnMut(
-            crate::streaming::StreamEvent<'e>,
-        ) -> Result<crate::streaming::StreamControl, String>,
+            crate::query_execution::streaming::StreamEvent<'e>,
+        )
+            -> Result<crate::query_execution::streaming::StreamControl, String>,
     {
         self.search_stream_scoped(
             query,
-            crate::streaming::ResultScope::Page {
+            crate::query_execution::streaming::ResultScope::Page {
                 offset: query.options.offset,
                 limit: query.options.limit,
             },
@@ -125,19 +132,23 @@ impl Repository {
     pub fn search_stream_scoped<F>(
         &self,
         query: &Query,
-        scope: crate::streaming::ResultScope,
-        options: crate::streaming::StreamOptions,
-        cancellation: &crate::streaming::CancellationToken,
+        scope: crate::query_execution::streaming::ResultScope,
+        options: crate::query_execution::streaming::StreamOptions,
+        cancellation: &crate::query_execution::streaming::CancellationToken,
         sink: &mut F,
-    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    ) -> Result<
+        crate::query_execution::streaming::StreamOutcome,
+        crate::query_execution::streaming::StreamError,
+    >
     where
         F: for<'e> FnMut(
-            crate::streaming::StreamEvent<'e>,
-        ) -> Result<crate::streaming::StreamControl, String>,
+            crate::query_execution::streaming::StreamEvent<'e>,
+        )
+            -> Result<crate::query_execution::streaming::StreamControl, String>,
     {
-        let context = crate::streaming::ExecutionContext::new(
+        let context = crate::query_execution::streaming::ExecutionContext::new(
             crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
-            crate::streaming::ExecutionLimits::default(),
+            crate::query_execution::streaming::ExecutionLimits::default(),
             Some(cancellation.clone()),
         );
         self.search_stream_scoped_with_context(query, scope, options, &context, sink)
@@ -147,15 +158,19 @@ impl Repository {
     pub fn search_stream_scoped_with_context<F>(
         &self,
         query: &Query,
-        scope: crate::streaming::ResultScope,
-        options: crate::streaming::StreamOptions,
-        context: &crate::streaming::ExecutionContext,
+        scope: crate::query_execution::streaming::ResultScope,
+        options: crate::query_execution::streaming::StreamOptions,
+        context: &crate::query_execution::streaming::ExecutionContext,
         sink: &mut F,
-    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    ) -> Result<
+        crate::query_execution::streaming::StreamOutcome,
+        crate::query_execution::streaming::StreamError,
+    >
     where
         F: for<'e> FnMut(
-            crate::streaming::StreamEvent<'e>,
-        ) -> Result<crate::streaming::StreamControl, String>,
+            crate::query_execution::streaming::StreamEvent<'e>,
+        )
+            -> Result<crate::query_execution::streaming::StreamControl, String>,
     {
         self.search_stream_scoped_with_context_active(query, scope, options, context, sink, None)
     }
@@ -163,16 +178,20 @@ impl Repository {
     pub(crate) fn search_stream_scoped_with_context_active<F>(
         &self,
         query: &Query,
-        scope: crate::streaming::ResultScope,
-        options: crate::streaming::StreamOptions,
-        context: &crate::streaming::ExecutionContext,
+        scope: crate::query_execution::streaming::ResultScope,
+        options: crate::query_execution::streaming::StreamOptions,
+        context: &crate::query_execution::streaming::ExecutionContext,
         sink: &mut F,
         active: Option<&[ActiveRecords]>,
-    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    ) -> Result<
+        crate::query_execution::streaming::StreamOutcome,
+        crate::query_execution::streaming::StreamError,
+    >
     where
         F: for<'e> FnMut(
-            crate::streaming::StreamEvent<'e>,
-        ) -> Result<crate::streaming::StreamControl, String>,
+            crate::query_execution::streaming::StreamEvent<'e>,
+        )
+            -> Result<crate::query_execution::streaming::StreamControl, String>,
     {
         let cancellation = context.cancellation().cloned().unwrap_or_default();
         if active.is_none() && self.has_native_segments() {
@@ -188,12 +207,12 @@ impl Repository {
                         .find(|collection| collection.definition.name == hit.collection)
                         .is_none_or(|collection| collection.generation.generation != hit.generation)
             };
-            let mut remap_rows = |event: crate::streaming::StreamEvent<'_>| -> Result<
-                crate::streaming::StreamControl,
+            let mut remap_rows = |event: crate::query_execution::streaming::StreamEvent<'_>| -> Result<
+                crate::query_execution::streaming::StreamControl,
                 String,
             > {
                 match event {
-                    crate::streaming::StreamEvent::OrderedRows {
+                    crate::query_execution::streaming::StreamEvent::OrderedRows {
                         sequence,
                         start,
                         rows,
@@ -203,14 +222,16 @@ impl Repository {
                         for hit in &mut remapped {
                             self.stamp_native_hit(hit);
                         }
-                        sink(crate::streaming::StreamEvent::OrderedRows {
-                            sequence,
-                            start,
-                            rows: &remapped,
-                            progress,
-                        })
+                        sink(
+                            crate::query_execution::streaming::StreamEvent::OrderedRows {
+                                sequence,
+                                start,
+                                rows: &remapped,
+                                progress,
+                            },
+                        )
                     }
-                    crate::streaming::StreamEvent::PageReplacement {
+                    crate::query_execution::streaming::StreamEvent::PageReplacement {
                         sequence,
                         rows,
                         progress,
@@ -219,11 +240,13 @@ impl Repository {
                         for hit in &mut remapped {
                             self.stamp_native_hit(hit);
                         }
-                        sink(crate::streaming::StreamEvent::PageReplacement {
-                            sequence,
-                            rows: &remapped,
-                            progress,
-                        })
+                        sink(
+                            crate::query_execution::streaming::StreamEvent::PageReplacement {
+                                sequence,
+                                rows: &remapped,
+                                progress,
+                            },
+                        )
                     }
                     event => sink(event),
                 }
@@ -243,20 +266,20 @@ impl Repository {
             );
         }
         if let Err(error) = context.enter() {
-            if error.kind == crate::streaming::ExecutionErrorKind::Cancelled {
-                return Ok(crate::streaming::StreamOutcome::Cancelled(
+            if error.kind == crate::query_execution::streaming::ExecutionErrorKind::Cancelled {
+                return Ok(crate::query_execution::streaming::StreamOutcome::Cancelled(
                     Default::default(),
                 ));
             }
-            return Err(crate::streaming::StreamError::Execution {
+            return Err(crate::query_execution::streaming::StreamError::Execution {
                 kind: error.kind,
                 message: error.message,
                 progress: Default::default(),
             });
         }
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
-            crate::streaming::StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
+            crate::query_execution::streaming::StreamError::Execution {
+                kind: crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
                 message,
                 progress: Default::default(),
             }
@@ -264,8 +287,10 @@ impl Repository {
         let mut request = resolved;
         request.options.offset = scope.offset();
         match scope {
-            crate::streaming::ResultScope::Page { limit, .. } => request.options.limit = limit,
-            crate::streaming::ResultScope::All { .. } => {
+            crate::query_execution::streaming::ResultScope::Page { limit, .. } => {
+                request.options.limit = limit
+            }
+            crate::query_execution::streaming::ResultScope::All { .. } => {
                 // Per-record residual verification needs one retained match.
                 // The scope, not this local page size, controls delivery.
                 request.options.limit = 1;
@@ -280,12 +305,12 @@ impl Repository {
                     .find(|collection| collection.definition.name == hit.collection)
                     .is_none_or(|collection| collection.generation.generation != hit.generation)
         };
-        let mut remap_rows = |event: crate::streaming::StreamEvent<'_>| -> Result<
-            crate::streaming::StreamControl,
+        let mut remap_rows = |event: crate::query_execution::streaming::StreamEvent<'_>| -> Result<
+            crate::query_execution::streaming::StreamControl,
             String,
         > {
             match event {
-                crate::streaming::StreamEvent::OrderedRows {
+                crate::query_execution::streaming::StreamEvent::OrderedRows {
                     sequence,
                     start,
                     rows,
@@ -295,14 +320,16 @@ impl Repository {
                     for hit in &mut remapped {
                         self.stamp_native_hit(hit);
                     }
-                    sink(crate::streaming::StreamEvent::OrderedRows {
-                        sequence,
-                        start,
-                        rows: &remapped,
-                        progress,
-                    })
+                    sink(
+                        crate::query_execution::streaming::StreamEvent::OrderedRows {
+                            sequence,
+                            start,
+                            rows: &remapped,
+                            progress,
+                        },
+                    )
                 }
-                crate::streaming::StreamEvent::PageReplacement {
+                crate::query_execution::streaming::StreamEvent::PageReplacement {
                     sequence,
                     rows,
                     progress,
@@ -311,11 +338,13 @@ impl Repository {
                     for hit in &mut remapped {
                         self.stamp_native_hit(hit);
                     }
-                    sink(crate::streaming::StreamEvent::PageReplacement {
-                        sequence,
-                        rows: &remapped,
-                        progress,
-                    })
+                    sink(
+                        crate::query_execution::streaming::StreamEvent::PageReplacement {
+                            sequence,
+                            rows: &remapped,
+                            progress,
+                        },
+                    )
                 }
                 event => sink(event),
             }
@@ -337,23 +366,27 @@ impl Repository {
         &self,
         query: &Query,
         parameters: &HashMap<String, Value>,
-        options: crate::streaming::StreamOptions,
-        cancellation: &crate::streaming::CancellationToken,
+        options: crate::query_execution::streaming::StreamOptions,
+        cancellation: &crate::query_execution::streaming::CancellationToken,
         sink: &mut F,
-    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    ) -> Result<
+        crate::query_execution::streaming::StreamOutcome,
+        crate::query_execution::streaming::StreamError,
+    >
     where
         F: for<'e> FnMut(
-            crate::streaming::StreamEvent<'e>,
-        ) -> Result<crate::streaming::StreamControl, String>,
+            crate::query_execution::streaming::StreamEvent<'e>,
+        )
+            -> Result<crate::query_execution::streaming::StreamControl, String>,
     {
         if cancellation.is_cancelled() {
-            return Ok(crate::streaming::StreamOutcome::Cancelled(
+            return Ok(crate::query_execution::streaming::StreamOutcome::Cancelled(
                 Default::default(),
             ));
         }
         let bound = query.with_parameters(parameters).map_err(|message| {
-            crate::streaming::StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
+            crate::query_execution::streaming::StreamError::Execution {
+                kind: crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
                 message,
                 progress: Default::default(),
             }

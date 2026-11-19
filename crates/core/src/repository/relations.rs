@@ -733,5 +733,4 @@ fn graph_components(node_count: usize, edges: &[CollectionGraphEdge]) -> Vec<Col
 }
 
 #[cfg(test)]
-#[path = "relation_inspection.test.rs"]
 mod tests;

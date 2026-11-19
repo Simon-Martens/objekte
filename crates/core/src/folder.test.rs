@@ -1,4 +1,4 @@
-use crate::execution_options::ReturnMode;
+use crate::query::options::ReturnMode;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;

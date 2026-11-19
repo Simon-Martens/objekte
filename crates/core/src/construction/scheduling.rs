@@ -12,7 +12,7 @@ use std::sync::mpsc;
 use rayon::ThreadPool;
 use serde::Serialize;
 
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::storage_diagnostic_enabled;
 use crate::inference::InferenceConfig;
 use crate::model::{CollectionId, FileId};

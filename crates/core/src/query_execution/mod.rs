@@ -5,3 +5,4 @@ pub mod preindex;
 pub(crate) mod request;
 pub mod restrictions;
 pub mod runner;
+pub mod streaming;

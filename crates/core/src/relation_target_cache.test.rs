@@ -1,13 +1,16 @@
 use super::*;
-use crate::execution_options::{BigramAlphabet, ReturnMode};
+use crate::index::bigram::BigramAlphabet;
 use crate::model::LogicalType;
+use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions, parse_filter};
+use crate::query_execution::streaming::{
+    CancellationToken, StreamControl, StreamError, StreamMode, StreamOptions,
+};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
-use crate::streaming::{CancellationToken, StreamControl, StreamError, StreamMode, StreamOptions};
 
 #[test]
 fn prefetch_limits_keep_stream_resource_classification() {
@@ -31,7 +34,9 @@ fn prefetch_limits_keep_stream_resource_classification() {
 
 #[test]
 fn second_prefetched_target_in_batch_obeys_record_limit() {
-    use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
+    use crate::query_execution::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
     let (root, repo) = fixture(BigramAlphabet::Ascii);
     let context = ExecutionContext::new(
         crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
@@ -321,7 +326,9 @@ fn high_fanout_stream_prefetch_reports_resource_limit_before_grouping() {
     assert!(
         matches!(
             result,
-            Ok(crate::streaming::StreamOutcome::Complete(_)) | Err(StreamError::Resource { .. })
+            Ok(crate::query_execution::streaming::StreamOutcome::Complete(
+                _
+            )) | Err(StreamError::Resource { .. })
         ),
         "{result:?}"
     );
@@ -379,7 +386,12 @@ fn segmented_stream_skips_unused_flat_prefetch_allowance() {
         &mut |_| Ok(StreamControl::Continue),
     );
     assert!(
-        matches!(result, Ok(crate::streaming::StreamOutcome::Complete(_))),
+        matches!(
+            result,
+            Ok(crate::query_execution::streaming::StreamOutcome::Complete(
+                _
+            ))
+        ),
         "{result:?}"
     );
     std::fs::remove_dir_all(root).unwrap();

@@ -5,16 +5,16 @@ use std::collections::BTreeMap;
 use roaring::RoaringBitmap;
 
 use super::Payload;
-use crate::execution_options::ReturnMode;
 use crate::inventory::ByteRange;
 use crate::measurement::WorkCounters;
 use crate::query::Query;
+use crate::query::options::ReturnMode;
 use crate::query_diagnostics::trace::QueryPlanTrace;
+use crate::query_execution::streaming::{CancellationToken, ExecutionContext};
 use crate::query_results::payload::payload_from_bytes_with_execution;
 use crate::query_results::ranking::Winner;
 use crate::repository::Repository;
 use crate::source::access::SourceAccessSession;
-use crate::streaming::{CancellationToken, ExecutionContext};
 
 /// Load only payloads needed by the currently visible requested page.
 pub(crate) fn materialize_winner_page(

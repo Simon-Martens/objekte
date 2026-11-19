@@ -1,13 +1,13 @@
 use super::Repository;
-use crate::execution_options::ReturnMode;
 use crate::inventory::RecordClass;
 use crate::model::{LogicalType, Value};
+use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions};
+use crate::query_execution::streaming::{ExecutionContext, ExecutionLimits};
 use crate::query_results::Payload;
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::schema::FieldDefinition;
 use crate::source::SourceFormat;
-use crate::streaming::{ExecutionContext, ExecutionLimits};
 
 #[test]
 fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
@@ -214,9 +214,7 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
     invalid_sort
         .options
         .sort
-        .push(crate::execution_options::SortField::simple(
-            "[invalid", false,
-        ));
+        .push(crate::query::options::SortField::simple("[invalid", false));
     assert!(repo.count_exact(&invalid_sort).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }

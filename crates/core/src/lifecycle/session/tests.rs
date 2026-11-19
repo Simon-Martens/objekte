@@ -165,10 +165,10 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
 #[test]
 fn pinned_view_uses_published_range_after_old_path_is_replaced() {
     use crate::query_execution::runner::DirectLookupResult;
-    use crate::query_results::Payload;
-    use crate::streaming::{
+    use crate::query_execution::streaming::{
         CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
     };
+    use crate::query_results::Payload;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-indexed-pin-incarnation-{}-{}",

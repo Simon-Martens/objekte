@@ -17,10 +17,10 @@ use objekte_search_core::lifecycle::initial::{InitialBuildPhase, InitialBuildTas
 use objekte_search_core::lifecycle::maintenance::{MaintenanceOperation, MaintenanceTask};
 use objekte_search_core::lifecycle::reconciliation::{ReconciliationState, ReconciliationTask};
 use objekte_search_core::lifecycle::{IndexRevision, IndexStatus, IndexView};
-use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::query_execution::runner::DirectLookupResult;
+use objekte_search_core::query_execution::streaming::CancellationToken;
 use objekte_search_core::query_results::SearchHit;
-use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::repository::posting_values::PostingValuesRequest;
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{

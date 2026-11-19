@@ -6,10 +6,10 @@ use std::sync::{
     atomic::{AtomicUsize, Ordering},
 };
 
-use crate::execution_options::ReturnMode;
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::inventory::ByteRange;
 use crate::model::{FileId, LogicalType};
+use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::schema::FieldDefinition;
 use crate::source::json_lines::JsonLinesReader;
@@ -933,9 +933,9 @@ fn discovery_and_segments_publish_without_losing_records() {
         first
             .search_stream(
                 &all_query(),
-                crate::streaming::StreamOptions::default(),
-                &crate::streaming::CancellationToken::new(),
-                &mut |_| Ok(crate::streaming::StreamControl::Continue),
+                crate::query_execution::streaming::StreamOptions::default(),
+                &crate::query_execution::streaming::CancellationToken::new(),
+                &mut |_| Ok(crate::query_execution::streaming::StreamControl::Continue),
             )
             .is_err()
     );
@@ -1064,7 +1064,7 @@ fn discovery_and_segments_publish_without_losing_records() {
     assert!(inference.fields.iter().any(|field| {
         field.path == ["late", "rare.field"] && field.observed_kinds == [LogicalType::Number]
     }));
-    let token = crate::streaming::CancellationToken::new();
+    let token = crate::query_execution::streaming::CancellationToken::new();
     assert!(
         !complete
             .can_append_added_since_with_cancellation(&second, &follow_query, &token)

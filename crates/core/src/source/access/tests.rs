@@ -27,7 +27,9 @@ fn source_failure_classifier_keeps_missing_revision_and_range_distinct() {
 
 #[test]
 fn typed_source_change_requires_a_confirmed_revision_mismatch() {
-    use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
+    use crate::query_execution::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
     let root = std::env::temp_dir().join(format!(
         "objekte-typed-source-change-{}",
         std::process::id()

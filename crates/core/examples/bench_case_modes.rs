@@ -4,9 +4,10 @@ mod musenalm;
 use std::path::PathBuf;
 use std::time::Instant;
 
-use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
+use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::FieldPath;
+use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter,
 };

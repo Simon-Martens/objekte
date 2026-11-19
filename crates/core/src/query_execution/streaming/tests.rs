@@ -1,6 +1,7 @@
 use super::*;
-use crate::execution_options::{BigramAlphabet, ReturnMode, SortExpression, SortField};
+use crate::index::bigram::BigramAlphabet;
 use crate::model::{FieldPath, LogicalType};
+use crate::query::options::{ReturnMode, SortExpression, SortField};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
@@ -763,7 +764,7 @@ fn replacements_correct_late_better_sort_key_and_preserve_payloads() {
     let peak = summary.progress.peak_buffered_bytes;
     assert!(peak > 0);
     for (limit, expect_success) in [(peak, true), (peak.saturating_sub(1), false)] {
-        let fixture = crate::streaming::tests::fixture();
+        let fixture = crate::query_execution::streaming::tests::fixture();
         let outcome = fixture.repo.search_stream(
             &query,
             StreamOptions {

@@ -202,7 +202,7 @@ fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
 
 #[test]
 fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -336,7 +336,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
 
 #[test]
 fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -684,7 +684,7 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
 
 #[test]
 fn declared_structural_facts_are_exact_without_a_value_dictionary() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::repository::configuration::{
@@ -866,7 +866,7 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
 fn indexed_field_state_matches_independent_source_oracle_without_verification() {
     use crate::query_execution::restrictions::AccessPathKind;
 
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -1130,7 +1130,7 @@ fn mixed_selected_occurrences_have_independent_exact_state_facts() {
 
 #[test]
 fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -1215,8 +1215,8 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
 
 #[test]
 fn structural_membership_tracks_file_replacement_move_delete_and_add() {
-    use crate::execution_options::ReturnMode;
     use crate::lifecycle::Index;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
@@ -1338,7 +1338,7 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
 
 #[test]
 fn bounded_mixed_values_match_source_oracle_for_state_composition() {
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,

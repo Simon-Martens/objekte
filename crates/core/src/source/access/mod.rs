@@ -7,7 +7,7 @@ use sha2::{Digest, Sha256};
 
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::measurement::SourceUnavailableKind;
-use crate::streaming::{ExecutionContext, ExecutionErrorKind};
+use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 
 pub(crate) mod session;
 

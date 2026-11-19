@@ -148,7 +148,7 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery,
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::execution_options::ReturnMode;
+    use crate::query::options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, RegexOptions};
     use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
     use crate::source::SourceFormat;

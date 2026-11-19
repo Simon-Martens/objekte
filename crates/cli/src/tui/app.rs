@@ -5,8 +5,6 @@ use std::path::PathBuf;
 use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
-use objekte_search_core::completion::{self as completion_context, CompletionContext};
-use objekte_search_core::execution_options::{ReturnMode, SortField};
 #[cfg(test)]
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle::initial::{
@@ -15,15 +13,17 @@ use objekte_search_core::lifecycle::initial::{
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{FileCatalogueRow, IndexView};
 use objekte_search_core::model::{FieldPath, FileId, LogicalType, PathRoot, Value};
+use objekte_search_core::query::completion::{self as completion_context, CompletionContext};
+use objekte_search_core::query::options::{ReturnMode, SortField};
 use objekte_search_core::query::path::QueryPath;
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
     RegexOptions, parse_filter, parse_structured_filter,
 };
-use objekte_search_core::query_results::{SearchHit, SearchResult};
-use objekte_search_core::streaming::{
+use objekte_search_core::query_execution::streaming::{
     CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
+use objekte_search_core::query_results::{SearchHit, SearchResult};
 use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
@@ -1490,7 +1490,7 @@ impl App {
                         }
                         page = rows.to_vec();
                     }
-                    Ok(objekte_search_core::streaming::StreamControl::Continue)
+                    Ok(objekte_search_core::query_execution::streaming::StreamControl::Continue)
                 });
                 let result = match outcome {
                     Ok(StreamOutcome::Complete(summary)) => Ok(SearchResult {
@@ -1518,7 +1518,7 @@ impl App {
                             }
                             hits.extend_from_slice(rows);
                         }
-                        Ok(objekte_search_core::streaming::StreamControl::Continue)
+                        Ok(objekte_search_core::query_execution::streaming::StreamControl::Continue)
                     },
                 );
                 let result = match outcome {

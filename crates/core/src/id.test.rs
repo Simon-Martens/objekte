@@ -1,10 +1,10 @@
-use crate::execution_options::{ReturnMode, SortField};
 use crate::index::posting::ScalarKey;
 use crate::model::{FieldPath, LogicalType, RecordId, Value};
-use crate::posting_values::PostingValuesRequest;
+use crate::query::options::{ReturnMode, SortField};
 use crate::query::{CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::query_results::Payload;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::posting_values::PostingValuesRequest;
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
@@ -202,7 +202,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         assert_eq!(refs.values[0].value, ScalarKey::Id("TargetA".into()));
         assert_eq!(refs.values[0].count, 1);
         let mut incompatible = PostingValuesRequest::new("data", "entry", 10);
-        incompatible.lower = Some(crate::posting_values::PostingValueBound {
+        incompatible.lower = Some(crate::repository::posting_values::PostingValueBound {
             value: ScalarKey::String("TargetA".into()),
             inclusive: true,
         });

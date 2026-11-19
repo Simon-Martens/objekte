@@ -505,7 +505,9 @@ pub(super) fn scan_file(
                                 evidence.iter().map(|field| field.len() + 64).sum::<usize>(),
                             )
                             .saturating_add(
-                                payload.as_ref().map_or(0, crate::streaming::payload_bytes),
+                                payload
+                                    .as_ref()
+                                    .map_or(0, crate::query_execution::streaming::payload_bytes),
                             )
                     } else {
                         0

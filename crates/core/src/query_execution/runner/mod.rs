@@ -10,11 +10,10 @@ use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::execution_options::ReturnMode;
-use crate::execution_options::simple_composite_part;
 use crate::index::posting::PostingIndex;
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
+use crate::index::sorting::simple_composite_part;
 use crate::index::sorting::{InferredOrderKey, SortColumn};
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
@@ -26,6 +25,7 @@ use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 #[cfg(test)]
 use crate::query::FtsMode;
 use crate::query::binding::fts::BoundFts;
+use crate::query::options::ReturnMode;
 use crate::query::prepared::PreparedCollectionQuery;
 use crate::query::semantics::folding::FoldRecordGuard;
 use crate::query::semantics::record::RecordContext;
@@ -47,6 +47,11 @@ use crate::query_execution::restrictions::{
     segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
     segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
     segment_fts_estimate_with_term,
+};
+use crate::query_execution::streaming::{
+    Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    ResultScope, StreamControl, StreamError, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
+    StreamSummary,
 };
 use crate::query_predicate::{
     DirectSourcePlan, PreparedExpr, Residual, borrowed_relation_source_text, borrowed_value_text,
@@ -82,11 +87,6 @@ use crate::source::access::{
 };
 use crate::source::verification::BorrowedScanQuery;
 use crate::source::{ExtractedRecord, ScanProjection};
-use crate::streaming::{
-    Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
-    ResultScope, StreamControl, StreamError, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
-    StreamSummary,
-};
 
 mod ordered;
 mod relations;
@@ -845,7 +845,7 @@ pub(crate) fn search_segmented_with_context(
     catalog: &FileCatalog,
     revision: IndexRevision,
     context: &ExecutionContext,
-) -> Result<SearchResult, crate::streaming::ExecutionError> {
+) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     search_segmented_with_context_lifecycle(
         repo,
         query,
@@ -867,7 +867,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
-) -> Result<SearchResult, crate::streaming::ExecutionError> {
+) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     search_segmented_with_context_lifecycle_budget(
         repo,
         query,
@@ -892,7 +892,7 @@ fn search_segmented_with_context_lifecycle_budget(
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
-) -> Result<SearchResult, crate::streaming::ExecutionError> {
+) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
     let result = search_segmented_impl(
         repo,
@@ -980,7 +980,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
     revision: IndexRevision,
     context: &ExecutionContext,
     _cache: Option<LifecycleCacheScope<'_>>,
-) -> Result<SearchResult, crate::streaming::ExecutionError> {
+) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
     match search_with_context_active(repo, query, context, base_active) {
         Err(error)
@@ -1338,7 +1338,9 @@ fn exact_ordered_page(
                 revision,
                 selected[cursor.segment_index].1.clone(),
             );
-            let Some(next) = retained_bytes.checked_add(crate::streaming::hit_bytes(&hit)) else {
+            let Some(next) =
+                retained_bytes.checked_add(crate::query_execution::streaming::hit_bytes(&hit))
+            else {
                 return Ok(None);
             };
             if next > 64 * 1024 * 1024 {
@@ -1655,22 +1657,22 @@ fn try_lifecycle_ordered_page(
     let mut page_query = query.clone();
     page_query.options.count = false;
     let mut hits = Vec::new();
-    let mut sink = |event: crate::streaming::StreamEvent<'_>| {
+    let mut sink = |event: crate::query_execution::streaming::StreamEvent<'_>| {
         match event {
-            crate::streaming::StreamEvent::OrderedRows { rows, .. }
-            | crate::streaming::StreamEvent::PageReplacement { rows, .. } => {
+            crate::query_execution::streaming::StreamEvent::OrderedRows { rows, .. }
+            | crate::query_execution::streaming::StreamEvent::PageReplacement { rows, .. } => {
                 hits.extend(rows.iter().cloned());
             }
-            crate::streaming::StreamEvent::Progress { .. } => {}
+            crate::query_execution::streaming::StreamEvent::Progress { .. } => {}
         }
-        Ok(crate::streaming::StreamControl::Continue)
+        Ok(crate::query_execution::streaming::StreamControl::Continue)
     };
     let mut delivery = Delivery::new(
-        crate::streaming::StreamOptions::default(),
+        crate::query_execution::streaming::StreamOptions::default(),
         &cancellation,
         &mut sink,
     );
-    let scope = crate::streaming::ResultScope::Page {
+    let scope = crate::query_execution::streaming::ResultScope::Page {
         offset: query.options.offset,
         limit: query.options.limit,
     };
@@ -1691,7 +1693,7 @@ fn try_lifecycle_ordered_page(
         cache,
         &mut delivery,
     )?;
-    let Some(crate::streaming::StreamOutcome::Complete(summary)) = outcome else {
+    let Some(crate::query_execution::streaming::StreamOutcome::Complete(summary)) = outcome else {
         return Ok(None);
     };
     let mut counters = summary.counters;
@@ -3925,7 +3927,7 @@ fn try_lifecycle_ordered_stream(
                 counters.record_parses += parses;
             }
         }
-        let bytes = crate::streaming::hit_bytes(&hit);
+        let bytes = crate::query_execution::streaming::hit_bytes(&hit);
         if limit.is_none()
             && !page.is_empty()
             && (page.len() >= delivery.options().batch_rows
@@ -4070,7 +4072,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             progress: Default::default(),
         })?;
     if matches!(scope, ResultScope::All { .. })
-        && options.mode != crate::streaming::StreamMode::OrderedRows
+        && options.mode != crate::query_execution::streaming::StreamMode::OrderedRows
     {
         return Err(StreamError::Execution {
             kind: ExecutionErrorKind::InvalidQuery,
@@ -4180,7 +4182,13 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                     .chunks(options.batch_rows)
                     .try_for_each(|rows| delivery.ordered_batch(rows, &result.counters)),
                 StreamMode::PageReplacements => delivery
-                    .check_buffer(result.hits.iter().map(crate::streaming::hit_bytes).sum())
+                    .check_buffer(
+                        result
+                            .hits
+                            .iter()
+                            .map(crate::query_execution::streaming::hit_bytes)
+                            .sum(),
+                    )
                     .and_then(|_| delivery.replacement(&result.hits, &result.counters, 0)),
             };
             if let Err(message) = delivered {
@@ -4264,7 +4272,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     if !all {
         if let Err(message) =
             delivery.check_buffer(result.hits.iter().fold(0usize, |bytes, hit| {
-                bytes.saturating_add(crate::streaming::hit_bytes(hit))
+                bytes.saturating_add(crate::query_execution::streaming::hit_bytes(hit))
             }))
         {
             return segmented_stream_error(&mut delivery, context, message);
@@ -4334,7 +4342,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                         && hit.record_class == RecordClass::Logical,
                 );
             }
-            let size = crate::streaming::hit_bytes(&hit);
+            let size = crate::query_execution::streaming::hit_bytes(&hit);
             if !batch.is_empty()
                 && (batch.len() >= options.batch_rows
                     || batch_bytes.saturating_add(size) > options.max_event_bytes)
@@ -4359,10 +4367,10 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     } else {
         stamp_native_rows(repo, revision, &mut result.hits);
         let delivered = match options.mode {
-            crate::streaming::StreamMode::OrderedRows => {
+            crate::query_execution::streaming::StreamMode::OrderedRows => {
                 delivery.ordered_rows(&result.hits, &result.counters, true)
             }
-            crate::streaming::StreamMode::PageReplacements => {
+            crate::query_execution::streaming::StreamMode::PageReplacements => {
                 delivery.replacement(&result.hits, &result.counters, 0)
             }
         };
@@ -4494,7 +4502,7 @@ pub(crate) fn search_with_context_active(
     query: &Query,
     context: &ExecutionContext,
     active: &[ActiveRecords],
-) -> Result<SearchResult, crate::streaming::ExecutionError> {
+) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
     search_active_inner(repo, query, active, Some(context))
         .map_err(|message| context.recorded_error(message))
@@ -4581,7 +4589,7 @@ pub(crate) fn search_with_context(
     repo: &Repository,
     query: &Query,
     context: &ExecutionContext,
-) -> Result<SearchResult, crate::streaming::ExecutionError> {
+) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
     let result = if query.options.count && query.options.limit == 0 {
         BoundSort::bind(repo, query)
@@ -4732,7 +4740,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
         posting_order_eligible(repo, execution_query, None, &repo.segments, &repo.catalog);
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
-            kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
+            kind: crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
             message,
             progress: delivery.progress,
         })?;
@@ -4745,7 +4753,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
         .verified
         .lock()
         .map_err(|error| StreamError::Execution {
-            kind: crate::streaming::ExecutionErrorKind::Execution,
+            kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
             message: error.to_string(),
             progress: delivery.progress,
         })?
@@ -4763,7 +4771,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
         Some(
             crate::query_results::verified::key(&membership_query).map_err(|message| {
                 StreamError::Execution {
-                    kind: crate::streaming::ExecutionErrorKind::Execution,
+                    kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                     message,
                     progress: delivery.progress,
                 }
@@ -4776,7 +4784,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
         repo.verified
             .lock()
             .map_err(|error| StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
+                kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                 message: error.to_string(),
                 progress: delivery.progress,
             })?
@@ -4868,7 +4876,13 @@ pub(crate) fn search_stream_scoped_with_context_active(
         }
     };
     let final_delivery = delivery
-        .check_buffer(result.hits.iter().map(crate::streaming::hit_bytes).sum())
+        .check_buffer(
+            result
+                .hits
+                .iter()
+                .map(crate::query_execution::streaming::hit_bytes)
+                .sum(),
+        )
         .and_then(|_| match options.mode {
             StreamMode::OrderedRows => delivery.ordered_rows(&result.hits, &result.counters, true),
             StreamMode::PageReplacements => delivery.replacement(&result.hits, &result.counters, 0),
@@ -4885,7 +4899,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
                 progress: delivery.progress,
             }),
             None => Err(StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
+                kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                 message,
                 progress: delivery.progress,
             }),
@@ -4908,7 +4922,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
                 .verified
                 .lock()
                 .map_err(|error| StreamError::Execution {
-                    kind: crate::streaming::ExecutionErrorKind::Execution,
+                    kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                     message: error.to_string(),
                     progress: delivery.progress,
                 })?
@@ -4949,7 +4963,7 @@ fn deliver_ranked_all(
         let source_bytes =
             usize::try_from(hit.byte_end.saturating_sub(hit.byte_start)).unwrap_or(usize::MAX);
         let current = batch.iter().fold(0usize, |total, prior| {
-            total.saturating_add(crate::streaming::hit_bytes(prior))
+            total.saturating_add(crate::query_execution::streaming::hit_bytes(prior))
         });
         if !batch.is_empty()
             && (batch.len() >= delivery.options().batch_rows
@@ -5000,7 +5014,7 @@ fn deliver_ranked_all(
         }
         batch.push(hit);
         delivery.check_buffer(batch.iter().fold(0usize, |total, row| {
-            total.saturating_add(crate::streaming::hit_bytes(row))
+            total.saturating_add(crate::query_execution::streaming::hit_bytes(row))
         }))?;
         flush_all_batch_if_full(delivery, &mut batch, &result.counters)?;
     }

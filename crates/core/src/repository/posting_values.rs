@@ -537,7 +537,7 @@ pub(crate) fn select_exact_segmented(
     request.options.offset = 0;
     request.options.sort.clear();
     request.options.evidence = false;
-    request.options.return_mode = crate::execution_options::ReturnMode::Locator;
+    request.options.return_mode = crate::query::options::ReturnMode::Locator;
     request.options.limit = segments[collection_index]
         .iter()
         .try_fold(
@@ -1305,5 +1305,4 @@ impl Repository {
 }
 
 #[cfg(test)]
-#[path = "posting_values.test.rs"]
 mod tests;

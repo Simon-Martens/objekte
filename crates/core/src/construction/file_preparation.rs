@@ -11,7 +11,7 @@ use std::sync::mpsc;
 use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
 
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};

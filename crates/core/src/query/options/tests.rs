@@ -1,15 +1,17 @@
-use super::{BigramAlphabet, ReturnMode, SortExpression, SortField, SortReducer};
+use crate::index::bigram::BigramAlphabet;
+
+use super::{ReturnMode, SortExpression, SortField, SortReducer};
 
 #[test]
 fn workload_reexports_are_the_runtime_option_types() {
-    let mode: crate::execution_options::ReturnMode = ReturnMode::Logical;
-    let alphabet: crate::execution_options::BigramAlphabet = BigramAlphabet::Unicode;
-    let expression: crate::execution_options::SortExpression = SortExpression {
+    let mode: crate::query::options::ReturnMode = ReturnMode::Logical;
+    let alphabet: crate::index::bigram::BigramAlphabet = BigramAlphabet::Unicode;
+    let expression: crate::query::options::SortExpression = SortExpression {
         path: "title".into(),
         binding: None,
         reducer: Some(SortReducer::First),
     };
-    let field: crate::execution_options::SortField = SortField::computed(expression, false);
+    let field: crate::query::options::SortField = SortField::computed(expression, false);
     assert_eq!(mode, ReturnMode::Logical);
     assert_eq!(alphabet, BigramAlphabet::Unicode);
     assert_eq!(field.field, "title");

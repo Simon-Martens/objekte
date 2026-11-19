@@ -1,6 +1,6 @@
 use super::*;
 
-use crate::execution_options::BigramAlphabet;
+use crate::index::bigram::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::model::LogicalType;
 use crate::model::RecordSlot;
@@ -125,7 +125,7 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
             limit: 10,
             offset: 0,
             count: true,
-            return_mode: crate::execution_options::ReturnMode::Locator,
+            return_mode: crate::query::options::ReturnMode::Locator,
             evidence: false,
         },
     };
@@ -251,7 +251,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
                 limit: 10,
                 offset: 0,
                 count: false,
-                return_mode: crate::execution_options::ReturnMode::Locator,
+                return_mode: crate::query::options::ReturnMode::Locator,
                 evidence: false,
             },
         };
@@ -560,7 +560,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 limit: 1,
                 offset: 0,
                 count: false,
-                return_mode: crate::execution_options::ReturnMode::Locator,
+                return_mode: crate::query::options::ReturnMode::Locator,
                 evidence: false,
             },
         };
