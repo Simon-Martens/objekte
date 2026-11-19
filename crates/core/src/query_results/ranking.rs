@@ -8,7 +8,7 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::sorting::{SortColumn, SortKey, SortOptions};
 use crate::inventory::RecordEntry;
 use crate::lifecycle::PublishedSegment;
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
 use crate::query::Query;

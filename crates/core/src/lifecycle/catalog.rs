@@ -18,7 +18,7 @@ use roaring::RoaringBitmap;
 use crate::inventory::{
     FileEntry, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
 };
-use crate::lifecycle_scan::FileStamp;
+use crate::lifecycle::reconciliation::scan::FileStamp;
 use crate::model::FileId;
 use crate::query::Operator;
 use crate::repository::Repository;
@@ -541,5 +541,4 @@ impl FileCatalog {
 }
 
 #[cfg(test)]
-#[path = "lifecycle_catalog.test.rs"]
 mod tests;

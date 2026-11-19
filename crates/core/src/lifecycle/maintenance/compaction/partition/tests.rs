@@ -90,10 +90,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
         std::fs::write(&small, format!("{{\"name\":\"small-{update}\"}}\n")).unwrap();
         handle = index.update_file(handle, &small).unwrap().file;
         let current = index.view().unwrap();
-        assert!(
-            current.0.segments[0].len()
-                <= 65 + super::super::lifecycle::MAX_SEGMENTS_PER_COLLECTION
-        );
+        assert!(current.0.segments[0].len() <= 65 + crate::lifecycle::MAX_SEGMENTS_PER_COLLECTION);
         for (original, shard) in full.iter().zip(current.0.segments[0].iter()) {
             assert!(Arc::ptr_eq(original, shard));
         }

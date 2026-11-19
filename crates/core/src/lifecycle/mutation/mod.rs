@@ -14,14 +14,14 @@ use crate::construction::file_preparation::{
 };
 use crate::discovery::selects_file;
 use crate::inventory::SourceRevision;
+use crate::lifecycle::maintenance::compaction::compact_published;
+use crate::lifecycle::mutation::verified::{
+    preserve_partition_record_slots, preserve_single_record_slots, remove_verified_old_shards,
+    verify_old_content,
+};
 use crate::lifecycle::{
     DeleteResult, DeleteStrategy, FileHandle, Index, IndexError, IndexRevision, IndexView,
     PreparedReplacement, PublishedIndex,
-};
-use crate::lifecycle_compaction::compact_published;
-use crate::lifecycle_verified::{
-    preserve_partition_record_slots, preserve_single_record_slots, remove_verified_old_shards,
-    verify_old_content,
 };
 use crate::model::{CollectionId, MetadataField, PathRoot};
 use crate::repository::IdentityPolicy;
@@ -800,6 +800,8 @@ impl Index {
     }
 }
 
+mod preparation;
+mod staging;
 #[cfg(test)]
-#[path = "lifecycle_mutation.test.rs"]
 mod tests;
+mod verified;

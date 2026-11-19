@@ -6,8 +6,8 @@ use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use crate::execution_options::ReturnMode;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
+use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::{IndexRevision, PublishedSegment};
-use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::RecordSlot;
 use crate::query::Query;

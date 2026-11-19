@@ -9,8 +9,8 @@ use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
     FilePreparationBinding, prepare_file_build_from_bytes,
 };
+use crate::lifecycle::mutation::VerifiedFallbackReason;
 use crate::lifecycle::{FileHandle, IndexView, PublishedIndex, PublishedSegment};
-use crate::lifecycle_mutation::VerifiedFallbackReason;
 use crate::model::{CollectionId, FileId, RecordSlot};
 
 const MAX_VERIFIED_SCANNED_RECORDS: usize = 16_384;

@@ -12,11 +12,11 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PartitionRouting;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
+use crate::lifecycle::catalog::FileCatalog;
+#[cfg(test)]
+use crate::lifecycle::maintenance::compaction::base_as_segment;
 #[cfg(test)]
 use crate::lifecycle::{PublishedIndex, PublishedSegment};
-use crate::lifecycle_catalog::FileCatalog;
-#[cfg(test)]
-use crate::lifecycle_compaction::base_as_segment;
 use crate::model::FileId;
 
 #[cfg(test)]
@@ -256,5 +256,4 @@ fn partition_base_with_limits_inner(
 }
 
 #[cfg(test)]
-#[path = "lifecycle_partition.test.rs"]
 mod tests;

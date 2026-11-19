@@ -355,5 +355,4 @@ impl Index {
 }
 
 #[cfg(test)]
-#[path = "lifecycle_initial.test.rs"]
 mod tests;

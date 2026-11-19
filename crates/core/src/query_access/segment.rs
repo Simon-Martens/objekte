@@ -3,7 +3,7 @@
 use std::sync::{Arc, Mutex};
 
 use crate::index::segment::IndexedCollectionSegment;
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::query::binding::filter::BoundTerm;
 use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::query_execution::domain::domain_id;
