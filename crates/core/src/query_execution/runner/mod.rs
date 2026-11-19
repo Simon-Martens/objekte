@@ -125,6 +125,14 @@ thread_local! {
         const { std::cell::Cell::new(0) };
     static ORDERED_TAIL_SOURCE_BYTES: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_CANDIDATES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_KEYS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_MEMBERS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_EVIDENCE: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
     static ORDERED_TAIL_READ_ATTEMPTS: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
 }
@@ -166,6 +174,24 @@ pub(crate) fn ordered_tail_components() -> (usize, usize, usize, usize, usize) {
         ORDERED_TAIL_IDENTITY_BYTES.with(std::cell::Cell::get),
         ORDERED_TAIL_CURSOR_BYTES.with(std::cell::Cell::get),
         ORDERED_TAIL_SOURCE_BYTES.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn reset_cache_closed_work() {
+    CACHE_CLOSED_CANDIDATES.with(|value| value.set(0));
+    CACHE_CLOSED_KEYS.with(|value| value.set(0));
+    CACHE_CLOSED_MEMBERS.with(|value| value.set(0));
+    CACHE_CLOSED_EVIDENCE.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn cache_closed_work() -> (usize, usize, usize, usize) {
+    (
+        CACHE_CLOSED_CANDIDATES.with(std::cell::Cell::get),
+        CACHE_CLOSED_KEYS.with(std::cell::Cell::get),
+        CACHE_CLOSED_MEMBERS.with(std::cell::Cell::get),
+        CACHE_CLOSED_EVIDENCE.with(std::cell::Cell::get),
     )
 }
 
@@ -3797,6 +3823,16 @@ fn try_lifecycle_ordered_stream(
             .as_ref()
             .ok_or("ordered collection filter missing")?;
         let mut evidence = HashSet::new();
+        let cache_accepting = cache_builder
+            .as_ref()
+            .is_some_and(LifecycleCacheBuilder::is_accepting);
+        #[cfg(test)]
+        let cache_closed = page_captured && cache_builder.is_some() && !cache_accepting;
+        #[cfg(test)]
+        if cache_closed {
+            CACHE_CLOSED_CANDIDATES.with(|value| value.set(value.get() + 1));
+        }
+        let retain_evidence = request.options.evidence && (!page_captured || cache_accepting);
         let must_verify = fts.is_some()
             || (filter.is_some() && !filter_exact[cursor.collection_index][cursor.segment_index]);
         if limit.is_none() && !page.is_empty() {
@@ -3914,16 +3950,20 @@ fn try_lifecycle_ordered_stream(
                     fts.is_some() && !borrowed_value_text(collection, fts.as_ref()),
                 ),
                 None,
-                request.options.evidence,
+                retain_evidence,
                 Some(context),
             )?;
+            #[cfg(test)]
+            if cache_closed && retain_evidence {
+                CACHE_CLOSED_EVIDENCE.with(|value| value.set(value.get() + 1));
+            }
             counters.raw_text_verifications += u64::from(raw_checked);
             evidence = found_evidence;
             bytes = Some(read);
             matched
         } else {
             counters.exact_posting_matches += 1;
-            if request.options.evidence {
+            if retain_evidence {
                 if let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields) {
                     evidence.extend(fields);
                 } else if let Some(branches) =
@@ -3935,6 +3975,10 @@ fn try_lifecycle_ordered_stream(
                         }
                     }
                 }
+                #[cfg(test)]
+                if cache_closed {
+                    CACHE_CLOSED_EVIDENCE.with(|value| value.set(value.get() + 1));
+                }
             }
             true
         };
@@ -3942,19 +3986,15 @@ fn try_lifecycle_ordered_stream(
             counters.record_parses += u64::from(verification_parsed);
             continue;
         }
-        if let Some(builder) = cache_builder.as_mut() {
-            let key = segment_rank_key(
-                repo,
-                &sort,
-                cursor.collection_index,
-                &published.index,
-                record,
-                None,
-            )?;
+        if cache_accepting && let Some(builder) = cache_builder.as_mut() {
+            #[cfg(test)]
+            if cache_closed {
+                CACHE_CLOSED_KEYS.with(|value| value.set(value.get() + 1));
+            }
             let mut matched_fields = evidence.iter().cloned().collect::<Vec<_>>();
             matched_fields.sort();
             builder.push(
-                &key,
+                &cursor.key,
                 CachedMember {
                     collection_index: cursor.collection_index,
                     segment_index: Some(cursor.segment_index),
@@ -3962,6 +4002,10 @@ fn try_lifecycle_ordered_stream(
                     matched_fields: matched_fields.into(),
                 },
             );
+            #[cfg(test)]
+            if cache_closed {
+                CACHE_CLOSED_MEMBERS.with(|value| value.set(value.get() + 1));
+            }
         }
         let position = counters.total_matches as usize;
         counters.total_matches += 1;

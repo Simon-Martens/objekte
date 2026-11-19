@@ -408,6 +408,70 @@ fn residual_payload_fixture() -> Fixture {
     Fixture { root, repo }
 }
 
+fn cache_closed_fixture() -> Fixture {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-stream-cache-closed-{}-{}",
+        std::process::id(),
+        NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for n in 0..20 {
+        std::fs::write(
+            root.join(format!("data/{n:03}.json")),
+            format!(r#"{{"kind":"yes","score":{n}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![FieldPath::parse("score").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 512,
+            query_workers: 4,
+            bigram_alphabet: BigramAlphabet::Ascii,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    Fixture { root, repo }
+}
+
 #[test]
 fn all_scope_streams_more_than_fifty_rows_once_in_bounded_batches() {
     let fixture = fixture_with_count(BigramAlphabet::Ascii, 73);
@@ -1104,6 +1168,54 @@ fn replacement_callback_charges_old_and_new_identities_together() {
     assert_eq!(error, "stream memory budget exceeded");
     assert_eq!(callbacks.load(Ordering::Relaxed), 1);
     assert_eq!(delivery.last_page_sequence(), 1);
+}
+
+#[test]
+fn ordered_cache_admission_stops_cache_only_work_after_rejection() {
+    let fixture = cache_closed_fixture();
+    fixture.repo.configure_verified_cache(512).unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("kind = 'yes'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("score", false)],
+            limit: 1,
+            offset: 10,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    crate::query_execution::runner::reset_cache_closed_work();
+    let result = fixture.repo.search(&query).unwrap();
+    let (closed_candidates, closed_keys, closed_members, closed_evidence) =
+        crate::query_execution::runner::cache_closed_work();
+    assert!(closed_candidates > 0);
+    assert_eq!((closed_keys, closed_members, closed_evidence), (0, 0, 0));
+    assert_eq!(result.count, Some(20));
+    assert_eq!(result.hits.len(), 1);
+    assert_eq!(result.hits[0].matched_fields, ["kind"]);
+    assert_eq!(result.counters.files_opened, 0);
+    assert_eq!(result.counters.bytes_read, 0);
+    assert_eq!(result.counters.record_parses, 0);
+
+    let mut later = query.clone();
+    later.options.offset = 11;
+    later.options.limit = 2;
+    let later = fixture.repo.search(&later).unwrap();
+    assert!(!later.counters.verified_result_hit);
+    assert_eq!(later.count, Some(20));
+    assert!(later.hits.iter().all(|hit| hit.matched_fields == ["kind"]));
+
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    let cold = fixture.repo.search(&query).unwrap();
+    assert!(!cold.counters.verified_result_hit);
+    let warm = fixture.repo.search(&query).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.count, cold.count);
+    assert_eq!(warm.hits, cold.hits);
+    assert_eq!(warm.hits[0].matched_fields, ["kind"]);
 }
 
 fn preparation_counts() -> (usize, usize, usize) {
