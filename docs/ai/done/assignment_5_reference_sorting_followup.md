@@ -72,3 +72,39 @@ No separate benchmark command was specified for this follow-up. The focused work
 - The optimized plan, provider ordering, proof cache, and borrowed membership path remain unchanged.
 - This branch intentionally does not merge into `master`; integration into the dependent R6 worktree is performed after this report commit so R5 remains separately reviewable.
 - Final report-only head: the first documentation-only commit after tested code commit `4b6439989cfcea20b5efdaba35508fd2cf4c8e2a` on `repair/core-reference-sorting`.
+
+### R6 integration validation
+
+- Integration branch: `repair/core-lifecycle-coordination`
+- Integration worktree: `/home/simon/source/objekte-repair-core-lifecycle-coordination`
+- Tested R6 merge revision: `5e4826dc615d00cfd3074906b52512c7f1758e0d`
+- Source follow-up report head: `5cffd5df18a92ad0b4af272bb7c51dcc2b3c9ac0`
+
+The follow-up was merged into the existing R6 repair stack without conflict,
+preserving R6 ancestry. The merged tree passed:
+
+- `cargo fmt --all -- --check`
+- `cargo check --locked --workspace --all-targets`
+- `cargo test --locked --workspace` (590 core unit tests passed, 16 ignored, plus all workspace integration and doc tests)
+- `cargo test --locked -p objekte-search-core --all-features` (591 core unit tests passed, 16 ignored, plus all integration and doc tests)
+- `RUSTDOCFLAGS='-D rustdoc::broken_intra_doc_links' cargo doc --locked --workspace --no-deps`
+- `cargo test --locked -p objekte-search-core --lib lifecycle::` (88 passed, 6 ignored)
+
+The requested lifecycle behaviors were also checked individually:
+
+- `lifecycle::tests::rebuild_retries_after_concurrent_file_commit_without_losing_it`: 1 passed.
+- `lifecycle::maintenance::compaction::tests::background_compaction_preserves_pinned_reader_and_reports_completion`: 1 passed.
+- `lifecycle::tests::background_reconciliation_reports_completion_and_joins`: 1 passed.
+
+The ignored release compaction regression was run with the default record
+count and the environment override unset:
+
+```text
+env -u OBJEKTE_LARGE_COMPACT_RECORDS cargo test --locked --release \
+  -p objekte-search-core --lib \
+  large_source_free_compaction_cancels_and_retries_a_concurrent_commit \
+  -- --ignored --nocapture
+```
+
+It reported `records=262144`, `attempts=2`, `before=262146`,
+`after=262145`, `retired=1`, and exactly one passing test.
