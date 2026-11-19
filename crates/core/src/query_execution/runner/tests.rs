@@ -705,9 +705,6 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     std::fs::write(root.join("data/records.jsonl"), format!("{source}\n")).unwrap();
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
-    definition
-        .sort_fields
-        .push(crate::model::FieldPath::parse("id").unwrap());
     for (field, kind, indexed) in [
         ("title", LogicalType::String, true),
         ("year", LogicalType::Number, true),

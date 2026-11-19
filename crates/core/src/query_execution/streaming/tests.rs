@@ -1179,7 +1179,7 @@ fn ordered_cache_admission_stops_cache_only_work_after_rejection() {
         fts: None,
         filter: Some(parse_filter("kind = 'yes'").unwrap()),
         options: QueryOptions {
-            sort: vec![SortField::simple("score", false)],
+            sort: Vec::new(),
             limit: 1,
             offset: 10,
             count: true,

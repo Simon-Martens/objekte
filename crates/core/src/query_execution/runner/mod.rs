@@ -3531,7 +3531,7 @@ fn try_lifecycle_ordered_stream(
                 && matches!(filter, BoundExpr::Or(_))
                 && segment_static_evidence_fields(filter).is_none()
             {
-                exact_or_branch_evidence_fields(
+                let Some(evidence) = exact_or_branch_evidence_fields(
                     &segment.index,
                     &segment.active,
                     filter,
@@ -3540,6 +3540,10 @@ fn try_lifecycle_ordered_stream(
                     &predicates,
                     context,
                 )?
+                else {
+                    return Ok(None);
+                };
+                Some(evidence)
             } else {
                 None
             };
@@ -3610,6 +3614,19 @@ fn try_lifecycle_ordered_stream(
                     .iter()
                     .all(|exact| *exact)
         });
+        let has_branch_evidence = prepared.collections.iter().any(|entry| {
+            evidence_branches[entry.collection_index]
+                .iter()
+                .any(Option::is_some)
+        });
+        let single_collection = prepared.collections.len() == 1;
+        if single_collection
+            && all_exact
+            && !request.options.sort.is_empty()
+            && !has_branch_evidence
+        {
+            return Ok(None);
+        }
         if request.options.sort.is_empty() && !all_exact {
             return Ok(None);
         }
@@ -3827,12 +3844,19 @@ fn try_lifecycle_ordered_stream(
             .as_ref()
             .is_some_and(LifecycleCacheBuilder::is_accepting);
         #[cfg(test)]
-        let cache_closed = page_captured && cache_builder.is_some() && !cache_accepting;
+        let admission_closed = cache_builder.is_some() && !cache_accepting;
+        let enters_requested_page = !page_captured && counters.total_matches as usize >= offset;
+        #[cfg(test)]
+        let cache_closed = admission_closed && !enters_requested_page;
         #[cfg(test)]
         if cache_closed {
             CACHE_CLOSED_CANDIDATES.with(|value| value.set(value.get() + 1));
         }
-        let retain_evidence = request.options.evidence && (!page_captured || cache_accepting);
+        #[cfg(test)]
+        let cache_only_evidence =
+            admission_closed && !enters_requested_page && request.options.evidence;
+        let retain_evidence =
+            request.options.evidence && (cache_accepting || enters_requested_page);
         let must_verify = fts.is_some()
             || (filter.is_some() && !filter_exact[cursor.collection_index][cursor.segment_index]);
         if limit.is_none() && !page.is_empty() {
@@ -3954,7 +3978,7 @@ fn try_lifecycle_ordered_stream(
                 Some(context),
             )?;
             #[cfg(test)]
-            if cache_closed && retain_evidence {
+            if cache_only_evidence {
                 CACHE_CLOSED_EVIDENCE.with(|value| value.set(value.get() + 1));
             }
             counters.raw_text_verifications += u64::from(raw_checked);
@@ -3976,7 +4000,7 @@ fn try_lifecycle_ordered_stream(
                     }
                 }
                 #[cfg(test)]
-                if cache_closed {
+                if cache_only_evidence {
                     CACHE_CLOSED_EVIDENCE.with(|value| value.set(value.get() + 1));
                 }
             }
