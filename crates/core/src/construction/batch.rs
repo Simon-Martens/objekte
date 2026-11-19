@@ -7,12 +7,13 @@ use std::path::Path;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 
+use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::{SortBuilder, SortKey};
-use crate::inference::{InferenceBuilder, InferenceConfig};
+use crate::inference::InferenceConfig;
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceDiagnostic, SourceRevision,

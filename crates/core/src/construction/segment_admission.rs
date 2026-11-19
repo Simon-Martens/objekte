@@ -8,6 +8,7 @@ use serde::Serialize;
 
 use crate::construction::batch::BatchContribution;
 use crate::construction::batch::canonical_custom_text_key;
+use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
@@ -16,7 +17,7 @@ use crate::index::segment::{
     IndexedCollectionSegment, SegmentAccounting, SegmentFile, SegmentId, SegmentPolicy,
 };
 use crate::index::sorting::SortBuilder;
-use crate::inference::{InferenceBuilder, InferenceConfig};
+use crate::inference::InferenceConfig;
 use crate::inventory::{
     CollectionBuilder, DiagnosticRef, FileInventory, FileStatus, RecordClass, RecordEntry,
     append_shifted_bitmap,
@@ -868,7 +869,7 @@ impl CollectionSegment {
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let inference_observation = inference
             .as_ref()
-            .map(crate::inference::InferenceBuilder::observation);
+            .map(crate::construction::inference::InferenceBuilder::observation);
         let inference = inference
             .map(|builder| {
                 builder.finish_candidates(&logical_records, record_count, &definition.schema)

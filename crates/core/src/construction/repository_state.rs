@@ -8,11 +8,12 @@ use std::time::Instant;
 use roaring::RoaringBitmap;
 
 use crate::construction::batch::canonical_custom_text_key;
+use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortBuilder;
-use crate::inference::{InferenceBuildStats, InferenceBuilder};
+use crate::inference::InferenceBuildStats;
 use crate::inventory::{
     ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
 };
@@ -541,7 +542,7 @@ pub(crate) fn assemble_final_repository(
         }
         pending_relations.push(relations);
         let (_, stats) = state.finish_summary(options).map_err(IndexError::Build)?;
-        collection.global_inference = crate::inference::build::aggregate_segment_inference(
+        collection.global_inference = crate::construction::inference::aggregate_segment_inference(
             options.inference,
             &collection.definition.schema,
             segments,
