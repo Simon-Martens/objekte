@@ -16,6 +16,7 @@ use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
 use crate::repository::configuration::CollectionDefinition;
+use crate::schema::Schema;
 use crate::source::{
     ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_file_build_outcomes,
     extraction::extract_framed_build_outcomes, extraction::frame_file_for_build,
@@ -24,6 +25,15 @@ use crate::source::{
 
 use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput, process_batch};
 use super::scheduling::{BuildScheduleStats, JobCounters, fits_allowance};
+
+pub(crate) fn finish_build_record(
+    schema: &Schema,
+    record: &mut crate::source::ExtractedRecord,
+) -> Result<(), String> {
+    schema.coerce_record(&mut record.value)?;
+    record.value.validate_finite_numbers()?;
+    Ok(())
+}
 
 /// A file's eligible collection bindings, resolved by discovery before I/O.
 /// Preparation performs no publication and never changes source files.
@@ -861,6 +871,9 @@ pub(crate) fn process_framed_file_profiled(
     counters.add_to(&mut stats);
     Ok(stats)
 }
+
+#[cfg(test)]
+mod tests;
 
 /// JSONL construction keeps only bounded line chunks and admitted worker
 /// contributions alive. A single line larger than the normal chunk size is a

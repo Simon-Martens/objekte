@@ -15,12 +15,12 @@ use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;
-use crate::record_preparation::prepare_query_record_with_execution;
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
 use crate::schema::FieldDefinition;
 use crate::source::ScanProjection;
 use crate::source::access::RecordRangeReader;
+use crate::source::preparation::prepare_query_record_with_execution;
 
 static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
 pub const MAX_POSTING_VALUES_PAGE: usize = 4096;

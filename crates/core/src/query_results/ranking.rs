@@ -21,9 +21,9 @@ use crate::query::sort_binding::{
 use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::query_results::cache::CacheBudget;
 use crate::query_results::verified::CachedMember;
-use crate::record_preparation::prepare_query_record_with_execution;
 use crate::repository::Repository;
 use crate::source::access::read_record_range_for_search;
+use crate::source::preparation::prepare_query_record_with_execution;
 use crate::source::{ExtractedRecord, ScanProjection};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;

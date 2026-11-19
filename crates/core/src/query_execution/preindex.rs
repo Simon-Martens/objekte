@@ -3,6 +3,7 @@
 use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
+use crate::construction::file_preparation::finish_build_record;
 use crate::inventory::discovery::discover;
 use crate::inventory::{
     DiagnosticRef, FileEntry, FileInventory, RecordClass, RecordEntry, SourceDiagnostic,
@@ -18,7 +19,6 @@ use crate::query::options::ReturnMode;
 use crate::query::semantics::record::RecordContext;
 use crate::query_execution::streaming::CancellationToken;
 use crate::query_results::{Payload, SearchHit, SearchResult};
-use crate::record_preparation::finish_build_record;
 use crate::reference::{eval_unavailable_filter, filter::eval_filter};
 use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};

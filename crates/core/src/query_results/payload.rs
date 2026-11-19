@@ -4,9 +4,23 @@ use super::Payload;
 use crate::inventory::RecordClass;
 use crate::query::options::ReturnMode;
 use crate::query_execution::streaming::ExecutionContext;
-use crate::record_preparation::{materialize, prepare_query_record_with_execution};
 use crate::repository::state::CollectionState;
-use crate::source::ScanProjection;
+use crate::source::preparation::prepare_query_record_with_execution;
+use crate::source::{ExtractedRecord, ScanProjection};
+
+pub(crate) fn materialize(
+    mode: &ReturnMode,
+    bytes: Vec<u8>,
+    logical: Option<ExtractedRecord>,
+) -> Result<Option<Payload>, String> {
+    Ok(match mode {
+        ReturnMode::Locator => None,
+        ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
+        ReturnMode::Logical => Some(Payload::Logical(
+            logical.ok_or("logical payload was not prepared")?.value,
+        )),
+    })
+}
 
 /// Returns the payload and the number of logical record parses to account for.
 /// Source access remains with each caller so grouped and bounded reads keep

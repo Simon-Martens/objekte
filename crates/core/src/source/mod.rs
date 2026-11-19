@@ -12,6 +12,7 @@ pub mod extraction;
 pub(crate) mod framing;
 pub mod json;
 pub mod json_lines;
+pub(crate) mod preparation;
 pub mod registry;
 #[cfg(test)]
 mod test_support;

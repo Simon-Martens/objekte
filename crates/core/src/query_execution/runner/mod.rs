@@ -66,7 +66,9 @@ pub(crate) use crate::query_results::cache::{
 };
 use crate::query_results::delivery::emit_provisional_page;
 use crate::query_results::materialize::materialize_winner_page;
-use crate::query_results::payload::{payload_from_bytes, payload_from_bytes_with_execution};
+use crate::query_results::payload::{
+    materialize, payload_from_bytes, payload_from_bytes_with_execution,
+};
 use crate::query_results::ranking::{
     MergedPageHit, RankKey, ResolvedSort, Winner, base_rank_key_merged, offer, offer_merged,
     rank_key, rank_key_bytes, rank_key_from_context, relation_rank_key_merged,
@@ -74,9 +76,6 @@ use crate::query_results::ranking::{
 };
 use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
 use crate::query_results::{Payload, SearchHit, SearchResult};
-use crate::record_preparation::{
-    materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
-};
 use crate::reference::fts::eval_bound_fts;
 use crate::reference::{eval_unavailable_filter, filter::eval_term};
 use crate::repository::Repository;
@@ -85,7 +84,8 @@ use crate::source::access::{
     RecordRangeReader, SourceAccessSession, classify_source_read_failure_for_search,
     probe_source_unavailable_for_search, read_record_range_for_search,
 };
-use crate::source::verification::BorrowedScanQuery;
+use crate::source::preparation::prepare_query_record_with_execution;
+use crate::source::verification::{BorrowedScanQuery, prepare_decoded_record_with_borrowed_fts};
 use crate::source::{ExtractedRecord, ScanProjection};
 
 mod ordered;

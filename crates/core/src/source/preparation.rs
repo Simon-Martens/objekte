@@ -1,24 +1,11 @@
-//! Shared parse, conversion, extracted-text and payload boundary.
+//! Query-side record projection, validation and logical-size accounting.
 
 use crate::inventory::RecordClass;
-use crate::query::binding::fts::BoundFts;
-use crate::query::options::ReturnMode;
 use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
-use crate::query_results::Payload;
 use crate::schema::Schema;
-use crate::source::verification::BorrowedScanResult;
 use crate::source::{
     ExtractedRecord, ScanProjection, registry::PreparedSource, text::finalize_extracted_text,
 };
-
-pub(crate) fn finish_build_record(
-    schema: &Schema,
-    record: &mut ExtractedRecord,
-) -> Result<(), String> {
-    schema.coerce_record(&mut record.value)?;
-    record.value.validate_finite_numbers()?;
-    Ok(())
-}
 
 /// Decode at most once for verification and the selected logical payload.
 /// Query projections retain the build-validated logical contract; a winner
@@ -165,52 +152,5 @@ pub(crate) fn prepare_query_record_with_execution(
     Ok(record)
 }
 
-/// Trusted decoded-scalar JSON keeps its source corpus while producing only
-/// the logical projection required by residual evaluation or output.
-pub(crate) fn prepare_decoded_record_with_borrowed_fts(
-    source: &PreparedSource,
-    schema: &Schema,
-    bytes: &[u8],
-    projection: &ScanProjection,
-    fts: &BoundFts,
-    evidence: bool,
-    execution: Option<&ExecutionContext>,
-) -> Result<(ExtractedRecord, BorrowedScanResult), String> {
-    if let Some(execution) = execution {
-        execution.check_string()?;
-    }
-    let verification = source
-        .scalar_verification()
-        .ok_or("combined decoded-scalar verification requires a built-in reader")?;
-    let (mut value, matched) =
-        verification.extract_decoded_record(bytes, projection, fts, evidence)?;
-    schema.convert_indexed_record(&mut value, projection.top_level.as_ref())?;
-    if let Some(execution) = execution {
-        execution.check_string()?;
-    }
-    Ok((
-        ExtractedRecord {
-            value,
-            text: Vec::new(),
-        },
-        matched,
-    ))
-}
-
-pub(crate) fn materialize(
-    mode: &ReturnMode,
-    bytes: Vec<u8>,
-    logical: Option<ExtractedRecord>,
-) -> Result<Option<Payload>, String> {
-    Ok(match mode {
-        ReturnMode::Locator => None,
-        ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
-        ReturnMode::Logical => Some(Payload::Logical(
-            logical.ok_or("logical payload was not prepared")?.value,
-        )),
-    })
-}
-
 #[cfg(test)]
-#[path = "record_preparation.test.rs"]
 mod tests;

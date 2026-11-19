@@ -591,10 +591,10 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
 
 #[test]
 fn build_json_borrows_logical_strings_after_temporal_conversion() {
+    use crate::construction::file_preparation::finish_build_record;
     use crate::index::bigram::BigramAlphabet;
     use crate::index::bigram::BigramBuilder;
     use crate::model::LogicalType;
-    use crate::record_preparation::finish_build_record;
     use crate::schema::{FieldDefinition, Schema};
 
     let source = SourceRegistry::builtin()

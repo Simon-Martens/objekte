@@ -7,6 +7,7 @@ use std::path::Path;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 
+use crate::construction::file_preparation::finish_build_record;
 use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
@@ -20,7 +21,6 @@ use crate::inventory::{
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
 use crate::query::semantics::record::data_values;
-use crate::record_preparation::finish_build_record;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{Schema, operation::BindingOperation};
 use crate::source::access::read_record_range_for_build;
