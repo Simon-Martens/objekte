@@ -180,3 +180,17 @@ No unresolved functional issue or blocked check remains. The A5 report commit is
 documentation-only after tested code revision `72f487df62`, and its source tree
 matches that tested revision. The branch and worktree remain for the owner’s merge
 decision.
+
+### Repair amendment
+
+Repair branch `repair/core-schema-binding` tested code revision
+`e8f1038cc27c23beab91ac3dd01a12ea52c41129`. It resolves reference clocks and
+bindings once at the public entry, restores a source-backed segmented relation
+oracle independent of planner/provider/posting truth, resolves related FTS,
+FILTER and sort keys from the same source path, and moves prepared contains
+ownership to query comparison semantics.
+
+Detailed independent-oracle, matcher, test-split and validation evidence is
+recorded in `docs/ai/done/assignment_5_reference_evaluation_repairs.md`. The R5
+repair retains both R4 and frozen A5 ancestry and keeps the six original A5 root
+removals.
