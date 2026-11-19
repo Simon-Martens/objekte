@@ -982,6 +982,9 @@ fn backlink_sort_does_not_use_a_forward_relation_at_the_same_ordinal() {
         ["B", "A"]
     );
     assert_eq!(optimized.hits, reference.hits);
+    assert_eq!(optimized.counters.sort_target_reads, 2);
+    assert_eq!(optimized.counters.relation_edge_visits, 3);
+    assert_eq!(optimized.counters.relation_target_reads, 0);
 
     let mut limited = sort_only.clone();
     limited.options.limit = 1;
