@@ -1,0 +1,43 @@
+{
+  "baseline": {
+    "path": "/home/simon/source/objekte-integration-core-refactoring-completion/docs/ai/generated/core-refactoring-completion/assignment-3-relation-verification-repair/q136/baseline/batch-2/queries",
+    "code_revision": "0f1d5e5ffa566a911f926ffe564e49c0c69ded77",
+    "binary_build_revision": "0f1d5e5ffa566a911f926ffe564e49c0c69ded77",
+    "executable_sha256": "c6dd7cf002868c0b1d5b28c6890918c1647c5c86017b751b4e1eed9e3eaf64a8",
+    "workload_path": "/home/simon/source/objekte-b-baseline-relation-verification-repair/crates/core/benches/musenalm_queries.json",
+    "workload_sha256": "56f2ba99e3a889b95975a6b460c4ef894732ad769f99e6f69086a3f0d3ac91c0",
+    "workload_fingerprint": "fc568ba811522a54db2de03dd43b6e438ed3931184ed82b5e0086986045a45e3"
+  },
+  "current": {
+    "path": "/home/simon/source/objekte-integration-core-refactoring-completion/docs/ai/generated/core-refactoring-completion/assignment-3-relation-verification-repair/q136/candidate/batch-2/queries",
+    "code_revision": "fd25d8678af5161cb92647d7dbddefa7f1aff391",
+    "binary_build_revision": "fd25d8678af5161cb92647d7dbddefa7f1aff391",
+    "executable_sha256": "b2005a597ea41aa4608bd4b3fe108becd96b5296635a51712ef711bf45a0cb3d",
+    "workload_path": "/home/simon/source/objekte-integration-core-refactoring-completion/crates/core/benches/musenalm_queries.json",
+    "workload_sha256": "56f2ba99e3a889b95975a6b460c4ef894732ad769f99e6f69086a3f0d3ac91c0",
+    "workload_fingerprint": "ddd771f5617eada5e183c846256fe8a31f69000d045059e049a6f23d654dd9c4"
+  },
+  "common": {
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+    "source_files": 148486,
+    "schema_fingerprint": "bf36ea2e88d1b455e28b0f5f36c71ebd03847b2a986cd3f1f2ea3302fd1eea08",
+    "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "query_workers": 4
+  },
+  "comparison": {
+    "baseline_samples": 3,
+    "current_samples": 3,
+    "matched_samples": 3,
+    "ordered_result_cases": 1,
+    "empty_cases": 0,
+    "nonempty_cases": 1,
+    "ordered_result_matches": 1,
+    "queries_equal": true,
+    "schemas_equal": true,
+    "workload_bytes_equal": true,
+    "compatibility_failures": [],
+    "mismatch_counts": {},
+    "first_differences": {}
+  }
+}

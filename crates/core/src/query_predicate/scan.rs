@@ -617,8 +617,8 @@ impl Residual<'_> {
         slot: u32,
         ctx: &RecordContext<'_>,
         evaluations: &mut u64,
-        relation_work: &mut crate::relation_query::RelationWork,
-        target_values: Option<&crate::relation_target_cache::TargetValueCache>,
+        relation_work: &mut crate::query_execution::relations::work::RelationWork,
+        target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
         Ok(match self {
             Self::Term(term, proof, term_id, predicates) => match Self::proven(*proof, slot) {
@@ -626,7 +626,7 @@ impl Residual<'_> {
                 None => {
                     *evaluations += 1;
                     if term.related.is_some() {
-                        crate::relation_query::eval_related_term(
+                        crate::query_execution::relations::evaluation::eval_related_term(
                             repo,
                             term,
                             ctx,
@@ -698,8 +698,8 @@ impl Residual<'_> {
         ctx: &RecordContext<'_>,
         evidence: &mut HashSet<String>,
         evaluations: &mut u64,
-        relation_work: &mut crate::relation_query::RelationWork,
-        target_values: Option<&crate::relation_target_cache::TargetValueCache>,
+        relation_work: &mut crate::query_execution::relations::work::RelationWork,
+        target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
         Ok(match self {
             Self::Term(term, proof, term_id, predicates) => {
@@ -708,7 +708,7 @@ impl Residual<'_> {
                     None => {
                         *evaluations += 1;
                         if term.related.is_some() {
-                            crate::relation_query::eval_related_term(
+                            crate::query_execution::relations::evaluation::eval_related_term(
                                 repo,
                                 term,
                                 ctx,

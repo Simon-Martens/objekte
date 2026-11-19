@@ -16,7 +16,7 @@ use crate::query::binding::relation::{BoundRelationHop, HopDirection, resolve_pa
 use crate::query::options::{SortExpression, SortField, SortReducer};
 use crate::query::path::{PathStep, QueryPath, split_path_binding};
 use crate::query::{semantics::record::RecordContext, semantics::record::metadata_value};
-use crate::relation_query::{MergedRecordSlot, MergedRelationView};
+use crate::query_execution::relations::view::{MergedRecordSlot, MergedRelationView};
 use crate::repository::Repository;
 use crate::schema::{operation::BindingOperation, operation::Transform};
 
@@ -441,7 +441,9 @@ impl<'a> BoundSort<'a> {
         collection_index: usize,
         ctx: &RecordContext<'_>,
         target_cache: &Mutex<SortTargetCache>,
-        external_targets: Option<&crate::relation_target_cache::TargetValueCache>,
+        external_targets: Option<
+            &crate::query_execution::relations::target_cache::TargetValueCache,
+        >,
     ) -> Result<Vec<(SortKey, bool, SortOptions)>, String> {
         self.terms[collection_index]
             .as_ref()
@@ -511,7 +513,9 @@ impl ComputedSort {
         collection_index: usize,
         ctx: &RecordContext<'_>,
         target_cache: Option<&Mutex<SortTargetCache>>,
-        external_targets: Option<&crate::relation_target_cache::TargetValueCache>,
+        external_targets: Option<
+            &crate::query_execution::relations::target_cache::TargetValueCache,
+        >,
     ) -> Result<SortKey, String> {
         if let Some((hops, terminal)) = &self.related {
             let mut reduced = SortAccumulator::new(self.reducer);
@@ -697,7 +701,7 @@ impl ComputedSort {
             HopDirection::Backlink => !has_position,
             HopDirection::Forward => {
                 view.relation_cardinality(hop.relation)?
-                    == crate::relation::RelationCardinality::Many
+                    == crate::schema::relations::RelationCardinality::Many
                     && !has_position
             }
         };
@@ -756,7 +760,8 @@ impl ComputedSort {
                 if reference
                     && !matches!(self.reducer, Some(SortReducer::First | SortReducer::Last))
                 {
-                    let mut discovery = crate::relation_query::RelationWork::default();
+                    let mut discovery =
+                        crate::query_execution::relations::work::RelationWork::default();
                     discovery.attach(cache.execution.as_ref());
                     let Some(references) = view.reference_forward_edges_with_source(
                         address,
@@ -886,7 +891,8 @@ impl ComputedSort {
             }
             HopDirection::Backlink => {
                 let sources = if reference {
-                    let mut discovery = crate::relation_query::RelationWork::default();
+                    let mut discovery =
+                        crate::query_execution::relations::work::RelationWork::default();
                     discovery.attach(cache.execution.as_ref());
                     let lookup = view.reference_backlink_sources_with_completeness(
                         hop.relation,
@@ -1401,7 +1407,9 @@ impl ComputedSort {
         slot: RecordSlot,
         source_value: Option<&Value>,
         cache: &Mutex<SortTargetCache>,
-        external_targets: Option<&crate::relation_target_cache::TargetValueCache>,
+        external_targets: Option<
+            &crate::query_execution::relations::target_cache::TargetValueCache,
+        >,
         reduced: &mut SortAccumulator,
     ) -> Result<(), String> {
         let collection = &repo.collections[collection_index];
@@ -1465,7 +1473,8 @@ impl ComputedSort {
         reduced.expanded |= match hop.direction {
             HopDirection::Backlink => !has_position,
             HopDirection::Forward => {
-                relation.declaration.cardinality == crate::relation::RelationCardinality::Many
+                relation.declaration.cardinality
+                    == crate::schema::relations::RelationCardinality::Many
                     && !has_position
             }
         };

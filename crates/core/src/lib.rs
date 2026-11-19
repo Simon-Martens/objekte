@@ -2,6 +2,16 @@
 //!
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
+//!
+//! # Ownership map
+//!
+//! | Contribution | Public entry point | Implementation owner |
+//! |---|---|---|
+//! | Register a source reader | `source::registry::SourceRegistry` | `source::json`, JSONL and registered-reader implementations |
+//! | Change physical posting storage | `index::posting` | `index::posting`, `index::bigram` and segment projection |
+//! | Change a planner decision | `query::Query`, `query_execution::restrictions` | `query_plan`, `query_access` and relation provider modules |
+//! | Declare a relation | `schema::relations`, `Schema::register_relation` | schema relation validation and `index::relation` physical storage |
+//! | Publish a revised index | `lifecycle` | construction, segment publication and repository state |
 
 mod construction;
 pub mod index;
@@ -18,27 +28,10 @@ mod query_plan;
 mod query_predicate;
 pub mod query_results;
 pub mod reference;
-pub mod relation;
-mod relation_query;
-mod relation_semijoin;
-mod relation_target_cache;
 pub mod repository;
 pub mod schema;
 pub mod source;
 pub mod workload;
 
 #[cfg(test)]
-#[path = "lib.test.rs"]
 mod tests;
-
-#[cfg(test)]
-#[path = "foundation_invariants.test.rs"]
-mod foundation_invariants;
-
-#[cfg(test)]
-#[path = "id.test.rs"]
-mod id_tests;
-
-#[cfg(test)]
-#[path = "folder.test.rs"]
-mod folder_tests;

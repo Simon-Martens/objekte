@@ -7,9 +7,9 @@ use crate::index::bigram::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::{DiagnosticRef, FileStatus, SourceRevision};
 use crate::model::{CollectionId, FieldPath, LogicalType};
-use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
+use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::source::{SourceFormat, registry::SourceRegistry};
 
 #[test]

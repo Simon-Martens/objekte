@@ -136,22 +136,22 @@ pub(super) fn verify_local_segment_record(
         if record.class == RecordClass::RawFallback {
             eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
         } else {
-            let mut work = crate::relation_query::RelationWork::default();
+            let mut work = crate::query_execution::relations::work::RelationWork::default();
             if retain_evidence {
-                crate::relation_query::eval_filter_truth(
+                crate::query_execution::relations::evaluation::eval_filter_truth(
                     repo,
                     filter,
                     &ctx,
                     &mut evidence,
-                    crate::relation_query::EvaluationMode::Indexed,
+                    crate::query_execution::relations::evaluation::EvaluationMode::Indexed,
                     &mut work,
                 )? == Some(true)
             } else {
-                crate::relation_query::eval_filter_truth_membership(
+                crate::query_execution::relations::evaluation::eval_filter_truth_membership(
                     repo,
                     filter,
                     &ctx,
-                    crate::relation_query::EvaluationMode::Indexed,
+                    crate::query_execution::relations::evaluation::EvaluationMode::Indexed,
                     &mut work,
                 )? == Some(true)
             }

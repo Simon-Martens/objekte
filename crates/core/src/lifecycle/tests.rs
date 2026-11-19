@@ -12,9 +12,9 @@ use crate::query_execution::streaming::{
     CancellationToken, ExecutionContext, ExecutionLimits, ResultScope, StreamControl, StreamEvent,
     StreamOptions, StreamOutcome,
 };
-use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 

@@ -1,10 +1,10 @@
 //! Small on-disk repository shared by terminal interaction tests.
 
 use objekte_search_core::model::{FieldPath, LogicalType};
-use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
+use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::SourceFormat;
 

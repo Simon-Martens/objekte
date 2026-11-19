@@ -38,7 +38,7 @@ pub(crate) struct MergedPageHit {
     pub(crate) key: RankKey,
     pub(crate) hit: SearchHit,
     pub(crate) segment: Option<(usize, usize)>,
-    pub(crate) record_address: Option<crate::relation_query::MergedRecordSlot>,
+    pub(crate) record_address: Option<crate::query_execution::relations::view::MergedRecordSlot>,
     pub(crate) retained_bytes: usize,
 }
 
@@ -459,9 +459,9 @@ pub(crate) fn base_rank_key_merged(
 pub(crate) fn relation_rank_key_merged(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
-    view: &crate::relation_query::MergedRelationView<'_>,
+    view: &crate::query_execution::relations::view::MergedRelationView<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    address: crate::relation_query::MergedRecordSlot,
+    address: crate::query_execution::relations::view::MergedRecordSlot,
     ctx: &RecordContext<'_>,
     cache: &mut MergedSortTargetCache,
     filter: Option<&BoundExpr>,
@@ -530,8 +530,8 @@ pub(crate) fn relation_rank_key_merged(
 }
 
 pub(crate) fn cached_filter_target_sort_key(
-    view: &crate::relation_query::MergedRelationView<'_>,
-    address: crate::relation_query::MergedRecordSlot,
+    view: &crate::query_execution::relations::view::MergedRelationView<'_>,
+    address: crate::query_execution::relations::view::MergedRecordSlot,
     computed: &crate::query::sort_binding::ComputedSort,
     filter: Option<&BoundExpr>,
 ) -> Result<Option<SortKey>, String> {
@@ -547,7 +547,9 @@ pub(crate) fn cached_filter_target_sort_key(
     if !filter.is_some_and(|filter| filter_projects_related_field(filter, field)) {
         return Ok(None);
     }
-    if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+    if view.relation_cardinality(hop.relation)?
+        != crate::schema::relations::RelationCardinality::One
+    {
         return Ok(None);
     }
     if hop.direction != crate::query::binding::relation::HopDirection::Forward
@@ -603,9 +605,9 @@ fn filter_projects_related_field(filter: &BoundExpr, field: &str) -> bool {
 
 pub(crate) fn direct_related_target_sort_key(
     repo: &Repository,
-    view: &crate::relation_query::MergedRelationView<'_>,
+    view: &crate::query_execution::relations::view::MergedRelationView<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    address: crate::relation_query::MergedRecordSlot,
+    address: crate::query_execution::relations::view::MergedRecordSlot,
     computed: &crate::query::sort_binding::ComputedSort,
 ) -> Result<Option<SortKey>, String> {
     let Some((hops, _)) = computed.related.as_ref() else {
@@ -614,7 +616,9 @@ pub(crate) fn direct_related_target_sort_key(
     let [hop] = hops.as_slice() else {
         return Ok(None);
     };
-    if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+    if view.relation_cardinality(hop.relation)?
+        != crate::schema::relations::RelationCardinality::One
+    {
         return Ok(None);
     }
     if hop.direction != crate::query::binding::relation::HopDirection::Forward
@@ -744,7 +748,7 @@ pub(crate) fn rank_key_from_context(
     repo: &Repository,
     collection_index: usize,
     ctx: &RecordContext<'_>,
-    target_values: Option<&crate::relation_target_cache::TargetValueCache>,
+    target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
 ) -> Result<RankKey, String> {
     Ok(RankKey {
         parts: sort.bound.keys(

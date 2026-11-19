@@ -4,10 +4,10 @@ use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
-use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
+use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;

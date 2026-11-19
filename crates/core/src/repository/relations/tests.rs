@@ -1,7 +1,7 @@
 use super::*;
 use crate::model::LogicalType;
-use crate::relation::RelationDefinition;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::relations::RelationDefinition;
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 

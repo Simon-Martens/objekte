@@ -814,7 +814,7 @@ pub(super) fn try_stored_order_page(
             entry
                 .filter
                 .as_ref()
-                .is_some_and(crate::relation_target_cache::has_source_dependent)
+                .is_some_and(crate::query_execution::relations::target_cache::has_source_dependent)
         }))
     {
         return Ok(None);

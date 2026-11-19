@@ -1,0 +1,7 @@
+    Checking objekte-search-core v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/core)
+ Documenting objekte-search-core v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/core)
+    Checking objekte-cli v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/cli)
+ Documenting objekte-cli v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/cli)
+ Documenting objekte-desktop v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/desktop)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.02s
+   Generated /home/simon/source/objekte-integration-core-refactoring-completion/target/doc/objekte_cli/index.html and 3 other files

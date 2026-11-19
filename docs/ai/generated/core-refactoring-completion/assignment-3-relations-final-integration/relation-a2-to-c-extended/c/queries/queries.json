@@ -1,0 +1,28 @@
+[
+  {
+    "id": "Q102",
+    "collection": "series",
+    "fts": null,
+    "filter": "related_entries.entry ?= \"00fx8ln651na0e3\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q122",
+    "collection": "series",
+    "fts": null,
+    "filter": "related_entries:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

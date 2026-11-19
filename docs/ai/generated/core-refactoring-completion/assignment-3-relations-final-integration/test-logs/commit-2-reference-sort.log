@@ -1,0 +1,144 @@
+warning: unused import: `crate::index::posting::ScalarKey`
+ --> crates/core/src/query_execution/relations/evaluation.rs:9:5
+  |
+9 | use crate::index::posting::ScalarKey;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `crate::index::segment::PublishedSegment`
+  --> crates/core/src/query_execution/relations/evaluation.rs:11:5
+   |
+11 | use crate::index::segment::PublishedSegment;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `SegmentId` and `SegmentRecordAddress`
+  --> crates/core/src/query_execution/relations/evaluation.rs:12:29
+   |
+12 | use crate::index::segment::{SegmentId, SegmentRecordAddress};
+   |                             ^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `ActiveRecords`
+  --> crates/core/src/query_execution/relations/evaluation.rs:13:24
+   |
+13 | use crate::inventory::{ActiveRecords, RecordClass};
+   |                        ^^^^^^^^^^^^^
+
+warning: unused import: `crate::lifecycle::catalog::FileCatalog`
+  --> crates/core/src/query_execution/relations/evaluation.rs:14:5
+   |
+14 | use crate::lifecycle::catalog::FileCatalog;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `SourceAvailabilityLog` and `SourceDiagnostic`
+  --> crates/core/src/query_execution/relations/evaluation.rs:15:26
+   |
+15 | use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
+   |                          ^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^
+
+warning: unused imports: `CollectionId` and `Value`
+  --> crates/core/src/query_execution/relations/evaluation.rs:16:20
+   |
+16 | use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
+   |                    ^^^^^^^^^^^^                        ^^^^^
+
+warning: unused import: `crate::repository::state::CollectionState`
+  --> crates/core/src/query_execution/relations/evaluation.rs:30:5
+   |
+30 | use crate::repository::state::CollectionState;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `RelationCardinality` and `RelationId`
+  --> crates/core/src/query_execution/relations/evaluation.rs:31:32
+   |
+31 | use crate::schema::relations::{RelationCardinality, RelationId};
+   |                                ^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^
+
+warning: unused import: `classify_source_read_failure_for_search`
+  --> crates/core/src/query_execution/relations/evaluation.rs:33:5
+   |
+33 |     classify_source_read_failure_for_search, read_record_range_for_search,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `MergedRecordSlot`
+ --> crates/core/src/query_execution/relations/evaluation/tests.rs:6:47
+  |
+6 | use crate::query_execution::relations::view::{MergedRecordSlot, MergedRelationView};
+  |                                               ^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::index::relation::RelationTarget`
+ --> crates/core/src/query_execution/relations/view.rs:8:5
+  |
+8 | use crate::index::relation::RelationTarget;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `PathRoot`
+  --> crates/core/src/query_execution/relations/view.rs:14:34
+   |
+14 | use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
+   |                                  ^^^^^^^^
+
+warning: unused import: `crate::query::Quantifier`
+  --> crates/core/src/query_execution/relations/view.rs:15:5
+   |
+15 | use crate::query::Quantifier;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::query::binding::fts::BoundFts`
+  --> crates/core/src/query_execution/relations/view.rs:16:5
+   |
+16 | use crate::query::binding::fts::BoundFts;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `BoundRelationHop` and `HopDirection`
+  --> crates/core/src/query_execution/relations/view.rs:17:39
+   |
+17 | use crate::query::binding::relation::{BoundRelationHop, HopDirection};
+   |                                       ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^
+
+warning: unused import: `crate::query::semantics::comparison::eval_cross_record_field_term`
+  --> crates/core/src/query_execution/relations/view.rs:18:5
+   |
+18 | use crate::query::semantics::comparison::eval_cross_record_field_term;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `binding::filter::BoundExpr` and `binding::filter::BoundTerm`
+  --> crates/core/src/query_execution/relations/view.rs:20:20
+   |
+20 | use crate::query::{binding::filter::BoundExpr, binding::filter::BoundTerm};
+   |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::query_execution::relations::target_cache::TargetValueCache`
+  --> crates/core/src/query_execution/relations/view.rs:21:5
+   |
+21 | use crate::query_execution::relations::target_cache::TargetValueCache;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::reference::filter::eval_term`
+  --> crates/core/src/query_execution/relations/view.rs:22:5
+   |
+22 | use crate::reference::filter::eval_term;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `eval_bound_fts_field`, `eval_bound_fts_membership`, `eval_bound_fts`, and `fts::eval_borrowed_value_fts_field`
+  --> crates/core/src/query_execution/relations/view.rs:24:5
+   |
+24 |     eval_bound_fts, eval_bound_fts_field, eval_bound_fts_membership,
+   |     ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^
+25 |     fts::eval_borrowed_value_fts_field,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `TextSegment`
+  --> crates/core/src/query_execution/relations/view.rs:33:37
+   |
+33 | use crate::source::{ScanProjection, TextSegment};
+   |                                     ^^^^^^^^^^^
+
+warning: `objekte-search-core` (lib test) generated 22 warnings (run `cargo fix --lib -p objekte-search-core --tests` to apply 22 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-88b092d832395dd8)
+
+running 1 test
+test query_execution::relations::evaluation::tests::reference_backlink_sort_streams_discovery_without_target_cache_budget ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 626 filtered out; finished in 0.86s

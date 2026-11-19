@@ -1,0 +1,425 @@
+valid control: accepted
+negative control remove-case: rejected (missing expected case/repetition)
+negative control remove-repetition: rejected (missing expected case/repetition)
+negative control duplicate-plan: rejected (expected one plan)
+negative control empty-both-sides: rejected (missing expected case/repetition)
+negative control same-failed-query: rejected (failed status)
+negative control duplicate-archived-digest: rejected (A2 result-digests.json duplicate key Q088)
+negative control null-archived-digest: rejected (Q088 malformed digest)
+negative control wrong-binary-revision: rejected (C run manifest binary_build_revision)
+{
+  "traversal": {
+    "cases": {
+      "indexed_relation_filter": {
+        "route": "relation_target_first",
+        "fts_strategy": "relation target-first semijoin",
+        "sort_strategy": "merged base and indexed segment top-k",
+        "ordered_ids": [
+          "S00",
+          "S01",
+          "S02",
+          "S03",
+          "S04",
+          "S05",
+          "S06",
+          "S07",
+          "S08",
+          "S09",
+          "S10",
+          "S11",
+          "S12",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S17",
+          "S18",
+          "S19",
+          "S20",
+          "S21",
+          "S22",
+          "S23",
+          "S24",
+          "S25",
+          "S26",
+          "S27",
+          "S28",
+          "S29",
+          "S30",
+          "S31",
+          "S32",
+          "S33",
+          "S34",
+          "S35",
+          "S36",
+          "S37",
+          "S38",
+          "S39"
+        ],
+        "matched_fields": [
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ]
+        ],
+        "counters": {
+          "bytes_read": 0,
+          "candidates": 0,
+          "distinct_files": 0,
+          "exact_posting_matches": 40,
+          "files_opened": 0,
+          "match_count_complete": true,
+          "peak_retained_payload_bytes": 0,
+          "peak_retained_sort_key_bytes": 0,
+          "raw_text_verifications": 0,
+          "record_parses": 0,
+          "relation_backlink_probe_visits": 0,
+          "relation_bytes_read": 0,
+          "relation_edge_visits": 1,
+          "relation_reverse_members_visited": 40,
+          "relation_reverse_postings_visited": 1,
+          "relation_source_reads": 0,
+          "relation_target_candidates": 1,
+          "relation_target_file_opens": 0,
+          "relation_target_matches": 1,
+          "relation_target_reads": 0,
+          "relation_verified_targets_reused": 0,
+          "residual_evaluations": 0,
+          "returned_records": 40,
+          "scanned_records": 0,
+          "selected_payload_bytes": 0,
+          "selected_payload_reads": 0,
+          "sort_key_evaluations": 0,
+          "sort_target_reads": 0,
+          "sort_target_reuse": 0,
+          "source_diagnostics": [],
+          "source_unavailable_events": 0,
+          "total_matches": 40,
+          "verified_result_hit": false
+        },
+        "candidate_proven_membership": [
+          {
+            "candidate_records": 0,
+            "proven_records": 0
+          },
+          {
+            "candidate_records": 0,
+            "proven_records": 0
+          },
+          {
+            "candidate_records": 40,
+            "proven_records": 40
+          }
+        ]
+      },
+      "selected_relation_fts": {
+        "route": "relation_source_restricted",
+        "fts_strategy": "relation source-restricted semijoin",
+        "sort_strategy": "merged base and indexed segment top-k",
+        "ordered_ids": [
+          "S00"
+        ],
+        "matched_fields": [
+          [
+            "entry.title",
+            "title"
+          ]
+        ],
+        "counters": {
+          "bytes_read": 56,
+          "candidates": 1,
+          "distinct_files": 0,
+          "exact_posting_matches": 1,
+          "files_opened": 1,
+          "match_count_complete": true,
+          "peak_retained_payload_bytes": 0,
+          "peak_retained_sort_key_bytes": 0,
+          "raw_text_verifications": 0,
+          "record_parses": 1,
+          "relation_backlink_probe_visits": 0,
+          "relation_bytes_read": 56,
+          "relation_edge_visits": 1,
+          "relation_reverse_members_visited": 40,
+          "relation_reverse_postings_visited": 1,
+          "relation_source_reads": 0,
+          "relation_target_candidates": 1,
+          "relation_target_file_opens": 1,
+          "relation_target_matches": 1,
+          "relation_target_reads": 1,
+          "relation_verified_targets_reused": 0,
+          "residual_evaluations": 0,
+          "returned_records": 1,
+          "scanned_records": 0,
+          "selected_payload_bytes": 0,
+          "selected_payload_reads": 0,
+          "sort_key_evaluations": 0,
+          "sort_target_reads": 0,
+          "sort_target_reuse": 0,
+          "source_diagnostics": [],
+          "source_unavailable_events": 0,
+          "total_matches": 1,
+          "verified_result_hit": false
+        },
+        "candidate_proven_membership": [
+          {
+            "candidate_records": 0,
+            "proven_records": 0
+          },
+          {
+            "candidate_records": 2,
+            "proven_records": 1
+          }
+        ]
+      },
+      "source_dependent_residual_sort": {
+        "route": "relation_target_first",
+        "fts_strategy": "relation source-restricted semijoin",
+        "sort_strategy": "bounded_top_k",
+        "ordered_ids": [
+          "m8",
+          "m1"
+        ],
+        "matched_fields": [
+          [
+            "entry.title"
+          ],
+          [
+            "entry.title"
+          ]
+        ],
+        "counters": {
+          "bytes_read": 628,
+          "candidates": 9,
+          "distinct_files": 9,
+          "exact_posting_matches": 0,
+          "files_opened": 13,
+          "match_count_complete": true,
+          "peak_retained_payload_bytes": 0,
+          "peak_retained_sort_key_bytes": 0,
+          "raw_text_verifications": 0,
+          "record_parses": 12,
+          "relation_backlink_probe_visits": 0,
+          "relation_bytes_read": 93,
+          "relation_edge_visits": 6,
+          "relation_reverse_members_visited": 0,
+          "relation_reverse_postings_visited": 0,
+          "relation_source_reads": 0,
+          "relation_target_candidates": 0,
+          "relation_target_file_opens": 2,
+          "relation_target_matches": 0,
+          "relation_target_reads": 2,
+          "relation_verified_targets_reused": 1,
+          "residual_evaluations": 9,
+          "returned_records": 2,
+          "scanned_records": 9,
+          "selected_payload_bytes": 0,
+          "selected_payload_reads": 0,
+          "sort_key_evaluations": 2,
+          "sort_target_reads": 2,
+          "sort_target_reuse": 0,
+          "source_diagnostics": [],
+          "source_unavailable_events": 0,
+          "total_matches": 2,
+          "verified_result_hit": false
+        },
+        "candidate_proven_membership": [
+          {
+            "candidate_records": 9,
+            "proven_records": 0
+          },
+          {
+            "candidate_records": 0,
+            "proven_records": 0
+          },
+          {
+            "candidate_records": 9,
+            "proven_records": 0
+          }
+        ]
+      }
+    },
+    "samples_per_side": 3,
+    "sample_records": 6,
+    "paired_samples": 3,
+    "work_fields_compared": [
+      "bytes_read",
+      "candidates",
+      "distinct_files",
+      "exact_posting_matches",
+      "files_opened",
+      "match_count_complete",
+      "peak_retained_payload_bytes",
+      "peak_retained_sort_key_bytes",
+      "raw_text_verifications",
+      "record_parses",
+      "relation_backlink_probe_visits",
+      "relation_bytes_read",
+      "relation_edge_visits",
+      "relation_reverse_members_visited",
+      "relation_reverse_postings_visited",
+      "relation_source_reads",
+      "relation_target_candidates",
+      "relation_target_file_opens",
+      "relation_target_matches",
+      "relation_target_reads",
+      "relation_verified_targets_reused",
+      "residual_evaluations",
+      "returned_records",
+      "scanned_records",
+      "selected_payload_bytes",
+      "selected_payload_reads",
+      "sort_key_evaluations",
+      "sort_target_reads",
+      "sort_target_reuse",
+      "source_diagnostics",
+      "source_unavailable_events",
+      "total_matches",
+      "verified_result_hit"
+    ],
+    "result_mismatches": 0,
+    "plan_mismatches": 0
+  },
+  "archived_posting_probes": {
+    "selected_and_residual": {
+      "cases": [
+        "Q102",
+        "Q122"
+      ],
+      "samples": 6,
+      "matched_samples": 6,
+      "ordered_result_matches": 2,
+      "counter_mismatches": 0,
+      "posting_classification_verified": true,
+      "schema_manifests_equal": true,
+      "schema_compatibility_check": "not_accepted_extended_adapter_in_either_run"
+    },
+    "typed_id_field": {
+      "cases": [
+        "Q088"
+      ],
+      "samples": 3,
+      "matched_samples": 3,
+      "ordered_result_matches": 1,
+      "counter_mismatches": 0,
+      "posting_classification_verified": true,
+      "schema_manifests_equal": true,
+      "schema_compatibility_check": "not_accepted_extended_adapter_in_either_run"
+    }
+  }
+}

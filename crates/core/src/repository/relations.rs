@@ -8,10 +8,10 @@ use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
-use crate::relation::{RelationCardinality, RelationId};
-use crate::relation_query::{MergedRecordSlot, MergedRelationView};
+use crate::query_execution::relations::view::{MergedRecordSlot, MergedRelationView};
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
+use crate::schema::relations::{RelationCardinality, RelationId};
 
 /// Maximum number of outgoing occurrences or distinct backlink sources per page.
 pub const MAX_RELATION_PAGE_SIZE: usize = 1024;

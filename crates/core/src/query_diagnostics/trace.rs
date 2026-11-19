@@ -48,7 +48,7 @@ pub struct ExecutionObservation {
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
-    pub relation: crate::relation::RelationId,
+    pub relation: crate::schema::relations::RelationId,
     pub direction: String,
     pub from_collection: String,
     pub to_collection: String,

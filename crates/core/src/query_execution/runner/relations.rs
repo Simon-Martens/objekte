@@ -55,8 +55,8 @@ fn record_reference_row_visit(id: &str) {
 
 fn materialize_merged_address(
     repo: &Repository,
-    view: &crate::relation_query::MergedRelationView<'_>,
-    address: crate::relation_query::MergedRecordSlot,
+    view: &crate::query_execution::relations::view::MergedRelationView<'_>,
+    address: crate::query_execution::relations::view::MergedRecordSlot,
     return_mode: ReturnMode,
 ) -> Result<Option<SearchHit>, String> {
     let Some(resolved) = view.record(address)? else {
@@ -136,7 +136,7 @@ fn eligible_one_hop_relation_term<'a>(
     let source = repo.collections.get(hop.from.0 as usize)?;
     let relation = source.relations.get(hop.relation.ordinal as usize)?;
     if term.quantifier == Quantifier::Default {
-        if relation.declaration.cardinality != crate::relation::RelationCardinality::One {
+        if relation.declaration.cardinality != crate::schema::relations::RelationCardinality::One {
             return None;
         }
         for depth in 1..relation.declaration.path.len() {
@@ -598,7 +598,9 @@ fn try_direct_relation_page(
         let Some(path) = computed.direct_related_target_column(hop) else {
             return Ok(None);
         };
-        if source_relation.declaration.cardinality != crate::relation::RelationCardinality::One {
+        if source_relation.declaration.cardinality
+            != crate::schema::relations::RelationCardinality::One
+        {
             return Ok(None);
         }
         let field = FieldPath::parse(path)?;
@@ -1116,10 +1118,15 @@ fn try_semijoin_relation_page(
             filter_evidence = fields;
         }
     }
-    let view =
-        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
-    let Some(witnesses) =
-        crate::relation_semijoin::qualified_fts_witnesses(&view, fts, &input, context)?
+    let view = crate::query_execution::relations::view::MergedRelationView::new(
+        repo,
+        base_active,
+        segments,
+        catalog,
+    )?;
+    let Some(witnesses) = crate::query_access::relations::semijoin::qualified_fts_witnesses(
+        &view, fts, &input, context,
+    )?
     else {
         return Ok(None);
     };
@@ -1225,7 +1232,7 @@ fn scan_relation_file_parallel(
     filter_proof: Option<&[String]>,
     fts: Option<&BoundFts>,
     job: &RelationFileJob,
-    view: crate::relation_query::MergedRelationView<'_>,
+    view: crate::query_execution::relations::view::MergedRelationView<'_>,
 ) -> Result<RelationFileScan, String> {
     let _fold_record = FoldRecordGuard::new_with_sharing(shared_fold_bound(filter));
     let mut scan = RelationFileScan {
@@ -1235,7 +1242,7 @@ fn scan_relation_file_parallel(
         relation_unavailable: SourceAvailabilityLog::default(),
         winner: None,
     };
-    let address = crate::relation_query::MergedRecordSlot {
+    let address = crate::query_execution::relations::view::MergedRecordSlot {
         collection: repo.collections[collection_index].generation.collection,
         segment: Some(job.segment_index),
         slot: job.slot,
@@ -1345,7 +1352,7 @@ fn scan_relation_file_parallel(
         repository_root: &repo.files.root,
     };
     let mut evidence = HashSet::new();
-    let mut relation_work = crate::relation_query::RelationWork::default();
+    let mut relation_work = crate::query_execution::relations::work::RelationWork::default();
     let filter_matches = if let Some(fields) = filter_proof {
         if query.options.evidence {
             evidence.extend(fields.iter().cloned());
@@ -1355,7 +1362,7 @@ fn scan_relation_file_parallel(
         if record.class == RecordClass::RawFallback {
             eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
         } else {
-            crate::relation_query::eval_filter_truth_merged(
+            crate::query_execution::relations::evaluation::eval_filter_truth_merged(
                 &view,
                 filter,
                 address,
@@ -1391,7 +1398,7 @@ fn scan_relation_file_parallel(
                 }
                 result.fts_match
             } else {
-                crate::relation_query::eval_fts_with_relations_merged(
+                crate::query_execution::relations::evaluation::eval_fts_with_relations_merged(
                     &view,
                     fts,
                     &extracted.text,
@@ -1477,7 +1484,7 @@ fn merge_parallel_relation_work(
     total.relation_backlink_probe_visits += part.relation_backlink_probe_visits;
     total.relation_bytes_read += part.relation_bytes_read;
     total.relation_verified_targets_reused += part.relation_verified_targets_reused;
-    crate::relation_query::check_query_work_budget(total)
+    crate::query_execution::relations::work::check_query_work_budget(total)
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -1682,8 +1689,12 @@ fn try_parallel_relation_page(
             }
         }
     }
-    let view =
-        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let view = crate::query_execution::relations::view::MergedRelationView::new(
+        repo,
+        base_active,
+        segments,
+        catalog,
+    )?;
     let mut counters = WorkCounters::default();
     let mut opened = HashSet::new();
     let mut winners = BinaryHeap::new();
@@ -1987,8 +1998,12 @@ pub(super) fn search_segmented_relations(
             }
         }
     }
-    let view =
-        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let view = crate::query_execution::relations::view::MergedRelationView::new(
+        repo,
+        base_active,
+        segments,
+        catalog,
+    )?;
     let cap = query
         .options
         .offset
@@ -2041,7 +2056,7 @@ pub(super) fn search_segmented_relations(
         }
         projection.resolved_text_only =
             projection.collect_text && fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
-        let mut process = |address: crate::relation_query::MergedRecordSlot,
+        let mut process = |address: crate::query_execution::relations::view::MergedRecordSlot,
                            bytes: Vec<u8>,
                            opened_source: bool,
                            filter_proof: Option<&[String]>|
@@ -2128,7 +2143,8 @@ pub(super) fn search_segmented_relations(
                 repository_root: &repo.files.root,
             };
             let mut evidence = HashSet::new();
-            let mut relation_work = crate::relation_query::RelationWork::default();
+            let mut relation_work =
+                crate::query_execution::relations::work::RelationWork::default();
             relation_work.attach(context);
             let filter_matches = if let Some(fields) = filter_proof {
                 if query.options.evidence {
@@ -2141,7 +2157,7 @@ pub(super) fn search_segmented_relations(
                 if record.class == RecordClass::RawFallback {
                     eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
                 } else {
-                    crate::relation_query::eval_filter_truth_merged(
+                    crate::query_execution::relations::evaluation::eval_filter_truth_merged(
                         &view,
                         filter,
                         address,
@@ -2190,7 +2206,7 @@ pub(super) fn search_segmented_relations(
                             query.options.evidence.then_some(&mut evidence),
                         )?
                     } else {
-                        crate::relation_query::eval_fts_with_relations_merged(
+                        crate::query_execution::relations::evaluation::eval_fts_with_relations_merged(
                             &view,
                             fts,
                             &extracted.text,
@@ -2326,7 +2342,7 @@ pub(super) fn search_segmented_relations(
             if ranges.is_empty() {
                 continue;
             }
-            let first = crate::relation_query::MergedRecordSlot {
+            let first = crate::query_execution::relations::view::MergedRecordSlot {
                 collection: collection_id,
                 segment: None,
                 slot: RecordSlot(ranges[0].0),
@@ -2386,7 +2402,7 @@ pub(super) fn search_segmented_relations(
                 };
                 for (index, (slot, bytes)) in read.into_iter().enumerate() {
                     process(
-                        crate::relation_query::MergedRecordSlot {
+                        crate::query_execution::relations::view::MergedRecordSlot {
                             collection: collection_id,
                             segment: None,
                             slot: RecordSlot(slot),
@@ -2527,7 +2543,7 @@ pub(super) fn search_segmented_relations(
                 if ranges.is_empty() {
                     continue;
                 }
-                let first = crate::relation_query::MergedRecordSlot {
+                let first = crate::query_execution::relations::view::MergedRecordSlot {
                     collection: collection_id,
                     segment: Some(segment_index),
                     slot: RecordSlot(ranges[0].0),
@@ -2590,7 +2606,7 @@ pub(super) fn search_segmented_relations(
                     };
                     for (index, (slot, bytes)) in read.into_iter().enumerate() {
                         process(
-                            crate::relation_query::MergedRecordSlot {
+                            crate::query_execution::relations::view::MergedRecordSlot {
                                 collection: collection_id,
                                 segment: Some(segment_index),
                                 slot: RecordSlot(slot),
@@ -3145,7 +3161,9 @@ pub(crate) fn explain_segmented(
                 let input_len =
                     relation_source_input_estimate(repo, segments, collection_index, filter, term)?;
                 let Ok((_, selected, alternatives)) =
-                    crate::relation_semijoin::planning_estimate(repo, term, input_len)
+                    crate::query_access::relations::semijoin::planning_estimate(
+                        repo, term, input_len,
+                    )
                 else {
                     continue;
                 };
@@ -3168,15 +3186,17 @@ pub(crate) fn explain_segmented(
             let input_len =
                 segment_filter_input_estimate(repo, segments, collection_index, filter)?;
             if let Some(strategies) =
-                crate::relation_semijoin::planning_fts_strategies(repo, fts, input_len)?
+                crate::query_access::relations::semijoin::planning_fts_strategies(
+                    repo, fts, input_len,
+                )?
             {
-                trace.fts_strategy = if strategies
-                    .iter()
-                    .all(|strategy| *strategy == crate::relation_semijoin::Strategy::TargetFirst)
-                {
+                trace.fts_strategy = if strategies.iter().all(|strategy| {
+                    *strategy == crate::query_access::relations::semijoin::Strategy::TargetFirst
+                }) {
                     "relation target-first semijoin"
                 } else if strategies.iter().all(|strategy| {
-                    *strategy == crate::relation_semijoin::Strategy::SourceRestricted
+                    *strategy
+                        == crate::query_access::relations::semijoin::Strategy::SourceRestricted
                 }) {
                     "relation source-restricted semijoin"
                 } else {

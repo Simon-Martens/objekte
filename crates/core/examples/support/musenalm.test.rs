@@ -2,9 +2,9 @@ use super::*;
 use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query::Query;
 use objekte_search_core::query::binding::filter::bind_filter;
-use objekte_search_core::relation::RelationCardinality;
 use objekte_search_core::repository::Repository;
 use objekte_search_core::repository::configuration::RepositoryOptions;
+use objekte_search_core::schema::relations::RelationCardinality;
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::load_manifest;
 

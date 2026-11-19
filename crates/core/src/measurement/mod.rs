@@ -150,7 +150,7 @@ impl WorkCounters {
     pub(crate) fn add_scan(
         &mut self,
         scan: ScanWork,
-        relation: &crate::relation_query::RelationWork,
+        relation: &crate::query_execution::relations::work::RelationWork,
     ) -> Result<(), String> {
         self.files_opened += scan.files_opened;
         self.bytes_read += scan.bytes_read;
@@ -166,7 +166,7 @@ impl WorkCounters {
         self.relation_edge_visits += relation.edge_visits;
         self.relation_backlink_probe_visits += relation.backlink_probe_visits;
         self.relation_bytes_read += relation.bytes_read;
-        crate::relation_query::check_query_work_budget(self)?;
+        crate::query_execution::relations::work::check_query_work_budget(self)?;
         self.files_opened += relation.source_reads + relation.target_reads;
         self.bytes_read += relation.bytes_read;
         self.record_parses += relation.source_reads + relation.target_reads;
@@ -175,7 +175,7 @@ impl WorkCounters {
 
     pub(crate) fn add_semijoin(
         &mut self,
-        work: crate::relation_semijoin::SemijoinWork,
+        work: crate::query_access::relations::semijoin::SemijoinWork,
     ) -> Result<(), String> {
         self.relation_target_candidates += work.target_candidates;
         self.relation_target_matches += work.target_matches;
@@ -189,7 +189,7 @@ impl WorkCounters {
         self.files_opened += work.target_file_opens;
         self.bytes_read += work.target_bytes_read;
         self.record_parses += work.target_reads;
-        crate::relation_query::check_query_work_budget(self)
+        crate::query_execution::relations::work::check_query_work_budget(self)
     }
 }
 
