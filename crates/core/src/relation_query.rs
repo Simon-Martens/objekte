@@ -607,15 +607,32 @@ impl<'a> MergedRelationView<'a> {
         relation: RelationId,
         work: Option<&mut RelationWork>,
     ) -> Result<Option<LogicalReferences>, String> {
-        let Some(value) = self.reference_value(address, work)? else {
-            return Ok(None);
+        self.reference_forward_edges_with_source(address, relation, None, work)
+    }
+
+    pub(crate) fn reference_forward_edges_with_source(
+        &self,
+        address: MergedRecordSlot,
+        relation: RelationId,
+        source_value: Option<&Value>,
+        mut work: Option<&mut RelationWork>,
+    ) -> Result<Option<LogicalReferences>, String> {
+        let owned;
+        let value = if let Some(source_value) = source_value {
+            source_value
+        } else {
+            let Some(value) = self.reference_value(address, work.as_deref_mut())? else {
+                return Ok(None);
+            };
+            owned = value;
+            &owned
         };
         let declaration = &self.repo.collections[relation.source.0 as usize]
             .relations
             .get(relation.ordinal as usize)
             .ok_or("reference relation declaration missing")?
             .declaration;
-        logical_references(&value, &declaration.path).map(Some)
+        logical_references(value, &declaration.path).map(Some)
     }
 
     pub(crate) fn reference_backlink_sources(

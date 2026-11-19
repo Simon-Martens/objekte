@@ -13,6 +13,27 @@ pub(crate) mod session;
 
 pub(crate) use session::SourceAccessSession;
 
+#[cfg(test)]
+thread_local! {
+    static SEARCH_READ_OBSERVATIONS:
+        std::cell::RefCell<Vec<(std::path::PathBuf, u64, u64)>> =
+            const { std::cell::RefCell::new(Vec::new()) };
+}
+
+#[cfg(test)]
+pub(crate) fn take_search_read_observations() -> Vec<(std::path::PathBuf, u64, u64)> {
+    SEARCH_READ_OBSERVATIONS.with(|observations| std::mem::take(&mut *observations.borrow_mut()))
+}
+
+#[cfg(test)]
+fn record_search_read(path: &Path, range: ByteRange) {
+    SEARCH_READ_OBSERVATIONS.with(|observations| {
+        observations
+            .borrow_mut()
+            .push((path.to_path_buf(), range.start, range.end));
+    });
+}
+
 fn source_changed(execution: Option<&ExecutionContext>, message: String) -> String {
     if let Some(execution) = execution {
         execution.fail(ExecutionErrorKind::SourceChanged, message)
@@ -145,6 +166,8 @@ pub(crate) fn read_record_range_for_search(
     range: ByteRange,
     execution: Option<&ExecutionContext>,
 ) -> Result<Vec<u8>, String> {
+    #[cfg(test)]
+    record_search_read(path, range);
     if let Some(execution) = execution {
         execution.check_string()?;
     }

@@ -749,12 +749,20 @@ impl ComputedSort {
                 if reference
                     && !matches!(self.reducer, Some(SortReducer::First | SortReducer::Last))
                 {
-                    let Some(references) =
-                        view.reference_forward_edges(address, hop.relation, None)?
+                    let mut discovery = crate::relation_query::RelationWork::default();
+                    discovery.attach(cache.execution.as_ref());
+                    let Some(references) = view.reference_forward_edges_with_source(
+                        address,
+                        hop.relation,
+                        source_value,
+                        Some(&mut discovery),
+                    )?
                     else {
                         reduced.observe_unavailable()?;
                         return Ok(());
                     };
+                    cache.relation_source_reads += discovery.source_reads;
+                    cache.relation_source_bytes += discovery.bytes_read;
                     for (id, positions) in references.values {
                         if !positions_match(&hop.selectors, &positions) {
                             continue;

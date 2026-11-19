@@ -945,3 +945,203 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
+    fn source_definition(path: &str, relation: Option<&str>) -> CollectionDefinition {
+        let mut definition = CollectionDefinition::folder(path, path, SourceFormat::Json);
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        q4_field(&mut definition.schema, "id", LogicalType::Id);
+        if let Some(target) = relation {
+            q4_field(&mut definition.schema, "entry", LogicalType::Id);
+            definition
+                .schema
+                .register_relation(RelationDefinition {
+                    path: vec!["entry".into()],
+                    target_collection: target.into(),
+                    cardinality: RelationCardinality::One,
+                    reverse_alias: None,
+                })
+                .unwrap();
+        }
+        definition
+    }
+
+    fn target_definition(path: &str) -> CollectionDefinition {
+        let mut definition = CollectionDefinition::folder(path, path, SourceFormat::Json);
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        q4_field(&mut definition.schema, "id", LogicalType::Id);
+        q4_field(&mut definition.schema, "title", LogicalType::String);
+        definition
+    }
+
+    fn sort_query(path: &str) -> Query {
+        Query {
+            collections: vec!["roots".into()],
+            filter: None,
+            fts: None,
+            options: QueryOptions {
+                sort: vec![SortField::computed(
+                    SortExpression {
+                        path: path.into(),
+                        binding: None,
+                        reducer: None,
+                    },
+                    false,
+                )],
+                limit: 20,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        }
+    }
+
+    let one_hop_root =
+        std::env::temp_dir().join(format!("objekte-forward-source-{}", std::process::id()));
+    for directory in ["roots", "targets"] {
+        std::fs::create_dir_all(one_hop_root.join(directory)).unwrap();
+    }
+    for (relative, document) in [
+        ("roots/r1.json", r#"{"id":"R1","entry":"T1"}"#),
+        ("roots/r2.json", r#"{"id":"R2","entry":"T2"}"#),
+        ("targets/t1.json", r#"{"id":"T1","title":"Alpha"}"#),
+        ("targets/t2.json", r#"{"id":"T2","title":"Zulu"}"#),
+    ] {
+        std::fs::write(one_hop_root.join(relative), document).unwrap();
+    }
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &one_hop_root,
+        vec![
+            source_definition("roots", Some("targets")),
+            target_definition("targets"),
+        ],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let _ = crate::source::access::take_search_read_observations();
+    let result = repo.search_reference(&sort_query("entry.title")).unwrap();
+    assert_eq!(hit_ids(&result), ["R1", "R2"], "{:?}", result.counters);
+    assert_eq!(result.count, Some(2));
+    assert_eq!(result.counters.relation_source_reads, 0);
+    assert_eq!(result.counters.sort_target_reads, 2);
+    assert_eq!(result.counters.files_opened, 4);
+    assert_eq!(result.counters.record_parses, 4);
+    let observations = crate::source::access::take_search_read_observations();
+    assert_eq!(observations.len(), 2);
+    assert!(observations.iter().all(|(path, _, _)| {
+        path.file_name()
+            .and_then(|name| name.to_str())
+            .is_some_and(|name| name.starts_with('t'))
+    }));
+    let one_hop_bytes = [
+        "roots/r1.json",
+        "roots/r2.json",
+        "targets/t1.json",
+        "targets/t2.json",
+    ]
+    .into_iter()
+    .map(|path| std::fs::metadata(one_hop_root.join(path)).unwrap().len())
+    .sum::<u64>();
+    assert_eq!(result.counters.bytes_read, one_hop_bytes);
+    drop(repo);
+    std::fs::remove_dir_all(one_hop_root).unwrap();
+
+    let two_hop_root =
+        std::env::temp_dir().join(format!("objekte-forward-source-two-{}", std::process::id()));
+    for directory in ["roots", "intermediates", "targets"] {
+        std::fs::create_dir_all(two_hop_root.join(directory)).unwrap();
+    }
+    for (relative, document) in [
+        ("roots/r1.json", r#"{"id":"R1","entry":"I"}"#),
+        ("roots/r2.json", r#"{"id":"R2","entry":"I"}"#),
+        ("intermediates/i.json", r#"{"id":"I","entry":"T"}"#),
+        ("targets/t.json", r#"{"id":"T","title":"Tie"}"#),
+    ] {
+        std::fs::write(two_hop_root.join(relative), document).unwrap();
+    }
+    let intermediate = source_definition("intermediates", Some("targets"));
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &two_hop_root,
+        vec![
+            source_definition("roots", Some("intermediates")),
+            intermediate,
+            target_definition("targets"),
+        ],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let _ = crate::source::access::take_search_read_observations();
+    let result = repo
+        .search_reference(&sort_query("entry.entry.title"))
+        .unwrap();
+    assert_eq!(hit_ids(&result), ["R1", "R2"]);
+    assert_eq!(result.count, Some(2));
+    assert_eq!(result.counters.relation_source_reads, 1);
+    assert_eq!(result.counters.sort_target_reads, 1);
+    assert_eq!(result.counters.sort_target_reuse, 1);
+    assert_eq!(result.counters.files_opened, 4);
+    assert_eq!(result.counters.record_parses, 4);
+    let observations = crate::source::access::take_search_read_observations();
+    let observed_names = observations
+        .iter()
+        .map(|(path, _, _)| path.file_name().unwrap().to_str().unwrap())
+        .collect::<Vec<_>>();
+    assert_eq!(observed_names, ["i.json", "t.json"]);
+    let two_hop_bytes = [
+        "roots/r1.json",
+        "roots/r2.json",
+        "intermediates/i.json",
+        "targets/t.json",
+    ]
+    .into_iter()
+    .map(|path| std::fs::metadata(two_hop_root.join(path)).unwrap().len())
+    .sum::<u64>();
+    assert_eq!(result.counters.bytes_read, two_hop_bytes);
+
+    let intermediate_path = two_hop_root.join("intermediates/i.json");
+    let target_path = two_hop_root.join("targets/t.json");
+    let intermediate_bytes = std::fs::read(&intermediate_path).unwrap();
+    let target_bytes = std::fs::read(&target_path).unwrap();
+    std::fs::remove_file(&target_path).unwrap();
+    let terminal_missing = repo
+        .search_reference(&sort_query("entry.entry.title"))
+        .unwrap();
+    assert!(terminal_missing.hits.is_empty());
+    assert_eq!(terminal_missing.count, None);
+    assert!(!terminal_missing.counters.match_count_complete);
+    assert!(
+        terminal_missing
+            .counters
+            .source_diagnostics
+            .iter()
+            .any(|diagnostic| { diagnostic.file_path == std::path::Path::new("targets/t.json") })
+    );
+    std::fs::write(&target_path, &target_bytes).unwrap();
+
+    std::fs::remove_file(&intermediate_path).unwrap();
+    let intermediate_missing = repo
+        .search_reference(&sort_query("entry.entry.title"))
+        .unwrap();
+    assert!(intermediate_missing.hits.is_empty());
+    assert_eq!(intermediate_missing.count, None);
+    assert!(!intermediate_missing.counters.match_count_complete);
+    assert!(
+        intermediate_missing
+            .counters
+            .source_diagnostics
+            .iter()
+            .any(|diagnostic| {
+                diagnostic.file_path == std::path::Path::new("intermediates/i.json")
+            })
+    );
+    std::fs::write(&intermediate_path, intermediate_bytes).unwrap();
+
+    drop(repo);
+    std::fs::remove_dir_all(two_hop_root).unwrap();
+}
