@@ -466,7 +466,6 @@ pub(super) fn try_inferred_order_page(
             (position == collection_index).then(|| {
                 vec![BoundSortTerm {
                     source: BoundSortSource::Stored(column.as_ref()),
-                    reference: None,
                     descending: query.options.sort[0].descending,
                     options: column.options,
                 }]

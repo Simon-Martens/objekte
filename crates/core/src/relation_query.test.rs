@@ -1528,6 +1528,22 @@ fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes()
         Some(Payload::Logical(Value::Object(fields)))
             if fields.get("id") == Some(&Value::Id(hit.record_id.clone()))
     )));
+    let mut bytes = related.clone();
+    bytes.options.return_mode = ReturnMode::Bytes;
+    let bytes = repo.search_reference(&bytes).unwrap();
+    assert_eq!(
+        bytes
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1"]
+    );
+    assert!(bytes.hits.iter().all(|hit| matches!(
+        &hit.payload,
+        Some(Payload::Bytes(source))
+            if String::from_utf8_lossy(source).contains(&format!(r#""id":"{}""#, hit.record_id))
+    )));
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1599,6 +1615,136 @@ fn base_reference_multi_target_backlinks_scan_each_relation_once() {
             .collect::<Vec<_>>(),
         ["A", "B"]
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
+    use crate::model::CollectionId;
+
+    const LARGE_SOURCES: usize = 9;
+    const LARGE_RECORD_BYTES: usize = 2 * 1024 * 1024;
+
+    let (root, definitions) = fixture();
+    std::fs::write(
+        root.join("mentions/m8.json"),
+        r#"{"id":"m8","contributors":["A"],"title":"Alpha"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m9.json"),
+        r#"{"id":"m9","contributors":["B"],"title":"Zulu"}"#,
+    )
+    .unwrap();
+    for number in 0..LARGE_SOURCES {
+        let prefix = format!(r#"{{"id":"unlinked-{number}","entry":"Z""#);
+        let suffix = "}";
+        let padding = LARGE_RECORD_BYTES
+            .saturating_sub(prefix.len() + suffix.len())
+            .max(1);
+        std::fs::write(
+            root.join(format!("mentions/unlinked-{number:02}.json")),
+            format!("{prefix}{}{suffix}", " ".repeat(padding)),
+        )
+        .unwrap();
+    }
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let pinned = index.view().unwrap();
+    let request = query(
+        "entries",
+        Some("SORT BY MIN(@backlinks.contributions.title)"),
+        None,
+        None,
+        false,
+    );
+
+    let view = super::MergedRelationView::new(
+        pinned.repository(),
+        &pinned.0.active,
+        &pinned.0.segments,
+        &pinned.0.catalog,
+    )
+    .unwrap();
+    let mut old_path = crate::query::sort_binding::MergedSortTargetCache::default();
+    let mut old_path_error = None;
+    for address in view
+        .visible_addresses(CollectionId(1))
+        .unwrap()
+        .into_iter()
+        .filter(|address| {
+            view.record(*address)
+                .unwrap()
+                .is_some_and(|record| record.record.class == crate::inventory::RecordClass::Logical)
+        })
+    {
+        if let Err(error) = old_path.load_source(&view, address) {
+            old_path_error = Some(error);
+            break;
+        }
+    }
+    assert!(
+        old_path_error
+            .as_deref()
+            .is_some_and(|error| error.contains("sort target cache budget exceeded")),
+        "fixture must exceed the former retained sort-cache path: {old_path_error:?}"
+    );
+    let visible_logical_sources = view
+        .visible_addresses(CollectionId(1))
+        .unwrap()
+        .into_iter()
+        .filter(|address| {
+            view.record(*address)
+                .unwrap()
+                .is_some_and(|record| record.record.class == crate::inventory::RecordClass::Logical)
+        })
+        .count() as u64;
+    drop(view);
+
+    let reference = pinned.search_reference(&request).unwrap();
+    assert_eq!(reference.count, Some(2));
+    assert_eq!(
+        reference
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A", "B"]
+    );
+    assert_eq!(
+        reference.counters.relation_source_reads,
+        visible_logical_sources
+    );
+    assert!(reference.counters.relation_bytes_read > 0);
+    assert_eq!(reference.counters.sort_target_reads, 3);
+
+    let unavailable_path = root.join("mentions/unlinked-00.json");
+    std::fs::remove_file(&unavailable_path).unwrap();
+    let unavailable = pinned.search_reference(&request).unwrap();
+    assert_eq!(
+        unavailable
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["B"],
+        "{:?}",
+        unavailable.counters
+    );
+    assert_eq!(unavailable.count, None);
+    assert_eq!(unavailable.counters.total_matches, 1);
+    assert!(unavailable.counters.source_unavailable_events > 0);
+    assert!(!unavailable.counters.match_count_complete);
+    assert!(!unavailable.counters.source_diagnostics.is_empty());
+
+    drop(pinned);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
