@@ -5338,7 +5338,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
 
 #[test]
 fn exact_collection_handles_relation_membership_without_ranking() {
-    use crate::relation::{RelationCardinality, RelationDefinition};
+    use crate::schema::relations::{RelationCardinality, RelationDefinition};
 
     let root = std::env::temp_dir().join(format!(
         "objekte-exact-relation-{}-{:?}",

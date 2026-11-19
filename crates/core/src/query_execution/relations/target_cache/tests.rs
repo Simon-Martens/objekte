@@ -6,9 +6,9 @@ use crate::query::{Query, QueryOptions, parse_filter};
 use crate::query_execution::streaming::{
     CancellationToken, StreamControl, StreamError, StreamMode, StreamOptions,
 };
-use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 

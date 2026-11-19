@@ -2233,7 +2233,7 @@ pub(crate) struct Plan {
     pub proven_hits: RoaringBitmap,
     pub proofs: Vec<Proof>,
     pub choices: Vec<TermChoice>,
-    pub semijoin_work: crate::relation_semijoin::SemijoinWork,
+    pub semijoin_work: crate::query_access::relations::semijoin::SemijoinWork,
     pub planning: PlanningCounters,
 }
 
@@ -3190,7 +3190,7 @@ fn plan_expr_restricted_inner<'a>(
         let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence, context)?;
         if !collection.relations.is_empty() {
             let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
-            crate::relation_semijoin::restrict(
+            crate::query_access::relations::semijoin::restrict(
                 repo,
                 segments,
                 expr,
@@ -3237,7 +3237,7 @@ fn plan_expr_restricted_inner<'a>(
     logical.candidates = Some(candidates);
     if !collection.relations.is_empty() {
         let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
-        crate::relation_semijoin::restrict(
+        crate::query_access::relations::semijoin::restrict(
             repo,
             segments,
             expr,

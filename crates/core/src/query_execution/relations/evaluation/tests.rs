@@ -3,9 +3,9 @@ use std::sync::Arc;
 
 use crate::model::LogicalType;
 use crate::query::{CaseSensitivity, FtsMode, Query};
-use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
@@ -1492,7 +1492,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
     use crate::index::posting::ScalarKey;
     use crate::index::segment::PublishedSegment;
     use crate::model::CollectionId;
-    use crate::relation::RelationId;
+    use crate::schema::relations::RelationId;
 
     let (root, definitions) = fixture();
     std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Hymn"}"#).unwrap();
@@ -2237,7 +2237,7 @@ fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes()
 #[test]
 fn base_reference_multi_target_backlinks_scan_each_relation_once() {
     use crate::model::CollectionId;
-    use crate::relation::RelationId;
+    use crate::schema::relations::RelationId;
 
     let (root, definitions) = fixture();
     let repo = base_repository(&root, definitions);

@@ -548,5 +548,4 @@ fn prepare_with_limits(
 }
 
 #[cfg(test)]
-#[path = "relation_target_cache.test.rs"]
 mod tests;

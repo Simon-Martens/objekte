@@ -55,8 +55,8 @@ fn record_reference_row_visit(id: &str) {
 
 fn materialize_merged_address(
     repo: &Repository,
-    view: &crate::relation_query::MergedRelationView<'_>,
-    address: crate::relation_query::MergedRecordSlot,
+    view: &crate::query_execution::relations::evaluation::MergedRelationView<'_>,
+    address: crate::query_execution::relations::evaluation::MergedRecordSlot,
     return_mode: ReturnMode,
 ) -> Result<Option<SearchHit>, String> {
     let Some(resolved) = view.record(address)? else {
@@ -136,7 +136,7 @@ fn eligible_one_hop_relation_term<'a>(
     let source = repo.collections.get(hop.from.0 as usize)?;
     let relation = source.relations.get(hop.relation.ordinal as usize)?;
     if term.quantifier == Quantifier::Default {
-        if relation.declaration.cardinality != crate::relation::RelationCardinality::One {
+        if relation.declaration.cardinality != crate::schema::relations::RelationCardinality::One {
             return None;
         }
         for depth in 1..relation.declaration.path.len() {
@@ -598,7 +598,9 @@ fn try_direct_relation_page(
         let Some(path) = computed.direct_related_target_column(hop) else {
             return Ok(None);
         };
-        if source_relation.declaration.cardinality != crate::relation::RelationCardinality::One {
+        if source_relation.declaration.cardinality
+            != crate::schema::relations::RelationCardinality::One
+        {
             return Ok(None);
         }
         let field = FieldPath::parse(path)?;
@@ -1116,10 +1118,15 @@ fn try_semijoin_relation_page(
             filter_evidence = fields;
         }
     }
-    let view =
-        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
-    let Some(witnesses) =
-        crate::relation_semijoin::qualified_fts_witnesses(&view, fts, &input, context)?
+    let view = crate::query_execution::relations::evaluation::MergedRelationView::new(
+        repo,
+        base_active,
+        segments,
+        catalog,
+    )?;
+    let Some(witnesses) = crate::query_access::relations::semijoin::qualified_fts_witnesses(
+        &view, fts, &input, context,
+    )?
     else {
         return Ok(None);
     };
@@ -1225,7 +1232,7 @@ fn scan_relation_file_parallel(
     filter_proof: Option<&[String]>,
     fts: Option<&BoundFts>,
     job: &RelationFileJob,
-    view: crate::relation_query::MergedRelationView<'_>,
+    view: crate::query_execution::relations::evaluation::MergedRelationView<'_>,
 ) -> Result<RelationFileScan, String> {
     let _fold_record = FoldRecordGuard::new_with_sharing(shared_fold_bound(filter));
     let mut scan = RelationFileScan {
@@ -1235,7 +1242,7 @@ fn scan_relation_file_parallel(
         relation_unavailable: SourceAvailabilityLog::default(),
         winner: None,
     };
-    let address = crate::relation_query::MergedRecordSlot {
+    let address = crate::query_execution::relations::evaluation::MergedRecordSlot {
         collection: repo.collections[collection_index].generation.collection,
         segment: Some(job.segment_index),
         slot: job.slot,
@@ -1345,7 +1352,7 @@ fn scan_relation_file_parallel(
         repository_root: &repo.files.root,
     };
     let mut evidence = HashSet::new();
-    let mut relation_work = crate::relation_query::RelationWork::default();
+    let mut relation_work = crate::query_execution::relations::evaluation::RelationWork::default();
     let filter_matches = if let Some(fields) = filter_proof {
         if query.options.evidence {
             evidence.extend(fields.iter().cloned());
@@ -1355,7 +1362,7 @@ fn scan_relation_file_parallel(
         if record.class == RecordClass::RawFallback {
             eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
         } else {
-            crate::relation_query::eval_filter_truth_merged(
+            crate::query_execution::relations::evaluation::eval_filter_truth_merged(
                 &view,
                 filter,
                 address,
@@ -1391,7 +1398,7 @@ fn scan_relation_file_parallel(
                 }
                 result.fts_match
             } else {
-                crate::relation_query::eval_fts_with_relations_merged(
+                crate::query_execution::relations::evaluation::eval_fts_with_relations_merged(
                     &view,
                     fts,
                     &extracted.text,
@@ -1477,7 +1484,7 @@ fn merge_parallel_relation_work(
     total.relation_backlink_probe_visits += part.relation_backlink_probe_visits;
     total.relation_bytes_read += part.relation_bytes_read;
     total.relation_verified_targets_reused += part.relation_verified_targets_reused;
-    crate::relation_query::check_query_work_budget(total)
+    crate::query_execution::relations::evaluation::check_query_work_budget(total)
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -1682,8 +1689,12 @@ fn try_parallel_relation_page(
             }
         }
     }
-    let view =
-        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let view = crate::query_execution::relations::evaluation::MergedRelationView::new(
+        repo,
+        base_active,
+        segments,
+        catalog,
+    )?;
     let mut counters = WorkCounters::default();
     let mut opened = HashSet::new();
     let mut winners = BinaryHeap::new();
@@ -1987,8 +1998,12 @@ pub(super) fn search_segmented_relations(
             }
         }
     }
-    let view =
-        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let view = crate::query_execution::relations::evaluation::MergedRelationView::new(
+        repo,
+        base_active,
+        segments,
+        catalog,
+    )?;
     let cap = query
         .options
         .offset
@@ -2041,156 +2056,158 @@ pub(super) fn search_segmented_relations(
         }
         projection.resolved_text_only =
             projection.collect_text && fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
-        let mut process = |address: crate::relation_query::MergedRecordSlot,
-                           bytes: Vec<u8>,
-                           opened_source: bool,
-                           filter_proof: Option<&[String]>|
-         -> Result<(), String> {
-            let _fold_record =
-                FoldRecordGuard::new_with_sharing(shared_fold_bound(filter.as_ref()));
-            if let Some(context) = context {
-                context.check_string()?;
-                context.charge_bytes(bytes.len() as u64)?;
-            }
-            let Some(resolved) = view.record(address)? else {
-                return Ok(());
-            };
-            #[cfg(test)]
-            if reference {
-                record_reference_row_visit(&resolved.record.id.0);
-            }
-            counters.candidates += 1;
-            let record = resolved.record;
-            let direct_result = if record.class == RecordClass::Logical {
-                direct_plan
-                    .as_ref()
-                    .map(|direct| {
-                        direct
-                            .scalar_verification
-                            .ok_or_else(|| "direct scalar verification missing".to_owned())
-                            .and_then(|verification| {
-                                verification.scan_borrowed_segments(
-                                    &bytes,
-                                    &BorrowedScanQuery {
-                                        fts: direct.fts,
-                                        filter: direct.filter.map(|(term, _)| term),
-                                        retain_evidence: query.options.evidence,
-                                    },
-                                )
-                            })
-                    })
-                    .transpose()?
-            } else {
-                None
-            };
-            let (extracted, combined_result) = if record.class == RecordClass::Logical
-                && direct_result.is_none()
-                && let Some(combined_fts) = combined_fts
-            {
-                let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
-                    &resolved.collection.source,
-                    &resolved.collection.definition.schema,
-                    &bytes,
-                    &projection,
-                    combined_fts,
-                    query.options.evidence,
-                    context,
-                )?;
-                (extracted, Some(result))
-            } else if record.class == RecordClass::Logical && direct_result.is_none() {
-                (
-                    prepare_query_record_with_execution(
-                        record.class,
+        let mut process =
+            |address: crate::query_execution::relations::evaluation::MergedRecordSlot,
+             bytes: Vec<u8>,
+             opened_source: bool,
+             filter_proof: Option<&[String]>|
+             -> Result<(), String> {
+                let _fold_record =
+                    FoldRecordGuard::new_with_sharing(shared_fold_bound(filter.as_ref()));
+                if let Some(context) = context {
+                    context.check_string()?;
+                    context.charge_bytes(bytes.len() as u64)?;
+                }
+                let Some(resolved) = view.record(address)? else {
+                    return Ok(());
+                };
+                #[cfg(test)]
+                if reference {
+                    record_reference_row_visit(&resolved.record.id.0);
+                }
+                counters.candidates += 1;
+                let record = resolved.record;
+                let direct_result = if record.class == RecordClass::Logical {
+                    direct_plan
+                        .as_ref()
+                        .map(|direct| {
+                            direct
+                                .scalar_verification
+                                .ok_or_else(|| "direct scalar verification missing".to_owned())
+                                .and_then(|verification| {
+                                    verification.scan_borrowed_segments(
+                                        &bytes,
+                                        &BorrowedScanQuery {
+                                            fts: direct.fts,
+                                            filter: direct.filter.map(|(term, _)| term),
+                                            retain_evidence: query.options.evidence,
+                                        },
+                                    )
+                                })
+                        })
+                        .transpose()?
+                } else {
+                    None
+                };
+                let (extracted, combined_result) = if record.class == RecordClass::Logical
+                    && direct_result.is_none()
+                    && let Some(combined_fts) = combined_fts
+                {
+                    let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
                         &resolved.collection.source,
                         &resolved.collection.definition.schema,
                         &bytes,
                         &projection,
-                        false,
+                        combined_fts,
+                        query.options.evidence,
                         context,
-                    )?,
-                    None,
-                )
-            } else {
-                (
-                    ExtractedRecord {
-                        value: Value::Object(Default::default()),
-                        text: Vec::new(),
-                    },
-                    None,
-                )
-            };
-            let ctx = RecordContext {
-                value: &extracted.value,
-                source_bytes: Some(&bytes),
-                record,
-                file: resolved.file,
-                collection_name: &resolved.collection.definition.name,
-                repository_root: &repo.files.root,
-            };
-            let mut evidence = HashSet::new();
-            let mut relation_work = crate::relation_query::RelationWork::default();
-            relation_work.attach(context);
-            let filter_matches = if let Some(fields) = filter_proof {
-                if query.options.evidence {
-                    evidence.extend(fields.iter().cloned());
-                }
-                true
-            } else if let Some(result) = &direct_result {
-                result.filter_match
-            } else if let Some(filter) = filter.as_ref() {
-                if record.class == RecordClass::RawFallback {
-                    eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
+                    )?;
+                    (extracted, Some(result))
+                } else if record.class == RecordClass::Logical && direct_result.is_none() {
+                    (
+                        prepare_query_record_with_execution(
+                            record.class,
+                            &resolved.collection.source,
+                            &resolved.collection.definition.schema,
+                            &bytes,
+                            &projection,
+                            false,
+                            context,
+                        )?,
+                        None,
+                    )
                 } else {
-                    crate::relation_query::eval_filter_truth_merged(
-                        &view,
-                        filter,
-                        address,
-                        &ctx,
-                        &mut evidence,
-                        &mut relation_work,
-                        reference,
-                    )? == Some(true)
-                }
-            } else {
-                true
-            };
-            let fts_matches = if filter_matches {
-                if let Some(result) = &direct_result {
+                    (
+                        ExtractedRecord {
+                            value: Value::Object(Default::default()),
+                            text: Vec::new(),
+                        },
+                        None,
+                    )
+                };
+                let ctx = RecordContext {
+                    value: &extracted.value,
+                    source_bytes: Some(&bytes),
+                    record,
+                    file: resolved.file,
+                    collection_name: &resolved.collection.definition.name,
+                    repository_root: &repo.files.root,
+                };
+                let mut evidence = HashSet::new();
+                let mut relation_work =
+                    crate::query_execution::relations::evaluation::RelationWork::default();
+                relation_work.attach(context);
+                let filter_matches = if let Some(fields) = filter_proof {
                     if query.options.evidence {
-                        evidence.extend(result.evidence.iter().cloned());
-                        if result.filter_match
-                            && result.fts_match
-                            && let Some((term, _)) =
-                                direct_plan.as_ref().and_then(|plan| plan.filter)
-                            && term.operator == Operator::Contains
-                        {
-                            evidence.insert(term.query_path.display.clone());
-                        }
+                        evidence.extend(fields.iter().cloned());
                     }
-                    result.fts_match
-                } else if let Some(result) = &combined_result {
-                    if query.options.evidence {
-                        evidence.extend(result.evidence.iter().cloned());
-                    }
-                    result.fts_match
-                } else if let Some(fts) = fts.as_ref() {
-                    if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
-                        let matched = crate::reference::fts::raw_fallback_contains(
-                            fts,
-                            &String::from_utf8_lossy(&bytes),
-                        );
-                        if matched && query.options.evidence {
-                            evidence.insert("@record.raw_text".into());
-                        }
-                        matched
-                    } else if borrowed_value_text && record.class == RecordClass::Logical {
-                        crate::reference::fts::eval_borrowed_value_fts(
-                            fts,
-                            &ctx,
-                            query.options.evidence.then_some(&mut evidence),
-                        )?
+                    true
+                } else if let Some(result) = &direct_result {
+                    result.filter_match
+                } else if let Some(filter) = filter.as_ref() {
+                    if record.class == RecordClass::RawFallback {
+                        eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
                     } else {
-                        crate::relation_query::eval_fts_with_relations_merged(
+                        crate::query_execution::relations::evaluation::eval_filter_truth_merged(
+                            &view,
+                            filter,
+                            address,
+                            &ctx,
+                            &mut evidence,
+                            &mut relation_work,
+                            reference,
+                        )? == Some(true)
+                    }
+                } else {
+                    true
+                };
+                let fts_matches = if filter_matches {
+                    if let Some(result) = &direct_result {
+                        if query.options.evidence {
+                            evidence.extend(result.evidence.iter().cloned());
+                            if result.filter_match
+                                && result.fts_match
+                                && let Some((term, _)) =
+                                    direct_plan.as_ref().and_then(|plan| plan.filter)
+                                && term.operator == Operator::Contains
+                            {
+                                evidence.insert(term.query_path.display.clone());
+                            }
+                        }
+                        result.fts_match
+                    } else if let Some(result) = &combined_result {
+                        if query.options.evidence {
+                            evidence.extend(result.evidence.iter().cloned());
+                        }
+                        result.fts_match
+                    } else if let Some(fts) = fts.as_ref() {
+                        if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
+                            let matched = crate::reference::fts::raw_fallback_contains(
+                                fts,
+                                &String::from_utf8_lossy(&bytes),
+                            );
+                            if matched && query.options.evidence {
+                                evidence.insert("@record.raw_text".into());
+                            }
+                            matched
+                        } else if borrowed_value_text && record.class == RecordClass::Logical {
+                            crate::reference::fts::eval_borrowed_value_fts(
+                                fts,
+                                &ctx,
+                                query.options.evidence.then_some(&mut evidence),
+                            )?
+                        } else {
+                            crate::query_execution::relations::evaluation::eval_fts_with_relations_merged(
                             &view,
                             fts,
                             &extracted.text,
@@ -2200,101 +2217,101 @@ pub(super) fn search_segmented_relations(
                             &mut relation_work,
                             reference,
                         )?
+                        }
+                    } else {
+                        true
                     }
                 } else {
-                    true
+                    false
+                };
+                counters.add_scan(
+                    ScanWork {
+                        files_opened: u64::from(opened_source),
+                        bytes_read: bytes.len() as u64,
+                        record_parses: u64::from(
+                            direct_result.is_none() && record.class == RecordClass::Logical,
+                        ),
+                        raw_text_verifications: u64::from(
+                            filter_matches
+                                && record.class == RecordClass::RawFallback
+                                && fts.as_ref().is_some_and(|fts| fts.fields.is_empty()),
+                        ),
+                        scanned_records: 1,
+                        residual_evaluations: u64::from(filter.is_some()),
+                        ..ScanWork::default()
+                    },
+                    &relation_work,
+                )?;
+                if !prune_segments && filter.as_ref().is_some_and(bound_expr_has_relations) {
+                    counters.relation_source_reads += 1;
                 }
-            } else {
-                false
-            };
-            counters.add_scan(
-                ScanWork {
-                    files_opened: u64::from(opened_source),
-                    bytes_read: bytes.len() as u64,
-                    record_parses: u64::from(
-                        direct_result.is_none() && record.class == RecordClass::Logical,
-                    ),
-                    raw_text_verifications: u64::from(
-                        filter_matches
-                            && record.class == RecordClass::RawFallback
-                            && fts.as_ref().is_some_and(|fts| fts.fields.is_empty()),
-                    ),
-                    scanned_records: 1,
-                    residual_evaluations: u64::from(filter.is_some()),
-                    ..ScanWork::default()
-                },
-                &relation_work,
-            )?;
-            if !prune_segments && filter.as_ref().is_some_and(bound_expr_has_relations) {
-                counters.relation_source_reads += 1;
-            }
-            if !(filter_matches && fts_matches) {
-                return Ok(());
-            }
-            let source_errors_before_sort = view.source_error_events();
-            let Some(key) = relation_rank_key_merged(
-                repo,
-                sort,
-                &view,
-                segments,
-                address,
-                &ctx,
-                &mut sort_cache,
-                filter.as_ref(),
-                reference,
-            )?
-            else {
-                return Ok(());
-            };
-            if view.source_error_events() > source_errors_before_sort {
-                return Ok(());
-            }
-            total += 1;
-            counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
-            let hit = segment_locator_hit(
-                resolved.collection,
-                SegmentRecordRef {
-                    record,
-                    file: resolved.file,
-                },
-                revision,
-                if query.options.evidence {
-                    evidence.into_iter().collect()
-                } else {
-                    Vec::new()
-                },
-            );
-            if let Some(builder) = (!reference)
-                .then_some(cache_builder.as_deref_mut())
-                .flatten()
-            {
-                builder.push(
-                    &key,
-                    CachedMember {
-                        collection_index,
-                        segment_index: address.segment,
-                        slot: address.slot.0,
-                        matched_fields: hit.matched_fields.clone().into(),
+                if !(filter_matches && fts_matches) {
+                    return Ok(());
+                }
+                let source_errors_before_sort = view.source_error_events();
+                let Some(key) = relation_rank_key_merged(
+                    repo,
+                    sort,
+                    &view,
+                    segments,
+                    address,
+                    &ctx,
+                    &mut sort_cache,
+                    filter.as_ref(),
+                    reference,
+                )?
+                else {
+                    return Ok(());
+                };
+                if view.source_error_events() > source_errors_before_sort {
+                    return Ok(());
+                }
+                total += 1;
+                counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
+                let hit = segment_locator_hit(
+                    resolved.collection,
+                    SegmentRecordRef {
+                        record,
+                        file: resolved.file,
+                    },
+                    revision,
+                    if query.options.evidence {
+                        evidence.into_iter().collect()
+                    } else {
+                        Vec::new()
                     },
                 );
-            }
-            offer_merged(
-                &mut winners,
-                cap,
-                MergedPageHit {
-                    key,
-                    hit,
-                    segment: address
-                        .segment
-                        .map(|segment_index| (collection_index, segment_index)),
-                    record_address: reference.then_some(address),
-                    retained_bytes: 0,
-                },
-                winner_budget,
-                &mut winner_bytes,
-            )?;
-            Ok(())
-        };
+                if let Some(builder) = (!reference)
+                    .then_some(cache_builder.as_deref_mut())
+                    .flatten()
+                {
+                    builder.push(
+                        &key,
+                        CachedMember {
+                            collection_index,
+                            segment_index: address.segment,
+                            slot: address.slot.0,
+                            matched_fields: hit.matched_fields.clone().into(),
+                        },
+                    );
+                }
+                offer_merged(
+                    &mut winners,
+                    cap,
+                    MergedPageHit {
+                        key,
+                        hit,
+                        segment: address
+                            .segment
+                            .map(|segment_index| (collection_index, segment_index)),
+                        record_address: reference.then_some(address),
+                        retained_bytes: 0,
+                    },
+                    winner_budget,
+                    &mut winner_bytes,
+                )?;
+                Ok(())
+            };
         let collection = &repo.collections[collection_index];
         for file_id in &collection.generation.files {
             if let Some(context) = context {
@@ -2326,7 +2343,7 @@ pub(super) fn search_segmented_relations(
             if ranges.is_empty() {
                 continue;
             }
-            let first = crate::relation_query::MergedRecordSlot {
+            let first = crate::query_execution::relations::evaluation::MergedRecordSlot {
                 collection: collection_id,
                 segment: None,
                 slot: RecordSlot(ranges[0].0),
@@ -2386,7 +2403,7 @@ pub(super) fn search_segmented_relations(
                 };
                 for (index, (slot, bytes)) in read.into_iter().enumerate() {
                     process(
-                        crate::relation_query::MergedRecordSlot {
+                        crate::query_execution::relations::evaluation::MergedRecordSlot {
                             collection: collection_id,
                             segment: None,
                             slot: RecordSlot(slot),
@@ -2527,7 +2544,7 @@ pub(super) fn search_segmented_relations(
                 if ranges.is_empty() {
                     continue;
                 }
-                let first = crate::relation_query::MergedRecordSlot {
+                let first = crate::query_execution::relations::evaluation::MergedRecordSlot {
                     collection: collection_id,
                     segment: Some(segment_index),
                     slot: RecordSlot(ranges[0].0),
@@ -2590,7 +2607,7 @@ pub(super) fn search_segmented_relations(
                     };
                     for (index, (slot, bytes)) in read.into_iter().enumerate() {
                         process(
-                            crate::relation_query::MergedRecordSlot {
+                            crate::query_execution::relations::evaluation::MergedRecordSlot {
                                 collection: collection_id,
                                 segment: Some(segment_index),
                                 slot: RecordSlot(slot),
@@ -3145,7 +3162,9 @@ pub(crate) fn explain_segmented(
                 let input_len =
                     relation_source_input_estimate(repo, segments, collection_index, filter, term)?;
                 let Ok((_, selected, alternatives)) =
-                    crate::relation_semijoin::planning_estimate(repo, term, input_len)
+                    crate::query_access::relations::semijoin::planning_estimate(
+                        repo, term, input_len,
+                    )
                 else {
                     continue;
                 };
@@ -3168,15 +3187,17 @@ pub(crate) fn explain_segmented(
             let input_len =
                 segment_filter_input_estimate(repo, segments, collection_index, filter)?;
             if let Some(strategies) =
-                crate::relation_semijoin::planning_fts_strategies(repo, fts, input_len)?
+                crate::query_access::relations::semijoin::planning_fts_strategies(
+                    repo, fts, input_len,
+                )?
             {
-                trace.fts_strategy = if strategies
-                    .iter()
-                    .all(|strategy| *strategy == crate::relation_semijoin::Strategy::TargetFirst)
-                {
+                trace.fts_strategy = if strategies.iter().all(|strategy| {
+                    *strategy == crate::query_access::relations::semijoin::Strategy::TargetFirst
+                }) {
                     "relation target-first semijoin"
                 } else if strategies.iter().all(|strategy| {
-                    *strategy == crate::relation_semijoin::Strategy::SourceRestricted
+                    *strategy
+                        == crate::query_access::relations::semijoin::Strategy::SourceRestricted
                 }) {
                     "relation source-restricted semijoin"
                 } else {

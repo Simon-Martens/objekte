@@ -563,10 +563,10 @@ fn private_final_drain_consumes_worker_error_before_returning() {
         .unwrap();
     definition
         .schema
-        .register_relation(crate::relation::RelationDefinition {
+        .register_relation(crate::schema::relations::RelationDefinition {
             path: vec!["entry".into()],
             target_collection: "data".into(),
-            cardinality: crate::relation::RelationCardinality::One,
+            cardinality: crate::schema::relations::RelationCardinality::One,
             reverse_alias: Some("sources".into()),
         })
         .unwrap();

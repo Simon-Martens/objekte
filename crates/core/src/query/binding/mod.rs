@@ -21,8 +21,8 @@ pub(crate) use crate::query::{
     CaseSensitivity, FilterExpr, FtsField, FtsMode, FtsQuery, Literal, Modifier, Operand, Operator,
     Quantifier, Term,
 };
-pub(crate) use crate::relation::{RelationCardinality, RelationId};
 pub(crate) use crate::repository::Repository;
+pub(crate) use crate::schema::relations::{RelationCardinality, RelationId};
 pub(crate) use crate::schema::{
     BindingOperation, FieldDefinition, PreparedFilterMatcher, PreparedTextMatcher, Schema,
     Transform,

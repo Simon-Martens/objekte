@@ -8,7 +8,7 @@ use serde_json::Value;
 use crate::model::{FieldPath, LogicalType, PathRoot};
 use crate::query::options::SortField;
 use crate::query::path::QueryPath;
-use crate::relation::{RelationCardinality, RelationDefinition};
+use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
 
 pub struct CompiledSchema {

@@ -13,15 +13,17 @@ use crate::query_access::contract::{
     ProviderId, Restriction,
 };
 use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
-use crate::query_execution::domain::domain_id;
-use crate::query_execution::restrictions::{AccessPathKind, access_path_kind_name};
-use crate::query_predicate::TermId;
-use crate::relation_query::MergedRelationView;
-use crate::relation_semijoin::{
+use crate::query_access::relations::semijoin::{
     SemijoinWork, Strategy, candidates_with_strategy_with_execution,
     planning_estimate_with_segments, qualified_candidates_with_strategy,
 };
+use crate::query_execution::domain::domain_id;
+use crate::query_execution::relations::evaluation::MergedRelationView;
+use crate::query_execution::restrictions::{AccessPathKind, access_path_kind_name};
+use crate::query_predicate::TermId;
 use crate::repository::Repository;
+
+pub(crate) mod semijoin;
 
 pub(crate) const NATIVE_RELATION_PROVIDER: ProviderId = ProviderId(4);
 

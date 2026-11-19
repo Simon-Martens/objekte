@@ -21,6 +21,7 @@ use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimat
 use crate::query_access::membership::SlotInput;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::relations::NativeRelationProvider;
+use crate::query_execution::relations::evaluation::{MergedRelationView, positions_match};
 use crate::query_execution::restrictions::{
     AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
 };
@@ -28,9 +29,8 @@ use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::query_plan::selection::choose_offer;
 use crate::reference::filter::eval_term;
 use crate::reference::fts::eval_bound_fts_membership;
-use crate::relation::RelationCardinality;
-use crate::relation_query::{MergedRelationView, positions_match};
 use crate::repository::Repository;
+use crate::schema::relations::RelationCardinality;
 use crate::source::access::SourceAccessSession;
 use crate::source::{ScanProjection, TextSegment};
 
@@ -1496,5 +1496,4 @@ pub(crate) fn restrict(
 }
 
 #[cfg(test)]
-#[path = "relation_semijoin.test.rs"]
 mod tests;

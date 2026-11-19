@@ -7,9 +7,9 @@ use crate::model::{LogicalType, Value};
 use crate::query::binding::filter::BoundExpr;
 use crate::query::options::ReturnMode;
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
-use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::json::JsonReader;
 use crate::source::{
@@ -767,7 +767,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
     let BoundExpr::Term(term) = bound else {
         panic!("expected structured relation term");
     };
-    let view = crate::relation_query::MergedRelationView::new(
+    let view = crate::query_execution::relations::evaluation::MergedRelationView::new(
         &repo,
         &repo.active,
         &repo.segments,

@@ -18,15 +18,15 @@ use crate::query::binding::relation::{BoundRelationHop, HopDirection};
 use crate::query::semantics::comparison::eval_cross_record_field_term;
 use crate::query::semantics::record::RecordContext;
 use crate::query::{binding::filter::BoundExpr, binding::filter::BoundTerm};
+use crate::query_execution::relations::target_cache::TargetValueCache;
 use crate::reference::filter::eval_term;
 use crate::reference::{
     eval_bound_fts, eval_bound_fts_field, eval_bound_fts_membership,
     fts::eval_borrowed_value_fts_field,
 };
-use crate::relation::{RelationCardinality, RelationId};
-use crate::relation_target_cache::TargetValueCache;
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
+use crate::schema::relations::{RelationCardinality, RelationId};
 use crate::source::access::{
     classify_source_read_failure_for_search, read_record_range_for_search,
 };
@@ -2293,5 +2293,4 @@ pub(crate) fn positions_match(selectors: &[Option<u32>], positions: &[u32]) -> b
 }
 
 #[cfg(test)]
-#[path = "relation_query.test.rs"]
 mod tests;

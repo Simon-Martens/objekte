@@ -3,11 +3,11 @@
 use crate::model::{FieldPath, LogicalType, MetadataField, PathRoot};
 use crate::query::Operator;
 use crate::query::options::SortField;
-use crate::relation::RelationDefinition;
 use std::collections::{BTreeMap, HashMap, HashSet};
 
 pub mod json;
 pub mod operation;
+pub mod relations;
 pub mod validation;
 
 pub use operation::{
@@ -15,6 +15,8 @@ pub use operation::{
     RegisteredBinding, Transform,
 };
 use validation::{ValidationNode, converted_kind, metadata_type};
+
+use relations::RelationDefinition;
 
 /// Logical type, presence rules, and index policy for one field.
 #[derive(Clone, Debug)]
@@ -108,7 +110,7 @@ impl Schema {
         if self.fields.contains_key(&field.path) {
             return Err("duplicate field registration".into());
         }
-        crate::relation::validate_field_against_relations(&field, &self.relations)?;
+        crate::schema::relations::validate_field_against_relations(&field, &self.relations)?;
         let converted = converted_kind(&field.kind);
         let indexed_value = converted || matches!(field.kind, LogicalType::Array(_));
         self.converted_fields |= converted;

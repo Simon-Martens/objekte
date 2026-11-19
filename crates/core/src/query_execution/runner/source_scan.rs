@@ -11,7 +11,7 @@ pub(super) fn scan_file(
     fts: Option<&BoundFts>,
     fts_proof: Option<&HashMap<u32, HashSet<String>>>,
     direct_plan: Option<&DirectSourcePlan<'_>>,
-    target_values: Option<&crate::relation_target_cache::TargetValueCache>,
+    target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
     projection: &ScanProjection,
     retain_all_evidence: bool,
     cache_budget: Option<&CacheBudget>,
@@ -276,22 +276,22 @@ pub(super) fn scan_file(
                         matched
                     } else {
                         if query.options.evidence {
-                            crate::relation_query::eval_fts_with_relations(
+                            crate::query_execution::relations::evaluation::eval_fts_with_relations(
                                 repo,
                                 fts,
                                 &[],
                                 &ctx,
                                 &mut evidence,
-                                crate::relation_query::EvaluationMode::Indexed,
+                                crate::query_execution::relations::evaluation::EvaluationMode::Indexed,
                                 &mut outcome.relation_work,
                             )?
                         } else {
-                            crate::relation_query::eval_fts_with_relations_membership(
+                            crate::query_execution::relations::evaluation::eval_fts_with_relations_membership(
                                 repo,
                                 fts,
                                 &[],
                                 &ctx,
-                                crate::relation_query::EvaluationMode::Indexed,
+                                crate::query_execution::relations::evaluation::EvaluationMode::Indexed,
                                 &mut outcome.relation_work,
                             )?
                         }
@@ -308,22 +308,22 @@ pub(super) fn scan_file(
             } else {
                 fts.map(|fts| {
                     if query.options.evidence {
-                        crate::relation_query::eval_fts_with_relations(
+                        crate::query_execution::relations::evaluation::eval_fts_with_relations(
                             repo,
                             fts,
                             &extracted.text,
                             &ctx,
                             &mut evidence,
-                            crate::relation_query::EvaluationMode::Indexed,
+                            crate::query_execution::relations::evaluation::EvaluationMode::Indexed,
                             &mut outcome.relation_work,
                         )
                     } else {
-                        crate::relation_query::eval_fts_with_relations_membership(
+                        crate::query_execution::relations::evaluation::eval_fts_with_relations_membership(
                             repo,
                             fts,
                             &extracted.text,
                             &ctx,
-                            crate::relation_query::EvaluationMode::Indexed,
+                            crate::query_execution::relations::evaluation::EvaluationMode::Indexed,
                             &mut outcome.relation_work,
                         )
                     }

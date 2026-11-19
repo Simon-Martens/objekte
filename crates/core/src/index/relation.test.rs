@@ -1,9 +1,9 @@
 use super::*;
 use crate::model::LogicalType;
-use crate::relation::RelationCardinality;
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::FieldDefinition;
+use crate::schema::relations::RelationCardinality;
 use crate::source::SourceFormat;
 
 fn field(schema: &mut Schema, path: &[&str], kind: LogicalType, multi: bool, nullable: bool) {

@@ -297,7 +297,7 @@ impl Index {
             .segment_policy
             .validate()
             .map_err(IndexError::Build)?;
-        crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
+        crate::schema::relations::validate_definitions(&definitions).map_err(IndexError::Build)?;
         Repository::build_incremental_with_sources(
             root,
             definitions,
@@ -330,7 +330,7 @@ impl Index {
             .segment_policy
             .validate()
             .map_err(IndexError::Build)?;
-        crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
+        crate::schema::relations::validate_definitions(&definitions).map_err(IndexError::Build)?;
         let task = InitialBuildTask::new();
         let worker_task = task.clone();
         std::thread::Builder::new()

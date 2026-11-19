@@ -209,7 +209,7 @@ struct ScannedFile {
     raw_text_verifications: u64,
     scanned_records: u64,
     residual_evaluations: u64,
-    relation_work: crate::relation_query::RelationWork,
+    relation_work: crate::query_execution::relations::evaluation::RelationWork,
     match_count: u64,
     peak_payload_bytes: u64,
     peak_sort_key_bytes: u64,
@@ -5454,7 +5454,7 @@ pub(crate) fn explain_with_active(
         entry
             .filter
             .as_ref()
-            .is_some_and(crate::relation_target_cache::has_source_dependent)
+            .is_some_and(crate::query_execution::relations::target_cache::has_source_dependent)
     });
     let has_related_fts = prepared.collections.iter().any(|entry| {
         entry
@@ -5919,7 +5919,7 @@ fn search_impl_with_collector<'a>(
         let relation_fts = fts
             .as_ref()
             .map(|fts| {
-                crate::relation_semijoin::fts_witnesses(
+                crate::query_access::relations::semijoin::fts_witnesses(
                     repo,
                     &repo.segments,
                     fts,
@@ -5929,22 +5929,19 @@ fn search_impl_with_collector<'a>(
             })
             .transpose()?
             .flatten();
-        let relation_fts_strategy =
-            relation_fts.as_ref().map(|proof| {
-                if proof
-                    .strategies
-                    .iter()
-                    .all(|strategy| *strategy == crate::relation_semijoin::Strategy::TargetFirst)
-                {
-                    "relation target-first semijoin"
-                } else if proof.strategies.iter().all(|strategy| {
-                    *strategy == crate::relation_semijoin::Strategy::SourceRestricted
-                }) {
-                    "relation source-restricted semijoin"
-                } else {
-                    "relation mixed semijoin"
-                }
-            });
+        let relation_fts_strategy = relation_fts.as_ref().map(|proof| {
+            if proof.strategies.iter().all(|strategy| {
+                *strategy == crate::query_access::relations::semijoin::Strategy::TargetFirst
+            }) {
+                "relation target-first semijoin"
+            } else if proof.strategies.iter().all(|strategy| {
+                *strategy == crate::query_access::relations::semijoin::Strategy::SourceRestricted
+            }) {
+                "relation source-restricted semijoin"
+            } else {
+                "relation mixed semijoin"
+            }
+        });
         let preverified_evidence = if let Some(proof) = relation_fts {
             counters.add_semijoin(proof.work)?;
             candidates = proof.evidence.keys().copied().collect();
@@ -6187,7 +6184,7 @@ fn search_impl_with_collector<'a>(
             .as_ref()
             .map(|expr| {
                 if let Some(delivery) = delivery.as_ref() {
-                    crate::relation_target_cache::prepare_stream(
+                    crate::query_execution::relations::target_cache::prepare_stream(
                         repo,
                         collection_index,
                         expr,
@@ -6197,7 +6194,7 @@ fn search_impl_with_collector<'a>(
                         execution,
                     )
                 } else {
-                    crate::relation_target_cache::prepare(
+                    crate::query_execution::relations::target_cache::prepare(
                         repo,
                         collection_index,
                         expr,
@@ -6218,7 +6215,7 @@ fn search_impl_with_collector<'a>(
             counters.bytes_read += work.bytes_read;
             counters.relation_bytes_read += work.bytes_read;
             counters.record_parses += work.target_reads;
-            crate::relation_query::check_query_work_budget(&counters)?;
+            crate::query_execution::relations::evaluation::check_query_work_budget(&counters)?;
         }
         // Record slots are grouped by source file before opening any source.
         let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();

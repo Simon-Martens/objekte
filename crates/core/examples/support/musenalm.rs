@@ -6,8 +6,8 @@ use std::collections::HashSet;
 use std::path::Path;
 
 use objekte_search_core::model::{FieldPath, LogicalType};
-use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::configuration::{CollectionDefinition, IdentityPolicy};
+use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{
     FieldDefinition, Schema, operation::CustomBinding, operation::Transform,
 };
