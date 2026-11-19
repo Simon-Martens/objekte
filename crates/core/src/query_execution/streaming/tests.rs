@@ -12,6 +12,26 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 static NEXT_FIXTURE: AtomicUsize = AtomicUsize::new(0);
 
+fn stream_test_hit(id: &str, payload_bytes: usize) -> SearchHit {
+    SearchHit {
+        collection: "data".into(),
+        record_id: id.into(),
+        generation: 1,
+        file_id: 1,
+        file_path: PathBuf::from("data/all.jsonl"),
+        file_size: payload_bytes as u64,
+        file_created_ns: None,
+        byte_start: 0,
+        byte_end: payload_bytes as u64,
+        modified_ns: 0,
+        matched_fields: Vec::new(),
+        file_status: crate::inventory::FileStatus::Valid,
+        record_class: crate::inventory::RecordClass::Logical,
+        diagnostic_ref: crate::inventory::DiagnosticRef(0),
+        payload: Some(Payload::Bytes(vec![b'x'; payload_bytes])),
+    }
+}
+
 fn limited_context(
     limits: ExecutionLimits,
     cancellation: Option<CancellationToken>,
@@ -333,7 +353,7 @@ fn residual_payload_fixture() -> Fixture {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for n in 0..4 {
         std::fs::write(
-            root.join(format!("data/{n:03}.json")),
+            root.join(format!("data/record-{n:03}-{}.json", "x".repeat(80))),
             format!(
                 r#"{{"body":"{}","score":{n},"padding":"{}"}}"#,
                 if n < 2 { "match" } else { "miss" },
@@ -872,9 +892,12 @@ fn residual_payload_query() -> Query {
 fn residual_count_keeps_page_charges_only_for_retained_modes() {
     let fixture = residual_payload_fixture();
     let query = residual_payload_query();
-    let record_bytes = std::fs::read(fixture.root.join("data/000.json"))
+    let record_path = std::fs::read_dir(fixture.root.join("data"))
         .unwrap()
-        .len();
+        .map(|entry| entry.unwrap().path())
+        .min()
+        .unwrap();
+    let record_bytes = std::fs::read(record_path).unwrap().len();
     let max_buffered_bytes = record_bytes * 2;
     let options = StreamOptions {
         max_buffered_bytes,
@@ -917,21 +940,58 @@ fn residual_count_keeps_page_charges_only_for_retained_modes() {
 
     fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
     crate::query_execution::runner::reset_ordered_tail_observations();
+    let observation_budget = record_bytes * 3;
     let outcome = fixture.repo.search_stream(
         &query,
         StreamOptions {
             mode: StreamMode::PageReplacements,
             checkpoint_files: 1,
-            ..options.clone()
+            max_buffered_bytes: observation_budget,
+            max_event_bytes: record_bytes + 1024,
+            ..Default::default()
         },
         &CancellationToken::new(),
         &mut |_| Ok(StreamControl::Continue),
     );
+    let StreamOutcome::Complete(observed) = outcome.unwrap() else {
+        panic!("observation replacement budget did not complete")
+    };
     let (replacement_rows, replacement_bytes, replacement_reads) =
         crate::query_execution::runner::ordered_tail_observations();
     assert!(replacement_reads >= 1);
     assert_eq!(replacement_rows, 1);
     assert!(replacement_bytes > 0);
+    let (_, page_component, identity_component, cursor_component, source_component) =
+        crate::query_execution::runner::ordered_tail_components();
+    assert!(identity_component > 0);
+    assert!(cursor_component > 0);
+    assert!(source_component > 0);
+    let simultaneous = page_component + identity_component + cursor_component + source_component;
+    assert!(observed.progress.peak_buffered_bytes >= simultaneous);
+    let excluded_identity = page_component + cursor_component + source_component;
+    let callback_boundary = simultaneous - 1;
+    assert!(
+        simultaneous > callback_boundary,
+        "page={page_component} identity={identity_component} cursor={cursor_component} source={source_component} limit={callback_boundary}"
+    );
+    assert!(
+        excluded_identity <= callback_boundary,
+        "page={page_component} identity={identity_component} cursor={cursor_component} source={source_component} limit={callback_boundary}"
+    );
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let outcome = fixture.repo.search_stream(
+        &query,
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            checkpoint_files: 1,
+            max_buffered_bytes: callback_boundary,
+            max_event_bytes: record_bytes + 1024,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
     let Err(StreamError::Resource { progress, .. }) = outcome else {
         panic!("replacement page should retain its payload in the residual budget")
     };
@@ -939,6 +999,36 @@ fn residual_count_keeps_page_charges_only_for_retained_modes() {
     assert_eq!(progress.emitted_rows, 1);
     let after_error = fixture.repo.search(&query).unwrap();
     assert!(!after_error.counters.verified_result_hit);
+
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let sufficient = simultaneous + 1024;
+    let callbacks = AtomicUsize::new(0);
+    let outcome = fixture.repo.search_stream(
+        &query,
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            checkpoint_files: 1,
+            max_buffered_bytes: sufficient,
+            max_event_bytes: record_bytes + 1024,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| {
+            callbacks.fetch_add(1, Ordering::Relaxed);
+            Ok(StreamControl::Continue)
+        },
+    );
+    let StreamOutcome::Complete(summary) = outcome.unwrap() else {
+        panic!("sufficient replacement budget did not complete")
+    };
+    let (success_rows, success_page, success_identity, success_cursor, success_source) =
+        crate::query_execution::runner::ordered_tail_components();
+    assert_eq!(success_rows, 1);
+    let success_components = success_page + success_identity + success_cursor + success_source;
+    assert!(summary.progress.peak_buffered_bytes >= success_components);
+    assert_eq!(summary.count, Some(2));
+    assert!(callbacks.load(Ordering::Relaxed) >= 1);
 
     fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
     crate::query_execution::runner::reset_ordered_tail_observations();
@@ -966,6 +1056,54 @@ fn residual_count_keeps_page_charges_only_for_retained_modes() {
     assert_eq!(owned_tail_bytes, 0);
     assert_eq!(owned.count, Some(2));
     assert_eq!(owned.hits.len(), 1);
+}
+
+#[test]
+fn replacement_callback_charges_old_and_new_identities_together() {
+    let first_id = "A".repeat(160);
+    let second_id = "B".repeat(160);
+    let first = stream_test_hit(&first_id, 400);
+    let second = stream_test_hit(&second_id, 500);
+    let first_bytes = hit_bytes(&first);
+    let second_bytes = hit_bytes(&second);
+    let first_identity = identity_bytes([("data", first_id.as_str())]);
+    let second_identity = identity_bytes([("data", second_id.as_str())]);
+    let cursor_bytes = 300usize;
+    let limit = (first_bytes + first_identity)
+        .max(second_bytes + cursor_bytes)
+        .max(cursor_bytes + first_identity + second_identity)
+        + 1;
+    assert!(second_bytes + cursor_bytes + first_identity + second_identity > limit);
+
+    let token = CancellationToken::new();
+    let callbacks = AtomicUsize::new(0);
+    let mut sink = |_: StreamEvent<'_>| {
+        callbacks.fetch_add(1, Ordering::Relaxed);
+        Ok(StreamControl::Continue)
+    };
+    let mut delivery = Delivery::new(
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            max_buffered_bytes: limit,
+            max_event_bytes: first_bytes.max(second_bytes) + 1,
+            ..Default::default()
+        },
+        &token,
+        &mut sink,
+    );
+    delivery
+        .replacement(std::slice::from_ref(&first), &WorkCounters::default(), 0)
+        .unwrap();
+    let error = delivery
+        .replacement(
+            std::slice::from_ref(&second),
+            &WorkCounters::default(),
+            cursor_bytes,
+        )
+        .unwrap_err();
+    assert_eq!(error, "stream memory budget exceeded");
+    assert_eq!(callbacks.load(Ordering::Relaxed), 1);
+    assert_eq!(delivery.last_page_sequence(), 1);
 }
 
 fn preparation_counts() -> (usize, usize, usize) {

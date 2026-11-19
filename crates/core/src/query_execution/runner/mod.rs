@@ -119,6 +119,12 @@ thread_local! {
         const { std::cell::Cell::new(0) };
     static ORDERED_TAIL_LIVE_PAGE_BYTES: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_IDENTITY_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_CURSOR_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_SOURCE_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
     static ORDERED_TAIL_READ_ATTEMPTS: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
 }
@@ -137,6 +143,9 @@ pub(crate) fn segment_slot_evidence_calls() -> usize {
 pub(crate) fn reset_ordered_tail_observations() {
     ORDERED_TAIL_LIVE_PAGE_ROWS.with(|value| value.set(0));
     ORDERED_TAIL_LIVE_PAGE_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_IDENTITY_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_CURSOR_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_SOURCE_BYTES.with(|value| value.set(0));
     ORDERED_TAIL_READ_ATTEMPTS.with(|value| value.set(0));
 }
 
@@ -146,6 +155,17 @@ pub(crate) fn ordered_tail_observations() -> (usize, usize, usize) {
         ORDERED_TAIL_LIVE_PAGE_ROWS.with(std::cell::Cell::get),
         ORDERED_TAIL_LIVE_PAGE_BYTES.with(std::cell::Cell::get),
         ORDERED_TAIL_READ_ATTEMPTS.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_tail_components() -> (usize, usize, usize, usize, usize) {
+    (
+        ORDERED_TAIL_LIVE_PAGE_ROWS.with(std::cell::Cell::get),
+        ORDERED_TAIL_LIVE_PAGE_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_IDENTITY_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_CURSOR_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_SOURCE_BYTES.with(std::cell::Cell::get),
     )
 }
 
@@ -3742,6 +3762,9 @@ fn try_lifecycle_ordered_stream(
     while let Some(Reverse(cursor)) = heap.pop() {
         context.check_string()?;
         heap_bytes = heap_bytes.saturating_sub(cursor.bytes);
+        let retained_identity_bytes = delivery
+            .as_ref()
+            .map_or(0, |delivery| delivery.retained_identity_bytes());
         push_lifecycle_order_cursor(
             repo,
             request,
@@ -3753,7 +3776,9 @@ fn try_lifecycle_ordered_stream(
             cursor.position,
             &mut heap,
             &mut heap_bytes,
-            max_buffered_bytes.saturating_sub(page_bytes),
+            max_buffered_bytes
+                .saturating_sub(page_bytes)
+                .saturating_sub(retained_identity_bytes),
             context,
         )?;
         let published = &segments[cursor.collection_index][cursor.segment_index];
@@ -3794,15 +3819,7 @@ fn try_lifecycle_ordered_stream(
             if page_captured {
                 ORDERED_TAIL_READ_ATTEMPTS.with(|value| value.set(value.get() + 1));
                 ORDERED_TAIL_LIVE_PAGE_ROWS.with(|value| value.set(page.len()));
-                ORDERED_TAIL_LIVE_PAGE_BYTES.with(|value| {
-                    value.set(
-                        page_bytes
-                            + page
-                                .iter()
-                                .map(crate::query_execution::streaming::hit_bytes)
-                                .sum::<usize>(),
-                    )
-                });
+                ORDERED_TAIL_LIVE_PAGE_BYTES.with(|value| value.set(page_bytes));
             }
             if record.range.len() > context.limits.source_record_bytes {
                 return Err(context.fail(
@@ -3813,11 +3830,18 @@ fn try_lifecycle_ordered_stream(
             let source_len = usize::try_from(record.range.len()).map_err(|_| {
                 context.fail(ExecutionErrorKind::Resource, "ordered source size overflow")
             })?;
+            #[cfg(test)]
+            if page_captured {
+                ORDERED_TAIL_IDENTITY_BYTES.with(|value| value.set(retained_identity_bytes));
+                ORDERED_TAIL_CURSOR_BYTES.with(|value| value.set(heap_bytes));
+                ORDERED_TAIL_SOURCE_BYTES.with(|value| value.set(source_len));
+            }
             if let Some(delivery) = delivery.as_deref_mut() {
                 delivery.check_record_bytes(source_len)?;
                 delivery.check_buffer(
                     page_bytes
                         .checked_add(heap_bytes)
+                        .and_then(|used| used.checked_add(retained_identity_bytes))
                         .and_then(|used| used.checked_add(source_len))
                         .ok_or_else(|| {
                             context.fail(
@@ -3838,7 +3862,8 @@ fn try_lifecycle_ordered_stream(
                 &mut reader,
                 max_buffered_bytes
                     .saturating_sub(heap_bytes)
-                    .saturating_sub(page_bytes),
+                    .saturating_sub(page_bytes)
+                    .saturating_sub(retained_identity_bytes),
                 context,
             ) {
                 Ok((read, opened)) => {
@@ -3977,6 +4002,7 @@ fn try_lifecycle_ordered_stream(
                         delivery.check_buffer(
                             page_bytes
                                 .checked_add(heap_bytes)
+                                .and_then(|used| used.checked_add(retained_identity_bytes))
                                 .and_then(|used| used.checked_add(source_len))
                                 .ok_or_else(|| {
                                     context.fail(
@@ -3997,7 +4023,8 @@ fn try_lifecycle_ordered_stream(
                         &mut reader,
                         max_buffered_bytes
                             .saturating_sub(heap_bytes)
-                            .saturating_sub(page_bytes),
+                            .saturating_sub(page_bytes)
+                            .saturating_sub(retained_identity_bytes),
                         context,
                     );
                     let (read, opened) = match read {
@@ -4071,7 +4098,17 @@ fn try_lifecycle_ordered_stream(
             ));
         }
         if let Some(delivery) = delivery.as_deref_mut() {
-            delivery.check_buffer(retained.saturating_add(heap_bytes))?;
+            delivery.check_buffer(
+                retained
+                    .checked_add(heap_bytes)
+                    .and_then(|used| used.checked_add(retained_identity_bytes))
+                    .ok_or_else(|| {
+                        context.fail(
+                            ExecutionErrorKind::Resource,
+                            "ordered retained memory overflow",
+                        )
+                    })?,
+            )?;
         }
         page_bytes = retained;
         page.push(hit);
