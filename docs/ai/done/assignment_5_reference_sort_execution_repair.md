@@ -94,6 +94,30 @@ Final gates at tested code commit `4935431b3fde7b7ec4d121871f1f8d81fe6d6978`:
 
 No separate benchmark was required. The regression measures source rediscovery and retained-cache work through exact counters rather than wall time, and the existing optimized provider/order tests cover the unchanged production baseline.
 
+### R6 integration validation
+
+- Source report head: `e226c6c1293bae57976da9af809df4e925dcab6b`
+- Tested R6 merge revision: `33d4b9085f44fc920f47dba791aa974692c57c02`
+- R6 branch: `repair/core-lifecycle-coordination`
+
+The corrected source branch merged into the reviewed R6 head without conflict.
+The combined tree passed:
+
+- `cargo fmt --all -- --check`
+- `cargo check --locked --workspace --all-targets`
+- `cargo test --locked --workspace` (592 core unit tests passed, 16 ignored, plus all workspace integration and doc tests)
+- `cargo test --locked -p objekte-search-core --all-features` (593 core unit tests passed, 16 ignored, plus all integration and doc tests)
+- `RUSTDOCFLAGS='-D rustdoc::broken_intra_doc_links' cargo doc --locked --workspace --no-deps`
+- `cargo test --locked -p objekte-search-core --lib lifecycle::` (88 passed, 6 ignored)
+
+The ignored release regression used the default record count with the
+environment override unset. It reported `records=262144`, `attempts=2`,
+`before=262146`, `after=262145`, `retired=1`, and exactly one passing test.
+
 ### Review notes
 
-No unresolved functional issue or blocked check remains. The report-only commit follows tested code commit `4935431b3fde7b7ec4d121871f1f8d81fe6d6978`; its only source delta is moving this specification to `done/` and appending this report.
+No unresolved functional issue or blocked check remains. The source report-only
+commit follows tested code commit
+`4935431b3fde7b7ec4d121871f1f8d81fe6d6978`; this R6 report-only commit follows
+tested merge `33d4b9085f44fc920f47dba791aa974692c57c02`. Each report commit's
+only delta is completion documentation.
