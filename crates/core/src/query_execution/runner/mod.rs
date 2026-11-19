@@ -14,12 +14,13 @@ use crate::execution_options::ReturnMode;
 use crate::execution_options::simple_composite_part;
 use crate::index::posting::PostingIndex;
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::segment::PublishedSegment;
 use crate::index::sorting::{InferredOrderKey, SortColumn};
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
+use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
-use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 #[cfg(test)]

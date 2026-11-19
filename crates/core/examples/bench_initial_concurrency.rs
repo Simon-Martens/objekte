@@ -11,8 +11,9 @@ use std::thread;
 use std::time::{Duration, Instant};
 
 use objekte_search_core::execution_options::BigramAlphabet;
+use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::lifecycle::initial::{InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::lifecycle::session::IndexedRepository;
-use objekte_search_core::lifecycle::{IndexView, InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::workload::load_extended_manifest;

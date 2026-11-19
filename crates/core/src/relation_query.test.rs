@@ -14,9 +14,10 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
     use crate::construction::segment_admission::SegmentAdmission;
     use crate::index::segment::IndexedCollectionSegment;
+    use crate::index::segment::PublishedSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
+    use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
-    use crate::lifecycle::{IndexRevision, PublishedSegment};
     use crate::model::{CollectionId, FileId};
 
     fn stage(
@@ -1102,7 +1103,7 @@ fn segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock() {
 #[test]
 fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contributions() {
     use crate::index::posting::ScalarKey;
-    use crate::lifecycle::PublishedSegment;
+    use crate::index::segment::PublishedSegment;
     use crate::model::CollectionId;
     use crate::relation::RelationId;
 

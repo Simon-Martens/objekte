@@ -5,9 +5,9 @@ use std::collections::{BinaryHeap, HashSet};
 use std::sync::Arc;
 
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::segment::PublishedSegment;
 use crate::index::sorting::{SortColumn, SortKey, SortOptions};
 use crate::inventory::RecordEntry;
-use crate::lifecycle::PublishedSegment;
 use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::Value;

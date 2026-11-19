@@ -335,16 +335,17 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
     let task = index.start_compaction().unwrap();
     assert_eq!(
         task.progress().unwrap().operation,
-        crate::lifecycle::MaintenanceOperation::Compact
+        crate::lifecycle::maintenance::MaintenanceOperation::Compact
     );
-    let crate::lifecycle::MaintenanceReport::Compact(report) = task.wait().unwrap() else {
+    let crate::lifecycle::maintenance::MaintenanceReport::Compact(report) = task.wait().unwrap()
+    else {
         panic!("wrong operation")
     };
     assert_eq!(report.retired_slots_removed, 1);
     assert!(task.is_complete().unwrap());
     assert_eq!(
         task.progress().unwrap().phase,
-        crate::lifecycle::MaintenancePhase::Complete
+        crate::lifecycle::maintenance::MaintenancePhase::Complete
     );
     assert_eq!(old.search(&all()).unwrap().count, Some(1));
     assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(0));

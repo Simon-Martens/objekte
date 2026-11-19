@@ -1,4 +1,19 @@
-use crate::lifecycle::*;
+use std::time::{Duration, Instant};
+
+use crate::inventory::{FileVersion, FileVersions};
+use crate::lifecycle::initial::InitialBuildPhase;
+use crate::lifecycle::maintenance::MaintenancePhase;
+use crate::lifecycle::{Index, IndexError, IndexRevision};
+
+/// Outcome of explicit full reconstruction from the configured source files.
+#[derive(Clone, Debug)]
+pub struct RebuildReport {
+    pub revision: IndexRevision,
+    pub attempts: usize,
+    pub indexed_files: usize,
+    pub live_records: u64,
+    pub duration: Duration,
+}
 impl Index {
     /// Rebuild from the current explicit configuration. Queries keep using
     /// their pinned prior view while source extraction runs. A concurrent

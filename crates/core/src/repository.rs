@@ -15,6 +15,7 @@ use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::index::bigram::{BigramConstructionStats, BigramIndex};
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
+use crate::index::segment::PublishedSegment;
 use crate::index::sorting::{SortCollection, SortConfig, SortOptions};
 use crate::inference::{
     InferenceBuildStats, InferenceConfig, InferencePathDiagnostic, InferenceReport, InferenceState,
@@ -22,8 +23,8 @@ use crate::inference::{
 use crate::inventory::{
     ActiveRecords, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
 };
+use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
-use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::measurement::WorkCounters;
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::query::Query;
@@ -859,7 +860,7 @@ impl Repository {
 
     pub(crate) fn segment_summaries_for<'a>(
         &self,
-        segments: &'a [Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
+        segments: &'a [Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
     ) -> impl Iterator<Item = crate::index::segment::NativeSegmentSummary> + 'a {
         segments
             .iter()
@@ -929,7 +930,7 @@ impl Repository {
 
     pub(crate) fn native_index_signature_for(
         &self,
-        segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
+        segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
     ) -> String {
         let mut hash = Sha256::new();
         for (collection_index, collection) in self.collections.iter().enumerate() {

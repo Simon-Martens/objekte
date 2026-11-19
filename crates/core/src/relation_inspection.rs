@@ -3,9 +3,10 @@
 use std::sync::Arc;
 
 use crate::index::relation::RelationTarget;
+use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
+use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
-use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::relation::{RelationCardinality, RelationId};
 use crate::relation_query::{MergedRecordSlot, MergedRelationView};

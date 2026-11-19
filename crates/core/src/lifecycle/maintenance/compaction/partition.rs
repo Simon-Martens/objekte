@@ -10,13 +10,15 @@ use roaring::RoaringBitmap;
 
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PartitionRouting;
+#[cfg(test)]
+use crate::index::segment::PublishedSegment;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
+#[cfg(test)]
+use crate::lifecycle::PublishedIndex;
 use crate::lifecycle::catalog::FileCatalog;
 #[cfg(test)]
 use crate::lifecycle::maintenance::compaction::base_as_segment;
-#[cfg(test)]
-use crate::lifecycle::{PublishedIndex, PublishedSegment};
 use crate::model::FileId;
 
 #[cfg(test)]

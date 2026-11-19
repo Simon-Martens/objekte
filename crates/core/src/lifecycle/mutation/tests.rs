@@ -4,7 +4,7 @@ use super::{
 };
 use crate::execution_options::{ReturnMode, SortField};
 use crate::inventory::SourceRevision;
-use crate::lifecycle::DeleteStrategy;
+use crate::lifecycle::mutation::DeleteStrategy;
 use crate::model::{CollectionId, FieldPath, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::relation::{RelationCardinality, RelationDefinition};

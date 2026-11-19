@@ -6,43 +6,30 @@
 
 use std::fmt;
 use std::path::Path;
-use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::mpsc::{self, RecvTimeoutError, Sender};
-use std::sync::{Arc, Condvar, Mutex, RwLock};
-use std::thread::JoinHandle;
-use std::time::{Duration, Instant, SystemTime};
+use std::sync::atomic::AtomicBool;
+use std::sync::{Arc, Mutex, RwLock};
 
 use serde::{Deserialize, Serialize};
 
-use crate::construction::batch::SourceFileInput;
-use crate::construction::file_preparation::{
-    FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_file_build,
-};
-use crate::construction::segment_admission::SegmentAdmission;
-use crate::discovery::selects_file;
-use crate::index::segment::IndexedCollectionSegment;
-pub(crate) use crate::index::segment::PublishedSegment;
-use crate::index::segment::SegmentId;
-use crate::inventory::{FileEntry, FileStatus, FileVersions};
+use crate::inventory::FileVersion;
 use crate::model::{CollectionId, FileId};
-use crate::repository::{Repository, SearchResult};
+use crate::repository::SearchResult;
 
 pub(crate) mod catalog;
 pub mod initial;
 pub mod maintenance;
 pub mod mutation;
 mod open;
-mod reconciliation;
+pub mod reconciliation;
 mod service;
 
-pub use crate::inventory::FileVersion;
-pub use initial::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus, InitialBuildTask};
+use maintenance::MaintenanceJob;
+use reconciliation::{MaintenanceState, PeriodicReconciliation, ReconciliationState};
 
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 const MAX_SPARSE_SEGMENT_BYTES: usize = 32 * 1024 * 1024;
 const SIZE_MAINTENANCE_REVISIONS: u64 = 16;
 const MIN_RETIREMENT_SLOTS: usize = 256;
-const MAX_RECONCILIATION_ISSUES: usize = 128;
 
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
@@ -163,18 +150,6 @@ impl fmt::Display for IndexError {
 
 impl std::error::Error for IndexError {}
 
-/// Initial status vocabulary; background task state is supplied by the
-/// reconciliation phase, separately from publication revisions.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum ReconciliationState {
-    NotStarted,
-    Pending,
-    Running,
-    Complete,
-    Partial,
-    Cancelled,
-}
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStatus {
     pub instance_id: u64,
@@ -266,143 +241,6 @@ pub struct AvailableSearchResult {
     pub processed_files: usize,
 }
 
-/// Outcome of explicit full reconstruction from the configured source files.
-#[derive(Clone, Debug)]
-pub struct RebuildReport {
-    pub revision: IndexRevision,
-    pub attempts: usize,
-    pub indexed_files: usize,
-    pub live_records: u64,
-    pub duration: Duration,
-}
-
-/// The kind of a long-running index maintenance task.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum MaintenanceOperation {
-    Compact,
-    Rebuild,
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum MaintenancePhase {
-    Pending,
-    Preparing,
-    Publishing,
-    Complete,
-    Cancelled,
-    Failed,
-}
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MaintenanceProgress {
-    pub operation: MaintenanceOperation,
-    pub phase: MaintenancePhase,
-    pub attempt: usize,
-    pub elapsed: Duration,
-}
-
-#[derive(Clone, Debug)]
-pub enum MaintenanceReport {
-    Compact(crate::lifecycle::maintenance::compaction::CompactionReport),
-    Rebuild(RebuildReport),
-}
-
-/// Result of removing one physical source entry from the published index.
-/// The source file itself is never changed.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum DeleteStrategy {
-    Tombstone,
-    VerifiedPhysicalRemoval,
-}
-
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct DeleteResult {
-    pub revision: IndexRevision,
-    pub file: FileId,
-    pub retired_records: u64,
-    pub affected_collections: Vec<String>,
-    pub strategy: DeleteStrategy,
-}
-
-/// One metadata scan and its applied index changes. Errors affecting only a
-/// source remain visible here while other independent files can proceed.
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
-pub struct ReconciliationReport {
-    pub examined: usize,
-    pub planned_changes: usize,
-    pub unchanged: usize,
-    pub added: usize,
-    pub updated: usize,
-    pub removed: usize,
-    pub skipped: usize,
-    pub indexed_bytes: u64,
-    pub duration: Duration,
-    pub cancelled: bool,
-    pub issues: Vec<String>,
-    pub omitted_issues: usize,
-}
-
-impl ReconciliationReport {
-    fn record_issue(&mut self, issue: String) {
-        if self.issues.len() < MAX_RECONCILIATION_ISSUES {
-            self.issues.push(issue);
-        } else {
-            self.omitted_issues = self.omitted_issues.saturating_add(1);
-        }
-    }
-}
-
-/// Small, copyable observation while a reconciliation pass is running.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct ReconciliationProgress {
-    pub examined: usize,
-    pub planned_changes: usize,
-    pub unchanged: usize,
-    pub added: usize,
-    pub updated: usize,
-    pub removed: usize,
-    pub skipped: usize,
-    pub indexed_bytes: u64,
-    pub duration: Duration,
-    pub cancelled: bool,
-    pub issue_count: usize,
-}
-
-impl From<&ReconciliationReport> for ReconciliationProgress {
-    fn from(report: &ReconciliationReport) -> Self {
-        Self {
-            examined: report.examined,
-            planned_changes: report.planned_changes,
-            unchanged: report.unchanged,
-            added: report.added,
-            updated: report.updated,
-            removed: report.removed,
-            skipped: report.skipped,
-            indexed_bytes: report.indexed_bytes,
-            duration: report.duration,
-            cancelled: report.cancelled,
-            issue_count: report.issues.len().saturating_add(report.omitted_issues),
-        }
-    }
-}
-
-/// Private work captured before the mutation writer validates and publishes
-/// one file across all eligible collections.
-pub(crate) struct PreparedAdd {
-    pub(crate) expected_revision: IndexRevision,
-    pub(crate) configuration_identity: [u8; 32],
-    pub(crate) file: PreparedFileBuild,
-}
-
-/// A complete replacement captured against one file incarnation. The writer
-/// checks both the view revision and file token before replacing its slots.
-pub(crate) struct PreparedReplacement {
-    pub(crate) expected_revision: IndexRevision,
-    pub(crate) expected_handle: FileHandle,
-    pub(crate) configuration_identity: [u8; 32],
-    pub(crate) file: PreparedFileBuild,
-}
-
 /// Native retained-memory estimate for one published contribution. It counts
 /// posting and gram bitmap payloads plus estimated sort keys. It is not an
 /// allocator measurement or a strict peak bound; it orders maintenance.
@@ -464,199 +302,6 @@ pub(crate) fn index_family_estimate(
     }
 }
 
-fn index_prepared_file(
-    repository: &Repository,
-    source: &SourceFileInput,
-    collections: Vec<PreparedCollectionBuild>,
-    first_segment_id: u64,
-    policy: crate::index::segment::SegmentPolicy,
-) -> Result<(FileEntry, Vec<IndexedCollectionSegment>), IndexError> {
-    let options = repository.options();
-    let mut indexed = Vec::with_capacity(collections.len());
-    let mut next_segment_id = first_segment_id;
-    for collection in collections {
-        let state = repository
-            .collections()
-            .get(collection.collection.0 as usize)
-            .ok_or_else(|| IndexError::InvalidPublication("collection missing".into()))?;
-        if collection.collection != state.generation.collection
-            || collection.source_id != state.source.id()
-            || collection.source_version != state.source.version()
-        {
-            return Err(IndexError::Build(
-                "prepared collection binding changed".into(),
-            ));
-        }
-        let mut admission = SegmentAdmission::with_limits_and_id(
-            collection.collection,
-            &state.source,
-            policy,
-            SegmentId::new(next_segment_id),
-        );
-        next_segment_id = next_segment_id
-            .checked_add(1)
-            .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
-        let mut finish = |admission: SegmentAdmission| -> Result<(), IndexError> {
-            indexed.push(
-                admission
-                    .finish()
-                    .into_indexed(
-                        &state.definition,
-                        options.bigram_alphabet,
-                        options.inference,
-                        repository.collections().len(),
-                        &repository.workers,
-                    )
-                    .map_err(IndexError::Build)?,
-            );
-            Ok(())
-        };
-        for batch in collection.contributions {
-            if batch.record_count() != 0
-                && admission.file_count() != 0
-                && !admission.can_admit_batch(&batch)
-            {
-                finish(std::mem::replace(
-                    &mut admission,
-                    SegmentAdmission::with_limits_and_id(
-                        collection.collection,
-                        &state.source,
-                        policy,
-                        SegmentId::new(next_segment_id),
-                    ),
-                ))?;
-                next_segment_id = next_segment_id
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
-            }
-            admission.admit_batch(batch).map_err(IndexError::Build)?;
-            if admission.at_capacity() {
-                finish(std::mem::replace(
-                    &mut admission,
-                    SegmentAdmission::with_limits_and_id(
-                        collection.collection,
-                        &state.source,
-                        policy,
-                        SegmentId::new(next_segment_id),
-                    ),
-                ))?;
-                next_segment_id = next_segment_id
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
-            }
-        }
-        if admission.file_count() != 0 {
-            finish(admission)?;
-        }
-    }
-    let memberships = indexed.iter().map(|segment| segment.collection).collect();
-    let mut entry = FileEntry {
-        id: source.id,
-        relative_path: source.relative_path.clone().into(),
-        revision: source.revision,
-        created_ns: source.created_ns,
-        collections: memberships,
-        status: FileStatus::Valid,
-        diagnostics: Vec::new(),
-        omitted_diagnostics: 0,
-    };
-    for segment in &indexed {
-        let file = segment
-            .file(source.id)
-            .ok_or_else(|| IndexError::InvalidPublication("segment file entry missing".into()))?;
-        entry.status = entry.status.max(file.entry.status);
-        entry.omitted_diagnostics = entry
-            .omitted_diagnostics
-            .saturating_add(file.entry.omitted_diagnostics);
-        for diagnostic in &file.entry.diagnostics {
-            entry
-                .record_diagnostic(diagnostic.clone())
-                .map_err(IndexError::InvalidPublication)?;
-        }
-    }
-    Ok((entry, indexed))
-}
-
-fn prepare_file_at(
-    view: &IndexView,
-    path: &Path,
-    id: FileId,
-) -> Result<PreparedFileBuild, IndexError> {
-    let repository = view.repository();
-    let root = &repository.files().root;
-    let relative = if path.is_absolute() {
-        path.strip_prefix(root)
-            .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?
-    } else {
-        path
-    };
-    if relative.as_os_str().is_empty()
-        || relative
-            .components()
-            .any(|part| !matches!(part, std::path::Component::Normal(_)))
-    {
-        return Err(IndexError::SourceUnavailable(
-            "file path must be repository-relative and contained".into(),
-        ));
-    }
-    if view
-        .0
-        .catalog
-        .id_for(relative)
-        .is_some_and(|other| other != id)
-    {
-        return Err(IndexError::DestinationExists);
-    }
-    let mut bindings = Vec::new();
-    for collection in repository.collections() {
-        if selects_file(
-            root,
-            &collection.definition.source_path,
-            &collection.definition.discovery,
-            &collection.source,
-            relative,
-        )
-        .map_err(IndexError::Build)?
-        {
-            bindings.push(FilePreparationBinding {
-                collection: collection.generation.collection,
-                definition: &collection.definition,
-                source: &collection.source,
-            });
-        }
-    }
-    if bindings.is_empty() {
-        return Err(IndexError::IncompatibleConfiguration(
-            "no configured collection selects this file".into(),
-        ));
-    }
-    let metadata = std::fs::metadata(root.join(relative))
-        .map_err(|error| IndexError::Io(error.to_string()))?;
-    let revision =
-        crate::inventory::SourceRevision::from_metadata(&metadata).map_err(IndexError::Io)?;
-    let created_ns = metadata
-        .created()
-        .ok()
-        .and_then(|time| time.duration_since(SystemTime::UNIX_EPOCH).ok())
-        .map(|duration| duration.as_nanos() as i128);
-    let source = SourceFileInput {
-        id,
-        relative_path: relative.to_owned().into(),
-        revision,
-        created_ns,
-    };
-    let options = repository.options();
-    prepare_file_build(
-        root,
-        source,
-        &bindings,
-        options.bigram_alphabet,
-        options.inference,
-        1,
-    )
-    .map_err(IndexError::Build)
-}
-
 struct IndexInner {
     instance_id: u64,
     timings: Mutex<IndexTimingsMs>,
@@ -671,6 +316,8 @@ struct IndexInner {
     maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
+    #[cfg(test)]
+    maintenance_worker_hook: Mutex<Option<Arc<maintenance::MaintenanceWorkerEntryHook>>>,
 }
 
 /// Coarse startup milestones available in ordinary builds. Values are elapsed
@@ -681,162 +328,6 @@ pub struct IndexTimingsMs {
     pub search_available: Option<u64>,
     pub full_available: Option<u64>,
     pub inference_full_available: Option<u64>,
-}
-
-struct PeriodicReconciliation {
-    signal: Sender<PeriodicSignal>,
-    worker: JoinHandle<()>,
-}
-
-enum PeriodicSignal {
-    #[cfg(test)]
-    Tick,
-    Stop,
-}
-
-struct MaintenanceState {
-    reconciliation: ReconciliationState,
-    current: Option<Arc<ReconciliationJob>>,
-}
-
-struct ReconciliationJob {
-    cancelled: AtomicBool,
-    progress: Mutex<ReconciliationProgress>,
-    result: Mutex<Option<ReconciliationReport>>,
-    complete: Condvar,
-    worker: Mutex<Option<JoinHandle<()>>>,
-}
-
-struct MaintenanceJob {
-    operation: MaintenanceOperation,
-    started: Instant,
-    cancelled: AtomicBool,
-    progress: Mutex<MaintenanceProgress>,
-    result: Mutex<Option<Result<MaintenanceReport, IndexError>>>,
-    complete: Condvar,
-    worker: Mutex<Option<JoinHandle<()>>>,
-}
-
-/// One observable compaction or rebuild. Cancellation prevents publication
-/// and leaves the current view available.
-#[derive(Clone)]
-pub struct MaintenanceTask(Arc<MaintenanceJob>);
-
-impl MaintenanceTask {
-    pub fn cancel(&self) {
-        self.0.cancelled.store(true, Ordering::Release);
-    }
-
-    pub fn progress(&self) -> Result<MaintenanceProgress, IndexError> {
-        let mut progress = *self
-            .0
-            .progress
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if !matches!(
-            progress.phase,
-            MaintenancePhase::Complete | MaintenancePhase::Cancelled | MaintenancePhase::Failed
-        ) {
-            progress.elapsed = self.0.started.elapsed();
-        }
-        Ok(progress)
-    }
-
-    pub fn is_complete(&self) -> Result<bool, IndexError> {
-        Ok(self
-            .0
-            .result
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .is_some())
-    }
-
-    pub fn wait(&self) -> Result<MaintenanceReport, IndexError> {
-        let mut result = self.0.result.lock().map_err(|_| IndexError::LockPoisoned)?;
-        while result.is_none() {
-            result = self
-                .0
-                .complete
-                .wait(result)
-                .map_err(|_| IndexError::LockPoisoned)?;
-        }
-        let outcome = result.as_ref().cloned().ok_or(IndexError::LockPoisoned)?;
-        drop(result);
-        if let Some(worker) = self
-            .0
-            .worker
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .take()
-        {
-            worker.join().map_err(|_| {
-                IndexError::InvalidPublication("maintenance worker panicked".into())
-            })?;
-        }
-        outcome
-    }
-}
-
-impl MaintenanceJob {
-    fn set_progress(&self, phase: MaintenancePhase, attempt: usize, elapsed: Duration) {
-        if let Ok(mut progress) = self.progress.lock() {
-            progress.phase = phase;
-            progress.attempt = attempt;
-            progress.elapsed = elapsed;
-        }
-    }
-}
-
-/// Observable, cancellable handle for one metadata reconciliation pass.
-#[derive(Clone)]
-pub struct ReconciliationTask(Arc<ReconciliationJob>);
-
-impl ReconciliationTask {
-    pub fn cancel(&self) {
-        self.0.cancelled.store(true, Ordering::Release);
-    }
-
-    pub fn is_complete(&self) -> Result<bool, IndexError> {
-        Ok(self
-            .0
-            .result
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .is_some())
-    }
-
-    pub fn progress(&self) -> Result<ReconciliationProgress, IndexError> {
-        Ok(*self
-            .0
-            .progress
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?)
-    }
-
-    pub fn wait(&self) -> Result<ReconciliationReport, IndexError> {
-        let mut guard = self.0.result.lock().map_err(|_| IndexError::LockPoisoned)?;
-        while guard.is_none() {
-            guard = self
-                .0
-                .complete
-                .wait(guard)
-                .map_err(|_| IndexError::LockPoisoned)?;
-        }
-        let result = guard.as_ref().cloned().ok_or(IndexError::LockPoisoned)?;
-        drop(guard);
-        if let Some(worker) = self
-            .0
-            .worker
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .take()
-        {
-            worker.join().map_err(|_| {
-                IndexError::InvalidPublication("reconciliation worker panicked".into())
-            })?;
-        }
-        Ok(result)
-    }
 }
 
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.

@@ -9,11 +9,11 @@ use objekte_search_core::completion::{self as completion_context, CompletionCont
 use objekte_search_core::execution_options::{ReturnMode, SortField};
 #[cfg(test)]
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::lifecycle::session::IndexedRepository;
-use objekte_search_core::lifecycle::{
-    FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
-    InitialBuildTask,
+use objekte_search_core::lifecycle::initial::{
+    InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus, InitialBuildTask,
 };
+use objekte_search_core::lifecycle::session::IndexedRepository;
+use objekte_search_core::lifecycle::{FileCatalogueRow, IndexView};
 use objekte_search_core::model::{FieldPath, FileId, LogicalType, PathRoot, Value};
 use objekte_search_core::query::path::QueryPath;
 use objekte_search_core::query::{

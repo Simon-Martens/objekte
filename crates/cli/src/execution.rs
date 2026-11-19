@@ -411,8 +411,8 @@ fn open_incremental_repository(
         }
         if matches!(
             snapshot.status.phase,
-            objekte_search_core::lifecycle::InitialBuildPhase::Failed
-                | objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
+            objekte_search_core::lifecycle::initial::InitialBuildPhase::Failed
+                | objekte_search_core::lifecycle::initial::InitialBuildPhase::Cancelled
         ) {
             return Err(snapshot
                 .status
@@ -601,7 +601,8 @@ fn complete_run<W: Write>(
         "build_failed_parses": repo.build_failed_parses(),
         "index_timings_ms": index_timings_ms,
         "protocol_version": crate::output::PROTOCOL_VERSION,
-        "source_reconciliation_complete": live.reconciliation == objekte_search_core::lifecycle::ReconciliationState::Complete,
+        "source_reconciliation_complete": live.reconciliation
+            == objekte_search_core::lifecycle::reconciliation::ReconciliationState::Complete,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({
             "complete": report.complete,

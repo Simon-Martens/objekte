@@ -1,4 +1,12 @@
-use crate::lifecycle::*;
+use std::sync::atomic::AtomicBool;
+use std::sync::{Arc, Mutex, RwLock};
+
+use crate::lifecycle::reconciliation::MaintenanceState;
+use crate::lifecycle::{
+    Index, IndexError, IndexInner, IndexRevision, IndexTimingsMs, PublishedIndex,
+    ReconciliationState,
+};
+use crate::repository::Repository;
 impl Index {
     /// Adopt a completed static repository as the first published view.
     /// This does not trigger discovery, reconciliation or cache persistence.
@@ -66,6 +74,8 @@ impl Index {
             maintenance_operation: Mutex::new(None),
             periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
+            #[cfg(test)]
+            maintenance_worker_hook: Mutex::new(None),
         }))
     }
 }

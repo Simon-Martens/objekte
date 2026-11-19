@@ -1,4 +1,22 @@
-use crate::lifecycle::*;
+use std::sync::Arc;
+use std::sync::atomic::Ordering;
+use std::sync::mpsc::{self, RecvTimeoutError, Sender};
+use std::thread::JoinHandle;
+use std::time::Duration;
+
+use crate::lifecycle::{Index, IndexError};
+
+pub(crate) struct PeriodicReconciliation {
+    pub(crate) signal: Sender<PeriodicSignal>,
+    pub(crate) worker: JoinHandle<()>,
+}
+
+pub(crate) enum PeriodicSignal {
+    #[cfg(test)]
+    Tick,
+    Stop,
+}
+
 impl Index {
     /// Schedule one coalesced metadata reconciliation at each interval.
     /// Calling this again replaces the previous schedule. Stopping the
@@ -92,18 +110,5 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .as_ref()
             .is_some_and(|schedule| !schedule.worker.is_finished()))
-    }
-
-    pub fn wait_for_reconciliation(&self) -> Result<Option<ReconciliationReport>, IndexError> {
-        let current = self
-            .0
-            .maintenance
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .current
-            .clone();
-        current
-            .map(|job| ReconciliationTask(job).wait())
-            .transpose()
     }
 }

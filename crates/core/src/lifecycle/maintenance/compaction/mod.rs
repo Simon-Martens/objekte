@@ -4,13 +4,13 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
+use crate::index::segment::PublishedSegment;
 use crate::index::segment::{IndexedCollectionSegment, SegmentFile};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::catalog::FileCatalog;
+use crate::lifecycle::maintenance::MaintenancePhase;
 use crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy;
-use crate::lifecycle::{
-    Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
-};
+use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::repository::CollectionState;
 
 /// Dense maintenance result. Old pinned views may keep retired memory until

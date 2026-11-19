@@ -3,9 +3,9 @@
 
 use std::time::Duration;
 
-use objekte_search_core::lifecycle::{
-    IndexStatus, MaintenanceOperation, MaintenanceTask, ReconciliationTask,
-};
+use objekte_search_core::lifecycle::IndexStatus;
+use objekte_search_core::lifecycle::maintenance::{MaintenanceOperation, MaintenanceTask};
+use objekte_search_core::lifecycle::reconciliation::ReconciliationTask;
 
 use super::open::OpenedSession;
 use super::{BackendError, BackendErrorKind};

@@ -13,10 +13,10 @@ use std::time::{Duration, Instant};
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
 use objekte_search_core::index::posting::ScalarKey;
-use objekte_search_core::lifecycle::{
-    IndexRevision, IndexStatus, IndexView, InitialBuildPhase, InitialBuildTask,
-    MaintenanceOperation, MaintenanceTask, ReconciliationState, ReconciliationTask,
-};
+use objekte_search_core::lifecycle::initial::{InitialBuildPhase, InitialBuildTask};
+use objekte_search_core::lifecycle::maintenance::{MaintenanceOperation, MaintenanceTask};
+use objekte_search_core::lifecycle::reconciliation::{ReconciliationState, ReconciliationTask};
+use objekte_search_core::lifecycle::{IndexRevision, IndexStatus, IndexView};
 use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::query_execution::runner::DirectLookupResult;
 use objekte_search_core::repository::SearchHit;
@@ -1033,13 +1033,17 @@ impl DesktopController {
             match task.wait() {
                 Ok(report) => {
                     self.index_ui.maintenance = IndexTaskState::Succeeded(match report {
-                        objekte_search_core::lifecycle::MaintenanceReport::Compact(ref compact) => {
+                        objekte_search_core::lifecycle::maintenance::MaintenanceReport::Compact(
+                            ref compact,
+                        ) => {
                             format!(
                                 "Index compacted: {} obsolete slots removed",
                                 compact.retired_slots_removed
                             )
                         }
-                        objekte_search_core::lifecycle::MaintenanceReport::Rebuild(ref rebuild) => {
+                        objekte_search_core::lifecycle::maintenance::MaintenanceReport::Rebuild(
+                            ref rebuild,
+                        ) => {
                             format!("Index rebuilt: {} files", rebuild.indexed_files)
                         }
                     });

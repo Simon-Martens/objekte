@@ -6,9 +6,9 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use crate::index::relation::{RelationIndex, RelationTarget};
+use crate::index::segment::PublishedSegment;
 use crate::index::segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::inventory::RecordClass;
-use crate::lifecycle::PublishedSegment;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query::Quantifier;
 use crate::query::binding::fts::BoundFts;

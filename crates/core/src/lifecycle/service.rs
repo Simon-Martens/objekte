@@ -1,4 +1,8 @@
-use crate::lifecycle::*;
+use std::sync::atomic::Ordering;
+
+use crate::lifecycle::maintenance::MaintenanceTask;
+use crate::lifecycle::reconciliation::{ReconciliationReport, ReconciliationTask};
+use crate::lifecycle::{Index, IndexError};
 impl Index {
     /// Prevent new data publications, stop recurring work, and wait for every
     /// currently owned mutation worker. The resulting view is stable for a

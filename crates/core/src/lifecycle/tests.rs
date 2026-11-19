@@ -1,7 +1,9 @@
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
-use super::{DeleteStrategy, Index, IndexError, IndexRevision, PeriodicSignal, PublishedIndex};
+use super::mutation::DeleteStrategy;
+use super::reconciliation::periodic::PeriodicSignal;
+use super::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::execution_options::ReturnMode;
 use crate::execution_options::{SortExpression, SortField};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
@@ -602,7 +604,8 @@ fn all_records() -> Query {
 
 #[test]
 fn stopping_periodic_schedule_does_not_cancel_current_reconciliation() {
-    use super::{ReconciliationJob, ReconciliationProgress, ReconciliationState};
+    use super::reconciliation::task::ReconciliationJob;
+    use super::reconciliation::{ReconciliationProgress, ReconciliationState};
     use std::sync::atomic::{AtomicBool, Ordering};
     use std::sync::{Condvar, Mutex};
     use std::time::Duration;
@@ -687,13 +690,13 @@ fn background_rebuild_waits_and_cancelled_preparation_never_publishes() {
     assert_eq!(cancelled.unwrap_err(), IndexError::Cancelled);
     assert_eq!(index.view().unwrap().revision(), initial);
     let task = index.start_rebuild().unwrap();
-    let super::MaintenanceReport::Rebuild(report) = task.wait().unwrap() else {
+    let super::maintenance::MaintenanceReport::Rebuild(report) = task.wait().unwrap() else {
         panic!("wrong operation")
     };
     assert_eq!(report.revision, initial.next().unwrap());
     assert_eq!(
         task.progress().unwrap().phase,
-        super::MaintenancePhase::Complete
+        super::maintenance::MaintenancePhase::Complete
     );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -1333,7 +1336,7 @@ fn background_reconciliation_reports_completion_and_joins() {
     assert!(task.is_complete().unwrap());
     assert_eq!(
         task.progress().unwrap(),
-        super::ReconciliationProgress::from(&report)
+        super::reconciliation::ReconciliationProgress::from(&report)
     );
     assert_eq!(index.status().unwrap().revision, before.revision);
     assert_eq!(

@@ -1,9 +1,95 @@
 //! Batch metadata reconciliation.
 
-mod periodic;
+use std::time::Duration;
+
+use std::path::Path;
+use std::time::Instant;
+
+use crate::lifecycle::{Index, IndexError, IndexView};
+
+const MAX_RECONCILIATION_ISSUES: usize = 128;
+
+/// Initial status vocabulary; background task state is supplied by the
+/// reconciliation phase, separately from publication revisions.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ReconciliationState {
+    NotStarted,
+    Pending,
+    Running,
+    Complete,
+    Partial,
+    Cancelled,
+}
+
+/// One metadata scan and its applied index changes. Errors affecting only a
+/// source remain visible here while other independent files can proceed.
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct ReconciliationReport {
+    pub examined: usize,
+    pub planned_changes: usize,
+    pub unchanged: usize,
+    pub added: usize,
+    pub updated: usize,
+    pub removed: usize,
+    pub skipped: usize,
+    pub indexed_bytes: u64,
+    pub duration: Duration,
+    pub cancelled: bool,
+    pub issues: Vec<String>,
+    pub omitted_issues: usize,
+}
+
+impl ReconciliationReport {
+    fn record_issue(&mut self, issue: String) {
+        if self.issues.len() < MAX_RECONCILIATION_ISSUES {
+            self.issues.push(issue);
+        } else {
+            self.omitted_issues = self.omitted_issues.saturating_add(1);
+        }
+    }
+}
+
+/// Small, copyable observation while a reconciliation pass is running.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ReconciliationProgress {
+    pub examined: usize,
+    pub planned_changes: usize,
+    pub unchanged: usize,
+    pub added: usize,
+    pub updated: usize,
+    pub removed: usize,
+    pub skipped: usize,
+    pub indexed_bytes: u64,
+    pub duration: Duration,
+    pub cancelled: bool,
+    pub issue_count: usize,
+}
+
+impl From<&ReconciliationReport> for ReconciliationProgress {
+    fn from(report: &ReconciliationReport) -> Self {
+        Self {
+            examined: report.examined,
+            planned_changes: report.planned_changes,
+            unchanged: report.unchanged,
+            added: report.added,
+            updated: report.updated,
+            removed: report.removed,
+            skipped: report.skipped,
+            indexed_bytes: report.indexed_bytes,
+            duration: report.duration,
+            cancelled: report.cancelled,
+            issue_count: report.issues.len().saturating_add(report.omitted_issues),
+        }
+    }
+}
+
+pub(crate) mod periodic;
 pub(crate) mod scan;
-mod task;
-use crate::lifecycle::*;
+pub(crate) mod task;
+
+pub(crate) use periodic::PeriodicReconciliation;
+pub(crate) use task::MaintenanceState;
+pub use task::ReconciliationTask;
 
 impl Index {
     /// Apply one complete metadata observation through the same file

@@ -206,7 +206,7 @@ pub(crate) fn candidate_config(mut config: InferenceConfig) -> InferenceConfig {
 pub(crate) fn aggregate_segment_inference(
     config: InferenceConfig,
     schema: &Schema,
-    segments: &[Arc<crate::lifecycle::PublishedSegment>],
+    segments: &[Arc<crate::index::segment::PublishedSegment>],
     collection_name: &str,
 ) -> Result<Option<crate::repository::GlobalInferenceSummary>, String> {
     if config.mode == InferenceMode::Disabled {

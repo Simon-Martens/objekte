@@ -4,27 +4,23 @@
 use std::collections::BTreeSet;
 use std::io::Read;
 use std::path::{Component, Path, PathBuf};
-use std::time::SystemTime;
 
 use sha2::{Digest, Sha256};
 
-use crate::construction::batch::SourceFileInput;
-use crate::construction::file_preparation::{
-    BytesPreparationError, FilePreparationBinding, PreparedFileBuild, prepare_file_build_from_bytes,
-};
+use crate::construction::file_preparation::PreparedFileBuild;
 use crate::discovery::selects_file;
 use crate::inventory::SourceRevision;
 use crate::lifecycle::maintenance::compaction::compact_published;
+use crate::lifecycle::mutation::preparation::PreparedReplacement;
 use crate::lifecycle::mutation::verified::{
     preserve_partition_record_slots, preserve_single_record_slots, remove_verified_old_shards,
     verify_old_content,
 };
-use crate::lifecycle::{
-    DeleteResult, DeleteStrategy, FileHandle, Index, IndexError, IndexRevision, IndexView,
-    PreparedReplacement, PublishedIndex,
-};
-use crate::model::{CollectionId, MetadataField, PathRoot};
+use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView, PublishedIndex};
+use crate::model::{CollectionId, FileId, MetadataField, PathRoot};
 use crate::repository::IdentityPolicy;
+
+use preparation::{created_ns, prepare_replacement_bytes};
 
 const MAX_PUBLICATION_RETRIES: usize = 8;
 
@@ -86,6 +82,23 @@ pub struct UpdateOptions<'a> {
     pub strategy: UpdateStrategy,
 }
 
+/// Result of removing one physical source entry from the published index.
+/// The source file itself is never changed.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DeleteStrategy {
+    Tombstone,
+    VerifiedPhysicalRemoval,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DeleteResult {
+    pub revision: IndexRevision,
+    pub file: FileId,
+    pub retired_records: u64,
+    pub affected_collections: Vec<String>,
+    pub strategy: DeleteStrategy,
+}
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VerifiedDeleteResult {
     pub deletion: DeleteResult,
@@ -105,6 +118,25 @@ pub struct FileMutationResult {
     pub kind: FileMutationKind,
     pub strategy: FileMutationStrategy,
     pub fallback_reason: Option<VerifiedFallbackReason>,
+}
+
+impl Index {
+    /// Retire all records owned by one file across its collections in one
+    /// publication. This changes index state only, and requires no source
+    /// content or source-file I/O. A later scan can add a still-present file.
+    pub fn delete_file(&self, handle: FileHandle) -> Result<DeleteResult, IndexError> {
+        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
+        let (expected, next, retired_records, affected_collections) =
+            self.stage_prepared_delete(handle)?;
+        let revision = self.publish_prepared(expected, next)?;
+        Ok(DeleteResult {
+            revision,
+            file: handle.file_id,
+            retired_records,
+            affected_collections,
+            strategy: DeleteStrategy::Tombstone,
+        })
+    }
 }
 
 fn collection_names(
@@ -200,14 +232,6 @@ fn path_independent_memberships(
     Ok(true)
 }
 
-fn created_ns(metadata: &std::fs::Metadata) -> Option<i128> {
-    metadata
-        .created()
-        .ok()
-        .and_then(|time| time.duration_since(SystemTime::UNIX_EPOCH).ok())
-        .map(|duration| duration.as_nanos() as i128)
-}
-
 fn hash_destination(path: &Path) -> Result<([u8; 32], SourceRevision, Option<i128>), IndexError> {
     let mut source =
         std::fs::File::open(path).map_err(|error| IndexError::Io(error.to_string()))?;
@@ -256,97 +280,6 @@ fn hash_destination(path: &Path) -> Result<([u8; 32], SourceRevision, Option<i12
         }
     }
     Ok((hasher.finalize().into(), revision, creation))
-}
-
-fn prepare_replacement_bytes(
-    index: &Index,
-    handle: FileHandle,
-    path: &Path,
-    bytes: &[u8],
-    revision: SourceRevision,
-) -> Result<PreparedReplacement, IndexError> {
-    if handle.instance_id != index.instance_id() {
-        return Err(IndexError::ForeignInstance);
-    }
-    let view = index.view()?;
-    let actual = view
-        .file_version_including_inactive(handle.file_id)
-        .ok_or(IndexError::UnknownFile)?;
-    if actual != handle.version {
-        return Err(IndexError::FileConflict {
-            file: handle.file_id,
-            expected: handle.version,
-            actual,
-        });
-    }
-    let previous = view
-        .file_entry(handle.file_id)
-        .ok_or(IndexError::UnknownFile)?;
-    let relative = relative_path(&view, path)?;
-    if view
-        .file_handle_for_path(&relative)
-        .is_some_and(|other| other.file_id != handle.file_id)
-    {
-        return Err(IndexError::DestinationExists);
-    }
-    let repository = view.repository();
-    let root = &repository.files().root;
-    let mut bindings = Vec::new();
-    for collection in repository.collections() {
-        if selects_file(
-            root,
-            &collection.definition.source_path,
-            &collection.definition.discovery,
-            &collection.source,
-            &relative,
-        )
-        .map_err(IndexError::Build)?
-        {
-            bindings.push(FilePreparationBinding {
-                collection: collection.generation.collection,
-                definition: &collection.definition,
-                source: &collection.source,
-            });
-        }
-    }
-    if bindings.is_empty() {
-        return Err(IndexError::IncompatibleConfiguration(
-            "no configured collection selects this file".into(),
-        ));
-    }
-    let input = SourceFileInput {
-        id: handle.file_id,
-        relative_path: relative.into(),
-        revision,
-        created_ns: previous.created_ns,
-    };
-    let options = repository.options();
-    let file = prepare_file_build_from_bytes(
-        root,
-        input,
-        bytes,
-        &bindings,
-        options.bigram_alphabet,
-        options.inference,
-        1,
-    )
-    .map_err(|error| match error {
-        BytesPreparationError::RevisionSizeMismatch { declared, actual } => {
-            IndexError::SourceUnavailable(format!(
-                "declared source size {declared} differs from supplied {actual} bytes"
-            ))
-        }
-        BytesPreparationError::UnsupportedReader { source_id, reason } => {
-            IndexError::Extension(format!("{source_id}: {reason}"))
-        }
-        BytesPreparationError::Build(message) => IndexError::Build(message),
-    })?;
-    Ok(PreparedReplacement {
-        expected_revision: view.revision(),
-        expected_handle: handle,
-        configuration_identity: view.configuration_identity(),
-        file,
-    })
 }
 
 impl Index {

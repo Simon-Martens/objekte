@@ -403,9 +403,9 @@ fn run_incremental(
         }
         if matches!(
             cursor.status.phase,
-            objekte_search_core::lifecycle::InitialBuildPhase::Complete
-                | objekte_search_core::lifecycle::InitialBuildPhase::Failed
-                | objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
+            objekte_search_core::lifecycle::initial::InitialBuildPhase::Complete
+                | objekte_search_core::lifecycle::initial::InitialBuildPhase::Failed
+                | objekte_search_core::lifecycle::initial::InitialBuildPhase::Cancelled
         ) {
             break (None, None, None);
         }

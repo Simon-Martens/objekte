@@ -7,7 +7,7 @@ use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{configure_definitions, repository_options};
-use objekte_search_core::lifecycle::InitialBuildTask;
+use objekte_search_core::lifecycle::initial::InitialBuildTask;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
 use objekte_search_core::repository::StartupStats;
@@ -120,8 +120,8 @@ fn open_sources(
             if status.catalogue_complete
                 || matches!(
                     status.phase,
-                    objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
-                        | objekte_search_core::lifecycle::InitialBuildPhase::Failed
+                    objekte_search_core::lifecycle::initial::InitialBuildPhase::Cancelled
+                        | objekte_search_core::lifecycle::initial::InitialBuildPhase::Failed
                 )
             {
                 break;

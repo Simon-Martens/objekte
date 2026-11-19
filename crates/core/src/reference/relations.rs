@@ -3,9 +3,10 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
+use crate::index::segment::PublishedSegment;
 use crate::inventory::ActiveRecords;
-use crate::lifecycle::{IndexRevision, PublishedSegment};
-use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle::IndexRevision;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::query::Query;
 use crate::query::binding::filter::BoundExpr;
 use crate::query::binding::fts::BoundFts;

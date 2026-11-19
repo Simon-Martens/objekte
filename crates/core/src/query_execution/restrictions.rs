@@ -3117,7 +3117,7 @@ fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
 pub(crate) fn plan_expr_restricted(
     repo: &Repository,
     collection: &CollectionState,
-    segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -3131,7 +3131,7 @@ pub(crate) fn plan_expr_restricted(
 pub(crate) fn plan_expr_restricted_with_execution(
     repo: &Repository,
     collection: &CollectionState,
-    segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -3162,7 +3162,7 @@ pub(crate) fn plan_expr_restricted_with_execution(
 fn plan_expr_restricted_inner<'a>(
     repo: &'a Repository,
     collection: &'a CollectionState,
-    segments: &[Arc<Vec<Arc<crate::lifecycle::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,

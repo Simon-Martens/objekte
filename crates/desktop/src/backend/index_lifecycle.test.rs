@@ -41,7 +41,7 @@ fn commands_act_on_the_open_sessions_live_index() {
         .unwrap();
     assert!(matches!(
         compact,
-        objekte_search_core::lifecycle::MaintenanceReport::Compact(_)
+        objekte_search_core::lifecycle::maintenance::MaintenanceReport::Compact(_)
     ));
     let rebound = session.refresh_base_metadata().unwrap();
     assert_eq!(rebound.repository.index().instance_id(), after.instance_id);

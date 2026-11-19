@@ -5,9 +5,10 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use crate::execution_options::ReturnMode;
+use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
+use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
-use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::measurement::WorkCounters;
 use crate::model::RecordSlot;
 use crate::query::Query;

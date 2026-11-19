@@ -1,4 +1,76 @@
-use crate::lifecycle::*;
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, Condvar, Mutex};
+
+use crate::lifecycle::reconciliation::{
+    ReconciliationProgress, ReconciliationReport, ReconciliationState,
+};
+use crate::lifecycle::{Index, IndexError};
+
+pub(crate) struct MaintenanceState {
+    pub(crate) reconciliation: ReconciliationState,
+    pub(crate) current: Option<Arc<ReconciliationJob>>,
+}
+
+pub(crate) struct ReconciliationJob {
+    pub(crate) cancelled: AtomicBool,
+    pub(crate) progress: Mutex<ReconciliationProgress>,
+    pub(crate) result: Mutex<Option<ReconciliationReport>>,
+    pub(crate) complete: Condvar,
+    pub(crate) worker: Mutex<Option<std::thread::JoinHandle<()>>>,
+}
+
+/// Observable, cancellable handle for one metadata reconciliation pass.
+#[derive(Clone)]
+pub struct ReconciliationTask(pub(crate) Arc<ReconciliationJob>);
+
+impl ReconciliationTask {
+    pub fn cancel(&self) {
+        self.0.cancelled.store(true, Ordering::Release);
+    }
+
+    pub fn is_complete(&self) -> Result<bool, IndexError> {
+        Ok(self
+            .0
+            .result
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .is_some())
+    }
+
+    pub fn progress(&self) -> Result<ReconciliationProgress, IndexError> {
+        Ok(*self
+            .0
+            .progress
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?)
+    }
+
+    pub fn wait(&self) -> Result<ReconciliationReport, IndexError> {
+        let mut guard = self.0.result.lock().map_err(|_| IndexError::LockPoisoned)?;
+        while guard.is_none() {
+            guard = self
+                .0
+                .complete
+                .wait(guard)
+                .map_err(|_| IndexError::LockPoisoned)?;
+        }
+        let result = guard.as_ref().cloned().ok_or(IndexError::LockPoisoned)?;
+        drop(guard);
+        if let Some(worker) = self
+            .0
+            .worker
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .take()
+        {
+            worker.join().map_err(|_| {
+                IndexError::InvalidPublication("reconciliation worker panicked".into())
+            })?;
+        }
+        Ok(result)
+    }
+}
+
 impl Index {
     /// Coalesce concurrent scan requests into one worker. The scan runs
     /// without holding a query or publication lock; waiters receive its
@@ -88,5 +160,18 @@ impl Index {
             .current
             .as_ref()
             .map(|job| ReconciliationTask(Arc::clone(job))))
+    }
+
+    pub fn wait_for_reconciliation(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        let current = self
+            .0
+            .maintenance
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .current
+            .clone();
+        current
+            .map(|job| ReconciliationTask(job).wait())
+            .transpose()
     }
 }

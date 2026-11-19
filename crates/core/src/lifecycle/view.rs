@@ -6,6 +6,7 @@ use std::sync::{Arc, Weak};
 use roaring::RoaringBitmap;
 
 use crate::execution_options::ReturnMode;
+use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, Value};
 use crate::query::Query;
@@ -17,8 +18,7 @@ use crate::streaming::{
 
 use super::{
     AvailableSearchResult, FileCatalogueRow, FileHandle, FileVersion, Index, IndexError,
-    IndexFamilyEstimate, IndexInner, IndexRevision, PublishedIndex, PublishedSegment,
-    index_family_estimate,
+    IndexFamilyEstimate, IndexInner, IndexRevision, PublishedIndex, index_family_estimate,
 };
 
 impl Index {

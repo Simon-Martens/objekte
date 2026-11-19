@@ -8,10 +8,10 @@ use roaring::RoaringBitmap;
 
 use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::segment::PublishedSegment;
 use crate::inference::InferenceMode;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::PublishedSegment;
 use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;

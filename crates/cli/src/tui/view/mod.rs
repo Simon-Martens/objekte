@@ -8,7 +8,7 @@ use super::input::Input;
 use super::record;
 use objekte_search_core::diagnostics::milliseconds_3;
 use objekte_search_core::inventory::FileStatus;
-use objekte_search_core::lifecycle::InitialBuildPhase;
+use objekte_search_core::lifecycle::initial::InitialBuildPhase;
 use objekte_search_core::path_repr;
 use objekte_search_core::repository::SearchHit;
 use ratatui::{
