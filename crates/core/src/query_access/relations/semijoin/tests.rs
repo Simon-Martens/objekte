@@ -520,6 +520,48 @@ fn ids(repo: &Repository, request: &Query) -> Vec<String> {
     found.hits.into_iter().map(|hit| hit.record_id).collect()
 }
 
+fn emit_relation_probe(
+    case_id: &str,
+    alphabet: BigramAlphabet,
+    result: &crate::query_results::SearchResult,
+    trace: &crate::query_diagnostics::trace::QueryPlanTrace,
+) {
+    if std::env::var_os("OBJEKTE_RELATION_PROBE").is_none() {
+        return;
+    }
+    let hits = result
+        .hits
+        .iter()
+        .map(|hit| {
+            serde_json::json!({
+                "record_id": hit.record_id,
+                "matched_fields": hit.matched_fields,
+                "file_path": hit.file_path,
+                "byte_start": hit.byte_start,
+                "byte_end": hit.byte_end,
+                "record_class": format!("{:?}", hit.record_class),
+            })
+        })
+        .collect::<Vec<_>>();
+    let observation = serde_json::json!({
+        "case_id": case_id,
+        "repetition": 0,
+        "revision": option_env!("OBJEKTE_BUILD_REVISION"),
+        "alphabet": format!("{alphabet:?}"),
+        "query_workers": RepositoryOptions::default().query_workers,
+        "result": {
+            "count": result.count,
+            "hits": hits,
+            "counters": result.counters,
+        },
+        "plan": trace,
+    });
+    println!(
+        "RELATION_PROBE {}",
+        serde_json::to_string(&observation).unwrap()
+    );
+}
+
 #[test]
 fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
     let root = std::env::temp_dir().join(format!(
@@ -1185,6 +1227,9 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         let trace = repo.explain_analyze(&request).unwrap().1;
         assert!(trace[0].terms.iter().any(|choice| choice.selected.kind
             == crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst));
+        if alphabet == BigramAlphabet::Ascii {
+            emit_relation_probe("indexed_relation_filter", alphabet, &actual, &trace[0]);
+        }
 
         let selective = query("title = 'rare' && entry.title ?~ 'H'");
         assert_eq!(ids(&repo, &selective), ["S00"]);
@@ -1194,11 +1239,20 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         let selective_work = repo.search(&selective).unwrap().counters;
         assert!(selective_work.relation_target_reads <= 1);
         assert!(selective_work.relation_edge_visits <= 1);
-        let selective_fts = selected_fts(Some("title = 'rare'"), "H", false);
-        assert_eq!(ids(&repo, &selective_fts), ["S00"]);
-        let selective_fts = repo.search(&selective_fts).unwrap();
+        let selective_fts_query = selected_fts(Some("title = 'rare'"), "H", false);
+        assert_eq!(ids(&repo, &selective_fts_query), ["S00"]);
+        let selective_fts = repo.search(&selective_fts_query).unwrap();
         assert_eq!(selective_fts.counters.relation_edge_visits, 1);
         assert_eq!(selective_fts.counters.scanned_records, 0);
+        let trace = repo.explain_analyze(&selective_fts_query).unwrap().1;
+        assert!(
+            trace[0]
+                .fts_strategy
+                .starts_with("relation source-restricted")
+        );
+        if alphabet == BigramAlphabet::Ascii {
+            emit_relation_probe("selected_relation_fts", alphabet, &selective_fts, &trace[0]);
+        }
 
         let multi = query("entry.related_entry.title ?= 'Festival'");
         assert_eq!(

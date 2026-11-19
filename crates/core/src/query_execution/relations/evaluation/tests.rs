@@ -3076,6 +3076,53 @@ fn query(
     .unwrap()
 }
 
+fn emit_relation_probe(
+    case_id: &str,
+    result: &crate::query_results::SearchResult,
+    reference: &crate::query_results::SearchResult,
+    trace: &crate::query_diagnostics::trace::QueryPlanTrace,
+) {
+    if std::env::var_os("OBJEKTE_RELATION_PROBE").is_none() {
+        return;
+    }
+    let hits = |hits: &[crate::query_results::SearchHit]| {
+        hits.iter()
+            .map(|hit| {
+                serde_json::json!({
+                    "record_id": hit.record_id,
+                    "matched_fields": hit.matched_fields,
+                    "file_path": hit.file_path,
+                    "byte_start": hit.byte_start,
+                    "byte_end": hit.byte_end,
+                    "record_class": format!("{:?}", hit.record_class),
+                })
+            })
+            .collect::<Vec<_>>()
+    };
+    let observation = serde_json::json!({
+        "case_id": case_id,
+        "repetition": 0,
+        "revision": option_env!("OBJEKTE_BUILD_REVISION"),
+        "alphabet": "Ascii",
+        "query_workers": RepositoryOptions::default().query_workers,
+        "result": {
+            "count": result.count,
+            "hits": hits(&result.hits),
+            "counters": result.counters,
+        },
+        "reference": {
+            "count": reference.count,
+            "hits": hits(&reference.hits),
+            "counters": reference.counters,
+        },
+        "plan": trace,
+    });
+    println!(
+        "RELATION_PROBE {}",
+        serde_json::to_string(&observation).unwrap()
+    );
+}
+
 fn ids(repo: &Repository, request: Query) -> Vec<String> {
     let optimized = repo.search(&request).unwrap();
     let reference = repo.search_reference(&request).unwrap();
@@ -3272,8 +3319,16 @@ fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
             .collect::<Vec<_>>(),
         ["m8", "m1"]
     );
-    assert_eq!(result.hits, repo.search_reference(&sorted).unwrap().hits);
+    let reference = repo.search_reference(&sorted).unwrap();
+    assert_eq!(result.hits, reference.hits);
     assert_eq!(result.counters.sort_target_reads, 2);
+    let trace = repo.explain_analyze(&sorted).unwrap().1;
+    emit_relation_probe(
+        "source_dependent_residual_sort",
+        &result,
+        &reference,
+        &trace[0],
+    );
 
     let shared = query(
         "mentions",

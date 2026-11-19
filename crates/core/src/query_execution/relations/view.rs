@@ -1,4 +1,4 @@
-//! Repository-aware binding and exact evaluation of finite relation paths.
+//! Pinned relation lookup over one immutable base-plus-delta publication.
 
 use std::cell::RefCell;
 use std::collections::HashMap;
@@ -11,7 +11,6 @@ use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
 use crate::model::{CollectionId, RecordSlot, Value};
-use crate::query::semantics::record::RecordContext;
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
 use crate::schema::relations::{RelationCardinality, RelationId};
@@ -20,24 +19,8 @@ use crate::source::access::{
     classify_source_read_failure_for_search, read_record_range_for_search,
 };
 
+use super::evaluation::{LogicalReferences, logical_references};
 use super::work::{MAX_QUERY_RELATION_BYTES, RelationWork};
-
-pub(super) fn relation_target_uses_value_text(collection: &CollectionState) -> bool {
-    collection.source.scalar_verification()
-        == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
-}
-
-pub(super) fn relation_source_uses_value_text(
-    repo: &Repository,
-    source: &RecordContext<'_>,
-) -> bool {
-    source.record.class == RecordClass::Logical
-        && repo
-            .collections
-            .iter()
-            .find(|collection| collection.definition.name == source.collection_name)
-            .is_some_and(relation_target_uses_value_text)
-}
 
 /// One record address in a pinned base-plus-delta publication. A local slot
 /// alone cannot identify a record after multiple segments have been added.
@@ -876,60 +859,6 @@ pub(super) fn read_reference_value(
         work.execution(),
     )?;
     Ok(Some(extracted.value))
-}
-
-/// Independent logical ID occurrences and presence/null state.
-pub(crate) struct LogicalReferences {
-    pub(crate) present: bool,
-    pub(crate) null: bool,
-    pub(crate) values: Vec<(String, Vec<u32>)>,
-}
-
-/// An intentionally separate, iterative oracle for declared ID occurrences.
-/// It walks logical values directly and never consults build-time edge state.
-pub(super) fn logical_references(
-    value: &Value,
-    path: &[String],
-) -> Result<LogicalReferences, String> {
-    let mut found = false;
-    let mut null = false;
-    let mut references = Vec::new();
-    let mut pending = vec![(value, 0usize, Vec::<u32>::new())];
-    while let Some((value, offset, positions)) = pending.pop() {
-        match value {
-            Value::Array(array) => {
-                if array.values.is_empty() {
-                    found = true;
-                }
-                for (index, item) in array.values.iter().enumerate().rev() {
-                    let mut child_positions = positions.clone();
-                    child_positions
-                        .push(u32::try_from(index).map_err(|_| "relation array index overflow")?);
-                    pending.push((item, offset, child_positions));
-                }
-            }
-            Value::Object(fields) if offset < path.len() => {
-                if let Some(next) = fields.get(&path[offset]) {
-                    pending.push((next, offset + 1, positions));
-                }
-            }
-            Value::Id(id) if offset == path.len() => {
-                found = true;
-                references.push((id.clone(), positions));
-            }
-            Value::Null if offset == path.len() => {
-                found = true;
-                null = true;
-            }
-            _ if offset == path.len() => return Err("relation field has non-ID value".into()),
-            _ => {}
-        }
-    }
-    Ok(LogicalReferences {
-        present: found,
-        null,
-        values: references,
-    })
 }
 
 pub(crate) fn positions_match(selectors: &[Option<u32>], positions: &[u32]) -> bool {

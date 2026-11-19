@@ -2,10 +2,7 @@
 
 use std::sync::Arc;
 
-use super::view::{
-    MergedRecordSlot, MergedRelationView, logical_references, positions_match,
-    read_reference_value, relation_source_uses_value_text, relation_target_uses_value_text,
-};
+use super::view::{MergedRecordSlot, MergedRelationView, positions_match, read_reference_value};
 use crate::index::relation::RelationTarget;
 use crate::inventory::RecordClass;
 use crate::model::{PathRoot, RecordSlot};
@@ -26,6 +23,76 @@ use crate::source::access::read_record_range_for_search;
 use crate::source::{ScanProjection, TextSegment};
 
 use super::work::{MAX_QUERY_RELATION_BYTES, RelationWork};
+
+fn relation_target_uses_value_text(collection: &crate::repository::state::CollectionState) -> bool {
+    collection.source.scalar_verification()
+        == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
+}
+
+fn relation_source_uses_value_text(repo: &Repository, source: &RecordContext<'_>) -> bool {
+    source.record.class == RecordClass::Logical
+        && repo
+            .collections
+            .iter()
+            .find(|collection| collection.definition.name == source.collection_name)
+            .is_some_and(relation_target_uses_value_text)
+}
+
+/// Independent logical ID occurrences and presence/null state.
+pub(crate) struct LogicalReferences {
+    pub(crate) present: bool,
+    pub(crate) null: bool,
+    pub(crate) values: Vec<(String, Vec<u32>)>,
+}
+
+/// An intentionally separate, iterative oracle for declared ID occurrences.
+/// It walks logical values directly and never consults build-time edge state.
+pub(super) fn logical_references(
+    value: &crate::model::Value,
+    path: &[String],
+) -> Result<LogicalReferences, String> {
+    use crate::model::Value;
+
+    let mut found = false;
+    let mut null = false;
+    let mut references = Vec::new();
+    let mut pending = vec![(value, 0usize, Vec::<u32>::new())];
+    while let Some((value, offset, positions)) = pending.pop() {
+        match value {
+            Value::Array(array) => {
+                if array.values.is_empty() {
+                    found = true;
+                }
+                for (index, item) in array.values.iter().enumerate().rev() {
+                    let mut child_positions = positions.clone();
+                    child_positions
+                        .push(u32::try_from(index).map_err(|_| "relation array index overflow")?);
+                    pending.push((item, offset, child_positions));
+                }
+            }
+            Value::Object(fields) if offset < path.len() => {
+                if let Some(next) = fields.get(&path[offset]) {
+                    pending.push((next, offset + 1, positions));
+                }
+            }
+            Value::Id(id) if offset == path.len() => {
+                found = true;
+                references.push((id.clone(), positions));
+            }
+            Value::Null if offset == path.len() => {
+                found = true;
+                null = true;
+            }
+            _ if offset == path.len() => return Err("relation field has non-ID value".into()),
+            _ => {}
+        }
+    }
+    Ok(LogicalReferences {
+        present: found,
+        null,
+        values: references,
+    })
+}
 
 #[cfg(test)]
 static BORROWED_RELATION_TARGETS: std::sync::atomic::AtomicUsize =
@@ -443,7 +510,7 @@ fn visit_merged_hop(
                 record: current.record,
                 file: current.file,
                 collection_name: &current.collection.definition.name,
-                repository_root: &view.repository().files.root,
+                repository_root: view.repository_root(),
             };
             merge_truth(
                 truth,
@@ -453,11 +520,7 @@ fn visit_merged_hop(
             return Ok(());
         }
         work.before_read(current.record.range.len(), true)?;
-        let path = view
-            .repository()
-            .files
-            .root
-            .join(&current.file.relative_path);
+        let path = view.repository_root().join(&current.file.relative_path);
         if let Some(execution) = work.execution() {
             execution.check_string()?;
         }
@@ -500,7 +563,7 @@ fn visit_merged_hop(
                 record: current.record,
                 file: current.file,
                 collection_name: &current.collection.definition.name,
-                repository_root: &view.repository().files.root,
+                repository_root: view.repository_root(),
             };
             merge_truth(
                 truth,
@@ -514,7 +577,7 @@ fn visit_merged_hop(
                 record: current.record,
                 file: current.file,
                 collection_name: &current.collection.definition.name,
-                repository_root: &view.repository().files.root,
+                repository_root: view.repository_root(),
             };
             merge_truth(
                 truth,
