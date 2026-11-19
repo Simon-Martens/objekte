@@ -4,6 +4,9 @@ negative control remove-repetition: rejected (missing expected case/repetition)
 negative control duplicate-plan: rejected (expected one plan)
 negative control empty-both-sides: rejected (missing expected case/repetition)
 negative control same-failed-query: rejected (failed status)
+negative control duplicate-archived-digest: rejected (A2 result-digests.json duplicate key Q088)
+negative control null-archived-digest: rejected (Q088 malformed digest)
+negative control wrong-binary-revision: rejected (C run manifest binary_build_revision)
 {
   "traversal": {
     "cases": {

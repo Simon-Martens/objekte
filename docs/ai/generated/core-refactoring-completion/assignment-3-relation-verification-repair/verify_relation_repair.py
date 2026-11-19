@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -239,13 +240,78 @@ def load_archived_plans(path: Path) -> dict[str, dict]:
     return plans
 
 
+def validate_archived_revision(manifest: dict, side: str, field: str, expected: str) -> None:
+    observed = manifest.get(field)
+    require(
+        observed == expected,
+        f"archived {side} run manifest {field} expected {expected}, observed {observed!r}",
+    )
+
+
+def load_archived_digests(
+    path: Path, side: str, expected_cases: tuple[str, ...]
+) -> dict[str, str]:
+    def unique_object(pairs: list[tuple[str, object]]) -> dict:
+        result = {}
+        for key, value in pairs:
+            require(
+                key not in result,
+                f"archived {side} {path.name} duplicate key {key}",
+            )
+            result[key] = value
+        return result
+
+    try:
+        digests = json.loads(
+            path.read_text(encoding="utf-8"),
+            object_pairs_hook=unique_object,
+        )
+    except json.JSONDecodeError as error:
+        raise ValueError(
+            f"archived {side} {path.name} invalid JSON: {error}"
+        ) from error
+    require(
+        isinstance(digests, dict),
+        f"archived {side} {path.name} must contain an object",
+    )
+    expected = set(expected_cases)
+    missing = sorted(expected - set(digests))
+    require(
+        not missing,
+        f"archived {side} {path.name} missing case IDs: {missing}",
+    )
+    unexpected = sorted(set(digests) - expected)
+    require(
+        not unexpected,
+        f"archived {side} {path.name} unexpected case IDs: {unexpected}",
+    )
+    for case_id in expected_cases:
+        digest = digests[case_id]
+        require(
+            isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest) is not None,
+            f"archived {side} {path.name} {case_id} malformed digest: {digest!r}",
+        )
+    return digests
+
+
 def validate_archived_probe(root: Path, expected_cases: tuple[str, ...]) -> dict:
     old_dir = root / "a2/queries"
     new_dir = root / "c/queries"
     old_manifest = load_json(old_dir / "run-manifest.json")
     new_manifest = load_json(new_dir / "run-manifest.json")
-    require(old_manifest["code_revision"] == A2_REVISION, "archived A2 revision mismatch")
-    require(new_manifest["code_revision"] == ARCHIVED_C_REVISION, "archived C revision mismatch")
+    validate_archived_revision(old_manifest, "A2", "code_revision", A2_REVISION)
+    validate_archived_revision(
+        old_manifest, "A2", "binary_build_revision", A2_REVISION
+    )
+    validate_archived_revision(
+        new_manifest, "C", "code_revision", ARCHIVED_C_REVISION
+    )
+    validate_archived_revision(
+        new_manifest,
+        "C",
+        "binary_build_revision",
+        ARCHIVED_C_REVISION,
+    )
     require(old_manifest["query_workers"] == new_manifest["query_workers"] == 4, "archived workers differ")
 
     old = load_archived_samples(old_dir / "measurements.jsonl")
@@ -262,11 +328,11 @@ def validate_archived_probe(root: Path, expected_cases: tuple[str, ...]) -> dict
     old_plans = load_archived_plans(old_dir / "query-plans.jsonl")
     new_plans = load_archived_plans(new_dir / "query-plans.jsonl")
     require(set(old_plans) == set(new_plans) == set(expected_cases), "archived plan cases differ")
-    old_digests = load_json(old_dir / "result-digests.json")
-    new_digests = load_json(new_dir / "result-digests.json")
-    require(
-        set(old_digests) == set(new_digests) == set(expected_cases),
-        "archived ordered-result cases differ",
+    old_digests = load_archived_digests(
+        old_dir / "result-digests.json", "A2", expected_cases
+    )
+    new_digests = load_archived_digests(
+        new_dir / "result-digests.json", "C", expected_cases
     )
     require(old_digests == new_digests, "archived ordered results differ")
 
@@ -494,6 +560,73 @@ def self_test(evidence: Path, archived: Path) -> None:
             "same-failed-query",
             "failed status",
             fail_both_sides,
+        )
+
+        def duplicate_archived_digest(_case_evidence: Path, case_archived: Path) -> None:
+            path = (
+                case_archived
+                / ARCHIVED_DIRS["typed_id_field"]
+                / "a2/queries/result-digests.json"
+            )
+            digests = load_json(path)
+            committed = digests["Q088"]
+            conflicting = "0" * 64 if committed != "0" * 64 else "1" * 64
+            text = path.read_text(encoding="utf-8")
+            needle = f'  "Q088": {json.dumps(committed)}'
+            require(needle in text, "self-test could not find Q088 digest")
+            replacement = (
+                f'  "Q088": {json.dumps(conflicting)},\n'
+                f'  "Q088": {json.dumps(committed)}'
+            )
+            path.write_text(text.replace(needle, replacement, 1), encoding="utf-8")
+
+        require_invalid(
+            evidence,
+            archived,
+            root,
+            "duplicate-archived-digest",
+            "A2 result-digests.json duplicate key Q088",
+            duplicate_archived_digest,
+        )
+
+        def null_archived_digest(_case_evidence: Path, case_archived: Path) -> None:
+            for side in ("a2", "c"):
+                path = (
+                    case_archived
+                    / ARCHIVED_DIRS["typed_id_field"]
+                    / side
+                    / "queries/result-digests.json"
+                )
+                digests = load_json(path)
+                digests["Q088"] = None
+                path.write_text(json.dumps(digests, indent=2) + "\n", encoding="utf-8")
+
+        require_invalid(
+            evidence,
+            archived,
+            root,
+            "null-archived-digest",
+            "Q088 malformed digest",
+            null_archived_digest,
+        )
+
+        def wrong_binary_revision(_case_evidence: Path, case_archived: Path) -> None:
+            path = (
+                case_archived
+                / ARCHIVED_DIRS["typed_id_field"]
+                / "c/queries/run-manifest.json"
+            )
+            manifest = load_json(path)
+            manifest["binary_build_revision"] = "0" * 40
+            path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+        require_invalid(
+            evidence,
+            archived,
+            root,
+            "wrong-binary-revision",
+            "C run manifest binary_build_revision",
+            wrong_binary_revision,
         )
 
 

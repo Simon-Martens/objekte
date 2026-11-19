@@ -52,7 +52,15 @@ The self-test accepts a valid control and rejects:
 - a missing repetition on both sides;
 - a duplicate plan;
 - empty evidence on both sides;
-- the same failed query injected on both sides.
+- the same failed query injected on both sides;
+- a duplicate Q088 digest key on A2;
+- a null Q088 digest on both sides;
+- a mismatched C binary-build revision.
+
+Archived digest files are parsed with duplicate-key detection. Their case set
+must match exactly, every value must be 64 lowercase hexadecimal characters,
+and only then are the two sides compared. Every archived side also checks both
+the source and binary-build revisions from its run manifest.
 
 ## Q136
 
