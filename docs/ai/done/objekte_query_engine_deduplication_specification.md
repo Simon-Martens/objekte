@@ -155,8 +155,8 @@ The accompanying `count_core_rust_lines.py` verifies repository totals and
 classifies changed lines against the old and new trees.
 
 This follow-up repair's own source delta, measured from `d064445` to the repair
-implementation tip, is `+98/-109` production lines (net `-11`) and `+371/-23`
-test-only lines (net `+348`). File moves: none. The replacement helpers therefore remain
+implementation tip, is `+98/-109` production lines (net `-11`) and `+524/-23`
+test-only lines (net `+501`). File moves: none. The replacement helpers therefore remain
 net-negative, and the original endpoint reduction is corrected to 70 lines.
 
 ### Validation
