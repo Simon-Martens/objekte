@@ -1690,6 +1690,96 @@ fn adopted_base_view_reference_search_handles_a_configured_empty_collection() {
 }
 
 #[test]
+fn base_related_sort_declines_an_incompatible_stored_key() {
+    use crate::index::sorting::{SortConfig, SortOptions};
+    use crate::model::FieldPath;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-base-related-sort-collation-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    for directory in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(directory)).unwrap();
+    }
+    for (id, title) in [("T2", "item2"), ("T10", "item10")] {
+        std::fs::write(
+            root.join("targets").join(format!("{id}.json")),
+            format!(r#"{{"id":"{id}","title":"{title}"}}"#),
+        )
+        .unwrap();
+    }
+    for (id, target) in [("S2", "T2"), ("S10", "T10")] {
+        std::fs::write(
+            root.join("sources").join(format!("{id}.json")),
+            format!(r#"{{"id":"{id}","entry":"{target}"}}"#),
+        )
+        .unwrap();
+    }
+    let mut targets = Schema::default();
+    field(&mut targets, "id", LogicalType::Id, false);
+    field(&mut targets, "title", LogicalType::String, false);
+    let mut target = definition("targets", targets);
+    let title = FieldPath::parse("title").unwrap();
+    target.sort_fields.push(title.clone());
+    target.sort_overrides.insert(
+        title,
+        SortConfig {
+            locale: "en".into(),
+            options: SortOptions {
+                numeric: true,
+                ..Default::default()
+            },
+        },
+    );
+    let mut sources = Schema::default();
+    field(&mut sources, "id", LogicalType::Id, false);
+    field(&mut sources, "entry", LogicalType::Id, false);
+    relation(&mut sources, "entry", "targets", false, "sources");
+    let repo = base_repository(&root, vec![target, definition("sources", sources)]);
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    let view = index.view().unwrap();
+
+    let mut related = query("sources", None, None, None, false);
+    related.options.sort = vec![crate::execution_options::SortField::computed(
+        crate::execution_options::SortExpression {
+            path: "entry.title".into(),
+            binding: None,
+            reducer: None,
+        },
+        false,
+    )];
+    let optimized = view.search(&related).unwrap();
+    let reference = view.search_reference(&related).unwrap();
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["S10", "S2"]
+    );
+    assert_eq!(optimized.hits, reference.hits);
+    assert_eq!(reference.count, Some(2));
+    assert_eq!(optimized.counters.sort_target_reads, 2);
+
+    let mut direct = query("targets", None, None, None, false);
+    direct.options.sort = vec![crate::execution_options::SortField::simple("title", false)];
+    assert_eq!(
+        view.search(&direct)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["T2", "T10"]
+    );
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes() {
     use crate::model::Value;
     use crate::repository::Payload;

@@ -560,13 +560,12 @@ fn try_direct_relation_page(
         {
             return Ok(None);
         }
+        let config = computed.sort_config();
         for published in segments[target_index].iter() {
             let Ok(column) = published.index.sorting.column(path) else {
                 return Ok(None);
             };
-            if column.locale != target_collection.definition.sort_locale
-                || column.options != target_collection.definition.sort_options
-            {
+            if !crate::query::sort_binding::stored_column_matches_config(column, config) {
                 return Ok(None);
             }
         }

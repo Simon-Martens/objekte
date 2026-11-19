@@ -619,6 +619,7 @@ fn direct_related_target_sort_key(
     let Some(target) = view.resolve_id(hop.to, target_id)? else {
         return Ok(None);
     };
+    let config = computed.sort_config();
     let target_index = target.collection.0 as usize;
     let column = if let Some(segment_index) = target.segment {
         let Ok(column) = segments[target_index][segment_index]
@@ -635,6 +636,9 @@ fn direct_related_target_sort_key(
         };
         column
     };
+    if !crate::query::sort_binding::stored_column_matches_config(column, config) {
+        return Ok(None);
+    }
     Ok(Some(
         column
             .keys

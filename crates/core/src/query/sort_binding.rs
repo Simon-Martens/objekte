@@ -23,6 +23,10 @@ use crate::schema::{operation::BindingOperation, operation::Transform};
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
 
+pub(crate) fn stored_column_matches_config(column: &SortColumn, config: &SortConfig) -> bool {
+    column.locale == config.locale && column.options == config.options
+}
+
 #[cfg(test)]
 thread_local! {
     static REFERENCE_STORED_SORT_PREPARATIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
@@ -50,6 +54,7 @@ pub(crate) struct ComputedSort {
     pub reducer: Option<SortReducer>,
     transform: SortTransform,
     collator: CollatorBorrowed<'static>,
+    sort_config: SortConfig,
 }
 
 /// A bound, stable scalar transformation rather than an exact matcher.
@@ -372,7 +377,7 @@ impl<'a> BoundSort<'a> {
                         target
                             .definition
                             .sort_overrides
-                            .get(&path.field)
+                            .get(&terminal.field)
                             .cloned()
                             .unwrap_or_else(|| SortConfig {
                                 locale: target.definition.sort_locale.clone(),
@@ -392,6 +397,7 @@ impl<'a> BoundSort<'a> {
                             reducer: expression.reducer,
                             transform,
                             collator,
+                            sort_config: config.clone(),
                         })),
                         config.locale,
                         config.options,
@@ -586,6 +592,10 @@ impl ComputedSort {
             return None;
         }
         Some(&terminal.display)
+    }
+
+    pub(crate) fn sort_config(&self) -> &SortConfig {
+        &self.sort_config
     }
 
     pub(crate) fn key_from_related_target_value(
