@@ -607,17 +607,6 @@ impl<'a> MergedRelationView<'a> {
         target_id: &str,
         mut work: Option<&mut RelationWork>,
     ) -> Result<Vec<MergedRecordSlot>, String> {
-        self.reference_backlink_sources_with(relation, target_id, |address| {
-            self.reference_value(address, work.as_deref_mut())
-        })
-    }
-
-    pub(crate) fn reference_backlink_sources_with(
-        &self,
-        relation: RelationId,
-        target_id: &str,
-        mut load: impl FnMut(MergedRecordSlot) -> Result<Option<Arc<Value>>, String>,
-    ) -> Result<Vec<MergedRecordSlot>, String> {
         let cached = self.reference_backlinks.borrow().get(&relation).cloned();
         if let Some(cached) = cached {
             return Ok(cached.get(target_id).cloned().unwrap_or_default());
@@ -645,22 +634,73 @@ impl<'a> MergedRelationView<'a> {
         keyed.sort_unstable_by(|left, right| left.0.cmp(&right.0));
         let mut backlinks = HashMap::<String, Vec<MergedRecordSlot>>::new();
         for (_, address) in keyed {
-            let Some(value) = load(address)? else {
-                continue;
-            };
-            let references = logical_references(&value, &declaration.path)?;
-            let mut seen = std::collections::HashSet::new();
-            for (target, _) in references.values {
-                if seen.insert(target.clone()) {
-                    backlinks.entry(target).or_default().push(address);
+            self.visit_reference_value(address, work.as_deref_mut(), |value| {
+                let references = logical_references(value, &declaration.path)?;
+                let mut seen = std::collections::HashSet::new();
+                for (target, _) in references.values {
+                    if seen.insert(target.clone()) {
+                        backlinks.entry(target).or_default().push(address);
+                    }
                 }
-            }
+                Ok(())
+            })?;
         }
         let backlinks = Arc::new(backlinks);
         self.reference_backlinks
             .borrow_mut()
             .insert(relation, Arc::clone(&backlinks));
         Ok(backlinks.get(target_id).cloned().unwrap_or_default())
+    }
+
+    fn visit_reference_value(
+        &self,
+        address: MergedRecordSlot,
+        mut work: Option<&mut RelationWork>,
+        mut visit: impl FnMut(&Value) -> Result<(), String>,
+    ) -> Result<bool, String> {
+        if let Some(value) = self.cached_value(address) {
+            visit(&value)?;
+            return Ok(true);
+        }
+        let Some(resolved) = self.record(address)? else {
+            return Ok(false);
+        };
+        if resolved.record.class == RecordClass::RawFallback {
+            return Ok(false);
+        }
+        if let Some(work) = work.as_deref_mut() {
+            work.before_read(resolved.record.range.len(), false)?;
+            if let Some(execution) = work.execution.as_ref() {
+                execution.check_string()?;
+            }
+        }
+        let path = self.repo.files.root.join(&resolved.file.relative_path);
+        let bytes = match read_record_range_for_search(
+            &path,
+            resolved.file.revision,
+            resolved.record.range,
+            work.as_deref().and_then(|work| work.execution.as_ref()),
+        ) {
+            Ok(bytes) => bytes,
+            Err(message) => {
+                self.record_source_failure(resolved.file, resolved.record.range, message);
+                return Ok(false);
+            }
+        };
+        if let Some(work) = work.as_deref_mut() {
+            work.source_read(bytes.len() as u64)?;
+        }
+        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            resolved.record.class,
+            &resolved.collection.source,
+            &resolved.collection.definition.schema,
+            &bytes,
+            &ScanProjection::full(false),
+            false,
+            work.as_deref().and_then(|work| work.execution.as_ref()),
+        )?;
+        visit(&extracted.value)?;
+        Ok(true)
     }
 
     pub(crate) fn reference_resolve_id(

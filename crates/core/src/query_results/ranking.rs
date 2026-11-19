@@ -248,6 +248,11 @@ impl<'a> ResolvedSort<'a> {
         Ok(Self::from_bound(repo, query, bound))
     }
 
+    pub(crate) fn new_reference(repo: &'a Repository, query: &Query) -> Result<Self, String> {
+        let bound = BoundSort::bind_reference(repo, query)?;
+        Ok(Self::from_bound(repo, query, bound))
+    }
+
     pub(crate) fn from_bound(repo: &'a Repository, query: &Query, bound: BoundSort<'a>) -> Self {
         let columns = repo
             .collections

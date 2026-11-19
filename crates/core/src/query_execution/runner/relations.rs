@@ -2222,7 +2222,7 @@ pub(super) fn search_segmented_relations(
                     segment: address
                         .segment
                         .map(|segment_index| (collection_index, segment_index)),
-                    record_address: Some(address),
+                    record_address: reference.then_some(address),
                     retained_bytes: 0,
                 },
                 winner_budget,
@@ -2609,9 +2609,9 @@ pub(super) fn search_segmented_relations(
     counters.relation_edge_visits += sort_cache.edge_visits;
     counters.relation_source_reads += sort_cache.relation_source_reads;
     counters.relation_bytes_read += sort_cache.relation_source_bytes;
-    counters.files_opened += sort_cache.reads;
-    counters.record_parses += sort_cache.reads;
-    counters.bytes_read += sort_cache.bytes_read;
+    counters.files_opened += sort_cache.reads + sort_cache.relation_source_reads;
+    counters.record_parses += sort_cache.reads + sort_cache.relation_source_reads;
+    counters.bytes_read += sort_cache.bytes_read + sort_cache.relation_source_bytes;
     if !reference && prepared.len() == 1 {
         record_source_candidates(
             repo,
@@ -2659,7 +2659,7 @@ pub(crate) fn search_segmented_reference_records(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
-    let sort = ResolvedSort::new(repo, query)?;
+    let sort = ResolvedSort::new_reference(repo, query)?;
     let prepared = collections
         .iter_mut()
         .map(|entry| PreparedCollectionQuery {

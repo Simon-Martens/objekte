@@ -7,6 +7,83 @@ use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions}
 use crate::schema::{FieldDefinition, operation::RegisteredBinding};
 use crate::source::SourceFormat;
 
+#[test]
+fn optimized_binding_defers_reference_sort_preparation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sort-binding-reference-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    definition
+        .sort_fields
+        .push(QueryPath::parse("title").unwrap().field);
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("title", false)],
+            limit: 10,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+
+    let before = BoundSort::reference_stored_sort_preparations();
+    let optimized = BoundSort::bind(&repo, &query).unwrap();
+    assert_eq!(
+        BoundSort::reference_stored_sort_preparations(),
+        before,
+        "optimized stored ordering must not prepare a reference collator"
+    );
+    assert!(matches!(
+        optimized.terms[0].as_ref().unwrap()[0].source,
+        BoundSortSource::Stored(_)
+    ));
+
+    let reference = BoundSort::bind_reference(&repo, &query).unwrap();
+    assert_eq!(
+        BoundSort::reference_stored_sort_preparations(),
+        before + 1,
+        "reference binding prepares one source evaluator"
+    );
+    assert!(matches!(
+        reference.terms[0].as_ref().unwrap()[0].source,
+        BoundSortSource::Computed(_)
+    ));
+
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[derive(Debug)]
 struct NullAsZero;
 

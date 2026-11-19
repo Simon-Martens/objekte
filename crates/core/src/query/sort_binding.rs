@@ -23,12 +23,16 @@ use crate::schema::{operation::BindingOperation, operation::Transform};
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
 
+#[cfg(test)]
+thread_local! {
+    static REFERENCE_STORED_SORT_PREPARATIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
 type SortTargetCell = OnceLock<Result<Arc<Value>, String>>;
 
 /// A prepared sort term with no source access in its comparator.
 pub(crate) struct BoundSortTerm<'a> {
     pub source: BoundSortSource<'a>,
-    pub(crate) reference: Option<ComputedSort>,
     pub descending: bool,
     pub options: SortOptions,
 }
@@ -135,7 +139,8 @@ impl MergedSortTargetCache {
         self.load_kind(view, address, false)
     }
 
-    fn load_source(
+    #[cfg(test)]
+    pub(crate) fn load_source(
         &mut self,
         view: &MergedRelationView<'_>,
         address: MergedRecordSlot,
@@ -292,6 +297,14 @@ fn bind_transform(
 
 impl<'a> BoundSort<'a> {
     pub fn bind(repo: &'a Repository, query: &Query) -> Result<Self, String> {
+        Self::bind_mode(repo, query, false)
+    }
+
+    pub(crate) fn bind_reference(repo: &'a Repository, query: &Query) -> Result<Self, String> {
+        Self::bind_mode(repo, query, true)
+    }
+
+    fn bind_mode(repo: &'a Repository, query: &Query, reference: bool) -> Result<Self, String> {
         let mut terms = Vec::with_capacity(repo.collections.len());
         let mut has_computed = false;
         let mut needs_source = false;
@@ -329,33 +342,27 @@ impl<'a> BoundSort<'a> {
                     terminal,
                     expression.binding.as_deref(),
                 )?;
-                let column = if related.is_none()
+                let stored_candidate = related.is_none()
                     && expression.reducer.is_none()
                     && expression.binding.is_none()
                     && !path.has_explicit_array_step
                     && matches!(&transform, SortTransform::Identity)
-                {
+                    && collection.sorting.columns.contains_key(&path.field);
+                let column = if !reference && stored_candidate {
                     collection.sorting.columns.get(&path.field)
                 } else {
                     None
                 };
-                let (source, reference, locale, options) = if let Some(column) = column {
-                    let config = SortConfig {
-                        locale: column.locale.clone(),
-                        options: column.options,
-                    };
-                    let collator = make_collator(&config)?;
+                if reference && stored_candidate {
+                    #[cfg(test)]
+                    REFERENCE_STORED_SORT_PREPARATIONS
+                        .with(|count| count.set(count.get().saturating_add(1)));
+                }
+                let (source, locale, options) = if let Some(column) = column {
                     (
                         BoundSortSource::Stored(column),
-                        Some(ComputedSort {
-                            path,
-                            related: None,
-                            reducer: None,
-                            transform: SortTransform::Identity,
-                            collator,
-                        }),
-                        config.locale,
-                        config.options,
+                        column.locale.clone(),
+                        column.options,
                     )
                 } else {
                     has_computed = true;
@@ -373,7 +380,6 @@ impl<'a> BoundSort<'a> {
                             transform,
                             collator,
                         })),
-                        None,
                         config.locale,
                         config.options,
                     )
@@ -391,7 +397,6 @@ impl<'a> BoundSort<'a> {
                 expected_config[position] = Some(config);
                 selected.push(BoundSortTerm {
                     source,
-                    reference,
                     descending: field.descending,
                     options,
                 });
@@ -403,6 +408,11 @@ impl<'a> BoundSort<'a> {
             has_computed,
             needs_source,
         })
+    }
+
+    #[cfg(test)]
+    pub(crate) fn reference_stored_sort_preparations() -> usize {
+        REFERENCE_STORED_SORT_PREPARATIONS.with(std::cell::Cell::get)
     }
 
     /// Evaluate every requested key for a verified match before top-k selection.
@@ -457,11 +467,9 @@ impl<'a> BoundSort<'a> {
             .iter()
             .map(|term| {
                 let key = match &term.source {
-                    BoundSortSource::Stored(_) => term
-                        .reference
-                        .as_ref()
-                        .ok_or("reference stored sort preparation missing")?
-                        .key_local(ctx)?,
+                    BoundSortSource::Stored(_) => {
+                        return Err("reference stored sort is not source-derived".into());
+                    }
                     BoundSortSource::Computed(computed) => {
                         computed.key_merged(view, address, ctx, target_cache, true)?
                     }
@@ -815,11 +823,16 @@ impl ComputedSort {
             }
             HopDirection::Backlink => {
                 let sources = if reference {
-                    view.reference_backlink_sources_with(
+                    let mut discovery = crate::relation_query::RelationWork::default();
+                    discovery.attach(cache.execution.as_ref());
+                    let sources = view.reference_backlink_sources(
                         hop.relation,
                         &current.record.id.0,
-                        |address| cache.load_source(view, address),
-                    )?
+                        Some(&mut discovery),
+                    )?;
+                    cache.relation_source_reads += discovery.source_reads;
+                    cache.relation_source_bytes += discovery.bytes_read;
+                    sources
                 } else {
                     view.backlink_sources(hop.relation, &current.record.id.0)?
                 };
