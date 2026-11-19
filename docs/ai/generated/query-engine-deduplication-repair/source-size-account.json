@@ -38,5 +38,15 @@
       "test_added": 524,
       "test_removed": 23
     }
-  ]
+  ],
+  "follow_up_repair": {
+    "from": "f4b3c9f0dac82315e856c7cd66080d01d779db14",
+    "to": "fb2875b4828138510d448ddea55ab9d29b9580de",
+    "production_added": 59,
+    "production_removed": 53,
+    "production_net": 6,
+    "test_added": 156,
+    "test_removed": 5,
+    "test_net": 151
+  }
 }
