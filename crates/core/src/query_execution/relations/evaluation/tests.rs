@@ -3106,11 +3106,15 @@ fn emit_relation_probe(
         "alphabet": "Ascii",
         "query_workers": RepositoryOptions::default().query_workers,
         "result": {
+            "status": "ok",
+            "error": null,
             "count": result.count,
             "hits": hits(&result.hits),
             "counters": result.counters,
         },
         "reference": {
+            "status": "ok",
+            "error": null,
             "count": reference.count,
             "hits": hits(&reference.hits),
             "counters": reference.counters,

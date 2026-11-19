@@ -550,6 +550,8 @@ fn emit_relation_probe(
         "alphabet": format!("{alphabet:?}"),
         "query_workers": RepositoryOptions::default().query_workers,
         "result": {
+            "status": "ok",
+            "error": null,
             "count": result.count,
             "hits": hits,
             "counters": result.counters,
