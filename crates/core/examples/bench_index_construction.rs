@@ -576,7 +576,7 @@ fn select_storage_probe(repo: &IndexView) -> Result<StorageProbeSample, String> 
 fn probe_storage_operations(repo: &IndexView) -> Result<serde_json::Value, String> {
     let sample = select_storage_probe(repo)?;
     let path = sample.relative_path.as_path();
-    let path_key = objekte_search_core::path_repr::query_path(path);
+    let path_key = objekte_search_core::model::path_representation::query_path(path);
     let id = sample.record_id.as_str();
     let collection_name = sample.collection.as_str();
     let exact_lookup_ns = median_probe_ns(100_000, || {

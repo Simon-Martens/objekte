@@ -397,7 +397,7 @@ impl SegmentBuildScheduler {
             if let Some(gate) = gate.as_ref() {
                 gate.wait();
             }
-            let phase = crate::detailed_timer::DetailedInstant::now();
+            let phase = crate::measurement::timer::DetailedInstant::now();
             let mut profile = profile_build.then(|| IncrementalSegmentProfile {
                 collection: definition.name.clone(),
                 files: segment.files.len(),

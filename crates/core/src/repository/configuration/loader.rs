@@ -38,7 +38,7 @@ pub(crate) fn prepare_source_definitions(
     ];
     let mut prepared = definitions.to_vec();
     for definition in &mut prepared {
-        if crate::discovery::contains_generated_directory(&definition.source_path) {
+        if crate::inventory::discovery::contains_generated_directory(&definition.source_path) {
             return Err(format!(
                 "collection {} source selection {} selects or lies beneath a generated index namespace",
                 definition.name,
@@ -59,7 +59,7 @@ pub(crate) fn prepare_source_definitions(
         };
         if selected
             .strip_prefix(&root)
-            .is_ok_and(crate::discovery::contains_generated_directory)
+            .is_ok_and(crate::inventory::discovery::contains_generated_directory)
         {
             return Err(format!(
                 "collection {} source selection {} resolves inside a generated index namespace",

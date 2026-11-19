@@ -306,5 +306,4 @@ fn multiply_digits(digits: &mut Vec<u8>, multiplier: u8) {
 }
 
 #[cfg(test)]
-#[path = "decimal.test.rs"]
 mod tests;

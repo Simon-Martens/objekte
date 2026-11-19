@@ -1565,7 +1565,7 @@ impl InferenceBuilder {
 
     pub(crate) fn merge_shifted(&mut self, other: Self, base: u32) -> Result<(), String> {
         #[cfg(feature = "detailed-profiling")]
-        let started = crate::detailed_timer::DetailedInstant::now();
+        let started = crate::measurement::timer::DetailedInstant::now();
         if self.config != other.config || self.batch || !other.batch {
             return Err("inference batch policy mismatch".into());
         }

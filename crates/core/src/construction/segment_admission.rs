@@ -133,7 +133,7 @@ impl CollectionAdmission<'_> {
             profile.files += batch.files.len() as u64;
             profile.records += batch.records.len() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         let base = self.builder.next_slot()?.0;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count).ok_or("record slot overflow")?;
@@ -204,12 +204,12 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         self.postings.merge_shifted(batch.postings, base)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         match (self.inference.as_mut(), batch.inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
@@ -218,7 +218,7 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.inference_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         if self.relations.len() != batch.relations.len() {
             return Err("relation batch coverage mismatch".into());
         }
@@ -228,7 +228,7 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.relations_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         if self.custom_postings.len() != batch.custom_postings.len() {
             return Err("custom posting batch coverage mismatch".into());
         }
@@ -243,7 +243,7 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         self.raw.merge_shifted(batch.raw, base)?;
         self.fallback_text
             .merge_shifted(batch.fallback_text, base)?;
@@ -259,13 +259,13 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.bigrams_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
         append_shifted_bitmap(self.empty_array_records, &batch.empty_array_records, base)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
         self.sorting.append_keys(batch.sort_keys, base, count)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.sorting_ns += started.elapsed().as_nanos() as u64;
@@ -628,7 +628,7 @@ impl SegmentAdmission {
         mut batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let base = u32::try_from(self.records.len()).map_err(|_| "too many segment records")?;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count)
@@ -773,7 +773,7 @@ impl CollectionSegment {
         pool: &ThreadPool,
         mut profile: Option<&mut IncrementalSegmentProfile>,
     ) -> Result<IndexedCollectionSegment, String> {
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut aggregate =
             SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?;
         for SegmentBatch {
@@ -801,7 +801,7 @@ impl CollectionSegment {
         } = aggregate;
         let record_count = self.records.len();
         let logical_count = logical_records.len() as usize;
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         postings.finish_stats();
         postings.validate_eligible(record_count, logical_count)?;
         if logical_count != record_count {
@@ -822,7 +822,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.postings_finish_validation_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let raw = raw.into_index_in_pool(pool)?;
         let fallback_text = fallback_text.into_index_in_pool(pool)?;
         let custom_text = custom_text
@@ -832,7 +832,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.bigram_finish_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         raw.validate(record_count)?;
         fallback_text.validate(record_count)?;
         if logical_count != record_count {
@@ -854,7 +854,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.bigram_validation_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut sorting = sorting.finish_for_records(&self.records)?;
         sorting.refresh_file_status_for_records(&self.records, |file| {
             self.files
@@ -865,7 +865,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let inference_observation = inference
             .as_ref()
             .map(crate::inference::InferenceBuilder::observation);
@@ -877,7 +877,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.inference_finish_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut identity_order = self
             .records
             .iter()

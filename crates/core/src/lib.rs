@@ -5,10 +5,6 @@
 
 pub mod completion;
 mod construction;
-mod decimal;
-mod detailed_timer;
-pub mod diagnostics;
-pub mod discovery;
 pub mod execution_options;
 pub mod index;
 pub mod inference;
@@ -16,7 +12,6 @@ pub mod inventory;
 pub mod lifecycle;
 pub mod measurement;
 pub mod model;
-pub mod path_repr;
 pub mod posting_values;
 pub mod query;
 mod query_access;
@@ -36,7 +31,6 @@ pub mod repository;
 pub mod schema;
 pub mod source;
 pub mod streaming;
-mod structural;
 pub mod workload;
 
 #[cfg(test)]

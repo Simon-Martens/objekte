@@ -979,7 +979,7 @@ fn segment_file_path_matches(
         let Some(entry) = catalog.entry(id) else {
             continue;
         };
-        let path = crate::path_repr::query_path(&entry.relative_path);
+        let path = crate::model::path_representation::query_path(&entry.relative_path);
         if file_path_matches(&path, operator, literal) {
             extend_segment_file_slots(segment, index, &mut matches)?;
         }
@@ -2328,7 +2328,8 @@ fn term_set(
                     let file_id = collection.generation.records[slot as usize].file;
                     let matches = *matched_files.entry(file_id).or_insert_with(|| {
                         let file = &repo.files.files[file_id.0 as usize];
-                        let path = crate::path_repr::query_path(&file.relative_path);
+                        let path =
+                            crate::model::path_representation::query_path(&file.relative_path);
                         file_path_matches(&path, operator, literal)
                     });
                     if matches {

@@ -560,7 +560,7 @@ impl Index {
         segment: IndexedCollectionSegment,
         profile_phases: bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
-        let prepare_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        let prepare_started = crate::measurement::timer::start_if_enabled(profile_phases);
         let view = self.view()?;
         if view.revision() != expected {
             return Err(IndexError::RevisionConflict {
@@ -579,7 +579,7 @@ impl Index {
         let preparation_ns = prepare_started
             .map(|started| started.elapsed().as_nanos() as u64)
             .unwrap_or(0);
-        let install_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        let install_started = crate::measurement::timer::start_if_enabled(profile_phases);
         let revision = self.publish_prepared_inner(expected, next)?;
         let install_ns = install_started
             .map(|started| started.elapsed().as_nanos() as u64)
@@ -605,7 +605,7 @@ impl Index {
                 "initial publication group is empty".into(),
             ));
         }
-        let prepare_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        let prepare_started = crate::measurement::timer::start_if_enabled(profile_phases);
         let view = self.view()?;
         if view.revision() != expected {
             return Err(IndexError::RevisionConflict {
@@ -626,7 +626,7 @@ impl Index {
         let preparation_ns = prepare_started
             .map(|started| started.elapsed().as_nanos() as u64)
             .unwrap_or(0);
-        let install_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        let install_started = crate::measurement::timer::start_if_enabled(profile_phases);
         let revision = self.publish_prepared_inner(expected, next)?;
         let install_ns = install_started
             .map(|started| started.elapsed().as_nanos() as u64)

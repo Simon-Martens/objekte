@@ -15,6 +15,8 @@ use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
 use crate::query::Operator;
 use crate::source::{DiagnosticCategory, ReaderDiagnostic};
 
+pub mod discovery;
+
 /// Append a batch-local bitmap after its final slot base is known. Batch
 /// admission is ordered, so each translated set must follow existing slots.
 pub(crate) fn append_shifted_bitmap(
@@ -467,7 +469,7 @@ impl SharedPath {
     pub(crate) fn query_key(&self) -> Arc<str> {
         match self {
             Self::Plain(text) => Arc::clone(text),
-            Self::Native(path) => crate::path_repr::query_path(path).into(),
+            Self::Native(path) => crate::model::path_representation::query_path(path).into(),
         }
     }
 
@@ -483,7 +485,7 @@ impl SharedPath {
 impl From<PathBuf> for SharedPath {
     fn from(path: PathBuf) -> Self {
         if let Some(text) = path.to_str()
-            && crate::path_repr::query_path(&path) == text
+            && crate::model::path_representation::query_path(&path) == text
         {
             return Self::Plain(Arc::from(text));
         }
@@ -698,7 +700,7 @@ impl FileInventory {
             .iter()
             .filter(|file| file.relative_path.query_key_has_separate_payload())
             .map(|file| {
-                crate::path_repr::query_path(&file.relative_path).len()
+                crate::model::path_representation::query_path(&file.relative_path).len()
                     + 2 * std::mem::size_of::<usize>()
             })
             .sum::<usize>();
@@ -764,7 +766,7 @@ impl FileInventory {
             .files
             .iter()
             .filter(|file| file.relative_path.query_key_has_separate_payload())
-            .map(|file| crate::path_repr::query_path(&file.relative_path).len())
+            .map(|file| crate::model::path_representation::query_path(&file.relative_path).len())
             .sum::<usize>();
         (inventory, diagnostics)
     }
@@ -1301,5 +1303,4 @@ impl CollectionBuilder {
 }
 
 #[cfg(test)]
-#[path = "inventory.test.rs"]
 mod tests;

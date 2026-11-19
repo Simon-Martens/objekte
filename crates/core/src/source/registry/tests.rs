@@ -962,7 +962,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
 
 #[test]
 fn discovery_and_intrinsic_ids_share_build_restore_rules() {
-    use crate::discovery::{Discovery, SymlinkPolicy};
+    use crate::inventory::discovery::{Discovery, SymlinkPolicy};
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
@@ -1186,7 +1186,7 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
 #[cfg(unix)]
 #[test]
 fn discovery_symlink_policy_confines_sources_and_avoids_cycles() {
-    use crate::discovery::{Discovery, SymlinkPolicy, discover};
+    use crate::inventory::discovery::{Discovery, SymlinkPolicy, discover};
     use std::os::unix::fs::symlink;
 
     let root = std::env::temp_dir().join(format!("objekte-symlinks-{}", std::process::id()));

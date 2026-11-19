@@ -74,5 +74,4 @@ fn append_valid(output: &mut String, valid: &str) {
 }
 
 #[cfg(test)]
-#[path = "path_repr.test.rs"]
 mod tests;

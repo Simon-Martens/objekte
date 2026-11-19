@@ -461,14 +461,14 @@ pub(crate) fn assemble_final_repository(
     started: Instant,
     mut profile: Option<BuildProfileStats>,
 ) -> Result<Repository, crate::lifecycle::IndexError> {
-    let finalization_started = crate::detailed_timer::DetailedInstant::now();
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let finalization_started = crate::measurement::timer::DetailedInstant::now();
+    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
     let base_fingerprints =
         finish_fresh_fingerprints(&discovered, digest_bindings).map_err(IndexError::Build)?;
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
     }
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
     let mut final_repository = crate::construction::repository_state::initialize_empty(
         root,
         definitions,

@@ -4121,7 +4121,9 @@ fn parent_directories<'a>(paths: impl Iterator<Item = &'a Path>) -> Vec<String> 
     for path in paths {
         let mut parent = path.parent();
         while let Some(directory) = parent.filter(|directory| !directory.as_os_str().is_empty()) {
-            directories.insert(objekte_search_core::path_repr::query_path(directory));
+            directories.insert(objekte_search_core::model::path_representation::query_path(
+                directory,
+            ));
             parent = directory.parent();
         }
     }

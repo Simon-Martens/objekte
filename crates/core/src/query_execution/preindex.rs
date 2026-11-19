@@ -3,8 +3,8 @@
 use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
-use crate::discovery::discover;
 use crate::execution_options::ReturnMode;
+use crate::inventory::discovery::discover;
 use crate::inventory::{
     DiagnosticRef, FileEntry, FileInventory, RecordClass, RecordEntry, SourceDiagnostic,
     SourceRevision,
@@ -418,7 +418,10 @@ fn record_id(
             let relative = path
                 .strip_prefix(root.join(&definition.source_path))
                 .map_err(|error| error.to_string())?;
-            RecordId::intrinsic(format!("path:{}", crate::path_repr::query_path(relative)))
+            RecordId::intrinsic(format!(
+                "path:{}",
+                crate::model::path_representation::query_path(relative)
+            ))
         }
         IdentityPolicy::Generated => Ok(RecordId::generated(
             file.id,

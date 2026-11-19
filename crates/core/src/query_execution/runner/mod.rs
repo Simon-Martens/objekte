@@ -1,6 +1,6 @@
 //! Bounded result retention, grouped source access, and payload materialization.
 
-use crate::detailed_timer::DetailedInstant;
+use crate::measurement::timer::DetailedInstant;
 use std::cmp::Ordering;
 use std::cmp::Reverse;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};

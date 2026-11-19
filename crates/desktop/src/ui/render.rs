@@ -657,7 +657,7 @@ impl DesktopView {
                                         let Some(row) = view.catalogue_row(file_ids[item - directory_count]) else {
                                             return div().into_any_element();
                                         };
-                                        let path = objekte_search_core::path_repr::query_path(row.relative_path);
+                                        let path = objekte_search_core::model::path_representation::query_path(row.relative_path);
                                         let label = format!("{} · #{}", path.rsplit('/').next().unwrap_or(&path), row.id.0);
                                         return div().h(px(32.)).child(
                                             sidebar_item(

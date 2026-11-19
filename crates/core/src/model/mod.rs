@@ -7,9 +7,12 @@ use std::hash::{Hash, Hasher};
 use serde::{Deserialize, Deserializer, Serialize, de};
 use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
-use crate::decimal::ExactDecimal;
-
+pub(crate) mod decimal;
+pub mod path_representation;
+pub(crate) mod structure;
 pub mod text;
+
+use decimal::ExactDecimal;
 
 /// Exact numeric value; finite floats may be compared across representations.
 /// Direct non-finite `Float` variants have IEEE total order and are rejected
@@ -438,7 +441,7 @@ impl RecordId {
         start: u64,
         end: u64,
     ) -> Self {
-        let path = crate::path_repr::query_path(relative_path);
+        let path = crate::model::path_representation::query_path(relative_path);
         Self(
             format!(
                 "~fallback:{}:{}:{}:{}:{}:{}:{}:{modified_ns}:{start}:{end}",
@@ -690,5 +693,4 @@ impl FieldPath {
 }
 
 #[cfg(test)]
-#[path = "model.test.rs"]
 mod tests;

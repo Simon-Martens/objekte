@@ -679,5 +679,4 @@ impl PreparedScanSelection {
 }
 
 #[cfg(test)]
-#[path = "discovery.test.rs"]
 mod tests;

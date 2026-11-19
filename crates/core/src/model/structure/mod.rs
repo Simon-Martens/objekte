@@ -2,6 +2,9 @@
 
 use crate::model::Value;
 
+#[cfg(test)]
+mod tests;
+
 /// Whether a logical value contains any empty array, including an unrelated
 /// path. Such records may satisfy a universal comparison without a text witness.
 pub(crate) fn contains_empty_array(value: &Value) -> bool {
@@ -13,7 +16,3 @@ pub(crate) fn contains_empty_array(value: &Value) -> bool {
         _ => false,
     }
 }
-
-#[cfg(test)]
-#[path = "structural.test.rs"]
-mod tests;

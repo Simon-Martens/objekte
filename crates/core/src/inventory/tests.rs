@@ -172,7 +172,7 @@ fn relative_path_index_preserves_native_escaping_and_rejects_absolute_literals()
         Some(vec![])
     );
     let escaped = PathBuf::from("data/percent%and\\backslash.json");
-    let key = crate::path_repr::query_path(&escaped);
+    let key = crate::model::path_representation::query_path(&escaped);
     let id = files
         .add(escaped.clone(), revision, None, CollectionId(0))
         .unwrap();
@@ -191,7 +191,7 @@ fn relative_path_index_preserves_native_escaping_and_rejects_absolute_literals()
         let native = PathBuf::from(std::ffi::OsString::from_vec(
             b"data/invalid-\xff.json".to_vec(),
         ));
-        let key = crate::path_repr::query_path(&native);
+        let key = crate::model::path_representation::query_path(&native);
         let id = files
             .add(native.clone(), revision, None, CollectionId(0))
             .unwrap();
