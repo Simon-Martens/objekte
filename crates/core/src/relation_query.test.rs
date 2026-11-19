@@ -1481,6 +1481,215 @@ fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
 }
 
 #[test]
+fn adopted_base_view_reference_search_uses_pinned_publication() {
+    use crate::execution_options::ReturnMode;
+    use crate::repository::Payload;
+
+    let (root, definitions) = fixture();
+    let repo = base_repository(&root, definitions);
+    let mut request = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY entry.title"),
+        None,
+        None,
+        false,
+    );
+    request.options.limit = 1;
+    let expected = repo.search_reference(&request).unwrap();
+    assert_eq!(expected.count, Some(2));
+    assert_eq!(expected.hits.len(), 1);
+    assert_eq!(expected.hits[0].record_id, "m2");
+    assert_eq!(expected.hits[0].matched_fields, ["id"]);
+    assert_eq!(
+        expected.hits[0].file_path,
+        std::path::Path::new("mentions/m2.json")
+    );
+
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    let view = index.view().unwrap();
+    assert!(view.0.active.iter().all(|active| active.len() > 0));
+    assert_eq!(view.0.segments.len(), view.repository().collections.len());
+    assert!(view.0.segments.iter().all(|segments| segments.is_empty()));
+
+    let locator = view.search_reference(&request).unwrap();
+    assert_eq!(locator.count, Some(2));
+    assert_eq!(locator.hits.len(), 1);
+    assert_eq!(locator.hits[0].record_id, "m2");
+    assert_eq!(locator.hits[0].matched_fields, ["id"]);
+    assert_eq!(locator.hits[0].generation, view.revision().0);
+    assert_eq!(
+        locator.hits[0].file_path,
+        std::path::Path::new("mentions/m2.json")
+    );
+    assert!(locator.hits[0].payload.is_none());
+
+    let mut logical_request = request.clone();
+    logical_request.options.return_mode = ReturnMode::Logical;
+    let logical = view.search_reference(&logical_request).unwrap();
+    assert!(matches!(
+        &logical.hits[0].payload,
+        Some(Payload::Logical(crate::model::Value::Object(fields)))
+            if fields.get("id") == Some(&crate::model::Value::Id("m2".into()))
+    ));
+
+    let mut bytes_request = request.clone();
+    bytes_request.options.return_mode = ReturnMode::Bytes;
+    let bytes = view.search_reference(&bytes_request).unwrap();
+    assert_eq!(
+        bytes.hits[0].payload,
+        Some(Payload::Bytes(
+            std::fs::read(root.join("mentions/m2.json")).unwrap()
+        ))
+    );
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn adopted_base_view_reference_search_keeps_retired_rows_on_the_old_pin() {
+    let (root, definitions) = fixture();
+    let repo = base_repository(&root, definitions);
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    let pinned = index.view().unwrap();
+    let request = query(
+        "mentions",
+        Some("(id = 'm1' || id = 'm2') SORT BY entry.title"),
+        None,
+        None,
+        false,
+    );
+    let old = pinned.search_reference(&request).unwrap();
+    assert_eq!(old.count, Some(2));
+    assert_eq!(
+        old.hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1"]
+    );
+    assert!(
+        old.hits
+            .iter()
+            .all(|hit| hit.generation == pinned.revision().0 && hit.matched_fields == ["id"])
+    );
+
+    let retired = pinned
+        .file_handle_for_path(std::path::Path::new("mentions/m2.json"))
+        .unwrap();
+    let deletion = index.delete_file(retired).unwrap();
+    assert_eq!(deletion.retired_records, 1);
+    assert!(root.join("mentions/m2.json").exists());
+
+    let still_old = pinned.search_reference(&request).unwrap();
+    assert_eq!(still_old.count, Some(2));
+    assert_eq!(
+        still_old
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1"]
+    );
+    assert!(
+        still_old
+            .hits
+            .iter()
+            .all(|hit| hit.generation == pinned.revision().0)
+    );
+
+    let current = index.view().unwrap();
+    assert_eq!(current.revision(), deletion.revision);
+    let after = current.search_reference(&request).unwrap();
+    assert_eq!(after.count, Some(1));
+    assert_eq!(after.hits.len(), 1);
+    assert_eq!(after.hits[0].record_id, "m1");
+    assert_eq!(after.hits[0].generation, current.revision().0);
+
+    drop(pinned);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
+    use crate::execution_options::ReturnMode;
+    use crate::repository::Payload;
+
+    let (root, definitions) = fixture();
+    let repo = base_repository(&root, definitions);
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    let pinned = index.view().unwrap();
+    let handle = pinned
+        .file_handle_for_path(std::path::Path::new("entries/a.json"))
+        .unwrap();
+    let mut request = query("entries", Some("id = 'A' SORT BY title"), None, None, false);
+    request.options.return_mode = ReturnMode::Locator;
+    let old_lookup = pinned.search_reference(&request).unwrap();
+    assert_eq!(old_lookup.count, Some(1));
+    let old_path = old_lookup.hits[0].file_path.clone();
+    assert_eq!(old_path, std::path::Path::new("entries/a.json"));
+
+    let original = root.join("entries/a.json");
+    let destination = root.join("entries/renamed-a.json");
+    let original_bytes = std::fs::read(&original).unwrap();
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(index.view().unwrap().revision(), moved.revision);
+
+    let current = index.view().unwrap();
+    request.options.return_mode = ReturnMode::Bytes;
+    let current = current.search_reference(&request).unwrap();
+    assert_eq!(current.count, Some(1));
+    assert_eq!(
+        current.hits[0].file_path,
+        std::path::Path::new("entries/renamed-a.json")
+    );
+    assert_eq!(
+        current.hits[0].payload,
+        Some(Payload::Bytes(original_bytes))
+    );
+
+    request.options.return_mode = ReturnMode::Bytes;
+    let old_bytes = pinned.search_reference(&request).unwrap();
+    assert_eq!(old_bytes.count, None);
+    assert!(old_bytes.hits.is_empty());
+    assert_eq!(old_path, std::path::Path::new("entries/a.json"));
+    assert!(old_bytes.counters.source_unavailable_events > 0);
+    assert!(
+        old_bytes
+            .counters
+            .source_diagnostics
+            .iter()
+            .any(|diagnostic| diagnostic.file_path == std::path::Path::new("entries/a.json"))
+    );
+
+    drop(pinned);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn adopted_base_view_reference_search_handles_a_configured_empty_collection() {
+    let (root, mut definitions) = fixture();
+    std::fs::create_dir_all(root.join("empty")).unwrap();
+    let mut empty_schema = Schema::default();
+    field(&mut empty_schema, "id", LogicalType::Id, false);
+    definitions.push(definition("empty", empty_schema));
+    let repo = base_repository(&root, definitions);
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    let view = index.view().unwrap();
+    let request = query("empty", None, None, None, false);
+    let result = view.search_reference(&request).unwrap();
+    assert_eq!(result.count, Some(0));
+    assert!(result.hits.is_empty());
+    assert_eq!(result.counters.scanned_records, 0);
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes() {
     use crate::model::Value;
     use crate::repository::Payload;
@@ -2032,6 +2241,15 @@ fn base_repository(root: &std::path::Path, definitions: Vec<CollectionDefinition
     let file_count = repo.files.files.len();
     let mut relation_contributions = Vec::with_capacity(repo.collections.len());
     for collection_index in 0..repo.collections.len() {
+        if repo.segments[collection_index].is_empty() {
+            assert_eq!(
+                repo.collections[collection_index].generation.records.len(),
+                0
+            );
+            repo.active[collection_index] = crate::inventory::ActiveRecords::all(0).unwrap();
+            relation_contributions.push(Vec::new());
+            continue;
+        }
         assert_eq!(
             repo.segments[collection_index].len(),
             1,
