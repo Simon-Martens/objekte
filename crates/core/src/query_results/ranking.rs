@@ -215,17 +215,49 @@ pub(crate) fn would_enter_page(
     winners: &BinaryHeap<Winner>,
     cap: usize,
 ) -> bool {
-    cap > 0
-        && (winners.len() < cap
-            || winners.peek().is_some_and(|worst| {
-                sort.compare_to_rank(
-                    collection_index,
-                    record,
-                    &repo.collections[collection_index].definition.name,
-                    &worst.key,
-                )
-                .is_lt()
-            }))
+    would_enter_page_with(winners, cap, |worst| {
+        Ok::<_, std::convert::Infallible>(
+            sort.compare_to_rank(
+                collection_index,
+                record,
+                &repo.collections[collection_index].definition.name,
+                worst,
+            )
+            .is_lt(),
+        )
+    })
+    .unwrap_or_else(|never| match never {})
+}
+
+pub(crate) fn would_enter_page_with<E>(
+    winners: &BinaryHeap<Winner>,
+    cap: usize,
+    compare_to_worst: impl FnOnce(&RankKey) -> Result<bool, E>,
+) -> Result<bool, E> {
+    would_enter_rank_key_with(
+        winners.len(),
+        winners.peek().map(|winner| &winner.key),
+        cap,
+        compare_to_worst,
+    )
+}
+
+pub(crate) fn would_enter_rank_key_with<E>(
+    winner_count: usize,
+    worst: Option<&RankKey>,
+    cap: usize,
+    compare_to_worst: impl FnOnce(&RankKey) -> Result<bool, E>,
+) -> Result<bool, E> {
+    if cap == 0 {
+        return Ok(false);
+    }
+    if winner_count < cap {
+        return Ok(true);
+    }
+    match worst {
+        Some(worst) => compare_to_worst(worst),
+        None => Ok(false),
+    }
 }
 
 /// Comparable sort key with collection and ID tie breakers.
@@ -795,4 +827,43 @@ pub(crate) fn rank_key_bytes(key: &RankKey) -> u64 {
             total.saturating_add(crate::query::sort_binding::key_bytes(part))
         }));
     u64::try_from(bytes).unwrap_or(u64::MAX)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn page_admission_only_compares_when_the_heap_is_full() {
+        let mut compared = false;
+        let empty_cap = would_enter_rank_key_with(0usize, None, 0, |_| {
+            compared = true;
+            Ok::<_, ()>(true)
+        })
+        .unwrap();
+        assert!(!empty_cap);
+        assert!(!compared);
+
+        let nonfull = would_enter_rank_key_with(0usize, None, 1, |_| {
+            compared = true;
+            Ok::<_, ()>(true)
+        })
+        .unwrap();
+        assert!(nonfull);
+        assert!(!compared);
+
+        let worst = RankKey {
+            parts: Vec::new(),
+            collection: "records".into(),
+            id: "worst".into(),
+        };
+        let full = would_enter_rank_key_with(1, Some(&worst), 1, |candidate_worst| {
+            compared = true;
+            assert_eq!(candidate_worst.id, "worst");
+            Ok::<_, ()>(true)
+        })
+        .unwrap();
+        assert!(full);
+        assert!(compared);
+    }
 }

@@ -115,6 +115,11 @@ struct RelationTargetPrune {
     evidence: Vec<String>,
 }
 
+struct PrunedRelationCandidates {
+    candidates: Option<Arc<RoaringBitmap>>,
+    relation_candidates: Option<Arc<RoaringBitmap>>,
+}
+
 fn eligible_one_hop_relation_term<'a>(
     repo: &Repository,
     term: &'a BoundTerm,
@@ -338,7 +343,7 @@ fn relation_target_prune(
 fn relation_source_candidates(
     published: &PublishedSegment,
     plan: &RelationTargetPrune,
-) -> Result<Option<RoaringBitmap>, String> {
+) -> Result<Option<Arc<RoaringBitmap>>, String> {
     let Some(posting) = published.index.postings.fields.get(&plan.source_path) else {
         return Ok(None);
     };
@@ -355,7 +360,71 @@ fn relation_source_candidates(
         }
     }
     may &= published.active.bitmap();
-    Ok(Some(may))
+    Ok(Some(Arc::new(may)))
+}
+
+#[allow(clippy::too_many_arguments)]
+fn prune_relation_candidates(
+    repo: &Repository,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    published: &PublishedSegment,
+    collection: &CollectionState,
+    filter: Option<&BoundExpr>,
+    fts: Option<&BoundFts>,
+    relation_prune: &mut Option<Option<RelationTargetPrune>>,
+) -> Result<PrunedRelationCandidates, String> {
+    let filter_may = filter
+        .map(|filter| {
+            segment_filter_bounds_with_catalog(
+                &published.index,
+                &published.active,
+                filter,
+                collection,
+                Some(catalog),
+            )
+            .map(|bounds| bounds.may)
+        })
+        .transpose()?;
+    let fts_may = fts
+        .map(|fts| segment_fts_candidates(&published.index, collection, fts))
+        .transpose()?
+        .flatten();
+    let candidates = match (filter_may, fts_may) {
+        (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
+        (Some(filter), None) => Some(filter.as_ref().clone()),
+        (None, Some(fts)) => Some(fts),
+        (None, None) => None,
+    };
+    let local_count = candidates
+        .as_ref()
+        .map_or_else(|| published.active.len(), RoaringBitmap::len);
+    if local_count > 256 && relation_prune.is_none() {
+        *relation_prune = Some(relation_target_prune(
+            repo,
+            base_active,
+            segments,
+            filter,
+            fts,
+        )?);
+    }
+    let relation_candidates = relation_prune
+        .as_ref()
+        .and_then(Option::as_ref)
+        .map(|plan| relation_source_candidates(published, plan))
+        .transpose()?
+        .flatten();
+    let candidates = match (candidates, relation_candidates.as_ref()) {
+        (Some(candidates), Some(relation)) => Some(Arc::new(candidates & relation.as_ref())),
+        (Some(candidates), None) => Some(Arc::new(candidates)),
+        (None, Some(relation)) => Some(Arc::clone(relation)),
+        (None, None) => None,
+    };
+    Ok(PrunedRelationCandidates {
+        candidates,
+        relation_candidates,
+    })
 }
 
 enum DirectRelationPredicate<'a> {
@@ -1488,6 +1557,76 @@ fn merge_parallel_relation_work(
 }
 
 #[allow(clippy::too_many_arguments)]
+fn read_relation_source_file(
+    file: &FileEntry,
+    path: &std::path::Path,
+    ranges: &[(u32, ByteRange)],
+    first_address: crate::query_execution::relations::view::MergedRecordSlot,
+    context: Option<&crate::query_execution::streaming::ExecutionContext>,
+    source_errors: &mut SourceAvailabilityLog,
+    opened: &mut HashSet<u32>,
+    proof_fields: Option<&[String]>,
+    mut process: impl FnMut(
+        crate::query_execution::relations::view::MergedRecordSlot,
+        Vec<u8>,
+        bool,
+        Option<&[String]>,
+    ) -> Result<(), String>,
+) -> Result<(), String> {
+    let mut reader = match RecordRangeReader::open_for_search(path, file.revision, context) {
+        Ok(reader) => reader,
+        Err(message) => {
+            source_errors.record(SourceDiagnostic {
+                file_id: file.id.0,
+                file_path: file.relative_path.to_path_buf(),
+                kind: classify_source_read_failure_for_search(path, file.revision, None),
+                message,
+            });
+            return Ok(());
+        }
+    };
+    if let Some(context) = context {
+        context.charge_reads(1)?;
+    }
+    opened.insert(file.id.0);
+    let mut cursor = 0;
+    while cursor < ranges.len() {
+        let start = cursor;
+        let mut batch_bytes = 0u64;
+        while cursor < ranges.len() && cursor - start < 128 {
+            let next = ranges[cursor].1.len();
+            if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
+                break;
+            }
+            batch_bytes = batch_bytes.saturating_add(next);
+            cursor += 1;
+        }
+        let read = match reader.read(&ranges[start..cursor]) {
+            Ok((read, _)) => read,
+            Err(message) => {
+                source_errors.record(SourceDiagnostic {
+                    file_id: file.id.0,
+                    file_path: file.relative_path.to_path_buf(),
+                    kind: classify_source_read_failure_for_search(
+                        path,
+                        file.revision,
+                        Some(ranges[start].1),
+                    ),
+                    message,
+                });
+                break;
+            }
+        };
+        for (index, (slot, bytes)) in read.into_iter().enumerate() {
+            let mut address = first_address;
+            address.slot = RecordSlot(slot);
+            process(address, bytes, start == 0 && index == 0, proof_fields)?;
+        }
+    }
+    Ok(())
+}
+
+#[allow(clippy::too_many_arguments)]
 fn try_parallel_relation_page(
     repo: &Repository,
     query: &Query,
@@ -1557,60 +1696,29 @@ fn try_parallel_relation_page(
     let mut jobs = Vec::new();
     let mut relation_prune: Option<Option<RelationTargetPrune>> = exact_plan.cloned().map(Some);
     for (segment_index, published) in segments[*collection_index].iter().enumerate() {
-        let mut candidates = if prune_segments {
-            let filter_may = filter
-                .as_ref()
-                .map(|filter| {
-                    segment_filter_bounds_with_catalog(
-                        &published.index,
-                        &published.active,
-                        filter,
-                        collection,
-                        Some(catalog),
-                    )
-                    .map(|bounds| bounds.may)
-                })
-                .transpose()?;
-            let fts_may = fts
-                .as_ref()
-                .map(|fts| segment_fts_candidates(&published.index, collection, fts))
-                .transpose()?
-                .flatten();
-            match (filter_may, fts_may) {
-                (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
-                (Some(filter), None) => Some(filter.as_ref().clone()),
-                (None, Some(fts)) => Some(fts),
-                (None, None) => None,
-            }
+        let pruned = if prune_segments {
+            prune_relation_candidates(
+                repo,
+                base_active,
+                segments,
+                catalog,
+                published,
+                collection,
+                filter,
+                fts,
+                &mut relation_prune,
+            )?
         } else {
-            None
+            PrunedRelationCandidates {
+                candidates: None,
+                relation_candidates: None,
+            }
         };
-        if prune_segments {
-            let local_count = candidates
-                .as_ref()
-                .map_or_else(|| published.active.len(), RoaringBitmap::len);
-            if local_count > 256 && relation_prune.is_none() {
-                relation_prune = Some(relation_target_prune(
-                    repo,
-                    base_active,
-                    segments,
-                    filter,
-                    fts,
-                )?);
-            }
-            if let Some(Some(plan)) = relation_prune.as_ref()
-                && let Some(relation_may) = relation_source_candidates(published, plan)?
-            {
-                candidates =
-                    Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
-            }
-            if let Some(plan) = exact_plan
-                && relation_source_candidates(published, plan)?.is_none()
-            {
-                return Ok(None);
-            }
+        if prune_segments && exact_plan.is_some() && pruned.relation_candidates.is_none() {
+            return Ok(None);
         }
-        if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
+        let candidates = pruned.candidates;
+        if candidates.as_ref().is_some_and(|may| may.is_empty()) {
             continue;
         }
         // Posting and FTS bounds can leave only a few slots in a large
@@ -2351,68 +2459,17 @@ pub(super) fn search_segmented_relations(
                 .record(first)?
                 .ok_or("active merged base file missing")?;
             let path = repo.files.root.join(&resolved.file.relative_path);
-            let mut reader =
-                match RecordRangeReader::open_for_search(&path, resolved.file.revision, context) {
-                    Ok(reader) => reader,
-                    Err(message) => {
-                        source_errors.record(SourceDiagnostic {
-                            file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.to_path_buf(),
-                            kind: classify_source_read_failure_for_search(
-                                &path,
-                                resolved.file.revision,
-                                None,
-                            ),
-                            message,
-                        });
-                        continue;
-                    }
-                };
-            if let Some(context) = context {
-                context.charge_reads(1)?;
-            }
-            opened.insert(file_id.0);
-            let mut cursor = 0;
-            while cursor < ranges.len() {
-                let start = cursor;
-                let mut batch_bytes = 0u64;
-                while cursor < ranges.len() && cursor - start < 128 {
-                    let next = ranges[cursor].1.len();
-                    if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
-                        break;
-                    }
-                    batch_bytes = batch_bytes.saturating_add(next);
-                    cursor += 1;
-                }
-                let read = match reader.read(&ranges[start..cursor]) {
-                    Ok((read, _)) => read,
-                    Err(message) => {
-                        source_errors.record(SourceDiagnostic {
-                            file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.to_path_buf(),
-                            kind: classify_source_read_failure_for_search(
-                                &path,
-                                resolved.file.revision,
-                                Some(ranges[start].1),
-                            ),
-                            message,
-                        });
-                        break;
-                    }
-                };
-                for (index, (slot, bytes)) in read.into_iter().enumerate() {
-                    process(
-                        crate::query_execution::relations::view::MergedRecordSlot {
-                            collection: collection_id,
-                            segment: None,
-                            slot: RecordSlot(slot),
-                        },
-                        bytes,
-                        start == 0 && index == 0,
-                        None,
-                    )?;
-                }
-            }
+            read_relation_source_file(
+                resolved.file,
+                &path,
+                &ranges,
+                first,
+                context,
+                &mut source_errors,
+                &mut opened,
+                None,
+                &mut process,
+            )?;
         }
         let mut relation_prune: Option<Option<RelationTargetPrune>> =
             if let Some(plan) = exact_relation_plan.take() {
@@ -2421,64 +2478,36 @@ pub(super) fn search_segmented_relations(
                 None
             };
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
-            let mut candidates = if prune_segments {
-                let filter_may = filter
-                    .as_ref()
-                    .map(|filter| {
-                        segment_filter_bounds_with_catalog(
-                            &published.index,
-                            &published.active,
-                            filter,
-                            collection,
-                            Some(catalog),
-                        )
-                        .map(|bounds| bounds.may)
-                    })
-                    .transpose()?;
-                let fts_may = fts
-                    .as_ref()
-                    .map(|fts| segment_fts_candidates(&published.index, collection, fts))
-                    .transpose()?
-                    .flatten();
-                match (filter_may, fts_may) {
-                    (Some(filter), Some(fts)) => Some(filter.as_ref() & fts),
-                    (Some(filter), None) => Some(filter.as_ref().clone()),
-                    (None, Some(fts)) => Some(fts),
-                    (None, None) => None,
-                }
+            let pruned = if prune_segments {
+                prune_relation_candidates(
+                    repo,
+                    base_active,
+                    segments,
+                    catalog,
+                    published,
+                    collection,
+                    filter.as_ref(),
+                    fts.as_ref(),
+                    &mut relation_prune,
+                )?
             } else {
-                None
+                PrunedRelationCandidates {
+                    candidates: None,
+                    relation_candidates: None,
+                }
             };
-            if prune_segments {
-                let local_count = candidates
+            let exact_filter_fields = if pruned.relation_candidates.is_some()
+                && let Some(plan) = relation_prune
                     .as_ref()
-                    .map_or_else(|| published.active.len(), RoaringBitmap::len);
-                if local_count > 256 && relation_prune.is_none() {
-                    relation_prune = Some(relation_target_prune(
-                        repo,
-                        base_active,
-                        segments,
-                        filter.as_ref(),
-                        fts.as_ref(),
-                    )?);
-                }
-                if let Some(Some(plan)) = relation_prune.as_ref()
-                    && let Some(relation_may) = relation_source_candidates(published, plan)?
-                {
-                    candidates =
-                        Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
-                }
-            }
-            let exact_filter_fields = if let Some(plan) = relation_prune
-                .as_ref()
-                .and_then(Option::as_ref)
-                .filter(|plan| plan.exact)
+                    .and_then(Option::as_ref)
+                    .filter(|plan| plan.exact)
             {
-                relation_source_candidates(published, plan)?.map(|_| plan.evidence.as_slice())
+                Some(plan.evidence.as_slice())
             } else {
                 None
             };
-            if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
+            let candidates = pruned.candidates;
+            if candidates.as_ref().is_some_and(|may| may.is_empty()) {
                 continue;
             }
             // A posting may leave only a handful of slots in a large segment.
@@ -2552,71 +2581,17 @@ pub(super) fn search_segmented_relations(
                     .record(first)?
                     .ok_or("active merged segment file missing")?;
                 let path = repo.files.root.join(&resolved.file.relative_path);
-                let mut reader = match RecordRangeReader::open_for_search(
+                read_relation_source_file(
+                    resolved.file,
                     &path,
-                    resolved.file.revision,
+                    &ranges,
+                    first,
                     context,
-                ) {
-                    Ok(reader) => reader,
-                    Err(message) => {
-                        source_errors.record(SourceDiagnostic {
-                            file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.to_path_buf(),
-                            kind: classify_source_read_failure_for_search(
-                                &path,
-                                resolved.file.revision,
-                                None,
-                            ),
-                            message,
-                        });
-                        continue;
-                    }
-                };
-                if let Some(context) = context {
-                    context.charge_reads(1)?;
-                }
-                opened.insert(file.entry.id.0);
-                let mut cursor = 0;
-                while cursor < ranges.len() {
-                    let start = cursor;
-                    let mut batch_bytes = 0u64;
-                    while cursor < ranges.len() && cursor - start < 128 {
-                        let next = ranges[cursor].1.len();
-                        if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
-                            break;
-                        }
-                        batch_bytes = batch_bytes.saturating_add(next);
-                        cursor += 1;
-                    }
-                    let read = match reader.read(&ranges[start..cursor]) {
-                        Ok((read, _)) => read,
-                        Err(message) => {
-                            source_errors.record(SourceDiagnostic {
-                                file_id: resolved.file.id.0,
-                                file_path: resolved.file.relative_path.to_path_buf(),
-                                kind: classify_source_read_failure_for_search(
-                                    &path,
-                                    resolved.file.revision,
-                                    Some(ranges[start].1),
-                                ),
-                                message,
-                            });
-                            break;
-                        }
-                    };
-                    for (index, (slot, bytes)) in read.into_iter().enumerate() {
-                        process(
-                            crate::query_execution::relations::view::MergedRecordSlot {
-                                collection: collection_id,
-                                segment: Some(segment_index),
-                                slot: RecordSlot(slot),
-                            },
-                            bytes,
-                            start == 0 && index == 0,
-                            exact_filter_fields,
-                        )?;
-                    }
-                }
+                    &mut source_errors,
+                    &mut opened,
+                    exact_filter_fields,
+                    &mut process,
+                )?;
             }
         }
     }

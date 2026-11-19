@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Q042",
+    "collection": "agents",
+    "fts": null,
+    "filter": "profession = \"Text\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

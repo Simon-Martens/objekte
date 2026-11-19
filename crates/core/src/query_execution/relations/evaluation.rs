@@ -8,8 +8,9 @@ use crate::inventory::RecordClass;
 use crate::model::{PathRoot, RecordSlot};
 use crate::query::Quantifier;
 use crate::query::binding::filter::{BoundExpr, BoundTerm};
-use crate::query::binding::fts::BoundFts;
+use crate::query::binding::fts::{BoundFts, BoundFtsField};
 use crate::query::binding::relation::{BoundRelationHop, HopDirection};
+use crate::query::semantics::boolean;
 use crate::query::semantics::comparison::eval_cross_record_field_term;
 use crate::query::semantics::record::RecordContext;
 use crate::query_execution::relations::target_cache::TargetValueCache;
@@ -129,72 +130,41 @@ pub(crate) fn eval_filter_truth(
     mode: EvaluationMode,
     work: &mut RelationWork,
 ) -> Result<Option<bool>, String> {
-    match expr {
-        BoundExpr::Term(term) => {
-            let result = if term.related.is_some() {
-                eval_related_term_mode(repo, term, ctx, mode, work, None)?
-            } else {
-                Some(eval_term(term, ctx)?)
-            };
-            if result == Some(true)
-                && term.derived == crate::query::binding::filter::Derived::None
-                && !matches!(
-                    term.operator,
-                    crate::query::Operator::Ne | crate::query::Operator::NotContains
-                )
-            {
-                evidence.insert(term.query_path.display.clone());
-                if let Some(rhs) = &term.rhs {
-                    evidence.insert(rhs.query_path.display.clone());
-                }
-                if let Some(related) = &term.related {
-                    evidence.insert(related.evidence_path.clone());
-                }
-            }
-            Ok(result)
-        }
-        BoundExpr::And(parts) => {
-            let mut answer = Some(true);
-            let mut fields = std::collections::HashSet::new();
-            for part in parts {
-                if answer == Some(false) {
-                    break;
-                }
-                let next = eval_filter_truth(repo, part, ctx, &mut fields, mode, work)?;
-                answer = match (answer, next) {
-                    (Some(false), _) | (_, Some(false)) => Some(false),
-                    (None, _) | (_, None) => None,
-                    _ => Some(true),
+    boolean::eval_with_evidence(
+        expr,
+        evidence,
+        &mut |node, fields| match node {
+            BoundExpr::Term(term) => {
+                let result = if term.related.is_some() {
+                    eval_related_term_mode(repo, term, ctx, mode, work, None)?
+                } else {
+                    Some(eval_term(term, ctx)?)
                 };
-            }
-            if answer == Some(true) {
-                evidence.extend(fields);
-            }
-            Ok(answer)
-        }
-        BoundExpr::Or(parts) => {
-            let mut answer = Some(false);
-            for part in parts {
-                let mut fields = std::collections::HashSet::new();
-                let next = eval_filter_truth(repo, part, ctx, &mut fields, mode, work)?;
-                answer = match (answer, next) {
-                    (Some(true), _) | (_, Some(true)) => Some(true),
-                    (None, _) | (_, None) => None,
-                    _ => Some(false),
-                };
-                if next == Some(true) {
-                    evidence.extend(fields);
+                if result == Some(true)
+                    && term.derived == crate::query::binding::filter::Derived::None
+                    && !matches!(
+                        term.operator,
+                        crate::query::Operator::Ne | crate::query::Operator::NotContains
+                    )
+                    && let Some(fields) = fields
+                {
+                    fields.insert(term.query_path.display.clone());
+                    if let Some(rhs) = &term.rhs {
+                        fields.insert(rhs.query_path.display.clone());
+                    }
+                    if let Some(related) = &term.related {
+                        fields.insert(related.evidence_path.clone());
+                    }
                 }
+                Ok(result)
             }
-            Ok(answer)
-        }
-        BoundExpr::Not(inner) => {
-            Ok(
-                eval_filter_truth(repo, inner, ctx, &mut Default::default(), mode, work)?
-                    .map(|value| !value),
-            )
-        }
-    }
+            BoundExpr::And(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {
+                unreachable!("Boolean leaf evaluator received a branch node")
+            }
+        },
+        &mut |_| true,
+        false,
+    )
 }
 
 /// Three-valued membership stops at decisive branches without evidence sets.
@@ -205,7 +175,7 @@ pub(crate) fn eval_filter_truth_membership(
     mode: EvaluationMode,
     work: &mut RelationWork,
 ) -> Result<Option<bool>, String> {
-    match expr {
+    boolean::eval_membership(expr, &mut |node| match node {
         BoundExpr::Term(term) => {
             if term.related.is_some() {
                 eval_related_term_mode(repo, term, ctx, mode, work, None)
@@ -213,32 +183,10 @@ pub(crate) fn eval_filter_truth_membership(
                 eval_term(term, ctx).map(Some)
             }
         }
-        BoundExpr::And(parts) => {
-            let mut unknown = false;
-            for part in parts {
-                match eval_filter_truth_membership(repo, part, ctx, mode, work)? {
-                    Some(false) => return Ok(Some(false)),
-                    None => unknown = true,
-                    Some(true) => {}
-                }
-            }
-            Ok(if unknown { None } else { Some(true) })
+        BoundExpr::And(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {
+            unreachable!("Boolean leaf evaluator received a branch node")
         }
-        BoundExpr::Or(parts) => {
-            let mut unknown = false;
-            for part in parts {
-                match eval_filter_truth_membership(repo, part, ctx, mode, work)? {
-                    Some(true) => return Ok(Some(true)),
-                    None => unknown = true,
-                    Some(false) => {}
-                }
-            }
-            Ok(if unknown { None } else { Some(false) })
-        }
-        BoundExpr::Not(inner) => {
-            Ok(eval_filter_truth_membership(repo, inner, ctx, mode, work)?.map(|value| !value))
-        }
-    }
+    })
 }
 
 /// Evaluate selected local and relation FTS fields with source identity intact.
@@ -271,7 +219,7 @@ fn eval_fts_with_relations_inner(
     fts: &BoundFts,
     segments: &[TextSegment],
     ctx: &RecordContext<'_>,
-    mut evidence: Option<&mut std::collections::HashSet<String>>,
+    evidence: Option<&mut std::collections::HashSet<String>>,
     mode: EvaluationMode,
     work: &mut RelationWork,
 ) -> Result<bool, String> {
@@ -284,9 +232,17 @@ fn eval_fts_with_relations_inner(
     }
     let borrowed_local_text = fts.fields.iter().any(|field| field.related.is_none())
         && relation_source_uses_value_text(repo, ctx);
-    let mut matched = false;
-    for field in &fts.fields {
-        if let Some(hops) = &field.related {
+    eval_fts_fields(
+        fts,
+        segments,
+        ctx,
+        borrowed_local_text,
+        evidence,
+        &mut |field| {
+            let hops = field
+                .related
+                .as_ref()
+                .expect("related FTS visitor received a local field");
             let target_collection =
                 &repo.collections[hops.last().ok_or("empty FTS relation path")?.to.0 as usize];
             let borrowed_text = relation_target_uses_value_text(target_collection);
@@ -313,60 +269,74 @@ fn eval_fts_with_relations_inner(
                 work,
                 &[],
                 &mut |target, target_segments, _| {
-                    if borrowed_text {
-                        #[cfg(test)]
-                        BORROWED_RELATION_TARGETS
-                            .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-                        debug_assert!(target_segments.is_empty());
-                        eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
-                    } else {
-                        eval_bound_fts_field(
-                            field,
-                            fts.case_sensitivity,
-                            target_segments,
-                            target,
-                            None,
-                        )
-                    }
+                    eval_related_fts_terminal(field, fts, borrowed_text, target, target_segments)
                 },
             )?;
-            if truth == Some(true) {
-                matched = true;
-                if let Some(evidence) = evidence.as_deref_mut() {
-                    evidence.insert(field.evidence_path.clone());
-                } else {
-                    return Ok(true);
-                }
-            }
+            Ok(truth == Some(true))
+        },
+    )
+}
+
+fn eval_fts_fields(
+    fts: &BoundFts,
+    segments: &[TextSegment],
+    source: &RecordContext<'_>,
+    borrowed_local_text: bool,
+    mut evidence: Option<&mut std::collections::HashSet<String>>,
+    visit_related: &mut impl FnMut(&BoundFtsField) -> Result<bool, String>,
+) -> Result<bool, String> {
+    let mut matched = false;
+    for field in &fts.fields {
+        let field_matched = if field.related.is_some() {
+            visit_related(field)?
+        } else if borrowed_local_text
+            && matches!(field.path.root, PathRoot::Data)
+            && field.query_path.is_none()
+        {
+            eval_borrowed_value_fts_field(
+                field,
+                fts.case_sensitivity,
+                source,
+                evidence.as_deref_mut(),
+            )?
         } else {
-            let local_matched = if borrowed_local_text
-                && matches!(field.path.root, PathRoot::Data)
-                && field.query_path.is_none()
-            {
-                eval_borrowed_value_fts_field(
-                    field,
-                    fts.case_sensitivity,
-                    ctx,
-                    evidence.as_deref_mut(),
-                )?
-            } else {
-                eval_bound_fts_field(
-                    field,
-                    fts.case_sensitivity,
-                    segments,
-                    ctx,
-                    evidence.as_deref_mut(),
-                )?
-            };
-            if local_matched {
-                matched = true;
-                if evidence.is_none() {
-                    return Ok(true);
+            eval_bound_fts_field(
+                field,
+                fts.case_sensitivity,
+                segments,
+                source,
+                evidence.as_deref_mut(),
+            )?
+        };
+        if field_matched {
+            matched = true;
+            if let Some(evidence) = evidence.as_deref_mut() {
+                if field.related.is_some() {
+                    evidence.insert(field.evidence_path.clone());
                 }
+            } else {
+                return Ok(true);
             }
         }
     }
     Ok(matched)
+}
+
+fn eval_related_fts_terminal(
+    field: &BoundFtsField,
+    fts: &BoundFts,
+    borrowed_text: bool,
+    target: &RecordContext<'_>,
+    target_segments: &[TextSegment],
+) -> Result<bool, String> {
+    if borrowed_text {
+        #[cfg(test)]
+        BORROWED_RELATION_TARGETS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        debug_assert!(target_segments.is_empty());
+        eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
+    } else {
+        eval_bound_fts_field(field, fts.case_sensitivity, target_segments, target, None)
+    }
 }
 
 /// Exact three-valued result for a relation term. Unknown means a dangling or
@@ -782,92 +752,41 @@ pub(crate) fn eval_filter_truth_merged(
     work: &mut RelationWork,
     reference: bool,
 ) -> Result<Option<bool>, String> {
-    match expr {
-        BoundExpr::Term(term) => {
-            let result = if term.related.is_some() {
-                eval_related_term_merged(view, term, source_slot, source, work, reference)?
-            } else {
-                Some(eval_term(term, source)?)
-            };
-            if result == Some(true)
-                && term.derived == crate::query::binding::filter::Derived::None
-                && !matches!(
-                    term.operator,
-                    crate::query::Operator::Ne | crate::query::Operator::NotContains
-                )
-            {
-                evidence.insert(term.query_path.display.clone());
-                if let Some(rhs) = &term.rhs {
-                    evidence.insert(rhs.query_path.display.clone());
-                }
-                if let Some(related) = &term.related {
-                    evidence.insert(related.evidence_path.clone());
-                }
-            }
-            Ok(result)
-        }
-        BoundExpr::And(parts) => {
-            let mut truth = Some(true);
-            let mut fields = std::collections::HashSet::new();
-            for part in parts {
-                if truth == Some(false) {
-                    break;
-                }
-                let next = eval_filter_truth_merged(
-                    view,
-                    part,
-                    source_slot,
-                    source,
-                    &mut fields,
-                    work,
-                    reference,
-                )?;
-                truth = match (truth, next) {
-                    (Some(false), _) | (_, Some(false)) => Some(false),
-                    (None, _) | (_, None) => None,
-                    _ => Some(true),
+    boolean::eval_with_evidence(
+        expr,
+        evidence,
+        &mut |node, fields| match node {
+            BoundExpr::Term(term) => {
+                let result = if term.related.is_some() {
+                    eval_related_term_merged(view, term, source_slot, source, work, reference)?
+                } else {
+                    Some(eval_term(term, source)?)
                 };
-            }
-            if truth == Some(true) {
-                evidence.extend(fields);
-            }
-            Ok(truth)
-        }
-        BoundExpr::Or(parts) => {
-            let mut truth = Some(false);
-            for part in parts {
-                let mut fields = std::collections::HashSet::new();
-                let next = eval_filter_truth_merged(
-                    view,
-                    part,
-                    source_slot,
-                    source,
-                    &mut fields,
-                    work,
-                    reference,
-                )?;
-                truth = match (truth, next) {
-                    (Some(true), _) | (_, Some(true)) => Some(true),
-                    (None, _) | (_, None) => None,
-                    _ => Some(false),
-                };
-                if next == Some(true) {
-                    evidence.extend(fields);
+                if result == Some(true)
+                    && term.derived == crate::query::binding::filter::Derived::None
+                    && !matches!(
+                        term.operator,
+                        crate::query::Operator::Ne | crate::query::Operator::NotContains
+                    )
+                    && let Some(fields) = fields
+                {
+                    fields.insert(term.query_path.display.clone());
+                    if let Some(rhs) = &term.rhs {
+                        fields.insert(rhs.query_path.display.clone());
+                    }
+                    if let Some(related) = &term.related {
+                        fields.insert(related.evidence_path.clone());
+                    }
                 }
+                Ok(result)
             }
-            Ok(truth)
-        }
-        BoundExpr::Not(inner) => eval_filter_truth_merged(
-            view,
-            inner,
-            source_slot,
-            source,
-            &mut Default::default(),
-            work,
-            reference,
-        )
-        .map(|truth| truth.map(|value| !value)),
-    }
+            BoundExpr::And(_) | BoundExpr::Or(_) | BoundExpr::Not(_) => {
+                unreachable!("Boolean leaf evaluator received a branch node")
+            }
+        },
+        &mut |_| true,
+        false,
+    )
 }
 
 pub(crate) fn eval_fts_with_relations_merged(
@@ -885,9 +804,17 @@ pub(crate) fn eval_fts_with_relations_merged(
     }
     let borrowed_local_text = fts.fields.iter().any(|field| field.related.is_none())
         && relation_source_uses_value_text(view.repository(), source);
-    let mut matched = false;
-    for field in &fts.fields {
-        if let Some(hops) = &field.related {
+    eval_fts_fields(
+        fts,
+        segments,
+        source,
+        borrowed_local_text,
+        Some(evidence),
+        &mut |field| {
+            let hops = field
+                .related
+                .as_ref()
+                .expect("related FTS visitor received a local field");
             let target_collection = &view.repository().collections
                 [hops.last().ok_or("empty FTS relation path")?.to.0 as usize];
             let borrowed_text = relation_target_uses_value_text(target_collection);
@@ -905,46 +832,12 @@ pub(crate) fn eval_fts_with_relations_merged(
                 reference,
                 &[],
                 &mut |target, target_segments, _| {
-                    if borrowed_text {
-                        #[cfg(test)]
-                        BORROWED_RELATION_TARGETS
-                            .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-                        debug_assert!(target_segments.is_empty());
-                        eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
-                    } else {
-                        eval_bound_fts_field(
-                            field,
-                            fts.case_sensitivity,
-                            target_segments,
-                            target,
-                            None,
-                        )
-                    }
+                    eval_related_fts_terminal(field, fts, borrowed_text, target, target_segments)
                 },
             )?;
-            if truth == Some(true) {
-                matched = true;
-                evidence.insert(field.evidence_path.clone());
-            }
-        } else {
-            let local_matched = if borrowed_local_text
-                && matches!(field.path.root, PathRoot::Data)
-                && field.query_path.is_none()
-            {
-                eval_borrowed_value_fts_field(field, fts.case_sensitivity, source, Some(evidence))?
-            } else {
-                eval_bound_fts_field(
-                    field,
-                    fts.case_sensitivity,
-                    segments,
-                    source,
-                    Some(evidence),
-                )?
-            };
-            matched |= local_matched;
-        }
-    }
-    Ok(matched)
+            Ok(truth == Some(true))
+        },
+    )
 }
 
 fn visit_hop(

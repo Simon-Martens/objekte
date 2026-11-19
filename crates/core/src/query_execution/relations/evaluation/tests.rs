@@ -3127,6 +3127,30 @@ fn emit_relation_probe(
     );
 }
 
+fn emit_relation_timing(case_id: &str, repo: &Repository, request: &Query, repetitions: usize) {
+    if std::env::var_os("OBJEKTE_RELATION_TIMING").is_none() {
+        return;
+    }
+    repo.search(request).unwrap();
+    let mut samples = Vec::with_capacity(repetitions);
+    for _ in 0..repetitions {
+        let started = std::time::Instant::now();
+        let result = repo.search(request).unwrap();
+        assert!(result.count.is_some());
+        samples.push(started.elapsed().as_nanos() as u64);
+    }
+    samples.sort_unstable();
+    println!(
+        "RELATION_TIMING {}",
+        serde_json::json!({
+            "case_id": case_id,
+            "repetitions": repetitions,
+            "samples_ns": samples,
+            "median_ns": samples[samples.len() / 2],
+        })
+    );
+}
+
 fn ids(repo: &Repository, request: Query) -> Vec<String> {
     let optimized = repo.search(&request).unwrap();
     let reference = repo.search_reference(&request).unwrap();
@@ -3323,6 +3347,7 @@ fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
             .collect::<Vec<_>>(),
         ["m8", "m1"]
     );
+    emit_relation_timing("source_dependent_residual_sort", &repo, &sorted, 21);
     let reference = repo.search_reference(&sorted).unwrap();
     assert_eq!(result.hits, reference.hits);
     assert_eq!(result.counters.sort_target_reads, 2);

@@ -165,6 +165,54 @@ fn intermediate_limits_report_errors_instead_of_truncating_membership() {
 }
 
 #[test]
+fn target_batch_bounds_handle_empty_oversized_and_later_failures() {
+    use crate::inventory::ByteRange;
+    use crate::query_execution::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
+
+    let empty: Vec<ByteRange> = Vec::new();
+    assert_eq!(
+        super::target_batch_bounds(&empty, 0, None, |range| *range).unwrap(),
+        (0, 0)
+    );
+
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            target_record_bytes: 1024,
+            ..Default::default()
+        },
+        None,
+    );
+    let oversized = [ByteRange {
+        start: 0,
+        end: 1025,
+    }];
+    let error =
+        super::target_batch_bounds(&oversized, 0, Some(&context), |range| *range).unwrap_err();
+    assert_eq!(
+        context.recorded_error(error).kind,
+        ExecutionErrorKind::Resource
+    );
+
+    let mut ranges = vec![ByteRange { start: 0, end: 1 }; 128];
+    ranges.push(ByteRange {
+        start: 0,
+        end: 1025,
+    });
+    let (next, bytes) =
+        super::target_batch_bounds(&ranges, 0, Some(&context), |range| *range).unwrap();
+    assert_eq!((next, bytes), (128, 128));
+    let error =
+        super::target_batch_bounds(&ranges, next, Some(&context), |range| *range).unwrap_err();
+    assert_eq!(
+        context.recorded_error(error).kind,
+        ExecutionErrorKind::Resource
+    );
+}
+
+#[test]
 fn second_target_in_batch_is_checked_before_source_read() {
     use crate::query_execution::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits,
@@ -561,6 +609,35 @@ fn emit_relation_probe(
     println!(
         "RELATION_PROBE {}",
         serde_json::to_string(&observation).unwrap()
+    );
+}
+
+fn emit_relation_timing(
+    case_id: &str,
+    repo: &Repository,
+    request: &Query,
+    repetitions: usize,
+) {
+    if std::env::var_os("OBJEKTE_RELATION_TIMING").is_none() {
+        return;
+    }
+    repo.search(request).unwrap();
+    let mut samples = Vec::with_capacity(repetitions);
+    for _ in 0..repetitions {
+        let started = std::time::Instant::now();
+        let result = repo.search(request).unwrap();
+        assert!(result.count.is_some());
+        samples.push(started.elapsed().as_nanos() as u64);
+    }
+    samples.sort_unstable();
+    println!(
+        "RELATION_TIMING {}",
+        serde_json::json!({
+            "case_id": case_id,
+            "repetitions": repetitions,
+            "samples_ns": samples,
+            "median_ns": samples[samples.len() / 2],
+        })
     );
 }
 
@@ -1231,6 +1308,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             == crate::query_execution::restrictions::AccessPathKind::RelationTargetFirst));
         if alphabet == BigramAlphabet::Ascii {
             emit_relation_probe("indexed_relation_filter", alphabet, &actual, &trace[0]);
+            emit_relation_timing("indexed_relation_filter", &repo, &request, 21);
         }
 
         let selective = query("title = 'rare' && entry.title ?~ 'H'");
@@ -1254,6 +1332,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         );
         if alphabet == BigramAlphabet::Ascii {
             emit_relation_probe("selected_relation_fts", alphabet, &selective_fts, &trace[0]);
+            emit_relation_timing("selected_relation_fts", &repo, &selective_fts_query, 21);
         }
 
         let multi = query("entry.related_entry.title ?= 'Festival'");

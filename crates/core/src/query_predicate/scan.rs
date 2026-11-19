@@ -7,6 +7,7 @@ use smallvec::SmallVec;
 
 use crate::model::{LogicalType, PathRoot};
 use crate::query::binding::fts::BoundFts;
+use crate::query::semantics::boolean::{self, BooleanNode, BooleanTree};
 use crate::query::semantics::record::RecordContext;
 use crate::query::{Operator, Query};
 use crate::query::{
@@ -258,6 +259,17 @@ pub(crate) enum Residual<'a> {
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
+}
+
+impl BooleanTree for Residual<'_> {
+    fn boolean_node(&self) -> BooleanNode<'_, Self> {
+        match self {
+            Self::Term(..) => BooleanNode::Leaf,
+            Self::And(parts) => BooleanNode::And(parts),
+            Self::Or(parts) => BooleanNode::Or(parts),
+            Self::Not(inner) => BooleanNode::Not(inner),
+        }
+    }
 }
 
 /// Collection-plan eligibility for matching trusted built-in source scalars.
@@ -517,81 +529,51 @@ impl Residual<'_> {
         evidence: &mut HashSet<String>,
         evaluations: &mut u64,
     ) -> Result<Option<bool>, String> {
-        match self {
-            Self::Term(term, _, term_id, predicates) => {
-                if term.related.is_some()
-                    || term.path.root == PathRoot::Data
-                    || term.path.root == PathRoot::Backlinks
-                    || term
-                        .rhs
-                        .as_ref()
-                        .is_some_and(|rhs| rhs.path.root == PathRoot::Data)
-                {
-                    return Ok(None);
-                }
-                *evaluations += 1;
-                let mut matched_fields = HashSet::new();
-                let matched = match predicates.verify(
-                    *term_id,
-                    &crate::query_predicate::RecordInput::new(ctx, &[]),
-                    &mut crate::query_predicate::EvidenceSink::new(&mut matched_fields),
-                )? {
-                    crate::query_predicate::Truth::True => true,
-                    crate::query_predicate::Truth::False => false,
-                    crate::query_predicate::Truth::Unknown => return Ok(None),
-                };
-                if matched && self.can_emit_evidence() {
-                    evidence.extend(matched_fields);
-                    evidence.insert(term.query_path.display.clone());
-                    if let Some(rhs) = &term.rhs {
-                        evidence.insert(rhs.query_path.display.clone());
+        boolean::eval_with_evidence(
+            self,
+            evidence,
+            &mut |node, fields| match node {
+                Self::Term(term, _, term_id, predicates) => {
+                    if term.related.is_some()
+                        || term.path.root == PathRoot::Data
+                        || term.path.root == PathRoot::Backlinks
+                        || term
+                            .rhs
+                            .as_ref()
+                            .is_some_and(|rhs| rhs.path.root == PathRoot::Data)
+                    {
+                        return Ok(None);
                     }
-                }
-                Ok(Some(matched))
-            }
-            Self::Not(inner) => Ok(inner
-                .unavailable(ctx, &mut HashSet::new(), evaluations)?
-                .map(|v| !v)),
-            Self::And(parts) => {
-                let mut unknown = false;
-                let mut branch = HashSet::new();
-                for part in parts {
-                    match part.unavailable(ctx, &mut branch, evaluations)? {
-                        Some(false) => return Ok(Some(false)),
-                        None => unknown = true,
-                        Some(true) => {}
-                    }
-                }
-                if unknown {
-                    Ok(None)
-                } else {
-                    evidence.extend(branch);
-                    Ok(Some(true))
-                }
-            }
-            Self::Or(parts) => {
-                let mut unknown = false;
-                let mut matched = false;
-                for part in parts {
-                    let mut branch = HashSet::new();
-                    match part.unavailable(ctx, &mut branch, evaluations)? {
-                        Some(true) => {
-                            matched = true;
-                            evidence.extend(branch);
+                    *evaluations += 1;
+                    let mut matched_fields = HashSet::new();
+                    let matched = match predicates.verify(
+                        *term_id,
+                        &crate::query_predicate::RecordInput::new(ctx, &[]),
+                        &mut crate::query_predicate::EvidenceSink::new(&mut matched_fields),
+                    )? {
+                        crate::query_predicate::Truth::True => true,
+                        crate::query_predicate::Truth::False => false,
+                        crate::query_predicate::Truth::Unknown => return Ok(None),
+                    };
+                    if matched
+                        && node.can_emit_evidence()
+                        && let Some(fields) = fields
+                    {
+                        fields.extend(matched_fields);
+                        fields.insert(term.query_path.display.clone());
+                        if let Some(rhs) = &term.rhs {
+                            fields.insert(rhs.query_path.display.clone());
                         }
-                        None => unknown = true,
-                        Some(false) => {}
                     }
+                    Ok(Some(matched))
                 }
-                if matched {
-                    Ok(Some(true))
-                } else if unknown {
-                    Ok(None)
-                } else {
-                    Ok(Some(false))
+                Self::And(_) | Self::Or(_) | Self::Not(_) => {
+                    unreachable!("Boolean leaf evaluator received a branch node")
                 }
-            }
-        }
+            },
+            &mut |_| true,
+            false,
+        )
     }
 
     pub(crate) fn proven(proof: Option<&Proof>, slot: u32) -> Option<bool> {
@@ -620,9 +602,9 @@ impl Residual<'_> {
         relation_work: &mut crate::query_execution::relations::work::RelationWork,
         target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
-        Ok(match self {
+        boolean::eval_membership(self, &mut |node| match node {
             Self::Term(term, proof, term_id, predicates) => match Self::proven(*proof, slot) {
-                Some(result) => Some(result),
+                Some(result) => Ok(Some(result)),
                 None => {
                     *evaluations += 1;
                     if term.related.is_some() {
@@ -632,62 +614,26 @@ impl Residual<'_> {
                             ctx,
                             relation_work,
                             target_values,
-                        )?
+                        )
                     } else {
                         let mut evidence = HashSet::new();
-                        Some(
+                        Ok(
                             match predicates.verify(
                                 *term_id,
                                 &crate::query_predicate::RecordInput::new(ctx, &[]),
                                 &mut crate::query_predicate::EvidenceSink::new(&mut evidence),
                             )? {
-                                crate::query_predicate::Truth::True => true,
-                                crate::query_predicate::Truth::False => false,
-                                crate::query_predicate::Truth::Unknown => return Ok(None),
+                                crate::query_predicate::Truth::True => Some(true),
+                                crate::query_predicate::Truth::False => Some(false),
+                                crate::query_predicate::Truth::Unknown => None,
                             },
                         )
                     }
                 }
             },
-            Self::And(parts) => {
-                let mut unknown = false;
-                for part in parts {
-                    match part.membership(
-                        repo,
-                        slot,
-                        ctx,
-                        evaluations,
-                        relation_work,
-                        target_values,
-                    )? {
-                        Some(false) => return Ok(Some(false)),
-                        None => unknown = true,
-                        Some(true) => {}
-                    }
-                }
-                if unknown { None } else { Some(true) }
+            Self::And(_) | Self::Or(_) | Self::Not(_) => {
+                unreachable!("Boolean leaf evaluator received a branch node")
             }
-            Self::Or(parts) => {
-                let mut unknown = false;
-                for part in parts {
-                    match part.membership(
-                        repo,
-                        slot,
-                        ctx,
-                        evaluations,
-                        relation_work,
-                        target_values,
-                    )? {
-                        Some(true) => return Ok(Some(true)),
-                        None => unknown = true,
-                        Some(false) => {}
-                    }
-                }
-                if unknown { None } else { Some(false) }
-            }
-            Self::Not(inner) => inner
-                .membership(repo, slot, ctx, evaluations, relation_work, target_values)?
-                .map(|value| !value),
         })
     }
 
@@ -701,108 +647,61 @@ impl Residual<'_> {
         relation_work: &mut crate::query_execution::relations::work::RelationWork,
         target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
-        Ok(match self {
-            Self::Term(term, proof, term_id, predicates) => {
-                let matched = match Self::proven(*proof, slot) {
-                    Some(result) => Some(result),
-                    None => {
-                        *evaluations += 1;
-                        if term.related.is_some() {
-                            crate::query_execution::relations::evaluation::eval_related_term(
-                                repo,
-                                term,
-                                ctx,
-                                relation_work,
-                                target_values,
-                            )?
-                        } else {
-                            let mut fields = HashSet::new();
-                            Some(
-                                match predicates.verify(
-                                    *term_id,
-                                    &crate::query_predicate::RecordInput::new(ctx, &[]),
-                                    &mut crate::query_predicate::EvidenceSink::new(&mut fields),
-                                )? {
-                                    crate::query_predicate::Truth::True => true,
-                                    crate::query_predicate::Truth::False => false,
-                                    crate::query_predicate::Truth::Unknown => return Ok(None),
-                                },
-                            )
+        boolean::eval_with_evidence(
+            self,
+            evidence,
+            &mut |node, fields| match node {
+                Self::Term(term, proof, term_id, predicates) => {
+                    let matched = match Self::proven(*proof, slot) {
+                        Some(result) => Some(result),
+                        None => {
+                            *evaluations += 1;
+                            if term.related.is_some() {
+                                crate::query_execution::relations::evaluation::eval_related_term(
+                                    repo,
+                                    term,
+                                    ctx,
+                                    relation_work,
+                                    target_values,
+                                )?
+                            } else {
+                                let mut matched_fields = HashSet::new();
+                                Some(
+                                    match predicates.verify(
+                                        *term_id,
+                                        &crate::query_predicate::RecordInput::new(ctx, &[]),
+                                        &mut crate::query_predicate::EvidenceSink::new(
+                                            &mut matched_fields,
+                                        ),
+                                    )? {
+                                        crate::query_predicate::Truth::True => true,
+                                        crate::query_predicate::Truth::False => false,
+                                        crate::query_predicate::Truth::Unknown => return Ok(None),
+                                    },
+                                )
+                            }
+                        }
+                    };
+                    if matched == Some(true)
+                        && node.can_emit_evidence()
+                        && let Some(fields) = fields
+                    {
+                        fields.insert(term.query_path.display.clone());
+                        if let Some(rhs) = &term.rhs {
+                            fields.insert(rhs.query_path.display.clone());
+                        }
+                        if let Some(related) = &term.related {
+                            fields.insert(related.evidence_path.clone());
                         }
                     }
-                };
-                if matched == Some(true) && self.can_emit_evidence() {
-                    evidence.insert(term.query_path.display.clone());
-                    if let Some(rhs) = &term.rhs {
-                        evidence.insert(rhs.query_path.display.clone());
-                    }
-                    if let Some(related) = &term.related {
-                        evidence.insert(related.evidence_path.clone());
-                    }
+                    Ok(matched)
                 }
-                matched
-            }
-            Self::And(parts) => {
-                let mut branch = HashSet::new();
-                let mut unknown = false;
-                for part in parts {
-                    match part.with_evidence(
-                        repo,
-                        slot,
-                        ctx,
-                        &mut branch,
-                        evaluations,
-                        relation_work,
-                        target_values,
-                    )? {
-                        Some(false) => return Ok(Some(false)),
-                        None => unknown = true,
-                        Some(true) => {}
-                    }
+                Self::And(_) | Self::Or(_) | Self::Not(_) => {
+                    unreachable!("Boolean leaf evaluator received a branch node")
                 }
-                if unknown {
-                    None
-                } else {
-                    evidence.extend(branch);
-                    Some(true)
-                }
-            }
-            Self::Or(parts) => {
-                let mut matched = false;
-                let mut unknown = false;
-                for part in parts {
-                    if matched && !part.can_emit_evidence() {
-                        continue;
-                    }
-                    let mut branch = HashSet::new();
-                    match part.with_evidence(
-                        repo,
-                        slot,
-                        ctx,
-                        &mut branch,
-                        evaluations,
-                        relation_work,
-                        target_values,
-                    )? {
-                        Some(true) => {
-                            matched = true;
-                            evidence.extend(branch);
-                        }
-                        None => unknown = true,
-                        Some(false) => {}
-                    }
-                }
-                if matched {
-                    Some(true)
-                } else if unknown {
-                    None
-                } else {
-                    Some(false)
-                }
-            }
-            Self::Not(inner) => inner
-                .membership(repo, slot, ctx, evaluations, relation_work, target_values)?
-                .map(|value| !value),
-        })
+            },
+            &mut |node| node.can_emit_evidence(),
+            true,
+        )
     }
 }

@@ -18,6 +18,7 @@ pub(crate) use crate::query::path::{PathStep, QueryPath};
 pub(crate) use crate::query::{Operator, Quantifier};
 pub(crate) use crate::schema::{BindingOperation, Transform};
 
+pub(crate) mod boolean;
 pub mod comparison;
 pub mod folding;
 pub mod record;

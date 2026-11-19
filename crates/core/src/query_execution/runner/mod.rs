@@ -73,6 +73,7 @@ use crate::query_results::ranking::{
     MergedPageHit, RankKey, ResolvedSort, Winner, base_rank_key_merged, offer, offer_merged,
     rank_key, rank_key_bytes, rank_key_from_context, relation_rank_key_merged,
     segment_compare_to_rank, segment_rank_key, winner_bytes, would_enter_page,
+    would_enter_rank_key_with,
 };
 use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
 use crate::query_results::{Payload, SearchHit, SearchResult};
@@ -1757,6 +1758,59 @@ fn try_lifecycle_ordered_page(
     }))
 }
 
+#[allow(clippy::too_many_arguments)]
+fn offer_admitted_segment_slot(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    collection: &CollectionState,
+    segment: &IndexedCollectionSegment,
+    published: &PublishedSegment,
+    catalog: &FileCatalog,
+    collection_index: usize,
+    segment_index: usize,
+    revision: IndexRevision,
+    slot: RecordSlot,
+    enters_page: bool,
+    matched_fields: Arc<[String]>,
+    cache_builder: Option<&mut LifecycleCacheBuilder>,
+    winners: &mut BinaryHeap<MergedPageHit>,
+    cap: usize,
+    winner_budget: Option<(usize, &ExecutionContext)>,
+    winner_bytes: &mut usize,
+) -> Result<(), String> {
+    let resolved = segment_record_ref(segment, &published.active, catalog, slot)?
+        .ok_or("active segment candidate missing")?;
+    let key = segment_rank_key(repo, sort, collection_index, segment, resolved.record, None)?;
+    if let Some(builder) = cache_builder {
+        builder.push(
+            &key,
+            CachedMember {
+                collection_index,
+                segment_index: Some(segment_index),
+                slot: slot.0,
+                matched_fields: Arc::clone(&matched_fields),
+            },
+        );
+    }
+    if !enters_page {
+        return Ok(());
+    }
+    let hit = segment_locator_hit(collection, resolved, revision, matched_fields.to_vec());
+    offer_merged(
+        winners,
+        cap,
+        MergedPageHit {
+            key,
+            hit,
+            segment: Some((collection_index, segment_index)),
+            record_address: None,
+            retained_bytes: 0,
+        },
+        winner_budget,
+        winner_bytes,
+    )
+}
+
 fn search_segmented_impl(
     repo: &Repository,
     query: &Query,
@@ -2174,64 +2228,44 @@ fn search_segmented_impl(
                 for slot in proven.iter() {
                     total += 1;
                     counters.exact_posting_matches += 1;
-                    let enters_page = if cap == 0 {
-                        false
-                    } else if winners.len() < cap {
-                        true
-                    } else if let Some(worst) = winners.peek() {
-                        segment_compare_to_rank(
-                            repo,
-                            &sort,
-                            collection_index,
-                            segment,
-                            RecordSlot(slot),
-                            &worst.key,
-                        )?
-                        .is_lt()
-                    } else {
-                        false
-                    };
+                    let enters_page = would_enter_rank_key_with(
+                        winners.len(),
+                        winners.peek().map(|winner| &winner.key),
+                        cap,
+                        |worst| {
+                            segment_compare_to_rank(
+                                repo,
+                                &sort,
+                                collection_index,
+                                segment,
+                                RecordSlot(slot),
+                                worst,
+                            )
+                            .map(|order| order.is_lt())
+                        },
+                    )?;
                     if !enters_page && cache_builder.is_none() {
                         continue;
                     }
-                    let resolved =
-                        segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
-                            .ok_or("proven segment candidate missing")?;
-                    let key = segment_rank_key(
+                    offer_admitted_segment_slot(
                         repo,
                         &sort,
-                        collection_index,
+                        collection,
                         segment,
-                        resolved.record,
-                        None,
+                        published,
+                        catalog,
+                        collection_index,
+                        segment_index,
+                        revision,
+                        RecordSlot(slot),
+                        enters_page,
+                        Vec::new().into(),
+                        cache_builder.as_mut(),
+                        &mut winners,
+                        cap,
+                        winner_budget,
+                        &mut winner_bytes,
                     )?;
-                    if let Some(builder) = cache_builder.as_mut() {
-                        builder.push(
-                            &key,
-                            CachedMember {
-                                collection_index,
-                                segment_index: Some(segment_index),
-                                slot,
-                                matched_fields: Vec::new().into(),
-                            },
-                        );
-                    }
-                    if enters_page {
-                        let hit = segment_locator_hit(collection, resolved, revision, Vec::new());
-                        offer_merged(
-                            &mut winners,
-                            cap,
-                            MergedPageHit {
-                                key,
-                                hit,
-                                segment: Some((collection_index, segment_index)),
-                                record_address: None,
-                                retained_bytes: 0,
-                            },
-                            winner_budget,
-                            &mut winner_bytes,
-                        )?;
-                    }
                 }
                 *Arc::make_mut(&mut candidates) -= &proven;
                 if candidates.is_empty() {
@@ -2347,68 +2381,42 @@ fn search_segmented_impl(
                     }
                     total += 1;
                     counters.exact_posting_matches += 1;
-                    let enters_page = if cap == 0 {
-                        false
-                    } else if winners.len() < cap {
-                        true
-                    } else if let Some(worst) = winners.peek() {
-                        segment_compare_to_rank(
-                            repo,
-                            &sort,
-                            collection_index,
-                            segment,
-                            RecordSlot(slot),
-                            &worst.key,
-                        )?
-                        .is_lt()
-                    } else {
-                        false
-                    };
+                    let enters_page = would_enter_rank_key_with(
+                        winners.len(),
+                        winners.peek().map(|winner| &winner.key),
+                        cap,
+                        |worst| {
+                            segment_compare_to_rank(
+                                repo,
+                                &sort,
+                                collection_index,
+                                segment,
+                                RecordSlot(slot),
+                                worst,
+                            )
+                            .map(|order| order.is_lt())
+                        },
+                    )?;
                     if !enters_page && cache_builder.is_none() {
                         continue;
                     }
-                    let resolved =
-                        segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
-                            .ok_or("active segment candidate missing")?;
-                    let key = segment_rank_key(
+                    let matched_fields: Arc<[String]> = exact_fields(slot).into();
+                    offer_admitted_segment_slot(
                         repo,
                         &sort,
-                        collection_index,
-                        segment,
-                        resolved.record,
-                        None,
-                    )?;
-                    let matched_fields: Arc<[String]> = exact_fields(slot).into();
-                    if let Some(builder) = cache_builder.as_mut() {
-                        builder.push(
-                            &key,
-                            CachedMember {
-                                collection_index,
-                                segment_index: Some(segment_index),
-                                slot,
-                                matched_fields: Arc::clone(&matched_fields),
-                            },
-                        );
-                    }
-                    if !enters_page {
-                        continue;
-                    }
-                    let hit = segment_locator_hit(
                         collection,
-                        resolved,
+                        segment,
+                        published,
+                        catalog,
+                        collection_index,
+                        segment_index,
                         revision,
-                        matched_fields.to_vec(),
-                    );
-                    offer_merged(
+                        RecordSlot(slot),
+                        enters_page,
+                        matched_fields,
+                        cache_builder.as_mut(),
                         &mut winners,
                         cap,
-                        MergedPageHit {
-                            key,
-                            hit,
-                            segment: Some((collection_index, segment_index)),
-                            record_address: None,
-                            retained_bytes: 0,
-                        },
                         winner_budget,
                         &mut winner_bytes,
                     )?;
