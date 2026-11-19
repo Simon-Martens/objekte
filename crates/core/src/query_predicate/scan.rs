@@ -8,6 +8,7 @@ use smallvec::SmallVec;
 use crate::model::{LogicalType, PathRoot};
 use crate::query::binding::fts::BoundFts;
 use crate::query::semantics::boolean::{self, BooleanNode, BooleanTree};
+use crate::query::semantics::filter::emit_bound_filter_evidence;
 use crate::query::semantics::record::RecordContext;
 use crate::query::{Operator, Query};
 use crate::query::{
@@ -682,18 +683,7 @@ impl Residual<'_> {
                             }
                         }
                     };
-                    if matched == Some(true)
-                        && node.can_emit_evidence()
-                        && let Some(fields) = fields
-                    {
-                        fields.insert(term.query_path.display.clone());
-                        if let Some(rhs) = &term.rhs {
-                            fields.insert(rhs.query_path.display.clone());
-                        }
-                        if let Some(related) = &term.related {
-                            fields.insert(related.evidence_path.clone());
-                        }
-                    }
+                    emit_bound_filter_evidence(term, matched, fields);
                     Ok(matched)
                 }
                 Self::And(_) | Self::Or(_) | Self::Not(_) => {

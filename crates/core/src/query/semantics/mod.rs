@@ -20,6 +20,7 @@ pub(crate) use crate::schema::{BindingOperation, Transform};
 
 pub(crate) mod boolean;
 pub mod comparison;
+pub(crate) mod filter;
 pub mod folding;
 pub mod record;
 pub(crate) mod state;
