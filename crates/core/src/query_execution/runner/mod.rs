@@ -112,6 +112,22 @@ use source_scan::scan_file;
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 
+#[cfg(test)]
+thread_local! {
+    static SEGMENT_SLOT_EVIDENCE_CALLS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn reset_segment_slot_evidence_calls() {
+    SEGMENT_SLOT_EVIDENCE_CALLS.with(|calls| calls.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn segment_slot_evidence_calls() -> usize {
+    SEGMENT_SLOT_EVIDENCE_CALLS.with(std::cell::Cell::get)
+}
+
 /// The native scheduling boundary for parallel file scans. A segment whose
 /// longest record is exactly 64 KiB may still enter the parallel path; one
 /// byte more keeps it on the bounded serial path.
@@ -1770,32 +1786,51 @@ fn offer_admitted_segment_slot(
     segment_index: usize,
     revision: IndexRevision,
     slot: RecordSlot,
-    enters_page: bool,
-    matched_fields: Arc<[String]>,
+    evidence: impl FnOnce() -> Vec<String>,
     cache_builder: Option<&mut LifecycleCacheBuilder>,
     winners: &mut BinaryHeap<MergedPageHit>,
     cap: usize,
     winner_budget: Option<(usize, &ExecutionContext)>,
     winner_bytes: &mut usize,
 ) -> Result<(), String> {
+    let enters_page = would_enter_rank_key_with(
+        winners.len(),
+        winners.peek().map(|winner| &winner.key),
+        cap,
+        |worst| {
+            segment_compare_to_rank(repo, sort, collection_index, segment, slot, worst)
+                .map(|order| order.is_lt())
+        },
+    )?;
+    if !enters_page && cache_builder.is_none() {
+        return Ok(());
+    }
+    #[cfg(test)]
+    SEGMENT_SLOT_EVIDENCE_CALLS.with(|calls| calls.set(calls.get() + 1));
+    let matched_fields = evidence();
     let resolved = segment_record_ref(segment, &published.active, catalog, slot)?
         .ok_or("active segment candidate missing")?;
     let key = segment_rank_key(repo, sort, collection_index, segment, resolved.record, None)?;
-    if let Some(builder) = cache_builder {
-        builder.push(
-            &key,
-            CachedMember {
-                collection_index,
-                segment_index: Some(segment_index),
-                slot: slot.0,
-                matched_fields: Arc::clone(&matched_fields),
-            },
-        );
-    }
-    if !enters_page {
+    let hit_fields = match cache_builder {
+        Some(builder) => {
+            let matched_fields: Arc<[String]> = matched_fields.into();
+            builder.push(
+                &key,
+                CachedMember {
+                    collection_index,
+                    segment_index: Some(segment_index),
+                    slot: slot.0,
+                    matched_fields: Arc::clone(&matched_fields),
+                },
+            );
+            enters_page.then(|| matched_fields.to_vec())
+        }
+        None => Some(matched_fields),
+    };
+    let Some(hit_fields) = hit_fields else {
         return Ok(());
-    }
-    let hit = segment_locator_hit(collection, resolved, revision, matched_fields.to_vec());
+    };
+    let hit = segment_locator_hit(collection, resolved, revision, hit_fields);
     offer_merged(
         winners,
         cap,
@@ -2228,25 +2263,6 @@ fn search_segmented_impl(
                 for slot in proven.iter() {
                     total += 1;
                     counters.exact_posting_matches += 1;
-                    let enters_page = would_enter_rank_key_with(
-                        winners.len(),
-                        winners.peek().map(|winner| &winner.key),
-                        cap,
-                        |worst| {
-                            segment_compare_to_rank(
-                                repo,
-                                &sort,
-                                collection_index,
-                                segment,
-                                RecordSlot(slot),
-                                worst,
-                            )
-                            .map(|order| order.is_lt())
-                        },
-                    )?;
-                    if !enters_page && cache_builder.is_none() {
-                        continue;
-                    }
                     offer_admitted_segment_slot(
                         repo,
                         &sort,
@@ -2258,8 +2274,7 @@ fn search_segmented_impl(
                         segment_index,
                         revision,
                         RecordSlot(slot),
-                        enters_page,
-                        Vec::new().into(),
+                        Vec::new,
                         cache_builder.as_mut(),
                         &mut winners,
                         cap,
@@ -2381,26 +2396,6 @@ fn search_segmented_impl(
                     }
                     total += 1;
                     counters.exact_posting_matches += 1;
-                    let enters_page = would_enter_rank_key_with(
-                        winners.len(),
-                        winners.peek().map(|winner| &winner.key),
-                        cap,
-                        |worst| {
-                            segment_compare_to_rank(
-                                repo,
-                                &sort,
-                                collection_index,
-                                segment,
-                                RecordSlot(slot),
-                                worst,
-                            )
-                            .map(|order| order.is_lt())
-                        },
-                    )?;
-                    if !enters_page && cache_builder.is_none() {
-                        continue;
-                    }
-                    let matched_fields: Arc<[String]> = exact_fields(slot).into();
                     offer_admitted_segment_slot(
                         repo,
                         &sort,
@@ -2412,8 +2407,7 @@ fn search_segmented_impl(
                         segment_index,
                         revision,
                         RecordSlot(slot),
-                        enters_page,
-                        matched_fields,
+                        || exact_fields(slot),
                         cache_builder.as_mut(),
                         &mut winners,
                         cap,
