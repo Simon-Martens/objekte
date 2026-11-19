@@ -194,3 +194,16 @@ No unresolved issue or blocked check remains. The reviewed boundary is the final
 documentation-only commit after tested code revision `77fc0f04a6`; its source tree
 matches that tested revision. The integration worktree and branch are retained for
 the owner’s merge decision.
+
+### Repair amendment
+
+Repair branch `repair/core-source-registration` tested code revision
+`56c193b53b205935ade143a1052ceb906be986e1` classifies installed source
+provenance once at resolution and moves the complete borrowed scanner ownership
+to `source/json/scalars/scan.rs`. Its capability regression covers custom
+registrations under every built-in spelling and exercises pinned FTS/FILTER
+verification with explicit locations, IDs and counts.
+
+Detailed repair evidence and validation are recorded in
+`docs/ai/done/assignment_4_source_registration_repairs.md`. The R4 repair builds
+directly on this A4 delivery and leaves the original seven root removals intact.
