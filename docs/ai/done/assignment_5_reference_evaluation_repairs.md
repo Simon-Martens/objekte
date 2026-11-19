@@ -38,9 +38,9 @@ RUSTDOCFLAGS='-D rustdoc::broken_intra_doc_links' cargo doc --locked --workspace
 - **Ordinary merge commit:** `fc4f2ab512852458e7996a35bee148e86a15aab1`
 - **Repair branch:** `repair/core-schema-binding`
 - **Repair worktree:** `/home/simon/source/objekte-repair-core-schema-binding`
-- **Tested code revision:** `e8f1038cc27c23beab91ac3dd01a12ea52c41129`
-- **Implementation commits:** `fc4f2ab512852458e7996a35bee148e86a15aab1`, `e8f1038cc27c23beab91ac3dd01a12ea52c41129`
-- **Original comparison:** [R4 to tested R5 code](https://github.com/Simon-Martens/objekte/compare/7cff39fab80fe583dc25f77f017a265b64995a21...e8f1038cc27c23beab91ac3dd01a12ea52c41129)
+- **Tested code revision:** `9dfe5784f0d72d52d12939b919aae3d1459a417a`
+- **Implementation commits:** `fc4f2ab512852458e7996a35bee148e86a15aab1`, `e8f1038cc27c23beab91ac3dd01a12ea52c41129`, `9dfe5784f0d72d52d12939b919aae3d1459a417a`
+- **Original comparison:** [R4 to tested R5 code](https://github.com/Simon-Martens/objekte/compare/7cff39fab80fe583dc25f77f017a265b64995a21...9dfe5784f0d72d52d12939b919aae3d1459a417a)
 - **Status:** complete and ready for review; no merge into `master` was performed
 
 R4 and frozen A5 are both ancestors of this branch. The A5 merge retained
@@ -123,6 +123,15 @@ Optimized forward edges and backlinks omit `A`; the reference resolves
 The public reference API also accepts an unresolved supported `@yearStart`
 macro in a current-clock smoke request.
 
+The reference-only publication regression now invokes the full
+`reference::relations::search_segmented` entry against the perturbed
+publication. Both forward `entry.title = 'Hymn'` and backlink
+`@backlinks.mentions.title = 'segment'` requests return their hand-derived source
+results `[m2, m3]` and `[A]`. Thread-local test probes count calls to production
+`query::prepared::prepare` and `query_plan::operations::relation_page_plan`;
+both counts are unchanged across the two reference requests. Instrumentation is
+thread-local, so parallel unrelated tests are unaffected.
+
 ### Query-access ownership check
 
 Compared with A4, A5's `query_access` changes are canonical import migrations.
@@ -134,7 +143,7 @@ membership representations and independent restricted-provider selection.
 ### Validation actually run
 
 The following commands passed at tested code revision
-`e8f1038cc27c23beab91ac3dd01a12ea52c41129`:
+`9dfe5784f0d72d52d12939b919aae3d1459a417a`:
 
 ```text
 cargo fmt --all -- --check
@@ -188,6 +197,6 @@ only the restricted input domain.
 
 No unresolved functional issue or blocked check remains. The report-only commit
 follows tested code revision
-`e8f1038cc27c23beab91ac3dd01a12ea52c41129`; its only delta is completion
+`9dfe5784f0d72d52d12939b919aae3d1459a417a`; its only delta is completion
 documentation. The branch and worktree remain for the owner's review.
 Assignment 6 is based on this accepted R5 result.
