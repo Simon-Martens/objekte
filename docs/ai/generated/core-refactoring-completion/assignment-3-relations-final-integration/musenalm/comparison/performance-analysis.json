@@ -1,0 +1,1379 @@
+{
+  "query": {
+    "case_count": 150,
+    "slower_cases": 53,
+    "faster_cases": 97,
+    "equal_cases": 0,
+    "median_case_difference_ns": -2302,
+    "largest_slowdowns": [
+      {
+        "case_id": "Q136",
+        "baseline_median_ns": 3018297,
+        "candidate_median_ns": 3429681,
+        "difference_ns": 411384,
+        "difference_percent": 13.629672626650061
+      },
+      {
+        "case_id": "Q012",
+        "baseline_median_ns": 9483678,
+        "candidate_median_ns": 9866285,
+        "difference_ns": 382607,
+        "difference_percent": 4.034373583750946
+      },
+      {
+        "case_id": "Q001",
+        "baseline_median_ns": 12336884,
+        "candidate_median_ns": 12719077,
+        "difference_ns": 382193,
+        "difference_percent": 3.0979702816367567
+      },
+      {
+        "case_id": "Q055",
+        "baseline_median_ns": 4425102,
+        "candidate_median_ns": 4585254,
+        "difference_ns": 160152,
+        "difference_percent": 3.6191708123338175
+      },
+      {
+        "case_id": "Q132",
+        "baseline_median_ns": 811003,
+        "candidate_median_ns": 902591,
+        "difference_ns": 91588,
+        "difference_percent": 11.293176474069764
+      },
+      {
+        "case_id": "Q135",
+        "baseline_median_ns": 732989,
+        "candidate_median_ns": 810626,
+        "difference_ns": 77637,
+        "difference_percent": 10.591836985275359
+      },
+      {
+        "case_id": "Q054",
+        "baseline_median_ns": 2988488,
+        "candidate_median_ns": 3051921,
+        "difference_ns": 63433,
+        "difference_percent": 2.122578374080806
+      },
+      {
+        "case_id": "Q011",
+        "baseline_median_ns": 6042924,
+        "candidate_median_ns": 6080608,
+        "difference_ns": 37684,
+        "difference_percent": 0.623605393680278
+      },
+      {
+        "case_id": "Q116",
+        "baseline_median_ns": 535707,
+        "candidate_median_ns": 566418,
+        "difference_ns": 30711,
+        "difference_percent": 5.732797966052338
+      },
+      {
+        "case_id": "Q131",
+        "baseline_median_ns": 808311,
+        "candidate_median_ns": 836872,
+        "difference_ns": 28561,
+        "difference_percent": 3.533417211939464
+      }
+    ],
+    "largest_improvements": [
+      {
+        "case_id": "Q006",
+        "baseline_median_ns": 271248476,
+        "candidate_median_ns": 250088826,
+        "difference_ns": -21159650,
+        "difference_percent": -7.80083645520648
+      },
+      {
+        "case_id": "Q026",
+        "baseline_median_ns": 136844257,
+        "candidate_median_ns": 126359506,
+        "difference_ns": -10484751,
+        "difference_percent": -7.661812946962034
+      },
+      {
+        "case_id": "Q025",
+        "baseline_median_ns": 121850972,
+        "candidate_median_ns": 115376753,
+        "difference_ns": -6474219,
+        "difference_percent": -5.3132272100381766
+      },
+      {
+        "case_id": "Q145",
+        "baseline_median_ns": 105726366,
+        "candidate_median_ns": 101900538,
+        "difference_ns": -3825828,
+        "difference_percent": -3.618612976823586
+      },
+      {
+        "case_id": "Q100",
+        "baseline_median_ns": 28557077,
+        "candidate_median_ns": 26250451,
+        "difference_ns": -2306626,
+        "difference_percent": -8.077248242178287
+      },
+      {
+        "case_id": "Q004",
+        "baseline_median_ns": 20019395,
+        "candidate_median_ns": 17898697,
+        "difference_ns": -2120698,
+        "difference_percent": -10.593217227593541
+      },
+      {
+        "case_id": "Q078",
+        "baseline_median_ns": 74451891,
+        "candidate_median_ns": 72764268,
+        "difference_ns": -1687623,
+        "difference_percent": -2.2667295314231843
+      },
+      {
+        "case_id": "Q144",
+        "baseline_median_ns": 26330110,
+        "candidate_median_ns": 24796388,
+        "difference_ns": -1533722,
+        "difference_percent": -5.82497376577614
+      },
+      {
+        "case_id": "Q005",
+        "baseline_median_ns": 8797364,
+        "candidate_median_ns": 7613224,
+        "difference_ns": -1184140,
+        "difference_percent": -13.460168295866808
+      },
+      {
+        "case_id": "Q024",
+        "baseline_median_ns": 9608518,
+        "candidate_median_ns": 8596254,
+        "difference_ns": -1012264,
+        "difference_percent": -10.535068987746081
+      }
+    ],
+    "paired_medians": [
+      {
+        "case_id": "Q001",
+        "baseline_median_ns": 12336884,
+        "candidate_median_ns": 12719077,
+        "difference_ns": 382193,
+        "difference_percent": 3.0979702816367567
+      },
+      {
+        "case_id": "Q002",
+        "baseline_median_ns": 17412740,
+        "candidate_median_ns": 17348866,
+        "difference_ns": -63874,
+        "difference_percent": -0.36682337185302255
+      },
+      {
+        "case_id": "Q003",
+        "baseline_median_ns": 8638207,
+        "candidate_median_ns": 8550288,
+        "difference_ns": -87919,
+        "difference_percent": -1.0177922339670722
+      },
+      {
+        "case_id": "Q004",
+        "baseline_median_ns": 20019395,
+        "candidate_median_ns": 17898697,
+        "difference_ns": -2120698,
+        "difference_percent": -10.593217227593541
+      },
+      {
+        "case_id": "Q005",
+        "baseline_median_ns": 8797364,
+        "candidate_median_ns": 7613224,
+        "difference_ns": -1184140,
+        "difference_percent": -13.460168295866808
+      },
+      {
+        "case_id": "Q006",
+        "baseline_median_ns": 271248476,
+        "candidate_median_ns": 250088826,
+        "difference_ns": -21159650,
+        "difference_percent": -7.80083645520648
+      },
+      {
+        "case_id": "Q007",
+        "baseline_median_ns": 272679561,
+        "candidate_median_ns": 272389697,
+        "difference_ns": -289864,
+        "difference_percent": -0.10630206346855604
+      },
+      {
+        "case_id": "Q008",
+        "baseline_median_ns": 45695,
+        "candidate_median_ns": 41279,
+        "difference_ns": -4416,
+        "difference_percent": -9.664077032498085
+      },
+      {
+        "case_id": "Q009",
+        "baseline_median_ns": 7707,
+        "candidate_median_ns": 7852,
+        "difference_ns": 145,
+        "difference_percent": 1.881406513559102
+      },
+      {
+        "case_id": "Q010",
+        "baseline_median_ns": 6213,
+        "candidate_median_ns": 6146,
+        "difference_ns": -67,
+        "difference_percent": -1.078384033478191
+      },
+      {
+        "case_id": "Q011",
+        "baseline_median_ns": 6042924,
+        "candidate_median_ns": 6080608,
+        "difference_ns": 37684,
+        "difference_percent": 0.623605393680278
+      },
+      {
+        "case_id": "Q012",
+        "baseline_median_ns": 9483678,
+        "candidate_median_ns": 9866285,
+        "difference_ns": 382607,
+        "difference_percent": 4.034373583750946
+      },
+      {
+        "case_id": "Q013",
+        "baseline_median_ns": 14156847,
+        "candidate_median_ns": 13660486,
+        "difference_ns": -496361,
+        "difference_percent": -3.5061550075380485
+      },
+      {
+        "case_id": "Q014",
+        "baseline_median_ns": 18289644,
+        "candidate_median_ns": 17932780,
+        "difference_ns": -356864,
+        "difference_percent": -1.951180679077187
+      },
+      {
+        "case_id": "Q015",
+        "baseline_median_ns": 19015187,
+        "candidate_median_ns": 18658097,
+        "difference_ns": -357090,
+        "difference_percent": -1.877920001522993
+      },
+      {
+        "case_id": "Q016",
+        "baseline_median_ns": 884646,
+        "candidate_median_ns": 579252,
+        "difference_ns": -305394,
+        "difference_percent": -34.5216052522704
+      },
+      {
+        "case_id": "Q017",
+        "baseline_median_ns": 765887,
+        "candidate_median_ns": 600567,
+        "difference_ns": -165320,
+        "difference_percent": -21.585429704381976
+      },
+      {
+        "case_id": "Q018",
+        "baseline_median_ns": 1758798,
+        "candidate_median_ns": 1441695,
+        "difference_ns": -317103,
+        "difference_percent": -18.0295292580501
+      },
+      {
+        "case_id": "Q019",
+        "baseline_median_ns": 4888932,
+        "candidate_median_ns": 4653505,
+        "difference_ns": -235427,
+        "difference_percent": -4.815509808686232
+      },
+      {
+        "case_id": "Q020",
+        "baseline_median_ns": 1368025,
+        "candidate_median_ns": 1291668,
+        "difference_ns": -76357,
+        "difference_percent": -5.581550044772573
+      },
+      {
+        "case_id": "Q021",
+        "baseline_median_ns": 2827108,
+        "candidate_median_ns": 2702299,
+        "difference_ns": -124809,
+        "difference_percent": -4.4147234559132515
+      },
+      {
+        "case_id": "Q022",
+        "baseline_median_ns": 4474025,
+        "candidate_median_ns": 4234638,
+        "difference_ns": -239387,
+        "difference_percent": -5.350595939897519
+      },
+      {
+        "case_id": "Q023",
+        "baseline_median_ns": 24324674,
+        "candidate_median_ns": 23928028,
+        "difference_ns": -396646,
+        "difference_percent": -1.6306323365320332
+      },
+      {
+        "case_id": "Q024",
+        "baseline_median_ns": 9608518,
+        "candidate_median_ns": 8596254,
+        "difference_ns": -1012264,
+        "difference_percent": -10.535068987746081
+      },
+      {
+        "case_id": "Q025",
+        "baseline_median_ns": 121850972,
+        "candidate_median_ns": 115376753,
+        "difference_ns": -6474219,
+        "difference_percent": -5.3132272100381766
+      },
+      {
+        "case_id": "Q026",
+        "baseline_median_ns": 136844257,
+        "candidate_median_ns": 126359506,
+        "difference_ns": -10484751,
+        "difference_percent": -7.661812946962034
+      },
+      {
+        "case_id": "Q027",
+        "baseline_median_ns": 1483406,
+        "candidate_median_ns": 1408349,
+        "difference_ns": -75057,
+        "difference_percent": -5.059774599806122
+      },
+      {
+        "case_id": "Q028",
+        "baseline_median_ns": 3815496,
+        "candidate_median_ns": 3753646,
+        "difference_ns": -61850,
+        "difference_percent": -1.6210212250255276
+      },
+      {
+        "case_id": "Q029",
+        "baseline_median_ns": 134907,
+        "candidate_median_ns": 47720,
+        "difference_ns": -87187,
+        "difference_percent": -64.62748411868917
+      },
+      {
+        "case_id": "Q030",
+        "baseline_median_ns": 3085053,
+        "candidate_median_ns": 2991627,
+        "difference_ns": -93426,
+        "difference_percent": -3.0283434352667524
+      },
+      {
+        "case_id": "Q031",
+        "baseline_median_ns": 40922,
+        "candidate_median_ns": 40279,
+        "difference_ns": -643,
+        "difference_percent": -1.5712819510287865
+      },
+      {
+        "case_id": "Q032",
+        "baseline_median_ns": 20750,
+        "candidate_median_ns": 21055,
+        "difference_ns": 305,
+        "difference_percent": 1.4698795180722892
+      },
+      {
+        "case_id": "Q033",
+        "baseline_median_ns": 39175,
+        "candidate_median_ns": 41511,
+        "difference_ns": 2336,
+        "difference_percent": 5.962986598596044
+      },
+      {
+        "case_id": "Q034",
+        "baseline_median_ns": 14001,
+        "candidate_median_ns": 12660,
+        "difference_ns": -1341,
+        "difference_percent": -9.57788729376473
+      },
+      {
+        "case_id": "Q035",
+        "baseline_median_ns": 59968,
+        "candidate_median_ns": 59746,
+        "difference_ns": -222,
+        "difference_percent": -0.3701974386339381
+      },
+      {
+        "case_id": "Q036",
+        "baseline_median_ns": 51034,
+        "candidate_median_ns": 51194,
+        "difference_ns": 160,
+        "difference_percent": 0.31351647920993847
+      },
+      {
+        "case_id": "Q037",
+        "baseline_median_ns": 94303,
+        "candidate_median_ns": 94316,
+        "difference_ns": 13,
+        "difference_percent": 0.01378535147344199
+      },
+      {
+        "case_id": "Q038",
+        "baseline_median_ns": 95933,
+        "candidate_median_ns": 95684,
+        "difference_ns": -249,
+        "difference_percent": -0.25955614856201725
+      },
+      {
+        "case_id": "Q039",
+        "baseline_median_ns": 80158,
+        "candidate_median_ns": 78184,
+        "difference_ns": -1974,
+        "difference_percent": -2.4626362933206916
+      },
+      {
+        "case_id": "Q040",
+        "baseline_median_ns": 89031,
+        "candidate_median_ns": 85822,
+        "difference_ns": -3209,
+        "difference_percent": -3.6043625254124967
+      },
+      {
+        "case_id": "Q041",
+        "baseline_median_ns": 124851,
+        "candidate_median_ns": 122704,
+        "difference_ns": -2147,
+        "difference_percent": -1.7196498225885255
+      },
+      {
+        "case_id": "Q042",
+        "baseline_median_ns": 100521,
+        "candidate_median_ns": 98801,
+        "difference_ns": -1720,
+        "difference_percent": -1.7110852458690224
+      },
+      {
+        "case_id": "Q043",
+        "baseline_median_ns": 5643910,
+        "candidate_median_ns": 5358794,
+        "difference_ns": -285116,
+        "difference_percent": -5.051746041308242
+      },
+      {
+        "case_id": "Q044",
+        "baseline_median_ns": 68791,
+        "candidate_median_ns": 68316,
+        "difference_ns": -475,
+        "difference_percent": -0.6904973034263203
+      },
+      {
+        "case_id": "Q045",
+        "baseline_median_ns": 109437,
+        "candidate_median_ns": 109629,
+        "difference_ns": 192,
+        "difference_percent": 0.175443405795115
+      },
+      {
+        "case_id": "Q046",
+        "baseline_median_ns": 309574,
+        "candidate_median_ns": 308718,
+        "difference_ns": -856,
+        "difference_percent": -0.27650900915451554
+      },
+      {
+        "case_id": "Q047",
+        "baseline_median_ns": 37471,
+        "candidate_median_ns": 39047,
+        "difference_ns": 1576,
+        "difference_percent": 4.205919244215527
+      },
+      {
+        "case_id": "Q048",
+        "baseline_median_ns": 42650,
+        "candidate_median_ns": 42829,
+        "difference_ns": 179,
+        "difference_percent": 0.4196951934349355
+      },
+      {
+        "case_id": "Q049",
+        "baseline_median_ns": 31408,
+        "candidate_median_ns": 32146,
+        "difference_ns": 738,
+        "difference_percent": 2.3497198166072337
+      },
+      {
+        "case_id": "Q050",
+        "baseline_median_ns": 577602,
+        "candidate_median_ns": 578616,
+        "difference_ns": 1014,
+        "difference_percent": 0.17555340874858466
+      },
+      {
+        "case_id": "Q051",
+        "baseline_median_ns": 222590,
+        "candidate_median_ns": 216941,
+        "difference_ns": -5649,
+        "difference_percent": -2.5378498584842086
+      },
+      {
+        "case_id": "Q052",
+        "baseline_median_ns": 1880131,
+        "candidate_median_ns": 1880023,
+        "difference_ns": -108,
+        "difference_percent": -0.005744280584703938
+      },
+      {
+        "case_id": "Q053",
+        "baseline_median_ns": 213220,
+        "candidate_median_ns": 210139,
+        "difference_ns": -3081,
+        "difference_percent": -1.4449863990244818
+      },
+      {
+        "case_id": "Q054",
+        "baseline_median_ns": 2988488,
+        "candidate_median_ns": 3051921,
+        "difference_ns": 63433,
+        "difference_percent": 2.122578374080806
+      },
+      {
+        "case_id": "Q055",
+        "baseline_median_ns": 4425102,
+        "candidate_median_ns": 4585254,
+        "difference_ns": 160152,
+        "difference_percent": 3.6191708123338175
+      },
+      {
+        "case_id": "Q056",
+        "baseline_median_ns": 232102,
+        "candidate_median_ns": 229644,
+        "difference_ns": -2458,
+        "difference_percent": -1.0590171562502693
+      },
+      {
+        "case_id": "Q057",
+        "baseline_median_ns": 32277,
+        "candidate_median_ns": 31610,
+        "difference_ns": -667,
+        "difference_percent": -2.0664869721473496
+      },
+      {
+        "case_id": "Q058",
+        "baseline_median_ns": 32556,
+        "candidate_median_ns": 28854,
+        "difference_ns": -3702,
+        "difference_percent": -11.371175820125323
+      },
+      {
+        "case_id": "Q059",
+        "baseline_median_ns": 33447,
+        "candidate_median_ns": 34088,
+        "difference_ns": 641,
+        "difference_percent": 1.9164648548449785
+      },
+      {
+        "case_id": "Q060",
+        "baseline_median_ns": 43030,
+        "candidate_median_ns": 43107,
+        "difference_ns": 77,
+        "difference_percent": 0.17894492214733906
+      },
+      {
+        "case_id": "Q061",
+        "baseline_median_ns": 16171,
+        "candidate_median_ns": 16042,
+        "difference_ns": -129,
+        "difference_percent": -0.797724321315936
+      },
+      {
+        "case_id": "Q062",
+        "baseline_median_ns": 151210,
+        "candidate_median_ns": 68381,
+        "difference_ns": -82829,
+        "difference_percent": -54.777461808081476
+      },
+      {
+        "case_id": "Q063",
+        "baseline_median_ns": 15700,
+        "candidate_median_ns": 15522,
+        "difference_ns": -178,
+        "difference_percent": -1.1337579617834395
+      },
+      {
+        "case_id": "Q064",
+        "baseline_median_ns": 291363,
+        "candidate_median_ns": 199047,
+        "difference_ns": -92316,
+        "difference_percent": -31.684187765776713
+      },
+      {
+        "case_id": "Q065",
+        "baseline_median_ns": 333182,
+        "candidate_median_ns": 251883,
+        "difference_ns": -81299,
+        "difference_percent": -24.400777953190747
+      },
+      {
+        "case_id": "Q066",
+        "baseline_median_ns": 114305,
+        "candidate_median_ns": 107978,
+        "difference_ns": -6327,
+        "difference_percent": -5.53519093652946
+      },
+      {
+        "case_id": "Q067",
+        "baseline_median_ns": 103733,
+        "candidate_median_ns": 105417,
+        "difference_ns": 1684,
+        "difference_percent": 1.623398532771635
+      },
+      {
+        "case_id": "Q068",
+        "baseline_median_ns": 6086996,
+        "candidate_median_ns": 5913254,
+        "difference_ns": -173742,
+        "difference_percent": -2.854314344875535
+      },
+      {
+        "case_id": "Q069",
+        "baseline_median_ns": 7305705,
+        "candidate_median_ns": 7162664,
+        "difference_ns": -143041,
+        "difference_percent": -1.9579356133323205
+      },
+      {
+        "case_id": "Q070",
+        "baseline_median_ns": 104253,
+        "candidate_median_ns": 103340,
+        "difference_ns": -913,
+        "difference_percent": -0.8757541749398099
+      },
+      {
+        "case_id": "Q071",
+        "baseline_median_ns": 2212783,
+        "candidate_median_ns": 2031751,
+        "difference_ns": -181032,
+        "difference_percent": -8.181190835251355
+      },
+      {
+        "case_id": "Q072",
+        "baseline_median_ns": 3294371,
+        "candidate_median_ns": 3002969,
+        "difference_ns": -291402,
+        "difference_percent": -8.8454518328385
+      },
+      {
+        "case_id": "Q073",
+        "baseline_median_ns": 1341876,
+        "candidate_median_ns": 1236905,
+        "difference_ns": -104971,
+        "difference_percent": -7.822704929516587
+      },
+      {
+        "case_id": "Q074",
+        "baseline_median_ns": 5619414,
+        "candidate_median_ns": 5484869,
+        "difference_ns": -134545,
+        "difference_percent": -2.394288799508276
+      },
+      {
+        "case_id": "Q075",
+        "baseline_median_ns": 1371027,
+        "candidate_median_ns": 1084956,
+        "difference_ns": -286071,
+        "difference_percent": -20.865453415578248
+      },
+      {
+        "case_id": "Q076",
+        "baseline_median_ns": 14648126,
+        "candidate_median_ns": 14076874,
+        "difference_ns": -571252,
+        "difference_percent": -3.8998299168098365
+      },
+      {
+        "case_id": "Q077",
+        "baseline_median_ns": 5374271,
+        "candidate_median_ns": 5086005,
+        "difference_ns": -288266,
+        "difference_percent": -5.363815855210874
+      },
+      {
+        "case_id": "Q078",
+        "baseline_median_ns": 74451891,
+        "candidate_median_ns": 72764268,
+        "difference_ns": -1687623,
+        "difference_percent": -2.2667295314231843
+      },
+      {
+        "case_id": "Q079",
+        "baseline_median_ns": 681316,
+        "candidate_median_ns": 605714,
+        "difference_ns": -75602,
+        "difference_percent": -11.096466250609115
+      },
+      {
+        "case_id": "Q080",
+        "baseline_median_ns": 18698,
+        "candidate_median_ns": 20247,
+        "difference_ns": 1549,
+        "difference_percent": 8.284308482190609
+      },
+      {
+        "case_id": "Q081",
+        "baseline_median_ns": 1806795,
+        "candidate_median_ns": 1507567,
+        "difference_ns": -299228,
+        "difference_percent": -16.56125902495856
+      },
+      {
+        "case_id": "Q082",
+        "baseline_median_ns": 6377446,
+        "candidate_median_ns": 5905136,
+        "difference_ns": -472310,
+        "difference_percent": -7.405942755140537
+      },
+      {
+        "case_id": "Q083",
+        "baseline_median_ns": 6665972,
+        "candidate_median_ns": 6087079,
+        "difference_ns": -578893,
+        "difference_percent": -8.684299904050002
+      },
+      {
+        "case_id": "Q084",
+        "baseline_median_ns": 36024,
+        "candidate_median_ns": 35256,
+        "difference_ns": -768,
+        "difference_percent": -2.1319120586275817
+      },
+      {
+        "case_id": "Q085",
+        "baseline_median_ns": 6886177,
+        "candidate_median_ns": 6275318,
+        "difference_ns": -610859,
+        "difference_percent": -8.8708001551514
+      },
+      {
+        "case_id": "Q086",
+        "baseline_median_ns": 36032,
+        "candidate_median_ns": 34223,
+        "difference_ns": -1809,
+        "difference_percent": -5.02053730017762
+      },
+      {
+        "case_id": "Q087",
+        "baseline_median_ns": 33572,
+        "candidate_median_ns": 34352,
+        "difference_ns": 780,
+        "difference_percent": 2.32336470868581
+      },
+      {
+        "case_id": "Q088",
+        "baseline_median_ns": 217999,
+        "candidate_median_ns": 80575,
+        "difference_ns": -137424,
+        "difference_percent": -63.03882127899669
+      },
+      {
+        "case_id": "Q089",
+        "baseline_median_ns": 52073,
+        "candidate_median_ns": 48683,
+        "difference_ns": -3390,
+        "difference_percent": -6.510091602173872
+      },
+      {
+        "case_id": "Q090",
+        "baseline_median_ns": 35346,
+        "candidate_median_ns": 35584,
+        "difference_ns": 238,
+        "difference_percent": 0.6733435183613422
+      },
+      {
+        "case_id": "Q091",
+        "baseline_median_ns": 56292,
+        "candidate_median_ns": 50739,
+        "difference_ns": -5553,
+        "difference_percent": -9.864634406309955
+      },
+      {
+        "case_id": "Q092",
+        "baseline_median_ns": 34679,
+        "candidate_median_ns": 31605,
+        "difference_ns": -3074,
+        "difference_percent": -8.864154099022462
+      },
+      {
+        "case_id": "Q093",
+        "baseline_median_ns": 51618,
+        "candidate_median_ns": 48755,
+        "difference_ns": -2863,
+        "difference_percent": -5.54651478166531
+      },
+      {
+        "case_id": "Q094",
+        "baseline_median_ns": 52124,
+        "candidate_median_ns": 53568,
+        "difference_ns": 1444,
+        "difference_percent": 2.7703169365359526
+      },
+      {
+        "case_id": "Q095",
+        "baseline_median_ns": 571825,
+        "candidate_median_ns": 489518,
+        "difference_ns": -82307,
+        "difference_percent": -14.393739343330564
+      },
+      {
+        "case_id": "Q096",
+        "baseline_median_ns": 214223,
+        "candidate_median_ns": 200784,
+        "difference_ns": -13439,
+        "difference_percent": -6.273369339426672
+      },
+      {
+        "case_id": "Q097",
+        "baseline_median_ns": 459414,
+        "candidate_median_ns": 422255,
+        "difference_ns": -37159,
+        "difference_percent": -8.088347329424005
+      },
+      {
+        "case_id": "Q098",
+        "baseline_median_ns": 465290,
+        "candidate_median_ns": 417893,
+        "difference_ns": -47397,
+        "difference_percent": -10.18655032345419
+      },
+      {
+        "case_id": "Q099",
+        "baseline_median_ns": 504636,
+        "candidate_median_ns": 521949,
+        "difference_ns": 17313,
+        "difference_percent": 3.430789717737141
+      },
+      {
+        "case_id": "Q100",
+        "baseline_median_ns": 28557077,
+        "candidate_median_ns": 26250451,
+        "difference_ns": -2306626,
+        "difference_percent": -8.077248242178287
+      },
+      {
+        "case_id": "Q101",
+        "baseline_median_ns": 38190,
+        "candidate_median_ns": 34636,
+        "difference_ns": -3554,
+        "difference_percent": -9.306101073579471
+      },
+      {
+        "case_id": "Q102",
+        "baseline_median_ns": 32261,
+        "candidate_median_ns": 31899,
+        "difference_ns": -362,
+        "difference_percent": -1.1220978890920925
+      },
+      {
+        "case_id": "Q103",
+        "baseline_median_ns": 34830,
+        "candidate_median_ns": 34695,
+        "difference_ns": -135,
+        "difference_percent": -0.3875968992248062
+      },
+      {
+        "case_id": "Q104",
+        "baseline_median_ns": 119118,
+        "candidate_median_ns": 118479,
+        "difference_ns": -639,
+        "difference_percent": -0.5364428549841334
+      },
+      {
+        "case_id": "Q105",
+        "baseline_median_ns": 109333,
+        "candidate_median_ns": 119107,
+        "difference_ns": 9774,
+        "difference_percent": 8.939661401406712
+      },
+      {
+        "case_id": "Q106",
+        "baseline_median_ns": 90088,
+        "candidate_median_ns": 93238,
+        "difference_ns": 3150,
+        "difference_percent": 3.496581120682
+      },
+      {
+        "case_id": "Q107",
+        "baseline_median_ns": 74191,
+        "candidate_median_ns": 74402,
+        "difference_ns": 211,
+        "difference_percent": 0.2844010729064172
+      },
+      {
+        "case_id": "Q108",
+        "baseline_median_ns": 93566,
+        "candidate_median_ns": 95010,
+        "difference_ns": 1444,
+        "difference_percent": 1.543295641579206
+      },
+      {
+        "case_id": "Q109",
+        "baseline_median_ns": 217064,
+        "candidate_median_ns": 212187,
+        "difference_ns": -4877,
+        "difference_percent": -2.2468027862750155
+      },
+      {
+        "case_id": "Q110",
+        "baseline_median_ns": 52410,
+        "candidate_median_ns": 53140,
+        "difference_ns": 730,
+        "difference_percent": 1.392863957260065
+      },
+      {
+        "case_id": "Q111",
+        "baseline_median_ns": 344205,
+        "candidate_median_ns": 351703,
+        "difference_ns": 7498,
+        "difference_percent": 2.178353016371058
+      },
+      {
+        "case_id": "Q112",
+        "baseline_median_ns": 56722,
+        "candidate_median_ns": 58495,
+        "difference_ns": 1773,
+        "difference_percent": 3.1257713056662317
+      },
+      {
+        "case_id": "Q113",
+        "baseline_median_ns": 36423,
+        "candidate_median_ns": 37027,
+        "difference_ns": 604,
+        "difference_percent": 1.6582928369436893
+      },
+      {
+        "case_id": "Q114",
+        "baseline_median_ns": 61421,
+        "candidate_median_ns": 61789,
+        "difference_ns": 368,
+        "difference_percent": 0.5991436153758487
+      },
+      {
+        "case_id": "Q115",
+        "baseline_median_ns": 47666,
+        "candidate_median_ns": 47796,
+        "difference_ns": 130,
+        "difference_percent": 0.272731087148072
+      },
+      {
+        "case_id": "Q116",
+        "baseline_median_ns": 535707,
+        "candidate_median_ns": 566418,
+        "difference_ns": 30711,
+        "difference_percent": 5.732797966052338
+      },
+      {
+        "case_id": "Q117",
+        "baseline_median_ns": 508156,
+        "candidate_median_ns": 528556,
+        "difference_ns": 20400,
+        "difference_percent": 4.01451522760727
+      },
+      {
+        "case_id": "Q118",
+        "baseline_median_ns": 347373,
+        "candidate_median_ns": 349428,
+        "difference_ns": 2055,
+        "difference_percent": 0.5915831109499011
+      },
+      {
+        "case_id": "Q119",
+        "baseline_median_ns": 4567568,
+        "candidate_median_ns": 4366959,
+        "difference_ns": -200609,
+        "difference_percent": -4.392030945133165
+      },
+      {
+        "case_id": "Q120",
+        "baseline_median_ns": 197321,
+        "candidate_median_ns": 201974,
+        "difference_ns": 4653,
+        "difference_percent": 2.3580865695997892
+      },
+      {
+        "case_id": "Q121",
+        "baseline_median_ns": 63937,
+        "candidate_median_ns": 65262,
+        "difference_ns": 1325,
+        "difference_percent": 2.07235247196459
+      },
+      {
+        "case_id": "Q122",
+        "baseline_median_ns": 53735,
+        "candidate_median_ns": 52939,
+        "difference_ns": -796,
+        "difference_percent": -1.4813436307806829
+      },
+      {
+        "case_id": "Q123",
+        "baseline_median_ns": 48976,
+        "candidate_median_ns": 48958,
+        "difference_ns": -18,
+        "difference_percent": -0.03675269519764783
+      },
+      {
+        "case_id": "Q124",
+        "baseline_median_ns": 534179,
+        "candidate_median_ns": 505126,
+        "difference_ns": -29053,
+        "difference_percent": -5.438813581215285
+      },
+      {
+        "case_id": "Q125",
+        "baseline_median_ns": 13446,
+        "candidate_median_ns": 14456,
+        "difference_ns": 1010,
+        "difference_percent": 7.511527591848877
+      },
+      {
+        "case_id": "Q126",
+        "baseline_median_ns": 22915,
+        "candidate_median_ns": 23806,
+        "difference_ns": 891,
+        "difference_percent": 3.8882827842024876
+      },
+      {
+        "case_id": "Q127",
+        "baseline_median_ns": 68177,
+        "candidate_median_ns": 68835,
+        "difference_ns": 658,
+        "difference_percent": 0.9651348695307802
+      },
+      {
+        "case_id": "Q128",
+        "baseline_median_ns": 65890,
+        "candidate_median_ns": 68422,
+        "difference_ns": 2532,
+        "difference_percent": 3.842768250113826
+      },
+      {
+        "case_id": "Q129",
+        "baseline_median_ns": 73981,
+        "candidate_median_ns": 77804,
+        "difference_ns": 3823,
+        "difference_percent": 5.167543017801868
+      },
+      {
+        "case_id": "Q130",
+        "baseline_median_ns": 184831,
+        "candidate_median_ns": 189130,
+        "difference_ns": 4299,
+        "difference_percent": 2.3259085326595645
+      },
+      {
+        "case_id": "Q131",
+        "baseline_median_ns": 808311,
+        "candidate_median_ns": 836872,
+        "difference_ns": 28561,
+        "difference_percent": 3.533417211939464
+      },
+      {
+        "case_id": "Q132",
+        "baseline_median_ns": 811003,
+        "candidate_median_ns": 902591,
+        "difference_ns": 91588,
+        "difference_percent": 11.293176474069764
+      },
+      {
+        "case_id": "Q133",
+        "baseline_median_ns": 157342,
+        "candidate_median_ns": 167594,
+        "difference_ns": 10252,
+        "difference_percent": 6.515742776880934
+      },
+      {
+        "case_id": "Q134",
+        "baseline_median_ns": 532279,
+        "candidate_median_ns": 537155,
+        "difference_ns": 4876,
+        "difference_percent": 0.916060937966743
+      },
+      {
+        "case_id": "Q135",
+        "baseline_median_ns": 732989,
+        "candidate_median_ns": 810626,
+        "difference_ns": 77637,
+        "difference_percent": 10.591836985275359
+      },
+      {
+        "case_id": "Q136",
+        "baseline_median_ns": 3018297,
+        "candidate_median_ns": 3429681,
+        "difference_ns": 411384,
+        "difference_percent": 13.629672626650061
+      },
+      {
+        "case_id": "Q137",
+        "baseline_median_ns": 218258,
+        "candidate_median_ns": 210905,
+        "difference_ns": -7353,
+        "difference_percent": -3.368948675420832
+      },
+      {
+        "case_id": "Q138",
+        "baseline_median_ns": 452086,
+        "candidate_median_ns": 448656,
+        "difference_ns": -3430,
+        "difference_percent": -0.7587052021075636
+      },
+      {
+        "case_id": "Q139",
+        "baseline_median_ns": 340938,
+        "candidate_median_ns": 354144,
+        "difference_ns": 13206,
+        "difference_percent": 3.873431533006001
+      },
+      {
+        "case_id": "Q140",
+        "baseline_median_ns": 51391,
+        "candidate_median_ns": 52456,
+        "difference_ns": 1065,
+        "difference_percent": 2.0723472981650484
+      },
+      {
+        "case_id": "Q141",
+        "baseline_median_ns": 5081864,
+        "candidate_median_ns": 4437667,
+        "difference_ns": -644197,
+        "difference_percent": -12.676391969560775
+      },
+      {
+        "case_id": "Q142",
+        "baseline_median_ns": 307267,
+        "candidate_median_ns": 158521,
+        "difference_ns": -148746,
+        "difference_percent": -48.40936384317222
+      },
+      {
+        "case_id": "Q143",
+        "baseline_median_ns": 8916315,
+        "candidate_median_ns": 8696243,
+        "difference_ns": -220072,
+        "difference_percent": -2.468194540008961
+      },
+      {
+        "case_id": "Q144",
+        "baseline_median_ns": 26330110,
+        "candidate_median_ns": 24796388,
+        "difference_ns": -1533722,
+        "difference_percent": -5.82497376577614
+      },
+      {
+        "case_id": "Q145",
+        "baseline_median_ns": 105726366,
+        "candidate_median_ns": 101900538,
+        "difference_ns": -3825828,
+        "difference_percent": -3.618612976823586
+      },
+      {
+        "case_id": "Q146",
+        "baseline_median_ns": 9499005,
+        "candidate_median_ns": 9444498,
+        "difference_ns": -54507,
+        "difference_percent": -0.5738179946215419
+      },
+      {
+        "case_id": "Q147",
+        "baseline_median_ns": 26584702,
+        "candidate_median_ns": 26467799,
+        "difference_ns": -116903,
+        "difference_percent": -0.4397378612707413
+      },
+      {
+        "case_id": "Q148",
+        "baseline_median_ns": 5611387,
+        "candidate_median_ns": 5178524,
+        "difference_ns": -432863,
+        "difference_percent": -7.714010814082151
+      },
+      {
+        "case_id": "Q149",
+        "baseline_median_ns": 457493,
+        "candidate_median_ns": 469965,
+        "difference_ns": 12472,
+        "difference_percent": 2.7261619303464752
+      },
+      {
+        "case_id": "Q150",
+        "baseline_median_ns": 3043400,
+        "candidate_median_ns": 2749281,
+        "difference_ns": -294119,
+        "difference_percent": -9.664158506933035
+      }
+    ]
+  },
+  "construction": {
+    "baseline": {
+      "ascii": {
+        "samples": 3,
+        "wall_ns": [
+          700969001,
+          626169341,
+          609370287
+        ],
+        "wall_median_ns": 626169341,
+        "wall_min_ns": 609370287,
+        "wall_max_ns": 700969001,
+        "peak_resident_bytes": [
+          664940544,
+          659324928,
+          651554816
+        ],
+        "peak_resident_median_bytes": 659324928,
+        "peak_resident_min_bytes": 651554816,
+        "peak_resident_max_bytes": 664940544,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "resolved_build_workers": [
+          32
+        ],
+        "available_parallelism": [
+          32
+        ],
+        "index_signature_sha256": [
+          "4a38808629a1544a354d715e42c85ac426b1cfe93376e862253b3d5cc03f349f"
+        ],
+        "schema_manifest_digest": [
+          "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+        ],
+        "wall_difference_ns": 10295969,
+        "wall_difference_percent": 1.6442786840309385,
+        "peak_resident_difference_bytes": -5476352,
+        "peak_resident_difference_percent": -0.8305998707817703
+      },
+      "unicode": {
+        "samples": 3,
+        "wall_ns": [
+          716114138,
+          691437502,
+          723371699
+        ],
+        "wall_median_ns": 716114138,
+        "wall_min_ns": 691437502,
+        "wall_max_ns": 723371699,
+        "peak_resident_bytes": [
+          678723584,
+          660283392,
+          685244416
+        ],
+        "peak_resident_median_bytes": 678723584,
+        "peak_resident_min_bytes": 660283392,
+        "peak_resident_max_bytes": 685244416,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "resolved_build_workers": [
+          32
+        ],
+        "available_parallelism": [
+          32
+        ],
+        "index_signature_sha256": [
+          "5c235a33b6cb1a18c1a1f4d2b1d60fa1eae912ce2b4ff868857df95028d83868"
+        ],
+        "schema_manifest_digest": [
+          "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+        ],
+        "wall_difference_ns": -1681124,
+        "wall_difference_percent": -0.23475643208150151,
+        "peak_resident_difference_bytes": -16482304,
+        "peak_resident_difference_percent": -2.428426591995365
+      }
+    },
+    "candidate": {
+      "ascii": {
+        "samples": 3,
+        "wall_ns": [
+          636465310,
+          674023928,
+          613568015
+        ],
+        "wall_median_ns": 636465310,
+        "wall_min_ns": 613568015,
+        "wall_max_ns": 674023928,
+        "peak_resident_bytes": [
+          626102272,
+          653848576,
+          661860352
+        ],
+        "peak_resident_median_bytes": 653848576,
+        "peak_resident_min_bytes": 626102272,
+        "peak_resident_max_bytes": 661860352,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "resolved_build_workers": [
+          32
+        ],
+        "available_parallelism": [
+          32
+        ],
+        "index_signature_sha256": [
+          "4a38808629a1544a354d715e42c85ac426b1cfe93376e862253b3d5cc03f349f"
+        ],
+        "schema_manifest_digest": [
+          "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+        ]
+      },
+      "unicode": {
+        "samples": 3,
+        "wall_ns": [
+          682702369,
+          714433014,
+          717895090
+        ],
+        "wall_median_ns": 714433014,
+        "wall_min_ns": 682702369,
+        "wall_max_ns": 717895090,
+        "peak_resident_bytes": [
+          653082624,
+          662241280,
+          682463232
+        ],
+        "peak_resident_median_bytes": 662241280,
+        "peak_resident_min_bytes": 653082624,
+        "peak_resident_max_bytes": 682463232,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "resolved_build_workers": [
+          32
+        ],
+        "available_parallelism": [
+          32
+        ],
+        "index_signature_sha256": [
+          "5c235a33b6cb1a18c1a1f4d2b1d60fa1eae912ce2b4ff868857df95028d83868"
+        ],
+        "schema_manifest_digest": [
+          "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "selected_and_residual": {
+    "samples": 6,
+    "matched_samples": 6,
+    "ordered_result_cases": 2,
+    "ordered_result_matches": 2,
+    "counter_mismatches": 0,
+    "status_mismatches": 0,
+    "plan_mismatches": 0,
+    "schema_manifests_equal": true,
+    "cases": {
+      "Q102": {
+        "ordered_result_digest": "ecffdbbb3f1d7e1f2cbb798288f3eebf849eba4a4c4aa3c6dd57edeeda6e2e07",
+        "a2_median_ns": 42416,
+        "c_median_ns": 46116,
+        "input_records": 1202,
+        "candidates": 0,
+        "candidate_records": [
+          0,
+          0,
+          0
+        ],
+        "proven_records": [
+          0,
+          0,
+          0
+        ],
+        "filter_exact": true,
+        "remaining_verification": false,
+        "selected_access": {
+          "coverage": 1202,
+          "estimated_bytes": 0.0,
+          "estimated_files": 0.0,
+          "estimated_output": 0,
+          "estimated_work": 1.0,
+          "exact": true,
+          "kind": "posting"
+        },
+        "alternatives": [
+          {
+            "coverage": 1202,
+            "estimated_bytes": 0.0,
+            "estimated_files": 0.0,
+            "estimated_output": 0,
+            "estimated_work": 1.0,
+            "exact": true,
+            "kind": "posting"
+          },
+          {
+            "coverage": 1202,
+            "estimated_bytes": 0.0,
+            "estimated_files": 0.0,
+            "estimated_output": 0,
+            "estimated_work": 0.0,
+            "exact": false,
+            "kind": "scanner"
+          }
+        ],
+        "counters": {
+          "total_matches": 0,
+          "returned_records": 0,
+          "relation_source_reads": 0,
+          "relation_target_reads": 0,
+          "relation_bytes_read": 0,
+          "relation_edge_visits": 0,
+          "relation_target_candidates": 0,
+          "relation_target_matches": 0,
+          "relation_reverse_postings_visited": 0,
+          "relation_reverse_members_visited": 0,
+          "relation_verified_targets_reused": 0
+        }
+      },
+      "Q122": {
+        "ordered_result_digest": "7e6c2e598e4342eab52e5a08dfa32f35d8762e454cba48ee7a19741b187ee53b",
+        "a2_median_ns": 59841,
+        "c_median_ns": 58285,
+        "input_records": 1202,
+        "candidates": 67,
+        "candidate_records": [
+          67,
+          67,
+          67
+        ],
+        "proven_records": [
+          67,
+          67,
+          67
+        ],
+        "filter_exact": true,
+        "remaining_verification": false,
+        "selected_access": {
+          "coverage": 1202,
+          "estimated_bytes": 0.0,
+          "estimated_files": 0.0,
+          "estimated_output": 1051,
+          "estimated_work": 29.02,
+          "exact": true,
+          "kind": "posting"
+        },
+        "alternatives": [
+          {
+            "coverage": 1202,
+            "estimated_bytes": 0.0,
+            "estimated_files": 0.0,
+            "estimated_output": 0,
+            "estimated_work": 0.0,
+            "exact": false,
+            "kind": "scanner"
+          }
+        ],
+        "counters": {
+          "total_matches": 67,
+          "returned_records": 50,
+          "relation_source_reads": 0,
+          "relation_target_reads": 0,
+          "relation_bytes_read": 0,
+          "relation_edge_visits": 0,
+          "relation_target_candidates": 0,
+          "relation_target_matches": 0,
+          "relation_reverse_postings_visited": 0,
+          "relation_reverse_members_visited": 0,
+          "relation_verified_targets_reused": 0
+        }
+      }
+    }
+  },
+  "typed_id_field": {
+    "samples": 3,
+    "matched_samples": 3,
+    "ordered_result_cases": 1,
+    "ordered_result_matches": 1,
+    "counter_mismatches": 0,
+    "status_mismatches": 0,
+    "plan_mismatches": 0,
+    "schema_manifests_equal": true,
+    "cases": {
+      "Q088": {
+        "ordered_result_digest": "21d5ea2c54c25221fac066abeaae4df4b33d5cdba83adb81a9fbd835db07f4d7",
+        "a2_median_ns": 51683,
+        "c_median_ns": 58766,
+        "input_records": 4928,
+        "candidates": 5,
+        "candidate_records": [
+          5,
+          5,
+          5
+        ],
+        "proven_records": [
+          5,
+          5,
+          5
+        ],
+        "filter_exact": true,
+        "remaining_verification": false,
+        "selected_access": {
+          "coverage": 4928,
+          "estimated_bytes": 0.0,
+          "estimated_files": 0.0,
+          "estimated_output": 5,
+          "estimated_work": 1.1,
+          "exact": true,
+          "kind": "posting"
+        },
+        "alternatives": [
+          {
+            "coverage": 4928,
+            "estimated_bytes": 0.0,
+            "estimated_files": 0.0,
+            "estimated_output": 0,
+            "estimated_work": 1.0,
+            "exact": true,
+            "kind": "posting"
+          },
+          {
+            "coverage": 4928,
+            "estimated_bytes": 0.0,
+            "estimated_files": 0.0,
+            "estimated_output": 0,
+            "estimated_work": 0.0,
+            "exact": false,
+            "kind": "scanner"
+          }
+        ],
+        "counters": {
+          "total_matches": 5,
+          "returned_records": 5,
+          "relation_source_reads": 0,
+          "relation_target_reads": 0,
+          "relation_bytes_read": 0,
+          "relation_edge_visits": 0,
+          "relation_target_candidates": 0,
+          "relation_target_matches": 0,
+          "relation_reverse_postings_visited": 0,
+          "relation_reverse_members_visited": 0,
+          "relation_verified_targets_reused": 0
+        }
+      }
+    }
+  }
+}

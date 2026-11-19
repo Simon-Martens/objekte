@@ -1,0 +1,8 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.20s
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-88b092d832395dd8)
+
+running 1 test
+test tests::fixture_layout::root_fixture_is_available_without_archived_workspace_paths ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 626 filtered out; finished in 0.00s

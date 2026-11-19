@@ -1,0 +1,12 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-88b092d832395dd8)
+
+running 6 tests
+test query_execution::relations::target_cache::tests::prefetch_limits_keep_stream_resource_classification ... ok
+test query_execution::relations::target_cache::tests::segmented_stream_skips_unused_flat_prefetch_allowance ... ok
+test query_execution::relations::target_cache::tests::high_fanout_stream_prefetch_reports_resource_limit_before_grouping ... ok
+test query_execution::relations::target_cache::tests::second_prefetched_target_in_batch_obeys_record_limit ... ok
+test query_execution::relations::target_cache::tests::unpositioned_backlinks_visit_reverse_hits_while_positions_keep_identity_rank ... ok
+test query_execution::relations::target_cache::tests::source_dependent_comparisons_share_projected_targets_without_changing_truth ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 621 filtered out; finished in 0.06s

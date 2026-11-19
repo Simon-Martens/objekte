@@ -1,0 +1,39 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-88b092d832395dd8)
+
+running 33 tests
+test query_execution::relations::evaluation::tests::relation_work_limits_return_explicit_errors ... ok
+test query_execution::relations::evaluation::tests::mixed_local_and_relation_fts_borrows_source_value_text ... ok
+test query_execution::relations::evaluation::tests::adopted_base_view_reference_search_keeps_retired_rows_on_the_old_pin ... ok
+test query_execution::relations::evaluation::tests::segmented_reference_first_last_ignores_unavailable_contribution ... ok
+test query_execution::relations::evaluation::tests::base_reference_sort_ignores_perturbed_stored_and_relation_contributions ... ok
+test query_execution::relations::evaluation::tests::segmented_reference_relations_ignore_perturbed_forward_and_backlink_contributions ... ok
+test query_execution::relations::evaluation::tests::related_reducers_preserve_source_reference_occurrences ... ok
+test query_execution::relations::evaluation::tests::related_sort_stream_reports_target_budget_as_resource_error ... ok
+test query_execution::relations::evaluation::tests::base_related_sort_declines_an_incompatible_stored_key ... ok
+test query_execution::relations::evaluation::tests::lifecycle_relation_and_exact_local_id_use_direct_witness ... ok
+test query_execution::relations::evaluation::tests::adopted_base_view_reference_search_handles_a_configured_empty_collection ... ok
+test query_execution::relations::evaluation::tests::base_reference_multi_target_backlinks_scan_each_relation_once ... ok
+test query_execution::relations::evaluation::tests::backlink_sort_does_not_use_a_forward_relation_at_the_same_ordinal ... ok
+test query_execution::relations::evaluation::tests::related_sort_does_not_reuse_an_incomplete_filter_target_projection ... ok
+test query_execution::relations::evaluation::tests::lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnostics ... ok
+test query_execution::relations::evaluation::tests::adopted_base_view_reference_search_uses_each_pins_catalogue ... ok
+test query_execution::relations::evaluation::tests::lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback ... ok
+test query_execution::relations::evaluation::tests::adopted_base_view_reference_search_uses_pinned_publication ... ok
+test query_execution::relations::evaluation::tests::merged_relations_resolve_replacement_targets_and_preserve_unknown ... ok
+test query_execution::relations::evaluation::tests::unavailable_targets_survive_negation_and_source_records_are_counted_once ... ok
+test query_execution::relations::evaluation::tests::base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes ... ok
+test query_execution::relations::evaluation::tests::segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock ... ok
+test query_execution::relations::evaluation::tests::merged_relation_walker_matches_static_reference_semantics ... ok
+test query_execution::relations::evaluation::tests::scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys ... ok
+test query_execution::relations::evaluation::tests::related_all_results_stream_in_identity_order_under_small_budget ... ok
+test query_execution::relations::evaluation::tests::membership_only_matches_complete_evidence_for_local_relation_and_fts_routes ... ok
+test query_execution::relations::evaluation::tests::selected_fts_rejects_disagreeing_public_field_and_query_path ... ok
+test query_execution::relations::evaluation::tests::finite_relation_paths_have_independent_reference_answers ... ok
+test query_execution::relations::evaluation::tests::lifecycle_related_sort_uses_target_stored_column ... ok
+test query_execution::relations::evaluation::tests::relation_answers_and_evidence_survive_cache_and_snapshot_restore ... ok
+test query_execution::relations::evaluation::tests::lifecycle_direct_relation_count_and_stored_sort_pages_match_reference ... ok
+test query_execution::relations::evaluation::tests::incomplete_backlink_discovery_stops_before_target_sort_cache_work ... ok
+test query_execution::relations::evaluation::tests::reference_backlink_sort_streams_discovery_without_target_cache_budget ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 594 filtered out; finished in 0.96s

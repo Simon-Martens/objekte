@@ -1,0 +1,41 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.29s
+     Running unittests src/lib.rs (target/debug/deps/objekte_cli-0cc393467852bbe3)
+     Running unittests src/main.rs (target/debug/deps/obj-a780a51543ac842d)
+     Running tests/obj_process.rs (target/debug/deps/obj_process-886f7809b513c990)
+musenalm_auto_index_restricts_year_across_the_whole_folder: test
+     Running tests/obj_removed_flags.rs (target/debug/deps/obj_removed_flags-aea28750b4dd5cb3)
+     Running unittests src/lib.rs (target/debug/deps/objekte_desktop-017696b94fb14904)
+backend::query::tests::measure_desktop_lifecycle_query_cache: test
+     Running unittests src/main.rs (target/debug/deps/objekte_desktop-dcf2e45a468125fa)
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-b7346021aabb687c)
+construction::segment_admission::tests::measure_single_file_segment_cost: test
+construction::tests::measure_direct_shard_build_from_real_worker_batches: test
+construction::tests::measure_single_file_preparation_cost: test
+index::bigram::builder::tests::benchmark_folded_gram_emission: test
+index::bigram::builder::tests::profile_single_worker_constructors: test
+index::relation::tests::profile_large_fanout_relation_publication: test
+lifecycle::maintenance::compaction::partition::tests::full_partitions_leave_a_bounded_sparse_update_allowance: test
+lifecycle::maintenance::compaction::partition::tests::partitions_static_base_without_changing_search_or_file_routing: test
+lifecycle::maintenance::compaction::tests::large_source_free_compaction_cancels_and_retries_a_concurrent_commit: test
+lifecycle::mutation::tests::large_compatible_move_skips_extraction_and_posting_rewrites: test
+lifecycle::reconciliation::scan::tests::reconciles_300000_files_and_updates_a_shared_file: test
+lifecycle::reconciliation::scan::tests::scans_300000_files_with_two_overlapping_150000_file_collections: test
+query_execution::runner::tests::measure_large_lifecycle_all_export_streams_before_expanded_locator_budget: test
+reference::tests::folding::borrowed_value_consumer_microbench: test
+source::json::scalars::scan::tests::borrowed_consumer_microbench: test
+source::json::scalars::strings::tests::decoder_strategy_microbench: test
+     Running tests/array_positions.rs (target/debug/deps/array_positions-c6b64734db9e4eaa)
+     Running tests/discovery_exclusions.rs (target/debug/deps/discovery_exclusions-12ec5d639a8c7a3a)
+     Running tests/g2_interactions.rs (target/debug/deps/g2_interactions-1b9ec576e7ca323b)
+     Running tests/inline_sort.rs (target/debug/deps/inline_sort-2d63daca6b447ddf)
+     Running tests/non_json_relations.rs (target/debug/deps/non_json_relations-0cbb237d19d53565)
+     Running tests/optional_feature_interactions.rs (target/debug/deps/optional_feature_interactions-5529dcecd173bde7)
+     Running tests/parameters.rs (target/debug/deps/parameters-f9982392437bdcfd)
+     Running tests/regex_record_id.rs (target/debug/deps/regex_record_id-3f6c33d382a58e40)
+     Running tests/relation_occurrence_oracle.rs (target/debug/deps/relation_occurrence_oracle-3b90506c96c48acf)
+     Running tests/relation_oracle.rs (target/debug/deps/relation_oracle-4ac6bda299345d29)
+     Running tests/temporal_periods.rs (target/debug/deps/temporal_periods-dc36ca6870a6c020)
+     Running tests/temporal_regex_integration.rs (target/debug/deps/temporal_regex_integration-937448a6b0470ad2)
+   Doc-tests objekte_cli
+   Doc-tests objekte_desktop
+   Doc-tests objekte_search_core

@@ -1,0 +1,8 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-88b092d832395dd8)
+
+running 2 tests
+test tests::id::id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separate ... ok
+test tests::id::typed_ids_remain_distinct_from_strings_through_postings_text_and_restore ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 625 filtered out; finished in 0.02s

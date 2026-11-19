@@ -1,0 +1,33 @@
+2026-11-19T16:55:28+01:00
+Linux work 7.3.3-200.fc44.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Nov  6 20:34:09 UTC 2026 x86_64 GNU/Linux
+rustc 1.99.1 (58cf8f9c3 2026-10-13)
+binary: rustc
+commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67
+commit-date: 2026-10-13
+host: x86_64-unknown-linux-gnu
+release: 1.99.1
+LLVM version: 23.1.1
+cargo 1.99.1 (5f94df478 2026-08-27)
+32
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           46 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  32
+On-line CPU(s) list:                     0-31
+Vendor ID:                               GenuineIntel
+Model name:                              13th Gen Intel(R) Core(TM) i9-13900K
+CPU family:                              6
+Model:                                   183
+Thread(s) per core:                      2
+Core(s) per socket:                      24
+Socket(s):                               1
+Stepping:                                1
+CPU(s) scaling MHz:                      73%
+CPU max MHz:                             5800.0000
+CPU min MHz:                             800.0000
+BogoMIPS:                                5990.40
+               total        used        free      shared  buff/cache   available
+Mem:            30Gi        14Gi       4.6Gi       2.2Gi        14Gi        16Gi
+Swap:          8.0Gi       8.0Gi       8.0Ki
+acac94f486ee0f9d35eb5ba834d26cdc01eb1c5e

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Q088",
+    "collection": "entries",
+    "fts": null,
+    "filter": "agents.agent ?= \"lngx6eyfw5qrzas\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]
