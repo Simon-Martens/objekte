@@ -91,24 +91,24 @@ Baseline binary `806df616...` was built from `891d377f`; candidate binary `3c42f
 
 | Query/profile | Baseline ms | Candidate ms | Change |
 | --- | ---: | ---: | ---: |
-| Q126 ASCII off | 38.221 | 33.232 | -13.05% |
-| Q126 ASCII warm | 8.377 | 8.189 | -2.24% |
-| Q126 Unicode off | 34.331 | 36.554 | +6.48% |
-| Q126 Unicode warm | 8.511 | 8.389 | -1.43% |
-| Q136 ASCII off | 4423.588 | 3927.365 | -11.22% |
-| Q136 ASCII warm | 1509.022 | 1556.802 | +3.17% |
-| Q136 Unicode off | 4505.450 | 4164.164 | -7.58% |
-| Q136 Unicode warm | 1536.481 | 1592.231 | +3.63% |
-| Q141 ASCII off | 6480.462 | 5889.090 | -9.13% |
-| Q141 ASCII warm | 28.787 | 24.405 | -15.22% |
-| Q141 Unicode off | 5118.190 | 5986.256 | +16.96% |
-| Q141 Unicode warm | 27.144 | 25.131 | -7.42% |
+| Q126 ASCII off | 0.038221 | 0.033232 | -13.05% |
+| Q126 ASCII warm | 0.008377 | 0.008189 | -2.24% |
+| Q126 Unicode off | 0.034331 | 0.036554 | +6.48% |
+| Q126 Unicode warm | 0.008511 | 0.008389 | -1.43% |
+| Q136 ASCII off | 4.423588 | 3.927365 | -11.22% |
+| Q136 ASCII warm | 1.509022 | 1.556802 | +3.17% |
+| Q136 Unicode off | 4.505450 | 4.164164 | -7.58% |
+| Q136 Unicode warm | 1.536481 | 1.592231 | +3.63% |
+| Q141 ASCII off | 6.480462 | 5.889090 | -9.13% |
+| Q141 ASCII warm | 0.028787 | 0.024405 | -15.22% |
+| Q141 Unicode off | 5.118190 | 5.986256 | +16.96% |
+| Q141 Unicode warm | 0.027144 | 0.025131 | -7.42% |
 
 Q126 returned 203 matches and selected 50 locator rows with 203 candidates, zero files, bytes and parses, and zero residual evaluations. Q136 returned 133,948 matches and 100 rows with 133,948 exact candidates and zero files, bytes and parses. Q141 returned 823 matches and 50 rows from 982 candidates, opening 982 files, reading 2,309,880 bytes, parsing 982 records and evaluating no unproven residual. Warm profiles returned zero candidates and source work with 3/3 verified-result hits. Baseline and candidate result digests were identical in every batch.
 
 The maintained `bench_musenalm` checkpoint reports completed ordinary search latency; it has no separate time-to-first-row column. Streaming callback ordering is covered by the new early-delivery test, which observes rows before the residual count completes. The multi-field relation and residual count-on/off cases are covered by deterministic reference tests rather than a separate maintained corpus timing case.
 
-The one over-threshold cell, Q141 Unicode cache-off, was rechecked in alternating seven-repetition runs: baseline/candidate medians were 4819/5605 and 5297/4345 ms in the two pairs, followed by an 11-repetition baseline/candidate pair of 5020/4359 ms. The direction reversed, with identical route work and results, so no repeatable implementation-caused regression remains.
+The one over-threshold cell, Q141 Unicode cache-off, was rechecked in alternating seven-repetition runs: baseline/candidate medians were 4.819/5.605 and 5.297/4.345 ms in the two pairs, followed by an 11-repetition baseline/candidate pair of 5.020/4.359 ms. The direction reversed, with identical route work and results, so no repeatable implementation-caused regression remains.
 
 ### Source-size delta
 
