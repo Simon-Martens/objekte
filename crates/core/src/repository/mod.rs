@@ -1,4 +1,7 @@
 //! Resident repository ownership and the independent scan execution path.
+//!
+//! [`inline_sort.rs`](../../../tests/inline_sort.rs) exercises the public
+//! configuration, construction, query, and result-inspection API end to end.
 
 use std::sync::Arc;
 use std::sync::Mutex;
