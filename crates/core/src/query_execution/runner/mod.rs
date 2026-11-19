@@ -1173,6 +1173,11 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
+struct ExactOrEvidence {
+    members: RoaringBitmap,
+    branches: Vec<(RoaringBitmap, Vec<String>)>,
+}
+
 fn exact_or_branch_evidence_fields(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
@@ -1181,12 +1186,13 @@ fn exact_or_branch_evidence_fields(
     catalog: &FileCatalog,
     predicates: &crate::query_predicate::PreparedPredicates,
     context: &ExecutionContext,
-) -> Result<Option<Vec<(RoaringBitmap, Vec<String>)>>, String> {
+) -> Result<Option<ExactOrEvidence>, String> {
     let BoundExpr::Or(parts) = filter else {
         return Ok(None);
     };
     let input = active.bitmap();
     let mut branches = Vec::with_capacity(parts.len());
+    let mut members = RoaringBitmap::new();
     for part in parts {
         let Some(fields) = segment_static_evidence_fields(part) else {
             return Ok(None);
@@ -1208,9 +1214,11 @@ fn exact_or_branch_evidence_fields(
         if !exact {
             return Ok(None);
         }
-        branches.push((bounds.must.as_ref() & &input, fields));
+        let branch = bounds.must.as_ref() & &input;
+        members |= &branch;
+        branches.push((branch, fields));
     }
-    Ok(Some(branches))
+    Ok(Some(ExactOrEvidence { members, branches }))
 }
 
 /// A single file's local residual work can run independently of other files. Only its
@@ -1769,15 +1777,6 @@ fn try_lifecycle_ordered_page(
         count = None;
         counters.match_count_complete = false;
     }
-    let exact_or_members = prepared.collections.iter().try_fold(0u64, |total, entry| {
-        entry
-            .filter
-            .as_ref()
-            .map(|filter| exact_or_branch_members(repo, segments, entry.collection_index, filter))
-            .transpose()
-            .map(|members| total.saturating_add(members.unwrap_or(0)))
-    })?;
-    counters.exact_posting_matches = counters.exact_posting_matches.max(exact_or_members);
     counters.returned_records = hits.len() as u64;
     Ok(Some(SearchResult {
         count,
@@ -1975,6 +1974,13 @@ fn search_segmented_impl(
         && retained_budget.is_none()
         && cache_key.is_none()
         && query.options.return_mode == ReturnMode::Locator
+        && (!query.options.evidence
+            || prepared.collections.iter().all(|entry| {
+                entry
+                    .filter
+                    .as_ref()
+                    .is_some_and(|filter| segment_static_evidence_fields(filter).is_some())
+            }))
         && let Some(result) = try_exact_segment_ordered_page(
             repo,
             query,
@@ -3493,43 +3499,13 @@ fn try_lifecycle_ordered_stream(
         let fts = entry.fts.clone();
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
-            let filter_may = filter
-                .as_ref()
-                .map(|filter| {
-                    let active = segment.active.bitmap();
-                    let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
-                        &segment.index,
-                        &segment.active,
-                        filter,
-                        collection,
-                        Some(catalog),
-                        &active,
-                        Some(&predicates),
-                        Some(context),
-                    )?;
-                    let logical = &segment.active.bitmap() & &segment.index.logical_records;
-                    filter_exact[collection_index][segment_index] = bounds.may == bounds.must
-                        || (excludes_raw_fallback(filter)
-                            && (bounds.may.as_ref() & &logical)
-                                == (bounds.must.as_ref() & &logical));
-                    Ok::<_, String>(if filter_exact[collection_index][segment_index] {
-                        bounds.must
-                    } else {
-                        bounds.may
-                    })
-                })
-                .transpose()?;
-            if request.options.evidence
+            let or_evidence = if request.options.evidence
                 && fts.is_none()
-                && filter_exact[collection_index][segment_index]
-                && filter
-                    .as_ref()
-                    .is_some_and(|filter| segment_static_evidence_fields(filter).is_none())
+                && let Some(filter) = filter.as_ref()
+                && matches!(filter, BoundExpr::Or(_))
+                && segment_static_evidence_fields(filter).is_none()
             {
-                let Some(filter) = filter.as_ref() else {
-                    return Ok(None);
-                };
-                let Some(branches) = exact_or_branch_evidence_fields(
+                exact_or_branch_evidence_fields(
                     &segment.index,
                     &segment.active,
                     filter,
@@ -3538,11 +3514,41 @@ fn try_lifecycle_ordered_stream(
                     &predicates,
                     context,
                 )?
-                else {
-                    return Ok(None);
-                };
-                evidence_branches[collection_index][segment_index] = Some(branches);
-            }
+            } else {
+                None
+            };
+            let filter_may = if let Some(or_evidence) = or_evidence {
+                filter_exact[collection_index][segment_index] = true;
+                evidence_branches[collection_index][segment_index] = Some(or_evidence.branches);
+                Some(Arc::new(or_evidence.members))
+            } else {
+                filter
+                    .as_ref()
+                    .map(|filter| {
+                        let active = segment.active.bitmap();
+                        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+                            &segment.index,
+                            &segment.active,
+                            filter,
+                            collection,
+                            Some(catalog),
+                            &active,
+                            Some(&predicates),
+                            Some(context),
+                        )?;
+                        let logical = &segment.active.bitmap() & &segment.index.logical_records;
+                        filter_exact[collection_index][segment_index] = bounds.may == bounds.must
+                            || (excludes_raw_fallback(filter)
+                                && (bounds.may.as_ref() & &logical)
+                                    == (bounds.must.as_ref() & &logical));
+                        Ok::<_, String>(if filter_exact[collection_index][segment_index] {
+                            bounds.must
+                        } else {
+                            bounds.may
+                        })
+                    })
+                    .transpose()?
+            };
             let fts_may = fts
                 .as_ref()
                 .zip(entry.text_term)
@@ -3578,10 +3584,6 @@ fn try_lifecycle_ordered_stream(
                     .iter()
                     .all(|exact| *exact)
         });
-        let single_collection = prepared.collections.len() == 1;
-        if single_collection && all_exact && !request.options.sort.is_empty() {
-            return Ok(None);
-        }
         if request.options.sort.is_empty() && !all_exact {
             return Ok(None);
         }

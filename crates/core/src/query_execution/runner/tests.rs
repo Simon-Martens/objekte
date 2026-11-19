@@ -6902,6 +6902,11 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     };
     let trace = view.explain(&query).unwrap();
     assert_eq!(trace[0].sort_strategy, "stored_order_page");
+    let stream_before = (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    );
     let mut rows = Vec::new();
     let outcome = view
         .search_stream(
@@ -6919,6 +6924,14 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     let StreamOutcome::Complete(summary) = outcome else {
         panic!("ordered stream did not complete")
     };
+    assert_eq!(
+        (
+            crate::query::prepared::production_prepare_calls() - stream_before.0,
+            crate::query::sort_binding::production_bound_sort_calls() - stream_before.1,
+            crate::query_execution::restrictions::predicate_bounds_calls() - stream_before.2,
+        ),
+        (1, 1, 2)
+    );
     assert_eq!(summary.count, Some(3));
     assert_eq!(view.search_reference(&query).unwrap().hits, rows);
     assert_eq!(rows[0].matched_fields, ["a"]);
@@ -6939,8 +6952,17 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     index.configure_verified_cache(0).unwrap();
     let mut direct_query = query.clone();
     direct_query.options.limit = 3;
+    let bounds_before = crate::query_execution::restrictions::predicate_bounds_calls();
     let direct = view.search(&direct_query).unwrap();
     assert!(!direct.counters.verified_result_hit);
+    assert_eq!(
+        crate::query_execution::restrictions::predicate_bounds_calls() - bounds_before,
+        2,
+        "one OR branch application per segment and input"
+    );
+    assert_eq!(direct.counters.files_opened, 0);
+    assert_eq!(direct.counters.bytes_read, 0);
+    assert_eq!(direct.counters.record_parses, 0);
     let direct_fields = direct
         .hits
         .iter()
@@ -6949,7 +6971,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     assert_eq!(direct_fields["A"], ["a"]);
     assert_eq!(direct_fields["B"], ["b"]);
     assert_eq!(direct_fields["C"], ["a", "b"]);
-    let mut without_evidence = direct_query;
+    let mut without_evidence = direct_query.clone();
     without_evidence.options.evidence = false;
     let without_evidence_result = view.search(&without_evidence).unwrap();
     assert_eq!(
@@ -6974,6 +6996,52 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     assert_eq!(counted.counters.files_opened, 0);
     assert_eq!(counted.counters.bytes_read, 0);
     assert_eq!(counted.counters.record_parses, 0);
+
+    let full = Arc::clone(&view.0.segments[0][0]);
+    let mut first_active = RoaringBitmap::new();
+    first_active.extend([0, 1]);
+    let mut second_active = RoaringBitmap::new();
+    second_active.extend([2, 3]);
+    let two_segments = vec![Arc::new(vec![
+        Arc::new(PublishedSegment {
+            id: crate::index::segment::SegmentId::new(10),
+            index: Arc::clone(&full.index),
+            active: ActiveRecords::from_bitmap(full.index.record_count(), first_active).unwrap(),
+        }),
+        Arc::new(PublishedSegment {
+            id: crate::index::segment::SegmentId::new(11),
+            index: Arc::clone(&full.index),
+            active: ActiveRecords::from_bitmap(full.index.record_count(), second_active).unwrap(),
+        }),
+    ])];
+    let two_before = crate::query_execution::restrictions::predicate_bounds_calls();
+    let two = search_segmented(
+        view.repository(),
+        &direct_query,
+        &view.0.active,
+        &two_segments,
+        &view.0.catalog,
+        view.revision(),
+    )
+    .unwrap();
+    assert_eq!(
+        crate::query_execution::restrictions::predicate_bounds_calls() - two_before,
+        4
+    );
+    assert_eq!(
+        two.hits,
+        search_segmented_reference(
+            view.repository(),
+            &direct_query,
+            &view.0.active,
+            &two_segments,
+            &view.0.catalog,
+            view.revision(),
+        )
+        .unwrap()
+        .hits
+    );
+    assert_eq!(two.counters.files_opened, 0);
     drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
