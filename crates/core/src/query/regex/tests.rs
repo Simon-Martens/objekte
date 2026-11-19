@@ -4,7 +4,7 @@ use crate::model::{FieldPath, LogicalType, RecordSlot};
 use crate::query::binding::fts::bind_fts;
 use crate::query::{FtsField, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::query_execution::restrictions::fts_candidates;
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{
     FieldDefinition, Schema, operation::BindingOperation, operation::CustomBinding,
     operation::RegisteredBinding, operation::Transform,

@@ -17,13 +17,11 @@ use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceDiagnostic, SourceRevision,
 };
-use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
+use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
 use crate::query::semantics::record::data_values;
 use crate::record_preparation::finish_build_record;
-use crate::repository::{
-    CollectionDefinition, IdentityPolicy, canonical_custom_text_key, map_binding_value,
-    string_values,
-};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
+use crate::schema::{Schema, operation::BindingOperation};
 use crate::source::access::read_record_range_for_build;
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, ReaderDiagnostic, SourceOutcome, TextDerivation,
@@ -32,6 +30,62 @@ use crate::source::{
     extraction::trim_oversized_build_buffer, registry::PreparedSource,
     text::visit_logical_strings_and_empty,
 };
+
+pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<Value> {
+    if let Value::Array(array) = value {
+        let values = array
+            .values
+            .iter()
+            .map(|item| map_binding_value(operation, item))
+            .collect::<Option<Vec<_>>>()?;
+        return Some(Value::Array(ArrayValue::from_unrestricted(values)));
+    }
+    operation.map_value(value)
+}
+
+pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
+    let single = match value {
+        Value::String(text) | Value::Id(text) => Some(text.as_str()),
+        _ => None,
+    };
+    let array = match value {
+        Value::Array(array) => Some(array),
+        _ => None,
+    };
+    single.into_iter().chain(
+        array
+            .into_iter()
+            .flat_map(|array| array.values.iter())
+            .filter_map(|value| match value {
+                Value::String(text) | Value::Id(text) => Some(text.as_str()),
+                _ => None,
+            }),
+    )
+}
+
+/// Built-in identity and case-fold registrations for the same logical field
+/// have identical candidate grams after mandatory index folding.
+pub(crate) fn canonical_custom_text_key(
+    schema: &Schema,
+    path: &[String],
+    name: &str,
+) -> (Vec<String>, String) {
+    let canonical = if schema
+        .custom
+        .contains_key(&(path.to_vec(), name.to_owned()))
+    {
+        schema
+            .custom
+            .keys()
+            .filter(|(candidate_path, _)| candidate_path == path)
+            .map(|(_, candidate_name)| candidate_name.as_str())
+            .min()
+            .unwrap_or(name)
+    } else {
+        name
+    };
+    (path.to_vec(), canonical.to_owned())
+}
 
 #[derive(Clone)]
 pub(crate) struct BatchFile {

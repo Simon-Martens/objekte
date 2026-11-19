@@ -9,7 +9,7 @@ use objekte_search_core::execution_options::BigramAlphabet;
 use objekte_search_core::index::segment::SegmentPolicy;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::session::IndexedRepository;
-use objekte_search_core::repository::RepositoryOptions;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 

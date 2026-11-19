@@ -74,7 +74,8 @@ use crate::record_preparation::{
 };
 use crate::reference::fts::eval_bound_fts;
 use crate::reference::{eval_unavailable_filter, filter::eval_term};
-use crate::repository::{CollectionState, Repository};
+use crate::repository::Repository;
+use crate::repository::state::CollectionState;
 use crate::source::access::{
     RecordRangeReader, SourceAccessSession, classify_source_read_failure_for_search,
     probe_source_unavailable_for_search, read_record_range_for_search,
@@ -274,7 +275,7 @@ impl Ord for FileWinner {
 
 fn inventory_fts_evidence(
     repo: &Repository,
-    collection: &crate::repository::CollectionState,
+    collection: &crate::repository::state::CollectionState,
     fts: &BoundFts,
     input: &RoaringBitmap,
 ) -> Result<HashMap<u32, HashSet<String>>, String> {

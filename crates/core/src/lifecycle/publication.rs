@@ -126,12 +126,13 @@ impl PublishedIndex {
             .iter()
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
-        let configuration_identity = crate::configuration::configuration_hash(
-            &definitions,
-            repository.options(),
-            &repository.sources,
-        )
-        .map_err(IndexError::IncompatibleConfiguration)?;
+        let configuration_identity =
+            crate::repository::configuration::identity::configuration_hash(
+                &definitions,
+                repository.options(),
+                &repository.sources,
+            )
+            .map_err(IndexError::IncompatibleConfiguration)?;
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
         let catalog = FileCatalog::from_parts(

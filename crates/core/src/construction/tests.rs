@@ -18,7 +18,7 @@ use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, FileInventory, FileStatus, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot, Value};
 use crate::query::{Query, QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema, operation::CustomBinding, operation::Transform};
 use crate::source::{ExtractedRecord, SourceFormat, TextSegment};
 use sha2::{Digest, Sha256};
@@ -36,7 +36,7 @@ fn measure_direct_shard_build_from_real_worker_batches() {
             .expect("set OBJEKTE_DIRECT_SHARD_FIXTURE to a Musenalm root"),
     );
     let configuration =
-        crate::repository_configuration::load_repository_configuration(&root).unwrap();
+        crate::repository::configuration::loader::load_repository_configuration(&root).unwrap();
     let definitions = configuration.definitions;
     let options = RepositoryOptions {
         ..Default::default()

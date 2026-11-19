@@ -4,7 +4,7 @@ use super::Payload;
 use crate::execution_options::ReturnMode;
 use crate::inventory::RecordClass;
 use crate::record_preparation::{materialize, prepare_query_record_with_execution};
-use crate::repository::CollectionState;
+use crate::repository::state::CollectionState;
 use crate::source::ScanProjection;
 use crate::streaming::ExecutionContext;
 

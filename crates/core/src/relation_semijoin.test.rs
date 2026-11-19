@@ -7,7 +7,8 @@ use crate::model::{LogicalType, Value};
 use crate::query::binding::filter::BoundExpr;
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::json::JsonReader;
 use crate::source::{

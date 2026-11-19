@@ -5,7 +5,7 @@ use crate::execution_options::ReturnMode;
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::lifecycle::{Index, IndexRevision, PublishedIndex};
 use crate::query::{Query, QueryOptions};
-use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 
 #[test]
@@ -27,7 +27,7 @@ fn index_from_repository_adopts_native_segments_without_repartitioning() {
             "data",
             SourceFormat::Json,
         )],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())

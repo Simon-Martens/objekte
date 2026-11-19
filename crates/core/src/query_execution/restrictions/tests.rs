@@ -2,7 +2,8 @@ use super::*;
 use crate::execution_options::ReturnMode;
 use crate::model::LogicalType;
 use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, operation::CustomBinding, operation::Transform};
 use crate::source::SourceFormat;
 use std::sync::Arc;
@@ -438,7 +439,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
         crate::execution_options::BigramAlphabet::Ascii,
         crate::execution_options::BigramAlphabet::Unicode,
     ] {
-        let options = crate::repository::RepositoryOptions {
+        let options = crate::repository::configuration::RepositoryOptions {
             bigram_alphabet: alphabet,
             ..Default::default()
         };
@@ -796,7 +797,7 @@ impl crate::source::SourceReader for SeparatorReader {
 #[test]
 fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     use crate::query::{FtsField, FtsQuery};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::{FieldDefinition, Schema, operation::RegisteredBinding};
     use crate::source::{SourceFormat, registry::SourceRegistry};
 
@@ -1094,7 +1095,7 @@ impl crate::schema::operation::BindingOperation for RemoveSpaces {
 
 #[test]
 fn transformed_raw_index_cannot_prune_identity_field_predicates() {
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::{Schema, operation::RegisteredBinding};
     let root = std::env::temp_dir().join(format!("objekte-raw-compat-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -1203,7 +1204,7 @@ struct KeyedOperation {
 #[test]
 fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     use crate::query::FtsQuery;
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::operation::RegisteredBinding;
     let root = std::env::temp_dir().join(format!(
         "objekte-fallback-raw-binding-{}",
@@ -1371,7 +1372,7 @@ impl crate::schema::operation::BindingOperation for KeyedOperation {
 #[test]
 fn registered_binding_has_identical_filter_and_fts_semantics() {
     use crate::query::{FtsField, Literal};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::operation::RegisteredBinding;
 
     let root = std::env::temp_dir().join(format!("objekte-keyed-binding-{}", std::process::id()));
@@ -1884,7 +1885,7 @@ fn record_id_lookup_respects_case_fold_binding() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -1983,7 +1984,7 @@ fn indexed_restriction_precedes_written_first_scan() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -2127,7 +2128,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())

@@ -8,7 +8,8 @@ use crate::query_execution::restrictions::{
     AccessPathEstimate, AccessPathKind, enumerate_paths, execute_path,
 };
 use crate::query_predicate::TermId;
-use crate::repository::{CollectionState, Repository};
+use crate::repository::Repository;
+use crate::repository::state::CollectionState;
 
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,

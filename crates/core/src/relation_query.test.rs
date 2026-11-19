@@ -4,7 +4,8 @@ use std::sync::Arc;
 use crate::model::LogicalType;
 use crate::query::{CaseSensitivity, FtsMode, Query};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
@@ -940,6 +941,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
     let optimized = view.search(&wildcard).unwrap();
     let reference = view.search_reference(&wildcard).unwrap();
     assert_eq!(optimized.count, Some(2));
+    assert_eq!(reference.count, Some(2));
     assert_eq!(
         optimized
             .hits
@@ -949,17 +951,30 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
         ["m1", "m2"]
     );
     assert_eq!(optimized.hits, reference.hits);
-    let mut first = wildcard.clone();
-    first.options.limit = 1;
     assert_eq!(
-        view.search(&first)
-            .unwrap()
+        reference
             .hits
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["m1"]
+        ["m1", "m2"]
     );
+    let mut first = wildcard.clone();
+    first.options.limit = 1;
+    for result in [
+        view.search(&first).unwrap(),
+        view.search_reference(&first).unwrap(),
+    ] {
+        assert_eq!(result.count, Some(2));
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["m1"]
+        );
+    }
 
     let selector_free = query(
         "mentions",
@@ -971,6 +986,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
     let optimized = view.search(&selector_free).unwrap();
     let reference = view.search_reference(&selector_free).unwrap();
     assert_eq!(optimized.count, Some(2));
+    assert_eq!(reference.count, Some(2));
     assert_eq!(
         optimized
             .hits
@@ -980,18 +996,31 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
         ["m2", "m1"]
     );
     assert_eq!(optimized.hits, reference.hits);
-    assert_eq!(optimized.counters.sort_target_reads, 0);
-    let mut first = selector_free.clone();
-    first.options.limit = 1;
     assert_eq!(
-        view.search(&first)
-            .unwrap()
+        reference
             .hits
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["m2"]
+        ["m2", "m1"]
     );
+    assert_eq!(optimized.counters.sort_target_reads, 0);
+    let mut first = selector_free.clone();
+    first.options.limit = 1;
+    for result in [
+        view.search(&first).unwrap(),
+        view.search_reference(&first).unwrap(),
+    ] {
+        assert_eq!(result.count, Some(2));
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["m2"]
+        );
+    }
 
     for request in [
         query(

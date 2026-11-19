@@ -22,10 +22,9 @@ use crate::index::segment::SegmentId;
 use crate::inventory::{CollectionBuilder, FileInventory, append_shifted_bitmap};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{CollectionId, FileId};
-use crate::repository::{
-    BuildProfileStats, CollectionDefinition, Repository, RepositoryOptions,
-    build_profile_rss_bytes, next_repository_instance,
-};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use crate::repository::statistics::{BuildProfileStats, build_profile_rss_bytes};
+use crate::repository::{Repository, next_repository_instance};
 use crate::source::{registry::PreparedSource, registry::SourceRegistry};
 
 enum ScheduledBuildJob {

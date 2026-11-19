@@ -3,7 +3,7 @@ use std::sync::Arc;
 use super::FileCatalog;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
-use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 
 #[test]

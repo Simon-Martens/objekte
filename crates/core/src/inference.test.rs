@@ -10,7 +10,8 @@ use crate::model::LogicalType;
 use crate::model::{RecordSlot, Value};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::query_execution::restrictions::AccessPathKind;
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::{ExtractedRecord, SourceFormat, SourceReader, registry::SourceRegistry};
 

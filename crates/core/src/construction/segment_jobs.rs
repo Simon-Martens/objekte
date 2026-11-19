@@ -4,7 +4,8 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 use crate::lifecycle::IndexError;
-use crate::repository::{CollectionDefinition, IncrementalSegmentProfile, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use crate::repository::statistics::IncrementalSegmentProfile;
 
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
 

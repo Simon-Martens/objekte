@@ -9,7 +9,8 @@ use crate::execution_options::{SortExpression, SortField};
 use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 use crate::streaming::{
@@ -2174,7 +2175,8 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
     let path = root.join("data/item.json");
     std::fs::write(&path, br#"{"id":"item","title":"old"}"#).unwrap();
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
-    definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition.identity =
+        crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
         .register_field(crate::schema::FieldDefinition {

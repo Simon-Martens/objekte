@@ -23,7 +23,7 @@ use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::query_results::Payload;
 use objekte_search_core::reference::filter::eval_filter;
 use objekte_search_core::reference::fts::eval_bound_fts;
-use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::schema::Schema;
 use objekte_search_core::source::json::JsonDecodedScalarsReader;
 use objekte_search_core::source::{ScanProjection, SourceFormat, SourceReader};

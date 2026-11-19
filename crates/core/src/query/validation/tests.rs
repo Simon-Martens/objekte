@@ -3,7 +3,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 use crate::execution_options::ReturnMode;
 use crate::model::LogicalType;
 use crate::query::{Query, QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::schema::FieldDefinition;
 use crate::source::SourceFormat;
 

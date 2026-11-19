@@ -85,7 +85,7 @@ mod tests {
         assert!(start_if_enabled(true).is_none());
         assert_eq!(DetailedInstant::now().elapsed(), Duration::ZERO);
         assert!(
-            !crate::repository::RepositoryOptions {
+            !crate::repository::configuration::RepositoryOptions {
                 profile_build: true,
                 ..Default::default()
             }

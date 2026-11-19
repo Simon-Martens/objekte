@@ -9,7 +9,8 @@ use crate::query::binding::filter::BoundExpr;
 use crate::query::binding::fts::BoundFts;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier};
 use crate::query_execution::restrictions::{PlanningCounters, TermChoice, estimate_fts_candidates};
-use crate::repository::{CollectionState, Repository};
+use crate::repository::Repository;
+use crate::repository::state::CollectionState;
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]

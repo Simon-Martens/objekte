@@ -1,5 +1,5 @@
 use super::*;
-use crate::repository::RepositoryOptions;
+use crate::repository::configuration::RepositoryOptions;
 use crate::source::registry::SourceRegistry;
 use sha2::{Digest, Sha256};
 
@@ -157,7 +157,7 @@ fn source_preparation_preserves_live_identity_and_generated_exclusions() {
     let second = prepare_source_definitions(&root, &first).unwrap();
     assert_eq!(second[0].discovery, first[0].discovery);
     assert_eq!(second[0].source_path, first[0].source_path);
-    let hash = crate::configuration::configuration_hash(
+    let hash = crate::repository::configuration::identity::configuration_hash(
         &first,
         RepositoryOptions::default(),
         &SourceRegistry::builtin(),

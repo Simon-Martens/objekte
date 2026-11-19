@@ -11,7 +11,7 @@ use std::time::SystemTime;
 use crate::discovery::{PreparedScanSelection, SymlinkPolicy, discover_stream};
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FileId};
-use crate::repository::CollectionDefinition;
+use crate::repository::configuration::CollectionDefinition;
 use crate::source::{registry::PreparedSource, registry::SourceRegistry};
 use roaring::RoaringBitmap;
 

@@ -11,7 +11,7 @@ use crate::inventory::FileStatus;
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FileId};
 use crate::model::{FieldPath, LogicalType, Number};
-use crate::repository::CollectionDefinition;
+use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
 use crate::source::{SourceFormat, registry::SourceRegistry};
 use std::time::Instant;

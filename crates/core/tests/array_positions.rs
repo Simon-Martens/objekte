@@ -6,7 +6,9 @@ use objekte_search_core::query::{
     Literal, Operator, Query, QueryOptions, parse_filter, parse_structured_filter,
 };
 use objekte_search_core::query_results::Payload;
-use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+};
 use objekte_search_core::schema::{
     FieldDefinition, Schema, operation::BindingOperation, operation::RegisteredBinding,
 };

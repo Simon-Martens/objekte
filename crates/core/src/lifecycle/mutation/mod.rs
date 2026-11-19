@@ -18,7 +18,7 @@ use crate::lifecycle::mutation::verified::{
 };
 use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView, PublishedIndex};
 use crate::model::{CollectionId, FileId, MetadataField, PathRoot};
-use crate::repository::IdentityPolicy;
+use crate::repository::configuration::IdentityPolicy;
 
 use preparation::{created_ns, prepare_replacement_bytes};
 

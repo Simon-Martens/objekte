@@ -16,7 +16,7 @@ use crate::execution_options::BigramAlphabet;
 use crate::index::bigram::storage_diagnostic_enabled;
 use crate::inference::InferenceConfig;
 use crate::model::{CollectionId, FileId};
-use crate::repository::CollectionDefinition;
+use crate::repository::configuration::CollectionDefinition;
 use crate::source::registry::PreparedSource;
 
 use super::batch::{BatchContribution, SourceFileInput, process_batch_profiled};

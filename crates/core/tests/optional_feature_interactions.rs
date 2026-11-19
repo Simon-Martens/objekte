@@ -7,7 +7,9 @@ use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, Infe
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,

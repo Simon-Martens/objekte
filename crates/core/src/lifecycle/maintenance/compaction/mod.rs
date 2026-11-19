@@ -11,7 +11,7 @@ use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::maintenance::MaintenancePhase;
 use crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
-use crate::repository::CollectionState;
+use crate::repository::state::CollectionState;
 
 /// Dense maintenance result. Old pinned views may keep retired memory until
 /// their readers finish; the new root contains only active contributions.

@@ -4,7 +4,7 @@ use crate::index::sorting::Placement;
 use crate::model::{ArrayValue, LogicalType, Number};
 use crate::query::QueryOptions;
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, operation::RegisteredBinding};
 use crate::source::SourceFormat;
 

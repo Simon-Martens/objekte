@@ -5,7 +5,7 @@ use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 
 use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
-use objekte_search_core::repository::RepositoryOptions;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 
 fn run() -> Result<(), String> {

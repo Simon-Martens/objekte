@@ -6,7 +6,7 @@ use std::path::PathBuf;
 
 use objekte_search_core::execution_options::BigramAlphabet;
 use objekte_search_core::query_results::SearchHit;
-use objekte_search_core::repository::RepositoryOptions;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 
 fn main() {

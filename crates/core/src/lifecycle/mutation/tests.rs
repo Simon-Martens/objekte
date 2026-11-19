@@ -8,7 +8,7 @@ use crate::lifecycle::mutation::DeleteStrategy;
 use crate::model::{CollectionId, FieldPath, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 

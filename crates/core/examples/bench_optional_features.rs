@@ -21,7 +21,7 @@ use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
-use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,

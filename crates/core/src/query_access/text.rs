@@ -13,7 +13,7 @@ use crate::query_execution::restrictions::{
 };
 use crate::query_predicate::PreparedPredicates;
 use crate::query_predicate::TermId;
-use crate::repository::CollectionState;
+use crate::repository::state::CollectionState;
 
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,

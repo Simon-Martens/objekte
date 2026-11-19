@@ -4,7 +4,7 @@ use crate::execution_options::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::model::LogicalType;
 use crate::model::RecordSlot;
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 

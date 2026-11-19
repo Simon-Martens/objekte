@@ -14,7 +14,7 @@ use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
 use crate::query::{Operator, Quantifier};
 use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
-use crate::repository::CollectionState;
+use crate::repository::state::CollectionState;
 use crate::schema::{Schema, operation::Transform};
 
 /// Physical identity is used only to resolve a selected borrowed access. It

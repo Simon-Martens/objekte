@@ -6,7 +6,7 @@ use crate::lifecycle::maintenance::{
     MaintenanceWorkerEntryHook,
 };
 use crate::lifecycle::{Index, IndexError};
-use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::source::registry::SourceRegistry;
 

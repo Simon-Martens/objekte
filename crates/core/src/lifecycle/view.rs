@@ -99,7 +99,7 @@ pub struct CollectionIndexObservation {
 
 impl IndexView {
     /// Startup observations belonging to this immutable publication.
-    pub fn startup_stats(&self) -> &crate::repository::StartupStats {
+    pub fn startup_stats(&self) -> &crate::repository::statistics::StartupStats {
         self.repository().startup()
     }
 
@@ -265,7 +265,7 @@ impl IndexView {
     /// Configured collections captured by this publication.
     pub fn collection_definitions(
         &self,
-    ) -> impl Iterator<Item = &crate::repository::CollectionDefinition> + '_ {
+    ) -> impl Iterator<Item = &crate::repository::configuration::CollectionDefinition> + '_ {
         self.repository()
             .collections()
             .iter()

@@ -20,7 +20,7 @@ use crate::query_results::{Payload, SearchHit, SearchResult};
 use crate::record_preparation::finish_build_record;
 use crate::reference::{eval_unavailable_filter, filter::eval_filter};
 use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
-use crate::repository::{CollectionDefinition, IdentityPolicy};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{
     ExtractedRecord, ReaderDiagnostic, SourceFormat, SourceOutcome,
@@ -439,7 +439,7 @@ mod tests {
     use super::*;
     use crate::model::LogicalType;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, parse_filter};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::FieldDefinition;
 
     #[test]

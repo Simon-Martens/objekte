@@ -6,7 +6,7 @@ use std::time::Instant;
 use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::schema::FieldDefinition;
 use objekte_search_core::source::SourceFormat;
 

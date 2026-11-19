@@ -296,7 +296,9 @@ fn missing_null_empty_truth_table() {
 fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-type-index-{}", std::process::id()));
@@ -424,7 +426,10 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
 fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
     use crate::execution_options::ReturnMode;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::Repository;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-dynamic-fields-{}", std::process::id()));

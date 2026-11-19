@@ -11,7 +11,8 @@ use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::model::{FileId, Value};
 use crate::query::Query;
 use crate::query_results::{SearchHit, SearchResult};
-use crate::repository::{Repository, StartupStats};
+use crate::repository::Repository;
+use crate::repository::statistics::StartupStats;
 use crate::streaming::{
     CancellationToken, ExecutionErrorKind, ResultScope, StreamControl, StreamError, StreamEvent,
     StreamOptions, StreamOutcome,

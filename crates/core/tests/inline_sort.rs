@@ -5,7 +5,10 @@ use objekte_search_core::execution_options::{ReturnMode, SortExpression, SortFie
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::query_results::{Payload, SearchHit, SearchResult};
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
@@ -212,6 +215,91 @@ fn inline_sort_matches_registered_options_and_reference() {
         ["a", "b", "c", "d", "e"]
     );
     drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn defining_public_modules_configure_build_query_pin_and_inspect_results() {
+    let (root, index, view) = fixture();
+    let mut query =
+        Query::from_workload(&case(Some("year = 3 SORT BY title ASC"), vec![])).unwrap();
+    query.options.limit = 2;
+
+    for reference in [false, true] {
+        let result: SearchResult = if reference {
+            view.search_reference(&query).unwrap()
+        } else {
+            view.search(&query).unwrap()
+        };
+        let hit: &SearchHit = &result.hits[0];
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["c", "d"]
+        );
+        assert_eq!(result.count, Some(3));
+        assert_eq!(hit.collection, "data");
+        assert_eq!(hit.file_path, std::path::Path::new("data/c.json"));
+        assert_eq!(hit.generation, view.revision().0);
+        assert_eq!(hit.byte_start, 0);
+        assert_eq!(hit.byte_end, hit.file_size);
+        assert!(hit.payload.is_none());
+
+        let mut second = query.clone();
+        second.options.offset = 2;
+        let second: SearchResult = if reference {
+            view.search_reference(&second).unwrap()
+        } else {
+            view.search(&second).unwrap()
+        };
+        assert_eq!(second.count, Some(3));
+        assert_eq!(
+            second
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["b"]
+        );
+
+        for mode in [ReturnMode::Logical, ReturnMode::Bytes] {
+            let mut request = query.clone();
+            request.options.return_mode = mode.clone();
+            let result: SearchResult = if reference {
+                view.search_reference(&request).unwrap()
+            } else {
+                view.search(&request).unwrap()
+            };
+            let hit: &SearchHit = &result.hits[0];
+            match (&mode, &hit.payload) {
+                (ReturnMode::Logical, Some(Payload::Logical(value))) => {
+                    let objekte_search_core::model::Value::Object(fields) = value else {
+                        panic!("logical payload must be an object");
+                    };
+                    assert_eq!(
+                        fields.get("title"),
+                        Some(&objekte_search_core::model::Value::String("Alpha".into()))
+                    );
+                    assert_eq!(
+                        fields.get("year"),
+                        Some(&objekte_search_core::model::Value::Number(
+                            objekte_search_core::model::Number::integer(3)
+                        ))
+                    );
+                }
+                (ReturnMode::Bytes, Some(Payload::Bytes(bytes))) => {
+                    assert_eq!(bytes, &std::fs::read(root.join(&hit.file_path)).unwrap());
+                }
+                _ => panic!("unexpected payload for {mode:?}: {:?}", hit.payload),
+            }
+        }
+    }
+
+    drop(view);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

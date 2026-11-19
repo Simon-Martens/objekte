@@ -1,7 +1,7 @@
 use super::*;
 use crate::model::Value;
 use crate::query::{QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 
 #[test]

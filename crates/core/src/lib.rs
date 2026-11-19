@@ -4,7 +4,6 @@
 //! workload execution live in the CLI integration layer.
 
 pub mod completion;
-pub mod configuration;
 mod construction;
 mod decimal;
 mod detailed_timer;
@@ -34,7 +33,6 @@ mod relation_query;
 mod relation_semijoin;
 mod relation_target_cache;
 pub mod repository;
-pub mod repository_configuration;
 pub mod schema;
 pub mod source;
 pub mod streaming;

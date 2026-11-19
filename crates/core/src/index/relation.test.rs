@@ -1,7 +1,8 @@
 use super::*;
 use crate::model::LogicalType;
 use crate::relation::RelationCardinality;
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::FieldDefinition;
 use crate::source::SourceFormat;
 

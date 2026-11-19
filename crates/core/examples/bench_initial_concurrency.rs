@@ -15,7 +15,7 @@ use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::initial::{InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::RepositoryOptions;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::workload::load_extended_manifest;
 use serde_json::json;
 
