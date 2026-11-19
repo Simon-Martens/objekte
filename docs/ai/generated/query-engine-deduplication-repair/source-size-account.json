@@ -13,14 +13,30 @@
       "physical_lines": 125744
     }
   },
-  "repair": {
-    "from": "d06444547660693cf168bce45a9db8ee360c31cd",
-    "to": "da7a1e57faf29f0889592e5b3df56b2a9c4ffcf2",
-    "production_added": 98,
-    "production_removed": 109,
-    "production_net": -11,
-    "test_added": 524,
-    "test_removed": 23,
-    "test_net": 501
-  }
+  "historical_endpoints": [
+    {
+      "revision": "f4b3c9f0dac82315e856c7cd66080d01d779db14",
+      "production_lines": 71732,
+      "test_lines": 54502,
+      "physical_lines": 126234
+    }
+  ],
+  "historical_ranges": [
+    {
+      "from": "d35ddde56e17114da35d1a76e776615262897409",
+      "to": "d06444547660693cf168bce45a9db8ee360c31cd",
+      "production_added": 872,
+      "production_removed": 942,
+      "test_added": 239,
+      "test_removed": 16
+    },
+    {
+      "from": "d06444547660693cf168bce45a9db8ee360c31cd",
+      "to": "f4b3c9f0dac82315e856c7cd66080d01d779db14",
+      "production_added": 98,
+      "production_removed": 109,
+      "test_added": 524,
+      "test_removed": 23
+    }
+  ]
 }
