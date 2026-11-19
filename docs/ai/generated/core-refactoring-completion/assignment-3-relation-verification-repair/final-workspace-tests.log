@@ -1,0 +1,324 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/core)
+   Compiling objekte-cli v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/cli)
+   Compiling objekte-desktop v0.1.0 (/home/simon/source/objekte-integration-core-refactoring-completion/crates/desktop)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.89s
+     Running unittests src/lib.rs (target/debug/deps/objekte_cli-0cc393467852bbe3)
+
+running 81 tests
+test output::tests::compaction_preserves_tokens_and_string_contents ... ok
+test output::tests::json_string_escaping_has_no_terminal_control_bytes ... ok
+test arguments::tests::repeated_paths_reject_overlap ... ok
+test arguments::tests::automatic_indexing_requires_no_value_but_not_a_query ... ok
+test query_input::tests::invalid_utf8_in_query_file_is_fatal_input_error ... ok
+test arguments::tests::diagnostic_aliases_are_equivalent ... ok
+test arguments::tests::input_modes_and_repeated_positionals_are_rejected ... ok
+test loader::tests::manual_schema_still_ignores_repository_metadata ... ok
+test query_input::tests::direct_fts_does_not_decode_backslash_escapes ... ok
+test output::tests::diagnostic_timings_are_numeric_milliseconds_with_three_decimals ... ok
+test loader::tests::shared_cli_and_tui_loader_enables_bounded_verified_cache ... ok
+test tui::app::tests::cli_field_labels_include_source_id_and_both_comparison_operands ... ok
+test arguments::tests::repeated_paths_resolve_under_one_root_and_select_multiple_collections ... ok
+test query_input::tests::quoted_inputs_are_complete_json_string_literals ... ok
+test arguments::tests::bare_command_requires_a_query_or_interactive_mode ... ok
+test arguments::tests::removed_storage_flags_are_unsupported_arguments ... ok
+test arguments::tests::directly_constructed_open_options_keep_cli_conflicts ... ok
+test output::tests::event_sequence_is_monotonic ... ok
+test arguments::tests::repository_mode_uses_its_root_and_rejects_single_folder_options ... ok
+test query_input::tests::file_lines_keep_physical_numbers_and_ignore_blank_lines ... ok
+test loader::tests::default_folder_policy_excludes_configuration_directory_once ... ok
+test tui::clipboard::tests::osc52_encodes_unicode_and_control_characters_as_data ... ok
+test tui::input::tests::typing_inserts_at_the_cursor_and_counts_characters ... ok
+test query_input::tests::pasted_batch_uses_file_line_numbers_and_bom_rules ... ok
+test tui::input::tests::edits_report_changes_and_moves_do_not ... ok
+test tui::input::tests::replace_puts_the_cursor_after_the_inserted_text ... ok
+test tui::input::tests::word_commands_delete_and_move_by_words ... ok
+test query_input::tests::opening_preview_replays_query_and_input_error_in_order ... ok
+test tui::app::tests::record_find_uses_the_same_non_turkic_full_fold_policy ... ok
+test loader::tests::repository_loader_matches_core_definitions_and_protects_schema_paths ... ok
+test tui::export::tests::raw_fallback_export_keeps_status_and_explicit_unavailable_state ... ok
+test tui::input::tests::shifted_and_altgr_characters_are_text ... ok
+test tui::settings::tests::a_broken_file_reports_its_path ... ok
+test tui::settings::tests::columns_toggle_per_collection ... ok
+test tui::settings::tests::history_moves_repeats_to_the_end_and_skips_empty_queries ... ok
+test tui::settings::tests::old_settings_keep_the_existing_sensitive_literal_default ... ok
+test tui::settings::tests::settings_round_trip_and_a_missing_file_gives_defaults ... ok
+test tui::view::syntax::tests::error_positions_count_characters ... ok
+test tui::view::syntax::tests::tokens_get_their_colours ... ok
+test tui::view::syntax::tests::unterminated_strings_and_escapes_stay_strings ... ok
+test execution::tests::unavailable_source_is_a_partial_query_error_not_a_success ... ok
+test tui::app::tests::sort_choices_apply_only_to_the_selected_collection ... ok
+test loader::tests::configured_source_keeps_unrelated_sibling_directories ... ok
+test tui::tests::enter_navigates_outgoing_and_backlinks_with_history_and_dangling_states ... ok
+test tui::view::tests::loading_screen_shows_index_progress_before_repository_is_ready ... ok
+test tui::tests::record_find_copy_and_adjacent_result_shortcuts_work ... ok
+test tui::app::tests::provisional_delta_preserves_selection_and_waits_for_complete_export ... ok
+test tui::tests::mouse_click_opens_references_and_backlinks_and_inspection_needs_no_source_file ... ok
+test execution::tests::source_open_ignores_existing_index_artifacts ... ok
+test tui::app::tests::history_saved_queries_and_columns_persist_in_old_settings_format ... ok
+test tui::record::tests::cli_projection_uses_decoded_paths_and_verified_text ... ok
+test tui::tests::mouse_click_on_wrapped_value_selects_its_record_field ... ok
+test tui::tests::filter_enter_inserts_suggestion_then_returns_to_query_action ... ok
+test tui::tests::typing_from_catalogue_opens_query_control ... ok
+test tui::record::tests::logical_payload_is_structured_and_non_json_bytes_have_raw_view ... ok
+test tui::tests::keys_switch_inputs_open_detail_and_choose_collection ... ok
+test tui::view::tests::cli_result_table_has_only_fixed_columns_until_query_adds_fields ... ok
+test tui::tests::action_palette_opens_existing_controls_and_columns_scroll ... ok
+test tui::app::tests::invalid_filter_reports_error_and_stale_result_is_ignored ... ok
+test loader::tests::configured_open_uses_the_already_loaded_schema ... ok
+test tui::app::tests::cli_columns_follow_filter_and_sort_without_schema_defaults ... ok
+test tui::tests::section_keys_jump_to_outgoing_and_backlinks ... ok
+test tui::record::tests::nested_json_columns_and_field_folding_keep_occurrence_labels ... ok
+test tui::tests::old_search_mode_shortcuts_toggle_new_core_requests ... ok
+test tui::app::tests::search_modes_use_core_semantics_and_saved_queries_restore_them ... ok
+test tui::app::tests::selected_and_complete_exports_write_json_without_overwriting ... ok
+test tui::tests::tab_cycles_available_record_sections_and_shift_tab_reverses ... ok
+test tui::tests::cli_mode_keeps_shortcuts_and_restricts_collection_and_links ... ok
+test tui::app::tests::filter_completion_uses_current_schema_metadata_and_posting_keys ... ok
+test tui::app::tests::full_text_filter_and_collection_scope_use_new_core ... ok
+test tui::app::tests::result_columns_prioritize_matches_filters_and_sort ... ok
+test tui::app::tests::pages_load_before_selection_reaches_the_end ... ok
+test tui::view::tests::discovered_file_catalogue_shows_physical_metadata_without_record_claims ... ok
+test tui::view::tests::long_record_values_wrap_and_keep_screen_lines_on_the_same_field ... ok
+test tui::view::tests::draws_query_results_and_detail_on_small_terminal ... ok
+test tui::view::tests::detail_renders_structured_fields_and_relation_states ... ok
+test tui::view::tests::search_options_and_action_palette_are_visible ... ok
+test tui::view::tests::match_column_stays_after_ids_when_result_fields_scroll ... ok
+test tui::view::tests::long_search_line_keeps_the_cursor_and_tail_visible ... ok
+test tui::view::tests::match_summary_uses_the_field_value_it_labels ... ok
+test tui::app::tests::cli_navigation_keeps_only_three_result_pages ... ok
+
+test result: ok. 81 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+
+     Running unittests src/main.rs (target/debug/deps/obj-a780a51543ac842d)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/obj_process.rs (target/debug/deps/obj_process-886f7809b513c990)
+
+running 34 tests
+test musenalm_auto_index_restricts_year_across_the_whole_folder ... ignored, full 148,488-file Musenalm acceptance; run explicitly
+test bare_obj_requires_a_query ... ok
+test help_and_version_do_not_open_the_collection ... ok
+test repeated_paths_reject_duplicate_collection_names ... ok
+test tui_requires_terminal_and_rejects_query_file_before_building ... ok
+test removed_storage_flags_are_unsupported_arguments ... ok
+test repository_mode_requires_valid_collection_metadata ... ok
+test malformed_fallback_keeps_valid_utf8_or_binary_raw_bytes ... ok
+test relative_file_identity_distinguishes_duplicate_basenames ... ok
+test manual_and_automatic_postings_build_together ... ok
+test computed_sort_orders_all_results_before_emitting_rows ... ok
+test generated_index_namespaces_are_excluded_from_source_discovery ... ok
+test malformed_query_line_is_terminal_but_later_lines_execute ... ok
+test protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals ... ok
+test empty_query_file_is_an_input_error ... ok
+test nearby_json_schema_is_indexed_as_ordinary_data ... ok
+test diagnostic_flag_keeps_stdout_structured_and_reports_stderr_json ... ok
+test property_names_do_not_become_full_text ... ok
+test single_folder_schema_ignores_relations_to_unavailable_collections ... ok
+test diagnostic_lists_inferred_btree_paths_after_a_source_build ... ok
+test relative_source_paths_do_not_depend_on_process_directory ... ok
+test control_c_cancels_after_one_query_without_a_success_terminal ... ok
+test search_without_index_flags_leaves_disk_cache_absent ... ok
+test both_alphabets_keep_unicode_full_text_matches ... ok
+test auto_index_flag_preserves_answers_and_reports_short_string_capability ... ok
+test root_queries_and_scalar_text_use_original_document_tokens ... ok
+test schema_bytes_and_inference_modes_rebuild_from_source ... ok
+test downstream_broken_pipe_stops_cleanly ... ok
+test repeated_paths_open_only_selected_collections_without_repository_configuration ... ok
+test all_results_are_not_cut_at_fifty_and_finite_count_is_exact ... ok
+test default_folder_admits_root_shapes_and_hidden_json ... ok
+test explicit_schema_and_auto_index_have_independent_cli_modes ... ok
+test repository_mode_loads_collections_and_keeps_available_relations ... ok
+test boolean_field_predicates_keep_cli_results_and_errors_exact ... ok
+
+test result: ok. 33 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running tests/obj_removed_flags.rs (target/debug/deps/obj_removed_flags-aea28750b4dd5cb3)
+
+running 1 test
+test old_snapshot_spellings_are_unsupported ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/objekte_desktop-017696b94fb14904)
+
+running 161 tests
+test backend::query::tests::measure_desktop_lifecycle_query_cache ... ignored, manual desktop backend cache timing and work-counter measurement
+test backend::export::tests::unavailable_source_does_not_leave_a_shortened_successful_export ... ok
+test backend::query::tests::filter_prefix_wildcard_matches_alpha ... ok
+test backend::batch::tests::output_rejects_source_directory_and_existing_file ... ok
+test controller::adapt::tests::configured_repository_builds_from_its_source_root ... ok
+test controller::adapt::tests::desktop_open_has_no_storage_target_and_query_has_no_range ... ok
+test controller::adapt::tests::disabled_filter_keeps_editor_text_out_of_execution ... ok
+test controller::adapt::tests::empty_path_never_defaults_to_process_working_directory ... ok
+test backend::export::tests::all_export_includes_rows_beyond_loaded_viewport ... ok
+test backend::index_lifecycle::tests::manual_shutdown_does_not_write_an_index ... ok
+test controller::adapt::tests::opening_modes_preserve_cli_validation ... ok
+test backend::ndjson::tests::pure_queries_keep_cli_direct_modes_and_requested_range ... ok
+test backend::open::tests::incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cache ... FAILED
+test backend::batch::tests::missing_query_file_emits_cli_input_error_after_run_start ... ok
+test controller::adapt::tests::quoted_cli_literal_uses_json_string_decoding ... ok
+test backend::export::tests::export_rejects_source_and_overwrite_and_cancellation ... ok
+test backend::open::tests::repeated_paths_keep_cli_collection_names ... ok
+test backend::open::tests::incremental_catalogue_preserves_non_utf8_file_paths ... ok
+test backend::ndjson::tests::invalid_combination_emits_input_error_and_output_never_overwrites ... ok
+test controller::lifecycle_navigation::tests::publication_identity_rejects_replacements_with_equal_numeric_revisions ... ok
+test backend::query::tests::source_unavailability_never_supplies_a_false_exact_total ... ok
+test backend::export::tests::malformed_source_keeps_raw_fallback_payload_in_export ... ok
+test controller::lifecycle_navigation::tests::result_and_tab_jobs_require_their_own_generations ... ok
+test backend::query::tests::pinned_pages_and_counts_do_not_mix_after_a_publication ... ok
+test backend::export::tests::zero_limit_exports_empty_valid_document ... ok
+test controller::projection::tests::fields_hide_empty_values_and_inline_small_scalar_arrays ... ok
+test controller::open_detection::tests::malformed_configuration_does_not_fall_back_to_plain_folder ... ok
+test controller::open_detection::tests::plain_folder_and_missing_path_are_distinct ... ok
+test backend::batch::tests::finite_batch_uses_one_pinned_publication_after_addition ... ok
+test backend::query::tests::combines_full_text_filter_and_case_options ... ok
+test backend::export::tests::removed_record_cannot_be_exported_from_an_old_row_identity ... ok
+test backend::batch::tests::output_rejects_source_even_when_open_paths_are_empty ... ok
+test backend::export::tests::selected_and_all_exports_match_tui_json_shape ... ok
+test backend::query::tests::directory_scope_preserves_prefix_boundaries_and_combines_with_filter ... ok
+test backend::open::tests::opens_folder_without_index_artifacts ... ok
+test backend::batch::tests::partial_source_batch_keeps_the_protocol_but_reports_failure ... ok
+test backend::export::tests::json_export_can_retain_the_selected_publication ... ok
+test controller::projection::tests::nested_projection_distinguishes_null_missing_and_unavailable ... ok
+test controller::runtime::tests::bounded_batch_status_extraction_skips_large_hits ... ok
+test backend::index_lifecycle::tests::commands_act_on_the_open_sessions_live_index ... ok
+test controller::open_detection::tests::existing_configured_repository_is_recognized_without_opening_data ... ok
+test controller::runtime::tests::cancelled_replacement_open_invalidates_late_loader_without_losing_active_draft ... ok
+test backend::query::tests::inline_sort_and_cancelled_work_are_reported ... ok
+test controller::filter_validation::tests::inline_sort_and_quoted_literal_conflicts_are_checked ... ok
+test controller::filter_validation::tests::disabled_filter_is_ignored_without_changing_its_draft ... ok
+test backend::query::tests::desktop_page_reuses_verified_order_and_keeps_pinned_revision ... ok
+test controller::projection::tests::inspector_uses_captured_query_for_filter_and_fts_emphasis ... ok
+test backend::record::tests::canonical_lookup_under_new_view_never_follows_a_retired_record_slot ... ok
+test controller::projection::tests::nested_columns_are_available_but_hidden_until_explicitly_shown ... ok
+test backend::ndjson::tests::combined_query_exports_full_sorted_range_with_cli_event_order ... ok
+test backend::query::tests::viewport_pages_respect_range_without_becoming_total_limit ... ok
+test controller::filter_validation::tests::desktop_validates_metadata_filters_with_size_units ... ok
+test controller::projection::tests::metadata_columns_show_captured_values_without_a_json_payload ... ok
+test controller::runtime::tests::export_uses_current_valid_draft_before_debounce_runs ... ok
+test controller::filter_validation::tests::metadata_choices_are_typed_and_available_in_every_scope ... ok
+test controller::projection::tests::leading_columns_follow_predicate_order_and_keep_metadata_distinct ... ok
+test controller::filter_validation::tests::field_choices_include_metadata_schema_and_loaded_columns ... ok
+test controller::filter_validation::tests::incomplete_filter_reports_position_and_keeps_it_invalid ... ok
+test controller::runtime::tests::active_record_selection_follows_reordered_and_appended_results ... ok
+test ui::filter_builder::tests::boolean_field_tests_round_trip_through_the_authoritative_filter_text ... ok
+test controller::projection::tests::metadata_and_quoted_data_paths_remain_distinct_and_creation_can_be_null ... ok
+test ui::filter_builder::tests::incomplete_builder_row_does_not_erase_current_filter ... ok
+test controller::projection::tests::match_preview_marks_actual_field_and_fts_span ... ok
+test controller::projection::tests::metadata_cells_agree_with_filters_combining_metadata_and_record_fields ... ok
+test ui::filter_builder::tests::boolean_tests_reject_scalar_orders_and_invalid_values ... ok
+test controller::projection::tests::detail_marks_matching_fields_from_core_evidence ... ok
+test ui::filter_builder::tests::supported_manual_conditions_populate_without_rewriting_text ... ok
+test ui::filter_builder::tests::numeric_builder_rejects_invalid_sizes_and_nonliteral_expressions ... ok
+test ui::filter_builder::tests::numeric_builder_values_accept_exact_size_units_and_round_trip ... ok
+test ui::filter_builder::tests::typed_serialization_escapes_strings_and_keeps_numbers_unquoted ... ok
+test controller::runtime::tests::activating_record_tab_selects_matching_result_or_clears_old_selection ... ok
+test controller::projection::tests::metadata_projection_keeps_the_page_values_after_the_source_disappears ... ok
+test ui::filter_builder::tests::string_type_without_entered_value_remains_incomplete ... ok
+test ui::filter_builder::tests::text_edits_and_undo_rebuild_builder_from_authoritative_text ... ok
+test controller::runtime::tests::indexed_directory_tree_follows_added_and_deleted_files ... ok
+test controller::runtime::tests::main_query_change_preserves_tab_context_and_close_cancels_its_work ... ok
+test controller::projection::tests::match_preview_keeps_every_nested_field_without_an_excerpt ... ok
+test controller::filter_validation::tests::unquoted_wildcard_gets_a_useful_filter_error ... ok
+test ui::filter_builder::tests::unsupported_valid_expressions_never_show_partial_rows ... ok
+test ui::open_dialog::tests::adding_and_removing_rows_switches_to_multiple_folder_request ... ok
+test ui::open_dialog::tests::automatic_mode_waits_for_detection_and_preserves_invalid_configuration ... ok
+test controller::runtime::tests::declared_enum_completes_without_a_posting_dictionary ... ok
+test backend::batch::tests::retained_batch_matches_cli_protocol_and_continues_after_query_error ... ok
+test ui::open_dialog::tests::editing_folder_invalidates_pending_schema_picker ... ok
+test ui::open_dialog::tests::configured_repository_detection_selects_repository_mode ... ok
+test ui::open_dialog::tests::picker_and_detection_reject_late_results_after_edit_or_close ... ok
+test ui::model::tests::detail_bounds_raw_source_and_nested_rows ... ok
+test ui::model::tests::page_bounds_rows_columns_and_multibyte_cells_without_changing_total ... ok
+test ui::open_dialog::tests::schema_picker_is_rejected_after_dialog_closes ... ok
+test ui::panels::field_copy_tests::json_null_copies_its_literal ... ok
+test ui::panels::field_copy_tests::aggregate_and_clipped_previews_are_not_copied_as_complete_values ... ok
+test ui::panels::index_controls_tests::unknown_total_is_indeterminate ... ok
+test ui::panels::display_title_tests::uses_a_present_display_name_and_falls_back_to_record_identity ... ok
+test ui::panels::field_copy_tests::nested_field_copies_full_path_and_scalar_value ... ok
+test ui::preferences::tests::bookmarks_use_definition_identity_and_keep_disabled_filter ... ok
+test ui::panels::index_controls_tests::interval_is_validated_only_when_applied ... ok
+test controller::runtime::tests::unchanged_index_status_does_not_redraw_the_workspace ... ok
+test controller::runtime::tests::invalid_current_request_cannot_export_previous_results ... ok
+test controller::runtime::tests::invalid_filter_does_not_start_query_or_replace_visible_page ... ok
+test ui::model::tests::page_budget_does_not_change_row_identity ... ok
+test ui::preferences::tests::directory_scope_round_trips_through_saved_queries_and_history ... ok
+test ui::preferences::tests::column_widths_and_wrapping_persist_per_collection ... ok
+test ui::render::directory_tree_tests::collapsed_parent_marks_only_its_selected_descendant ... ok
+test ui::render::directory_tree_tests::nested_folders_require_all_ancestors_to_be_expanded ... ok
+test ui::preferences::tests::lifecycle_preferences_are_off_by_default_and_scoped_to_source ... ok
+test ui::preferences::tests::nested_column_visibility_is_explicit_and_scoped ... ok
+test ui::state::tests::exhausted_incomplete_page_never_infers_an_exact_total ... ok
+test ui::sort::tests::empty_and_multi_key_sort_have_one_source ... ok
+test ui::state::tests::file_sidebar_shows_all_folders_and_resolves_collection_scope_on_selection ... ok
+test ui::preferences::tests::legacy_storage_fields_do_not_discard_ordinary_settings ... ok
+test ui::state::tests::index_progress_does_not_erase_query_validation_or_displayed_page ... ok
+test ui::state::tests::index_change_clears_previews_for_all_queries ... ok
+test ui::state::tests::late_validation_cannot_replace_newer_invalid_state ... ok
+test ui::state::tests::continuation_appends_once_and_exhaustion_establishes_total ... ok
+test ui::sort::tests::cycles_sort_and_preserves_quoted_words ... ok
+test ui::state::tests::open_record_previews_survive_tab_moves_and_prune_on_close ... ok
+test ui::preferences::tests::migration_preserves_legacy_names_order_columns_and_theme ... ok
+test ui::preferences::tests::generated_titles_are_display_only ... ok
+test ui::state::tests::columns_update_preserves_hidden_choices ... ok
+test ui::state::tests::opening_a_repository_returns_to_the_results_workspace ... ok
+test ui::state::tests::provisional_page_replacement_preserves_record_identity_and_finalizes_count ... ok
+test ui::state::tests::provisional_delta_appends_without_inventing_a_final_total ... ok
+test ui::state::tests::query_restore_does_not_activate_retained_filter ... ok
+test ui::state::tests::query_restore_keeps_exact_inputs ... ok
+test ui::state::tests::replacement_open_retains_old_workspace_until_success ... ok
+test ui::workspace::tests::closing_last_tab_leaves_an_empty_workspace ... ok
+test ui::state::tests::projection_refresh_keeps_detail_and_cache_is_bounded ... ok
+test ui::workspace::tests::duplicate_populated_queries_have_distinct_titles ... ok
+test ui::state::tests::record_preview_caps_large_text ... ok
+test ui::workspace::tests::keyboard_cycle_wraps_within_the_focused_pane ... ok
+test ui::state::tests::split_preview_requires_its_owning_query_and_an_unpinned_record ... ok
+test ui::workspace::tests::duplicate_query_preserves_draft_and_inserts_beside_source ... ok
+test ui::workspace::tests::promoted_table_gets_its_own_query_number ... ok
+test ui::workspace::tests::moving_tabs_reorders_and_preserves_active_selection ... ok
+test ui::workspace::tests::repeated_record_update_reactivates_a_tab_recreated_after_local_close ... ok
+test ui::workspace::tests::routine_record_updates_do_not_steal_a_query_tab ... ok
+test ui::workspace::tests::selected_record_stays_inside_its_query_until_explicitly_pinned ... ok
+test ui::workspace::tests::table_tabs_keep_independent_collection_and_query_drafts ... ok
+test ui::state::tests::visible_query_preview_survives_new_tab_and_cache_stays_bounded ... ok
+test ui::workspace::tests::blank_queries_get_distinct_stable_titles ... ok
+test ui::workspace::tests::closing_current_query_prefers_another_visible_search ... ok
+test ui::state::tests::opened_reset_followed_by_field_refresh_keeps_completion_fields ... ok
+test ui::state::tests::outdated_query_drops_its_old_preview ... ok
+test controller::runtime::tests::manual_close_does_not_write_index_artifacts ... ok
+test ui::state::tests::successful_query_start_clears_previous_input_errors ... ok
+test controller::runtime::tests::indexed_query_projects_metadata_with_its_repository_root ... ok
+test controller::runtime::tests::failed_source_open_keeps_previous_session ... ok
+test controller::runtime::tests::opening_record_outside_results_clears_previous_row_selection ... ok
+test controller::runtime::tests::presentation_refresh_keeps_selection_after_preview_is_closed ... ok
+test controller::runtime::tests::row_preview_reuses_only_its_own_slot_and_explicit_tabs_stay_pinned ... ok
+test controller::runtime::tests::coalesced_delta_and_full_page_advance_without_replay ... ok
+test controller::runtime::tests::publication_changes_invalidate_results_once_but_noop_checks_do_not ... ok
+test controller::runtime::tests::file_catalogue_uses_pinned_file_ids_without_copied_paths ... ok
+test controller::runtime::tests::completion_uses_bounded_postings_and_keeps_typed_literals ... ok
+test controller::runtime::tests::full_delta_skip_preserves_replacement_and_new_query_access ... ok
+test ui::workspace::tests::repeated_tab_changes_keep_active_and_search_targets_valid ... ok
+test controller::runtime::tests::completed_inference_refreshes_fields_without_rows_or_edits ... ok
+test controller::runtime::tests::desktop_delta_bounds_bytes_and_evidence_before_materialization ... ok
+test backend::batch::tests::direct_structured_and_full_text_match_cli_protocol ... ok
+test backend::query::tests::hundred_row_continuations_keep_equal_sort_keys_unique_at_boundaries ... ok
+test controller::runtime::tests::larger_publication_does_not_increase_selected_payload_work ... ok
+
+failures:
+
+---- backend::open::tests::incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cache stdout ----
+
+thread 'backend::open::tests::incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cache' (2092902) panicked at crates/desktop/src/backend/open.test.rs:68:21:
+fresh open must retain construction task
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    backend::open::tests::incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cache
+
+test result: FAILED. 159 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.34s
+
+error: test failed, to rerun pass `-p objekte-desktop --lib`

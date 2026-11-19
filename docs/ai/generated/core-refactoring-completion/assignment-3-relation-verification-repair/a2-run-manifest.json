@@ -1,0 +1,15 @@
+{
+  "side": "a2",
+  "revision": "9ae617b5df3f0a082aa923195a28019d5c36815d",
+  "log": "a2-relation-probes.log",
+  "alphabet": "Ascii",
+  "query_workers": 32,
+  "verified_cache_bytes": 0,
+  "publication_state": "fresh deterministic fixture",
+  "expected_cases": [
+    "indexed_relation_filter",
+    "selected_relation_fts",
+    "source_dependent_residual_sort"
+  ],
+  "expected_repetitions": [0]
+}
