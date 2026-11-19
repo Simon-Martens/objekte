@@ -642,12 +642,7 @@ fn emit_relation_probe(
     );
 }
 
-fn emit_relation_timing(
-    case_id: &str,
-    repo: &Repository,
-    request: &Query,
-    repetitions: usize,
-) {
+fn emit_relation_timing(case_id: &str, repo: &Repository, request: &Query, repetitions: usize) {
     if std::env::var_os("OBJEKTE_RELATION_TIMING").is_none() {
         return;
     }
@@ -1275,6 +1270,161 @@ fn seeded_array_fixture(
     .map_err(|error| error.to_string())
     .unwrap();
     (root, repo, expected_equal, expected_not_equal)
+}
+
+#[test]
+fn relation_fts_page_evidence_is_keyed_by_the_winning_segment_address() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-semijoin-per-record-evidence-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for name in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+    }
+    for (name, id) in [
+        ("author", "AUTHOR"),
+        ("editor", "EDITOR"),
+        ("other", "OTHER"),
+    ] {
+        std::fs::write(
+            root.join(format!("targets/{name}.json")),
+            format!(
+                r#"{{"id":"{id}","name":"{}"}}"#,
+                if name == "other" { "Other" } else { "Needle" }
+            ),
+        )
+        .unwrap();
+    }
+    for (file, id, author, editor, local_a, local_b) in [
+        ("a", "S_A", "AUTHOR", "OTHER", "yes", "no"),
+        ("b", "S_B", "OTHER", "EDITOR", "no", "yes"),
+        ("c", "S_C", "AUTHOR", "EDITOR", "yes", "yes"),
+    ] {
+        std::fs::write(
+            root.join(format!("sources/{file}.json")),
+            format!(
+                r#"{{"id":"{id}","author":"{author}","editor":"{editor}","local_a":"{local_a}","local_b":"{local_b}"}}"#
+            ),
+        )
+        .unwrap();
+    }
+    let mut targets = Schema::default();
+    field(&mut targets, "id", LogicalType::Id);
+    field(&mut targets, "name", LogicalType::String);
+    let mut sources = Schema::default();
+    field(&mut sources, "id", LogicalType::Id);
+    field(&mut sources, "author", LogicalType::Id);
+    field(&mut sources, "editor", LogicalType::Id);
+    field(&mut sources, "local_a", LogicalType::String);
+    field(&mut sources, "local_b", LogicalType::String);
+    for (path, alias) in [("author", "authored_sources"), ("editor", "edited_sources")] {
+        sources
+            .register_relation(RelationDefinition {
+                path: vec![path.into()],
+                target_collection: "targets".into(),
+                cardinality: RelationCardinality::One,
+                reverse_alias: Some(alias.into()),
+            })
+            .unwrap();
+    }
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![
+            definition("sources", sources),
+            definition("targets", targets),
+        ],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+
+    let request = selected_fts_fields(
+        None,
+        "Needle",
+        false,
+        vec!["author.name".into(), "editor.name".into()],
+    );
+    let actual = repo.search(&request).unwrap();
+    let reference = repo.search_reference(&request).unwrap();
+    assert_eq!(actual.count, Some(3));
+    assert_eq!(actual.hits, reference.hits);
+    let fields = actual
+        .hits
+        .iter()
+        .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+        .collect::<HashMap<_, _>>();
+    assert_eq!(fields["S_A"], ["author.name"]);
+    assert_eq!(fields["S_B"], ["editor.name"]);
+    assert_eq!(fields["S_C"], ["author.name", "editor.name"]);
+
+    let mut single = request.clone();
+    single.options.limit = 1;
+    let single = repo.search(&single).unwrap();
+    assert_eq!(single.hits[0].record_id, "S_A");
+    assert_eq!(single.hits[0].matched_fields, ["author.name"]);
+    let trace = repo.explain_analyze(&request).unwrap().1;
+    assert!(
+        trace[0].fts_strategy.starts_with("relation"),
+        "{}",
+        trace[0].fts_strategy
+    );
+    repo.configure_verified_cache(1 << 20).unwrap();
+    let cache_fill = repo.search(&request).unwrap();
+    let cached = repo.search(&request).unwrap();
+    assert!(cached.counters.verified_result_hit);
+    assert_eq!(cache_fill.hits, actual.hits);
+    assert_eq!(cached.hits, actual.hits);
+    repo.configure_verified_cache(0).unwrap();
+
+    let local_or = selected_fts_fields(
+        Some("local_a = 'yes' || local_b = 'yes'"),
+        "Needle",
+        false,
+        vec!["author.name".into(), "editor.name".into()],
+    );
+    let actual = repo.search(&local_or).unwrap();
+    let reference = repo.search_reference(&local_or).unwrap();
+    assert_eq!(actual.hits, reference.hits);
+    let fields = actual
+        .hits
+        .iter()
+        .map(|hit| (hit.record_id.as_str(), hit.matched_fields.clone()))
+        .collect::<HashMap<_, _>>();
+    assert_eq!(fields["S_A"], ["author.name", "local_a"]);
+    assert_eq!(fields["S_B"], ["editor.name", "local_b"]);
+    assert_eq!(
+        fields["S_C"],
+        ["author.name", "editor.name", "local_a", "local_b"]
+    );
+
+    let mut membership = request.clone();
+    membership.options.evidence = false;
+    let membership = repo.search(&membership).unwrap();
+    assert_eq!(
+        membership
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["S_A", "S_B", "S_C"]
+    );
+    assert!(
+        membership
+            .hits
+            .iter()
+            .all(|hit| hit.matched_fields.is_empty())
+    );
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

@@ -1287,6 +1287,9 @@ fn exact_ordered_page(
     revision: IndexRevision,
     collection_index: usize,
     selected: &[(RoaringBitmap, Vec<String>)],
+    qualified_evidence: Option<
+        &HashMap<crate::index::segment::SegmentRecordAddress, HashSet<String>>,
+    >,
     mut counters: WorkCounters,
 ) -> Result<Option<SearchResult>, String> {
     let Some(cap) = query.options.offset.checked_add(query.options.limit) else {
@@ -1353,11 +1356,24 @@ fn exact_ordered_page(
             let resolved =
                 segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
                     .ok_or("exact ordered source retired")?;
+            let mut matched_fields = selected[cursor.segment_index].1.clone();
+            if let Some(evidence) = qualified_evidence {
+                let address = crate::index::segment::SegmentRecordAddress {
+                    collection: published.index.collection,
+                    segment: published.id,
+                    slot: cursor.slot,
+                };
+                if let Some(fields) = evidence.get(&address) {
+                    matched_fields.extend(fields.iter().cloned());
+                }
+                matched_fields.sort();
+                matched_fields.dedup();
+            }
             let hit = segment_locator_hit(
                 &repo.collections[collection_index],
                 resolved,
                 revision,
-                selected[cursor.segment_index].1.clone(),
+                matched_fields,
             );
             let Some(next) =
                 retained_bytes.checked_add(crate::query_execution::streaming::hit_bytes(&hit))
@@ -1495,6 +1511,7 @@ fn try_exact_segment_ordered_page(
         revision,
         collection_index,
         &selected,
+        None,
         counters,
     )
 }
