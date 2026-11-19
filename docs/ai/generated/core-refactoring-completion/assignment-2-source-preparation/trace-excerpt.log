@@ -1,0 +1,7 @@
+10 1.100000 openat(AT_FDCWD, "/fixture/data/00.json", O_RDONLY) = 3</fixture/data/00.json>
+10 1.100001 pread64(3</fixture/data/00.json>, "hij", 3, 7) = 3
+10 1.100002 lseek(3</fixture/data/00.json>, 4, SEEK_SET) = 4
+10 1.100003 read(3</fixture/data/00.json>, "abc", 3) = 3
+10 1.100004 openat(AT_FDCWD, "/fixture/data/01.json", O_RDONLY) = 4</fixture/data/01.json>
+10 1.100005 read(4</fixture/data/01.json>, "abc"..., 3 <unfinished ...>
+10 1.100006 <... read resumed>"abc", 3) = 3

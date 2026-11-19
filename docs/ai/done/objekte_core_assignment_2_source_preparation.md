@@ -235,3 +235,49 @@ tests and traces ran on Linux. Plain rustfmt requests one blank line around the
 two `impl` blocks in `model/json.rs`, while the repository spacing script
 accepts the required two blank lines and still rejects its pre-existing
 199-file baseline.
+
+## Verification addendum results
+
+The verification tools were corrected and rerun without changing the core
+query implementation. Tested revisions remain A1
+`b4172a1749750ee1c87ef74a56f5ee7cec6c40ee` and repaired Rust source
+`d07b700a7188efd6b45ec542f197b78a211cb88a`.
+
+`verify.py --self-test` now writes and reads the same `a1-reads.json`,
+`candidate-reads.json`, `a1-trace.json` and `candidate-trace.json` filenames.
+It first requires a valid control to pass through the temporary-directory CLI.
+Paired empty, missing, duplicate and unknown results, one-sided count,
+omitted counter, reordered IDs and altered trace offset then each require a
+nonzero child exit, the intended diagnostic and no output artifact. The
+duplicate case replaces a row rather than adding a fourth result.
+
+`trace_io.py` now reads the final `pread64` argument as the offset, uses the
+successful return value as bytes, tracks seek state and merges split
+`<unfinished ...>` / `<... resumed>` calls by thread. Its optimized-Python
+self-test covers offset 7 positioned read, split open/read, normal read after
+seek, occurrence count and an unsupported in-scope operation. A raw
+[trace excerpt](../generated/core-refactoring-completion/assignment-2-source-preparation/trace-excerpt.log)
+is retained beside the compact results.
+
+The regenerated probes assert the exact logical object returned from
+`00.json` outside the timing interval. Rerunning both revisions under the
+corrected tools reproduced ordered IDs, payload, opens, read multiplicities
+and totals:
+
+| Query | Opens | Distinct paths | Ordered successful reads | Bytes |
+|---|---:|---:|---|---:|
+| `exact_page` | 1 | 1 | `00@0+60` | 60 |
+| `combined_old` | 6 | 3 | `00@0+60, 01@0+59, 03@0+46` twice | 330 |
+| `combined_number` | 5 | 3 | `00@0+60, 01@0+59, 02@0+48, 00@0+60, 01@0+59` | 286 |
+
+The totals 60, 330 and 286 reproduce for both A1 and the repaired source. The
+public counter discrepancy remains recorded in
+[query_source_counter_semantics.md](../issues/bug/query_source_counter_semantics.md).
+The README now contains complete A1 and candidate commands with separate raw
+log, marker and result paths, plus an absolute verifier path.
+
+The original Assignment 2 gates remain green on Linux. No Windows runner was
+available. The known formatter disagreement also remains explicit: plain
+rustfmt requests one blank line before the two `impl` blocks in `model/json.rs`,
+while the repository spacing convention accepts two and the script still
+reports its inherited 199-file baseline.

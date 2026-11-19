@@ -21,21 +21,23 @@ The fixture generator sets every source file to Unix timestamp
 
 ## Reproduction
 
-Use an explicitly named evidence directory:
+Use an explicitly named evidence directory and the absolute path to these
+tools:
 
 ```sh
-evidence_dir=/tmp/objekte-assignment-2-evidence
-rm -rf "$evidence_dir"
+tools_dir=/home/simon/source/objekte-integration-core-refactoring-completion/docs/ai/generated/core-refactoring-completion/assignment-2-source-preparation
+evidence_dir=$(mktemp -d /tmp/objekte-assignment-2-evidence.XXXXXX)
 mkdir -p "$evidence_dir/a1-markers" "$evidence_dir/candidate-markers"
-python3 fixture.py "$evidence_dir"
+python3 "$tools_dir/fixture.py" "$evidence_dir"
 sha256sum "$evidence_dir"/data/*.json
 stat -c '%Y %n' "$evidence_dir"/data/*.json
 ```
 
-In the A1 checkout, copy `read_probe.rs` to
+In the A1 checkout, copy the probe to
 `crates/core/examples/assignment_2_read_probe.rs` and run:
 
 ```sh
+cp "$tools_dir/read_probe.rs" crates/core/examples/assignment_2_read_probe.rs
 strace -f -ttt -yy -e trace=openat,read,pread64,lseek,close \
   -o "$evidence_dir/a1-trace.log" \
   cargo run --quiet --locked -p objekte-search-core \
@@ -46,11 +48,18 @@ strace -f -ttt -yy -e trace=openat,read,pread64,lseek,close \
   > "$evidence_dir/a1-reads.json"
 ```
 
-Repeat in the repaired checkout with:
+In a checkout at the repaired source, repeat with its complete command:
 
 ```sh
---expected-sha d07b700a7188efd6b45ec542f197b78a211cb88a \
---trace-dir "$evidence_dir/candidate-markers"
+cp "$tools_dir/read_probe.rs" crates/core/examples/assignment_2_read_probe.rs
+strace -f -ttt -yy -e trace=openat,read,pread64,lseek,close \
+  -o "$evidence_dir/candidate-trace.log" \
+  cargo run --quiet --locked -p objekte-search-core \
+  --example assignment_2_read_probe -- \
+  --root "$evidence_dir" \
+  --expected-sha d07b700a7188efd6b45ec542f197b78a211cb88a \
+  --trace-dir "$evidence_dir/candidate-markers" \
+  > "$evidence_dir/candidate-reads.json"
 ```
 
 The probe derives its tested SHA with `git rev-parse HEAD` in the checkout and
@@ -58,19 +67,21 @@ fails unless it equals `--expected-sha`. It writes query start/end timestamps
 for `strace` filtering. Extract compact reads for each query:
 
 ```sh
-python3 trace_io.py \
+python3 "$tools_dir/trace_io.py" \
   --trace "$evidence_dir/a1-trace.log" \
   --markers-dir "$evidence_dir/a1-markers" \
   --fixture-root "$evidence_dir" \
   --output "$evidence_dir/a1-trace.json"
 ```
 
-Repeat for the candidate. Validate both recorded runs and the source traces,
-including all negative self-tests:
+Repeat with `candidate-trace.log`, `candidate-markers` and
+`candidate-trace.json`. Validate both generated runs and traces, including the
+valid temporary-directory control and all negative cases:
 
 ```sh
-python3 -O verify.py \
-  --input-dir docs/ai/generated/core-refactoring-completion/assignment-2-source-preparation \
+python3 -O "$tools_dir/verify.py" \
+  --input-dir "$evidence_dir" \
+  --output "$evidence_dir/comparison.json" \
   --self-test
 ```
 
@@ -94,6 +105,9 @@ impossible 5/6 distinct-file values are the inherited
 The trace contains only successful `openat`, `read`, `pread64`, `lseek` and
 `close` operations for the four fixture paths inside each query interval.
 A1 and the repaired source produced identical ordered opens and reads.
+`trace_io.py --self-test` exercises a nonzero-offset positioned read, a split
+open/read resumed pair, and a normal read following `SEEK_SET`; a small raw
+[trace excerpt](trace-excerpt.log) is retained beside the compact results.
 
 | Query | Opens | Distinct paths | Read ranges | Bytes |
 |---|---:|---:|---|---:|
@@ -111,8 +125,9 @@ separate evidence from the successful byte reads.
 `verify.py` validates each revision independently, requires exactly one result
 for each expected query, rejects missing/duplicate/unknown fields and values,
 and writes `results_equal: true` only after validation. Its `--self-test`
-mode exercises paired empty, missing, duplicate and unknown results plus a
-one-sided count mutation in temporary directories under `python3 -O`.
+runs a valid control through the temporary-directory CLI first, then requires
+nonzero exits and no success output for paired empty/missing/duplicate/unknown,
+one-sided count, omitted counter, reordered IDs and altered trace offset.
 
 The production JSON ownership review is in
 [`json-use-inventory.md`](json-use-inventory.md).

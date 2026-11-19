@@ -3,11 +3,12 @@ use std::process::Command;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::model::LogicalType;
+use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
+use objekte_search_core::query_results::Payload;
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::schema::FieldDefinition;
 use objekte_search_core::source::SourceFormat;
@@ -127,6 +128,26 @@ fn run() -> Result<(), String> {
             format!("{started}\t{ended}\n"),
         )
         .map_err(|error| error.to_string())?;
+        if name == "exact_page" {
+            if result.count != Some(2) || result.hits.len() != 1 {
+                return Err("exact_page did not return one of two matches".into());
+            }
+            let expected = Value::from_json(json!({
+                "title": "hit",
+                "text": "new",
+                "n": 1,
+                "rating": 5,
+            }))?;
+            if !matches!(
+                &result.hits[0].payload,
+                Some(Payload::Logical(actual)) if actual == &expected
+            ) {
+                return Err(format!(
+                    "exact_page payload mismatch: {:?}",
+                    result.hits[0].payload
+                ));
+            }
+        }
         results.push(json!({
             "name": name,
             "count": result.count,
