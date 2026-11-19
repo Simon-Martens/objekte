@@ -98,6 +98,7 @@ Push each compiling commit to the integration branch under the repository workfl
 - Integration branch: `integration/core-repository-operations-and-state`
 - Integration worktree: `/home/simon/source/objekte-integration-core-repository-operations-and-state`
 - Final validated source revision: `0e8708fcfd302b356d026c344dd41491ed2cec89`
+- Repaired documentation/evidence candidate: `d235605417b037eca76ea62101074914ea77845d`
 - Last source-behavior implementation commit: `3bf4c1f7c9167bfed012fe7011c553bc72a16dd9`
 - Benchmark evidence commit: `fed6cdf8d187e7dea7771afcf4f9481b9f8e5cc0`
 
@@ -240,6 +241,16 @@ The test passed when rerun alone (`1 passed`, 1.72 seconds) and passed again in 
 
 Default and all-feature `-- --list` inventories were compared with B7. Both remain 621 and 622 tests respectively, with only the ten mapped names above changing. The three crate test-target inventories remain unchanged; the new public acceptance case was added to the existing `inline_sort` target.
 
+The repair candidate `d235605417b037eca76ea62101074914ea77845d` reran
+the requested documentation/evidence gates: formatting, all-target workspace
+check, all 5 `inline_sort` tests, all 3 `base_reference_` tests, the separate
+`segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock`
+test, the core doctest, and workspace rustdoc with broken links denied. The
+corrected `docs/inference.md` snippet was also compiled in an isolated Cargo
+project against that worktree. No production source behavior changed after
+`0e8708fcfd`, so the prior full workspace, all-feature, and release compaction
+results remain the applicable behavioral gates.
+
 ### Benchmark
 
 The original `repository-operations-{b7,final}` query directories are superseded. Those invocations used different physical corpus copies and therefore different timestamps. Their manifests have different corpus fingerprints and the compatibility check reports `corpus_fingerprint differs from baseline`; 139 non-empty ordered-result digests differed. The artifacts cannot establish whether timestamps or another omitted input caused all 139 differences, so the previous generation-only explanation is withdrawn.
@@ -303,5 +314,6 @@ Implementation and evidence commits on the integration branch:
 - `3bf4c1f7c9167bfed012fe7011c553bc72a16dd9` — establish canonical repository module ownership.
 - `0e8708fcfd302b356d026c344dd41491ed2cec89` — link the public caller test from repository module documentation.
 - `fed6cdf8d187e7dea7771afcf4f9481b9f8e5cc0` — add the matched B7/final Musenalm evidence.
+- `d235605417b037eca76ea62101074914ea77845d` — replace the invalid comparison with common-root evidence, correct maintained documentation, and add the ordered-query/build comparison tools.
 
-There are no approved deviations, remaining limitations, behavioral diffs, or unresolved issues. No subordinate worktrees were created. Task memory is removed after this report is pushed; the integration branch and worktree remain for owner review and merge.
+There are no approved deviations, behavioral diffs, or unresolved implementation issues. The precise cause of the superseded different-root digest differences remains unestablished, but the common-root replacement establishes complete ordered and work-counter parity. No subordinate worktrees were created. Task memory is removed after this report is pushed; the integration branch and worktree remain for owner review and merge.
