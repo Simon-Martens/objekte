@@ -150,7 +150,7 @@ impl WorkCounters {
     pub(crate) fn add_scan(
         &mut self,
         scan: ScanWork,
-        relation: &crate::query_execution::relations::evaluation::RelationWork,
+        relation: &crate::query_execution::relations::work::RelationWork,
     ) -> Result<(), String> {
         self.files_opened += scan.files_opened;
         self.bytes_read += scan.bytes_read;
@@ -166,7 +166,7 @@ impl WorkCounters {
         self.relation_edge_visits += relation.edge_visits;
         self.relation_backlink_probe_visits += relation.backlink_probe_visits;
         self.relation_bytes_read += relation.bytes_read;
-        crate::query_execution::relations::evaluation::check_query_work_budget(self)?;
+        crate::query_execution::relations::work::check_query_work_budget(self)?;
         self.files_opened += relation.source_reads + relation.target_reads;
         self.bytes_read += relation.bytes_read;
         self.record_parses += relation.source_reads + relation.target_reads;
@@ -189,7 +189,7 @@ impl WorkCounters {
         self.files_opened += work.target_file_opens;
         self.bytes_read += work.target_bytes_read;
         self.record_parses += work.target_reads;
-        crate::query_execution::relations::evaluation::check_query_work_budget(self)
+        crate::query_execution::relations::work::check_query_work_budget(self)
     }
 }
 

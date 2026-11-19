@@ -136,7 +136,7 @@ pub(super) fn verify_local_segment_record(
         if record.class == RecordClass::RawFallback {
             eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
         } else {
-            let mut work = crate::query_execution::relations::evaluation::RelationWork::default();
+            let mut work = crate::query_execution::relations::work::RelationWork::default();
             if retain_evidence {
                 crate::query_execution::relations::evaluation::eval_filter_truth(
                     repo,

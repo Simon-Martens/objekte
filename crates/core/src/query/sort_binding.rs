@@ -16,7 +16,7 @@ use crate::query::binding::relation::{BoundRelationHop, HopDirection, resolve_pa
 use crate::query::options::{SortExpression, SortField, SortReducer};
 use crate::query::path::{PathStep, QueryPath, split_path_binding};
 use crate::query::{semantics::record::RecordContext, semantics::record::metadata_value};
-use crate::query_execution::relations::evaluation::{MergedRecordSlot, MergedRelationView};
+use crate::query_execution::relations::view::{MergedRecordSlot, MergedRelationView};
 use crate::repository::Repository;
 use crate::schema::{operation::BindingOperation, operation::Transform};
 
@@ -761,7 +761,7 @@ impl ComputedSort {
                     && !matches!(self.reducer, Some(SortReducer::First | SortReducer::Last))
                 {
                     let mut discovery =
-                        crate::query_execution::relations::evaluation::RelationWork::default();
+                        crate::query_execution::relations::work::RelationWork::default();
                     discovery.attach(cache.execution.as_ref());
                     let Some(references) = view.reference_forward_edges_with_source(
                         address,
@@ -892,7 +892,7 @@ impl ComputedSort {
             HopDirection::Backlink => {
                 let sources = if reference {
                     let mut discovery =
-                        crate::query_execution::relations::evaluation::RelationWork::default();
+                        crate::query_execution::relations::work::RelationWork::default();
                     discovery.attach(cache.execution.as_ref());
                     let lookup = view.reference_backlink_sources_with_completeness(
                         hop.relation,

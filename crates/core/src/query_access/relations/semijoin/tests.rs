@@ -767,7 +767,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
     let BoundExpr::Term(term) = bound else {
         panic!("expected structured relation term");
     };
-    let view = crate::query_execution::relations::evaluation::MergedRelationView::new(
+    let view = crate::query_execution::relations::view::MergedRelationView::new(
         &repo,
         &repo.active,
         &repo.segments,

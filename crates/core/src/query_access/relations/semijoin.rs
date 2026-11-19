@@ -21,7 +21,7 @@ use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimat
 use crate::query_access::membership::SlotInput;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::relations::NativeRelationProvider;
-use crate::query_execution::relations::evaluation::{MergedRelationView, positions_match};
+use crate::query_execution::relations::view::{MergedRelationView, positions_match};
 use crate::query_execution::restrictions::{
     AccessPathEstimate, AccessPathKind, Plan, Proof, estimate_expr, estimate_fts_candidates,
 };

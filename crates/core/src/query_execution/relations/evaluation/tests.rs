@@ -3,6 +3,8 @@ use std::sync::Arc;
 
 use crate::model::LogicalType;
 use crate::query::{CaseSensitivity, FtsMode, Query};
+use crate::query_execution::relations::view::MergedRelationView;
+use crate::query_execution::relations::work::RelationWork;
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
@@ -744,42 +746,6 @@ fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
         .unwrap();
 }
 
-#[test]
-fn relation_work_limits_return_explicit_errors() {
-    let mut work = super::RelationWork {
-        edge_visits: super::MAX_QUERY_EDGE_VISITS,
-        ..Default::default()
-    };
-    assert!(work.edge().unwrap_err().contains("edge visits"));
-    let mut work = super::RelationWork {
-        backlink_probe_visits: super::MAX_QUERY_BACKLINK_PROBES,
-        ..Default::default()
-    };
-    assert!(
-        work.backlink_probe()
-            .unwrap_err()
-            .contains("backlink probes")
-    );
-    let mut work = super::RelationWork {
-        target_reads: super::MAX_QUERY_RECORD_READS,
-        ..Default::default()
-    };
-    assert!(work.target_read(1).unwrap_err().contains("target reads"));
-    let mut work = super::RelationWork {
-        bytes_read: super::MAX_QUERY_RELATION_BYTES,
-        ..Default::default()
-    };
-    assert!(work.source_read(1).unwrap_err().contains("source bytes"));
-    let mut counters = crate::measurement::WorkCounters {
-        relation_edge_visits: super::MAX_QUERY_EDGE_VISITS + 1,
-        ..Default::default()
-    };
-    assert!(super::check_query_work_budget(&counters).is_err());
-    counters.relation_edge_visits = 0;
-    counters.relation_bytes_read = super::MAX_QUERY_RELATION_BYTES + 1;
-    assert!(super::check_query_work_budget(&counters).is_err());
-}
-
 fn relation(schema: &mut Schema, path: &str, target: &str, many: bool, alias: &str) {
     schema
         .register_relation(RelationDefinition {
@@ -1073,7 +1039,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
     };
     let prepared = crate::query::prepared::prepare(view.repository(), &projected).unwrap();
     let filter = prepared.collections[0].filter().unwrap();
-    let merged = super::MergedRelationView::new(
+    let merged = MergedRelationView::new(
         view.repository(),
         &view.0.active,
         &view.0.segments,
@@ -1092,7 +1058,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
         repository_root: merged.repository_root(),
     };
     let mut evidence = std::collections::HashSet::new();
-    let mut work = super::RelationWork::default();
+    let mut work = RelationWork::default();
     assert_eq!(
         super::eval_filter_truth_merged(
             &merged,
@@ -1265,8 +1231,7 @@ fn backlink_sort_does_not_use_a_forward_relation_at_the_same_ordinal() {
     };
     let prepared = crate::query::prepared::prepare(&repo, &projected).unwrap();
     let filter = prepared.collections[0].filter().unwrap();
-    let view =
-        super::MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+    let view = MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
     let address = view.resolve_id(CollectionId(0), "B").unwrap().unwrap();
     assert!(
         crate::query_results::ranking::cached_filter_target_sort_key(
@@ -1612,8 +1577,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
         plan_before
     );
     let view =
-        super::MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog)
-            .unwrap();
+        MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog).unwrap();
     let m2 = view
         .resolve_id(source, "m2")
         .unwrap()
@@ -1720,8 +1684,7 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
             .collect::<Vec<_>>(),
     );
     let diagnostic_view =
-        super::MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog)
-            .unwrap();
+        MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog).unwrap();
     let m2 = diagnostic_view
         .resolve_id(CollectionId(1), "m2")
         .unwrap()
@@ -2250,9 +2213,8 @@ fn base_reference_multi_target_backlinks_scan_each_relation_once() {
         source: CollectionId(1),
         ordinal: u32::try_from(relation_index).unwrap(),
     };
-    let view =
-        super::MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
-    let mut work = super::RelationWork::default();
+    let view = MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+    let mut work = RelationWork::default();
     assert_eq!(
         view.reference_backlink_sources(relation, "A", Some(&mut work))
             .unwrap()
@@ -2305,15 +2267,15 @@ fn base_reference_multi_target_backlinks_scan_each_relation_once() {
 
     std::fs::remove_file(root.join("mentions/m1.json")).unwrap();
     let incomplete =
-        super::MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
-    let mut first_work = super::RelationWork::default();
+        MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+    let mut first_work = RelationWork::default();
     let first = incomplete
         .reference_backlink_sources_with_completeness(relation, "A", Some(&mut first_work))
         .unwrap();
     assert!(!first.complete);
     let diagnostics = incomplete.source_error_events();
     assert!(diagnostics > 0);
-    let mut cached_work = super::RelationWork::default();
+    let mut cached_work = RelationWork::default();
     let cached = incomplete
         .reference_backlink_sources_with_completeness(relation, "B", Some(&mut cached_work))
         .unwrap();
@@ -2371,7 +2333,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         false,
     );
 
-    let view = super::MergedRelationView::new(
+    let view = MergedRelationView::new(
         pinned.repository(),
         &pinned.0.active,
         &pinned.0.segments,
@@ -2649,7 +2611,7 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
         None,
         false,
     );
-    let owner_view = super::MergedRelationView::new(
+    let owner_view = MergedRelationView::new(
         pinned.repository(),
         &pinned.0.active,
         &pinned.0.segments,

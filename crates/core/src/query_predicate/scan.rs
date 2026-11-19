@@ -617,7 +617,7 @@ impl Residual<'_> {
         slot: u32,
         ctx: &RecordContext<'_>,
         evaluations: &mut u64,
-        relation_work: &mut crate::query_execution::relations::evaluation::RelationWork,
+        relation_work: &mut crate::query_execution::relations::work::RelationWork,
         target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
         Ok(match self {
@@ -698,7 +698,7 @@ impl Residual<'_> {
         ctx: &RecordContext<'_>,
         evidence: &mut HashSet<String>,
         evaluations: &mut u64,
-        relation_work: &mut crate::query_execution::relations::evaluation::RelationWork,
+        relation_work: &mut crate::query_execution::relations::work::RelationWork,
         target_values: Option<&crate::query_execution::relations::target_cache::TargetValueCache>,
     ) -> Result<Option<bool>, String> {
         Ok(match self {

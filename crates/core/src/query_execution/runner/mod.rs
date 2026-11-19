@@ -209,7 +209,7 @@ struct ScannedFile {
     raw_text_verifications: u64,
     scanned_records: u64,
     residual_evaluations: u64,
-    relation_work: crate::query_execution::relations::evaluation::RelationWork,
+    relation_work: crate::query_execution::relations::work::RelationWork,
     match_count: u64,
     peak_payload_bytes: u64,
     peak_sort_key_bytes: u64,
@@ -6215,7 +6215,7 @@ fn search_impl_with_collector<'a>(
             counters.bytes_read += work.bytes_read;
             counters.relation_bytes_read += work.bytes_read;
             counters.record_parses += work.target_reads;
-            crate::query_execution::relations::evaluation::check_query_work_budget(&counters)?;
+            crate::query_execution::relations::work::check_query_work_budget(&counters)?;
         }
         // Record slots are grouped by source file before opening any source.
         let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();

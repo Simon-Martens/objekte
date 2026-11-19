@@ -8,7 +8,7 @@ use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
-use crate::query_execution::relations::evaluation::{MergedRecordSlot, MergedRelationView};
+use crate::query_execution::relations::view::{MergedRecordSlot, MergedRelationView};
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
 use crate::schema::relations::{RelationCardinality, RelationId};

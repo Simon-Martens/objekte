@@ -38,8 +38,7 @@ pub(crate) struct MergedPageHit {
     pub(crate) key: RankKey,
     pub(crate) hit: SearchHit,
     pub(crate) segment: Option<(usize, usize)>,
-    pub(crate) record_address:
-        Option<crate::query_execution::relations::evaluation::MergedRecordSlot>,
+    pub(crate) record_address: Option<crate::query_execution::relations::view::MergedRecordSlot>,
     pub(crate) retained_bytes: usize,
 }
 
@@ -460,9 +459,9 @@ pub(crate) fn base_rank_key_merged(
 pub(crate) fn relation_rank_key_merged(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
-    view: &crate::query_execution::relations::evaluation::MergedRelationView<'_>,
+    view: &crate::query_execution::relations::view::MergedRelationView<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    address: crate::query_execution::relations::evaluation::MergedRecordSlot,
+    address: crate::query_execution::relations::view::MergedRecordSlot,
     ctx: &RecordContext<'_>,
     cache: &mut MergedSortTargetCache,
     filter: Option<&BoundExpr>,
@@ -531,8 +530,8 @@ pub(crate) fn relation_rank_key_merged(
 }
 
 pub(crate) fn cached_filter_target_sort_key(
-    view: &crate::query_execution::relations::evaluation::MergedRelationView<'_>,
-    address: crate::query_execution::relations::evaluation::MergedRecordSlot,
+    view: &crate::query_execution::relations::view::MergedRelationView<'_>,
+    address: crate::query_execution::relations::view::MergedRecordSlot,
     computed: &crate::query::sort_binding::ComputedSort,
     filter: Option<&BoundExpr>,
 ) -> Result<Option<SortKey>, String> {
@@ -606,9 +605,9 @@ fn filter_projects_related_field(filter: &BoundExpr, field: &str) -> bool {
 
 pub(crate) fn direct_related_target_sort_key(
     repo: &Repository,
-    view: &crate::query_execution::relations::evaluation::MergedRelationView<'_>,
+    view: &crate::query_execution::relations::view::MergedRelationView<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    address: crate::query_execution::relations::evaluation::MergedRecordSlot,
+    address: crate::query_execution::relations::view::MergedRecordSlot,
     computed: &crate::query::sort_binding::ComputedSort,
 ) -> Result<Option<SortKey>, String> {
     let Some((hops, _)) = computed.related.as_ref() else {

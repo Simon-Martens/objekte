@@ -18,7 +18,7 @@ use crate::query_access::relations::semijoin::{
     planning_estimate_with_segments, qualified_candidates_with_strategy,
 };
 use crate::query_execution::domain::domain_id;
-use crate::query_execution::relations::evaluation::MergedRelationView;
+use crate::query_execution::relations::view::MergedRelationView;
 use crate::query_execution::restrictions::{AccessPathKind, access_path_kind_name};
 use crate::query_predicate::TermId;
 use crate::repository::Repository;

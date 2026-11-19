@@ -2,3 +2,5 @@
 
 pub(crate) mod evaluation;
 pub(crate) mod target_cache;
+pub(crate) mod view;
+pub(crate) mod work;
