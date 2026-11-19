@@ -207,7 +207,13 @@ Focused contract evidence also passed:
 The A5 focused groups report positive execution for
 `scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys`,
 `incomplete_backlink_discovery_stops_before_target_sort_cache_work`,
-the four `base_reference_` controls, and
+the three `base_reference_` controls:
+
+- `base_reference_sort_ignores_perturbed_stored_and_relation_contributions`
+- `base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes`
+- `base_reference_multi_target_backlinks_scan_each_relation_once`
+
+The separate fourth control is
 `segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock`.
 Their retained assertions cover zero sort-target reads in the two repaired cases and eight successful 2 MiB reads during incomplete discovery.
 
@@ -236,51 +242,58 @@ Default and all-feature `-- --list` inventories were compared with B7. Both rema
 
 ### Benchmark
 
-Matched Musenalm evidence was captured for B7 and the final implementation with the same corpus, schema manifest, compiler, release profile, alphabet, worker policy, and verified-cache setting. The corpus contained 148,486 records across seven collections. Builds resolved 32 workers; queries used 4 workers; the alphabet was ASCII with folded-off cache disabled; each side used three repetitions.
+The original `repository-operations-{b7,final}` query directories are superseded. Those invocations used different physical corpus copies and therefore different timestamps. Their manifests have different corpus fingerprints and the compatibility check reports `corpus_fingerprint differs from baseline`; 139 non-empty ordered-result digests differed. The artifacts cannot establish whether timestamps or another omitted input caused all 139 differences, so the previous generation-only explanation is withdrawn.
 
-The maintained commands were:
+The replacement evidence uses one canonical root for both sides:
+`/home/simon/source/objekte/examples/musenalm`. Its pre- and post-run inventory metadata SHA-256 were both `ce54312379a363b9a76203ba072967d4ec80aa3422eb76c31f83c942b1589901`, covering paths, nanosecond modification times and sizes. The corpus contains 148,486 source records across seven collections. The query manifests record common corpus fingerprint `9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9` and common schema fingerprint `bf36ea2e88d1b455e28b0f5f36c71ebd03847b2a986cd3f1f2ea3302fd1eea08`.
+
+B7 and the last source implementation were built from their respective worktrees with their tracked source clean, into distinct target directories with:
+
+```text
+OBJEKTE_BUILD_REVISION=6f3c3ee8aa5a49cf82d83905b5eb212c1e984b46
+OBJEKTE_BUILD_REVISION=43005ca3e959d678614998ead6a76a444e7a62cc
+cargo build --release --locked -p objekte-search-core \
+  --example bench_musenalm --example bench_build_musenalm
+```
+
+Both used `rustc 1.99.1 (58cf8f9c3 2026-10-13)`, the release profile, the default build flags and the performance CPU governor. The benchmark executables were:
+
+| Side | Query executable SHA-256 | Build executable SHA-256 |
+| --- | --- | --- |
+| B7 | `edd3d97f95683797b9e6f9d6202a7cdc0ef55d88ca455b5b0a68d295f2b6e80a` | `b6f82a81302b8adfb2d4f1df11f1d13d6b48351376b4d36d9ee267318ec20841` |
+| Candidate | `16a15606e0ad51c71d607c9c869f8c5b7fa97e15204098468d7719eeec7bbfd6` | `5c85513a3b7ec8d977959f5c84a7370a88075297aa9d33905969d86f7809beab` |
+
+Each side ran three query repetitions with:
 
 ```sh
-python3 bench/run_build_regressions.py --repetitions 3 \
-  --result-dir bench/results/musenalm/repository-operations-b7/build \
-  --binary /home/simon/source/objekte/target/release/examples/bench_build_musenalm
-
-/home/simon/source/objekte/target/release/examples/bench_musenalm \
+bench_musenalm --root /home/simon/source/objekte/examples/musenalm \
   --profiles ascii-off --repetitions 3 --query-workers 4 \
-  --verified-cache-bytes 0 \
-  --result-dir bench/results/musenalm/repository-operations-b7/queries
-
-python3 bench/run_build_regressions.py --repetitions 3 \
-  --result-dir bench/results/musenalm/repository-operations-final/build \
-  --binary target/release/examples/bench_build_musenalm
-
-target/release/examples/bench_musenalm \
-  --profiles ascii-off --repetitions 3 --query-workers 4 \
-  --verified-cache-bytes 0 \
-  --result-dir bench/results/musenalm/repository-operations-final/queries
+  --verified-cache-bytes 0 --result-dir <side>/queries
 ```
+
+The compiled workload fingerprints differ because `bench_musenalm` hashes the compiled-in workload path, but the actual workload files are byte-identical (`56f2ba99e3a889b95975a6b460c4ef894732ad769f99e6f69086a3f0d3ac91c0`), and the resolved `queries.json` and `schema-manifest.json` files are byte-identical. The existing compatibility function returns `[]`.
+
+All 450 sample keys matched. All 150 ordered-result digests matched, covering 139 non-empty pages and 11 empty pages. Status, count, returned page size, every recorded work-counter field and ordered-result identity had zero differences. The compact result is `bench/results/musenalm/repository-operations-common-root/comparison.json`.
+
+Direct build samples used the same root with `--build-workers auto`, three ASCII and three Unicode samples per side. Both alphabets produced 148,486 records and parses with zero failed parses. Index signatures now agree across revisions: ASCII `4a38808629a1544a354d715e42c85ac426b1cfe93376e862253b3d5cc03f349f` and Unicode `5c235a33b6cb1a18c1a1f4d2b1d60fa1eae912ce2b4ff868857df95028d83868`.
 
 Build medians:
 
 | Side | Alphabet | Median | Range | Peak RSS |
 | --- | --- | ---: | ---: | ---: |
-| B7 `6f3c3ee8aa` | ASCII | 0.704 s | 0.657–0.751 s | 627.6 MiB |
-| Final `3bf4c1f7c9` | ASCII | 0.650 s | 0.649–0.796 s | 622.7 MiB |
-| B7 `6f3c3ee8aa` | Unicode | 0.709 s | 0.708–0.717 s | 640.4 MiB |
-| Final `3bf4c1f7c9` | Unicode | 0.710 s | 0.683–0.731 s | 637.4 MiB |
+| B7 `6f3c3ee8aa` | ASCII | 0.643 s | 0.635–0.647 s | 624.1 MiB |
+| Candidate `43005ca3e9` | ASCII | 0.635 s | 0.620–0.635 s | 617.2 MiB |
+| B7 `6f3c3ee8aa` | Unicode | 0.736 s | 0.701–0.737 s | 629.7 MiB |
+| Candidate `43005ca3e9` | Unicode | 0.682 s | 0.682–0.699 s | 627.5 MiB |
 
 Both query sides ran 150 cases with three samples per case and zero failures. Aggregate per-case medians:
 
 | Side | Sum | Mean | Median | P95 | Worst |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| B7 | 1,345.707 ms | 8.971 ms | 0.317 ms | 25.344 ms | 272.365 ms |
-| Final | 1,335.558 ms | 8.904 ms | 0.232 ms | 25.078 ms | 261.736 ms |
+| B7 | 1,395.069 ms | 9.300 ms | 0.332 ms | 25.343 ms | 274.824 ms |
+| Candidate | 1,387.970 ms | 9.253 ms | 0.287 ms | 25.577 ms | 270.577 ms |
 
-`queries.json` and `schema-manifest.json` are byte-identical between sides. A normalized per-case comparison found zero differences in status, total matches, returned page size, candidates, files opened, bytes read, record parses, exact posting matches, scanned records, residual evaluations, and verified-hit flags. Records, parses, stores, gram counts, schema digest, segment record/file counts, and query work counters match.
-
-Raw ordered-result digests are not byte-identical across builds because they include segment/domain generation identity, and concurrent construction can assign segment IDs differently. Index signatures and `Segment(...)` identities consequently differed even though normalized query results and work counts did not. This is construction scheduling/grouping variance for the pure source move, not a behavioral result difference. The runner's ordered-result checks completed with zero failures on both sides.
-
-The ASCII build median improved by roughly 7.7%; Unicode was effectively unchanged. Query aggregate sums, P95, and worst-case timings were slightly lower, while task-level medians are noisy at sub-millisecond scale. Peak RSS did not regress.
+The new measurements show a 1.3% lower ASCII build median, a 7.4% lower Unicode build median and slightly lower peak RSS. Query aggregate time and worst-case time were slightly lower while P95 was 0.9% higher; these differences are not material and no performance threshold applies to this source-only refactor. The raw query runs and direct build samples are under `bench/results/musenalm/repository-operations-common-root/{b7,candidate}/`; build medians and signature comparisons are in `build-comparison.json`.
 
 ### Commits and completion status
 
