@@ -987,6 +987,7 @@ pub(crate) fn search_active_available(
     search_active_available_lifecycle(repo, query, base_active, catalog, revision, None)
 }
 
+#[cfg(test)]
 pub(crate) fn search_active_available_lifecycle(
     repo: &Repository,
     query: &Query,
@@ -999,49 +1000,6 @@ pub(crate) fn search_active_available_lifecycle(
     match search_active(repo, query, base_active) {
         Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
             search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
-        }
-        result => result,
-    }
-}
-
-pub(crate) fn search_active_available_with_context_lifecycle(
-    repo: &Repository,
-    query: &Query,
-    base_active: &[ActiveRecords],
-    catalog: &FileCatalog,
-    revision: IndexRevision,
-    context: &ExecutionContext,
-    _cache: Option<LifecycleCacheScope<'_>>,
-) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
-    let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-    match search_with_context_active(repo, query, context, base_active) {
-        Err(error)
-            if matches!(
-                error.kind,
-                ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
-            ) && has_unavailable_active_source(repo, base_active, &empty, catalog) =>
-        {
-            context.clear_recovered_source_changed();
-            let sort = ResolvedSort::new(repo, query)
-                .map_err(|message| context.recorded_error(message))?;
-            let prepared = crate::query::prepared::prepare(repo, query)
-                .map_err(|message| context.recorded_error(message))?;
-            search_segmented_relations(
-                repo,
-                query,
-                base_active,
-                &empty,
-                catalog,
-                revision,
-                &sort,
-                &prepared.collections,
-                Some(context),
-                None,
-                None,
-                false,
-                false,
-            )
-            .map_err(|message| context.recorded_error(message))
         }
         result => result,
     }
@@ -1980,16 +1938,23 @@ fn search_segmented_impl(
     // the caller does not request a count. Retain compact ordered addresses
     // only if every base record has moved to lifecycle partitions; otherwise
     // the base top-k call does not expose all members.
-    let mut cache_builder = cache_key.as_ref().and_then(|(_, _, budget)| {
-        (*budget > 0 && base_active.iter().all(|active| active.len() == 0))
-            .then(|| LifecycleCacheBuilder::new(*budget))
-    });
     let cap = query
         .options
         .offset
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
     let base_empty = base_active.iter().all(|active| active.len() == 0);
+    let base_cache_eligible =
+        !base_empty && !sort.bound.has_computed && !related_sort && cache_key.is_some();
+    let mut cache_builder = cache_key.as_ref().and_then(|(_, _, budget)| {
+        (*budget > 0 && (base_empty || base_cache_eligible))
+            .then(|| LifecycleCacheBuilder::new(*budget))
+    });
+    let mut base_cache_members = Vec::new();
+    let base_cache_budget = cache_key
+        .as_ref()
+        .filter(|_| base_cache_eligible)
+        .map(|(_, _, budget)| CacheBudget::new(*budget));
     let base = if base_empty {
         // The bound query and sort above already validate the request. An
         // empty base domain contributes no rows, so avoid planning it again.
@@ -2008,13 +1973,29 @@ fn search_segmented_impl(
         // A page request must not exhaust the base merely to calculate a
         // total. Its top `cap` rows suffice for the merged page.
         base_query.options.count = query.options.count;
-        if let Some(context) = context {
-            search_with_context_active(repo, &base_query, context, base_active)
-                .map_err(|error| error.message)?
-        } else {
-            search_active(repo, &base_query, base_active)?
-        }
+        search_active_with_prepared(
+            repo,
+            &base_query,
+            base_active,
+            &sort,
+            &prepared,
+            context,
+            base_cache_eligible.then_some(&mut base_cache_members),
+            base_cache_budget.as_ref(),
+        )?
     };
+    if let Some(builder) = cache_builder.as_mut() {
+        for member in std::mem::take(&mut base_cache_members) {
+            let record = repo.collections[member.collection_index]
+                .generation
+                .records
+                .get(member.slot as usize)
+                .ok_or("base cache slot missing")?;
+            let key =
+                base_rank_key_merged(repo, &sort, member.collection_index, record, catalog, None)?;
+            builder.push(&key, member);
+        }
+    }
     let mut total = base
         .count
         .map_or(base.counters.total_matches, |count| count as u64);
@@ -2920,19 +2901,23 @@ fn search_segmented_impl(
     counters.match_count_complete = base_count_complete && counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     counters.distinct_files += delta_opened.len() as u64;
-    if counters.match_count_complete
-        && let (Some(builder), Some((scope, key, _))) = (cache_builder, cache_key)
-        && let Some(members) = builder.finish(total)
-    {
-        if let Some(context) = context {
-            context.check_string()?;
+    if counters.match_count_complete {
+        let members = if let Some(builder) = cache_builder {
+            builder.finish(total)
+        } else {
+            None
+        };
+        if let (Some(members), Some((scope, key, _))) = (members, cache_key) {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
+            let displaced = scope
+                .store
+                .lock()
+                .map_err(|error| error.to_string())?
+                .insert(key, members);
+            drop(displaced);
         }
-        let displaced = scope
-            .store
-            .lock()
-            .map_err(|error| error.to_string())?
-            .insert(key, members);
-        drop(displaced);
     }
     Ok(SearchResult {
         count: (query.options.count && counters.match_count_complete).then_some(total as usize),
@@ -4574,6 +4559,7 @@ fn collection_domain(
     )
 }
 
+#[cfg(test)]
 pub(crate) fn search_active(
     repo: &Repository,
     query: &Query,
@@ -4582,6 +4568,7 @@ pub(crate) fn search_active(
     search_active_inner(repo, query, active, None)
 }
 
+#[cfg(test)]
 fn search_active_inner(
     repo: &Repository,
     query: &Query,
@@ -4625,15 +4612,40 @@ fn search_active_inner(
     )
 }
 
-pub(crate) fn search_with_context_active(
+fn search_active_with_prepared(
     repo: &Repository,
     query: &Query,
-    context: &ExecutionContext,
     active: &[ActiveRecords],
-) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
-    context.check()?;
-    search_active_inner(repo, query, active, Some(context))
-        .map_err(|message| context.recorded_error(message))
+    sort: &ResolvedSort<'_>,
+    prepared: &crate::query::prepared::PreparedQuery,
+    context: Option<&ExecutionContext>,
+    cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
+) -> Result<SearchResult, String> {
+    let scoped_context = context
+        .cloned()
+        .unwrap_or_else(|| {
+            ExecutionContext::new(
+                crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+                ExecutionLimits::default(),
+                None,
+            )
+        })
+        .with_active(active);
+    search_impl_with_resolved_sort(
+        repo,
+        query,
+        None,
+        cache_members,
+        cache_budget,
+        sort,
+        Some(prepared),
+        None,
+        None,
+        None,
+        Some(&scoped_context),
+        Some(active),
+    )
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
@@ -4709,52 +4721,6 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         drop(displaced);
     }
     Ok(result)
-}
-
-/// Execute with caller-supplied clock, cancellation and request limits.
-/// The ordinary `search` path keeps its existing allocation-free context fast path.
-pub(crate) fn search_with_context(
-    repo: &Repository,
-    query: &Query,
-    context: &ExecutionContext,
-) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
-    context.check()?;
-    let result = if query.options.count && query.options.limit == 0 {
-        BoundSort::bind(repo, query)
-            .map_err(|message| context.error(ExecutionErrorKind::InvalidQuery, message))?;
-        let mut count_query = query.clone();
-        count_query.options.sort.clear();
-        count_query.options.return_mode = ReturnMode::Locator;
-        count_query.options.evidence = false;
-        search_impl_with_collector(
-            repo,
-            &count_query,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(ExactCollector { members: None }),
-            Some(context),
-            None,
-        )
-    } else {
-        search_impl_with_collector(
-            repo,
-            query,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(context),
-            None,
-        )
-    };
-    result.map_err(|message| context.recorded_error(message))
 }
 
 /// Execute and publish from the shared scan/ranking path before completion.
@@ -5785,10 +5751,51 @@ fn search_impl<'a>(
 fn search_impl_with_collector<'a>(
     repo: &'a Repository,
     query: &Query,
+    traces: Option<&mut Vec<QueryPlanTrace>>,
+    cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
+    prebound_sort: Option<BoundSort<'a>>,
+    delivery: Option<&mut Delivery<'_>>,
+    all_offset: Option<usize>,
+    exact_collector: Option<ExactCollector<'_>>,
+    execution: Option<&ExecutionContext>,
+    active: Option<&[ActiveRecords]>,
+) -> Result<SearchResult, String> {
+    let sort = match prebound_sort {
+        Some(bound) => ResolvedSort::from_bound(repo, query, bound),
+        None => ResolvedSort::new(repo, query).map_err(|message| {
+            if let Some(context) = execution {
+                context.fail(ExecutionErrorKind::InvalidQuery, message)
+            } else {
+                message
+            }
+        })?,
+    };
+    search_impl_with_resolved_sort(
+        repo,
+        query,
+        traces,
+        cache_members,
+        cache_budget,
+        &sort,
+        None,
+        delivery,
+        all_offset,
+        exact_collector,
+        execution,
+        active,
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn search_impl_with_resolved_sort<'a>(
+    repo: &'a Repository,
+    query: &Query,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut cache_members: Option<&mut Vec<CachedMember>>,
     cache_budget: Option<&CacheBudget>,
-    prebound_sort: Option<BoundSort<'a>>,
+    sort: &ResolvedSort<'a>,
+    prepared: Option<&crate::query::prepared::PreparedQuery>,
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
     mut exact_collector: Option<ExactCollector<'_>>,
@@ -5802,16 +5809,6 @@ fn search_impl_with_collector<'a>(
         delivery.check()?;
     }
     let preparation_start = DetailedInstant::now();
-    let sort = match prebound_sort {
-        Some(bound) => ResolvedSort::from_bound(repo, query, bound),
-        None => ResolvedSort::new(repo, query).map_err(|message| {
-            if let Some(context) = execution {
-                context.fail(ExecutionErrorKind::InvalidQuery, message)
-            } else {
-                message
-            }
-        })?,
-    };
     if let Some(execution) = execution {
         sort.target_cache
             .lock()
@@ -5824,7 +5821,10 @@ fn search_impl_with_collector<'a>(
             .map_err(|error| error.to_string())?
             .configure_stream(delivery.max_buffered_bytes(), delivery.token());
     }
-    let prepared = crate::query::prepared::prepare(repo, query)?;
+    let prepared = prepared
+        .cloned()
+        .map(Ok)
+        .unwrap_or_else(|| crate::query::prepared::prepare(repo, query))?;
     let mut rejected_order = RejectedOrderPlans {
         entries: Vec::new(),
         planning_ns: 0,

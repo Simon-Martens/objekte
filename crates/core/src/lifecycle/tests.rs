@@ -587,6 +587,145 @@ fn static_index(repository: Repository) -> Index {
     Index::from_published(published)
 }
 
+#[test]
+fn populated_static_base_uses_the_shared_coordinator_and_cache() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-static-base-coordinator-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, score) in [("a", 3), ("b", 2), ("c", 1)] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"kind":"yes","body":"needle","score":{score}}}"#),
+        )
+        .unwrap();
+    }
+    let mut repository = fixture_repository(&root);
+    repository.active = repository
+        .collections
+        .iter()
+        .map(|collection| crate::inventory::ActiveRecords::all(collection.generation.records.len()))
+        .collect::<Result<Vec<_>, _>>()
+        .unwrap();
+    repository.segments = vec![Arc::new(Vec::new()); repository.collections.len()];
+    repository.configure_verified_cache(0).unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("kind = 'yes'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 2,
+            offset: 1,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let preparation_before = (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+    );
+    let first = repository.search(&query).unwrap();
+    let reference = repository.search_reference(&query).unwrap();
+    assert_eq!(first.count, Some(3));
+    assert_eq!(first.count, reference.count);
+    assert_eq!(first.hits, reference.hits);
+    assert_eq!(
+        (
+            crate::query::prepared::production_prepare_calls() - preparation_before.0,
+            crate::query::sort_binding::production_bound_sort_calls() - preparation_before.1,
+        ),
+        (1, 1)
+    );
+    let repeated = repository.search(&query).unwrap();
+    assert_eq!(repeated.hits, first.hits);
+    assert_eq!(
+        crate::query::prepared::production_prepare_calls() - preparation_before.0,
+        2
+    );
+
+    repository.configure_verified_cache(1024 * 1024).unwrap();
+    let cold = repository.search(&query).unwrap();
+    assert!(!cold.counters.verified_result_hit);
+    let warm = repository.search(&query).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.count, cold.count);
+    assert_eq!(warm.hits, cold.hits);
+    let mut repository_streamed = Vec::new();
+    let outcome = repository
+        .search_stream(
+            &query,
+            StreamOptions {
+                batch_rows: 1,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    repository_streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("repository base stream did not complete")
+    };
+    assert_eq!(summary.count, Some(3));
+    assert_eq!(repository_streamed, warm.hits);
+
+    let index = Index::from_repository(repository).unwrap();
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let view = index.view().unwrap();
+    let view_cold = view.search(&query).unwrap();
+    let view_warm = view.search(&query).unwrap();
+    assert!(!view_cold.counters.verified_result_hit);
+    assert!(view_warm.counters.verified_result_hit);
+    assert_eq!(view_warm.count, Some(3));
+    assert_eq!(view_warm.hits, view.search_reference(&query).unwrap().hits);
+
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(CancellationToken::new()),
+    );
+    let mut streamed = Vec::new();
+    let outcome = view
+        .search_stream_scoped_with_context(
+            &query,
+            ResultScope::Page {
+                offset: query.options.offset,
+                limit: query.options.limit,
+            },
+            StreamOptions {
+                batch_rows: 1,
+                ..Default::default()
+            },
+            &context,
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("base stream did not complete")
+    };
+    assert_eq!(summary.count, Some(3));
+    assert_eq!(summary.returned_rows, 2);
+    assert_eq!(streamed, view_warm.hits);
+
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn all_records() -> Query {
     Query {
         collections: vec!["data".into()],
