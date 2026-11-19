@@ -227,3 +227,16 @@ No unresolved functional issue or blocked check remains. The final report is a
 documentation-only commit after tested code revision `161597bf2dc2a8aa91e12e2bca977f406675ec9c`.
 The branch and integration worktree remain for the owner's separate merge
 decision.
+
+### Repair amendment
+
+Repair branch `repair/core-lifecycle-coordination` tested code revision
+`d1170ac5b6429783b05e508c3e40c5dc69dd828b`. It completes the lifecycle type,
+task, preparation, staging and scheduling ownership split, removes the
+compatibility root re-exports, and replaces the synthetic maintenance admission
+test with a bounded real-worker entry barrier.
+
+Detailed path ownership, synchronization ordering and validation are recorded
+in `docs/ai/done/assignment_6_lifecycle_coordination_repairs.md`. R6 retains
+both R5 and frozen A6 ancestry, all original root removals, and the unchanged
+publication/locking behavior.
