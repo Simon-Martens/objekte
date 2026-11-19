@@ -299,69 +299,147 @@ def verify_files(a1_path, candidate_path, a1_trace_path, candidate_trace_path):
     }
 
 
+def remove_query(document, name):
+    index = next(
+        index
+        for index, result in enumerate(document["results"])
+        if result["name"] == name
+    )
+    document["results"].pop(index)
+
+
+def duplicate_query(document):
+    document["results"][1] = copy.deepcopy(document["results"][0])
+
+
 def run_self_tests(
     valid_a1,
     valid_candidate,
     valid_a1_trace,
     valid_candidate_trace,
 ):
+    def write_inputs(root, a1, candidate, a1_trace, candidate_trace):
+        (root / "a1-reads.json").write_text(json.dumps(a1))
+        (root / "candidate-reads.json").write_text(json.dumps(candidate))
+        (root / "a1-trace.json").write_text(json.dumps(a1_trace))
+        (root / "candidate-trace.json").write_text(json.dumps(candidate_trace))
+
+    def run_cli(root, output_path):
+        return subprocess.run(
+            [
+                sys.executable,
+                "-O",
+                str(Path(__file__).resolve()),
+                "--input-dir",
+                str(root),
+                "--output",
+                str(output_path),
+            ],
+            capture_output=True,
+            text=True,
+        )
+
+    def paired_mutation(name, mutate, expected):
+        return (name, "both", mutate, expected)
+
+    def candidate_mutation(name, mutate, expected):
+        return (name, "candidate", mutate, expected)
+
     mutations = (
-        ("paired-empty", lambda value: value.update(results=[])),
-        (
-            "paired-missing",
-            lambda value: value["results"].pop(
-                next(
-                    index
-                    for index, result in enumerate(value["results"])
-                    if result["name"] == "combined_old"
-                )
+        paired_mutation(
+            "paired-empty",
+            lambda a1, candidate, a1_trace, candidate_trace: (
+                a1.update(results=[]),
+                candidate.update(results=[]),
             ),
+            "expected 3 entries",
         ),
-        (
+        paired_mutation(
+            "paired-missing",
+            lambda a1, candidate, a1_trace, candidate_trace: (
+                remove_query(a1, "combined_old"),
+                remove_query(candidate, "combined_old"),
+            ),
+            "expected 3 entries",
+        ),
+        paired_mutation(
             "paired-duplicate",
-            lambda value: value["results"].append(copy.deepcopy(value["results"][0])),
+            lambda a1, candidate, a1_trace, candidate_trace: (
+                duplicate_query(a1),
+                duplicate_query(candidate),
+            ),
+            "duplicate query result",
         ),
-        (
+        paired_mutation(
             "paired-unknown",
-            lambda value: value["results"][0].update(name="unknown_query"),
+            lambda a1, candidate, a1_trace, candidate_trace: (
+                a1["results"][0].update(name="unknown_query"),
+                candidate["results"][0].update(name="unknown_query"),
+            ),
+            "unknown or missing query name",
         ),
-        (
+        candidate_mutation(
             "one-sided-count",
-            lambda value: value["results"][0].update(count=999),
+            lambda a1, candidate, a1_trace, candidate_trace: candidate["results"][0].update(
+                count=999
+            ),
+            "candidate/exact_page/count",
+        ),
+        candidate_mutation(
+            "omitted-counter",
+            lambda a1, candidate, a1_trace, candidate_trace: candidate["results"][0][
+                "counters"
+            ].pop("bytes_read"),
+            "candidate/exact_page/counters.fields",
+        ),
+        candidate_mutation(
+            "reordered-ids",
+            lambda a1, candidate, a1_trace, candidate_trace: next(
+                result for result in candidate["results"] if result["name"] == "combined_old"
+            )["ids"].reverse(),
+            "candidate/combined_old/ids",
+        ),
+        candidate_mutation(
+            "altered-trace-offset",
+            lambda a1, candidate, a1_trace, candidate_trace: candidate_trace[
+                "combined_old"
+            ]["reads"][0].update(offset=1),
+            "candidate/combined_old/source_trace",
         ),
     )
-    for name, mutate in mutations:
+
+    with tempfile.TemporaryDirectory(prefix="objekte-verify-valid-") as directory:
+        root = Path(directory)
+        write_inputs(
+            root,
+            valid_a1,
+            valid_candidate,
+            valid_a1_trace,
+            valid_candidate_trace,
+        )
+        output_path = root / "valid-comparison.json"
+        completed = run_cli(root, output_path)
+        if completed.returncode != 0:
+            raise VerificationError(
+                f"self-test valid control failed: {completed.stderr}"
+            )
+        if not output_path.exists():
+            raise VerificationError("self-test valid control wrote no comparison")
+
+    for name, target, mutate, expected in mutations:
         with tempfile.TemporaryDirectory(prefix=f"objekte-verify-{name}-") as directory:
             root = Path(directory)
             a1 = copy.deepcopy(valid_a1)
             candidate = copy.deepcopy(valid_candidate)
-            if name == "one-sided-count":
-                mutate(candidate)
+            a1_trace = copy.deepcopy(valid_a1_trace)
+            candidate_trace = copy.deepcopy(valid_candidate_trace)
+            if target == "both":
+                mutate(a1, candidate, a1_trace, candidate_trace)
             else:
-                mutate(a1)
-                mutate(candidate)
-            a1_path = root / "a1.json"
-            candidate_path = root / "candidate.json"
-            a1_trace_path = root / "a1-trace.json"
-            candidate_trace_path = root / "candidate-trace.json"
-            a1_path.write_text(json.dumps(a1))
-            candidate_path.write_text(json.dumps(candidate))
-            a1_trace_path.write_text(json.dumps(valid_a1_trace))
-            candidate_trace_path.write_text(json.dumps(valid_candidate_trace))
+                mutate(a1, candidate, a1_trace, candidate_trace)
+            write_inputs(root, a1, candidate, a1_trace, candidate_trace)
             output_path = root / "must-not-exist.json"
-            completed = subprocess.run(
-                [
-                    sys.executable,
-                    "-O",
-                    __file__,
-                    "--input-dir",
-                    str(root),
-                    "--output",
-                    str(output_path),
-                ],
-                capture_output=True,
-                text=True,
-            )
+            completed = run_cli(root, output_path)
             if completed.returncode == 0:
                 raise VerificationError(
                     f"self-test {name}: invalid input exited successfully"
@@ -369,6 +447,10 @@ def run_self_tests(
             if output_path.exists():
                 raise VerificationError(
                     f"self-test {name}: invalid input wrote a success result"
+                )
+            if expected not in completed.stderr:
+                raise VerificationError(
+                    f"self-test {name}: expected {expected!r}, got {completed.stderr!r}"
                 )
 
 
