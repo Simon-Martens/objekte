@@ -7,6 +7,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 
 use crate::construction::batch::BatchContribution;
+use crate::construction::batch::canonical_custom_text_key;
 use crate::execution_options::BigramAlphabet;
 use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
@@ -21,9 +22,8 @@ use crate::inventory::{
     append_shifted_bitmap,
 };
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
-use crate::repository::{
-    CollectionDefinition, IncrementalSegmentProfile, canonical_custom_text_key,
-};
+use crate::repository::configuration::CollectionDefinition;
+use crate::repository::statistics::IncrementalSegmentProfile;
 use crate::source::registry::PreparedSource;
 
 #[cfg(test)]

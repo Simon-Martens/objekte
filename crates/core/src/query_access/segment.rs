@@ -9,7 +9,7 @@ use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::query_execution::domain::domain_id;
 use crate::query_execution::restrictions::{AccessPathKind, segment_access_path_kind};
 use crate::query_predicate::TermId;
-use crate::repository::CollectionState;
+use crate::repository::state::CollectionState;
 
 use super::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
@@ -402,7 +402,7 @@ mod tests {
     use crate::query_access::contract::{
         AccessExecution, AccessKind, AccessRequest, InputEstimate, OfferList, ProofStrength, Proven,
     };
-    use crate::repository::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
     use crate::source::SourceFormat;
 
     #[test]
@@ -419,7 +419,8 @@ mod tests {
         )
         .unwrap();
         let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-        definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
+        definition.identity =
+            crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
         definition
             .schema
             .register_field(crate::schema::FieldDefinition {

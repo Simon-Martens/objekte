@@ -7,7 +7,8 @@ use std::sync::{Arc, Condvar, Mutex};
 use std::time::Instant;
 
 use crate::lifecycle::{Index, IndexError, IndexView};
-use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::registry::SourceRegistry;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -286,9 +287,11 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<Repository, IndexError> {
         let root = root.into();
-        let definitions =
-            crate::repository_configuration::prepare_source_definitions(&root, &definitions)
-                .map_err(IndexError::IncompatibleConfiguration)?;
+        let definitions = crate::repository::configuration::loader::prepare_source_definitions(
+            &root,
+            &definitions,
+        )
+        .map_err(IndexError::IncompatibleConfiguration)?;
         options.inference.validate().map_err(IndexError::Build)?;
         options
             .segment_policy
@@ -317,9 +320,11 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<InitialBuildTask, IndexError> {
         let root = root.into();
-        let definitions =
-            crate::repository_configuration::prepare_source_definitions(&root, &definitions)
-                .map_err(IndexError::IncompatibleConfiguration)?;
+        let definitions = crate::repository::configuration::loader::prepare_source_definitions(
+            &root,
+            &definitions,
+        )
+        .map_err(IndexError::IncompatibleConfiguration)?;
         options.inference.validate().map_err(IndexError::Build)?;
         options
             .segment_policy

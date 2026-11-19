@@ -4,7 +4,8 @@ use std::sync::Arc;
 use crate::model::LogicalType;
 use crate::query::{CaseSensitivity, FtsMode, Query};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+use crate::repository::Repository;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
@@ -940,6 +941,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
     let optimized = view.search(&wildcard).unwrap();
     let reference = view.search_reference(&wildcard).unwrap();
     assert_eq!(optimized.count, Some(2));
+    assert_eq!(reference.count, Some(2));
     assert_eq!(
         optimized
             .hits
@@ -949,17 +951,30 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
         ["m1", "m2"]
     );
     assert_eq!(optimized.hits, reference.hits);
-    let mut first = wildcard.clone();
-    first.options.limit = 1;
     assert_eq!(
-        view.search(&first)
-            .unwrap()
+        reference
             .hits
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["m1"]
+        ["m1", "m2"]
     );
+    let mut first = wildcard.clone();
+    first.options.limit = 1;
+    for result in [
+        view.search(&first).unwrap(),
+        view.search_reference(&first).unwrap(),
+    ] {
+        assert_eq!(result.count, Some(2));
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["m1"]
+        );
+    }
 
     let selector_free = query(
         "mentions",
@@ -971,6 +986,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
     let optimized = view.search(&selector_free).unwrap();
     let reference = view.search_reference(&selector_free).unwrap();
     assert_eq!(optimized.count, Some(2));
+    assert_eq!(reference.count, Some(2));
     assert_eq!(
         optimized
             .hits
@@ -980,18 +996,31 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
         ["m2", "m1"]
     );
     assert_eq!(optimized.hits, reference.hits);
-    assert_eq!(optimized.counters.sort_target_reads, 0);
-    let mut first = selector_free.clone();
-    first.options.limit = 1;
     assert_eq!(
-        view.search(&first)
-            .unwrap()
+        reference
             .hits
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["m2"]
+        ["m2", "m1"]
     );
+    assert_eq!(optimized.counters.sort_target_reads, 0);
+    let mut first = selector_free.clone();
+    first.options.limit = 1;
+    for result in [
+        view.search(&first).unwrap(),
+        view.search_reference(&first).unwrap(),
+    ] {
+        assert_eq!(result.count, Some(2));
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["m2"]
+        );
+    }
 
     for request in [
         query(
@@ -1634,7 +1663,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
 fn segmented_reference_first_last_ignores_unavailable_contribution() {
     use crate::index::segment::PublishedSegment;
     use crate::model::{CollectionId, Value};
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
     std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Alpha"}"#).unwrap();
@@ -1841,7 +1870,7 @@ fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions() {
 #[test]
 fn adopted_base_view_reference_search_uses_pinned_publication() {
     use crate::execution_options::ReturnMode;
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
     let repo = base_repository(&root, definitions);
@@ -1972,7 +2001,7 @@ fn adopted_base_view_reference_search_keeps_retired_rows_on_the_old_pin() {
 #[test]
 fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     use crate::execution_options::ReturnMode;
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
     let repo = base_repository(&root, definitions);
@@ -2140,7 +2169,7 @@ fn base_related_sort_declines_an_incompatible_stored_key() {
 #[test]
 fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes() {
     use crate::model::Value;
-    use crate::repository::Payload;
+    use crate::query_results::Payload;
     let (root, definitions) = fixture();
     let mut repo = base_repository(&root, definitions);
     repo.collections[0]

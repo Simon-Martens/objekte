@@ -15,7 +15,7 @@ use crate::execution_options::BigramAlphabet;
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
-use crate::repository::CollectionDefinition;
+use crate::repository::configuration::CollectionDefinition;
 use crate::source::{
     ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_file_build_outcomes,
     extraction::extract_framed_build_outcomes, extraction::frame_file_for_build,

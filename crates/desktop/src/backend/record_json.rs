@@ -6,7 +6,7 @@ use std::path::Path;
 
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::model::{Number, Value};
-use objekte_search_core::repository::{Payload, SearchHit};
+use objekte_search_core::query_results::{Payload, SearchHit};
 use serde_json::{Value as Json, json};
 
 /// Decode a result for the field inspector. Non-JSON source bytes stay in raw view.

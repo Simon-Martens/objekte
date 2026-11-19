@@ -7,6 +7,7 @@ use std::time::Instant;
 
 use roaring::RoaringBitmap;
 
+use crate::construction::batch::canonical_custom_text_key;
 use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
@@ -18,12 +19,49 @@ use crate::inventory::{
 use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::{IndexError, IndexRevision};
 use crate::model::{CollectionId, RecordId, RecordSlot};
-use crate::repository::{
-    BuildProfileStats, CollectionDefinition, CollectionState, CollectionStats,
-    GlobalInferenceSummary, Repository, RepositoryOptions, StartupStats, build_profile_rss_bytes,
-    canonical_custom_text_key, finish_fresh_fingerprints, next_repository_instance,
-};
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use crate::repository::state::{CollectionState, CollectionStats, GlobalInferenceSummary};
+use crate::repository::statistics::{BuildProfileStats, StartupStats, build_profile_rss_bytes};
+use crate::repository::{Repository, next_repository_instance};
 use crate::source::registry::SourceRegistry;
+
+pub(crate) fn finish_fresh_fingerprints(
+    files: &FileInventory,
+    mut bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
+) -> Result<Vec<Option<[u8; 32]>>, String> {
+    if bindings.len() != files.files.len() {
+        return Err("fresh digest inventory length mismatch".into());
+    }
+    files
+        .files
+        .iter()
+        .zip(&mut bindings)
+        .map(|(file, reads)| {
+            reads.sort_unstable_by_key(|(collection, _)| collection.0);
+            let mut previous = None;
+            let mut observed = 0usize;
+            let mut consensus = None;
+            for &(collection, digest) in reads.iter() {
+                if !file.collections.contains(&collection) {
+                    return Err("fresh digest belongs to an ineligible collection".into());
+                }
+                if consensus.is_some_and(|expected| expected != digest) {
+                    return Err("source content changed between collection build reads".into());
+                }
+                consensus = Some(digest);
+                if previous != Some(collection) {
+                    previous = Some(collection);
+                    observed += 1;
+                }
+            }
+            if observed == file.collections.len() {
+                Ok(consensus)
+            } else {
+                Ok(None)
+            }
+        })
+        .collect()
+}
 
 pub(crate) fn initialize_empty(
     root: PathBuf,
@@ -32,8 +70,11 @@ pub(crate) fn initialize_empty(
     sources: &SourceRegistry,
     pool: Option<&rayon::ThreadPool>,
 ) -> Result<Repository, String> {
-    let configuration_identity =
-        crate::configuration::configuration_hash(&definitions, options, sources)?;
+    let configuration_identity = crate::repository::configuration::identity::configuration_hash(
+        &definitions,
+        options,
+        sources,
+    )?;
     let build_workers = crate::construction::scheduling::resolve_build_workers(
         options.build_workers,
         std::thread::available_parallelism().ok(),
@@ -573,3 +614,7 @@ pub(crate) fn assemble_final_repository(
     };
     Ok(final_repository)
 }
+
+#[cfg(test)]
+#[path = "repository_state/tests.rs"]
+mod tests;

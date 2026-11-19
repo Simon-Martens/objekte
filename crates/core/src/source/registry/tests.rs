@@ -8,7 +8,8 @@ use crate::model::{LogicalType, Value};
 use crate::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
-use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
+use crate::query_results::Payload;
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::extraction::extract_file_outcomes;
 use crate::source::test_support::{OutcomeReader, TinyReader};
@@ -346,7 +347,9 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::schema::{FieldDefinition, Schema};
 
     let root =
@@ -469,7 +472,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                     let result = repo.search(&query).unwrap();
                     assert_eq!(result.count, Some(1));
                     assert!(matches!(&result.hits[0].payload,
-                        Some(crate::repository::Payload::Logical(Value::Object(fields)))
+                        Some(crate::query_results::Payload::Logical(Value::Object(fields)))
                         if matches!(fields["date"], Value::Date(_))));
                 }
             }
@@ -616,7 +619,10 @@ fn seeded_reader_ranges_obey_checked_nonoverlap_contract() {
 fn registered_recoverable_error_survives_repository_query_and_restore() {
     use crate::execution_options::ReturnMode;
     use crate::query::{FtsQuery, Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
+    use crate::query_results::Payload;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::schema::Schema;
     let root = std::env::temp_dir().join(format!(
         "objekte-registered-fallback-{}",
@@ -708,7 +714,9 @@ fn body_only_reader_does_not_prune_unindexed_title() {
     use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::schema::{FieldDefinition, Schema};
 
     let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));
@@ -801,7 +809,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
             assert_eq!(found.count, Some(expected), "{alphabet:?} {filter:?}");
             if expected == 1 {
                 assert!(
-                    matches!(&found.hits[0].payload, Some(crate::repository::Payload::Bytes(raw)) if raw == b"hello world|ordinary")
+                    matches!(&found.hits[0].payload, Some(crate::query_results::Payload::Bytes(raw)) if raw == b"hello world|ordinary")
                 );
             }
         }
@@ -814,7 +822,10 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     use crate::execution_options::ReturnMode;
     use crate::model::LogicalType;
     use crate::query::{FtsQuery, Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, RepositoryOptions};
+    use crate::query_results::Payload;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::schema::{FieldDefinition, Schema};
 
     let root = std::env::temp_dir().join(format!("objekte-tiny-source-{}", std::process::id()));
@@ -952,7 +963,9 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
 #[test]
 fn discovery_and_intrinsic_ids_share_build_restore_rules() {
     use crate::discovery::{Discovery, SymlinkPolicy};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
 
     let root = std::env::temp_dir().join(format!(
         "objekte-discovery-{}-{}",
@@ -1125,7 +1138,9 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
 
 #[test]
 fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
 
     let root = std::env::temp_dir().join(format!("objekte-intrinsic-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();

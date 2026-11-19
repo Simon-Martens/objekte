@@ -6,7 +6,7 @@ use std::path::Path;
 
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{Payload, SearchHit};
+use objekte_search_core::query_results::{Payload, SearchHit};
 use serde_json::{Value, json};
 
 use super::settings;

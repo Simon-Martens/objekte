@@ -5,7 +5,9 @@ use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
-use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 use objekte_search_core::workload::WorkloadCase;
@@ -200,7 +202,7 @@ fn query(collection: &str, filter: &str, return_mode: ReturnMode) -> Query {
     .unwrap()
 }
 
-fn sorted_ids(result: &objekte_search_core::repository::SearchResult) -> Vec<String> {
+fn sorted_ids(result: &objekte_search_core::query_results::SearchResult) -> Vec<String> {
     let mut ids = result
         .hits
         .iter()

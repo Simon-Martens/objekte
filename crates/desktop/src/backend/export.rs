@@ -7,7 +7,7 @@ use std::path::Path;
 use objekte_search_core::execution_options::ReturnMode;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::query_execution::runner::DirectLookupResult;
-use objekte_search_core::repository::SearchHit;
+use objekte_search_core::query_results::SearchHit;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,

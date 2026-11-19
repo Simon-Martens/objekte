@@ -1,6 +1,6 @@
 use crate::execution_options::ReturnMode;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
 
 fn root(name: &str) -> std::path::PathBuf {

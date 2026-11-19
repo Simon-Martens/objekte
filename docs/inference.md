@@ -6,27 +6,34 @@ Choose a mode at opening:
 
 ```rust
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
-use objekte_search_core::lifecycle::Index;
-use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, SourceRegistry};
-
-let definition = CollectionDefinition::folder("items", "data/items", SourceFormat::Json);
-let options = RepositoryOptions {
-    inference: InferenceConfig {
-        mode: InferenceMode::AutoIndex,
-        ..Default::default()
-    },
-    ..Default::default()
+use objekte_search_core::lifecycle::{Index, IndexError};
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, RepositoryOptions,
 };
-let index = Index::start_build(
-    "/repository",
-    vec![definition],
-    options,
-    SourceRegistry::builtin(),
-)?
-.wait_complete()?;
-let report = index.view()?.inference_report("items");
-# Ok::<(), String>(())
+use objekte_search_core::source::SourceFormat;
+use objekte_search_core::source::registry::SourceRegistry;
+
+fn demonstrate_inference() -> Result<(), IndexError> {
+    let definition = CollectionDefinition::folder("items", "data/items", SourceFormat::Json);
+    let options = RepositoryOptions {
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        ..Default::default()
+    };
+    let index = Index::start_build(
+        "/repository",
+        vec![definition],
+        options,
+        SourceRegistry::builtin(),
+    )?
+    .wait_complete()?;
+    let view = index.view()?;
+    let report = view.inference_report("items");
+    assert!(report.is_some());
+    Ok(())
+}
 ```
 
 `Disabled` does no inference observation or typed-index construction.

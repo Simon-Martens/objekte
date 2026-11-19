@@ -339,7 +339,7 @@ fn open_incremental_repository(
     args: &Arguments,
     paths: &ResolvedPaths,
     configured: &ConfiguredDefinitions,
-    options: objekte_search_core::repository::RepositoryOptions,
+    options: objekte_search_core::repository::configuration::RepositoryOptions,
     source: &mut Option<Result<QuerySource, String>>,
     token: &CancellationToken,
 ) -> Result<(IndexedRepository, u128), String> {

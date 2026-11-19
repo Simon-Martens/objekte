@@ -208,7 +208,7 @@ pub(crate) fn aggregate_segment_inference(
     schema: &Schema,
     segments: &[Arc<crate::index::segment::PublishedSegment>],
     collection_name: &str,
-) -> Result<Option<crate::repository::GlobalInferenceSummary>, String> {
+) -> Result<Option<crate::repository::state::GlobalInferenceSummary>, String> {
     if config.mode == InferenceMode::Disabled {
         return Ok(None);
     }
@@ -474,7 +474,7 @@ pub(crate) fn aggregate_segment_inference(
         fields,
     };
     let _ = collection_name;
-    Ok(Some(crate::repository::GlobalInferenceSummary {
+    Ok(Some(crate::repository::state::GlobalInferenceSummary {
         report,
         diagnostics,
     }))

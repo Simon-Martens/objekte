@@ -10,7 +10,7 @@ use objekte_search_core::model::FieldPath;
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter,
 };
-use objekte_search_core::repository::RepositoryOptions;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 
 #[derive(Clone, Copy)]
 struct Case {

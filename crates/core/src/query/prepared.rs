@@ -150,7 +150,7 @@ mod tests {
     use super::*;
     use crate::execution_options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, RegexOptions};
-    use crate::repository::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
     use crate::source::SourceFormat;
 
     #[test]

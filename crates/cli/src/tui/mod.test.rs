@@ -361,7 +361,7 @@ fn mouse_click_on_wrapped_value_selects_its_record_field() {
     let app = &mut fixture.app;
     wait_for_hits(app);
     let title = "wrapped record value ".repeat(7);
-    app.hits[0].payload = Some(objekte_search_core::repository::Payload::Bytes(
+    app.hits[0].payload = Some(objekte_search_core::query_results::Payload::Bytes(
         format!(r#"{{"title":"{title}","number":0}}"#).into_bytes(),
     ));
     app.open_detail();

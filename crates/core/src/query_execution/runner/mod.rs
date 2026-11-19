@@ -68,12 +68,14 @@ use crate::query_results::ranking::{
     segment_compare_to_rank, segment_rank_key, winner_bytes, would_enter_page,
 };
 use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
+use crate::query_results::{Payload, SearchHit, SearchResult};
 use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
 };
 use crate::reference::fts::eval_bound_fts;
 use crate::reference::{eval_unavailable_filter, filter::eval_term};
-use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
+use crate::repository::Repository;
+use crate::repository::state::CollectionState;
 use crate::source::access::{
     RecordRangeReader, SourceAccessSession, classify_source_read_failure_for_search,
     probe_source_unavailable_for_search, read_record_range_for_search,
@@ -273,7 +275,7 @@ impl Ord for FileWinner {
 
 fn inventory_fts_evidence(
     repo: &Repository,
-    collection: &crate::repository::CollectionState,
+    collection: &crate::repository::state::CollectionState,
     fts: &BoundFts,
     input: &RoaringBitmap,
 ) -> Result<HashMap<u32, HashSet<String>>, String> {

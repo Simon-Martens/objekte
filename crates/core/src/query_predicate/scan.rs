@@ -15,7 +15,8 @@ use crate::query::{
 };
 use crate::query_execution::restrictions::{Proof, estimate_expr};
 use crate::query_results::ranking::ResolvedSort;
-use crate::repository::{CollectionState, Repository};
+use crate::repository::Repository;
+use crate::repository::state::CollectionState;
 use crate::schema::{operation::ExactInput, operation::Transform};
 use crate::source::ScanProjection;
 use crate::source::verification::ScalarVerification;
@@ -401,7 +402,7 @@ impl<'a> DirectSourcePlan<'a> {
 pub(crate) fn prepare_residual<'a>(
     expr: &'a BoundExpr,
     proofs: &'a [Proof],
-    collection: &crate::repository::CollectionState,
+    collection: &crate::repository::state::CollectionState,
     input_len: u64,
     predicates: &'a crate::query_predicate::PreparedPredicates,
 ) -> Residual<'a> {

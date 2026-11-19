@@ -144,7 +144,7 @@ fn long_record_values_wrap_and_keep_screen_lines_on_the_same_field() {
         std::thread::sleep(std::time::Duration::from_millis(5));
     }
     let title = "A long title with several words ".repeat(5);
-    app.hits[0].payload = Some(objekte_search_core::repository::Payload::Bytes(
+    app.hits[0].payload = Some(objekte_search_core::query_results::Payload::Bytes(
         format!(r#"{{"title":"{title}","number":0}}"#).into_bytes(),
     ));
     app.open_detail();

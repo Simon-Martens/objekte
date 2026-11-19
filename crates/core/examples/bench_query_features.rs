@@ -9,7 +9,9 @@ use objekte_search_core::execution_options::{BigramAlphabet, ReturnMode};
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
-use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::WorkloadCase;
@@ -584,7 +586,7 @@ fn main() -> Result<(), String> {
             .iter()
             .map(|value| (*value).to_owned())
             .collect::<Vec<_>>();
-        let normalize = |result: &objekte_search_core::repository::SearchResult| {
+        let normalize = |result: &objekte_search_core::query_results::SearchResult| {
             let mut ids = result
                 .hits
                 .iter()

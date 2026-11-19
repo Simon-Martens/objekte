@@ -8,7 +8,7 @@ use std::sync::{
 
 use crate::measurement::WorkCounters;
 use crate::query::clock::ClockContext;
-use crate::repository::{Payload, SearchHit};
+use crate::query_results::{Payload, SearchHit};
 
 /// Limits apply to estimated retained query state and source reads, not RSS.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -4,7 +4,7 @@ use crate::index::sorting::Placement;
 use crate::model::{ArrayValue, LogicalType, Number};
 use crate::query::QueryOptions;
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, operation::RegisteredBinding};
 use crate::source::SourceFormat;
 
@@ -58,7 +58,7 @@ fn stored_title_query(collections: &[&str]) -> Query {
     }
 }
 
-fn hit_ids(result: &crate::repository::SearchResult) -> Vec<&str> {
+fn hit_ids(result: &crate::query_results::SearchResult) -> Vec<&str> {
     result
         .hits
         .iter()

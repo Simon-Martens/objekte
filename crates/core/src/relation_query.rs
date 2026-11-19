@@ -25,8 +25,8 @@ use crate::reference::{
 };
 use crate::relation::{RelationCardinality, RelationId};
 use crate::relation_target_cache::TargetValueCache;
-use crate::repository::CollectionState;
 use crate::repository::Repository;
+use crate::repository::state::CollectionState;
 use crate::source::access::{
     classify_source_read_failure_for_search, read_record_range_for_search,
 };

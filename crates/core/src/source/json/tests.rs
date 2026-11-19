@@ -100,7 +100,7 @@ fn direct_build_json_matches_existing_logical_reader_and_diagnostics() {
 fn root_queries_match_reference_over_mixed_json_documents() {
     use crate::execution_options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 
     let root = std::env::temp_dir().join(format!("objekte-json-roots-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -164,7 +164,7 @@ fn root_queries_match_reference_over_mixed_json_documents() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        let ids = |result: &crate::repository::SearchResult| {
+        let ids = |result: &crate::query_results::SearchResult| {
             result
                 .hits
                 .iter()
@@ -181,7 +181,7 @@ fn root_queries_match_reference_over_mixed_json_documents() {
 fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
-    use crate::repository::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
     use crate::schema::FieldDefinition;
 
     let root = std::env::temp_dir().join(format!("objekte-declared-root-{}", std::process::id()));
@@ -228,7 +228,9 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     use crate::execution_options::ReturnMode;
     use crate::inventory::RecordClass;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
 
     let root =
         std::env::temp_dir().join(format!("objekte-exact-json-numbers-{}", std::process::id()));
@@ -281,7 +283,7 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        let ids = |result: &crate::repository::SearchResult| {
+        let ids = |result: &crate::query_results::SearchResult| {
             result
                 .hits
                 .iter()
@@ -488,7 +490,9 @@ fn decoded_scalar_build_uses_exact_json_whitespace() {
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::execution_options::{BigramAlphabet, ReturnMode};
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
 
     let root = std::env::temp_dir().join(format!("objekte-scalar-fts-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -559,7 +563,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
                 },
             };
             let optimized = repo.search(&query).unwrap();
-            let ids = |result: &crate::repository::SearchResult| {
+            let ids = |result: &crate::query_results::SearchResult| {
                 result
                     .hits
                     .iter()

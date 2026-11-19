@@ -1,0 +1,96 @@
+{
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "repetitions": 3,
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "build_flags": {},
+  "baseline": {
+    "revision": "6f3c3ee8aa5a49cf82d83905b5eb212c1e984b46",
+    "binary": "/home/simon/.cache/objekte-assignment7-repair-20261119/b7-target/release/examples/bench_build_musenalm",
+    "binary_sha256": "b6f82a81302b8adfb2d4f1df11f1d13d6b48351376b4d36d9ee267318ec20841",
+    "summary": {
+      "ascii": {
+        "samples": 3,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "median_wall_ns": 643396342,
+        "min_wall_ns": 634686397,
+        "max_wall_ns": 647376714,
+        "median_peak_resident_bytes": 654376960,
+        "index_signature_sha256": "4a38808629a1544a354d715e42c85ac426b1cfe93376e862253b3d5cc03f349f",
+        "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+      },
+      "unicode": {
+        "samples": 3,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "median_wall_ns": 736197361,
+        "min_wall_ns": 700839988,
+        "max_wall_ns": 736882570,
+        "median_peak_resident_bytes": 660336640,
+        "index_signature_sha256": "5c235a33b6cb1a18c1a1f4d2b1d60fa1eae912ce2b4ff868857df95028d83868",
+        "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+      }
+    }
+  },
+  "current": {
+    "revision": "43005ca3e959d678614998ead6a76a444e7a62cc",
+    "binary": "/home/simon/.cache/objekte-assignment7-repair-20261119/candidate-target/release/examples/bench_build_musenalm",
+    "binary_sha256": "5c85513a3b7ec8d977959f5c84a7370a88075297aa9d33905969d86f7809beab",
+    "summary": {
+      "ascii": {
+        "samples": 3,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "median_wall_ns": 634973269,
+        "min_wall_ns": 619705208,
+        "max_wall_ns": 635172907,
+        "median_peak_resident_bytes": 647180288,
+        "index_signature_sha256": "4a38808629a1544a354d715e42c85ac426b1cfe93376e862253b3d5cc03f349f",
+        "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+      },
+      "unicode": {
+        "samples": 3,
+        "records": [
+          148486
+        ],
+        "build_parses": [
+          148486
+        ],
+        "failed_parses": [
+          0
+        ],
+        "median_wall_ns": 681720141,
+        "min_wall_ns": 681658467,
+        "max_wall_ns": 699063437,
+        "median_peak_resident_bytes": 658001920,
+        "index_signature_sha256": "5c235a33b6cb1a18c1a1f4d2b1d60fa1eae912ce2b4ff868857df95028d83868",
+        "schema_manifest_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+      }
+    }
+  },
+  "comparison": {
+    "signatures_equal": true,
+    "failures": []
+  }
+}

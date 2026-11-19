@@ -62,3 +62,7 @@ pub(crate) fn prepare_discovered_window(
             .collect()
     })
 }
+
+#[cfg(test)]
+#[path = "discovery/tests.rs"]
+mod tests;

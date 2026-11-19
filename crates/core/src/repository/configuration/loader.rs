@@ -9,7 +9,7 @@ use std::path::{Component, Path, PathBuf};
 
 use serde_json::Value;
 
-use crate::repository::{CollectionDefinition, IdentityPolicy};
+use super::{CollectionDefinition, IdentityPolicy};
 use crate::schema::json::{CompiledSchema, compile_schema};
 use crate::source::SourceFormat;
 
@@ -317,5 +317,4 @@ fn omit_unavailable_relations(document: &mut Value, collections: &HashSet<String
 }
 
 #[cfg(test)]
-#[path = "repository_configuration.test.rs"]
 mod tests;

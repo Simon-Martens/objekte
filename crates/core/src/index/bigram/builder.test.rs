@@ -592,7 +592,9 @@ fn diagnostic_gram_set_counts_existing_record_bits() {
 #[test]
 fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     use crate::model::LogicalType;
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::schema::{FieldDefinition, Schema, operation::CustomBinding, operation::Transform};
     use crate::source::SourceFormat;
     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));

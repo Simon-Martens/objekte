@@ -1,0 +1,25 @@
+{
+  "revision": "6f3c3ee8aa5a49cf82d83905b5eb212c1e984b46",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "binary": "/home/simon/source/objekte/target/release/examples/bench_build_musenalm",
+  "baseline": null,
+  "summary": {
+    "ascii": {
+      "samples": 3,
+      "median_wall_ns": 703602987,
+      "median_peak_resident_bytes": 658055168,
+      "min_wall_ns": 657051160,
+      "max_wall_ns": 750575106,
+      "index_signature_sha256": "4a38808629a1544a354d715e42c85ac426b1cfe93376e862253b3d5cc03f349f"
+    },
+    "unicode": {
+      "samples": 3,
+      "median_wall_ns": 708995698,
+      "median_peak_resident_bytes": 671498240,
+      "min_wall_ns": 708465077,
+      "max_wall_ns": 716783378,
+      "index_signature_sha256": "5c235a33b6cb1a18c1a1f4d2b1d60fa1eae912ce2b4ff868857df95028d83868"
+    }
+  },
+  "failures": []
+}

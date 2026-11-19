@@ -1,0 +1,11 @@
+{
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "files_before": 148501,
+  "files_after": 148501,
+  "source_files": 148486,
+  "metadata_sha256_before": "ce54312379a363b9a76203ba072967d4ec80aa3422eb76c31f83c942b1589901",
+  "metadata_sha256_after": "ce54312379a363b9a76203ba072967d4ec80aa3422eb76c31f83c942b1589901",
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "bf36ea2e88d1b455e28b0f5f36c71ebd03847b2a986cd3f1f2ea3302fd1eea08",
+  "metadata_method": "sorted relative path, nanosecond modification time, and size for every file"
+}

@@ -9,7 +9,7 @@ use crate::index::posting::ScalarKey;
 use crate::inventory::{RecordClass, append_shifted_bitmap};
 use crate::model::{CollectionId, RecordSlot, Value};
 use crate::relation::{RelationDefinition, RelationId};
-use crate::repository::CollectionState;
+use crate::repository::state::CollectionState;
 use crate::schema::Schema;
 
 #[cfg(test)]

@@ -2,7 +2,7 @@ use super::*;
 use crate::execution_options::{BigramAlphabet, ReturnMode};
 use crate::model::Value;
 use crate::query::{Query, QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
 
 fn query(filter: &str) -> Query {
@@ -21,7 +21,7 @@ fn query(filter: &str) -> Query {
     }
 }
 
-fn ids(result: &crate::repository::SearchResult) -> Vec<String> {
+fn ids(result: &crate::query_results::SearchResult) -> Vec<String> {
     result
         .hits
         .iter()

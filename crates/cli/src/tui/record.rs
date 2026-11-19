@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 use objekte_search_core::diagnostics::signed_milliseconds_3;
 use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query::path::{PathStep, QueryPath};
-use objekte_search_core::repository::{Payload, SearchHit};
+use objekte_search_core::query_results::{Payload, SearchHit};
 
 use super::input::Input;
 

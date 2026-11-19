@@ -7,7 +7,7 @@ use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FieldPath, LogicalType};
 use crate::relation::{RelationCardinality, RelationDefinition};
-use crate::repository::CollectionDefinition;
+use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
 use crate::source::{SourceFormat, registry::SourceRegistry};
 use std::time::Instant;

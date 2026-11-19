@@ -4,6 +4,7 @@ use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashSet};
 use std::sync::Arc;
 
+use super::{Payload, SearchHit};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 use crate::index::sorting::{SortColumn, SortKey, SortOptions};
@@ -20,7 +21,7 @@ use crate::query::sort_binding::{
 use crate::query_results::cache::CacheBudget;
 use crate::query_results::verified::CachedMember;
 use crate::record_preparation::prepare_query_record_with_execution;
-use crate::repository::{Payload, Repository, SearchHit};
+use crate::repository::Repository;
 use crate::source::access::read_record_range_for_search;
 use crate::source::{ExtractedRecord, ScanProjection};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};

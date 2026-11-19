@@ -11,7 +11,8 @@ use crate::query::{
 };
 use crate::query_execution::restrictions::Proof;
 use crate::reference::filter::eval_unavailable_filter;
-use crate::repository::{CollectionState, Repository};
+use crate::repository::Repository;
+use crate::repository::state::CollectionState;
 
 pub(crate) fn proof_evidence(
     expr: &BoundExpr,

@@ -4,10 +4,10 @@ use std::path::Path;
 
 use sha2::{Digest, Sha256};
 
+use super::{CollectionDefinition, RepositoryOptions};
 use crate::execution_options::BigramAlphabet;
 use crate::index::bigram::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
 use crate::index::sorting::COLLATION_VERSION;
-use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::registry::SourceRegistry;
 
 const CONFIGURATION_HASH_VERSION: u32 = 17;

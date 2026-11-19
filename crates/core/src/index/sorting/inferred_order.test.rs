@@ -214,7 +214,10 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     use crate::execution_options::{ReturnMode, SortField};
     use crate::model::LogicalType;
     use crate::query::{Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+    use crate::repository::Repository;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::schema::{FieldDefinition, Schema};
     use crate::source::SourceFormat;
 
@@ -408,7 +411,9 @@ fn cross_collection_sort_rejects_different_collation() {
     use crate::execution_options::{ReturnMode, SortField};
     use crate::model::LogicalType;
     use crate::query::{Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
     use crate::schema::{FieldDefinition, Schema};
     use crate::source::SourceFormat;
 
@@ -484,7 +489,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
     use crate::execution_options::{ReturnMode, SortField};
     use crate::inventory::FileStatus;
     use crate::query::{Query, QueryOptions};
-    use crate::repository::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
     use crate::schema::FieldDefinition;
     use crate::source::SourceFormat;
 

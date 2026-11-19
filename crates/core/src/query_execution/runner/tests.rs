@@ -2,7 +2,7 @@ use super::*;
 use crate::execution_options::SortField;
 use crate::model::LogicalType;
 use crate::query::{CaseSensitivity, QueryOptions, parse_filter};
-use crate::repository::{CollectionDefinition, IdentityPolicy};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
 
@@ -62,7 +62,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let options = crate::repository::RepositoryOptions {
+    let options = crate::repository::configuration::RepositoryOptions {
         verified_cache_bytes: 0,
         ..Default::default()
     };
@@ -499,7 +499,7 @@ fn same_span_occurrences_keep_distinct_plans_and_exact_semantics() {
             })
             .unwrap();
     }
-    let options = crate::repository::RepositoryOptions {
+    let options = crate::repository::configuration::RepositoryOptions {
         verified_cache_bytes: 0,
         ..Default::default()
     };
@@ -690,7 +690,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             verified_cache_bytes: 0,
             segment_policy: crate::index::segment::SegmentPolicy::with_target_records(
                 std::num::NonZeroUsize::new(4096).unwrap(),
@@ -932,7 +932,7 @@ fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -1037,7 +1037,7 @@ fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -1090,7 +1090,7 @@ fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
 #[test]
 fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, RegexOptions};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     use crate::source::registry::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!(
@@ -1233,7 +1233,7 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
 #[test]
 fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let records = [
         r#"{"text":"before\u2139after","name":"Ada"}"#,
@@ -1364,7 +1364,7 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
 #[test]
 fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let records = [
         r#"{"title":"needle"}"#,
@@ -1492,7 +1492,7 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
 #[test]
 fn decoded_scalar_fts_combines_source_text_with_required_values() {
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!("objekte-combined-source-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -1559,7 +1559,7 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
 #[test]
 fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-lifecycle-parallel-fts-{}-{}",
@@ -1639,7 +1639,7 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
 #[test]
 fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, parse_structured_filter};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-lifecycle-parallel-residual-{}-{}",
@@ -1779,7 +1779,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
 fn segmented_array_step_state_predicates_use_exact_structural_postings() {
     use crate::execution_options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-array-state-{}-{}",
@@ -2021,7 +2021,7 @@ fn segment_file_grouping_merges_out_of_order_file_runs() {
 
 #[test]
 fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-lifecycle-exact-sorted-{}-{}",
@@ -2135,7 +2135,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId};
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-merge-{}-{:?}",
@@ -3225,7 +3225,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId, RecordSlot};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-lookup-{}-{:?}",
@@ -3493,7 +3493,7 @@ fn active_inspection_traces_use_live_domain_and_match_search() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -3648,7 +3648,7 @@ fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf
 fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
     use crate::execution_options::SortField;
     use crate::inference::{InferenceConfig, InferenceMode};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     use crate::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamError, StreamOptions,
@@ -3733,7 +3733,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
             "data",
             SourceFormat::Json,
         )],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
                 ..Default::default()
@@ -3781,7 +3781,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
 fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
     use crate::execution_options::SortField;
     use crate::inference::{InferenceConfig, InferenceMode};
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = write_inferred_order_fixture("inferred-order-cache", 150);
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
@@ -3896,7 +3896,7 @@ fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -3962,7 +3962,7 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
         },
@@ -4059,7 +4059,7 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -4103,7 +4103,8 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
 fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
     use crate::inventory::{FileStatus, RecordClass};
     use crate::query::FtsQuery;
-    use crate::repository::{Payload, RepositoryOptions};
+    use crate::query_results::Payload;
+    use crate::repository::configuration::RepositoryOptions;
     let root = std::env::temp_dir().join(format!("objekte-malformed-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
@@ -4316,7 +4317,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
 #[test]
 fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
     use crate::inventory::RecordClass;
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     let root = std::env::temp_dir().join(format!(
         "objekte-fallback-negation-evidence-{}",
         std::process::id()
@@ -4461,7 +4462,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
 
 #[test]
 fn one_fallback_does_not_disable_selective_logical_postings() {
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
     let root = std::env::temp_dir().join(format!("objekte-mixed-posting-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     let mut source = String::new();
@@ -4603,7 +4604,8 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
 
 #[test]
 fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
-    use crate::repository::{Payload, RepositoryOptions};
+    use crate::query_results::Payload;
+    use crate::repository::configuration::RepositoryOptions;
     let root = std::env::temp_dir().join(format!("objekte-malformed-json-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/empty.json"), b"").unwrap();
@@ -4798,7 +4800,7 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -4967,7 +4969,7 @@ fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -5076,7 +5078,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions.to_vec(),
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -5288,7 +5290,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     let cached_repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions.to_vec(),
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         },
@@ -5415,7 +5417,7 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -5575,7 +5577,7 @@ fn segmented_explicit_array_index_does_not_claim_whole_field_proof() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -5658,7 +5660,7 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -5702,7 +5704,7 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
                     expanded_locator_bytes += rows
                         .iter()
                         .map(|hit| {
-                            std::mem::size_of::<crate::repository::SearchHit>()
+                            std::mem::size_of::<crate::query_results::SearchHit>()
                                 + hit.file_path.to_string_lossy().len()
                         })
                         .sum::<usize>();
@@ -5778,7 +5780,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -5907,7 +5909,7 @@ fn interleaved_stored_order_records_keep_bounded_file_handles() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -5983,7 +5985,7 @@ fn large_multi_record_scans_bound_payloads_and_reuse_file_handles() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             query_workers: 4,
             ..Default::default()
         },
@@ -6158,7 +6160,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
-            crate::repository::RepositoryOptions {
+            crate::repository::configuration::RepositoryOptions {
                 query_workers: workers,
                 ..Default::default()
             },
@@ -6255,7 +6257,7 @@ fn exact_membership_materializes_only_page_payload() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -6389,7 +6391,7 @@ fn multi_record_scan_opens_file_once_and_parses_each_range_once() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -6466,7 +6468,7 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -6558,7 +6560,7 @@ fn typed_temporal_fields_survive_postings_payload_and_reopen() {
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions.clone(),
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -6579,7 +6581,7 @@ fn typed_temporal_fields_survive_postings_payload_and_reopen() {
     let restored = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -6658,7 +6660,7 @@ fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
         }
     };
     for indexed in [false, true] {
-        let options = crate::repository::RepositoryOptions {
+        let options = crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         };
         for open in 0..2 {
@@ -6760,7 +6762,7 @@ fn selected_folded_and_metadata_fts_match_reference() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -6851,7 +6853,7 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -6950,7 +6952,7 @@ fn quoted_data_name_does_not_shadow_metadata() {
             sort_options: Default::default(),
             sort_overrides: Default::default(),
         }],
-        crate::repository::RepositoryOptions::default(),
+        crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -7051,7 +7053,7 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
             "items",
             SourceFormat::Json,
         )],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             query_workers: 4,
             ..Default::default()
         },
@@ -7182,7 +7184,7 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
             "items",
             SourceFormat::registered("cancelling_json"),
         )],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             query_workers: 1,
             ..Default::default()
         },
@@ -7273,7 +7275,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
             "items",
             SourceFormat::registered("failing_query_reader"),
         )],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
         sources,
@@ -7367,7 +7369,7 @@ fn computed_sort_pages_match_reference_across_workers_and_file_layouts() {
                     "items",
                     SourceFormat::JsonLines,
                 )],
-                crate::repository::RepositoryOptions {
+                crate::repository::configuration::RepositoryOptions {
                     query_workers: workers,
                     ..Default::default()
                 },
@@ -7434,7 +7436,7 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
             "items",
             SourceFormat::Json,
         )],
-        crate::repository::RepositoryOptions {
+        crate::repository::configuration::RepositoryOptions {
             query_workers: 8,
             ..Default::default()
         },
@@ -7473,7 +7475,7 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
 #[test]
 fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
     use crate::execution_options::SortField;
-    use crate::repository::RepositoryOptions;
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-posting-order-residual-{}-{:?}",

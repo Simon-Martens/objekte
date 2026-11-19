@@ -66,7 +66,8 @@ fn start_build_is_the_single_scan_and_repeated_waits_do_not_rebuild() {
         .unwrap();
     let mut definition =
         CollectionDefinition::folder("data", "data", SourceFormat::registered("counted-jsonl"));
-    definition.identity = crate::repository::IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition.identity =
+        crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
         .register_field(FieldDefinition {
@@ -352,7 +353,7 @@ fn large_file_finalizes_private_segments_before_eof() {
     ));
     let records = write_large_jsonl(&root, "private segment");
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+    let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
     let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
     let thread_gate = std::sync::Arc::clone(&gate);
     let worker_root = root.clone();
@@ -530,7 +531,7 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
 fn private_final_drain_consumes_worker_error_before_returning() {
     use std::sync::atomic::{AtomicUsize, Ordering};
 
-    struct ReleasePrivateJobs(std::sync::Arc<crate::repository::SegmentJobGate>);
+    struct ReleasePrivateJobs(std::sync::Arc<crate::construction::segment_jobs::SegmentJobGate>);
     impl Drop for ReleasePrivateJobs {
         fn drop(&mut self) {
             self.0.release_all_private_jobs();
@@ -569,7 +570,7 @@ fn private_final_drain_consumes_worker_error_before_returning() {
             reverse_alias: Some("sources".into()),
         })
         .unwrap();
-    let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+    let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
     gate.configure_private_final_drain_failure(0, [0, 1]);
     gate.release();
     let _guard = ReleasePrivateJobs(std::sync::Arc::clone(&gate));
@@ -702,7 +703,7 @@ fn private_work_cancels_while_outstanding_and_after_validation() {
         let definition =
             CollectionDefinition::folder(collection_name, "data", SourceFormat::JsonLines);
         let cancelled = std::sync::Arc::new(AtomicBool::new(false));
-        let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+        let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
         let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
         let worker = std::thread::spawn({
             let root = root.clone();
@@ -779,7 +780,7 @@ fn multi_worker_segment_finalization_actually_overlaps() {
         .unwrap();
     }
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
-    let gate = std::sync::Arc::new(crate::repository::SegmentJobGate::new());
+    let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
     let worker = std::thread::spawn({
         let root = root.clone();
         let gate = std::sync::Arc::clone(&gate);
@@ -1445,7 +1446,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         let view = index.view().unwrap();
         let actual = view.search(&query).unwrap();
         assert_eq!(actual.count, expected.count);
-        let hits = |result: crate::repository::SearchResult| {
+        let hits = |result: crate::query_results::SearchResult| {
             let mut hits = result
                 .hits
                 .into_iter()
