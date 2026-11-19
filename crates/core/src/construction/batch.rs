@@ -506,11 +506,7 @@ impl<'a> BatchBuilder<'a> {
                     RecordId::intrinsic(stem)
                 }
                 IdentityPolicy::RelativePath => {
-                    if !matches!(
-                        self.definition.format,
-                        crate::source::SourceFormat::Json
-                            | crate::source::SourceFormat::JsonDecodedScalars
-                    ) {
+                    if !self.definition.format.supports_relative_path_identity() {
                         return Err(
                             "relative-path identity requires a single-record JSON reader".into(),
                         );

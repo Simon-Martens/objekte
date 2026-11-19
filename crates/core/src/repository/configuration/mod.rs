@@ -48,10 +48,7 @@ impl CollectionDefinition {
         source_path: impl Into<PathBuf>,
         format: SourceFormat,
     ) -> Self {
-        let identity = if matches!(
-            &format,
-            SourceFormat::Json | SourceFormat::JsonDecodedScalars
-        ) {
+        let identity = if format.supports_relative_path_identity() {
             IdentityPolicy::RelativePath
         } else {
             IdentityPolicy::Generated

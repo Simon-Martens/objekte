@@ -24,9 +24,8 @@ use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{
-    ExtractedRecord, ReaderDiagnostic, SourceFormat, SourceOutcome,
-    extraction::extract_file_outcomes_for_search, registry::PreparedSource,
-    registry::SourceRegistry, text::finalize_extracted_text,
+    ExtractedRecord, ReaderDiagnostic, SourceOutcome, extraction::extract_file_outcomes_for_search,
+    registry::PreparedSource, registry::SourceRegistry, text::finalize_extracted_text,
 };
 
 struct ScanCollection {
@@ -409,10 +408,7 @@ fn record_id(
                 .ok_or("non-UTF-8 filename identity")?,
         ),
         IdentityPolicy::RelativePath => {
-            if !matches!(
-                definition.format,
-                SourceFormat::Json | SourceFormat::JsonDecodedScalars
-            ) {
+            if !definition.format.supports_relative_path_identity() {
                 return Err("relative-path identity requires a single-record JSON reader".into());
             }
             let relative = path
@@ -444,6 +440,7 @@ mod tests {
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, parse_filter};
     use crate::repository::configuration::RepositoryOptions;
     use crate::schema::FieldDefinition;
+    use crate::source::SourceFormat;
 
     #[test]
     fn source_scan_matches_reference_search_before_an_index_exists() {
@@ -526,6 +523,161 @@ mod tests {
             assert_eq!(
                 actual.hits, expected.hits,
                 "offset={offset} fts={fts:?} filter={filter:?}"
+            );
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn relative_path_identity_matches_indexed_and_preindex_paths() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-relative-identity-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::SystemTime::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos(),
+        ));
+        std::fs::create_dir_all(root.join("data/nested")).unwrap();
+        std::fs::write(root.join("data/one.json"), br#"{"title":"one"}"#).unwrap();
+        std::fs::write(root.join("data/nested/a% b\\.json"), br#"{"title":"two"}"#).unwrap();
+        std::fs::write(root.join("data/broken.json"), br#"{"title":"broken""#).unwrap();
+        std::fs::write(
+            root.join("data/items.jsonl"),
+            b"{\"title\":\"first\"}\n{\"title\":\"second\"}\n{\"title\":\"broken\"\n",
+        )
+        .unwrap();
+
+        let query = || Query {
+            collections: vec!["files".into()],
+            fts: None,
+            filter: None,
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 32,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let ids = |hits: &[crate::query_results::SearchHit]| {
+            let mut ids = hits
+                .iter()
+                .map(|hit| hit.record_id.clone())
+                .collect::<Vec<_>>();
+            ids.sort();
+            ids
+        };
+
+        for format in [SourceFormat::Json, SourceFormat::JsonDecodedScalars] {
+            let mut definition = CollectionDefinition::folder("files", "data", format.clone());
+            definition.identity = IdentityPolicy::RelativePath;
+            let indexed = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions::default(),
+                SourceRegistry::builtin(),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            let records = &indexed.collections[0].generation.records;
+            let logical = records
+                .iter()
+                .filter(|record| record.class == crate::inventory::RecordClass::Logical)
+                .collect::<Vec<_>>();
+            assert!(logical.iter().all(|record| record.range.start == 0));
+            let mut logical_ids = logical
+                .iter()
+                .map(|record| record.id.0.to_string())
+                .collect::<Vec<_>>();
+            logical_ids.sort_unstable();
+            assert_eq!(
+                logical_ids,
+                [
+                    "path:nested/a%25 b%5C.json".to_owned(),
+                    "path:one.json".to_owned()
+                ],
+                "{format:?}"
+            );
+            assert!(
+                records
+                    .iter()
+                    .any(|record| record.class == crate::inventory::RecordClass::RawFallback)
+            );
+
+            let scan = SourceScan::open(&root, vec![definition]).unwrap();
+            let indexed_hits = indexed.search(&query()).unwrap();
+            let scanned_hits = scan.search(&query(), &CancellationToken::new()).unwrap();
+            assert_eq!(
+                ids(&indexed_hits.hits),
+                ids(&scanned_hits.hits),
+                "{format:?}"
+            );
+        }
+
+        let mut generated = CollectionDefinition::folder("files", "data", SourceFormat::JsonLines);
+        generated.identity = IdentityPolicy::Generated;
+        let indexed = crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![generated.clone()],
+            RepositoryOptions::default(),
+            SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap();
+        let file = indexed
+            .files
+            .files
+            .iter()
+            .find(|file| file.relative_path == std::path::Path::new("data/items.jsonl"));
+        let file = file.unwrap();
+        let logical = indexed.collections[0]
+            .generation
+            .records
+            .iter()
+            .filter(|record| record.class == crate::inventory::RecordClass::Logical)
+            .collect::<Vec<_>>();
+        assert_eq!(logical.len(), 2);
+        assert_ne!(logical[0].range.start, logical[1].range.start);
+        for record in logical {
+            assert_eq!(
+                record.id,
+                RecordId::generated(file.id, file.revision.modified_ns, record.range.start,)
+            );
+        }
+        let scan = SourceScan::open(&root, vec![generated.clone()]).unwrap();
+        assert_eq!(
+            ids(&indexed.search(&query()).unwrap().hits),
+            ids(&scan
+                .search(&query(), &CancellationToken::new())
+                .unwrap()
+                .hits)
+        );
+
+        for format in [SourceFormat::JsonLines, SourceFormat::registered("json")] {
+            let mut definition = CollectionDefinition::folder("files", "data", format.clone());
+            definition.identity = IdentityPolicy::RelativePath;
+            let construction = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions::default(),
+                SourceRegistry::builtin(),
+            )
+            .err()
+            .expect("relative-path override must fail during construction")
+            .to_string();
+            assert!(
+                construction.contains("data/") && construction.contains("relative-path identity"),
+                "{format:?}: {construction}"
+            );
+            let scan = SourceScan::open(&root, vec![definition]).unwrap();
+            let search = scan
+                .search(&query(), &CancellationToken::new())
+                .unwrap_err();
+            assert!(
+                search.contains("relative-path identity requires a single-record JSON reader"),
+                "{format:?}: {search}"
             );
         }
         std::fs::remove_dir_all(root).unwrap();

@@ -820,6 +820,70 @@ fn body_only_reader_does_not_prune_unindexed_title() {
 }
 
 #[test]
+fn registered_readers_do_not_enable_relative_path_identity() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-registered-identity-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("json")).unwrap();
+    std::fs::create_dir_all(root.join("tiny")).unwrap();
+    std::fs::write(root.join("json/one.json"), br#"{"title":"one"}"#).unwrap();
+    std::fs::write(root.join("tiny/records.tiny"), b"first|ordinary\n").unwrap();
+
+    let custom_json = {
+        let mut sources = SourceRegistry::default();
+        sources
+            .register(
+                "json",
+                1,
+                "tiny",
+                Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+            )
+            .unwrap();
+        sources
+    };
+    let custom_non_json = {
+        let mut sources = SourceRegistry::default();
+        sources
+            .register(
+                "tiny",
+                1,
+                "tiny",
+                Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+            )
+            .unwrap();
+        sources
+    };
+    for (format, source_path, sources) in [
+        (
+            SourceFormat::registered("json"),
+            "json",
+            SourceRegistry::builtin(),
+        ),
+        (SourceFormat::registered("json"), "tiny", custom_json),
+        (SourceFormat::registered("tiny"), "tiny", custom_non_json),
+    ] {
+        let mut definition = CollectionDefinition::folder("data", source_path, format.clone());
+        definition.identity = IdentityPolicy::RelativePath;
+        let error = crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![definition],
+            RepositoryOptions::default(),
+            sources,
+        )
+        .err()
+        .expect("registered relative-path identity must be rejected")
+        .to_string();
+        assert!(
+            error.contains("relative-path identity requires a single-record JSON reader"),
+            "{format:?}: {error}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     use crate::model::LogicalType;
     use crate::query::options::ReturnMode;

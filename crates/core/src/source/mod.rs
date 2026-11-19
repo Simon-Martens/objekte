@@ -41,6 +41,10 @@ impl SourceFormat {
             Self::Registered(id) => id,
         }
     }
+
+    pub(crate) fn supports_relative_path_identity(&self) -> bool {
+        matches!(self, Self::Json | Self::JsonDecodedScalars)
+    }
 }
 
 /// Extracted searchable string with its logical field path.
