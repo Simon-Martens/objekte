@@ -258,3 +258,19 @@ No test name was added or omitted beyond its specified module-prefix move. Each 
 ### Cleanup
 
 No subordinate worktrees or implementation branches were created. The integration worktree is retained for owner review. The original checkout remains on `master`; its untracked task document is reconciled by this completed copy and is removed only after this report is committed and pushed.
+
+## Post-review fixture correction
+
+The original fixture comparison correctly observed that `bench_inference_fixture`
+printed `indexes: null`: that example inspected `collection.inference`, while
+the segmented build publishes inferred posting dictionaries on its segments.
+The report therefore established admission through the three `Built` report
+statuses, but it did not establish query-time use of those dictionaries.
+
+The repair probe closes that gap through the published `IndexView` API. On the
+same 32-record fixture at B and repair source C, `enabled = true` and
+`group = 'A'` each returned 16 rows while `sequence = 31` returned row 31. Every
+query selected an exact `Posting` path and reported zero files opened, zero
+record parses, zero scans and zero residual evaluations. The artifacts,
+fixture fingerprint, reproduction commands and six observed results are in the
+[repair evidence](../generated/core-refactoring-completion/assignment-1-repair/README.md).
