@@ -522,7 +522,7 @@ pub(crate) fn relation_rank_key_merged(
     })
 }
 
-fn cached_filter_target_sort_key(
+pub(crate) fn cached_filter_target_sort_key(
     view: &crate::relation_query::MergedRelationView<'_>,
     address: crate::relation_query::MergedRecordSlot,
     computed: &crate::query::sort_binding::ComputedSort,
@@ -541,6 +541,11 @@ fn cached_filter_target_sort_key(
         return Ok(None);
     }
     if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+        return Ok(None);
+    }
+    if hop.direction != crate::query::binding::relation::HopDirection::Forward
+        || hop.selectors.iter().any(Option::is_some)
+    {
         return Ok(None);
     }
     let (edges, _present, _null, _empty, unavailable) =
@@ -589,7 +594,7 @@ fn filter_projects_related_field(filter: &BoundExpr, field: &str) -> bool {
     }
 }
 
-fn direct_related_target_sort_key(
+pub(crate) fn direct_related_target_sort_key(
     repo: &Repository,
     view: &crate::relation_query::MergedRelationView<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
@@ -603,6 +608,11 @@ fn direct_related_target_sort_key(
         return Ok(None);
     };
     if view.relation_cardinality(hop.relation)? != crate::relation::RelationCardinality::One {
+        return Ok(None);
+    }
+    if hop.direction != crate::query::binding::relation::HopDirection::Forward
+        || hop.selectors.iter().any(Option::is_some)
+    {
         return Ok(None);
     }
     let Some(path) = computed.direct_related_target_column(hop) else {

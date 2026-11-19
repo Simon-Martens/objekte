@@ -910,6 +910,154 @@ fn lifecycle_related_sort_uses_target_stored_column() {
 }
 
 #[test]
+fn backlink_sort_does_not_use_a_forward_relation_at_the_same_ordinal() {
+    use crate::model::CollectionId;
+    use crate::model::FieldPath;
+
+    let (root, mut definitions) = fixture();
+    definitions[0]
+        .sort_fields
+        .push(FieldPath::parse("title").unwrap());
+    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Zulu"}"#).unwrap();
+    std::fs::write(
+        root.join("entries/b.json"),
+        r#"{"id":"B","title":"Bravo","related_entry":"A"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m1.json"),
+        r#"{"id":"m1","entry":"A","title":"Zulu"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m2.json"),
+        r#"{"id":"m2","entry":"B","title":"Bravo"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m3.json"),
+        r#"{"id":"m3","entry":"A","title":"Alpha"}"#,
+    )
+    .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+
+    let sort_only = query(
+        "entries",
+        Some("(id = 'A' || id = 'B') SORT BY @backlinks.mentions[0].title ASC"),
+        None,
+        None,
+        false,
+    );
+    let optimized = repo.search(&sort_only).unwrap();
+    let reference = repo.search_reference(&sort_only).unwrap();
+    assert_eq!(
+        optimized.count,
+        Some(2),
+        "optimized {:?}, reference {:?}",
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        reference
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>()
+    );
+    assert_eq!(reference.count, Some(2));
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["B", "A"]
+    );
+    assert_eq!(optimized.hits, reference.hits);
+
+    let mut limited = sort_only.clone();
+    limited.options.limit = 1;
+    assert_eq!(
+        repo.search(&limited)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["B"]
+    );
+
+    let projected = query(
+        "entries",
+        Some(
+            "title = @backlinks.mentions.title && (id = 'A' || id = 'B') \
+             SORT BY @backlinks.mentions[0].title ASC",
+        ),
+        None,
+        None,
+        false,
+    );
+    let optimized = repo.search(&projected).unwrap();
+    let reference = repo.search_reference(&projected).unwrap();
+    assert_eq!(optimized.count, Some(1));
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["B"]
+    );
+    assert_eq!(optimized.hits, reference.hits);
+
+    let bound = crate::query::sort_binding::BoundSort::bind(&repo, &projected).unwrap();
+    let crate::query::sort_binding::BoundSortSource::Computed(computed) =
+        &bound.terms[0].as_ref().unwrap()[0].source
+    else {
+        panic!("backlink sort must use a computed source evaluator");
+    };
+    let prepared = crate::query::prepared::prepare(&repo, &projected).unwrap();
+    let filter = prepared.collections[0].filter().unwrap();
+    let view =
+        super::MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+    let address = view.resolve_id(CollectionId(0), "B").unwrap().unwrap();
+    assert!(
+        crate::query_results::ranking::cached_filter_target_sort_key(
+            &view,
+            address,
+            computed,
+            Some(filter),
+        )
+        .unwrap()
+        .is_none(),
+        "the cached-filter shortcut must decline a backlink hop"
+    );
+    assert!(
+        crate::query_results::ranking::direct_related_target_sort_key(
+            &repo,
+            &view,
+            &repo.segments,
+            address,
+            computed,
+        )
+        .unwrap()
+        .is_none(),
+        "the direct shortcut must decline a backlink hop"
+    );
+
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
     use crate::model::FieldPath;
 
