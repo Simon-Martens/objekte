@@ -342,18 +342,19 @@ impl<'a> BoundSort<'a> {
                     terminal,
                     expression.binding.as_deref(),
                 )?;
-                let stored_candidate = related.is_none()
+                let simple_stored = related.is_none()
                     && expression.reducer.is_none()
                     && expression.binding.is_none()
                     && !path.has_explicit_array_step
-                    && matches!(&transform, SortTransform::Identity)
-                    && collection.sorting.columns.contains_key(&path.field);
+                    && matches!(&transform, SortTransform::Identity);
+                let stored_candidate =
+                    simple_stored && collection.sorting.columns.contains_key(&path.field);
                 let column = if !reference && stored_candidate {
                     collection.sorting.columns.get(&path.field)
                 } else {
                     None
                 };
-                if reference && stored_candidate {
+                if reference && simple_stored {
                     #[cfg(test)]
                     REFERENCE_STORED_SORT_PREPARATIONS
                         .with(|count| count.set(count.get().saturating_add(1)));
@@ -367,9 +368,21 @@ impl<'a> BoundSort<'a> {
                 } else {
                     has_computed = true;
                     needs_source |= related.is_some() || path.field.root == PathRoot::Data;
-                    let config = SortConfig {
-                        locale: target.definition.sort_locale.clone(),
-                        options: target.definition.sort_options,
+                    let config = if reference && simple_stored {
+                        target
+                            .definition
+                            .sort_overrides
+                            .get(&path.field)
+                            .cloned()
+                            .unwrap_or_else(|| SortConfig {
+                                locale: target.definition.sort_locale.clone(),
+                                options: target.definition.sort_options,
+                            })
+                    } else {
+                        SortConfig {
+                            locale: target.definition.sort_locale.clone(),
+                            options: target.definition.sort_options,
+                        }
                     };
                     let collator = make_collator(&config)?;
                     (
