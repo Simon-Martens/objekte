@@ -9,6 +9,16 @@ use crate::query::binding::fts::BoundFts;
 use crate::query_predicate::{PredicateBuilder, PreparedExpr, PreparedPredicates, TermId};
 use crate::repository::Repository;
 
+#[cfg(test)]
+thread_local! {
+    static PRODUCTION_PREPARE_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn production_prepare_calls() -> usize {
+    PRODUCTION_PREPARE_CALLS.with(std::cell::Cell::get)
+}
+
 /// One named, fully bound collection entry. The first `prepare` call installs
 /// every syntactic leaf and its request-local runtime identifier.
 #[derive(Clone)]
@@ -72,6 +82,8 @@ pub(crate) struct PreparedQuery {
 
 /// Bind one query against the selected collections on every request.
 pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery, String> {
+    #[cfg(test)]
+    PRODUCTION_PREPARE_CALLS.with(|calls| calls.set(calls.get() + 1));
     #[cfg(feature = "detailed-profiling")]
     let started = std::time::Instant::now();
     let mut collections = Vec::new();

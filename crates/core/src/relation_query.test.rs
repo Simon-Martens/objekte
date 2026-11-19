@@ -1171,6 +1171,59 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
         })
         .collect::<Vec<_>>();
     perturbed[1] = Arc::new(source_segments);
+    let prepare_before = crate::query::prepared::production_prepare_calls();
+    let plan_before = crate::query_plan::operations::production_relation_plan_calls();
+    let reference_forward_query =
+        query("mentions", Some("entry.title = 'Hymn'"), None, None, false);
+    let reference_forward_scan = crate::reference::relations::search_segmented(
+        repo,
+        &reference_forward_query,
+        &pinned.0.active,
+        &perturbed,
+        &pinned.0.catalog,
+        pinned.revision(),
+    )
+    .unwrap();
+    assert_eq!(
+        reference_forward_scan
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m3"]
+    );
+    let reference_backlink_query = query(
+        "entries",
+        Some("@backlinks.mentions.title = 'segment'"),
+        None,
+        None,
+        false,
+    );
+    let reference_backlink_scan = crate::reference::relations::search_segmented(
+        repo,
+        &reference_backlink_query,
+        &pinned.0.active,
+        &perturbed,
+        &pinned.0.catalog,
+        pinned.revision(),
+    )
+    .unwrap();
+    assert_eq!(
+        reference_backlink_scan
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A"]
+    );
+    assert_eq!(
+        crate::query::prepared::production_prepare_calls(),
+        prepare_before
+    );
+    assert_eq!(
+        crate::query_plan::operations::production_relation_plan_calls(),
+        plan_before
+    );
     let view =
         super::MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog)
             .unwrap();

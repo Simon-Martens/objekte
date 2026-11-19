@@ -184,7 +184,7 @@ decision.
 ### Repair amendment
 
 Repair branch `repair/core-schema-binding` tested code revision
-`e8f1038cc27c23beab91ac3dd01a12ea52c41129`. It resolves reference clocks and
+`9dfe5784f0d72d52d12939b919aae3d1459a417a`. It resolves reference clocks and
 bindings once at the public entry, restores a source-backed segmented relation
 oracle independent of planner/provider/posting truth, resolves related FTS,
 FILTER and sort keys from the same source path, and moves prepared contains
