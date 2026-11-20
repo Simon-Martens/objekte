@@ -43,10 +43,9 @@ pub(crate) use crate::query_diagnostics::trace::{
 };
 use crate::query_execution::restrictions::{
     Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
-    fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
-    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
-    segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
-    segment_fts_estimate_with_term,
+    fts_candidates, plan_expr_restricted_with_execution,
+    segment_filter_bounds_with_input_catalog_and_predicates, segment_filter_estimate,
+    segment_fts_bounds_with_term, segment_fts_candidates, segment_fts_estimate_with_term,
 };
 use crate::query_execution::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
@@ -933,66 +932,47 @@ pub(crate) fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
     }
 }
 
-fn filter_requires_source_verification(expr: &BoundExpr, collection: &CollectionState) -> bool {
-    match expr {
-        BoundExpr::Term(term) => {
-            term.related.is_some()
-                || term.rhs.is_some()
-                || matches!(term.operator, Operator::Contains | Operator::NotContains)
-                || (term.path.root == PathRoot::Data
-                    && !collection
-                        .definition
-                        .schema
-                        .fields()
-                        .get(&term.path.segments)
-                        .is_some_and(|field| field.indexed))
-        }
-        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts
-            .iter()
-            .any(|part| filter_requires_source_verification(part, collection)),
-        BoundExpr::Not(inner) => filter_requires_source_verification(inner, collection),
-    }
+#[derive(Clone)]
+struct CachedSegmentRestriction {
+    bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
+    exact: bool,
 }
 
-fn prefer_general_file_fallback(
-    repo: &Repository,
-    query: &Query,
-    prepared: &crate::query::prepared::PreparedQuery,
-    base_active: &[ActiveRecords],
-    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-) -> bool {
-    let Some(cap) = query.options.offset.checked_add(query.options.limit) else {
-        return false;
-    };
-    let Some(entry) = prepared.collections.first() else {
-        return false;
-    };
-    if prepared.collections.len() != 1
-        || entry.fts.is_some()
-        || entry.filter.is_none()
-        || base_active.iter().any(|active| active.len() != 0)
-        || repo.options.query_workers <= 1
-        || cap > 64
-    {
-        return false;
+struct SegmentRestrictionCache {
+    segments: Vec<Vec<Option<CachedSegmentRestriction>>>,
+}
+
+impl SegmentRestrictionCache {
+    fn new(segments: &[Arc<Vec<Arc<PublishedSegment>>>]) -> Self {
+        Self {
+            segments: segments
+                .iter()
+                .map(|group| (0..group.len()).map(|_| None).collect())
+                .collect(),
+        }
     }
-    let collection = &repo.collections[entry.collection_index];
-    let active = segments[entry.collection_index]
-        .iter()
-        .try_fold(0usize, |total, segment| {
-            total.checked_add(segment.active.len() as usize)
-        });
-    let files = segments[entry.collection_index]
-        .iter()
-        .try_fold(0usize, |total, segment| {
-            total.checked_add(segment.index.file_count())
-        });
-    active.is_some_and(|active| active > 256)
-        && files.is_some_and(|files| files > 64)
-        && entry
-            .filter
+
+    fn get(
+        &self,
+        collection_index: usize,
+        segment_index: usize,
+    ) -> Option<&CachedSegmentRestriction> {
+        self.segments
+            .get(collection_index)?
+            .get(segment_index)?
             .as_ref()
-            .is_some_and(|filter| filter_requires_source_verification(filter, collection))
+    }
+
+    fn insert(
+        &mut self,
+        collection_index: usize,
+        segment_index: usize,
+        bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
+        exact: bool,
+    ) {
+        self.segments[collection_index][segment_index] =
+            Some(CachedSegmentRestriction { bounds, exact });
+    }
 }
 
 /// Search the base and bounded indexed deltas as one pinned page. Segment
@@ -1021,6 +1001,7 @@ pub(crate) fn search_segmented_lifecycle(
     if base_active.iter().any(|active| active.len() != 0) {
         return search_segmented_reference(repo, query, base_active, segments, catalog, revision);
     }
+    let mut restriction_cache = SegmentRestrictionCache::new(segments);
     let mut result = match search_segmented_impl(
         repo,
         query,
@@ -1032,6 +1013,7 @@ pub(crate) fn search_segmented_lifecycle(
         cache,
         None,
         None,
+        &mut restriction_cache,
         false,
     ) {
         Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
@@ -1089,6 +1071,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
+    let mut restriction_cache = SegmentRestrictionCache::new(segments);
     search_segmented_with_context_lifecycle_budget(
         repo,
         query,
@@ -1100,6 +1083,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
         cache,
         None,
         None,
+        &mut restriction_cache,
         false,
     )
 }
@@ -1116,6 +1100,7 @@ fn search_segmented_with_context_lifecycle_budget(
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
     bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
+    restriction_cache: &mut SegmentRestrictionCache,
     ordered_already_declined: bool,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
@@ -1134,6 +1119,7 @@ fn search_segmented_with_context_lifecycle_budget(
         cache,
         retained_budget,
         bound,
+        restriction_cache,
         ordered_already_declined,
     );
     match result {
@@ -1655,7 +1641,9 @@ fn try_exact_segment_ordered_page(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
     revision: IndexRevision,
-    prepared: &[PreparedCollectionQuery],
+    prepared: &crate::query::prepared::PreparedQuery,
+    context: Option<&ExecutionContext>,
+    restriction_cache: &mut SegmentRestrictionCache,
     counters: &WorkCounters,
 ) -> Result<Option<SearchResult>, String> {
     if query.options.return_mode != ReturnMode::Locator
@@ -1667,12 +1655,12 @@ fn try_exact_segment_ordered_page(
             .flatten()
             .flatten()
             .any(|term| matches!(&term.source, BoundSortSource::Computed(_)))
-        || prepared.len() != 1
+        || prepared.collections.len() != 1
         || base_active.iter().any(|active| active.len() != 0)
     {
         return Ok(None);
     }
-    let entry = &prepared[0];
+    let entry = &prepared.collections[0];
     let collection_index = entry.collection_index;
     let filter = entry.filter.as_ref();
     let fts = entry.fts.as_ref();
@@ -1685,21 +1673,39 @@ fn try_exact_segment_ordered_page(
     }
     let mut selected = Vec::with_capacity(segments[collection_index].len());
     let mut counters = counters.clone();
-    for published in segments[collection_index].iter() {
+    for (segment_index, published) in segments[collection_index].iter().enumerate() {
         if lifecycle_segment_order(&published.index, sort, query, collection_index).is_none() {
             return Ok(None);
         }
-        let bounds = filter
-            .map(|filter| {
-                segment_filter_bounds_with_catalog(
-                    &published.index,
-                    &published.active,
-                    filter,
-                    collection,
-                    Some(catalog),
-                )
-            })
-            .transpose()?;
+        let cached = restriction_cache
+            .get(collection_index, segment_index)
+            .cloned();
+        let was_cached = cached.is_some();
+        let bounds = if let Some(cached) = cached {
+            Some(cached.bounds)
+        } else {
+            filter
+                .map(|filter| {
+                    segment_filter_bounds_with_input_catalog_and_predicates(
+                        &published.index,
+                        &published.active,
+                        filter,
+                        collection,
+                        Some(catalog),
+                        &published.active.bitmap(),
+                        Some(&prepared.predicates),
+                        context,
+                    )
+                })
+                .transpose()?
+        };
+        if !was_cached && let Some(bounds) = bounds.as_ref() {
+            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let exact = bounds.may == bounds.must
+                || (filter.is_some_and(excludes_raw_fallback)
+                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+            restriction_cache.insert(collection_index, segment_index, bounds.clone(), exact);
+        }
         let candidates = match bounds.as_ref() {
             Some(bounds) if bounds.may == bounds.must => bounds.may.as_ref().clone(),
             Some(bounds)
@@ -1768,6 +1774,7 @@ fn try_lifecycle_ordered_page(
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
+    restriction_cache: &mut SegmentRestrictionCache,
 ) -> Result<Option<SearchResult>, String> {
     if query
         .options
@@ -1825,6 +1832,7 @@ fn try_lifecycle_ordered_page(
         revision,
         execution,
         cache,
+        restriction_cache,
         &options,
         max_buffered_bytes,
         None,
@@ -1952,6 +1960,7 @@ fn search_segmented_impl(
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
     bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
+    restriction_cache: &mut SegmentRestrictionCache,
     ordered_already_declined: bool,
 ) -> Result<SearchResult, String> {
     if query.options.count
@@ -2031,10 +2040,7 @@ fn search_segmented_impl(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
-    let prefer_general_file_route = !has_relations
-        && prefer_general_file_fallback(repo, query, &prepared, base_active, segments);
     if !has_relations
-        && !prefer_general_file_route
         && let Some(result) = try_inferred_segment_order_page(
             repo,
             query,
@@ -2050,7 +2056,6 @@ fn search_segmented_impl(
         return Ok(result);
     }
     if !has_relations
-        && !prefer_general_file_route
         && base_active.iter().all(|active| active.len() == 0)
         && context.is_none()
         && retained_budget.is_none()
@@ -2071,14 +2076,15 @@ fn search_segmented_impl(
             segments,
             catalog,
             revision,
-            &prepared.collections,
+            &prepared,
+            context,
+            restriction_cache,
             &WorkCounters::default(),
         )?
     {
         return Ok(result);
     }
     if !has_relations
-        && !prefer_general_file_route
         && !ordered_already_declined
         && let Some(result) = try_lifecycle_ordered_page(
             repo,
@@ -2091,6 +2097,7 @@ fn search_segmented_impl(
             revision,
             context,
             cache,
+            restriction_cache,
         )?
     {
         return Ok(result);
@@ -2147,8 +2154,7 @@ fn search_segmented_impl(
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let winner_budget = retained_budget.zip(context);
-    if !prefer_general_file_route
-        && context.is_none()
+    if context.is_none()
         && retained_budget.is_none()
         && cache_key.is_none()
         && let Some(ordered) = try_exact_segment_ordered_page(
@@ -2159,7 +2165,9 @@ fn search_segmented_impl(
             segments,
             catalog,
             revision,
-            &prepared.collections,
+            &prepared,
+            context,
+            restriction_cache,
             &counters,
         )?
     {
@@ -2234,21 +2242,44 @@ fn search_segmented_impl(
             } else {
                 Arc::new(domain.clone())
             };
-            let bounds = filter
-                .as_ref()
-                .map(|filter| {
-                    segment_filter_bounds_with_input_catalog_and_predicates(
-                        segment,
-                        &published.active,
-                        filter,
-                        collection,
-                        Some(catalog),
-                        filter_input.as_ref(),
-                        Some(&predicates),
-                        context,
-                    )
-                })
-                .transpose()?;
+            let cached_bounds = if fts.is_none() && !text_first {
+                restriction_cache
+                    .get(collection_index, segment_index)
+                    .cloned()
+            } else {
+                None
+            };
+            let was_cached = cached_bounds.is_some();
+            let bounds = if let Some(cached) = cached_bounds {
+                Some(cached.bounds)
+            } else {
+                filter
+                    .as_ref()
+                    .map(|filter| {
+                        segment_filter_bounds_with_input_catalog_and_predicates(
+                            segment,
+                            &published.active,
+                            filter,
+                            collection,
+                            Some(catalog),
+                            filter_input.as_ref(),
+                            Some(&predicates),
+                            context,
+                        )
+                    })
+                    .transpose()?
+            };
+            if !was_cached
+                && fts.is_none()
+                && !text_first
+                && let (Some(filter), Some(bounds)) = (filter.as_ref(), bounds.as_ref())
+            {
+                let logical = &published.active.bitmap() & &segment.logical_records;
+                let exact = bounds.may == bounds.must
+                    || (excludes_raw_fallback(filter)
+                        && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+                restriction_cache.insert(collection_index, segment_index, bounds.clone(), exact);
+            }
             if matches!(filter.as_ref(), Some(BoundExpr::Or(_))) {
                 exact_or_members += bounds.as_ref().map_or(0, |bounds| bounds.must.len());
             }
@@ -3515,6 +3546,7 @@ fn try_lifecycle_ordered_stream(
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
+    restriction_cache: &mut SegmentRestrictionCache,
     options: &StreamOptions,
     max_buffered_bytes: usize,
     mut delivery: Option<&mut Delivery<'_>>,
@@ -3616,6 +3648,13 @@ fn try_lifecycle_ordered_stream(
                 filter_exact[collection_index][segment_index] = true;
                 evidence_branches[collection_index][segment_index] = Some(or_evidence.branches);
                 Some(Arc::new(or_evidence.members))
+            } else if let Some(cached) = restriction_cache.get(collection_index, segment_index) {
+                filter_exact[collection_index][segment_index] = cached.exact;
+                Some(if cached.exact {
+                    Arc::clone(&cached.bounds.must)
+                } else {
+                    Arc::clone(&cached.bounds.may)
+                })
             } else {
                 filter
                     .as_ref()
@@ -3636,6 +3675,12 @@ fn try_lifecycle_ordered_stream(
                             || (excludes_raw_fallback(filter)
                                 && (bounds.may.as_ref() & &logical)
                                     == (bounds.must.as_ref() & &logical));
+                        restriction_cache.insert(
+                            collection_index,
+                            segment_index,
+                            bounds.clone(),
+                            filter_exact[collection_index][segment_index],
+                        );
                         Ok::<_, String>(if filter_exact[collection_index][segment_index] {
                             bounds.must
                         } else {
@@ -4593,31 +4638,29 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
-    let prefer_general_file_route = !relation_scope
-        && prefer_general_file_fallback(repo, &request, &prepared, base_active, segments);
-    if !prefer_general_file_route {
-        match try_lifecycle_ordered_stream(
-            repo,
-            &request,
-            &sort,
-            &prepared,
-            query.options.return_mode.clone(),
-            scope,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            context,
-            cache,
-            &options,
-            options.max_buffered_bytes,
-            Some(&mut delivery),
-            None,
-        ) {
-            Ok(Some(outcome)) => return Ok(outcome),
-            Ok(None) => {}
-            Err(message) => return segmented_stream_error(&mut delivery, context, message),
-        }
+    let mut restriction_cache = SegmentRestrictionCache::new(segments);
+    match try_lifecycle_ordered_stream(
+        repo,
+        &request,
+        &sort,
+        &prepared,
+        query.options.return_mode.clone(),
+        scope,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        context,
+        cache,
+        &mut restriction_cache,
+        &options,
+        options.max_buffered_bytes,
+        Some(&mut delivery),
+        None,
+    ) {
+        Ok(Some(outcome)) => return Ok(outcome),
+        Ok(None) => {}
+        Err(message) => return segmented_stream_error(&mut delivery, context, message),
     }
     let page_cache = if all { None } else { cache };
     let mut deferred_cache = None;
@@ -4655,6 +4698,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         query_cache,
         (all && !relation_scope).then(|| delivery.max_buffered_bytes() / 2),
         Some((&sort, &prepared)),
+        &mut restriction_cache,
         true,
     ) {
         Ok(result) => result,

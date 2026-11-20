@@ -91,6 +91,7 @@ pub(crate) fn take_predicate_application_observations() -> Vec<PredicateApplicat
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
 /// superset of true records; `must` is a subset. Carrying both through NOT
 /// prevents an unavailable or unindexed value from becoming a false proof.
+#[derive(Clone)]
 pub(crate) struct SegmentCandidateBounds {
     pub may: Arc<RoaringBitmap>,
     pub must: Arc<RoaringBitmap>,

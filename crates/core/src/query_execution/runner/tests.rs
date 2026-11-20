@@ -7354,86 +7354,150 @@ fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
     let view = index.view().unwrap();
     let multi_file_hits = assert_indexed_or_layout(&view, 260);
 
-    let residual_query = Query {
+    for (offset, limit, first, last, returned_rows) in [
+        (1, 50, Some("2"), Some("53"), 50),
+        (14, 50, Some("17"), Some("66"), 50),
+        (15, 50, Some("18"), Some("67"), 50),
+        (0, 260, None, None, 257),
+    ] {
+        let residual_query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter("a = true || note = 'needle'").unwrap()),
+            options: QueryOptions {
+                sort: vec![SortField::simple("sort", false)],
+                limit,
+                offset,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let expected = view.search_reference(&residual_query).unwrap();
+        assert_eq!(expected.count, Some(257));
+        assert_eq!(expected.hits.len(), returned_rows);
+        if let Some(first) = first {
+            assert_eq!(expected.hits.first().unwrap().record_id, first);
+        }
+        if let Some(last) = last {
+            assert_eq!(expected.hits.last().unwrap().record_id, last);
+        }
+
+        crate::query_execution::restrictions::start_predicate_application_observations();
+        crate::query_execution::runner::reset_ordered_stream_completions();
+        let mut streamed = Vec::new();
+        let outcome = view
+            .search_stream(
+                &residual_query,
+                StreamOptions::default(),
+                &CancellationToken::new(),
+                &mut |event| {
+                    if let StreamEvent::OrderedRows { rows, .. } = event {
+                        streamed.extend_from_slice(rows);
+                    }
+                    Ok(StreamControl::Continue)
+                },
+            )
+            .unwrap();
+        let StreamOutcome::Complete(stream_summary) = outcome else {
+            panic!("residual multi-file stream did not complete")
+        };
+        let stream_observations =
+            crate::query_execution::restrictions::take_predicate_application_observations();
+        assert_eq!(stream_summary.count, Some(257));
+        assert_eq!(stream_summary.returned_rows, returned_rows);
+        assert_eq!(streamed, expected.hits);
+        assert_posted_a_once(&stream_observations);
+        assert_eq!(
+            crate::query_execution::runner::ordered_stream_completions(),
+            0,
+            "residual stream must use the general fallback; offset={offset} limit={limit}"
+        );
+
+        crate::query_execution::restrictions::start_predicate_application_observations();
+        crate::query_execution::runner::reset_parallel_file_dispatches(view.instance_id());
+        let residual = view.search(&residual_query).unwrap();
+        let search_observations =
+            crate::query_execution::restrictions::take_predicate_application_observations();
+        assert_eq!(residual.count, Some(257));
+        assert_eq!(residual.hits, expected.hits);
+        assert_posted_a_once(&search_observations);
+        let (parallel_jobs, parallel_files) =
+            crate::query_execution::runner::parallel_file_dispatches(view.instance_id());
+        if offset == 1 {
+            assert_eq!((parallel_jobs, parallel_files), (65, 65));
+        }
+        assert_eq!(
+            crate::query_execution::runner::ordered_stream_completions(),
+            0,
+            "residual ordinary query must use the general fallback"
+        );
+        if offset == 0 {
+            let ids = residual
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<HashSet<_>>();
+            assert!(!ids.contains("1"));
+            assert!(!ids.contains("5"));
+            assert!(!ids.contains("9"));
+        }
+    }
+
+    let selective = Query {
         collections: vec!["data".into()],
         fts: None,
-        filter: Some(parse_filter("a = true || note = 'needle'").unwrap()),
+        filter: Some(parse_filter("sort >= 12 && sort <= 15 && note = 'needle'").unwrap()),
         options: QueryOptions {
             sort: vec![SortField::simple("sort", false)],
-            limit: 50,
-            offset: 1,
-            count: true,
+            limit: 1,
+            offset: 0,
+            count: false,
             return_mode: ReturnMode::Locator,
             evidence: false,
         },
     };
-    let expected = view.search_reference(&residual_query).unwrap();
-    crate::query_execution::restrictions::start_predicate_application_observations();
+    let expected = view.search_reference(&selective).unwrap();
     crate::query_execution::runner::reset_ordered_stream_completions();
-    let mut streamed = Vec::new();
+    let mut first_progress = None;
+    let mut selective_rows = Vec::new();
     let outcome = view
         .search_stream(
-            &residual_query,
+            &selective,
             StreamOptions::default(),
             &CancellationToken::new(),
             &mut |event| {
-                if let StreamEvent::OrderedRows { rows, .. } = event {
-                    streamed.extend_from_slice(rows);
+                if let StreamEvent::OrderedRows { rows, progress, .. } = event {
+                    if !rows.is_empty() {
+                        first_progress = Some(progress);
+                    }
+                    selective_rows.extend_from_slice(rows);
                 }
                 Ok(StreamControl::Continue)
             },
         )
         .unwrap();
-    let StreamOutcome::Complete(stream_summary) = outcome else {
-        panic!("residual multi-file stream did not complete")
+    let StreamOutcome::Complete(selective_summary) = outcome else {
+        panic!("selective ordered stream did not complete")
     };
-    let stream_observations =
-        crate::query_execution::restrictions::take_predicate_application_observations();
-    assert_eq!(stream_summary.count, Some(257));
-    assert_eq!(stream_summary.returned_rows, 50);
-    assert_eq!(streamed, expected.hits);
-    assert_posted_a_once(&stream_observations);
+    assert_eq!(selective_summary.count, None);
+    assert_eq!(selective_summary.returned_rows, 1);
+    assert_eq!(selective_rows, expected.hits);
+    assert_eq!(selective_rows[0].record_id, "12");
     assert_eq!(
         crate::query_execution::runner::ordered_stream_completions(),
-        0,
-        "residual stream must use the general fallback"
+        1
     );
+    let first_progress = first_progress.expect("selective stream emitted no page");
+    assert_eq!(first_progress.processed_candidates, 1);
+    assert_eq!(first_progress.observed_matches, 1);
+    assert_eq!(first_progress.emitted_rows, 1);
+    assert_eq!(selective_summary.counters.candidates, 1);
+    assert_eq!(selective_summary.counters.distinct_files, 1);
+    assert_eq!(selective_summary.counters.files_opened, 1);
+    assert_eq!(selective_summary.counters.scanned_records, 1);
+    assert_eq!(selective_summary.counters.residual_evaluations, 1);
 
-    crate::query_execution::restrictions::start_predicate_application_observations();
-    crate::query_execution::runner::reset_parallel_file_dispatches(view.instance_id());
-    let residual = view.search(&residual_query).unwrap();
-    let search_observations =
-        crate::query_execution::restrictions::take_predicate_application_observations();
-    assert_eq!(residual.count, Some(257));
-    assert_eq!(residual.hits, expected.hits);
-    assert_posted_a_once(&search_observations);
-    let (parallel_jobs, parallel_files) =
-        crate::query_execution::runner::parallel_file_dispatches(view.instance_id());
-    assert_eq!((parallel_jobs, parallel_files), (65, 65));
-    assert!(residual.counters.files_opened > 64);
-    assert!(residual.counters.scanned_records > 64);
-    assert!(residual.counters.record_parses > 0);
-    assert_eq!(
-        crate::query_execution::runner::ordered_stream_completions(),
-        0,
-        "residual multi-file query must retain the file-parallel executor"
-    );
-
-    let mut full_query = residual_query.clone();
-    full_query.options.offset = 0;
-    full_query.options.limit = 260;
-    let full_expected = view.search_reference(&full_query).unwrap();
-    let full = view.search(&full_query).unwrap();
-    assert_eq!(full.count, Some(257));
-    assert_eq!(full.hits, full_expected.hits);
-    let full_ids = full
-        .hits
-        .iter()
-        .map(|hit| hit.record_id.as_str())
-        .collect::<HashSet<_>>();
-    assert!(!full_ids.contains("1"));
-    assert!(!full_ids.contains("5"));
-    assert!(!full_ids.contains("9"));
     drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

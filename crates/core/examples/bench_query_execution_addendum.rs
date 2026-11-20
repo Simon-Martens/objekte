@@ -620,6 +620,26 @@ fn indexed_or_layout_case(files: usize) -> Result<serde_json::Value, String> {
     if summary.count != expected.count || returned != expected.hits.len() {
         return Err("indexed OR layout differs from reference".into());
     }
+    let mut streamed_hits = Vec::new();
+    let validation = view
+        .search_stream(
+            &query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed_hits.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .map_err(|error| error.to_string())?;
+    let StreamOutcome::Complete(validation_summary) = validation else {
+        return Err("indexed OR validation stream did not complete".into());
+    };
+    if validation_summary.count != expected.count || streamed_hits != expected.hits {
+        return Err("streamed indexed OR rows or fields differ from reference".into());
+    }
     let result = view.search(&query)?;
     if result.hits != expected.hits || result.count != expected.count {
         return Err("ordinary indexed OR layout differs from reference".into());
