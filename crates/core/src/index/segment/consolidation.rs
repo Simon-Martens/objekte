@@ -5,7 +5,9 @@ use roaring::RoaringBitmap;
 use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
 use crate::index::bigram::BigramIndex;
 use crate::index::sorting::compare_composite;
-use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
+use crate::inference::{
+    InferenceIndexStatus, InferenceState, InferredFieldReport, OccurrenceCountStatus,
+};
 use crate::inventory::{ActiveRecords, RecordClass, append_shifted_bitmap};
 use crate::model::RecordSlot;
 
@@ -161,6 +163,19 @@ fn consolidate_inference(
             target.short_string_observed_occurrences = target
                 .short_string_observed_occurrences
                 .saturating_add(source.short_string_observed_occurrences);
+            target.occurrence_count_status = match (
+                target.occurrence_count_status,
+                source.occurrence_count_status,
+            ) {
+                (OccurrenceCountStatus::IncompleteObservation, _)
+                | (_, OccurrenceCountStatus::IncompleteObservation) => {
+                    OccurrenceCountStatus::IncompleteObservation
+                }
+                (OccurrenceCountStatus::UpperBound, _) | (_, OccurrenceCountStatus::UpperBound) => {
+                    OccurrenceCountStatus::UpperBound
+                }
+                _ => OccurrenceCountStatus::Exact,
+            };
             target.complete &= source.complete;
             target.summary_bytes_estimate = target
                 .summary_bytes_estimate
@@ -538,7 +553,6 @@ impl IndexedCollectionSegment {
             id_lookup,
             identity_order,
             postings,
-            inference_observation: None,
             inference,
             custom_postings,
             raw,

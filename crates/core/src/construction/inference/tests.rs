@@ -2,7 +2,7 @@ use super::*;
 use crate::schema::FieldDefinition;
 
 #[test]
-fn observation_copy_unions_short_keys_without_cloning_overwritten_distinct_set() {
+fn compact_observation_unions_short_keys_without_cloning_posting_maps() {
     let mut field = FieldState::new(vec!["value".into()], InferenceMode::AutoIndex);
     field.short_values = Some(
         [
@@ -16,24 +16,33 @@ fn observation_copy_unions_short_keys_without_cloning_overwritten_distinct_set()
         Some(["B".to_owned(), "C".to_owned()].into_iter().collect());
     let original_short_values = field.short_values.as_ref().unwrap().clone();
     let original_without_postings = field.short_distinct_without_postings.clone();
-    let observation = field.observation_copy();
+    let mut builder = InferenceBuilder::new(
+        InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        true,
+    )
+    .unwrap();
+    builder.fields.push(field);
+    let observation = builder.observation();
     assert_eq!(
-        observation.short_distinct_without_postings.unwrap(),
+        observation.fields[0].short_distinct.clone().unwrap(),
         ["A".to_owned(), "B".to_owned(), "C".to_owned()]
             .into_iter()
             .collect()
     );
-    assert_eq!(field.short_values, Some(original_short_values));
+    assert_eq!(builder.fields[0].short_values, Some(original_short_values));
     assert_eq!(
-        field.short_distinct_without_postings,
+        builder.fields[0].short_distinct_without_postings,
         original_without_postings
     );
 
-    let empty = FieldState::new(vec!["empty".into()], InferenceMode::AutoIndex);
-    assert_eq!(
-        empty.observation_copy().short_distinct_without_postings,
-        None
-    );
+    builder.fields = vec![FieldState::new(
+        vec!["empty".into()],
+        InferenceMode::AutoIndex,
+    )];
+    assert_eq!(builder.observation().fields[0].short_distinct, None);
 }
 
 #[test]

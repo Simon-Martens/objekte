@@ -958,7 +958,7 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
     schema.register_field(number.clone()).unwrap();
     schema.register_field(array.clone()).unwrap();
     let mut numbers = PostingIndex::new(&number);
-    let mut arrays = PostingIndex::new(&array);
+    let mut arrays = PostingIndex::structural(&array);
     for (slot, json) in [
         serde_json::json!({"n":null, "a":[]}),
         serde_json::json!({"n":1, "a":[1]}),

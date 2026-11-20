@@ -140,14 +140,7 @@ impl PostingAccess<'_> {
                 output,
             )));
         }
-        if index.empty_string_complete
-            && !index.multi
-            && !term.query_path.has_explicit_array_step
-            && term.derived == Derived::None
-            && term.operator == Operator::Eq
-            && term.quantifier == Quantifier::Default
-            && matches!(&term.literal, Value::String(value) if value.is_empty())
-        {
+        if index.empty_string_equality_is_exact(term) {
             *visits += 1;
             let output = index.value_cardinality(&ScalarKey::String(String::new()));
             return Ok(Some(proposal(

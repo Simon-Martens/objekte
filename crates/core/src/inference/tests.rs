@@ -95,6 +95,259 @@ fn query(filter: &str) -> Query {
     }
 }
 
+fn write_named_json(root: &std::path::Path, records: &[(&str, serde_json::Value)]) {
+    let _ = std::fs::remove_dir_all(root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, value) in records {
+        std::fs::write(root.join("data").join(name), value.to_string()).unwrap();
+    }
+}
+
+fn build_default_auto_repository(root: &std::path::Path) -> Repository {
+    crate::lifecycle::Index::build_repository_for_test(
+        root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap()
+}
+
+fn result_ids(result: &crate::query_results::SearchResult) -> Vec<String> {
+    let mut ids = result
+        .hits
+        .iter()
+        .map(|hit| hit.record_id.to_string())
+        .collect::<Vec<_>>();
+    ids.sort();
+    ids
+}
+
+#[test]
+fn empty_string_posting_offers_keep_empty_traversals() {
+    let root = temporary_root("empty-string-offer");
+    write_named_json(
+        &root,
+        &[
+            (
+                "A.json",
+                serde_json::json!({"items":{"name":""},"tag":"keep"}),
+            ),
+            ("B.json", serde_json::json!({"items":[],"tag":"keep"})),
+            (
+                "C.json",
+                serde_json::json!({"items":{"name":"Ada"},"tag":"keep"}),
+            ),
+            ("D.json", serde_json::json!({"tag":"other"})),
+        ],
+    );
+    let repo = build_default_auto_repository(&root);
+    for (filter, expected) in [
+        ("items.name = \"\"", vec!["path:A.json", "path:B.json"]),
+        ("items.name ?= \"\"", vec!["path:A.json"]),
+        (
+            "items.name = \"\" && tag = 'keep'",
+            vec!["path:A.json", "path:B.json"],
+        ),
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(
+            result_ids(&actual),
+            result_ids(&reference),
+            "{filter}: optimized/reference"
+        );
+        assert_eq!(result_ids(&actual), expected, "{filter}: expected IDs");
+    }
+
+    let scalar_root = temporary_root("simple-empty-string");
+    write_named_json(
+        &scalar_root,
+        &[
+            ("A.json", serde_json::json!({"name":""})),
+            ("B.json", serde_json::json!({"name":"Ada"})),
+            ("C.json", serde_json::json!({"other":true})),
+        ],
+    );
+    let scalar = build_default_auto_repository(&scalar_root);
+    let mut request = query("name = \"\"");
+    request.options.return_mode = ReturnMode::Locator;
+    let actual = scalar.search(&request).unwrap();
+    assert_eq!(result_ids(&actual), ["path:A.json"]);
+    assert_eq!(actual.counters.files_opened, 0);
+    assert_eq!(actual.counters.record_parses, 0);
+    let plan = scalar.explain(&request).unwrap();
+    assert!(
+        plan.iter().all(|step| !step.remaining_verification),
+        "simple empty string must use exact posting evidence: {plan:?}"
+    );
+
+    std::fs::remove_dir_all(root).unwrap();
+    std::fs::remove_dir_all(scalar_root).unwrap();
+}
+
+#[test]
+fn length_postings_follow_bound_quantification_and_root_traversal() {
+    let root = temporary_root("length-proof");
+    write_named_json(
+        &root,
+        &[
+            ("A.json", serde_json::json!([{"x":[]},{"x":[7]}])),
+            ("B.json", serde_json::json!({"x":[7]})),
+        ],
+    );
+    let repo = build_default_auto_repository(&root);
+    for (filter, expected) in [
+        ("x:length = 1", vec!["path:B.json"]),
+        ("x:length ?= 1", vec!["path:A.json", "path:B.json"]),
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(
+            result_ids(&actual),
+            result_ids(&reference),
+            "{filter}: optimized/reference"
+        );
+        assert_eq!(result_ids(&actual), expected, "{filter}: expected IDs");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+
+    let extended = temporary_root("length-proof-extended");
+    write_named_json(
+        &extended,
+        &[
+            ("A.json", serde_json::json!([{"x":[]},{"x":[7]}])),
+            ("B.json", serde_json::json!({"x":[7]})),
+            ("C.json", serde_json::json!({"x":[]})),
+            ("D.json", serde_json::json!({})),
+            ("E.json", serde_json::json!([])),
+            ("F.json", serde_json::json!([[]])),
+        ],
+    );
+    let repo = build_default_auto_repository(&extended);
+    for (filter, expected) in [
+        (
+            "x:length = 1",
+            vec!["path:B.json", "path:E.json", "path:F.json"],
+        ),
+        ("x:length ?= 1", vec!["path:A.json", "path:B.json"]),
+        (
+            "x:length != 1",
+            vec!["path:C.json", "path:E.json", "path:F.json"],
+        ),
+        (
+            "x:length <= 0",
+            vec!["path:C.json", "path:E.json", "path:F.json"],
+        ),
+        ("x:length ?!= 1", vec!["path:A.json", "path:C.json"]),
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(
+            result_ids(&actual),
+            result_ids(&reference),
+            "{filter}: optimized/reference"
+        );
+        assert_eq!(result_ids(&actual), expected, "{filter}: expected IDs");
+    }
+    std::fs::remove_dir_all(extended).unwrap();
+
+    let object = temporary_root("length-object-root");
+    write_named_json(
+        &object,
+        &[
+            ("A.json", serde_json::json!({"x":[]})),
+            ("B.json", serde_json::json!({"x":[7]})),
+            ("C.json", serde_json::json!({})),
+        ],
+    );
+    let repo = build_default_auto_repository(&object);
+    for (filter, expected) in [
+        ("x:length = 0", vec!["path:A.json"]),
+        ("x:length ?= 1", vec!["path:B.json"]),
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(result_ids(&actual), result_ids(&reference));
+        assert_eq!(result_ids(&actual), expected);
+        assert_eq!(actual.counters.files_opened, 0, "{filter}");
+        assert_eq!(actual.counters.record_parses, 0, "{filter}");
+        assert!(
+            repo.explain(&request)
+                .unwrap()
+                .iter()
+                .all(|step| !step.remaining_verification),
+            "{filter} must remain an exact length proof"
+        );
+    }
+    std::fs::remove_dir_all(object).unwrap();
+
+    let split = temporary_root("length-empty-traversal-segment");
+    let documents = (0..513)
+        .map(|number| {
+            if number == 0 {
+                serde_json::json!({"x":[7]})
+            } else if number == 512 {
+                serde_json::json!([])
+            } else {
+                serde_json::json!({"other":true})
+            }
+        })
+        .collect::<Vec<_>>();
+    write_json_documents(&split, documents);
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &split,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    assert_eq!(repo.segments[0].len(), 2);
+    let mut request = query("x:length = 1");
+    request.options.return_mode = ReturnMode::Locator;
+    let actual = repo.search(&request).unwrap();
+    let reference = repo.search_reference(&request).unwrap();
+    assert_eq!(result_ids(&actual), result_ids(&reference));
+    assert_eq!(result_ids(&actual), ["path:000.json", "path:512.json"]);
+    std::fs::remove_dir_all(split).unwrap();
+}
+
 #[test]
 fn documented_inference_defaults_match_the_exported_policy() {
     let policy = InferencePolicy::default();

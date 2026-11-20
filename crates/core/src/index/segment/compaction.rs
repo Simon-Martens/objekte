@@ -377,7 +377,6 @@ impl IndexedCollectionSegment {
             id_lookup,
             identity_order,
             postings,
-            inference_observation: None,
             inference,
             custom_postings,
             raw,

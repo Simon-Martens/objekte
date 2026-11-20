@@ -10,7 +10,7 @@ use roaring::RoaringBitmap;
 use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
-use crate::inference::InferenceMode;
+use crate::inference::{InferenceIndexStatus, InferenceMode};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
@@ -155,6 +155,112 @@ struct ResolvedPosting<'a> {
     binding_version: u32,
     indexed_records: Option<&'a RoaringBitmap>,
     native_prefix: bool,
+}
+
+struct InferredFacetPolicy {
+    kind: LogicalType,
+    short_string_limit: Option<usize>,
+    binding_version: u32,
+}
+
+fn finalized_inferred_facet_policy(
+    collection: &CollectionState,
+    request: &PostingValuesRequest,
+    path: &FieldPath,
+    field: Option<&FieldDefinition>,
+) -> Result<Option<InferredFacetPolicy>, String> {
+    if request
+        .binding
+        .as_deref()
+        .is_some_and(|binding| binding != "default")
+        || field.is_some_and(|field| field.indexed)
+    {
+        return Ok(None);
+    }
+    let Some(summary) = &collection.global_inference else {
+        return Ok(None);
+    };
+    let Some(field) = summary
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == path.segments)
+    else {
+        return Ok(None);
+    };
+    if summary.report.mode != InferenceMode::AutoIndex || !summary.report.complete {
+        return Err("finalized inference does not admit an enumerable facet".into());
+    }
+    if !matches!(
+        field.index_status,
+        InferenceIndexStatus::Built | InferenceIndexStatus::Incompatible
+    ) {
+        return Err("finalized inference did not admit this field".into());
+    }
+    let diagnostic = summary
+        .diagnostics
+        .iter()
+        .find(|diagnostic| diagnostic.path == path.segments);
+    let enumerable = diagnostic.is_some_and(|diagnostic| {
+        diagnostic.value_dictionary_complete || diagnostic.short_string_candidates
+    });
+    if !enumerable {
+        return Err("inferred field has no enumerable value dictionary".into());
+    }
+    let mut value_kinds = field.observed_kinds.iter().filter(|kind| {
+        !matches!(
+            kind,
+            LogicalType::Array(_) | LogicalType::Object | LogicalType::Unknown
+        )
+    });
+    let first_kind = value_kinds.next().cloned();
+    let kind = if value_kinds.next().is_none() {
+        first_kind
+    } else {
+        None
+    }
+    .or_else(|| diagnostic.and_then(|diagnostic| diagnostic.kind.clone()))
+    .ok_or("inferred field has no enumerable value family")?;
+    let short_string_limit = diagnostic
+        .filter(|diagnostic| diagnostic.short_string_candidates)
+        .map(|_| summary.report.policy.short_string_max_utf8_bytes);
+    Ok(Some(InferredFacetPolicy {
+        kind,
+        short_string_limit,
+        binding_version: summary.report.policy.version,
+    }))
+}
+
+fn resolve_inferred_representative<'a>(
+    collection: &CollectionState,
+    segments: &'a [Arc<PublishedSegment>],
+    path: &FieldPath,
+    policy: &InferredFacetPolicy,
+) -> Result<ResolvedPosting<'a>, String> {
+    for segment in segments {
+        if segment.active.len() == 0 {
+            continue;
+        }
+        let Ok(resolved) = resolve_segment(
+            collection,
+            &segment.index,
+            path,
+            "inferred",
+            policy.binding_version,
+        ) else {
+            continue;
+        };
+        let compatible_family = key_kind(&resolved.index.kind) == key_kind(&policy.kind);
+        let enumerable = if policy.short_string_limit.is_some() {
+            resolved.indexed_records.is_some()
+        } else {
+            resolved.index.value_complete
+        };
+        if compatible_family && enumerable {
+            return Ok(resolved);
+        }
+    }
+    Err("no active segment has a compatible enumerable inferred value dictionary".into())
 }
 
 fn resolve<'a>(
@@ -780,48 +886,59 @@ pub(crate) fn posting_values_segmented(
         return Err("posting value page limit exceeds maximum".into());
     }
     let path = FieldPath::parse(&request.field)?;
-    let metadata = resolve(collection, request, &path);
-    let base = match metadata {
-        Ok(metadata)
-            if base_active[collection_index].len() != 0
-                || metadata.index.covered_records as u64 == collection.logical_records.len() =>
-        {
-            metadata
-        }
-        result if base_active[collection_index].len() == 0 => {
-            let segment = segments[collection_index]
-                .iter()
-                .find(|segment| segment.active.len() != 0)
-                .ok_or("posting value collection has no admitted segment")?;
-            let requested_binding = request
-                .binding
-                .as_deref()
-                .or_else(|| {
-                    collection
-                        .definition
-                        .schema
-                        .defaults
-                        .get(&path.segments)
-                        .map(String::as_str)
-                })
-                .unwrap_or("default");
-            if requested_binding == "default"
-                && let Some(inference) = &segment.index.inference
-                && inference.indexes.contains_key(&path.segments)
-            {
-                resolve_segment(
-                    collection,
-                    &segment.index,
-                    &path,
-                    "inferred",
-                    inference.report.policy.version,
-                )?
-            } else {
-                result?
-            }
-        }
-        result => result?,
+    let finalized_policy = if base_active[collection_index].len() == 0 {
+        finalized_inferred_facet_policy(
+            collection,
+            request,
+            &path,
+            collection.definition.schema.fields.get(&path.segments),
+        )?
+    } else {
+        None
     };
+    let metadata = if let Some(policy) = &finalized_policy {
+        resolve_inferred_representative(collection, &segments[collection_index], &path, policy)
+    } else {
+        match resolve(collection, request, &path) {
+            Ok(metadata) => Ok(metadata),
+            Err(primary_error)
+                if base_active[collection_index].len() == 0
+                    && request
+                        .binding
+                        .as_deref()
+                        .or_else(|| {
+                            collection
+                                .definition
+                                .schema
+                                .defaults
+                                .get(&path.segments)
+                                .map(String::as_str)
+                        })
+                        .unwrap_or("default")
+                        == "default" =>
+            {
+                segments[collection_index]
+                    .iter()
+                    .filter(|segment| segment.active.len() != 0)
+                    .find_map(|segment| {
+                        let inference = segment.index.inference.as_ref()?;
+                        inference.indexes.contains_key(&path.segments).then(|| {
+                            resolve_segment(
+                                collection,
+                                &segment.index,
+                                &path,
+                                "inferred",
+                                inference.report.policy.version,
+                            )
+                        })
+                    })
+                    .transpose()
+                    .and_then(|resolved| resolved.ok_or(primary_error))
+            }
+            Err(error) => Err(error),
+        }
+    };
+    let base = metadata?;
     if base.index.covered_records as u64 != collection.logical_records.len()
         && base_active[collection_index].len() != 0
     {

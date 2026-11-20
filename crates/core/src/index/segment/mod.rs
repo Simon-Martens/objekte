@@ -15,7 +15,6 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
-use crate::construction::inference::InferenceObservation;
 use crate::index::bigram::BigramIndex;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
@@ -253,7 +252,6 @@ pub(crate) struct IndexedCollectionSegment {
     pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,
-    pub(crate) inference_observation: Option<InferenceObservation>,
     pub inference: Option<InferenceState>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: BigramIndex,
@@ -276,6 +274,15 @@ pub(crate) struct PublishedSegment {
     pub id: SegmentId,
     pub index: Arc<IndexedCollectionSegment>,
     pub active: ActiveRecords,
+    pub(crate) observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+}
+
+impl PublishedSegment {
+    pub(crate) fn construction_observation_bytes(&self) -> usize {
+        self.observation
+            .as_ref()
+            .map_or(0, |observation| observation.estimated_bytes())
+    }
 }
 
 /// One payload and liveness pair at its native segment boundary.

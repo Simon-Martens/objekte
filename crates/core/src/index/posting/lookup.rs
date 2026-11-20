@@ -635,7 +635,7 @@ impl PostingIndex {
         }
         let borrowed = match term.derived {
             Derived::Exists | Derived::Null => return None,
-            Derived::Length if !self.length_complete || !length_posting_is_exact(term) => {
+            Derived::Length if !self.length_complete || !self.length_posting_is_exact(term) => {
                 return None;
             }
             Derived::Length if term.operator == Operator::Eq => {
@@ -729,6 +729,38 @@ impl PostingIndex {
                 && self.kind == LogicalType::String
                 && matches!(&term.literal, Value::String(value) if value.is_empty()))
     }
+    fn length_posting_is_exact(&self, term: &BoundTerm) -> bool {
+        if term.query_path.has_explicit_array_step {
+            return false;
+        }
+        if term.quantifier == Quantifier::Any {
+            return true;
+        }
+        term.quantifier == Quantifier::Default
+            && self.summary.is_some_and(|summary| {
+                summary.only_matches_array_or_null()
+                    && !summary.may_select_multiple()
+                    && !summary.may_have_empty_traversal()
+            })
+    }
+    pub(crate) fn empty_string_equality_is_exact(&self, term: &BoundTerm) -> bool {
+        self.empty_string_complete
+            && self.kind == LogicalType::String
+            && self.summary.is_some_and(|summary| {
+                !summary.may_match_array()
+                    && !summary.may_select_multiple()
+                    && !summary.may_have_empty_traversal()
+            })
+            && !term.query_path.has_explicit_array_step
+            && term.derived == Derived::None
+            && term.operator == Operator::Eq
+            && term.quantifier == Quantifier::Default
+            && term.transform == Transform::Identity
+            && term.period.is_none()
+            && term.operation.is_none()
+            && term.matcher.is_none()
+            && matches!(&term.literal, Value::String(value) if value.is_empty())
+    }
     pub fn estimate_exact(&self, term: &BoundTerm, domain_len: u64) -> Option<(f64, u64)> {
         self.estimate_exact_with_visits(term, domain_len, &mut 0)
     }
@@ -813,7 +845,7 @@ impl PostingIndex {
         match term.derived {
             Derived::Exists | Derived::Null => return None,
             Derived::Length => {
-                if !self.length_complete || !length_posting_is_exact(term) {
+                if !self.length_complete || !self.length_posting_is_exact(term) {
                     return None;
                 }
                 let Value::Number(number) = &term.literal else {
@@ -967,7 +999,7 @@ impl PostingIndex {
         match term.derived {
             Derived::Exists | Derived::Null => return None,
             Derived::Length => {
-                if !self.length_complete || !length_posting_is_exact(term) {
+                if !self.length_complete || !self.length_posting_is_exact(term) {
                     return None;
                 }
                 let Value::Number(number) = &term.literal else {
@@ -1136,16 +1168,6 @@ impl PostingIndex {
         })
     }
 }
-/// A length posting is a union of records containing at least one reached
-/// array of that length. It proves existential comparisons. A one-segment
-/// field path selects at most one array from a record root, so its default
-/// universal comparison is also exact. Nested universal comparisons require
-/// a scanner because the posting does not retain every reached length.
-fn length_posting_is_exact(term: &BoundTerm) -> bool {
-    !term.query_path.has_explicit_array_step
-        && (term.quantifier == Quantifier::Any || term.path.segments.len() == 1)
-}
-
 fn without_null(index: &PostingIndex, input: Option<&RoaringBitmap>) -> RoaringBitmap {
     let mut result = input.map_or_else(|| index.presence.clone(), |input| input & &index.presence);
     if let Some(nulls) = index.null_posting() {

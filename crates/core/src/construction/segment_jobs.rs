@@ -296,6 +296,7 @@ impl SegmentJobGate {
 }
 pub(super) struct IndexedSegmentBuild {
     pub index: IndexedCollectionSegment,
+    pub observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
     pub profile: Option<IncrementalSegmentProfile>,
     pub build_ns: u64,
 }
@@ -416,7 +417,7 @@ impl SegmentBuildScheduler {
                 Err(error)
             } else {
                 segment
-                    .into_indexed_profiled(
+                    .into_indexed_observation_profiled(
                         &definition,
                         options.bigram_alphabet,
                         options.inference,
@@ -424,8 +425,9 @@ impl SegmentBuildScheduler {
                         &worker_pool,
                         profile.as_mut(),
                     )
-                    .map(|index| IndexedSegmentBuild {
+                    .map(|(index, observation)| IndexedSegmentBuild {
                         index,
+                        observation: observation.map(Arc::new),
                         profile,
                         build_ns: phase.elapsed().as_nanos() as u64,
                     })

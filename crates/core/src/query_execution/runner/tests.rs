@@ -2378,6 +2378,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         id: crate::index::segment::SegmentId::new(4_294_967_298),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
+        observation: None,
     }));
     segments[0] = Arc::new(group);
     let base_active = vec![
@@ -7116,11 +7117,13 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
             id: crate::index::segment::SegmentId::new(10),
             index: Arc::clone(&full.index),
             active: ActiveRecords::from_bitmap(full.index.record_count(), first_active).unwrap(),
+            observation: None,
         }),
         Arc::new(PublishedSegment {
             id: crate::index::segment::SegmentId::new(11),
             index: Arc::clone(&full.index),
             active: ActiveRecords::from_bitmap(full.index.record_count(), second_active).unwrap(),
+            observation: None,
         }),
     ])];
     let two_before = crate::query_execution::restrictions::predicate_bounds_calls();
@@ -7865,6 +7868,7 @@ fn exact_stored_page_calculates_identical_segment_restrictions_once() {
                 RoaringBitmap::new(),
             )
             .unwrap(),
+            observation: None,
         }),
     ]);
     let index = crate::lifecycle::Index::from_repository(repo).unwrap();

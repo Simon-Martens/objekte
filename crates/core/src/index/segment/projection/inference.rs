@@ -8,7 +8,7 @@ use super::postings::{project_posting, scatter_posting_partitions};
 use super::routing::{
     PartitionRouting, SlotMap, project_bitmap_in_range, scatter_bitmap_partitions,
 };
-use crate::inference::{InferenceIndexStatus, InferenceState};
+use crate::inference::{InferenceIndexStatus, InferenceState, OccurrenceCountStatus};
 
 impl IndexedCollectionSegment {
     pub(crate) fn project_inference_for_partitions(
@@ -121,6 +121,7 @@ fn finish_projected_inference(
         let old_value_occurrences = field.value_occurrences;
         let old_nonblank_occurrences = field.nonblank_occurrences;
         let old_short_string_observed_occurrences = field.short_string_observed_occurrences;
+        let incoming_occurrence_status = field.occurrence_count_status;
         if let Some(index) = state.indexes.get(&field.path) {
             field.index_status = InferenceIndexStatus::Built;
             let terminal = index.summary;
@@ -176,6 +177,7 @@ fn finish_projected_inference(
                 field.nonblank_occurrences = 0;
                 field.nonblank_records = 0;
                 field.short_string_observed_occurrences = 0;
+                field.occurrence_count_status = OccurrenceCountStatus::Exact;
             } else {
                 field.complete = false;
                 let inherited = |old: u64, bound: u64| {
@@ -246,6 +248,18 @@ fn finish_projected_inference(
                     field.short_string_observed_occurrences = old_short_string_observed_occurrences;
                 }
                 field.integer_only = None;
+                field.occurrence_count_status = if eligible == 0 || present == 0 {
+                    OccurrenceCountStatus::Exact
+                } else {
+                    match incoming_occurrence_status {
+                        OccurrenceCountStatus::Exact | OccurrenceCountStatus::UpperBound => {
+                            OccurrenceCountStatus::UpperBound
+                        }
+                        OccurrenceCountStatus::IncompleteObservation => {
+                            OccurrenceCountStatus::IncompleteObservation
+                        }
+                    }
+                };
             }
             field.short_string_covered_records = state
                 .short_string_coverage
@@ -297,6 +311,18 @@ fn finish_projected_inference(
             field.short_string_distinct_values = 0;
             field.integer_only = None;
             field.index_bytes_estimate = 0;
+            field.occurrence_count_status = if eligible == 0 || present == 0 {
+                OccurrenceCountStatus::Exact
+            } else {
+                match incoming_occurrence_status {
+                    OccurrenceCountStatus::Exact | OccurrenceCountStatus::UpperBound => {
+                        OccurrenceCountStatus::UpperBound
+                    }
+                    OccurrenceCountStatus::IncompleteObservation => {
+                        OccurrenceCountStatus::IncompleteObservation
+                    }
+                }
+            };
         }
         field.missing_records = eligible - field.present_records;
         field.short_string_unresolved_records = eligible - field.short_string_covered_records;

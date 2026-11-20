@@ -126,6 +126,23 @@ pub enum InferenceIndexStatus {
 }
 
 /// Complete or explicitly incomplete statistics for one logical field path.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub enum OccurrenceCountStatus {
+    /// All three occurrence totals are exact for the reported domain.
+    Exact,
+    /// Each occurrence total is at least the true survivor total.
+    UpperBound,
+    /// Observed or inherited tallies without a guaranteed survivor bound.
+    IncompleteObservation,
+}
+
+impl Default for OccurrenceCountStatus {
+    fn default() -> Self {
+        Self::IncompleteObservation
+    }
+}
+
+/// Complete or explicitly incomplete statistics for one logical field path.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferredFieldReport {
     pub path: Vec<String>,
@@ -150,6 +167,10 @@ pub struct InferredFieldReport {
     #[serde(default)]
     pub distinct_nonblank_strings_truncated: bool,
     pub short_string_observed_occurrences: u64,
+    /// Joint contract for `value_occurrences`, `nonblank_occurrences`, and
+    /// `short_string_observed_occurrences`.
+    #[serde(default)]
+    pub occurrence_count_status: OccurrenceCountStatus,
     pub short_string_distinct_values: usize,
     #[serde(default)]
     pub short_string_distinct_values_truncated: bool,

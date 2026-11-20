@@ -152,11 +152,13 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             id: crate::index::segment::SegmentId::new(1),
             active: ActiveRecords::all(target.records.len()).unwrap(),
             index: Arc::new(target),
+            observation: None,
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
             id: crate::index::segment::SegmentId::new(2),
             active: ActiveRecords::all(source.records.len()).unwrap(),
             index: Arc::new(source),
+            observation: None,
         })]),
     ];
     let find = |request: Query| {
@@ -1519,6 +1521,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
                 id: published.id,
                 index: Arc::new(index),
                 active: published.active.clone(),
+                observation: None,
             })
         })
         .collect::<Vec<_>>();
@@ -1679,6 +1682,7 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
                     id: published.id,
                     index: Arc::new(segment),
                     active: published.active.clone(),
+                    observation: None,
                 })
             })
             .collect::<Vec<_>>(),

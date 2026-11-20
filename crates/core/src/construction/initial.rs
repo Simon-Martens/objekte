@@ -246,6 +246,7 @@ fn publish_indexed_segment(
     let started = crate::measurement::timer::DetailedInstant::now();
     let IndexedSegmentBuild {
         index: indexed,
+        observation,
         profile: mut segment_profile,
         build_ns,
     } = built;
@@ -255,7 +256,7 @@ fn publish_indexed_segment(
     }
     let _ = collection;
     let (revision, phases) =
-        index.publish_initial_segment(*expected, indexed, profile.is_some())?;
+        index.publish_initial_segment(*expected, indexed, observation, profile.is_some())?;
     *expected = revision;
     if let Some(profile) = profile.as_mut() {
         profile.publication_prepare_ns = profile
@@ -328,7 +329,7 @@ fn publish_private_segment_group(
         *expected,
         builds
             .into_iter()
-            .map(|build| build.index)
+            .map(|build| (build.index, build.observation))
             .collect::<Vec<_>>(),
         profile.is_some(),
     )?;

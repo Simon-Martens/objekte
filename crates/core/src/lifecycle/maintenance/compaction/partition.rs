@@ -242,6 +242,7 @@ fn partition_base_with_limits_inner(
                 id: crate::index::segment::SegmentId::new(ordinal),
                 index: Arc::new(part),
                 active,
+                observation: None,
             }));
         }
         groups[number] = Arc::new(group);

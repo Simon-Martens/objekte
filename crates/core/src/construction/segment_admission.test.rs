@@ -98,6 +98,63 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
 }
 
 #[test]
+fn disabled_inference_does_not_create_compact_observation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-disabled-observation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    std::fs::write(root.join("0.jsonl"), "{\"x\":1}\n").unwrap();
+    let input = SourceFileInput {
+        id: FileId(0),
+        relative_path: "0.jsonl".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(root.join("0.jsonl")).unwrap())
+            .unwrap(),
+        created_ns: None,
+    };
+    let batch = process_batch(
+        &root,
+        &definition,
+        CollectionId(0),
+        &source,
+        &[input.id],
+        std::slice::from_ref(&input),
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        1,
+    )
+    .unwrap();
+    let mut admission = SegmentAdmission::new(CollectionId(0), &source);
+    admission.admit_batch(batch).unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let (index, observation) = admission
+        .finish()
+        .into_indexed_observation_profiled(
+            &definition,
+            BigramAlphabet::Ascii,
+            InferenceConfig::default(),
+            1,
+            &pool,
+            None,
+        )
+        .unwrap();
+    assert!(observation.is_none());
+    assert!(index.inference.is_none());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
     let root = std::env::temp_dir().join(format!(
         "objekte-posting-transfer-{}-{}",

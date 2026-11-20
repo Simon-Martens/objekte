@@ -329,6 +329,17 @@ impl IndexView {
                     .map(|segment| segment.index.accounting.index_family_bytes)
                     .sum::<usize>(),
             )
+            .saturating_add(self.estimated_construction_observation_bytes())
+    }
+
+    /// Temporary provisional-build observation estimate. Completed views hold 0.
+    pub fn estimated_construction_observation_bytes(&self) -> usize {
+        self.0
+            .segments
+            .iter()
+            .flat_map(|group| group.iter())
+            .map(|segment| segment.construction_observation_bytes())
+            .sum()
     }
 
     /// Per-collection base (ordinal 0) and published segment estimates. The

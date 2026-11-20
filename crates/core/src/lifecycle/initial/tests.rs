@@ -210,6 +210,73 @@ fn start_build_rejects_invalid_segment_limits_before_dispatch() {
 }
 
 #[test]
+fn completed_generation_releases_provisional_inference_observation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-provisional-observation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, value) in [("a.json", "A"), ("b.json", "B"), ("c.json", "A")] {
+        std::fs::write(
+            root.join("data").join(name),
+            serde_json::json!({"value":value}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut provisional = None;
+    let index = Repository::build_incremental_with_sources(
+        root.clone(),
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+        |_| Ok(()),
+        |index| {
+            let view = index.view()?;
+            if view.estimated_construction_observation_bytes() > 0 {
+                provisional = Some(view);
+            }
+            Ok(())
+        },
+        || false,
+    )
+    .unwrap();
+    let provisional = provisional.expect("initial publication exposed no provisional view");
+    let provisional_bytes = provisional.estimated_construction_observation_bytes();
+    assert!(provisional_bytes > 0);
+    let published = &provisional.0.segments[0][0];
+    let payload = Arc::clone(&published.index);
+    let weak_observation = Arc::downgrade(
+        published
+            .observation
+            .as_ref()
+            .expect("provisional segment lost its observation"),
+    );
+
+    let completed = index.view().unwrap();
+    assert_eq!(completed.estimated_construction_observation_bytes(), 0);
+    assert!(Arc::ptr_eq(&completed.0.segments[0][0].index, &payload));
+    drop(provisional);
+    assert!(weak_observation.upgrade().is_none());
+    drop(completed);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn repository_conversion_rejects_retained_owner_and_view_promptly() {
     let root = std::env::temp_dir().join(format!(
         "objekte-repository-conversion-{}-{}",

@@ -222,9 +222,14 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn with_segment(
+    pub(crate) fn with_segment(self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
+        self.with_segment_observation(index, None)
+    }
+
+    fn with_segment_observation(
         mut self,
         mut index: IndexedCollectionSegment,
+        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
     ) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
@@ -317,6 +322,7 @@ impl PublishedIndex {
             id: segment_id,
             index: Arc::new(index),
             active,
+            observation,
         }));
         if self.next_segment_ordinal == 0 {
             self.next_segment_ordinal = 1;
@@ -416,6 +422,7 @@ impl PublishedIndex {
                             id: SegmentId::new(ordinal),
                             index: Arc::new(part),
                             active,
+                            observation: None,
                         }),
                     );
                 }
@@ -462,6 +469,7 @@ impl PublishedIndex {
             id: SegmentId::new(ordinal),
             index: Arc::new(merged_index),
             active,
+            observation: None,
         }));
         if size_triggered {
             self.last_size_maintenance_revision = self.revision.0;
@@ -519,8 +527,12 @@ impl PublishedIndex {
 
 fn prepare_initial_segment(
     next: &mut PublishedIndex,
-    segment: IndexedCollectionSegment,
+    segment: (
+        IndexedCollectionSegment,
+        Option<Arc<crate::construction::inference::InferenceObservation>>,
+    ),
 ) -> Result<(), IndexError> {
+    let (segment, observation) = segment;
     for file in &segment.files {
         if file.entry.status == FileStatus::Valid
             && file.entry.diagnostics.is_empty()
@@ -547,7 +559,9 @@ fn prepare_initial_segment(
             .replaced(merged, None, None)
             .map_err(IndexError::InvalidPublication)?;
     }
-    *next = next.clone().with_segment(segment)?;
+    *next = next
+        .clone()
+        .with_segment_observation(segment, observation)?;
     Ok(())
 }
 
@@ -558,6 +572,7 @@ impl Index {
         &self,
         expected: IndexRevision,
         segment: IndexedCollectionSegment,
+        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
         profile_phases: bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
         let prepare_started = crate::measurement::timer::start_if_enabled(profile_phases);
@@ -574,7 +589,7 @@ impl Index {
             ));
         }
         let mut next = (*view.0).clone();
-        prepare_initial_segment(&mut next, segment)?;
+        prepare_initial_segment(&mut next, (segment, observation))?;
         next.revision = expected.next()?;
         let preparation_ns = prepare_started
             .map(|started| started.elapsed().as_nanos() as u64)
@@ -597,7 +612,10 @@ impl Index {
     pub(crate) fn publish_initial_segments(
         &self,
         expected: IndexRevision,
-        segments: Vec<IndexedCollectionSegment>,
+        segments: Vec<(
+            IndexedCollectionSegment,
+            Option<Arc<crate::construction::inference::InferenceObservation>>,
+        )>,
         profile_phases: bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
         if segments.is_empty() {
@@ -707,6 +725,14 @@ impl Index {
                     })
                 });
                 if !needs_status_refresh && !needs_inference_prune {
+                    if published.observation.is_some() {
+                        *published = Arc::new(PublishedSegment {
+                            id: published.id,
+                            index: Arc::clone(&published.index),
+                            active: published.active.clone(),
+                            observation: None,
+                        });
+                    }
                     continue;
                 }
                 let mut index = (*published.index).clone();
@@ -795,6 +821,7 @@ impl Index {
                     id: published.id,
                     index: Arc::new(index),
                     active: published.active.clone(),
+                    observation: None,
                 });
             }
         }

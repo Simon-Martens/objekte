@@ -93,6 +93,7 @@ struct ProjectedFieldFacts {
     value_occurrences: u64,
     nonblank_occurrences: u64,
     short_string_observed_occurrences: u64,
+    occurrence_count_status: crate::inference::OccurrenceCountStatus,
     integer_only: Option<bool>,
 }
 
@@ -115,6 +116,8 @@ impl ProjectedFieldFacts {
                 value_occurrences: 0,
                 nonblank_occurrences: 0,
                 short_string_observed_occurrences: 0,
+                occurrence_count_status:
+                    crate::inference::OccurrenceCountStatus::IncompleteObservation,
                 integer_only: None,
             };
         };
@@ -134,6 +137,7 @@ impl ProjectedFieldFacts {
             value_occurrences: field.value_occurrences,
             nonblank_occurrences: field.nonblank_occurrences,
             short_string_observed_occurrences: field.short_string_observed_occurrences,
+            occurrence_count_status: field.occurrence_count_status,
             integer_only: field.integer_only,
         }
     }
@@ -267,22 +271,42 @@ impl ProjectedFieldFacts {
                 fresh.nonblank_records <= self.nonblank_records,
                 "{context}: nonblank-record bound"
             );
-            assert!(
-                fresh.value_occurrences <= self.value_occurrences,
-                "{context}: value-occurrence bound"
-            );
-            assert!(
-                fresh.nonblank_occurrences <= self.nonblank_occurrences,
-                "{context}: nonblank-occurrence bound"
-            );
-            assert!(
-                fresh.short_string_observed_occurrences <= self.short_string_observed_occurrences,
-                "{context}: short-string occurrence bound"
-            );
             assert_eq!(
                 self.integer_only, None,
                 "{context}: incomplete numeric evidence"
             );
+        }
+        match self.occurrence_count_status {
+            crate::inference::OccurrenceCountStatus::Exact => {
+                assert_eq!(
+                    self.value_occurrences, fresh.value_occurrences,
+                    "{context}: exact value occurrences"
+                );
+                assert_eq!(
+                    self.nonblank_occurrences, fresh.nonblank_occurrences,
+                    "{context}: exact nonblank occurrences"
+                );
+                assert_eq!(
+                    self.short_string_observed_occurrences, fresh.short_string_observed_occurrences,
+                    "{context}: exact short-string occurrences"
+                );
+            }
+            crate::inference::OccurrenceCountStatus::UpperBound => {
+                assert!(
+                    fresh.value_occurrences <= self.value_occurrences,
+                    "{context}: value-occurrence bound"
+                );
+                assert!(
+                    fresh.nonblank_occurrences <= self.nonblank_occurrences,
+                    "{context}: nonblank-occurrence bound"
+                );
+                assert!(
+                    fresh.short_string_observed_occurrences
+                        <= self.short_string_observed_occurrences,
+                    "{context}: short-string occurrence bound"
+                );
+            }
+            crate::inference::OccurrenceCountStatus::IncompleteObservation => {}
         }
     }
 }
@@ -418,6 +442,200 @@ fn projected_exact_null_bound_after_observation_budget_exhaustion() {
         .unwrap();
     assert_eq!(array_field.null_occurrence_records, 1);
     assert_eq!(array_field.exact_null_records, 0);
+}
+
+#[test]
+fn projected_occurrence_counts_expose_exactness_and_observation_status() {
+    use crate::inference::OccurrenceCountStatus;
+    let schema = crate::schema::Schema::default();
+    let interrupted_config = InferenceConfig {
+        mode: InferenceMode::ReportOnly,
+        policy: InferencePolicy {
+            max_record_contributions: 2,
+            ..Default::default()
+        },
+    };
+    let interrupted_logical = RoaringBitmap::from_iter(0..3);
+    let mut interrupted = InferenceBuilder::for_collection(interrupted_config, 1).unwrap();
+    for (slot, json) in [
+        (0, r#"{"x":null}"#),
+        (1, r#"{"stop":{"nested":0}}"#),
+        (2, r#"{"x":["a","b"]}"#),
+    ] {
+        interrupted
+            .observe_record(
+                RecordSlot(slot),
+                &crate::model::Value::from_json(serde_json::from_str(json).unwrap()).unwrap(),
+            )
+            .unwrap();
+    }
+    let source = interrupted
+        .finish(&interrupted_logical, 3, &schema)
+        .unwrap();
+    assert!(!source.report.complete);
+    let source_field = source
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(
+        source_field.occurrence_count_status,
+        OccurrenceCountStatus::IncompleteObservation
+    );
+    assert_eq!(source_field.value_occurrences, 0);
+    assert_eq!(source_field.nonblank_occurrences, 0);
+    assert_eq!(source_field.short_string_observed_occurrences, 0);
+
+    let slots = SlotMap::Dense(&[None, None, Some(RecordSlot(0))]);
+    let survivor_logical = RoaringBitmap::from_iter([0]);
+    let projected = project_inference(&Some(source), &slots, &survivor_logical, 1, None)
+        .unwrap()
+        .unwrap();
+    let projected_field = projected
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(
+        projected_field.occurrence_count_status,
+        OccurrenceCountStatus::IncompleteObservation
+    );
+    assert_eq!(
+        (
+            projected_field.value_occurrences,
+            projected_field.nonblank_occurrences,
+            projected_field.short_string_observed_occurrences,
+        ),
+        (0, 0, 0)
+    );
+    let identity = SlotMap::Dense(&[Some(RecordSlot(0))]);
+    let repeated = project_inference(
+        &Some(projected.clone()),
+        &identity,
+        &survivor_logical,
+        1,
+        None,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(
+        repeated
+            .report
+            .fields
+            .iter()
+            .find(|field| field.path == ["x"])
+            .unwrap()
+            .occurrence_count_status,
+        OccurrenceCountStatus::IncompleteObservation
+    );
+
+    let mut fresh_builder = InferenceBuilder::for_collection(
+        InferenceConfig {
+            mode: InferenceMode::ReportOnly,
+            ..Default::default()
+        },
+        1,
+    )
+    .unwrap();
+    fresh_builder
+        .observe_record(
+            RecordSlot(0),
+            &crate::model::Value::from_json(serde_json::json!({"x":["a","b"]})).unwrap(),
+        )
+        .unwrap();
+    let fresh = fresh_builder.finish(&survivor_logical, 1, &schema).unwrap();
+    let fresh_field = fresh
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(
+        fresh_field.occurrence_count_status,
+        OccurrenceCountStatus::Exact
+    );
+    assert_eq!(
+        (
+            fresh_field.value_occurrences,
+            fresh_field.nonblank_occurrences,
+            fresh_field.short_string_observed_occurrences,
+        ),
+        (2, 2, 2)
+    );
+
+    let empty_logical = RoaringBitmap::new();
+    let empty_slots = SlotMap::Dense(&[None]);
+    let empty = project_inference(&Some(fresh.clone()), &empty_slots, &empty_logical, 0, None)
+        .unwrap()
+        .unwrap();
+    let empty_field = empty
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(
+        empty_field.occurrence_count_status,
+        OccurrenceCountStatus::Exact
+    );
+    assert_eq!(
+        (
+            empty_field.value_occurrences,
+            empty_field.nonblank_occurrences,
+            empty_field.short_string_observed_occurrences,
+        ),
+        (0, 0, 0)
+    );
+
+    let complete_logical = RoaringBitmap::from_iter(0..2);
+    let mut complete = InferenceBuilder::for_collection(
+        InferenceConfig {
+            mode: InferenceMode::ReportOnly,
+            ..Default::default()
+        },
+        1,
+    )
+    .unwrap();
+    for (slot, text) in ["a", "b"].into_iter().enumerate() {
+        complete
+            .observe_record(
+                RecordSlot(slot as u32),
+                &crate::model::Value::from_json(serde_json::json!({"x":text})).unwrap(),
+            )
+            .unwrap();
+    }
+    let complete = complete.finish(&complete_logical, 2, &schema).unwrap();
+    let upper_slots = SlotMap::Dense(&[Some(RecordSlot(0)), None]);
+    let one_logical = RoaringBitmap::from_iter([0]);
+    let upper = project_inference(&Some(complete), &upper_slots, &one_logical, 1, None)
+        .unwrap()
+        .unwrap();
+    let upper_field = upper
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(
+        upper_field.occurrence_count_status,
+        OccurrenceCountStatus::UpperBound
+    );
+    assert!(upper_field.value_occurrences >= 1);
+    assert!(upper_field.nonblank_occurrences >= 1);
+
+    let mut serialized = serde_json::to_value(fresh_field).unwrap();
+    serialized
+        .as_object_mut()
+        .unwrap()
+        .remove("occurrence_count_status");
+    let restored: crate::inference::InferredFieldReport =
+        serde_json::from_value(serialized).unwrap();
+    assert_eq!(
+        restored.occurrence_count_status,
+        OccurrenceCountStatus::IncompleteObservation
+    );
 }
 
 struct ProjectionFixture {

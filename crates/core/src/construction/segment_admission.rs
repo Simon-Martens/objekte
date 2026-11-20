@@ -809,8 +809,62 @@ impl CollectionSegment {
         inference_config: InferenceConfig,
         collection_count: usize,
         pool: &ThreadPool,
-        mut profile: Option<&mut IncrementalSegmentProfile>,
+        profile: Option<&mut IncrementalSegmentProfile>,
     ) -> Result<IndexedCollectionSegment, String> {
+        self.into_indexed_profiled_inner(
+            definition,
+            alphabet,
+            inference_config,
+            collection_count,
+            pool,
+            profile,
+            false,
+        )
+        .map(|(index, _)| index)
+    }
+
+    pub(crate) fn into_indexed_observation_profiled(
+        self,
+        definition: &CollectionDefinition,
+        alphabet: BigramAlphabet,
+        inference_config: InferenceConfig,
+        collection_count: usize,
+        pool: &ThreadPool,
+        profile: Option<&mut IncrementalSegmentProfile>,
+    ) -> Result<
+        (
+            IndexedCollectionSegment,
+            Option<crate::construction::inference::InferenceObservation>,
+        ),
+        String,
+    > {
+        self.into_indexed_profiled_inner(
+            definition,
+            alphabet,
+            inference_config,
+            collection_count,
+            pool,
+            profile,
+            true,
+        )
+    }
+
+    fn into_indexed_profiled_inner(
+        self,
+        definition: &CollectionDefinition,
+        alphabet: BigramAlphabet,
+        inference_config: InferenceConfig,
+        collection_count: usize,
+        pool: &ThreadPool,
+        mut profile: Option<&mut IncrementalSegmentProfile>,
+        capture_observation: bool,
+    ) -> Result<
+        (
+            IndexedCollectionSegment,
+            Option<crate::construction::inference::InferenceObservation>,
+        ),
+        String,
+    > {
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut aggregate =
             SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?;
@@ -905,9 +959,13 @@ impl CollectionSegment {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let inference_observation = inference
-            .as_ref()
-            .map(crate::construction::inference::InferenceBuilder::observation);
+        let inference_observation = capture_observation
+            .then(|| {
+                inference
+                    .as_ref()
+                    .map(crate::construction::inference::InferenceBuilder::observation)
+            })
+            .flatten();
         let inference = inference
             .map(|builder| {
                 builder.finish_candidates(&logical_records, record_count, &definition.schema)
@@ -941,7 +999,6 @@ impl CollectionSegment {
             id_lookup: self.id_lookup,
             identity_order,
             postings,
-            inference_observation,
             inference,
             custom_postings,
             raw,
@@ -956,7 +1013,7 @@ impl CollectionSegment {
             accounting: SegmentAccounting::default(),
         };
         index.recompute_accounting();
-        Ok(index)
+        Ok((index, inference_observation))
     }
 }
 

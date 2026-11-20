@@ -263,6 +263,7 @@ pub(crate) fn preserve_single_record_slots(
             id: crate::index::segment::SegmentId::new(old_ordinal),
             index: Arc::clone(&replacement.index),
             active: replacement.active.clone(),
+            observation: None,
         });
         group.remove(new_position);
     }
@@ -380,6 +381,7 @@ pub(crate) fn preserve_partition_record_slots(
             id: crate::index::segment::SegmentId::new(old_ordinal),
             active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
             index: Arc::new(replacement),
+            observation: None,
         });
         group.remove(new_position);
     }
@@ -460,6 +462,7 @@ pub(crate) fn remove_verified_old_shards(
                     id: crate::index::segment::SegmentId::new(candidate.next_segment_ordinal),
                     index: Arc::new(compacted.index),
                     active: compacted.active,
+                    observation: None,
                 });
                 candidate.next_segment_ordinal = ordinal;
                 position += 1;
