@@ -959,18 +959,18 @@ impl CollectionSegment {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let inference_observation = capture_observation
-            .then(|| {
-                inference
-                    .as_ref()
-                    .map(crate::construction::inference::InferenceBuilder::observation)
-            })
-            .flatten();
-        let inference = inference
-            .map(|builder| {
-                builder.finish_candidates(&logical_records, record_count, &definition.schema)
-            })
-            .transpose()?;
+        let (inference, inference_observation) = match inference {
+            Some(builder) => {
+                let (state, observation) = builder.finish_candidates_with_observation(
+                    &logical_records,
+                    record_count,
+                    &definition.schema,
+                    capture_observation,
+                )?;
+                (Some(state), observation)
+            }
+            None => (None, None),
+        };
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.inference_finish_ns = started.elapsed().as_nanos() as u64;
         }

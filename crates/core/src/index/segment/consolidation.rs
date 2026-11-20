@@ -153,16 +153,19 @@ fn consolidate_inference(
                 .saturating_add(source.empty_selection_records);
             target.value_occurrences = target
                 .value_occurrences
-                .saturating_add(source.value_occurrences);
+                .checked_add(source.value_occurrences)
+                .ok_or("inference value occurrence overflow")?;
             target.nonblank_occurrences = target
                 .nonblank_occurrences
-                .saturating_add(source.nonblank_occurrences);
+                .checked_add(source.nonblank_occurrences)
+                .ok_or("inference nonblank occurrence overflow")?;
             target.nonblank_records = target
                 .nonblank_records
                 .saturating_add(source.nonblank_records);
             target.short_string_observed_occurrences = target
                 .short_string_observed_occurrences
-                .saturating_add(source.short_string_observed_occurrences);
+                .checked_add(source.short_string_observed_occurrences)
+                .ok_or("inference short-string occurrence overflow")?;
             target.occurrence_count_status = match (
                 target.occurrence_count_status,
                 source.occurrence_count_status,
@@ -183,6 +186,20 @@ fn consolidate_inference(
             target.index_bytes_estimate = target
                 .index_bytes_estimate
                 .saturating_add(source.index_bytes_estimate);
+        }
+    }
+    for field in fields.values_mut() {
+        let missing_from_interrupted = states.iter().zip(shards).any(|(state, shard)| {
+            !shard.logical_records.is_empty()
+                && !state.report.complete
+                && !state
+                    .report
+                    .fields
+                    .iter()
+                    .any(|source| source.path == field.path)
+        });
+        if missing_from_interrupted {
+            field.occurrence_count_status = OccurrenceCountStatus::IncompleteObservation;
         }
     }
     let mut indexes = HashMap::new();

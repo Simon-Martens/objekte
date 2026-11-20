@@ -638,6 +638,171 @@ fn projected_occurrence_counts_expose_exactness_and_observation_status() {
     );
 }
 
+#[test]
+fn interrupted_contributor_downgrades_combined_occurrence_status() {
+    use crate::inference::OccurrenceCountStatus;
+    let complete_root = projection_fixture_root("occurrence-complete-contributor");
+    std::fs::write(complete_root.join("data/a.json"), r#"{"x":"a"}"#).unwrap();
+    let complete_repo = crate::lifecycle::Index::build_repository_for_test(
+        &complete_root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::ReportOnly,
+                policy: InferencePolicy {
+                    max_record_contributions: 2,
+                    ..Default::default()
+                },
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let complete = complete_repo.segments[0][0].index.as_ref();
+    let fresh_logical = RoaringBitmap::from_iter(0..3);
+    let mut fresh_builder = InferenceBuilder::for_collection(
+        InferenceConfig {
+            mode: InferenceMode::ReportOnly,
+            ..Default::default()
+        },
+        1,
+    )
+    .unwrap();
+    for (slot, json) in [
+        (0, r#"{"x":"a"}"#),
+        (1, r#"{"x":["b","c"]}"#),
+        (2, r#"{"other":true}"#),
+    ] {
+        fresh_builder
+            .observe_record(
+                RecordSlot(slot),
+                &crate::model::Value::from_json(serde_json::from_str(json).unwrap()).unwrap(),
+            )
+            .unwrap();
+    }
+    let fresh = fresh_builder
+        .finish(&fresh_logical, 3, &crate::schema::Schema::default())
+        .unwrap();
+    let fresh_field = fresh
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(
+        fresh_field.occurrence_count_status,
+        OccurrenceCountStatus::Exact
+    );
+    assert_eq!(
+        (
+            fresh_field.value_occurrences,
+            fresh_field.nonblank_occurrences,
+            fresh_field.short_string_observed_occurrences,
+        ),
+        (3, 3, 3)
+    );
+
+    let interrupted_root = projection_fixture_root("occurrence-interrupted-contributor");
+    std::fs::write(
+        interrupted_root.join("data/b0.json"),
+        r#"{"stop":{"nested":0}}"#,
+    )
+    .unwrap();
+    std::fs::write(interrupted_root.join("data/b1.json"), r#"{"x":["b","c"]}"#).unwrap();
+    let interrupted_repo = crate::lifecycle::Index::build_repository_for_test(
+        &interrupted_root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::ReportOnly,
+                policy: InferencePolicy {
+                    max_record_contributions: 2,
+                    ..Default::default()
+                },
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let mut interrupted = interrupted_repo.segments[0][0].index.as_ref().clone();
+    assert!(!interrupted.inference.as_ref().unwrap().report.complete);
+    assert!(
+        !interrupted
+            .inference
+            .as_ref()
+            .unwrap()
+            .report
+            .fields
+            .iter()
+            .any(|field| field.path == ["x"])
+    );
+    let old_file = interrupted.files[0].entry.id;
+    interrupted.files[0].entry.id = crate::model::FileId(10);
+    interrupted.file_index.remove(&old_file);
+    interrupted.file_index.insert(crate::model::FileId(10), 0);
+    for record in &mut interrupted.records {
+        if record.file == old_file {
+            record.file = crate::model::FileId(10);
+        }
+    }
+
+    for parts in [&[complete, &interrupted][..], &[&interrupted, complete][..]] {
+        let consolidated = IndexedCollectionSegment::consolidate(parts, 3).unwrap();
+        let state = consolidated.index.inference.as_ref().unwrap();
+        assert!(!state.report.complete);
+        let field = state
+            .report
+            .fields
+            .iter()
+            .find(|field| field.path == ["x"])
+            .unwrap();
+        assert_eq!(
+            field.occurrence_count_status,
+            OccurrenceCountStatus::IncompleteObservation
+        );
+        assert_eq!(
+            (
+                field.value_occurrences,
+                field.nonblank_occurrences,
+                field.short_string_observed_occurrences,
+            ),
+            (1, 1, 1)
+        );
+        let survivors = RoaringBitmap::from_iter([2]);
+        let slots = SlotMap::Dense(&[None, None, Some(RecordSlot(0))]);
+        let projected =
+            project_inference(&consolidated.index.inference, &slots, &survivors, 1, None)
+                .unwrap()
+                .unwrap();
+        assert_eq!(
+            projected
+                .report
+                .fields
+                .iter()
+                .find(|field| field.path == ["x"])
+                .unwrap()
+                .occurrence_count_status,
+            OccurrenceCountStatus::IncompleteObservation
+        );
+    }
+    std::fs::remove_dir_all(complete_root).unwrap();
+    std::fs::remove_dir_all(interrupted_root).unwrap();
+}
+
 struct ProjectionFixture {
     name: &'static str,
     mode: InferenceMode,

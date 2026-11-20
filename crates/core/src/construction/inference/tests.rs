@@ -14,6 +14,7 @@ fn compact_observation_unions_short_keys_without_cloning_posting_maps() {
     );
     field.short_distinct_without_postings =
         Some(["B".to_owned(), "C".to_owned()].into_iter().collect());
+    field.present.insert(0);
     let original_short_values = field.short_values.as_ref().unwrap().clone();
     let original_without_postings = field.short_distinct_without_postings.clone();
     let mut builder = InferenceBuilder::new(
@@ -25,24 +26,47 @@ fn compact_observation_unions_short_keys_without_cloning_posting_maps() {
     )
     .unwrap();
     builder.fields.push(field);
-    let observation = builder.observation();
+    builder.eligible = 1;
+    let (_, observation) = builder
+        .finish_candidates_with_observation(
+            &RoaringBitmap::from_iter([0]),
+            1,
+            &Schema::default(),
+            true,
+        )
+        .unwrap();
+    let observation = observation.unwrap();
     assert_eq!(
         observation.fields[0].short_distinct.clone().unwrap(),
         ["A".to_owned(), "B".to_owned(), "C".to_owned()]
             .into_iter()
             .collect()
     );
-    assert_eq!(builder.fields[0].short_values, Some(original_short_values));
-    assert_eq!(
-        builder.fields[0].short_distinct_without_postings,
-        original_without_postings
-    );
+    assert_eq!(original_short_values.len(), 2);
+    assert_eq!(original_without_postings.as_ref().unwrap().len(), 2);
 
-    builder.fields = vec![FieldState::new(
+    let mut empty_builder = InferenceBuilder::new(
+        InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        true,
+    )
+    .unwrap();
+    empty_builder.fields = vec![FieldState::new(
         vec!["empty".into()],
         InferenceMode::AutoIndex,
     )];
-    assert_eq!(builder.observation().fields[0].short_distinct, None);
+    empty_builder.eligible = 1;
+    let (_, empty_observation) = empty_builder
+        .finish_candidates_with_observation(
+            &RoaringBitmap::from_iter([0]),
+            1,
+            &Schema::default(),
+            true,
+        )
+        .unwrap();
+    assert_eq!(empty_observation.unwrap().fields[0].short_distinct, None);
 }
 
 #[test]

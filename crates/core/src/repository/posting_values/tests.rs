@@ -419,7 +419,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     assert!(
         page.values
             .iter()
-            .any(|entry| { matches!(entry.value, ScalarKey::Number(_)) && entry.count == 1 })
+            .all(|entry| !matches!(entry.value, ScalarKey::Number(_)))
     );
     let mut request = PostingValuesRequest::new("data", "code", 1);
     let mut paged = Vec::new();
@@ -612,7 +612,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
         delta.coverage.present_records,
         fresh.coverage.present_records
     );
-    assert_eq!(delta.values.iter().map(|entry| entry.count).sum::<u64>(), 3);
+    assert_eq!(delta.values.iter().map(|entry| entry.count).sum::<u64>(), 1);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1297,6 +1297,343 @@ fn inferred_terminal_arrays_preserve_legacy_presence_without_source_reads() {
         nested.values.iter().map(|entry| entry.count).sum::<u64>(),
         2
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segmented_facet_requires_data_root_before_inference_resolution() {
+    let root = std::env::temp_dir().join(format!("objekte-facet-data-root-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/00.json"), r#"{"x":7}"#).unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    assert_eq!(
+        repo.posting_values(&PostingValuesRequest::new("data", "x", 10))
+            .unwrap()
+            .values,
+        [PostingValueCount {
+            value: ScalarKey::Number(crate::model::Number::integer(7)),
+            count: 1,
+        }]
+    );
+    assert_eq!(
+        repo.posting_values(&PostingValuesRequest::new("data", "@backlinks.x", 10))
+            .unwrap_err(),
+        "posting values require a logical data field"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segmented_named_default_binding_precedes_raw_inference_rejection() {
+    use crate::schema::operation::RegisteredBinding;
+    use std::sync::Arc;
+    let root = std::env::temp_dir().join(format!(
+        "objekte-facet-named-default-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, title) in [("a.json", "HELLO"), ("b.json", "hello")] {
+        std::fs::write(
+            root.join("data").join(name),
+            serde_json::json!({"title":title}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_operation(
+            vec!["title".into()],
+            RegisteredBinding {
+                name: "fold".into(),
+                version: 3,
+                operation: Arc::new(FoldPosting { complete: true }),
+            },
+        )
+        .unwrap();
+    definition
+        .schema
+        .set_default_binding(vec!["title".into()], "fold")
+        .unwrap();
+    definition
+        .schema
+        .prohibit_auto_index(vec!["title".into()])
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let omitted = repo
+        .posting_values(&PostingValuesRequest::new("data", "title", 10))
+        .unwrap();
+    let mut explicit = PostingValuesRequest::new("data", "title", 10);
+    explicit.binding = Some("fold".into());
+    let explicit = repo.posting_values(&explicit).unwrap();
+    assert_eq!(omitted.values, explicit.values);
+    assert_eq!(omitted.coverage, explicit.coverage);
+    assert_eq!(
+        omitted.values,
+        [PostingValueCount {
+            value: ScalarKey::String("hello".into()),
+            count: 2,
+        }]
+    );
+    let mut raw = PostingValuesRequest::new("data", "title", 10);
+    raw.binding = Some("default".into());
+    assert!(repo.posting_values(&raw).is_err());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segmented_short_string_facet_family_is_independent_of_build_order() {
+    let root =
+        std::env::temp_dir().join(format!("objekte-facet-mixed-family-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/00_number.json"), r#"{"x":7}"#).unwrap();
+    std::fs::write(root.join("data/01_string.json"), r#"{"x":"a"}"#).unwrap();
+    let inference = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let options = RepositoryOptions {
+        inference,
+        ..Default::default()
+    };
+    let mut repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        options,
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let state = &repo.collections()[0];
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let mut segments = Vec::new();
+    for file in &repo.files().files {
+        if !file.collections.contains(&crate::model::CollectionId(0)) {
+            continue;
+        }
+        let input = crate::construction::batch::SourceFileInput {
+            id: file.id,
+            relative_path: file.relative_path.clone(),
+            revision: file.revision,
+            created_ns: None,
+        };
+        let prepared = crate::construction::file_preparation::prepare_file_build(
+            &root,
+            input,
+            &[
+                crate::construction::file_preparation::FilePreparationBinding {
+                    collection: crate::model::CollectionId(0),
+                    definition: &state.definition,
+                    source: &state.source,
+                },
+            ],
+            repo.options().bigram_alphabet,
+            inference,
+            1,
+        )
+        .unwrap();
+        let mut admission = crate::construction::segment_admission::SegmentAdmission::new(
+            crate::model::CollectionId(0),
+            &state.source,
+        );
+        admission
+            .admit(
+                &prepared.source,
+                prepared.collections.into_iter().next().unwrap(),
+            )
+            .unwrap();
+        let (index, observation) = admission
+            .finish()
+            .into_indexed_observation_profiled(
+                &state.definition,
+                repo.options().bigram_alphabet,
+                inference,
+                2,
+                &pool,
+                None,
+            )
+            .unwrap();
+        segments.push(Arc::new(PublishedSegment {
+            id: crate::index::segment::SegmentId::new(segments.len() as u64 + 1),
+            active: ActiveRecords::all(index.record_count()).unwrap(),
+            index: Arc::new(index),
+            observation: observation.map(Arc::new),
+        }));
+    }
+    assert_eq!(segments.len(), 2);
+    assert_eq!(
+        segments[0].index.inference.as_ref().unwrap().indexes[&vec!["x".into()]].kind,
+        LogicalType::Number
+    );
+    assert_eq!(
+        segments[1].index.inference.as_ref().unwrap().indexes[&vec!["x".into()]].kind,
+        LogicalType::String
+    );
+    let summarize = |ordered: &[Arc<PublishedSegment>]| {
+        crate::construction::inference::aggregate_segment_inference(
+            inference,
+            &repo.collections()[0].definition.schema,
+            ordered,
+            "data",
+        )
+        .unwrap()
+        .unwrap()
+    };
+    let forward_summary = summarize(&segments);
+    let mut reverse_segments = segments.clone();
+    reverse_segments.reverse();
+    let reverse_summary = summarize(&reverse_segments);
+    for summary in [&forward_summary, &reverse_summary] {
+        let field = summary
+            .report
+            .fields
+            .iter()
+            .find(|field| field.path == ["x"])
+            .unwrap();
+        assert!(field.observed_kinds.contains(&LogicalType::Number));
+        assert!(field.observed_kinds.contains(&LogicalType::String));
+        let diagnostic = summary
+            .diagnostics
+            .iter()
+            .find(|diagnostic| diagnostic.path == ["x"])
+            .unwrap();
+        assert!(!diagnostic.value_dictionary_complete);
+        assert!(diagnostic.short_string_candidates);
+    }
+    let expected_coverage = PostingValuesCoverage {
+        eligible_records: 2,
+        unavailable_records: 0,
+        selected_records: None,
+        present_records: 2,
+        explicit_null_records: 0,
+        indexed_records: 1,
+        unresolved_records: 1,
+        value_counts_complete: false,
+    };
+    for (summary, ordered) in [
+        (forward_summary, segments.clone()),
+        (reverse_summary, reverse_segments),
+    ] {
+        repo.collections[0].global_inference = Some(summary);
+        repo.segments = vec![Arc::new(ordered)];
+        let page = repo
+            .posting_values(&PostingValuesRequest::new("data", "x", 10))
+            .unwrap();
+        assert_eq!(
+            page.values,
+            [PostingValueCount {
+                value: ScalarKey::String("a".into()),
+                count: 1,
+            }]
+        );
+        assert_eq!(page.coverage, expected_coverage);
+        assert!(page.continuation.is_none());
+        let selection_query = crate::query::Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(crate::query::parse_filter("x = 7").unwrap()),
+            options: crate::query::QueryOptions {
+                sort: Vec::new(),
+                limit: 10,
+                offset: 0,
+                count: false,
+                return_mode: crate::query::options::ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let mut selected = PostingValuesRequest::new("data", "x", 10);
+        selected.selection = Some(repo.select_exact("data", &selection_query).unwrap());
+        let selected = repo.posting_values(&selected).unwrap();
+        assert!(selected.values.is_empty());
+        assert_eq!(selected.coverage.eligible_records, 1);
+        assert_eq!(selected.coverage.present_records, 1);
+        assert_eq!(selected.coverage.indexed_records, 0);
+        assert_eq!(selected.coverage.unresolved_records, 1);
+        assert!(!selected.coverage.value_counts_complete);
+    }
+
+    let mut structural_index = (*segments[0].index).clone();
+    let structural_posting = structural_index
+        .inference
+        .as_mut()
+        .unwrap()
+        .indexes
+        .get_mut(&vec!["x".into()])
+        .unwrap();
+    structural_posting.value_complete = false;
+    structural_posting.values.clear();
+    structural_posting.length_complete = true;
+    let structural = Arc::new(PublishedSegment {
+        id: crate::index::segment::SegmentId::new(20),
+        active: segments[0].active.clone(),
+        index: Arc::new(structural_index),
+        observation: None,
+    });
+    repo.collections[0].global_inference = None;
+    repo.segments = vec![Arc::new(vec![structural, segments[1].clone()])];
+    let local = repo
+        .posting_values(&PostingValuesRequest::new("data", "x", 10))
+        .unwrap();
+    assert_eq!(
+        local.values,
+        [PostingValueCount {
+            value: ScalarKey::String("a".into()),
+            count: 1,
+        }]
+    );
+    assert_eq!(local.coverage, expected_coverage);
     std::fs::remove_dir_all(root).unwrap();
 }
 

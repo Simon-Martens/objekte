@@ -1257,6 +1257,121 @@ impl FieldState {
     }
 }
 
+fn compact_field_observation(
+    field: &FieldState,
+    occurrence_count_status: OccurrenceCountStatus,
+) -> CompactFieldObservation {
+    let present_records = field
+        .present
+        .len()
+        .saturating_add(field.empty_selection.difference_len(&field.present));
+    let short_postings_present = field
+        .short_values
+        .as_ref()
+        .is_some_and(|values| !values.is_empty());
+    let mut short_distinct = field
+        .short_values
+        .as_ref()
+        .map(|values| values.keys().cloned().collect::<HashSet<_>>())
+        .unwrap_or_default();
+    if let Some(existing) = &field.short_distinct_without_postings {
+        short_distinct.extend(existing.iter().cloned());
+    }
+    let short_values_present = short_postings_present || !short_distinct.is_empty();
+    let short_domains_complete = short_dictionary_covers_required_domain(
+        short_postings_present,
+        &field.present,
+        &field.exact_null,
+        &field.short_seen,
+        &field.short_uncovered,
+    );
+    let summary_complete = !field.short_summary_truncated
+        && (short_values_present || field.distinct_nonblank.is_some());
+    CompactFieldObservation {
+        path: field.path.clone(),
+        kinds: field.kinds.clone(),
+        array_nesting: field.array_nesting,
+        fractional_number: field.fractional_number,
+        summary_complete,
+        present_records,
+        null_occurrence_records: field.null_occurrence.len(),
+        exact_null_records: field.exact_null.len(),
+        empty_array_records: field.empty_array.len(),
+        empty_selection_records: field.empty_selection.len(),
+        value_occurrences: field.value_occurrences,
+        nonblank_occurrences: field.nonblank_occurrences,
+        nonblank_records: field.nonblank_records.len(),
+        scalar_records: field.scalar_records.len(),
+        array_records: field.array_records.len(),
+        object_records: field.object_records.len(),
+        through_array_records: field.through_array_records.len(),
+        direct_records: field.direct_records.len(),
+        short_string_observed_occurrences: field.short_observed_occurrences,
+        occurrence_count_status,
+        short_string_covered_records: field.short_seen.difference_len(&field.short_uncovered),
+        short_seen_records: field.short_seen.len(),
+        short_values_present,
+        short_postings_present,
+        short_domains_complete,
+        short_dropped: field.short_dropped,
+        short_summary_truncated: field.short_summary_truncated,
+        lengths_present: field.lengths.is_some(),
+        length_dropped: field.length_dropped,
+        length_keys: field
+            .lengths
+            .as_ref()
+            .map_or_else(BTreeSet::new, |lengths| lengths.keys().cloned().collect()),
+        values_present: field.values.is_some(),
+        dropped: field.dropped,
+        distinct_nonblank: field.distinct_nonblank.clone(),
+        short_distinct: (!short_distinct.is_empty()).then_some(short_distinct),
+    }
+}
+
+fn compact_observation_bytes(
+    fields: &[CompactFieldObservation],
+    empty_ancestors: &HashMap<Vec<ObservedStep>, RoaringBitmap>,
+) -> usize {
+    64usize
+        .saturating_add(fields.len().saturating_mul(256))
+        .saturating_add(
+            fields
+                .iter()
+                .map(|field| {
+                    field
+                        .path
+                        .iter()
+                        .map(|segment| segment.len().saturating_add(std::mem::size_of::<String>()))
+                        .sum::<usize>()
+                        .saturating_add(field.kinds.len().saturating_mul(16))
+                        .saturating_add(field.length_keys.len().saturating_mul(48))
+                        .saturating_add(field.distinct_nonblank.as_ref().map_or(0, |values| {
+                            values
+                                .iter()
+                                .map(|value| value.len().saturating_add(48))
+                                .sum()
+                        }))
+                        .saturating_add(field.short_distinct.as_ref().map_or(0, |values| {
+                            values
+                                .iter()
+                                .map(|value| value.len().saturating_add(48))
+                                .sum()
+                        }))
+                })
+                .sum::<usize>(),
+        )
+        .saturating_add(
+            empty_ancestors
+                .iter()
+                .map(|(path, bitmap)| {
+                    64usize
+                        .saturating_add(path.len().saturating_mul(16))
+                        .saturating_add(bitmap.serialized_size())
+                })
+                .sum::<usize>(),
+        )
+}
+
 /// One batch or coordinator's bounded construction-only observation state.
 #[derive(Clone)]
 pub(crate) struct InferenceBuilder {
@@ -1688,11 +1803,22 @@ impl InferenceBuilder {
     }
 
     pub(crate) fn finish(
-        mut self,
+        self,
         logical: &RoaringBitmap,
         record_count: usize,
         schema: &Schema,
     ) -> Result<InferenceState, String> {
+        self.finish_with_observation(logical, record_count, schema, false)
+            .map(|(state, _)| state)
+    }
+
+    fn finish_with_observation(
+        mut self,
+        logical: &RoaringBitmap,
+        record_count: usize,
+        schema: &Schema,
+        capture_observation: bool,
+    ) -> Result<(InferenceState, Option<InferenceObservation>), String> {
         if self.eligible as u64 != logical.len() {
             return Err("inference logical coverage mismatch".into());
         }
@@ -1700,7 +1826,7 @@ impl InferenceBuilder {
         let mut indexes = HashMap::new();
         let mut short_string_coverage = HashMap::new();
         self.fields.sort_by(|a, b| a.path.cmp(&b.path));
-        for mut field in self.fields {
+        for field in &mut self.fields {
             for depth in 0..field.path.len() {
                 if let Some(empty) = self.empty_ancestors.get(&typed_path(&field.path[..depth])) {
                     field.empty_selection |= empty;
@@ -1709,6 +1835,13 @@ impl InferenceBuilder {
                     }
                 }
             }
+        }
+        let mut compact_fields = if capture_observation {
+            Vec::with_capacity(self.fields.len())
+        } else {
+            Vec::new()
+        };
+        for mut field in self.fields {
             if !field.present.is_subset(logical)
                 || !field.exact_null.is_subset(&field.present)
                 || !field.selected_null.is_subset(&field.present)
@@ -1716,6 +1849,16 @@ impl InferenceBuilder {
                 return Err("inference path membership outside logical domain".into());
             }
             field.kinds.sort_by_key(|kind| format!("{kind:?}"));
+            if capture_observation {
+                compact_fields.push(compact_field_observation(
+                    &field,
+                    if self.complete {
+                        OccurrenceCountStatus::Exact
+                    } else {
+                        OccurrenceCountStatus::IncompleteObservation
+                    },
+                ));
+            }
             let decision = decide_field_admission(
                 self.config,
                 schema,
@@ -1968,159 +2111,37 @@ impl InferenceBuilder {
             }),
             fields: report_fields,
         };
-        Ok(InferenceState {
+        let state = InferenceState {
             report,
             indexes,
             short_string_coverage,
-        })
+        };
+        let observation = capture_observation.then(|| {
+            let estimated_bytes = compact_observation_bytes(&compact_fields, &self.empty_ancestors);
+            InferenceObservation {
+                fields: compact_fields,
+                empty_ancestors: self.empty_ancestors,
+                complete: self.complete,
+                omitted_paths: self.omitted_paths,
+                estimated_bytes,
+            }
+        });
+        Ok((state, observation))
     }
 
-    pub(crate) fn observation(&self) -> InferenceObservation {
-        let mut fields = self
-            .fields
-            .iter()
-            .map(|field| {
-                let mut empty_selection = field.empty_selection.clone();
-                for depth in 0..field.path.len() {
-                    if let Some(empty) = self.empty_ancestors.get(&typed_path(&field.path[..depth]))
-                    {
-                        empty_selection |= empty;
-                    }
-                }
-                let present_records = field
-                    .present
-                    .len()
-                    .saturating_add(empty_selection.difference_len(&field.present));
-                let short_postings_present = field
-                    .short_values
-                    .as_ref()
-                    .is_some_and(|values| !values.is_empty());
-                let mut short_distinct = field
-                    .short_values
-                    .as_ref()
-                    .map(|values| values.keys().cloned().collect::<HashSet<_>>())
-                    .unwrap_or_default();
-                if let Some(existing) = &field.short_distinct_without_postings {
-                    short_distinct.extend(existing.iter().cloned());
-                }
-                let short_values_present = short_postings_present || !short_distinct.is_empty();
-                let short_domains_complete = short_dictionary_covers_required_domain(
-                    short_postings_present,
-                    &field.present,
-                    &field.exact_null,
-                    &field.short_seen,
-                    &field.short_uncovered,
-                );
-                let summary_complete = !field.short_summary_truncated
-                    && (short_values_present || field.distinct_nonblank.is_some());
-                CompactFieldObservation {
-                    path: field.path.clone(),
-                    kinds: field.kinds.clone(),
-                    array_nesting: field.array_nesting,
-                    fractional_number: field.fractional_number,
-                    summary_complete,
-                    present_records,
-                    null_occurrence_records: field.null_occurrence.len(),
-                    exact_null_records: field.exact_null.len(),
-                    empty_array_records: field.empty_array.len(),
-                    empty_selection_records: empty_selection.len(),
-                    value_occurrences: field.value_occurrences,
-                    nonblank_occurrences: field.nonblank_occurrences,
-                    nonblank_records: field.nonblank_records.len(),
-                    scalar_records: field.scalar_records.len(),
-                    array_records: field.array_records.len(),
-                    object_records: field.object_records.len(),
-                    through_array_records: field.through_array_records.len(),
-                    direct_records: field.direct_records.len(),
-                    short_string_observed_occurrences: field.short_observed_occurrences,
-                    occurrence_count_status: if self.complete {
-                        OccurrenceCountStatus::Exact
-                    } else {
-                        OccurrenceCountStatus::IncompleteObservation
-                    },
-                    short_string_covered_records: field
-                        .short_seen
-                        .difference_len(&field.short_uncovered),
-                    short_seen_records: field.short_seen.len(),
-                    short_values_present,
-                    short_postings_present,
-                    short_domains_complete,
-                    short_dropped: field.short_dropped,
-                    short_summary_truncated: field.short_summary_truncated,
-                    lengths_present: field.lengths.is_some(),
-                    length_dropped: field.length_dropped,
-                    length_keys: field
-                        .lengths
-                        .as_ref()
-                        .map_or_else(BTreeSet::new, |lengths| lengths.keys().cloned().collect()),
-                    values_present: field.values.is_some(),
-                    dropped: field.dropped,
-                    distinct_nonblank: field.distinct_nonblank.clone(),
-                    short_distinct: (!short_distinct.is_empty()).then_some(short_distinct),
-                }
-            })
-            .collect::<Vec<_>>();
-        fields.sort_by(|left, right| left.path.cmp(&right.path));
-        let estimated_bytes = 64usize
-            .saturating_add(fields.len().saturating_mul(256))
-            .saturating_add(
-                fields
-                    .iter()
-                    .map(|field| {
-                        field
-                            .path
-                            .iter()
-                            .map(|segment| {
-                                segment.len().saturating_add(std::mem::size_of::<String>())
-                            })
-                            .sum::<usize>()
-                            .saturating_add(field.kinds.len().saturating_mul(16))
-                            .saturating_add(field.length_keys.len().saturating_mul(48))
-                            .saturating_add(field.distinct_nonblank.as_ref().map_or(0, |values| {
-                                values
-                                    .iter()
-                                    .map(|value| value.len().saturating_add(48))
-                                    .sum()
-                            }))
-                            .saturating_add(field.short_distinct.as_ref().map_or(0, |values| {
-                                values
-                                    .iter()
-                                    .map(|value| value.len().saturating_add(48))
-                                    .sum()
-                            }))
-                    })
-                    .sum::<usize>(),
-            )
-            .saturating_add(
-                self.empty_ancestors
-                    .iter()
-                    .map(|(path, bitmap)| {
-                        64usize
-                            .saturating_add(path.len().saturating_mul(16))
-                            .saturating_add(bitmap.serialized_size())
-                    })
-                    .sum::<usize>(),
-            );
-        InferenceObservation {
-            fields,
-            empty_ancestors: self.empty_ancestors.clone(),
-            complete: self.complete,
-            omitted_paths: self.omitted_paths,
-            estimated_bytes,
-        }
-    }
-
-    pub(crate) fn finish_candidates(
+    pub(crate) fn finish_candidates_with_observation(
         mut self,
         logical: &RoaringBitmap,
         record_count: usize,
         schema: &Schema,
-    ) -> Result<InferenceState, String> {
+        capture_observation: bool,
+    ) -> Result<(InferenceState, Option<InferenceObservation>), String> {
         let published_config = self.config;
         self.config = candidate_config(self.config);
-        let mut state = self.finish(logical, record_count, schema)?;
+        let (mut state, observation) =
+            self.finish_with_observation(logical, record_count, schema, capture_observation)?;
         state.report.policy = published_config.policy;
-        Ok(state)
+        Ok((state, observation))
     }
 }
 

@@ -163,18 +163,32 @@ struct InferredFacetPolicy {
     binding_version: u32,
 }
 
-fn finalized_inferred_facet_policy(
+fn effective_facet_binding(
     collection: &CollectionState,
     request: &PostingValuesRequest,
     path: &FieldPath,
+) -> String {
+    request
+        .binding
+        .clone()
+        .or_else(|| {
+            collection
+                .definition
+                .schema
+                .defaults
+                .get(&path.segments)
+                .cloned()
+        })
+        .unwrap_or_else(|| "default".into())
+}
+
+fn finalized_inferred_facet_policy(
+    collection: &CollectionState,
+    effective_binding: &str,
+    path: &FieldPath,
     field: Option<&FieldDefinition>,
 ) -> Result<Option<InferredFacetPolicy>, String> {
-    if request
-        .binding
-        .as_deref()
-        .is_some_and(|binding| binding != "default")
-        || field.is_some_and(|field| field.indexed)
-    {
+    if effective_binding != "default" || field.is_some_and(|field| field.indexed) {
         return Ok(None);
     }
     let Some(summary) = &collection.global_inference else {
@@ -207,20 +221,27 @@ fn finalized_inferred_facet_policy(
     if !enumerable {
         return Err("inferred field has no enumerable value dictionary".into());
     }
-    let mut value_kinds = field.observed_kinds.iter().filter(|kind| {
-        !matches!(
-            kind,
-            LogicalType::Array(_) | LogicalType::Object | LogicalType::Unknown
-        )
+    let short_only = diagnostic.is_some_and(|diagnostic| {
+        diagnostic.short_string_candidates && !diagnostic.value_dictionary_complete
     });
-    let first_kind = value_kinds.next().cloned();
-    let kind = if value_kinds.next().is_none() {
-        first_kind
+    let kind = if short_only {
+        LogicalType::String
     } else {
-        None
-    }
-    .or_else(|| diagnostic.and_then(|diagnostic| diagnostic.kind.clone()))
-    .ok_or("inferred field has no enumerable value family")?;
+        let mut value_kinds = field.observed_kinds.iter().filter(|kind| {
+            !matches!(
+                kind,
+                LogicalType::Array(_) | LogicalType::Object | LogicalType::Unknown
+            )
+        });
+        let first_kind = value_kinds.next().cloned();
+        let kind = if value_kinds.next().is_none() {
+            first_kind
+        } else {
+            None
+        }
+        .or_else(|| diagnostic.and_then(|diagnostic| diagnostic.kind.clone()));
+        kind.ok_or("inferred field has no enumerable value family")?
+    };
     let short_string_limit = diagnostic
         .filter(|diagnostic| diagnostic.short_string_candidates)
         .map(|_| summary.report.policy.short_string_max_utf8_bytes);
@@ -265,25 +286,10 @@ fn resolve_inferred_representative<'a>(
 
 fn resolve<'a>(
     collection: &'a CollectionState,
-    request: &PostingValuesRequest,
+    binding: &str,
     path: &FieldPath,
 ) -> Result<ResolvedPosting<'a>, String> {
-    if path.root != PathRoot::Data {
-        return Err("posting values require a logical data field".into());
-    }
     let field = collection.definition.schema.fields.get(&path.segments);
-    let binding = request
-        .binding
-        .clone()
-        .or_else(|| {
-            collection
-                .definition
-                .schema
-                .defaults
-                .get(&path.segments)
-                .cloned()
-        })
-        .unwrap_or_else(|| "default".into());
     if binding == "default" && !field.is_some_and(|field| field.indexed) {
         let inference = collection
             .inference
@@ -318,13 +324,13 @@ fn resolve<'a>(
             .ok_or("posting index missing")?;
         return Ok(ResolvedPosting {
             index,
-            binding,
+            binding: binding.to_owned(),
             binding_version: 0,
             indexed_records: None,
             native_prefix: true,
         });
     }
-    let key = (path.segments.clone(), binding.clone());
+    let key = (path.segments.clone(), binding.to_owned());
     let registration = collection
         .definition
         .schema
@@ -340,7 +346,7 @@ fn resolve<'a>(
     }
     Ok(ResolvedPosting {
         index: &custom.index,
-        binding,
+        binding: binding.to_owned(),
         binding_version: registration.version,
         indexed_records: None,
         native_prefix: false,
@@ -518,9 +524,10 @@ fn scan_inferred_segment(
         }
     }
     if let Some(limit) = max_short_string {
-        index
-            .values
-            .retain(|key, _| !matches!(key, ScalarKey::String(text) if text.len() > limit));
+        index.values.retain(|key, _| {
+            matches!(key, ScalarKey::Null)
+                || matches!(key, ScalarKey::String(text) if text.len() <= limit)
+        });
     }
     index.finish_stats();
     Ok(ScannedSegmentPosting {
@@ -886,54 +893,58 @@ pub(crate) fn posting_values_segmented(
         return Err("posting value page limit exceeds maximum".into());
     }
     let path = FieldPath::parse(&request.field)?;
-    let finalized_policy = if base_active[collection_index].len() == 0 {
+    if path.root != PathRoot::Data {
+        return Err("posting values require a logical data field".into());
+    }
+    let effective_binding = effective_facet_binding(collection, request, &path);
+    let mut finalized_policy = if base_active[collection_index].len() == 0 {
         finalized_inferred_facet_policy(
             collection,
-            request,
+            &effective_binding,
             &path,
             collection.definition.schema.fields.get(&path.segments),
         )?
     } else {
         None
     };
+    if let Some(policy) = &mut finalized_policy
+        && let Some(short) = segments[collection_index].iter().find_map(|segment| {
+            let inference = segment.index.inference.as_ref()?;
+            inference
+                .short_string_coverage
+                .contains_key(&path.segments)
+                .then_some(inference.report.policy.short_string_max_utf8_bytes)
+        })
+    {
+        policy.kind = LogicalType::String;
+        policy.short_string_limit = Some(short);
+    }
     let metadata = if let Some(policy) = &finalized_policy {
         resolve_inferred_representative(collection, &segments[collection_index], &path, policy)
     } else {
-        match resolve(collection, request, &path) {
+        match resolve(collection, &effective_binding, &path) {
             Ok(metadata) => Ok(metadata),
             Err(primary_error)
-                if base_active[collection_index].len() == 0
-                    && request
-                        .binding
-                        .as_deref()
-                        .or_else(|| {
-                            collection
-                                .definition
-                                .schema
-                                .defaults
-                                .get(&path.segments)
-                                .map(String::as_str)
-                        })
-                        .unwrap_or("default")
-                        == "default" =>
+                if base_active[collection_index].len() == 0 && effective_binding == "default" =>
             {
                 segments[collection_index]
                     .iter()
                     .filter(|segment| segment.active.len() != 0)
                     .find_map(|segment| {
                         let inference = segment.index.inference.as_ref()?;
-                        inference.indexes.contains_key(&path.segments).then(|| {
-                            resolve_segment(
-                                collection,
-                                &segment.index,
-                                &path,
-                                "inferred",
-                                inference.report.policy.version,
-                            )
-                        })
+                        if !inference.indexes.contains_key(&path.segments) {
+                            return None;
+                        }
+                        resolve_segment(
+                            collection,
+                            &segment.index,
+                            &path,
+                            "inferred",
+                            inference.report.policy.version,
+                        )
+                        .ok()
                     })
-                    .transpose()
-                    .and_then(|resolved| resolved.ok_or(primary_error))
+                    .ok_or(primary_error)
             }
             Err(error) => Err(error),
         }
@@ -1408,7 +1419,11 @@ impl Repository {
         if request.limit > MAX_POSTING_VALUES_PAGE {
             return Err("posting value page limit exceeds maximum".into());
         }
-        let resolved = resolve(collection, request, &path)?;
+        if path.root != PathRoot::Data {
+            return Err("posting values require a logical data field".into());
+        }
+        let effective_binding = effective_facet_binding(collection, request, &path);
+        let resolved = resolve(collection, &effective_binding, &path)?;
         let ResolvedPosting {
             index,
             binding,
