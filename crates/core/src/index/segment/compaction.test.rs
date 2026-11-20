@@ -188,10 +188,6 @@ fn compaction_matches_active_file_oracle_across_indexes() {
             serde_json::to_value(&expected_inference.report).unwrap(),
         );
         assert_eq!(
-            actual_inference.empty_selections,
-            expected_inference.empty_selections
-        );
-        assert_eq!(
             actual_inference.short_string_coverage,
             expected_inference.short_string_coverage
         );
@@ -202,14 +198,10 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         for (path, actual) in &actual_inference.indexes {
             let expected = &expected_inference.indexes[path];
             assert_eq!(actual.presence, expected.presence);
-            assert_eq!(actual.empty_selections, expected.empty_selections);
-            assert_eq!(actual.nulls, expected.nulls);
+            assert_eq!(actual.null_posting(), expected.null_posting());
             assert_eq!(actual.values, expected.values);
             assert_eq!(actual.lengths, expected.lengths);
-            assert_eq!(
-                actual.structural.as_ref().map(|facts| &facts.postings),
-                expected.structural.as_ref().map(|facts| &facts.postings)
-            );
+            assert_eq!(actual.summary, expected.summary);
         }
         let reference = project_sorting(&all.sorting, &slot_map, &records).unwrap();
         for (path, column) in &sorting.columns {
@@ -242,16 +234,8 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         oracle.postings.fields[&vec!["n".to_owned()]].values
     );
     assert_eq!(
-        compacted.postings.fields[&vec!["n".to_owned()]]
-            .structural
-            .as_ref()
-            .unwrap()
-            .postings,
-        oracle.postings.fields[&vec!["n".to_owned()]]
-            .structural
-            .as_ref()
-            .unwrap()
-            .postings,
+        compacted.postings.fields[&vec!["n".to_owned()]].summary,
+        oracle.postings.fields[&vec!["n".to_owned()]].summary,
     );
     assert_eq!(compacted.raw.normal, oracle.raw.normal);
     assert_eq!(compacted.fallback_text.normal, oracle.fallback_text.normal);
@@ -281,16 +265,8 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]].values
     );
     assert_eq!(
-        inferred.indexes[&vec!["extra".to_owned()]]
-            .structural
-            .as_ref()
-            .unwrap()
-            .postings,
-        oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]]
-            .structural
-            .as_ref()
-            .unwrap()
-            .postings,
+        inferred.indexes[&vec!["extra".to_owned()]].summary,
+        oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]].summary,
     );
     assert!(
         all.compact_active(&active, 2, |file| file.id == FileId(200))

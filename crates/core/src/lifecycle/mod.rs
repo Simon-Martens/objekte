@@ -274,15 +274,6 @@ pub(crate) fn index_family_estimate(
                         .values()
                         .map(|bitmap| bitmap.serialized_size() as usize)
                         .sum::<usize>()
-                    + posting
-                        .structural
-                        .as_ref()
-                        .map_or(0, crate::index::posting::StructuralFacts::estimated_bytes)
-                    + if posting.empty_selections.is_empty() {
-                        0
-                    } else {
-                        posting.empty_selections.serialized_size()
-                    }
             })
             .sum(),
         sorting_bytes: sorting

@@ -3,7 +3,7 @@ use std::ops::Bound::{Excluded, Included, Unbounded};
 
 use roaring::RoaringBitmap;
 
-use super::{PostingIndex, ScalarKey, StructuralKey};
+use super::{PostingIndex, ScalarKey, SelectionSummary};
 use crate::model::{LogicalType, Number, Value};
 use crate::query::{Operator, Quantifier};
 use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
@@ -17,11 +17,17 @@ pub(crate) enum PostingValueCursor<'a> {
 
 impl<'a> PostingValueCursor<'a> {
     pub(crate) fn next(&mut self) -> Option<(ScalarKey, &'a RoaringBitmap)> {
-        match self {
-            Self::Forward(range) => range.next(),
-            Self::Reverse(range) => range.next(),
+        loop {
+            let next = match self {
+                Self::Forward(range) => range.next(),
+                Self::Reverse(range) => range.next(),
+            };
+            match next {
+                Some((ScalarKey::Null, _)) => continue,
+                Some((key, posting)) => return Some((key.clone(), posting)),
+                None => return None,
+            }
         }
-        .map(|(key, posting)| (key.clone(), posting))
     }
 }
 
@@ -91,6 +97,19 @@ impl PostingIndex {
         mut visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
         for (key, posting) in &self.values {
+            if matches!(key, ScalarKey::Null) {
+                continue;
+            }
+            visit(key, posting)?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn for_each_value_with_null(
+        &self,
+        mut visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        for (key, posting) in &self.values {
             visit(key, posting)?;
         }
         Ok(())
@@ -115,22 +134,277 @@ impl PostingIndex {
         scalar_range_postings(&self.values, key, operator, input).0
     }
 
-    fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
-        let key = match derived {
-            Derived::Exists => return None,
-            Derived::Null if !self.multi => return Some(Some(&self.nulls)),
-            Derived::Null => StructuralKey::AnyNull,
-            Derived::IsNonEmpty => StructuralKey::NonEmpty,
-            Derived::IsString => StructuralKey::String,
-            Derived::IsNumber => StructuralKey::Number,
-            Derived::IsArray => StructuralKey::Array,
-            Derived::IsObject => StructuralKey::Object,
-            Derived::None | Derived::Length => return None,
-        };
-        Some(self.structural.as_ref()?.postings.get(&key))
+    pub(crate) fn null_posting(&self) -> Option<&RoaringBitmap> {
+        self.values.get(&ScalarKey::Null)
     }
 
-    fn state_truth(term: &BoundTerm) -> Option<bool> {
+    fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
+        let summary = self.summary?;
+        match derived {
+            Derived::Null => Some(self.null_posting()),
+            Derived::IsString if !summary.may_match_string() => Some(None),
+            Derived::IsString if summary.only_matches_string() => Some(Some(&self.presence)),
+            Derived::IsNumber if !summary.may_match_number() => Some(None),
+            Derived::IsNumber if summary.only_matches_number() => Some(Some(&self.presence)),
+            Derived::IsArray if !summary.may_match_array() => Some(None),
+            Derived::IsArray if summary.only_matches_array() => Some(Some(&self.presence)),
+            Derived::IsObject if !summary.may_match_object() => Some(None),
+            Derived::IsObject if summary.only_matches_object() => Some(Some(&self.presence)),
+            Derived::IsNonEmpty if !summary.has_selected_values() => Some(None),
+            Derived::IsNonEmpty if summary.only_matches_nonempty_scalar() => {
+                Some(Some(&self.presence))
+            }
+            Derived::None
+            | Derived::Length
+            | Derived::Exists
+            | Derived::IsNonEmpty
+            | Derived::IsString
+            | Derived::IsNumber
+            | Derived::IsArray
+            | Derived::IsObject => None,
+        }
+    }
+
+    fn scalar_state_postings(
+        &self,
+        derived: Derived,
+        input: Option<&RoaringBitmap>,
+    ) -> Option<RoaringBitmap> {
+        let summary = self.summary?;
+        match derived {
+            Derived::IsString
+                if summary.only_matches_string_or_null() && !summary.may_select_multiple() =>
+            {
+                Some(without_null(self, input))
+            }
+            Derived::IsString if summary.may_match_string() && !summary.may_match_array() => {
+                if !self.value_complete {
+                    return None;
+                }
+                Some(
+                    union_postings(
+                        self.values
+                            .range(ScalarKey::String(String::new())..)
+                            .take_while(|(key, _)| {
+                                matches!(key, ScalarKey::String(_) | ScalarKey::Id(_))
+                            }),
+                        input,
+                    )
+                    .0,
+                )
+            }
+            Derived::IsNumber
+                if summary.only_matches_number_or_null() && !summary.may_select_multiple() =>
+            {
+                Some(without_null(self, input))
+            }
+            Derived::IsNumber if summary.may_match_number() && !summary.may_match_array() => {
+                if !self.value_complete {
+                    return None;
+                }
+                Some(
+                    union_postings(
+                        self.values
+                            .range(..ScalarKey::Bool(false))
+                            .rev()
+                            .take_while(|(key, _)| matches!(key, ScalarKey::Number(_))),
+                        input,
+                    )
+                    .0,
+                )
+            }
+            Derived::IsArray if self.length_complete => {
+                Some(union_postings(self.lengths.iter(), input).0)
+            }
+            Derived::IsArray
+                if summary.only_matches_array_or_null() && !summary.may_select_multiple() =>
+            {
+                Some(without_null(self, input))
+            }
+            Derived::IsObject
+                if summary.only_matches_object_or_null() && !summary.may_select_multiple() =>
+            {
+                Some(without_null(self, input))
+            }
+            Derived::IsNonEmpty
+                if summary.only_matches_nonempty_scalar_or_null()
+                    && !summary.may_select_multiple() =>
+            {
+                Some(without_null(self, input))
+            }
+            Derived::IsNonEmpty
+                if summary.only_matches_string_or_null()
+                    && !summary.may_select_multiple()
+                    && self.empty_string_complete =>
+            {
+                let mut result = without_null(self, input);
+                if let Some(empty) = self.values.get(&ScalarKey::String(String::new())) {
+                    result -= empty;
+                }
+                Some(result)
+            }
+            Derived::IsNonEmpty if summary.only_matches_array_or_null() && self.length_complete => {
+                Some(
+                    union_postings(
+                        self.lengths
+                            .range((Excluded(Number::integer(0)), Unbounded)),
+                        input,
+                    )
+                    .0,
+                )
+            }
+            Derived::IsNonEmpty if !summary.may_match_object() => {
+                if !summary.may_match_array() {
+                    if !self.value_complete {
+                        return None;
+                    }
+                    Some(
+                        union_postings(
+                            self.values.iter().filter(|(key, _)| {
+                                !matches!(key, ScalarKey::Null)
+                                    && !matches!(
+                                        key,
+                                        ScalarKey::String(text) | ScalarKey::Id(text)
+                                            if text.is_empty()
+                                    )
+                            }),
+                            input,
+                        )
+                        .0,
+                    )
+                } else if self.length_complete && self.value_complete {
+                    let mut result = union_postings(
+                        self.values.iter().filter(|(key, _)| {
+                            !matches!(key, ScalarKey::Null)
+                                && !matches!(
+                                    key,
+                                    ScalarKey::String(text) | ScalarKey::Id(text)
+                                        if text.is_empty()
+                                )
+                        }),
+                        input,
+                    )
+                    .0;
+                    result |= union_postings(
+                        self.lengths
+                            .range((Excluded(Number::integer(0)), Unbounded)),
+                        input,
+                    )
+                    .0;
+                    Some(result)
+                } else {
+                    None
+                }
+            }
+            _ => None,
+        }
+    }
+
+    pub(crate) fn state_candidate_postings(
+        &self,
+        derived: Derived,
+        input: &RoaringBitmap,
+    ) -> Option<RoaringBitmap> {
+        let summary = self.summary?;
+        let candidates = match derived {
+            Derived::IsString if summary.may_match_string() && self.value_complete => {
+                union_postings(
+                    self.values
+                        .range(ScalarKey::String(String::new())..)
+                        .take_while(|(key, _)| {
+                            matches!(key, ScalarKey::String(_) | ScalarKey::Id(_))
+                        }),
+                    Some(input),
+                )
+                .0
+            }
+            Derived::IsNumber if summary.may_match_number() && self.value_complete => {
+                union_postings(
+                    self.values
+                        .range(..ScalarKey::Bool(false))
+                        .rev()
+                        .take_while(|(key, _)| matches!(key, ScalarKey::Number(_))),
+                    Some(input),
+                )
+                .0
+            }
+            Derived::IsArray if self.length_complete => {
+                union_postings(self.lengths.iter(), Some(input)).0
+            }
+            _ => return None,
+        };
+        Some(candidates)
+    }
+
+    fn estimate_scalar_state(
+        &self,
+        derived: Derived,
+        domain_len: u64,
+        visits: &mut u64,
+    ) -> Option<(f64, u64)> {
+        let summary = self.summary?;
+        let supported = match derived {
+            Derived::IsString => {
+                summary.only_matches_string_or_null() && !summary.may_select_multiple()
+                    || summary.may_match_string()
+                        && !summary.may_match_array()
+                        && self.value_complete
+            }
+            Derived::IsNumber => {
+                summary.only_matches_number_or_null() && !summary.may_select_multiple()
+                    || summary.may_match_number()
+                        && !summary.may_match_array()
+                        && self.value_complete
+            }
+            Derived::IsArray => {
+                self.length_complete
+                    || summary.only_matches_array_or_null() && !summary.may_select_multiple()
+            }
+            Derived::IsObject => {
+                summary.only_matches_object_or_null() && !summary.may_select_multiple()
+            }
+            Derived::IsNonEmpty => {
+                summary.only_matches_nonempty_scalar_or_null() && !summary.may_select_multiple()
+                    || summary.only_matches_string_or_null()
+                        && !summary.may_select_multiple()
+                        && self.empty_string_complete
+                    || summary.only_matches_array_or_null() && self.length_complete
+                    || !summary.may_match_object()
+                        && (!summary.may_match_array() || self.length_complete)
+                        && self.value_complete
+            }
+            _ => false,
+        };
+        if !supported {
+            return None;
+        }
+        let keys = match derived {
+            Derived::IsString => self
+                .values
+                .range(ScalarKey::String(String::new())..)
+                .take_while(|(key, _)| matches!(key, ScalarKey::String(_) | ScalarKey::Id(_)))
+                .take(33)
+                .count(),
+            Derived::IsNumber => self
+                .values
+                .range(..ScalarKey::Bool(false))
+                .rev()
+                .take_while(|(key, _)| matches!(key, ScalarKey::Number(_)))
+                .take(33)
+                .count(),
+            Derived::IsArray => self.lengths.len().min(33),
+            _ => 1,
+        };
+        *visits += keys as u64;
+        let output = if keys <= 32 {
+            domain_len / 4
+        } else {
+            domain_len
+        };
+        Some((keys.max(1) as f64, output.min(domain_len)))
+    }
+
+    pub(crate) fn state_truth(term: &BoundTerm) -> Option<bool> {
         let Value::Bool(literal) = term.literal else {
             return None;
         };
@@ -205,7 +479,9 @@ impl PostingIndex {
             ),
             Operator::Ne => {
                 let mut result = input & &self.presence;
-                result -= &self.nulls;
+                if let Some(nulls) = self.null_posting() {
+                    result -= nulls;
+                }
                 if let Some(equal) = self.values.get(key) {
                     result -= equal;
                 }
@@ -240,26 +516,32 @@ impl PostingIndex {
             }
             return self.temporal_postings(term, Some(input));
         }
-        if term.derived == Derived::Exists {
-            let truth = Self::state_truth(term)?;
-            if self.empty_selections.is_empty() {
-                return Some(if truth {
-                    input & &self.presence
-                } else {
-                    input - &self.presence
-                });
-            }
-            let mut present = input & &self.presence;
-            present -= &self.empty_selections;
-            return Some(if truth { present } else { input - &present });
+        if term.derived == Derived::None
+            && !matches!(term.literal, Value::Null)
+            && term.quantifier != Quantifier::Any
+            && self
+                .summary
+                .is_some_and(SelectionSummary::may_have_empty_traversal)
+        {
+            return None;
         }
-        if let Some(source) = self.state_source(term.derived) {
-            return Some(match (Self::state_truth(term)?, source) {
-                (true, Some(slots)) => input & slots,
-                (false, Some(slots)) => input - slots,
-                (true, None) => RoaringBitmap::new(),
-                (false, None) => input.clone(),
+        if term.derived == Derived::Exists {
+            self.summary?;
+            let truth = Self::state_truth(term)?;
+            return Some(if truth {
+                input & &self.presence
+            } else {
+                input - &self.presence
             });
+        }
+        if term.derived.state_predicate().is_some() {
+            let truth = Self::state_truth(term)?;
+            let yes = match self.state_source(term.derived) {
+                Some(Some(slots)) => input & slots,
+                Some(None) => RoaringBitmap::new(),
+                None => self.scalar_state_postings(term.derived, Some(input))?,
+            };
+            return Some(if truth { yes } else { input - &yes });
         }
         let borrowed = match term.derived {
             Derived::Exists | Derived::Null => return None,
@@ -299,12 +581,25 @@ impl PostingIndex {
             Derived::None if matches!(term.literal, Value::Null) => {
                 // The null posting tracks only an explicit null field. It cannot
                 // prove any/all predicates over an array's elements.
-                if term.multi {
+                if term.multi
+                    || self
+                        .summary
+                        .is_none_or(SelectionSummary::may_select_multiple)
+                {
                     return None;
                 }
                 return match term.operator {
-                    Operator::Eq => Some(input & &self.nulls),
-                    Operator::Ne => Some(&(input & &self.presence) - &self.nulls),
+                    Operator::Eq => Some(
+                        self.null_posting()
+                            .map_or_else(RoaringBitmap::new, |nulls| input & nulls),
+                    ),
+                    Operator::Ne => {
+                        let mut result = input & &self.presence;
+                        if let Some(nulls) = self.null_posting() {
+                            result -= nulls;
+                        }
+                        Some(result)
+                    }
                     _ => None,
                 };
             }
@@ -380,12 +675,19 @@ impl PostingIndex {
             };
             return Some((1.0 + keys as f64, count));
         }
+        if term.derived == Derived::None
+            && !matches!(term.literal, Value::Null)
+            && term.quantifier != Quantifier::Any
+            && self
+                .summary
+                .is_some_and(SelectionSummary::may_have_empty_traversal)
+        {
+            return None;
+        }
         if term.derived == Derived::Exists {
+            self.summary?;
             *visits += 1;
-            let yes = self
-                .presence
-                .len()
-                .saturating_sub(self.empty_selections.len());
+            let yes = self.presence.len();
             return Some((
                 1.0,
                 if Self::state_truth(term)? {
@@ -404,6 +706,17 @@ impl PostingIndex {
                     yes
                 } else {
                     domain_len - yes
+                },
+            ));
+        }
+        if term.derived.state_predicate().is_some() {
+            let (work, output) = self.estimate_scalar_state(term.derived, domain_len, visits)?;
+            return Some((
+                work,
+                if Self::state_truth(term)? {
+                    output
+                } else {
+                    domain_len.saturating_sub(output)
                 },
             ));
         }
@@ -454,7 +767,11 @@ impl PostingIndex {
             | Derived::IsObject => return None,
         }
         if matches!(term.literal, Value::Null) {
-            if term.multi {
+            if term.multi
+                || self
+                    .summary
+                    .is_none_or(SelectionSummary::may_select_multiple)
+            {
                 return None;
             }
             return match term.operator {
@@ -530,26 +847,32 @@ impl PostingIndex {
             }
             return self.temporal_postings(term, None);
         }
-        if term.derived == Derived::Exists {
-            let truth = Self::state_truth(term)?;
-            if self.empty_selections.is_empty() {
-                return Some(if truth {
-                    self.presence.clone()
-                } else {
-                    domain - &self.presence
-                });
-            }
-            let mut present = self.presence.clone();
-            present -= &self.empty_selections;
-            return Some(if truth { present } else { domain - &present });
+        if term.derived == Derived::None
+            && !matches!(term.literal, Value::Null)
+            && term.quantifier != Quantifier::Any
+            && self
+                .summary
+                .is_some_and(SelectionSummary::may_have_empty_traversal)
+        {
+            return None;
         }
-        if let Some(source) = self.state_source(term.derived) {
-            return Some(match (Self::state_truth(term)?, source) {
-                (true, Some(slots)) => slots.clone(),
-                (false, Some(slots)) => domain - slots,
-                (true, None) => RoaringBitmap::new(),
-                (false, None) => domain.clone(),
+        if term.derived == Derived::Exists {
+            self.summary?;
+            let truth = Self::state_truth(term)?;
+            return Some(if truth {
+                self.presence.clone()
+            } else {
+                domain - &self.presence
             });
+        }
+        if term.derived.state_predicate().is_some() {
+            let truth = Self::state_truth(term)?;
+            let yes = match self.state_source(term.derived) {
+                Some(Some(slots)) => slots.clone(),
+                Some(None) => RoaringBitmap::new(),
+                None => self.scalar_state_postings(term.derived, None)?,
+            };
+            return Some(if truth { yes } else { domain - &yes });
         }
         match term.derived {
             Derived::Exists | Derived::Null => return None,
@@ -578,12 +901,22 @@ impl PostingIndex {
             | Derived::IsObject => return None,
         }
         if matches!(term.literal, Value::Null) {
-            if term.multi {
+            if term.multi
+                || self
+                    .summary
+                    .is_none_or(SelectionSummary::may_select_multiple)
+            {
                 return None;
             }
             return Some(match term.operator {
-                Operator::Eq => self.nulls.clone(),
-                Operator::Ne => &self.presence - &self.nulls,
+                Operator::Eq => self.null_posting().cloned().unwrap_or_default(),
+                Operator::Ne => {
+                    let mut result = self.presence.clone();
+                    if let Some(nulls) = self.null_posting() {
+                        result -= nulls;
+                    }
+                    result
+                }
                 _ => return None,
             });
         }
@@ -606,7 +939,9 @@ impl PostingIndex {
         match term.operator {
             Operator::Eq => Some(self.values.get(&key).cloned().unwrap_or_default()),
             Operator::Ne if !term.multi => Some(
-                &(&self.presence - &self.nulls)
+                &(self
+                    .null_posting()
+                    .map_or_else(|| self.presence.clone(), |nulls| &self.presence - nulls))
                     - &self.values.get(&key).cloned().unwrap_or_default(),
             ),
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
@@ -719,6 +1054,17 @@ impl PostingIndex {
 fn length_posting_is_exact(term: &BoundTerm) -> bool {
     !term.query_path.has_explicit_array_step
         && (term.quantifier == Quantifier::Any || term.path.segments.len() == 1)
+}
+
+fn without_null(index: &PostingIndex, input: Option<&RoaringBitmap>) -> RoaringBitmap {
+    let mut result = index.presence.clone();
+    if let Some(input) = input {
+        result &= input;
+    }
+    if let Some(nulls) = index.null_posting() {
+        result -= nulls;
+    }
+    result
 }
 
 fn is_range(operator: Operator) -> bool {

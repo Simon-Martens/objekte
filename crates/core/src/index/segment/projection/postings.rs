@@ -4,7 +4,7 @@ use roaring::RoaringBitmap;
 
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
-use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex, StructuralFacts};
+use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex, PostingStats};
 use crate::model::RecordSlot;
 
 pub(crate) struct PostingProjection {
@@ -19,19 +19,18 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
         kind: source.kind.clone(),
         multi: source.multi,
         presence: RoaringBitmap::new(),
-        empty_selections: RoaringBitmap::new(),
-        nulls: RoaringBitmap::new(),
-        structural: source
-            .structural
-            .as_ref()
-            .map(|_| StructuralFacts::default()),
+        summary: source.summary,
         values: Default::default(),
         lengths: Default::default(),
         value_complete: source.value_complete,
         length_complete: source.length_complete,
         empty_string_complete: source.empty_string_complete,
         covered_records: logical_count,
-        stats: Default::default(),
+        stats: PostingStats {
+            legacy_present_equivalent: source.stats.legacy_present_equivalent,
+            legacy_null_equivalent: source.stats.legacy_null_equivalent,
+            ..Default::default()
+        },
     }
 }
 
@@ -75,33 +74,7 @@ pub(super) fn scatter_posting_partitions(
             parts[part].presence.insert(slot.0);
         }
     }
-    for old in index.empty_selections.iter() {
-        if let Some((part, slot)) = posting_destination(routing, old)? {
-            parts[part].empty_selections.insert(slot.0);
-        }
-    }
-    for old in index.nulls.iter() {
-        if let Some((part, slot)) = posting_destination(routing, old)? {
-            parts[part].nulls.insert(slot.0);
-        }
-    }
-    if let Some(facts) = &index.structural {
-        for (key, bitmap) in &facts.postings {
-            for old in bitmap.iter() {
-                if let Some((part, slot)) = posting_destination(routing, old)? {
-                    parts[part]
-                        .structural
-                        .as_mut()
-                        .unwrap()
-                        .postings
-                        .entry(*key)
-                        .or_default()
-                        .insert(slot.0);
-                }
-            }
-        }
-    }
-    index.for_each_value(|key, bitmap| {
+    index.for_each_value_with_null(|key, bitmap| {
         for old in bitmap.iter() {
             if let Some((part, slot)) = posting_destination(routing, old)? {
                 scatter_posting_key(&mut parts[part].values, key, slot.0);
@@ -135,21 +108,20 @@ pub(crate) fn project_posting(
         kind: index.kind.clone(),
         multi: index.multi,
         presence: project_bitmap_in_range(&index.presence, slots, bounds)?,
-        empty_selections: project_bitmap_in_range(&index.empty_selections, slots, bounds)?,
-        nulls: project_bitmap_in_range(&index.nulls, slots, bounds)?,
-        structural: index
-            .structural
-            .as_ref()
-            .map(|_| StructuralFacts::default()),
+        summary: index.summary,
         values: Default::default(),
         lengths: Default::default(),
         value_complete: index.value_complete,
         length_complete: index.length_complete,
         empty_string_complete: index.empty_string_complete,
         covered_records: logical_count,
-        stats: Default::default(),
+        stats: PostingStats {
+            legacy_present_equivalent: index.stats.legacy_present_equivalent,
+            legacy_null_equivalent: index.stats.legacy_null_equivalent,
+            ..Default::default()
+        },
     };
-    index.for_each_value(|key, bitmap| {
+    index.for_each_value_with_null(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
             projected.values.insert(key.clone(), kept);
@@ -163,14 +135,6 @@ pub(crate) fn project_posting(
         }
         Ok(())
     })?;
-    if let (Some(source), Some(target)) = (&index.structural, &mut projected.structural) {
-        for (key, bitmap) in &source.postings {
-            let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
-            if !kept.is_empty() {
-                target.postings.insert(*key, kept);
-            }
-        }
-    }
     projected.covered_records = logical_count;
     projected.finish_stats();
     Ok(projected)

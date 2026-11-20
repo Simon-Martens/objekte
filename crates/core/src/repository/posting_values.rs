@@ -1,5 +1,6 @@
 //! Read-only typed posting dictionaries and distinct record counts.
 
+use std::collections::HashMap;
 use std::ops::Bound::{self, Excluded, Included, Unbounded};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -422,6 +423,105 @@ fn scan_inferred_segment(
     })
 }
 
+fn legacy_facts(value: &Value, path: &[String]) -> (bool, bool) {
+    let selected = crate::query::semantics::record::data_values_small(value, path);
+    let present = selected.is_some();
+    let singleton_null = selected
+        .as_deref()
+        .is_some_and(|values| matches!(values, [Value::Null]));
+    (present, singleton_null)
+}
+
+fn verify_legacy_facts(
+    repo: &Repository,
+    collection: &CollectionState,
+    catalog: &FileCatalog,
+    path: &[String],
+    operation: Option<&dyn crate::schema::operation::BindingOperation>,
+    records: impl Iterator<
+        Item = (
+            u32,
+            crate::model::FileId,
+            crate::inventory::ByteRange,
+            crate::inventory::SourceRevision,
+        ),
+    >,
+) -> Result<(u64, u64), String> {
+    let mut by_file = HashMap::<
+        crate::model::FileId,
+        Vec<(
+            u32,
+            crate::inventory::ByteRange,
+            crate::inventory::SourceRevision,
+        )>,
+    >::new();
+    for (slot, file, range, revision) in records {
+        by_file
+            .entry(file)
+            .or_default()
+            .push((slot, range, revision));
+    }
+    let mut present = 0u64;
+    let mut singleton_null = 0u64;
+    for (file_id, mut entries) in by_file {
+        let current = catalog
+            .entry(file_id)
+            .ok_or("legacy count verification file is not active")?;
+        if entries
+            .iter()
+            .any(|(_, _, revision)| *revision != current.revision)
+        {
+            return Err("legacy count verification source revision changed".into());
+        }
+        let mut reader = RecordRangeReader::open_for_search(
+            &repo.files.root.join(&current.relative_path),
+            current.revision,
+            None,
+        )?;
+        entries.sort_unstable_by_key(|(slot, _, _)| *slot);
+        for batch in entries.chunks(128) {
+            let ranges = batch
+                .iter()
+                .map(|(slot, range, _)| (*slot, *range))
+                .collect::<Vec<_>>();
+            for (_, bytes) in reader.read(&ranges)?.0 {
+                let value = prepare_query_record_with_execution(
+                    RecordClass::Logical,
+                    &collection.source,
+                    &collection.definition.schema,
+                    &bytes,
+                    &ScanProjection::full(false),
+                    false,
+                    None,
+                )?
+                .value;
+                let (is_present, is_singleton_null) = if let Some(operation) = operation {
+                    let selected = crate::query::semantics::record::data_values_small(&value, path);
+                    let mapped = selected.and_then(|values| {
+                        values
+                            .into_iter()
+                            .map(|value| {
+                                crate::construction::batch::map_binding_value(operation, value)
+                            })
+                            .collect::<Option<Vec<_>>>()
+                    });
+                    (
+                        mapped.is_some(),
+                        mapped.is_some_and(|values| {
+                            values.len() == 1 && matches!(values.first(), Some(Value::Null))
+                        }),
+                    )
+                } else {
+                    legacy_facts(&value, path)
+                };
+                present = present.saturating_add(u64::from(is_present));
+                singleton_null = singleton_null.saturating_add(u64::from(is_singleton_null));
+            }
+        }
+    }
+    Ok((present, singleton_null))
+}
+
 fn key_kind(kind: &LogicalType) -> &LogicalType {
     match kind {
         LogicalType::Array(inner) => key_kind(inner),
@@ -814,6 +914,16 @@ pub(crate) fn posting_values_segmented(
         return Err("segment posting key type changed".into());
     }
     let selection = request.selection.as_ref().map(|selection| &selection.0);
+    let binding_operation = (!matches!(binding.as_str(), "default" | "inferred"))
+        .then(|| {
+            collection
+                .definition
+                .schema
+                .operations
+                .get(&(path.segments.clone(), binding.clone()))
+                .map(|registration| registration.operation.as_ref())
+        })
+        .flatten();
     if selection.is_some_and(|selection| {
         selection.instance_id != repo.instance_id
             || selection.collection_index != collection_index
@@ -871,8 +981,69 @@ pub(crate) fn posting_values_segmented(
         let domain = &domains[index];
         selected_total += domain.len();
         eligible += domain.intersection_len(logical);
-        present += domain.intersection_len(&shard.index.presence);
-        nulls += domain.intersection_len(&shard.index.nulls);
+        let presence = domain & logical & &shard.index.presence;
+        present += presence.len();
+        let null_posting = shard.index.null_posting();
+        let selected_nulls =
+            null_posting.map_or_else(RoaringBitmap::new, |nulls| domain & logical & nulls);
+        if shard.index.stats.legacy_null_equivalent {
+            nulls += selected_nulls.len();
+        }
+        if !shard.index.stats.legacy_present_equivalent || !shard.index.stats.legacy_null_equivalent
+        {
+            let present_candidates = if shard.index.stats.legacy_present_equivalent {
+                RoaringBitmap::new()
+            } else {
+                domain & logical - &presence
+            };
+            let records_for = |candidates: &RoaringBitmap| {
+                if index == 0 {
+                    candidates
+                        .iter()
+                        .filter_map(|slot| {
+                            collection
+                                .generation
+                                .records
+                                .get(slot as usize)
+                                .map(|record| (slot, record.file, record.range, record.revision))
+                        })
+                        .collect::<Vec<_>>()
+                } else {
+                    let segment = &segments[collection_index][index - 1].index;
+                    candidates
+                        .iter()
+                        .filter_map(|slot| {
+                            segment
+                                .records
+                                .get(slot as usize)
+                                .map(|record| (slot, record.file, record.range, record.revision))
+                        })
+                        .collect::<Vec<_>>()
+                }
+            };
+            if !present_candidates.is_empty() {
+                let (verified_present, _) = verify_legacy_facts(
+                    repo,
+                    collection,
+                    catalog,
+                    &path.segments,
+                    binding_operation,
+                    records_for(&present_candidates).into_iter(),
+                )?;
+                present += verified_present;
+            }
+            if !shard.index.stats.legacy_null_equivalent && !selected_nulls.is_empty() {
+                let (_, verified_nulls) = verify_legacy_facts(
+                    repo,
+                    collection,
+                    catalog,
+                    &path.segments,
+                    binding_operation,
+                    records_for(&selected_nulls).into_iter(),
+                )?;
+                nulls += verified_nulls;
+            }
+        }
         indexed += shard.indexed_records.map_or_else(
             || domain.intersection_len(logical),
             |covered| domain.intersection_len(covered),
@@ -1182,16 +1353,73 @@ impl Repository {
             selected_domain.map_or(covered.len(), |selected| selected.intersection_len(covered))
         });
         let unresolved = eligible.saturating_sub(indexed);
+        let logical_domain = selected_domain.map_or_else(
+            || collection.logical_records.clone(),
+            |selected| selected & &collection.logical_records,
+        );
+        let presence = &logical_domain & &index.presence;
+        let selected_nulls = index
+            .null_posting()
+            .map_or_else(RoaringBitmap::new, |nulls| &logical_domain & nulls);
+        let mut present_records = presence.len();
+        let mut explicit_null_records = if index.stats.legacy_null_equivalent {
+            selected_nulls.len()
+        } else {
+            0
+        };
+        let binding_operation = (!matches!(binding.as_str(), "default" | "inferred"))
+            .then(|| {
+                collection
+                    .definition
+                    .schema
+                    .operations
+                    .get(&(path.segments.clone(), binding.clone()))
+                    .map(|registration| registration.operation.as_ref())
+            })
+            .flatten();
+        if !index.stats.legacy_present_equivalent || !index.stats.legacy_null_equivalent {
+            let records_for = |candidates: &RoaringBitmap| {
+                candidates
+                    .iter()
+                    .filter_map(|slot| {
+                        collection
+                            .generation
+                            .records
+                            .get(slot as usize)
+                            .map(|record| (slot, record.file, record.range, record.revision))
+                    })
+                    .collect::<Vec<_>>()
+            };
+            if !index.stats.legacy_present_equivalent {
+                let candidates = &logical_domain - &presence;
+                let (verified, _) = verify_legacy_facts(
+                    self,
+                    collection,
+                    &self.catalog,
+                    &path.segments,
+                    binding_operation,
+                    records_for(&candidates).into_iter(),
+                )?;
+                present_records += verified;
+            }
+            if !index.stats.legacy_null_equivalent && !selected_nulls.is_empty() {
+                let (_, verified) = verify_legacy_facts(
+                    self,
+                    collection,
+                    &self.catalog,
+                    &path.segments,
+                    binding_operation,
+                    records_for(&selected_nulls).into_iter(),
+                )?;
+                explicit_null_records = verified;
+            }
+        }
         let coverage = PostingValuesCoverage {
             eligible_records: eligible,
             unavailable_records: unavailable,
             selected_records: selected_total,
-            present_records: selected_domain.map_or(index.presence.len(), |selected| {
-                selected.intersection_len(&index.presence)
-            }),
-            explicit_null_records: selected_domain.map_or(index.nulls.len(), |selected| {
-                selected.intersection_len(&index.nulls)
-            }),
+            present_records,
+            explicit_null_records,
             indexed_records: indexed,
             unresolved_records: unresolved,
             value_counts_complete: unresolved == 0,

@@ -215,7 +215,7 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
 }
 
 #[test]
-fn partial_structural_postings_survive_explicit_mutations_and_compaction() {
+fn selected_null_and_presence_survive_explicit_mutations_and_compaction() {
     let root = test_root("structural-postings");
     let first = root.join("data/first.json");
     std::fs::write(&first, r#"{"tags":[],"text":""}"#).unwrap();

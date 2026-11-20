@@ -170,7 +170,6 @@ fn consolidate_inference(
         }
     }
     let mut indexes = HashMap::new();
-    let mut empty_selections = HashMap::new();
     let mut short_string_coverage = HashMap::new();
     if complete {
         let seed = shards
@@ -190,29 +189,15 @@ fn consolidate_inference(
             }
             let mut index = initial.clone();
             index.presence.clear();
-            index.empty_selections.clear();
-            index.nulls.clear();
-            if let Some(facts) = &mut index.structural {
-                facts.postings.clear();
-            }
             index.values.clear();
             index.lengths.clear();
             index.covered_records = 0;
-            let mut empty = RoaringBitmap::new();
             let mut short = None;
             for ((state, shard), base) in states.iter().zip(shards).zip(offsets) {
                 if shard.logical_records.is_empty() {
                     continue;
                 }
                 index.merge_shifted(state.indexes[path].clone(), *base)?;
-                append_shifted_bitmap(
-                    &mut empty,
-                    state
-                        .empty_selections
-                        .get(path)
-                        .ok_or("inferred empty coverage missing")?,
-                    *base,
-                )?;
                 if let Some(source) = state.short_string_coverage.get(path) {
                     let target = short.get_or_insert_with(RoaringBitmap::new);
                     append_shifted_bitmap(target, source, *base)?;
@@ -221,7 +206,6 @@ fn consolidate_inference(
             index.finish_stats();
             index.validate_eligible(record_count, logical.len() as usize)?;
             index.validate_domain(logical)?;
-            empty_selections.insert(path.clone(), empty);
             if let Some(short) = short {
                 short_string_coverage.insert(path.clone(), short);
             }
@@ -240,9 +224,6 @@ fn consolidate_inference(
         if let Some(index) = indexes.get(&field.path) {
             field.index_status = InferenceIndexStatus::Built;
             field.complete = true;
-            field.present_records = index.presence.len();
-            field.exact_null_records = index.nulls.len();
-            field.empty_selection_records = empty_selections[&field.path].len();
             if !field.observed_kinds.contains(&index.kind) {
                 field.observed_kinds.push(index.kind.clone());
             }
@@ -301,7 +282,6 @@ fn consolidate_inference(
     Ok(Some(InferenceState {
         report,
         indexes,
-        empty_selections,
         short_string_coverage,
     }))
 }

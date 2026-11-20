@@ -568,14 +568,6 @@ fn field_path_bytes(path: &crate::model::FieldPath) -> usize {
 fn posting_bytes(index: &crate::index::posting::PostingIndex) -> usize {
     let mut total = path_bytes(&index.path).saturating_add(ACCOUNTING_OVERHEAD);
     total = total.saturating_add(bitmap_bytes(&index.presence));
-    total = total.saturating_add(bitmap_bytes(&index.empty_selections));
-    total = total.saturating_add(bitmap_bytes(&index.nulls));
-    if let Some(facts) = &index.structural {
-        total = total.saturating_add(facts.postings.len().saturating_mul(
-            ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::index::posting::StructuralKey>(),
-        ));
-        total = total.saturating_add(facts.postings.values().map(bitmap_bytes).sum::<usize>());
-    }
     total = total.saturating_add(index.values.len().saturating_mul(
         ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::index::posting::ScalarKey>(),
     ));
@@ -654,11 +646,7 @@ fn inference_bytes(state: &InferenceState) -> usize {
             .saturating_add(path_bytes(path))
             .saturating_add(posting_bytes(index));
     }
-    for (path, bitmap) in state
-        .empty_selections
-        .iter()
-        .chain(state.short_string_coverage.iter())
-    {
+    for (path, bitmap) in &state.short_string_coverage {
         total = total
             .saturating_add(path_bytes(path))
             .saturating_add(bitmap_bytes(bitmap))

@@ -271,7 +271,8 @@ impl SortColumn {
                 }
             })
             .collect::<Vec<_>>();
-        for slot in &index.nulls {
+        let nulls = index.values.get(&ScalarKey::Null);
+        for slot in nulls.into_iter().flatten() {
             let key = keys
                 .get_mut(slot as usize)
                 .ok_or("inferred sort null slot out of range")?;
@@ -282,6 +283,9 @@ impl SortColumn {
         }
         let value_map = &index.values;
         for (value, slots) in value_map.iter() {
+            if matches!(value, ScalarKey::Null) {
+                continue;
+            }
             if let Some(execution) = execution {
                 execution.check_string()?;
             }
@@ -370,11 +374,18 @@ impl SortColumn {
                 order.extend(&missing);
             }
             if descending {
-                for (_, slots) in value_map.iter().rev() {
+                for (_, slots) in value_map
+                    .iter()
+                    .rev()
+                    .filter(|(key, _)| !matches!(key, ScalarKey::Null))
+                {
                     append_inferred_group(&mut order, slots, records);
                 }
             } else {
-                for slots in value_map.values() {
+                for (_, slots) in value_map
+                    .iter()
+                    .filter(|(key, _)| !matches!(key, ScalarKey::Null))
+                {
                     append_inferred_group(&mut order, slots, records);
                 }
             }

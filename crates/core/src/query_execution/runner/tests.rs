@@ -1887,10 +1887,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
         assert_eq!(many.hits, one.hits, "{filter}");
         assert_eq!(many.count, reference.count, "{filter}");
         assert_eq!(many.hits, reference.hits, "{filter}");
-        if matches!(
-            filter,
-            "contributors:length > 0" | "contributors[*].type = contributors[*].type"
-        ) {
+        if filter == "contributors:length > 0" {
             assert_eq!(many.counters.scanned_records, 0, "{filter}");
         } else {
             assert!(many.counters.scanned_records > 0, "{filter}");
@@ -1918,7 +1915,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
 }
 
 #[test]
-fn segmented_array_step_state_predicates_use_exact_structural_postings() {
+fn segmented_array_step_state_predicates_use_terminal_selection_postings() {
     use crate::query::options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
     use crate::repository::configuration::RepositoryOptions;
@@ -2076,8 +2073,7 @@ fn segmented_array_step_state_predicates_use_exact_structural_postings() {
     ] {
         assert_eq!(result.count, reference.count);
         assert_eq!(result.hits, reference.hits);
-        assert_eq!(result.counters.scanned_records, 0, "{plan:?}");
-        assert_eq!(result.counters.bytes_read, 0);
+        assert!(result.counters.scanned_records > 0, "{plan:?}");
         assert!(result.count.unwrap() > direct.search(&existence).unwrap().count.unwrap());
         assert!(!plan[0].terms.is_empty());
     }

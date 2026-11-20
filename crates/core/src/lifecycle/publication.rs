@@ -737,7 +737,6 @@ impl Index {
                                     | crate::inference::InferenceIndexStatus::ExplicitOptOut
                             ) {
                                 inference.indexes.remove(&field.path);
-                                inference.empty_selections.remove(&field.path);
                                 inference.short_string_coverage.remove(&field.path);
                                 continue;
                             }
@@ -752,6 +751,9 @@ impl Index {
                             let empty_string_exact =
                                 diagnostics.is_some_and(|diagnostic| diagnostic.empty_string_exact);
                             if let Some(posting) = inference.indexes.get_mut(&field.path) {
+                                let selected_null = posting
+                                    .values
+                                    .remove(&crate::index::posting::ScalarKey::Null);
                                 if !general_values && !short_values {
                                     let empty = empty_string_exact.then(|| {
                                         posting.values.remove(
@@ -768,6 +770,11 @@ impl Index {
                                         );
                                     }
                                     posting.values_indexed = empty_string_exact;
+                                }
+                                if let Some(slots) = selected_null {
+                                    posting
+                                        .values
+                                        .insert(crate::index::posting::ScalarKey::Null, slots);
                                 }
                                 posting.value_complete = general_values;
                                 posting.length_complete = diagnostics

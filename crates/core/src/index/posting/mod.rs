@@ -9,7 +9,6 @@ use time::{Date, OffsetDateTime};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::record::data_values_small;
-use crate::query::semantics::state::{StatePredicate, value_matches};
 use crate::schema::{FieldDefinition, Schema};
 
 mod lookup;
@@ -23,9 +22,15 @@ pub enum ScalarKey {
     Date(Date),
     Datetime(OffsetDateTime),
     Unixtime(i64),
+    /// Explicit null is a terminal selection fact. It is inserted by
+    /// `PostingIndex::add_values`, never by the ordinary scalar conversion.
+    Null,
 }
 
 impl ScalarKey {
+    /// Convert ordinary scalar values. Explicit null is deliberately omitted:
+    /// null has terminal-occurrence semantics and must not be introduced while
+    /// flattening array elements or evaluating unrelated scalar lookups.
     pub fn from_value(value: &Value) -> Option<Self> {
         Some(match value {
             Value::String(s) => Self::String(s.clone()),
@@ -40,6 +45,148 @@ impl ScalarKey {
     }
 }
 
+const SUMMARY_NULL: u16 = 1 << 0;
+const SUMMARY_STRING: u16 = 1 << 1;
+const SUMMARY_ID: u16 = 1 << 2;
+const SUMMARY_NUMBER: u16 = 1 << 3;
+const SUMMARY_BOOL: u16 = 1 << 4;
+const SUMMARY_DATE: u16 = 1 << 5;
+const SUMMARY_DATETIME: u16 = 1 << 6;
+const SUMMARY_UNIXTIME: u16 = 1 << 7;
+const SUMMARY_OBJECT: u16 = 1 << 8;
+const SUMMARY_ARRAY: u16 = 1 << 9;
+const SUMMARY_STRING_OR_ID: u16 = SUMMARY_STRING | SUMMARY_ID;
+
+/// Complete terminal-selection observation for one path and segment.
+///
+/// An empty kind mask means that no logical record selected a terminal value.
+/// The multiplicity flag records whether any record selected more than one
+/// terminal occurrence. This summary is an upper bound after projection and
+/// is only published when construction observed the complete logical domain.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SelectionSummary {
+    kinds: u16,
+    multiple: bool,
+    empty_traversal: bool,
+}
+
+impl SelectionSummary {
+    pub(crate) fn observe(&mut self, value: &Value) {
+        self.kinds |= match value {
+            Value::Null => SUMMARY_NULL,
+            Value::String(_) => SUMMARY_STRING,
+            Value::Id(_) => SUMMARY_ID,
+            Value::Number(_) => SUMMARY_NUMBER,
+            Value::Bool(_) => SUMMARY_BOOL,
+            Value::Date(_) => SUMMARY_DATE,
+            Value::Datetime(_) => SUMMARY_DATETIME,
+            Value::Unixtime(_) => SUMMARY_UNIXTIME,
+            Value::Object(_) => SUMMARY_OBJECT,
+            Value::Array(_) => SUMMARY_ARRAY,
+        };
+    }
+
+    pub(crate) fn merge_shifted(&mut self, other: Self) {
+        self.kinds |= other.kinds;
+        self.multiple |= other.multiple;
+        self.empty_traversal |= other.empty_traversal;
+    }
+
+    pub(crate) fn has_selected_values(self) -> bool {
+        self.kinds != 0
+    }
+
+    pub(crate) fn may_match_string(self) -> bool {
+        self.kinds & SUMMARY_STRING_OR_ID != 0
+    }
+
+    pub(crate) fn may_match_number(self) -> bool {
+        self.kinds & SUMMARY_NUMBER != 0
+    }
+
+    pub(crate) fn may_match_array(self) -> bool {
+        self.kinds & SUMMARY_ARRAY != 0
+    }
+
+    pub(crate) fn may_match_object(self) -> bool {
+        self.kinds & SUMMARY_OBJECT != 0
+    }
+
+    pub(crate) fn only_matches_string(self) -> bool {
+        self.kinds != 0 && self.kinds & !SUMMARY_STRING_OR_ID == 0
+    }
+
+    pub(crate) fn only_matches_number(self) -> bool {
+        self.kinds != 0 && self.kinds & !SUMMARY_NUMBER == 0
+    }
+
+    pub(crate) fn only_matches_number_or_null(self) -> bool {
+        self.kinds != 0 && self.kinds & !(SUMMARY_NUMBER | SUMMARY_NULL) == 0
+    }
+
+    pub(crate) fn only_matches_array(self) -> bool {
+        self.kinds != 0 && self.kinds & !SUMMARY_ARRAY == 0
+    }
+
+    pub(crate) fn only_matches_object(self) -> bool {
+        self.kinds != 0 && self.kinds & !SUMMARY_OBJECT == 0
+    }
+
+    pub(crate) fn only_matches_object_or_null(self) -> bool {
+        self.kinds != 0 && self.kinds & !(SUMMARY_OBJECT | SUMMARY_NULL) == 0
+    }
+
+    pub(crate) fn only_matches_scalar_or_null(self) -> bool {
+        let scalar = SUMMARY_STRING_OR_ID
+            | SUMMARY_NUMBER
+            | SUMMARY_BOOL
+            | SUMMARY_DATE
+            | SUMMARY_DATETIME
+            | SUMMARY_UNIXTIME;
+        self.kinds != 0 && self.kinds & !(scalar | SUMMARY_NULL) == 0
+    }
+
+    pub(crate) fn only_matches_nonempty_scalar(self) -> bool {
+        let guaranteed =
+            SUMMARY_NUMBER | SUMMARY_BOOL | SUMMARY_DATE | SUMMARY_DATETIME | SUMMARY_UNIXTIME;
+        self.kinds != 0 && self.kinds & !guaranteed == 0
+    }
+
+    pub(crate) fn only_matches_nonempty_scalar_or_null(self) -> bool {
+        let guaranteed = SUMMARY_NULL
+            | SUMMARY_NUMBER
+            | SUMMARY_BOOL
+            | SUMMARY_DATE
+            | SUMMARY_DATETIME
+            | SUMMARY_UNIXTIME;
+        self.kinds != 0 && self.kinds & !guaranteed == 0
+    }
+
+    pub(crate) fn only_matches_string_or_null(self) -> bool {
+        self.kinds != 0 && self.kinds & !(SUMMARY_STRING_OR_ID | SUMMARY_NULL) == 0
+    }
+
+    pub(crate) fn only_matches_array_or_null(self) -> bool {
+        self.kinds != 0 && self.kinds & !(SUMMARY_ARRAY | SUMMARY_NULL) == 0
+    }
+
+    pub(crate) fn may_select_multiple(self) -> bool {
+        self.multiple
+    }
+
+    pub(crate) fn note_multiple(&mut self) {
+        self.multiple = true;
+    }
+
+    pub(crate) fn note_empty_traversal(&mut self) {
+        self.empty_traversal = true;
+    }
+
+    pub(crate) fn may_have_empty_traversal(self) -> bool {
+        self.empty_traversal
+    }
+}
+
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug)]
 pub struct PostingIndex {
@@ -47,13 +194,8 @@ pub struct PostingIndex {
     pub kind: LogicalType,
     pub multi: bool,
     pub presence: RoaringBitmap,
-    /// Legacy path presence can include a traversal that selects no values.
-    /// Only these exceptional records need a separate bitmap for `:exists`.
-    pub empty_selections: RoaringBitmap,
-    pub nulls: RoaringBitmap,
-    /// Exact selected-occurrence facts for an admitted logical field. `None`
-    /// preserves the narrower legacy structural-only or named value index.
-    pub structural: Option<StructuralFacts>,
+    /// Complete terminal observation when construction can certify it.
+    pub summary: Option<SelectionSummary>,
     pub values: BTreeMap<ScalarKey, RoaringBitmap>,
     pub lengths: BTreeMap<Number, RoaringBitmap>,
     /// Whether the declared field admits a complete typed value dictionary.
@@ -67,62 +209,6 @@ pub struct PostingIndex {
     pub stats: PostingStats,
 }
 
-/// Sparse facts inside the owning field posting, never synthetic field paths.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd)]
-pub enum StructuralKey {
-    AnyNull,
-    NonEmpty,
-    String,
-    Number,
-    Array,
-    Object,
-    EmptyObject,
-}
-
-#[derive(Clone, Debug, Default)]
-pub struct StructuralFacts {
-    pub postings: BTreeMap<StructuralKey, RoaringBitmap>,
-}
-
-impl StructuralFacts {
-    fn insert(&mut self, key: StructuralKey, slot: RecordSlot) {
-        self.postings.entry(key).or_default().insert(slot.0);
-    }
-
-    fn observe(&mut self, slot: RecordSlot, value: &Value, multi: bool) {
-        if value_matches(value, StatePredicate::NonEmpty) {
-            self.insert(StructuralKey::NonEmpty, slot);
-        }
-        match value {
-            Value::Null if multi => self.insert(StructuralKey::AnyNull, slot),
-            Value::String(_) | Value::Id(_) => self.insert(StructuralKey::String, slot),
-            Value::Number(_) => self.insert(StructuralKey::Number, slot),
-            Value::Array(_) => self.insert(StructuralKey::Array, slot),
-            Value::Object(map) => {
-                self.insert(StructuralKey::Object, slot);
-                if map.is_empty() {
-                    self.insert(StructuralKey::EmptyObject, slot);
-                }
-            }
-            _ => {}
-        }
-    }
-
-    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
-        for (key, posting) in batch.postings {
-            append_shifted_bitmap(self.postings.entry(key).or_default(), &posting, base)?;
-        }
-        Ok(())
-    }
-
-    pub(crate) fn estimated_bytes(&self) -> usize {
-        self.postings
-            .values()
-            .map(RoaringBitmap::serialized_size)
-            .sum()
-    }
-}
-
 /// Optional named-binding posting and its exact coverage guarantee.
 #[derive(Clone, Debug)]
 pub struct CustomPostingIndex {
@@ -131,13 +217,33 @@ pub struct CustomPostingIndex {
 }
 
 /// Coverage and cardinality summary for one posting index.
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug)]
 pub struct PostingStats {
     pub present_count: u64,
     pub null_count: u64,
     pub distinct_count: usize,
     pub min_key: Option<ScalarKey>,
     pub max_key: Option<ScalarKey>,
+    /// Established posting-values meanings can use terminal presence when no
+    /// successful zero-value traversal was observed in the build domain.
+    pub legacy_present_equivalent: bool,
+    /// Any-null postings can answer singleton-null statistics when no record
+    /// selected null together with a sibling or multiple null occurrences.
+    pub legacy_null_equivalent: bool,
+}
+
+impl Default for PostingStats {
+    fn default() -> Self {
+        Self {
+            present_count: 0,
+            null_count: 0,
+            distinct_count: 0,
+            min_key: None,
+            max_key: None,
+            legacy_present_equivalent: true,
+            legacy_null_equivalent: true,
+        }
+    }
 }
 
 impl PostingIndex {
@@ -149,7 +255,7 @@ impl PostingIndex {
             || self.value_complete != batch.value_complete
             || self.length_complete != batch.length_complete
             || self.empty_string_complete != batch.empty_string_complete
-            || self.structural.is_some() != batch.structural.is_some()
+            || self.summary.is_some() != batch.summary.is_some()
         {
             return Err("posting batch representation mismatch".into());
         }
@@ -158,10 +264,8 @@ impl PostingIndex {
             .checked_add(batch.covered_records)
             .ok_or("posting coverage overflow")?;
         append_shifted_bitmap(&mut self.presence, &batch.presence, base)?;
-        append_shifted_bitmap(&mut self.empty_selections, &batch.empty_selections, base)?;
-        append_shifted_bitmap(&mut self.nulls, &batch.nulls, base)?;
-        if let (Some(target), Some(source)) = (&mut self.structural, batch.structural) {
-            target.merge_shifted(source, base)?;
+        if let (Some(target), Some(source)) = (&mut self.summary, batch.summary) {
+            target.merge_shifted(source);
         }
         for (key, posting) in batch.values {
             append_shifted_bitmap(self.values.entry(key).or_default(), &posting, base)?;
@@ -169,20 +273,14 @@ impl PostingIndex {
         for (key, posting) in batch.lengths {
             append_shifted_bitmap(self.lengths.entry(key).or_default(), &posting, base)?;
         }
+        self.stats.legacy_present_equivalent &= batch.stats.legacy_present_equivalent;
+        self.stats.legacy_null_equivalent &= batch.stats.legacy_null_equivalent;
         self.covered_records = covered;
         Ok(())
     }
 
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if !self.presence.is_subset(allowed)
-            || !self.empty_selections.is_subset(allowed)
-            || !self.nulls.is_subset(allowed)
-            || self.structural.as_ref().is_some_and(|facts| {
-                facts
-                    .postings
-                    .values()
-                    .any(|slots| !slots.is_subset(allowed))
-            })
             || self
                 .values
                 .values()
@@ -200,9 +298,7 @@ impl PostingIndex {
             kind: field.kind.clone(),
             multi: field.multi,
             presence: RoaringBitmap::new(),
-            empty_selections: RoaringBitmap::new(),
-            nulls: RoaringBitmap::new(),
-            structural: None,
+            summary: None,
             values: BTreeMap::new(),
             lengths: BTreeMap::new(),
             values_indexed: true,
@@ -218,17 +314,31 @@ impl PostingIndex {
         let mut index = Self::new(field);
         index.values_indexed = field.indexed;
         index.value_complete = field.indexed;
-        index.structural = Some(StructuralFacts::default());
+        index.summary = Some(SelectionSummary::default());
         index
     }
 
     pub fn finish_stats(&mut self) {
+        let null_count = self.value_cardinality(&ScalarKey::Null);
+        let min_key = self
+            .values
+            .iter()
+            .find(|(key, _)| !matches!(key, ScalarKey::Null))
+            .map(|(key, _)| key.clone());
+        let max_key = self
+            .values
+            .iter()
+            .rev()
+            .find(|(key, _)| !matches!(key, ScalarKey::Null))
+            .map(|(key, _)| key.clone());
         self.stats = PostingStats {
             present_count: self.presence.len(),
-            null_count: self.nulls.len(),
-            distinct_count: self.values.len(),
-            min_key: self.values.first_key_value().map(|(key, _)| key.clone()),
-            max_key: self.values.last_key_value().map(|(key, _)| key.clone()),
+            null_count,
+            distinct_count: self.distinct_values(),
+            min_key,
+            max_key,
+            legacy_present_equivalent: self.stats.legacy_present_equivalent,
+            legacy_null_equivalent: self.stats.legacy_null_equivalent,
         };
     }
 
@@ -249,18 +359,31 @@ impl PostingIndex {
         let Some(selected) = selected else {
             return Ok(());
         };
-        self.presence.insert(slot.0);
         if selected.is_empty() {
-            self.empty_selections.insert(slot.0);
+            self.stats.legacy_present_equivalent = false;
+            if let Some(summary) = &mut self.summary {
+                summary.note_empty_traversal();
+            }
             return Ok(());
         }
-        if let Some(facts) = &mut self.structural {
+        self.presence.insert(slot.0);
+        if let Some(summary) = &mut self.summary {
+            summary.multiple |= selected.len() > 1;
             for value in selected {
-                facts.observe(slot, value, self.multi);
+                summary.observe(value);
             }
         }
-        if selected.len() == 1 && matches!(selected[0], Value::Null) {
-            self.nulls.insert(slot.0);
+        let has_null = selected.iter().any(|value| matches!(value, Value::Null));
+        if has_null && selected.len() != 1 {
+            self.stats.legacy_null_equivalent = false;
+        }
+        if has_null {
+            self.values
+                .entry(ScalarKey::Null)
+                .or_default()
+                .insert(slot.0);
+        }
+        if selected.iter().all(|value| matches!(value, Value::Null)) {
             return Ok(());
         }
         if let [value] = selected {
@@ -337,44 +460,21 @@ impl PostingIndex {
         }
         let valid = |set: &RoaringBitmap| set.max().is_none_or(|s| (s as usize) < slot_count);
         if !valid(&self.presence)
-            || !valid(&self.empty_selections)
-            || !valid(&self.nulls)
-            || self
-                .structural
-                .as_ref()
-                .is_some_and(|facts| facts.postings.values().any(|slots| !valid(slots)))
             || !self.values.values().all(valid)
             || !self.lengths.values().all(valid)
         {
             return Err("posting contains out-of-domain record slot".into());
         }
-        if !self.nulls.is_subset(&self.presence) {
-            return Err("null posting is not present".into());
-        }
-        if !self.empty_selections.is_subset(&self.presence) {
-            return Err("empty selection is not present".into());
-        }
-        if self.structural.as_ref().is_some_and(|facts| {
-            facts
-                .postings
-                .values()
-                .any(|slots| !slots.is_subset(&self.presence))
-                || facts
-                    .postings
-                    .get(&StructuralKey::EmptyObject)
-                    .is_some_and(|empty| {
-                        !empty.is_subset(
-                            facts
-                                .postings
-                                .get(&StructuralKey::Object)
-                                .unwrap_or(&RoaringBitmap::new()),
-                        )
-                    })
-        }) {
-            return Err("structural posting is inconsistent with presence or type".into());
+        if self
+            .values
+            .values()
+            .chain(self.lengths.values())
+            .any(|slots| !slots.is_subset(&self.presence))
+        {
+            return Err("value or length posting is not present".into());
         }
         if self.stats.present_count != self.presence.len()
-            || self.stats.null_count != self.nulls.len()
+            || self.stats.null_count != self.value_cardinality(&ScalarKey::Null)
             || self.stats.distinct_count != self.distinct_values()
         {
             return Err("posting statistics mismatch".into());
@@ -386,7 +486,7 @@ impl PostingIndex {
     }
 
     pub fn distinct_values(&self) -> usize {
-        self.values.len()
+        self.values.len() - usize::from(self.values.contains_key(&ScalarKey::Null))
     }
 
     pub(crate) fn distinct_lengths(&self) -> usize {

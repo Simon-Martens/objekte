@@ -4379,6 +4379,7 @@ fn scalar_literal(value: &ScalarKey) -> Option<String> {
         ScalarKey::Date(value) => serde_json::to_string(&value.to_string()).ok()?,
         ScalarKey::Datetime(value) => serde_json::to_string(&value.to_string()).ok()?,
         ScalarKey::Unixtime(value) => value.to_string(),
+        ScalarKey::Null => return None,
     })
 }
 

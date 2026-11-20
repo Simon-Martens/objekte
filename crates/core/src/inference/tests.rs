@@ -875,7 +875,7 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
 }
 
 #[test]
-fn auto_index_retains_structural_facts_after_value_admission_fails() {
+fn auto_index_retains_selected_null_after_value_admission_fails() {
     let root = temporary_root("structural-facts");
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -1017,7 +1017,7 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
     assert_eq!(left.kind, right.kind);
     assert_eq!(left.multi, right.multi);
     assert_eq!(left.presence, right.presence);
-    assert_eq!(left.nulls, right.nulls);
+    assert_eq!(left.null_posting(), right.null_posting());
     assert_eq!(left.values, right.values);
     assert_eq!(left.lengths, right.lengths);
     assert_eq!(left.value_complete, right.value_complete);
@@ -1572,9 +1572,8 @@ fn admitted_nested_state_posting_excludes_empty_ancestor_from_exists() {
     let schema = Schema::default();
     let state = combined.finish(&logical, 24, &schema).unwrap();
     let index = &state.indexes[&vec!["items".into(), "title".into()]];
-    assert_eq!(index.presence.len(), 24);
-    assert_eq!(index.empty_selections.len(), 12);
-    assert!(index.structural.is_some());
+    assert_eq!(index.presence.len(), 12);
+    assert!(index.summary.is_some());
     for (filter, expected) in [
         ("items.title:exists = true", (12..24).collect::<Vec<_>>()),
         ("items.title:exists = false", (0..12).collect::<Vec<_>>()),
@@ -1597,11 +1596,7 @@ fn admitted_nested_state_posting_excludes_empty_ancestor_from_exists() {
             expected,
             "{filter}"
         );
-        assert_eq!(
-            index.estimate_exact(&term, 24).unwrap().1,
-            expected.len() as u64,
-            "{filter}"
-        );
+        assert!(index.estimate_exact(&term, 24).is_some(), "{filter}");
     }
 }
 
@@ -1629,6 +1624,36 @@ fn terminal_array_null_observation_is_not_exact_null() {
     assert_eq!(field.null_occurrence_records, 1);
     assert_eq!(field.exact_null_records, 0);
     assert_eq!(field.array_records, 1);
+}
+
+#[test]
+fn null_only_inferred_path_publishes_presence_and_selected_null() {
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let mut builder = InferenceBuilder::new(config, false).unwrap();
+    for slot in 0..3 {
+        builder
+            .observe_record(RecordSlot(slot), &value(r#"{"only_null":null}"#))
+            .unwrap();
+    }
+    let logical = RoaringBitmap::from_iter(0..3);
+    let state = builder.finish(&logical, 3, &Schema::default()).unwrap();
+    let index = &state.indexes[&vec!["only_null".into()]];
+    assert_eq!(index.kind, LogicalType::Unknown);
+    assert_eq!(index.presence, logical);
+    assert_eq!(
+        index.null_posting().unwrap(),
+        &RoaringBitmap::from_iter(0..3)
+    );
+    assert_eq!(index.stats.present_count, 3);
+    assert_eq!(index.stats.null_count, 3);
+    assert!(index.value_complete == false);
+    assert_eq!(
+        state.report.fields[0].index_status,
+        InferenceIndexStatus::Built
+    );
 }
 
 #[test]
@@ -2529,6 +2554,51 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
     assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
     assert_eq!(result.hits.len(), 2);
     assert!(repo.explain(&request).unwrap()[0].remaining_verification);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn paired_comparison_keeps_missing_and_successful_empty_traversal_distinct() {
+    let root = temporary_root("paired-empty-traversal");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/empty.json"), r#"{"items":[]}"#).unwrap();
+    std::fs::write(root.join("data/missing.json"), "{}").unwrap();
+    std::fs::write(root.join("data/value.json"), r#"{"items":[{"flag":"A"}]}"#).unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let mut request = query("items[*].flag = items[*].flag");
+    request.options.return_mode = ReturnMode::Locator;
+    let optimized = repo.search(&request).unwrap();
+    let reference = repo.search_reference(&request).unwrap();
+    assert_eq!(optimized.hits, reference.hits);
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["path:empty.json", "path:value.json"]
+    );
+    assert!(
+        repo.explain(&request)
+            .unwrap()
+            .iter()
+            .all(|trace| trace.remaining_verification)
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

@@ -280,17 +280,13 @@ impl Repository {
                         format!("declared:{path}:presence"),
                         &posting.presence,
                     );
-                    add_bitmap(
-                        &mut components,
-                        format!("declared:{path}:nulls"),
-                        &posting.nulls,
-                    );
-                    add_bitmap(
-                        &mut components,
-                        format!("declared:{path}:empty"),
-                        &posting.empty_selections,
-                    );
+                    if let Some(nulls) = posting.null_posting() {
+                        add_bitmap(&mut components, format!("declared:{path}:nulls"), nulls);
+                    }
                     for (key, bitmap) in &posting.values {
+                        if matches!(key, crate::index::posting::ScalarKey::Null) {
+                            continue;
+                        }
                         add_bitmap(
                             &mut components,
                             format!("declared:{path}:value:{key:?}"),
@@ -304,15 +300,6 @@ impl Repository {
                             bitmap,
                         );
                     }
-                    if let Some(facts) = &posting.structural {
-                        for (key, bitmap) in &facts.postings {
-                            add_bitmap(
-                                &mut components,
-                                format!("declared:{path}:structural:{key:?}"),
-                                bitmap,
-                            );
-                        }
-                    }
                 }
                 if let Some(inference) = &segment.index.inference {
                     for (path, posting) in &inference.indexes {
@@ -322,7 +309,13 @@ impl Repository {
                             format!("inferred:{path}:presence"),
                             &posting.presence,
                         );
+                        if let Some(nulls) = posting.null_posting() {
+                            add_bitmap(&mut components, format!("inferred:{path}:nulls"), nulls);
+                        }
                         for (key, bitmap) in &posting.values {
+                            if matches!(key, crate::index::posting::ScalarKey::Null) {
+                                continue;
+                            }
                             add_bitmap(
                                 &mut components,
                                 format!("inferred:{path}:value:{key:?}"),
@@ -333,6 +326,9 @@ impl Repository {
                 }
                 for ((path, binding), posting) in &segment.index.custom_postings {
                     for (key, bitmap) in &posting.index.values {
+                        if matches!(key, crate::index::posting::ScalarKey::Null) {
+                            continue;
+                        }
                         add_bitmap(
                             &mut components,
                             format!("custom:{}:{binding}:{key:?}", path.join(".")),

@@ -5,16 +5,13 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::posting::{
-    PostingIndex, PostingStats, ScalarKey, StructuralFacts, StructuralKey,
-};
+use crate::index::posting::{PostingIndex, PostingStats, ScalarKey, SelectionSummary};
 use crate::inference::{
     InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode,
     InferencePathDiagnostic, InferencePolicy, InferenceReport, InferenceState, InferredFieldReport,
 };
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
-use crate::query::semantics::state::{StatePredicate, value_matches};
 use crate::schema::Schema;
 
 /// Typed intern key; automatic observation visits field steps only, while
@@ -64,6 +61,7 @@ struct FieldAdmissionFacts<'a> {
     short_seen_records: u64,
     dropped: bool,
     has_values: bool,
+    has_selected_null: bool,
     short_summary_truncated: bool,
 }
 
@@ -135,6 +133,11 @@ fn decide_field_admission(
         (
             InferenceIndexStatus::Built,
             "ordered short-string postings with residual coverage",
+        )
+    } else if facts.has_selected_null && facts.scalar_records == 0 && !mixed_shape {
+        (
+            InferenceIndexStatus::Built,
+            "complete selected-null posting",
         )
     } else if facts.array_records != 0 && facts.has_lengths {
         (
@@ -308,7 +311,7 @@ pub(crate) fn aggregate_segment_inference(
                 aggregate.index_bytes_estimate = aggregate
                     .index_bytes_estimate
                     .saturating_add(index_byte_estimate(index));
-                aggregate.structural_facts &= index.structural.is_some();
+                aggregate.structural_facts &= index.summary.is_some();
             }
         }
 
@@ -335,6 +338,7 @@ pub(crate) fn aggregate_segment_inference(
                 short_seen_records: aggregate.short_seen_records,
                 dropped: aggregate.dropped,
                 has_values: aggregate.values_present,
+                has_selected_null: aggregate.exact_null_records != 0,
                 short_summary_truncated: aggregate.short_summary_truncated,
             },
         );
@@ -516,10 +520,6 @@ fn index_byte_estimate(index: &PostingIndex) -> usize {
             .values()
             .map(|slots| 64 + slots.serialized_size())
             .sum::<usize>()
-        + index
-            .structural
-            .as_ref()
-            .map_or(0, StructuralFacts::estimated_bytes)
 }
 
 #[derive(Default)]
@@ -627,7 +627,10 @@ impl<'a> AggregatedField<'a> {
         );
         add_count(
             &mut self.present_records,
-            field.present.len(),
+            field
+                .present
+                .len()
+                .saturating_add(field.empty_selection.difference_len(&field.present)),
             "inference present record count overflow",
         )?;
         add_count(
@@ -772,21 +775,17 @@ impl<'a> AggregatedField<'a> {
 struct FieldState {
     path: Vec<String>,
     kinds: Vec<LogicalType>,
+    summary: SelectionSummary,
     present: RoaringBitmap,
     null_occurrence: RoaringBitmap,
     selected_null: RoaringBitmap,
     exact_null: RoaringBitmap,
     empty_array: RoaringBitmap,
     empty_selection: RoaringBitmap,
-    empty_only: RoaringBitmap,
     nonblank_records: RoaringBitmap,
     scalar_records: RoaringBitmap,
     array_records: RoaringBitmap,
     object_records: RoaringBitmap,
-    string_records: RoaringBitmap,
-    number_records: RoaringBitmap,
-    nonempty_records: RoaringBitmap,
-    empty_object: RoaringBitmap,
     through_array_records: RoaringBitmap,
     direct_records: RoaringBitmap,
     array_nesting: u8,
@@ -823,21 +822,17 @@ impl FieldState {
         Self {
             path,
             kinds: Vec::new(),
+            summary: SelectionSummary::default(),
             present: RoaringBitmap::new(),
             null_occurrence: RoaringBitmap::new(),
             selected_null: RoaringBitmap::new(),
             exact_null: RoaringBitmap::new(),
             empty_array: RoaringBitmap::new(),
             empty_selection: RoaringBitmap::new(),
-            empty_only: RoaringBitmap::new(),
             nonblank_records: RoaringBitmap::new(),
             scalar_records: RoaringBitmap::new(),
             array_records: RoaringBitmap::new(),
             object_records: RoaringBitmap::new(),
-            string_records: RoaringBitmap::new(),
-            number_records: RoaringBitmap::new(),
-            nonempty_records: RoaringBitmap::new(),
-            empty_object: RoaringBitmap::new(),
             through_array_records: RoaringBitmap::new(),
             direct_records: RoaringBitmap::new(),
             array_nesting: 0,
@@ -887,10 +882,6 @@ impl FieldState {
     fn drop_values(&mut self) {
         self.drop_general_values();
         self.selected_null.clear();
-        self.string_records.clear();
-        self.number_records.clear();
-        self.nonempty_records.clear();
-        self.empty_object.clear();
         self.lengths = None;
         self.length_dropped = true;
         self.empty_string.clear();
@@ -1070,15 +1061,10 @@ impl FieldState {
             (&mut self.exact_null, &other.exact_null),
             (&mut self.empty_array, &other.empty_array),
             (&mut self.empty_selection, &other.empty_selection),
-            (&mut self.empty_only, &other.empty_only),
             (&mut self.nonblank_records, &other.nonblank_records),
             (&mut self.scalar_records, &other.scalar_records),
             (&mut self.array_records, &other.array_records),
             (&mut self.object_records, &other.object_records),
-            (&mut self.string_records, &other.string_records),
-            (&mut self.number_records, &other.number_records),
-            (&mut self.nonempty_records, &other.nonempty_records),
-            (&mut self.empty_object, &other.empty_object),
             (
                 &mut self.through_array_records,
                 &other.through_array_records,
@@ -1091,6 +1077,7 @@ impl FieldState {
             append_shifted_bitmap(target, source, base)?;
         }
         self.array_nesting = self.array_nesting.max(other.array_nesting);
+        self.summary.merge_shifted(other.summary);
         self.fractional_number |= other.fractional_number;
         self.value_occurrences = self
             .value_occurrences
@@ -1437,26 +1424,17 @@ impl InferenceBuilder {
             }
             if terminal {
                 field.present.insert(state.slot.0);
+                field.summary.observe(value);
+                if self
+                    .selected
+                    .get(&index)
+                    .is_some_and(|(count, _)| *count > 0)
+                {
+                    field.summary.note_multiple();
+                }
                 charge += 16;
                 if field.facts_enabled {
-                    if value_matches(value, StatePredicate::NonEmpty)
-                        && field.nonempty_records.insert(state.slot.0)
-                    {
-                        charge += 8;
-                    }
-                    let fact = match value {
-                        Value::Null => Some(&mut field.selected_null),
-                        Value::String(_) | Value::Id(_) => Some(&mut field.string_records),
-                        Value::Number(_) => Some(&mut field.number_records),
-                        Value::Object(map) if map.is_empty() => {
-                            if field.empty_object.insert(state.slot.0) {
-                                charge += 8;
-                            }
-                            None
-                        }
-                        _ => None,
-                    };
-                    if fact.is_some_and(|slots| slots.insert(state.slot.0)) {
+                    if matches!(value, Value::Null) && field.selected_null.insert(state.slot.0) {
                         charge += 8;
                     }
                 }
@@ -1496,6 +1474,7 @@ impl InferenceBuilder {
                         field.object_records.insert(state.slot.0);
                         field.short_uncovered.insert(state.slot.0);
                     }
+                    Value::Null => {}
                     _ => {
                         field.scalar_records.insert(state.slot.0);
                     }
@@ -1650,20 +1629,21 @@ impl InferenceBuilder {
         }
         let mut report_fields = Vec::with_capacity(self.fields.len());
         let mut indexes = HashMap::new();
-        let mut empty_selections = HashMap::new();
         let mut short_string_coverage = HashMap::new();
         self.fields.sort_by(|a, b| a.path.cmp(&b.path));
         for mut field in self.fields {
             for depth in 1..field.path.len() {
                 if let Some(empty) = self.empty_ancestors.get(&typed_path(&field.path[..depth])) {
                     field.empty_selection |= empty;
-                    let empty_only = empty - &field.present;
-                    field.present |= empty;
-                    // Store the exception only where traversal selected no value.
-                    field.empty_only |= empty_only;
+                    if !empty.is_empty() {
+                        field.summary.note_empty_traversal();
+                    }
                 }
             }
-            if !field.present.is_subset(logical) || !field.exact_null.is_subset(&field.present) {
+            if !field.present.is_subset(logical)
+                || !field.exact_null.is_subset(&field.present)
+                || !field.selected_null.is_subset(&field.present)
+            {
                 return Err("inference path membership outside logical domain".into());
             }
             field.kinds.sort_by_key(|kind| format!("{kind:?}"));
@@ -1695,6 +1675,7 @@ impl InferenceBuilder {
                     short_seen_records: field.short_seen.len(),
                     dropped: field.dropped,
                     has_values: field.values.is_some(),
+                    has_selected_null: !field.selected_null.is_empty(),
                     short_summary_truncated: field.short_summary_truncated,
                 },
             );
@@ -1741,7 +1722,7 @@ impl InferenceBuilder {
                 } else if !field.array_records.is_empty() && !value_complete {
                     LogicalType::Array(Box::new(LogicalType::Unknown))
                 } else {
-                    scalar_kind.clone().unwrap()
+                    scalar_kind.clone().unwrap_or(LogicalType::Unknown)
                 };
                 let length_complete = !field.array_records.is_empty() && field.lengths.is_some();
                 let empty_string_complete = kind == LogicalType::String
@@ -1771,15 +1752,19 @@ impl InferenceBuilder {
                         values.insert(ScalarKey::String(String::new()), field.empty_string.clone());
                     }
                 }
+                let legacy_present_equivalent = field.empty_selection.is_empty();
+                let legacy_null_equivalent =
+                    field.selected_null.difference_len(&field.exact_null) == 0;
+                if !field.selected_null.is_empty() {
+                    values.insert(ScalarKey::Null, std::mem::take(&mut field.selected_null));
+                }
                 let mut index = PostingIndex {
                     path: field.path.clone(),
                     kind,
                     multi: !field.array_records.is_empty()
                         || !field.through_array_records.is_empty(),
                     presence: field.present.clone(),
-                    empty_selections: std::mem::take(&mut field.empty_only),
-                    nulls: field.exact_null.clone(),
-                    structural: Some(StructuralFacts::default()),
+                    summary: Some(field.summary),
                     values,
                     lengths: field.lengths.take().unwrap_or_default(),
                     values_indexed: true,
@@ -1787,39 +1772,12 @@ impl InferenceBuilder {
                     length_complete,
                     empty_string_complete,
                     covered_records: self.eligible,
-                    stats: PostingStats::default(),
+                    stats: PostingStats {
+                        legacy_present_equivalent,
+                        legacy_null_equivalent,
+                        ..Default::default()
+                    },
                 };
-                let facts = index.structural.as_mut().unwrap();
-                for (key, slots) in [
-                    (
-                        StructuralKey::NonEmpty,
-                        std::mem::take(&mut field.nonempty_records),
-                    ),
-                    (
-                        StructuralKey::String,
-                        std::mem::take(&mut field.string_records),
-                    ),
-                    (
-                        StructuralKey::Number,
-                        std::mem::take(&mut field.number_records),
-                    ),
-                    (StructuralKey::Array, field.array_records.clone()),
-                    (StructuralKey::Object, field.object_records.clone()),
-                    (
-                        StructuralKey::EmptyObject,
-                        std::mem::take(&mut field.empty_object),
-                    ),
-                ] {
-                    if !slots.is_empty() {
-                        facts.postings.insert(key, slots);
-                    }
-                }
-                if index.multi && !field.selected_null.is_empty() {
-                    facts.postings.insert(
-                        StructuralKey::AnyNull,
-                        std::mem::take(&mut field.selected_null),
-                    );
-                }
                 index.finish_stats();
                 index.validate_eligible(record_count, logical.len() as usize)?;
                 index.validate_domain(logical)?;
@@ -1838,11 +1796,6 @@ impl InferenceBuilder {
                         .values()
                         .map(|slots| 64 + slots.serialized_size())
                         .sum::<usize>();
-                index_bytes += index
-                    .structural
-                    .as_ref()
-                    .map_or(0, StructuralFacts::estimated_bytes);
-                empty_selections.insert(field.path.clone(), field.empty_selection.clone());
                 if has_short_values {
                     short_string_coverage.insert(field.path.clone(), short_covered);
                 }
@@ -1868,8 +1821,16 @@ impl InferenceBuilder {
                 integer_only,
                 eligible_records: logical.len(),
                 unavailable_records: record_count as u64 - logical.len(),
-                present_records: field.present.len(),
-                missing_records: logical.len() - field.present.len(),
+                present_records: field
+                    .present
+                    .len()
+                    .saturating_add(field.empty_selection.difference_len(&field.present)),
+                missing_records: logical.len().saturating_sub(
+                    field
+                        .present
+                        .len()
+                        .saturating_add(field.empty_selection.difference_len(&field.present)),
+                ),
                 null_occurrence_records: field.null_occurrence.len(),
                 exact_null_records: field.exact_null.len(),
                 empty_array_records: field.empty_array.len(),
@@ -1937,7 +1898,6 @@ impl InferenceBuilder {
         Ok(InferenceState {
             report,
             indexes,
-            empty_selections,
             short_string_coverage,
         })
     }
@@ -1948,8 +1908,9 @@ impl InferenceBuilder {
             for depth in 1..field.path.len() {
                 if let Some(empty) = self.empty_ancestors.get(&typed_path(&field.path[..depth])) {
                     field.empty_selection |= empty;
-                    field.empty_only |= empty - &field.present;
-                    field.present |= empty;
+                    if !empty.is_empty() {
+                        field.summary.note_empty_traversal();
+                    }
                 }
             }
             let mut short_keys = field

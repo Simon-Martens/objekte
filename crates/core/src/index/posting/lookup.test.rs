@@ -124,7 +124,10 @@ fn presence_null_array_dedup_and_cardinality() {
     index.finish_stats();
     index.validate(4).unwrap();
     assert_eq!(index.presence.iter().collect::<Vec<_>>(), [1, 2, 3]);
-    assert_eq!(index.nulls.iter().collect::<Vec<_>>(), [1]);
+    assert_eq!(
+        index.null_posting().unwrap().iter().collect::<Vec<_>>(),
+        [1]
+    );
     assert_eq!(
         index
             .lengths
@@ -155,6 +158,119 @@ fn presence_null_array_dedup_and_cardinality() {
 }
 
 #[test]
+fn terminal_selection_truth_table_uses_presence_null_and_lengths_only() {
+    let field = FieldDefinition {
+        path: vec!["x".into()],
+        kind: LogicalType::Array(Box::new(LogicalType::Unknown)),
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: true,
+        element_nullable: Vec::new(),
+    };
+    let mut index = PostingIndex::structural(&field);
+    for (slot, json) in [
+        serde_json::json!({}),
+        serde_json::json!({"x": null}),
+        serde_json::json!({"x": ""}),
+        serde_json::json!({"x": "Ada"}),
+        serde_json::json!({"x": 0}),
+        serde_json::json!({"x": false}),
+        serde_json::json!({"x": []}),
+        serde_json::json!({"x": [null]}),
+        serde_json::json!({"x": [""]}),
+        serde_json::json!({"x": {}}),
+        serde_json::json!({"x": {"a": null}}),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        index
+            .add(RecordSlot(slot as u32), &Value::from_json(json).unwrap())
+            .unwrap();
+    }
+    let null = Value::Null;
+    let text = Value::String("Ada".into());
+    index
+        .add_values(RecordSlot(11), Some(&[&null, &text]))
+        .unwrap();
+    index
+        .add_values(RecordSlot(12), Some(&[&null, &null]))
+        .unwrap();
+    index.add_values(RecordSlot(13), Some(&[])).unwrap();
+    index.add_values(RecordSlot(14), None).unwrap();
+    index.finish_stats();
+    index.validate(15).unwrap();
+
+    assert_eq!(
+        index.presence.iter().collect::<Vec<_>>(),
+        (1..=12).collect::<Vec<_>>()
+    );
+    assert_eq!(
+        index.null_posting().unwrap().iter().collect::<Vec<_>>(),
+        [1, 11, 12]
+    );
+    assert_eq!(
+        index
+            .values
+            .get(&ScalarKey::String(String::new()))
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [2, 8]
+    );
+    assert_eq!(
+        index
+            .values
+            .get(&ScalarKey::String("Ada".into()))
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [3, 11]
+    );
+    assert_eq!(
+        index
+            .values
+            .get(&ScalarKey::Number(Number::integer(0)))
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [4]
+    );
+    assert_eq!(
+        index
+            .values
+            .get(&ScalarKey::Bool(false))
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [5]
+    );
+    assert_eq!(
+        index
+            .lengths
+            .get(&Number::integer(0))
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [6]
+    );
+    assert_eq!(
+        index
+            .lengths
+            .get(&Number::integer(1))
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [7, 8]
+    );
+    assert_eq!(index.stats.present_count, 12);
+    assert_eq!(index.stats.null_count, 3);
+    assert!(!index.stats.legacy_present_equivalent);
+    assert!(!index.stats.legacy_null_equivalent);
+}
+
+#[test]
 fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
     use crate::query::parse_filter;
     use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
@@ -171,30 +287,44 @@ fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
     };
     let mut schema = Schema::default();
     schema.register_field(field.clone()).unwrap();
-    let mut posting = PostingIndex::new(&field);
+    let mut posting = PostingIndex::structural(&field);
     let null = Value::Null;
     let text = Value::String("one".into());
     posting
         .add_values(RecordSlot(0), Some(&[&null, &text]))
         .unwrap();
     posting.finish_stats();
-    assert!(!posting.nulls.contains(0));
+    assert!(posting.null_posting().unwrap().contains(0));
     let domain = RoaringBitmap::from_iter([0]);
-    for filter in [
-        "values:null = true",
-        "values:null = false",
-        "values:null != true",
+    for (filter, expected) in [
+        ("values:null = true", vec![0]),
+        ("values:null = false", vec![]),
+        ("values:null != true", vec![]),
     ] {
         let BoundExpr::Term(term) = bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap()
         else {
             panic!("expected term");
         };
-        assert!(posting.estimate_exact(&term, 1).is_none(), "{filter}");
-        assert!(posting.exact_set(&term, &domain).is_none(), "{filter}");
-        assert!(
+        assert_eq!(
+            posting.estimate_exact(&term, 1).unwrap().1,
+            expected.len() as u64
+        );
+        assert_eq!(
+            posting
+                .exact_set(&term, &domain)
+                .unwrap()
+                .iter()
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+        assert_eq!(
             posting
                 .exact_set_restricted(&term, &domain, &domain)
-                .is_none(),
+                .unwrap()
+                .iter()
+                .collect::<Vec<_>>(),
+            expected,
             "{filter}"
         );
     }
@@ -683,7 +813,7 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
 }
 
 #[test]
-fn declared_structural_facts_are_exact_without_a_value_dictionary() {
+fn declared_terminal_summary_is_exact_without_a_value_dictionary() {
     use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
@@ -754,16 +884,12 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
     let postings = PostingCollection::new(&schema);
     assert_eq!(postings.fields.len(), 6);
-    assert!(
-        postings.fields[&vec!["blocked".into()]]
-            .structural
-            .is_some()
-    );
+    assert!(postings.fields[&vec!["blocked".into()]].summary.is_some());
     assert!(!postings.fields[&vec!["blocked".into()]].length_complete);
     assert!(!postings.fields[&vec!["nums".into()]].value_complete);
     assert!(!postings.fields[&vec!["nums".into()]].values_indexed);
     assert!(!postings.fields[&vec!["score".into()]].values_indexed);
-    assert!(postings.fields[&vec!["shape".into()]].structural.is_some());
+    assert!(postings.fields[&vec!["shape".into()]].summary.is_some());
     assert!(postings.fields[&vec!["objects".into()]].length_complete);
     assert!(postings.fields[&vec!["text".into()]].empty_string_complete);
     let mut wrong = postings.clone();
@@ -938,12 +1064,12 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
     let repo = repo.view().unwrap();
     assert!(
         repo.repository().collections()[0].postings.fields[&vec!["x".into()]]
-            .structural
+            .summary
             .is_some()
     );
     assert!(
         repo.repository().collections()[0].postings.fields[&vec!["legacy".into()]]
-            .structural
+            .summary
             .is_some()
     );
     assert!(
@@ -965,31 +1091,35 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
             evidence: false,
         },
     };
-    for (filter, expected) in [
-        ("x:exists = false", 1),
-        ("x:null = true", 1),
-        ("x:? = false", 5),
-        ("x:? != true", 5),
-        ("x:string = true", 2),
-        ("x:number = true", 1),
-        ("x:array = true", 2),
-        ("x:object = true", 1),
-        ("x:object = false", 8),
+    for (filter, expected, exact) in [
+        ("x:exists = false", 1, true),
+        ("x:null = true", 1, true),
+        ("x:? = false", 5, false),
+        ("x:? != true", 5, false),
+        ("x:string = true", 2, false),
+        ("x:number = true", 1, false),
+        ("x:array = true", 2, false),
+        ("x:object = true", 1, false),
+        ("x:object = false", 8, false),
     ] {
         let query = request(filter);
         let actual = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
         assert_eq!(actual.hits, reference.hits, "{filter}");
         assert_eq!(actual.count, Some(expected), "{filter}");
-        assert_eq!(actual.counters.files_opened, 0, "{filter}");
-        assert_eq!(actual.counters.record_parses, 0, "{filter}");
-        assert!(
-            repo.explain(&query).unwrap()[0]
-                .terms
-                .iter()
-                .all(|term| term.selected.kind == AccessPathKind::Posting && term.selected.exact),
-            "{filter}"
-        );
+        if exact {
+            assert_eq!(actual.counters.files_opened, 0, "{filter}");
+            assert_eq!(actual.counters.record_parses, 0, "{filter}");
+            assert!(
+                repo.explain(&query).unwrap()[0]
+                    .terms
+                    .iter()
+                    .all(
+                        |term| term.selected.kind == AccessPathKind::Posting && term.selected.exact
+                    ),
+                "{filter}"
+            );
+        }
     }
     for (filter, exact) in [
         ("u:string = true", false),
@@ -1028,17 +1158,19 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
             repo.search_reference(&query).unwrap().hits,
             "{filter}"
         );
-        assert_eq!(
-            restored.search(&query).unwrap().counters.files_opened,
-            0,
-            "{filter}"
-        );
+        if filter == "x:null = true" {
+            assert_eq!(
+                restored.search(&query).unwrap().counters.files_opened,
+                0,
+                "{filter}"
+            );
+        }
     }
     std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
-fn mixed_selected_occurrences_have_independent_exact_state_facts() {
+fn mixed_selected_occurrences_prove_presence_and_null_but_keep_ambiguous_types_verifiable() {
     use crate::query::parse_filter;
     use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
     use crate::schema::Schema;
@@ -1081,43 +1213,39 @@ fn mixed_selected_occurrences_have_independent_exact_state_facts() {
     }
     index.finish_stats();
     index.validate(8).unwrap();
-    assert_eq!(index.nulls.iter().collect::<Vec<_>>(), [6]);
     assert_eq!(
-        index.structural.as_ref().unwrap().postings[&StructuralKey::AnyNull]
-            .iter()
-            .collect::<Vec<_>>(),
+        index.null_posting().unwrap().iter().collect::<Vec<_>>(),
         [0, 6]
-    );
-    assert_eq!(
-        index.structural.as_ref().unwrap().postings[&StructuralKey::EmptyObject]
-            .iter()
-            .collect::<Vec<_>>(),
-        [4]
     );
     let domain = RoaringBitmap::from_iter(0..8);
     let restricted = RoaringBitmap::from_iter([0, 2, 4, 7]);
     for (filter, expected) in [
-        ("x:exists = false", vec![2, 7]),
-        ("x:null = true", vec![0, 6]),
-        ("x:null != true", vec![1, 2, 3, 4, 5, 7]),
-        ("x:? = true", vec![0, 1, 5]),
-        ("x:? = false", vec![2, 3, 4, 6, 7]),
-        ("x:string = true", vec![0, 1]),
-        ("x:number = true", vec![1]),
-        ("x:array = true", vec![3]),
-        ("x:object = true", vec![4]),
+        ("x:exists = false", Some(vec![2, 7])),
+        ("x:null = true", Some(vec![0, 6])),
+        ("x:null != true", Some(vec![1, 2, 3, 4, 5, 7])),
+        ("x:? = true", None),
+        ("x:? = false", None),
+        ("x:string = true", None),
+        ("x:number = true", None),
+        ("x:array = true", None),
+        ("x:object = true", None),
     ] {
         let BoundExpr::Term(term) = bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap()
         else {
             panic!("expected term")
         };
+        let Some(expected) = expected else {
+            assert!(index.exact_set(&term, &domain).is_none(), "{filter}");
+            assert!(
+                index
+                    .exact_set_restricted(&term, &domain, &restricted)
+                    .is_none(),
+                "{filter}"
+            );
+            continue;
+        };
         let actual = index.exact_set(&term, &domain).unwrap();
         assert_eq!(actual.iter().collect::<Vec<_>>(), expected, "{filter}");
-        assert_eq!(
-            index.estimate_exact(&term, domain.len()).unwrap().1,
-            expected.len() as u64,
-            "{filter}"
-        );
         assert_eq!(
             index
                 .exact_set_restricted(&term, &domain, &restricted)
@@ -1184,7 +1312,7 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
     .unwrap();
     let postings = &repo.collections()[0].postings.fields;
     assert_eq!(postings.len(), 1);
-    assert!(postings[&vec!["selected".into()]].structural.is_some());
+    assert!(postings[&vec!["selected".into()]].summary.is_some());
     let request = |filter: &str| Query {
         collections: vec!["data".into()],
         fts: None,
@@ -1214,7 +1342,121 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
 }
 
 #[test]
-fn structural_membership_tracks_file_replacement_move_delete_and_add() {
+fn covered_terminal_presence_and_homogeneous_types_answer_without_source_reads() {
+    use crate::query::options::ReturnMode;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::schema::Schema;
+    use crate::source::SourceFormat;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-terminal-query-proofs-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut documents = String::new();
+    for slot in 0..120 {
+        documents.push_str(&format!(
+            "{{\"year\":{},\"flag\":{},\"name\":\"name-{slot}\",\"label\":\"42\",\"identifier\":\"A\"}}\n",
+            slot + 1,
+            slot % 2 == 0
+        ));
+    }
+    documents.push_str(concat!(
+        "{\"x\":null,\"year\":0,\"flag\":false,\"name\":\"\",\"label\":\"42\"}\n",
+        "{\"x\":\"\",\"year\":1,\"flag\":true,\"name\":\"Ada\",\"label\":\"42\"}\n",
+        "{\"x\":[\"Ada\"],\"year\":2,\"flag\":false,\"name\":\"B\",\"label\":\"42\"}\n",
+        "{\"x\":{\"nested\":null},\"year\":3,\"flag\":true,\"name\":\"C\",\"label\":\"42\"}\n"
+    ));
+    std::fs::write(root.join("data/records.jsonl"), documents).unwrap();
+    let mut schema = Schema::default();
+    for (path, kind, indexed) in [
+        (vec!["x".into()], LogicalType::Unknown, false),
+        (vec!["name".into()], LogicalType::String, true),
+        (vec!["year".into()], LogicalType::Number, true),
+        (vec!["flag".into()], LogicalType::Bool, true),
+        (vec!["label".into()], LogicalType::String, true),
+        (vec!["identifier".into()], LogicalType::Id, true),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path,
+                kind,
+                required: false,
+                nullable: true,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    for filter in [
+        "x:exists = true",
+        "x:exists = false",
+        "x:null = true",
+        "x:null = false",
+        "x = null",
+        "x != null",
+        "name:string = true",
+        "name:? = true",
+        "name:? = false",
+        "year:number = true",
+        "flag:? = true",
+        "label:number = true",
+        "label:number = false",
+        "identifier:string = true",
+    ] {
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 200,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let optimized = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(optimized.count, reference.count, "{filter}");
+        assert_eq!(optimized.hits, reference.hits, "{filter}");
+        assert_eq!(optimized.counters.files_opened, 0, "{filter}");
+        assert_eq!(optimized.counters.record_parses, 0, "{filter}");
+        assert_eq!(optimized.counters.scanned_records, 0, "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
     use crate::lifecycle::Index;
     use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
@@ -1294,20 +1536,22 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
         },
     };
     let check = |view: &crate::lifecycle::IndexView, expected: [usize; 6]| {
-        for (filter, count) in [
-            "x:null = true",
-            "x:string = true",
-            "x:array = true",
-            "x:? = false",
-            "shape:object = true",
-            "shape:null = true",
+        for ((filter, _, exact), count) in [
+            ("x:null = true", 1, true),
+            ("x:string = true", 1, false),
+            ("x:array = true", 0, false),
+            ("x:? = false", 1, false),
+            ("shape:object = true", 1, true),
+            ("shape:null = true", 1, true),
         ]
         .into_iter()
         .zip(expected)
         {
             let found = view.search(&request(filter)).unwrap();
             assert_eq!(found.count, Some(count), "{filter}");
-            assert_eq!(found.counters.files_opened, 0, "{filter}");
+            if exact {
+                assert_eq!(found.counters.files_opened, 0, "{filter}");
+            }
         }
     };
     check(&initial, [1, 1, 0, 1, 1, 1]);
@@ -1446,7 +1690,12 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
         let source = repo.search_reference(&request).unwrap();
         assert_eq!(indexed.count, source.count, "{filter}");
         assert_eq!(indexed.hits, source.hits, "{filter}");
-        assert_eq!(indexed.counters.files_opened, 0, "{filter}");
+        if !filter.contains("||")
+            && !filter.contains("&&")
+            && (filter.contains(":exists") || filter.contains(":null"))
+        {
+            assert_eq!(indexed.counters.files_opened, 0, "{filter}");
+        }
     }
     std::fs::remove_dir_all(root).unwrap();
 }

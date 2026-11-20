@@ -712,6 +712,81 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
 }
 
 #[test]
+fn posting_values_keep_singleton_null_and_empty_traversal_public_counts() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-posting-values-legacy-counts-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/records.jsonl"),
+        concat!(
+            "{\"authors\":[{\"name\":null},{\"name\":\"Ada\"}]}\n",
+            "{\"authors\":[]}\n",
+            "{}\n",
+            "{\"authors\":[{\"name\":null}]}\n",
+            "{\"authors\":[{\"name\":null},{\"name\":null}]}\n",
+            "{\"authors\":[{\"name\":\"Ada\"}]}\n"
+        ),
+    )
+    .unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["authors".into(), "name".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: vec![true],
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+
+    let unrestricted = repo
+        .posting_values(&PostingValuesRequest::new("data", "authors.name", 10))
+        .unwrap();
+    assert_eq!(unrestricted.values.len(), 1);
+    assert_eq!(unrestricted.coverage.present_records, 5);
+    assert_eq!(unrestricted.coverage.explicit_null_records, 1);
+
+    let query = crate::query::Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("authors.name:exists = true").unwrap()),
+        options: crate::query::QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: false,
+            return_mode: crate::query::options::ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let selection = repo.select_exact("data", &query).unwrap();
+    assert_eq!(selection.len(), 4);
+    let mut selected = PostingValuesRequest::new("data", "authors.name", 10);
+    selected.selection = Some(selection);
+    let selected = repo.posting_values(&selected).unwrap();
+    assert_eq!(selected.coverage.present_records, 4);
+    assert_eq!(selected.coverage.explicit_null_records, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn numeric_and_temporal_keys_keep_their_types_and_order() {
     use crate::model::Number;
     let root = std::env::temp_dir().join(format!("objekte-posting-typed-{}", std::process::id()));

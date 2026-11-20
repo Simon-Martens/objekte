@@ -242,6 +242,8 @@ pub struct InferencePathDiagnostic {
     #[serde(default)]
     pub array_length_complete: bool,
     #[serde(default)]
+    /// Compatibility name for the retired structural posting payload. It now
+    /// reports whether the index has complete terminal-selection coverage.
     pub structural_facts: bool,
     pub short_string_covered_records: u64,
     pub short_string_unresolved_records: u64,
@@ -252,7 +254,6 @@ pub struct InferencePathDiagnostic {
 pub struct InferenceState {
     pub report: InferenceReport,
     pub indexes: HashMap<Vec<String>, PostingIndex>,
-    pub empty_selections: HashMap<Vec<String>, RoaringBitmap>,
     /// Records whose entire selected value stream is represented by the
     /// corresponding short-string posting dictionary.
     pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
@@ -281,7 +282,7 @@ impl InferenceState {
                     short_string_candidates: self.short_string_coverage.contains_key(&field.path),
                     empty_string_exact: posting.is_some_and(|index| index.empty_string_complete),
                     array_length_complete: posting.is_some_and(|index| index.length_complete),
-                    structural_facts: posting.is_some_and(|index| index.structural.is_some()),
+                    structural_facts: posting.is_some_and(|index| index.summary.is_some()),
                     short_string_covered_records: field.short_string_covered_records,
                     short_string_unresolved_records: field.short_string_unresolved_records,
                 }
@@ -337,13 +338,8 @@ impl InferenceState {
         {
             return Err("snapshot inference resource summary mismatch".into());
         }
-        if config.mode != InferenceMode::AutoIndex
-            && (!self.indexes.is_empty() || !self.empty_selections.is_empty())
-        {
+        if config.mode != InferenceMode::AutoIndex && !self.indexes.is_empty() {
             return Err("snapshot inference mode has unexpected indexes".into());
-        }
-        if self.empty_selections.len() != self.indexes.len() {
-            return Err("snapshot inferred empty-selection coverage mismatch".into());
         }
         if self
             .short_string_coverage
@@ -369,15 +365,8 @@ impl InferenceState {
                 return Err("snapshot inferred field report mismatch".into());
             }
             let has_index = self.indexes.contains_key(&field.path);
-            if has_index != (field.index_status == InferenceIndexStatus::Built)
-                || has_index != self.empty_selections.contains_key(&field.path)
-            {
+            if has_index != (field.index_status == InferenceIndexStatus::Built) {
                 return Err("snapshot inferred index/report mismatch".into());
-            }
-            if let Some(empty) = self.empty_selections.get(&field.path)
-                && (!empty.is_subset(logical) || empty.len() != field.empty_selection_records)
-            {
-                return Err("snapshot inferred empty selection mismatch".into());
             }
             match self.short_string_coverage.get(&field.path) {
                 Some(covered) => {
@@ -422,11 +411,17 @@ impl InferenceState {
                 .iter()
                 .find(|field| field.path == *path)
                 .ok_or("snapshot inferred field missing")?;
-            if index.presence.len() != report.present_records
-                || index.nulls.len() != report.exact_null_records
-                || (!report.observed_kinds.contains(&index.kind)
-                    && !(index.kind == LogicalType::Array(Box::new(LogicalType::Unknown))
-                        && report.array_records > 0))
+            let nulls = index
+                .values
+                .get(&crate::index::posting::ScalarKey::Null)
+                .map_or(0, RoaringBitmap::len);
+            if (!report.observed_kinds.contains(&index.kind)
+                && !(index.kind == LogicalType::Array(Box::new(LogicalType::Unknown))
+                    && report.array_records > 0))
+                || nulls > report.null_occurrence_records
+                || index.summary.is_some_and(|summary| {
+                    !summary.may_select_multiple() && nulls != report.exact_null_records
+                })
             {
                 return Err("snapshot inferred posting statistics mismatch".into());
             }

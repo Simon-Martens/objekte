@@ -2149,7 +2149,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             let other = &b.postings.fields[path];
             assert_eq!(posting.covered_records, other.covered_records);
             assert_eq!(posting.presence, other.presence);
-            assert_eq!(posting.nulls, other.nulls);
+            assert_eq!(posting.null_posting(), other.null_posting());
             assert_eq!(posting.values, other.values);
             assert_eq!(posting.lengths, other.lengths);
         }

@@ -26,7 +26,6 @@ impl IndexedCollectionSegment {
             .map(|_| InferenceState {
                 report: source.report.clone(),
                 indexes: HashMap::with_capacity(source.indexes.len()),
-                empty_selections: HashMap::with_capacity(source.empty_selections.len()),
                 short_string_coverage: HashMap::with_capacity(source.short_string_coverage.len()),
             })
             .collect::<Vec<_>>();
@@ -36,14 +35,6 @@ impl IndexedCollectionSegment {
                 .zip(scatter_posting_partitions(index, routing)?)
             {
                 part.indexes.insert(path.clone(), scattered);
-            }
-        }
-        for (path, bitmap) in &source.empty_selections {
-            for (part, scattered) in parts
-                .iter_mut()
-                .zip(scatter_bitmap_partitions(bitmap, routing)?)
-            {
-                part.empty_selections.insert(path.clone(), scattered);
             }
         }
         for (path, bitmap) in &source.short_string_coverage {
@@ -78,7 +69,6 @@ pub(crate) fn project_inference(
     let mut state = InferenceState {
         report: source.report.clone(),
         indexes: HashMap::new(),
-        empty_selections: HashMap::new(),
         short_string_coverage: HashMap::new(),
     };
     let eligible = u32::try_from(logical.len()).map_err(|_| "inference slot overflow")?;
@@ -87,13 +77,6 @@ pub(crate) fn project_inference(
         .iter()
         .map(|(path, index)| {
             project_posting(index, slots, eligible, bounds).map(|index| (path.clone(), index))
-        })
-        .collect::<Result<HashMap<_, _>, _>>()?;
-    state.empty_selections = source
-        .empty_selections
-        .iter()
-        .map(|(path, bitmap)| {
-            project_bitmap_in_range(bitmap, slots, bounds).map(|bitmap| (path.clone(), bitmap))
         })
         .collect::<Result<HashMap<_, _>, _>>()?;
     state.short_string_coverage = source
@@ -123,11 +106,30 @@ fn finish_projected_inference(
         field.distinct_nonblank_strings = None;
         if let Some(index) = state.indexes.get(&field.path) {
             field.index_status = InferenceIndexStatus::Built;
-            field.complete = true;
-            field.present_records = index.presence.len();
-            field.exact_null_records = index.nulls.len();
-            field.null_occurrence_records = field.exact_null_records;
-            field.empty_selection_records = state.empty_selections[&field.path].len();
+            let summary = index.summary;
+            field.complete = summary.is_some();
+            if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
+                field.present_records = field.present_records.min(eligible);
+                field.empty_selection_records = field.empty_selection_records.min(eligible);
+                field.complete = false;
+            } else {
+                field.present_records = index.presence.len();
+                field.empty_selection_records = 0;
+            }
+            let nulls = index
+                .values
+                .get(&crate::index::posting::ScalarKey::Null)
+                .map_or(0, RoaringBitmap::len);
+            field.null_occurrence_records = nulls;
+            field.exact_null_records =
+                if summary.is_some_and(|summary| !summary.may_select_multiple()) {
+                    nulls
+                } else {
+                    field.exact_null_records.min(nulls)
+                };
+            if summary.is_some_and(|summary| summary.may_select_multiple()) {
+                field.complete = false;
+            }
             field.short_string_covered_records = state
                 .short_string_coverage
                 .get(&field.path)

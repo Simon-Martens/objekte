@@ -6,8 +6,8 @@ use std::collections::HashMap;
 use roaring::RoaringBitmap;
 
 use crate::index::bigram::BigramIndex;
+use crate::index::posting::ScalarKey;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use crate::index::posting::{ScalarKey, StructuralKey};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
@@ -34,7 +34,6 @@ pub(crate) struct PostingAccess<'a> {
     /// A named access without a completeness guarantee has no safe exclusion
     /// domain. The index may still exist for diagnostics and rebuilds.
     pub admitted: bool,
-    pub empty_selections: Option<&'a RoaringBitmap>,
     pub short_string_coverage: Option<&'a RoaringBitmap>,
 }
 
@@ -48,6 +47,7 @@ pub(crate) enum PostingOperation {
     ObservedScalarExact,
     StringDictionaryExact,
     ShortStringCandidates,
+    StateCandidates,
     ValueCandidates,
 }
 
@@ -70,21 +70,18 @@ impl PostingAccess<'_> {
     ) -> Result<Option<PostingProposal>, String> {
         let index = self.index;
         let structural = term.derived.state_predicate().is_some();
-        // The paired evaluator treats a present empty selection as vacuously
-        // true. `:exists` excludes that selection, so this uses raw presence.
         // A non-scalar occurrence can compare false (or raise an ambiguity),
         // and must keep the source evaluator.
         if self.admitted
             && self.id == PostingId::Declared
             && term.path.root == PathRoot::Data
             && self_comparison_shape(term)
+            && term.path.segments.len() == 1
             && term.source_kind == index.kind
             && (!term.query_path.has_explicit_array_step || declared_array_steps(self.schema, term))
             && index.covered_records as u64 == domain.len()
-            && index.structural.as_ref().is_some_and(|facts| {
-                [StructuralKey::Array, StructuralKey::Object]
-                    .into_iter()
-                    .all(|key| facts.postings.get(&key).is_none_or(RoaringBitmap::is_empty))
+            && index.summary.is_some_and(|summary| {
+                summary.only_matches_scalar_or_null() && !summary.may_select_multiple()
             })
         {
             *visits += 1;
@@ -128,6 +125,15 @@ impl PostingAccess<'_> {
         if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits) {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
+        if structural && index.summary.is_some() && PostingIndex::state_truth(term) == Some(true) {
+            *visits += 1;
+            return Ok(Some(proposal(
+                PostingOperation::StateCandidates,
+                false,
+                1.0,
+                index.presence.len(),
+            )));
+        }
         if index.empty_string_complete
             && !index.multi
             && !term.query_path.has_explicit_array_step
@@ -156,9 +162,14 @@ impl PostingAccess<'_> {
         }
         let complete_scalar = index.value_complete
             && !index.multi
-            && self.empty_selections.is_none_or(RoaringBitmap::is_empty)
+            && index.summary.is_none_or(|summary| {
+                !summary.may_have_empty_traversal() || term.quantifier == Quantifier::Any
+            })
             && self.short_string_coverage.is_none_or(|covered| {
-                index.presence.difference_len(covered) == index.nulls.difference_len(covered)
+                index.null_posting().map_or_else(
+                    || index.presence.difference_len(covered) == 0,
+                    |nulls| index.presence.difference_len(covered) == nulls.difference_len(covered),
+                )
             });
         let compatible_literal = matches!(
             (&index.kind, &term.literal),
@@ -246,20 +257,13 @@ impl PostingAccess<'_> {
                     .min(domain.len()),
             )));
         }
-        if !index.value_complete
-            || (term.quantifier != Quantifier::Any && self.empty_selections.is_none())
-        {
+        if !index.value_complete || term.quantifier != Quantifier::Any {
             return Ok(None);
         }
         let Some((work, count)) =
             index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
         else {
             return Ok(None);
-        };
-        let count = if term.quantifier != Quantifier::Any {
-            count.saturating_add(self.empty_selections.map_or(0, RoaringBitmap::len))
-        } else {
-            count
         };
         Ok(Some(proposal(
             PostingOperation::ValueCandidates,
@@ -311,6 +315,11 @@ impl PostingAccess<'_> {
                 })?;
                 Ok(Some(result))
             }
+            PostingOperation::StateCandidates => Ok(Some(
+                index
+                    .state_candidate_postings(term.derived, input)
+                    .unwrap_or_else(|| input & &index.presence),
+            )),
             PostingOperation::ShortStringCandidates | PostingOperation::ValueCandidates => {
                 let Some(key) = ScalarKey::from_value(&term.literal) else {
                     return Ok(None);
@@ -329,11 +338,6 @@ impl PostingAccess<'_> {
                         return Ok(None);
                     };
                     result |= input - coverage;
-                } else if term.quantifier != Quantifier::Any {
-                    let Some(empty) = self.empty_selections else {
-                        return Ok(None);
-                    };
-                    result |= empty;
                 }
                 Ok(Some(result & input))
             }
@@ -473,7 +477,6 @@ impl<'a> IndexCatalog<'a> {
                     index: &value.index,
                     schema: self.schema,
                     admitted: value.complete,
-                    empty_selections: None,
                     short_string_coverage: None,
                 }),
                 None,
@@ -484,7 +487,6 @@ impl<'a> IndexCatalog<'a> {
             index,
             schema: self.schema,
             admitted: true,
-            empty_selections: None,
             short_string_coverage: None,
         });
         let observed = self.observed.and_then(|state| {
@@ -493,7 +495,6 @@ impl<'a> IndexCatalog<'a> {
                 index,
                 schema: self.schema,
                 admitted: true,
-                empty_selections: state.empty_selections.get(path),
                 short_string_coverage: state.short_string_coverage.get(path),
             })
         });
@@ -566,10 +567,14 @@ impl<'a> IndexCatalog<'a> {
                         index.kind,
                         LogicalType::Number | LogicalType::Bool | LogicalType::String
                     )
-                    && access.empty_selections.is_none_or(RoaringBitmap::is_empty)
                     && access.short_string_coverage.is_none_or(|covered| {
-                        index.presence.difference_len(covered)
-                            == index.nulls.difference_len(covered)
+                        index.null_posting().map_or_else(
+                            || index.presence.difference_len(covered) == 0,
+                            |nulls| {
+                                index.presence.difference_len(covered)
+                                    == nulls.difference_len(covered)
+                            },
+                        )
                     })
             })
             .map(|access| access.index)
