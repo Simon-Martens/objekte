@@ -421,9 +421,18 @@ impl InferenceState {
                 .values
                 .get(&crate::index::posting::ScalarKey::Null)
                 .map_or(0, RoaringBitmap::len);
+            let empty_unknown_array = index.kind
+                == LogicalType::Array(Box::new(LogicalType::Unknown))
+                && !report.complete
+                && index
+                    .summary
+                    .is_some_and(|summary| summary.may_match_array())
+                && index.presence.is_empty()
+                && index.values.is_empty()
+                && index.lengths.is_empty();
             if (!report.observed_kinds.contains(&index.kind)
                 && !(index.kind == LogicalType::Array(Box::new(LogicalType::Unknown))
-                    && report.array_records > 0))
+                    && (report.array_records > 0 || empty_unknown_array)))
                 || nulls > report.null_occurrence_records
                 || index.summary.is_some_and(|summary| {
                     !summary.may_select_multiple() && nulls != report.exact_null_records

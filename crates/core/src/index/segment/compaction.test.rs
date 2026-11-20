@@ -12,6 +12,1104 @@ use crate::schema::FieldDefinition;
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::source::{SourceFormat, registry::SourceRegistry};
 
+fn projection_fixture_root(name: &str) -> std::path::PathBuf {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-{name}-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    root
+}
+
+fn build_projection_fixture(
+    root: &std::path::Path,
+    mode: InferenceMode,
+    records: &[(&str, &str)],
+) -> crate::repository::Repository {
+    for (name, body) in records {
+        std::fs::write(root.join("data").join(name), body).unwrap();
+    }
+    crate::lifecycle::Index::build_repository_for_test(
+        root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: InferenceConfig {
+                mode,
+                ..Default::default()
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap()
+}
+
+fn active_for_files(
+    segment: &IndexedCollectionSegment,
+    file_names: &[&str],
+) -> crate::inventory::ActiveRecords {
+    let selected = segment
+        .records
+        .iter()
+        .filter_map(|record| {
+            let file = segment.file(record.file)?;
+            let file_name = file.entry.relative_path.file_name()?.to_str()?;
+            file_names.contains(&file_name).then_some(record.slot.0)
+        })
+        .collect::<RoaringBitmap>();
+    assert_eq!(
+        selected.len(),
+        file_names.len() as u64,
+        "fixture file names must identify exactly one stable record each"
+    );
+    crate::inventory::ActiveRecords::from_bitmap(segment.record_count(), selected).unwrap()
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+struct ProjectedFieldFacts {
+    reported: bool,
+    complete: bool,
+    present: u64,
+    missing: u64,
+    scalar: u64,
+    array: u64,
+    object: u64,
+    empty_array: u64,
+    empty_selection: u64,
+    null_occurrence: u64,
+    exact_null: u64,
+    nonblank_records: u64,
+    value_occurrences: u64,
+    nonblank_occurrences: u64,
+    short_string_observed_occurrences: u64,
+    integer_only: Option<bool>,
+}
+
+impl ProjectedFieldFacts {
+    fn from_field(field: Option<&crate::inference::InferredFieldReport>, eligible: u64) -> Self {
+        let Some(field) = field else {
+            return Self {
+                reported: false,
+                complete: false,
+                present: 0,
+                missing: eligible,
+                scalar: 0,
+                array: 0,
+                object: 0,
+                empty_array: 0,
+                empty_selection: 0,
+                null_occurrence: 0,
+                exact_null: 0,
+                nonblank_records: 0,
+                value_occurrences: 0,
+                nonblank_occurrences: 0,
+                short_string_observed_occurrences: 0,
+                integer_only: None,
+            };
+        };
+        Self {
+            reported: true,
+            complete: field.complete,
+            present: field.present_records,
+            missing: field.missing_records,
+            scalar: field.scalar_records,
+            array: field.array_records,
+            object: field.object_records,
+            empty_array: field.empty_array_records,
+            empty_selection: field.empty_selection_records,
+            null_occurrence: field.null_occurrence_records,
+            exact_null: field.exact_null_records,
+            nonblank_records: field.nonblank_records,
+            value_occurrences: field.value_occurrences,
+            nonblank_occurrences: field.nonblank_occurrences,
+            short_string_observed_occurrences: field.short_string_observed_occurrences,
+            integer_only: field.integer_only,
+        }
+    }
+
+    fn assert_matches_or_bounds(self, fresh: Self, eligible: u64, context: &str) {
+        assert_eq!(
+            self.present + self.missing,
+            eligible,
+            "{context}: presence sum"
+        );
+        assert!(
+            self.empty_array <= self.array && self.array <= self.present,
+            "{context}: array containment {self:?}"
+        );
+        assert!(
+            self.empty_selection <= self.present,
+            "{context}: empty-selection containment {self:?}"
+        );
+        assert!(
+            self.exact_null <= self.null_occurrence && self.null_occurrence <= self.present,
+            "{context}: null containment {self:?}"
+        );
+        assert!(
+            self.nonblank_records <= self.present,
+            "{context}: nonblank containment {self:?}"
+        );
+        assert_eq!(
+            fresh.present + fresh.missing,
+            eligible,
+            "{context}: fresh presence sum"
+        );
+        assert!(
+            fresh.empty_array <= fresh.array && fresh.array <= fresh.present,
+            "{context}: fresh array containment {fresh:?}"
+        );
+        assert!(
+            fresh.empty_selection <= fresh.present,
+            "{context}: fresh empty-selection containment {fresh:?}"
+        );
+        assert!(
+            fresh.exact_null <= fresh.null_occurrence && fresh.null_occurrence <= fresh.present,
+            "{context}: fresh null containment {fresh:?}"
+        );
+        if self.complete {
+            if fresh.reported {
+                assert_eq!(
+                    self, fresh,
+                    "{context}: complete field differs from fresh build"
+                );
+            } else {
+                assert_eq!(
+                    self.present, fresh.present,
+                    "{context}: complete field present"
+                );
+                assert_eq!(
+                    self.missing, fresh.missing,
+                    "{context}: complete field missing"
+                );
+                assert_eq!(
+                    self.scalar, fresh.scalar,
+                    "{context}: complete field scalar"
+                );
+                assert_eq!(self.array, fresh.array, "{context}: complete field array");
+                assert_eq!(
+                    self.object, fresh.object,
+                    "{context}: complete field object"
+                );
+                assert_eq!(
+                    self.empty_array, fresh.empty_array,
+                    "{context}: complete field empty array"
+                );
+                assert_eq!(
+                    self.empty_selection, fresh.empty_selection,
+                    "{context}: complete field empty selection"
+                );
+                assert_eq!(
+                    self.null_occurrence, fresh.null_occurrence,
+                    "{context}: complete field null occurrence"
+                );
+                assert_eq!(
+                    self.exact_null, fresh.exact_null,
+                    "{context}: complete field exact null"
+                );
+                assert_eq!(
+                    self.nonblank_records, fresh.nonblank_records,
+                    "{context}: complete field nonblank records"
+                );
+                assert_eq!(
+                    self.value_occurrences, fresh.value_occurrences,
+                    "{context}: complete field value occurrences"
+                );
+                assert_eq!(
+                    self.nonblank_occurrences, fresh.nonblank_occurrences,
+                    "{context}: complete field nonblank occurrences"
+                );
+                assert_eq!(
+                    self.short_string_observed_occurrences, fresh.short_string_observed_occurrences,
+                    "{context}: complete field short-string occurrences"
+                );
+                assert_eq!(
+                    self.integer_only, fresh.integer_only,
+                    "{context}: complete field numeric evidence"
+                );
+            }
+        } else {
+            assert!(fresh.present <= self.present, "{context}: present bound");
+            assert!(
+                self.missing <= fresh.missing,
+                "{context}: missing lower bound"
+            );
+            assert!(fresh.scalar <= self.scalar, "{context}: scalar bound");
+            assert!(fresh.array <= self.array, "{context}: array bound");
+            assert!(fresh.object <= self.object, "{context}: object bound");
+            assert!(
+                fresh.empty_array <= self.empty_array,
+                "{context}: empty-array bound"
+            );
+            assert!(
+                fresh.empty_selection <= self.empty_selection,
+                "{context}: empty-selection bound"
+            );
+            assert!(
+                fresh.null_occurrence <= self.null_occurrence,
+                "{context}: null-occurrence bound"
+            );
+            assert!(
+                fresh.exact_null <= self.exact_null,
+                "{context}: exact-null bound"
+            );
+            assert!(
+                fresh.nonblank_records <= self.nonblank_records,
+                "{context}: nonblank-record bound"
+            );
+            assert!(
+                fresh.value_occurrences <= self.value_occurrences,
+                "{context}: value-occurrence bound"
+            );
+            assert!(
+                fresh.nonblank_occurrences <= self.nonblank_occurrences,
+                "{context}: nonblank-occurrence bound"
+            );
+            assert!(
+                fresh.short_string_observed_occurrences <= self.short_string_observed_occurrences,
+                "{context}: short-string occurrence bound"
+            );
+            assert_eq!(
+                self.integer_only, None,
+                "{context}: incomplete numeric evidence"
+            );
+        }
+    }
+}
+
+fn fresh_field_facts(
+    report: Option<&crate::inference::InferenceReport>,
+    path: &[&str],
+    eligible: u64,
+) -> ProjectedFieldFacts {
+    let field = report.and_then(|report| {
+        report.fields.iter().find(|field| {
+            field.path.len() == path.len()
+                && field
+                    .path
+                    .iter()
+                    .zip(path)
+                    .all(|(observed, expected)| observed == expected)
+        })
+    });
+    ProjectedFieldFacts::from_field(field, eligible)
+}
+
+fn projected_field_facts(
+    field: Option<&crate::inference::InferredFieldReport>,
+    eligible: u64,
+) -> ProjectedFieldFacts {
+    ProjectedFieldFacts::from_field(field, eligible)
+}
+
+struct ProjectionFixture {
+    name: &'static str,
+    mode: InferenceMode,
+    path: &'static [&'static str],
+    files: &'static [(&'static str, &'static str)],
+}
+
+#[test]
+fn projected_inference_masks_match_fresh_reports_across_shapes() {
+    let fixtures = [
+        ProjectionFixture {
+            name: "retired-empty-arrays",
+            mode: InferenceMode::AutoIndex,
+            path: &["x"],
+            files: &[
+                ("a0.json", r#"{"x":[]}"#),
+                ("a1.json", r#"{"x":[]}"#),
+                ("a2.json", r#"{"x":[7]}"#),
+            ],
+        },
+        ProjectionFixture {
+            name: "mixed-shapes",
+            mode: InferenceMode::AutoIndex,
+            path: &["x"],
+            files: &[
+                ("b0.json", r#"{"x":[]}"#),
+                ("b1.json", r#"{"x":{}}"#),
+                ("b2.json", r#"{"x":null}"#),
+                ("b3.json", r#"{"other":true}"#),
+            ],
+        },
+        ProjectionFixture {
+            name: "report-only",
+            mode: InferenceMode::ReportOnly,
+            path: &["label"],
+            files: &[
+                ("c0.json", r#"{"label":"Ada"}"#),
+                ("c1.json", r#"{"other":true}"#),
+            ],
+        },
+        ProjectionFixture {
+            name: "array-terminal-scalar",
+            mode: InferenceMode::AutoIndex,
+            path: &["items", "name"],
+            files: &[
+                ("n0.json", r#"{"items":[{"name":"A"},{"name":"B"}]}"#),
+                ("n1.json", r#"{"other":true}"#),
+            ],
+        },
+        ProjectionFixture {
+            name: "integer-fraction",
+            mode: InferenceMode::AutoIndex,
+            path: &["x"],
+            files: &[("i0.json", r#"{"x":1.5}"#), ("i1.json", r#"{"x":7}"#)],
+        },
+    ];
+    for fixture in fixtures {
+        let root = projection_fixture_root(fixture.name);
+        let repo = build_projection_fixture(&root, fixture.mode, fixture.files);
+        let segment = &repo.segments[0][0].index;
+        assert_eq!(
+            segment.record_count(),
+            fixture.files.len(),
+            "{}: fixture must produce one logical record per file",
+            fixture.name
+        );
+        let config = InferenceConfig {
+            mode: fixture.mode,
+            ..Default::default()
+        };
+        for mask in 0u64..(1u64 << fixture.files.len()) {
+            let selected_files = fixture
+                .files
+                .iter()
+                .enumerate()
+                .filter(|(offset, _)| mask & (1 << offset) != 0)
+                .map(|(_, (name, _))| *name)
+                .collect::<Vec<_>>();
+            assert_eq!(
+                active_for_files(segment, &selected_files).len(),
+                selected_files.len() as u64,
+                "{} mask {mask:#x}: survivor count",
+                fixture.name
+            );
+            let active = active_for_files(segment, &selected_files);
+
+            let oracle_root = root.join(format!("oracle-{mask:02}"));
+            std::fs::create_dir_all(oracle_root.join("data")).unwrap();
+            for (name, body) in fixture
+                .files
+                .iter()
+                .filter(|(name, _)| selected_files.contains(name))
+            {
+                std::fs::write(oracle_root.join("data").join(name), body).unwrap();
+            }
+            let oracle = build_projection_fixture(&oracle_root, fixture.mode, &[]);
+            let oracle_eligible = selected_files.len() as u64;
+            let fresh = fresh_field_facts(
+                oracle.inference_report("data"),
+                fixture.path,
+                oracle_eligible,
+            );
+
+            let compacted = segment
+                .compact_active(&active, fixture.files.len(), |_| true)
+                .unwrap();
+            let compacted_state = compacted.index.inference.as_ref().unwrap();
+            compacted_state
+                .validate(
+                    config,
+                    &compacted.index.logical_records,
+                    compacted.index.record_count(),
+                    &crate::schema::Schema::default(),
+                )
+                .unwrap_or_else(|error| {
+                    panic!(
+                        "{} mask {mask:#x} path={} stage=compaction validation: {error}",
+                        fixture.name,
+                        fixture.path.join(".")
+                    )
+                });
+            let compacted_field = compacted_state.report.fields.iter().find(|field| {
+                field
+                    .path
+                    .iter()
+                    .map(String::as_str)
+                    .eq(fixture.path.iter().copied())
+            });
+            let compacted_facts =
+                projected_field_facts(compacted_field, compacted.index.logical_records.len());
+            compacted_facts.assert_matches_or_bounds(
+                fresh,
+                compacted.index.logical_records.len(),
+                &format!(
+                    "{} mask {mask:#x} path={} stage=compaction",
+                    fixture.name,
+                    fixture.path.join(".")
+                ),
+            );
+
+            let routing = PartitionRouting::new(segment, &[active]).unwrap();
+            let domains = segment.project_domains_for_partitions(&routing).unwrap();
+            let partitioned = segment
+                .project_inference_for_partitions(&routing, &domains)
+                .unwrap();
+            let partitioned_state = partitioned[0].as_ref().unwrap();
+            partitioned_state
+                .validate(
+                    config,
+                    &domains[0].logical,
+                    routing.selected[0].len(),
+                    &crate::schema::Schema::default(),
+                )
+                .unwrap_or_else(|error| {
+                    panic!(
+                        "{} mask {mask:#x} path={} stage=partition validation: {error}",
+                        fixture.name,
+                        fixture.path.join(".")
+                    )
+                });
+            let partitioned_field = partitioned_state.report.fields.iter().find(|field| {
+                field
+                    .path
+                    .iter()
+                    .map(String::as_str)
+                    .eq(fixture.path.iter().copied())
+            });
+            let partitioned_facts =
+                projected_field_facts(partitioned_field, domains[0].logical.len());
+            partitioned_facts.assert_matches_or_bounds(
+                fresh,
+                domains[0].logical.len(),
+                &format!(
+                    "{} mask {mask:#x} path={} stage=partition",
+                    fixture.name,
+                    fixture.path.join(".")
+                ),
+            );
+
+            let record_count = compacted.index.record_count();
+            let identity = (0..record_count as u32)
+                .map(|slot| Some(RecordSlot(slot)))
+                .collect::<Vec<_>>();
+            let identity_slots = SlotMap::Dense(&identity);
+            let second = project_inference(
+                &compacted.index.inference,
+                &identity_slots,
+                &compacted.index.logical_records,
+                record_count,
+                identity_slots.bounds().unwrap(),
+            )
+            .unwrap()
+            .unwrap();
+            second
+                .validate(
+                    config,
+                    &compacted.index.logical_records,
+                    record_count,
+                    &crate::schema::Schema::default(),
+                )
+                .unwrap_or_else(|error| {
+                    panic!(
+                        "{} mask {mask:#x} path={} stage=second-projection validation: {error}",
+                        fixture.name,
+                        fixture.path.join(".")
+                    )
+                });
+            let second_field = second.report.fields.iter().find(|field| {
+                field
+                    .path
+                    .iter()
+                    .map(String::as_str)
+                    .eq(fixture.path.iter().copied())
+            });
+            let second_facts =
+                projected_field_facts(second_field, compacted.index.logical_records.len());
+            second_facts.assert_matches_or_bounds(
+                fresh,
+                compacted.index.logical_records.len(),
+                &format!(
+                    "{} mask {mask:#x} path={} stage=second-projection",
+                    fixture.name,
+                    fixture.path.join(".")
+                ),
+            );
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
+    let root = projection_fixture_root("consolidated-projected-shards");
+    let mixed_files = [
+        ("b0.json", r#"{"x":[]}"#),
+        ("b1.json", r#"{"x":{}}"#),
+        ("b2.json", r#"{"x":null}"#),
+        ("b3.json", r#"{"other":true}"#),
+    ];
+    let repo = build_projection_fixture(&root, InferenceMode::AutoIndex, &mixed_files);
+    let segment = &repo.segments[0][0].index;
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let first = segment
+        .compact_active(
+            &active_for_files(segment, &["b0.json", "b2.json"]),
+            mixed_files.len(),
+            |file| {
+                matches!(
+                    file.relative_path
+                        .file_name()
+                        .and_then(std::ffi::OsStr::to_str),
+                    Some("b0.json" | "b2.json")
+                )
+            },
+        )
+        .unwrap();
+    let second = segment
+        .compact_active(
+            &active_for_files(segment, &["b1.json", "b3.json"]),
+            mixed_files.len(),
+            |file| {
+                matches!(
+                    file.relative_path
+                        .file_name()
+                        .and_then(std::ffi::OsStr::to_str),
+                    Some("b1.json" | "b3.json")
+                )
+            },
+        )
+        .unwrap();
+    let empty = segment
+        .compact_active(
+            &crate::inventory::ActiveRecords::from_bitmap(
+                segment.record_count(),
+                RoaringBitmap::new(),
+            )
+            .unwrap(),
+            mixed_files.len(),
+            |_| false,
+        )
+        .unwrap();
+    let consolidated =
+        IndexedCollectionSegment::consolidate(&[&first.index, &second.index], mixed_files.len())
+            .unwrap();
+    let state = consolidated.index.inference.as_ref().unwrap();
+    state
+        .validate(
+            config,
+            &consolidated.index.logical_records,
+            consolidated.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    let field = state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    let facts = projected_field_facts(Some(field), consolidated.index.logical_records.len());
+    let fresh = fresh_field_facts(
+        repo.inference_report("data"),
+        &["x"],
+        repo.segments[0][0].index.logical_records.len(),
+    );
+    facts.assert_matches_or_bounds(
+        fresh,
+        consolidated.index.logical_records.len(),
+        "mixed-shapes parts=b0,b2+b1,b3 stage=consolidation",
+    );
+    assert_eq!(field.empty_array_records, 1);
+
+    let with_empty =
+        IndexedCollectionSegment::consolidate(&[&empty.index, &consolidated.index], 4).unwrap();
+    let empty_field = with_empty
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(empty_field.present_records, field.present_records);
+    assert_eq!(empty_field.array_records, field.array_records);
+    assert_eq!(empty_field.empty_array_records, field.empty_array_records);
+    with_empty
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .validate(
+            config,
+            &with_empty.index.logical_records,
+            with_empty.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+
+    let numeric_root = root.join("numeric");
+    std::fs::create_dir_all(numeric_root.join("data")).unwrap();
+    let numeric_repo = build_projection_fixture(
+        &numeric_root,
+        InferenceMode::AutoIndex,
+        &[("i0.json", r#"{"x":1.5}"#), ("i1.json", r#"{"x":7}"#)],
+    );
+    let numeric_segment = &numeric_repo.segments[0][0].index;
+    let numeric_empty = numeric_segment
+        .compact_active(
+            &crate::inventory::ActiveRecords::from_bitmap(
+                numeric_segment.record_count(),
+                RoaringBitmap::new(),
+            )
+            .unwrap(),
+            2,
+            |_| false,
+        )
+        .unwrap();
+    let numeric_survivor = numeric_segment
+        .compact_active(
+            &active_for_files(numeric_segment, &["i1.json"]),
+            2,
+            |file| {
+                file.relative_path
+                    .file_name()
+                    .and_then(std::ffi::OsStr::to_str)
+                    == Some("i1.json")
+            },
+        )
+        .unwrap();
+    let numeric_consolidated =
+        IndexedCollectionSegment::consolidate(&[&numeric_empty.index, &numeric_survivor.index], 1)
+            .unwrap();
+    let numeric_state = numeric_consolidated.index.inference.as_ref().unwrap();
+    numeric_state
+        .validate(
+            config,
+            &numeric_consolidated.index.logical_records,
+            numeric_consolidated.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    let numeric_field = numeric_state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert!(numeric_field.complete);
+    assert_eq!(numeric_field.integer_only, Some(true));
+    let numeric_facts =
+        projected_field_facts(Some(numeric_field), numeric_state.report.eligible_records);
+    let numeric_oracle_root = root.join("numeric-oracle");
+    std::fs::create_dir_all(numeric_oracle_root.join("data")).unwrap();
+    let numeric_oracle = build_projection_fixture(
+        &numeric_oracle_root,
+        InferenceMode::AutoIndex,
+        &[("i1.json", r#"{"x":7}"#)],
+    );
+    let numeric_fresh = fresh_field_facts(
+        numeric_oracle.inference_report("data"),
+        &["x"],
+        numeric_oracle.segments[0][0].index.logical_records.len(),
+    );
+    numeric_facts.assert_matches_or_bounds(
+        numeric_fresh,
+        numeric_state.report.eligible_records,
+        "integer-fraction parts=empty+i1 stage=consolidation",
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
+    let root = projection_fixture_root("projected-adversarial-controls");
+    for (name, body) in [
+        ("l0.json", r#"{"x":[]}"#),
+        ("l1.json", r#"{"x":["A","A"]}"#),
+        ("l2.json", r#"{"x":["A","A"]}"#),
+    ] {
+        std::fs::write(root.join("data").join(name), body).unwrap();
+    }
+    let length_repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    max_distinct_values_per_path: 1,
+                    ..Default::default()
+                },
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let length_segment = &length_repo.segments[0][0].index;
+    let original = length_segment.inference.as_ref().unwrap();
+    let original_field = original
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(original_field.empty_array_records, 1);
+    let original_posting = &original.indexes[&vec!["x".into()]];
+    assert!(!original_posting.length_complete);
+    assert!(original_posting.lengths.is_empty());
+    let length_compacted = length_segment
+        .compact_active(&active_for_files(length_segment, &["l0.json"]), 3, |_| true)
+        .unwrap();
+    let length_state = length_compacted.index.inference.as_ref().unwrap();
+    let length_field = length_state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert!(!length_field.complete);
+    assert_eq!(
+        length_field.empty_array_records, 1,
+        "withdrawn lengths: retained old empty-array bound"
+    );
+    assert_eq!(
+        length_field.empty_selection_records, 1,
+        "withdrawn lengths: retained empty-selection bound"
+    );
+    assert!(!length_state.indexes[&vec!["x".into()]].length_complete);
+    length_state
+        .validate(
+            InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    max_distinct_values_per_path: 1,
+                    ..Default::default()
+                },
+            },
+            &length_compacted.index.logical_records,
+            length_compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    std::fs::remove_dir_all(&root).unwrap();
+
+    let occurrence_root = projection_fixture_root("projected-occurrences");
+    let occurrence_repo = build_projection_fixture(
+        &occurrence_root,
+        InferenceMode::AutoIndex,
+        &[
+            ("o0.json", r#"{"values":["alpha","beta"]}"#),
+            ("o1.json", r#"{"values":["retired"]}"#),
+        ],
+    );
+    let occurrence_segment = &occurrence_repo.segments[0][0].index;
+    let occurrence = occurrence_segment
+        .compact_active(
+            &active_for_files(occurrence_segment, &["o0.json"]),
+            2,
+            |_| true,
+        )
+        .unwrap();
+    let occurrence_state = occurrence.index.inference.as_ref().unwrap();
+    let field = occurrence_state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["values"])
+        .unwrap();
+    assert!(!field.complete);
+    assert_eq!(field.eligible_records, 1);
+    assert!(
+        field.nonblank_occurrences >= 2,
+        "two surviving values must remain in the occurrence bound: {field:?}"
+    );
+    assert!(field.nonblank_records >= 1);
+    occurrence_state
+        .validate(
+            InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            &occurrence.index.logical_records,
+            occurrence.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    std::fs::remove_dir_all(occurrence_root).unwrap();
+}
+
+#[test]
+fn empty_unknown_array_proof_does_not_allow_nonempty_mismatches() {
+    let root = projection_fixture_root("empty-unknown-array-proof");
+    let repo = build_projection_fixture(
+        &root,
+        InferenceMode::AutoIndex,
+        &[
+            ("x0.json", r#"{"x":[]}"#),
+            ("x1.json", r#"{"x":{}}"#),
+            ("x2.json", r#"{"x":null}"#),
+            ("x3.json", r#"{"other":true}"#),
+        ],
+    );
+    let segment = &repo.segments[0][0].index;
+    let empty = segment
+        .compact_active(&active_for_files(segment, &["x3.json"]), 4, |_| true)
+        .unwrap();
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    empty
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .validate(
+            config,
+            &empty.index.logical_records,
+            empty.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+
+    let nonempty = segment
+        .compact_active(&active_for_files(segment, &["x0.json"]), 4, |_| true)
+        .unwrap();
+    let mut invalid = nonempty.index.inference.clone().unwrap();
+    let field = invalid
+        .report
+        .fields
+        .iter_mut()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    field
+        .observed_kinds
+        .retain(|kind| !matches!(kind, LogicalType::Array(_)));
+    field.array_records = 0;
+    field.empty_array_records = 0;
+    field.empty_selection_records = 0;
+    assert_eq!(
+        invalid
+            .validate(
+                config,
+                &nonempty.index.logical_records,
+                nonempty.index.record_count(),
+                &crate::schema::Schema::default(),
+            )
+            .unwrap_err(),
+        "snapshot inferred posting statistics mismatch"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn surviving_empty_arrays_do_not_retain_retired_empty_array_counts() {
+    let root = projection_fixture_root("surviving-empty-arrays");
+    let repo = build_projection_fixture(
+        &root,
+        InferenceMode::AutoIndex,
+        &[
+            ("a0.json", r#"{"x":[]}"#),
+            ("a1.json", r#"{"x":[]}"#),
+            ("a2.json", r#"{"x":[7]}"#),
+        ],
+    );
+    let segment = &repo.segments[0][0].index;
+    let original = segment.inference.as_ref().unwrap();
+    let original_field = original
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    let posting = &original.indexes[&vec!["x".into()]];
+    assert!(posting.length_complete);
+    assert_eq!(
+        posting
+            .lengths
+            .get(&crate::model::Number::integer(0))
+            .map_or(0, RoaringBitmap::len),
+        2
+    );
+    assert_eq!(original_field.empty_array_records, 2);
+
+    let compacted = segment
+        .compact_active(&active_for_files(segment, &["a2.json"]), 3, |_| true)
+        .unwrap();
+    let state = compacted.index.inference.as_ref().unwrap();
+    let field = state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(field.eligible_records, 1, "A survivors=a2 eligible");
+    assert_eq!(field.present_records, 1, "A survivors=a2 present");
+    assert_eq!(field.missing_records, 0, "A survivors=a2 missing");
+    assert_eq!(field.array_records, 1, "A survivors=a2 array records");
+    assert_eq!(
+        field.empty_array_records, 0,
+        "A survivors=a2 empty-array records"
+    );
+    assert_eq!(
+        field.empty_selection_records, 0,
+        "A survivors=a2 empty-selection records"
+    );
+    state
+        .validate(
+            InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            &compacted.index.logical_records,
+            compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mixed_training_shapes_retain_projected_shape_bounds() {
+    let root = projection_fixture_root("mixed-training-shapes");
+    let repo = build_projection_fixture(
+        &root,
+        InferenceMode::AutoIndex,
+        &[
+            ("b0.json", r#"{"x":[]}"#),
+            ("b1.json", r#"{"x":{}}"#),
+            ("b2.json", r#"{"x":null}"#),
+            ("b3.json", r#"{"other":true}"#),
+        ],
+    );
+    let segment = &repo.segments[0][0].index;
+    let original = segment.inference.as_ref().unwrap();
+    let original_field = original
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    let posting = &original.indexes[&vec!["x".into()]];
+    assert!(posting.length_complete);
+    assert!(original_field.scalar_records >= 1);
+    assert!(original_field.object_records >= 1);
+
+    let compacted = segment
+        .compact_active(
+            &active_for_files(segment, &["b0.json", "b1.json", "b2.json"]),
+            4,
+            |_| true,
+        )
+        .unwrap();
+    let state = compacted.index.inference.as_ref().unwrap();
+    let field = state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(field.eligible_records, 3, "B survivors=b0,b1,b2 eligible");
+    assert_eq!(field.present_records, 3, "B survivors=b0,b1,b2 present");
+    assert_eq!(field.missing_records, 0, "B survivors=b0,b1,b2 missing");
+    assert_eq!(field.scalar_records, 1, "B survivors=b0,b1,b2 scalar");
+    assert_eq!(field.object_records, 1, "B survivors=b0,b1,b2 object");
+    assert_eq!(field.array_records, 1, "B survivors=b0,b1,b2 array");
+    assert_eq!(
+        field.empty_array_records, 1,
+        "B survivors=b0,b1,b2 empty array"
+    );
+    assert_eq!(
+        field.empty_selection_records, 1,
+        "B survivors=b0,b1,b2 empty selection"
+    );
+    assert_eq!(
+        field.null_occurrence_records, 1,
+        "B survivors=b0,b1,b2 null occurrence"
+    );
+    assert_eq!(
+        field.exact_null_records, 1,
+        "B survivors=b0,b1,b2 exact null"
+    );
+    state
+        .validate(
+            InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            &compacted.index.logical_records,
+            compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn report_only_projection_preserves_inherited_presence() {
+    let root = projection_fixture_root("report-only-presence");
+    let repo = build_projection_fixture(
+        &root,
+        InferenceMode::ReportOnly,
+        &[
+            ("c0.json", r#"{"label":"Ada"}"#),
+            ("c1.json", r#"{"other":true}"#),
+        ],
+    );
+    let segment = &repo.segments[0][0].index;
+    let original = segment.inference.as_ref().unwrap();
+    let original_field = original
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["label"])
+        .unwrap();
+    assert!(original_field.present_records >= 1);
+    assert!(!original.indexes.contains_key(&vec!["label".into()]));
+
+    let compacted = segment
+        .compact_active(&active_for_files(segment, &["c0.json"]), 2, |_| true)
+        .unwrap();
+    let state = compacted.index.inference.as_ref().unwrap();
+    let field = state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["label"])
+        .unwrap();
+    assert_eq!(field.eligible_records, 1, "C survivors=c0 eligible");
+    assert_eq!(field.present_records, 1, "C survivors=c0 present");
+    assert_eq!(field.missing_records, 0, "C survivors=c0 missing");
+    assert_eq!(field.scalar_records, 1, "C survivors=c0 scalar");
+    assert_eq!(field.nonblank_records, 1, "C survivors=c0 nonblank records");
+    state
+        .validate(
+            InferenceConfig {
+                mode: InferenceMode::ReportOnly,
+                ..Default::default()
+            },
+            &compacted.index.logical_records,
+            compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[test]
 fn compaction_matches_active_file_oracle_across_indexes() {
     let root = std::env::temp_dir().join(format!(

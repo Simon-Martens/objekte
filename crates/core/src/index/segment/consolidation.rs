@@ -218,6 +218,33 @@ fn consolidate_inference(
     let mut fields = fields.into_values().collect::<Vec<_>>();
     fields.sort_by(|left, right| left.path.cmp(&right.path));
     for field in &mut fields {
+        if field.complete
+            && let Some(index) = indexes.get(&field.path)
+            && index.kind == crate::model::LogicalType::Number
+            && index.value_complete
+            && index.summary.is_some_and(|summary| {
+                !summary.may_match_array()
+                    && !summary.may_select_multiple()
+                    && !summary.may_have_empty_traversal()
+            })
+        {
+            let nulls = index
+                .values
+                .get(&crate::index::posting::ScalarKey::Null)
+                .map_or(0, RoaringBitmap::len);
+            field.integer_only = if index.values.keys().any(|key| {
+                matches!(
+                    key,
+                    crate::index::posting::ScalarKey::Number(crate::model::Number::Float(_))
+                )
+            }) {
+                Some(false)
+            } else if index.presence.len() > nulls {
+                Some(true)
+            } else {
+                None
+            };
+        }
         field.eligible_records = eligible;
         field.unavailable_records = unavailable;
         field.missing_records = eligible.saturating_sub(field.present_records);

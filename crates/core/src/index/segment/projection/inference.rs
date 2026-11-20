@@ -104,30 +104,53 @@ fn finish_projected_inference(
         .ok_or("inference eligible domain exceeds record count")?;
     state.report.eligible_records = eligible;
     state.report.unavailable_records = unavailable;
+    let source_domain_complete = state.report.complete;
     for field in &mut state.report.fields {
         field.eligible_records = eligible;
         field.unavailable_records = unavailable;
         field.distinct_nonblank_strings = None;
+        let old_present_records = field.present_records;
+        let old_scalar_records = field.scalar_records;
+        let old_array_records = field.array_records;
+        let old_object_records = field.object_records;
+        let old_empty_array_records = field.empty_array_records;
+        let old_empty_selection_records = field.empty_selection_records;
+        let old_null_occurrence_records = field.null_occurrence_records;
+        let old_exact_null_records = field.exact_null_records;
+        let old_nonblank_records = field.nonblank_records;
+        let old_value_occurrences = field.value_occurrences;
+        let old_nonblank_occurrences = field.nonblank_occurrences;
+        let old_short_string_observed_occurrences = field.short_string_observed_occurrences;
         if let Some(index) = state.indexes.get(&field.path) {
             field.index_status = InferenceIndexStatus::Built;
-            let summary = index.summary;
-            field.complete &= summary.is_some();
-            let nulls = index
-                .values
-                .get(&crate::index::posting::ScalarKey::Null)
-                .map_or(0, RoaringBitmap::len);
-            let scalar_complete = summary.is_some_and(|summary| {
+            let terminal = index.summary;
+            let terminal_records = index.presence.len();
+            let nulls = terminal.map(|_| {
+                index
+                    .values
+                    .get(&crate::index::posting::ScalarKey::Null)
+                    .map_or(0, RoaringBitmap::len)
+            });
+            let terminal_empty = index.length_complete.then(|| {
+                index
+                    .lengths
+                    .get(&crate::model::Number::integer(0))
+                    .map_or(0, RoaringBitmap::len)
+            });
+            let exact_scalar = terminal.is_some_and(|summary| {
                 !summary.may_match_array()
                     && !summary.may_select_multiple()
                     && !summary.may_have_empty_traversal()
             }) && index.value_complete
                 && index.kind != crate::model::LogicalType::String;
-            if scalar_complete {
-                field.present_records = index.presence.len();
+            if exact_scalar {
+                let nulls = nulls.unwrap_or(0);
+                field.present_records = terminal_records;
                 field.null_occurrence_records = nulls;
                 field.exact_null_records = nulls;
+                field.empty_array_records = 0;
                 field.empty_selection_records = 0;
-                field.scalar_records = field.present_records;
+                field.scalar_records = terminal_records;
                 field.array_records = 0;
                 field.object_records = 0;
                 field.integer_only = if index.kind == crate::model::LogicalType::Number {
@@ -141,7 +164,7 @@ fn finish_projected_inference(
                     });
                     if fractional {
                         Some(false)
-                    } else if field.present_records > nulls {
+                    } else if terminal_records > nulls {
                         Some(true)
                     } else {
                         None
@@ -149,78 +172,79 @@ fn finish_projected_inference(
                 } else {
                     None
                 };
-                field.value_occurrences = field.present_records.saturating_sub(nulls);
+                field.value_occurrences = terminal_records.saturating_sub(nulls);
                 field.nonblank_occurrences = 0;
                 field.nonblank_records = 0;
                 field.short_string_observed_occurrences = 0;
             } else {
                 field.complete = false;
-                field.present_records =
-                    if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
-                        field.present_records.min(eligible)
+                let inherited = |old: u64, bound: u64| {
+                    if source_domain_complete {
+                        old.min(bound)
                     } else {
-                        index.presence.len()
-                    };
-                let terminal_empty = if summary.is_some_and(|summary| summary.may_match_array()) {
-                    if index.length_complete {
-                        index
-                            .lengths
-                            .get(&crate::model::Number::integer(0))
-                            .map_or(0, RoaringBitmap::len)
-                    } else {
-                        field.empty_selection_records.min(eligible)
+                        bound
+                    }
+                };
+                let present = if source_domain_complete
+                    && terminal.is_some_and(|summary| !summary.may_have_empty_traversal())
+                {
+                    terminal_records
+                } else {
+                    inherited(old_present_records, eligible).max(terminal_records)
+                };
+                let array_records = inherited(old_array_records, present);
+                let empty_array_records = terminal_empty
+                    .filter(|_| source_domain_complete)
+                    .unwrap_or_else(|| {
+                        if source_domain_complete {
+                            old_empty_array_records.min(array_records)
+                        } else {
+                            array_records
+                        }
+                    });
+                let empty_selection_records = if source_domain_complete
+                    && terminal.is_some_and(|summary| !summary.may_have_empty_traversal())
+                {
+                    empty_array_records
+                } else {
+                    inherited(old_empty_selection_records, present)
+                };
+                let null_occurrence_records = if source_domain_complete
+                    && terminal.is_some_and(|summary| !summary.may_match_array())
+                {
+                    nulls.unwrap_or(0)
+                } else {
+                    inherited(old_null_occurrence_records, present)
+                };
+                let exact_null_records = if source_domain_complete {
+                    match (terminal, nulls) {
+                        (Some(summary), Some(nulls)) if !summary.may_select_multiple() => nulls,
+                        (Some(_), Some(nulls)) => old_exact_null_records
+                            .min(nulls)
+                            .min(null_occurrence_records),
+                        _ => old_exact_null_records.min(null_occurrence_records),
                     }
                 } else {
-                    0
+                    nulls.unwrap_or(present).min(null_occurrence_records)
                 };
-                field.empty_selection_records =
-                    if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
-                        terminal_empty.max(field.empty_selection_records.min(eligible))
-                    } else {
-                        terminal_empty
-                    };
-                field.null_occurrence_records =
-                    if summary.is_some_and(|summary| !summary.may_match_array()) {
-                        nulls
-                    } else {
-                        field.null_occurrence_records.min(field.present_records)
-                    };
-                field.exact_null_records =
-                    if summary.is_some_and(|summary| !summary.may_select_multiple()) {
-                        nulls
-                    } else {
-                        field.exact_null_records.min(nulls)
-                    };
-                let scalar_kind = field.observed_kinds.iter().any(|kind| {
-                    !matches!(
-                        kind,
-                        crate::model::LogicalType::Array(_)
-                            | crate::model::LogicalType::Object
-                            | crate::model::LogicalType::Unknown
-                    )
-                });
-                let array_kind = field
-                    .observed_kinds
-                    .iter()
-                    .any(|kind| matches!(kind, crate::model::LogicalType::Array(_)))
-                    || matches!(index.kind, crate::model::LogicalType::Array(_))
-                    || summary.is_some_and(|summary| summary.may_match_array());
-                let object_kind = field
-                    .observed_kinds
-                    .iter()
-                    .any(|kind| matches!(kind, crate::model::LogicalType::Object));
-                field.scalar_records = if scalar_kind {
-                    field.present_records
+                field.present_records = present;
+                field.scalar_records = inherited(old_scalar_records, present);
+                field.array_records = array_records;
+                field.object_records = inherited(old_object_records, present);
+                field.empty_array_records = empty_array_records;
+                field.empty_selection_records = empty_selection_records;
+                field.null_occurrence_records = null_occurrence_records;
+                field.exact_null_records = exact_null_records;
+                field.nonblank_records = inherited(old_nonblank_records, present);
+                if present == 0 {
+                    field.value_occurrences = 0;
+                    field.nonblank_occurrences = 0;
+                    field.short_string_observed_occurrences = 0;
                 } else {
-                    0
-                };
-                field.array_records = if array_kind { field.present_records } else { 0 };
-                field.object_records = if object_kind {
-                    field.present_records
-                } else {
-                    0
-                };
-                field.nonblank_records = field.nonblank_records.min(field.present_records);
+                    field.value_occurrences = old_value_occurrences;
+                    field.nonblank_occurrences = old_nonblank_occurrences;
+                    field.short_string_observed_occurrences = old_short_string_observed_occurrences;
+                }
                 field.integer_only = None;
             }
             field.short_string_covered_records = state
@@ -236,15 +260,41 @@ fn finish_projected_inference(
             field.index_status = InferenceIndexStatus::Incomplete;
             field.complete = false;
             field.reason = "retired records removed from incomplete inference summary".into();
-            field.present_records = 0;
-            field.null_occurrence_records = 0;
-            field.exact_null_records = 0;
-            field.empty_selection_records = 0;
+            let inherited = |old: u64, bound: u64| {
+                if source_domain_complete {
+                    old.min(bound)
+                } else {
+                    bound
+                }
+            };
+            let present = inherited(old_present_records, eligible);
+            let array_records = inherited(old_array_records, present);
+            let empty_array_records = if source_domain_complete {
+                old_empty_array_records.min(array_records)
+            } else {
+                array_records
+            };
+            field.present_records = present;
+            field.scalar_records = inherited(old_scalar_records, present);
+            field.array_records = array_records;
+            field.object_records = inherited(old_object_records, present);
+            field.empty_array_records = empty_array_records;
+            field.empty_selection_records = inherited(old_empty_selection_records, present);
+            field.null_occurrence_records = inherited(old_null_occurrence_records, present);
+            field.exact_null_records = old_exact_null_records.min(field.null_occurrence_records);
+            field.nonblank_records = inherited(old_nonblank_records, present);
+            if present == 0 {
+                field.value_occurrences = 0;
+                field.nonblank_occurrences = 0;
+                field.short_string_observed_occurrences = 0;
+            } else {
+                field.value_occurrences = old_value_occurrences;
+                field.nonblank_occurrences = old_nonblank_occurrences;
+                field.short_string_observed_occurrences = old_short_string_observed_occurrences;
+            }
             field.short_string_covered_records = 0;
             field.short_string_distinct_values = 0;
-            field.scalar_records = 0;
-            field.array_records = 0;
-            field.object_records = 0;
+            field.integer_only = None;
             field.index_bytes_estimate = 0;
         }
         field.missing_records = eligible - field.present_records;
