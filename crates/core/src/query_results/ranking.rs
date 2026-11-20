@@ -9,7 +9,6 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 use crate::index::sorting::{SortColumn, SortKey, SortOptions};
 use crate::inventory::RecordEntry;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
 use crate::query::Query;
@@ -22,11 +21,30 @@ use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::query_results::cache::CacheBudget;
 use crate::query_results::verified::CachedMember;
 use crate::repository::Repository;
-use crate::source::access::read_record_range_for_search;
-use crate::source::preparation::prepare_query_record_with_execution;
-use crate::source::{ExtractedRecord, ScanProjection};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
+
+#[cfg(test)]
+thread_local! {
+    static SEGMENT_RANK_KEY_CONSTRUCTIONS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static LAST_SEGMENT_RANK_KEY: std::cell::Cell<(u64, u32)> =
+        const { std::cell::Cell::new((0, 0)) };
+}
+
+#[cfg(test)]
+pub(crate) fn reset_segment_rank_key_constructions() {
+    SEGMENT_RANK_KEY_CONSTRUCTIONS.with(|value| value.set(0));
+    LAST_SEGMENT_RANK_KEY.with(|value| value.set((0, 0)));
+}
+
+#[cfg(test)]
+pub(crate) fn segment_rank_key_constructions() -> (usize, (u64, u32)) {
+    (
+        SEGMENT_RANK_KEY_CONSTRUCTIONS.with(std::cell::Cell::get),
+        LAST_SEGMENT_RANK_KEY.with(std::cell::Cell::get),
+    )
+}
 
 pub(crate) fn winner_bytes(winner: &Winner) -> usize {
     std::mem::size_of::<Winner>()
@@ -356,6 +374,11 @@ pub(crate) fn segment_rank_key(
     record: &RecordEntry,
     ctx: Option<&RecordContext<'_>>,
 ) -> Result<RankKey, String> {
+    #[cfg(test)]
+    {
+        SEGMENT_RANK_KEY_CONSTRUCTIONS.with(|value| value.set(value.get() + 1));
+        LAST_SEGMENT_RANK_KEY.with(|value| value.set((segment.id.get(), record.slot.0)));
+    }
     let terms = sort.bound.terms[collection_index]
         .as_ref()
         .ok_or("segment sort collection missing")?;
@@ -379,8 +402,45 @@ pub(crate) fn segment_rank_key(
     Ok(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
-        id: record.id.0.to_string(),
+        id: String::from(record.id.0.as_ref()),
     })
+}
+
+pub(crate) fn segment_rank_key_owned_bytes(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    segment: &IndexedCollectionSegment,
+    record: &RecordEntry,
+) -> Result<usize, String> {
+    let terms = sort.bound.terms[collection_index]
+        .as_ref()
+        .ok_or("segment sort collection missing")?;
+    let mut bytes = rank_key_storage_bytes(
+        terms.len(),
+        repo.collections[collection_index].definition.name.len(),
+        record.id.0.len(),
+        0,
+    )
+    .ok_or("ordered sort key size overflow")?;
+    for term in terms {
+        let BoundSortSource::Stored(base_column) = &term.source else {
+            return Err("computed segment sort has no owned-key prediction".into());
+        };
+        let key = segment
+            .sorting
+            .columns
+            .get(&base_column.path)
+            .ok_or("segment sort column missing")?
+            .keys
+            .get(record.slot.0 as usize)
+            .ok_or("segment sort slot missing")?;
+        let variable = owned_sort_key_bytes(key);
+        bytes = bytes
+            .checked_add(variable)
+            .ok_or("ordered sort key size overflow")?;
+    }
+    Ok(bytes)
 }
 
 /// Compare a stored segment row with the current page boundary without
@@ -425,67 +485,6 @@ pub(crate) fn segment_compare_to_rank(
             .ok_or("segment sort slot missing")?,
     )
         .cmp(&(worst.collection.as_str(), worst.id.as_str())))
-}
-
-pub(crate) fn base_rank_key_merged(
-    repo: &Repository,
-    sort: &ResolvedSort<'_>,
-    collection_index: usize,
-    record: &RecordEntry,
-    catalog: &FileCatalog,
-    context: Option<&ExecutionContext>,
-) -> Result<RankKey, String> {
-    if !sort.bound.has_computed {
-        return Ok(rank_key(sort, repo, collection_index, record));
-    }
-    let collection = &repo.collections[collection_index];
-    let file = catalog.entry(record.file).ok_or("base sort file retired")?;
-    let bytes = if sort.bound.needs_source {
-        if let Some(context) = context {
-            context.check_string()?;
-            if record.range.len() > context.limits.source_record_bytes {
-                return Err(context.fail(
-                    ExecutionErrorKind::Resource,
-                    "base sort record exceeds source read allowance",
-                ));
-            }
-            context.charge_reads(1)?;
-            context.charge_bytes(record.range.len())?;
-        }
-        let path = repo.files.root.join(&file.relative_path);
-        Some(if let Some(context) = context {
-            read_record_range_for_search(&path, file.revision, record.range, Some(context))?
-        } else {
-            read_record_range_for_search(&path, file.revision, record.range, None)?
-        })
-    } else {
-        None
-    };
-    let extracted = if let Some(bytes) = bytes.as_ref() {
-        prepare_query_record_with_execution(
-            record.class,
-            &collection.source,
-            &collection.definition.schema,
-            bytes,
-            &ScanProjection::full(false),
-            false,
-            context,
-        )?
-    } else {
-        ExtractedRecord {
-            value: Value::Object(Default::default()),
-            text: Vec::new(),
-        }
-    };
-    let ctx = RecordContext {
-        value: &extracted.value,
-        source_bytes: bytes.as_deref(),
-        record,
-        file,
-        collection_name: &collection.definition.name,
-        repository_root: &repo.files.root,
-    };
-    rank_key_from_context(sort, repo, collection_index, &ctx, None)
 }
 
 pub(crate) fn relation_rank_key_merged(
@@ -815,23 +814,107 @@ pub(crate) fn rank_key_without_source(
 }
 
 pub(crate) fn rank_key_bytes(key: &RankKey) -> u64 {
-    let bytes = std::mem::size_of::<RankKey>()
-        .saturating_add(key.parts.capacity().saturating_mul(std::mem::size_of::<(
+    let variable = key.parts.iter().try_fold(0usize, |total, (part, _, _)| {
+        total.checked_add(owned_sort_key_capacity_bytes(part))
+    });
+    let bytes = variable
+        .and_then(|variable| {
+            rank_key_storage_bytes(
+                key.parts.capacity(),
+                key.collection.capacity(),
+                key.id.capacity(),
+                variable,
+            )
+        })
+        .unwrap_or(usize::MAX);
+    u64::try_from(bytes).unwrap_or(u64::MAX)
+}
+
+fn owned_sort_key_bytes(key: &SortKey) -> usize {
+    match key {
+        SortKey::String(bytes) => bytes.len(),
+        SortKey::Id(text) => text.len(),
+        _ => 0,
+    }
+}
+
+fn owned_sort_key_capacity_bytes(key: &SortKey) -> usize {
+    match key {
+        SortKey::String(bytes) => bytes.capacity(),
+        SortKey::Id(text) => text.capacity(),
+        _ => 0,
+    }
+}
+
+fn rank_key_storage_bytes(
+    parts_capacity: usize,
+    collection_bytes: usize,
+    id_bytes: usize,
+    variable_key_bytes: usize,
+) -> Option<usize> {
+    std::mem::size_of::<RankKey>()
+        .checked_add(parts_capacity.checked_mul(std::mem::size_of::<(
             SortKey,
             bool,
             SortOptions,
-        )>()))
-        .saturating_add(key.collection.capacity())
-        .saturating_add(key.id.capacity())
-        .saturating_add(key.parts.iter().fold(0usize, |total, (part, _, _)| {
-            total.saturating_add(crate::query::sort_binding::key_bytes(part))
-        }));
-    u64::try_from(bytes).unwrap_or(u64::MAX)
+        )>())?)?
+        .checked_add(collection_bytes)?
+        .checked_add(id_bytes)?
+        .checked_add(variable_key_bytes)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn owned_rank_key_size_matches_materialized_storage() {
+        let keys = [
+            RankKey {
+                parts: Vec::new(),
+                collection: "data".into(),
+                id: "a".into(),
+            },
+            RankKey {
+                parts: vec![(
+                    SortKey::Number(crate::model::Number::integer(42)),
+                    false,
+                    SortOptions::default(),
+                )],
+                collection: "data".into(),
+                id: "42".into(),
+            },
+            RankKey {
+                parts: vec![(
+                    SortKey::String(vec![b'x'; 16 * 1024]),
+                    true,
+                    SortOptions::default(),
+                )],
+                collection: "collection".into(),
+                id: "long-record-identifier".into(),
+            },
+        ];
+        for key in keys {
+            let variable = key
+                .parts
+                .iter()
+                .map(|(part, _, _)| owned_sort_key_bytes(part))
+                .sum();
+            assert_eq!(
+                u64::try_from(
+                    rank_key_storage_bytes(
+                        key.parts.capacity(),
+                        key.collection.len(),
+                        key.id.len(),
+                        variable,
+                    )
+                    .unwrap()
+                )
+                .unwrap(),
+                rank_key_bytes(&key)
+            );
+        }
+    }
 
     #[test]
     fn page_admission_only_compares_when_the_heap_is_full() {

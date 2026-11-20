@@ -961,6 +961,7 @@ fn try_direct_relation_page(
                 revision,
                 *source_index,
                 &selected,
+                None,
                 counters.clone(),
             )?
         {
@@ -1169,7 +1170,19 @@ fn try_semijoin_relation_page(
     let collection = &repo.collections[*collection_index];
     let mut input = crate::index::segment::SegmentRecordSet::default();
     let source_collection = collection.generation.collection;
-    let mut filter_evidence = Vec::new();
+    let filter_evidence = if query.options.evidence {
+        match filter {
+            Some(filter) => {
+                let Some(fields) = segment_static_evidence_fields(filter) else {
+                    return Ok(None);
+                };
+                Some(fields)
+            }
+            None => None,
+        }
+    } else {
+        None
+    };
     for published in segments[*collection_index].iter() {
         let may = if let Some(filter) = filter {
             let bounds = segment_filter_bounds_with_catalog(
@@ -1189,13 +1202,6 @@ fn try_semijoin_relation_page(
         };
         let may = &may & &published.index.logical_records;
         input.insert_local(source_collection, published.id, may);
-        if query.options.evidence
-            && filter.is_some()
-            && filter_evidence.is_empty()
-            && let Some(fields) = filter.and_then(segment_static_evidence_fields)
-        {
-            filter_evidence = fields;
-        }
     }
     let view = crate::query_execution::relations::view::MergedRelationView::new(
         repo,
@@ -1227,25 +1233,7 @@ fn try_semijoin_relation_page(
                 matches.insert(slot as u32);
             }
         }
-        let mut evidence = filter_evidence.clone();
-        if query.options.evidence {
-            for slot in matches.iter() {
-                let record = published
-                    .index
-                    .record(RecordSlot(slot))
-                    .ok_or("semijoin source evidence record missing")?;
-                let address = crate::index::segment::SegmentRecordAddress {
-                    collection: published.index.collection,
-                    segment: published.id,
-                    slot: record.slot,
-                };
-                if let Some(fields) = witnesses.qualified_evidence.get(&address) {
-                    evidence.extend(fields.iter().cloned());
-                }
-            }
-            evidence.sort();
-            evidence.dedup();
-        }
+        let evidence = filter_evidence.clone().unwrap_or_default();
         selected.push((matches, evidence));
     }
     exact_ordered_page(
@@ -1257,6 +1245,10 @@ fn try_semijoin_relation_page(
         revision,
         *collection_index,
         &selected,
+        query
+            .options
+            .evidence
+            .then_some(&witnesses.qualified_evidence),
         counters,
     )
 }

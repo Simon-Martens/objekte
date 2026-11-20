@@ -12,6 +12,26 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 static NEXT_FIXTURE: AtomicUsize = AtomicUsize::new(0);
 
+fn stream_test_hit(id: &str, payload_bytes: usize) -> SearchHit {
+    SearchHit {
+        collection: "data".into(),
+        record_id: id.into(),
+        generation: 1,
+        file_id: 1,
+        file_path: PathBuf::from("data/all.jsonl"),
+        file_size: payload_bytes as u64,
+        file_created_ns: None,
+        byte_start: 0,
+        byte_end: payload_bytes as u64,
+        modified_ns: 0,
+        matched_fields: Vec::new(),
+        file_status: crate::inventory::FileStatus::Valid,
+        record_class: crate::inventory::RecordClass::Logical,
+        diagnostic_ref: crate::inventory::DiagnosticRef(0),
+        payload: Some(Payload::Bytes(vec![b'x'; payload_bytes])),
+    }
+}
+
 fn limited_context(
     limits: ExecutionLimits,
     cancellation: Option<CancellationToken>,
@@ -315,6 +335,134 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
             verified_cache_bytes: 1 << 20,
             query_workers: 4,
             bigram_alphabet: alphabet,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    Fixture { root, repo }
+}
+
+fn residual_payload_fixture() -> Fixture {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-stream-residual-payload-{}-{}",
+        std::process::id(),
+        NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for n in 0..4 {
+        std::fs::write(
+            root.join(format!("data/record-{n:03}-{}.json", "x".repeat(80))),
+            format!(
+                r#"{{"body":"{}","score":{n},"padding":"{}"}}"#,
+                if n < 2 { "match" } else { "miss" },
+                "x".repeat(1800)
+            ),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    for (path, kind) in [
+        ("body", LogicalType::String),
+        ("score", LogicalType::Number),
+        ("padding", LogicalType::String),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![FieldPath::parse("score").unwrap()],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            verified_cache_bytes: 1024 * 1024,
+            query_workers: 4,
+            bigram_alphabet: BigramAlphabet::Ascii,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    Fixture { root, repo }
+}
+
+fn cache_closed_fixture() -> Fixture {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-stream-cache-closed-{}-{}",
+        std::process::id(),
+        NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for n in 0..20 {
+        std::fs::write(
+            root.join(format!("data/{n:03}.json")),
+            format!(r#"{{"kind":"yes","score":{n}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![FieldPath::parse("score").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 512,
+            query_workers: 4,
+            bigram_alphabet: BigramAlphabet::Ascii,
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -724,6 +872,552 @@ fn ordered_rows_arrive_before_count_finishes_and_reconstruct_page() {
     );
     assert_eq!(page, expected.hits);
     assert_eq!(summary.returned_rows, 3);
+}
+
+#[test]
+fn ordered_search_and_stream_prepare_once_per_invocation() {
+    let fixture = fixture();
+    fixture.repo.configure_verified_cache(0).unwrap();
+    let exact = query("kind = 'yes'", false, true, ReturnMode::Locator);
+    let before = preparation_counts();
+    let expected = fixture.repo.search(&exact).unwrap();
+    assert_eq!(preparation_delta(before), (1, 1, 1));
+    let repeated = fixture.repo.search(&exact).unwrap();
+    assert_eq!(preparation_delta(before), (2, 2, 2));
+    assert_eq!(repeated.hits, expected.hits);
+
+    let before_stream = preparation_counts();
+    let mut stream_query = exact.clone();
+    stream_query.options.count = false;
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &stream_query,
+            StreamOptions {
+                batch_rows: 2,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(preparation_delta(before_stream), (1, 1, 1));
+
+    let residual = query("body ~ 'needle'", false, true, ReturnMode::Locator);
+    let before_residual = preparation_counts();
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &residual,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(preparation_delta(before_residual), (1, 1, 1));
+
+    let declined = query("kind = 'yes'", true, false, ReturnMode::Locator);
+    let before_declined = preparation_counts();
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &declined,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(
+        crate::query::prepared::production_prepare_calls() - before_declined.0,
+        1
+    );
+}
+
+fn residual_payload_query() -> Query {
+    Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("body != 'miss'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("score", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Bytes,
+            evidence: true,
+        },
+    }
+}
+
+#[test]
+fn residual_count_keeps_page_charges_only_for_retained_modes() {
+    let fixture = residual_payload_fixture();
+    let query = residual_payload_query();
+    let record_path = std::fs::read_dir(fixture.root.join("data"))
+        .unwrap()
+        .map(|entry| entry.unwrap().path())
+        .min()
+        .unwrap();
+    let record_bytes = std::fs::read(record_path).unwrap().len();
+    let max_buffered_bytes = record_bytes * 2;
+    let options = StreamOptions {
+        max_buffered_bytes,
+        max_event_bytes: record_bytes + 1024,
+        ..Default::default()
+    };
+
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let mut page = Vec::new();
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &query,
+            options.clone(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    page.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("ordered page did not complete")
+    };
+    let (tail_rows, tail_bytes, tail_reads) =
+        crate::query_execution::runner::ordered_tail_observations();
+    assert!(
+        tail_reads >= 2,
+        "tail observation: rows={tail_rows} bytes={tail_bytes} reads={tail_reads}; count={:?} page={}",
+        summary.count,
+        page.len()
+    );
+    assert_eq!(tail_rows, 0);
+    assert_eq!(tail_bytes, 0);
+    assert_eq!(summary.count, Some(2));
+    assert_eq!(page.len(), 1);
+
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let observation_budget = record_bytes * 3;
+    let outcome = fixture.repo.search_stream(
+        &query,
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            checkpoint_files: 1,
+            max_buffered_bytes: observation_budget,
+            max_event_bytes: record_bytes + 1024,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    let StreamOutcome::Complete(observed) = outcome.unwrap() else {
+        panic!("observation replacement budget did not complete")
+    };
+    let (replacement_rows, replacement_bytes, replacement_reads) =
+        crate::query_execution::runner::ordered_tail_observations();
+    assert!(replacement_reads >= 1);
+    assert_eq!(replacement_rows, 1);
+    assert!(replacement_bytes > 0);
+    let (_, page_component, identity_component, cursor_component, source_component) =
+        crate::query_execution::runner::ordered_tail_components();
+    assert!(identity_component > 0);
+    assert!(cursor_component > 0);
+    assert!(source_component > 0);
+    let simultaneous = page_component + identity_component + cursor_component + source_component;
+    assert!(observed.progress.peak_buffered_bytes >= simultaneous);
+    let excluded_identity = page_component + cursor_component + source_component;
+    let callback_boundary = simultaneous - 1;
+    assert!(
+        simultaneous > callback_boundary,
+        "page={page_component} identity={identity_component} cursor={cursor_component} source={source_component} limit={callback_boundary}"
+    );
+    assert!(
+        excluded_identity <= callback_boundary,
+        "page={page_component} identity={identity_component} cursor={cursor_component} source={source_component} limit={callback_boundary}"
+    );
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let outcome = fixture.repo.search_stream(
+        &query,
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            checkpoint_files: 1,
+            max_buffered_bytes: callback_boundary,
+            max_event_bytes: record_bytes + 1024,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    let Err(StreamError::Resource { progress, .. }) = outcome else {
+        panic!("replacement page should retain its payload in the residual budget")
+    };
+    assert_eq!(progress.sequence, 1);
+    assert_eq!(progress.emitted_rows, 1);
+    let after_error = fixture.repo.search(&query).unwrap();
+    assert!(!after_error.counters.verified_result_hit);
+
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let sufficient = simultaneous + 1024;
+    let callbacks = AtomicUsize::new(0);
+    let outcome = fixture.repo.search_stream(
+        &query,
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            checkpoint_files: 1,
+            max_buffered_bytes: sufficient,
+            max_event_bytes: record_bytes + 1024,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| {
+            callbacks.fetch_add(1, Ordering::Relaxed);
+            Ok(StreamControl::Continue)
+        },
+    );
+    let StreamOutcome::Complete(summary) = outcome.unwrap() else {
+        panic!("sufficient replacement budget did not complete")
+    };
+    let (success_rows, success_page, success_identity, success_cursor, success_source) =
+        crate::query_execution::runner::ordered_tail_components();
+    assert_eq!(success_rows, 1);
+    let success_components = success_page + success_identity + success_cursor + success_source;
+    assert!(summary.progress.peak_buffered_bytes >= success_components);
+    assert_eq!(summary.count, Some(2));
+    assert!(callbacks.load(Ordering::Relaxed) >= 1);
+
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let token = CancellationToken::new();
+    let outcome = fixture
+        .repo
+        .search_stream(&query, options, &token, &mut |event| {
+            if matches!(event, StreamEvent::OrderedRows { .. }) {
+                token.cancel();
+            }
+            Ok(StreamControl::Continue)
+        });
+    assert!(matches!(outcome, Ok(StreamOutcome::Cancelled(_))));
+    assert_eq!(
+        crate::query_execution::runner::ordered_tail_observations().2,
+        0
+    );
+
+    crate::query_execution::runner::reset_ordered_tail_observations();
+    let owned = fixture.repo.search(&query).unwrap();
+    let (owned_tail_rows, owned_tail_bytes, owned_tail_reads) =
+        crate::query_execution::runner::ordered_tail_observations();
+    assert!(owned_tail_reads >= 2);
+    assert_eq!(owned_tail_rows, 0);
+    assert_eq!(owned_tail_bytes, 0);
+    assert_eq!(owned.count, Some(2));
+    assert_eq!(owned.hits.len(), 1);
+}
+
+#[test]
+fn replacement_callback_charges_old_and_new_identities_together() {
+    let first_id = "A".repeat(160);
+    let second_id = "B".repeat(160);
+    let first = stream_test_hit(&first_id, 400);
+    let second = stream_test_hit(&second_id, 500);
+    let first_bytes = hit_bytes(&first);
+    let second_bytes = hit_bytes(&second);
+    let first_identity = identity_bytes([("data", first_id.as_str())]);
+    let second_identity = identity_bytes([("data", second_id.as_str())]);
+    let cursor_bytes = 300usize;
+    let limit = (first_bytes + first_identity)
+        .max(second_bytes + cursor_bytes)
+        .max(cursor_bytes + first_identity + second_identity)
+        + 1;
+    assert!(second_bytes + cursor_bytes + first_identity + second_identity > limit);
+
+    let token = CancellationToken::new();
+    let callbacks = AtomicUsize::new(0);
+    let mut sink = |_: StreamEvent<'_>| {
+        callbacks.fetch_add(1, Ordering::Relaxed);
+        Ok(StreamControl::Continue)
+    };
+    let mut delivery = Delivery::new(
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            max_buffered_bytes: limit,
+            max_event_bytes: first_bytes.max(second_bytes) + 1,
+            ..Default::default()
+        },
+        &token,
+        &mut sink,
+    );
+    delivery
+        .replacement(std::slice::from_ref(&first), &WorkCounters::default(), 0)
+        .unwrap();
+    let error = delivery
+        .replacement(
+            std::slice::from_ref(&second),
+            &WorkCounters::default(),
+            cursor_bytes,
+        )
+        .unwrap_err();
+    assert_eq!(error, "stream memory budget exceeded");
+    assert_eq!(callbacks.load(Ordering::Relaxed), 1);
+    assert_eq!(delivery.last_page_sequence(), 1);
+}
+
+#[test]
+fn ordered_successor_accounts_for_the_live_popped_key() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordered-live-key-{}-{}",
+        std::process::id(),
+        NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, prefix) in [("a", "01"), ("b", "02")] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            serde_json::json!({
+                "flag": true,
+                "sort": format!("{prefix}-{}", "x".repeat(20_000)),
+            })
+            .to_string(),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["flag".into()],
+            kind: LogicalType::Bool,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["sort".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![FieldPath::parse("sort").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 4 * 1024 * 1024,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("flag = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let sufficient = StreamOptions {
+        max_event_bytes: 8 * 1024,
+        max_buffered_bytes: 256 * 1024,
+        ..Default::default()
+    };
+    crate::query_results::ranking::reset_segment_rank_key_constructions();
+    crate::query_execution::runner::reset_ordered_key_observations();
+    let mut rows = Vec::new();
+    let outcome = repo
+        .search_stream(
+            &query,
+            sufficient,
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                    rows.extend_from_slice(batch);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("sufficient live-key stream did not complete")
+    };
+    assert_eq!(summary.count, Some(2));
+    assert_eq!(rows, repo.search_reference(&query).unwrap().hits);
+    let (base, first_key, second_key) = crate::query_execution::runner::ordered_key_observations();
+    assert!(first_key > 20_000);
+    assert!(second_key > 20_000);
+    assert!(base + first_key < base + first_key + second_key);
+    let overlap = base + first_key + second_key;
+    let boundary = overlap - 1;
+    assert!(base + first_key <= boundary);
+    assert!(base + second_key <= boundary);
+    assert!(boundary >= 8 * 1024);
+    assert!(summary.progress.peak_buffered_bytes >= overlap);
+    let (constructions, last_key) = crate::query_results::ranking::segment_rank_key_constructions();
+    assert_eq!(constructions, 2);
+    let (segment_id, last_slot) = last_key;
+    assert_eq!(last_slot, 1);
+
+    repo.configure_verified_cache(0).unwrap();
+    repo.configure_verified_cache(4 * 1024 * 1024).unwrap();
+    let initial_callbacks = AtomicUsize::new(0);
+    crate::query_results::ranking::reset_segment_rank_key_constructions();
+    let outcome = repo.search_stream(
+        &query,
+        StreamOptions {
+            max_event_bytes: 8 * 1024,
+            max_buffered_bytes: base + first_key - 1,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| {
+            initial_callbacks.fetch_add(1, Ordering::Relaxed);
+            Ok(StreamControl::Continue)
+        },
+    );
+    let Err(StreamError::Resource { progress, .. }) = outcome else {
+        panic!("initial key unexpectedly exceeded its budget without rejection")
+    };
+    assert_eq!(progress.sequence, 0);
+    assert_eq!(progress.emitted_rows, 0);
+    assert_eq!(initial_callbacks.load(Ordering::Relaxed), 0);
+    assert_eq!(
+        crate::query_results::ranking::segment_rank_key_constructions(),
+        (0, (0, 0)),
+        "the rejected initial key must not be materialized"
+    );
+    let after_initial_error = repo.search(&query).unwrap();
+    assert!(!after_initial_error.counters.verified_result_hit);
+
+    repo.configure_verified_cache(0).unwrap();
+    repo.configure_verified_cache(4 * 1024 * 1024).unwrap();
+    let callbacks = AtomicUsize::new(0);
+    crate::query_results::ranking::reset_segment_rank_key_constructions();
+    let outcome = repo.search_stream(
+        &query,
+        StreamOptions {
+            max_event_bytes: 8 * 1024,
+            max_buffered_bytes: boundary,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| {
+            callbacks.fetch_add(1, Ordering::Relaxed);
+            Ok(StreamControl::Continue)
+        },
+    );
+    let Err(StreamError::Resource { progress, .. }) = outcome else {
+        panic!(
+            "overlapping keys completed under a budget that fits only one: base={base} first={first_key} second={second_key} boundary={boundary}"
+        )
+    };
+    assert_eq!(progress.sequence, 0);
+    assert_eq!(progress.emitted_rows, 0);
+    assert_eq!(callbacks.load(Ordering::Relaxed), 0);
+    assert_eq!(
+        crate::query_results::ranking::segment_rank_key_constructions(),
+        (1, (segment_id, 0)),
+        "only the admitted initial key may be materialized"
+    );
+    let after_error = repo.search(&query).unwrap();
+    assert!(!after_error.counters.verified_result_hit);
+    assert_eq!(
+        after_error.hits,
+        repo.search_reference(&query).unwrap().hits
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn ordered_cache_admission_stops_cache_only_work_after_rejection() {
+    let fixture = cache_closed_fixture();
+    fixture.repo.configure_verified_cache(512).unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("kind = 'yes'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 1,
+            offset: 10,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    crate::query_execution::runner::reset_cache_closed_work();
+    let result = fixture.repo.search(&query).unwrap();
+    let (closed_candidates, closed_keys, closed_members, closed_evidence) =
+        crate::query_execution::runner::cache_closed_work();
+    assert!(closed_candidates > 0);
+    assert_eq!((closed_keys, closed_members, closed_evidence), (0, 0, 0));
+    assert_eq!(result.count, Some(20));
+    assert_eq!(result.hits.len(), 1);
+    assert_eq!(result.hits[0].matched_fields, ["kind"]);
+    assert_eq!(result.counters.files_opened, 0);
+    assert_eq!(result.counters.bytes_read, 0);
+    assert_eq!(result.counters.record_parses, 0);
+
+    let mut later = query.clone();
+    later.options.offset = 11;
+    later.options.limit = 2;
+    let later = fixture.repo.search(&later).unwrap();
+    assert!(!later.counters.verified_result_hit);
+    assert_eq!(later.count, Some(20));
+    assert!(later.hits.iter().all(|hit| hit.matched_fields == ["kind"]));
+
+    fixture.repo.configure_verified_cache(1024 * 1024).unwrap();
+    let cold = fixture.repo.search(&query).unwrap();
+    assert!(!cold.counters.verified_result_hit);
+    let warm = fixture.repo.search(&query).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.count, cold.count);
+    assert_eq!(warm.hits, cold.hits);
+    assert_eq!(warm.hits[0].matched_fields, ["kind"]);
+}
+
+fn preparation_counts() -> (usize, usize, usize) {
+    (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    )
+}
+
+fn preparation_delta(before: (usize, usize, usize)) -> (usize, usize, usize) {
+    let after = preparation_counts();
+    (after.0 - before.0, after.1 - before.1, after.2 - before.2)
 }
 
 #[test]

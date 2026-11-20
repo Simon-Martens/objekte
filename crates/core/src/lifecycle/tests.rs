@@ -587,6 +587,68 @@ fn static_index(repository: Repository) -> Index {
     Index::from_published(published)
 }
 
+#[test]
+fn populated_flat_base_is_reference_only_and_rejects_the_optimized_state() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-populated-base-rejected-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"kind":"yes"}"#).unwrap();
+    let mut repository = fixture_repository(&root);
+    repository.active = repository
+        .collections
+        .iter()
+        .map(|collection| crate::inventory::ActiveRecords::all(collection.generation.records.len()))
+        .collect::<Result<Vec<_>, _>>()
+        .unwrap();
+    repository.segments = vec![Arc::new(Vec::new()); repository.collections.len()];
+    let index = Index::from_repository(repository).unwrap();
+    let view = index.view().unwrap();
+    let query = all_records();
+    assert_eq!(view.search_reference(&query).unwrap().count, Some(1));
+    assert_eq!(view.search(&query).unwrap().count, Some(1));
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn empty_public_view_validates_queries_and_returns_an_empty_count() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-empty-public-view-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let view = index.view().unwrap();
+    let mut query = all_records();
+    query.options.count = true;
+    let empty = view.search(&query).unwrap();
+    assert_eq!(empty.count, Some(0));
+    assert!(empty.hits.is_empty());
+    query.options.sort = vec![SortField::simple("missing[", false)];
+    assert!(view.search(&query).is_err());
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn all_records() -> Query {
     Query {
         collections: vec!["data".into()],

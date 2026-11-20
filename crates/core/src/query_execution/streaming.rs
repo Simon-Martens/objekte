@@ -537,6 +537,14 @@ impl<'a> Delivery<'a> {
         self.last_page_sequence
     }
 
+    pub(crate) fn retained_identity_bytes(&self) -> usize {
+        identity_bytes(
+            self.last_page
+                .iter()
+                .map(|(collection, id)| (collection.as_str(), id.as_str())),
+        )
+    }
+
     pub(crate) fn check_record_bytes(&mut self, bytes: usize) -> Result<(), String> {
         if bytes > self.options.max_buffered_bytes {
             self.abort = Some(Abort::Resource(format!(
@@ -673,7 +681,7 @@ impl<'a> Delivery<'a> {
         &mut self,
         page: &[SearchHit],
         counters: &WorkCounters,
-        retained_bytes: usize,
+        cursor_bytes: usize,
     ) -> Result<(), String> {
         if self.options.mode != StreamMode::PageReplacements || page.is_empty() {
             return Ok(());
@@ -684,20 +692,36 @@ impl<'a> Delivery<'a> {
         ) {
             return Ok(());
         }
-        let identities = page
-            .iter()
-            .map(|hit| (hit.collection.clone(), hit.record_id.clone()))
-            .collect::<Vec<_>>();
         let event_bytes = page
             .iter()
-            .fold(0usize, |total, row| total.saturating_add(hit_bytes(row)));
-        let identity_bytes = identities
-            .iter()
-            .chain(self.last_page.iter())
-            .map(|(collection, id)| collection.len() + id.len() + 2 * std::mem::size_of::<String>())
-            .sum::<usize>();
+            .try_fold(0usize, |total, row| total.checked_add(hit_bytes(row)));
+        let Some(event_bytes) = event_bytes else {
+            self.abort = Some(Abort::Resource(
+                "stream replacement event byte count overflow".into(),
+            ));
+            return Err("stream replacement event budget exceeded".into());
+        };
         self.check_event(event_bytes)?;
-        self.check_buffer(retained_bytes.saturating_add(identity_bytes))?;
+        let new_identities = page
+            .iter()
+            .map(|hit| (hit.collection.as_str(), hit.record_id.as_str()));
+        let retained = event_bytes
+            .checked_add(cursor_bytes)
+            .and_then(|bytes| {
+                bytes.checked_add(identity_bytes(
+                    self.last_page
+                        .iter()
+                        .map(|(collection, id)| (collection.as_str(), id.as_str())),
+                ))
+            })
+            .and_then(|bytes| bytes.checked_add(identity_bytes(new_identities)));
+        let Some(retained) = retained else {
+            self.abort = Some(Abort::Resource(
+                "stream replacement retained byte count overflow".into(),
+            ));
+            return Err("stream replacement retained budget exceeded".into());
+        };
+        self.check_buffer(retained)?;
         self.observe(counters);
         let mut progress = self.progress;
         progress.sequence = progress.sequence.saturating_add(1);
@@ -710,7 +734,10 @@ impl<'a> Delivery<'a> {
             },
             progress,
         )?;
-        self.last_page = identities;
+        self.last_page = page
+            .iter()
+            .map(|hit| (hit.collection.clone(), hit.record_id.clone()))
+            .collect();
         self.last_page_sequence = progress.sequence;
         Ok(())
     }
@@ -738,6 +765,20 @@ impl<'a> Delivery<'a> {
         }
         Ok(())
     }
+}
+
+fn identity_bytes<'a>(identities: impl IntoIterator<Item = (&'a str, &'a str)>) -> usize {
+    identities
+        .into_iter()
+        .try_fold(0usize, |total, (collection, id)| {
+            total.checked_add(
+                collection
+                    .len()
+                    .checked_add(id.len())
+                    .and_then(|bytes| bytes.checked_add(2 * std::mem::size_of::<String>()))?,
+            )
+        })
+        .unwrap_or(usize::MAX)
 }
 
 pub(crate) fn hit_bytes(hit: &SearchHit) -> usize {

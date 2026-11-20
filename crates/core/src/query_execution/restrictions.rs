@@ -46,9 +46,52 @@ use serde::Serialize;
 
 const MAX_INDEXED_PATH_SCAN: usize = 8192;
 
+#[cfg(test)]
+thread_local! {
+    static PREDICATE_BOUNDS_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static PREDICATE_APPLICATIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static PREDICATE_APPLICATION_OBSERVATIONS: std::cell::RefCell<Vec<PredicateApplicationObservation>> =
+        const { std::cell::RefCell::new(Vec::new()) };
+    static OBSERVE_PREDICATE_APPLICATIONS: std::cell::Cell<bool> =
+        const { std::cell::Cell::new(false) };
+}
+
+#[cfg(test)]
+pub(crate) fn predicate_bounds_calls() -> usize {
+    PREDICATE_BOUNDS_CALLS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+pub(crate) fn predicate_applications() -> usize {
+    PREDICATE_APPLICATIONS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+#[derive(Debug)]
+pub(crate) struct PredicateApplicationObservation {
+    pub(crate) field: String,
+    pub(crate) operator: crate::query::Operator,
+    pub(crate) value: String,
+    pub(crate) segment: u64,
+    pub(crate) input: Vec<u32>,
+}
+
+#[cfg(test)]
+pub(crate) fn start_predicate_application_observations() {
+    PREDICATE_APPLICATION_OBSERVATIONS.with(|observations| observations.borrow_mut().clear());
+    OBSERVE_PREDICATE_APPLICATIONS.with(|value| value.set(true));
+}
+
+#[cfg(test)]
+pub(crate) fn take_predicate_application_observations() -> Vec<PredicateApplicationObservation> {
+    OBSERVE_PREDICATE_APPLICATIONS.with(|value| value.set(false));
+    PREDICATE_APPLICATION_OBSERVATIONS.with(std::cell::RefCell::take)
+}
+
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
 /// superset of true records; `must` is a subset. Carrying both through NOT
 /// prevents an unavailable or unindexed value from becoming a false proof.
+#[derive(Clone)]
 pub(crate) struct SegmentCandidateBounds {
     pub may: Arc<RoaringBitmap>,
     pub must: Arc<RoaringBitmap>,
@@ -324,6 +367,21 @@ impl<'a> SegmentPlanContext<'a> {
                 },
             )
             .map_err(|error| error.to_string())?;
+        #[cfg(test)]
+        {
+            PREDICATE_APPLICATIONS.with(|applications| applications.set(applications.get() + 1));
+            if OBSERVE_PREDICATE_APPLICATIONS.with(std::cell::Cell::get) {
+                let observation = PredicateApplicationObservation {
+                    field: term.path.display(),
+                    operator: term.operator,
+                    value: format!("{:?}", term.literal),
+                    segment: self.provider.segment.id.get(),
+                    input: input.iter().collect(),
+                };
+                PREDICATE_APPLICATION_OBSERVATIONS
+                    .with(|observations| observations.borrow_mut().push(observation));
+            }
+        }
         let possible = restriction.possible;
         let may = shared_bitmap_from_slot_input(possible)?;
         let must = match restriction.proven {
@@ -506,6 +564,8 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     predicates: Option<&PreparedPredicates>,
     execution: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
+    #[cfg(test)]
+    PREDICATE_BOUNDS_CALLS.with(|calls| calls.set(calls.get() + 1));
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }

@@ -1,7 +1,7 @@
 use super::*;
 use crate::model::LogicalType;
 use crate::query::options::SortField;
-use crate::query::{CaseSensitivity, QueryOptions, parse_filter};
+use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, QueryOptions, parse_filter};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
@@ -1123,6 +1123,109 @@ fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
         );
     }
 
+    let evidence_query = |filter: &str, offset: usize, limit: usize| Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("id", false)],
+            limit,
+            offset,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    for (filter, expected) in [
+        (
+            "@collection.name != @record.id",
+            vec![("other", Vec::<&str>::new())],
+        ),
+        (
+            "@collection.name = @record.id",
+            vec![("items", vec!["@collection.name", "@record.id"])],
+        ),
+        (
+            "@collection.name != @record.id || id = 'items'",
+            vec![("items", vec!["id"]), ("other", vec![])],
+        ),
+    ] {
+        let request = evidence_query(filter, 0, 10);
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(actual.count, reference.count, "{filter}");
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| (
+                    hit.record_id.as_str(),
+                    hit.matched_fields
+                        .iter()
+                        .map(String::as_str)
+                        .collect::<Vec<_>>()
+                ))
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+    }
+
+    let stream_query = evidence_query(
+        "@collection.name != @record.id || @record.id = @collection.name",
+        1,
+        1,
+    );
+    let not_equal_bound = crate::query::prepared::prepare(
+        &repo,
+        &evidence_query("@collection.name != @record.id", 0, 1),
+    )
+    .unwrap();
+    assert_eq!(
+        segment_static_evidence_fields(not_equal_bound.collections[0].filter.as_ref().unwrap()),
+        Some(Vec::new())
+    );
+    let equal_bound = crate::query::prepared::prepare(
+        &repo,
+        &evidence_query("@collection.name = @record.id", 0, 1),
+    )
+    .unwrap();
+    assert_eq!(
+        segment_static_evidence_fields(equal_bound.collections[0].filter.as_ref().unwrap()),
+        Some(vec!["@collection.name".into(), "@record.id".into()])
+    );
+    let mut streamed = Vec::new();
+    let outcome = repo
+        .search_stream(
+            &stream_query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(streamed[0].record_id, "other");
+    assert!(streamed[0].matched_fields.is_empty());
+
+    repo.configure_verified_cache(1024 * 1024).unwrap();
+    let or = evidence_query("@collection.name != @record.id || id = 'items'", 0, 1);
+    let cold = repo.search(&or).unwrap();
+    assert!(!cold.counters.verified_result_hit);
+    assert_eq!(cold.hits[0].record_id, "items");
+    assert_eq!(cold.hits[0].matched_fields, ["id"]);
+    let mut next = or;
+    next.options.offset = 1;
+    let warm = repo.search(&next).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.hits[0].record_id, "other");
+    assert!(warm.hits[0].matched_fields.is_empty());
+
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -2153,7 +2256,7 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
             evidence: true,
         },
     };
-    let (_, traces) = view.repository().explain_analyze(&planned).unwrap();
+    let (_, traces) = view.explain_analyze(&planned).unwrap();
     assert!(
         traces
             .iter()
@@ -4664,6 +4767,58 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
                     }
                 }
             }
+            repo.configure_verified_cache(0).unwrap();
+            let stream_query = Query {
+                collections: vec!["data".into()],
+                filter: Some(parse_filter(critical).unwrap()),
+                fts: None,
+                options: QueryOptions {
+                    sort: vec![crate::query::options::SortField {
+                        field: "@file.status".into(),
+                        descending: false,
+                        expression: None,
+                    }],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            assert_eq!(
+                repo.explain(&stream_query).unwrap()[0].sort_strategy,
+                "bounded_top_k"
+            );
+            let before = (
+                crate::query::prepared::production_prepare_calls(),
+                crate::query::sort_binding::production_bound_sort_calls(),
+                crate::query_execution::restrictions::predicate_bounds_calls(),
+            );
+            let mut streamed = Vec::new();
+            let outcome = repo
+                .search_stream(
+                    &stream_query,
+                    StreamOptions::default(),
+                    &CancellationToken::new(),
+                    &mut |event| {
+                        if let StreamEvent::OrderedRows { rows, .. } = event {
+                            streamed.extend_from_slice(rows);
+                        }
+                        Ok(StreamControl::Continue)
+                    },
+                )
+                .unwrap();
+            assert!(matches!(outcome, StreamOutcome::Complete(_)));
+            assert_eq!(streamed, repo.search_reference(&stream_query).unwrap().hits);
+            assert_eq!(
+                (
+                    crate::query::prepared::production_prepare_calls() - before.0,
+                    crate::query::sort_binding::production_bound_sort_calls() - before.1,
+                    crate::query_execution::restrictions::predicate_bounds_calls() - before.2,
+                ),
+                (1, 1, 2),
+                "one preparation, one sort binding, and no repeated fallback probe"
+            );
         }
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -6703,6 +6858,1074 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
         optimized.hits[0].matched_fields,
         reference.hits[0].matched_fields
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordered-or-evidence-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, a, b, c, order) in [
+        ("A", true, false, true, 1),
+        ("B", false, true, true, 2),
+        ("C", true, true, true, 3),
+        ("D", true, false, false, 4),
+        ("E", false, false, true, 5),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"a":{a},"b":{b},"c":{c},"order":{order}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    for name in ["a", "b", "c"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::Bool,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["order".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repository = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("order").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::configuration::RepositoryOptions {
+            verified_cache_bytes: 1024 * 1024,
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(10).unwrap(),
+                max_files: std::num::NonZeroUsize::new(10).unwrap(),
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let index = crate::lifecycle::Index::from_repository(repository).unwrap();
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let view = index.view().unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || b = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("order", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let trace = view.explain(&query).unwrap();
+    assert_eq!(trace[0].sort_strategy, "stored_order_page");
+    let stream_before = (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    );
+    let mut rows = Vec::new();
+    let outcome = view
+        .search_stream(
+            &query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                    rows.extend_from_slice(batch);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("ordered stream did not complete")
+    };
+    assert_eq!(
+        (
+            crate::query::prepared::production_prepare_calls() - stream_before.0,
+            crate::query::sort_binding::production_bound_sort_calls() - stream_before.1,
+            crate::query_execution::restrictions::predicate_bounds_calls() - stream_before.2,
+        ),
+        (1, 1, 2)
+    );
+    assert_eq!(summary.count, Some(4));
+    assert_eq!(view.search_reference(&query).unwrap().hits, rows);
+    assert_eq!(rows[0].matched_fields, ["a"]);
+
+    let mut later = query.clone();
+    later.options.offset = 1;
+    later.options.limit = 2;
+    let cached = view.search(&later).unwrap();
+    assert!(cached.counters.verified_result_hit);
+    let fields = cached
+        .hits
+        .iter()
+        .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+        .collect::<HashMap<_, _>>();
+    assert_eq!(fields["B"], ["b"]);
+    assert_eq!(fields["C"], ["a", "b"]);
+
+    index.configure_verified_cache(0).unwrap();
+    let mut direct_query = query.clone();
+    direct_query.options.limit = 3;
+    let bounds_before = crate::query_execution::restrictions::predicate_bounds_calls();
+    let direct = view.search(&direct_query).unwrap();
+    assert!(!direct.counters.verified_result_hit);
+    assert_eq!(
+        crate::query_execution::restrictions::predicate_bounds_calls() - bounds_before,
+        2,
+        "one OR branch application per segment and input"
+    );
+    assert_eq!(direct.counters.files_opened, 0);
+    assert_eq!(direct.counters.bytes_read, 0);
+    assert_eq!(direct.counters.record_parses, 0);
+    let direct_fields = direct
+        .hits
+        .iter()
+        .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+        .collect::<HashMap<_, _>>();
+    assert_eq!(direct_fields["A"], ["a"]);
+    assert_eq!(direct_fields["B"], ["b"]);
+    assert_eq!(direct_fields["C"], ["a", "b"]);
+    let mut without_evidence = direct_query.clone();
+    without_evidence.options.evidence = false;
+    let without_evidence_result = view.search(&without_evidence).unwrap();
+    assert_eq!(
+        without_evidence_result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A", "B", "C"]
+    );
+    assert!(
+        without_evidence_result
+            .hits
+            .iter()
+            .all(|hit| hit.matched_fields.is_empty())
+    );
+    let mut count_only = without_evidence;
+    count_only.options.limit = 0;
+    count_only.options.count = true;
+    let counted = view.search(&count_only).unwrap();
+    assert_eq!(counted.count, Some(4));
+    assert_eq!(counted.counters.files_opened, 0);
+    assert_eq!(counted.counters.bytes_read, 0);
+    assert_eq!(counted.counters.record_parses, 0);
+
+    let nested = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("c = true && (a = true || b = true)").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("order", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let mut streamed = Vec::new();
+    let outcome = view
+        .search_stream(
+            &nested,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("nested OR stream did not complete")
+    };
+    assert_eq!(summary.count, Some(3));
+    assert_eq!(
+        streamed,
+        view.search_reference(&nested).unwrap().hits,
+        "cold nested OR stream"
+    );
+    assert_eq!(streamed[0].record_id, "A");
+    assert_eq!(streamed[0].matched_fields, ["a", "c"]);
+
+    let mut later = nested.clone();
+    later.options.offset = 1;
+    later.options.limit = 2;
+    let cached = view.search(&later).unwrap();
+    assert!(cached.counters.verified_result_hit);
+    assert_eq!(cached.count, Some(3));
+    assert_eq!(cached.hits, view.search_reference(&later).unwrap().hits);
+    assert_eq!(cached.hits[0].record_id, "B");
+    assert_eq!(cached.hits[0].matched_fields, ["b", "c"]);
+    assert_eq!(cached.hits[1].record_id, "C");
+    assert_eq!(cached.hits[1].matched_fields, ["a", "b", "c"]);
+
+    index.configure_verified_cache(0).unwrap();
+    let mut ordinary_request = nested.clone();
+    ordinary_request.options.limit = 3;
+    let ordinary = view.search(&ordinary_request).unwrap();
+    assert!(!ordinary.counters.verified_result_hit);
+    assert_eq!(ordinary.count, Some(3));
+    assert_eq!(
+        ordinary.hits,
+        view.search_reference(&ordinary_request).unwrap().hits
+    );
+
+    let full = Arc::clone(&view.0.segments[0][0]);
+    let mut first_active = RoaringBitmap::new();
+    first_active.extend([0, 1]);
+    let mut second_active = RoaringBitmap::new();
+    second_active.extend([2, 3]);
+    let two_segments = vec![Arc::new(vec![
+        Arc::new(PublishedSegment {
+            id: crate::index::segment::SegmentId::new(10),
+            index: Arc::clone(&full.index),
+            active: ActiveRecords::from_bitmap(full.index.record_count(), first_active).unwrap(),
+        }),
+        Arc::new(PublishedSegment {
+            id: crate::index::segment::SegmentId::new(11),
+            index: Arc::clone(&full.index),
+            active: ActiveRecords::from_bitmap(full.index.record_count(), second_active).unwrap(),
+        }),
+    ])];
+    let two_before = crate::query_execution::restrictions::predicate_bounds_calls();
+    let two = search_segmented(
+        view.repository(),
+        &direct_query,
+        &view.0.active,
+        &two_segments,
+        &view.0.catalog,
+        view.revision(),
+    )
+    .unwrap();
+    assert_eq!(
+        crate::query_execution::restrictions::predicate_bounds_calls() - two_before,
+        4
+    );
+    assert_eq!(
+        two.hits,
+        search_segmented_reference(
+            view.repository(),
+            &direct_query,
+            &view.0.active,
+            &two_segments,
+            &view.0.catalog,
+            view.revision(),
+        )
+        .unwrap()
+        .hits
+    );
+    assert_eq!(two.counters.files_opened, 0);
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle::Index) {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordered-or-layout-{}-{}-{:?}",
+        files,
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut sources = vec![String::new(); files];
+    for i in 0..260 {
+        let (a, b) = match i % 4 {
+            0 => (true, false),
+            1 => (false, true),
+            2 | 3 => (true, true),
+            _ => unreachable!(),
+        };
+        let note = if matches!(i, 1 | 5 | 9) {
+            "needle-extra"
+        } else {
+            "needle"
+        };
+        let file = if files == 1 { 0 } else { i / 4 };
+        sources[file].push_str(&format!(
+            r#"{{"id":"{i}","a":{a},"b":{b},"sort":{i},"note":"{note}"}}"#
+        ));
+        sources[file].push('\n');
+    }
+    for (file, source) in sources.into_iter().enumerate() {
+        let name = if files == 1 {
+            "all.jsonl".to_owned()
+        } else {
+            format!("{file:03}.jsonl")
+        };
+        std::fs::write(root.join("data").join(name), source).unwrap();
+    }
+    let mut schema = Schema::default();
+    for name in ["a", "b"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::Bool,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    for name in ["sort", "note"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: if name == "sort" {
+                    LogicalType::Number
+                } else {
+                    LogicalType::String
+                },
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("sort").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::configuration::RepositoryOptions {
+            query_workers: 4,
+            verified_cache_bytes: 0,
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(4096).unwrap(),
+                max_files: std::num::NonZeroUsize::new(4096).unwrap(),
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    (root, index)
+}
+
+fn indexed_or_layout_query() -> Query {
+    Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || b = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 50,
+            offset: 1,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    }
+}
+
+fn assert_indexed_or_layout(
+    view: &crate::lifecycle::IndexView,
+    expected_count: usize,
+) -> Vec<SearchHit> {
+    let query = indexed_or_layout_query();
+    let mut ordered_stream_hits = Vec::new();
+    for streamed in [true, false] {
+        let before = crate::query_execution::restrictions::predicate_applications();
+        crate::query_execution::runner::reset_ordered_stream_completions();
+        let (count, hits, counters) = if streamed {
+            let mut rows = Vec::new();
+            let outcome = view
+                .search_stream(
+                    &query,
+                    StreamOptions::default(),
+                    &CancellationToken::new(),
+                    &mut |event| {
+                        if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                            rows.extend_from_slice(batch);
+                        }
+                        Ok(StreamControl::Continue)
+                    },
+                )
+                .unwrap();
+            let StreamOutcome::Complete(summary) = outcome else {
+                panic!("exact indexed OR stream did not complete")
+            };
+            ordered_stream_hits = rows.clone();
+            (summary.count, rows, summary.counters)
+        } else {
+            let result = view.search(&query).unwrap();
+            (result.count, result.hits, result.counters)
+        };
+        let applications = crate::query_execution::restrictions::predicate_applications() - before;
+        assert_eq!(
+            applications, 2,
+            "one physical application per indexed OR branch; streamed={streamed}"
+        );
+        assert_eq!(
+            crate::query_execution::runner::ordered_stream_completions(),
+            1,
+            "exact indexed query must complete on the ordered route; streamed={streamed}"
+        );
+        assert_eq!(count, Some(expected_count));
+        assert_eq!(hits, view.search_reference(&query).unwrap().hits);
+        assert_eq!(counters.files_opened, 0);
+        assert_eq!(counters.bytes_read, 0);
+        assert_eq!(counters.record_parses, 0);
+    }
+    ordered_stream_hits
+}
+
+fn assert_posted_a_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+) {
+    assert_posted_fields_once(
+        observations,
+        "a",
+        "note",
+        "Bool(true)",
+        "String(\"needle\")",
+    );
+}
+
+fn assert_posted_fields_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+    first_field: &str,
+    second_field: &str,
+    first_value: &str,
+    second_value: &str,
+) {
+    let first = observations
+        .iter()
+        .filter(|observation| observation.field == first_field)
+        .collect::<Vec<_>>();
+    let second = observations
+        .iter()
+        .filter(|observation| observation.field == second_field)
+        .collect::<Vec<_>>();
+    assert_eq!(first.len(), 1, "observations={observations:#?}");
+    assert_eq!(second.len(), 1, "observations={observations:#?}");
+    assert_eq!(first[0].operator, Operator::Eq);
+    assert_eq!(second[0].operator, Operator::Eq);
+    assert_eq!(first[0].value, first_value);
+    assert_eq!(second[0].value, second_value);
+    assert_eq!(first[0].segment, second[0].segment);
+    assert_eq!(first[0].input, (0..260).collect::<Vec<_>>());
+    assert_eq!(second[0].input, first[0].input);
+}
+
+fn assert_posted_a_and_b_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+) {
+    assert_posted_fields_once(observations, "a", "b", "Bool(true)", "Bool(true)");
+}
+
+fn assert_posted_a_only_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+) {
+    let a = observations
+        .iter()
+        .filter(|observation| observation.field == "a")
+        .collect::<Vec<_>>();
+    assert_eq!(a.len(), 1, "observations={observations:#?}");
+    assert_eq!(a[0].operator, Operator::Eq);
+    assert_eq!(a[0].value, "Bool(true)");
+    assert_eq!(a[0].segment, 1);
+    assert_eq!(a[0].input, (0..260).collect::<Vec<_>>());
+}
+
+#[test]
+fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
+    let (root, index) = indexed_or_file_layout(65);
+    let view = index.view().unwrap();
+    let multi_file_hits = assert_indexed_or_layout(&view, 260);
+
+    for (nested, filter) in [
+        (false, "a = true || note = 'needle'"),
+        (
+            true,
+            "a = true || (b = true && (sort = 0 || note = 'needle'))",
+        ),
+    ] {
+        for (offset, limit, first, last, returned_rows) in [
+            (1, 50, "2", "53", 50),
+            (14, 50, "17", "66", 50),
+            (15, 50, "18", "67", 50),
+            (0, 260, "0", "259", 257),
+        ] {
+            let evidence_query = Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: Some(parse_filter(filter).unwrap()),
+                options: QueryOptions {
+                    sort: vec![SortField::simple("sort", false)],
+                    limit,
+                    offset,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            let expected = view.search_reference(&evidence_query).unwrap();
+            assert_eq!(expected.count, Some(257));
+            assert_eq!(expected.hits.len(), returned_rows);
+            assert_eq!(expected.hits.first().unwrap().record_id, first);
+            assert_eq!(expected.hits.last().unwrap().record_id, last);
+            for streamed in [true, false] {
+                crate::query_execution::restrictions::start_predicate_application_observations();
+                crate::query_execution::runner::reset_ordered_stream_completions();
+                let (hits, count, counters) = if streamed {
+                    let mut rows = Vec::new();
+                    let outcome = view
+                        .search_stream(
+                            &evidence_query,
+                            StreamOptions::default(),
+                            &CancellationToken::new(),
+                            &mut |event| {
+                                if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                                    rows.extend_from_slice(batch);
+                                }
+                                Ok(StreamControl::Continue)
+                            },
+                        )
+                        .unwrap();
+                    let StreamOutcome::Complete(summary) = outcome else {
+                        panic!("evidence OR stream did not complete")
+                    };
+                    (rows, summary.count, summary.counters)
+                } else {
+                    let result = view.search(&evidence_query).unwrap();
+                    (result.hits, result.count, result.counters)
+                };
+                let observations =
+                    crate::query_execution::restrictions::take_predicate_application_observations();
+                assert_eq!(count, Some(257));
+                assert_eq!(hits, expected.hits);
+                if nested {
+                    assert_posted_a_only_once(&observations);
+                } else {
+                    assert_posted_a_once(&observations);
+                }
+                let fields = hits
+                    .iter()
+                    .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+                    .collect::<HashMap<_, _>>();
+                if offset == 1 {
+                    if nested {
+                        assert_eq!(fields["2"], ["a", "b", "note"]);
+                        assert_eq!(fields["13"], ["b", "note"]);
+                    } else {
+                        assert_eq!(fields["2"], ["a", "note"]);
+                        assert_eq!(fields["13"], ["note"]);
+                    }
+                }
+                if offset == 0 {
+                    if nested {
+                        assert_eq!(fields["0"], ["a"]);
+                    } else {
+                        assert_eq!(fields["0"], ["a", "note"]);
+                    }
+                }
+                assert!(counters.files_opened > 64);
+                assert!(counters.scanned_records >= 257);
+                assert_eq!(
+                    crate::query_execution::runner::ordered_stream_completions(),
+                    0,
+                    "evidence-bearing residual query must use the general fallback"
+                );
+            }
+        }
+    }
+
+    for (literal, expected_count, expected_ids) in [
+        ("needle", 260, vec!["1", "2", "3", "4", "5"]),
+        ("extra", 3, vec!["5", "9"]),
+    ] {
+        let fts_query = Query {
+            collections: vec!["data".into()],
+            fts: Some(FtsQuery {
+                pattern_parameter: None,
+                mode: FtsMode::Literal,
+                case_sensitivity: CaseSensitivity::Sensitive,
+                literal: literal.into(),
+                fields: vec![FtsField {
+                    path: crate::model::FieldPath::parse("note").unwrap(),
+                    binding: None,
+                    query_path: None,
+                }],
+            }),
+            filter: Some(parse_filter("a = true || b = true").unwrap()),
+            options: QueryOptions {
+                sort: vec![SortField::simple("sort", false)],
+                limit: 50,
+                offset: 1,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let expected = view.search_reference(&fts_query).unwrap();
+        assert_eq!(expected.count, Some(expected_count));
+        for streamed in [true, false] {
+            crate::query_execution::restrictions::start_predicate_application_observations();
+            crate::query_execution::runner::start_restriction_cache_observations();
+            crate::query_execution::runner::reset_ordered_stream_completions();
+            let (hits, count, counters) = if streamed {
+                let mut rows = Vec::new();
+                let outcome = view
+                    .search_stream(
+                        &fts_query,
+                        StreamOptions::default(),
+                        &CancellationToken::new(),
+                        &mut |event| {
+                            if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                                rows.extend_from_slice(batch);
+                            }
+                            Ok(StreamControl::Continue)
+                        },
+                    )
+                    .unwrap();
+                let StreamOutcome::Complete(summary) = outcome else {
+                    panic!("FTS stream did not complete")
+                };
+                (rows, summary.count, summary.counters)
+            } else {
+                let result = view.search(&fts_query).unwrap();
+                (result.hits, result.count, result.counters)
+            };
+            let observations =
+                crate::query_execution::restrictions::take_predicate_application_observations();
+            let reuse = crate::query_execution::runner::take_restriction_cache_observations();
+            assert_eq!(count, Some(expected_count));
+            assert_eq!(hits, expected.hits);
+            assert_eq!(
+                hits.iter()
+                    .take(expected_ids.len())
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>(),
+                expected_ids
+            );
+            assert_posted_a_and_b_once(&observations);
+            assert!(hits.iter().all(|hit| hit.matched_fields.is_empty()));
+            if literal == "needle" {
+                assert_eq!(
+                    crate::query_execution::runner::ordered_stream_completions(),
+                    0
+                );
+                assert_eq!(
+                    reuse,
+                    vec![(0, 0, (0..260).collect::<Vec<_>>())],
+                    "broad FTS must reuse the full-domain structured entry"
+                );
+            } else {
+                assert_eq!(counters.total_matches, 3);
+                assert_eq!(
+                    crate::query_execution::runner::ordered_stream_completions(),
+                    1,
+                    "selective FTS must complete on the ordered route"
+                );
+            }
+        }
+    }
+
+    let prepared = crate::query::prepared::prepare(
+        view.repository(),
+        &Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter("a = true || b = true").unwrap()),
+            options: QueryOptions {
+                sort: vec![SortField::simple("sort", false)],
+                limit: 50,
+                offset: 1,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        },
+    )
+    .unwrap();
+    let published = &view.0.segments[0][0];
+    let collection = &view.repository().collections[0];
+    let active = published.active.bitmap();
+    let full_bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+        &published.index,
+        &published.active,
+        prepared.collections[0].filter.as_ref().unwrap(),
+        collection,
+        Some(&view.0.catalog),
+        &active,
+        Some(&prepared.predicates),
+        None,
+    )
+    .unwrap();
+    let mut restriction_cache = SegmentRestrictionCache::new(&view.0.segments);
+    let exact = full_bounds.may == full_bounds.must;
+    restriction_cache.insert(0, 0, full_bounds, exact);
+    let mut narrow = RoaringBitmap::new();
+    narrow.extend([1, 5, 9]);
+    crate::query_execution::restrictions::start_predicate_application_observations();
+    let narrow_bounds = restriction_cache.for_input(0, 0, &narrow).unwrap();
+    let narrow_observations =
+        crate::query_execution::restrictions::take_predicate_application_observations();
+    assert!(narrow_observations.is_empty());
+    assert_eq!(narrow_bounds.bounds.may.as_ref(), &narrow);
+    assert_eq!(narrow_bounds.bounds.must.as_ref(), &narrow);
+
+    for (offset, limit, first, last, returned_rows) in [
+        (1, 50, Some("2"), Some("53"), 50),
+        (14, 50, Some("17"), Some("66"), 50),
+        (15, 50, Some("18"), Some("67"), 50),
+        (0, 260, None, None, 257),
+    ] {
+        let residual_query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter("a = true || note = 'needle'").unwrap()),
+            options: QueryOptions {
+                sort: vec![SortField::simple("sort", false)],
+                limit,
+                offset,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let expected = view.search_reference(&residual_query).unwrap();
+        assert_eq!(expected.count, Some(257));
+        assert_eq!(expected.hits.len(), returned_rows);
+        if let Some(first) = first {
+            assert_eq!(expected.hits.first().unwrap().record_id, first);
+        }
+        if let Some(last) = last {
+            assert_eq!(expected.hits.last().unwrap().record_id, last);
+        }
+
+        crate::query_execution::restrictions::start_predicate_application_observations();
+        crate::query_execution::runner::reset_ordered_stream_completions();
+        let mut streamed = Vec::new();
+        let outcome = view
+            .search_stream(
+                &residual_query,
+                StreamOptions::default(),
+                &CancellationToken::new(),
+                &mut |event| {
+                    if let StreamEvent::OrderedRows { rows, .. } = event {
+                        streamed.extend_from_slice(rows);
+                    }
+                    Ok(StreamControl::Continue)
+                },
+            )
+            .unwrap();
+        let StreamOutcome::Complete(stream_summary) = outcome else {
+            panic!("residual multi-file stream did not complete")
+        };
+        let stream_observations =
+            crate::query_execution::restrictions::take_predicate_application_observations();
+        assert_eq!(stream_summary.count, Some(257));
+        assert_eq!(stream_summary.returned_rows, returned_rows);
+        assert_eq!(streamed, expected.hits);
+        assert_posted_a_once(&stream_observations);
+        assert_eq!(
+            crate::query_execution::runner::ordered_stream_completions(),
+            0,
+            "residual stream must use the general fallback; offset={offset} limit={limit}"
+        );
+
+        crate::query_execution::restrictions::start_predicate_application_observations();
+        crate::query_execution::runner::reset_parallel_file_dispatches(view.instance_id());
+        let residual = view.search(&residual_query).unwrap();
+        let search_observations =
+            crate::query_execution::restrictions::take_predicate_application_observations();
+        assert_eq!(residual.count, Some(257));
+        assert_eq!(residual.hits, expected.hits);
+        assert_posted_a_once(&search_observations);
+        let (parallel_jobs, parallel_files) =
+            crate::query_execution::runner::parallel_file_dispatches(view.instance_id());
+        if offset == 1 {
+            assert_eq!((parallel_jobs, parallel_files), (65, 65));
+        }
+        assert_eq!(
+            crate::query_execution::runner::ordered_stream_completions(),
+            0,
+            "residual ordinary query must use the general fallback"
+        );
+        if offset == 0 {
+            let ids = residual
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<HashSet<_>>();
+            assert!(!ids.contains("1"));
+            assert!(!ids.contains("5"));
+            assert!(!ids.contains("9"));
+        }
+    }
+
+    let selective = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("sort >= 12 && sort <= 15 && note = 'needle'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let expected = view.search_reference(&selective).unwrap();
+    crate::query_execution::runner::reset_ordered_stream_completions();
+    let mut first_progress = None;
+    let mut selective_rows = Vec::new();
+    let outcome = view
+        .search_stream(
+            &selective,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, progress, .. } = event {
+                    if !rows.is_empty() {
+                        first_progress = Some(progress);
+                    }
+                    selective_rows.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(selective_summary) = outcome else {
+        panic!("selective ordered stream did not complete")
+    };
+    assert_eq!(selective_summary.count, None);
+    assert_eq!(selective_summary.returned_rows, 1);
+    assert_eq!(selective_rows, expected.hits);
+    assert_eq!(selective_rows[0].record_id, "12");
+    assert_eq!(
+        crate::query_execution::runner::ordered_stream_completions(),
+        1
+    );
+    let first_progress = first_progress.expect("selective stream emitted no page");
+    assert_eq!(first_progress.processed_candidates, 1);
+    assert_eq!(first_progress.observed_matches, 1);
+    assert_eq!(first_progress.emitted_rows, 1);
+    assert_eq!(selective_summary.counters.candidates, 1);
+    assert_eq!(selective_summary.counters.distinct_files, 1);
+    assert_eq!(selective_summary.counters.files_opened, 1);
+    assert_eq!(selective_summary.counters.scanned_records, 1);
+    assert_eq!(selective_summary.counters.residual_evaluations, 1);
+
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+
+    let (root, index) = indexed_or_file_layout(1);
+    let view = index.view().unwrap();
+    let one_file_hits = assert_indexed_or_layout(&view, 260);
+    assert_eq!(
+        multi_file_hits
+            .iter()
+            .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+            .collect::<Vec<_>>(),
+        one_file_hits
+            .iter()
+            .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+            .collect::<Vec<_>>()
+    );
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn exact_stored_page_calculates_identical_segment_restrictions_once() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-restriction-once-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, kind, score) in [
+        ("a", "match", 2),
+        ("b", "other", 4),
+        ("c", "match", 1),
+        ("d", "other", 3),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"kind":"{kind}","score":{score}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("score").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::configuration::RepositoryOptions {
+            verified_cache_bytes: 0,
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(2).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2).unwrap(),
+            },
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let first = Arc::clone(&repo.segments[0][0]);
+    repo.segments[0] = Arc::new(vec![
+        first,
+        Arc::new(crate::index::segment::PublishedSegment {
+            id: crate::index::segment::SegmentId::new(4_294_967_298),
+            index: Arc::clone(&repo.segments[0][0].index),
+            active: ActiveRecords::from_bitmap(
+                repo.segments[0][0].index.record_count(),
+                RoaringBitmap::new(),
+            )
+            .unwrap(),
+        }),
+    ]);
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(view.0.segments[0].len(), 2);
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("kind = 'match'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("score", false)],
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let before = (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    );
+    let actual = view.search(&query).unwrap();
+    let after_search = (
+        crate::query::prepared::production_prepare_calls() - before.0,
+        crate::query::sort_binding::production_bound_sort_calls() - before.1,
+        crate::query_execution::restrictions::predicate_bounds_calls() - before.2,
+    );
+    assert_eq!(after_search, (1, 1, 2), "public page restriction work");
+    assert_eq!(actual.count, None);
+    assert_eq!(actual.hits, view.search_reference(&query).unwrap().hits);
+
+    let before_stream = (
+        crate::query::prepared::production_prepare_calls(),
+        crate::query::sort_binding::production_bound_sort_calls(),
+        crate::query_execution::restrictions::predicate_bounds_calls(),
+    );
+    let outcome = view
+        .search_stream(
+            &query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    assert_eq!(
+        (
+            crate::query::prepared::production_prepare_calls() - before_stream.0,
+            crate::query::sort_binding::production_bound_sort_calls() - before_stream.1,
+            crate::query_execution::restrictions::predicate_bounds_calls() - before_stream.2,
+        ),
+        (1, 1, 2)
+    );
+    drop(view);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

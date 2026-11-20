@@ -626,6 +626,9 @@ impl IndexView {
 
     fn search_published(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
+        if self.0.active.iter().any(|active| active.len() != 0) {
+            return self.search_reference(query);
+        }
         let owner = self.1.upgrade();
         let cache =
             owner.as_ref().map(
@@ -634,26 +637,15 @@ impl IndexView {
                     instance_id: self.instance_id(),
                 },
             );
-        let result = if !self.has_segments() {
-            crate::query_execution::runner::search_active_available_lifecycle(
-                self.repository(),
-                resolved.as_ref(),
-                &self.0.active,
-                &self.0.catalog,
-                self.revision(),
-                cache,
-            )
-        } else {
-            crate::query_execution::runner::search_segmented_lifecycle(
-                self.repository(),
-                resolved.as_ref(),
-                &self.0.active,
-                &self.0.segments,
-                &self.0.catalog,
-                self.revision(),
-                cache,
-            )
-        };
+        let result = crate::query_execution::runner::search_segmented_lifecycle(
+            self.repository(),
+            resolved.as_ref(),
+            &self.0.active,
+            &self.0.segments,
+            &self.0.catalog,
+            self.revision(),
+            cache,
+        );
         result.map(|result| self.stamp_result(result))
     }
 
@@ -711,6 +703,11 @@ impl IndexView {
                 message,
             )
         })?;
+        if self.0.active.iter().any(|active| active.len() != 0) {
+            return self
+                .search_reference(&resolved)
+                .map_err(|message| context.recorded_error(message));
+        }
         let owner = self.1.upgrade();
         let cache =
             owner.as_ref().map(
@@ -719,28 +716,16 @@ impl IndexView {
                     instance_id: self.instance_id(),
                 },
             );
-        let result = if !self.has_segments() {
-            crate::query_execution::runner::search_active_available_with_context_lifecycle(
-                self.repository(),
-                &resolved,
-                &self.0.active,
-                &self.0.catalog,
-                self.revision(),
-                context,
-                cache,
-            )
-        } else {
-            crate::query_execution::runner::search_segmented_with_context_lifecycle(
-                self.repository(),
-                &resolved,
-                &self.0.active,
-                &self.0.segments,
-                &self.0.catalog,
-                self.revision(),
-                context,
-                cache,
-            )
-        };
+        let result = crate::query_execution::runner::search_segmented_with_context_lifecycle(
+            self.repository(),
+            &resolved,
+            &self.0.active,
+            &self.0.segments,
+            &self.0.catalog,
+            self.revision(),
+            context,
+            cache,
+        );
         result.map(|result| self.stamp_result(result))
     }
 
@@ -1214,21 +1199,13 @@ impl IndexView {
     > {
         self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
-        if self.has_segments() {
-            return crate::query_execution::runner::search_analyze_segmented(
-                self.repository(),
-                resolved.as_ref(),
-                &self.0.active,
-                &self.0.segments,
-                &self.0.catalog,
-                self.revision(),
-            )
-            .map(|(result, trace)| (self.stamp_result(result), trace));
-        }
-        crate::query_execution::runner::search_analyze_with_active(
+        crate::query_execution::runner::search_analyze_segmented(
             self.repository(),
             resolved.as_ref(),
-            Some(&self.0.active),
+            &self.0.active,
+            &self.0.segments,
+            &self.0.catalog,
+            self.revision(),
         )
         .map(|(result, trace)| (self.stamp_result(result), trace))
     }
@@ -1239,19 +1216,12 @@ impl IndexView {
     ) -> Result<Vec<crate::query_diagnostics::trace::QueryPlanTrace>, String> {
         self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
-        if self.has_segments() {
-            return crate::query_execution::runner::explain_segmented(
-                self.repository(),
-                resolved.as_ref(),
-                &self.0.active,
-                &self.0.segments,
-                self.revision(),
-            );
-        }
-        crate::query_execution::runner::explain_with_active(
+        crate::query_execution::runner::explain_segmented(
             self.repository(),
             resolved.as_ref(),
-            Some(&self.0.active),
+            &self.0.active,
+            &self.0.segments,
+            self.revision(),
         )
     }
 

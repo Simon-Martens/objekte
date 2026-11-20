@@ -22,8 +22,6 @@ use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
-#[cfg(test)]
-use crate::query::FtsMode;
 use crate::query::binding::fts::BoundFts;
 use crate::query::options::ReturnMode;
 use crate::query::prepared::PreparedCollectionQuery;
@@ -70,10 +68,9 @@ use crate::query_results::payload::{
     materialize, payload_from_bytes, payload_from_bytes_with_execution,
 };
 use crate::query_results::ranking::{
-    MergedPageHit, RankKey, ResolvedSort, Winner, base_rank_key_merged, offer, offer_merged,
-    rank_key, rank_key_bytes, rank_key_from_context, relation_rank_key_merged,
-    segment_compare_to_rank, segment_rank_key, winner_bytes, would_enter_page,
-    would_enter_rank_key_with,
+    MergedPageHit, RankKey, ResolvedSort, Winner, offer, offer_merged, rank_key, rank_key_bytes,
+    rank_key_from_context, relation_rank_key_merged, segment_compare_to_rank, segment_rank_key,
+    segment_rank_key_owned_bytes, winner_bytes, would_enter_page, would_enter_rank_key_with,
 };
 use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
 use crate::query_results::{Payload, SearchHit, SearchResult};
@@ -116,7 +113,43 @@ const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 thread_local! {
     static SEGMENT_SLOT_EVIDENCE_CALLS: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_LIVE_PAGE_ROWS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_LIVE_PAGE_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_IDENTITY_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_CURSOR_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_SOURCE_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_CANDIDATES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_KEYS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_MEMBERS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static CACHE_CLOSED_EVIDENCE: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_TAIL_READ_ATTEMPTS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_KEY_POP_COUNT: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_KEY_BASE_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_FIRST_KEY_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_SECOND_KEY_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_STREAM_COMPLETIONS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static RESTRICTION_CACHE_REUSES: std::cell::RefCell<Vec<(usize, usize, Vec<u32>)>> =
+        const { std::cell::RefCell::new(Vec::new()) };
 }
+
+#[cfg(test)]
+static PARALLEL_FILE_DISPATCHES: std::sync::LazyLock<Mutex<HashMap<u64, (usize, HashSet<u32>)>>> =
+    std::sync::LazyLock::new(|| Mutex::new(HashMap::new()));
 
 #[cfg(test)]
 pub(crate) fn reset_segment_slot_evidence_calls() {
@@ -126,6 +159,129 @@ pub(crate) fn reset_segment_slot_evidence_calls() {
 #[cfg(test)]
 pub(crate) fn segment_slot_evidence_calls() -> usize {
     SEGMENT_SLOT_EVIDENCE_CALLS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+pub(crate) fn reset_ordered_tail_observations() {
+    ORDERED_TAIL_LIVE_PAGE_ROWS.with(|value| value.set(0));
+    ORDERED_TAIL_LIVE_PAGE_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_IDENTITY_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_CURSOR_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_SOURCE_BYTES.with(|value| value.set(0));
+    ORDERED_TAIL_READ_ATTEMPTS.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_tail_observations() -> (usize, usize, usize) {
+    (
+        ORDERED_TAIL_LIVE_PAGE_ROWS.with(std::cell::Cell::get),
+        ORDERED_TAIL_LIVE_PAGE_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_READ_ATTEMPTS.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_tail_components() -> (usize, usize, usize, usize, usize) {
+    (
+        ORDERED_TAIL_LIVE_PAGE_ROWS.with(std::cell::Cell::get),
+        ORDERED_TAIL_LIVE_PAGE_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_IDENTITY_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_CURSOR_BYTES.with(std::cell::Cell::get),
+        ORDERED_TAIL_SOURCE_BYTES.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn reset_ordered_key_observations() {
+    ORDERED_KEY_POP_COUNT.with(|value| value.set(0));
+    ORDERED_KEY_BASE_BYTES.with(|value| value.set(0));
+    ORDERED_FIRST_KEY_BYTES.with(|value| value.set(0));
+    ORDERED_SECOND_KEY_BYTES.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_key_observations() -> (usize, usize, usize) {
+    (
+        ORDERED_KEY_BASE_BYTES.with(std::cell::Cell::get),
+        ORDERED_FIRST_KEY_BYTES.with(std::cell::Cell::get),
+        ORDERED_SECOND_KEY_BYTES.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn reset_ordered_stream_completions() {
+    ORDERED_STREAM_COMPLETIONS.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_stream_completions() -> usize {
+    ORDERED_STREAM_COMPLETIONS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+pub(crate) fn reset_parallel_file_dispatches(instance_id: u64) {
+    PARALLEL_FILE_DISPATCHES
+        .lock()
+        .unwrap()
+        .insert(instance_id, (0, HashSet::new()));
+}
+
+#[cfg(test)]
+pub(crate) fn record_parallel_file_dispatch(instance_id: u64, file_id: u32) {
+    let mut dispatches = PARALLEL_FILE_DISPATCHES.lock().unwrap();
+    let observation = dispatches.entry(instance_id).or_default();
+    observation.0 += 1;
+    observation.1.insert(file_id);
+}
+
+#[cfg(test)]
+pub(crate) fn parallel_file_dispatches(instance_id: u64) -> (usize, usize) {
+    PARALLEL_FILE_DISPATCHES
+        .lock()
+        .unwrap()
+        .get(&instance_id)
+        .map_or((0, 0), |(jobs, files)| (*jobs, files.len()))
+}
+
+#[cfg(test)]
+pub(crate) fn start_restriction_cache_observations() {
+    RESTRICTION_CACHE_REUSES.with(|values| values.borrow_mut().clear());
+}
+
+#[cfg(test)]
+pub(crate) fn take_restriction_cache_observations() -> Vec<(usize, usize, Vec<u32>)> {
+    RESTRICTION_CACHE_REUSES.with(std::cell::RefCell::take)
+}
+
+#[cfg(test)]
+fn record_restriction_cache_reuse(
+    collection_index: usize,
+    segment_index: usize,
+    input: &RoaringBitmap,
+) {
+    RESTRICTION_CACHE_REUSES.with(|values| {
+        values
+            .borrow_mut()
+            .push((collection_index, segment_index, input.iter().collect()));
+    });
+}
+
+#[cfg(test)]
+pub(crate) fn reset_cache_closed_work() {
+    CACHE_CLOSED_CANDIDATES.with(|value| value.set(0));
+    CACHE_CLOSED_KEYS.with(|value| value.set(0));
+    CACHE_CLOSED_MEMBERS.with(|value| value.set(0));
+    CACHE_CLOSED_EVIDENCE.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn cache_closed_work() -> (usize, usize, usize, usize) {
+    (
+        CACHE_CLOSED_CANDIDATES.with(std::cell::Cell::get),
+        CACHE_CLOSED_KEYS.with(std::cell::Cell::get),
+        CACHE_CLOSED_MEMBERS.with(std::cell::Cell::get),
+        CACHE_CLOSED_EVIDENCE.with(std::cell::Cell::get),
+    )
 }
 
 /// The native scheduling boundary for parallel file scans. A segment whose
@@ -800,6 +956,65 @@ pub(crate) fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
     }
 }
 
+#[derive(Clone)]
+struct CachedSegmentRestriction {
+    bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
+    exact: bool,
+}
+
+struct SegmentRestrictionCache {
+    segments: Vec<Vec<Option<CachedSegmentRestriction>>>,
+}
+
+impl SegmentRestrictionCache {
+    fn new(segments: &[Arc<Vec<Arc<PublishedSegment>>>]) -> Self {
+        Self {
+            segments: segments
+                .iter()
+                .map(|group| (0..group.len()).map(|_| None).collect())
+                .collect(),
+        }
+    }
+
+    fn get(
+        &self,
+        collection_index: usize,
+        segment_index: usize,
+    ) -> Option<&CachedSegmentRestriction> {
+        self.segments
+            .get(collection_index)?
+            .get(segment_index)?
+            .as_ref()
+    }
+
+    fn for_input(
+        &self,
+        collection_index: usize,
+        segment_index: usize,
+        input: &RoaringBitmap,
+    ) -> Option<CachedSegmentRestriction> {
+        let cached = self.get(collection_index, segment_index)?;
+        Some(CachedSegmentRestriction {
+            bounds: crate::query_execution::restrictions::SegmentCandidateBounds {
+                may: Arc::new(cached.bounds.may.as_ref() & input),
+                must: Arc::new(cached.bounds.must.as_ref() & input),
+            },
+            exact: cached.exact,
+        })
+    }
+
+    fn insert(
+        &mut self,
+        collection_index: usize,
+        segment_index: usize,
+        bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
+        exact: bool,
+    ) {
+        self.segments[collection_index][segment_index] =
+            Some(CachedSegmentRestriction { bounds, exact });
+    }
+}
+
 /// Search the base and bounded indexed deltas as one pinned page. Segment
 /// candidates use local slot domains; only ranked hits cross shard boundaries.
 /// Relation and related sort keys use the pinned merged relation resolver.
@@ -823,6 +1038,10 @@ pub(crate) fn search_segmented_lifecycle(
     revision: IndexRevision,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
+    if base_active.iter().any(|active| active.len() != 0) {
+        return search_segmented_reference(repo, query, base_active, segments, catalog, revision);
+    }
+    let mut restriction_cache = SegmentRestrictionCache::new(segments);
     let mut result = match search_segmented_impl(
         repo,
         query,
@@ -833,6 +1052,9 @@ pub(crate) fn search_segmented_lifecycle(
         None,
         cache,
         None,
+        None,
+        &mut restriction_cache,
+        false,
     ) {
         Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
             search_segmented_reference(repo, query, base_active, segments, catalog, revision)
@@ -889,6 +1111,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
+    let mut restriction_cache = SegmentRestrictionCache::new(segments);
     search_segmented_with_context_lifecycle_budget(
         repo,
         query,
@@ -899,6 +1122,9 @@ pub(crate) fn search_segmented_with_context_lifecycle(
         context,
         cache,
         None,
+        None,
+        &mut restriction_cache,
+        false,
     )
 }
 
@@ -913,8 +1139,15 @@ fn search_segmented_with_context_lifecycle_budget(
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
+    bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
+    restriction_cache: &mut SegmentRestrictionCache,
+    ordered_already_declined: bool,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
     context.check()?;
+    if base_active.iter().any(|active| active.len() != 0) {
+        return search_segmented_reference(repo, query, base_active, segments, catalog, revision)
+            .map_err(|message| context.recorded_error(message));
+    }
     let result = search_segmented_impl(
         repo,
         query,
@@ -925,6 +1158,9 @@ fn search_segmented_with_context_lifecycle_budget(
         Some(context),
         cache,
         retained_budget,
+        bound,
+        restriction_cache,
+        ordered_already_declined,
     );
     match result {
         Err(message) => {
@@ -935,10 +1171,17 @@ fn search_segmented_with_context_lifecycle_budget(
             ) && has_unavailable_active_source(repo, base_active, segments, catalog)
             {
                 context.clear_recovered_source_changed();
-                let sort = ResolvedSort::new(repo, query)
-                    .map_err(|message| context.recorded_error(message))?;
-                let prepared = crate::query::prepared::prepare(repo, query)
-                    .map_err(|message| context.recorded_error(message))?;
+                let owned_sort;
+                let owned_prepared;
+                let (sort, prepared) = if let Some((sort, prepared)) = bound {
+                    (sort, prepared)
+                } else {
+                    owned_sort = ResolvedSort::new(repo, query)
+                        .map_err(|message| context.recorded_error(message))?;
+                    owned_prepared = crate::query::prepared::prepare(repo, query)
+                        .map_err(|message| context.recorded_error(message))?;
+                    (&owned_sort, &owned_prepared)
+                };
                 search_segmented_relations(
                     repo,
                     query,
@@ -946,7 +1189,7 @@ fn search_segmented_with_context_lifecycle_budget(
                     segments,
                     catalog,
                     revision,
-                    &sort,
+                    sort,
                     &prepared.collections,
                     Some(context),
                     None,
@@ -976,6 +1219,7 @@ pub(crate) fn search_active_available(
     search_active_available_lifecycle(repo, query, base_active, catalog, revision, None)
 }
 
+#[cfg(test)]
 pub(crate) fn search_active_available_lifecycle(
     repo: &Repository,
     query: &Query,
@@ -988,49 +1232,6 @@ pub(crate) fn search_active_available_lifecycle(
     match search_active(repo, query, base_active) {
         Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
             search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
-        }
-        result => result,
-    }
-}
-
-pub(crate) fn search_active_available_with_context_lifecycle(
-    repo: &Repository,
-    query: &Query,
-    base_active: &[ActiveRecords],
-    catalog: &FileCatalog,
-    revision: IndexRevision,
-    context: &ExecutionContext,
-    _cache: Option<LifecycleCacheScope<'_>>,
-) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
-    let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-    match search_with_context_active(repo, query, context, base_active) {
-        Err(error)
-            if matches!(
-                error.kind,
-                ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
-            ) && has_unavailable_active_source(repo, base_active, &empty, catalog) =>
-        {
-            context.clear_recovered_source_changed();
-            let sort = ResolvedSort::new(repo, query)
-                .map_err(|message| context.recorded_error(message))?;
-            let prepared = crate::query::prepared::prepare(repo, query)
-                .map_err(|message| context.recorded_error(message))?;
-            search_segmented_relations(
-                repo,
-                query,
-                base_active,
-                &empty,
-                catalog,
-                revision,
-                &sort,
-                &prepared.collections,
-                Some(context),
-                None,
-                None,
-                false,
-                false,
-            )
-            .map_err(|message| context.recorded_error(message))
         }
         result => result,
     }
@@ -1114,18 +1315,17 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
             {
                 return None;
             }
-            let mut fields = if term.derived == Derived::None
+            let mut fields = Vec::new();
+            if term.derived == Derived::None
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
-                vec![term.query_path.display.clone()]
-            } else {
-                Vec::new()
-            };
-            if let Some(rhs) = &term.rhs
-                && matches!(term.path.root, PathRoot::Metadata(_))
-                && matches!(rhs.path.root, PathRoot::Metadata(_))
-            {
-                fields.push(rhs.query_path.display.clone());
+                fields.push(term.query_path.display.clone());
+                if let Some(rhs) = &term.rhs
+                    && matches!(term.path.root, PathRoot::Metadata(_))
+                    && matches!(rhs.path.root, PathRoot::Metadata(_))
+                {
+                    fields.push(rhs.query_path.display.clone());
+                }
                 fields.sort();
                 fields.dedup();
             }
@@ -1155,6 +1355,69 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
         }
         BoundExpr::Not(_) => Some(Vec::new()),
     }
+}
+
+struct OrRestrictionProbe {
+    bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
+    evidence: Option<Vec<(RoaringBitmap, Vec<String>)>>,
+}
+
+fn exact_or_branch_evidence_fields(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    filter: &BoundExpr,
+    collection: &CollectionState,
+    catalog: &FileCatalog,
+    predicates: &crate::query_predicate::PreparedPredicates,
+    context: &ExecutionContext,
+) -> Result<Option<OrRestrictionProbe>, String> {
+    let BoundExpr::Or(parts) = filter else {
+        return Ok(None);
+    };
+    let Some(child_fields) = parts
+        .iter()
+        .map(segment_static_evidence_fields)
+        .collect::<Option<Vec<_>>>()
+    else {
+        return Ok(None);
+    };
+    let input = active.bitmap();
+    let mut branches = Vec::with_capacity(parts.len());
+    let mut may = RoaringBitmap::new();
+    let mut must = RoaringBitmap::new();
+    let mut all_exact = true;
+    for (part, fields) in parts.iter().zip(child_fields) {
+        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+            segment,
+            active,
+            part,
+            collection,
+            Some(catalog),
+            &input,
+            Some(predicates),
+            Some(context),
+        )?;
+        let logical = &input & &segment.logical_records;
+        let exact = bounds.may == bounds.must
+            || (excludes_raw_fallback(part)
+                && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+        may |= bounds.may.as_ref();
+        must |= bounds.must.as_ref();
+        if exact {
+            branches.push((bounds.must.as_ref() & &input, fields));
+        } else {
+            all_exact = false;
+        }
+    }
+    may &= &input;
+    must &= &input;
+    Ok(Some(OrRestrictionProbe {
+        bounds: crate::query_execution::restrictions::SegmentCandidateBounds {
+            may: Arc::new(may),
+            must: Arc::new(must),
+        },
+        evidence: all_exact.then_some(branches),
+    }))
 }
 
 /// A single file's local residual work can run independently of other files. Only its
@@ -1250,10 +1513,10 @@ fn push_exact_order_cursor(
             .index
             .record(slot)
             .ok_or("exact ordered slot missing")?;
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
-        let Some(bytes) = usize::try_from(rank_key_bytes(&key))
-            .ok()
-            .and_then(|bytes| bytes.checked_add(std::mem::size_of::<LifecycleOrderCursor>()))
+        let predicted_key_bytes =
+            segment_rank_key_owned_bytes(repo, sort, collection_index, &published.index, record)?;
+        let Some(bytes) =
+            predicted_key_bytes.checked_add(std::mem::size_of::<LifecycleOrderCursor>())
         else {
             return Ok(false);
         };
@@ -1263,6 +1526,12 @@ fn push_exact_order_cursor(
         if next > 64 * 1024 * 1024 {
             return Ok(false);
         }
+        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        #[cfg(test)]
+        assert_eq!(
+            rank_key_bytes(&key),
+            u64::try_from(predicted_key_bytes).unwrap()
+        );
         *retained_bytes = next;
         heap.push(Reverse(LifecycleOrderCursor {
             key,
@@ -1287,6 +1556,9 @@ fn exact_ordered_page(
     revision: IndexRevision,
     collection_index: usize,
     selected: &[(RoaringBitmap, Vec<String>)],
+    qualified_evidence: Option<
+        &HashMap<crate::index::segment::SegmentRecordAddress, HashSet<String>>,
+    >,
     mut counters: WorkCounters,
 ) -> Result<Option<SearchResult>, String> {
     let Some(cap) = query.options.offset.checked_add(query.options.limit) else {
@@ -1353,11 +1625,24 @@ fn exact_ordered_page(
             let resolved =
                 segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
                     .ok_or("exact ordered source retired")?;
+            let mut matched_fields = selected[cursor.segment_index].1.clone();
+            if let Some(evidence) = qualified_evidence {
+                let address = crate::index::segment::SegmentRecordAddress {
+                    collection: published.index.collection,
+                    segment: published.id,
+                    slot: cursor.slot,
+                };
+                if let Some(fields) = evidence.get(&address) {
+                    matched_fields.extend(fields.iter().cloned());
+                }
+                matched_fields.sort();
+                matched_fields.dedup();
+            }
             let hit = segment_locator_hit(
                 &repo.collections[collection_index],
                 resolved,
                 revision,
-                selected[cursor.segment_index].1.clone(),
+                matched_fields,
             );
             let Some(next) =
                 retained_bytes.checked_add(crate::query_execution::streaming::hit_bytes(&hit))
@@ -1411,7 +1696,9 @@ fn try_exact_segment_ordered_page(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
     revision: IndexRevision,
-    prepared: &[PreparedCollectionQuery],
+    prepared: &crate::query::prepared::PreparedQuery,
+    context: Option<&ExecutionContext>,
+    restriction_cache: &mut SegmentRestrictionCache,
     counters: &WorkCounters,
 ) -> Result<Option<SearchResult>, String> {
     if query.options.return_mode != ReturnMode::Locator
@@ -1423,12 +1710,12 @@ fn try_exact_segment_ordered_page(
             .flatten()
             .flatten()
             .any(|term| matches!(&term.source, BoundSortSource::Computed(_)))
-        || prepared.len() != 1
+        || prepared.collections.len() != 1
         || base_active.iter().any(|active| active.len() != 0)
     {
         return Ok(None);
     }
-    let entry = &prepared[0];
+    let entry = &prepared.collections[0];
     let collection_index = entry.collection_index;
     let filter = entry.filter.as_ref();
     let fts = entry.fts.as_ref();
@@ -1441,21 +1728,39 @@ fn try_exact_segment_ordered_page(
     }
     let mut selected = Vec::with_capacity(segments[collection_index].len());
     let mut counters = counters.clone();
-    for published in segments[collection_index].iter() {
+    for (segment_index, published) in segments[collection_index].iter().enumerate() {
         if lifecycle_segment_order(&published.index, sort, query, collection_index).is_none() {
             return Ok(None);
         }
-        let bounds = filter
-            .map(|filter| {
-                segment_filter_bounds_with_catalog(
-                    &published.index,
-                    &published.active,
-                    filter,
-                    collection,
-                    Some(catalog),
-                )
-            })
-            .transpose()?;
+        let cached = restriction_cache
+            .get(collection_index, segment_index)
+            .cloned();
+        let was_cached = cached.is_some();
+        let bounds = if let Some(cached) = cached {
+            Some(cached.bounds)
+        } else {
+            filter
+                .map(|filter| {
+                    segment_filter_bounds_with_input_catalog_and_predicates(
+                        &published.index,
+                        &published.active,
+                        filter,
+                        collection,
+                        Some(catalog),
+                        &published.active.bitmap(),
+                        Some(&prepared.predicates),
+                        context,
+                    )
+                })
+                .transpose()?
+        };
+        if !was_cached && let Some(bounds) = bounds.as_ref() {
+            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let exact = bounds.may == bounds.must
+                || (filter.is_some_and(excludes_raw_fallback)
+                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+            restriction_cache.insert(collection_index, segment_index, bounds.clone(), exact);
+        }
         let candidates = match bounds.as_ref() {
             Some(bounds) if bounds.may == bounds.must => bounds.may.as_ref().clone(),
             Some(bounds)
@@ -1495,6 +1800,7 @@ fn try_exact_segment_ordered_page(
         revision,
         collection_index,
         &selected,
+        None,
         counters,
     )
 }
@@ -1511,97 +1817,11 @@ fn excludes_raw_fallback(filter: &BoundExpr) -> bool {
     }
 }
 
-fn exact_or_branch_members(
-    repo: &Repository,
-    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    collection_index: usize,
-    filter: &BoundExpr,
-) -> Result<u64, String> {
-    let BoundExpr::Or(parts) = filter else {
-        return Ok(0);
-    };
-    let collection = &repo.collections[collection_index];
-    let mut members = crate::index::segment::SegmentRecordSet::default();
-    for part in parts {
-        if let BoundExpr::Term(term) = part
-            && term.path.root == PathRoot::Metadata(crate::model::MetadataField::RecordClass)
-            && term.operator == Operator::Eq
-            && let Value::Number(expected) = &term.literal
-        {
-            for published in segments[collection_index].iter() {
-                for slot in published.active.bitmap().iter() {
-                    let record = published
-                        .index
-                        .record(RecordSlot(slot))
-                        .ok_or("exact record-class branch slot missing")?;
-                    if crate::model::Number::integer(record.class.code() as i128) == *expected {
-                        members.insert(crate::index::segment::SegmentRecordAddress {
-                            collection: published.index.collection,
-                            segment: published.id,
-                            slot: record.slot,
-                        });
-                    }
-                }
-            }
-            continue;
-        }
-        if let BoundExpr::Term(term) = part
-            && term.path.root == PathRoot::Data
-            && !collection
-                .definition
-                .schema
-                .fields()
-                .get(&term.path.segments)
-                .is_some_and(|field| field.indexed)
-        {
-            continue;
-        }
-        if matches!(
-            part,
-            BoundExpr::Term(term)
-                if matches!(term.operator, Operator::Contains | Operator::NotContains)
-                    || term.related.is_some()
-        ) {
-            continue;
-        }
-        let mut branch = crate::index::segment::SegmentRecordSet::default();
-        let mut exact = true;
-        for published in segments[collection_index].iter() {
-            let bounds =
-                segment_filter_bounds(&published.index, &published.active, part, collection)?;
-            let logical = &published.active.bitmap() & &published.index.logical_records;
-            if bounds.may != bounds.must
-                && !(excludes_raw_fallback(part)
-                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical))
-            {
-                exact = false;
-                break;
-            }
-            for slot in bounds.must.iter() {
-                let record = published
-                    .index
-                    .record(RecordSlot(slot))
-                    .ok_or("exact OR branch slot missing")?;
-                branch.insert(crate::index::segment::SegmentRecordAddress {
-                    collection: published.index.collection,
-                    segment: published.id,
-                    slot: record.slot,
-                });
-            }
-        }
-        if exact {
-            for address in branch.iter() {
-                members.insert(address);
-            }
-        }
-    }
-    Ok(members.len())
-}
-
 #[allow(clippy::too_many_arguments)]
 fn try_lifecycle_ordered_page(
     repo: &Repository,
     query: &Query,
+    sort: &ResolvedSort<'_>,
     prepared: &crate::query::prepared::PreparedQuery,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
@@ -1609,6 +1829,7 @@ fn try_lifecycle_ordered_page(
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
+    restriction_cache: &mut SegmentRestrictionCache,
 ) -> Result<Option<SearchResult>, String> {
     if query
         .options
@@ -1631,38 +1852,6 @@ fn try_lifecycle_ordered_page(
     {
         return Ok(None);
     }
-    let single_collection = prepared.collections.len() == 1;
-    let mut all_exact = true;
-    for entry in &prepared.collections {
-        let collection_index = entry.collection_index;
-        let filter = entry.filter.as_ref();
-        let fts = entry.fts.as_ref();
-        if fts.is_some() {
-            all_exact = false;
-            continue;
-        }
-        let filter = filter.ok_or("ordered filter missing")?;
-        for segment in segments[collection_index].iter() {
-            let bounds = segment_filter_bounds_with_catalog(
-                &segment.index,
-                &segment.active,
-                filter,
-                &repo.collections[collection_index],
-                Some(catalog),
-            )?;
-            let logical = &segment.active.bitmap() & &segment.index.logical_records;
-            let exact = bounds.may == bounds.must
-                || (excludes_raw_fallback(filter)
-                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
-            all_exact &= exact;
-        }
-    }
-    if single_collection && all_exact && !query.options.sort.is_empty() {
-        return Ok(None);
-    }
-    if query.options.sort.is_empty() && !all_exact {
-        return Ok(None);
-    }
     let fallback_context;
     let execution = if let Some(context) = context {
         context
@@ -1674,25 +1863,9 @@ fn try_lifecycle_ordered_page(
         );
         &fallback_context
     };
-    let cancellation = execution.cancellation().cloned().unwrap_or_default();
-    let mut page_query = query.clone();
-    page_query.options.count = false;
     let mut hits = Vec::new();
-    let mut sink = |event: crate::query_execution::streaming::StreamEvent<'_>| {
-        match event {
-            crate::query_execution::streaming::StreamEvent::OrderedRows { rows, .. }
-            | crate::query_execution::streaming::StreamEvent::PageReplacement { rows, .. } => {
-                hits.extend(rows.iter().cloned());
-            }
-            crate::query_execution::streaming::StreamEvent::Progress { .. } => {}
-        }
-        Ok(crate::query_execution::streaming::StreamControl::Continue)
-    };
-    let mut delivery = Delivery::new(
-        crate::query_execution::streaming::StreamOptions::default(),
-        &cancellation,
-        &mut sink,
-    );
+    let options = crate::query_execution::streaming::StreamOptions::default();
+    let max_buffered_bytes = options.max_buffered_bytes;
     let scope = crate::query_execution::streaming::ResultScope::Page {
         offset: query.options.offset,
         limit: query.options.limit,
@@ -1703,7 +1876,9 @@ fn try_lifecycle_ordered_page(
     }
     let outcome = try_lifecycle_ordered_stream(
         repo,
-        &page_query,
+        query,
+        sort,
+        prepared,
         query.options.return_mode.clone(),
         scope,
         base_active,
@@ -1712,36 +1887,17 @@ fn try_lifecycle_ordered_page(
         revision,
         execution,
         cache,
-        &mut delivery,
+        restriction_cache,
+        &options,
+        max_buffered_bytes,
+        None,
+        Some(&mut hits),
     )?;
     let Some(crate::query_execution::streaming::StreamOutcome::Complete(summary)) = outcome else {
         return Ok(None);
     };
     let mut counters = summary.counters;
-    let mut count = None;
-    if query.options.count {
-        let _count_phase = crate::query_execution::request::observation_phase("exact_count");
-        if let Some(collector) = context.and_then(|context| context.observation_collector()) {
-            collector.set_phase("exact_count");
-        }
-        let mut count_query = query.clone();
-        count_query.options.offset = 0;
-        count_query.options.limit = 0;
-        count_query.options.return_mode = ReturnMode::Locator;
-        let counted = search_segmented_with_context_lifecycle(
-            repo,
-            &count_query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            execution,
-            cache,
-        )
-        .map_err(|error| error.message)?;
-        counters = counted.counters;
-        count = counted.count;
-    }
+    let mut count = summary.count;
     if let Some(collector) = context.and_then(|context| context.observation_collector()) {
         collector.set_phase("search");
     }
@@ -1761,15 +1917,6 @@ fn try_lifecycle_ordered_page(
         count = None;
         counters.match_count_complete = false;
     }
-    let exact_or_members = prepared.collections.iter().try_fold(0u64, |total, entry| {
-        entry
-            .filter
-            .as_ref()
-            .map(|filter| exact_or_branch_members(repo, segments, entry.collection_index, filter))
-            .transpose()
-            .map(|members| total.saturating_add(members.unwrap_or(0)))
-    })?;
-    counters.exact_posting_matches = counters.exact_posting_matches.max(exact_or_members);
     counters.returned_records = hits.len() as u64;
     Ok(Some(SearchResult {
         count,
@@ -1867,6 +2014,9 @@ fn search_segmented_impl(
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
+    bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
+    restriction_cache: &mut SegmentRestrictionCache,
+    ordered_already_declined: bool,
 ) -> Result<SearchResult, String> {
     if query.options.count
         && query.options.limit == 0
@@ -1881,6 +2031,9 @@ fn search_segmented_impl(
     }
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
+    }
+    if base_active.iter().any(|active| active.len() != 0) {
+        return Err("populated flat-base search is not a supported optimized state".into());
     }
     query
         .options
@@ -1916,18 +2069,25 @@ fn search_segmented_impl(
     } else {
         None
     };
-    let sort = ResolvedSort::new(repo, query).map_err(|message| match context {
-        Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
-        None => message,
-    })?;
-    let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
-        matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
-    });
-    let prepared =
-        crate::query::prepared::prepare(repo, query).map_err(|message| match context {
+    let owned_sort;
+    let owned_prepared;
+    let (sort, prepared) = if let Some((sort, prepared)) = bound {
+        (sort, prepared)
+    } else {
+        owned_sort = ResolvedSort::new(repo, query).map_err(|message| match context {
             Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
             None => message,
         })?;
+        owned_prepared =
+            crate::query::prepared::prepare(repo, query).map_err(|message| match context {
+                Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
+                None => message,
+            })?;
+        (&owned_sort, &owned_prepared)
+    };
+    let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
+        matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
+    });
     let has_relations = prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
             || entry
@@ -1951,9 +2111,40 @@ fn search_segmented_impl(
         return Ok(result);
     }
     if !has_relations
+        && base_active.iter().all(|active| active.len() == 0)
+        && context.is_none()
+        && retained_budget.is_none()
+        && cache_key.is_none()
+        && query.options.return_mode == ReturnMode::Locator
+        && (!query.options.evidence
+            || prepared.collections.iter().all(|entry| {
+                entry
+                    .filter
+                    .as_ref()
+                    .is_some_and(|filter| segment_static_evidence_fields(filter).is_some())
+            }))
+        && let Some(result) = try_exact_segment_ordered_page(
+            repo,
+            query,
+            &sort,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            &prepared,
+            context,
+            restriction_cache,
+            &WorkCounters::default(),
+        )?
+    {
+        return Ok(result);
+    }
+    if !has_relations
+        && !ordered_already_declined
         && let Some(result) = try_lifecycle_ordered_page(
             repo,
             query,
+            &sort,
             &prepared,
             base_active,
             segments,
@@ -1961,6 +2152,7 @@ fn search_segmented_impl(
             revision,
             context,
             cache,
+            restriction_cache,
         )?
     {
         return Ok(result);
@@ -2004,92 +2196,19 @@ fn search_segmented_impl(
         }
         return Ok(result);
     }
-    // This merged planner already verifies the full segment domain, even when
-    // the caller does not request a count. Retain compact ordered addresses
-    // only if every base record has moved to lifecycle partitions; otherwise
-    // the base top-k call does not expose all members.
-    let mut cache_builder = cache_key.as_ref().and_then(|(_, _, budget)| {
-        (*budget > 0 && base_active.iter().all(|active| active.len() == 0))
-            .then(|| LifecycleCacheBuilder::new(*budget))
-    });
     let cap = query
         .options
         .offset
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
-    let base_empty = base_active.iter().all(|active| active.len() == 0);
-    let base = if base_empty {
-        // The bound query and sort above already validate the request. An
-        // empty base domain contributes no rows, so avoid planning it again.
-        SearchResult {
-            count: query.options.count.then_some(0),
-            hits: Vec::new(),
-            counters: WorkCounters {
-                match_count_complete: true,
-                ..WorkCounters::default()
-            },
-        }
-    } else {
-        let mut base_query = query.clone();
-        base_query.options.offset = 0;
-        base_query.options.limit = cap;
-        // A page request must not exhaust the base merely to calculate a
-        // total. Its top `cap` rows suffice for the merged page.
-        base_query.options.count = query.options.count;
-        if let Some(context) = context {
-            search_with_context_active(repo, &base_query, context, base_active)
-                .map_err(|error| error.message)?
-        } else {
-            search_active(repo, &base_query, base_active)?
-        }
-    };
-    let mut total = base
-        .count
-        .map_or(base.counters.total_matches, |count| count as u64);
-    let base_count_complete = base_empty || base.counters.match_count_complete;
-    let mut counters = base.counters;
-    let mut exact_or_members = 0;
-    for entry in &prepared.collections {
-        if let Some(filter) = entry.filter.as_ref() {
-            exact_or_members +=
-                exact_or_branch_members(repo, segments, entry.collection_index, filter)?;
-        }
-    }
+    let mut cache_builder = cache_key
+        .as_ref()
+        .and_then(|(_, _, budget)| (*budget > 0).then(|| LifecycleCacheBuilder::new(*budget)));
+    let mut total = 0u64;
+    let mut counters = WorkCounters::default();
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let winner_budget = retained_budget.zip(context);
-    for mut hit in base.hits {
-        let collection_index = repo
-            .collections
-            .iter()
-            .position(|collection| collection.definition.name == hit.collection)
-            .ok_or("base hit collection missing")?;
-        let collection = &repo.collections[collection_index];
-        let slot = collection
-            .id_lookup
-            .get(hit.record_id.as_str())
-            .ok_or("base hit ID missing")?;
-        let record = collection
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("base hit slot missing")?;
-        let key = base_rank_key_merged(repo, &sort, collection_index, record, catalog, context)?;
-        repo.stamp_native_hit_at(&mut hit, revision);
-        offer_merged(
-            &mut winners,
-            cap,
-            MergedPageHit {
-                key,
-                hit,
-                segment: None,
-                record_address: None,
-                retained_bytes: 0,
-            },
-            winner_budget,
-            &mut winner_bytes,
-        )?;
-    }
     if context.is_none()
         && retained_budget.is_none()
         && cache_key.is_none()
@@ -2101,18 +2220,21 @@ fn search_segmented_impl(
             segments,
             catalog,
             revision,
-            &prepared.collections,
+            &prepared,
+            context,
+            restriction_cache,
             &counters,
         )?
     {
         return Ok(ordered);
     }
+    let mut exact_or_members = 0u64;
     let mut delta_opened = HashSet::new();
     let predicates = Arc::clone(&prepared.predicates);
-    for entry in prepared.collections {
+    for entry in &prepared.collections {
         let collection_index = entry.collection_index;
-        let filter = entry.filter;
-        let fts = entry.fts;
+        let filter = entry.filter.clone();
+        let fts = entry.fts.clone();
         let collection = &repo.collections[collection_index];
         let direct_plan =
             DirectSourcePlan::prepare_bound(collection, &sort, fts.as_ref(), filter.as_ref());
@@ -2175,21 +2297,49 @@ fn search_segmented_impl(
             } else {
                 Arc::new(domain.clone())
             };
-            let bounds = filter
-                .as_ref()
-                .map(|filter| {
-                    segment_filter_bounds_with_input_catalog_and_predicates(
-                        segment,
-                        &published.active,
-                        filter,
-                        collection,
-                        Some(catalog),
-                        filter_input.as_ref(),
-                        Some(&predicates),
-                        context,
-                    )
-                })
-                .transpose()?;
+            let cached_bounds =
+                restriction_cache.for_input(collection_index, segment_index, filter_input.as_ref());
+            let was_cached = cached_bounds.is_some();
+            #[cfg(test)]
+            if was_cached {
+                record_restriction_cache_reuse(
+                    collection_index,
+                    segment_index,
+                    filter_input.as_ref(),
+                );
+            }
+            let bounds = if let Some(cached) = cached_bounds {
+                Some(cached.bounds)
+            } else {
+                filter
+                    .as_ref()
+                    .map(|filter| {
+                        segment_filter_bounds_with_input_catalog_and_predicates(
+                            segment,
+                            &published.active,
+                            filter,
+                            collection,
+                            Some(catalog),
+                            filter_input.as_ref(),
+                            Some(&predicates),
+                            context,
+                        )
+                    })
+                    .transpose()?
+            };
+            if !was_cached
+                && filter_input.as_ref() == &domain
+                && let (Some(filter), Some(bounds)) = (filter.as_ref(), bounds.as_ref())
+            {
+                let logical = &published.active.bitmap() & &segment.logical_records;
+                let exact = bounds.may == bounds.must
+                    || (excludes_raw_fallback(filter)
+                        && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+                restriction_cache.insert(collection_index, segment_index, bounds.clone(), exact);
+            }
+            if matches!(filter.as_ref(), Some(BoundExpr::Or(_))) {
+                exact_or_members += bounds.as_ref().map_or(0, |bounds| bounds.must.len());
+            }
             let mut candidates = bounds
                 .as_ref()
                 .map_or(filter_input, |bounds| Arc::clone(&bounds.may));
@@ -2539,6 +2689,8 @@ fn search_segmented_impl(
                         chunk
                             .par_iter()
                             .map(|(file_id, ranges)| {
+                                #[cfg(test)]
+                                record_parallel_file_dispatch(repo.instance_id, *file_id);
                                 scan_segment_file_parallel(
                                     repo,
                                     query,
@@ -2945,22 +3097,26 @@ fn search_segmented_impl(
                 .saturating_sub(exact_or_members);
         }
     }
-    counters.match_count_complete = base_count_complete && counters.source_unavailable_events == 0;
+    counters.match_count_complete = counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     counters.distinct_files += delta_opened.len() as u64;
-    if counters.match_count_complete
-        && let (Some(builder), Some((scope, key, _))) = (cache_builder, cache_key)
-        && let Some(members) = builder.finish(total)
-    {
-        if let Some(context) = context {
-            context.check_string()?;
+    if counters.match_count_complete {
+        let members = if let Some(builder) = cache_builder {
+            builder.finish(total)
+        } else {
+            None
+        };
+        if let (Some(members), Some((scope, key, _))) = (members, cache_key) {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
+            let displaced = scope
+                .store
+                .lock()
+                .map_err(|error| error.to_string())?
+                .insert(key, members);
+            drop(displaced);
         }
-        let displaced = scope
-            .store
-            .lock()
-            .map_err(|error| error.to_string())?
-            .insert(key, members);
-        drop(displaced);
     }
     Ok(SearchResult {
         count: (query.options.count && counters.match_count_complete).then_some(total as usize),
@@ -3395,13 +3551,8 @@ fn push_lifecycle_order_cursor(
             .index
             .record(slot)
             .ok_or("lifecycle ordered slot missing")?;
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
-        let bytes = usize::try_from(rank_key_bytes(&key)).map_err(|_| {
-            context.fail(
-                ExecutionErrorKind::Resource,
-                "ordered sort key size overflow",
-            )
-        })?;
+        let bytes =
+            segment_rank_key_owned_bytes(repo, sort, collection_index, &published.index, record)?;
         let next = heap_bytes.checked_add(bytes).ok_or_else(|| {
             context.fail(
                 ExecutionErrorKind::Resource,
@@ -3414,6 +3565,9 @@ fn push_lifecycle_order_cursor(
                 "ordered cursors exceed stream memory budget",
             ));
         }
+        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        #[cfg(test)]
+        assert_eq!(rank_key_bytes(&key), bytes as u64);
         *heap_bytes = next;
         heap.push(Reverse(LifecycleOrderCursor {
             key,
@@ -3439,6 +3593,8 @@ fn push_lifecycle_order_cursor(
 fn try_lifecycle_ordered_stream(
     repo: &Repository,
     request: &Query,
+    sort: &ResolvedSort<'_>,
+    prepared: &crate::query::prepared::PreparedQuery,
     output_mode: ReturnMode,
     scope: ResultScope,
     base_active: &[ActiveRecords],
@@ -3447,14 +3603,17 @@ fn try_lifecycle_ordered_stream(
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
-    delivery: &mut Delivery<'_>,
+    restriction_cache: &mut SegmentRestrictionCache,
+    options: &StreamOptions,
+    max_buffered_bytes: usize,
+    mut delivery: Option<&mut Delivery<'_>>,
+    mut page_output: Option<&mut Vec<SearchHit>>,
 ) -> Result<Option<StreamOutcome>, String> {
     if base_active.iter().any(|active| active.len() != 0)
         || matches!(scope, ResultScope::Page { limit: 0, .. })
     {
         return Ok(None);
     }
-    let sort = ResolvedSort::new(repo, request)?;
     if sort.bound.has_computed
         || sort
             .bound
@@ -3466,7 +3625,6 @@ fn try_lifecycle_ordered_stream(
     {
         return Ok(None);
     }
-    let prepared = crate::query::prepared::prepare(repo, request)?;
     let predicates = Arc::clone(&prepared.predicates);
     if prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
@@ -3475,6 +3633,12 @@ fn try_lifecycle_ordered_stream(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     }) {
+        return Ok(None);
+    }
+    if page_output.is_some()
+        && request.options.sort.is_empty()
+        && prepared.collections.iter().any(|entry| entry.fts.is_some())
+    {
         return Ok(None);
     }
     for entry in &prepared.collections {
@@ -3496,38 +3660,104 @@ fn try_lifecycle_ordered_stream(
         .iter()
         .map(|group| vec![false; group.len()])
         .collect::<Vec<_>>();
-    for entry in prepared.collections {
+    let mut evidence_branches = segments
+        .iter()
+        .map(|group| vec![None; group.len()])
+        .collect::<Vec<_>>();
+    for entry in &prepared.collections {
         let collection_index = entry.collection_index;
-        let filter = entry.filter;
-        let fts = entry.fts;
+        let filter = entry.filter.clone();
+        let fts = entry.fts.clone();
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
-            let filter_may = filter
-                .as_ref()
-                .map(|filter| {
-                    let active = segment.active.bitmap();
-                    let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
-                        &segment.index,
-                        &segment.active,
-                        filter,
-                        collection,
-                        Some(catalog),
-                        &active,
-                        Some(&predicates),
-                        Some(context),
-                    )?;
-                    let logical = &segment.active.bitmap() & &segment.index.logical_records;
-                    filter_exact[collection_index][segment_index] = bounds.may == bounds.must
-                        || (excludes_raw_fallback(filter)
-                            && (bounds.may.as_ref() & &logical)
-                                == (bounds.must.as_ref() & &logical));
-                    Ok::<_, String>(if filter_exact[collection_index][segment_index] {
-                        bounds.must
-                    } else {
-                        bounds.may
-                    })
+            if request.options.evidence
+                && fts.is_none()
+                && filter.as_ref().is_some_and(|filter| {
+                    segment_static_evidence_fields(filter).is_none()
+                        && !matches!(filter, BoundExpr::Or(_))
                 })
-                .transpose()?;
+            {
+                return Ok(None);
+            }
+            let or_probe = if request.options.evidence
+                && fts.is_none()
+                && let Some(filter) = filter.as_ref()
+                && matches!(filter, BoundExpr::Or(_))
+                && segment_static_evidence_fields(filter).is_none()
+            {
+                let Some(probe) = exact_or_branch_evidence_fields(
+                    &segment.index,
+                    &segment.active,
+                    filter,
+                    collection,
+                    catalog,
+                    &predicates,
+                    context,
+                )?
+                else {
+                    return Ok(None);
+                };
+                Some(probe)
+            } else {
+                None
+            };
+            if let Some(probe) = or_probe.as_ref() {
+                let exact = probe.bounds.may == probe.bounds.must;
+                restriction_cache.insert(
+                    collection_index,
+                    segment_index,
+                    probe.bounds.clone(),
+                    exact,
+                );
+            }
+            let filter_may = if let Some(probe) = or_probe {
+                let Some(branches) = probe.evidence else {
+                    return Ok(None);
+                };
+                filter_exact[collection_index][segment_index] = true;
+                evidence_branches[collection_index][segment_index] = Some(branches);
+                Some(probe.bounds.must)
+            } else if let Some(cached) = restriction_cache.get(collection_index, segment_index) {
+                filter_exact[collection_index][segment_index] = cached.exact;
+                Some(if cached.exact {
+                    Arc::clone(&cached.bounds.must)
+                } else {
+                    Arc::clone(&cached.bounds.may)
+                })
+            } else {
+                filter
+                    .as_ref()
+                    .map(|filter| {
+                        let active = segment.active.bitmap();
+                        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+                            &segment.index,
+                            &segment.active,
+                            filter,
+                            collection,
+                            Some(catalog),
+                            &active,
+                            Some(&predicates),
+                            Some(context),
+                        )?;
+                        let logical = &segment.active.bitmap() & &segment.index.logical_records;
+                        filter_exact[collection_index][segment_index] = bounds.may == bounds.must
+                            || (excludes_raw_fallback(filter)
+                                && (bounds.may.as_ref() & &logical)
+                                    == (bounds.must.as_ref() & &logical));
+                        restriction_cache.insert(
+                            collection_index,
+                            segment_index,
+                            bounds.clone(),
+                            filter_exact[collection_index][segment_index],
+                        );
+                        Ok::<_, String>(if filter_exact[collection_index][segment_index] {
+                            bounds.must
+                        } else {
+                            bounds.may
+                        })
+                    })
+                    .transpose()?
+            };
             let fts_may = fts
                 .as_ref()
                 .zip(entry.text_term)
@@ -3556,6 +3786,30 @@ fn try_lifecycle_ordered_stream(
         }
         filters[collection_index] = Some((filter, fts));
     }
+    let all_exact = prepared.collections.iter().all(|entry| {
+        entry.fts.is_none()
+            && filter_exact[entry.collection_index]
+                .iter()
+                .all(|exact| *exact)
+    });
+    if page_output.is_some() {
+        let has_branch_evidence = prepared.collections.iter().any(|entry| {
+            evidence_branches[entry.collection_index]
+                .iter()
+                .any(Option::is_some)
+        });
+        let single_collection = prepared.collections.len() == 1;
+        if single_collection
+            && all_exact
+            && !request.options.sort.is_empty()
+            && !has_branch_evidence
+        {
+            return Ok(None);
+        }
+        if request.options.sort.is_empty() && !all_exact {
+            return Ok(None);
+        }
+    }
     let candidate_total = candidates
         .iter()
         .flatten()
@@ -3569,6 +3823,39 @@ fn try_lifecycle_ordered_stream(
                 "ordered candidate count overflow",
             )
         })?;
+    let cache_entry = if request.options.count
+        && matches!(scope, ResultScope::Page { .. })
+        && context.limits == ExecutionLimits::default()
+        && let Some(scope) = cache
+    {
+        let key =
+            crate::query_results::verified::lifecycle_key(request, scope.instance_id, revision.0)?;
+        let budget = scope
+            .store
+            .lock()
+            .map_err(|error| error.to_string())?
+            .budget();
+        (budget > 0).then(|| {
+            (
+                scope,
+                budget.saturating_sub(key.len().saturating_add(128)),
+                key,
+            )
+        })
+    } else {
+        None
+    };
+    let known_exact_count = (request.options.count
+        && request.options.limit > 0
+        && cache_entry.is_none()
+        && filters
+            .iter()
+            .all(|selected| selected.as_ref().is_some_and(|(_, fts)| fts.is_none()))
+        && filters
+            .iter()
+            .zip(&filter_exact)
+            .all(|(selected, exact)| selected.is_none() || exact.iter().all(|exact| *exact)))
+    .then_some(candidate_total);
     if candidate_total > 256
         && repo.options.query_workers > 1
         && filters.iter().any(|selected| {
@@ -3600,7 +3887,7 @@ fn try_lifecycle_ordered_stream(
                 }
             }
         }
-        if parallel_sources {
+        if parallel_sources && !all_exact {
             return Ok(None);
         }
     }
@@ -3643,7 +3930,7 @@ fn try_lifecycle_ordered_stream(
                 "ordered cursor memory overflow",
             )
         })?;
-    if heap_bytes > delivery.max_buffered_bytes() {
+    if heap_bytes > max_buffered_bytes {
         return Err(context.fail(
             ExecutionErrorKind::Resource,
             "ordered cursors exceed stream memory budget",
@@ -3672,7 +3959,7 @@ fn try_lifecycle_ordered_stream(
                 0,
                 &mut heap,
                 &mut heap_bytes,
-                delivery.max_buffered_bytes(),
+                max_buffered_bytes,
                 context,
             )?;
         }
@@ -3686,16 +3973,34 @@ fn try_lifecycle_ordered_stream(
         match_count_complete: true,
         ..WorkCounters::default()
     };
+    let mut cache_builder = cache_entry
+        .as_ref()
+        .map(|(_, budget, _)| LifecycleCacheBuilder::new(*budget));
     let offset = scope.offset();
     let limit = match scope {
         ResultScope::Page { limit, .. } => Some(limit),
         ResultScope::All { .. } => None,
     };
     let mut stopped_early = false;
+    let mut page_captured = false;
     while let Some(Reverse(cursor)) = heap.pop() {
-        delivery.check()?;
         context.check_string()?;
+        let cursor_key_bytes = cursor.bytes;
         heap_bytes = heap_bytes.saturating_sub(cursor.bytes);
+        #[cfg(test)]
+        ORDERED_KEY_POP_COUNT.with(|pop_count| {
+            let pop = pop_count.get();
+            if pop == 0 {
+                ORDERED_KEY_BASE_BYTES.with(|value| value.set(heap_bytes));
+                ORDERED_FIRST_KEY_BYTES.with(|value| value.set(cursor.bytes));
+            } else if pop == 1 {
+                ORDERED_SECOND_KEY_BYTES.with(|value| value.set(cursor.bytes));
+            }
+            pop_count.set(pop + 1);
+        });
+        let retained_identity_bytes = delivery
+            .as_ref()
+            .map_or(0, |delivery| delivery.retained_identity_bytes());
         push_lifecycle_order_cursor(
             repo,
             request,
@@ -3707,9 +4012,24 @@ fn try_lifecycle_ordered_stream(
             cursor.position,
             &mut heap,
             &mut heap_bytes,
-            delivery.max_buffered_bytes().saturating_sub(page_bytes),
+            max_buffered_bytes
+                .saturating_sub(page_bytes)
+                .saturating_sub(retained_identity_bytes)
+                .saturating_sub(cursor_key_bytes),
             context,
         )?;
+        let live_heap_bytes = heap_bytes.checked_add(cursor_key_bytes).ok_or_else(|| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered live key memory overflow",
+            )
+        })?;
+        if live_heap_bytes > max_buffered_bytes {
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered live keys exceed stream memory budget",
+            ));
+        }
         let published = &segments[cursor.collection_index][cursor.segment_index];
         let Some(resolved) =
             segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
@@ -3724,23 +4044,49 @@ fn try_lifecycle_ordered_stream(
             .as_ref()
             .ok_or("ordered collection filter missing")?;
         let mut evidence = HashSet::new();
+        let cache_accepting = cache_builder
+            .as_ref()
+            .is_some_and(LifecycleCacheBuilder::is_accepting);
+        #[cfg(test)]
+        let admission_closed = cache_builder.is_some() && !cache_accepting;
+        let enters_requested_page = !page_captured && counters.total_matches as usize >= offset;
+        #[cfg(test)]
+        let cache_closed = admission_closed && !enters_requested_page;
+        #[cfg(test)]
+        if cache_closed {
+            CACHE_CLOSED_CANDIDATES.with(|value| value.set(value.get() + 1));
+        }
+        #[cfg(test)]
+        let cache_only_evidence =
+            admission_closed && !enters_requested_page && request.options.evidence;
+        let retain_evidence =
+            request.options.evidence && (cache_accepting || enters_requested_page);
         let must_verify = fts.is_some()
             || (filter.is_some() && !filter_exact[cursor.collection_index][cursor.segment_index]);
         if limit.is_none() && !page.is_empty() {
             let upcoming = usize::try_from(record.range.len()).unwrap_or(usize::MAX);
-            if page.len() >= delivery.options().batch_rows
+            if page.len() >= options.batch_rows
                 || page_bytes
                     .saturating_add(upcoming)
-                    .saturating_add(heap_bytes)
-                    > delivery.max_buffered_bytes()
+                    .saturating_add(live_heap_bytes)
+                    > max_buffered_bytes
             {
-                delivery.ordered_batch(&page, &counters)?;
+                if let Some(delivery) = delivery.as_deref_mut() {
+                    delivery.ordered_batch(&page, &counters)?;
+                }
                 page.clear();
                 page_bytes = 0;
             }
         }
         let mut bytes = None;
+        let mut verification_parsed = false;
         let matched = if must_verify {
+            #[cfg(test)]
+            if page_captured {
+                ORDERED_TAIL_READ_ATTEMPTS.with(|value| value.set(value.get() + 1));
+                ORDERED_TAIL_LIVE_PAGE_ROWS.with(|value| value.set(page.len()));
+                ORDERED_TAIL_LIVE_PAGE_BYTES.with(|value| value.set(page_bytes));
+            }
             if record.range.len() > context.limits.source_record_bytes {
                 return Err(context.fail(
                     ExecutionErrorKind::Resource,
@@ -3750,18 +4096,32 @@ fn try_lifecycle_ordered_stream(
             let source_len = usize::try_from(record.range.len()).map_err(|_| {
                 context.fail(ExecutionErrorKind::Resource, "ordered source size overflow")
             })?;
-            delivery.check_record_bytes(source_len)?;
-            delivery.check_buffer(
-                page_bytes
-                    .checked_add(heap_bytes)
-                    .and_then(|used| used.checked_add(source_len))
-                    .ok_or_else(|| {
-                        context.fail(
-                            ExecutionErrorKind::Resource,
-                            "ordered source memory overflow",
-                        )
-                    })?,
-            )?;
+            #[cfg(test)]
+            if page_captured {
+                ORDERED_TAIL_IDENTITY_BYTES.with(|value| value.set(retained_identity_bytes));
+                ORDERED_TAIL_CURSOR_BYTES.with(|value| value.set(live_heap_bytes));
+                ORDERED_TAIL_SOURCE_BYTES.with(|value| value.set(source_len));
+            }
+            let source_live = page_bytes
+                .checked_add(live_heap_bytes)
+                .and_then(|used| used.checked_add(retained_identity_bytes))
+                .and_then(|used| used.checked_add(source_len))
+                .ok_or_else(|| {
+                    context.fail(
+                        ExecutionErrorKind::Resource,
+                        "ordered source memory overflow",
+                    )
+                })?;
+            if source_live > max_buffered_bytes {
+                return Err(context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered source exceeds stream memory budget",
+                ));
+            }
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.check_record_bytes(source_len)?;
+                delivery.check_buffer(source_live)?;
+            }
             context.charge_reads(1)?;
             context.charge_bytes(record.range.len())?;
             let read = match read_lifecycle_ordered_record(
@@ -3771,10 +4131,10 @@ fn try_lifecycle_ordered_stream(
                 record,
                 cursor.slot,
                 &mut reader,
-                delivery
-                    .max_buffered_bytes()
-                    .saturating_sub(heap_bytes)
-                    .saturating_sub(page_bytes),
+                max_buffered_bytes
+                    .saturating_sub(live_heap_bytes)
+                    .saturating_sub(page_bytes)
+                    .saturating_sub(retained_identity_bytes),
                 context,
             ) {
                 Ok((read, opened)) => {
@@ -3786,8 +4146,10 @@ fn try_lifecycle_ordered_stream(
                     read
                 }
                 Err(message) => {
-                    if delivery.options().mode == StreamMode::PageReplacements
-                        && delivery.last_page_sequence() > 0
+                    if options.mode == StreamMode::PageReplacements
+                        && delivery
+                            .as_ref()
+                            .is_some_and(|delivery| delivery.last_page_sequence() > 0)
                     {
                         return Err(message);
                     }
@@ -3806,7 +4168,7 @@ fn try_lifecycle_ordered_stream(
             };
             counters.bytes_read += read.len() as u64;
             counters.scanned_records += 1;
-            counters.record_parses += u64::from(record.class == RecordClass::Logical);
+            verification_parsed = record.class == RecordClass::Logical;
             counters.residual_evaluations += u64::from(filter.is_some());
             let (_, matched, found_evidence, raw_checked) = verify_local_segment_record(
                 repo,
@@ -3821,28 +4183,67 @@ fn try_lifecycle_ordered_stream(
                     fts.is_some() && !borrowed_value_text(collection, fts.as_ref()),
                 ),
                 None,
-                request.options.evidence,
+                retain_evidence,
                 Some(context),
             )?;
+            #[cfg(test)]
+            if cache_only_evidence {
+                CACHE_CLOSED_EVIDENCE.with(|value| value.set(value.get() + 1));
+            }
             counters.raw_text_verifications += u64::from(raw_checked);
             evidence = found_evidence;
             bytes = Some(read);
             matched
         } else {
             counters.exact_posting_matches += 1;
-            if request.options.evidence
-                && let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields)
-            {
-                evidence.extend(fields);
+            if retain_evidence {
+                if let Some(fields) = filter.as_ref().and_then(segment_static_evidence_fields) {
+                    evidence.extend(fields);
+                } else if let Some(branches) =
+                    evidence_branches[cursor.collection_index][cursor.segment_index].as_ref()
+                {
+                    for (members, fields) in branches {
+                        if members.contains(cursor.slot.0) {
+                            evidence.extend(fields.iter().cloned());
+                        }
+                    }
+                }
+                #[cfg(test)]
+                if cache_only_evidence {
+                    CACHE_CLOSED_EVIDENCE.with(|value| value.set(value.get() + 1));
+                }
             }
             true
         };
         if !matched {
+            counters.record_parses += u64::from(verification_parsed);
             continue;
+        }
+        if cache_accepting && let Some(builder) = cache_builder.as_mut() {
+            #[cfg(test)]
+            if cache_closed {
+                CACHE_CLOSED_KEYS.with(|value| value.set(value.get() + 1));
+            }
+            let mut matched_fields = evidence.iter().cloned().collect::<Vec<_>>();
+            matched_fields.sort();
+            builder.push(
+                &cursor.key,
+                CachedMember {
+                    collection_index: cursor.collection_index,
+                    segment_index: Some(cursor.segment_index),
+                    slot: cursor.slot.0,
+                    matched_fields: matched_fields.into(),
+                },
+            );
+            #[cfg(test)]
+            if cache_closed {
+                CACHE_CLOSED_MEMBERS.with(|value| value.set(value.get() + 1));
+            }
         }
         let position = counters.total_matches as usize;
         counters.total_matches += 1;
-        if position < offset || limit.is_some_and(|limit| page.len() >= limit) {
+        if page_captured || position < offset {
+            counters.record_parses += u64::from(verification_parsed);
             continue;
         }
         let mut hit = segment_locator_hit(
@@ -3861,6 +4262,7 @@ fn try_lifecycle_ordered_stream(
                 hit.payload = Some(Payload::LogicalUnavailable {
                     diagnostic_ref: record.diagnostic_ref,
                 });
+                counters.record_parses += u64::from(verification_parsed);
             } else {
                 let source = if let Some(bytes) = bytes.take() {
                     bytes
@@ -3874,18 +4276,26 @@ fn try_lifecycle_ordered_stream(
                     let source_len = usize::try_from(record.range.len()).map_err(|_| {
                         context.fail(ExecutionErrorKind::Resource, "ordered output size overflow")
                     })?;
-                    delivery.check_record_bytes(source_len)?;
-                    delivery.check_buffer(
-                        page_bytes
-                            .checked_add(heap_bytes)
-                            .and_then(|used| used.checked_add(source_len))
-                            .ok_or_else(|| {
-                                context.fail(
-                                    ExecutionErrorKind::Resource,
-                                    "ordered output memory overflow",
-                                )
-                            })?,
-                    )?;
+                    let source_live = page_bytes
+                        .checked_add(live_heap_bytes)
+                        .and_then(|used| used.checked_add(retained_identity_bytes))
+                        .and_then(|used| used.checked_add(source_len))
+                        .ok_or_else(|| {
+                            context.fail(
+                                ExecutionErrorKind::Resource,
+                                "ordered output memory overflow",
+                            )
+                        })?;
+                    if source_live > max_buffered_bytes {
+                        return Err(context.fail(
+                            ExecutionErrorKind::Resource,
+                            "ordered output exceeds stream memory budget",
+                        ));
+                    }
+                    if let Some(delivery) = delivery.as_deref_mut() {
+                        delivery.check_record_bytes(source_len)?;
+                        delivery.check_buffer(source_live)?;
+                    }
                     context.charge_reads(1)?;
                     context.charge_bytes(record.range.len())?;
                     let read = read_lifecycle_ordered_record(
@@ -3895,17 +4305,19 @@ fn try_lifecycle_ordered_stream(
                         record,
                         cursor.slot,
                         &mut reader,
-                        delivery
-                            .max_buffered_bytes()
-                            .saturating_sub(heap_bytes)
-                            .saturating_sub(page_bytes),
+                        max_buffered_bytes
+                            .saturating_sub(live_heap_bytes)
+                            .saturating_sub(page_bytes)
+                            .saturating_sub(retained_identity_bytes),
                         context,
                     );
                     let (read, opened) = match read {
                         Ok(read) => read,
                         Err(message) => {
-                            if delivery.options().mode == StreamMode::PageReplacements
-                                && delivery.last_page_sequence() > 0
+                            if options.mode == StreamMode::PageReplacements
+                                && delivery
+                                    .as_ref()
+                                    .is_some_and(|delivery| delivery.last_page_sequence() > 0)
                             {
                                 return Err(message);
                             }
@@ -3938,15 +4350,23 @@ fn try_lifecycle_ordered_stream(
                 )?;
                 hit.payload = payload;
                 counters.record_parses += parses;
+                if output_mode == ReturnMode::Bytes {
+                    counters.record_parses += u64::from(verification_parsed);
+                }
             }
+        } else {
+            counters.record_parses += u64::from(verification_parsed);
         }
+        let retained_source_bytes = bytes.as_ref().map_or(0, Vec::len);
         let bytes = crate::query_execution::streaming::hit_bytes(&hit);
         if limit.is_none()
             && !page.is_empty()
-            && (page.len() >= delivery.options().batch_rows
-                || page_bytes.saturating_add(bytes) > delivery.options().max_event_bytes)
+            && (page.len() >= options.batch_rows
+                || page_bytes.saturating_add(bytes) > options.max_event_bytes)
         {
-            delivery.ordered_batch(&page, &counters)?;
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.ordered_batch(&page, &counters)?;
+            }
             page.clear();
             page_bytes = 0;
         }
@@ -3956,38 +4376,80 @@ fn try_lifecycle_ordered_stream(
                 "ordered page byte count overflow",
             )
         })?;
-        delivery.check_buffer(retained.saturating_add(heap_bytes))?;
+        let retained_with_cursors = retained
+            .checked_add(live_heap_bytes)
+            .and_then(|used| used.checked_add(retained_identity_bytes))
+            .and_then(|used| used.checked_add(retained_source_bytes))
+            .ok_or_else(|| {
+                context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered retained memory overflow",
+                )
+            })?;
+        if retained_with_cursors > max_buffered_bytes {
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered page exceeds stream memory budget",
+            ));
+        }
+        if let Some(delivery) = delivery.as_deref_mut() {
+            delivery.check_buffer(retained_with_cursors)?;
+        }
         page_bytes = retained;
         page.push(hit);
-        if delivery.options().mode == StreamMode::PageReplacements
-            && files_since_checkpoint >= delivery.options().checkpoint_files
+        let delivery_cursor_bytes = live_heap_bytes
+            .checked_add(retained_source_bytes)
+            .ok_or_else(|| {
+                context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered delivery memory overflow",
+                )
+            })?;
+        if options.mode == StreamMode::PageReplacements
+            && files_since_checkpoint >= options.checkpoint_files
         {
-            delivery.replacement(&page, &counters, heap_bytes)?;
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.replacement(&page, &counters, delivery_cursor_bytes)?;
+            }
             files_since_checkpoint = 0;
         }
         if let Some(limit) = limit
             && page.len() == limit
         {
-            match delivery.options().mode {
-                StreamMode::OrderedRows => {
-                    delivery.ordered_rows(&page, &counters, true)?;
-                    stopped_early = true;
-                }
-                StreamMode::PageReplacements => {
-                    delivery.replacement(&page, &counters, heap_bytes)?
+            if let Some(output) = page_output.as_deref_mut() {
+                output.extend(std::mem::take(&mut page));
+            } else if let Some(delivery) = delivery.as_deref_mut() {
+                match options.mode {
+                    StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
+                    StreamMode::PageReplacements => {
+                        delivery.replacement(&page, &counters, delivery_cursor_bytes)?
+                    }
                 }
             }
-            if stopped_early {
+            page_captured = true;
+            if page_output.is_some() || options.mode == StreamMode::OrderedRows {
+                page.clear();
+                page.shrink_to_fit();
+                page_bytes = 0;
+            }
+            if (!request.options.count || known_exact_count.is_some())
+                && (page_output.is_some() || options.mode == StreamMode::OrderedRows)
+            {
+                stopped_early = true;
                 break;
             }
         }
     }
-    if !stopped_early {
+    if !page_captured {
         if limit.is_none() {
-            delivery.ordered_batch(&page, &counters)?;
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.ordered_batch(&page, &counters)?;
+            }
             page.clear();
-        } else {
-            match delivery.options().mode {
+        } else if let Some(output) = page_output.as_deref_mut() {
+            output.extend(std::mem::take(&mut page));
+        } else if let Some(delivery) = delivery.as_deref_mut() {
+            match options.mode {
                 StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
                 StreamMode::PageReplacements => {
                     delivery.replacement(&page, &counters, heap_bytes)?
@@ -3995,44 +4457,61 @@ fn try_lifecycle_ordered_stream(
             }
         }
     }
-    let mut count = None;
-    // A Locator-only count pass cannot erase a failed Bytes/Logical page read.
-    if request.options.count && limit.is_some() && counters.source_unavailable_events == 0 {
-        let mut count_query = request.clone();
-        count_query.options.offset = 0;
-        count_query.options.limit = 0;
-        count_query.options.return_mode = ReturnMode::Locator;
-        let result = search_segmented_with_context_lifecycle(
-            repo,
-            &count_query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            context,
-            cache,
-        )
-        .map_err(|error| error.message)?;
-        count = result.count;
-        counters = result.counters;
-    } else if (request.options.count || limit.is_none()) && counters.source_unavailable_events == 0
-    {
-        count = Some(counters.total_matches as usize);
+    let complete_source = counters.source_unavailable_events == 0;
+    let known_exact_count = known_exact_count.filter(|_| complete_source);
+    if let Some(exact) = known_exact_count {
+        counters.total_matches = exact as u64;
+        counters.exact_posting_matches = counters.exact_posting_matches.max(exact as u64);
     }
+    let count = known_exact_count.or_else(|| {
+        (!stopped_early && (request.options.count || limit.is_none()) && complete_source)
+            .then_some(counters.total_matches as usize)
+    });
     if stopped_early && count.is_none() {
         counters.match_count_complete = false;
     }
-    counters.returned_records = delivery.progress.emitted_rows;
+    let emitted_rows = page_output.as_deref().map_or_else(
+        || {
+            delivery
+                .as_ref()
+                .map_or(0, |delivery| delivery.progress.emitted_rows)
+        },
+        |output| output.len() as u64,
+    );
+    counters.returned_records = emitted_rows;
     counters.files_opened = counters.files_opened.max(opened_files.len() as u64);
     counters.distinct_files = opened_files.len() as u64;
-    delivery.observe(&counters);
-    delivery.check()?;
+    if let Some(delivery) = delivery.as_deref_mut() {
+        delivery.observe(&counters);
+        delivery.check()?;
+    }
+    if !stopped_early
+        && counters.source_unavailable_events == 0
+        && let (Some(cache_builder), Some((scope, _, key))) = (cache_builder, cache_entry)
+        && let Some(members) = cache_builder.finish(counters.total_matches)
+    {
+        context.check_string()?;
+        let displaced = scope
+            .store
+            .lock()
+            .map_err(|error| error.to_string())?
+            .insert(key, members);
+        drop(displaced);
+    }
+    let progress = delivery
+        .as_ref()
+        .map_or_else(Default::default, |delivery| delivery.progress);
+    let final_sequence = delivery
+        .as_ref()
+        .map_or(0, |delivery| delivery.last_page_sequence());
+    #[cfg(test)]
+    ORDERED_STREAM_COMPLETIONS.with(|value| value.set(value.get() + 1));
     Ok(Some(StreamOutcome::Complete(Box::new(StreamSummary {
         count,
-        returned_rows: delivery.progress.emitted_rows as usize,
-        final_sequence: delivery.last_page_sequence(),
+        returned_rows: emitted_rows as usize,
+        final_sequence,
         counters,
-        progress: delivery.progress,
+        progress,
     }))))
 }
 
@@ -4139,20 +4618,6 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             request.options.return_mode = ReturnMode::Locator;
         }
     }
-    crate::query::sort_binding::BoundSort::bind(repo, &request).map_err(|message| {
-        StreamError::Execution {
-            kind: ExecutionErrorKind::InvalidQuery,
-            message,
-            progress: delivery.progress,
-        }
-    })?;
-    let prepared = crate::query::prepared::prepare(repo, &request).map_err(|message| {
-        StreamError::Execution {
-            kind: ExecutionErrorKind::InvalidQuery,
-            message,
-            progress: delivery.progress,
-        }
-    })?;
     if let ResultScope::Page { .. } = scope
         && let Some(cache) = cache
         && context.limits == ExecutionLimits::default()
@@ -4219,6 +4684,22 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             })));
         }
     }
+    let bound_sort =
+        crate::query::sort_binding::BoundSort::bind(repo, &request).map_err(|message| {
+            StreamError::Execution {
+                kind: ExecutionErrorKind::InvalidQuery,
+                message,
+                progress: delivery.progress,
+            }
+        })?;
+    let sort = ResolvedSort::from_bound(repo, &request, bound_sort);
+    let prepared = crate::query::prepared::prepare(repo, &request).map_err(|message| {
+        StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
+            message,
+            progress: delivery.progress,
+        }
+    })?;
     let relation_scope = prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
             || entry
@@ -4226,9 +4707,12 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
+    let mut restriction_cache = SegmentRestrictionCache::new(segments);
     match try_lifecycle_ordered_stream(
         repo,
         &request,
+        &sort,
+        &prepared,
         query.options.return_mode.clone(),
         scope,
         base_active,
@@ -4237,7 +4721,11 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         revision,
         context,
         cache,
-        &mut delivery,
+        &mut restriction_cache,
+        &options,
+        options.max_buffered_bytes,
+        Some(&mut delivery),
+        None,
     ) {
         Ok(Some(outcome)) => return Ok(outcome),
         Ok(None) => {}
@@ -4278,6 +4766,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         context,
         query_cache,
         (all && !relation_scope).then(|| delivery.max_buffered_bytes() / 2),
+        Some((&sort, &prepared)),
+        &mut restriction_cache,
+        true,
     ) {
         Ok(result) => result,
         Err(error) => return segmented_stream_error(&mut delivery, context, error.message),
@@ -4459,6 +4950,7 @@ fn collection_domain(
     )
 }
 
+#[cfg(test)]
 pub(crate) fn search_active(
     repo: &Repository,
     query: &Query,
@@ -4467,6 +4959,7 @@ pub(crate) fn search_active(
     search_active_inner(repo, query, active, None)
 }
 
+#[cfg(test)]
 fn search_active_inner(
     repo: &Repository,
     query: &Query,
@@ -4508,17 +5001,6 @@ fn search_active_inner(
         Some(&scoped_context),
         Some(active),
     )
-}
-
-pub(crate) fn search_with_context_active(
-    repo: &Repository,
-    query: &Query,
-    context: &ExecutionContext,
-    active: &[ActiveRecords],
-) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
-    context.check()?;
-    search_active_inner(repo, query, active, Some(context))
-        .map_err(|message| context.recorded_error(message))
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
@@ -4594,52 +5076,6 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         drop(displaced);
     }
     Ok(result)
-}
-
-/// Execute with caller-supplied clock, cancellation and request limits.
-/// The ordinary `search` path keeps its existing allocation-free context fast path.
-pub(crate) fn search_with_context(
-    repo: &Repository,
-    query: &Query,
-    context: &ExecutionContext,
-) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
-    context.check()?;
-    let result = if query.options.count && query.options.limit == 0 {
-        BoundSort::bind(repo, query)
-            .map_err(|message| context.error(ExecutionErrorKind::InvalidQuery, message))?;
-        let mut count_query = query.clone();
-        count_query.options.sort.clear();
-        count_query.options.return_mode = ReturnMode::Locator;
-        count_query.options.evidence = false;
-        search_impl_with_collector(
-            repo,
-            &count_query,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(ExactCollector { members: None }),
-            Some(context),
-            None,
-        )
-    } else {
-        search_impl_with_collector(
-            repo,
-            query,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(context),
-            None,
-        )
-    };
-    result.map_err(|message| context.recorded_error(message))
 }
 
 /// Execute and publish from the shared scan/ranking path before completion.
@@ -5670,10 +6106,51 @@ fn search_impl<'a>(
 fn search_impl_with_collector<'a>(
     repo: &'a Repository,
     query: &Query,
+    traces: Option<&mut Vec<QueryPlanTrace>>,
+    cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
+    prebound_sort: Option<BoundSort<'a>>,
+    delivery: Option<&mut Delivery<'_>>,
+    all_offset: Option<usize>,
+    exact_collector: Option<ExactCollector<'_>>,
+    execution: Option<&ExecutionContext>,
+    active: Option<&[ActiveRecords]>,
+) -> Result<SearchResult, String> {
+    let sort = match prebound_sort {
+        Some(bound) => ResolvedSort::from_bound(repo, query, bound),
+        None => ResolvedSort::new(repo, query).map_err(|message| {
+            if let Some(context) = execution {
+                context.fail(ExecutionErrorKind::InvalidQuery, message)
+            } else {
+                message
+            }
+        })?,
+    };
+    search_impl_with_resolved_sort(
+        repo,
+        query,
+        traces,
+        cache_members,
+        cache_budget,
+        &sort,
+        None,
+        delivery,
+        all_offset,
+        exact_collector,
+        execution,
+        active,
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn search_impl_with_resolved_sort<'a>(
+    repo: &'a Repository,
+    query: &Query,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut cache_members: Option<&mut Vec<CachedMember>>,
     cache_budget: Option<&CacheBudget>,
-    prebound_sort: Option<BoundSort<'a>>,
+    sort: &ResolvedSort<'a>,
+    prepared: Option<&crate::query::prepared::PreparedQuery>,
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
     mut exact_collector: Option<ExactCollector<'_>>,
@@ -5687,16 +6164,6 @@ fn search_impl_with_collector<'a>(
         delivery.check()?;
     }
     let preparation_start = DetailedInstant::now();
-    let sort = match prebound_sort {
-        Some(bound) => ResolvedSort::from_bound(repo, query, bound),
-        None => ResolvedSort::new(repo, query).map_err(|message| {
-            if let Some(context) = execution {
-                context.fail(ExecutionErrorKind::InvalidQuery, message)
-            } else {
-                message
-            }
-        })?,
-    };
     if let Some(execution) = execution {
         sort.target_cache
             .lock()
@@ -5709,7 +6176,10 @@ fn search_impl_with_collector<'a>(
             .map_err(|error| error.to_string())?
             .configure_stream(delivery.max_buffered_bytes(), delivery.token());
     }
-    let prepared = crate::query::prepared::prepare(repo, query)?;
+    let prepared = prepared
+        .cloned()
+        .map(Ok)
+        .unwrap_or_else(|| crate::query::prepared::prepare(repo, query))?;
     let mut rejected_order = RejectedOrderPlans {
         entries: Vec::new(),
         planning_ns: 0,
