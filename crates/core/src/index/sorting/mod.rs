@@ -123,6 +123,7 @@ impl SortKey {
             (Self::Date(a), Self::Date(b)) => a.cmp(b),
             (Self::Datetime(a), Self::Datetime(b)) => a.cmp(b),
             (Self::Unixtime(a), Self::Unixtime(b)) => a.cmp(b),
+            // TODO: how to compare differing types
             (Self::Bool(_), _) => Ordering::Less,
             (_, Self::Bool(_)) => Ordering::Greater,
             (Self::Number(_), _) => Ordering::Less,
