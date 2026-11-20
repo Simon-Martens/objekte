@@ -15,6 +15,25 @@ pub(crate) enum PostingValueCursor<'a> {
     Reverse(std::iter::Rev<std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>>),
 }
 
+#[derive(Clone, Copy)]
+enum StateValueOperation {
+    PresenceMinusNull,
+    PresenceMinusEmptyString,
+    StringValues,
+    NumberValues,
+    AllLengths,
+    NonZeroLengths,
+    NonEmptyValues,
+    NonEmptyValuesAndLengths,
+}
+
+#[derive(Clone, Copy)]
+enum StateCandidateOperation {
+    StringValues,
+    NumberValues,
+    AllLengths,
+}
+
 impl<'a> PostingValueCursor<'a> {
     pub(crate) fn next(&mut self) -> Option<(ScalarKey, &'a RoaringBitmap)> {
         loop {
@@ -170,134 +189,45 @@ impl PostingIndex {
         derived: Derived,
         input: Option<&RoaringBitmap>,
     ) -> Option<RoaringBitmap> {
-        let summary = self.summary?;
-        match derived {
-            Derived::IsString
-                if summary.only_matches_string_or_null() && !summary.may_select_multiple() =>
-            {
-                Some(without_null(self, input))
-            }
-            Derived::IsString if summary.may_match_string() && !summary.may_match_array() => {
-                if !self.value_complete {
-                    return None;
-                }
-                Some(
-                    union_postings(
-                        self.values
-                            .range(ScalarKey::String(String::new())..)
-                            .take_while(|(key, _)| {
-                                matches!(key, ScalarKey::String(_) | ScalarKey::Id(_))
-                            }),
-                        input,
-                    )
-                    .0,
-                )
-            }
-            Derived::IsNumber
-                if summary.only_matches_number_or_null() && !summary.may_select_multiple() =>
-            {
-                Some(without_null(self, input))
-            }
-            Derived::IsNumber if summary.may_match_number() && !summary.may_match_array() => {
-                if !self.value_complete {
-                    return None;
-                }
-                Some(
-                    union_postings(
-                        self.values
-                            .range(..ScalarKey::Bool(false))
-                            .rev()
-                            .take_while(|(key, _)| matches!(key, ScalarKey::Number(_))),
-                        input,
-                    )
-                    .0,
-                )
-            }
-            Derived::IsArray
-                if summary.only_matches_array_or_null() && !summary.may_select_multiple() =>
-            {
-                Some(without_null(self, input))
-            }
-            Derived::IsArray if self.length_complete => {
-                Some(union_postings(self.lengths.iter(), input).0)
-            }
-            Derived::IsObject
-                if summary.only_matches_object_or_null() && !summary.may_select_multiple() =>
-            {
-                Some(without_null(self, input))
-            }
-            Derived::IsNonEmpty
-                if summary.only_matches_nonempty_scalar_or_null()
-                    && !summary.may_select_multiple() =>
-            {
-                Some(without_null(self, input))
-            }
-            Derived::IsNonEmpty
-                if summary.only_matches_string_or_null()
-                    && !summary.may_select_multiple()
-                    && self.empty_string_complete =>
-            {
+        Some(match self.state_value_operation(derived)? {
+            StateValueOperation::PresenceMinusNull => without_null(self, input),
+            StateValueOperation::PresenceMinusEmptyString => {
                 let mut result = without_null(self, input);
                 if let Some(empty) = self.values.get(&ScalarKey::String(String::new())) {
                     result -= empty;
                 }
-                Some(result)
+                result
             }
-            Derived::IsNonEmpty if summary.only_matches_array_or_null() && self.length_complete => {
-                Some(
-                    union_postings(
-                        self.lengths
-                            .range((Excluded(Number::integer(0)), Unbounded)),
-                        input,
-                    )
-                    .0,
+            StateValueOperation::StringValues => {
+                self.union_state_values(StateCandidateOperation::StringValues, input)
+            }
+            StateValueOperation::NumberValues => {
+                self.union_state_values(StateCandidateOperation::NumberValues, input)
+            }
+            StateValueOperation::AllLengths => union_postings(self.lengths.iter(), input).0,
+            StateValueOperation::NonZeroLengths => {
+                union_postings(
+                    self.lengths
+                        .range((Excluded(Number::integer(0)), Unbounded)),
+                    input,
                 )
+                .0
             }
-            Derived::IsNonEmpty if !summary.may_match_object() => {
-                if !summary.may_match_array() {
-                    if !self.value_complete {
-                        return None;
-                    }
-                    Some(
-                        union_postings(
-                            self.values.iter().filter(|(key, _)| {
-                                !matches!(key, ScalarKey::Null)
-                                    && !matches!(
-                                        key,
-                                        ScalarKey::String(text) | ScalarKey::Id(text)
-                                            if text.is_empty()
-                                    )
-                            }),
-                            input,
-                        )
-                        .0,
-                    )
-                } else if self.length_complete && self.value_complete {
-                    let mut result = union_postings(
-                        self.values.iter().filter(|(key, _)| {
-                            !matches!(key, ScalarKey::Null)
-                                && !matches!(
-                                    key,
-                                    ScalarKey::String(text) | ScalarKey::Id(text)
-                                        if text.is_empty()
-                                )
-                        }),
-                        input,
-                    )
-                    .0;
-                    result |= union_postings(
-                        self.lengths
-                            .range((Excluded(Number::integer(0)), Unbounded)),
-                        input,
-                    )
-                    .0;
-                    Some(result)
-                } else {
-                    None
-                }
+            StateValueOperation::NonEmptyValues => {
+                union_postings(self.values.iter().filter(nonempty_scalar_entry), input).0
             }
-            _ => None,
-        }
+            StateValueOperation::NonEmptyValuesAndLengths => {
+                let mut result =
+                    union_postings(self.values.iter().filter(nonempty_scalar_entry), input).0;
+                result |= union_postings(
+                    self.lengths
+                        .range((Excluded(Number::integer(0)), Unbounded)),
+                    input,
+                )
+                .0;
+                result
+            }
+        })
     }
 
     pub(crate) fn state_candidate_postings(
@@ -305,35 +235,125 @@ impl PostingIndex {
         derived: Derived,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
+        Some(self.union_state_values(self.state_candidate_operation(derived)?, Some(input)))
+    }
+
+    fn state_value_operation(&self, derived: Derived) -> Option<StateValueOperation> {
         let summary = self.summary?;
-        let candidates = match derived {
+        Some(match derived {
+            Derived::IsString
+                if summary.only_matches_string_or_null() && !summary.may_select_multiple() =>
+            {
+                StateValueOperation::PresenceMinusNull
+            }
+            Derived::IsString
+                if summary.may_match_string()
+                    && !summary.may_match_array()
+                    && self.value_complete =>
+            {
+                StateValueOperation::StringValues
+            }
+            Derived::IsNumber
+                if summary.only_matches_number_or_null() && !summary.may_select_multiple() =>
+            {
+                StateValueOperation::PresenceMinusNull
+            }
+            Derived::IsNumber
+                if summary.may_match_number()
+                    && !summary.may_match_array()
+                    && self.value_complete =>
+            {
+                StateValueOperation::NumberValues
+            }
+            Derived::IsArray
+                if summary.only_matches_array_or_null() && !summary.may_select_multiple() =>
+            {
+                StateValueOperation::PresenceMinusNull
+            }
+            Derived::IsArray if self.length_complete => StateValueOperation::AllLengths,
+            Derived::IsObject
+                if summary.only_matches_object_or_null() && !summary.may_select_multiple() =>
+            {
+                StateValueOperation::PresenceMinusNull
+            }
+            Derived::IsNonEmpty
+                if summary.only_matches_nonempty_scalar_or_null()
+                    && !summary.may_select_multiple() =>
+            {
+                StateValueOperation::PresenceMinusNull
+            }
+            Derived::IsNonEmpty
+                if summary.only_matches_string_or_null()
+                    && !summary.may_select_multiple()
+                    && self.empty_string_complete =>
+            {
+                StateValueOperation::PresenceMinusEmptyString
+            }
+            Derived::IsNonEmpty if summary.only_matches_array_or_null() && self.length_complete => {
+                StateValueOperation::NonZeroLengths
+            }
+            Derived::IsNonEmpty
+                if !summary.may_match_object()
+                    && !summary.may_match_array()
+                    && self.value_complete =>
+            {
+                StateValueOperation::NonEmptyValues
+            }
+            Derived::IsNonEmpty
+                if !summary.may_match_object()
+                    && summary.may_match_array()
+                    && self.value_complete
+                    && self.length_complete =>
+            {
+                StateValueOperation::NonEmptyValuesAndLengths
+            }
+            _ => return None,
+        })
+    }
+
+    fn state_candidate_operation(&self, derived: Derived) -> Option<StateCandidateOperation> {
+        let summary = self.summary?;
+        Some(match derived {
             Derived::IsString if summary.may_match_string() && self.value_complete => {
+                StateCandidateOperation::StringValues
+            }
+            Derived::IsNumber if summary.may_match_number() && self.value_complete => {
+                StateCandidateOperation::NumberValues
+            }
+            Derived::IsArray if self.length_complete => StateCandidateOperation::AllLengths,
+            _ => return None,
+        })
+    }
+
+    fn union_state_values(
+        &self,
+        operation: StateCandidateOperation,
+        input: Option<&RoaringBitmap>,
+    ) -> RoaringBitmap {
+        match operation {
+            StateCandidateOperation::StringValues => {
                 union_postings(
                     self.values
                         .range(ScalarKey::String(String::new())..)
                         .take_while(|(key, _)| {
                             matches!(key, ScalarKey::String(_) | ScalarKey::Id(_))
                         }),
-                    Some(input),
+                    input,
                 )
                 .0
             }
-            Derived::IsNumber if summary.may_match_number() && self.value_complete => {
+            StateCandidateOperation::NumberValues => {
                 union_postings(
                     self.values
                         .range(..ScalarKey::Bool(false))
                         .rev()
                         .take_while(|(key, _)| matches!(key, ScalarKey::Number(_))),
-                    Some(input),
+                    input,
                 )
                 .0
             }
-            Derived::IsArray if self.length_complete => {
-                union_postings(self.lengths.iter(), Some(input)).0
-            }
-            _ => return None,
-        };
-        Some(candidates)
+            StateCandidateOperation::AllLengths => union_postings(self.lengths.iter(), input).0,
+        }
     }
 
     fn estimate_scalar_state(
@@ -342,75 +362,38 @@ impl PostingIndex {
         domain_len: u64,
         visits: &mut u64,
     ) -> Option<(f64, u64)> {
-        let summary = self.summary?;
-        let supported = match derived {
-            Derived::IsString => {
-                summary.only_matches_string_or_null() && !summary.may_select_multiple()
-                    || summary.may_match_string()
-                        && !summary.may_match_array()
-                        && self.value_complete
-            }
-            Derived::IsNumber => {
-                summary.only_matches_number_or_null() && !summary.may_select_multiple()
-                    || summary.may_match_number()
-                        && !summary.may_match_array()
-                        && self.value_complete
-            }
-            Derived::IsArray => {
-                self.length_complete
-                    || summary.only_matches_array_or_null() && !summary.may_select_multiple()
-            }
-            Derived::IsObject => {
-                summary.only_matches_object_or_null() && !summary.may_select_multiple()
-            }
-            Derived::IsNonEmpty => {
-                summary.only_matches_nonempty_scalar_or_null() && !summary.may_select_multiple()
-                    || summary.only_matches_string_or_null()
-                        && !summary.may_select_multiple()
-                        && self.empty_string_complete
-                    || summary.only_matches_array_or_null() && self.length_complete
-                    || !summary.may_match_object()
-                        && (!summary.may_match_array() || self.length_complete)
-                        && self.value_complete
-            }
-            _ => false,
-        };
-        if !supported {
-            return None;
-        }
-        let constant = match derived {
-            Derived::IsString | Derived::IsNumber | Derived::IsObject => {
-                summary.only_matches_string_or_null()
-                    || summary.only_matches_number_or_null()
-                    || summary.only_matches_object_or_null()
-            }
-            Derived::IsArray => {
-                summary.only_matches_array_or_null() && !summary.may_select_multiple()
-            }
-            Derived::IsNonEmpty => {
-                summary.only_matches_nonempty_scalar_or_null() && !summary.may_select_multiple()
-                    || summary.only_matches_string_or_null()
-                        && !summary.may_select_multiple()
-                        && self.empty_string_complete
-            }
-            _ => false,
-        };
-        let keys = match derived {
+        let operation = self.state_value_operation(derived)?;
+        let constant = matches!(
+            operation,
+            StateValueOperation::PresenceMinusNull | StateValueOperation::PresenceMinusEmptyString
+        );
+        let keys = match operation {
             _ if constant => 1,
-            Derived::IsString => self
+            StateValueOperation::StringValues => self
                 .values
                 .range(ScalarKey::String(String::new())..)
                 .take_while(|(key, _)| matches!(key, ScalarKey::String(_) | ScalarKey::Id(_)))
                 .take(33)
                 .count(),
-            Derived::IsNumber => self
+            StateValueOperation::NumberValues => self
                 .values
                 .range(..ScalarKey::Bool(false))
                 .rev()
                 .take_while(|(key, _)| matches!(key, ScalarKey::Number(_)))
                 .take(33)
                 .count(),
-            Derived::IsArray => self.lengths.len().min(33),
+            StateValueOperation::AllLengths | StateValueOperation::NonZeroLengths => {
+                self.lengths.len().min(33)
+            }
+            StateValueOperation::NonEmptyValues => self
+                .values
+                .iter()
+                .filter(|(key, _)| !matches!(key, ScalarKey::Null))
+                .take(33)
+                .count(),
+            StateValueOperation::NonEmptyValuesAndLengths => {
+                self.values.len().saturating_add(self.lengths.len()).min(33)
+            }
             _ => 1,
         };
         *visits += keys as u64;
@@ -419,7 +402,49 @@ impl PostingIndex {
         } else {
             domain_len
         };
-        Some((keys.max(1) as f64, output.min(domain_len)))
+        let broad_work = if keys == 33 {
+            self.values.len().saturating_add(self.lengths.len()) as f64 / 8.0
+        } else {
+            keys as f64
+        };
+        Some((broad_work.max(1.0), output.min(domain_len)))
+    }
+
+    pub(crate) fn estimate_state_candidates(
+        &self,
+        derived: Derived,
+        domain_len: u64,
+        visits: &mut u64,
+    ) -> Option<(f64, u64)> {
+        let operation = self.state_candidate_operation(derived)?;
+        let keys = match operation {
+            StateCandidateOperation::StringValues => self
+                .values
+                .range(ScalarKey::String(String::new())..)
+                .take_while(|(key, _)| matches!(key, ScalarKey::String(_) | ScalarKey::Id(_)))
+                .take(33)
+                .count(),
+            StateCandidateOperation::NumberValues => self
+                .values
+                .range(..ScalarKey::Bool(false))
+                .rev()
+                .take_while(|(key, _)| matches!(key, ScalarKey::Number(_)))
+                .take(33)
+                .count(),
+            StateCandidateOperation::AllLengths => self.lengths.len().min(33),
+        };
+        *visits += keys as u64;
+        let work = if keys == 33 {
+            self.values.len().saturating_add(self.lengths.len()) as f64 / 8.0
+        } else {
+            keys as f64
+        };
+        let output = if keys <= 32 {
+            domain_len / 4
+        } else {
+            domain_len
+        };
+        Some((work.max(1.0), output.min(domain_len)))
     }
 
     pub(crate) fn state_truth(term: &BoundTerm) -> Option<bool> {
@@ -1075,14 +1100,20 @@ fn length_posting_is_exact(term: &BoundTerm) -> bool {
 }
 
 fn without_null(index: &PostingIndex, input: Option<&RoaringBitmap>) -> RoaringBitmap {
-    let mut result = index.presence.clone();
-    if let Some(input) = input {
-        result &= input;
-    }
+    let mut result = input.map_or_else(|| index.presence.clone(), |input| input & &index.presence);
     if let Some(nulls) = index.null_posting() {
         result -= nulls;
     }
     result
+}
+
+fn nonempty_scalar_entry(entry: &(&ScalarKey, &RoaringBitmap)) -> bool {
+    let (key, _) = entry;
+    match key {
+        ScalarKey::Null => false,
+        ScalarKey::String(text) | ScalarKey::Id(text) => !text.is_empty(),
+        _ => true,
+    }
 }
 
 fn is_range(operator: Operator) -> bool {

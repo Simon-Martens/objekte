@@ -331,6 +331,101 @@ fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
 }
 
 #[test]
+fn state_costs_follow_the_physical_union_and_restricted_subtraction() {
+    use crate::query::parse_filter;
+    use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
+    use crate::schema::Schema;
+
+    let field = FieldDefinition {
+        path: vec!["x".into()],
+        kind: LogicalType::String,
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: true,
+        element_nullable: Vec::new(),
+    };
+    let mut schema = Schema::default();
+    schema.register_field(field.clone()).unwrap();
+    let mut index = PostingIndex::structural(&field);
+    let null = Value::Null;
+    for number in 0..100 {
+        let value = Value::String(format!("value-{number:03}"));
+        index
+            .add_values(RecordSlot(number), Some(&[&null, &value]))
+            .unwrap();
+    }
+    index.finish_stats();
+    let domain = RoaringBitmap::from_iter(0..100);
+    let BoundExpr::Term(term) =
+        bind_filter(&parse_filter("x:string = true").unwrap(), &schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    let mut visits = 0;
+    let (work, output) = index
+        .estimate_exact_with_visits(&term, domain.len(), &mut visits)
+        .unwrap();
+    assert!(work > 1.0);
+    assert_eq!(output, 100);
+    assert!(visits <= 33);
+    let candidate_work = index
+        .estimate_state_candidates(term.derived, domain.len(), &mut visits)
+        .unwrap()
+        .0;
+    assert!(candidate_work > 1.0);
+    assert!(visits <= 66);
+    let input = RoaringBitmap::from_iter(20..40);
+    assert_eq!(
+        index.exact_set_restricted(&term, &domain, &input).unwrap(),
+        input
+    );
+    let BoundExpr::Term(nonempty_term) =
+        bind_filter(&parse_filter("x:? = true").unwrap(), &schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    let mut nonempty_visits = 0;
+    let (nonempty_work, nonempty_output) = index
+        .estimate_exact_with_visits(&nonempty_term, domain.len(), &mut nonempty_visits)
+        .unwrap();
+    assert!(nonempty_work > 1.0);
+    assert_eq!(nonempty_output, 100);
+    assert!(nonempty_visits <= 33);
+    assert_eq!(
+        index
+            .exact_set_restricted(&nonempty_term, &domain, &input)
+            .unwrap(),
+        input
+    );
+
+    let scalar_field = FieldDefinition {
+        multi: false,
+        ..field
+    };
+    let mut scalar_schema = Schema::default();
+    scalar_schema.register_field(scalar_field.clone()).unwrap();
+    let BoundExpr::Term(scalar_term) =
+        bind_filter(&parse_filter("x:string = true").unwrap(), &scalar_schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    let mut scalar = PostingIndex::structural(&scalar_field);
+    let value = Value::String("single".into());
+    scalar.add_values(RecordSlot(0), Some(&[&value])).unwrap();
+    scalar.finish_stats();
+    let mut scalar_visits = 0;
+    assert_eq!(
+        scalar
+            .estimate_exact_with_visits(&scalar_term, 1, &mut scalar_visits)
+            .unwrap()
+            .0,
+        1.0
+    );
+    assert_eq!(scalar_visits, 1);
+}
+
+#[test]
 fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
     use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};

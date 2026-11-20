@@ -127,12 +127,17 @@ impl PostingAccess<'_> {
             return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
         if structural && index.summary.is_some() && PostingIndex::state_truth(term) == Some(true) {
-            *visits += 1;
+            let (work, output) = index
+                .estimate_state_candidates(term.derived, domain.len(), visits)
+                .unwrap_or_else(|| {
+                    *visits += 1;
+                    (1.0, index.presence.len())
+                });
             return Ok(Some(proposal(
                 PostingOperation::StateCandidates,
                 false,
-                1.0,
-                index.presence.len(),
+                work,
+                output,
             )));
         }
         if index.empty_string_complete
