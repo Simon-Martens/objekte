@@ -1253,6 +1253,7 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
         max_buffered_bytes: 256 * 1024,
         ..Default::default()
     };
+    crate::query_results::ranking::reset_segment_rank_key_constructions();
     crate::query_execution::runner::reset_ordered_key_observations();
     let mut rows = Vec::new();
     let outcome = repo
@@ -1283,10 +1284,46 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
     assert!(base + second_key <= boundary);
     assert!(boundary >= 8 * 1024);
     assert!(summary.progress.peak_buffered_bytes >= overlap);
+    let (constructions, last_key) = crate::query_results::ranking::segment_rank_key_constructions();
+    assert_eq!(constructions, 2);
+    let (segment_id, last_slot) = last_key;
+    assert_eq!(last_slot, 1);
+
+    repo.configure_verified_cache(0).unwrap();
+    repo.configure_verified_cache(4 * 1024 * 1024).unwrap();
+    let initial_callbacks = AtomicUsize::new(0);
+    crate::query_results::ranking::reset_segment_rank_key_constructions();
+    let outcome = repo.search_stream(
+        &query,
+        StreamOptions {
+            max_event_bytes: 8 * 1024,
+            max_buffered_bytes: base + first_key - 1,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| {
+            initial_callbacks.fetch_add(1, Ordering::Relaxed);
+            Ok(StreamControl::Continue)
+        },
+    );
+    let Err(StreamError::Resource { progress, .. }) = outcome else {
+        panic!("initial key unexpectedly exceeded its budget without rejection")
+    };
+    assert_eq!(progress.sequence, 0);
+    assert_eq!(progress.emitted_rows, 0);
+    assert_eq!(initial_callbacks.load(Ordering::Relaxed), 0);
+    assert_eq!(
+        crate::query_results::ranking::segment_rank_key_constructions(),
+        (0, (0, 0)),
+        "the rejected initial key must not be materialized"
+    );
+    let after_initial_error = repo.search(&query).unwrap();
+    assert!(!after_initial_error.counters.verified_result_hit);
 
     repo.configure_verified_cache(0).unwrap();
     repo.configure_verified_cache(4 * 1024 * 1024).unwrap();
     let callbacks = AtomicUsize::new(0);
+    crate::query_results::ranking::reset_segment_rank_key_constructions();
     let outcome = repo.search_stream(
         &query,
         StreamOptions {
@@ -1308,6 +1345,11 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
     assert_eq!(progress.sequence, 0);
     assert_eq!(progress.emitted_rows, 0);
     assert_eq!(callbacks.load(Ordering::Relaxed), 0);
+    assert_eq!(
+        crate::query_results::ranking::segment_rank_key_constructions(),
+        (1, (segment_id, 0)),
+        "only the admitted initial key may be materialized"
+    );
     let after_error = repo.search(&query).unwrap();
     assert!(!after_error.counters.verified_result_hit);
     assert_eq!(

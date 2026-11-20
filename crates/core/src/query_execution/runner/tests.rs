@@ -4816,8 +4816,8 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
                     crate::query::sort_binding::production_bound_sort_calls() - before.1,
                     crate::query_execution::restrictions::predicate_bounds_calls() - before.2,
                 ),
-                (1, 1, 3),
-                "one preparation, one sort binding, and one application per OR predicate"
+                (1, 1, 2),
+                "one preparation, one sort binding, and no repeated fallback probe"
             );
         }
     }
@@ -7169,21 +7169,26 @@ fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for file in 0..files {
-        let mut source = String::new();
-        for row in 0..4 {
-            let (a, b) = match row {
-                0 => (true, false),
-                1 => (false, true),
-                2 | 3 => (true, true),
-                _ => unreachable!(),
-            };
-            source.push_str(&format!(
-                r#"{{"a":{a},"b":{b},"sort":{},"note":"needle"}}"#,
-                file * 4 + row
-            ));
-            source.push('\n');
-        }
+    let mut sources = vec![String::new(); files];
+    for i in 0..260 {
+        let (a, b) = match i % 4 {
+            0 => (true, false),
+            1 => (false, true),
+            2 | 3 => (true, true),
+            _ => unreachable!(),
+        };
+        let note = if matches!(i, 1 | 5 | 9) {
+            "needle-extra"
+        } else {
+            "needle"
+        };
+        let file = if files == 1 { 0 } else { i / 4 };
+        sources[file].push_str(&format!(
+            r#"{{"id":"{i}","a":{a},"b":{b},"sort":{i},"note":"{note}"}}"#
+        ));
+        sources[file].push('\n');
+    }
+    for (file, source) in sources.into_iter().enumerate() {
         let name = if files == 1 {
             "all.jsonl".to_owned()
         } else {
@@ -7228,7 +7233,7 @@ fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle
             name: "data".into(),
             source_path: "data".into(),
             format: SourceFormat::JsonLines,
-            identity: IdentityPolicy::Generated,
+            identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
             sort_fields: vec![crate::model::FieldPath::parse("sort").unwrap()],
@@ -7239,6 +7244,10 @@ fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle
         crate::repository::configuration::RepositoryOptions {
             query_workers: 4,
             verified_cache_bytes: 0,
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(4096).unwrap(),
+                max_files: std::num::NonZeroUsize::new(4096).unwrap(),
+            },
             ..Default::default()
         },
         crate::source::registry::SourceRegistry::builtin(),
@@ -7265,8 +7274,12 @@ fn indexed_or_layout_query() -> Query {
     }
 }
 
-fn assert_indexed_or_layout(view: &crate::lifecycle::IndexView, expected_count: usize) {
+fn assert_indexed_or_layout(
+    view: &crate::lifecycle::IndexView,
+    expected_count: usize,
+) -> Vec<SearchHit> {
     let query = indexed_or_layout_query();
+    let mut ordered_stream_hits = Vec::new();
     for streamed in [true, false] {
         let before = crate::query_execution::restrictions::predicate_applications();
         crate::query_execution::runner::reset_ordered_stream_completions();
@@ -7288,6 +7301,7 @@ fn assert_indexed_or_layout(view: &crate::lifecycle::IndexView, expected_count: 
             let StreamOutcome::Complete(summary) = outcome else {
                 panic!("exact indexed OR stream did not complete")
             };
+            ordered_stream_hits = rows.clone();
             (summary.count, rows, summary.counters)
         } else {
             let result = view.search(&query).unwrap();
@@ -7309,13 +7323,36 @@ fn assert_indexed_or_layout(view: &crate::lifecycle::IndexView, expected_count: 
         assert_eq!(counters.bytes_read, 0);
         assert_eq!(counters.record_parses, 0);
     }
+    ordered_stream_hits
+}
+
+fn assert_posted_a_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+) {
+    let a = observations
+        .iter()
+        .filter(|observation| observation.field == "a")
+        .collect::<Vec<_>>();
+    let note = observations
+        .iter()
+        .filter(|observation| observation.field == "note")
+        .collect::<Vec<_>>();
+    assert_eq!(a.len(), 1, "observations={observations:#?}");
+    assert_eq!(note.len(), 1, "observations={observations:#?}");
+    assert_eq!(a[0].operator, Operator::Eq);
+    assert_eq!(note[0].operator, Operator::Eq);
+    assert_eq!(a[0].value, "Bool(true)");
+    assert_eq!(note[0].value, "String(\"needle\")");
+    assert_eq!(a[0].segment, note[0].segment);
+    assert_eq!(a[0].input, (0..260).collect::<Vec<_>>());
+    assert_eq!(note[0].input, a[0].input);
 }
 
 #[test]
 fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
     let (root, index) = indexed_or_file_layout(65);
     let view = index.view().unwrap();
-    assert_indexed_or_layout(&view, 260);
+    let multi_file_hits = assert_indexed_or_layout(&view, 260);
 
     let residual_query = Query {
         collections: vec!["data".into()],
@@ -7324,17 +7361,55 @@ fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
         options: QueryOptions {
             sort: vec![SortField::simple("sort", false)],
             limit: 50,
-            offset: 25,
+            offset: 1,
             count: true,
             return_mode: ReturnMode::Locator,
             evidence: false,
         },
     };
     let expected = view.search_reference(&residual_query).unwrap();
+    crate::query_execution::restrictions::start_predicate_application_observations();
     crate::query_execution::runner::reset_ordered_stream_completions();
+    let mut streamed = Vec::new();
+    let outcome = view
+        .search_stream(
+            &residual_query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(stream_summary) = outcome else {
+        panic!("residual multi-file stream did not complete")
+    };
+    let stream_observations =
+        crate::query_execution::restrictions::take_predicate_application_observations();
+    assert_eq!(stream_summary.count, Some(257));
+    assert_eq!(stream_summary.returned_rows, 50);
+    assert_eq!(streamed, expected.hits);
+    assert_posted_a_once(&stream_observations);
+    assert_eq!(
+        crate::query_execution::runner::ordered_stream_completions(),
+        0,
+        "residual stream must use the general fallback"
+    );
+
+    crate::query_execution::restrictions::start_predicate_application_observations();
+    crate::query_execution::runner::reset_parallel_file_dispatches(view.instance_id());
     let residual = view.search(&residual_query).unwrap();
-    assert_eq!(residual.count, Some(260));
+    let search_observations =
+        crate::query_execution::restrictions::take_predicate_application_observations();
+    assert_eq!(residual.count, Some(257));
     assert_eq!(residual.hits, expected.hits);
+    assert_posted_a_once(&search_observations);
+    let (parallel_jobs, parallel_files) =
+        crate::query_execution::runner::parallel_file_dispatches(view.instance_id());
+    assert_eq!((parallel_jobs, parallel_files), (65, 65));
     assert!(residual.counters.files_opened > 64);
     assert!(residual.counters.scanned_records > 64);
     assert!(residual.counters.record_parses > 0);
@@ -7343,13 +7418,39 @@ fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
         0,
         "residual multi-file query must retain the file-parallel executor"
     );
+
+    let mut full_query = residual_query.clone();
+    full_query.options.offset = 0;
+    full_query.options.limit = 260;
+    let full_expected = view.search_reference(&full_query).unwrap();
+    let full = view.search(&full_query).unwrap();
+    assert_eq!(full.count, Some(257));
+    assert_eq!(full.hits, full_expected.hits);
+    let full_ids = full
+        .hits
+        .iter()
+        .map(|hit| hit.record_id.as_str())
+        .collect::<HashSet<_>>();
+    assert!(!full_ids.contains("1"));
+    assert!(!full_ids.contains("5"));
+    assert!(!full_ids.contains("9"));
     drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 
     let (root, index) = indexed_or_file_layout(1);
     let view = index.view().unwrap();
-    assert_indexed_or_layout(&view, 4);
+    let one_file_hits = assert_indexed_or_layout(&view, 260);
+    assert_eq!(
+        multi_file_hits
+            .iter()
+            .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+            .collect::<Vec<_>>(),
+        one_file_hits
+            .iter()
+            .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+            .collect::<Vec<_>>()
+    );
     drop(view);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

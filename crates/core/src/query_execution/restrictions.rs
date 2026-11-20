@@ -50,6 +50,10 @@ const MAX_INDEXED_PATH_SCAN: usize = 8192;
 thread_local! {
     static PREDICATE_BOUNDS_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     static PREDICATE_APPLICATIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static PREDICATE_APPLICATION_OBSERVATIONS: std::cell::RefCell<Vec<PredicateApplicationObservation>> =
+        const { std::cell::RefCell::new(Vec::new()) };
+    static OBSERVE_PREDICATE_APPLICATIONS: std::cell::Cell<bool> =
+        const { std::cell::Cell::new(false) };
 }
 
 #[cfg(test)]
@@ -60,6 +64,28 @@ pub(crate) fn predicate_bounds_calls() -> usize {
 #[cfg(test)]
 pub(crate) fn predicate_applications() -> usize {
     PREDICATE_APPLICATIONS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+#[derive(Debug)]
+pub(crate) struct PredicateApplicationObservation {
+    pub(crate) field: String,
+    pub(crate) operator: crate::query::Operator,
+    pub(crate) value: String,
+    pub(crate) segment: u64,
+    pub(crate) input: Vec<u32>,
+}
+
+#[cfg(test)]
+pub(crate) fn start_predicate_application_observations() {
+    PREDICATE_APPLICATION_OBSERVATIONS.with(|observations| observations.borrow_mut().clear());
+    OBSERVE_PREDICATE_APPLICATIONS.with(|value| value.set(true));
+}
+
+#[cfg(test)]
+pub(crate) fn take_predicate_application_observations() -> Vec<PredicateApplicationObservation> {
+    OBSERVE_PREDICATE_APPLICATIONS.with(|value| value.set(false));
+    PREDICATE_APPLICATION_OBSERVATIONS.with(std::cell::RefCell::take)
 }
 
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
@@ -328,8 +354,6 @@ impl<'a> SegmentPlanContext<'a> {
         let Some(choice) = choice else {
             return Ok(SegmentCandidateBounds::candidate(input.clone()));
         };
-        #[cfg(test)]
-        PREDICATE_APPLICATIONS.with(|applications| applications.set(applications.get() + 1));
         let restriction = self
             .catalog()
             .apply(
@@ -342,6 +366,21 @@ impl<'a> SegmentPlanContext<'a> {
                 },
             )
             .map_err(|error| error.to_string())?;
+        #[cfg(test)]
+        {
+            PREDICATE_APPLICATIONS.with(|applications| applications.set(applications.get() + 1));
+            if OBSERVE_PREDICATE_APPLICATIONS.with(std::cell::Cell::get) {
+                let observation = PredicateApplicationObservation {
+                    field: term.path.display(),
+                    operator: term.operator,
+                    value: format!("{:?}", term.literal),
+                    segment: self.provider.segment.id.get(),
+                    input: input.iter().collect(),
+                };
+                PREDICATE_APPLICATION_OBSERVATIONS
+                    .with(|observations| observations.borrow_mut().push(observation));
+            }
+        }
         let possible = restriction.possible;
         let may = shared_bitmap_from_slot_input(possible)?;
         let must = match restriction.proven {

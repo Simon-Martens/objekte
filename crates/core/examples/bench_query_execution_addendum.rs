@@ -493,21 +493,26 @@ fn indexed_or_layout_case(files: usize) -> Result<serde_json::Value, String> {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for file in 0..files {
-        let mut source = String::new();
-        for row in 0..4 {
-            let (a, b) = match row {
-                0 => (true, false),
-                1 => (false, true),
-                2 | 3 => (true, true),
-                _ => unreachable!(),
-            };
-            source.push_str(&format!(
-                r#"{{"a":{a},"b":{b},"sort":{},"note":"needle"}}"#,
-                file * 4 + row
-            ));
-            source.push('\n');
-        }
+    let mut sources = vec![String::new(); files];
+    for i in 0..260 {
+        let (a, b) = match i % 4 {
+            0 => (true, false),
+            1 => (false, true),
+            2 | 3 => (true, true),
+            _ => unreachable!(),
+        };
+        let note = if matches!(i, 1 | 5 | 9) {
+            "needle-extra"
+        } else {
+            "needle"
+        };
+        let file = if files == 1 { 0 } else { i / 4 };
+        sources[file].push_str(&format!(
+            r#"{{"id":"{i}","a":{a},"b":{b},"sort":{i},"note":"{note}"}}"#
+        ));
+        sources[file].push('\n');
+    }
+    for (file, source) in sources.into_iter().enumerate() {
         let name = if files == 1 {
             "all.jsonl".to_owned()
         } else {
@@ -552,7 +557,7 @@ fn indexed_or_layout_case(files: usize) -> Result<serde_json::Value, String> {
             name: "data".into(),
             source_path: "data".into(),
             format: SourceFormat::JsonLines,
-            identity: IdentityPolicy::Generated,
+            identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
             sort_fields: vec![FieldPath::parse("sort").unwrap()],
@@ -563,6 +568,10 @@ fn indexed_or_layout_case(files: usize) -> Result<serde_json::Value, String> {
         RepositoryOptions {
             verified_cache_bytes: 0,
             query_workers: 4,
+            segment_policy: objekte_search_core::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(4096).unwrap(),
+                max_files: std::num::NonZeroUsize::new(4096).unwrap(),
+            },
             ..Default::default()
         },
         objekte_search_core::source::registry::SourceRegistry::builtin(),
