@@ -1,7 +1,7 @@
 use super::*;
 use crate::model::LogicalType;
 use crate::query::options::SortField;
-use crate::query::{CaseSensitivity, QueryOptions, parse_filter};
+use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, QueryOptions, parse_filter};
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
@@ -7329,23 +7329,45 @@ fn assert_indexed_or_layout(
 fn assert_posted_a_once(
     observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
 ) {
-    let a = observations
+    assert_posted_fields_once(
+        observations,
+        "a",
+        "note",
+        "Bool(true)",
+        "String(\"needle\")",
+    );
+}
+
+fn assert_posted_fields_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+    first_field: &str,
+    second_field: &str,
+    first_value: &str,
+    second_value: &str,
+) {
+    let first = observations
         .iter()
-        .filter(|observation| observation.field == "a")
+        .filter(|observation| observation.field == first_field)
         .collect::<Vec<_>>();
-    let note = observations
+    let second = observations
         .iter()
-        .filter(|observation| observation.field == "note")
+        .filter(|observation| observation.field == second_field)
         .collect::<Vec<_>>();
-    assert_eq!(a.len(), 1, "observations={observations:#?}");
-    assert_eq!(note.len(), 1, "observations={observations:#?}");
-    assert_eq!(a[0].operator, Operator::Eq);
-    assert_eq!(note[0].operator, Operator::Eq);
-    assert_eq!(a[0].value, "Bool(true)");
-    assert_eq!(note[0].value, "String(\"needle\")");
-    assert_eq!(a[0].segment, note[0].segment);
-    assert_eq!(a[0].input, (0..260).collect::<Vec<_>>());
-    assert_eq!(note[0].input, a[0].input);
+    assert_eq!(first.len(), 1, "observations={observations:#?}");
+    assert_eq!(second.len(), 1, "observations={observations:#?}");
+    assert_eq!(first[0].operator, Operator::Eq);
+    assert_eq!(second[0].operator, Operator::Eq);
+    assert_eq!(first[0].value, first_value);
+    assert_eq!(second[0].value, second_value);
+    assert_eq!(first[0].segment, second[0].segment);
+    assert_eq!(first[0].input, (0..260).collect::<Vec<_>>());
+    assert_eq!(second[0].input, first[0].input);
+}
+
+fn assert_posted_a_and_b_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+) {
+    assert_posted_fields_once(observations, "a", "b", "Bool(true)", "Bool(true)");
 }
 
 #[test]
@@ -7353,6 +7375,201 @@ fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
     let (root, index) = indexed_or_file_layout(65);
     let view = index.view().unwrap();
     let multi_file_hits = assert_indexed_or_layout(&view, 260);
+
+    let evidence_query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || note = 'needle'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 50,
+            offset: 1,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let evidence_expected = view.search_reference(&evidence_query).unwrap();
+    for streamed in [true, false] {
+        crate::query_execution::restrictions::start_predicate_application_observations();
+        crate::query_execution::runner::reset_ordered_stream_completions();
+        let (hits, count, counters) = if streamed {
+            let mut rows = Vec::new();
+            let outcome = view
+                .search_stream(
+                    &evidence_query,
+                    StreamOptions::default(),
+                    &CancellationToken::new(),
+                    &mut |event| {
+                        if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                            rows.extend_from_slice(batch);
+                        }
+                        Ok(StreamControl::Continue)
+                    },
+                )
+                .unwrap();
+            let StreamOutcome::Complete(summary) = outcome else {
+                panic!("evidence OR stream did not complete")
+            };
+            (rows, summary.count, summary.counters)
+        } else {
+            let result = view.search(&evidence_query).unwrap();
+            (result.hits, result.count, result.counters)
+        };
+        let observations =
+            crate::query_execution::restrictions::take_predicate_application_observations();
+        assert_eq!(count, Some(257));
+        assert_eq!(hits, evidence_expected.hits);
+        assert_posted_a_once(&observations);
+        let fields = hits
+            .iter()
+            .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+            .collect::<HashMap<_, _>>();
+        assert_eq!(fields["2"], ["a", "note"]);
+        assert_eq!(fields["13"], ["note"]);
+        assert!(counters.files_opened > 64);
+        assert!(counters.scanned_records >= 257);
+        assert_eq!(
+            crate::query_execution::runner::ordered_stream_completions(),
+            0,
+            "evidence-bearing residual query must use the general fallback"
+        );
+    }
+
+    for (literal, expected_count, expected_ids) in [
+        ("needle", 260, vec!["1", "2", "3", "4", "5"]),
+        ("extra", 3, vec!["5", "9"]),
+    ] {
+        let fts_query = Query {
+            collections: vec!["data".into()],
+            fts: Some(FtsQuery {
+                pattern_parameter: None,
+                mode: FtsMode::Literal,
+                case_sensitivity: CaseSensitivity::Sensitive,
+                literal: literal.into(),
+                fields: vec![FtsField {
+                    path: crate::model::FieldPath::parse("note").unwrap(),
+                    binding: None,
+                    query_path: None,
+                }],
+            }),
+            filter: Some(parse_filter("a = true || b = true").unwrap()),
+            options: QueryOptions {
+                sort: vec![SortField::simple("sort", false)],
+                limit: 50,
+                offset: 1,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let expected = view.search_reference(&fts_query).unwrap();
+        assert_eq!(expected.count, Some(expected_count));
+        for streamed in [true, false] {
+            crate::query_execution::restrictions::start_predicate_application_observations();
+            crate::query_execution::runner::start_restriction_cache_observations();
+            crate::query_execution::runner::reset_ordered_stream_completions();
+            let (hits, count, counters) = if streamed {
+                let mut rows = Vec::new();
+                let outcome = view
+                    .search_stream(
+                        &fts_query,
+                        StreamOptions::default(),
+                        &CancellationToken::new(),
+                        &mut |event| {
+                            if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                                rows.extend_from_slice(batch);
+                            }
+                            Ok(StreamControl::Continue)
+                        },
+                    )
+                    .unwrap();
+                let StreamOutcome::Complete(summary) = outcome else {
+                    panic!("FTS stream did not complete")
+                };
+                (rows, summary.count, summary.counters)
+            } else {
+                let result = view.search(&fts_query).unwrap();
+                (result.hits, result.count, result.counters)
+            };
+            let observations =
+                crate::query_execution::restrictions::take_predicate_application_observations();
+            let reuse = crate::query_execution::runner::take_restriction_cache_observations();
+            assert_eq!(count, Some(expected_count));
+            assert_eq!(hits, expected.hits);
+            assert_eq!(
+                hits.iter()
+                    .take(expected_ids.len())
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>(),
+                expected_ids
+            );
+            assert_posted_a_and_b_once(&observations);
+            assert!(hits.iter().all(|hit| hit.matched_fields.is_empty()));
+            if literal == "needle" {
+                assert_eq!(
+                    crate::query_execution::runner::ordered_stream_completions(),
+                    0
+                );
+                assert_eq!(
+                    reuse,
+                    vec![(0, 0, (0..260).collect::<Vec<_>>())],
+                    "broad FTS must reuse the full-domain structured entry"
+                );
+            } else {
+                assert_eq!(counters.total_matches, 3);
+                assert_eq!(
+                    crate::query_execution::runner::ordered_stream_completions(),
+                    1,
+                    "selective FTS must complete on the ordered route"
+                );
+            }
+        }
+    }
+
+    let prepared = crate::query::prepared::prepare(
+        view.repository(),
+        &Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter("a = true || b = true").unwrap()),
+            options: QueryOptions {
+                sort: vec![SortField::simple("sort", false)],
+                limit: 50,
+                offset: 1,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        },
+    )
+    .unwrap();
+    let published = &view.0.segments[0][0];
+    let collection = &view.repository().collections[0];
+    let active = published.active.bitmap();
+    let full_bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+        &published.index,
+        &published.active,
+        prepared.collections[0].filter.as_ref().unwrap(),
+        collection,
+        Some(&view.0.catalog),
+        &active,
+        Some(&prepared.predicates),
+        None,
+    )
+    .unwrap();
+    let mut restriction_cache = SegmentRestrictionCache::new(&view.0.segments);
+    let exact = full_bounds.may == full_bounds.must;
+    restriction_cache.insert(0, 0, full_bounds, exact);
+    let mut narrow = RoaringBitmap::new();
+    narrow.extend([1, 5, 9]);
+    crate::query_execution::restrictions::start_predicate_application_observations();
+    let narrow_bounds = restriction_cache.for_input(0, 0, &narrow).unwrap();
+    let narrow_observations =
+        crate::query_execution::restrictions::take_predicate_application_observations();
+    assert!(narrow_observations.is_empty());
+    assert_eq!(narrow_bounds.bounds.may.as_ref(), &narrow);
+    assert_eq!(narrow_bounds.bounds.must.as_ref(), &narrow);
 
     for (offset, limit, first, last, returned_rows) in [
         (1, 50, Some("2"), Some("53"), 50),

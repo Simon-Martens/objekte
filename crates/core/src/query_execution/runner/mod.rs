@@ -22,8 +22,6 @@ use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
-#[cfg(test)]
-use crate::query::FtsMode;
 use crate::query::binding::fts::BoundFts;
 use crate::query::options::ReturnMode;
 use crate::query::prepared::PreparedCollectionQuery;
@@ -145,6 +143,8 @@ thread_local! {
         const { std::cell::Cell::new(0) };
     static ORDERED_STREAM_COMPLETIONS: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
+    static RESTRICTION_CACHE_REUSES: std::cell::RefCell<Vec<(usize, usize, Vec<u32>)>> =
+        const { std::cell::RefCell::new(Vec::new()) };
 }
 
 #[cfg(test)]
@@ -241,6 +241,29 @@ pub(crate) fn parallel_file_dispatches(instance_id: u64) -> (usize, usize) {
         .unwrap()
         .get(&instance_id)
         .map_or((0, 0), |(jobs, files)| (*jobs, files.len()))
+}
+
+#[cfg(test)]
+pub(crate) fn start_restriction_cache_observations() {
+    RESTRICTION_CACHE_REUSES.with(|values| values.borrow_mut().clear());
+}
+
+#[cfg(test)]
+pub(crate) fn take_restriction_cache_observations() -> Vec<(usize, usize, Vec<u32>)> {
+    RESTRICTION_CACHE_REUSES.with(std::cell::RefCell::take)
+}
+
+#[cfg(test)]
+fn record_restriction_cache_reuse(
+    collection_index: usize,
+    segment_index: usize,
+    input: &RoaringBitmap,
+) {
+    RESTRICTION_CACHE_REUSES.with(|values| {
+        values
+            .borrow_mut()
+            .push((collection_index, segment_index, input.iter().collect()));
+    });
 }
 
 #[cfg(test)]
@@ -964,6 +987,22 @@ impl SegmentRestrictionCache {
             .as_ref()
     }
 
+    fn for_input(
+        &self,
+        collection_index: usize,
+        segment_index: usize,
+        input: &RoaringBitmap,
+    ) -> Option<CachedSegmentRestriction> {
+        let cached = self.get(collection_index, segment_index)?;
+        Some(CachedSegmentRestriction {
+            bounds: crate::query_execution::restrictions::SegmentCandidateBounds {
+                may: Arc::new(cached.bounds.may.as_ref() & input),
+                must: Arc::new(cached.bounds.must.as_ref() & input),
+            },
+            exact: cached.exact,
+        })
+    }
+
     fn insert(
         &mut self,
         collection_index: usize,
@@ -1318,9 +1357,9 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
-struct ExactOrEvidence {
-    members: RoaringBitmap,
-    branches: Vec<(RoaringBitmap, Vec<String>)>,
+struct OrRestrictionProbe {
+    bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
+    evidence: Option<Vec<(RoaringBitmap, Vec<String>)>>,
 }
 
 fn exact_or_branch_evidence_fields(
@@ -1331,13 +1370,15 @@ fn exact_or_branch_evidence_fields(
     catalog: &FileCatalog,
     predicates: &crate::query_predicate::PreparedPredicates,
     context: &ExecutionContext,
-) -> Result<Option<ExactOrEvidence>, String> {
+) -> Result<Option<OrRestrictionProbe>, String> {
     let BoundExpr::Or(parts) = filter else {
         return Ok(None);
     };
     let input = active.bitmap();
     let mut branches = Vec::with_capacity(parts.len());
-    let mut members = RoaringBitmap::new();
+    let mut may = RoaringBitmap::new();
+    let mut must = RoaringBitmap::new();
+    let mut all_exact = true;
     for part in parts {
         let Some(fields) = segment_static_evidence_fields(part) else {
             return Ok(None);
@@ -1356,14 +1397,23 @@ fn exact_or_branch_evidence_fields(
         let exact = bounds.may == bounds.must
             || (excludes_raw_fallback(part)
                 && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
-        if !exact {
-            return Ok(None);
+        may |= bounds.may.as_ref();
+        must |= bounds.must.as_ref();
+        if exact {
+            branches.push((bounds.must.as_ref() & &input, fields));
+        } else {
+            all_exact = false;
         }
-        let branch = bounds.must.as_ref() & &input;
-        members |= &branch;
-        branches.push((branch, fields));
     }
-    Ok(Some(ExactOrEvidence { members, branches }))
+    may &= &input;
+    must &= &input;
+    Ok(Some(OrRestrictionProbe {
+        bounds: crate::query_execution::restrictions::SegmentCandidateBounds {
+            may: Arc::new(may),
+            must: Arc::new(must),
+        },
+        evidence: all_exact.then_some(branches),
+    }))
 }
 
 /// A single file's local residual work can run independently of other files. Only its
@@ -2243,14 +2293,17 @@ fn search_segmented_impl(
             } else {
                 Arc::new(domain.clone())
             };
-            let cached_bounds = if fts.is_none() && !text_first {
-                restriction_cache
-                    .get(collection_index, segment_index)
-                    .cloned()
-            } else {
-                None
-            };
+            let cached_bounds =
+                restriction_cache.for_input(collection_index, segment_index, filter_input.as_ref());
             let was_cached = cached_bounds.is_some();
+            #[cfg(test)]
+            if was_cached {
+                record_restriction_cache_reuse(
+                    collection_index,
+                    segment_index,
+                    filter_input.as_ref(),
+                );
+            }
             let bounds = if let Some(cached) = cached_bounds {
                 Some(cached.bounds)
             } else {
@@ -2271,8 +2324,7 @@ fn search_segmented_impl(
                     .transpose()?
             };
             if !was_cached
-                && fts.is_none()
-                && !text_first
+                && filter_input.as_ref() == &domain
                 && let (Some(filter), Some(bounds)) = (filter.as_ref(), bounds.as_ref())
             {
                 let logical = &published.active.bitmap() & &segment.logical_records;
@@ -3623,13 +3675,13 @@ fn try_lifecycle_ordered_stream(
             {
                 return Ok(None);
             }
-            let or_evidence = if request.options.evidence
+            let or_probe = if request.options.evidence
                 && fts.is_none()
                 && let Some(filter) = filter.as_ref()
                 && matches!(filter, BoundExpr::Or(_))
                 && segment_static_evidence_fields(filter).is_none()
             {
-                let Some(evidence) = exact_or_branch_evidence_fields(
+                let Some(probe) = exact_or_branch_evidence_fields(
                     &segment.index,
                     &segment.active,
                     filter,
@@ -3641,14 +3693,26 @@ fn try_lifecycle_ordered_stream(
                 else {
                     return Ok(None);
                 };
-                Some(evidence)
+                Some(probe)
             } else {
                 None
             };
-            let filter_may = if let Some(or_evidence) = or_evidence {
+            if let Some(probe) = or_probe.as_ref() {
+                let exact = probe.bounds.may == probe.bounds.must;
+                restriction_cache.insert(
+                    collection_index,
+                    segment_index,
+                    probe.bounds.clone(),
+                    exact,
+                );
+            }
+            let filter_may = if let Some(probe) = or_probe {
+                let Some(branches) = probe.evidence else {
+                    return Ok(None);
+                };
                 filter_exact[collection_index][segment_index] = true;
-                evidence_branches[collection_index][segment_index] = Some(or_evidence.branches);
-                Some(Arc::new(or_evidence.members))
+                evidence_branches[collection_index][segment_index] = Some(branches);
+                Some(probe.bounds.must)
             } else if let Some(cached) = restriction_cache.get(collection_index, segment_index) {
                 filter_exact[collection_index][segment_index] = cached.exact;
                 Some(if cached.exact {
