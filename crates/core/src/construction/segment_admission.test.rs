@@ -98,6 +98,123 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
 }
 
 #[test]
+fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-posting-transfer-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    for (name, kind, indexed) in [
+        ("n", LogicalType::Number, true),
+        ("s", LogicalType::String, false),
+        (
+            "blocked",
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            false,
+        ),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: false,
+                nullable: true,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    definition
+        .schema
+        .prohibit_auto_index(vec!["blocked".into()])
+        .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    for (name, body) in [
+        ("0.jsonl", ""),
+        ("1.jsonl", "{\"n\":null,\"blocked\":[]}\n"),
+        ("2.jsonl", "{\"n\":2,\"s\":\"value\"}\n"),
+    ] {
+        std::fs::write(root.join(name), body).unwrap();
+    }
+    let inputs = (0..3)
+        .map(|number| {
+            let name = format!("{number}.jsonl");
+            SourceFileInput {
+                id: FileId(number),
+                relative_path: name.clone().into(),
+                revision: SourceRevision::from_metadata(
+                    &std::fs::metadata(root.join(format!("{number}.jsonl"))).unwrap(),
+                )
+                .unwrap(),
+                created_ns: None,
+            }
+        })
+        .collect::<Vec<_>>();
+    let mut admission = SegmentAdmission::new(CollectionId(0), &source);
+    for input in &inputs {
+        let batch = process_batch(
+            &root,
+            &definition,
+            CollectionId(0),
+            &source,
+            &[input.id],
+            &inputs,
+            BigramAlphabet::Ascii,
+            InferenceConfig::default(),
+            1,
+        )
+        .unwrap();
+        admission.admit_batch(batch).unwrap();
+    }
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let mut profile = crate::repository::statistics::IncrementalSegmentProfile::default();
+    let indexed = admission
+        .finish()
+        .into_indexed_profiled(
+            &definition,
+            BigramAlphabet::Ascii,
+            InferenceConfig::default(),
+            1,
+            &pool,
+            Some(&mut profile),
+        )
+        .unwrap();
+    assert_eq!(profile.zero_base_posting_transfers, 2);
+    assert!(profile.transferred_posting_keys >= 6);
+    assert!(profile.transferred_posting_members >= 3);
+    assert_eq!(indexed.records.len(), 2);
+    assert_eq!(
+        indexed.postings.fields[&vec!["n".into()]]
+            .null_posting()
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [0]
+    );
+    assert_eq!(
+        indexed.postings.fields[&vec!["blocked".into()]]
+            .presence
+            .iter()
+            .collect::<Vec<_>>(),
+        [0]
+    );
+    indexed.postings.validate_eligible(2, 2).unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-admission-{}-{}",

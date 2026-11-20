@@ -37,6 +37,83 @@ fn broad_id_union_matches_individual_lookups() {
 }
 
 #[test]
+fn pristine_posting_collection_transfers_null_structural_and_empty_batches() {
+    let mut schema = Schema::default();
+    for (path, kind, indexed) in [
+        (vec!["nullable".into()], LogicalType::Number, true),
+        (
+            vec!["tags".into()],
+            LogicalType::Array(Box::new(LogicalType::String)),
+            false,
+        ),
+        (vec!["blocked".into()], LogicalType::String, false),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path,
+                kind,
+                required: false,
+                nullable: true,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
+    let mut destination = PostingCollection::new(&schema);
+    let mut batch = PostingCollection::new(&schema);
+    batch
+        .add(
+            RecordSlot(0),
+            &Value::from_json(serde_json::json!({
+                "nullable": null,
+                "tags": [],
+                "blocked": "structural"
+            }))
+            .unwrap(),
+        )
+        .unwrap();
+    let expected_presence = batch
+        .fields
+        .iter()
+        .map(|(path, index)| (path.clone(), index.presence.clone()))
+        .collect::<Vec<_>>();
+    let (transfers, keys, members) = destination.transfer_pristine(batch).unwrap();
+    assert_eq!(transfers, 1);
+    assert!(keys >= 3);
+    assert!(members >= 3);
+    assert_eq!(destination.fields.len(), 3);
+    for (path, presence) in expected_presence {
+        assert_eq!(destination.fields[&path].presence, presence);
+    }
+    assert_eq!(
+        destination.fields[&vec!["nullable".into()]]
+            .null_posting()
+            .unwrap()
+            .iter()
+            .collect::<Vec<_>>(),
+        [0]
+    );
+
+    let mut empty_destination = PostingCollection::new(&schema);
+    assert_eq!(
+        empty_destination
+            .transfer_pristine(PostingCollection::new(&schema))
+            .unwrap(),
+        (1, 3, 0)
+    );
+
+    let mut incomplete = PostingCollection::new(&schema);
+    incomplete.fields.remove(&vec!["blocked".into()]);
+    let wrong = PostingCollection::new(&schema);
+    assert_eq!(
+        incomplete.transfer_pristine(wrong).unwrap_err(),
+        "posting batch field coverage mismatch"
+    );
+}
+
+#[test]
 fn temporal_period_estimates_probe_bounded_keys_and_ranges_keep_exact_membership() {
     use crate::query::parse_filter;
     use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};

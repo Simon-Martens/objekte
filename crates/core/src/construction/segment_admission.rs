@@ -316,6 +316,7 @@ pub(crate) struct SegmentBatch {
 
 struct SegmentAggregate {
     postings: PostingCollection,
+    postings_pristine: bool,
     inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramContribution,
@@ -372,6 +373,7 @@ impl SegmentAggregate {
             .collect();
         Ok(Self {
             postings: PostingCollection::new(&definition.schema),
+            postings_pristine: true,
             inference: InferenceBuilder::for_collection(inference_config, collection_count),
             custom_postings,
             raw: BigramContribution::new(alphabet),
@@ -396,9 +398,11 @@ impl SegmentAggregate {
         base: u32,
         count: u32,
         pool: &ThreadPool,
+        mut profile: Option<&mut IncrementalSegmentProfile>,
     ) -> Result<(), String> {
         let Self {
             postings,
+            postings_pristine,
             inference,
             custom_postings,
             raw,
@@ -422,8 +426,24 @@ impl SegmentAggregate {
             relations: batch_relations,
             ..
         } = batch;
+        let transfer_postings = base == 0 && *postings_pristine;
+        if count != 0 {
+            *postings_pristine = false;
+        }
         let postings_and_custom = pool.join(
-            || postings.merge_shifted_in_pool(batch_postings, base, pool),
+            || {
+                if transfer_postings {
+                    let (transfers, keys, members) = postings.transfer_pristine(batch_postings)?;
+                    if let Some(profile) = profile.as_deref_mut() {
+                        profile.zero_base_posting_transfers += transfers as u64;
+                        profile.transferred_posting_keys += keys as u64;
+                        profile.transferred_posting_members += members as u64;
+                    }
+                    Ok(())
+                } else {
+                    postings.merge_shifted_in_pool(batch_postings, base, pool)
+                }
+            },
             || -> Result<(), String> {
                 if custom_postings.len() != batch_custom_postings.len() {
                     return Err("custom posting segment coverage mismatch".into());
@@ -783,13 +803,20 @@ impl CollectionSegment {
             contribution,
         } in self.batches
         {
-            aggregate.admit_parallel(contribution, base, count, pool)?;
+            aggregate.admit_parallel(
+                contribution,
+                base,
+                count,
+                pool,
+                profile.as_deref_mut(),
+            )?;
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.aggregate_merge_ns = started.elapsed().as_nanos() as u64;
         }
         let SegmentAggregate {
             mut postings,
+            postings_pristine: _,
             inference,
             mut custom_postings,
             raw,

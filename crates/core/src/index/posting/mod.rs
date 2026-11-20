@@ -13,6 +13,8 @@ use crate::schema::{FieldDefinition, Schema};
 
 mod lookup;
 
+const DIRECT_MULTIVALUE_LIMIT: usize = 8;
+
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
     String(String),
@@ -418,6 +420,36 @@ impl PostingIndex {
             }
             return Ok(());
         }
+        let flattened_count = selected
+            .iter()
+            .try_fold(0usize, |total, value| {
+                let count = match value {
+                    Value::Array(array) => array.values.len(),
+                    _ => 1,
+                };
+                total.checked_add(count)
+            })
+            .unwrap_or(usize::MAX);
+        if flattened_count <= DIRECT_MULTIVALUE_LIMIT {
+            for value in selected {
+                if let Value::Array(array) = value {
+                    if self.length_complete {
+                        self.lengths
+                            .entry(Number::integer(array.values.len() as i128))
+                            .or_default()
+                            .insert(slot.0);
+                    }
+                    for item in &array.values {
+                        if let Some(key) = ScalarKey::from_value(item) {
+                            self.values.entry(key).or_default().insert(slot.0);
+                        }
+                    }
+                } else if let Some(key) = ScalarKey::from_value(value) {
+                    self.values.entry(key).or_default().insert(slot.0);
+                }
+            }
+            return Ok(());
+        }
         let mut unique = HashSet::new();
         for value in selected {
             if let Value::Array(array) = value {
@@ -501,6 +533,39 @@ pub struct PostingCollection {
 }
 
 impl PostingCollection {
+    pub(crate) fn transfer_pristine(
+        &mut self,
+        batch: Self,
+    ) -> Result<(usize, usize, usize), String> {
+        if self.fields.len() != batch.fields.len()
+            || self
+                .fields
+                .keys()
+                .any(|path| !batch.fields.contains_key(path))
+        {
+            return Err("posting batch field coverage mismatch".into());
+        }
+        let keys = batch.fields.len()
+            + batch
+                .fields
+                .values()
+                .map(|index| index.values.len() + index.lengths.len())
+                .sum::<usize>();
+        let members = batch
+            .fields
+            .values()
+            .flat_map(|index| {
+                [&index.presence]
+                    .into_iter()
+                    .chain(index.values.values())
+                    .chain(index.lengths.values())
+            })
+            .map(RoaringBitmap::len)
+            .sum::<u64>();
+        *self = batch;
+        Ok((1, keys, usize::try_from(members).unwrap_or(usize::MAX)))
+    }
+
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         if self.fields.len() != batch.fields.len() {
             return Err("posting batch field coverage mismatch".into());
