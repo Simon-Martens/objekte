@@ -355,6 +355,12 @@ impl InferenceState {
                 || field.unavailable_records != self.report.unavailable_records
                 || field.present_records > logical.len()
                 || field.missing_records != logical.len() - field.present_records
+                || field.scalar_records > field.present_records
+                || field.array_records > field.present_records
+                || field.object_records > field.present_records
+                || field.empty_array_records > field.array_records
+                || field.empty_selection_records > field.present_records
+                || field.nonblank_records > field.present_records
                 || field.exact_null_records > field.null_occurrence_records
                 || field.null_occurrence_records > field.present_records
                 || field.retained_bytes_estimate

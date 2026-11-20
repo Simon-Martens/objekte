@@ -94,6 +94,22 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
                 })
                 .collect(),
         ),
+        (
+            "duplicate_array",
+            schema(&[(
+                "values",
+                LogicalType::Array(Box::new(LogicalType::String)),
+                true,
+            )]),
+            (0..10_000)
+                .map(|number| {
+                    Value::from_json(serde_json::json!({
+                        "values": vec![if number % 2 == 0 { "A" } else { "B" }; 32]
+                    }))
+                    .unwrap()
+                })
+                .collect(),
+        ),
     ]
 }
 

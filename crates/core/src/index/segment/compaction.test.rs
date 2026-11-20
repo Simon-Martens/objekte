@@ -579,7 +579,7 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
             "data",
             SourceFormat::Json,
         )],
-        options.clone(),
+        options,
         SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -638,6 +638,34 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
             &crate::schema::Schema::default(),
         )
         .unwrap();
+    let consolidated =
+        IndexedCollectionSegment::consolidate(&[&compacted.index], compacted.index.record_count())
+            .unwrap();
+    let consolidated_field = consolidated
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == path)
+        .unwrap();
+    assert!(!consolidated_field.complete);
+    assert_eq!(consolidated_field.scalar_records, expected.scalar_records);
+    assert_eq!(consolidated_field.array_records, expected.array_records);
+    consolidated
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .validate(
+            config,
+            &consolidated.index.logical_records,
+            consolidated.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -668,7 +696,7 @@ fn projected_numeric_report_recomputes_integer_only() {
             "data",
             SourceFormat::Json,
         )],
-        options.clone(),
+        options,
         SourceRegistry::builtin(),
     )
     .map_err(|error| error.to_string())
@@ -729,6 +757,70 @@ fn projected_numeric_report_recomputes_integer_only() {
         .unwrap();
     assert!(consolidated_field.complete);
     assert_eq!(consolidated_field.integer_only, Some(true));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn projected_numeric_report_with_no_survivors_does_not_retain_integer_only() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inference-empty-numeric-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/00_fractional.json"), r#"{"x":1.5}"#).unwrap();
+    std::fs::write(root.join("data/01_integer.json"), r#"{"x":7}"#).unwrap();
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: config,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let segment = &repo.segments[0][0].index;
+    let active = crate::inventory::ActiveRecords::all(segment.record_count())
+        .unwrap()
+        .retired(&[RecordSlot(0), RecordSlot(1)])
+        .unwrap();
+    let compacted = segment.compact_active(&active, 2, |_| true).unwrap();
+    let field = compacted
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert!(field.complete);
+    assert_eq!(field.present_records, 0);
+    assert_eq!(field.integer_only, None);
+    compacted
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .validate(
+            config,
+            &compacted.index.logical_records,
+            compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

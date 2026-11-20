@@ -398,7 +398,7 @@ impl SegmentAggregate {
         base: u32,
         count: u32,
         pool: &ThreadPool,
-        mut profile: Option<&mut IncrementalSegmentProfile>,
+        profile: Option<&mut IncrementalSegmentProfile>,
     ) -> Result<(), String> {
         let Self {
             postings,
@@ -434,7 +434,7 @@ impl SegmentAggregate {
             || {
                 if transfer_postings {
                     let (transfers, keys, members) = postings.transfer_pristine(batch_postings)?;
-                    if let Some(profile) = profile.as_deref_mut() {
+                    if let Some(profile) = profile {
                         profile.zero_base_posting_transfers += transfers as u64;
                         profile.transferred_posting_keys += keys as u64;
                         profile.transferred_posting_members += members as u64;

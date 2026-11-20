@@ -244,6 +244,7 @@ fn finish_projected_inference(
             field.short_string_distinct_values = 0;
             field.scalar_records = 0;
             field.array_records = 0;
+            field.object_records = 0;
             field.index_bytes_estimate = 0;
         }
         field.missing_records = eligible - field.present_records;
