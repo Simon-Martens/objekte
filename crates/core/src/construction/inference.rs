@@ -887,6 +887,57 @@ impl FieldState {
         field
     }
 
+    fn observation_copy(&self) -> Self {
+        let mut copy = Self::new(self.path.clone(), InferenceMode::ReportOnly);
+        copy.kinds = self.kinds.clone();
+        copy.summary = self.summary;
+        copy.present = self.present.clone();
+        copy.null_occurrence = self.null_occurrence.clone();
+        copy.exact_null = self.exact_null.clone();
+        copy.empty_array = self.empty_array.clone();
+        copy.empty_selection = self.empty_selection.clone();
+        copy.nonblank_records = self.nonblank_records.clone();
+        copy.scalar_records = self.scalar_records.clone();
+        copy.array_records = self.array_records.clone();
+        copy.object_records = self.object_records.clone();
+        copy.through_array_records = self.through_array_records.clone();
+        copy.direct_records = self.direct_records.clone();
+        copy.array_nesting = self.array_nesting;
+        copy.fractional_number = self.fractional_number;
+        copy.value_occurrences = self.value_occurrences;
+        copy.nonblank_occurrences = self.nonblank_occurrences;
+        copy.distinct_nonblank = self.distinct_nonblank.clone();
+        copy.short_distinct_without_postings = self.short_distinct_without_postings.clone();
+        copy.short_summary_truncated = self.short_summary_truncated;
+        copy.short_seen = self.short_seen.clone();
+        copy.short_uncovered = self.short_uncovered.clone();
+        copy.short_observed_occurrences = self.short_observed_occurrences;
+        copy.short_dropped = self.short_dropped;
+        copy.length_dropped = self.length_dropped;
+        copy.dropped = self.dropped;
+        copy.observation_values_present = self.values.is_some();
+        copy.observation_short_values_present = self
+            .short_values
+            .as_ref()
+            .is_some_and(|values| !values.is_empty());
+        copy.observation_lengths_present = self.lengths.is_some();
+        copy.observation_length_keys = self
+            .lengths
+            .as_ref()
+            .map_or_else(BTreeSet::new, |lengths| lengths.keys().cloned().collect());
+        let mut short_keys = self
+            .short_values
+            .as_ref()
+            .map(|values| values.keys().cloned().collect::<HashSet<_>>())
+            .unwrap_or_default();
+        if let Some(existing) = &self.short_distinct_without_postings {
+            short_keys.extend(existing.iter().cloned());
+        }
+        copy.short_distinct_without_postings =
+            (!short_keys.is_empty()).then_some(short_keys);
+        copy
+    }
+
     fn kind(&mut self, kind: LogicalType) {
         if !self.kinds.contains(&kind) {
             self.kinds.push(kind);
@@ -1915,7 +1966,11 @@ impl InferenceBuilder {
     }
 
     pub(crate) fn observation(&self) -> InferenceObservation {
-        let mut fields = self.fields.clone();
+        let mut fields = self
+            .fields
+            .iter()
+            .map(FieldState::observation_copy)
+            .collect::<Vec<_>>();
         for field in &mut fields {
             for depth in 1..field.path.len() {
                 if let Some(empty) = self.empty_ancestors.get(&typed_path(&field.path[..depth])) {
@@ -1925,27 +1980,6 @@ impl InferenceBuilder {
                     }
                 }
             }
-            let mut short_keys = field
-                .short_values
-                .as_ref()
-                .map(|values| values.keys().cloned().collect::<HashSet<_>>())
-                .unwrap_or_default();
-            if let Some(existing) = &field.short_distinct_without_postings {
-                short_keys.extend(existing.iter().cloned());
-            }
-            field.observation_values_present = field.values.is_some();
-            field.observation_short_values_present = field
-                .short_values
-                .as_ref()
-                .is_some_and(|values| !values.is_empty());
-            field.observation_lengths_present = field.lengths.is_some();
-            field.observation_length_keys = field
-                .lengths
-                .take()
-                .map_or_else(BTreeSet::new, |lengths| lengths.into_keys().collect());
-            field.short_distinct_without_postings = (!short_keys.is_empty()).then_some(short_keys);
-            field.short_values = None;
-            field.values = None;
         }
         InferenceObservation {
             fields,
