@@ -1456,6 +1456,230 @@ fn covered_terminal_presence_and_homogeneous_types_answer_without_source_reads()
 }
 
 #[test]
+fn trailing_wildcard_never_reuses_the_container_posting() {
+    use crate::query::options::ReturnMode;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::schema::Schema;
+    use crate::source::SourceFormat;
+
+    let root =
+        std::env::temp_dir().join(format!("objekte-terminal-wildcard-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("a", r#"{"x":[]}"#),
+        ("b", r#"{"x":[null]}"#),
+        ("c", r#"{"x":["Ada"]}"#),
+        ("d", "{}"),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::String)),
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: vec![true],
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: Vec::new(),
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let request = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 20,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    for (filter, expected) in [
+        ("x[*]:exists = true", vec!["b", "c"]),
+        ("x[*]:null = true", vec!["b"]),
+        ("x[*]:string = true", vec!["c"]),
+        ("x[*]:exists = false", vec!["a", "d"]),
+        ("x[*]:null = false", vec!["a", "c", "d"]),
+        ("x[*]:string = false", vec!["a", "b", "d"]),
+    ] {
+        let query = request(filter);
+        let actual = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(actual.count, reference.count, "{filter}");
+    }
+    let selective = request("x[*]:string = true && @record.id = \"c\"");
+    assert_eq!(
+        repo.search(&selective).unwrap().hits,
+        repo.search_reference(&selective).unwrap().hits
+    );
+    let disjunction = request("x[*]:string = true || @record.id = \"d\"");
+    assert_eq!(
+        repo.search(&disjunction).unwrap().hits,
+        repo.search_reference(&disjunction).unwrap().hits
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn trailing_wildcard_fallback_holds_for_initial_and_delta_segments() {
+    use crate::lifecycle::Index;
+    use crate::query::options::ReturnMode;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::schema::Schema;
+    use crate::source::SourceFormat;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-terminal-wildcard-delta-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let a = root.join("data/a.json");
+    let b = root.join("data/b.json");
+    let c = root.join("data/c.json");
+    let d = root.join("data/d.json");
+    std::fs::write(&a, r#"{"x":[]}"#).unwrap();
+    std::fs::write(&d, "{}").unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::String)),
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: vec![true],
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema,
+        sort_fields: Vec::new(),
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let index = Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let initial = index.view().unwrap();
+    let query = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 20,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    for filter in [
+        "x[*]:exists = true",
+        "x[*]:null = true",
+        "x[*]:string = true",
+        "x[*]:exists = false",
+    ] {
+        let request = query(filter);
+        assert_eq!(
+            initial.search(&request).unwrap().hits,
+            initial.search_reference(&request).unwrap().hits,
+            "{filter}"
+        );
+    }
+    drop(initial);
+    std::fs::write(&b, r#"{"x":[null]}"#).unwrap();
+    std::fs::write(&c, r#"{"x":["Ada"]}"#).unwrap();
+    index.add_file(&b).unwrap();
+    index.add_file(&c).unwrap();
+    let delta = index.view().unwrap();
+    for (filter, expected) in [
+        ("x[*]:exists = true", vec!["b", "c"]),
+        ("x[*]:null = true", vec!["b"]),
+        ("x[*]:string = true", vec!["c"]),
+        ("x[*]:exists = false", vec!["a", "d"]),
+    ] {
+        let request = query(filter);
+        let result = delta.search(&request).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+        assert_eq!(
+            result.hits,
+            delta.search_reference(&request).unwrap().hits,
+            "{filter}"
+        );
+    }
+    drop(delta);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
     use crate::lifecycle::Index;
     use crate::query::options::ReturnMode;

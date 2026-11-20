@@ -387,7 +387,7 @@ fn scan_inferred_segment(
         for batch in ranges.chunks(128) {
             for (slot, bytes) in reader.read(batch)?.0 {
                 let value = prepare_query_record_with_execution(
-                    collection.generation.records[slot as usize].class,
+                    RecordClass::Logical,
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,

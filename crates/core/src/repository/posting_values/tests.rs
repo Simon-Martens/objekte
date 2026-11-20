@@ -41,7 +41,7 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
         .unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![definition],
+        vec![definition.clone()],
         RepositoryOptions {
             ..Default::default()
         },
@@ -452,6 +452,165 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         )
         .is_err()
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
+    use crate::construction::batch::SourceFileInput;
+    use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+    use crate::construction::segment_admission::SegmentAdmission;
+    use crate::index::segment::PublishedSegment;
+    use crate::inventory::{ActiveRecords, SourceRevision};
+    use crate::lifecycle::IndexRevision;
+    use crate::lifecycle::catalog::FileCatalog;
+    use crate::model::{CollectionId, FileId, RecordSlot};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inferred-fallback-slots-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/base.json"), r#"{"code":1}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["code".into()],
+            kind: LogicalType::Unknown,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let options = RepositoryOptions {
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            policy: InferencePolicy {
+                min_nonblank_occurrences: 1,
+                min_nonblank_records: 1,
+                minimum_repeated_percent: 0,
+                ..Default::default()
+            },
+        },
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let repo = Arc::new(
+        crate::lifecycle::Index::build_repository_for_test(
+            &root,
+            vec![definition.clone()],
+            options.clone(),
+            crate::source::registry::SourceRegistry::builtin(),
+        )
+        .map_err(|error| error.to_string())
+        .unwrap(),
+    );
+
+    let second = root.join("data/second.json");
+    let third = root.join("data/third.json");
+    let retired = root.join("data/retired.json");
+    std::fs::write(&second, r#"{"code":2}"#).unwrap();
+    std::fs::write(&third, r#"{"code":"mixed"}"#).unwrap();
+    std::fs::write(&retired, r#"{"code":4}"#).unwrap();
+
+    let state = &repo.collections()[0];
+    let mut admission = None;
+    for (index, path) in [&second, &third, &retired].into_iter().enumerate() {
+        let relative_path = format!("data/{}", path.file_name().unwrap().to_string_lossy());
+        let prepared = prepare_file_build(
+            &root,
+            SourceFileInput {
+                id: FileId((repo.files().files.len() + index) as u32),
+                relative_path: relative_path.into(),
+                revision: SourceRevision::from_metadata(&std::fs::metadata(path).unwrap()).unwrap(),
+                created_ns: None,
+            },
+            &[FilePreparationBinding {
+                collection: CollectionId(0),
+                definition: &state.definition,
+                source: &state.source,
+            }],
+            repo.options().bigram_alphabet,
+            repo.options().inference,
+            1,
+        )
+        .unwrap();
+        let batch =
+            admission.get_or_insert_with(|| SegmentAdmission::new(CollectionId(0), &state.source));
+        batch
+            .admit(
+                &prepared.source,
+                prepared.collections.into_iter().next().unwrap(),
+            )
+            .unwrap();
+    }
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let segment = admission
+        .unwrap()
+        .finish()
+        .into_indexed(
+            &state.definition,
+            repo.options().bigram_alphabet,
+            repo.options().inference,
+            1,
+            &pool,
+        )
+        .unwrap();
+    let active = ActiveRecords::all(segment.records.len())
+        .unwrap()
+        .retired(&[RecordSlot(2)])
+        .unwrap();
+    let segment = Arc::new(PublishedSegment {
+        id: crate::index::segment::SegmentId::new(1),
+        active,
+        index: Arc::new(segment),
+    });
+    let mut catalog = FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+    for file in &segment.index.files {
+        catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
+    }
+    std::fs::remove_file(&retired).unwrap();
+    let mut segments = repo.segments.clone();
+    let mut group = (*segments[0]).clone();
+    group.push(segment);
+    segments[0] = Arc::new(group);
+    let request = PostingValuesRequest::new("data", "code", 10);
+    let delta = posting_values_segmented(
+        &repo,
+        &request,
+        IndexRevision(2),
+        &repo.active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    let fresh = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        options,
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap()
+    .posting_values(&request)
+    .unwrap();
+    assert_eq!(delta.values, fresh.values);
+    assert_eq!(
+        delta.coverage.eligible_records,
+        fresh.coverage.eligible_records
+    );
+    assert_eq!(
+        delta.coverage.present_records,
+        fresh.coverage.present_records
+    );
+    assert_eq!(delta.values.iter().map(|entry| entry.count).sum::<u64>(), 3);
     std::fs::remove_dir_all(root).unwrap();
 }
 

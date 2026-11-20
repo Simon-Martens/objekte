@@ -78,7 +78,8 @@ impl PostingAccess<'_> {
             && self_comparison_shape(term)
             && term.path.segments.len() == 1
             && term.source_kind == index.kind
-            && (!term.query_path.has_explicit_array_step || declared_array_steps(self.schema, term))
+            && (!term.query_path.has_explicit_array_step
+                || declared_path_has_equivalent_terminal_selection(self.schema, term))
             && index.covered_records as u64 == domain.len()
             && index.summary.is_some_and(|summary| {
                 summary.only_matches_scalar_or_null() && !summary.may_select_multiple()
@@ -102,7 +103,7 @@ impl PostingAccess<'_> {
             || (term.query_path.has_explicit_array_step
                 && (term.derived.state_predicate().is_none()
                     || self.id != PostingId::Declared
-                    || !declared_array_steps(self.schema, term)))
+                    || !declared_path_has_equivalent_terminal_selection(self.schema, term)))
             || term.transform != Transform::Identity
             || (term.period.is_some() && !index.value_complete)
             || index.covered_records as u64 != domain.len()
@@ -345,9 +346,10 @@ impl PostingAccess<'_> {
     }
 }
 
-fn declared_array_steps(schema: &Schema, term: &BoundTerm) -> bool {
+fn declared_path_has_equivalent_terminal_selection(schema: &Schema, term: &BoundTerm) -> bool {
     let mut prefix = Vec::new();
-    for step in &term.query_path.steps {
+    let steps = &term.query_path.steps;
+    for (index, step) in steps.iter().enumerate() {
         match step {
             PathStep::Field(name) => prefix.push(name.clone()),
             PathStep::EachElement => {
@@ -358,11 +360,18 @@ fn declared_array_steps(schema: &Schema, term: &BoundTerm) -> bool {
                 {
                     return false;
                 }
+                // A wildcard selects the array elements, while the posting for
+                // the same field sequence selects the container. It is only
+                // equivalent when a subsequent field step selects the same
+                // terminal values reached by normal array traversal.
+                if !matches!(steps.get(index + 1), Some(PathStep::Field(_))) {
+                    return false;
+                }
             }
             PathStep::ArrayIndex(_) => return false,
         }
     }
-    true
+    matches!(steps.last(), Some(PathStep::Field(_)))
 }
 
 pub(crate) fn self_comparison_shape(term: &BoundTerm) -> bool {
