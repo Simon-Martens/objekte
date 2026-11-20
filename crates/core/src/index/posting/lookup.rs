@@ -402,11 +402,7 @@ impl PostingIndex {
         } else {
             domain_len
         };
-        let broad_work = if keys == 33 {
-            self.values.len().saturating_add(self.lengths.len()) as f64 / 8.0
-        } else {
-            keys as f64
-        };
+        let broad_work = probe_work(keys, self.operation_key_count(operation));
         Some((broad_work.max(1.0), output.min(domain_len)))
     }
 
@@ -434,17 +430,68 @@ impl PostingIndex {
             StateCandidateOperation::AllLengths => self.lengths.len().min(33),
         };
         *visits += keys as u64;
-        let work = if keys == 33 {
-            self.values.len().saturating_add(self.lengths.len()) as f64 / 8.0
-        } else {
-            keys as f64
-        };
+        let work = probe_work(keys, self.candidate_operation_key_count(operation));
         let output = if keys <= 32 {
             domain_len / 4
         } else {
             domain_len
         };
         Some((work.max(1.0), output.min(domain_len)))
+    }
+
+    fn operation_key_count(&self, operation: StateValueOperation) -> Option<usize> {
+        let summary = self.summary?;
+        Some(match operation {
+            StateValueOperation::StringValues
+                if summary.only_matches_string_or_null() || summary.only_matches_string() =>
+            {
+                self.values
+                    .len()
+                    .saturating_sub(usize::from(self.null_posting().is_some()))
+            }
+            StateValueOperation::NumberValues
+                if summary.only_matches_number_or_null() || summary.only_matches_number() =>
+            {
+                self.values
+                    .len()
+                    .saturating_sub(usize::from(self.null_posting().is_some()))
+            }
+            StateValueOperation::AllLengths | StateValueOperation::NonZeroLengths => {
+                self.lengths.len()
+            }
+            StateValueOperation::NonEmptyValues => self
+                .values
+                .len()
+                .saturating_sub(usize::from(self.null_posting().is_some())),
+            StateValueOperation::NonEmptyValuesAndLengths => self
+                .values
+                .len()
+                .saturating_sub(usize::from(self.null_posting().is_some()))
+                .saturating_add(self.lengths.len()),
+            _ => return None,
+        })
+    }
+
+    fn candidate_operation_key_count(&self, operation: StateCandidateOperation) -> Option<usize> {
+        let summary = self.summary?;
+        Some(match operation {
+            StateCandidateOperation::StringValues
+                if summary.only_matches_string_or_null() || summary.only_matches_string() =>
+            {
+                self.values
+                    .len()
+                    .saturating_sub(usize::from(self.null_posting().is_some()))
+            }
+            StateCandidateOperation::NumberValues
+                if summary.only_matches_number_or_null() || summary.only_matches_number() =>
+            {
+                self.values
+                    .len()
+                    .saturating_sub(usize::from(self.null_posting().is_some()))
+            }
+            StateCandidateOperation::AllLengths => self.lengths.len(),
+            _ => return None,
+        })
     }
 
     pub(crate) fn state_truth(term: &BoundTerm) -> Option<bool> {
@@ -1114,6 +1161,14 @@ fn nonempty_scalar_entry(entry: &(&ScalarKey, &RoaringBitmap)) -> bool {
         ScalarKey::String(text) | ScalarKey::Id(text) => !text.is_empty(),
         _ => true,
     }
+}
+
+fn probe_work(keys: usize, relevant_keys: Option<usize>) -> f64 {
+    let observed = keys as f64;
+    if keys < 33 {
+        return observed;
+    }
+    relevant_keys.map_or(33.0, |keys| 33.0 + keys.saturating_sub(33) as f64 / 8.0)
 }
 
 fn is_range(operator: Operator) -> bool {

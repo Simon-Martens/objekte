@@ -401,7 +401,7 @@ fn state_costs_follow_the_physical_union_and_restricted_subtraction() {
 
     let scalar_field = FieldDefinition {
         multi: false,
-        ..field
+        ..field.clone()
     };
     let mut scalar_schema = Schema::default();
     scalar_schema.register_field(scalar_field.clone()).unwrap();
@@ -423,6 +423,36 @@ fn state_costs_follow_the_physical_union_and_restricted_subtraction() {
         1.0
     );
     assert_eq!(scalar_visits, 1);
+
+    let mut previous_exact = 0.0;
+    let mut previous_candidate = 0.0;
+    for count in [31usize, 32, 33, 100] {
+        let mut measured = PostingIndex::structural(&field);
+        for number in 0..count {
+            let value = Value::String(format!("key-{number:03}"));
+            measured
+                .add_values(RecordSlot(number as u32), Some(&[&null, &value]))
+                .unwrap();
+        }
+        measured.finish_stats();
+        let domain = RoaringBitmap::from_iter(0..count as u32);
+        let mut exact_visits = 0;
+        let exact = measured
+            .estimate_exact_with_visits(&term, domain.len(), &mut exact_visits)
+            .unwrap()
+            .0;
+        let mut candidate_visits = 0;
+        let candidate = measured
+            .estimate_state_candidates(term.derived, domain.len(), &mut candidate_visits)
+            .unwrap()
+            .0;
+        assert!(exact >= previous_exact, "{count}");
+        assert!(candidate >= previous_candidate, "{count}");
+        assert!(exact_visits <= 33);
+        assert!(candidate_visits <= 33);
+        previous_exact = exact;
+        previous_candidate = candidate;
+    }
 }
 
 #[test]
