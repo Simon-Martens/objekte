@@ -159,41 +159,88 @@ fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
             }
         })
         .collect::<Vec<_>>();
-    let mut admission = SegmentAdmission::new(CollectionId(0), &source);
-    for input in &inputs {
-        let batch = process_batch(
-            &root,
-            &definition,
-            CollectionId(0),
-            &source,
-            &[input.id],
-            &inputs,
-            BigramAlphabet::Ascii,
-            InferenceConfig::default(),
-            1,
-        )
-        .unwrap();
-        admission.admit_batch(batch).unwrap();
-    }
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(1)
         .build()
         .unwrap();
+    let build = |profile: Option<&mut crate::repository::statistics::IncrementalSegmentProfile>| {
+        let mut admission = SegmentAdmission::new(CollectionId(0), &source);
+        for input in &inputs {
+            let batch = process_batch(
+                &root,
+                &definition,
+                CollectionId(0),
+                &source,
+                &[input.id],
+                &inputs,
+                BigramAlphabet::Ascii,
+                InferenceConfig::default(),
+                1,
+            )
+            .unwrap();
+            admission.admit_batch(batch).unwrap();
+        }
+        admission
+            .finish()
+            .into_indexed_profiled(
+                &definition,
+                BigramAlphabet::Ascii,
+                InferenceConfig::default(),
+                1,
+                &pool,
+                profile,
+            )
+            .unwrap()
+    };
+    let without_profile = build(None);
     let mut profile = crate::repository::statistics::IncrementalSegmentProfile::default();
-    let indexed = admission
-        .finish()
-        .into_indexed_profiled(
-            &definition,
-            BigramAlphabet::Ascii,
-            InferenceConfig::default(),
-            1,
-            &pool,
-            Some(&mut profile),
-        )
-        .unwrap();
+    let indexed = build(Some(&mut profile));
     assert_eq!(profile.zero_base_posting_transfers, 2);
-    assert!(profile.transferred_posting_keys >= 6);
-    assert!(profile.transferred_posting_members >= 3);
+    assert_eq!(profile.transferred_posting_keys, 7);
+    assert_eq!(profile.transferred_posting_members, 3);
+    assert_eq!(
+        indexed.postings.fields.len(),
+        without_profile.postings.fields.len()
+    );
+    for (path, expected) in &without_profile.postings.fields {
+        let actual = &indexed.postings.fields[path];
+        assert_eq!(actual.kind, expected.kind, "{path:?} kind");
+        assert_eq!(actual.multi, expected.multi, "{path:?} multiplicity");
+        assert_eq!(actual.presence, expected.presence, "{path:?} presence");
+        assert_eq!(
+            actual.null_posting(),
+            expected.null_posting(),
+            "{path:?} null"
+        );
+        assert_eq!(actual.lengths, expected.lengths, "{path:?} lengths");
+        assert_eq!(actual.values, expected.values, "{path:?} values");
+        assert_eq!(actual.summary, expected.summary, "{path:?} summary");
+        assert_eq!(
+            actual.covered_records, expected.covered_records,
+            "{path:?} coverage"
+        );
+        assert_eq!(
+            actual.values_indexed, expected.values_indexed,
+            "{path:?} value indexing"
+        );
+        assert_eq!(
+            actual.value_complete, expected.value_complete,
+            "{path:?} value completeness"
+        );
+        assert_eq!(
+            actual.length_complete, expected.length_complete,
+            "{path:?} length completeness"
+        );
+        assert_eq!(
+            actual.empty_string_complete, expected.empty_string_complete,
+            "{path:?} empty-string completeness"
+        );
+        assert_eq!(
+            format!("{:?}", actual.stats),
+            format!("{:?}", expected.stats),
+            "{path:?} stats"
+        );
+    }
     assert_eq!(indexed.records.len(), 2);
     assert_eq!(
         indexed.postings.fields[&vec!["n".into()]]
@@ -211,6 +258,7 @@ fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
         [0]
     );
     indexed.postings.validate_eligible(2, 2).unwrap();
+    without_profile.postings.validate_eligible(2, 2).unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

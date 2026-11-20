@@ -79,10 +79,7 @@ fn pristine_posting_collection_transfers_null_structural_and_empty_batches() {
         .iter()
         .map(|(path, index)| (path.clone(), index.presence.clone()))
         .collect::<Vec<_>>();
-    let (transfers, keys, members) = destination.transfer_pristine(batch).unwrap();
-    assert_eq!(transfers, 1);
-    assert!(keys >= 3);
-    assert!(members >= 3);
+    destination.transfer_pristine(batch).unwrap();
     assert_eq!(destination.fields.len(), 3);
     for (path, presence) in expected_presence {
         assert_eq!(destination.fields[&path].presence, presence);
@@ -97,12 +94,9 @@ fn pristine_posting_collection_transfers_null_structural_and_empty_batches() {
     );
 
     let mut empty_destination = PostingCollection::new(&schema);
-    assert_eq!(
-        empty_destination
-            .transfer_pristine(PostingCollection::new(&schema))
-            .unwrap(),
-        (1, 3, 0)
-    );
+    empty_destination
+        .transfer_pristine(PostingCollection::new(&schema))
+        .unwrap();
 
     let mut incomplete = PostingCollection::new(&schema);
     incomplete.fields.remove(&vec!["blocked".into()]);

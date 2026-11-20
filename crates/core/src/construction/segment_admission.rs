@@ -433,11 +433,28 @@ impl SegmentAggregate {
         let postings_and_custom = pool.join(
             || {
                 if transfer_postings {
-                    let (transfers, keys, members) = postings.transfer_pristine(batch_postings)?;
+                    postings.transfer_pristine(batch_postings)?;
                     if let Some(profile) = profile {
-                        profile.zero_base_posting_transfers += transfers as u64;
+                        let keys = postings.fields.len()
+                            + postings
+                                .fields
+                                .values()
+                                .map(|index| index.values.len() + index.lengths.len())
+                                .sum::<usize>();
+                        let members = postings
+                            .fields
+                            .values()
+                            .flat_map(|index| {
+                                [&index.presence]
+                                    .into_iter()
+                                    .chain(index.values.values())
+                                    .chain(index.lengths.values())
+                            })
+                            .map(RoaringBitmap::len)
+                            .sum::<u64>();
+                        profile.zero_base_posting_transfers += 1;
                         profile.transferred_posting_keys += keys as u64;
-                        profile.transferred_posting_members += members as u64;
+                        profile.transferred_posting_members += members;
                     }
                     Ok(())
                 } else {

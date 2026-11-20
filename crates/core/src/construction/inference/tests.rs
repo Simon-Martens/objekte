@@ -2,6 +2,41 @@ use super::*;
 use crate::schema::FieldDefinition;
 
 #[test]
+fn observation_copy_unions_short_keys_without_cloning_overwritten_distinct_set() {
+    let mut field = FieldState::new(vec!["value".into()], InferenceMode::AutoIndex);
+    field.short_values = Some(
+        [
+            ("A".to_owned(), RoaringBitmap::from_iter([0])),
+            ("B".to_owned(), RoaringBitmap::from_iter([0])),
+        ]
+        .into_iter()
+        .collect(),
+    );
+    field.short_distinct_without_postings =
+        Some(["B".to_owned(), "C".to_owned()].into_iter().collect());
+    let original_short_values = field.short_values.as_ref().unwrap().clone();
+    let original_without_postings = field.short_distinct_without_postings.clone();
+    let observation = field.observation_copy();
+    assert_eq!(
+        observation.short_distinct_without_postings.unwrap(),
+        ["A".to_owned(), "B".to_owned(), "C".to_owned()]
+            .into_iter()
+            .collect()
+    );
+    assert_eq!(field.short_values, Some(original_short_values));
+    assert_eq!(
+        field.short_distinct_without_postings,
+        original_without_postings
+    );
+
+    let empty = FieldState::new(vec!["empty".into()], InferenceMode::AutoIndex);
+    assert_eq!(
+        empty.observation_copy().short_distinct_without_postings,
+        None
+    );
+}
+
+#[test]
 fn declared_and_prohibited_paths_keep_observations_without_posting_maps() {
     let mut schema = Schema::default();
     schema

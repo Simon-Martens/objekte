@@ -533,10 +533,7 @@ pub struct PostingCollection {
 }
 
 impl PostingCollection {
-    pub(crate) fn transfer_pristine(
-        &mut self,
-        batch: Self,
-    ) -> Result<(usize, usize, usize), String> {
+    pub(crate) fn transfer_pristine(&mut self, batch: Self) -> Result<(), String> {
         if self.fields.len() != batch.fields.len()
             || self
                 .fields
@@ -545,25 +542,8 @@ impl PostingCollection {
         {
             return Err("posting batch field coverage mismatch".into());
         }
-        let keys = batch.fields.len()
-            + batch
-                .fields
-                .values()
-                .map(|index| index.values.len() + index.lengths.len())
-                .sum::<usize>();
-        let members = batch
-            .fields
-            .values()
-            .flat_map(|index| {
-                [&index.presence]
-                    .into_iter()
-                    .chain(index.values.values())
-                    .chain(index.lengths.values())
-            })
-            .map(RoaringBitmap::len)
-            .sum::<u64>();
         *self = batch;
-        Ok((1, keys, usize::try_from(members).unwrap_or(usize::MAX)))
+        Ok(())
     }
 
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {

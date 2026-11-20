@@ -907,7 +907,6 @@ impl FieldState {
         copy.value_occurrences = self.value_occurrences;
         copy.nonblank_occurrences = self.nonblank_occurrences;
         copy.distinct_nonblank = self.distinct_nonblank.clone();
-        copy.short_distinct_without_postings = self.short_distinct_without_postings.clone();
         copy.short_summary_truncated = self.short_summary_truncated;
         copy.short_seen = self.short_seen.clone();
         copy.short_uncovered = self.short_uncovered.clone();
