@@ -135,6 +135,14 @@ thread_local! {
         const { std::cell::Cell::new(0) };
     static ORDERED_TAIL_READ_ATTEMPTS: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
+    static ORDERED_KEY_POP_COUNT: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_KEY_BASE_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_FIRST_KEY_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
+    static ORDERED_SECOND_KEY_BYTES: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
 }
 
 #[cfg(test)]
@@ -174,6 +182,23 @@ pub(crate) fn ordered_tail_components() -> (usize, usize, usize, usize, usize) {
         ORDERED_TAIL_IDENTITY_BYTES.with(std::cell::Cell::get),
         ORDERED_TAIL_CURSOR_BYTES.with(std::cell::Cell::get),
         ORDERED_TAIL_SOURCE_BYTES.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn reset_ordered_key_observations() {
+    ORDERED_KEY_POP_COUNT.with(|value| value.set(0));
+    ORDERED_KEY_BASE_BYTES.with(|value| value.set(0));
+    ORDERED_FIRST_KEY_BYTES.with(|value| value.set(0));
+    ORDERED_SECOND_KEY_BYTES.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_key_observations() -> (usize, usize, usize) {
+    (
+        ORDERED_KEY_BASE_BYTES.with(std::cell::Cell::get),
+        ORDERED_FIRST_KEY_BYTES.with(std::cell::Cell::get),
+        ORDERED_SECOND_KEY_BYTES.with(std::cell::Cell::get),
     )
 }
 
@@ -3821,7 +3846,19 @@ fn try_lifecycle_ordered_stream(
     let mut page_captured = false;
     while let Some(Reverse(cursor)) = heap.pop() {
         context.check_string()?;
+        let cursor_key_bytes = cursor.bytes;
         heap_bytes = heap_bytes.saturating_sub(cursor.bytes);
+        #[cfg(test)]
+        ORDERED_KEY_POP_COUNT.with(|pop_count| {
+            let pop = pop_count.get();
+            if pop == 0 {
+                ORDERED_KEY_BASE_BYTES.with(|value| value.set(heap_bytes));
+                ORDERED_FIRST_KEY_BYTES.with(|value| value.set(cursor.bytes));
+            } else if pop == 1 {
+                ORDERED_SECOND_KEY_BYTES.with(|value| value.set(cursor.bytes));
+            }
+            pop_count.set(pop + 1);
+        });
         let retained_identity_bytes = delivery
             .as_ref()
             .map_or(0, |delivery| delivery.retained_identity_bytes());
@@ -3838,9 +3875,22 @@ fn try_lifecycle_ordered_stream(
             &mut heap_bytes,
             max_buffered_bytes
                 .saturating_sub(page_bytes)
-                .saturating_sub(retained_identity_bytes),
+                .saturating_sub(retained_identity_bytes)
+                .saturating_sub(cursor_key_bytes),
             context,
         )?;
+        let live_heap_bytes = heap_bytes.checked_add(cursor_key_bytes).ok_or_else(|| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered live key memory overflow",
+            )
+        })?;
+        if live_heap_bytes > max_buffered_bytes {
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered live keys exceed stream memory budget",
+            ));
+        }
         let published = &segments[cursor.collection_index][cursor.segment_index];
         let Some(resolved) =
             segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
@@ -3879,7 +3929,7 @@ fn try_lifecycle_ordered_stream(
             if page.len() >= options.batch_rows
                 || page_bytes
                     .saturating_add(upcoming)
-                    .saturating_add(heap_bytes)
+                    .saturating_add(live_heap_bytes)
                     > max_buffered_bytes
             {
                 if let Some(delivery) = delivery.as_deref_mut() {
@@ -3910,23 +3960,28 @@ fn try_lifecycle_ordered_stream(
             #[cfg(test)]
             if page_captured {
                 ORDERED_TAIL_IDENTITY_BYTES.with(|value| value.set(retained_identity_bytes));
-                ORDERED_TAIL_CURSOR_BYTES.with(|value| value.set(heap_bytes));
+                ORDERED_TAIL_CURSOR_BYTES.with(|value| value.set(live_heap_bytes));
                 ORDERED_TAIL_SOURCE_BYTES.with(|value| value.set(source_len));
+            }
+            let source_live = page_bytes
+                .checked_add(live_heap_bytes)
+                .and_then(|used| used.checked_add(retained_identity_bytes))
+                .and_then(|used| used.checked_add(source_len))
+                .ok_or_else(|| {
+                    context.fail(
+                        ExecutionErrorKind::Resource,
+                        "ordered source memory overflow",
+                    )
+                })?;
+            if source_live > max_buffered_bytes {
+                return Err(context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered source exceeds stream memory budget",
+                ));
             }
             if let Some(delivery) = delivery.as_deref_mut() {
                 delivery.check_record_bytes(source_len)?;
-                delivery.check_buffer(
-                    page_bytes
-                        .checked_add(heap_bytes)
-                        .and_then(|used| used.checked_add(retained_identity_bytes))
-                        .and_then(|used| used.checked_add(source_len))
-                        .ok_or_else(|| {
-                            context.fail(
-                                ExecutionErrorKind::Resource,
-                                "ordered source memory overflow",
-                            )
-                        })?,
-                )?;
+                delivery.check_buffer(source_live)?;
             }
             context.charge_reads(1)?;
             context.charge_bytes(record.range.len())?;
@@ -3938,7 +3993,7 @@ fn try_lifecycle_ordered_stream(
                 cursor.slot,
                 &mut reader,
                 max_buffered_bytes
-                    .saturating_sub(heap_bytes)
+                    .saturating_sub(live_heap_bytes)
                     .saturating_sub(page_bytes)
                     .saturating_sub(retained_identity_bytes),
                 context,
@@ -4082,20 +4137,25 @@ fn try_lifecycle_ordered_stream(
                     let source_len = usize::try_from(record.range.len()).map_err(|_| {
                         context.fail(ExecutionErrorKind::Resource, "ordered output size overflow")
                     })?;
+                    let source_live = page_bytes
+                        .checked_add(live_heap_bytes)
+                        .and_then(|used| used.checked_add(retained_identity_bytes))
+                        .and_then(|used| used.checked_add(source_len))
+                        .ok_or_else(|| {
+                            context.fail(
+                                ExecutionErrorKind::Resource,
+                                "ordered output memory overflow",
+                            )
+                        })?;
+                    if source_live > max_buffered_bytes {
+                        return Err(context.fail(
+                            ExecutionErrorKind::Resource,
+                            "ordered output exceeds stream memory budget",
+                        ));
+                    }
                     if let Some(delivery) = delivery.as_deref_mut() {
                         delivery.check_record_bytes(source_len)?;
-                        delivery.check_buffer(
-                            page_bytes
-                                .checked_add(heap_bytes)
-                                .and_then(|used| used.checked_add(retained_identity_bytes))
-                                .and_then(|used| used.checked_add(source_len))
-                                .ok_or_else(|| {
-                                    context.fail(
-                                        ExecutionErrorKind::Resource,
-                                        "ordered output memory overflow",
-                                    )
-                                })?,
-                        )?;
+                        delivery.check_buffer(source_live)?;
                     }
                     context.charge_reads(1)?;
                     context.charge_bytes(record.range.len())?;
@@ -4107,7 +4167,7 @@ fn try_lifecycle_ordered_stream(
                         cursor.slot,
                         &mut reader,
                         max_buffered_bytes
-                            .saturating_sub(heap_bytes)
+                            .saturating_sub(live_heap_bytes)
                             .saturating_sub(page_bytes)
                             .saturating_sub(retained_identity_bytes),
                         context,
@@ -4158,6 +4218,7 @@ fn try_lifecycle_ordered_stream(
         } else {
             counters.record_parses += u64::from(verification_parsed);
         }
+        let retained_source_bytes = bytes.as_ref().map_or(0, Vec::len);
         let bytes = crate::query_execution::streaming::hit_bytes(&hit);
         if limit.is_none()
             && !page.is_empty()
@@ -4176,32 +4237,40 @@ fn try_lifecycle_ordered_stream(
                 "ordered page byte count overflow",
             )
         })?;
-        if page_output.is_some() && retained.saturating_add(heap_bytes) > max_buffered_bytes {
+        let retained_with_cursors = retained
+            .checked_add(live_heap_bytes)
+            .and_then(|used| used.checked_add(retained_identity_bytes))
+            .and_then(|used| used.checked_add(retained_source_bytes))
+            .ok_or_else(|| {
+                context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered retained memory overflow",
+                )
+            })?;
+        if retained_with_cursors > max_buffered_bytes {
             return Err(context.fail(
                 ExecutionErrorKind::Resource,
                 "ordered page exceeds stream memory budget",
             ));
         }
         if let Some(delivery) = delivery.as_deref_mut() {
-            delivery.check_buffer(
-                retained
-                    .checked_add(heap_bytes)
-                    .and_then(|used| used.checked_add(retained_identity_bytes))
-                    .ok_or_else(|| {
-                        context.fail(
-                            ExecutionErrorKind::Resource,
-                            "ordered retained memory overflow",
-                        )
-                    })?,
-            )?;
+            delivery.check_buffer(retained_with_cursors)?;
         }
         page_bytes = retained;
         page.push(hit);
+        let delivery_cursor_bytes = live_heap_bytes
+            .checked_add(retained_source_bytes)
+            .ok_or_else(|| {
+                context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered delivery memory overflow",
+                )
+            })?;
         if options.mode == StreamMode::PageReplacements
             && files_since_checkpoint >= options.checkpoint_files
         {
             if let Some(delivery) = delivery.as_deref_mut() {
-                delivery.replacement(&page, &counters, heap_bytes)?;
+                delivery.replacement(&page, &counters, delivery_cursor_bytes)?;
             }
             files_since_checkpoint = 0;
         }
@@ -4214,7 +4283,7 @@ fn try_lifecycle_ordered_stream(
                 match options.mode {
                     StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
                     StreamMode::PageReplacements => {
-                        delivery.replacement(&page, &counters, heap_bytes)?
+                        delivery.replacement(&page, &counters, delivery_cursor_bytes)?
                     }
                 }
             }

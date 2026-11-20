@@ -1171,6 +1171,152 @@ fn replacement_callback_charges_old_and_new_identities_together() {
 }
 
 #[test]
+fn ordered_successor_accounts_for_the_live_popped_key() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordered-live-key-{}-{}",
+        std::process::id(),
+        NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, prefix) in [("a", "01"), ("b", "02")] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            serde_json::json!({
+                "flag": true,
+                "sort": format!("{prefix}-{}", "x".repeat(20_000)),
+            })
+            .to_string(),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["flag".into()],
+            kind: LogicalType::Bool,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["sort".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![FieldPath::parse("sort").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 4 * 1024 * 1024,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("flag = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let sufficient = StreamOptions {
+        max_event_bytes: 8 * 1024,
+        max_buffered_bytes: 256 * 1024,
+        ..Default::default()
+    };
+    crate::query_execution::runner::reset_ordered_key_observations();
+    let mut rows = Vec::new();
+    let outcome = repo
+        .search_stream(
+            &query,
+            sufficient,
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                    rows.extend_from_slice(batch);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("sufficient live-key stream did not complete")
+    };
+    assert_eq!(summary.count, Some(2));
+    assert_eq!(rows, repo.search_reference(&query).unwrap().hits);
+    let (base, first_key, second_key) = crate::query_execution::runner::ordered_key_observations();
+    assert!(first_key > 20_000);
+    assert!(second_key > 20_000);
+    assert!(base + first_key < base + first_key + second_key);
+    let overlap = base + first_key + second_key;
+    let boundary = overlap - 1;
+    assert!(base + first_key <= boundary);
+    assert!(base + second_key <= boundary);
+    assert!(boundary >= 8 * 1024);
+
+    repo.configure_verified_cache(0).unwrap();
+    repo.configure_verified_cache(4 * 1024 * 1024).unwrap();
+    let callbacks = AtomicUsize::new(0);
+    let outcome = repo.search_stream(
+        &query,
+        StreamOptions {
+            max_event_bytes: 8 * 1024,
+            max_buffered_bytes: boundary,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| {
+            callbacks.fetch_add(1, Ordering::Relaxed);
+            Ok(StreamControl::Continue)
+        },
+    );
+    let Err(StreamError::Resource { progress, .. }) = outcome else {
+        panic!(
+            "overlapping keys completed under a budget that fits only one: base={base} first={first_key} second={second_key} boundary={boundary}"
+        )
+    };
+    assert_eq!(progress.sequence, 0);
+    assert_eq!(progress.emitted_rows, 0);
+    assert_eq!(callbacks.load(Ordering::Relaxed), 0);
+    let after_error = repo.search(&query).unwrap();
+    assert!(!after_error.counters.verified_result_hit);
+    assert_eq!(
+        after_error.hits,
+        repo.search_reference(&query).unwrap().hits
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn ordered_cache_admission_stops_cache_only_work_after_rejection() {
     let fixture = cache_closed_fixture();
     fixture.repo.configure_verified_cache(512).unwrap();
