@@ -1,6 +1,6 @@
 //! Bounded construction-only field observation and posting admission.
 
-use std::collections::{BTreeMap, HashMap, HashSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
@@ -310,8 +310,8 @@ pub(crate) fn aggregate_segment_inference(
         }
 
         let distinct_strings = aggregate.distinct_nonblank.as_ref().map(HashSet::len);
-        let length_key_overflow =
-            aggregate.length_keys > config.policy.max_distinct_values_per_path as u64;
+        let length_key_overflow = aggregate.length_keys_overflow
+            || aggregate.length_keys.len() > config.policy.max_distinct_values_per_path;
         let decision = decide_field_admission(
             config,
             schema,
@@ -550,7 +550,8 @@ struct AggregatedField<'a> {
     short_summary_truncated: bool,
     lengths_complete: bool,
     length_dropped: bool,
-    length_keys: u64,
+    length_keys: BTreeSet<Number>,
+    length_keys_overflow: bool,
     values_present: bool,
     dropped: bool,
     index_bytes_estimate: usize,
@@ -596,11 +597,18 @@ impl<'a> AggregatedField<'a> {
         self.dropped |= field.dropped;
         self.short_dropped |= field.short_dropped;
         self.length_dropped |= field.length_dropped;
-        add_count(
-            &mut self.length_keys,
-            field.observation_length_keys as u64,
-            "inference length-key count overflow",
-        )?;
+        if !self.length_keys_overflow {
+            for key in &field.observation_length_keys {
+                if self.length_keys.contains(key) {
+                    continue;
+                }
+                if self.length_keys.len() >= policy.max_distinct_values_per_path {
+                    self.length_keys_overflow = true;
+                    break;
+                }
+                self.length_keys.insert(key.clone());
+            }
+        }
         self.short_summary_truncated |= field.short_summary_truncated;
         self.values_present &= field.observation_values_present;
         if !field.array_records.is_empty() {
@@ -803,7 +811,7 @@ struct FieldState {
     observation_values_present: bool,
     observation_short_values_present: bool,
     observation_lengths_present: bool,
-    observation_length_keys: usize,
+    observation_length_keys: BTreeSet<Number>,
     no_provisional_postings: bool,
     facts_enabled: bool,
     short_distinct_without_postings: Option<HashSet<String>>,
@@ -851,7 +859,7 @@ impl FieldState {
             observation_values_present: false,
             observation_short_values_present: false,
             observation_lengths_present: false,
-            observation_length_keys: 0,
+            observation_length_keys: BTreeSet::new(),
             no_provisional_postings: false,
             facts_enabled: mode == InferenceMode::AutoIndex,
             short_distinct_without_postings: None,
@@ -1931,11 +1939,13 @@ impl InferenceBuilder {
                 .as_ref()
                 .is_some_and(|values| !values.is_empty());
             field.observation_lengths_present = field.lengths.is_some();
-            field.observation_length_keys = field.lengths.as_ref().map_or(0, BTreeMap::len);
+            field.observation_length_keys = field
+                .lengths
+                .take()
+                .map_or_else(BTreeSet::new, |lengths| lengths.into_keys().collect());
             field.short_distinct_without_postings = (!short_keys.is_empty()).then_some(short_keys);
             field.short_values = None;
             field.values = None;
-            field.lengths = None;
         }
         InferenceObservation {
             fields,

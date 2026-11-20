@@ -769,6 +769,118 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
 }
 
 #[test]
+fn collection_length_admission_deduplicates_keys_across_segments() {
+    let root = temporary_root("length-key-dedup");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..2 {
+        std::fs::write(root.join(format!("data/{number:03}.json")), r#"{"x":[1]}"#).unwrap();
+    }
+    let options = RepositoryOptions {
+        segment_policy: crate::index::segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(1).unwrap(),
+            max_files: std::num::NonZeroUsize::new(1).unwrap(),
+        },
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            policy: InferencePolicy {
+                max_distinct_values_per_path: 1,
+                ..Default::default()
+            },
+        },
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let mut request = query("x:length = 1");
+    request.options.limit = 1;
+    request.options.return_mode = ReturnMode::Locator;
+    request.options.evidence = false;
+    let single = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        options.clone(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    assert_eq!(single.segments[0].len(), 1);
+    assert_eq!(
+        single.inference_report("data").unwrap().fields[0].index_status,
+        InferenceIndexStatus::Built
+    );
+    let result = single.search(&request).unwrap();
+    assert_eq!(result.hits, single.search_reference(&request).unwrap().hits);
+    assert_eq!(result.counters.scanned_records, 0);
+    assert_eq!(result.counters.record_parses, 0);
+    drop(single);
+
+    for number in 2..513 {
+        std::fs::write(root.join(format!("data/{number:03}.json")), r#"{"x":[1]}"#).unwrap();
+    }
+    let partitioned = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        options.clone(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    assert_eq!(partitioned.segments[0].len(), 2);
+    let report = partitioned.inference_report("data").unwrap();
+    let field = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(field.index_status, InferenceIndexStatus::Built);
+    assert_eq!(field.array_records, 513);
+    let result = partitioned.search(&request).unwrap();
+    assert_eq!(
+        result.hits,
+        partitioned.search_reference(&request).unwrap().hits
+    );
+    assert_eq!(result.counters.scanned_records, 0);
+    assert_eq!(result.counters.record_parses, 0);
+    drop(partitioned);
+
+    std::fs::write(root.join("data/512.json"), r#"{"x":[1,2]}"#).unwrap();
+    let over_budget = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        options,
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let report = over_budget.inference_report("data").unwrap();
+    let field = report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(field.index_status, InferenceIndexStatus::BudgetExceeded);
+    let result = over_budget.search(&request).unwrap();
+    assert_eq!(
+        result.hits,
+        over_budget.search_reference(&request).unwrap().hits
+    );
+    assert!(result.counters.scanned_records > 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn repeated_percent_boundary_is_inclusive_and_exact() {
     let root = temporary_root("global-repeat-boundary");
     let _ = std::fs::remove_dir_all(&root);
