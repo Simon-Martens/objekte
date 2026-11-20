@@ -7257,7 +7257,7 @@ fn indexed_or_layout_query() -> Query {
         options: QueryOptions {
             sort: vec![SortField::simple("sort", false)],
             limit: 50,
-            offset: 25,
+            offset: 1,
             count: true,
             return_mode: ReturnMode::Locator,
             evidence: true,

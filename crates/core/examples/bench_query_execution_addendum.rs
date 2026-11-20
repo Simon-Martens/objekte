@@ -482,6 +482,155 @@ fn indexed_or_case() -> Result<serde_json::Value, String> {
     }))
 }
 
+fn indexed_or_layout_case(files: usize) -> Result<serde_json::Value, String> {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-addendum-or-layout-{files}-{}-{}",
+        std::process::id(),
+        SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for file in 0..files {
+        let mut source = String::new();
+        for row in 0..4 {
+            let (a, b) = match row {
+                0 => (true, false),
+                1 => (false, true),
+                2 | 3 => (true, true),
+                _ => unreachable!(),
+            };
+            source.push_str(&format!(
+                r#"{{"a":{a},"b":{b},"sort":{},"note":"needle"}}"#,
+                file * 4 + row
+            ));
+            source.push('\n');
+        }
+        let name = if files == 1 {
+            "all.jsonl".to_owned()
+        } else {
+            format!("{file:03}.jsonl")
+        };
+        std::fs::write(root.join("data").join(name), source).unwrap();
+    }
+    let mut schema = Schema::default();
+    for name in ["a", "b"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::Bool,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    for name in ["sort", "note"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: if name == "sort" {
+                    LogicalType::Number
+                } else {
+                    LogicalType::String
+                },
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![FieldPath::parse("sort").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            query_workers: 4,
+            ..Default::default()
+        },
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())?;
+    let view = index.view().map_err(|error| error.to_string())?;
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || b = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 50,
+            offset: 1,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let expected = view.search_reference(&query)?;
+    view.search(&query)?;
+    let started = Instant::now();
+    let mut first_ns = None;
+    let mut returned = 0usize;
+    let outcome = view
+        .search_stream(
+            &query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    if !rows.is_empty() {
+                        first_ns.get_or_insert_with(|| started.elapsed().as_nanos() as u64);
+                    }
+                    returned += rows.len();
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .map_err(|error| error.to_string())?;
+    let completion_ns = started.elapsed().as_nanos() as u64;
+    let StreamOutcome::Complete(summary) = outcome else {
+        return Err("indexed OR layout stream did not complete".into());
+    };
+    if summary.count != expected.count || returned != expected.hits.len() {
+        return Err("indexed OR layout differs from reference".into());
+    }
+    let result = view.search(&query)?;
+    if result.hits != expected.hits || result.count != expected.count {
+        return Err("ordinary indexed OR layout differs from reference".into());
+    }
+    drop(view);
+    index.shutdown().map_err(|error| error.to_string())?;
+    std::fs::remove_dir_all(root).unwrap();
+    Ok(serde_json::json!({
+        "case": if files == 1 { "indexed-or-one-file" } else { "indexed-or-65-files" },
+        "files": files,
+        "query_workers": 4,
+        "verified_cache_bytes": 0,
+        "first_rows_ns": first_ns,
+        "completion_ns": completion_ns,
+        "returned_rows": returned,
+        "count": summary.count,
+        "counters": summary.counters,
+    }))
+}
+
 fn main() -> Result<(), String> {
     let root = std::env::args()
         .nth(1)
@@ -510,5 +659,7 @@ fn main() -> Result<(), String> {
         println!("{result}");
     }
     println!("{}", indexed_or_case()?);
+    println!("{}", indexed_or_layout_case(1)?);
+    println!("{}", indexed_or_layout_case(65)?);
     Ok(())
 }
