@@ -3531,6 +3531,15 @@ fn try_lifecycle_ordered_stream(
         let fts = entry.fts.clone();
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
+            if request.options.evidence
+                && fts.is_none()
+                && filter.as_ref().is_some_and(|filter| {
+                    segment_static_evidence_fields(filter).is_none()
+                        && !matches!(filter, BoundExpr::Or(_))
+                })
+            {
+                return Ok(None);
+            }
             let or_evidence = if request.options.evidence
                 && fts.is_none()
                 && let Some(filter) = filter.as_ref()

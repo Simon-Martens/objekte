@@ -6870,20 +6870,21 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (name, a, b, order) in [
-        ("A", true, false, 1),
-        ("B", false, true, 2),
-        ("C", true, true, 3),
-        ("D", false, false, 4),
+    for (name, a, b, c, order) in [
+        ("A", true, false, true, 1),
+        ("B", false, true, true, 2),
+        ("C", true, true, true, 3),
+        ("D", true, false, false, 4),
+        ("E", false, false, true, 5),
     ] {
         std::fs::write(
             root.join(format!("data/{name}.json")),
-            format!(r#"{{"a":{a},"b":{b},"order":{order}}}"#),
+            format!(r#"{{"a":{a},"b":{b},"c":{c},"order":{order}}}"#),
         )
         .unwrap();
     }
     let mut schema = Schema::default();
-    for name in ["a", "b"] {
+    for name in ["a", "b", "c"] {
         schema
             .register_field(FieldDefinition {
                 path: vec![name.into()],
@@ -6981,7 +6982,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
         ),
         (1, 1, 2)
     );
-    assert_eq!(summary.count, Some(3));
+    assert_eq!(summary.count, Some(4));
     assert_eq!(view.search_reference(&query).unwrap().hits, rows);
     assert_eq!(rows[0].matched_fields, ["a"]);
 
@@ -7041,10 +7042,73 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     count_only.options.limit = 0;
     count_only.options.count = true;
     let counted = view.search(&count_only).unwrap();
-    assert_eq!(counted.count, Some(3));
+    assert_eq!(counted.count, Some(4));
     assert_eq!(counted.counters.files_opened, 0);
     assert_eq!(counted.counters.bytes_read, 0);
     assert_eq!(counted.counters.record_parses, 0);
+
+    let nested = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("c = true && (a = true || b = true)").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("order", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let mut streamed = Vec::new();
+    let outcome = view
+        .search_stream(
+            &nested,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("nested OR stream did not complete")
+    };
+    assert_eq!(summary.count, Some(3));
+    assert_eq!(
+        streamed,
+        view.search_reference(&nested).unwrap().hits,
+        "cold nested OR stream"
+    );
+    assert_eq!(streamed[0].record_id, "A");
+    assert_eq!(streamed[0].matched_fields, ["a", "c"]);
+
+    let mut later = nested.clone();
+    later.options.offset = 1;
+    later.options.limit = 2;
+    let cached = view.search(&later).unwrap();
+    assert!(cached.counters.verified_result_hit);
+    assert_eq!(cached.count, Some(3));
+    assert_eq!(cached.hits, view.search_reference(&later).unwrap().hits);
+    assert_eq!(cached.hits[0].record_id, "B");
+    assert_eq!(cached.hits[0].matched_fields, ["b", "c"]);
+    assert_eq!(cached.hits[1].record_id, "C");
+    assert_eq!(cached.hits[1].matched_fields, ["a", "b", "c"]);
+
+    index.configure_verified_cache(0).unwrap();
+    let mut ordinary_request = nested.clone();
+    ordinary_request.options.limit = 3;
+    let ordinary = view.search(&ordinary_request).unwrap();
+    assert!(!ordinary.counters.verified_result_hit);
+    assert_eq!(ordinary.count, Some(3));
+    assert_eq!(
+        ordinary.hits,
+        view.search_reference(&ordinary_request).unwrap().hits
+    );
 
     let full = Arc::clone(&view.0.segments[0][0]);
     let mut first_active = RoaringBitmap::new();
