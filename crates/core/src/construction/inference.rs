@@ -61,7 +61,6 @@ struct FieldAdmissionFacts<'a> {
     short_seen_records: u64,
     dropped: bool,
     has_values: bool,
-    has_selected_null: bool,
     short_summary_truncated: bool,
 }
 
@@ -133,11 +132,6 @@ fn decide_field_admission(
         (
             InferenceIndexStatus::Built,
             "ordered short-string postings with residual coverage",
-        )
-    } else if facts.has_selected_null {
-        (
-            InferenceIndexStatus::Built,
-            "complete selected-null posting",
         )
     } else if facts.array_records != 0 && facts.has_lengths {
         (
@@ -338,7 +332,6 @@ pub(crate) fn aggregate_segment_inference(
                 short_seen_records: aggregate.short_seen_records,
                 dropped: aggregate.dropped,
                 has_values: aggregate.values_present,
-                has_selected_null: aggregate.selected_null_records != 0,
                 short_summary_truncated: aggregate.short_summary_truncated,
             },
         );
@@ -532,7 +525,6 @@ struct AggregatedField<'a> {
     present_records: u64,
     null_occurrence_records: u64,
     exact_null_records: u64,
-    selected_null_records: u64,
     empty_array_records: u64,
     empty_selection_records: u64,
     value_occurrences: u64,
@@ -643,11 +635,6 @@ impl<'a> AggregatedField<'a> {
             &mut self.exact_null_records,
             field.exact_null.len(),
             "inference exact-null count overflow",
-        )?;
-        add_count(
-            &mut self.selected_null_records,
-            field.selected_null.len(),
-            "inference selected-null count overflow",
         )?;
         add_count(
             &mut self.empty_array_records,
@@ -1480,7 +1467,6 @@ impl InferenceBuilder {
                         field.object_records.insert(state.slot.0);
                         field.short_uncovered.insert(state.slot.0);
                     }
-                    Value::Null => {}
                     _ => {
                         field.scalar_records.insert(state.slot.0);
                     }
@@ -1681,7 +1667,6 @@ impl InferenceBuilder {
                     short_seen_records: field.short_seen.len(),
                     dropped: field.dropped,
                     has_values: field.values.is_some(),
-                    has_selected_null: !field.selected_null.is_empty(),
                     short_summary_truncated: field.short_summary_truncated,
                 },
             );

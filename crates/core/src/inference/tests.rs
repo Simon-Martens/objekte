@@ -1627,33 +1627,55 @@ fn terminal_array_null_observation_is_not_exact_null() {
 }
 
 #[test]
-fn null_only_inferred_path_publishes_presence_and_selected_null() {
+fn inference_admission_keeps_baseline_shape_and_budget_decisions() {
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
+        policy: InferencePolicy {
+            max_distinct_values_per_path: 1,
+            ..Default::default()
+        },
         ..Default::default()
     };
     let mut builder = InferenceBuilder::new(config, false).unwrap();
-    for slot in 0..3 {
+    for (slot, json) in [
+        r#"{"only_null":null,"nullable":1,"budget":1}"#,
+        r#"{"only_null":null,"nullable":null,"mixed":1,"budget":2}"#,
+        r#"{"mixed":{},"budget":3}"#,
+        "{}",
+    ]
+    .into_iter()
+    .enumerate()
+    {
         builder
-            .observe_record(RecordSlot(slot), &value(r#"{"only_null":null}"#))
+            .observe_record(RecordSlot(slot as u32), &value(json))
             .unwrap();
     }
-    let logical = RoaringBitmap::from_iter(0..3);
-    let state = builder.finish(&logical, 3, &Schema::default()).unwrap();
-    let index = &state.indexes[&vec!["only_null".into()]];
-    assert_eq!(index.kind, LogicalType::Unknown);
-    assert_eq!(index.presence, logical);
+    let logical = RoaringBitmap::from_iter(0..4);
+    let schema = Schema::default();
+    let state = builder.finish(&logical, 4, &schema).unwrap();
+    state.validate(config, &logical, 4, &schema).unwrap();
+    let status = |path: &str| {
+        state
+            .report
+            .fields
+            .iter()
+            .find(|field| field.path == [path])
+            .unwrap()
+            .index_status
+    };
+    assert_eq!(status("only_null"), InferenceIndexStatus::Incompatible);
+    assert_eq!(status("mixed"), InferenceIndexStatus::Incompatible);
+    assert_eq!(status("budget"), InferenceIndexStatus::BudgetExceeded);
+    assert_eq!(state.indexes.len(), 1);
+    let index = &state.indexes[&vec!["nullable".into()]];
+    assert_eq!(index.kind, LogicalType::Number);
+    assert_eq!(index.presence, RoaringBitmap::from_iter(0..2));
     assert_eq!(
         index.null_posting().unwrap(),
-        &RoaringBitmap::from_iter(0..3)
+        &RoaringBitmap::from_iter([1])
     );
-    assert_eq!(index.stats.present_count, 3);
-    assert_eq!(index.stats.null_count, 3);
-    assert!(index.value_complete == false);
-    assert_eq!(
-        state.report.fields[0].index_status,
-        InferenceIndexStatus::Built
-    );
+    assert!(index.value_complete);
+    assert_eq!(status("nullable"), InferenceIndexStatus::Built);
 }
 
 #[test]
@@ -2376,6 +2398,7 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
             5 => r#"{"nullable":null}"#,
             6 => r#"{"nullable":false}"#,
             7 => r#"{"items":{"flag":true}}"#,
+            8 => r#"{"only_null":null}"#,
             _ => r#"{"other":false}"#,
         };
         std::fs::write(root.join(format!("data/{slot:02}.json")), json).unwrap();
@@ -2439,6 +2462,27 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
     assert!(
         !repo
             .explain(&explicit)
+            .unwrap()
+            .iter()
+            .flat_map(|trace| &trace.terms)
+            .any(|term| term.selected.kind == AccessPathKind::Posting)
+    );
+    let mut null_only = query("only_null:null = true");
+    null_only.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&null_only).unwrap();
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["path:08.json"]
+    );
+    assert_eq!(result.hits, repo.search_reference(&null_only).unwrap().hits);
+    assert!(result.counters.record_parses > 0);
+    assert!(
+        !repo
+            .explain(&null_only)
             .unwrap()
             .iter()
             .flat_map(|trace| &trace.terms)
