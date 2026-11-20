@@ -1282,6 +1282,7 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
     assert!(base + first_key <= boundary);
     assert!(base + second_key <= boundary);
     assert!(boundary >= 8 * 1024);
+    assert!(summary.progress.peak_buffered_bytes >= overlap);
 
     repo.configure_verified_cache(0).unwrap();
     repo.configure_verified_cache(4 * 1024 * 1024).unwrap();
