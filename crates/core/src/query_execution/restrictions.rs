@@ -49,11 +49,17 @@ const MAX_INDEXED_PATH_SCAN: usize = 8192;
 #[cfg(test)]
 thread_local! {
     static PREDICATE_BOUNDS_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static PREDICATE_APPLICATIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
 #[cfg(test)]
 pub(crate) fn predicate_bounds_calls() -> usize {
     PREDICATE_BOUNDS_CALLS.with(std::cell::Cell::get)
+}
+
+#[cfg(test)]
+pub(crate) fn predicate_applications() -> usize {
+    PREDICATE_APPLICATIONS.with(std::cell::Cell::get)
 }
 
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
@@ -322,6 +328,8 @@ impl<'a> SegmentPlanContext<'a> {
         let Some(choice) = choice else {
             return Ok(SegmentCandidateBounds::candidate(input.clone()));
         };
+        #[cfg(test)]
+        PREDICATE_APPLICATIONS.with(|applications| applications.set(applications.get() + 1));
         let restriction = self
             .catalog()
             .apply(

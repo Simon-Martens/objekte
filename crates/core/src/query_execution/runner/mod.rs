@@ -143,6 +143,8 @@ thread_local! {
         const { std::cell::Cell::new(0) };
     static ORDERED_SECOND_KEY_BYTES: std::cell::Cell<usize> =
         const { std::cell::Cell::new(0) };
+    static ORDERED_STREAM_COMPLETIONS: std::cell::Cell<usize> =
+        const { std::cell::Cell::new(0) };
 }
 
 #[cfg(test)]
@@ -200,6 +202,16 @@ pub(crate) fn ordered_key_observations() -> (usize, usize, usize) {
         ORDERED_FIRST_KEY_BYTES.with(std::cell::Cell::get),
         ORDERED_SECOND_KEY_BYTES.with(std::cell::Cell::get),
     )
+}
+
+#[cfg(test)]
+pub(crate) fn reset_ordered_stream_completions() {
+    ORDERED_STREAM_COMPLETIONS.with(|value| value.set(0));
+}
+
+#[cfg(test)]
+pub(crate) fn ordered_stream_completions() -> usize {
+    ORDERED_STREAM_COMPLETIONS.with(std::cell::Cell::get)
 }
 
 #[cfg(test)]
@@ -3647,13 +3659,13 @@ fn try_lifecycle_ordered_stream(
         }
         filters[collection_index] = Some((filter, fts));
     }
+    let all_exact = prepared.collections.iter().all(|entry| {
+        entry.fts.is_none()
+            && filter_exact[entry.collection_index]
+                .iter()
+                .all(|exact| *exact)
+    });
     if page_output.is_some() {
-        let all_exact = prepared.collections.iter().all(|entry| {
-            entry.fts.is_none()
-                && filter_exact[entry.collection_index]
-                    .iter()
-                    .all(|exact| *exact)
-        });
         let has_branch_evidence = prepared.collections.iter().any(|entry| {
             evidence_branches[entry.collection_index]
                 .iter()
@@ -3748,7 +3760,7 @@ fn try_lifecycle_ordered_stream(
                 }
             }
         }
-        if parallel_sources {
+        if parallel_sources && !all_exact {
             return Ok(None);
         }
     }
@@ -4365,6 +4377,8 @@ fn try_lifecycle_ordered_stream(
     let final_sequence = delivery
         .as_ref()
         .map_or(0, |delivery| delivery.last_page_sequence());
+    #[cfg(test)]
+    ORDERED_STREAM_COMPLETIONS.with(|value| value.set(value.get() + 1));
     Ok(Some(StreamOutcome::Complete(Box::new(StreamSummary {
         count,
         returned_rows: emitted_rows as usize,

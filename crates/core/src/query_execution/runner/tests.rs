@@ -7160,6 +7160,201 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle::Index) {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordered-or-layout-{}-{}-{:?}",
+        files,
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for file in 0..files {
+        let mut source = String::new();
+        for row in 0..4 {
+            let (a, b) = match row {
+                0 => (true, false),
+                1 => (false, true),
+                2 | 3 => (true, true),
+                _ => unreachable!(),
+            };
+            source.push_str(&format!(
+                r#"{{"a":{a},"b":{b},"sort":{},"note":"needle"}}"#,
+                file * 4 + row
+            ));
+            source.push('\n');
+        }
+        let name = if files == 1 {
+            "all.jsonl".to_owned()
+        } else {
+            format!("{file:03}.jsonl")
+        };
+        std::fs::write(root.join("data").join(name), source).unwrap();
+    }
+    let mut schema = Schema::default();
+    for name in ["a", "b"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::Bool,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    for name in ["sort", "note"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: if name == "sort" {
+                    LogicalType::Number
+                } else {
+                    LogicalType::String
+                },
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("sort").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::configuration::RepositoryOptions {
+            query_workers: 4,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())
+    .unwrap();
+    (root, index)
+}
+
+fn indexed_or_layout_query() -> Query {
+    Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || b = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 50,
+            offset: 25,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    }
+}
+
+fn assert_indexed_or_layout(view: &crate::lifecycle::IndexView, expected_count: usize) {
+    let query = indexed_or_layout_query();
+    for streamed in [true, false] {
+        let before = crate::query_execution::restrictions::predicate_applications();
+        crate::query_execution::runner::reset_ordered_stream_completions();
+        let (count, hits, counters) = if streamed {
+            let mut rows = Vec::new();
+            let outcome = view
+                .search_stream(
+                    &query,
+                    StreamOptions::default(),
+                    &CancellationToken::new(),
+                    &mut |event| {
+                        if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                            rows.extend_from_slice(batch);
+                        }
+                        Ok(StreamControl::Continue)
+                    },
+                )
+                .unwrap();
+            let StreamOutcome::Complete(summary) = outcome else {
+                panic!("exact indexed OR stream did not complete")
+            };
+            (summary.count, rows, summary.counters)
+        } else {
+            let result = view.search(&query).unwrap();
+            (result.count, result.hits, result.counters)
+        };
+        let applications = crate::query_execution::restrictions::predicate_applications() - before;
+        assert_eq!(
+            applications, 2,
+            "one physical application per indexed OR branch; streamed={streamed}"
+        );
+        assert_eq!(
+            crate::query_execution::runner::ordered_stream_completions(),
+            1,
+            "exact indexed query must complete on the ordered route; streamed={streamed}"
+        );
+        assert_eq!(count, Some(expected_count));
+        assert_eq!(hits, view.search_reference(&query).unwrap().hits);
+        assert_eq!(counters.files_opened, 0);
+        assert_eq!(counters.bytes_read, 0);
+        assert_eq!(counters.record_parses, 0);
+    }
+}
+
+#[test]
+fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
+    let (root, index) = indexed_or_file_layout(65);
+    let view = index.view().unwrap();
+    assert_indexed_or_layout(&view, 260);
+
+    let residual_query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("a = true || note = 'needle'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("sort", false)],
+            limit: 50,
+            offset: 25,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let expected = view.search_reference(&residual_query).unwrap();
+    crate::query_execution::runner::reset_ordered_stream_completions();
+    let residual = view.search(&residual_query).unwrap();
+    assert_eq!(residual.count, Some(260));
+    assert_eq!(residual.hits, expected.hits);
+    assert!(residual.counters.files_opened > 64);
+    assert!(residual.counters.scanned_records > 64);
+    assert!(residual.counters.record_parses > 0);
+    assert_eq!(
+        crate::query_execution::runner::ordered_stream_completions(),
+        0,
+        "residual multi-file query must retain the file-parallel executor"
+    );
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+
+    let (root, index) = indexed_or_file_layout(1);
+    let view = index.view().unwrap();
+    assert_indexed_or_layout(&view, 4);
+    drop(view);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[test]
 fn exact_stored_page_calculates_identical_segment_restrictions_once() {
     let root = std::env::temp_dir().join(format!(
