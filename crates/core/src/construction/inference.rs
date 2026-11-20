@@ -933,8 +933,7 @@ impl FieldState {
         if let Some(existing) = &self.short_distinct_without_postings {
             short_keys.extend(existing.iter().cloned());
         }
-        copy.short_distinct_without_postings =
-            (!short_keys.is_empty()).then_some(short_keys);
+        copy.short_distinct_without_postings = (!short_keys.is_empty()).then_some(short_keys);
         copy
     }
 

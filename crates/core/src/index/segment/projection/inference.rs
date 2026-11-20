@@ -134,9 +134,9 @@ fn finish_projected_inference(
                     let fractional = index.values.keys().any(|key| {
                         matches!(
                             key,
-                            crate::index::posting::ScalarKey::Number(
-                                crate::model::Number::Float(_)
-                            )
+                            crate::index::posting::ScalarKey::Number(crate::model::Number::Float(
+                                _
+                            ))
                         )
                     });
                     if fractional {
@@ -214,11 +214,7 @@ fn finish_projected_inference(
                 } else {
                     0
                 };
-                field.array_records = if array_kind {
-                    field.present_records
-                } else {
-                    0
-                };
+                field.array_records = if array_kind { field.present_records } else { 0 };
                 field.object_records = if object_kind {
                     field.present_records
                 } else {

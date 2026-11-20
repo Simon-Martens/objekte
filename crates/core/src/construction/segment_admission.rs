@@ -803,13 +803,7 @@ impl CollectionSegment {
             contribution,
         } in self.batches
         {
-            aggregate.admit_parallel(
-                contribution,
-                base,
-                count,
-                pool,
-                profile.as_deref_mut(),
-            )?;
+            aggregate.admit_parallel(contribution, base, count, pool, profile.as_deref_mut())?;
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.aggregate_merge_ns = started.elapsed().as_nanos() as u64;
