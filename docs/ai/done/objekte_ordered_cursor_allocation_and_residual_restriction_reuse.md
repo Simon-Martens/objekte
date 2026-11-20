@@ -116,14 +116,14 @@ The exact indexed OR still uses the ordered route for both entry points, applies
 
 ### Corrected release comparison
 
-The corrected benchmark was built identically against `9b63f56d57` and `e2ba8a8962`. Each layout used four workers, a cold disabled verified cache, count on, offset 1 and limit 50. Times are median first nonempty callback / completion over three alternating baseline/candidate pairs.
+The corrected benchmark was built identically against `9b63f56d5a4759e25d09ce1ea032f2dd8158dea4` and `e2ba8a8962e9a9e37526ca626c66ad9532ba160e`. Each layout used four workers, a cold disabled verified cache, count on, offset 1 and limit 50. Times are median first nonempty callback / completion over three alternating baseline/candidate pairs.
 
 | Layout | Baseline µs | Candidate µs | Rows / count | Source counters baseline → candidate |
 | --- | ---: | ---: | ---: | --- |
 | One file | 42.327 / 48.462 | 43.560 / 49.800 | 50 / 260 | 0 files, 0 bytes, 0 parses in both |
 | 65 files | 64.555 / 72.728 | 43.345 / 48.939 | 50 / 260 | 0 files, 0 bytes, 0 parses in both |
 
-The one-file difference is within host variation. Both benchmarks validated retained order and evidence against the reference before the timed stream, and the ordinary result was validated separately after timing.
+The one-file difference is within host variation. A separate untimed streaming pass collected every hit in emission order and compared the complete hit list, including matched fields, with the independent reference. The ordinary result was validated separately after timing.
 
 ### Validation
 
