@@ -42,7 +42,9 @@ impl IndexedCollectionSegment {
                 .iter_mut()
                 .zip(scatter_bitmap_partitions(bitmap, routing)?)
             {
-                part.short_string_coverage.insert(path.clone(), scattered);
+                if !scattered.is_empty() {
+                    part.short_string_coverage.insert(path.clone(), scattered);
+                }
             }
         }
         for (number, part) in parts.iter_mut().enumerate() {
@@ -82,8 +84,10 @@ pub(crate) fn project_inference(
     state.short_string_coverage = source
         .short_string_coverage
         .iter()
-        .map(|(path, bitmap)| {
-            project_bitmap_in_range(bitmap, slots, bounds).map(|bitmap| (path.clone(), bitmap))
+        .filter_map(|(path, bitmap)| {
+            project_bitmap_in_range(bitmap, slots, bounds)
+                .map(|bitmap| (!bitmap.is_empty()).then_some((path.clone(), bitmap)))
+                .transpose()
         })
         .collect::<Result<HashMap<_, _>, _>>()?;
     finish_projected_inference(&mut state, logical.len(), new_count)?;
@@ -108,45 +112,76 @@ fn finish_projected_inference(
             field.index_status = InferenceIndexStatus::Built;
             let summary = index.summary;
             field.complete &= summary.is_some();
-            if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
-                field.present_records = field.present_records.min(eligible);
-                field.complete = false;
-            } else {
-                field.present_records = index.presence.len();
-            }
-            field.empty_selection_records = if index.length_complete
-                && summary.is_some_and(|summary| summary.may_match_array())
-            {
-                index
-                    .lengths
-                    .get(&crate::model::Number::integer(0))
-                    .map_or(0, RoaringBitmap::len)
-            } else if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
-                field.empty_selection_records.min(eligible)
-            } else {
-                0
-            };
             let nulls = index
                 .values
                 .get(&crate::index::posting::ScalarKey::Null)
                 .map_or(0, RoaringBitmap::len);
-            field.null_occurrence_records =
-                if summary.is_some_and(|summary| !summary.may_match_array()) {
-                    nulls
-                } else {
-                    field.null_occurrence_records.min(eligible)
-                };
-            field.exact_null_records =
-                if summary.is_some_and(|summary| !summary.may_select_multiple()) {
-                    nulls
-                } else {
-                    field.exact_null_records.min(nulls)
-                };
-            if summary.is_none()
-                || summary.is_some_and(|summary| summary.may_match_array())
-                || summary.is_some_and(|summary| summary.may_select_multiple())
-            {
+            let scalar_complete = summary.is_some_and(|summary| {
+                !summary.may_match_array()
+                    && !summary.may_select_multiple()
+                    && !summary.may_have_empty_traversal()
+            }) && index.value_complete
+                && index.kind != crate::model::LogicalType::String;
+            if scalar_complete {
+                field.present_records = index.presence.len();
+                field.null_occurrence_records = nulls;
+                field.exact_null_records = nulls;
+                field.empty_selection_records = 0;
+                field.scalar_records = field.present_records;
+                field.array_records = 0;
+                field.object_records = 0;
+                field.value_occurrences = field.present_records.saturating_sub(nulls);
+                field.nonblank_occurrences = 0;
+                field.nonblank_records = 0;
+                field.short_string_observed_occurrences = 0;
+            } else {
                 field.complete = false;
+                field.present_records =
+                    if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
+                        field.present_records.min(eligible)
+                    } else {
+                        index.presence.len()
+                    };
+                let terminal_empty = if index.length_complete
+                    && summary.is_some_and(|summary| summary.may_match_array())
+                {
+                    index
+                        .lengths
+                        .get(&crate::model::Number::integer(0))
+                        .map_or(0, RoaringBitmap::len)
+                } else {
+                    0
+                };
+                field.empty_selection_records =
+                    if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
+                        terminal_empty.max(field.empty_selection_records.min(eligible))
+                    } else {
+                        terminal_empty
+                    };
+                field.null_occurrence_records =
+                    if summary.is_some_and(|summary| !summary.may_match_array()) {
+                        nulls
+                    } else {
+                        field.null_occurrence_records.min(field.present_records)
+                    };
+                field.exact_null_records =
+                    if summary.is_some_and(|summary| !summary.may_select_multiple()) {
+                        nulls
+                    } else {
+                        field.exact_null_records.min(nulls)
+                    };
+                field.scalar_records = if index.multi {
+                    0
+                } else {
+                    field.present_records
+                };
+                field.array_records = if index.multi {
+                    field.present_records
+                } else {
+                    0
+                };
+                field.object_records = field.object_records.min(field.present_records);
+                field.nonblank_records = field.nonblank_records.min(field.present_records);
             }
             field.short_string_covered_records = state
                 .short_string_coverage
@@ -154,16 +189,6 @@ fn finish_projected_inference(
                 .map_or(0, RoaringBitmap::len);
             field.short_string_distinct_values = if field.short_string_covered_records > 0 {
                 index.distinct_values()
-            } else {
-                0
-            };
-            field.scalar_records = if index.multi {
-                0
-            } else {
-                field.present_records
-            };
-            field.array_records = if index.multi {
-                field.present_records
             } else {
                 0
             };
@@ -183,11 +208,6 @@ fn finish_projected_inference(
         }
         field.missing_records = eligible - field.present_records;
         field.short_string_unresolved_records = eligible - field.short_string_covered_records;
-        field.object_records = 0;
-        field.value_occurrences = 0;
-        field.nonblank_occurrences = 0;
-        field.nonblank_records = 0;
-        field.short_string_observed_occurrences = 0;
         field.retained_bytes_estimate = field
             .summary_bytes_estimate
             .saturating_add(field.index_bytes_estimate);

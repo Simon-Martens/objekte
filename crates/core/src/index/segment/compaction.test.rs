@@ -283,10 +283,11 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("a", r#"{"x":[]}"#),
-        ("b", r#"{"x":[null]}"#),
-        ("c", r#"{"x":[7]}"#),
-        ("retired", r#"{"unrelated":true}"#),
+        ("00_null_a", r#"{"x":[null]}"#),
+        ("01_null_b", r#"{"x":[null]}"#),
+        ("10_value", r#"{"x":[7]}"#),
+        ("20_missing_a", "{}"),
+        ("21_missing_b", "{}"),
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
     }
@@ -313,9 +314,9 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
     let segment = &repo.segments[0][0].index;
     let active = crate::inventory::ActiveRecords::all(segment.record_count())
         .unwrap()
-        .retired(&[RecordSlot(3)])
+        .retired(&[RecordSlot(0), RecordSlot(1)])
         .unwrap();
-    let compacted = segment.compact_active(&active, 4, |_| true).unwrap();
+    let compacted = segment.compact_active(&active, 5, |_| true).unwrap();
     let report = compacted
         .index
         .inference
@@ -327,10 +328,10 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
         .find(|field| field.path == ["x"])
         .unwrap();
     assert!(!report.complete);
-    assert_eq!(report.present_records, 3);
+    assert_eq!(report.present_records, 1);
     assert_eq!(report.exact_null_records, 0);
-    assert_eq!(report.empty_selection_records, 1);
-    assert!(report.null_occurrence_records <= report.eligible_records);
+    assert_eq!(report.empty_selection_records, 0);
+    assert!(report.null_occurrence_records <= report.present_records);
     assert!(
         compacted
             .index
@@ -355,6 +356,190 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
             .unwrap()
             .is_empty()
     );
+    inference
+        .validate(
+            config,
+            &compacted.index.logical_records,
+            compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    let consolidated =
+        IndexedCollectionSegment::consolidate(&[&compacted.index], compacted.index.record_count())
+            .unwrap();
+    let consolidated_field = consolidated
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert!(!consolidated_field.complete);
+    consolidated
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .validate(
+            config,
+            &consolidated.index.logical_records,
+            consolidated.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn projected_empty_selection_bound_covers_ancestor_and_terminal_arrays() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inference-empty-bound-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("00_ancestor", r#"{"items":[]}"#),
+        ("01_terminal", r#"{"items":[{"x":[]}]}"#),
+        ("02_retired", "{}"),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: config,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let segment = &repo.segments[0][0].index;
+    let original = segment.inference.as_ref().unwrap();
+    let original_field = original
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["items", "x"])
+        .unwrap();
+    assert_eq!(original_field.empty_selection_records, 2);
+    let terminal_zero = original.indexes[&vec!["items".into(), "x".into()]]
+        .lengths
+        .get(&crate::model::Number::integer(0))
+        .map_or(0, RoaringBitmap::len);
+    assert_eq!(terminal_zero, 1);
+
+    let active = crate::inventory::ActiveRecords::all(segment.record_count())
+        .unwrap()
+        .retired(&[RecordSlot(2)])
+        .unwrap();
+    let compacted = segment.compact_active(&active, 3, |_| true).unwrap();
+    let inferred = compacted.index.inference.as_ref().unwrap();
+    let field = inferred
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["items", "x"])
+        .unwrap();
+    assert!(!field.complete);
+    assert_eq!(field.empty_selection_records, 2);
+    inferred
+        .validate(
+            config,
+            &compacted.index.logical_records,
+            compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn projected_empty_short_string_coverage_is_removed_consistently() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inference-empty-coverage-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/00_covered.json"), r#"{"x":"A"}"#).unwrap();
+    std::fs::write(root.join("data/01_missing.json"), "{}").unwrap();
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        policy: InferencePolicy {
+            min_nonblank_occurrences: 1,
+            min_nonblank_records: 1,
+            minimum_repeated_percent: 0,
+            ..Default::default()
+        },
+    };
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: config,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let segment = &repo.segments[0][0].index;
+    assert!(
+        segment
+            .inference
+            .as_ref()
+            .unwrap()
+            .short_string_coverage
+            .contains_key(&vec!["x".into()])
+    );
+    let active = crate::inventory::ActiveRecords::all(segment.record_count())
+        .unwrap()
+        .retired(&[RecordSlot(0)])
+        .unwrap();
+    let compacted = segment.compact_active(&active, 2, |_| true).unwrap();
+    let inference = compacted.index.inference.as_ref().unwrap();
+    assert!(
+        !inference
+            .short_string_coverage
+            .contains_key(&vec!["x".into()])
+    );
+    let field = inference
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert!(!field.complete);
+    assert_eq!(field.short_string_covered_records, 0);
+    assert_eq!(field.short_string_distinct_values, 0);
+    inference
+        .validate(
+            config,
+            &compacted.index.logical_records,
+            compacted.index.record_count(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
