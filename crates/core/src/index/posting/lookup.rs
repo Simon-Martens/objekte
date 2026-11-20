@@ -213,13 +213,13 @@ impl PostingIndex {
                     .0,
                 )
             }
-            Derived::IsArray if self.length_complete => {
-                Some(union_postings(self.lengths.iter(), input).0)
-            }
             Derived::IsArray
                 if summary.only_matches_array_or_null() && !summary.may_select_multiple() =>
             {
                 Some(without_null(self, input))
+            }
+            Derived::IsArray if self.length_complete => {
+                Some(union_postings(self.lengths.iter(), input).0)
             }
             Derived::IsObject
                 if summary.only_matches_object_or_null() && !summary.may_select_multiple() =>
@@ -378,7 +378,25 @@ impl PostingIndex {
         if !supported {
             return None;
         }
+        let constant = match derived {
+            Derived::IsString | Derived::IsNumber | Derived::IsObject => {
+                summary.only_matches_string_or_null()
+                    || summary.only_matches_number_or_null()
+                    || summary.only_matches_object_or_null()
+            }
+            Derived::IsArray => {
+                summary.only_matches_array_or_null() && !summary.may_select_multiple()
+            }
+            Derived::IsNonEmpty => {
+                summary.only_matches_nonempty_scalar_or_null() && !summary.may_select_multiple()
+                    || summary.only_matches_string_or_null()
+                        && !summary.may_select_multiple()
+                        && self.empty_string_complete
+            }
+            _ => false,
+        };
         let keys = match derived {
+            _ if constant => 1,
             Derived::IsString => self
                 .values
                 .range(ScalarKey::String(String::new())..)

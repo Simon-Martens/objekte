@@ -134,7 +134,7 @@ fn decide_field_admission(
             InferenceIndexStatus::Built,
             "ordered short-string postings with residual coverage",
         )
-    } else if facts.has_selected_null && facts.scalar_records == 0 && !mixed_shape {
+    } else if facts.has_selected_null {
         (
             InferenceIndexStatus::Built,
             "complete selected-null posting",
@@ -338,7 +338,7 @@ pub(crate) fn aggregate_segment_inference(
                 short_seen_records: aggregate.short_seen_records,
                 dropped: aggregate.dropped,
                 has_values: aggregate.values_present,
-                has_selected_null: aggregate.exact_null_records != 0,
+                has_selected_null: aggregate.selected_null_records != 0,
                 short_summary_truncated: aggregate.short_summary_truncated,
             },
         );
@@ -532,6 +532,7 @@ struct AggregatedField<'a> {
     present_records: u64,
     null_occurrence_records: u64,
     exact_null_records: u64,
+    selected_null_records: u64,
     empty_array_records: u64,
     empty_selection_records: u64,
     value_occurrences: u64,
@@ -642,6 +643,11 @@ impl<'a> AggregatedField<'a> {
             &mut self.exact_null_records,
             field.exact_null.len(),
             "inference exact-null count overflow",
+        )?;
+        add_count(
+            &mut self.selected_null_records,
+            field.selected_null.len(),
+            "inference selected-null count overflow",
         )?;
         add_count(
             &mut self.empty_array_records,
