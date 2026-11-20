@@ -1374,15 +1374,19 @@ fn exact_or_branch_evidence_fields(
     let BoundExpr::Or(parts) = filter else {
         return Ok(None);
     };
+    let Some(child_fields) = parts
+        .iter()
+        .map(segment_static_evidence_fields)
+        .collect::<Option<Vec<_>>>()
+    else {
+        return Ok(None);
+    };
     let input = active.bitmap();
     let mut branches = Vec::with_capacity(parts.len());
     let mut may = RoaringBitmap::new();
     let mut must = RoaringBitmap::new();
     let mut all_exact = true;
-    for part in parts {
-        let Some(fields) = segment_static_evidence_fields(part) else {
-            return Ok(None);
-        };
+    for (part, fields) in parts.iter().zip(child_fields) {
         let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
             segment,
             active,

@@ -7370,70 +7370,121 @@ fn assert_posted_a_and_b_once(
     assert_posted_fields_once(observations, "a", "b", "Bool(true)", "Bool(true)");
 }
 
+fn assert_posted_a_only_once(
+    observations: &[crate::query_execution::restrictions::PredicateApplicationObservation],
+) {
+    let a = observations
+        .iter()
+        .filter(|observation| observation.field == "a")
+        .collect::<Vec<_>>();
+    assert_eq!(a.len(), 1, "observations={observations:#?}");
+    assert_eq!(a[0].operator, Operator::Eq);
+    assert_eq!(a[0].value, "Bool(true)");
+    assert_eq!(a[0].segment, 1);
+    assert_eq!(a[0].input, (0..260).collect::<Vec<_>>());
+}
+
 #[test]
 fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
     let (root, index) = indexed_or_file_layout(65);
     let view = index.view().unwrap();
     let multi_file_hits = assert_indexed_or_layout(&view, 260);
 
-    let evidence_query = Query {
-        collections: vec!["data".into()],
-        fts: None,
-        filter: Some(parse_filter("a = true || note = 'needle'").unwrap()),
-        options: QueryOptions {
-            sort: vec![SortField::simple("sort", false)],
-            limit: 50,
-            offset: 1,
-            count: true,
-            return_mode: ReturnMode::Locator,
-            evidence: true,
-        },
-    };
-    let evidence_expected = view.search_reference(&evidence_query).unwrap();
-    for streamed in [true, false] {
-        crate::query_execution::restrictions::start_predicate_application_observations();
-        crate::query_execution::runner::reset_ordered_stream_completions();
-        let (hits, count, counters) = if streamed {
-            let mut rows = Vec::new();
-            let outcome = view
-                .search_stream(
-                    &evidence_query,
-                    StreamOptions::default(),
-                    &CancellationToken::new(),
-                    &mut |event| {
-                        if let StreamEvent::OrderedRows { rows: batch, .. } = event {
-                            rows.extend_from_slice(batch);
-                        }
-                        Ok(StreamControl::Continue)
-                    },
-                )
-                .unwrap();
-            let StreamOutcome::Complete(summary) = outcome else {
-                panic!("evidence OR stream did not complete")
+    for (nested, filter) in [
+        (false, "a = true || note = 'needle'"),
+        (
+            true,
+            "a = true || (b = true && (sort = 0 || note = 'needle'))",
+        ),
+    ] {
+        for (offset, limit, first, last, returned_rows) in [
+            (1, 50, "2", "53", 50),
+            (14, 50, "17", "66", 50),
+            (15, 50, "18", "67", 50),
+            (0, 260, "0", "259", 257),
+        ] {
+            let evidence_query = Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: Some(parse_filter(filter).unwrap()),
+                options: QueryOptions {
+                    sort: vec![SortField::simple("sort", false)],
+                    limit,
+                    offset,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
             };
-            (rows, summary.count, summary.counters)
-        } else {
-            let result = view.search(&evidence_query).unwrap();
-            (result.hits, result.count, result.counters)
-        };
-        let observations =
-            crate::query_execution::restrictions::take_predicate_application_observations();
-        assert_eq!(count, Some(257));
-        assert_eq!(hits, evidence_expected.hits);
-        assert_posted_a_once(&observations);
-        let fields = hits
-            .iter()
-            .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
-            .collect::<HashMap<_, _>>();
-        assert_eq!(fields["2"], ["a", "note"]);
-        assert_eq!(fields["13"], ["note"]);
-        assert!(counters.files_opened > 64);
-        assert!(counters.scanned_records >= 257);
-        assert_eq!(
-            crate::query_execution::runner::ordered_stream_completions(),
-            0,
-            "evidence-bearing residual query must use the general fallback"
-        );
+            let expected = view.search_reference(&evidence_query).unwrap();
+            assert_eq!(expected.count, Some(257));
+            assert_eq!(expected.hits.len(), returned_rows);
+            assert_eq!(expected.hits.first().unwrap().record_id, first);
+            assert_eq!(expected.hits.last().unwrap().record_id, last);
+            for streamed in [true, false] {
+                crate::query_execution::restrictions::start_predicate_application_observations();
+                crate::query_execution::runner::reset_ordered_stream_completions();
+                let (hits, count, counters) = if streamed {
+                    let mut rows = Vec::new();
+                    let outcome = view
+                        .search_stream(
+                            &evidence_query,
+                            StreamOptions::default(),
+                            &CancellationToken::new(),
+                            &mut |event| {
+                                if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                                    rows.extend_from_slice(batch);
+                                }
+                                Ok(StreamControl::Continue)
+                            },
+                        )
+                        .unwrap();
+                    let StreamOutcome::Complete(summary) = outcome else {
+                        panic!("evidence OR stream did not complete")
+                    };
+                    (rows, summary.count, summary.counters)
+                } else {
+                    let result = view.search(&evidence_query).unwrap();
+                    (result.hits, result.count, result.counters)
+                };
+                let observations =
+                    crate::query_execution::restrictions::take_predicate_application_observations();
+                assert_eq!(count, Some(257));
+                assert_eq!(hits, expected.hits);
+                if nested {
+                    assert_posted_a_only_once(&observations);
+                } else {
+                    assert_posted_a_once(&observations);
+                }
+                let fields = hits
+                    .iter()
+                    .map(|hit| (hit.record_id.as_str(), hit.matched_fields.as_slice()))
+                    .collect::<HashMap<_, _>>();
+                if offset == 1 {
+                    if nested {
+                        assert_eq!(fields["2"], ["a", "b", "note"]);
+                        assert_eq!(fields["13"], ["b", "note"]);
+                    } else {
+                        assert_eq!(fields["2"], ["a", "note"]);
+                        assert_eq!(fields["13"], ["note"]);
+                    }
+                }
+                if offset == 0 {
+                    if nested {
+                        assert_eq!(fields["0"], ["a"]);
+                    } else {
+                        assert_eq!(fields["0"], ["a", "note"]);
+                    }
+                }
+                assert!(counters.files_opened > 64);
+                assert!(counters.scanned_records >= 257);
+                assert_eq!(
+                    crate::query_execution::runner::ordered_stream_completions(),
+                    0,
+                    "evidence-bearing residual query must use the general fallback"
+                );
+            }
+        }
     }
 
     for (literal, expected_count, expected_ids) in [
