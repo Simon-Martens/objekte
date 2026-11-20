@@ -281,7 +281,8 @@ fn finish_projected_inference(
             field.empty_array_records = empty_array_records;
             field.empty_selection_records = inherited(old_empty_selection_records, present);
             field.null_occurrence_records = inherited(old_null_occurrence_records, present);
-            field.exact_null_records = old_exact_null_records.min(field.null_occurrence_records);
+            field.exact_null_records =
+                inherited(old_exact_null_records, field.null_occurrence_records);
             field.nonblank_records = inherited(old_nonblank_records, present);
             if present == 0 {
                 field.value_occurrences = 0;

@@ -2,6 +2,7 @@ use super::projection::{SlotMap, project_bitmap, project_inference, project_sort
 use super::*;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
+use crate::construction::inference::InferenceBuilder;
 use crate::construction::segment_admission::SegmentAdmission;
 use crate::index::bigram::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
@@ -309,6 +310,114 @@ fn projected_field_facts(
     eligible: u64,
 ) -> ProjectedFieldFacts {
     ProjectedFieldFacts::from_field(field, eligible)
+}
+
+#[test]
+fn projected_exact_null_bound_after_observation_budget_exhaustion() {
+    let schema = crate::schema::Schema::default();
+    let config = InferenceConfig {
+        mode: InferenceMode::ReportOnly,
+        policy: InferencePolicy {
+            max_record_contributions: 2,
+            ..Default::default()
+        },
+    };
+    let logical = RoaringBitmap::from_iter(0..3);
+    let mut builder = InferenceBuilder::for_collection(config, 1).unwrap();
+    for (slot, json) in [
+        (0, r#"{"x":1}"#),
+        (1, r#"{"stop":{"nested":0}}"#),
+        (2, r#"{"x":null}"#),
+    ] {
+        builder
+            .observe_record(
+                RecordSlot(slot),
+                &crate::model::Value::from_json(serde_json::from_str(json).unwrap()).unwrap(),
+            )
+            .unwrap();
+    }
+    let source = builder.finish(&logical, 3, &schema).unwrap();
+    assert!(!source.report.complete);
+    assert_eq!(source.report.eligible_records, 3);
+    let source_field = source
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(source_field.exact_null_records, 0);
+    assert!(!source.indexes.contains_key(&vec!["x".into()]));
+
+    let slots = SlotMap::Dense(&[None, None, Some(RecordSlot(0))]);
+    let projected_logical = RoaringBitmap::from_iter([0]);
+    let projected = project_inference(&Some(source), &slots, &projected_logical, 1, None)
+        .unwrap()
+        .unwrap();
+    let projected_field = projected
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert!(!projected.report.complete);
+    assert!(!projected_field.complete);
+    assert_eq!(projected_field.null_occurrence_records, 1);
+
+    let reference_logical = RoaringBitmap::from_iter([0]);
+    let mut reference_builder = InferenceBuilder::for_collection(config, 1).unwrap();
+    reference_builder
+        .observe_record(
+            RecordSlot(0),
+            &crate::model::Value::from_json(serde_json::json!({"x": null})).unwrap(),
+        )
+        .unwrap();
+    let reference = reference_builder
+        .finish(&reference_logical, 1, &schema)
+        .unwrap();
+    assert!(reference.report.complete);
+    let reference_field = reference
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(reference_field.exact_null_records, 1);
+    assert_eq!(
+        projected_field.exact_null_records,
+        reference_field.exact_null_records
+    );
+    projected
+        .validate(config, &projected_logical, 1, &schema)
+        .unwrap();
+
+    let array_config = InferenceConfig {
+        mode: InferenceMode::ReportOnly,
+        ..Default::default()
+    };
+    let mut array_builder = InferenceBuilder::for_collection(array_config, 1).unwrap();
+    array_builder
+        .observe_record(
+            RecordSlot(0),
+            &crate::model::Value::from_json(serde_json::json!({"x": [null]})).unwrap(),
+        )
+        .unwrap();
+    let array_source = array_builder
+        .finish(&reference_logical, 1, &schema)
+        .unwrap();
+    assert!(array_source.report.complete);
+    let self_slot = SlotMap::Dense(&[Some(RecordSlot(0))]);
+    let array_projected =
+        project_inference(&Some(array_source), &self_slot, &reference_logical, 1, None)
+            .unwrap()
+            .unwrap();
+    let array_field = array_projected
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert_eq!(array_field.null_occurrence_records, 1);
+    assert_eq!(array_field.exact_null_records, 0);
 }
 
 struct ProjectionFixture {
