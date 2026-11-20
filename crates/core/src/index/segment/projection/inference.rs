@@ -130,6 +130,25 @@ fn finish_projected_inference(
                 field.scalar_records = field.present_records;
                 field.array_records = 0;
                 field.object_records = 0;
+                field.integer_only = if index.kind == crate::model::LogicalType::Number {
+                    let fractional = index.values.keys().any(|key| {
+                        matches!(
+                            key,
+                            crate::index::posting::ScalarKey::Number(
+                                crate::model::Number::Float(_)
+                            )
+                        )
+                    });
+                    if fractional {
+                        Some(false)
+                    } else if field.present_records > nulls {
+                        Some(true)
+                    } else {
+                        None
+                    }
+                } else {
+                    None
+                };
                 field.value_occurrences = field.present_records.saturating_sub(nulls);
                 field.nonblank_occurrences = 0;
                 field.nonblank_records = 0;
@@ -142,13 +161,15 @@ fn finish_projected_inference(
                     } else {
                         index.presence.len()
                     };
-                let terminal_empty = if index.length_complete
-                    && summary.is_some_and(|summary| summary.may_match_array())
-                {
-                    index
-                        .lengths
-                        .get(&crate::model::Number::integer(0))
-                        .map_or(0, RoaringBitmap::len)
+                let terminal_empty = if summary.is_some_and(|summary| summary.may_match_array()) {
+                    if index.length_complete {
+                        index
+                            .lengths
+                            .get(&crate::model::Number::integer(0))
+                            .map_or(0, RoaringBitmap::len)
+                    } else {
+                        field.empty_selection_records.min(eligible)
+                    }
                 } else {
                     0
                 };
@@ -170,18 +191,41 @@ fn finish_projected_inference(
                     } else {
                         field.exact_null_records.min(nulls)
                     };
-                field.scalar_records = if index.multi {
-                    0
-                } else {
+                let scalar_kind = field.observed_kinds.iter().any(|kind| {
+                    !matches!(
+                        kind,
+                        crate::model::LogicalType::Array(_)
+                            | crate::model::LogicalType::Object
+                            | crate::model::LogicalType::Unknown
+                    )
+                });
+                let array_kind = field
+                    .observed_kinds
+                    .iter()
+                    .any(|kind| matches!(kind, crate::model::LogicalType::Array(_)))
+                    || matches!(index.kind, crate::model::LogicalType::Array(_))
+                    || summary.is_some_and(|summary| summary.may_match_array());
+                let object_kind = field
+                    .observed_kinds
+                    .iter()
+                    .any(|kind| matches!(kind, crate::model::LogicalType::Object));
+                field.scalar_records = if scalar_kind {
                     field.present_records
+                } else {
+                    0
                 };
-                field.array_records = if index.multi {
+                field.array_records = if array_kind {
                     field.present_records
                 } else {
                     0
                 };
-                field.object_records = field.object_records.min(field.present_records);
+                field.object_records = if object_kind {
+                    field.present_records
+                } else {
+                    0
+                };
                 field.nonblank_records = field.nonblank_records.min(field.present_records);
+                field.integer_only = None;
             }
             field.short_string_covered_records = state
                 .short_string_coverage
