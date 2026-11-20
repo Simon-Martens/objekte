@@ -107,27 +107,45 @@ fn finish_projected_inference(
         if let Some(index) = state.indexes.get(&field.path) {
             field.index_status = InferenceIndexStatus::Built;
             let summary = index.summary;
-            field.complete = summary.is_some();
+            field.complete &= summary.is_some();
             if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
                 field.present_records = field.present_records.min(eligible);
-                field.empty_selection_records = field.empty_selection_records.min(eligible);
                 field.complete = false;
             } else {
                 field.present_records = index.presence.len();
-                field.empty_selection_records = 0;
             }
+            field.empty_selection_records = if index.length_complete
+                && summary.is_some_and(|summary| summary.may_match_array())
+            {
+                index
+                    .lengths
+                    .get(&crate::model::Number::integer(0))
+                    .map_or(0, RoaringBitmap::len)
+            } else if summary.is_some_and(|summary| summary.may_have_empty_traversal()) {
+                field.empty_selection_records.min(eligible)
+            } else {
+                0
+            };
             let nulls = index
                 .values
                 .get(&crate::index::posting::ScalarKey::Null)
                 .map_or(0, RoaringBitmap::len);
-            field.null_occurrence_records = nulls;
+            field.null_occurrence_records =
+                if summary.is_some_and(|summary| !summary.may_match_array()) {
+                    nulls
+                } else {
+                    field.null_occurrence_records.min(eligible)
+                };
             field.exact_null_records =
                 if summary.is_some_and(|summary| !summary.may_select_multiple()) {
                     nulls
                 } else {
                     field.exact_null_records.min(nulls)
                 };
-            if summary.is_some_and(|summary| summary.may_select_multiple()) {
+            if summary.is_none()
+                || summary.is_some_and(|summary| summary.may_match_array())
+                || summary.is_some_and(|summary| summary.may_select_multiple())
+            {
                 field.complete = false;
             }
             field.short_string_covered_records = state

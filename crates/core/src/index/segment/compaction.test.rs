@@ -275,6 +275,90 @@ fn compaction_matches_active_file_oracle_across_indexes() {
 }
 
 #[test]
+fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inference-report-projection-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("a", r#"{"x":[]}"#),
+        ("b", r#"{"x":[null]}"#),
+        ("c", r#"{"x":[7]}"#),
+        ("retired", r#"{"unrelated":true}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::configuration::RepositoryOptions {
+            inference: config,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let segment = &repo.segments[0][0].index;
+    let active = crate::inventory::ActiveRecords::all(segment.record_count())
+        .unwrap()
+        .retired(&[RecordSlot(3)])
+        .unwrap();
+    let compacted = segment.compact_active(&active, 4, |_| true).unwrap();
+    let report = compacted
+        .index
+        .inference
+        .as_ref()
+        .unwrap()
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["x"])
+        .unwrap();
+    assert!(!report.complete);
+    assert_eq!(report.present_records, 3);
+    assert_eq!(report.exact_null_records, 0);
+    assert_eq!(report.empty_selection_records, 1);
+    assert!(report.null_occurrence_records <= report.eligible_records);
+    assert!(
+        compacted
+            .index
+            .inference
+            .as_ref()
+            .is_some_and(|state| state.indexes.contains_key(&vec!["x".into()]))
+    );
+    let inference = compacted.index.inference.as_ref().unwrap();
+    let posting = &inference.indexes[&vec!["x".into()]];
+    let crate::query::binding::filter::BoundExpr::Term(term) =
+        crate::query::binding::filter::bind_filter(
+            &crate::query::parse_filter("x:null = true").unwrap(),
+            &crate::schema::Schema::default(),
+        )
+        .unwrap()
+    else {
+        panic!("expected term");
+    };
+    assert!(
+        posting
+            .exact_set(&term, &RoaringBitmap::from_iter(0..3))
+            .unwrap()
+            .is_empty()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn historical_file_versions_compact_to_current_zero_record_or_delete() {
     let root =
         std::env::temp_dir().join(format!("objekte-segment-versions-{}", std::process::id()));

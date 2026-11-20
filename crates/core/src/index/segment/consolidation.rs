@@ -161,6 +161,7 @@ fn consolidate_inference(
             target.short_string_observed_occurrences = target
                 .short_string_observed_occurrences
                 .saturating_add(source.short_string_observed_occurrences);
+            target.complete &= source.complete;
             target.summary_bytes_estimate = target
                 .summary_bytes_estimate
                 .saturating_add(source.summary_bytes_estimate);
@@ -223,7 +224,7 @@ fn consolidate_inference(
         field.distinct_nonblank_strings = None;
         if let Some(index) = indexes.get(&field.path) {
             field.index_status = InferenceIndexStatus::Built;
-            field.complete = true;
+            field.complete &= index.summary.is_some();
             if !field.observed_kinds.contains(&index.kind) {
                 field.observed_kinds.push(index.kind.clone());
             }

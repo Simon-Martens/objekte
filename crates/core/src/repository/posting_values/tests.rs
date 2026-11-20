@@ -946,6 +946,91 @@ fn posting_values_keep_singleton_null_and_empty_traversal_public_counts() {
 }
 
 #[test]
+fn inferred_terminal_arrays_preserve_legacy_presence_without_source_reads() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inferred-presence-equivalence-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..20 {
+        let body = match number {
+            0 => r#"{"values":[],"items":[]}"#.to_owned(),
+            1 => r#"{"values":[3],"items":[{"value":3}]}"#.to_owned(),
+            2 => r#"{"values":[5],"items":[{"value":5}]}"#.to_owned(),
+            _ => "{}".to_owned(),
+        };
+        std::fs::write(root.join(format!("data/{number:02}.json")), body).unwrap();
+    }
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    min_nonblank_occurrences: 1,
+                    min_nonblank_records: 1,
+                    minimum_repeated_percent: 0,
+                    ..Default::default()
+                },
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let values_request = PostingValuesRequest::new("data", "values", 10);
+    let before = repo.posting_values(&values_request).unwrap();
+    assert_eq!(before.coverage.present_records, 3);
+    assert_eq!(
+        before.values.iter().map(|entry| entry.count).sum::<u64>(),
+        2
+    );
+    let query = crate::query::Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("items.value:exists = true").unwrap()),
+        options: crate::query::QueryOptions {
+            sort: vec![],
+            limit: 20,
+            offset: 0,
+            count: false,
+            return_mode: crate::query::options::ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let selection = repo.select_exact("data", &query).unwrap();
+    assert_eq!(selection.len(), 2);
+    for entry in std::fs::read_dir(root.join("data")).unwrap() {
+        std::fs::remove_file(entry.unwrap().path()).unwrap();
+    }
+    assert_eq!(
+        repo.posting_values(&values_request).unwrap().values,
+        before.values
+    );
+    assert!(
+        repo.posting_values(&PostingValuesRequest::new("data", "items.value", 10))
+            .is_err()
+    );
+    let mut nested_selected = PostingValuesRequest::new("data", "items.value", 10);
+    nested_selected.selection = Some(selection);
+    let nested = repo.posting_values(&nested_selected).unwrap();
+    assert_eq!(nested.coverage.present_records, 2);
+    assert_eq!(
+        nested.values.iter().map(|entry| entry.count).sum::<u64>(),
+        2
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn numeric_and_temporal_keys_keep_their_types_and_order() {
     use crate::model::Number;
     let root = std::env::temp_dir().join(format!("objekte-posting-typed-{}", std::process::id()));

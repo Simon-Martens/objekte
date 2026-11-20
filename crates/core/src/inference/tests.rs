@@ -668,6 +668,107 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
 }
 
 #[test]
+fn publication_reconciles_pruned_values_lengths_and_statistics() {
+    let root = temporary_root("publication-reconciliation");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..513usize {
+        let items = match number {
+            0 => r#""items":[{"value":1},{"value":null}]"#,
+            1 => r#""items":{"value":"text"}"#,
+            2 => r#""items":{"value":2}"#,
+            _ => r#""items":{"value":2}"#,
+        };
+        let list = format!(r#" [{}]"#, vec!["1"; number].join(","));
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            format!("{{{items},\"list\":{list}}}"),
+        )
+        .unwrap();
+    }
+    let repo = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            },
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                policy: InferencePolicy {
+                    max_distinct_values_per_path: 512,
+                    ..Default::default()
+                },
+            },
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+    .unwrap();
+    let segments = &repo.segments[0];
+    let mut saw_null = false;
+    let mut saw_pruned_lengths = false;
+    for segment in segments.iter() {
+        let Some(inference) = &segment.index.inference else {
+            continue;
+        };
+        if let Some(posting) = inference.indexes.get(&vec!["items".into(), "value".into()]) {
+            if posting
+                .null_posting()
+                .is_some_and(|nulls| !nulls.is_empty())
+            {
+                saw_null = true;
+                assert!(!posting.value_complete);
+                assert!(
+                    !posting
+                        .values
+                        .keys()
+                        .any(|key| { matches!(key, crate::index::posting::ScalarKey::Number(_)) })
+                );
+            }
+            posting
+                .validate_eligible(
+                    segment.index.record_count(),
+                    segment.index.logical_records.len() as usize,
+                )
+                .unwrap();
+            assert_eq!(posting.stats.distinct_count, posting.distinct_values());
+        }
+        if let Some(posting) = inference.indexes.get(&vec!["list".into()]) {
+            saw_pruned_lengths = true;
+            assert!(!posting.length_complete);
+            assert!(posting.lengths.is_empty());
+            posting
+                .validate_eligible(
+                    segment.index.record_count(),
+                    segment.index.logical_records.len() as usize,
+                )
+                .unwrap();
+        }
+    }
+    assert!(saw_null);
+    assert!(saw_pruned_lengths);
+    for filter in [
+        "items.value:null = true",
+        "items.value:number = true",
+        "list:length = 2",
+    ] {
+        let request = query(filter);
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn repeated_percent_boundary_is_inclusive_and_exact() {
     let root = temporary_root("global-repeat-boundary");
     let _ = std::fs::remove_dir_all(&root);

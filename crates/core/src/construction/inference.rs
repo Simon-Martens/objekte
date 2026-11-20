@@ -310,6 +310,8 @@ pub(crate) fn aggregate_segment_inference(
         }
 
         let distinct_strings = aggregate.distinct_nonblank.as_ref().map(HashSet::len);
+        let length_key_overflow =
+            aggregate.length_keys > config.policy.max_distinct_values_per_path as u64;
         let decision = decide_field_admission(
             config,
             schema,
@@ -326,8 +328,10 @@ pub(crate) fn aggregate_segment_inference(
                 nonblank_records: aggregate.nonblank_records,
                 distinct_nonblank: distinct_strings,
                 has_short_values: aggregate.short_values_present,
-                has_lengths: aggregate.array_records != 0 && aggregate.lengths_complete,
-                length_dropped: aggregate.length_dropped,
+                has_lengths: aggregate.array_records != 0
+                    && aggregate.lengths_complete
+                    && !length_key_overflow,
+                length_dropped: aggregate.length_dropped || length_key_overflow,
                 short_dropped: aggregate.short_dropped,
                 short_seen_records: aggregate.short_seen_records,
                 dropped: aggregate.dropped,
@@ -406,6 +410,7 @@ pub(crate) fn aggregate_segment_inference(
                 && !decision.mixed_shape,
             array_length_complete: aggregate.array_records != 0
                 && aggregate.lengths_complete
+                && !length_key_overflow
                 && aggregate.array_length_complete,
             structural_facts: !aggregate.indexes.is_empty() && aggregate.structural_facts,
             short_string_covered_records,
@@ -545,6 +550,7 @@ struct AggregatedField<'a> {
     short_summary_truncated: bool,
     lengths_complete: bool,
     length_dropped: bool,
+    length_keys: u64,
     values_present: bool,
     dropped: bool,
     index_bytes_estimate: usize,
@@ -590,6 +596,11 @@ impl<'a> AggregatedField<'a> {
         self.dropped |= field.dropped;
         self.short_dropped |= field.short_dropped;
         self.length_dropped |= field.length_dropped;
+        add_count(
+            &mut self.length_keys,
+            field.observation_length_keys as u64,
+            "inference length-key count overflow",
+        )?;
         self.short_summary_truncated |= field.short_summary_truncated;
         self.values_present &= field.observation_values_present;
         if !field.array_records.is_empty() {
@@ -792,6 +803,7 @@ struct FieldState {
     observation_values_present: bool,
     observation_short_values_present: bool,
     observation_lengths_present: bool,
+    observation_length_keys: usize,
     no_provisional_postings: bool,
     facts_enabled: bool,
     short_distinct_without_postings: Option<HashSet<String>>,
@@ -839,6 +851,7 @@ impl FieldState {
             observation_values_present: false,
             observation_short_values_present: false,
             observation_lengths_present: false,
+            observation_length_keys: 0,
             no_provisional_postings: false,
             facts_enabled: mode == InferenceMode::AutoIndex,
             short_distinct_without_postings: None,
@@ -1743,7 +1756,7 @@ impl InferenceBuilder {
                         values.insert(ScalarKey::String(String::new()), field.empty_string.clone());
                     }
                 }
-                let legacy_present_equivalent = field.empty_selection.is_empty();
+                let legacy_present_equivalent = field.empty_selection.is_subset(&field.present);
                 let legacy_null_equivalent =
                     field.selected_null.difference_len(&field.exact_null) == 0;
                 if !field.selected_null.is_empty() {
@@ -1918,6 +1931,7 @@ impl InferenceBuilder {
                 .as_ref()
                 .is_some_and(|values| !values.is_empty());
             field.observation_lengths_present = field.lengths.is_some();
+            field.observation_length_keys = field.lengths.as_ref().map_or(0, BTreeMap::len);
             field.short_distinct_without_postings = (!short_keys.is_empty()).then_some(short_keys);
             field.short_values = None;
             field.values = None;

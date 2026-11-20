@@ -780,6 +780,10 @@ impl Index {
                                 posting.length_complete = diagnostics
                                     .is_some_and(|diagnostic| diagnostic.array_length_complete);
                                 posting.empty_string_complete = empty_string_exact;
+                                if !posting.length_complete {
+                                    posting.lengths.clear();
+                                }
+                                posting.finish_stats();
                             }
                             if !short_values {
                                 inference.short_string_coverage.remove(&field.path);
