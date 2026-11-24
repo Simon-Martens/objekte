@@ -462,7 +462,7 @@ fn visit_merged_hop(
             }
             let (file, range) = view.native_origin(address)?;
             let ctx = RecordContext {
-                value: &value,
+                value: value.as_ref(),
                 source_bytes: None,
                 record: &header,
                 range,
@@ -474,7 +474,7 @@ fn visit_merged_hop(
             };
             merge_truth(
                 truth,
-                Some(terminal(&ctx, &text, source_positions)?),
+                Some(terminal(&ctx, text.as_ref(), source_positions)?),
                 quantifier,
             );
             return Ok(());

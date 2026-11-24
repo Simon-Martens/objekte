@@ -600,7 +600,7 @@ impl Index {
                 |index| index.prepare_replace_file(handle, destination),
             );
         }
-        if let Some(moved) = self.try_content_preserving_move(handle, destination)? {
+        if let Some(moved) = self.try_content_preserving_move(handle, destination, view)? {
             return Ok(moved);
         }
         self.replace_file(
@@ -618,13 +618,19 @@ impl Index {
         &self,
         handle: FileHandle,
         destination: &Path,
+        first_view: IndexView,
     ) -> Result<Option<FileMutationResult>, IndexError> {
         if handle.instance_id != self.instance_id() {
             return Err(IndexError::ForeignInstance);
         }
         let mut conflict = None;
+        let mut first_view = Some(first_view);
         for _ in 0..MAX_PUBLICATION_RETRIES {
-            let view = self.view()?;
+            let view = if let Some(view) = first_view.take() {
+                view
+            } else {
+                self.view()?
+            };
             let actual = view
                 .file_version_including_inactive(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;

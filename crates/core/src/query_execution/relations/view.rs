@@ -365,7 +365,13 @@ impl<'a> MergedRelationView<'a> {
         &self,
         address: MergedRecordSlot,
         collect_text: bool,
-    ) -> Result<Option<(Value, Vec<crate::source::TextSegment>)>, String> {
+    ) -> Result<
+        Option<(
+            std::borrow::Cow<'_, Value>,
+            std::borrow::Cow<'_, [crate::source::TextSegment]>,
+        )>,
+        String,
+    > {
         let Some(position) = address.segment else {
             return Ok(None);
         };
@@ -377,7 +383,10 @@ impl<'a> MergedRelationView<'a> {
         }
         let segment = &published.index;
         if let Some(body) = segment.backing.retained_body(address.slot) {
-            return Ok(Some((body.value.clone(), body.text.clone())));
+            return Ok(Some((
+                std::borrow::Cow::Borrowed(&body.value),
+                std::borrow::Cow::Borrowed(&body.text),
+            )));
         }
         let crate::index::segment::SegmentBacking::Provider {
             registration,
@@ -416,7 +425,10 @@ impl<'a> MergedRelationView<'a> {
         if result.version != expected {
             return Err("native provider returned another version".into());
         }
-        Ok(Some((result.value, result.text)))
+        Ok(Some((
+            std::borrow::Cow::Owned(result.value),
+            std::borrow::Cow::Owned(result.text),
+        )))
     }
 
     pub(crate) fn native_origin(
@@ -692,7 +704,7 @@ impl<'a> MergedRelationView<'a> {
             {
                 work.source_read(0)?;
             }
-            let value = Arc::new(value);
+            let value = Arc::new(value.into_owned());
             return Ok(Some(value));
         }
         let Some(resolved) = self.record(address)? else {

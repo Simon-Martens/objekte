@@ -2870,15 +2870,15 @@ fn try_native_relation_scan(
                     counters.bytes_read += bytes.len() as u64;
                     counters.record_parses += 1;
                     (
-                        extracted.value,
-                        extracted.text,
+                        std::borrow::Cow::Owned(extracted.value),
+                        std::borrow::Cow::Owned(extracted.text),
                         Some(resolved.file),
                         Some(resolved.record.range),
                         Some(bytes),
                     )
                 };
                 let ctx = RecordContext {
-                    value: &value,
+                    value: value.as_ref(),
                     source_bytes: source_bytes.as_deref(),
                     record,
                     range,

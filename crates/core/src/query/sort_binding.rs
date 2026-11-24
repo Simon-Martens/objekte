@@ -173,7 +173,7 @@ impl MergedSortTargetCache {
             let Some((value, _)) = view.native_value(address, false)? else {
                 return Ok(None);
             };
-            let estimated = estimated_sort_value_bytes(&value)
+            let estimated = estimated_sort_value_bytes(value.as_ref())
                 .checked_add(128)
                 .ok_or("sort target byte estimate overflow")? as u64;
             let next = self
@@ -194,7 +194,7 @@ impl MergedSortTargetCache {
                 }
             }
             self.retained_bytes = next;
-            let value = Arc::new(value);
+            let value = Arc::new(value.into_owned());
             self.values.insert(address, value.clone());
             return Ok(Some(value));
         }

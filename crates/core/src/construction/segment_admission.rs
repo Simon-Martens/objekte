@@ -772,7 +772,21 @@ impl SegmentAdmission {
     }
 
     pub fn finish(self) -> CollectionSegment {
-        let backing = crate::index::segment::SegmentBacking::file_ranges(&self.records);
+        let mut records = Vec::with_capacity(self.records.len());
+        let mut locators = Vec::with_capacity(self.records.len());
+        for record in self.records {
+            locators.push(crate::index::segment::FileRangeLocator {
+                file: record.file,
+                range: Some(record.range),
+                revision: record.revision,
+            });
+            records.push(crate::records::RecordHeader {
+                slot: record.slot,
+                id: record.id,
+                class: record.class,
+                diagnostic_ref: record.diagnostic_ref,
+            });
+        }
         CollectionSegment {
             id: self.id,
             collection: self.collection,
@@ -780,12 +794,8 @@ impl SegmentAdmission {
             source_version: self.source_version,
             files: self.files,
             file_index: self.file_index,
-            records: self
-                .records
-                .iter()
-                .map(crate::records::RecordHeader::from)
-                .collect(),
-            backing,
+            records,
+            backing: crate::index::segment::SegmentBacking::FileRange { locators },
             raw_covers_logical_fields: true,
             id_lookup: self.id_lookup,
             batches: self.batches,
