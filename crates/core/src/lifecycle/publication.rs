@@ -125,6 +125,52 @@ impl RecordRoutes {
         }
     }
 
+    /// Replace only routes owned by changed segments. Rebuilding every ID
+    /// route after each sparse consolidation makes single-record admission
+    /// quadratic in the size of the collection.
+    fn replace_segments(
+        &mut self,
+        removed: &[Arc<PublishedSegment>],
+        added: &PublishedSegment,
+        group: &[Arc<PublishedSegment>],
+    ) {
+        let positions = Arc::make_mut(&mut self.positions);
+        for segment in removed {
+            positions.remove(&segment.id);
+        }
+        for (position, segment) in group.iter().enumerate() {
+            positions.insert(segment.id, position);
+        }
+        let shards = Arc::make_mut(&mut self.shards);
+        for segment in removed {
+            for (id, &slot) in &segment.index.id_lookup {
+                if segment.active.contains(slot) {
+                    let shard = Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())]);
+                    if shard
+                        .get(id)
+                        .is_some_and(|route| route.segment == segment.id)
+                    {
+                        shard.remove(id);
+                    }
+                }
+            }
+        }
+        let file_shards = Arc::make_mut(&mut self.file_shards);
+        for segment in removed {
+            for file in &segment.index.files {
+                let shard =
+                    Arc::make_mut(&mut file_shards[file.entry.id.0 as usize % RECORD_ROUTE_SHARDS]);
+                if let Some(routes) = shard.get_mut(&file.entry.id) {
+                    routes.retain(|id| *id != segment.id);
+                    if routes.is_empty() {
+                        shard.remove(&file.entry.id);
+                    }
+                }
+            }
+        }
+        self.add_segment(added, group.len() - 1);
+    }
+
     fn from_group(group: &[Arc<PublishedSegment>]) -> Self {
         let mut routes = Self::empty();
         for (position, segment) in group.iter().enumerate() {
@@ -490,6 +536,7 @@ impl PublishedIndex {
         let group = Arc::make_mut(&mut self.segments[number]);
         if count_triggered {
             // A current zero-record file still owns its catalogue contribution.
+            let old_count = group.len();
             let mut kept = Vec::with_capacity(group.len());
             for segment in group.drain(..) {
                 let mut current_file = false;
@@ -515,8 +562,12 @@ impl PublishedIndex {
                     kept.push(segment);
                 }
             }
-            *group = kept;
-            self.record_routes[number] = RecordRoutes::from_group(group);
+            if kept.len() != old_count {
+                *group = kept;
+                self.record_routes[number] = RecordRoutes::from_group(group);
+            } else {
+                *group = kept;
+            }
         }
         let count_triggered = group.len() >= admission_limit;
         if !count_triggered {
@@ -597,15 +648,16 @@ impl PublishedIndex {
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
         let merged_index = merged.index;
-        group.remove(right);
-        group.remove(left);
+        let removed_right = group.remove(right);
+        let removed_left = group.remove(left);
         group.push(Arc::new(PublishedSegment {
             id: SegmentId::new(ordinal),
             index: Arc::new(merged_index),
             active,
             observation: None,
         }));
-        self.record_routes[number] = RecordRoutes::from_group(group);
+        let added = Arc::clone(group.last().expect("consolidated segment"));
+        self.record_routes[number].replace_segments(&[removed_left, removed_right], &added, group);
         if size_triggered {
             self.last_size_maintenance_revision = self.revision.0;
         }
