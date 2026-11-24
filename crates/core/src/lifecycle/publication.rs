@@ -567,18 +567,18 @@ impl PublishedIndex {
                 let Some(file_index) = published.index.file_index.get(&file).copied() else {
                     continue;
                 };
-                if !matches!(
+                if matches!(
                     published.index.backing,
-                    crate::index::segment::SegmentBacking::Retained { .. }
+                    crate::index::segment::SegmentBacking::FileRange { .. }
                 ) {
                     continue;
                 }
                 let segment = Arc::make_mut(published);
                 let index = Arc::make_mut(&mut segment.index);
-                let crate::index::segment::SegmentBacking::Retained { links, .. } =
-                    &mut index.backing
-                else {
-                    unreachable!()
+                let links = match &mut index.backing {
+                    crate::index::segment::SegmentBacking::Retained { links, .. }
+                    | crate::index::segment::SegmentBacking::Provider { links, .. } => links,
+                    crate::index::segment::SegmentBacking::FileRange { .. } => unreachable!(),
                 };
                 let mut kept = Vec::new();
                 for &slot in &index.files[file_index].records {

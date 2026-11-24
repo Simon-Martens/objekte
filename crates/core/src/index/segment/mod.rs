@@ -252,6 +252,7 @@ pub(crate) enum SegmentBacking {
     },
     Provider {
         versions: Vec<RecordVersion>,
+        links: Vec<Option<FileRangeLocator>>,
         registration: u32,
     },
 }
@@ -338,9 +339,11 @@ impl SegmentBacking {
             }
             Self::Provider { registration, .. } => {
                 let mut versions = Vec::new();
+                let mut links = Vec::new();
                 for backing in backings {
                     let Self::Provider {
                         versions: source,
+                        links: source_links,
                         registration: source_registration,
                     } = backing
                     else {
@@ -350,9 +353,11 @@ impl SegmentBacking {
                         return Err("provider registration mismatch in consolidation".into());
                     }
                     versions.extend_from_slice(source);
+                    links.extend_from_slice(source_links);
                 }
                 Ok(Self::Provider {
                     versions,
+                    links,
                     registration: *registration,
                 })
             }
@@ -383,8 +388,9 @@ impl SegmentBacking {
     pub(crate) fn file_locator(&self, slot: RecordSlot) -> Option<FileRangeLocator> {
         match self {
             Self::FileRange { locators } => locators.get(slot.0 as usize).copied(),
-            Self::Retained { links, .. } => links.get(slot.0 as usize).copied().flatten(),
-            _ => None,
+            Self::Retained { links, .. } | Self::Provider { links, .. } => {
+                links.get(slot.0 as usize).copied().flatten()
+            }
         }
     }
 

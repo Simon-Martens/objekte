@@ -290,6 +290,29 @@ impl Batch {
         )
     }
 
+    pub fn insert_from_reader_with_file(
+        &mut self,
+        id: impl AsRef<str>,
+        value: Value,
+        version: RecordVersion,
+        token: FileToken,
+        range: Option<ByteRange>,
+    ) -> Result<(), String> {
+        let file = self.checked_file(token, range)?;
+        let id = RecordId::intrinsic(id.as_ref())?;
+        let bytes = estimated_value_bytes(&value);
+        self.push(
+            Operation::Insert {
+                id,
+                value,
+                text: Vec::new(),
+                file,
+                version: Some(version),
+            },
+            bytes,
+        )
+    }
+
     pub fn replace_from_reader(
         &mut self,
         id: impl AsRef<str>,

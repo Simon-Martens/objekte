@@ -398,6 +398,12 @@ impl RecordReader for VersionedFixture {
 
 #[test]
 fn versioned_provider_disposes_input_and_checks_rereads() {
+    let root = std::env::temp_dir().join(format!("objekte-provider-links-{}", std::process::id()));
+    std::fs::create_dir(&root).unwrap();
+    std::fs::write(root.join("source.txt"), b"alpha beta").unwrap();
+    let file_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(root.join("source.txt")).unwrap())
+            .unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -422,15 +428,37 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
     builder
         .register_reader(registration, reader.clone())
         .unwrap();
+    let catalog = builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder.enable_file_links(registration, catalog).unwrap();
     let index = builder.build().unwrap();
     let session = index.ingestion();
     let writer = session.writer(registration).unwrap();
     let mut batch = writer.batch();
+    let file = batch.declare_file("source.txt", file_revision).unwrap();
     batch
-        .insert_from_reader("entry-47", record(1808, "Leipzig"), RecordVersion::new(7))
+        .insert_from_reader_with_file(
+            "entry-47",
+            record(1808, "Leipzig"),
+            RecordVersion::new(7),
+            file,
+            Some(ByteRange::checked(0, 5, file_revision.size).unwrap()),
+        )
         .unwrap();
     writer.submit(batch).unwrap().wait_published().unwrap();
     let view = index.view().unwrap();
+    assert_eq!(
+        view.file_catalog()
+            .unwrap()
+            .file_for_record("entries", "entry-47")
+            .unwrap()
+            .unwrap()
+            .range
+            .unwrap()
+            .end,
+        5
+    );
     assert_eq!(
         view.get_record("entries", "entry-47", ReturnMode::Logical)
             .unwrap()
@@ -452,6 +480,15 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
         },
     };
     assert_eq!(view.search(&query).unwrap().count, Some(1));
+    let by_file = Query {
+        filter: Some(parse_filter("@file.path = 'source.txt'").unwrap()),
+        options: QueryOptions {
+            return_mode: ReturnMode::Locator,
+            ..query.options.clone()
+        },
+        ..query.clone()
+    };
+    assert_eq!(view.search(&by_file).unwrap().count, Some(1));
     let residual = Query {
         filter: Some(parse_filter("note ~ 'Leipzig'").unwrap()),
         options: QueryOptions {
@@ -467,5 +504,20 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
             .is_err()
     );
     assert!(view.search(&residual).is_err());
+    let handle = view
+        .file_handle_for_path(std::path::Path::new("source.txt"))
+        .unwrap();
+    index.delete_file(handle).unwrap();
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .get_record("entries", "entry-47", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .is_none()
+    );
     session.finish().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }

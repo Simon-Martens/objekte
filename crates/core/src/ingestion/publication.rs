@@ -4,7 +4,9 @@ use std::sync::atomic::{AtomicBool, Ordering};
 
 use crate::construction::batch::build_retained_contribution;
 use crate::construction::segment_admission::CollectionSegment;
-use crate::index::segment::{FileRangeLocator, SegmentBacking, SegmentFile, SegmentId};
+use crate::index::segment::{
+    FileRangeLocator, IndexedCollectionSegment, SegmentBacking, SegmentFile, SegmentId,
+};
 use crate::inventory::{FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::publication::{RecordMutation, RecordMutationKind};
 use crate::lifecycle::{Index, IndexError};
@@ -117,6 +119,7 @@ pub(super) fn install_batch(
     let mut links = Vec::new();
     let mut provider_inputs = Vec::new();
     let mut provider_versions = Vec::new();
+    let mut provider_links = Vec::new();
     for operation in batch.operations {
         match operation {
             Operation::Insert {
@@ -131,13 +134,14 @@ pub(super) fn install_batch(
                     kind: RecordMutationKind::Insert,
                 });
                 if let Some(version) = version {
-                    if registration.reader.is_none() || file.is_some() {
+                    if registration.reader.is_none() {
                         return Err(IngestionError::Index(IndexError::Build(
-                            "provider input needs a registered reader and no file link".into(),
+                            "provider input needs a registered reader".into(),
                         )));
                     }
                     provider_inputs.push((id, value, text));
                     provider_versions.push(version);
+                    provider_links.push(file);
                 } else {
                     inputs.push((id, value, text));
                     links.push(file);
@@ -155,13 +159,14 @@ pub(super) fn install_batch(
                     kind: RecordMutationKind::Replace,
                 });
                 if let Some(version) = version {
-                    if registration.reader.is_none() || file.is_some() {
+                    if registration.reader.is_none() {
                         return Err(IngestionError::Index(IndexError::Build(
-                            "provider input needs a registered reader and no file link".into(),
+                            "provider input needs a registered reader".into(),
                         )));
                     }
                     provider_inputs.push((id, value, text));
                     provider_versions.push(version);
+                    provider_links.push(file);
                 } else {
                     inputs.push((id, value, text));
                     links.push(file);
@@ -201,34 +206,7 @@ pub(super) fn install_batch(
                 &view.repository().workers,
             )
             .map_err(|error| IngestionError::Index(crate::lifecycle::IndexError::Build(error)))?;
-        for (slot, link) in links.into_iter().enumerate() {
-            let Some((token, range)) = link else { continue };
-            let entry = files.get(token.0 as usize).ok_or_else(|| {
-                IngestionError::Index(IndexError::Build("unknown batch file token".into()))
-            })?;
-            let SegmentBacking::Retained { links, .. } = &mut segment.backing else {
-                unreachable!()
-            };
-            links[slot] = Some(FileRangeLocator {
-                file: entry.id,
-                range,
-                revision: entry.revision,
-            });
-            let file_index = if let Some(index) = segment.file_index.get(&entry.id) {
-                *index
-            } else {
-                let index = segment.files.len();
-                segment.file_index.insert(entry.id, index);
-                segment.files.push(SegmentFile {
-                    entry: entry.clone(),
-                    records: Vec::new(),
-                });
-                index
-            };
-            segment.files[file_index]
-                .records
-                .push(RecordSlot(slot as u32));
-        }
+        attach_links(&mut segment, links, &files)?;
         segment.recompute_accounting();
         Some(segment)
     };
@@ -261,8 +239,10 @@ pub(super) fn install_batch(
             .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
         segment.backing = SegmentBacking::Provider {
             versions: provider_versions,
+            links: vec![None; segment.records.len()],
             registration: batch.registration.ordinal,
         };
+        attach_links(&mut segment, provider_links, &files)?;
         segment.recompute_accounting();
         segments.push(segment);
     }
@@ -281,4 +261,47 @@ pub(super) fn install_batch(
             &files,
         )
         .map_err(IngestionError::Index)
+}
+
+fn attach_links(
+    segment: &mut IndexedCollectionSegment,
+    links: Vec<Option<(super::FileToken, Option<crate::inventory::ByteRange>)>>,
+    files: &[FileEntry],
+) -> Result<(), IngestionError> {
+    for (slot, link) in links.into_iter().enumerate() {
+        let Some((token, range)) = link else { continue };
+        let entry = files.get(token.0 as usize).ok_or_else(|| {
+            IngestionError::Index(IndexError::Build("unknown batch file token".into()))
+        })?;
+        let target = match &mut segment.backing {
+            SegmentBacking::Retained { links, .. } | SegmentBacking::Provider { links, .. } => {
+                links
+            }
+            SegmentBacking::FileRange { .. } => {
+                return Err(IngestionError::Index(IndexError::Build(
+                    "record link on file segment".into(),
+                )));
+            }
+        };
+        target[slot] = Some(FileRangeLocator {
+            file: entry.id,
+            range,
+            revision: entry.revision,
+        });
+        let file_index = if let Some(index) = segment.file_index.get(&entry.id) {
+            *index
+        } else {
+            let index = segment.files.len();
+            segment.file_index.insert(entry.id, index);
+            segment.files.push(SegmentFile {
+                entry: entry.clone(),
+                records: Vec::new(),
+            });
+            index
+        };
+        segment.files[file_index]
+            .records
+            .push(RecordSlot(slot as u32));
+    }
+    Ok(())
 }
