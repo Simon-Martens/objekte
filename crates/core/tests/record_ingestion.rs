@@ -232,6 +232,9 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
         .insert_with_file("path-only", record(1809, "beta"), file, None)
         .unwrap();
     batch.insert("unlinked", record(1810, "none")).unwrap();
+    batch
+        .insert("unlinked-survivor", record(1812, "kept"))
+        .unwrap();
     batch.declare_file("empty.txt", empty_revision).unwrap();
     first_writer
         .submit(batch)
@@ -337,6 +340,51 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
         0
     );
     let handle = view.file_handle(row.id).unwrap();
+    let mut deletion = first_writer.batch();
+    deletion.delete("unlinked").unwrap();
+    first_writer
+        .submit(deletion)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    index.compact().unwrap();
+    let compacted = index.view().unwrap();
+    for id in ["same", "path-only", "unlinked-survivor"] {
+        assert!(
+            compacted
+                .get_record("first", id, ReturnMode::Logical)
+                .unwrap()
+                .is_some()
+        );
+    }
+    assert!(
+        compacted
+            .get_record("first", "unlinked", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        view.get_record("first", "unlinked", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    assert_eq!(
+        compacted
+            .file_catalog()
+            .unwrap()
+            .records_for_file(row.id)
+            .unwrap()
+            .len(),
+        3
+    );
+    assert_eq!(
+        compacted
+            .get_record("first", "same", ReturnMode::Bytes)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::OriginalBytesUnavailable)
+    );
     std::fs::rename(root.join("source.txt"), root.join("moved.txt")).unwrap();
     let moved = index.move_file(handle, &root.join("moved.txt")).unwrap();
     let after_move = index.view().unwrap();
@@ -504,8 +552,27 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
             Some(ByteRange::checked(0, 5, file_revision.size).unwrap()),
         )
         .unwrap();
+    batch
+        .insert_from_reader("retired", record(1808, "Leipzig"), RecordVersion::new(7))
+        .unwrap();
     writer.submit(batch).unwrap().wait_published().unwrap();
+    let pinned = index.view().unwrap();
+    let mut deletion = writer.batch();
+    deletion.delete("retired").unwrap();
+    writer.submit(deletion).unwrap().wait_published().unwrap();
+    index.compact().unwrap();
     let view = index.view().unwrap();
+    assert!(
+        pinned
+            .get_record("entries", "retired", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        view.get_record("entries", "retired", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
     assert_eq!(
         view.file_catalog()
             .unwrap()
@@ -694,6 +761,127 @@ fn routed_direct_lookup_survives_many_batches_and_compaction() {
         Some(Payload::Logical(Value::String("value-12".into())))
     );
     session.finish().unwrap();
+}
+
+#[test]
+fn compaction_preserves_untouched_retained_survivor_in_partially_retired_segment() {
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "compaction.survivor", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let writer = index.ingestion().writer(registration).unwrap();
+
+    let mut first = writer.batch();
+    first
+        .insert("a", Value::String("original-a".into()))
+        .unwrap();
+    first
+        .insert("b", Value::String("original-b".into()))
+        .unwrap();
+    writer.submit(first).unwrap().wait_published().unwrap();
+    let pinned = index.view().unwrap();
+
+    let mut deletion = writer.batch();
+    deletion.delete("b").unwrap();
+    writer.submit(deletion).unwrap().wait_published().unwrap();
+    index.compact().unwrap();
+
+    let current = index.view().unwrap();
+    assert_eq!(
+        current
+            .get_record("entries", "a", ReturnMode::Logical)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Logical(Value::String("original-a".into())))
+    );
+    assert_eq!(
+        current
+            .get_record("entries", "a", ReturnMode::Bytes)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::OriginalBytesUnavailable)
+    );
+    assert!(
+        current
+            .get_record("entries", "b", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    for id in ["a", "b"] {
+        assert!(
+            pinned
+                .get_record("entries", id, ReturnMode::Logical)
+                .unwrap()
+                .is_some()
+        );
+    }
+}
+
+#[test]
+fn admission_retirement_compaction_keeps_unmodified_native_survivors() {
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "compaction.automatic", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let writer = index.ingestion().writer(registration).unwrap();
+    let mut batch = writer.batch();
+    for number in 0..256 {
+        batch
+            .insert(
+                format!("id-{number:03}"),
+                Value::String(format!("body-{number:03}")),
+            )
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let pinned = index.view().unwrap();
+    let mut deletion = writer.batch();
+    for number in 0..64 {
+        deletion.delete(format!("id-{number:03}")).unwrap();
+    }
+    writer.submit(deletion).unwrap().wait_published().unwrap();
+    let mut next = writer.batch();
+    next.insert("trigger", Value::String("next".into()))
+        .unwrap();
+    writer.submit(next).unwrap().wait_published().unwrap();
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 0);
+
+    let current = index.view().unwrap();
+    for number in 64..256 {
+        let id = format!("id-{number:03}");
+        assert_eq!(
+            current
+                .get_record("entries", &id, ReturnMode::Logical)
+                .unwrap()
+                .unwrap()
+                .payload,
+            Some(Payload::Logical(Value::String(format!("body-{number:03}"))))
+        );
+    }
+    assert!(
+        current
+            .get_record("entries", "id-000", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        current
+            .get_record("entries", "trigger", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        pinned
+            .get_record("entries", "id-000", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
 }
 
 #[test]

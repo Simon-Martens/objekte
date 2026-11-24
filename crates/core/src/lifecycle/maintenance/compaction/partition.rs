@@ -57,13 +57,14 @@ fn compact_source_parts_with_limits(
     let mut selections = Vec::<(HashSet<FileId>, ActiveRecords)>::new();
     let mut files = HashSet::<FileId>::new();
     let mut slots = RoaringBitmap::new();
+    let mut assigned = RoaringBitmap::new();
     let mut count = 0usize;
     let seal = |selections: &mut Vec<(HashSet<FileId>, ActiveRecords)>,
                 files: &mut HashSet<FileId>,
                 slots: &mut RoaringBitmap,
                 count: &mut usize|
      -> Result<(), IndexError> {
-        if files.is_empty() {
+        if files.is_empty() && *count == 0 {
             return Ok(());
         }
         let selected = ActiveRecords::from_bitmap(source.record_count(), std::mem::take(slots))
@@ -72,13 +73,60 @@ fn compact_source_parts_with_limits(
         *count = 0;
         Ok(())
     };
-    for file_index in 0..source.file_count() {
-        let file = source
-            .files
-            .get(file_index)
-            .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
+    let mut selected_files = HashSet::new();
+    for old in 0..source.record_count() {
         if cancelled() {
             return Err(IndexError::Cancelled);
+        }
+        let slot = crate::model::RecordSlot(old as u32);
+        if !active.contains(slot) {
+            continue;
+        }
+        let link = source.backing.file_locator(slot);
+        if let Some(link) = link {
+            let file = source
+                .file_index
+                .get(&link.file)
+                .and_then(|index| source.files.get(*index))
+                .map(|file| &file.entry)
+                .ok_or_else(|| {
+                    IndexError::InvalidPublication("active record file row missing".into())
+                })?;
+            if matches!(
+                &source.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            ) && !catalog.entry(link.file).is_some_and(|current| {
+                current.revision == file.revision
+                    && current.created_ns == file.created_ns
+                    && current.collections.contains(&source.collection)
+            }) {
+                return Err(IndexError::InvalidPublication(
+                    "active imported record has obsolete file".into(),
+                ));
+            }
+        }
+        if count == max_records
+            || link.is_some_and(|link| files.len() >= max_files && !files.contains(&link.file))
+        {
+            seal(&mut selections, &mut files, &mut slots, &mut count)?;
+        }
+        if let Some(link) = link {
+            files.insert(link.file);
+            selected_files.insert(link.file);
+        }
+        if !assigned.insert(slot.0) {
+            return Err(IndexError::InvalidPublication(
+                "compaction selected an active slot twice".into(),
+            ));
+        }
+        slots.insert(slot.0);
+        count += 1;
+    }
+    // A successfully imported empty file remains in the catalog even when it
+    // contributes no live slots to this segment.
+    for file in &source.files {
+        if selected_files.contains(&file.entry.id) {
+            continue;
         }
         let Some(current) = catalog.entry(file.entry.id) else {
             continue;
@@ -89,40 +137,17 @@ fn compact_source_parts_with_limits(
         {
             continue;
         }
-        let owned = file
-            .records
-            .iter()
-            .copied()
-            .filter(|slot| active.contains(*slot))
-            .collect::<Vec<_>>();
-        if owned.is_empty() {
-            if files.len() >= max_files {
-                seal(&mut selections, &mut files, &mut slots, &mut count)?;
-            }
-            files.insert(file.entry.id);
-            continue;
+        if files.len() >= max_files {
+            seal(&mut selections, &mut files, &mut slots, &mut count)?;
         }
-        let mut offset = 0;
-        while offset < owned.len() {
-            if count == max_records || (files.len() >= max_files && !files.contains(&file.entry.id))
-            {
-                seal(&mut selections, &mut files, &mut slots, &mut count)?;
-            }
-            let end = offset
-                .checked_add(max_records - count)
-                .ok_or_else(|| IndexError::ResourceLimit("compaction part offset overflow".into()))?
-                .min(owned.len());
-            files.insert(file.entry.id);
-            for slot in &owned[offset..end] {
-                slots.insert(slot.0);
-            }
-            count = count.checked_add(end - offset).ok_or_else(|| {
-                IndexError::ResourceLimit("compaction part count overflow".into())
-            })?;
-            offset = end;
-        }
+        files.insert(file.entry.id);
     }
     seal(&mut selections, &mut files, &mut slots, &mut count)?;
+    if assigned.len() != active.len() {
+        return Err(IndexError::InvalidPublication(
+            "compaction did not conserve live slots".into(),
+        ));
+    }
     let masks = selections
         .iter()
         .map(|(_, active)| active.clone())
@@ -181,6 +206,16 @@ fn compact_source_parts_with_limits(
             }
         }
         parts.push(compacted);
+    }
+    if parts
+        .iter()
+        .map(IndexedCollectionSegment::record_count)
+        .sum::<usize>()
+        != active.len() as usize
+    {
+        return Err(IndexError::InvalidPublication(
+            "compaction output live count mismatch".into(),
+        ));
     }
     Ok(parts)
 }

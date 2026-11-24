@@ -4,7 +4,9 @@ use super::projection::{
     BigramProjection, DomainProjection, PartitionRouting, PostingProjection, SlotMap,
     project_bigram, project_bitmap, project_inference, project_posting, project_sorting,
 };
-use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
+use super::{
+    IndexedCollectionSegment, RetainedAddress, SegmentAccounting, SegmentBacking, SegmentFile,
+};
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
@@ -178,11 +180,9 @@ impl IndexedCollectionSegment {
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
             }
-            let locator = self
-                .backing
-                .file_locator(RecordSlot(old as u32))
-                .ok_or("file compaction record has no file locator")?;
-            selected_by_file.entry(locator.file).or_default().push(slot);
+            if let Some(locator) = self.backing.file_locator(RecordSlot(old as u32)) {
+                selected_by_file.entry(locator.file).or_default().push(slot);
+            }
             Ok(())
         })?;
         let all_files = 0..self.file_count();
@@ -234,7 +234,6 @@ impl IndexedCollectionSegment {
             return Err("active record file missing".into());
         }
         let mut records = vec![None; next as usize];
-        let mut locators = vec![None; next as usize];
         let mut id_lookup = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
             let record = self
@@ -243,19 +242,18 @@ impl IndexedCollectionSegment {
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
             }
-            let locator = self
-                .backing
-                .file_locator(RecordSlot(old as u32))
-                .ok_or("file compaction record has no file locator")?;
-            if !file_index.contains_key(&locator.file) {
-                return Err("active record file missing".into());
+            let locator = self.backing.file_locator(RecordSlot(old as u32));
+            if let Some(locator) = locator {
+                if !file_index.contains_key(&locator.file) {
+                    return Err("active record file missing".into());
+                }
             }
             let mut compacted = record.clone();
             compacted.slot = slot;
             if compacted.class == RecordClass::RawFallback {
                 compacted.diagnostic_ref = match compacted.diagnostic_ref.stored_index() {
                     Some(old) => diagnostic_refs
-                        .get(&locator.file)
+                        .get(&locator.ok_or("fallback record has no file locator")?.file)
                         .and_then(|refs| refs.get(old))
                         .and_then(|reference| *reference)
                         .ok_or("active fallback diagnostic removed")?,
@@ -271,22 +269,12 @@ impl IndexedCollectionSegment {
             if target.replace(compacted).is_some() {
                 return Err("duplicate compacted record target".into());
             }
-            let target_locator = locators
-                .get_mut(slot.0 as usize)
-                .ok_or("compacted locator target outside active domain")?;
-            if target_locator.replace(locator).is_some() {
-                return Err("duplicate compacted locator target".into());
-            }
             Ok(())
         })?;
         let records = records
             .into_iter()
             .collect::<Option<Vec<_>>>()
             .ok_or("compacted record target missing")?;
-        let locators = locators
-            .into_iter()
-            .collect::<Option<Vec<_>>>()
-            .ok_or("compacted file locator missing")?;
         let bounds = slot_map.bounds()?;
         let (logical_records, empty_array_records) = if let Some(domains) = domain_projection {
             (domains.logical, domains.empty_array)
@@ -385,7 +373,7 @@ impl IndexedCollectionSegment {
         for index in custom_text.values() {
             index.validate(records.len())?;
         }
-        let backing = super::SegmentBacking::FileRange { locators };
+        let backing = self.project_backing(slot_map, next)?;
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
@@ -413,5 +401,110 @@ impl IndexedCollectionSegment {
         };
         index.recompute_accounting();
         Ok(index)
+    }
+
+    fn project_backing(&self, slot_map: &SlotMap<'_>, next: u32) -> Result<SegmentBacking, String> {
+        let len = next as usize;
+        match &self.backing {
+            SegmentBacking::FileRange { locators } => {
+                let mut projected = vec![None; len];
+                slot_map.for_each_selected(|old, new| {
+                    let locator = *locators.get(old).ok_or("file locator slot missing")?;
+                    let target = projected
+                        .get_mut(new.0 as usize)
+                        .ok_or("file locator target missing")?;
+                    if target.replace(locator).is_some() {
+                        return Err("duplicate file locator target".into());
+                    }
+                    Ok(())
+                })?;
+                Ok(SegmentBacking::FileRange {
+                    locators: projected
+                        .into_iter()
+                        .collect::<Option<Vec<_>>>()
+                        .ok_or("file locator target missing")?,
+                })
+            }
+            SegmentBacking::Retained {
+                blocks,
+                addresses,
+                links,
+                registration,
+            } => {
+                let mut projected_addresses = vec![None; len];
+                let mut projected_links = vec![None; len];
+                let mut selected_blocks = Vec::new();
+                let mut block_map = HashMap::new();
+                slot_map.for_each_selected(|old, new| {
+                    let address = *addresses.get(old).ok_or("retained address slot missing")?;
+                    let replacement = if let Some(replacement) = block_map.get(&address.block) {
+                        *replacement
+                    } else {
+                        let replacement = u32::try_from(selected_blocks.len())
+                            .map_err(|_| "too many retained blocks")?;
+                        selected_blocks.push(
+                            blocks
+                                .get(address.block as usize)
+                                .ok_or("retained block missing")?
+                                .clone(),
+                        );
+                        block_map.insert(address.block, replacement);
+                        replacement
+                    };
+                    let target = projected_addresses
+                        .get_mut(new.0 as usize)
+                        .ok_or("retained address target missing")?;
+                    if target
+                        .replace(RetainedAddress {
+                            block: replacement,
+                            offset: address.offset,
+                        })
+                        .is_some()
+                    {
+                        return Err("duplicate retained address target".into());
+                    }
+                    projected_links[new.0 as usize] =
+                        *links.get(old).ok_or("retained link slot missing")?;
+                    Ok(())
+                })?;
+                Ok(SegmentBacking::Retained {
+                    blocks: selected_blocks,
+                    addresses: projected_addresses
+                        .into_iter()
+                        .collect::<Option<Vec<_>>>()
+                        .ok_or("retained address target missing")?,
+                    links: projected_links,
+                    registration: *registration,
+                })
+            }
+            SegmentBacking::Provider {
+                versions,
+                links,
+                registration,
+            } => {
+                let mut projected_versions = vec![None; len];
+                let mut projected_links = vec![None; len];
+                slot_map.for_each_selected(|old, new| {
+                    let version = *versions.get(old).ok_or("provider version slot missing")?;
+                    let target = projected_versions
+                        .get_mut(new.0 as usize)
+                        .ok_or("provider version target missing")?;
+                    if target.replace(version).is_some() {
+                        return Err("duplicate provider version target".into());
+                    }
+                    projected_links[new.0 as usize] =
+                        *links.get(old).ok_or("provider link slot missing")?;
+                    Ok(())
+                })?;
+                Ok(SegmentBacking::Provider {
+                    versions: projected_versions
+                        .into_iter()
+                        .collect::<Option<Vec<_>>>()
+                        .ok_or("provider version target missing")?,
+                    links: projected_links,
+                    registration: *registration,
+                })
+            }
+        }
     }
 }
