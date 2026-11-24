@@ -43,3 +43,52 @@ fn raw_fallback_export_keeps_status_and_explicit_unavailable_state() {
     assert!(logical["record"].is_null());
     assert_eq!(logical["logical_unavailable"], true);
 }
+
+#[test]
+fn unlinked_hit_keeps_record_identity_and_emits_null_file_metadata() {
+    let mut hit = SearchHit {
+        collection: "entries".into(),
+        record_id: "entry-47".into(),
+        generation: 2,
+        file: None,
+        file_id: 0,
+        file_path: "legacy-placeholder".into(),
+        file_size: 0,
+        file_created_ns: None,
+        byte_start: 0,
+        byte_end: 0,
+        modified_ns: 0,
+        matched_fields: Vec::new(),
+        file_status: FileStatus::Valid,
+        record_class: RecordClass::Logical,
+        diagnostic_ref: DiagnosticRef(0),
+        payload: Some(Payload::Logical(objekte_search_core::model::Value::Null)),
+    };
+    let exported = hit_value(&hit).unwrap();
+    assert_eq!(exported["collection"], "entries");
+    assert_eq!(exported["id"], "entry-47");
+    for key in [
+        "file",
+        "byte_start",
+        "byte_end",
+        "file_status",
+        "file_status_label",
+    ] {
+        assert!(exported[key].is_null(), "{key}");
+    }
+    hit.file = Some(objekte_search_core::files::RecordFileInfo {
+        file_id: objekte_search_core::model::FileId(9),
+        path: "data/entries.json".into(),
+        revision: objekte_search_core::inventory::SourceRevision {
+            size: 10,
+            modified_ns: 1,
+        },
+        created_ns: None,
+        status: FileStatus::Valid,
+        range: None,
+    });
+    let linked = hit_value(&hit).unwrap();
+    assert_eq!(linked["file"], "data/entries.json");
+    assert!(linked["byte_start"].is_null());
+    assert!(linked["byte_end"].is_null());
+}

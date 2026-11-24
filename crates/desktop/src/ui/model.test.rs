@@ -8,8 +8,8 @@ fn page_bounds_rows_columns_and_multibyte_cells_without_changing_total() {
                 token: n as u64,
                 collection: "docs".into(),
                 record_id: n.to_string(),
-                file: "docs/a.json".into(),
-                byte_start: n as u64,
+                file: Some("docs/a.json".into()),
+                byte_start: Some(n as u64),
             },
             cells: vec!["Ä".repeat(MAX_CELL_BYTES)],
             matched_fields: Vec::new(),
@@ -50,8 +50,8 @@ fn page_budget_does_not_change_row_identity() {
                     token: index as u64 + 1000,
                     collection: "ä".repeat(MAX_CELL_BYTES),
                     record_id: "id".into(),
-                    file: "file".into(),
-                    byte_start: 0,
+                    file: Some("file".into()),
+                    byte_start: Some(0),
                 },
                 cells: (0..MAX_COLUMNS)
                     .map(|_| "x".repeat(MAX_CELL_BYTES))
@@ -71,7 +71,7 @@ fn page_budget_does_not_change_row_identity() {
             .map(|row| {
                 row.key.collection.len()
                     + row.key.record_id.len()
-                    + row.key.file.len()
+                    + row.key.file.as_ref().map_or(0, String::len)
                     + row.cells.iter().map(String::len).sum::<usize>()
             })
             .sum::<usize>();

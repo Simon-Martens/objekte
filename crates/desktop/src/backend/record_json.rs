@@ -81,15 +81,17 @@ fn export_record(hit: &SearchHit) -> Result<Json, String> {
 }
 
 pub(crate) fn hit_value(hit: &SearchHit) -> Result<Json, String> {
+    let file = hit.file.as_ref();
+    let range = file.and_then(|file| file.range);
     Ok(json!({
         "collection": hit.collection,
         "id": hit.record_id,
-        "file": hit.file_path.to_string_lossy(),
-        "byte_start": hit.byte_start,
-        "byte_end": hit.byte_end,
+        "file": file.map(|file| file.path.to_string_lossy()),
+        "byte_start": range.map(|range| range.start),
+        "byte_end": range.map(|range| range.end),
         "matched_fields": hit.matched_fields,
-        "file_status": hit.file_status.code(),
-        "file_status_label": hit.file_status.label(),
+        "file_status": file.map(|file| file.status.code()),
+        "file_status_label": file.map(|file| file.status.label()),
         "record_class": hit.record_class.code(),
         "diagnostic_ref": hit.diagnostic_ref.0,
         "logical_unavailable": matches!(hit.payload, Some(Payload::LogicalUnavailable { .. })),

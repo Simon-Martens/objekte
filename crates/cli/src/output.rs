@@ -8,7 +8,6 @@ use objekte_search_core::inventory::{FileStatus, RecordClass};
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::measurement::WorkCounters;
 use objekte_search_core::measurement::format::{milliseconds_3, signed_milliseconds_3};
-use objekte_search_core::model::FileId;
 use objekte_search_core::model::path_representation;
 use objekte_search_core::query_results::{Payload, SearchHit};
 use serde::de::IgnoredAny;
@@ -169,7 +168,9 @@ impl<W: Write> EventWriter<W> {
         // validation failure from malformed JSON.
         let valid_json = hit.record_class == RecordClass::Logical
             || serde_json::from_slice::<IgnoredAny>(bytes).is_ok();
-        let diagnostic = repo.diagnostic(FileId(hit.file_id), hit.diagnostic_ref);
+        let file = hit.file.as_ref();
+        let range = file.and_then(|file| file.range);
+        let diagnostic = file.and_then(|file| repo.diagnostic(file.file_id, hit.diagnostic_ref));
         let mut event = json!({
             "protocol_version": PROTOCOL_VERSION,
             "type": "hit",
@@ -179,19 +180,19 @@ impl<W: Write> EventWriter<W> {
             "requested_offset": offset,
             "collection": hit.collection,
             "file": {
-                "path": path_representation::query_path(&hit.file_path),
+                "path": file.map(|file| path_representation::query_path(&file.path)),
                 "record_id": hit.record_id,
-                "file_id": hit.file_id,
-                "size_bytes": hit.file_size,
-                "created_ms": hit.file_created_ns.map(signed_milliseconds_value),
-                "modified_ms": signed_milliseconds_value(hit.modified_ns),
+                "file_id": file.map(|file| file.file_id.0),
+                "size_bytes": file.map(|file| file.revision.size),
+                "created_ms": file.and_then(|file| file.created_ns).map(signed_milliseconds_value),
+                "modified_ms": file.map(|file| signed_milliseconds_value(file.revision.modified_ns)),
             },
             "record": {
                 "generation": hit.generation,
-                "byte_start": hit.byte_start,
-                "byte_end": hit.byte_end,
+                "byte_start": range.map(|range| range.start),
+                "byte_end": range.map(|range| range.end),
                 "class": record_class(hit.record_class),
-                "status": file_status(hit.file_status),
+                "status": file.map(|file| file_status(file.status)),
                 "diagnostic_ref": hit.diagnostic_ref.0,
                 "diagnostic": diagnostic,
                 "matched_fields": hit.matched_fields,

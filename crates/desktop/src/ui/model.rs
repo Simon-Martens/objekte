@@ -111,8 +111,8 @@ pub struct RowKey {
     pub token: u64,
     pub collection: String,
     pub record_id: String,
-    pub file: String,
-    pub byte_start: u64,
+    pub file: Option<String>,
+    pub byte_start: Option<u64>,
 }
 
 /// One bounded, already projected result row.
@@ -170,7 +170,9 @@ impl PageView {
             }
             self.clipped |= fit_budget(&mut row.key.collection, &mut budget, MAX_CELL_BYTES);
             self.clipped |= fit_budget(&mut row.key.record_id, &mut budget, MAX_CELL_BYTES);
-            self.clipped |= fit_budget(&mut row.key.file, &mut budget, MAX_CELL_BYTES);
+            if let Some(file) = &mut row.key.file {
+                self.clipped |= fit_budget(file, &mut budget, MAX_CELL_BYTES);
+            }
             for cell in &mut row.cells {
                 self.clipped |= fit_budget(cell, &mut budget, MAX_CELL_BYTES);
             }

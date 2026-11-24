@@ -1498,7 +1498,7 @@ impl DesktopView {
                             move |menu, _, _| {
                                 let target = target.clone();
                                 let record_id = row_key.as_ref().map(|key| key.record_id.clone());
-                                let file = row_key.as_ref().map(|key| key.file.clone());
+                                let file = row_key.as_ref().and_then(|key| key.file.clone());
                                 menu.item(
                                     PopupMenuItem::new("Open in new tab")
                                         .icon(AssetIconName::ExternalLink)

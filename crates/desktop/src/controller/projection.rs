@@ -155,7 +155,10 @@ pub fn page_view_with_prior(
                     "@id" => hit.record_id.clone(),
                     "@status" => status_label(hit),
                     "@match" => match_text.clone(),
-                    "@file" => hit.file_path.display().to_string(),
+                    "@file" => hit
+                        .file
+                        .as_ref()
+                        .map_or_else(|| "—".into(), |file| file.path.display().to_string()),
                     field => project_metadata(hit, &page.repository_root, field)
                         .unwrap_or_else(|| project_field(json.as_ref(), field)),
                 })
@@ -165,8 +168,14 @@ pub fn page_view_with_prior(
                     token: (page.page_start + index) as u64,
                     collection: hit.collection.clone(),
                     record_id: hit.record_id.clone(),
-                    file: hit.file_path.display().to_string(),
-                    byte_start: hit.byte_start,
+                    file: hit
+                        .file
+                        .as_ref()
+                        .map(|file| file.path.display().to_string()),
+                    byte_start: hit
+                        .file
+                        .as_ref()
+                        .and_then(|file| file.range.map(|range| range.start)),
                 },
                 cells,
                 matched_fields: hit.matched_fields.clone(),
