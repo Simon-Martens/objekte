@@ -1217,6 +1217,12 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
             Value::from_json(serde_json::json!({"id":"a","title":"Leipzig"})).unwrap(),
         )
         .unwrap();
+    batch
+        .insert(
+            "b",
+            Value::from_json(serde_json::json!({"id":"b","title":"Wien"})).unwrap(),
+        )
+        .unwrap();
     entries_writer
         .submit(batch)
         .unwrap()
@@ -1228,6 +1234,12 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
         .insert(
             "m",
             Value::from_json(serde_json::json!({"id":"m","entry":"a"})).unwrap(),
+        )
+        .unwrap();
+    batch
+        .insert(
+            "n",
+            Value::from_json(serde_json::json!({"id":"n","entry":"b"})).unwrap(),
         )
         .unwrap();
     mentions_writer
@@ -1288,5 +1300,26 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
     );
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "a");
+    for (expression, expected) in [
+        ("entry.title = 'Leipzig' || id = 'n'", vec!["m", "n"]),
+        ("!(entry.title = 'Wien')", vec!["m"]),
+    ] {
+        let boolean = Query {
+            collections: vec!["mentions".into()],
+            filter: Some(parse_filter(expression).unwrap()),
+            ..backlink.clone()
+        };
+        let result = index.view().unwrap().search(&boolean).unwrap();
+        assert_eq!(result.count, Some(expected.len()), "{expression}");
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{expression}"
+        );
+    }
     session.finish().unwrap();
 }

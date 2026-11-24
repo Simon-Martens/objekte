@@ -2161,6 +2161,386 @@ fn record_source_candidates(
     );
 }
 
+type NativeTruth = HashMap<String, Vec<String>>;
+
+fn native_boolean_truth(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sort: &ResolvedSort<'_>,
+    prepared: &PreparedCollectionQuery,
+    expression: &BoundExpr,
+    universe: &NativeTruth,
+    context: Option<&ExecutionContext>,
+    counters: &mut WorkCounters,
+) -> Result<Option<NativeTruth>, String> {
+    match expression {
+        BoundExpr::Term(term) if term.related.is_some() => {
+            let Some((hop, _)) = eligible_direct_relation_term(repo, term) else {
+                return Ok(None);
+            };
+            if hop.direction == crate::query::binding::relation::HopDirection::Forward {
+                let target_ids = segments[hop.to.0 as usize]
+                    .iter()
+                    .flat_map(|published| {
+                        published
+                            .index
+                            .id_lookup
+                            .iter()
+                            .filter(|(_, slot)| published.active.contains(**slot))
+                            .map(|(id, _)| id.0.to_string())
+                    })
+                    .collect::<HashSet<_>>();
+                for published in segments[hop.from.0 as usize].iter() {
+                    let relation = published
+                        .index
+                        .relations
+                        .get(hop.relation.ordinal as usize)
+                        .ok_or("native relation contribution missing")?;
+                    for slot in published.active.bitmap().iter() {
+                        if relation.unavailable().contains(slot)
+                            || relation
+                                .references_for_source(RecordSlot(slot))
+                                .any(|(id, _)| !target_ids.contains(id))
+                        {
+                            return Ok(None);
+                        }
+                    }
+                }
+            }
+            let mut leaf_query = query.clone();
+            leaf_query.options.offset = 0;
+            leaf_query.options.limit = universe.len();
+            leaf_query.options.return_mode = ReturnMode::Locator;
+            leaf_query.options.count = true;
+            let mut leaf = prepared.clone();
+            leaf.filter = Some(BoundExpr::Term(term.clone()));
+            leaf.fts = None;
+            let Some(result) = try_direct_relation_page(
+                repo,
+                &leaf_query,
+                base_active,
+                segments,
+                catalog,
+                revision,
+                sort,
+                &[leaf],
+                context,
+                None,
+                None,
+            )?
+            else {
+                return Ok(None);
+            };
+            if result.count != Some(result.hits.len()) {
+                return Ok(None);
+            }
+            counters.relation_target_candidates += result.counters.relation_target_candidates;
+            counters.relation_target_matches += result.counters.relation_target_matches;
+            counters.relation_target_reads += result.counters.relation_target_reads;
+            counters.relation_target_file_opens += result.counters.relation_target_file_opens;
+            counters.relation_reverse_postings_visited +=
+                result.counters.relation_reverse_postings_visited;
+            counters.relation_reverse_members_visited +=
+                result.counters.relation_reverse_members_visited;
+            counters.relation_edge_visits += result.counters.relation_edge_visits;
+            counters.relation_bytes_read += result.counters.relation_bytes_read;
+            counters.files_opened += result.counters.files_opened;
+            counters.bytes_read += result.counters.bytes_read;
+            counters.record_parses += result.counters.record_parses;
+            Ok(Some(
+                result
+                    .hits
+                    .into_iter()
+                    .map(|hit| (hit.record_id, hit.matched_fields))
+                    .collect(),
+            ))
+        }
+        BoundExpr::Term(term) => {
+            let mut truth = NativeTruth::new();
+            let collection_index = prepared.collection_index;
+            for published in segments[collection_index].iter() {
+                let bounds = segment_filter_bounds_with_catalog(
+                    &published.index,
+                    &published.active,
+                    expression,
+                    &repo.collections[collection_index],
+                    Some(catalog),
+                )?;
+                if bounds.may != bounds.must {
+                    return Ok(None);
+                }
+                let evidence = if query.options.evidence
+                    && term.derived == Derived::None
+                    && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+                {
+                    vec![term.query_path.display.clone()]
+                } else {
+                    Vec::new()
+                };
+                for slot in bounds.must.iter() {
+                    let record = published
+                        .index
+                        .record(RecordSlot(slot))
+                        .ok_or("native local proof slot missing")?;
+                    if universe.contains_key(record.id.0.as_ref()) {
+                        truth.insert(record.id.0.to_string(), evidence.clone());
+                    }
+                }
+            }
+            Ok(Some(truth))
+        }
+        BoundExpr::And(parts) => {
+            let mut remaining = universe.clone();
+            for part in parts {
+                let Some(truth) = native_boolean_truth(
+                    repo,
+                    query,
+                    base_active,
+                    segments,
+                    catalog,
+                    revision,
+                    sort,
+                    prepared,
+                    part,
+                    universe,
+                    context,
+                    counters,
+                )?
+                else {
+                    return Ok(None);
+                };
+                remaining.retain(|id, evidence| {
+                    if let Some(fields) = truth.get(id) {
+                        evidence.extend(fields.iter().cloned());
+                        evidence.sort();
+                        evidence.dedup();
+                        true
+                    } else {
+                        false
+                    }
+                });
+            }
+            Ok(Some(remaining))
+        }
+        BoundExpr::Or(parts) => {
+            let mut combined = NativeTruth::new();
+            for part in parts {
+                let Some(truth) = native_boolean_truth(
+                    repo,
+                    query,
+                    base_active,
+                    segments,
+                    catalog,
+                    revision,
+                    sort,
+                    prepared,
+                    part,
+                    universe,
+                    context,
+                    counters,
+                )?
+                else {
+                    return Ok(None);
+                };
+                for (id, fields) in truth {
+                    let evidence = combined.entry(id).or_default();
+                    evidence.extend(fields);
+                    evidence.sort();
+                    evidence.dedup();
+                }
+            }
+            Ok(Some(combined))
+        }
+        BoundExpr::Not(inner) => {
+            let Some(excluded) = native_boolean_truth(
+                repo,
+                query,
+                base_active,
+                segments,
+                catalog,
+                revision,
+                sort,
+                prepared,
+                inner,
+                universe,
+                context,
+                counters,
+            )?
+            else {
+                return Ok(None);
+            };
+            Ok(Some(
+                universe
+                    .keys()
+                    .filter(|id| !excluded.contains_key(*id))
+                    .map(|id| (id.clone(), Vec::new()))
+                    .collect(),
+            ))
+        }
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+fn try_exact_native_boolean_page(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sort: &ResolvedSort<'_>,
+    prepared: &[PreparedCollectionQuery],
+    context: Option<&ExecutionContext>,
+    retained_budget: Option<usize>,
+) -> Result<Option<SearchResult>, String> {
+    let [entry] = prepared else { return Ok(None) };
+    let Some(filter) = entry.filter.as_ref() else {
+        return Ok(None);
+    };
+    if entry.fts.is_some()
+        || sort.bound.has_computed
+        || base_active.iter().any(|active| active.len() != 0)
+    {
+        return Ok(None);
+    }
+    let collection_index = entry.collection_index;
+    let mut universe = NativeTruth::new();
+    let mut addresses = HashMap::new();
+    for (segment_index, published) in segments[collection_index].iter().enumerate() {
+        for slot in published.active.bitmap().iter() {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
+            let record = published
+                .index
+                .record(RecordSlot(slot))
+                .ok_or("native Boolean source slot missing")?;
+            if record.class == RecordClass::Logical {
+                let id = record.id.0.to_string();
+                universe.insert(id.clone(), Vec::new());
+                addresses.insert(id, (segment_index, RecordSlot(slot)));
+            }
+        }
+    }
+    if let Some(context) = context {
+        context.check_slots(universe.len() as u64)?;
+    }
+    let mut counters = WorkCounters::default();
+    let Some(truth) = native_boolean_truth(
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        sort,
+        entry,
+        filter,
+        &universe,
+        context,
+        &mut counters,
+    )?
+    else {
+        return Ok(None);
+    };
+    let cap = query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("native Boolean page size overflow")?;
+    let mut winners = BinaryHeap::new();
+    let mut winner_bytes = 0usize;
+    let mut total = 0u64;
+    for (id, evidence) in truth {
+        let (segment_index, slot) = *addresses
+            .get(&id)
+            .ok_or("native Boolean proof outside source domain")?;
+        let published = &segments[collection_index][segment_index];
+        let record = published
+            .index
+            .record(slot)
+            .ok_or("native Boolean ranked slot missing")?;
+        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        let hit = if matches!(
+            published.index.backing,
+            crate::index::segment::SegmentBacking::FileRange { .. }
+        ) {
+            let resolved = segment_record_ref(&published.index, &published.active, catalog, slot)?
+                .ok_or("native Boolean file record retired")?;
+            segment_locator_hit(
+                &repo.collections[collection_index],
+                resolved,
+                revision,
+                evidence,
+            )
+        } else {
+            retained_locator_hit(
+                &repo.collections[collection_index],
+                &published.index,
+                catalog,
+                record,
+                revision,
+                evidence,
+            )
+        };
+        total += 1;
+        if cap > 0 {
+            offer_merged(
+                &mut winners,
+                cap,
+                MergedPageHit {
+                    key,
+                    hit,
+                    segment: Some((collection_index, segment_index)),
+                    record_address: None,
+                    retained_bytes: 0,
+                },
+                retained_budget.zip(context),
+                &mut winner_bytes,
+            )?;
+        }
+    }
+    let page = winners
+        .into_sorted_vec()
+        .into_iter()
+        .skip(query.options.offset)
+        .map(|mut winner| {
+            if query.options.return_mode != ReturnMode::Locator {
+                let (collection_index, segment_index) = winner.segment.expect("native segment");
+                let published = &segments[collection_index][segment_index];
+                let mut payload = get_segment_record_by_id(
+                    repo,
+                    collection_index,
+                    &published.index,
+                    &published.active,
+                    catalog,
+                    revision,
+                    &winner.hit.record_id,
+                    query.options.return_mode.clone(),
+                )?
+                .ok_or("native Boolean winner retired")?;
+                payload.matched_fields = winner.hit.matched_fields;
+                winner.hit = payload;
+            }
+            Ok(winner.hit)
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    counters.total_matches = total;
+    counters.exact_posting_matches = total;
+    counters.candidates = universe.len() as u64;
+    counters.match_count_complete = true;
+    counters.returned_records = page.len() as u64;
+    Ok(Some(SearchResult {
+        count: query.options.count.then_some(total as usize),
+        hits: page,
+        counters,
+    }))
+}
+
 pub(super) fn search_segmented_relations(
     repo: &Repository,
     query: &Query,
@@ -2201,6 +2581,20 @@ pub(super) fn search_segmented_relations(
                 retained_budget,
             )?
         {
+            return Ok(result);
+        }
+        if let Some(result) = try_exact_native_boolean_page(
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            sort,
+            prepared,
+            context,
+            retained_budget,
+        )? {
             return Ok(result);
         }
         return Err("native relation query requires a supported direct relation plan".into());
