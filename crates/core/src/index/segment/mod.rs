@@ -518,6 +518,9 @@ pub(crate) struct IndexedCollectionSegment {
     pub file_index: HashMap<FileId, usize>,
     pub records: Vec<crate::records::RecordHeader>,
     pub backing: SegmentBacking,
+    /// Every raw text contribution in this native shard was derived from its
+    /// converted logical string fields. Explicit adapter text is independent.
+    pub raw_covers_logical_fields: bool,
     pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,

@@ -1305,9 +1305,19 @@ fn segment_raw_covers_identity_field(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
 ) -> bool {
-    collection.source.as_ref().is_some_and(|source| {
-        source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
-    }) && collection.definition.schema.raw.is_none()
+    let representation_covers = match &segment.backing {
+        crate::index::segment::SegmentBacking::FileRange { .. } => {
+            collection.source.as_ref().is_some_and(|source| {
+                source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
+            })
+        }
+        crate::index::segment::SegmentBacking::Retained { .. }
+        | crate::index::segment::SegmentBacking::Provider { .. } => {
+            segment.raw_covers_logical_fields
+        }
+    };
+    representation_covers
+        && collection.definition.schema.raw.is_none()
         && segment.raw.record_count as usize == segment.record_count()
 }
 

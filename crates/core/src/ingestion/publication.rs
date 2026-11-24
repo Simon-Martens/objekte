@@ -287,6 +287,7 @@ fn build_segment(
     let collection = registration.handle.collection();
     let declaration = &view.repository().collections[collection.0 as usize].definition;
     let options = view.repository().options();
+    let raw_covers_logical_fields = inputs.iter().all(|(_, _, text)| text.is_empty());
     let (headers, bodies, contribution) =
         build_retained_contribution(inputs, declaration, &options)
             .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
@@ -296,6 +297,7 @@ fn build_segment(
         registration.adapter_id.clone(),
         registration.version,
         registration.handle.ordinal,
+        raw_covers_logical_fields,
         headers,
         bodies,
         contribution,

@@ -475,6 +475,7 @@ mod tests {
             "test.entries".into(),
             1,
             registration.ordinal,
+            true,
             headers,
             bodies,
             contribution,

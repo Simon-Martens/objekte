@@ -23,6 +23,7 @@ use objekte_search_core::repository::configuration::{
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
+use objekte_search_core::source::TextSegment;
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 
 fn record(year: i128, note: &str) -> Value {
@@ -722,6 +723,83 @@ fn mixed_reconciliation_preserves_original_collection_ids_and_independent_files(
     assert!(after_delete.file_handle_for_path(&imported).is_none());
     assert!(after_delete.file_handle_for_path(&attached).is_some());
     assert!(pinned.file_handle_for_path(&imported).is_some());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn explicit_native_text_does_not_claim_logical_field_coverage() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-text-coverage-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "native-text", 1)
+        .unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder
+        .register_file_source(
+            collection,
+            CollectionDefinition::folder("entries", "data", SourceFormat::Json).file_source(),
+        )
+        .unwrap();
+    let index = builder.build().unwrap();
+    let writer = index.ingestion().writer(registration).unwrap();
+    let mut batch = writer.batch();
+    batch
+        .insert_with_text(
+            "target",
+            Value::from_json(serde_json::json!({"note":"Leipzig"})).unwrap(),
+            vec![TextSegment {
+                path: vec!["note".into()],
+                text: "Dresden".into(),
+            }],
+        )
+        .unwrap();
+    for number in 0..300 {
+        batch
+            .insert(
+                format!("decoy-{number}"),
+                Value::from_json(serde_json::json!({"note":"Hamburg"})).unwrap(),
+            )
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("note ~ 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = index.view().unwrap().search(&query).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "target");
+    let fts = Query {
+        filter: None,
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "Dresden".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        }),
+        ..query
+    };
+    let result = index.view().unwrap().search(&fts).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "target");
     std::fs::remove_dir_all(root).unwrap();
 }
 

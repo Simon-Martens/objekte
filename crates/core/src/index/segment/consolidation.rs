@@ -573,6 +573,7 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             backing,
+            raw_covers_logical_fields: shards.iter().all(|shard| shard.raw_covers_logical_fields),
             id_lookup,
             identity_order,
             postings,

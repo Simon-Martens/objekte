@@ -112,6 +112,7 @@ pub(crate) fn base_as_segment(
             .map(crate::records::RecordHeader::from)
             .collect(),
         backing,
+        raw_covers_logical_fields: true,
         id_lookup: collection.id_lookup.clone(),
         identity_order: collection.identity_order.clone(),
         postings: collection.postings.clone(),

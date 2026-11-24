@@ -932,6 +932,7 @@ mod retained_contribution_tests {
             "application.entries".into(),
             1,
             0,
+            true,
             headers,
             bodies,
             contribution,
