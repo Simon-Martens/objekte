@@ -213,7 +213,10 @@ pub(crate) fn local_segment_projection(
     }
     if fts.is_none()
         && !computed_sort
-        && collection.required_file_reader().scalar_verification()
+        && collection
+            .source
+            .as_ref()
+            .and_then(|reader| reader.scalar_verification())
             == Some(ScalarVerification::ResolvedStrings)
         && let Some(fields) = filter.and_then(segment_filter_source_fields)
     {
@@ -223,7 +226,10 @@ pub(crate) fn local_segment_projection(
 }
 
 pub(crate) fn borrowed_value_text(collection: &CollectionState, fts: Option<&BoundFts>) -> bool {
-    collection.required_file_reader().scalar_verification()
+    collection
+        .source
+        .as_ref()
+        .and_then(|reader| reader.scalar_verification())
         == Some(ScalarVerification::ResolvedStrings)
         && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()))
 }
@@ -232,7 +238,10 @@ pub(crate) fn borrowed_relation_source_text(
     collection: &CollectionState,
     fts: Option<&BoundFts>,
 ) -> bool {
-    collection.required_file_reader().scalar_verification()
+    collection
+        .source
+        .as_ref()
+        .and_then(|reader| reader.scalar_verification())
         == Some(ScalarVerification::ResolvedStrings)
         && fts.is_some_and(|fts| {
             fts.fields.iter().any(|field| field.related.is_some())
@@ -353,6 +362,9 @@ impl<'a> DirectSourcePlan<'a> {
         fts: Option<&'a BoundFts>,
         filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
     ) -> Option<Self> {
+        if collection.source.is_none() {
+            return None;
+        }
         if sort.bound.has_computed {
             return None;
         }

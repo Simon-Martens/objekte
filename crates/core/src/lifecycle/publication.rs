@@ -576,6 +576,28 @@ fn prepare_initial_segment(
 }
 
 impl Index {
+    /// Install a fully indexed record batch through the ordinary immutable
+    /// publication root. Preparation happens before acquiring the writer lock.
+    pub(crate) fn publish_record_segment(
+        &self,
+        expected: IndexRevision,
+        segment: IndexedCollectionSegment,
+    ) -> Result<IndexRevision, IndexError> {
+        let view = self.view()?;
+        if view.revision() != expected {
+            return Err(IndexError::RevisionConflict {
+                expected,
+                actual: view.revision(),
+            });
+        }
+        if !view.initial_construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
+        let mut next = (*view.0).clone().with_segment_observation(segment, None)?;
+        next.revision = expected.next()?;
+        self.publish_prepared(expected, next)
+    }
+
     /// Publish one complete initial work unit. A concurrent lifecycle
     /// mutation changes the revision and rejects this stale work atomically.
     pub(crate) fn publish_initial_segment(

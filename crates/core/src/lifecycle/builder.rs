@@ -234,6 +234,118 @@ mod tests {
     use super::*;
 
     #[test]
+    fn retained_batch_publishes_and_old_view_remains_empty() {
+        let mut builder = Index::builder();
+        let mut schema = Schema::default();
+        schema
+            .register_field(crate::schema::FieldDefinition {
+                path: vec!["year".into()],
+                kind: crate::model::LogicalType::Number,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+        let entries = builder.collection("entries", schema).unwrap();
+        let registration = builder
+            .register_records(entries, "test.entries", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let before = index.view().unwrap();
+        let id = crate::model::RecordId::intrinsic("entry-47").unwrap();
+        let value = crate::model::Value::Object(std::collections::BTreeMap::from([
+            (
+                "year".into(),
+                crate::model::Value::Number(crate::model::Number::integer(1808)),
+            ),
+            ("note".into(), crate::model::Value::String("Leipzig".into())),
+        ]));
+        let declaration = &before.repository().collections[0].definition;
+        let options = before.repository().options();
+        let (headers, bodies, contribution) =
+            crate::construction::batch::build_retained_contribution(
+                vec![(id, value.clone(), Vec::new())],
+                declaration,
+                &options,
+            )
+            .unwrap();
+        let draft = crate::construction::segment_admission::CollectionSegment::from_retained(
+            crate::index::segment::SegmentId::new(2),
+            entries,
+            "test.entries".into(),
+            1,
+            registration.ordinal,
+            headers,
+            bodies,
+            contribution,
+        )
+        .unwrap();
+        let segment = draft
+            .into_indexed(
+                declaration,
+                options.bigram_alphabet,
+                options.inference,
+                before.repository().collections.len(),
+                &before.repository().workers,
+            )
+            .unwrap();
+        let published = index
+            .publish_record_segment(before.revision(), segment)
+            .unwrap();
+        let after = index.view().unwrap();
+        assert_eq!(after.revision(), published);
+        assert!(
+            before
+                .get_record(
+                    "entries",
+                    "entry-47",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_none()
+        );
+        let hit = after
+            .get_record(
+                "entries",
+                "entry-47",
+                crate::query::options::ReturnMode::Logical,
+            )
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            hit.payload,
+            Some(crate::query_results::Payload::Logical(value))
+        );
+        assert!(hit.file.is_none());
+        let query = crate::query::Query {
+            collections: vec!["entries".into()],
+            fts: None,
+            filter: None,
+            options: crate::query::QueryOptions {
+                sort: Vec::new(),
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: crate::query::options::ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        assert_eq!(after.search(&query).unwrap().count, Some(1));
+        let mut exact = query.clone();
+        exact.filter = Some(crate::query::parse_filter("year = 1808").unwrap());
+        exact.options.limit = 0;
+        assert_eq!(after.search(&exact).unwrap().count, Some(1));
+        let mut residual = query;
+        residual.filter =
+            Some(crate::query::parse_filter("year = 1808 && note ~ 'Leipzig'").unwrap());
+        let result = after.search(&residual).unwrap();
+        assert_eq!(result.count, Some(1));
+        assert_eq!(result.hits[0].record_id, "entry-47");
+    }
+
+    #[test]
     fn builder_publishes_empty_fileless_index_with_frozen_registrations() {
         let mut builder = Index::builder();
         let entries = builder.collection("entries", Schema::default()).unwrap();

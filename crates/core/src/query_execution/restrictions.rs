@@ -1279,11 +1279,9 @@ fn segment_raw_covers_identity_field(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
 ) -> bool {
-    collection
-        .required_file_reader()
-        .reader()
-        .logical_text_coverage()
-        == LogicalTextCoverage::AllStringFields
+    collection.source.as_ref().is_some_and(|source| {
+        source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
+    })
         && collection.definition.schema.raw.is_none()
         && segment.raw.record_count as usize == segment.record_count()
 }

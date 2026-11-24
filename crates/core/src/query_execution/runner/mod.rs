@@ -644,6 +644,35 @@ pub(crate) fn get_segment_record_by_id(
     let Some(slot) = segment.id_lookup.get(record_id).copied() else {
         return Ok(None);
     };
+    if let Some(body) = segment.backing.retained_body(slot) {
+        if !active.contains(slot) {
+            return Ok(None);
+        }
+        let record = segment.record(slot).ok_or("retained record slot missing")?;
+        let payload = match return_mode {
+            ReturnMode::Locator => None,
+            ReturnMode::Logical => Some(Payload::Logical(body.value.clone())),
+            ReturnMode::Bytes => return Err("OriginalBytesUnavailable".into()),
+        };
+        return Ok(Some(SearchHit {
+            collection: collection.definition.name.clone(),
+            record_id: record.id.0.to_string(),
+            generation: revision.0,
+            file: None,
+            file_id: 0,
+            file_path: std::path::PathBuf::new(),
+            file_size: 0,
+            file_created_ns: None,
+            byte_start: 0,
+            byte_end: 0,
+            modified_ns: 0,
+            matched_fields: Vec::new(),
+            file_status: crate::inventory::FileStatus::Valid,
+            record_class: record.class,
+            diagnostic_ref: record.diagnostic_ref,
+            payload,
+        }));
+    }
     let Some(resolved) = segment_record_ref(segment, active, catalog, slot)? else {
         return Ok(None);
     };
@@ -780,6 +809,24 @@ pub(crate) fn direct_lookup_segmented(
         (record.clone(), file, result)
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
+        if matches!(
+            &segment.index.backing,
+            crate::index::segment::SegmentBacking::Retained { .. }
+        ) {
+            let mut hit = get_segment_record_by_id(
+                repo,
+                collection_index,
+                &segment.index,
+                &segment.active,
+                catalog,
+                revision,
+                record_id,
+                return_mode,
+            )?
+            .ok_or("active retained direct-lookup record disappeared")?;
+            repo.stamp_native_hit_at(&mut hit, revision);
+            return Ok(DirectLookupResult::Found(hit));
+        }
         let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
             .ok_or("active segment direct-lookup slot retired")?;
         (
@@ -916,6 +963,33 @@ pub(crate) fn segment_locator_hit(
         modified_ns: record.revision.modified_ns,
         matched_fields,
         file_status: file.status,
+        record_class: record.class,
+        diagnostic_ref: record.diagnostic_ref,
+        payload: None,
+    }
+}
+
+fn retained_locator_hit(
+    collection: &CollectionState,
+    record: &crate::records::RecordHeader,
+    revision: IndexRevision,
+    mut matched_fields: Vec<String>,
+) -> SearchHit {
+    matched_fields.sort();
+    SearchHit {
+        collection: collection.definition.name.clone(),
+        record_id: record.id.0.to_string(),
+        generation: revision.0,
+        file: None,
+        file_id: 0,
+        file_path: std::path::PathBuf::new(),
+        file_size: 0,
+        file_created_ns: None,
+        byte_start: 0,
+        byte_end: 0,
+        modified_ns: 0,
+        matched_fields,
+        file_status: crate::inventory::FileStatus::Valid,
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload: None,
@@ -1991,14 +2065,23 @@ fn offer_admitted_segment_slot(
     #[cfg(test)]
     SEGMENT_SLOT_EVIDENCE_CALLS.with(|calls| calls.set(calls.get() + 1));
     let matched_fields = evidence();
-    let resolved = segment_record_ref(segment, &published.active, catalog, slot)?
-        .ok_or("active segment candidate missing")?;
+    let retained = segment.backing.retained_body(slot).is_some();
+    let resolved = if retained {
+        None
+    } else {
+        Some(
+            segment_record_ref(segment, &published.active, catalog, slot)?
+                .ok_or("active segment candidate missing")?,
+        )
+    };
     let key = segment_rank_key(
         repo,
         sort,
         collection_index,
         segment,
-        &resolved.record,
+        segment
+            .record(slot)
+            .ok_or("active segment candidate missing")?,
         None,
     )?;
     let hit_fields = match cache_builder {
@@ -2024,7 +2107,18 @@ fn offer_admitted_segment_slot(
     let Some(hit_fields) = hit_fields else {
         return Ok(());
     };
-    let hit = segment_locator_hit(collection, resolved, revision, hit_fields);
+    let hit = if let Some(resolved) = resolved {
+        segment_locator_hit(collection, resolved, revision, hit_fields)
+    } else {
+        retained_locator_hit(
+            collection,
+            segment
+                .record(slot)
+                .ok_or("active retained candidate missing")?,
+            revision,
+            hit_fields,
+        )
+    };
     offer_merged(
         winners,
         cap,
@@ -2071,12 +2165,22 @@ fn search_segmented_impl(
     if base_active.iter().any(|active| active.len() != 0) {
         return Err("populated flat-base search is not a supported optimized state".into());
     }
+    let has_direct_backing = segments
+        .iter()
+        .flat_map(|group| group.iter())
+        .any(|published| {
+            !matches!(
+                published.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            )
+        });
     query
         .options
         .offset
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
-    let cache_key = if retained_budget.is_none()
+    let cache_key = if !has_direct_backing
+        && retained_budget.is_none()
         && let Some(scope) = cache
         && context.is_none_or(|context| context.limits == ExecutionLimits::default())
     {
@@ -2131,7 +2235,8 @@ fn search_segmented_impl(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
-    if !has_relations
+    if !has_direct_backing
+        && !has_relations
         && let Some(result) = try_inferred_segment_order_page(
             repo,
             query,
@@ -2146,7 +2251,8 @@ fn search_segmented_impl(
     {
         return Ok(result);
     }
-    if !has_relations
+    if !has_direct_backing
+        && !has_relations
         && base_active.iter().all(|active| active.len() == 0)
         && context.is_none()
         && retained_budget.is_none()
@@ -2175,7 +2281,8 @@ fn search_segmented_impl(
     {
         return Ok(result);
     }
-    if !has_relations
+    if !has_direct_backing
+        && !has_relations
         && !ordered_already_declined
         && let Some(result) = try_lifecycle_ordered_page(
             repo,
@@ -2245,7 +2352,8 @@ fn search_segmented_impl(
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let winner_budget = retained_budget.zip(context);
-    if context.is_none()
+    if !has_direct_backing
+        && context.is_none()
         && retained_budget.is_none()
         && cache_key.is_none()
         && let Some(ordered) = try_exact_segment_ordered_page(
@@ -2408,7 +2516,8 @@ fn search_segmented_impl(
                 candidates = Arc::clone(&fts_may.may);
             }
             counters.candidates += candidates.len();
-            let metadata_evidence = if filter.is_none()
+            let metadata_evidence = if !has_direct_backing
+                && filter.is_none()
                 && query.options.return_mode == ReturnMode::Locator
                 && !sort.bound.has_computed
                 && !sort.bound.needs_source
@@ -2537,7 +2646,8 @@ fn search_segmented_impl(
                 // top `cap` page cannot contain a shard row ranked below that
                 // shard's own top `cap`; count the complete bitmap but only
                 // materialize those possible page rows.
-                if cache_builder.is_none()
+                if !has_direct_backing
+                    && cache_builder.is_none()
                     && context.is_none()
                     && cap < candidates.len() as usize
                     && let Some(order) =
@@ -2626,6 +2736,94 @@ fn search_segmented_impl(
             } else {
                 None
             };
+            if matches!(
+                segment.backing,
+                crate::index::segment::SegmentBacking::Retained { .. }
+            ) {
+                for slot in candidates.iter() {
+                    if let Some(context) = context {
+                        context.check_string()?;
+                    }
+                    let slot = RecordSlot(slot);
+                    let record = segment.record(slot).ok_or("retained candidate missing")?;
+                    let body = segment
+                        .backing
+                        .retained_body(slot)
+                        .ok_or("retained body missing")?;
+                    let ctx = RecordContext {
+                        value: &body.value,
+                        source_bytes: None,
+                        record,
+                        file: None,
+                        range: None,
+                        collection_name: &collection.definition.name,
+                        repository_root: None,
+                    };
+                    counters.scanned_records += 1;
+                    let mut evidence = HashSet::new();
+                    let filter_matched = if let Some(fields) = &filter_proof {
+                        evidence.extend(fields.iter().cloned());
+                        true
+                    } else if let Some(filter) = &filter {
+                        counters.residual_evaluations += 1;
+                        crate::reference::filter::eval_filter(filter, &ctx, &mut evidence)?
+                    } else {
+                        true
+                    };
+                    if !filter_matched {
+                        continue;
+                    }
+                    if let Some(fts) = &fts {
+                        let matched = if body.text.is_empty() {
+                            crate::reference::fts::eval_borrowed_value_fts(
+                                fts,
+                                &ctx,
+                                Some(&mut evidence),
+                            )?
+                        } else {
+                            eval_bound_fts(fts, &body.text, &ctx, &mut evidence)?
+                        };
+                        counters.raw_text_verifications += 1;
+                        if !matched {
+                            continue;
+                        }
+                    }
+                    total += 1;
+                    counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
+                    let key = segment_rank_key(
+                        repo,
+                        &sort,
+                        collection_index,
+                        segment,
+                        record,
+                        Some(&ctx),
+                    )?;
+                    let hit = retained_locator_hit(
+                        collection,
+                        record,
+                        revision,
+                        if query.options.evidence {
+                            evidence.into_iter().collect()
+                        } else {
+                            Vec::new()
+                        },
+                    );
+                    offer_merged(
+                        &mut winners,
+                        cap,
+                        MergedPageHit {
+                            key,
+                            hit,
+                            segment: Some((collection_index, segment_index)),
+                            record_address: None,
+                            retained_bytes: 0,
+                        },
+                        winner_budget,
+                        &mut winner_bytes,
+                    )?;
+                }
+                continue;
+            }
             let fused_filter_fts_terms = (filter_proof.is_none()
                 && filter.is_some()
                 && fts.is_some()
