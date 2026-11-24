@@ -6,12 +6,14 @@ use objekte_search_core::ingestion::{IngestionOptions, SubmitError};
 use objekte_search_core::inventory::{ByteRange, SourceRevision};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
+use objekte_search_core::query::clock::ClockContext;
 use objekte_search_core::query::options::{ReturnMode, SortField};
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
 };
 use objekte_search_core::query_execution::streaming::{
-    CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
+    CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope,
+    StreamControl, StreamEvent, StreamOptions, StreamOutcome,
 };
 use objekte_search_core::query_results::Payload;
 use objekte_search_core::records::reader::{
@@ -31,6 +33,19 @@ fn record(year: i128, note: &str) -> Value {
         ("year".into(), Value::Number(Number::integer(year))),
         ("note".into(), Value::String(note.into())),
     ]))
+}
+
+fn no_source_reads() -> ExecutionContext {
+    ExecutionContext::new(
+        ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            relation_reads: 0,
+            relation_bytes: 0,
+            source_record_bytes: 0,
+            ..ExecutionLimits::default()
+        },
+        None,
+    )
 }
 
 #[test]
@@ -97,6 +112,23 @@ fn public_batches_publish_typed_records_and_preserve_old_views() {
     let result = view.search(&query).unwrap();
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "entry-47");
+    let logical_query = Query {
+        options: QueryOptions {
+            return_mode: ReturnMode::Logical,
+            ..query.options.clone()
+        },
+        ..query.clone()
+    };
+    let logical = view
+        .search_with_context(&logical_query, &no_source_reads())
+        .unwrap();
+    assert_eq!(
+        logical.hits[0].payload,
+        Some(Payload::Logical(record(1808, "Leipzig")))
+    );
+    assert_eq!(logical.counters.selected_payload_reads, 0);
+    assert_eq!(logical.counters.files_opened, 0);
+    assert_eq!(logical.counters.record_parses, 0);
 
     let mut replacement = writer.batch();
     replacement
@@ -259,6 +291,26 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
         .wait_published()
         .unwrap();
     let view = index.view().unwrap();
+    let linked_query = Query {
+        collections: vec!["first".into()],
+        fts: None,
+        filter: Some(parse_filter("year = 1808").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Logical,
+            evidence: false,
+        },
+    };
+    let linked = view
+        .search_with_context(&linked_query, &no_source_reads())
+        .unwrap();
+    assert_eq!(linked.hits[0].record_id, "same");
+    assert_eq!(linked.counters.selected_payload_reads, 0);
+    assert_eq!(linked.counters.files_opened, 0);
+    assert_eq!(linked.counters.record_parses, 0);
     for (predicate, expected) in [
         ("@record.byte_start = 0", vec!["same"]),
         ("@record.byte_start != 0", vec![]),
@@ -1008,6 +1060,31 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
     writer.submit(deletion).unwrap().wait_published().unwrap();
     index.compact().unwrap();
     let view = index.view().unwrap();
+    let provider_query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("year = 1808").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Logical,
+            evidence: false,
+        },
+    };
+    reader.1.lock().unwrap().clear();
+    let denied = view
+        .search_with_context(&provider_query, &no_source_reads())
+        .unwrap_err();
+    assert_eq!(denied.kind, ExecutionErrorKind::Resource);
+    assert!(reader.1.lock().unwrap().is_empty());
+    let provided = view.search(&provider_query).unwrap();
+    assert_eq!(provided.hits[0].record_id, "entry-47");
+    assert_eq!(provided.counters.selected_payload_reads, 1);
+    assert_eq!(provided.counters.files_opened, 0);
+    assert_eq!(provided.counters.record_parses, 0);
+    assert_eq!(reader.1.lock().unwrap().len(), 1);
     assert!(
         pinned
             .get_record("entries", "retired", ReturnMode::Locator)

@@ -673,16 +673,28 @@ pub(super) fn try_inferred_segment_order_page(
         let mut retained = Vec::with_capacity(page.len());
         for (cursor, mut hit) in page {
             let segment = cursors[cursor].0;
-            let source_bytes = hit.source_range_len();
+            let file_backed = matches!(
+                &segment.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            );
+            let provider_backed = matches!(
+                &segment.index.backing,
+                crate::index::segment::SegmentBacking::Provider { .. }
+            );
             if let Some(execution) = execution {
-                if source_bytes > execution.limits.source_record_bytes {
-                    return Err(execution.fail(
-                        ExecutionErrorKind::Resource,
-                        "selected source record exceeds read allowance",
-                    ));
+                if file_backed {
+                    let source_bytes = hit.source_range_len();
+                    if source_bytes > execution.limits.source_record_bytes {
+                        return Err(execution.fail(
+                            ExecutionErrorKind::Resource,
+                            "selected source record exceeds read allowance",
+                        ));
+                    }
+                    execution.charge_reads(1)?;
+                    execution.charge_bytes(source_bytes)?;
+                } else if provider_backed {
+                    execution.charge_reads(1)?;
                 }
-                execution.charge_reads(1)?;
-                execution.charge_bytes(source_bytes)?;
             }
             let materialized = get_segment_record_by_id(
                 repo,
@@ -710,16 +722,34 @@ pub(super) fn try_inferred_segment_order_page(
                     return Err(message);
                 }
             };
-            if query.options.return_mode == ReturnMode::Bytes
-                || hit.record_class != RecordClass::RawFallback
+            if (file_backed || provider_backed)
+                && (query.options.return_mode == ReturnMode::Bytes
+                    || hit.record_class != RecordClass::RawFallback)
             {
-                if let Some(file) = &hit.file {
+                let source_bytes = if file_backed {
+                    hit.source_range_len()
+                } else {
+                    materialized.payload.as_ref().map_or(0, |payload| {
+                        crate::query_execution::streaming::payload_bytes(payload) as u64
+                    })
+                };
+                if file_backed && let Some(file) = &hit.file {
                     selected_files.insert(file.file_id.0);
                 }
                 counters.selected_payload_reads += 1;
                 counters.selected_payload_bytes += source_bytes;
+                if provider_backed && let Some(execution) = execution {
+                    if source_bytes > execution.limits.source_record_bytes {
+                        return Err(execution.fail(
+                            ExecutionErrorKind::Resource,
+                            "selected provider record exceeds read allowance",
+                        ));
+                    }
+                    execution.charge_bytes(source_bytes)?;
+                }
             }
-            if query.options.return_mode == ReturnMode::Logical
+            if file_backed
+                && query.options.return_mode == ReturnMode::Logical
                 && hit.record_class == RecordClass::Logical
             {
                 logical_parses += 1;

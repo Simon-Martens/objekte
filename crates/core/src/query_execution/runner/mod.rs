@@ -3435,19 +3435,31 @@ fn search_segmented_impl(
         let mut selected_files = HashSet::new();
         for mut winner in page {
             if let Some((collection_index, segment_index)) = winner.segment {
+                let published = &segments[collection_index][segment_index];
+                let file_backed = matches!(
+                    &published.index.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                );
+                let provider_backed = matches!(
+                    &published.index.backing,
+                    crate::index::segment::SegmentBacking::Provider { .. }
+                );
                 if let Some(context) = context {
                     context.check_string()?;
-                    let bytes = winner.hit.source_range_len();
-                    if bytes > context.limits.source_record_bytes {
-                        return Err(context.fail(
-                            ExecutionErrorKind::Resource,
-                            "selected source record exceeds read allowance",
-                        ));
+                    if file_backed {
+                        let bytes = winner.hit.source_range_len();
+                        if bytes > context.limits.source_record_bytes {
+                            return Err(context.fail(
+                                ExecutionErrorKind::Resource,
+                                "selected source record exceeds read allowance",
+                            ));
+                        }
+                        context.charge_reads(1)?;
+                        context.charge_bytes(bytes)?;
+                    } else if provider_backed {
+                        context.charge_reads(1)?;
                     }
-                    context.charge_reads(1)?;
-                    context.charge_bytes(bytes)?;
                 }
-                let published = &segments[collection_index][segment_index];
                 let materialized = get_segment_record_by_id(
                     repo,
                     collection_index,
@@ -3474,17 +3486,36 @@ fn search_segmented_impl(
                         return Err(message);
                     }
                 };
-                if query.options.return_mode == ReturnMode::Bytes
-                    || winner.hit.record_class != RecordClass::RawFallback
+                if (file_backed || provider_backed)
+                    && (query.options.return_mode == ReturnMode::Bytes
+                        || winner.hit.record_class != RecordClass::RawFallback)
                 {
-                    let bytes = winner.hit.source_range_len();
-                    if let Some(file) = &winner.hit.file {
+                    let bytes = if file_backed {
+                        winner.hit.source_range_len()
+                    } else {
+                        materialized.payload.as_ref().map_or(0, |payload| {
+                            crate::query_execution::streaming::payload_bytes(payload) as u64
+                        })
+                    };
+                    if file_backed && let Some(file) = &winner.hit.file {
                         selected_files.insert(file.file_id.0);
                     }
                     counters.selected_payload_reads += 1;
                     counters.selected_payload_bytes += bytes;
+                    if provider_backed {
+                        if let Some(context) = context {
+                            if bytes > context.limits.source_record_bytes {
+                                return Err(context.fail(
+                                    ExecutionErrorKind::Resource,
+                                    "selected provider record exceeds read allowance",
+                                ));
+                            }
+                            context.charge_bytes(bytes)?;
+                        }
+                    }
                 }
-                if query.options.return_mode == ReturnMode::Logical
+                if file_backed
+                    && query.options.return_mode == ReturnMode::Logical
                     && winner.hit.record_class == RecordClass::Logical
                 {
                     selected_logical_parses += 1;
