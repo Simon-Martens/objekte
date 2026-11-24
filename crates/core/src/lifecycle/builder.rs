@@ -5,8 +5,11 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::files::FileCatalog;
 use crate::model::CollectionId;
-use crate::repository::configuration::{CollectionDeclaration, RepositoryOptions};
+use crate::repository::configuration::{
+    CollectionDeclaration, FileSourceConfig, RepositoryOptions,
+};
 use crate::schema::Schema;
+use crate::source::registry::SourceRegistry;
 
 use super::{Index, IndexError};
 
@@ -47,8 +50,10 @@ pub(crate) struct RegisteredRecordSource {
 pub struct IndexBuilder {
     builder_id: u64,
     collections: Vec<CollectionDeclaration>,
+    file_sources: Vec<Option<FileSourceConfig>>,
     registrations: Vec<RegisteredRecordSource>,
     catalog_root: Option<PathBuf>,
+    sources: SourceRegistry,
     options: RepositoryOptions,
 }
 
@@ -57,8 +62,10 @@ impl Default for IndexBuilder {
         Self {
             builder_id: NEXT_BUILDER_ID.fetch_add(1, Ordering::Relaxed),
             collections: Vec::new(),
+            file_sources: Vec::new(),
             registrations: Vec::new(),
             catalog_root: None,
+            sources: SourceRegistry::builtin(),
             options: RepositoryOptions::default(),
         }
     }
@@ -131,6 +138,12 @@ impl Index {
 }
 
 impl IndexBuilder {
+    /// Install the readers used by any file importers declared before build.
+    pub fn with_source_registry(mut self, sources: SourceRegistry) -> Self {
+        self.sources = sources;
+        self
+    }
+
     pub fn with_options(mut self, options: RepositoryOptions) -> Self {
         self.options = options;
         self
@@ -170,7 +183,31 @@ impl IndexBuilder {
                 .map_err(|_| IndexError::Build("too many collections".into()))?,
         );
         self.collections.push(declaration);
+        self.file_sources.push(None);
         Ok(id)
+    }
+
+    /// Let the existing file mutation API import files into this collection.
+    /// A file catalog must also be registered before `build`.
+    pub fn register_file_source(
+        &mut self,
+        collection: CollectionId,
+        source: FileSourceConfig,
+    ) -> Result<(), IndexError> {
+        self.sources
+            .resolve(&source.format)
+            .map_err(IndexError::Build)?;
+        let entry = self
+            .file_sources
+            .get_mut(collection.0 as usize)
+            .ok_or(IndexError::ForeignInstance)?;
+        if entry.is_some() {
+            return Err(IndexError::Build(
+                "file source is already registered".into(),
+            ));
+        }
+        *entry = Some(source);
+        Ok(())
     }
 
     /// Bind a stable adapter identity to a declared collection.
@@ -359,6 +396,11 @@ impl IndexBuilder {
 
     /// Publish a usable empty index with no file discovery or source reads.
     pub fn build(self) -> Result<Index, IndexError> {
+        if self.file_sources.iter().any(Option::is_some) && self.catalog_root.is_none() {
+            return Err(IndexError::Build(
+                "file sources require a file catalog".into(),
+            ));
+        }
         let identities = self
             .registrations
             .iter()
@@ -376,6 +418,8 @@ impl IndexBuilder {
             self.options,
             &identities,
             self.catalog_root,
+            self.file_sources,
+            &self.sources,
         )
         .map_err(IndexError::Build)?;
         repository.record_registrations = std::sync::Arc::new(self.registrations);

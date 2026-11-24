@@ -117,6 +117,11 @@ impl Repository {
                 self.options,
                 &[],
                 self.files.root().map(|root| root.to_path_buf()),
+                self.collections
+                    .iter()
+                    .map(|state| state.file_source.clone())
+                    .collect(),
+                &self.sources,
             )?;
             empty.configuration_identity = self.configuration_identity;
             empty.catalog = FileCatalog::from_parts(

@@ -166,14 +166,16 @@ pub fn configuration_hash(
     Ok(hash.finalize().into())
 }
 
-/// Configuration identity for a source-neutral index. This has a distinct
-/// domain from historical file configurations and contains no path or format.
+/// Configuration identity for a programmatic index. Its domain differs from
+/// historical file configurations and includes optional importer policy.
 pub(crate) fn programmatic_configuration_hash(
     declarations: &[CollectionDeclaration],
     options: RepositoryOptions,
     registrations: &[(CollectionId, String, u32, u32)],
     catalog_registered: bool,
-) -> [u8; 32] {
+    file_sources: &[Option<super::FileSourceConfig>],
+    sources: &SourceRegistry,
+) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
     hash.update(2u32.to_le_bytes());
     hash.update(1u32.to_le_bytes());
@@ -187,9 +189,22 @@ pub(crate) fn programmatic_configuration_hash(
         BigramAlphabet::Unicode => 1,
     }]);
     feed(&mut hash, format!("{:?}", options.inference).as_bytes());
-    for declaration in declarations {
+    for (declaration, file_source) in declarations.iter().zip(file_sources) {
         feed(&mut hash, declaration.name.as_bytes());
         feed_policy(&mut hash, declaration);
+        if let Some(file_source) = file_source {
+            let reader = sources.resolve(&file_source.format)?;
+            feed(&mut hash, b"file-source");
+            feed(&mut hash, &path_bytes(&file_source.source_path));
+            feed(&mut hash, format!("{:?}", file_source.discovery).as_bytes());
+            feed(&mut hash, reader.id().as_bytes());
+            hash.update(reader.version().to_le_bytes());
+            feed(&mut hash, reader.extension().as_bytes());
+            feed(
+                &mut hash,
+                format!("{:?}/{:?}", file_source.format, file_source.identity).as_bytes(),
+            );
+        }
     }
     let mut registrations = registrations.to_vec();
     registrations.sort_unstable();
@@ -199,7 +214,7 @@ pub(crate) fn programmatic_configuration_hash(
         hash.update(version.to_le_bytes());
         hash.update(representation_version.to_le_bytes());
     }
-    hash.finalize().into()
+    Ok(hash.finalize().into())
 }
 
 #[cfg(test)]

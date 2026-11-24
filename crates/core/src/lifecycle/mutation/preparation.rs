@@ -229,6 +229,9 @@ fn prepare_file_at(
     }
     let mut bindings = Vec::new();
     for collection in repository.collections() {
+        if collection.file_source().is_none() {
+            continue;
+        }
         if selects_file(
             root,
             &collection.required_file_source().source_path,
@@ -320,6 +323,9 @@ pub(super) fn prepare_replacement_bytes(
     let root = &repository.files().required_root();
     let mut bindings = Vec::new();
     for collection in repository.collections() {
+        if collection.file_source().is_none() {
+            continue;
+        }
         if selects_file(
             root,
             &collection.required_file_source().source_path,

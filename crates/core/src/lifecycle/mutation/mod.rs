@@ -196,6 +196,9 @@ fn path_independent_memberships(
     let repository = view.repository();
     let root = &repository.files().required_root();
     for collection in repository.collections() {
+        if collection.file_source().is_none() {
+            continue;
+        }
         let selected = selects_file(
             root,
             &collection.required_file_source().source_path,

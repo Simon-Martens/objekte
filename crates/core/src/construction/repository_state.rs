@@ -114,28 +114,45 @@ pub(crate) fn initialize_empty_programmatic(
     options: RepositoryOptions,
     registrations: &[(CollectionId, String, u32, u32)],
     catalog_root: Option<PathBuf>,
+    file_sources: Vec<Option<FileSourceConfig>>,
+    sources: &SourceRegistry,
 ) -> Result<Repository, String> {
+    if declarations.len() != file_sources.len() {
+        return Err("programmatic file-source count mismatch".into());
+    }
     let configuration_identity =
         crate::repository::configuration::identity::programmatic_configuration_hash(
             &declarations,
             options,
             registrations,
             catalog_root.is_some(),
-        );
+            &file_sources,
+            sources,
+        )?;
     let inputs = declarations
         .into_iter()
-        .map(|declaration| EmptyCollectionInput {
-            declaration,
-            file_source: None,
-            file_definition: None,
-            source: None,
+        .zip(file_sources)
+        .map(|(declaration, file_source)| {
+            let source = file_source
+                .as_ref()
+                .map(|file| sources.resolve(&file.format))
+                .transpose()?;
+            let file_definition = file_source
+                .as_ref()
+                .map(|file| CollectionDefinition::from_parts(declaration.clone(), file.clone()));
+            Ok(EmptyCollectionInput {
+                declaration,
+                file_source,
+                file_definition,
+                source,
+            })
         })
-        .collect();
+        .collect::<Result<Vec<_>, String>>()?;
     initialize_empty_configured(
         catalog_root,
         inputs,
         options,
-        &SourceRegistry::default(),
+        sources,
         configuration_identity,
         true,
         None,
@@ -355,6 +372,8 @@ mod programmatic_tests {
             RepositoryOptions::default(),
             &[(CollectionId(0), "application.entries".into(), 1, 1)],
             None,
+            vec![None],
+            &SourceRegistry::builtin(),
         )
         .unwrap();
         assert!(repository.files.root().is_none());

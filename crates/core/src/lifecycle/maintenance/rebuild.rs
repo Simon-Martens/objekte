@@ -45,11 +45,7 @@ impl Index {
             progress(MaintenancePhase::Preparing, attempt);
             let view = self.view()?;
             let repository = view.repository();
-            if repository
-                .collections()
-                .iter()
-                .all(|collection| collection.file_source.is_none())
-            {
+            if repository.programmatic {
                 // These registrations own their records independently of the
                 // file catalog. Their immutable indexed segments already hold
                 // the retained input needed by a new publication. Validate
@@ -107,9 +103,32 @@ impl Index {
                                 }
                             }
                             SegmentBacking::FileRange { .. } => {
-                                return Err(IndexError::IncompatibleConfiguration(
-                                    "file-backed segment has no file source".into(),
-                                ));
+                                for file in &segment.index.files {
+                                    if cancelled() {
+                                        return Err(IndexError::Cancelled);
+                                    }
+                                    let current = view
+                                        .file_entry(file.entry.id)
+                                        .ok_or(IndexError::UnknownFile)?;
+                                    let path = repository
+                                        .files()
+                                        .required_root()
+                                        .join(&current.relative_path);
+                                    let metadata = std::fs::metadata(&path).map_err(|error| {
+                                        IndexError::SourceUnavailable(error.to_string())
+                                    })?;
+                                    let revision =
+                                        crate::inventory::SourceRevision::from_metadata(&metadata)
+                                            .map_err(IndexError::SourceUnavailable)?;
+                                    if current.revision != revision
+                                        || file.entry.revision != revision
+                                    {
+                                        return Err(IndexError::SourceUnavailable(format!(
+                                            "file changed during rebuild: {}",
+                                            path.display()
+                                        )));
+                                    }
+                                }
                             }
                         }
                     }

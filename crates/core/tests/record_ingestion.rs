@@ -1597,3 +1597,167 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
     );
     session.finish().unwrap();
 }
+
+#[test]
+fn public_builder_mixes_file_ranges_and_typed_records_in_one_collection() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-mixed-source-builder-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/file.json");
+    std::fs::write(&path, br#"{"id":"file","note":"file","place":"p"}"#).unwrap();
+    let mut entries_schema = Schema::default();
+    for (field, kind) in [
+        ("id", LogicalType::Id),
+        ("note", LogicalType::String),
+        ("place", LogicalType::Id),
+    ] {
+        entries_schema
+            .register_field(FieldDefinition {
+                path: vec![field.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    entries_schema
+        .register_relation(RelationDefinition {
+            path: vec!["place".into()],
+            target_collection: "places".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: None,
+        })
+        .unwrap();
+    let mut places_schema = Schema::default();
+    places_schema
+        .register_field(FieldDefinition {
+            path: vec!["name".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut builder = Index::builder();
+    let entries = builder.collection("entries", entries_schema).unwrap();
+    let places = builder.collection("places", places_schema).unwrap();
+    let entries_registration = builder
+        .register_records(entries, "typed.entries", 1)
+        .unwrap();
+    let places_registration = builder.register_records(places, "typed.places", 1).unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    let mut importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    importer.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    builder
+        .register_file_source(entries, importer.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    index.add_file(&path).unwrap();
+    let session = index.ingestion();
+    let place_writer = session.writer(places_registration).unwrap();
+    let mut place_batch = place_writer.batch();
+    place_batch
+        .insert(
+            "p",
+            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+        )
+        .unwrap();
+    place_writer
+        .submit(place_batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let entry_writer = session.writer(entries_registration).unwrap();
+    let mut entry_batch = entry_writer.batch();
+    entry_batch
+        .insert(
+            "native",
+            Value::from_json(serde_json::json!({"id":"native","note":"native","place":"p"}))
+                .unwrap(),
+        )
+        .unwrap();
+    entry_writer
+        .submit(entry_batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let view = index.view().unwrap();
+    assert!(
+        view.get_record("entries", "file", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .is_some()
+    );
+    assert!(
+        view.get_record("entries", "native", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .is_none()
+    );
+    let query = Query {
+        collections: vec!["entries".into()],
+        filter: Some(parse_filter("place.name = 'Leipzig'").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("note", false)],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = view.search(&query).unwrap();
+    assert_eq!(result.count, Some(2));
+    assert_eq!(result.hits, view.search_reference(&query).unwrap().hits);
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["file", "native"]
+    );
+    for (literal, expected) in [("file", "file"), ("native", "native")] {
+        let text_query = Query {
+            filter: None,
+            fts: Some(FtsQuery {
+                case_sensitivity: CaseSensitivity::Sensitive,
+                mode: FtsMode::Literal,
+                literal: literal.into(),
+                pattern_parameter: None,
+                fields: vec![FtsField {
+                    path: objekte_search_core::model::FieldPath::parse("note").unwrap(),
+                    binding: None,
+                    query_path: None,
+                }],
+            }),
+            ..query.clone()
+        };
+        let found = view.search(&text_query).unwrap();
+        assert_eq!(found.count, Some(1));
+        assert_eq!(found.hits[0].record_id, expected);
+        assert_eq!(found.hits, view.search_reference(&text_query).unwrap().hits);
+    }
+    session.finish().unwrap();
+    index.rebuild().unwrap();
+    let rebuilt = index.view().unwrap().search(&query).unwrap();
+    assert_eq!(rebuilt.count, Some(2));
+    assert_eq!(rebuilt.hits[0].record_id, "file");
+    assert_eq!(rebuilt.hits[1].record_id, "native");
+    std::fs::write(&path, br#"{"id":"file","note":"changed","place":"p"}"#).unwrap();
+    assert!(index.rebuild().is_err());
+    std::fs::remove_dir_all(root).unwrap();
+}
