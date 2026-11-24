@@ -163,6 +163,7 @@ fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
     let collection = builder.add_text_field("collection", STRING | STORED);
     let record_id = builder.add_text_field("record_id", STRING | STORED);
     let relative_path = builder.add_text_field("relative_path", STORED);
+    let byte_end = builder.add_u64_field("byte_end", STORED);
     let fts_global = builder.add_text_field("fts_global", STRING);
     let fts_scoped = builder.add_text_field("fts_scoped", STRING);
     let source_json = builder.add_json_field(
@@ -235,7 +236,7 @@ fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
             if !identities.insert((name.to_owned(), id.to_owned())) {
                 return Err(format!("duplicate identity {name}/{id}"));
             }
-            let mut document = doc!(collection => name, record_id => id, relative_path => relative.as_ref(), source_json => value.clone());
+            let mut document = doc!(collection => name, record_id => id, relative_path => relative.as_ref(), byte_end => bytes.len() as u64, source_json => value.clone());
             index_strings(
                 &value,
                 &mut Vec::new(),
@@ -415,6 +416,12 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
     let fts_scoped = schema
         .get_field("fts_scoped")
         .map_err(|error| error.to_string())?;
+    let byte_end = schema
+        .get_field("byte_end")
+        .map_err(|error| error.to_string())?;
+    let relative_path = schema
+        .get_field("relative_path")
+        .map_err(|error| error.to_string())?;
     let definitions = musenalm::load_definitions(root)?;
     let core = objekte_search_core::lifecycle::Index::start_build(
         root,
@@ -479,6 +486,7 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
             return Err(format!("{id}: duplicate Tantivy hits"));
         }
         let mut tantivy_ids = BTreeSet::new();
+        let mut numeric_page = Vec::new();
         for address in addresses {
             let document = searcher
                 .doc::<TantivyDocument>(address)
@@ -494,6 +502,34 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
             if !tantivy_ids.insert((collection_value.to_owned(), id_value.to_owned())) {
                 return Err(format!(
                     "{id}: duplicate Tantivy identity {collection_value}/{id_value}"
+                ));
+            }
+            if case.sort.len() == 1 && case.sort[0].field == "numbering" {
+                let source_value = document.get_first(source).ok_or("missing source JSON")?;
+                let number = source_value
+                    .as_object()
+                    .ok_or("source is not an object")?
+                    .find(|(name, _)| *name == "numbering")
+                    .and_then(|(_, value)| {
+                        value
+                            .as_f64()
+                            .or_else(|| value.as_i64().map(|number| number as f64))
+                    })
+                    .ok_or("matching record lacks numeric numbering")?;
+                let path = document
+                    .get_first(relative_path)
+                    .and_then(|value| value.as_str())
+                    .ok_or("missing stored path")?;
+                let end = document
+                    .get_first(byte_end)
+                    .and_then(|value| value.as_u64())
+                    .ok_or("missing stored byte end")?;
+                numeric_page.push((
+                    number,
+                    collection_value.to_owned(),
+                    id_value.to_owned(),
+                    path.to_owned(),
+                    end,
                 ));
             }
         }
@@ -513,6 +549,52 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
             return Err(format!(
                 "{id}: membership mismatch, first missing {missing:?}, first extra {extra:?}"
             ));
+        }
+        if !numeric_page.is_empty() {
+            numeric_page.sort_by(|left, right| {
+                left.0
+                    .total_cmp(&right.0)
+                    .then_with(|| (&left.1, &left.2).cmp(&(&right.1, &right.2)))
+            });
+            let expected = numeric_page
+                .iter()
+                .skip(case.offset)
+                .take(case.limit)
+                .map(|(_, collection, id, path, end)| {
+                    (collection.clone(), id.clone(), path.clone(), 0, *end)
+                })
+                .collect::<Vec<_>>();
+            let mut page_request = case.query()?;
+            page_request.options.count = true;
+            page_request.options.return_mode = ReturnMode::Locator;
+            page_request.options.evidence = false;
+            let page = view.search(&page_request)?;
+            let actual = page
+                .hits
+                .into_iter()
+                .map(|hit| {
+                    let path = hit.file_path.strip_prefix(root).unwrap_or(&hit.file_path);
+                    Ok((
+                        hit.collection,
+                        hit.record_id,
+                        path.to_string_lossy().to_string(),
+                        hit.byte_start,
+                        hit.byte_end,
+                    ))
+                })
+                .collect::<Result<Vec<_>, String>>()?;
+            if actual != expected {
+                let rank = actual
+                    .iter()
+                    .zip(&expected)
+                    .position(|(left, right)| left != right)
+                    .unwrap_or(actual.len().min(expected.len()));
+                return Err(format!(
+                    "{id}: numeric page differs at rank {rank}: Objekte {:?}, Tantivy {:?}",
+                    actual.get(rank),
+                    expected.get(rank)
+                ));
+            }
         }
         results.push(VerifiedCount {
             id: id.into(),
