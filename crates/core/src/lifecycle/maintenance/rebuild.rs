@@ -1,5 +1,6 @@
 use std::time::{Duration, Instant};
 
+use crate::index::segment::SegmentBacking;
 use crate::inventory::{FileVersion, FileVersions};
 use crate::lifecycle::initial::InitialBuildPhase;
 use crate::lifecycle::maintenance::MaintenancePhase;
@@ -44,6 +45,103 @@ impl Index {
             progress(MaintenancePhase::Preparing, attempt);
             let view = self.view()?;
             let repository = view.repository();
+            if repository
+                .collections()
+                .iter()
+                .all(|collection| collection.file_source.is_none())
+            {
+                // These registrations own their records independently of the
+                // file catalog. Their immutable indexed segments already hold
+                // the retained input needed by a new publication. Validate
+                // versioned external sources before publishing them again.
+                for group in &view.0.segments {
+                    for segment in group.iter() {
+                        match &segment.index.backing {
+                            SegmentBacking::Retained { .. } => {}
+                            SegmentBacking::Provider {
+                                registration,
+                                versions,
+                                ..
+                            } => {
+                                let source = repository
+                                    .record_registrations
+                                    .get(*registration as usize)
+                                    .ok_or_else(|| {
+                                        IndexError::Build("provider registration missing".into())
+                                    })?;
+                                let reader = source.reader.as_ref().ok_or_else(|| {
+                                    IndexError::SourceUnavailable("provider reader missing".into())
+                                })?;
+                                for slot in segment.active.bitmap().iter() {
+                                    if cancelled() {
+                                        return Err(IndexError::Cancelled);
+                                    }
+                                    let record = segment
+                                        .index
+                                        .record(crate::model::RecordSlot(slot))
+                                        .ok_or_else(|| {
+                                            IndexError::Build("provider record missing".into())
+                                        })?;
+                                    let expected =
+                                        *versions.get(slot as usize).ok_or_else(|| {
+                                            IndexError::Build("provider version missing".into())
+                                        })?;
+                                    let key = crate::records::RecordKey::new(
+                                        segment.index.collection,
+                                        record.id.clone(),
+                                    );
+                                    let read = reader
+                                        .read_projected(
+                                            &key,
+                                            expected,
+                                            &crate::records::reader::RecordProjection::full(),
+                                        )
+                                        .map_err(|error| {
+                                            IndexError::SourceUnavailable(error.to_string())
+                                        })?;
+                                    if read.version != expected {
+                                        return Err(IndexError::SourceUnavailable(
+                                            "provider returned a different record version".into(),
+                                        ));
+                                    }
+                                }
+                            }
+                            SegmentBacking::FileRange { .. } => {
+                                return Err(IndexError::IncompatibleConfiguration(
+                                    "file-backed segment has no file source".into(),
+                                ));
+                            }
+                        }
+                    }
+                }
+                let mut next = (*view.0).clone();
+                next.revision = view.revision().next()?;
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
+                progress(MaintenancePhase::Publishing, attempt);
+                before_publish(attempt);
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
+                match self.publish_prepared(view.revision(), next) {
+                    Ok(revision) => {
+                        let status = self.status()?;
+                        return Ok(RebuildReport {
+                            revision,
+                            attempts: attempt,
+                            indexed_files: status.indexed_files,
+                            live_records: status.live_records,
+                            duration: started.elapsed(),
+                        });
+                    }
+                    Err(error @ IndexError::RevisionConflict { .. }) => {
+                        conflict = Some(error);
+                        continue;
+                    }
+                    Err(error) => return Err(error),
+                }
+            }
             let definitions = repository
                 .collections()
                 .iter()

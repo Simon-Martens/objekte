@@ -684,3 +684,68 @@ fn fileless_records_stream_in_page_and_all_scopes() {
     assert_eq!(streamed, ["entry-3"]);
     session.finish().unwrap();
 }
+
+#[test]
+fn fileless_rebuild_keeps_retained_records_and_rejects_stale_provider() {
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let retained = builder.register_records(collection, "owned", 1).unwrap();
+    let provider = builder.register_records(collection, "reader", 1).unwrap();
+    let reader = Arc::new(VersionedFixture(Mutex::new((
+        RecordVersion::new(4),
+        Value::String("original".into()),
+    ))));
+    builder.register_reader(provider, reader.clone()).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let owned_writer = session.writer(retained).unwrap();
+    let mut owned = owned_writer.batch();
+    owned
+        .insert("owned-1", Value::String("kept".into()))
+        .unwrap();
+    owned_writer
+        .submit(owned)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let provider_writer = session.writer(provider).unwrap();
+    let mut from_reader = provider_writer.batch();
+    from_reader
+        .insert_from_reader(
+            "reader-1",
+            Value::String("original".into()),
+            RecordVersion::new(4),
+        )
+        .unwrap();
+    provider_writer
+        .submit(from_reader)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let before = index.view().unwrap();
+    let rebuilt = index.rebuild().unwrap();
+    assert!(rebuilt.revision > before.revision());
+    assert_eq!(rebuilt.live_records, 2);
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .get_record("entries", "owned-1", ReturnMode::Logical)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Logical(Value::String("kept".into())))
+    );
+    *reader.0.lock().unwrap() = (RecordVersion::new(5), Value::String("changed".into()));
+    assert!(index.rebuild().is_err());
+    assert_eq!(index.view().unwrap().revision(), rebuilt.revision);
+    assert_eq!(
+        before
+            .get_record("entries", "owned-1", ReturnMode::Logical)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Logical(Value::String("kept".into())))
+    );
+    session.finish().unwrap();
+}
