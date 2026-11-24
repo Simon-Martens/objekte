@@ -13,6 +13,7 @@
 //! | Declare a relation | `schema::relations`, `Schema::register_relation` | schema relation validation and `index::relation` physical storage |
 //! | Publish a revised index | `lifecycle` | construction, segment publication and repository state |
 
+pub mod adapter;
 mod construction;
 pub mod files;
 pub mod index;

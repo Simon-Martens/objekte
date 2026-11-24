@@ -27,6 +27,46 @@ fn borrowed_decoder_uses_source_slice_or_reused_storage() {
 }
 
 #[test]
+fn checked_entries_reject_invalid_json_strings_and_ranges() {
+    let invalid: &[&[u8]] = &[
+        b"not quoted",
+        b"\"truncated",
+        b"\"raw\ncontrol\"",
+        b"\"bad\\xescape\"",
+        b"\"short\\u123\"",
+        b"\"lone\\ud800\"",
+        b"\"lone\\udc00\"",
+        b"\"pair\\ud800\\u0041\"",
+        b"\"bad\xffutf8\"",
+    ];
+    let mut decoded = String::new();
+    for bytes in invalid {
+        assert!(
+            with_next_quoted_text(bytes, 0, &mut decoded, |_| Ok(())).is_err(),
+            "accepted invalid string: {bytes:?}"
+        );
+    }
+    assert!(with_next_quoted_text(b"\"ok\"", 4, &mut decoded, |_| Ok(())).is_err());
+
+    let bytes = b"prefix \"ok\" trailing";
+    assert_eq!(
+        with_next_quoted_text(bytes, 7, &mut decoded, |text| Ok(text.to_owned())).unwrap(),
+        (11, "ok".to_owned())
+    );
+    let mut called = false;
+    assert!(
+        with_quoted_text(bytes, 7..12, &mut decoded, |_| {
+            called = true;
+            Ok(())
+        })
+        .is_err()
+    );
+    assert!(!called);
+    assert!(with_quoted_text(bytes, 7..bytes.len() + 1, &mut decoded, |_| Ok(())).is_err());
+    assert!(with_quoted_text(bytes, 12..7, &mut decoded, |_| Ok(())).is_err());
+}
+
+#[test]
 #[ignore = "release-only decoder comparison; run serially with --nocapture"]
 fn decoder_strategy_microbench() {
     use std::hint::black_box;
