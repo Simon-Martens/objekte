@@ -10,10 +10,17 @@ mod musenalm {
     {
         Err("Musenalm loader is exercised by the core example tests".into())
     }
+    pub fn load_extended_definitions(
+        root: &std::path::Path,
+    ) -> Result<Vec<objekte_search_core::repository::configuration::CollectionDefinition>, String>
+    {
+        load_definitions(root)
+    }
 }
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
+use std::num::NonZeroUsize;
 use std::ops::Bound;
 use std::path::{Path, PathBuf};
 use std::time::Instant;
@@ -28,23 +35,27 @@ use objekte_search_core::workload::load_extended_manifest;
 use serde::Serialize;
 use tantivy::collector::sort_key::SortByStaticFastValue;
 use tantivy::collector::{Count, DocSetCollector, MultiCollector, TopDocs};
+use tantivy::directory::Directory;
 use tantivy::query::{BooleanQuery, Occur, Query, RangeQuery, RegexQuery, TermQuery};
 use tantivy::schema::{
     Field, IndexRecordOption, JsonObjectOptions, STORED, STRING, Schema, Term, TextFieldIndexing,
     Value as TantivyValue,
 };
-use tantivy::{Index, Order, TantivyDocument, doc};
+use tantivy::{HasLen, Index, Order, TantivyDocument, doc};
 
 #[derive(Serialize)]
 struct InventoryRow {
     source_id: String,
     schema_mode: &'static str,
-    original: objekte_search_core::workload::WorkloadCase,
+    original: objekte_search_core::workload::BenchmarkCase,
+    predicate_family: &'static str,
+    representation: &'static str,
     effective_count: EffectiveRequest,
     effective_page: EffectiveRequest,
     predicate_status: &'static str,
     page_status: &'static str,
-    reason: String,
+    predicate_reason: Option<String>,
+    page_reason: Option<String>,
 }
 
 #[derive(Serialize)]
@@ -74,10 +85,89 @@ fn effective(query: &objekte_search_core::query::Query) -> EffectiveRequest {
     }
 }
 
-fn inventory(core: &Path, output: &Path) -> Result<(), String> {
+fn schema_paths(root: &Path) -> Result<BTreeMap<String, BTreeSet<String>>, String> {
+    fn collect(node: &serde_json::Value, parent: &str, output: &mut BTreeSet<String>) {
+        if let Some(properties) = node.get("properties").and_then(|value| value.as_object()) {
+            for (name, child) in properties {
+                let path = if parent.is_empty() {
+                    name.clone()
+                } else {
+                    format!("{parent}.{name}")
+                };
+                output.insert(path.clone());
+                collect(child, &path, output);
+            }
+        }
+        if let Some(items) = node.get("items") {
+            collect(items, parent, output);
+        }
+    }
+    let mut result = BTreeMap::new();
+    for entry in
+        fs::read_dir(root.join(".objekte/collections")).map_err(|error| error.to_string())?
+    {
+        let path = entry.map_err(|error| error.to_string())?.path();
+        if !path
+            .file_name()
+            .is_some_and(|name| name.to_string_lossy().ends_with(".schema.json"))
+        {
+            continue;
+        }
+        let schema: serde_json::Value =
+            serde_json::from_slice(&fs::read(path).map_err(|error| error.to_string())?)
+                .map_err(|error| error.to_string())?;
+        let name = schema
+            .get("x-objekte")
+            .and_then(|meta| meta.get("name"))
+            .and_then(|value| value.as_str())
+            .ok_or("schema missing name")?;
+        let mut paths = BTreeSet::new();
+        collect(&schema, "", &mut paths);
+        result.insert(name.to_owned(), paths);
+    }
+    Ok(result)
+}
+
+fn unsupported_path(
+    expr: &FilterExpr,
+    collections: &[String],
+    paths: &BTreeMap<String, BTreeSet<String>>,
+) -> Option<String> {
+    match expr {
+        FilterExpr::Term(term) => {
+            if term.path.display == "@record.id" || term.path.display.starts_with('@') {
+                return None;
+            }
+            let path = term.path.field.segments.join(".");
+            for collection in collections {
+                if !paths
+                    .get(collection)
+                    .is_some_and(|fields| fields.contains(&path))
+                {
+                    return Some(format!(
+                        "{collection}.{path} is not a declared local source path"
+                    ));
+                }
+            }
+            None
+        }
+        FilterExpr::And(parts) | FilterExpr::Or(parts) => parts
+            .iter()
+            .find_map(|part| unsupported_path(part, collections, paths)),
+        FilterExpr::Not(inner) => unsupported_path(inner, collections, paths),
+    }
+}
+
+fn inventory(root: &Path, core: &Path, output: &Path) -> Result<(), String> {
     let baseline = core.join("benches/musenalm_queries.json");
     let extended = core.join("benches/musenalm_queries_extended.json");
     let cases = load_extended_manifest(&baseline, &extended)?;
+    let paths = schema_paths(root)?;
+    let mut schema = Schema::builder();
+    let json_field = schema.add_json_field("source", JsonObjectOptions::default());
+    let id_field = schema.add_text_field("record_id", STRING);
+    let global = schema.add_text_field("global", STRING);
+    let scoped = schema.add_text_field("scoped", STRING);
     let mut rows = Vec::with_capacity(cases.len());
     for case in cases {
         let source = case.query()?;
@@ -88,10 +178,44 @@ fn inventory(core: &Path, output: &Path) -> Result<(), String> {
         count.options.sort.clear();
         count.options.return_mode = ReturnMode::Locator;
         count.options.evidence = false;
-        let mut page = source;
+        let mut page = source.clone();
         page.options.count = true;
         page.options.return_mode = ReturnMode::Locator;
         page.options.evidence = false;
+        let predicate_reason = source
+            .filter
+            .as_ref()
+            .and_then(|filter| unsupported_path(filter, &source.collections, &paths))
+            .or_else(|| {
+                source
+                    .filter
+                    .as_ref()
+                    .and_then(|filter| translate(filter, json_field, id_field).err())
+                    .or_else(|| {
+                        source
+                            .fts
+                            .as_ref()
+                            .and_then(|fts| literal_fts(fts, global, scoped).err())
+                    })
+            });
+        let page_reason = predicate_reason.clone().or_else(|| {
+            if page.options.sort.is_empty()
+                || (page.options.sort.len() == 1 && page.options.sort[0].field == "numbering")
+            {
+                None
+            } else {
+                Some(format!(
+                    "sort {:?} requires another mapping",
+                    page.options.sort
+                ))
+            }
+        });
+        let (family, representation) = match (source.fts.is_some(), source.filter.is_some()) {
+            (true, true) => ("mixed", "derived_literal_and_typed_json"),
+            (true, false) => ("literal_fts", "derived_literal_term_dictionary"),
+            (false, true) => ("structured", "typed_json"),
+            (false, false) => ("none", "none"),
+        };
         rows.push(InventoryRow {
             source_id: case.id.clone(),
             schema_mode: if case.id.as_str() <= "Q150" {
@@ -99,12 +223,23 @@ fn inventory(core: &Path, output: &Path) -> Result<(), String> {
             } else {
                 "extended"
             },
-            original: case.request,
+            original: case.clone(),
+            predicate_family: family,
+            representation,
             effective_count: effective(&count),
             effective_page: effective(&page),
-            predicate_status: "unsupported",
-            page_status: "unsupported",
-            reason: "Tantivy translation and parity verification pending".into(),
+            predicate_status: if predicate_reason.is_some() {
+                "unsupported"
+            } else {
+                "pending_verification"
+            },
+            page_status: if page_reason.is_some() {
+                "unsupported"
+            } else {
+                "pending_verification"
+            },
+            predicate_reason,
+            page_reason,
         });
     }
     fs::write(
@@ -121,19 +256,30 @@ struct BuildObservation {
     documents: usize,
     collection_counts: BTreeMap<String, usize>,
     peak_rss_kb: Option<usize>,
+    resident_ready_kb: Option<usize>,
+    index_bytes: Option<u64>,
+    segments: Option<usize>,
+    writer_memory_bytes: Option<usize>,
 }
 
-fn peak_rss_kb() -> Option<usize> {
+fn memory_kb(name: &str) -> Option<usize> {
     fs::read_to_string("/proc/self/status")
         .ok()?
         .lines()
         .find_map(|line| {
-            line.strip_prefix("VmHWM:")?
+            line.strip_prefix(name)?
                 .split_whitespace()
                 .next()?
                 .parse()
                 .ok()
         })
+}
+
+fn peak_rss_kb() -> Option<usize> {
+    memory_kb("VmHWM:")
+}
+fn resident_rss_kb() -> Option<usize> {
+    memory_kb("VmRSS:")
 }
 
 fn index_strings(
@@ -169,7 +315,11 @@ fn index_strings(
     }
 }
 
-fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
+fn build_tantivy(
+    root: &Path,
+    build_workers: usize,
+    query_workers: usize,
+) -> Result<(BuildObservation, Index), String> {
     let start = Instant::now();
     let mut builder = Schema::builder();
     let collection = builder.add_text_field("collection", STRING | STORED);
@@ -188,9 +338,14 @@ fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
             .set_indexing_options(TextFieldIndexing::default().set_tokenizer("raw")),
     );
     let schema = builder.build();
-    let index = Index::create_in_ram(schema);
+    let mut index = Index::create_in_ram(schema);
+    if query_workers > 1 {
+        index
+            .set_multithread_executor(query_workers)
+            .map_err(|error| error.to_string())?;
+    }
     let mut writer = index
-        .writer(100_000_000)
+        .writer_with_num_threads(build_workers, 100_000_000)
         .map_err(|error| error.to_string())?;
     let mut counts = BTreeMap::new();
     let mut identities = BTreeSet::new();
@@ -283,6 +438,28 @@ fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
             identities.len()
         ));
     }
+    let index_bytes =
+        index
+            .directory()
+            .list_managed_files()
+            .iter()
+            .try_fold(0u64, |total, path| {
+                if path
+                    .extension()
+                    .is_some_and(|extension| extension == "json")
+                {
+                    return Ok(total);
+                }
+                index
+                    .directory()
+                    .open_read(path)
+                    .map(|file| total + file.len() as u64)
+                    .map_err(|error| error.to_string())
+            })?;
+    let segments = index
+        .searchable_segments()
+        .map_err(|error| error.to_string())?
+        .len();
     Ok((
         BuildObservation {
             engine: "tantivy",
@@ -290,6 +467,10 @@ fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
             documents: visible,
             collection_counts: counts,
             peak_rss_kb: peak_rss_kb(),
+            resident_ready_kb: resident_rss_kb(),
+            index_bytes: Some(index_bytes),
+            segments: Some(segments),
+            writer_memory_bytes: Some(100_000_000),
         },
         index,
     ))
@@ -437,8 +618,11 @@ fn selected_cases(
         &core_path.join("musenalm_queries.json"),
         &core_path.join("musenalm_queries_extended.json"),
     )?;
+    let mut seen = BTreeSet::new();
     selected
         .split(',')
+        .map(|selector| selector.split('@').next().unwrap_or(selector))
+        .filter(|id| seen.insert((*id).to_owned()))
         .map(|id| {
             cases
                 .iter()
@@ -449,19 +633,58 @@ fn selected_cases(
         .collect()
 }
 
+fn definitions_for_cases(
+    root: &Path,
+    cases: &[objekte_search_core::workload::BenchmarkCase],
+) -> Result<Vec<objekte_search_core::repository::configuration::CollectionDefinition>, String> {
+    let extended = cases.first().ok_or("no selected cases")?.id.as_str() > "Q150";
+    if cases
+        .iter()
+        .any(|case| (case.id.as_str() > "Q150") != extended)
+    {
+        return Err("historical and extended cases require separate schema-mode processes".into());
+    }
+    if extended {
+        musenalm::load_extended_definitions(root)
+    } else {
+        musenalm::load_definitions(root)
+    }
+}
+
+fn requested_contracts(selected: &str, id: &str) -> (bool, bool) {
+    let mut count = false;
+    let mut page = false;
+    for selector in selected.split(',') {
+        if selector == id {
+            count = true;
+            page = true;
+        }
+        if selector == format!("{id}@count") {
+            count = true;
+        }
+        if selector == format!("{id}@page") {
+            page = true;
+        }
+    }
+    (count, page)
+}
+
 fn measure_objekte(
     root: &Path,
     selected: &str,
     repetitions: usize,
+    build_workers: usize,
+    query_workers: usize,
 ) -> Result<MeasurementRun, String> {
     let cases = selected_cases(selected)?;
     let start = Instant::now();
     let index = objekte_search_core::lifecycle::Index::start_build(
         root,
-        musenalm::load_definitions(root)?,
+        definitions_for_cases(root, &cases)?,
         RepositoryOptions {
             verified_cache_bytes: 0,
-            query_workers: 1,
+            query_workers,
+            build_workers: NonZeroUsize::new(build_workers),
             ..RepositoryOptions::default()
         },
         objekte_search_core::source::registry::SourceRegistry::builtin(),
@@ -473,8 +696,17 @@ fn measure_objekte(
         engine: "objekte",
         elapsed_ns: start.elapsed().as_nanos(),
         documents: view.index_observation().records,
-        collection_counts: BTreeMap::new(),
+        collection_counts: view
+            .index_observation()
+            .collection_parts
+            .iter()
+            .map(|part| (part.collection.clone(), part.records))
+            .collect(),
         peak_rss_kb: peak_rss_kb(),
+        resident_ready_kb: resident_rss_kb(),
+        index_bytes: None,
+        segments: Some(view.segment_summaries().len()),
+        writer_memory_bytes: None,
     };
     let prepared = cases
         .iter()
@@ -490,17 +722,32 @@ fn measure_objekte(
             page.options.count = true;
             page.options.return_mode = ReturnMode::Locator;
             page.options.evidence = false;
-            Ok((case.id.clone(), count, page))
+            let page_supported = page.options.sort.is_empty()
+                || (page.options.sort.len() == 1 && page.options.sort[0].field == "numbering");
+            let (count_requested, page_requested) = requested_contracts(selected, &case.id);
+            Ok((
+                case.id.clone(),
+                count,
+                page,
+                count_requested,
+                page_requested && page_supported,
+            ))
         })
         .collect::<Result<Vec<_>, String>>()?;
     let mut samples = Vec::new();
     for repetition in 0..=repetitions {
         for index in 0..prepared.len() {
-            let (id, count_query, page_query) = &prepared[(index + repetition) % prepared.len()];
+            let (id, count_query, page_query, count_requested, page_requested) =
+                &prepared[(index + repetition) % prepared.len()];
             for (contract, query) in [
                 ("predicate_count", count_query),
                 ("ordered_locator_page", page_query),
             ] {
+                if (contract == "predicate_count" && !count_requested)
+                    || (contract == "ordered_locator_page" && !page_requested)
+                {
+                    continue;
+                }
                 let start = Instant::now();
                 let result = view.search(query)?;
                 let elapsed_ns = start.elapsed().as_nanos();
@@ -527,9 +774,11 @@ fn measure_tantivy(
     root: &Path,
     selected: &str,
     repetitions: usize,
+    build_workers: usize,
+    query_workers: usize,
 ) -> Result<MeasurementRun, String> {
     let cases = selected_cases(selected)?;
-    let (build, index) = build_tantivy(root)?;
+    let (build, index) = build_tantivy(root, build_workers, query_workers)?;
     let reader = index.reader().map_err(|error| error.to_string())?;
     let searcher = reader.searcher();
     let schema = index.schema();
@@ -562,42 +811,52 @@ fn measure_tantivy(
             if case.collection != "*" {
                 clauses.push((Occur::Must, term_query(collection, &case.collection)));
             }
-            if !bound.options.sort.is_empty()
-                && !(bound.options.sort.len() == 1 && bound.options.sort[0].field == "numbering")
-            {
-                return Err(format!("{}: page sort requires another mapping", case.id));
-            }
+            let page_supported = bound.options.sort.is_empty()
+                || (bound.options.sort.len() == 1 && bound.options.sort[0].field == "numbering");
             Ok((
                 case.id.clone(),
                 Box::new(BooleanQuery::new(clauses)) as Box<dyn Query>,
                 bound.options.offset,
                 bound.options.limit,
                 !bound.options.sort.is_empty(),
+                page_supported,
+                requested_contracts(selected, &case.id),
             ))
         })
         .collect::<Result<Vec<_>, String>>()?;
     let mut samples = Vec::new();
     for repetition in 0..=repetitions {
         for index in 0..prepared.len() {
-            let (id, query, offset, limit, numeric) =
-                &prepared[(index + repetition) % prepared.len()];
-            let start = Instant::now();
-            let count = searcher
-                .search(query, &Count)
-                .map_err(|error| error.to_string())?;
-            let elapsed_ns = start.elapsed().as_nanos();
-            std::hint::black_box(count);
-            if repetition > 0 {
-                samples.push(QuerySample {
-                    id: id.clone(),
-                    contract: "predicate_count",
-                    repetition: repetition - 1,
-                    elapsed_ns,
-                    count,
-                    page_len: 0,
-                });
+            let (
+                id,
+                query,
+                offset,
+                limit,
+                numeric,
+                page_supported,
+                (count_requested, page_requested),
+            ) = &prepared[(index + repetition) % prepared.len()];
+            if *count_requested {
+                let start = Instant::now();
+                let count = searcher
+                    .search(query, &Count)
+                    .map_err(|error| error.to_string())?;
+                let elapsed_ns = start.elapsed().as_nanos();
+                std::hint::black_box(count);
+                if repetition > 0 {
+                    samples.push(QuerySample {
+                        id: id.clone(),
+                        contract: "predicate_count",
+                        repetition: repetition - 1,
+                        elapsed_ns,
+                        count,
+                        page_len: 0,
+                    });
+                }
             }
-            let start = Instant::now();
+            if !page_supported || !page_requested {
+                continue;
+            }
             let mut collectors = MultiCollector::new();
             let count_handle = collectors.add_collector(Count);
             if *numeric {
@@ -612,6 +871,7 @@ fn measure_tantivy(
                             Order::Asc,
                         ),
                     )));
+                let start = Instant::now();
                 let mut fruit = searcher
                     .search(query, &collectors)
                     .map_err(|error| error.to_string())?;
@@ -644,6 +904,7 @@ fn measure_tantivy(
                     TopDocs::with_limit(offset + limit)
                         .order_by_fast_field::<u64>("identity_ordinal", Order::Asc),
                 );
+                let start = Instant::now();
                 let mut fruit = searcher
                     .search(query, &collectors)
                     .map_err(|error| error.to_string())?;
@@ -678,7 +939,8 @@ fn measure_tantivy(
 }
 
 fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, String> {
-    let (_, index) = build_tantivy(root)?;
+    let selected_cases = selected_cases(selected)?;
+    let (_, index) = build_tantivy(root, 1, 1)?;
     let reader = index.reader().map_err(|error| error.to_string())?;
     let searcher = reader.searcher();
     let schema = index.schema();
@@ -703,13 +965,14 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
     let relative_path = schema
         .get_field("relative_path")
         .map_err(|error| error.to_string())?;
-    let definitions = musenalm::load_definitions(root)?;
+    let definitions = definitions_for_cases(root, &selected_cases)?;
     let core = objekte_search_core::lifecycle::Index::start_build(
         root,
         definitions,
         RepositoryOptions {
             verified_cache_bytes: 0,
             query_workers: 1,
+            build_workers: NonZeroUsize::new(1),
             ..RepositoryOptions::default()
         },
         objekte_search_core::source::registry::SourceRegistry::builtin(),
@@ -729,6 +992,7 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
             .find(|case| case.id == id)
             .ok_or_else(|| format!("unknown case {id}"))?;
         let mut request = case.query()?;
+        let original_sort = request.options.sort.clone();
         let mut clauses = Vec::new();
         if let Some(filter) = &request.filter {
             clauses.push((Occur::Must, translate(filter, source, record_id)?));
@@ -785,7 +1049,7 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
                     "{id}: duplicate Tantivy identity {collection_value}/{id_value}"
                 ));
             }
-            if case.sort.len() == 1 && case.sort[0].field == "numbering" {
+            if original_sort.len() == 1 && original_sort[0].field == "numbering" {
                 let source_value = document.get_first(source).ok_or("missing source JSON")?;
                 let number = source_value
                     .as_object()
@@ -929,6 +1193,78 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
                 ));
             }
         }
+        if original_sort.is_empty() {
+            let ordered_hits = searcher
+                .search(
+                    &query,
+                    &TopDocs::with_limit(case.offset + case.limit)
+                        .order_by_fast_field::<u64>("identity_ordinal", Order::Asc),
+                )
+                .map_err(|error| error.to_string())?;
+            let expected = ordered_hits
+                .into_iter()
+                .skip(case.offset)
+                .map(|(_, address)| {
+                    let document = searcher
+                        .doc::<TantivyDocument>(address)
+                        .map_err(|error| error.to_string())?;
+                    let collection_value = document
+                        .get_first(collection)
+                        .and_then(|value| value.as_str())
+                        .ok_or("missing collection")?;
+                    let id_value = document
+                        .get_first(record_id)
+                        .and_then(|value| value.as_str())
+                        .ok_or("missing record ID")?;
+                    let path = document
+                        .get_first(relative_path)
+                        .and_then(|value| value.as_str())
+                        .ok_or("missing path")?;
+                    let end = document
+                        .get_first(byte_end)
+                        .and_then(|value| value.as_u64())
+                        .ok_or("missing byte end")?;
+                    Ok((
+                        collection_value.to_owned(),
+                        id_value.to_owned(),
+                        path.to_owned(),
+                        0,
+                        end,
+                    ))
+                })
+                .collect::<Result<Vec<_>, String>>()?;
+            let mut page_request = case.query()?;
+            page_request.options.count = true;
+            page_request.options.return_mode = ReturnMode::Locator;
+            page_request.options.evidence = false;
+            let page = view.search(&page_request)?;
+            let actual = page
+                .hits
+                .into_iter()
+                .map(|hit| {
+                    let path = hit.file_path.strip_prefix(root).unwrap_or(&hit.file_path);
+                    (
+                        hit.collection,
+                        hit.record_id,
+                        path.to_string_lossy().to_string(),
+                        hit.byte_start,
+                        hit.byte_end,
+                    )
+                })
+                .collect::<Vec<_>>();
+            if actual != expected {
+                let rank = actual
+                    .iter()
+                    .zip(&expected)
+                    .position(|(left, right)| left != right)
+                    .unwrap_or(actual.len().min(expected.len()));
+                return Err(format!(
+                    "{id}: identity page differs at rank {rank}: Objekte {:?}, Tantivy {:?}",
+                    actual.get(rank),
+                    expected.get(rank)
+                ));
+            }
+        }
         results.push(VerifiedCount {
             id: id.into(),
             count: native_count,
@@ -938,7 +1274,11 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
     Ok(results)
 }
 
-fn build_objekte(root: &Path) -> Result<BuildObservation, String> {
+fn build_objekte(
+    root: &Path,
+    build_workers: usize,
+    query_workers: usize,
+) -> Result<BuildObservation, String> {
     let start = Instant::now();
     let definitions = musenalm::load_definitions(root)?;
     let index = objekte_search_core::lifecycle::Index::start_build(
@@ -946,7 +1286,8 @@ fn build_objekte(root: &Path) -> Result<BuildObservation, String> {
         definitions,
         RepositoryOptions {
             verified_cache_bytes: 0,
-            query_workers: 1,
+            query_workers,
+            build_workers: NonZeroUsize::new(build_workers),
             ..RepositoryOptions::default()
         },
         objekte_search_core::source::registry::SourceRegistry::builtin(),
@@ -959,14 +1300,23 @@ fn build_objekte(root: &Path) -> Result<BuildObservation, String> {
         engine: "objekte",
         elapsed_ns: start.elapsed().as_nanos(),
         documents: visible,
-        collection_counts: BTreeMap::new(),
+        collection_counts: view
+            .index_observation()
+            .collection_parts
+            .iter()
+            .map(|part| (part.collection.clone(), part.records))
+            .collect(),
         peak_rss_kb: peak_rss_kb(),
+        resident_ready_kb: resident_rss_kb(),
+        index_bytes: None,
+        segments: Some(view.segment_summaries().len()),
+        writer_memory_bytes: None,
     })
 }
 
 fn run() -> Result<(), String> {
     let args = std::env::args().collect::<Vec<_>>();
-    if !(4..=6).contains(&args.len()) {
+    if !(4..=8).contains(&args.len()) {
         return Err(
             "usage: objekte-tantivy-benchmark inventory|build-objekte|build-tantivy ROOT OUTPUT"
                 .into(),
@@ -978,6 +1328,7 @@ fn run() -> Result<(), String> {
     let output = PathBuf::from(&args[3]);
     match args[1].as_str() {
         "inventory" => inventory(
+            &root,
             &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../crates/core"),
             &output,
         ),
@@ -1002,10 +1353,23 @@ fn run() -> Result<(), String> {
             if repetitions == 0 {
                 return Err("repetitions must be positive".into());
             }
+            let build_workers = args
+                .get(6)
+                .ok_or("measure requires build worker count")?
+                .parse::<usize>()
+                .map_err(|error| error.to_string())?;
+            let query_workers = args
+                .get(7)
+                .ok_or("measure requires query worker count")?
+                .parse::<usize>()
+                .map_err(|error| error.to_string())?;
+            if build_workers == 0 || query_workers == 0 {
+                return Err("worker counts must be positive".into());
+            }
             let result = if args[1] == "measure-objekte" {
-                measure_objekte(&root, selected, repetitions)?
+                measure_objekte(&root, selected, repetitions, build_workers, query_workers)?
             } else {
-                measure_tantivy(&root, selected, repetitions)?
+                measure_tantivy(&root, selected, repetitions, build_workers, query_workers)?
             };
             fs::write(
                 output,
@@ -1015,9 +1379,9 @@ fn run() -> Result<(), String> {
         }
         "build-objekte" | "build-tantivy" => {
             let result = if args[1] == "build-objekte" {
-                build_objekte(&root)?
+                build_objekte(&root, 1, 1)?
             } else {
-                build_tantivy(&root)?.0
+                build_tantivy(&root, 1, 1)?.0
             };
             fs::write(
                 output,
