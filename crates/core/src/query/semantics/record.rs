@@ -11,30 +11,63 @@ pub(crate) fn metadata_value(
     field: MetadataField,
     ctx: &RecordContext<'_>,
 ) -> Result<Value, String> {
+    metadata_value_for_record(
+        field,
+        &ctx.record.id,
+        ctx.record.class,
+        Some((ctx.file, Some(ctx.record.range))),
+        ctx.collection_name,
+        Some(ctx.repository_root),
+    )?
+    .ok_or_else(|| "file-backed record metadata unexpectedly absent".into())
+}
+
+/// Resolve a metadata field without conflating a missing file or range with a
+/// declared but unknown file creation time. The borrowed file entry avoids a
+/// path allocation while scanning candidates.
+pub(crate) fn metadata_value_for_record(
+    field: MetadataField,
+    id: &crate::model::RecordId,
+    class: crate::inventory::RecordClass,
+    file: Option<(&FileEntry, Option<crate::inventory::ByteRange>)>,
+    collection_name: &str,
+    repository_root: Option<&Path>,
+) -> Result<Option<Value>, String> {
     let number = |n: u64| Value::Number(Number::integer(n as i128));
     Ok(match field {
-        MetadataField::RecordId => Value::Id(ctx.record.id.0.to_string()),
-        MetadataField::RecordByteStart => number(ctx.record.range.start),
-        MetadataField::RecordByteEnd => number(ctx.record.range.end),
-        MetadataField::RecordByteLength => number(ctx.record.range.len()),
-        MetadataField::FileId => number(ctx.file.id.0 as u64),
-        MetadataField::FilePath => Value::String(crate::model::path_representation::query_path(
-            &ctx.file.relative_path,
-        )),
-        MetadataField::FileSize => number(ctx.file.revision.size),
-        MetadataField::FileCreated => ctx
-            .file
-            .created_ns
-            .map(timestamp_value)
-            .transpose()?
-            .unwrap_or(Value::Null),
-        MetadataField::FileModified => timestamp_value(ctx.file.revision.modified_ns)?,
-        MetadataField::FileStatus => number(ctx.file.status.code() as u64),
-        MetadataField::RecordClass => number(ctx.record.class.code() as u64),
-        MetadataField::CollectionName => Value::String(ctx.collection_name.into()),
-        MetadataField::RepositoryRoot => Value::String(
-            crate::model::path_representation::query_path(ctx.repository_root),
-        ),
+        MetadataField::RecordId => Some(Value::Id(id.0.to_string())),
+        MetadataField::RecordByteStart => {
+            file.and_then(|(_, range)| range.map(|range| number(range.start)))
+        }
+        MetadataField::RecordByteEnd => {
+            file.and_then(|(_, range)| range.map(|range| number(range.end)))
+        }
+        MetadataField::RecordByteLength => {
+            file.and_then(|(_, range)| range.map(|range| number(range.len())))
+        }
+        MetadataField::FileId => file.map(|(file, _)| number(file.id.0 as u64)),
+        MetadataField::FilePath => file.map(|(file, _)| {
+            Value::String(crate::model::path_representation::query_path(
+                &file.relative_path,
+            ))
+        }),
+        MetadataField::FileSize => file.map(|(file, _)| number(file.revision.size)),
+        MetadataField::FileCreated => file
+            .map(|(file, _)| {
+                file.created_ns
+                    .map(timestamp_value)
+                    .transpose()
+                    .map(|value| value.unwrap_or(Value::Null))
+            })
+            .transpose()?,
+        MetadataField::FileModified => file
+            .map(|(file, _)| timestamp_value(file.revision.modified_ns))
+            .transpose()?,
+        MetadataField::FileStatus => file.map(|(file, _)| number(file.status.code() as u64)),
+        MetadataField::RecordClass => Some(number(class.code() as u64)),
+        MetadataField::CollectionName => Some(Value::String(collection_name.into())),
+        MetadataField::RepositoryRoot => repository_root
+            .map(|root| Value::String(crate::model::path_representation::query_path(root))),
     })
 }
 
@@ -42,6 +75,63 @@ fn timestamp_value(ns: i128) -> Result<Value, String> {
     time::OffsetDateTime::from_unix_timestamp_nanos(ns)
         .map(Value::Datetime)
         .map_err(|e| e.to_string())
+}
+
+#[cfg(test)]
+mod metadata_tests {
+    use super::*;
+    use crate::inventory::{FileStatus, SourceRevision};
+    use crate::model::FileId;
+
+    #[test]
+    fn absent_file_and_range_differ_from_unknown_creation_time() {
+        let id = crate::model::RecordId::intrinsic("entry-47").unwrap();
+        let value = |field, file| {
+            metadata_value_for_record(
+                field,
+                &id,
+                crate::inventory::RecordClass::Logical,
+                file,
+                "entries",
+                None,
+            )
+            .unwrap()
+        };
+        assert_eq!(
+            value(MetadataField::RecordId, None),
+            Some(Value::Id("entry-47".into()))
+        );
+        assert_eq!(value(MetadataField::FilePath, None), None);
+        assert_eq!(value(MetadataField::FileCreated, None), None);
+        assert_eq!(value(MetadataField::RecordByteStart, None), None);
+        assert_eq!(value(MetadataField::RepositoryRoot, None), None);
+
+        let file = FileEntry {
+            id: FileId(4),
+            relative_path: "data/a.json".into(),
+            revision: SourceRevision {
+                size: 100,
+                modified_ns: 0,
+            },
+            created_ns: None,
+            collections: Vec::new(),
+            status: FileStatus::Valid,
+            diagnostics: Vec::new(),
+            omitted_diagnostics: 0,
+        };
+        assert_eq!(
+            value(MetadataField::FileCreated, Some((&file, None))),
+            Some(Value::Null)
+        );
+        assert_eq!(
+            value(MetadataField::RecordByteStart, Some((&file, None))),
+            None
+        );
+        assert_eq!(
+            value(MetadataField::FileSize, Some((&file, None))),
+            Some(Value::Number(Number::integer(100)))
+        );
+    }
 }
 
 fn walk_path<'a>(value: &'a Value, parts: &[String], output: &mut impl Extend<&'a Value>) -> bool {
