@@ -526,7 +526,7 @@ fn scan_direct_target_parallel(
     let ctx = RecordContext {
         value: &extracted.value,
         source_bytes: Some(&bytes),
-        record: resolved.record,
+        record: &resolved.record,
         range: (resolved.record).record_range(),
         file: Some(resolved.file),
         collection_name: &target_collection.definition.name,
@@ -879,7 +879,7 @@ fn try_direct_relation_page(
                 let ctx = RecordContext {
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
-                    record: resolved.record,
+                    record: &resolved.record,
                     range: (resolved.record).record_range(),
                     file: Some(resolved.file),
                     collection_name: &target_collection.definition.name,
@@ -1061,7 +1061,7 @@ fn try_direct_relation_page(
                     sort,
                     *source_index,
                     &published.index,
-                    resolved.record,
+                    &resolved.record,
                     None,
                 )?
             };
@@ -1446,7 +1446,7 @@ fn scan_relation_file_parallel(
     let ctx = RecordContext {
         value: &extracted.value,
         source_bytes: Some(&bytes),
-        record,
+        record: &record,
         range: (record).record_range(),
         file: Some(resolved.file),
         collection_name: &resolved.collection.definition.name,
@@ -1538,13 +1538,13 @@ fn scan_relation_file_parallel(
             sort,
             collection_index,
             &segments[collection_index][job.segment_index].index,
-            record,
+            &record,
             Some(&ctx),
         )?;
         let mut hit = segment_locator_hit(
             resolved.collection,
             SegmentRecordRef {
-                record,
+                record: record.clone(),
                 file: resolved.file,
             },
             revision,
@@ -2289,7 +2289,7 @@ pub(super) fn search_segmented_relations(
             let ctx = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
-                record,
+                record: &record,
                 range: (record).record_range(),
                 file: Some(resolved.file),
                 collection_name: &resolved.collection.definition.name,
@@ -2423,7 +2423,7 @@ pub(super) fn search_segmented_relations(
             let hit = segment_locator_hit(
                 resolved.collection,
                 SegmentRecordRef {
-                    record,
+                    record: record.clone(),
                     file: resolved.file,
                 },
                 revision,

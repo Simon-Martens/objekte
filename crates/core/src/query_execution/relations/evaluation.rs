@@ -464,7 +464,7 @@ fn visit_merged_hop(
             let ctx = RecordContext {
                 value: &value,
                 source_bytes: None,
-                record: current.record,
+                record: &current.record,
                 range: (current.record).record_range(),
                 file: Some(current.file),
                 collection_name: &current.collection.definition.name,
@@ -518,7 +518,7 @@ fn visit_merged_hop(
             let ctx = RecordContext {
                 value: &value,
                 source_bytes: None,
-                record: current.record,
+                record: &current.record,
                 range: (current.record).record_range(),
                 file: Some(current.file),
                 collection_name: &current.collection.definition.name,
@@ -533,7 +533,7 @@ fn visit_merged_hop(
             let ctx = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
-                record: current.record,
+                record: &current.record,
                 range: (current.record).record_range(),
                 file: Some(current.file),
                 collection_name: &current.collection.definition.name,

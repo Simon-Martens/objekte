@@ -493,7 +493,10 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
         [0, 1, 2]
     );
     assert_eq!(indexed.file_records(FileId(900)).unwrap(), []);
-    assert_eq!(indexed.record(RecordSlot(2)).unwrap().file, FileId(1200));
+    assert_eq!(
+        indexed.file_record(RecordSlot(2)).unwrap().file,
+        FileId(1200)
+    );
     assert!(indexed.relations.is_empty());
     std::fs::remove_dir_all(root).unwrap();
 }

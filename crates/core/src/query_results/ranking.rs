@@ -609,7 +609,7 @@ pub(crate) fn cached_filter_target_sort_key(
     let ctx = RecordContext {
         value: &value,
         source_bytes: None,
-        record: resolved.record,
+        record: &resolved.record,
         range: (resolved.record).record_range(),
         file: Some(resolved.file),
         collection_name: &resolved.collection.definition.name,

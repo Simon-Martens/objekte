@@ -493,7 +493,7 @@ fn segment_metadata_fts_evidence(
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
-            record: resolved.record,
+            record: &resolved.record,
             range: (resolved.record).record_range(),
             file: Some(resolved.file),
             collection_name: &collection.definition.name,
@@ -550,7 +550,7 @@ pub(crate) fn make_hit(
 /// Resolve both through the same pinned segment; the base inventory cannot
 /// address a file added after the base generation was built.
 pub(crate) struct SegmentRecordRef<'a> {
-    pub record: &'a RecordEntry,
+    pub record: RecordEntry,
     pub file: &'a FileEntry,
 }
 
@@ -594,7 +594,9 @@ pub(crate) fn segment_record_ref<'a>(
     if !active.contains(slot) {
         return Ok(None);
     }
-    let record = segment.record(slot).ok_or("segment record slot missing")?;
+    let record = segment
+        .file_record(slot)
+        .ok_or("segment record slot missing")?;
     let locator = segment
         .backing
         .file_locator(slot)
@@ -775,7 +777,7 @@ pub(crate) fn direct_lookup_segmented(
                 payload,
             })
         });
-        (record, file, result)
+        (record.clone(), file, result)
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
         let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
@@ -1991,7 +1993,14 @@ fn offer_admitted_segment_slot(
     let matched_fields = evidence();
     let resolved = segment_record_ref(segment, &published.active, catalog, slot)?
         .ok_or("active segment candidate missing")?;
-    let key = segment_rank_key(repo, sort, collection_index, segment, resolved.record, None)?;
+    let key = segment_rank_key(
+        repo,
+        sort,
+        collection_index,
+        segment,
+        &resolved.record,
+        None,
+    )?;
     let hit_fields = match cache_builder {
         Some(builder) => {
             if !builder.is_accepting() {
@@ -2552,7 +2561,7 @@ fn search_segmented_impl(
                             &sort,
                             collection_index,
                             segment,
-                            resolved.record,
+                            &resolved.record,
                             None,
                         )?;
                         let hit = segment_locator_hit(
@@ -2778,7 +2787,7 @@ fn search_segmented_impl(
                                 let (_, matched, evidence, _) = verify_local_segment_record(
                                     repo,
                                     collection,
-                                    resolved.record,
+                                    &resolved.record,
                                     resolved.file,
                                     source_bytes,
                                     filter.as_ref(),
@@ -2882,7 +2891,7 @@ fn search_segmented_impl(
                             return Err("inactive segment scan slot".into());
                         }
                         let record = segment
-                            .record(RecordSlot(slot))
+                            .file_record(RecordSlot(slot))
                             .ok_or("segment scan slot missing")?;
                         if segment
                             .backing
@@ -2892,7 +2901,7 @@ fn search_segmented_impl(
                             return Err("segment scan file ownership mismatch".into());
                         }
                         let resolved = SegmentRecordRef { record, file };
-                        let record = resolved.record;
+                        let record = &resolved.record;
                         counters.record_parses += u64::from(
                             record.class == RecordClass::Logical
                                 && (direct_plan.is_none()
@@ -2910,7 +2919,7 @@ fn search_segmented_impl(
                             verify_local_segment_record(
                                 repo,
                                 collection,
-                                record,
+                                &record,
                                 resolved.file,
                                 &bytes,
                                 filter.as_ref(),
@@ -2966,7 +2975,7 @@ fn search_segmented_impl(
                                 let (_, still_matched, evidence, _) = verify_local_segment_record(
                                     repo,
                                     collection,
-                                    record,
+                                    &record,
                                     resolved.file,
                                     &bytes,
                                     filter.as_ref(),
@@ -4077,7 +4086,7 @@ fn try_lifecycle_ordered_stream(
         else {
             continue;
         };
-        let record = resolved.record;
+        let record = &resolved.record;
         let file = resolved.file;
         let collection = &repo.collections[cursor.collection_index];
         counters.candidates += 1;
@@ -4169,7 +4178,7 @@ fn try_lifecycle_ordered_stream(
                 repo,
                 catalog,
                 file,
-                record,
+                &record,
                 cursor.slot,
                 &mut reader,
                 max_buffered_bytes
@@ -4214,7 +4223,7 @@ fn try_lifecycle_ordered_stream(
             let (_, matched, found_evidence, raw_checked) = verify_local_segment_record(
                 repo,
                 collection,
-                record,
+                &record,
                 file,
                 &read,
                 filter.as_ref(),
@@ -4289,7 +4298,10 @@ fn try_lifecycle_ordered_stream(
         }
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef { record, file },
+            SegmentRecordRef {
+                record: record.clone(),
+                file,
+            },
             revision,
             if request.options.evidence {
                 evidence.into_iter().collect()
@@ -4343,7 +4355,7 @@ fn try_lifecycle_ordered_stream(
                         repo,
                         catalog,
                         file,
-                        record,
+                        &record,
                         cursor.slot,
                         &mut reader,
                         max_buffered_bytes
@@ -6590,7 +6602,7 @@ fn search_impl_with_resolved_sort<'a>(
                     query,
                     &sort,
                     collection_index,
-                    record,
+                    &record,
                     evidence,
                     None,
                     None,
@@ -6654,7 +6666,7 @@ fn search_impl_with_resolved_sort<'a>(
                     query,
                     &sort,
                     collection_index,
-                    record,
+                    &record,
                     evidence,
                     None,
                     None,
@@ -6682,7 +6694,7 @@ fn search_impl_with_resolved_sort<'a>(
                         query,
                         &sort,
                         collection_index,
-                        record,
+                        &record,
                         HashSet::new(),
                         None,
                         None,
@@ -7125,7 +7137,7 @@ fn search_impl_with_resolved_sort<'a>(
                             query,
                             &sort,
                             collection_index,
-                            record,
+                            &record,
                             matched.evidence.iter().cloned().collect(),
                             matched.payload,
                             matched.key,

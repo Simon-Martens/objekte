@@ -30,6 +30,42 @@ impl RecordIdSlot for crate::inventory::RecordEntry {
     }
 }
 
+/// Common segment-local record header. Source coordinates belong to the
+/// segment backing and are addressed by this header's slot.
+#[derive(Clone, Debug)]
+pub(crate) struct RecordHeader {
+    pub slot: RecordSlot,
+    pub id: RecordId,
+    pub class: RecordClass,
+    pub diagnostic_ref: DiagnosticRef,
+}
+
+impl From<&crate::inventory::RecordEntry> for RecordHeader {
+    fn from(record: &crate::inventory::RecordEntry) -> Self {
+        Self {
+            slot: record.slot,
+            id: record.id.clone(),
+            class: record.class,
+            diagnostic_ref: record.diagnostic_ref,
+        }
+    }
+}
+
+impl RecordIdSlot for RecordHeader {
+    fn record_id(&self) -> &RecordId {
+        &self.id
+    }
+    fn record_slot(&self) -> RecordSlot {
+        self.slot
+    }
+    fn record_class(&self) -> RecordClass {
+        self.class
+    }
+    fn record_range(&self) -> Option<crate::inventory::ByteRange> {
+        None
+    }
+}
+
 pub mod reader;
 
 /// A logical record key. IDs are unique among live records only within their

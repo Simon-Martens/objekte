@@ -1951,13 +1951,7 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
     assert!(first.index.accounting.index_family_bytes > 0);
     assert_eq!(
         first.index.accounting.max_record_range_len,
-        first
-            .index
-            .records
-            .iter()
-            .map(|record| record.range.len())
-            .max()
-            .unwrap_or(0)
+        first.index.backing.max_file_range_len()
     );
     std::fs::write(
         root.join("data/c.json"),

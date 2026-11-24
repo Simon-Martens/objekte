@@ -3147,10 +3147,16 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert!(live.hits.iter().all(
         |hit| hit.file_path != std::path::Path::new("data/base.jsonl") || hit.byte_start != 0
     ));
-    assert!(live.hits.iter().all(
-        |hit| hit.file_path != std::path::Path::new("data/delta.jsonl")
-            || hit.byte_start != retired_segments[0][1].index.records[1].range.start
-    ));
+    assert!(live.hits.iter().all(|hit| {
+        hit.file_path != std::path::Path::new("data/delta.jsonl")
+            || hit.byte_start
+                != retired_segments[0][1]
+                    .index
+                    .file_record(RecordSlot(1))
+                    .unwrap()
+                    .range
+                    .start
+    }));
     let hidden_path = root.join("data/hidden.jsonl");
     std::fs::rename(&path, &hidden_path).unwrap();
     let exact_output = Query {
@@ -3890,7 +3896,9 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
         .sortable_scalar(&["label".into()])
         .unwrap();
     let mut generation = collection.generation.clone();
-    generation.records = segment.index.records.clone();
+    generation.records = (0..segment.index.records.len())
+        .map(|slot| segment.index.file_record(RecordSlot(slot as u32)).unwrap())
+        .collect();
     let token = CancellationToken::new();
     let context = ExecutionContext::new(
         crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),

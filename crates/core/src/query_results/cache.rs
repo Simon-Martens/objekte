@@ -260,7 +260,7 @@ pub(crate) fn materialize_lifecycle_cached(
                 RecordSlot(member.slot),
             )?
             .ok_or("cached lifecycle segment slot retired")?;
-            charge_lifecycle_cached_payload(context, query, resolved.record)?;
+            charge_lifecycle_cached_payload(context, query, &resolved.record)?;
             let payload = if query.options.return_mode == ReturnMode::Locator {
                 Ok(None)
             } else {
@@ -306,11 +306,14 @@ pub(crate) fn materialize_lifecycle_cached(
                     })
                     .map(|(payload, _)| payload)
             };
-            (record, file, payload)
+            (record.clone(), file, payload)
         };
         let mut hit = segment_locator_hit(
             collection,
-            SegmentRecordRef { record, file },
+            SegmentRecordRef {
+                record: record.clone(),
+                file,
+            },
             revision,
             member.matched_fields.to_vec(),
         );

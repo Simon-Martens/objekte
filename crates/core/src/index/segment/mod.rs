@@ -477,7 +477,7 @@ pub(crate) struct IndexedCollectionSegment {
     pub source_version: u32,
     pub files: Vec<SegmentFile>,
     pub file_index: HashMap<FileId, usize>,
-    pub records: Vec<RecordEntry>,
+    pub records: Vec<crate::records::RecordHeader>,
     pub backing: SegmentBacking,
     pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
@@ -777,8 +777,25 @@ impl IndexedCollectionSegment {
         self.files.get(*self.file_index.get(&id)?)
     }
 
-    pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
+    pub fn record(&self, slot: RecordSlot) -> Option<&crate::records::RecordHeader> {
         self.records.get(slot.0 as usize)
+    }
+
+    /// Reconstitute a file record for the legacy optimized file scanner.
+    /// This value is transient; native segment storage keeps source columns
+    /// separate from the common header.
+    pub(crate) fn file_record(&self, slot: RecordSlot) -> Option<RecordEntry> {
+        let header = self.record(slot)?;
+        let locator = self.backing.file_locator(slot)?;
+        Some(RecordEntry {
+            slot: header.slot,
+            id: header.id.clone(),
+            file: locator.file,
+            range: locator.range?,
+            revision: locator.revision,
+            class: header.class,
+            diagnostic_ref: header.diagnostic_ref,
+        })
     }
 
     pub fn file_records(&self, id: FileId) -> Option<&[RecordSlot]> {

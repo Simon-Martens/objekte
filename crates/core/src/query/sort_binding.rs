@@ -679,7 +679,7 @@ impl ComputedSort {
                 let ctx = RecordContext {
                     value: source_value.unwrap_or(&empty),
                     source_bytes: None,
-                    record: current.record,
+                    record: &current.record,
                     range: (current.record).record_range(),
                     file: Some(current.file),
                     collection_name: &current.collection.definition.name,

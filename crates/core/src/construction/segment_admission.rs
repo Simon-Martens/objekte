@@ -1002,7 +1002,11 @@ impl CollectionSegment {
             source_version: self.source_version,
             files: self.files,
             file_index: self.file_index,
-            records: self.records,
+            records: self
+                .records
+                .iter()
+                .map(crate::records::RecordHeader::from)
+                .collect(),
             backing,
             id_lookup: self.id_lookup,
             identity_order,

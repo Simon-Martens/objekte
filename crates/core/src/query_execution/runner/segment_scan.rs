@@ -255,7 +255,7 @@ pub(super) fn scan_segment_file_parallel(
                 return Err("inactive segment scan slot".into());
             }
             let record = segment
-                .record(RecordSlot(slot))
+                .file_record(RecordSlot(slot))
                 .ok_or("segment scan slot missing")?;
             if segment
                 .backing
@@ -281,7 +281,7 @@ pub(super) fn scan_segment_file_parallel(
             let (extracted, matched, evidence, raw_checked) = verify_local_segment_record(
                 repo,
                 collection,
-                record,
+                &record,
                 resolved.file,
                 &bytes,
                 filter,
@@ -300,7 +300,7 @@ pub(super) fn scan_segment_file_parallel(
             let ctx = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
-                record,
+                record: &record,
                 range: (record).record_range(),
                 file: Some(resolved.file),
                 collection_name: &collection.definition.name,
@@ -308,7 +308,7 @@ pub(super) fn scan_segment_file_parallel(
             };
             result.matches += 1;
             result.sort_key_evaluations += u64::from(sort.bound.has_computed);
-            let key = segment_rank_key(repo, sort, collection_index, segment, record, Some(&ctx))?;
+            let key = segment_rank_key(repo, sort, collection_index, segment, &record, Some(&ctx))?;
             if cap == 0
                 || (local_winners.len() >= cap
                     && local_winners

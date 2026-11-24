@@ -63,7 +63,7 @@ fn active_for_files(
         .records
         .iter()
         .filter_map(|record| {
-            let file = segment.file(record.file)?;
+            let file = segment.file(segment.backing.file_locator(record.slot)?.file)?;
             let file_name = file.entry.relative_path.file_name()?.to_str()?;
             file_names.contains(&file_name).then_some(record.slot.0)
         })
@@ -754,9 +754,12 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
     interrupted.files[0].entry.id = crate::model::FileId(10);
     interrupted.file_index.remove(&old_file);
     interrupted.file_index.insert(crate::model::FileId(10), 0);
-    for record in &mut interrupted.records {
-        if record.file == old_file {
-            record.file = crate::model::FileId(10);
+    if let crate::index::segment::SegmentBacking::FileRange { locators } = &mut interrupted.backing
+    {
+        for locator in locators {
+            if locator.file == old_file {
+                locator.file = crate::model::FileId(10);
+            }
         }
     }
 

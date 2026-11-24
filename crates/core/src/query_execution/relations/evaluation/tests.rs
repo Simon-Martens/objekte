@@ -1057,7 +1057,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
     let ctx = crate::query::semantics::record::RecordContext {
         value: &value,
         source_bytes: None,
-        record: resolved.record,
+        record: &resolved.record,
         range: (resolved.record).record_range(),
         file: Some(resolved.file),
         collection_name: &resolved.collection.definition.name,
@@ -2616,7 +2616,7 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
     let owner_ctx = crate::query::semantics::record::RecordContext {
         value: &owner_value,
         source_bytes: None,
-        record: owner_record.record,
+        record: &owner_record.record,
         range: (owner_record.record).record_range(),
         file: Some(owner_record.file),
         collection_name: &owner_record.collection.definition.name,
@@ -2972,7 +2972,9 @@ fn base_repository(root: &std::path::Path, definitions: Vec<CollectionDefinition
             "test fixture expects one native segment per collection"
         );
         let segment = Arc::clone(&repo.segments[collection_index][0].index);
-        let records = segment.records.clone();
+        let records = (0..segment.records.len())
+            .map(|slot| segment.file_record(crate::model::RecordSlot(slot as u32)).unwrap())
+            .collect::<Vec<_>>();
         let files = segment
             .files
             .iter()
@@ -3715,7 +3717,7 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
     let merged_ctx = crate::query::semantics::record::RecordContext {
         value: &value,
         source_bytes: None,
-        record: resolved.record,
+        record: &resolved.record,
         range: (resolved.record).record_range(),
         file: Some(resolved.file),
         collection_name: &resolved.collection.definition.name,

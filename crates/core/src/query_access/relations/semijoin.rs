@@ -936,7 +936,7 @@ fn verify_qualified_targets(
                 let ctx = RecordContext {
                     value: &prepared.value,
                     source_bytes: Some(&bytes),
-                    record: resolved.record,
+                    record: &resolved.record,
                     range: (resolved.record).record_range(),
                     file: Some(resolved.file),
                     collection_name: &resolved.collection.definition.name,

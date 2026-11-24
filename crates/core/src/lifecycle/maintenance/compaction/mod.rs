@@ -107,7 +107,10 @@ pub(crate) fn base_as_segment(
         source_version: collection.required_file_reader().version(),
         files: segment_files,
         file_index,
-        records,
+        records: records
+            .iter()
+            .map(crate::records::RecordHeader::from)
+            .collect(),
         backing,
         id_lookup: collection.id_lookup.clone(),
         identity_order: collection.identity_order.clone(),

@@ -32,7 +32,7 @@ pub(crate) struct MergedRecordSlot {
 }
 
 pub(crate) struct MergedRecord<'a> {
-    pub record: &'a crate::inventory::RecordEntry,
+    pub record: crate::inventory::RecordEntry,
     pub file: &'a crate::inventory::FileEntry,
     pub collection: &'a CollectionState,
 }
@@ -320,7 +320,7 @@ impl<'a> MergedRelationView<'a> {
             }
             let segment = &published.index;
             let record = segment
-                .record(address.slot)
+                .file_record(address.slot)
                 .ok_or("merged segment slot missing")?;
             let file_index = segment
                 .file_index
@@ -348,7 +348,7 @@ impl<'a> MergedRelationView<'a> {
                 .files
                 .get(record.file.0 as usize)
                 .ok_or("merged base file missing")?;
-            (record, file.revision)
+            (record.clone(), file.revision)
         };
         let file = self
             .catalog
