@@ -18,6 +18,7 @@ mod construction;
 pub mod files;
 pub mod index;
 pub mod inference;
+pub mod ingestion;
 pub mod inventory;
 pub mod lifecycle;
 pub mod measurement;

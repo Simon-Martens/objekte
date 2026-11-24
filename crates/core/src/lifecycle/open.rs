@@ -67,6 +67,7 @@ impl Index {
             )),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
+            ingestion: Mutex::new(std::sync::Weak::new()),
             maintenance: Mutex::new(MaintenanceState {
                 reconciliation: ReconciliationState::NotStarted,
                 current: None,

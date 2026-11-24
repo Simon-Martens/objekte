@@ -48,7 +48,7 @@ impl SourceFormat {
 }
 
 /// Extracted searchable string with its logical field path.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct TextSegment {
     pub path: Vec<String>,
     pub text: String,

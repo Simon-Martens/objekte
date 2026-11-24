@@ -7,6 +7,7 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle::catalog::FileCatalog;
+use crate::model::{CollectionId, RecordId};
 use crate::repository::Repository;
 
 use super::{
@@ -36,6 +37,18 @@ pub(crate) struct PublishedIndex {
     /// Only populated during an initial build. One bitmap per collection
     /// prevents a shared physical file from being counted too early.
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum RecordMutationKind {
+    Insert,
+    Replace,
+    Delete,
+}
+
+pub(crate) struct RecordMutation {
+    pub(crate) id: RecordId,
+    pub(crate) kind: RecordMutationKind,
 }
 
 fn cheapest_consolidation_pair(
@@ -576,12 +589,15 @@ fn prepare_initial_segment(
 }
 
 impl Index {
-    /// Install a fully indexed record batch through the ordinary immutable
-    /// publication root. Preparation happens before acquiring the writer lock.
-    pub(crate) fn publish_record_segment(
+    /// Apply one accepted registrar batch atomically. Retirement and any new
+    /// native segment are staged in a private root before the revision CAS.
+    pub(crate) fn publish_record_batch(
         &self,
         expected: IndexRevision,
-        segment: IndexedCollectionSegment,
+        collection: CollectionId,
+        registration: u32,
+        changes: &[RecordMutation],
+        segment: Option<IndexedCollectionSegment>,
     ) -> Result<IndexRevision, IndexError> {
         let view = self.view()?;
         if view.revision() != expected {
@@ -593,7 +609,77 @@ impl Index {
         if !view.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
         }
-        let mut next = (*view.0).clone().with_segment_observation(segment, None)?;
+        let number = collection.0 as usize;
+        let collection_state =
+            view.0.repository.collections.get(number).ok_or_else(|| {
+                IndexError::InvalidPublication("record collection missing".into())
+            })?;
+        let mut next = (*view.0).clone();
+        for change in changes {
+            let base = collection_state
+                .id_lookup
+                .get(&change.id)
+                .copied()
+                .filter(|slot| next.active[number].contains(*slot));
+            let mut found = None;
+            for (index, published) in next.segments[number].iter().enumerate() {
+                if let Some(slot) = published.index.id_lookup.get(&change.id).copied()
+                    && published.active.contains(slot)
+                {
+                    if found.replace((index, slot)).is_some() || base.is_some() {
+                        return Err(IndexError::InvalidPublication(
+                            "duplicate live record ID".into(),
+                        ));
+                    }
+                }
+            }
+            match change.kind {
+                RecordMutationKind::Insert => {
+                    if base.is_some() || found.is_some() {
+                        return Err(IndexError::DuplicateRecordId {
+                            collection: collection_state.definition.name.clone(),
+                            record_id: change.id.0.to_string(),
+                        });
+                    }
+                }
+                RecordMutationKind::Replace | RecordMutationKind::Delete => {
+                    let (index, slot) = found.ok_or_else(|| {
+                        IndexError::Build(format!(
+                            "record {} is missing or owned by another registrar",
+                            change.id.0
+                        ))
+                    })?;
+                    let published = &next.segments[number][index];
+                    let owner = match &published.index.backing {
+                        crate::index::segment::SegmentBacking::Retained {
+                            registration, ..
+                        }
+                        | crate::index::segment::SegmentBacking::Provider {
+                            registration, ..
+                        } => *registration,
+                        crate::index::segment::SegmentBacking::FileRange { .. } => u32::MAX,
+                    };
+                    if owner != registration {
+                        return Err(IndexError::Build(format!(
+                            "record {} belongs to another registrar",
+                            change.id.0
+                        )));
+                    }
+                    let group = Arc::make_mut(&mut next.segments[number]);
+                    let published = Arc::make_mut(&mut group[index]);
+                    published.active = published
+                        .active
+                        .retired(&[slot])
+                        .map_err(IndexError::InvalidPublication)?;
+                }
+            }
+        }
+        if let Some(segment) = segment {
+            if segment.collection != collection {
+                return Err(IndexError::ForeignInstance);
+            }
+            next = next.with_segment_observation(segment, None)?;
+        }
         next.revision = expected.next()?;
         self.publish_prepared(expected, next)
     }

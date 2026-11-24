@@ -14,7 +14,7 @@ static NEXT_BUILDER_ID: AtomicU64 = AtomicU64::new(1);
 
 /// An index-scoped registration for one collection and stable adapter identity.
 /// A registration issued by one builder cannot write into a different index.
-#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq, serde::Serialize, serde::Deserialize)]
 pub struct RecordRegistration {
     pub(crate) builder_id: u64,
     pub(crate) ordinal: u32,
@@ -67,6 +67,43 @@ impl Index {
     /// Begin a programmatic index configuration; no path or file service is needed.
     pub fn builder() -> IndexBuilder {
         IndexBuilder::default()
+    }
+
+    /// Reuse the active ingestion session, or start a fresh ordered session
+    /// after its predecessor has finished or failed.
+    pub fn ingestion(&self) -> crate::ingestion::IngestionSession {
+        if let Ok(active) = self.0.ingestion.lock()
+            && let Some(core) = active.upgrade()
+            && core.is_open()
+        {
+            return crate::ingestion::IngestionSession::from_core(core);
+        }
+        self.ingestion_with_options(crate::ingestion::IngestionOptions::default())
+            .expect("default ingestion session could not start")
+    }
+
+    pub fn ingestion_with_options(
+        &self,
+        options: crate::ingestion::IngestionOptions,
+    ) -> Result<crate::ingestion::IngestionSession, IndexError> {
+        let mut active = self
+            .0
+            .ingestion
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if let Some(core) = active.upgrade()
+            && core.is_open()
+        {
+            if core.options() != &options {
+                return Err(IndexError::Build(
+                    "active ingestion session has different options".into(),
+                ));
+            }
+            return Ok(crate::ingestion::IngestionSession::from_core(core));
+        }
+        let core = crate::ingestion::queue::SessionCore::new(self.clone(), options);
+        *active = std::sync::Arc::downgrade(&core);
+        Ok(crate::ingestion::IngestionSession::from_core(core))
     }
 }
 
@@ -266,7 +303,7 @@ mod tests {
         let options = before.repository().options();
         let (headers, bodies, contribution) =
             crate::construction::batch::build_retained_contribution(
-                vec![(id, value.clone(), Vec::new())],
+                vec![(id.clone(), value.clone(), Vec::new())],
                 declaration,
                 &options,
             )
@@ -292,7 +329,16 @@ mod tests {
             )
             .unwrap();
         let published = index
-            .publish_record_segment(before.revision(), segment)
+            .publish_record_batch(
+                before.revision(),
+                entries,
+                registration.ordinal,
+                &[crate::lifecycle::publication::RecordMutation {
+                    id,
+                    kind: crate::lifecycle::publication::RecordMutationKind::Insert,
+                }],
+                Some(segment),
+            )
             .unwrap();
         let after = index.view().unwrap();
         assert_eq!(after.revision(), published);

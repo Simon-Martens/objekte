@@ -1281,8 +1281,7 @@ fn segment_raw_covers_identity_field(
 ) -> bool {
     collection.source.as_ref().is_some_and(|source| {
         source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
-    })
-        && collection.definition.schema.raw.is_none()
+    }) && collection.definition.schema.raw.is_none()
         && segment.raw.record_count as usize == segment.record_count()
 }
 

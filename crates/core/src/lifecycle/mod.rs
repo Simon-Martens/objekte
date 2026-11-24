@@ -305,6 +305,7 @@ struct IndexInner {
     verified_cache: Mutex<crate::query_results::verified::VerifiedCache>,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
+    ingestion: Mutex<std::sync::Weak<crate::ingestion::queue::SessionCore>>,
     maintenance: Mutex<MaintenanceState>,
     maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
     periodic_transition: Mutex<()>,
@@ -389,7 +390,7 @@ impl Index {
     }
 }
 
-mod publication;
+pub(crate) mod publication;
 pub mod session;
 
 pub(crate) use publication::PublishedIndex;
