@@ -2163,6 +2163,169 @@ fn record_source_candidates(
 
 type NativeTruth = HashMap<String, Vec<String>>;
 
+fn native_multi_hop_truth(
+    repo: &Repository,
+    query: &Query,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    term: &BoundTerm,
+    counters: &mut WorkCounters,
+) -> Result<Option<NativeTruth>, String> {
+    let Some(related) = term.related.as_ref() else {
+        return Ok(None);
+    };
+    if related.hops.len() < 2
+        || related.source_operand.is_some()
+        || related.hops.iter().any(|hop| !hop.selectors.is_empty())
+        || !matches!(term.quantifier, Quantifier::Default | Quantifier::Any)
+    {
+        return Ok(None);
+    }
+    if term.quantifier == Quantifier::Default {
+        for hop in &related.hops {
+            if hop.direction != crate::query::binding::relation::HopDirection::Forward {
+                return Ok(None);
+            }
+            let source = &repo.collections[hop.from.0 as usize];
+            let relation = source
+                .relations
+                .get(hop.relation.ordinal as usize)
+                .ok_or("multi-hop relation declaration missing")?;
+            if relation.declaration.cardinality
+                != crate::schema::relations::RelationCardinality::One
+            {
+                return Ok(None);
+            }
+            for depth in 1..relation.declaration.path.len() {
+                let ancestor = source
+                    .definition
+                    .schema
+                    .fields()
+                    .get(&relation.declaration.path[..depth]);
+                if ancestor
+                    .is_some_and(|field| matches!(field.kind, crate::model::LogicalType::Array(_)))
+                {
+                    return Ok(None);
+                }
+            }
+        }
+    }
+    let terminal_collection = related.hops.last().expect("nonempty path").to.0 as usize;
+    let mut matched = HashSet::new();
+    for published in segments[terminal_collection].iter() {
+        let bounds = segment_filter_bounds_with_catalog(
+            &published.index,
+            &published.active,
+            &BoundExpr::Term((*related.terminal).clone()),
+            &repo.collections[terminal_collection],
+            Some(catalog),
+        )?;
+        if bounds.may != bounds.must {
+            return Ok(None);
+        }
+        counters.relation_target_candidates += bounds.may.len();
+        counters.relation_target_matches += bounds.must.len();
+        for slot in bounds.must.iter() {
+            let record = published
+                .index
+                .record(RecordSlot(slot))
+                .ok_or("multi-hop target slot missing")?;
+            matched.insert(record.id.0.to_string());
+        }
+    }
+    for hop in related.hops.iter().rev() {
+        let mut sources = HashSet::new();
+        if hop.direction == crate::query::binding::relation::HopDirection::Forward {
+            for published in segments[hop.from.0 as usize].iter() {
+                let relation = published
+                    .index
+                    .relations
+                    .get(hop.relation.ordinal as usize)
+                    .ok_or("multi-hop forward contribution missing")?;
+                for slot in published.active.bitmap().iter() {
+                    let record = published
+                        .index
+                        .record(RecordSlot(slot))
+                        .ok_or("multi-hop source slot missing")?;
+                    for (target, _) in relation.references_for_source(RecordSlot(slot)) {
+                        counters.relation_edge_visits += 1;
+                        if matched.contains(target) {
+                            sources.insert(record.id.0.to_string());
+                            break;
+                        }
+                    }
+                }
+            }
+        } else {
+            let active_sources = segments[hop.from.0 as usize]
+                .iter()
+                .flat_map(|published| {
+                    published
+                        .index
+                        .id_lookup
+                        .iter()
+                        .filter(|(_, slot)| published.active.contains(**slot))
+                        .map(|(id, _)| id.0.to_string())
+                })
+                .collect::<HashSet<_>>();
+            for published in segments[hop.to.0 as usize].iter() {
+                let relation = published
+                    .index
+                    .relations
+                    .get(hop.relation.ordinal as usize)
+                    .ok_or("multi-hop backlink contribution missing")?;
+                for slot in published.active.bitmap().iter() {
+                    let record = published
+                        .index
+                        .record(RecordSlot(slot))
+                        .ok_or("multi-hop backlink slot missing")?;
+                    if !matched.contains(record.id.0.as_ref()) {
+                        continue;
+                    }
+                    for (source, _) in relation.references_for_source(RecordSlot(slot)) {
+                        counters.relation_edge_visits += 1;
+                        if active_sources.contains(source) {
+                            sources.insert(source.to_owned());
+                        }
+                    }
+                }
+            }
+        }
+        matched = sources;
+    }
+    let evidence = if query.options.evidence
+        && term.derived == Derived::None
+        && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+    {
+        let mut fields = vec![
+            term.query_path.display.clone(),
+            related.evidence_path.clone(),
+        ];
+        fields.sort();
+        fields.dedup();
+        fields
+    } else {
+        Vec::new()
+    };
+    Ok(Some(
+        matched
+            .into_iter()
+            .map(|id| (id, evidence.clone()))
+            .collect(),
+    ))
+}
+
+fn has_multi_hop(expr: &BoundExpr) -> bool {
+    match expr {
+        BoundExpr::Term(term) => term
+            .related
+            .as_ref()
+            .is_some_and(|related| related.hops.len() > 1),
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts.iter().any(has_multi_hop),
+        BoundExpr::Not(inner) => has_multi_hop(inner),
+    }
+}
+
 fn native_boolean_truth(
     repo: &Repository,
     query: &Query,
@@ -2180,7 +2343,7 @@ fn native_boolean_truth(
     match expression {
         BoundExpr::Term(term) if term.related.is_some() => {
             let Some((hop, _)) = eligible_direct_relation_term(repo, term) else {
-                return Ok(None);
+                return native_multi_hop_truth(repo, query, segments, catalog, term, counters);
             };
             if hop.direction == crate::query::binding::relation::HopDirection::Forward {
                 let target_ids = segments[hop.to.0 as usize]
@@ -2356,6 +2519,9 @@ fn native_boolean_truth(
             Ok(Some(combined))
         }
         BoundExpr::Not(inner) => {
+            if has_multi_hop(inner) {
+                return Ok(None);
+            }
             let Some(excluded) = native_boolean_truth(
                 repo,
                 query,
@@ -2398,13 +2564,10 @@ fn try_exact_native_boolean_page(
     retained_budget: Option<usize>,
 ) -> Result<Option<SearchResult>, String> {
     let [entry] = prepared else { return Ok(None) };
-    let Some(filter) = entry.filter.as_ref() else {
+    if entry.filter.is_none() && entry.fts.is_none() {
         return Ok(None);
-    };
-    if entry.fts.is_some()
-        || sort.bound.has_computed
-        || base_active.iter().any(|active| active.len() != 0)
-    {
+    }
+    if sort.bound.has_computed || base_active.iter().any(|active| active.len() != 0) {
         return Ok(None);
     }
     let collection_index = entry.collection_index;
@@ -2430,23 +2593,90 @@ fn try_exact_native_boolean_page(
         context.check_slots(universe.len() as u64)?;
     }
     let mut counters = WorkCounters::default();
-    let Some(truth) = native_boolean_truth(
-        repo,
-        query,
-        base_active,
-        segments,
-        catalog,
-        revision,
-        sort,
-        entry,
-        filter,
-        &universe,
-        context,
-        &mut counters,
-    )?
-    else {
-        return Ok(None);
+    let mut truth = if let Some(filter) = entry.filter.as_ref() {
+        let Some(truth) = native_boolean_truth(
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            sort,
+            entry,
+            filter,
+            &universe,
+            context,
+            &mut counters,
+        )?
+        else {
+            return Ok(None);
+        };
+        truth
+    } else {
+        universe.clone()
     };
+    if let Some(fts) = entry.fts.as_ref() {
+        let [field] = fts.fields.as_slice() else {
+            return Ok(None);
+        };
+        let Some([hop]) = field.related.as_deref() else {
+            return Ok(None);
+        };
+        if hop.direction != crate::query::binding::relation::HopDirection::Forward
+            || !hop.selectors.is_empty()
+            || field.query_path.is_some()
+        {
+            return Ok(None);
+        }
+        let mut leaf_query = query.clone();
+        leaf_query.options.offset = 0;
+        leaf_query.options.limit = universe.len();
+        leaf_query.options.return_mode = ReturnMode::Locator;
+        leaf_query.options.count = true;
+        let mut leaf = entry.clone();
+        leaf.filter = None;
+        let Some(fts_result) = try_direct_relation_page(
+            repo,
+            &leaf_query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            sort,
+            &[leaf],
+            context,
+            None,
+            None,
+        )?
+        else {
+            return Ok(None);
+        };
+        if fts_result.count != Some(fts_result.hits.len()) {
+            return Ok(None);
+        }
+        counters.relation_target_candidates += fts_result.counters.relation_target_candidates;
+        counters.relation_target_matches += fts_result.counters.relation_target_matches;
+        counters.relation_target_reads += fts_result.counters.relation_target_reads;
+        counters.relation_target_file_opens += fts_result.counters.relation_target_file_opens;
+        counters.relation_bytes_read += fts_result.counters.relation_bytes_read;
+        counters.bytes_read += fts_result.counters.bytes_read;
+        counters.files_opened += fts_result.counters.files_opened;
+        let fts_truth = fts_result
+            .hits
+            .into_iter()
+            .map(|hit| (hit.record_id, hit.matched_fields))
+            .collect::<NativeTruth>();
+        truth.retain(|id, evidence| {
+            if let Some(fields) = fts_truth.get(id) {
+                evidence.extend(fields.iter().cloned());
+                evidence.sort();
+                evidence.dedup();
+                true
+            } else {
+                false
+            }
+        });
+    }
     let cap = query
         .options
         .offset

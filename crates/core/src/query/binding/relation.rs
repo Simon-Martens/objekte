@@ -94,10 +94,12 @@ pub(crate) fn bind_fts_with_relations(
             let target = hops.last().ok_or("relation FTS has no hop")?.to.0 as usize;
             if terminal.has_explicit_array_step
                 && repo.collections[target]
-                    .required_file_reader()
-                    .reader()
-                    .text_derivation()
-                    != TextDerivation::LogicalStringsAfterConversion
+                    .source
+                    .as_ref()
+                    .is_some_and(|source| {
+                        source.reader().text_derivation()
+                            != TextDerivation::LogicalStringsAfterConversion
+                    })
             {
                 return Err(
                     "selected FTS array positions require logical-string text derivation".into(),
@@ -131,10 +133,12 @@ pub(crate) fn bind_fts_with_relations(
             local.fields.push(direct);
             if path.has_explicit_array_step {
                 if repo.collections[collection_index]
-                    .required_file_reader()
-                    .reader()
-                    .text_derivation()
-                    != TextDerivation::LogicalStringsAfterConversion
+                    .source
+                    .as_ref()
+                    .is_some_and(|source| {
+                        source.reader().text_derivation()
+                            != TextDerivation::LogicalStringsAfterConversion
+                    })
                 {
                     return Err(
                         "selected FTS array positions require logical-string text derivation"

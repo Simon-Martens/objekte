@@ -1321,5 +1321,114 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
             "{expression}"
         );
     }
+    let related_fts = Query {
+        collections: vec!["mentions".into()],
+        filter: Some(parse_filter("id = 'm'").unwrap()),
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "Leipzig".into(),
+            pattern_parameter: None,
+            fields: vec![FtsField {
+                path: objekte_search_core::model::FieldPath::parse("entry.title").unwrap(),
+                binding: None,
+                query_path: None,
+            }],
+        }),
+        ..backlink
+    };
+    let result = index.view().unwrap().search(&related_fts).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "m");
+    session.finish().unwrap();
+}
+
+#[test]
+fn fileless_two_hop_relation_joins_indexed_targets() {
+    let mut places_schema = Schema::default();
+    let mut entries_schema = Schema::default();
+    let mut mentions_schema = Schema::default();
+    for (schema, name, kind) in [
+        (&mut places_schema, "name", LogicalType::String),
+        (&mut entries_schema, "place", LogicalType::Id),
+        (&mut mentions_schema, "entry", LogicalType::Id),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    entries_schema
+        .register_relation(RelationDefinition {
+            path: vec!["place".into()],
+            target_collection: "places".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: None,
+        })
+        .unwrap();
+    mentions_schema
+        .register_relation(RelationDefinition {
+            path: vec!["entry".into()],
+            target_collection: "entries".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: None,
+        })
+        .unwrap();
+    let mut options = RepositoryOptions::default();
+    options.segment_policy =
+        objekte_search_core::index::segment::SegmentPolicy::with_target_records(
+            std::num::NonZeroUsize::new(1).unwrap(),
+        )
+        .unwrap();
+    let mut builder = Index::builder().with_options(options);
+    let places = builder.collection("places", places_schema).unwrap();
+    let entries = builder.collection("entries", entries_schema).unwrap();
+    let mentions = builder.collection("mentions", mentions_schema).unwrap();
+    let places_registration = builder.register_records(places, "places", 1).unwrap();
+    let entries_registration = builder.register_records(entries, "entries", 1).unwrap();
+    let mentions_registration = builder.register_records(mentions, "mentions", 1).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    for (registration, id, value) in [
+        (
+            places_registration,
+            "p",
+            serde_json::json!({"name":"Leipzig"}),
+        ),
+        (places_registration, "q", serde_json::json!({"name":"Wien"})),
+        (entries_registration, "e", serde_json::json!({"place":"p"})),
+        (entries_registration, "f", serde_json::json!({"place":"q"})),
+        (mentions_registration, "m", serde_json::json!({"entry":"e"})),
+        (mentions_registration, "n", serde_json::json!({"entry":"f"})),
+    ] {
+        let writer = session.writer(registration).unwrap();
+        let mut batch = writer.batch();
+        batch.insert(id, Value::from_json(value).unwrap()).unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+    }
+    let query = Query {
+        collections: vec!["mentions".into()],
+        fts: None,
+        filter: Some(parse_filter("entry.place.name = 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            offset: 0,
+            limit: 10,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let result = index.view().unwrap().search(&query).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "m");
+    assert_eq!(index.view().unwrap().segment_summaries().len(), 6);
     session.finish().unwrap();
 }
