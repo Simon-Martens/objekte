@@ -1405,6 +1405,124 @@ mod tests {
     use super::*;
 
     #[test]
+    fn structured_translation_preserves_fractional_bounds_arrays_and_identity_ties() {
+        let mut builder = Schema::builder();
+        let collection = builder.add_text_field("collection", STRING | STORED);
+        let record_id = builder.add_text_field("record_id", STRING | STORED);
+        let source = builder.add_json_field(
+            "source",
+            JsonObjectOptions::default()
+                .set_stored()
+                .set_fast("raw")
+                .set_indexing_options(TextFieldIndexing::default().set_tokenizer("raw")),
+        );
+        let identity_ordinal = builder.add_u64_field("identity_ordinal", tantivy::schema::FAST);
+        let numbering_sort = builder.add_f64_field("numbering_sort", tantivy::schema::FAST);
+        let index = Index::create_in_ram(builder.build());
+        let mut writer = index.writer(50_000_000).unwrap();
+        // Identity ordinals follow (collection, id), independent of insertion order.
+        for (name, id, ordinal, value) in [
+            (
+                "entries",
+                "z",
+                5,
+                serde_json::json!({"numbering": 2.0, "tags": ["x"]}),
+            ),
+            (
+                "entries",
+                "b",
+                2,
+                serde_json::json!({"numbering": 1.5, "tags": ["x", "x"]}),
+            ),
+            (
+                "series",
+                "b",
+                6,
+                serde_json::json!({"numbering": 1.5, "tags": ["x"]}),
+            ),
+            (
+                "entries",
+                "a",
+                1,
+                serde_json::json!({"numbering": 1.0, "tags": null}),
+            ),
+            (
+                "entries",
+                "d",
+                4,
+                serde_json::json!({"numbering": 1.75, "tags": []}),
+            ),
+            ("entries", "c", 3, serde_json::json!({"numbering": 1.5})),
+        ] {
+            let mut document = doc!(collection => name, record_id => id, source => value.clone(), identity_ordinal => ordinal as u64);
+            if let Some(number) = value["numbering"].as_f64() {
+                document.add_f64(numbering_sort, number);
+            }
+            writer.add_document(document).unwrap();
+        }
+        writer.commit().unwrap();
+        let reader = index.reader().unwrap();
+        let searcher = reader.searcher();
+        let scoped = |filter: &str| -> Box<dyn Query> {
+            Box::new(BooleanQuery::new(vec![
+                (Occur::Must, term_query(collection, "entries")),
+                (
+                    Occur::Must,
+                    translate(
+                        &objekte_search_core::query::parse_filter(filter).unwrap(),
+                        source,
+                        record_id,
+                    )
+                    .unwrap(),
+                ),
+            ]))
+        };
+        for (filter, expected) in [
+            ("numbering > 1 && numbering < 2", 3),
+            ("numbering > 1.5 && numbering < 2", 1),
+            ("numbering = 1.5", 2),
+            ("tags ?= 'x'", 2),
+            ("@record.id = 'b'", 1),
+        ] {
+            assert_eq!(
+                searcher.search(&scoped(filter), &Count).unwrap(),
+                expected,
+                "{filter}"
+            );
+        }
+        let query = scoped("numbering > 1 && numbering < 2");
+        let winners = searcher
+            .search(
+                &query,
+                &TopDocs::with_limit(3).order_by((
+                    (
+                        SortByStaticFastValue::<f64>::for_field("numbering_sort"),
+                        Order::Asc,
+                    ),
+                    (
+                        SortByStaticFastValue::<u64>::for_field("identity_ordinal"),
+                        Order::Asc,
+                    ),
+                )),
+            )
+            .unwrap();
+        let ids = winners
+            .into_iter()
+            .skip(1)
+            .map(|(_, address)| {
+                let document = searcher.doc::<TantivyDocument>(address).unwrap();
+                document
+                    .get_first(record_id)
+                    .unwrap()
+                    .as_str()
+                    .unwrap()
+                    .to_owned()
+            })
+            .collect::<Vec<_>>();
+        assert_eq!(ids, ["c", "d"]);
+    }
+
+    #[test]
     fn literal_translation_preserves_case_scope_and_value_boundaries() {
         let mut builder = Schema::builder();
         let global = builder.add_text_field("global", STRING);
