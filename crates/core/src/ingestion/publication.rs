@@ -248,7 +248,7 @@ fn next_partition<I, T>(
     pending: &mut std::iter::Peekable<I>,
     target_records: usize,
     max_files: usize,
-    file_of: impl Fn(&T) -> Option<super::FileToken>,
+    file_of: impl Fn(&T) -> Option<super::FileSlot>,
 ) -> Vec<T>
 where
     I: Iterator<Item = T>,
@@ -280,7 +280,7 @@ fn build_segment(
         crate::model::Value,
         Vec<crate::source::TextSegment>,
     )>,
-    links: Vec<Option<(super::FileToken, Option<crate::inventory::ByteRange>)>>,
+    links: Vec<Option<(super::FileSlot, Option<crate::inventory::ByteRange>)>>,
     versions: Option<Vec<crate::records::RecordVersion>>,
     files: &[FileEntry],
 ) -> Result<IndexedCollectionSegment, IngestionError> {
@@ -332,7 +332,7 @@ fn build_segment(
 
 fn attach_links(
     segment: &mut IndexedCollectionSegment,
-    links: Vec<Option<(super::FileToken, Option<crate::inventory::ByteRange>)>>,
+    links: Vec<Option<(super::FileSlot, Option<crate::inventory::ByteRange>)>>,
     files: &[FileEntry],
     root: Option<&std::path::Path>,
     collection_name: &str,

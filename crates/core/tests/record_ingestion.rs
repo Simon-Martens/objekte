@@ -72,6 +72,24 @@ fn public_batches_publish_typed_records_and_preserve_old_views() {
     let writer = index.ingestion().writer(provider).unwrap();
 
     let mut batch = writer.batch();
+    assert_eq!(
+        batch
+            .insert_from_reader("invalid", record(1807, "invalid"), RecordVersion::new(1))
+            .unwrap_err(),
+        "provider input needs a registered reader"
+    );
+    assert_eq!(
+        batch
+            .declare_file(
+                "unavailable.txt",
+                SourceRevision {
+                    modified_ns: 0,
+                    size: 0,
+                },
+            )
+            .unwrap_err(),
+        "registration does not support file links"
+    );
     batch.insert("entry-47", record(1808, "Leipzig")).unwrap();
     let first = writer.submit(batch).unwrap().wait_published().unwrap();
     let view = index.view().unwrap();
@@ -216,6 +234,36 @@ fn overflow_and_rejected_batch_keep_inputs_and_publication_atomic() {
             .unwrap()
             .is_some()
     );
+}
+
+#[test]
+fn empty_strings_with_reserved_capacity_count_toward_batch_limit() {
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "test.entries", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let writer = index
+        .ingestion_with_options(IngestionOptions {
+            max_batch_bytes: 1024,
+            ..IngestionOptions::default()
+        })
+        .unwrap()
+        .writer(registration)
+        .unwrap();
+    let mut value = String::with_capacity(8 * 1024);
+    value.push_str("");
+    let mut batch = writer.batch();
+    batch.insert("large-empty", Value::String(value)).unwrap();
+    let batch = match writer.submit(batch) {
+        Err(SubmitError::BatchTooLarge(batch)) => batch,
+        _ => panic!("reserved capacity must be included in the batch limit"),
+    };
+    assert_eq!(batch.len(), 1);
+    let mut valid = writer.batch();
+    valid.insert("small", Value::String("ok".into())).unwrap();
+    writer.submit(valid).unwrap().wait_published().unwrap();
 }
 
 #[test]
@@ -515,6 +563,82 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
     );
     assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
     session.finish().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn file_tokens_are_bound_to_the_declaration_batch() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-batch-token-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir(&root).unwrap();
+    std::fs::write(root.join("first.txt"), b"first").unwrap();
+    std::fs::write(root.join("second.txt"), b"second").unwrap();
+    let first_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(root.join("first.txt")).unwrap()).unwrap();
+    let second_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(root.join("second.txt")).unwrap())
+            .unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "test.entries", 1)
+        .unwrap();
+    let catalog = builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder.enable_file_links(registration, catalog).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut first = writer.batch();
+    let first_token = first.declare_file("first.txt", first_revision).unwrap();
+    let mut second = writer.batch();
+    let second_token = second.declare_file("second.txt", second_revision).unwrap();
+    assert_eq!(
+        second
+            .insert_with_file("wrong", record(1, "wrong"), first_token, None)
+            .unwrap_err(),
+        "foreign batch file token"
+    );
+    second
+        .insert_with_file("second", record(2, "second"), second_token, None)
+        .unwrap();
+    writer.submit(second).unwrap().wait_published().unwrap();
+    writer.submit(first).unwrap().wait_published().unwrap();
+    session.finish().unwrap();
+
+    let next = index.ingestion();
+    let next_writer = next.writer(registration).unwrap();
+    let mut third = next_writer.batch();
+    let third_token = third.declare_file("first.txt", first_revision).unwrap();
+    assert_eq!(
+        third
+            .insert_with_file("wrong", record(3, "wrong"), first_token, None)
+            .unwrap_err(),
+        "foreign batch file token"
+    );
+    third
+        .insert_with_file("third", record(3, "third"), third_token, None)
+        .unwrap();
+    next_writer.submit(third).unwrap().wait_published().unwrap();
+    let view = index.view().unwrap();
+    assert!(
+        view.get_record("entries", "wrong", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert_eq!(
+        view.file_catalog()
+            .unwrap()
+            .file_for_record("entries", "third")
+            .unwrap()
+            .unwrap()
+            .path,
+        std::path::PathBuf::from("first.txt")
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

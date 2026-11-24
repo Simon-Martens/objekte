@@ -34,17 +34,38 @@ impl EncodedFrame {
 }
 
 pub(super) fn encode(batch: &Batch) -> Result<EncodedFrame, String> {
-    let payload = encoding()
-        .serialize(&(batch.registration, &batch.files, &batch.operations))
+    let expected = encoded_len(batch)?;
+    let mut frame = Vec::with_capacity(expected as usize);
+    frame.resize(HEADER_BYTES, 0);
+    encoding()
+        .serialize_into(
+            &mut frame,
+            &(batch.registration, &batch.files, &batch.operations),
+        )
         .map_err(|error| error.to_string())?;
-    let length = u64::try_from(payload.len()).map_err(|_| "spool frame too large")?;
-    let mut frame = Vec::with_capacity(HEADER_BYTES.saturating_add(payload.len()));
-    frame.extend_from_slice(MAGIC);
-    frame.extend_from_slice(&FORMAT_VERSION.to_le_bytes());
-    frame.extend_from_slice(&length.to_le_bytes());
-    frame.extend_from_slice(&Sha256::digest(&payload));
-    frame.extend_from_slice(&payload);
+    if frame.len() as u64 != expected {
+        return Err("spool serialized size changed during encoding".into());
+    }
+    let length = expected - HEADER_BYTES as u64;
+    frame[..4].copy_from_slice(MAGIC);
+    frame[4..8].copy_from_slice(&FORMAT_VERSION.to_le_bytes());
+    frame[8..16].copy_from_slice(&length.to_le_bytes());
+    let digest = Sha256::digest(&frame[HEADER_BYTES..]);
+    frame[16..48].copy_from_slice(&digest);
     Ok(EncodedFrame(frame))
+}
+
+pub(super) fn encoded_len(batch: &Batch) -> Result<u64, String> {
+    let payload = encoding()
+        .serialized_size(&(batch.registration, &batch.files, &batch.operations))
+        .map_err(|error| error.to_string())?;
+    let total = payload
+        .checked_add(HEADER_BYTES as u64)
+        .ok_or("spool frame too large")?;
+    if total > usize::MAX as u64 {
+        return Err("spool frame too large".into());
+    }
+    Ok(total)
 }
 
 pub(super) struct SpoolManager {

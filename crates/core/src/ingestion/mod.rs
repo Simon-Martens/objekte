@@ -6,6 +6,7 @@ mod spool;
 
 use std::collections::HashSet;
 use std::path::{Component, Path, PathBuf};
+use std::sync::atomic::{AtomicU64, Ordering};
 
 use serde::{Deserialize, Serialize};
 
@@ -18,8 +19,17 @@ use crate::source::TextSegment;
 pub use queue::{IngestionSession, Receipt, RecordWriter, SessionMetrics};
 
 /// A file declaration local to one batch.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct FileToken {
+    batch_id: u64,
+    ordinal: u32,
+}
+
+static NEXT_BATCH: AtomicU64 = AtomicU64::new(1);
+
+/// Only a validated batch-local ordinal crosses the private spool boundary.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
-pub struct FileToken(pub(crate) u32);
+pub(crate) struct FileSlot(pub(crate) u32);
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct StagedFile {
@@ -55,14 +65,14 @@ pub(crate) enum Operation {
         id: RecordId,
         value: Value,
         text: Vec<TextSegment>,
-        file: Option<(FileToken, Option<ByteRange>)>,
+        file: Option<(FileSlot, Option<ByteRange>)>,
         version: Option<RecordVersion>,
     },
     Replace {
         id: RecordId,
         value: Value,
         text: Vec<TextSegment>,
-        file: Option<(FileToken, Option<ByteRange>)>,
+        file: Option<(FileSlot, Option<ByteRange>)>,
         version: Option<RecordVersion>,
     },
     Delete {
@@ -81,6 +91,9 @@ impl Operation {
 /// A producer-owned batch. Failed submission returns this exact input for
 /// retry; successful submission transfers ownership to the session.
 pub struct Batch {
+    batch_id: u64,
+    reader_available: bool,
+    file_links_available: bool,
     pub(crate) session_id: u64,
     pub(crate) registration: RecordRegistration,
     pub(crate) operations: Vec<Operation>,
@@ -92,6 +105,9 @@ pub struct Batch {
 impl Batch {
     pub(crate) fn new(session_id: u64, registration: RecordRegistration) -> Self {
         Self {
+            batch_id: NEXT_BATCH.fetch_add(1, Ordering::Relaxed),
+            reader_available: false,
+            file_links_available: false,
             session_id,
             registration,
             operations: Vec::new(),
@@ -99,6 +115,12 @@ impl Batch {
             keys: HashSet::new(),
             estimated_bytes: std::mem::size_of::<Self>(),
         }
+    }
+
+    pub(crate) fn with_capabilities(mut self, reader: bool, file_links: bool) -> Self {
+        self.reader_available = reader;
+        self.file_links_available = file_links;
+        self
     }
 
     fn push(&mut self, operation: Operation, value_bytes: usize) -> Result<(), String> {
@@ -170,6 +192,9 @@ impl Batch {
         relative_path: impl AsRef<Path>,
         observed_file_revision: SourceRevision,
     ) -> Result<FileToken, String> {
+        if !self.file_links_available {
+            return Err("registration does not support file links".into());
+        }
         let path = relative_path.as_ref();
         if path.as_os_str().is_empty()
             || !path
@@ -181,8 +206,10 @@ impl Batch {
         if self.files.iter().any(|file| file.path == path) {
             return Err("file already declared in batch".into());
         }
-        let token =
-            FileToken(u32::try_from(self.files.len()).map_err(|_| "too many files in batch")?);
+        let token = FileToken {
+            batch_id: self.batch_id,
+            ordinal: u32::try_from(self.files.len()).map_err(|_| "too many files in batch")?,
+        };
         self.estimated_bytes = self
             .estimated_bytes
             .saturating_add(std::mem::size_of::<StagedFile>())
@@ -198,15 +225,18 @@ impl Batch {
         &self,
         token: FileToken,
         range: Option<ByteRange>,
-    ) -> Result<Option<(FileToken, Option<ByteRange>)>, String> {
+    ) -> Result<Option<(FileSlot, Option<ByteRange>)>, String> {
+        if token.batch_id != self.batch_id {
+            return Err("foreign batch file token".into());
+        }
         let file = self
             .files
-            .get(token.0 as usize)
+            .get(token.ordinal as usize)
             .ok_or("unknown batch file token")?;
         if range.is_some_and(|range| range.end > file.revision.size || range.start > range.end) {
             return Err("file range exceeds observed file revision".into());
         }
-        Ok(Some((token, range)))
+        Ok(Some((FileSlot(token.ordinal), range)))
     }
 
     pub fn insert_with_file(
@@ -276,6 +306,9 @@ impl Batch {
         text: Vec<TextSegment>,
         version: RecordVersion,
     ) -> Result<(), String> {
+        if !self.reader_available {
+            return Err("provider input needs a registered reader".into());
+        }
         let id = RecordId::intrinsic(id.as_ref())?;
         let bytes = estimated_value_bytes(&value).saturating_add(estimated_text_bytes(&text));
         self.push(
@@ -298,6 +331,9 @@ impl Batch {
         token: FileToken,
         range: Option<ByteRange>,
     ) -> Result<(), String> {
+        if !self.reader_available {
+            return Err("provider input needs a registered reader".into());
+        }
         let file = self.checked_file(token, range)?;
         let id = RecordId::intrinsic(id.as_ref())?;
         let bytes = estimated_value_bytes(&value);
@@ -319,6 +355,9 @@ impl Batch {
         value: Value,
         version: RecordVersion,
     ) -> Result<(), String> {
+        if !self.reader_available {
+            return Err("provider input needs a registered reader".into());
+        }
         let id = RecordId::intrinsic(id.as_ref())?;
         let bytes = estimated_value_bytes(&value);
         self.push(
@@ -339,15 +378,72 @@ impl Batch {
     pub fn is_empty(&self) -> bool {
         self.operations.is_empty() && self.files.is_empty()
     }
+
+    pub(crate) fn owned_capacity_bytes(&self) -> usize {
+        let mut total =
+            std::mem::size_of::<Self>()
+                .saturating_add(
+                    self.operations
+                        .capacity()
+                        .saturating_mul(std::mem::size_of::<Operation>()),
+                )
+                .saturating_add(
+                    self.files
+                        .capacity()
+                        .saturating_mul(std::mem::size_of::<StagedFile>()),
+                )
+                .saturating_add(self.keys.capacity().saturating_mul(
+                    std::mem::size_of::<RecordId>() + std::mem::size_of::<usize>(),
+                ));
+        for key in &self.keys {
+            total = total.saturating_add(key.0.len());
+        }
+        for file in &self.files {
+            total = total.saturating_add(file.path.as_os_str().len());
+        }
+        for operation in &self.operations {
+            match operation {
+                Operation::Insert {
+                    id, value, text, ..
+                }
+                | Operation::Replace {
+                    id, value, text, ..
+                } => {
+                    total = total
+                        .saturating_add(id.0.len())
+                        .saturating_add(estimated_value_bytes(value))
+                        .saturating_add(estimated_text_bytes(text));
+                }
+                Operation::Delete { id } => {
+                    total = total.saturating_add(id.0.len());
+                }
+            }
+        }
+        total
+    }
 }
 
-fn estimated_text_bytes(text: &[TextSegment]) -> usize {
-    text.iter().fold(0usize, |total, segment| {
-        total
-            .saturating_add(std::mem::size_of::<TextSegment>())
-            .saturating_add(segment.text.len())
-            .saturating_add(segment.path.iter().map(String::len).sum::<usize>())
-    })
+fn estimated_text_bytes(text: &Vec<TextSegment>) -> usize {
+    text.iter().fold(
+        text.capacity()
+            .saturating_mul(std::mem::size_of::<TextSegment>()),
+        |total, segment| {
+            total
+                .saturating_add(segment.text.capacity())
+                .saturating_add(
+                    segment
+                        .path
+                        .capacity()
+                        .saturating_mul(std::mem::size_of::<String>()),
+                )
+                .saturating_add(
+                    segment
+                        .path
+                        .iter()
+                        .fold(0usize, |bytes, part| bytes.saturating_add(part.capacity())),
+                )
+        },
+    )
 }
 
 fn estimated_value_bytes(value: &Value) -> usize {
@@ -356,13 +452,25 @@ fn estimated_value_bytes(value: &Value) -> usize {
     while let Some(value) = pending.pop() {
         total = total.saturating_add(std::mem::size_of::<Value>());
         match value {
-            Value::String(text) | Value::Id(text) => total = total.saturating_add(text.len()),
+            Value::String(text) | Value::Id(text) => total = total.saturating_add(text.capacity()),
+            Value::Number(crate::model::Number::ExactDecimal(decimal)) => {
+                total = total.saturating_add(decimal.digits.capacity());
+            }
             Value::Object(fields) => {
-                total =
-                    total.saturating_add(fields.iter().map(|(key, _)| key.len()).sum::<usize>());
+                total = total.saturating_add(fields.iter().fold(0usize, |bytes, (key, _)| {
+                    bytes.saturating_add(key.capacity()).saturating_add(64)
+                }));
                 pending.extend(fields.values());
             }
-            Value::Array(array) => pending.extend(&array.values),
+            Value::Array(array) => {
+                total = total.saturating_add(
+                    array
+                        .values
+                        .capacity()
+                        .saturating_mul(std::mem::size_of::<Value>()),
+                );
+                pending.extend(&array.values);
+            }
             _ => {}
         }
     }

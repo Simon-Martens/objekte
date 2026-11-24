@@ -102,6 +102,7 @@ struct Queue {
     state: Mutex<State>,
     changed: Condvar,
     spool: Mutex<SpoolManager>,
+    encoding: Mutex<()>,
     options: IngestionOptions,
     cancelled: AtomicBool,
     #[cfg(test)]
@@ -143,6 +144,7 @@ impl SessionCore {
             }),
             changed: Condvar::new(),
             spool: Mutex::new(SpoolManager::new(id, &options)),
+            encoding: Mutex::new(()),
             options,
             cancelled: AtomicBool::new(false),
             #[cfg(test)]
@@ -201,17 +203,19 @@ impl IngestionSession {
             return Err(IndexError::Cancelled);
         }
         let view = self.core.index.view()?;
-        let valid = view
+        let source = view
             .repository()
             .record_registrations
             .get(registration.ordinal as usize)
-            .is_some_and(|source| source.handle == registration);
-        if !valid {
+            .filter(|source| source.handle == registration);
+        let Some(source) = source else {
             return Err(IndexError::ForeignInstance);
-        }
+        };
         Ok(RecordWriter {
             core: Arc::clone(&self.core),
             registration,
+            reader_available: source.reader.is_some(),
+            file_links_available: source.file_links,
         })
     }
 
@@ -299,11 +303,14 @@ impl IngestionSession {
 pub struct RecordWriter {
     core: Arc<SessionCore>,
     registration: RecordRegistration,
+    reader_available: bool,
+    file_links_available: bool,
 }
 
 impl RecordWriter {
     pub fn batch(&self) -> Batch {
         Batch::new(self.core.id, self.registration)
+            .with_capabilities(self.reader_available, self.file_links_available)
     }
 
     pub fn submit(&self, batch: Batch) -> Result<Receipt, SubmitError<Batch>> {
@@ -314,8 +321,9 @@ impl RecordWriter {
         self.offer(batch, true)
     }
 
-    fn offer(&self, batch: Batch, memory_only: bool) -> Result<Receipt, SubmitError<Batch>> {
+    fn offer(&self, mut batch: Batch, memory_only: bool) -> Result<Receipt, SubmitError<Batch>> {
         let queue = &self.core.queue;
+        batch.estimated_bytes = batch.owned_capacity_bytes();
         if batch.session_id != self.core.id || batch.registration != self.registration {
             return Err(SubmitError::ForeignHandle(batch));
         }
@@ -358,19 +366,19 @@ impl RecordWriter {
         if memory_only {
             return Err(SubmitError::WouldBlock(batch));
         }
+        if queue.options.spool_bytes == 0 {
+            return Err(SubmitError::Capacity(batch));
+        }
         drop(state);
-        let encoded = match spool::encode(&batch) {
-            Ok(encoded) => encoded,
+        let bytes = match spool::encoded_len(&batch) {
+            Ok(bytes) => bytes,
             Err(message) => return Err(SubmitError::SpoolIo(batch, message)),
         };
-        let bytes = encoded.len();
         let mut state = queue.state.lock().expect("queue mutex poisoned");
         if state.closed || state.failure.is_some() {
             return Err(SubmitError::Closed(batch));
         }
-        if state.items.len() >= MAX_PENDING_DESCRIPTORS
-            || state.metrics.pending_spool_bytes.saturating_add(bytes) > queue.options.spool_bytes
-        {
+        if state.metrics.pending_spool_bytes.saturating_add(bytes) > queue.options.spool_bytes {
             return Err(SubmitError::Capacity(batch));
         }
         state.metrics.pending_spool_bytes += bytes;
@@ -379,6 +387,15 @@ impl RecordWriter {
             .high_water_spool_bytes
             .max(state.metrics.pending_spool_bytes);
         drop(state);
+        let _encoding = queue.encoding.lock().expect("encoding mutex poisoned");
+        let encoded = match spool::encode(&batch) {
+            Ok(encoded) => encoded,
+            Err(message) => {
+                let mut state = queue.state.lock().expect("queue mutex poisoned");
+                state.metrics.pending_spool_bytes -= bytes;
+                return Err(SubmitError::SpoolIo(batch, message));
+            }
+        };
         let started = Instant::now();
         let written = queue
             .spool
