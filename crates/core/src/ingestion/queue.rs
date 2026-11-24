@@ -1,7 +1,6 @@
 //! Ordered admission, bounded resident input, and receipt completion.
 
 use std::collections::VecDeque;
-use std::path::PathBuf;
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, Condvar, Mutex};
 use std::thread::JoinHandle;
@@ -61,7 +60,7 @@ impl Receipt {
 
 enum Storage {
     Memory(Batch),
-    Spool(PathBuf),
+    Spool(spool::SpoolFrame),
 }
 
 struct Queued {
@@ -393,24 +392,32 @@ impl RecordWriter {
             state.metrics.pending_spool_bytes -= bytes;
             return Err(SubmitError::SpoolIo(batch, message));
         }
-        let path = written.expect("spool write succeeded");
+        let frame = written.expect("spool write succeeded");
         state.metrics.spool_written_bytes = state.metrics.spool_written_bytes.saturating_add(bytes);
         if state.closed || state.failure.is_some() {
             state.metrics.pending_spool_bytes -= bytes;
             drop(state);
-            let _ = std::fs::remove_file(path);
+            queue
+                .spool
+                .lock()
+                .expect("spool mutex poisoned")
+                .release(&frame);
             return Err(SubmitError::Closed(batch));
         }
         if state.items.len() >= MAX_PENDING_DESCRIPTORS {
             state.metrics.pending_spool_bytes -= bytes;
             drop(state);
-            let _ = std::fs::remove_file(path);
+            queue
+                .spool
+                .lock()
+                .expect("spool mutex poisoned")
+                .release(&frame);
             return Err(SubmitError::Capacity(batch));
         }
         Ok(enqueue(
             &mut state,
             queue,
-            Storage::Spool(path),
+            Storage::Spool(frame),
             weight,
             bytes,
         ))
@@ -475,10 +482,14 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         }
         let batch = match item.storage {
             Storage::Memory(batch) => Ok(batch),
-            Storage::Spool(path) => {
-                let result = spool::read(&path, queue.options.spool_bytes, session_id)
+            Storage::Spool(frame) => {
+                let result = spool::read(&frame, queue.options.spool_bytes, session_id)
                     .map_err(IngestionError::Spool);
-                let _ = std::fs::remove_file(path);
+                queue
+                    .spool
+                    .lock()
+                    .expect("spool mutex poisoned")
+                    .release(&frame);
                 let mut state = queue.state.lock().expect("queue mutex poisoned");
                 state.metrics.pending_spool_bytes -= item.encoded_bytes;
                 state.metrics.spool_read_bytes = state
@@ -523,8 +534,12 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                         state.metrics.pending_ram_bytes -= pending.weight;
                     } else {
                         state.metrics.pending_spool_bytes -= pending.encoded_bytes;
-                        if let Storage::Spool(path) = pending.storage {
-                            let _ = std::fs::remove_file(path);
+                        if let Storage::Spool(frame) = pending.storage {
+                            queue
+                                .spool
+                                .lock()
+                                .expect("spool mutex poisoned")
+                                .release(&frame);
                         }
                     }
                     pending.receipt.complete(Err(IngestionError::Cancelled {
@@ -593,6 +608,13 @@ mod tests {
         let second = writer
             .submit(batch(session.core.id, registration, "record-2"))
             .unwrap();
+        let spool_root = std::fs::read_dir(&root)
+            .unwrap()
+            .next()
+            .unwrap()
+            .unwrap()
+            .path();
+        assert_eq!(std::fs::read_dir(spool_root).unwrap().count(), 1);
         let third = match writer.try_submit(batch(session.core.id, registration, "record-3")) {
             Err(SubmitError::WouldBlock(batch)) => batch,
             _ => panic!("memory-only submission must return its batch"),
@@ -773,5 +795,39 @@ mod tests {
                 .unwrap()
                 .is_some()
         );
+    }
+
+    #[test]
+    fn failed_spool_write_returns_batch_without_admission_ordinal() {
+        let missing_parent = std::env::temp_dir().join(format!(
+            "objekte-missing-spool-parent-{}-{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        assert!(!missing_parent.exists());
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "write-failure", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024 * 1024,
+                spool_bytes: 1024 * 1024,
+                spool_directory: Some(missing_parent),
+            })
+            .unwrap();
+        let writer = session.writer(registration).unwrap();
+        let rejected = writer.submit(batch(session.core.id, registration, "record-1"));
+        let rejected = match rejected {
+            Err(SubmitError::SpoolIo(batch, _)) => batch,
+            _ => panic!("unwritable spool must return the owned input"),
+        };
+        assert!(!rejected.is_empty());
+        assert_eq!(session.metrics().accepted_batches, 0);
+        assert_eq!(session.metrics().pending_spool_bytes, 0);
+        session.finish().unwrap();
     }
 }
