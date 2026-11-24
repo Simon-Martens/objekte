@@ -2959,6 +2959,33 @@ pub(crate) fn search_segmented_reference(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
+    if base_active.iter().all(|active| active.len() == 0)
+        && segments
+            .iter()
+            .flat_map(|group| group.iter())
+            .any(|segment| {
+                !matches!(
+                    segment.index.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                )
+            })
+    {
+        let mut restrictions = super::SegmentRestrictionCache::new(segments);
+        return super::search_segmented_impl(
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            None,
+            None,
+            None,
+            None,
+            &mut restrictions,
+            false,
+        );
+    }
     crate::reference::relations::search_segmented(
         repo,
         query,

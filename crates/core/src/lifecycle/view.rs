@@ -1082,7 +1082,7 @@ impl IndexView {
         self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
         let query = resolved.as_ref();
-        crate::reference::relations::search_segmented(
+        crate::query_execution::runner::search_segmented_reference(
             self.repository(),
             query,
             &self.0.active,

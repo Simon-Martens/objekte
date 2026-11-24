@@ -1072,8 +1072,15 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
     };
     let answers = [&files, &owned, &provider]
         .into_iter()
-        .map(|index| {
-            let result = index.view().unwrap().search(&query).unwrap();
+        .enumerate()
+        .map(|(index_number, index)| {
+            let view = index.view().unwrap();
+            let result = view.search(&query).unwrap();
+            let reference = view
+                .search_reference(&query)
+                .unwrap_or_else(|error| panic!("index {index_number}: {error}"));
+            assert_eq!(result.count, reference.count);
+            assert_eq!(result.hits, reference.hits);
             assert_eq!(result.count, Some(2));
             result
                 .hits
@@ -1241,7 +1248,9 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
             evidence: true,
         },
     };
-    let result = index.view().unwrap().search(&query).unwrap();
+    let view = index.view().unwrap();
+    let result = view.search(&query).unwrap();
+    assert_eq!(result.hits, view.search_reference(&query).unwrap().hits);
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "m");
     let logical = Query {
@@ -1268,6 +1277,15 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
         ..residual
     };
     let result = index.view().unwrap().search(&backlink).unwrap();
+    assert_eq!(
+        result.hits,
+        index
+            .view()
+            .unwrap()
+            .search_reference(&backlink)
+            .unwrap()
+            .hits
+    );
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "a");
     session.finish().unwrap();
