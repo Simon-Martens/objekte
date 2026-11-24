@@ -15,7 +15,7 @@ use objekte_search_core::query_execution::streaming::{
 };
 use objekte_search_core::query_results::Payload;
 use objekte_search_core::records::reader::{
-    RecordProjection, RecordRead, RecordReadError, RecordReader,
+    RecordProjection, RecordRead, RecordReadError, RecordReadRequest, RecordReader,
 };
 use objekte_search_core::records::{RecordKey, RecordVersion};
 use objekte_search_core::repository::configuration::{
@@ -388,15 +388,16 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-struct VersionedFixture(Mutex<(RecordVersion, Value)>);
+struct VersionedFixture(Mutex<(RecordVersion, Value)>, Mutex<Vec<RecordProjection>>);
 
 impl RecordReader for VersionedFixture {
     fn read_projected(
         &self,
         _: &RecordKey,
         expected_version: RecordVersion,
-        _: &RecordProjection,
+        projection: &RecordProjection,
     ) -> Result<RecordRead, RecordReadError> {
+        self.1.lock().unwrap().push(projection.clone());
         let current = self.0.lock().unwrap();
         if current.0 != expected_version {
             return Err(RecordReadError::ChangedVersion {
@@ -404,9 +405,20 @@ impl RecordReader for VersionedFixture {
                 actual: Some(current.0),
             });
         }
+        let mut value = current.1.clone();
+        if !projection.fields.is_empty()
+            && let Value::Object(fields) = &mut value
+        {
+            fields.retain(|name, _| {
+                projection
+                    .fields
+                    .iter()
+                    .any(|path| path.first() == Some(name))
+            });
+        }
         Ok(RecordRead {
             version: current.0,
-            value: current.1.clone(),
+            value,
             text: Vec::new(),
             original_bytes: None,
         })
@@ -438,10 +450,10 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
     let registration = builder
         .register_records(collection, "fixture.reader", 1)
         .unwrap();
-    let reader = Arc::new(VersionedFixture(Mutex::new((
-        RecordVersion::new(7),
-        record(1808, "Leipzig"),
-    ))));
+    let reader = Arc::new(VersionedFixture(
+        Mutex::new((RecordVersion::new(7), record(1808, "Leipzig"))),
+        Mutex::new(Vec::new()),
+    ));
     builder
         .register_reader(registration, reader.clone())
         .unwrap();
@@ -515,6 +527,11 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
         ..query.clone()
     };
     assert_eq!(view.search(&residual).unwrap().count, Some(1));
+    assert!(
+        reader.1.lock().unwrap().iter().any(|projection| {
+            projection.fields == [vec!["note".to_owned()]] && !projection.text
+        })
+    );
     let mut streamed = Vec::new();
     view.search_stream_scoped(
         &residual,
@@ -546,6 +563,29 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
         ..query.clone()
     };
     assert_eq!(view.search(&text_query).unwrap().count, Some(1));
+    assert!(
+        reader
+            .1
+            .lock()
+            .unwrap()
+            .iter()
+            .any(|projection| projection.text)
+    );
+    assert_eq!(
+        view.get_record("entries", "entry-47", ReturnMode::Bytes)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::OriginalBytesUnavailable)
+    );
+    assert!(
+        reader
+            .1
+            .lock()
+            .unwrap()
+            .iter()
+            .any(|projection| projection.original_bytes)
+    );
     *reader.0.lock().unwrap() = (RecordVersion::new(8), record(1809, "Wien"));
     assert!(
         view.get_record("entries", "entry-47", ReturnMode::Logical)
@@ -714,10 +754,10 @@ fn fileless_rebuild_keeps_retained_records_and_rejects_stale_provider() {
     let collection = builder.collection("entries", Schema::default()).unwrap();
     let retained = builder.register_records(collection, "owned", 1).unwrap();
     let provider = builder.register_records(collection, "reader", 1).unwrap();
-    let reader = Arc::new(VersionedFixture(Mutex::new((
-        RecordVersion::new(4),
-        Value::String("original".into()),
-    ))));
+    let reader = Arc::new(VersionedFixture(
+        Mutex::new((RecordVersion::new(4), Value::String("original".into()))),
+        Mutex::new(Vec::new()),
+    ));
     builder.register_reader(provider, reader.clone()).unwrap();
     let index = builder.build().unwrap();
     let session = index.ingestion();
@@ -864,7 +904,7 @@ fn fileless_residual_text_sort_and_stream_agree() {
     session.finish().unwrap();
 }
 
-struct CorpusReader(Mutex<HashMap<String, Value>>);
+struct CorpusReader(Mutex<HashMap<String, Value>>, Mutex<Vec<usize>>);
 
 impl RecordReader for CorpusReader {
     fn read_projected(
@@ -892,6 +932,18 @@ impl RecordReader for CorpusReader {
             text: Vec::new(),
             original_bytes: None,
         })
+    }
+
+    fn read_batch(
+        &self,
+        requests: &[RecordReadRequest],
+        projection: &RecordProjection,
+    ) -> Vec<Result<RecordRead, RecordReadError>> {
+        self.1.lock().unwrap().push(requests.len());
+        requests
+            .iter()
+            .map(|request| self.read_projected(&request.key, request.expected_version, projection))
+            .collect()
     }
 }
 
@@ -981,14 +1033,14 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
             (id.to_owned(), value)
         })
         .collect();
-    let reader = Arc::new(CorpusReader(Mutex::new(values)));
+    let reader = Arc::new(CorpusReader(Mutex::new(values), Mutex::new(Vec::new())));
     let mut provider_builder = Index::builder();
     let collection = provider_builder.collection("entries", schema).unwrap();
     let registration = provider_builder
         .register_records(collection, "reader", 1)
         .unwrap();
     provider_builder
-        .register_reader(registration, reader)
+        .register_reader(registration, reader.clone())
         .unwrap();
     let provider = provider_builder.build().unwrap();
     let provider_session = provider.ingestion();
@@ -1032,6 +1084,7 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
         .collect::<Vec<_>>();
     assert_eq!(answers[0], answers[1]);
     assert_eq!(answers[1], answers[2]);
+    assert!(reader.1.lock().unwrap().iter().any(|&size| size >= 2));
     assert_eq!(
         answers[0]
             .iter()

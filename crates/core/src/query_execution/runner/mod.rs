@@ -4,7 +4,7 @@ use crate::measurement::timer::DetailedInstant;
 use crate::records::RecordIdSlot;
 use std::cmp::Ordering;
 use std::cmp::Reverse;
-use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
+use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet, VecDeque};
 use std::sync::{Arc, Mutex};
 
 use rayon::prelude::*;
@@ -643,13 +643,31 @@ pub(crate) fn get_segment_record_by_id(
         let record = segment.record(slot).ok_or("provider record slot missing")?;
         let payload = match return_mode {
             ReturnMode::Locator => None,
-            ReturnMode::Logical => {
-                Some(Payload::Logical(read_provider(repo, segment, slot)?.value))
-            }
-            ReturnMode::Bytes => Some(match read_provider(repo, segment, slot)?.original_bytes {
-                Some(bytes) => Payload::Bytes(bytes),
-                None => Payload::OriginalBytesUnavailable,
-            }),
+            ReturnMode::Logical => Some(Payload::Logical(
+                read_provider(
+                    repo,
+                    segment,
+                    slot,
+                    &crate::records::reader::RecordProjection::full(),
+                )?
+                .value,
+            )),
+            ReturnMode::Bytes => Some(
+                match read_provider(
+                    repo,
+                    segment,
+                    slot,
+                    &crate::records::reader::RecordProjection {
+                        original_bytes: true,
+                        ..crate::records::reader::RecordProjection::full()
+                    },
+                )?
+                .original_bytes
+                {
+                    Some(bytes) => Payload::Bytes(bytes),
+                    None => Payload::OriginalBytesUnavailable,
+                },
+            ),
         };
         let file = segment.backing.file_locator(slot).and_then(|locator| {
             catalog
@@ -730,6 +748,7 @@ fn read_provider(
     repo: &Repository,
     segment: &IndexedCollectionSegment,
     slot: RecordSlot,
+    projection: &crate::records::reader::RecordProjection,
 ) -> Result<crate::records::reader::RecordRead, String> {
     let crate::index::segment::SegmentBacking::Provider {
         registration,
@@ -750,16 +769,61 @@ fn read_provider(
     let record = segment.record(slot).ok_or("provider record missing")?;
     let key = crate::records::RecordKey::new(segment.collection, record.id.clone());
     let read = reader
-        .read_projected(
-            &key,
-            expected,
-            &crate::records::reader::RecordProjection::full(),
-        )
+        .read_projected(&key, expected, projection)
         .map_err(|error| error.to_string())?;
     if read.version != expected {
         return Err("provider returned a different record version".into());
     }
     Ok(read)
+}
+
+fn read_provider_batch(
+    repo: &Repository,
+    segment: &IndexedCollectionSegment,
+    slots: &[RecordSlot],
+    projection: &crate::records::reader::RecordProjection,
+) -> Result<Vec<crate::records::reader::RecordRead>, String> {
+    let crate::index::segment::SegmentBacking::Provider {
+        registration,
+        versions,
+        ..
+    } = &segment.backing
+    else {
+        return Err("segment is not provider-backed".into());
+    };
+    let source = repo
+        .record_registrations
+        .get(*registration as usize)
+        .ok_or("provider registration missing")?;
+    let reader = source.reader.as_ref().ok_or("provider reader missing")?;
+    let requests = slots
+        .iter()
+        .map(|slot| {
+            let record = segment.record(*slot).ok_or("provider record missing")?;
+            let expected_version = *versions
+                .get(slot.0 as usize)
+                .ok_or("provider version missing")?;
+            Ok(crate::records::reader::RecordReadRequest {
+                key: crate::records::RecordKey::new(segment.collection, record.id.clone()),
+                expected_version,
+            })
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    let results = reader.read_batch(&requests, projection);
+    if results.len() != requests.len() {
+        return Err("provider returned wrong batch length".into());
+    }
+    results
+        .into_iter()
+        .zip(requests)
+        .map(|(result, request)| {
+            let read = result.map_err(|error| error.to_string())?;
+            if read.version != request.expected_version {
+                return Err("provider returned a different record version".into());
+            }
+            Ok(read)
+        })
+        .collect()
 }
 
 /// One current-view direct lookup. A missing source is distinct from an ID
@@ -2798,17 +2862,51 @@ fn search_segmented_impl(
                 crate::index::segment::SegmentBacking::Retained { .. }
                     | crate::index::segment::SegmentBacking::Provider { .. }
             ) {
-                for slot in candidates.iter() {
+                let fields = if fts.is_none() && !sort.bound.has_computed {
+                    filter.as_ref().and_then(segment_filter_source_fields)
+                } else {
+                    None
+                };
+                let provider_projection = crate::records::reader::RecordProjection {
+                    fields: fields.map_or_else(Vec::new, |fields| {
+                        fields.into_iter().map(|field| vec![field]).collect()
+                    }),
+                    text: fts.is_some(),
+                    original_bytes: false,
+                };
+                let mut remaining = candidates.iter();
+                let mut ready = VecDeque::new();
+                loop {
+                    if ready.is_empty() {
+                        let slots = remaining
+                            .by_ref()
+                            .take(8)
+                            .map(RecordSlot)
+                            .collect::<Vec<_>>();
+                        if slots.is_empty() {
+                            break;
+                        }
+                        if matches!(
+                            segment.backing,
+                            crate::index::segment::SegmentBacking::Provider { .. }
+                        ) {
+                            if let Some(context) = context {
+                                context.check_string()?;
+                                context.charge_reads(slots.len() as u64)?;
+                            }
+                            let reads =
+                                read_provider_batch(repo, segment, &slots, &provider_projection)?;
+                            ready.extend(slots.into_iter().zip(reads.into_iter().map(Some)));
+                        } else {
+                            ready.extend(slots.into_iter().map(|slot| (slot, None)));
+                        }
+                    }
+                    let (slot, provider_body) =
+                        ready.pop_front().ok_or("native candidate queue empty")?;
                     if let Some(context) = context {
                         context.check_string()?;
                     }
-                    let slot = RecordSlot(slot);
                     let record = segment.record(slot).ok_or("retained candidate missing")?;
-                    let provider_body = if segment.backing.provider_version(slot).is_some() {
-                        Some(read_provider(repo, segment, slot)?)
-                    } else {
-                        None
-                    };
                     let retained_body = segment.backing.retained_body(slot);
                     let value = provider_body
                         .as_ref()

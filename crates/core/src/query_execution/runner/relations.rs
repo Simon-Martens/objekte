@@ -851,7 +851,26 @@ fn try_direct_relation_page(
                         context.charge_reads(1)?;
                     }
                     counters.relation_target_reads += 1;
-                    Some(read_provider(repo, segment, address)?)
+                    let projection = match &predicate {
+                        DirectRelationPredicate::Term(term) => {
+                            crate::records::reader::RecordProjection {
+                                fields: if term.path.root == crate::model::PathRoot::Data {
+                                    vec![term.path.segments.clone()]
+                                } else {
+                                    Vec::new()
+                                },
+                                text: false,
+                                original_bytes: false,
+                            }
+                        }
+                        DirectRelationPredicate::Fts(_) => {
+                            crate::records::reader::RecordProjection {
+                                text: true,
+                                ..crate::records::reader::RecordProjection::full()
+                            }
+                        }
+                    };
+                    Some(read_provider(repo, segment, address, &projection)?)
                 } else {
                     None
                 };
