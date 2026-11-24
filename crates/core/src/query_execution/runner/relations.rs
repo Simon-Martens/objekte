@@ -155,6 +155,27 @@ fn eligible_one_hop_relation_term<'a>(
     Some((hop, &related.terminal))
 }
 
+fn eligible_direct_relation_term<'a>(
+    repo: &Repository,
+    term: &'a BoundTerm,
+) -> Option<(
+    &'a crate::query::binding::relation::BoundRelationHop,
+    &'a BoundTerm,
+)> {
+    if let Some(forward) = eligible_one_hop_relation_term(repo, term) {
+        return Some(forward);
+    }
+    let related = term.related.as_ref()?;
+    let [hop] = related.hops.as_slice() else {
+        return None;
+    };
+    (hop.direction == crate::query::binding::relation::HopDirection::Backlink
+        && hop.selectors.is_empty()
+        && related.source_operand.is_none()
+        && term.quantifier == Quantifier::Any)
+        .then_some((hop, &related.terminal))
+}
+
 fn one_hop_relation_term<'a>(
     repo: &Repository,
     expr: &'a BoundExpr,
@@ -584,12 +605,12 @@ fn try_direct_relation_page(
                 let first = &parts[0];
                 let second = &parts[1];
                 if let BoundExpr::Term(term) = first
-                    && eligible_one_hop_relation_term(repo, term).is_some()
+                    && eligible_direct_relation_term(repo, term).is_some()
                     && matches!(second, BoundExpr::Term(_))
                 {
                     (term, Some(second))
                 } else if let BoundExpr::Term(term) = second
-                    && eligible_one_hop_relation_term(repo, term).is_some()
+                    && eligible_direct_relation_term(repo, term).is_some()
                     && matches!(first, BoundExpr::Term(_))
                 {
                     (term, Some(first))
@@ -599,7 +620,7 @@ fn try_direct_relation_page(
             }
             _ => return Ok(None),
         };
-        let Some((hop, terminal)) = eligible_one_hop_relation_term(repo, term) else {
+        let Some((hop, terminal)) = eligible_direct_relation_term(repo, term) else {
             return Ok(None);
         };
         let mut evidence = if query.options.evidence
@@ -648,6 +669,19 @@ fn try_direct_relation_page(
     } else {
         return Ok(None);
     };
+    if hop.direction == crate::query::binding::relation::HopDirection::Backlink
+        && segments
+            .iter()
+            .flat_map(|group| group.iter())
+            .all(|segment| {
+                matches!(
+                    segment.index.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                )
+            })
+    {
+        return Ok(None);
+    }
     if hop.from.0 as usize != *source_index
         || base_active[*source_index].len() != 0
         || base_active[hop.to.0 as usize].len() != 0
@@ -677,11 +711,20 @@ fn try_direct_relation_page(
             local_proofs.push(must);
         }
     }
-    let source_relation = repo.collections[*source_index]
+    let relation_owner = if hop.direction == crate::query::binding::relation::HopDirection::Forward
+    {
+        *source_index
+    } else {
+        target_index
+    };
+    let source_relation = repo.collections[relation_owner]
         .relations
         .get(hop.relation.ordinal as usize)
         .ok_or("direct relation declaration missing")?;
     let direct_sort_column = if sort.bound.has_computed {
+        if hop.direction == crate::query::binding::relation::HopDirection::Backlink {
+            return Ok(None);
+        }
         let Some([term]) = sort.bound.terms[*source_index].as_deref() else {
             return Ok(None);
         };
@@ -967,6 +1010,21 @@ fn try_direct_relation_page(
             };
             if matched {
                 counters.relation_target_matches += 1;
+                if hop.direction == crate::query::binding::relation::HopDirection::Backlink {
+                    let relation = segment
+                        .relations
+                        .get(hop.relation.ordinal as usize)
+                        .ok_or("backlink relation contribution missing")?;
+                    for (source_id, _) in relation.references_for_source(RecordSlot(slot)) {
+                        if !target_ids.contains(source_id) {
+                            if !reserve_route(source_id.len().saturating_add(64)) {
+                                return Ok(None);
+                            }
+                            target_ids.insert(source_id.to_owned());
+                        }
+                    }
+                    continue;
+                }
                 if !target_ids.contains(record.id.0.as_ref()) {
                     let sort_key = if let Some(path) = direct_sort_column.as_deref() {
                         Some(segment.sorting.key(path, RecordSlot(slot))?.clone())
@@ -1004,12 +1062,23 @@ fn try_direct_relation_page(
         .relation_edge_visits
         .saturating_add(target_ids.len() as u64);
     for (segment_index, published) in segments[*source_index].iter().enumerate() {
-        let Some(posting) = published.index.postings.fields.get(source_path) else {
-            return Ok(None);
+        let mut may = if hop.direction == crate::query::binding::relation::HopDirection::Backlink {
+            let mut matches = RoaringBitmap::new();
+            for id in &target_ids {
+                if let Some(slot) = published.index.id_lookup.get(id.as_str()) {
+                    matches.insert(slot.0);
+                }
+            }
+            matches
+        } else {
+            let Some(posting) = published.index.postings.fields.get(source_path) else {
+                return Ok(None);
+            };
+            let (matches, lists, members) = posting.union_id_postings(&target_ids);
+            counters.relation_reverse_postings_visited += lists;
+            counters.relation_reverse_members_visited += members;
+            matches
         };
-        let (mut may, lists, members) = posting.union_id_postings(&target_ids);
-        counters.relation_reverse_postings_visited += lists;
-        counters.relation_reverse_members_visited += members;
         may &= published.active.bitmap();
         may &= &published.index.logical_records;
         if local_filter.is_some() {

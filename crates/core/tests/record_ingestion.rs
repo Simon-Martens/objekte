@@ -1262,5 +1262,13 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
         index.view().unwrap().search(&residual).unwrap().count,
         Some(1)
     );
+    let backlink = Query {
+        collections: vec!["entries".into()],
+        filter: Some(parse_filter("@backlinks.mentions.id ?= 'm'").unwrap()),
+        ..residual
+    };
+    let result = index.view().unwrap().search(&backlink).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "a");
     session.finish().unwrap();
 }
