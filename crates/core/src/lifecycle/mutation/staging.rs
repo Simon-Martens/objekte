@@ -34,7 +34,7 @@ impl Index {
             .ok_or(IndexError::UnknownFile)?;
         let mut next = (*current.0).clone();
         let retired_records = next.retire_file_records(file)?;
-        next.refresh_record_links(handle.file_id, None);
+        next.refresh_record_links(handle.file_id, None)?;
         let affected_collections = file
             .collections
             .iter()
@@ -189,7 +189,7 @@ impl Index {
         )?;
         let mut next = (*view.0).clone();
         next.retire_file_records(previous)?;
-        for collection in next.refresh_record_links(file_id, Some(&entry)) {
+        for collection in next.refresh_record_links(file_id, Some(&entry))? {
             if !entry.collections.contains(&collection) {
                 entry.collections.push(collection);
             }

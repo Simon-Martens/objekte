@@ -19,7 +19,7 @@ use objekte_search_core::records::reader::{
 };
 use objekte_search_core::records::{RecordKey, RecordVersion};
 use objekte_search_core::repository::configuration::{
-    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    CollectionDeclaration, CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
@@ -800,6 +800,114 @@ fn explicit_native_text_does_not_claim_logical_field_coverage() {
     let result = index.view().unwrap().search(&fts).unwrap();
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "target");
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn linked_native_metadata_sort_tracks_catalog_changes() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-metadata-sort-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    for name in ["a.txt", "m.txt", "z.txt"] {
+        std::fs::write(root.join(name), name.as_bytes()).unwrap();
+    }
+    let mut declaration = CollectionDeclaration::new("entries", Schema::default());
+    declaration
+        .sort_fields
+        .push(objekte_search_core::model::FieldPath::parse("@file.path").unwrap());
+    let mut builder = Index::builder();
+    let collection = builder.declare_collection(declaration).unwrap();
+    let registration = builder.register_records(collection, "sort", 1).unwrap();
+    let catalog = builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder.enable_file_links(registration, catalog).unwrap();
+    let index = builder.build().unwrap();
+    let writer = index.ingestion().writer(registration).unwrap();
+    let mut batch = writer.batch();
+    for (id, path) in [("z", "a.txt"), ("b", "m.txt"), ("a", "z.txt")] {
+        let revision =
+            SourceRevision::from_metadata(&std::fs::metadata(root.join(path)).unwrap()).unwrap();
+        let file = batch.declare_file(path, revision).unwrap();
+        let range = (path == "a.txt").then(|| ByteRange::checked(0, 5, revision.size).unwrap());
+        batch
+            .insert_with_file(id, Value::String(id.into()), file, range)
+            .unwrap();
+    }
+    batch
+        .insert("unlinked", Value::String("none".into()))
+        .unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let query = |descending, offset| Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("@file.path", descending)],
+            limit: 4,
+            offset,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let ids = |query: Query| {
+        index
+            .view()
+            .unwrap()
+            .search(&query)
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(ids(query(false, 0)), ["z", "b", "a", "unlinked"]);
+    assert_eq!(ids(query(true, 0)), ["a", "b", "z", "unlinked"]);
+    assert_eq!(ids(query(false, 1)), ["b", "a", "unlinked"]);
+    let old = index.view().unwrap();
+    let handle = old
+        .file_handle_for_path(std::path::Path::new("a.txt"))
+        .unwrap();
+    std::fs::rename(root.join("a.txt"), root.join("y.txt")).unwrap();
+    index.move_file(handle, &root.join("y.txt")).unwrap();
+    assert_eq!(ids(query(false, 0)), ["b", "z", "a", "unlinked"]);
+    assert_eq!(
+        old.search(&query(false, 0))
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>(),
+        ["z", "b", "a", "unlinked"]
+    );
+    let moved = index.view().unwrap();
+    let y_handle = moved
+        .file_handle_for_path(std::path::Path::new("y.txt"))
+        .unwrap();
+    std::fs::write(root.join("y.txt"), b"a different longer content").unwrap();
+    index.update_file(y_handle, &root.join("y.txt")).unwrap();
+    assert_eq!(ids(query(false, 0)), ["b", "a", "unlinked", "z"]);
+    assert_eq!(
+        moved
+            .search(&query(false, 0))
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>(),
+        ["b", "z", "a", "unlinked"]
+    );
+    let m_handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(std::path::Path::new("m.txt"))
+        .unwrap();
+    index.delete_file(m_handle).unwrap();
+    assert_eq!(ids(query(false, 0)), ["a", "b", "unlinked", "z"]);
     std::fs::remove_dir_all(root).unwrap();
 }
 

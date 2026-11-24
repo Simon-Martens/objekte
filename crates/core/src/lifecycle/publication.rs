@@ -819,7 +819,7 @@ impl PublishedIndex {
         &mut self,
         file: crate::model::FileId,
         replacement: Option<&FileEntry>,
-    ) -> Vec<CollectionId> {
+    ) -> Result<Vec<CollectionId>, IndexError> {
         let mut memberships = Vec::new();
         for (number, group) in self.segments.iter_mut().enumerate() {
             let mut changed = false;
@@ -840,8 +840,9 @@ impl PublishedIndex {
                     | crate::index::segment::SegmentBacking::Provider { links, .. } => links,
                     crate::index::segment::SegmentBacking::FileRange { .. } => unreachable!(),
                 };
+                let old_slots = std::mem::take(&mut index.files[file_index].records);
                 let mut kept = Vec::new();
-                for &slot in &index.files[file_index].records {
+                for &slot in &old_slots {
                     let Some(locator) = links[slot.0 as usize].as_mut() else {
                         continue;
                     };
@@ -869,6 +870,13 @@ impl PublishedIndex {
                         memberships.push(index.collection);
                     }
                 }
+                index
+                    .refresh_metadata_sort_slots(
+                        old_slots,
+                        self.repository.files().root(),
+                        &self.repository.collections()[number].definition.name,
+                    )
+                    .map_err(IndexError::Build)?;
                 index.recompute_accounting();
                 changed = true;
             }
@@ -876,7 +884,7 @@ impl PublishedIndex {
                 self.record_routes[number] = RecordRoutes::from_group(group);
             }
         }
-        memberships
+        Ok(memberships)
     }
 }
 

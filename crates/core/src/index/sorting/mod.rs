@@ -18,6 +18,7 @@ use crate::model::{
 };
 use crate::query::options::SortField;
 use crate::query::semantics::record::{data_values_small, metadata_value_for_record};
+use crate::records::RecordHeader;
 use crate::records::RecordIdSlot;
 use crate::schema::Schema;
 
@@ -186,6 +187,135 @@ impl SortCollection {
             .iter()
             .find(|entry| entry.fields == normalized)
     }
+
+    /// Refresh only the metadata columns affected by a changed native file
+    /// association. The caller supplies the pinned catalog's file entry.
+    pub(crate) fn refresh_metadata_slots<'a>(
+        &mut self,
+        records: &[RecordHeader],
+        slots: impl IntoIterator<Item = RecordSlot>,
+        mut origin: impl FnMut(RecordSlot) -> Option<(&'a FileEntry, Option<ByteRange>)>,
+        root: Option<&std::path::Path>,
+        collection_name: &str,
+    ) -> Result<(), String> {
+        let paths = self
+            .columns
+            .keys()
+            .filter(|path| matches!(path.root, PathRoot::Metadata(_)))
+            .cloned()
+            .collect::<Vec<_>>();
+        if paths.is_empty() {
+            return Ok(());
+        }
+        let collators = paths
+            .iter()
+            .map(|path| {
+                let column = &self.columns[path];
+                make_collator(&SortConfig {
+                    locale: column.locale.clone(),
+                    options: column.options,
+                })
+                .map(|collator| (path.clone(), collator))
+            })
+            .collect::<Result<HashMap<_, _>, _>>()?;
+        let mut changed = false;
+        for slot in slots {
+            let record = records
+                .get(slot.0 as usize)
+                .ok_or("metadata sort slot missing")?;
+            let file = origin(slot);
+            for path in &paths {
+                let PathRoot::Metadata(field) = path.root else {
+                    unreachable!()
+                };
+                let value = metadata_value_for_record(
+                    field,
+                    &record.id,
+                    record.class,
+                    file,
+                    collection_name,
+                    root,
+                )?;
+                let key = sort_key_from_value(value.as_ref(), &collators[path], path)?;
+                let column = self
+                    .columns
+                    .get_mut(path)
+                    .ok_or("metadata sort column missing")?;
+                let target = column
+                    .keys
+                    .get_mut(slot.0 as usize)
+                    .ok_or("metadata sort key missing")?;
+                *target = key;
+            }
+            changed = true;
+        }
+        if !changed {
+            return Ok(());
+        }
+        for path in &paths {
+            let column = self
+                .columns
+                .get_mut(path)
+                .ok_or("metadata sort column missing")?;
+            column.ascending = records.iter().map(|record| record.slot).collect();
+            column.ascending.sort_by(|a, b| {
+                column.keys[a.0 as usize]
+                    .compare_with(&column.keys[b.0 as usize], false, column.options)
+                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+            });
+            column.descending = descending_order(&column.ascending, &column.keys, column.options);
+        }
+        for composite in &mut self.composites {
+            if !composite
+                .fields
+                .iter()
+                .any(|field| paths.contains(&field.path))
+            {
+                continue;
+            }
+            let columns = composite
+                .fields
+                .iter()
+                .map(|field| {
+                    self.columns
+                        .get(&field.path)
+                        .map(|column| (column, field.descending))
+                        .ok_or("composite metadata column missing")
+                })
+                .collect::<Result<Vec<_>, _>>()?;
+            composite.order = records.iter().map(|record| record.slot).collect();
+            composite.order.sort_by(|a, b| {
+                compare_composite(&columns, *a, *b)
+                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+            });
+        }
+        Ok(())
+    }
+}
+
+fn sort_key_from_value(
+    value: Option<&Value>,
+    collator: &CollatorBorrowed<'_>,
+    path: &FieldPath,
+) -> Result<SortKey, String> {
+    Ok(match value {
+        None => SortKey::Missing,
+        Some(Value::Null) => SortKey::Null,
+        Some(Value::String(text)) => {
+            let mut key = Vec::new();
+            collator
+                .write_sort_key_to(text, &mut key)
+                .map_err(|e| e.to_string())?;
+            SortKey::String(key)
+        }
+        Some(Value::Id(id)) => SortKey::Id(id.clone()),
+        Some(Value::Number(number)) => SortKey::Number(number.clone()),
+        Some(Value::Bool(value)) => SortKey::Bool(*value),
+        Some(Value::Date(value)) => SortKey::Date(*value),
+        Some(Value::Datetime(value)) => SortKey::Datetime(*value),
+        Some(Value::Unixtime(value)) => SortKey::Unixtime(*value),
+        _ => return Err(format!("unsupported sort value: {}", path.display())),
+    })
 }
 
 /// Mutable keys accumulated during index construction.
@@ -341,31 +471,17 @@ impl SortBuilder {
                 PathRoot::Backlinks => return Err("related sort field is not registered".into()),
             };
             let key = match selected {
-                None => SortKey::Missing,
-                Some(values) if values.is_empty() => SortKey::Missing,
                 Some(values) if values.len() > 1 => {
                     return Err(format!(
                         "multi-valued sort field: {}",
                         column.path.display()
                     ));
                 }
-                Some(values) => match values[0] {
-                    Value::Null => SortKey::Null,
-                    Value::String(text) => {
-                        let mut key = Vec::new();
-                        self.collators[&column.path]
-                            .write_sort_key_to(text, &mut key)
-                            .map_err(|e| e.to_string())?;
-                        SortKey::String(key)
-                    }
-                    Value::Id(id) => SortKey::Id(id.clone()),
-                    Value::Number(n) => SortKey::Number(n.clone()),
-                    Value::Bool(b) => SortKey::Bool(*b),
-                    Value::Date(d) => SortKey::Date(*d),
-                    Value::Datetime(t) => SortKey::Datetime(*t),
-                    Value::Unixtime(t) => SortKey::Unixtime(*t),
-                    _ => return Err(format!("unsupported sort value: {}", column.path.display())),
-                },
+                values => sort_key_from_value(
+                    values.and_then(|values| values.first().copied()),
+                    &self.collators[&column.path],
+                    &column.path,
+                )?,
             };
             column.keys.push(key);
         }

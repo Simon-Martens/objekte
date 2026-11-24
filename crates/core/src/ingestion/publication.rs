@@ -319,7 +319,13 @@ fn build_segment(
             registration: registration.handle.ordinal,
         };
     }
-    attach_links(&mut segment, links, files)?;
+    attach_links(
+        &mut segment,
+        links,
+        files,
+        view.repository().files().root(),
+        &declaration.name,
+    )?;
     segment.recompute_accounting();
     Ok(segment)
 }
@@ -328,7 +334,10 @@ fn attach_links(
     segment: &mut IndexedCollectionSegment,
     links: Vec<Option<(super::FileToken, Option<crate::inventory::ByteRange>)>>,
     files: &[FileEntry],
+    root: Option<&std::path::Path>,
+    collection_name: &str,
 ) -> Result<(), IngestionError> {
+    let mut changed_slots = Vec::new();
     for (slot, link) in links.into_iter().enumerate() {
         let Some((token, range)) = link else { continue };
         let entry = files.get(token.0 as usize).ok_or_else(|| {
@@ -363,7 +372,11 @@ fn attach_links(
         segment.files[file_index]
             .records
             .push(RecordSlot(slot as u32));
+        changed_slots.push(RecordSlot(slot as u32));
     }
+    segment
+        .refresh_metadata_sort_slots(changed_slots, root, collection_name)
+        .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
     Ok(())
 }
 

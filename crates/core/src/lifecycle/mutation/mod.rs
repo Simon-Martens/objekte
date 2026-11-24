@@ -454,7 +454,7 @@ impl Index {
         entry.relative_path = relative.to_path_buf().into();
         entry.revision = revision;
         entry.created_ns = creation;
-        next.refresh_record_links(handle.file_id, Some(&entry));
+        next.refresh_record_links(handle.file_id, Some(&entry))?;
         next.catalog = next
             .catalog
             .replaced(entry, None, None)

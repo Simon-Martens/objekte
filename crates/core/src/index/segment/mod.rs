@@ -600,6 +600,27 @@ pub struct NativeComponentDescriptor<'a> {
 }
 
 impl IndexedCollectionSegment {
+    pub(crate) fn refresh_metadata_sort_slots(
+        &mut self,
+        slots: impl IntoIterator<Item = RecordSlot>,
+        root: Option<&std::path::Path>,
+        collection_name: &str,
+    ) -> Result<(), String> {
+        let backing = &self.backing;
+        let files = &self.files;
+        let file_index = &self.file_index;
+        self.sorting.refresh_metadata_slots(
+            &self.records,
+            slots,
+            |slot| {
+                let locator = backing.file_locator(slot)?;
+                let file = files.get(*file_index.get(&locator.file)?)?;
+                Some((&file.entry, locator.range))
+            },
+            root,
+            collection_name,
+        )
+    }
     pub(crate) fn read_view<'a>(published: &'a PublishedSegment) -> SegmentReadView<'a> {
         SegmentReadView {
             id: published.id,
