@@ -1054,6 +1054,40 @@ impl IndexView {
         }
     }
 
+    /// Repeat a direct lookup through the production route with counters.
+    /// Keep this pass separate from a timed lookup sample.
+    #[doc(hidden)]
+    pub fn get_record_with_route_counts_for_measurement(
+        &self,
+        collection: &str,
+        record_id: &str,
+        return_mode: ReturnMode,
+        counters: &mut crate::query_execution::runner::DirectRouteCounters,
+    ) -> Result<Option<SearchHit>, String> {
+        self.ensure_initial_complete()?;
+        match crate::query_execution::runner::direct_lookup_segmented_counted(
+            self.repository(),
+            collection,
+            record_id,
+            return_mode,
+            &self.0.active,
+            &self.0.segments,
+            Some(&self.0.record_routes),
+            &self.0.catalog,
+            self.revision(),
+            Some(counters),
+        )? {
+            crate::query_execution::runner::DirectLookupResult::Found(mut hit) => {
+                self.remap_hit_diagnostic(&mut hit);
+                Ok(Some(hit))
+            }
+            crate::query_execution::runner::DirectLookupResult::NotFound => Ok(None),
+            crate::query_execution::runner::DirectLookupResult::SourceUnavailable(diagnostic) => {
+                Err(diagnostic.message)
+            }
+        }
+    }
+
     /// Direct lookup with a distinct unavailable-source outcome. Explicit
     /// lifecycle operations own source reconciliation.
     pub fn get_record_available(

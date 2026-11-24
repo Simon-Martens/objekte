@@ -846,6 +846,39 @@ pub(crate) fn direct_lookup_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<DirectLookupResult, String> {
+    direct_lookup_segmented_counted(
+        repo,
+        collection_name,
+        record_id,
+        return_mode,
+        base_active,
+        segments,
+        routes,
+        catalog,
+        revision,
+        None,
+    )
+}
+
+/// Counters captured by the same direct route path used in ordinary lookup.
+#[derive(Clone, Copy, Debug, Default, serde::Serialize)]
+pub struct DirectRouteCounters {
+    pub route_key_probes: u64,
+    pub route_segment_visits: u64,
+}
+
+pub(crate) fn direct_lookup_segmented_counted(
+    repo: &Repository,
+    collection_name: &str,
+    record_id: &str,
+    return_mode: ReturnMode,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    routes: Option<&[crate::lifecycle::publication::RecordRoutes]>,
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    mut counters: Option<&mut DirectRouteCounters>,
+) -> Result<DirectLookupResult, String> {
     let collection_index = repo
         .collections
         .iter()
@@ -858,6 +891,9 @@ pub(crate) fn direct_lookup_segmented(
         .copied()
         .filter(|slot| base_active[collection_index].contains(*slot));
     let selected_segment = if let Some(routes) = routes {
+        if let Some(counters) = counters.as_deref_mut() {
+            counters.route_key_probes += 1;
+        }
         routes[collection_index]
             .get(record_id)
             .filter(|(index, slot)| segments[collection_index][*index].active.contains(*slot))
@@ -877,6 +913,11 @@ pub(crate) fn direct_lookup_segmented(
     };
     if base.is_some() && selected_segment.is_some() {
         return Err("duplicate active direct-lookup ID".into());
+    }
+    if selected_segment.is_some()
+        && let Some(counters) = counters.as_deref_mut()
+    {
+        counters.route_segment_visits += 1;
     }
     let (record, file, result) = if let Some(slot) = base {
         let record = collection

@@ -12,8 +12,10 @@ use objekte_search_core::index::segment::SegmentPolicy;
 use objekte_search_core::ingestion::{Batch, IngestionOptions, Receipt, RecordWriter};
 use objekte_search_core::inventory::{ByteRange, SourceRevision};
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::model::{FileId, LogicalType, Number, Value};
+use objekte_search_core::model::{FileId, LogicalType, Number, RecordId, Value};
 use objekte_search_core::query::options::ReturnMode;
+use objekte_search_core::query_execution::runner::DirectRouteCounters;
+use objekte_search_core::records::RecordKey;
 use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use serde_json::json;
@@ -184,7 +186,7 @@ fn ingest(
             "pending_ram_bytes": metrics.pending_ram_bytes,
             "pending_spool_bytes": metrics.pending_spool_bytes,
             "segments": view.segment_summaries().len(),
-            "index_bytes": view.estimated_index_bytes(), "ready_rss_kib": rss_kib("VmRSS:"),
+            "index_family_bytes": view.estimated_index_bytes(), "ready_rss_kib": rss_kib("VmRSS:"),
             "peak_rss_kib": rss_kib("VmHWM:")
         })
     );
@@ -265,6 +267,61 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
     }
     black_box(hits);
     let lookup_ns = started.elapsed().as_nanos();
+    let mut route_counts = DirectRouteCounters::default();
+    for operation in 0..10_000 {
+        let id = if operation % 2 == 0 {
+            format!("r{:05}", (operation / 2) % count)
+        } else {
+            format!("missing{:05}", operation / 2)
+        };
+        let observed = view.get_record_with_route_counts_for_measurement(
+            "records",
+            &id,
+            ReturnMode::Locator,
+            &mut route_counts,
+        )?;
+        if operation % 2 == 0 {
+            let number = (operation / 2) % count;
+            let group = number / 64;
+            let name = format!("group-{group:04}.bin");
+            let expected_file = view
+                .file_catalog()
+                .ok_or("catalog missing")?
+                .file_by_path(std::path::Path::new(&name))
+                .ok_or("expected file missing")?;
+            let hit = observed.ok_or("direct route lost expected record")?;
+            let origin = hit.file.ok_or("direct route lost file")?;
+            if hit.record_id != id
+                || origin.file_id != expected_file.id
+                || origin.range
+                    != Some(ByteRange::checked(
+                        (number % 64) as u64,
+                        (number % 64 + 1) as u64,
+                        64,
+                    )?)
+            {
+                return Err(format!("direct route returned wrong origin for {id}").into());
+            }
+        } else if observed.is_some() {
+            return Err(format!("direct route unexpectedly found {id}").into());
+        }
+    }
+    let mut coverage_counts = DirectRouteCounters::default();
+    for segment in 0..segment_count {
+        let number = segment * (count / segment_count);
+        let id = format!("r{number:05}");
+        if view
+            .get_record_with_route_counts_for_measurement(
+                "records",
+                &id,
+                ReturnMode::Locator,
+                &mut coverage_counts,
+            )?
+            .is_none()
+        {
+            return Err(format!("segment coverage lost {id}").into());
+        }
+    }
     let catalog = view.file_catalog().ok_or("catalog missing")?;
     let started = Instant::now();
     let mut members = 0usize;
@@ -272,7 +329,25 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         let file = catalog
             .file_by_path(std::path::Path::new(name))
             .ok_or("file missing")?;
-        members += catalog.records_for_file(file.id)?.len();
+        let actual = catalog.records_for_file(file.id)?;
+        let group = name
+            .strip_prefix("group-")
+            .and_then(|number| number.strip_suffix(".bin"))
+            .ok_or("invalid fixture file")?
+            .parse::<usize>()?;
+        let mut expected = (0..64)
+            .map(|offset| {
+                RecordKey::new(
+                    collection,
+                    RecordId(format!("r{:05}", group * 64 + offset).into()),
+                )
+            })
+            .collect::<Vec<_>>();
+        expected.sort();
+        if actual != expected {
+            return Err(format!("reverse route returned wrong members for {name}").into());
+        }
+        members += actual.len();
     }
     let reverse_ns = started.elapsed().as_nanos();
     let empty = catalog
@@ -282,6 +357,9 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         || catalog.records_for_file(FileId(u32::MAX)).is_ok()
         || members != count
         || hits != 5_000
+        || route_counts.route_key_probes != 10_000
+        || route_counts.route_segment_visits != 5_000
+        || coverage_counts.route_segment_visits != segment_count as u64
     {
         return Err("routing membership mismatch".into());
     }
@@ -290,9 +368,12 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         json!({
             "mode": "routing", "records": count, "segments": observed_segments,
             "lookup_operations": 10000, "lookup_hits": hits, "lookup_ns": lookup_ns,
-            "route_key_probes": 10000, "route_segment_visits": hits,
+            "route_key_probes": route_counts.route_key_probes,
+            "route_segment_visits": route_counts.route_segment_visits,
+            "coverage_segment_visits": coverage_counts.route_segment_visits,
+            "unrelated_segment_visits": route_counts.route_segment_visits.saturating_sub(hits as u64),
             "reverse_members": members, "reverse_ns": reverse_ns,
-            "index_bytes": view.estimated_index_bytes(), "ready_rss_kib": rss_kib("VmRSS:"),
+            "index_family_bytes": view.estimated_index_bytes(), "ready_rss_kib": rss_kib("VmRSS:"),
             "peak_rss_kib": rss_kib("VmHWM:")
         })
     );
