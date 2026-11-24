@@ -376,11 +376,44 @@ impl Index {
         let file = view
             .file_entry(handle.file_id)
             .ok_or(IndexError::UnknownFile)?;
-        Ok(file.collections.iter().all(|collection| {
-            view.repository().collections[collection.0 as usize]
-                .file_source
-                .is_none()
-        }))
+        let imported_in_base = view
+            .repository()
+            .files()
+            .files
+            .get(handle.file_id.0 as usize)
+            .is_some_and(|base| {
+                base.revision == file.revision
+                    && base.created_ns == file.created_ns
+                    && base.collections.iter().any(|collection| {
+                        view.repository().collections[collection.0 as usize]
+                            .generation
+                            .files
+                            .contains(&handle.file_id)
+                    })
+            });
+        if imported_in_base {
+            return Ok(false);
+        }
+        for collection in &file.collections {
+            let number = collection.0 as usize;
+            let routes = &view.0.record_routes[number];
+            for segment_id in routes.segments_for_file(file.id) {
+                let Some(position) = routes.position(*segment_id) else {
+                    continue;
+                };
+                let segment = &view.0.segments[number][position].index;
+                if matches!(
+                    &segment.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                ) && segment.file(file.id).is_some_and(|owned| {
+                    owned.entry.revision == file.revision
+                        && owned.entry.created_ns == file.created_ns
+                }) {
+                    return Ok(false);
+                }
+            }
+        }
+        Ok(true)
     }
 
     /// Refresh metadata for a registrar-declared file with no file importer.

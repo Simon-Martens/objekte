@@ -92,6 +92,18 @@ impl RecordRoutes {
         Arc::make_mut(&mut shards[Self::shard(id)]).remove(id);
     }
 
+    fn remove_if_matches(&mut self, id: &str, segment: SegmentId, slot: RecordSlot) {
+        let shard_number = Self::shard(id);
+        if !self.shards[shard_number]
+            .get(id)
+            .is_some_and(|route| route.segment == segment && route.slot == slot)
+        {
+            return;
+        }
+        let shards = Arc::make_mut(&mut self.shards);
+        Arc::make_mut(&mut shards[shard_number]).remove(id);
+    }
+
     pub(crate) fn segments_for_file(&self, file: FileId) -> &[SegmentId] {
         self.file_shards[file.0 as usize % RECORD_ROUTE_SHARDS]
             .get(&file)
@@ -688,36 +700,71 @@ impl PublishedIndex {
                     .retired(slots)
                     .map_err(IndexError::InvalidPublication)?;
             }
-            let segments = self
-                .segments
-                .get_mut(collection_id.0 as usize)
-                .ok_or_else(|| {
-                    IndexError::InvalidPublication("segment collection missing".into())
+            let number = collection_id.0 as usize;
+            let routes = self
+                .record_routes
+                .get_mut(number)
+                .ok_or_else(|| IndexError::InvalidPublication("record routes missing".into()))?;
+            let positions = routes
+                .segments_for_file(file.id)
+                .iter()
+                .filter_map(|id| routes.position(*id))
+                .collect::<Vec<_>>();
+            if positions.is_empty() {
+                continue;
+            }
+            let segments = self.segments.get_mut(number).ok_or_else(|| {
+                IndexError::InvalidPublication("segment collection missing".into())
+            })?;
+            let group = Arc::make_mut(segments);
+            for position in positions {
+                let segment = group.get_mut(position).ok_or_else(|| {
+                    IndexError::InvalidPublication("routed segment missing".into())
                 })?;
-            for segment in Arc::make_mut(segments).iter_mut() {
                 if !matches!(
-                    segment.index.backing,
+                    &segment.index.backing,
                     crate::index::segment::SegmentBacking::FileRange { .. }
                 ) {
                     continue;
                 }
-                if let Some(slots) = segment.index.file_records(file.id) {
-                    let slots = slots.to_vec();
-                    let segment = Arc::make_mut(segment);
-                    retired_records += slots
-                        .iter()
-                        .filter(|slot| segment.active.contains(**slot))
-                        .count() as u64;
-                    segment.active = segment
-                        .active
-                        .retired(&slots)
-                        .map_err(IndexError::InvalidPublication)?;
-                    for slot in slots {
-                        if let Some(record) = segment.index.record(slot) {
-                            self.record_routes[collection_id.0 as usize]
-                                .remove(record.id.0.as_ref());
-                        }
-                    }
+                let Some(file_index) = segment.index.file_index.get(&file.id).copied() else {
+                    continue;
+                };
+                let source = &segment.index.files[file_index];
+                if source.entry.revision != file.revision
+                    || source.entry.created_ns != file.created_ns
+                {
+                    continue;
+                }
+                let active_slots = source
+                    .records
+                    .iter()
+                    .copied()
+                    .filter(|slot| segment.active.contains(*slot))
+                    .collect::<Vec<_>>();
+                if active_slots.is_empty() {
+                    continue;
+                }
+                let route_keys = active_slots
+                    .iter()
+                    .map(|slot| {
+                        segment
+                            .index
+                            .record(*slot)
+                            .map(|record| (record.id.clone(), *slot))
+                            .ok_or_else(|| {
+                                IndexError::InvalidPublication("routed record missing".into())
+                            })
+                    })
+                    .collect::<Result<Vec<_>, _>>()?;
+                let segment = Arc::make_mut(segment);
+                segment.active = segment
+                    .active
+                    .retired(&active_slots)
+                    .map_err(IndexError::InvalidPublication)?;
+                retired_records += active_slots.len() as u64;
+                for (id, slot) in route_keys {
+                    routes.remove_if_matches(id.0.as_ref(), segment.id, slot);
                 }
             }
         }

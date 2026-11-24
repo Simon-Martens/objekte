@@ -59,6 +59,97 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
+fn deleting_obsolete_file_incarnation_keeps_new_owner_route() {
+    let root = test_root("obsolete-file-incarnation");
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![intrinsic_definition("items")],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .unwrap();
+    let a = root.join("data/a.jsonl");
+    let b = root.join("data/b.jsonl");
+    let c = root.join("data/c.jsonl");
+    std::fs::write(&a, b"{\"id\":\"K\"}\n").unwrap();
+    let a_handle = index.add_file(&a).unwrap().file;
+    std::fs::write(&a, b"{\"id\":\"J\",\"note\":\"replacement\"}\n").unwrap();
+    let a_handle = index.update_file(a_handle, &a).unwrap().file;
+    std::fs::write(&b, b"{\"id\":\"K\",\"note\":\"new owner\"}\n").unwrap();
+    let b_handle = index.add_file(&b).unwrap().file;
+    let pinned = index.view().unwrap();
+    assert_eq!(
+        pinned
+            .file_catalog()
+            .unwrap()
+            .file_for_record("items", "K")
+            .unwrap()
+            .unwrap()
+            .file_id,
+        b_handle.file_id
+    );
+
+    index.delete_file(a_handle).unwrap();
+    let view = index.view().unwrap();
+    let hit = view
+        .get_record("items", "K", ReturnMode::Logical)
+        .unwrap()
+        .unwrap();
+    assert_eq!(hit.record_id, "K");
+    assert_eq!(
+        view.file_catalog()
+            .unwrap()
+            .file_for_record("items", "K")
+            .unwrap()
+            .unwrap()
+            .file_id,
+        b_handle.file_id
+    );
+    assert_eq!(
+        view.file_catalog()
+            .unwrap()
+            .records_for_file(b_handle.file_id)
+            .unwrap()
+            .len(),
+        1
+    );
+    let query = Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(view.search(&query).unwrap().count, Some(1));
+    assert_eq!(
+        pinned
+            .get_record("items", "J", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .record_id,
+        "J"
+    );
+    assert_eq!(
+        pinned
+            .get_record("items", "K", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .record_id,
+        "K"
+    );
+    std::fs::write(&c, b"{\"id\":\"K\"}\n").unwrap();
+    assert!(index.add_file(&c).is_err());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() {
     let root = test_root("pinned-same-file-replacement");
     let path = root.join("data/a.jsonl");

@@ -465,6 +465,94 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn declared_attachment_outside_importer_selection_uses_catalog_only_lifecycle() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-declared-attachment-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::create_dir_all(root.join("attachments")).unwrap();
+    let imported = root.join("data/imported.json");
+    let attachment = root.join("attachments/cover.bin");
+    let moved_path = root.join("attachments/moved.bin");
+    std::fs::write(&imported, b"{\"title\":\"imported\"}").unwrap();
+    std::fs::write(&attachment, b"cover-old").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&attachment).unwrap()).unwrap();
+
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "attachments", 1)
+        .unwrap();
+    let catalog = builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder.enable_file_links(registration, catalog).unwrap();
+    let importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    builder
+        .register_file_source(collection, importer.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    index.add_file(&imported).unwrap();
+    let writer = index.ingestion().writer(registration).unwrap();
+    let mut batch = writer.batch();
+    let file = batch
+        .declare_file("attachments/cover.bin", revision)
+        .unwrap();
+    batch
+        .insert_with_file("linked", Value::String("independent".into()), file, None)
+        .unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let pinned = index.view().unwrap();
+    let handle = pinned.file_handle_for_path(&attachment).unwrap();
+    std::fs::write(&attachment, b"cover-new-content").unwrap();
+    let updated = index.update_file(handle, &attachment).unwrap();
+    assert_eq!(updated.indexed_records, 0);
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .get_record("entries", "linked", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    std::fs::rename(&attachment, &moved_path).unwrap();
+    let moved = index.move_file(updated.file, &moved_path).unwrap();
+    assert_eq!(moved.indexed_records, 0);
+    let view = index.view().unwrap();
+    assert_eq!(
+        view.file_catalog()
+            .unwrap()
+            .file_for_record("entries", "linked")
+            .unwrap()
+            .unwrap()
+            .path,
+        std::path::PathBuf::from("attachments/moved.bin")
+    );
+    assert_eq!(
+        pinned
+            .file_catalog()
+            .unwrap()
+            .file_for_record("entries", "linked")
+            .unwrap()
+            .unwrap()
+            .path,
+        std::path::PathBuf::from("attachments/cover.bin")
+    );
+    index.delete_file(moved.file).unwrap();
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .get_record("entries", "linked", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 struct VersionedFixture(Mutex<(RecordVersion, Value)>, Mutex<Vec<RecordProjection>>);
 
 impl RecordReader for VersionedFixture {
