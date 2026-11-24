@@ -1,0 +1,4668 @@
+[
+  {
+    "id": "Q081",
+    "aliases": [
+      "Q081"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 888,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 3525758,
+    "tantivy_median_ns": 517038,
+    "tantivy_over_objekte": 0.1466459127370625,
+    "objekte_min_max_ns": [
+      3479691,
+      3625491
+    ],
+    "tantivy_min_max_ns": [
+      502127,
+      536605
+    ]
+  },
+  {
+    "id": "Q083",
+    "aliases": [
+      "Q083"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4040,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 3481463,
+    "tantivy_median_ns": 472603,
+    "tantivy_over_objekte": 0.13574839083454285,
+    "objekte_min_max_ns": [
+      3390034,
+      3536224
+    ],
+    "tantivy_min_max_ns": [
+      456810,
+      481478
+    ]
+  },
+  {
+    "id": "Q084",
+    "aliases": [
+      "Q084"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4922,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 17490,
+    "tantivy_median_ns": 453267,
+    "tantivy_over_objekte": 25.915780445969126,
+    "objekte_min_max_ns": [
+      17139,
+      21324
+    ],
+    "tantivy_min_max_ns": [
+      440837,
+      462694
+    ]
+  },
+  {
+    "id": "Q086",
+    "aliases": [
+      "Q086"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4903,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 14456,
+    "tantivy_median_ns": 451265,
+    "tantivy_over_objekte": 31.216449916989486,
+    "objekte_min_max_ns": [
+      14236,
+      14892
+    ],
+    "tantivy_min_max_ns": [
+      445142,
+      456978
+    ]
+  },
+  {
+    "id": "Q087",
+    "aliases": [
+      "Q087"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4903,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 14053,
+    "tantivy_median_ns": 446899,
+    "tantivy_over_objekte": 31.80096776489006,
+    "objekte_min_max_ns": [
+      13908,
+      15321
+    ],
+    "tantivy_min_max_ns": [
+      439269,
+      456863
+    ]
+  },
+  {
+    "id": "Q088",
+    "aliases": [
+      "Q088"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 5,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 47547,
+    "tantivy_median_ns": 67267,
+    "tantivy_over_objekte": 1.4147475129871496,
+    "objekte_min_max_ns": [
+      45936,
+      48087
+    ],
+    "tantivy_min_max_ns": [
+      63161,
+      69774
+    ]
+  },
+  {
+    "id": "Q089",
+    "aliases": [
+      "Q089"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3653,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 21205,
+    "tantivy_median_ns": 503645,
+    "tantivy_over_objekte": 23.751237915585946,
+    "objekte_min_max_ns": [
+      20775,
+      22138
+    ],
+    "tantivy_min_max_ns": [
+      488039,
+      530071
+    ]
+  },
+  {
+    "id": "Q090",
+    "aliases": [
+      "Q090"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 6587,
+    "tantivy_median_ns": 15428,
+    "tantivy_over_objekte": 2.3421891604675875,
+    "objekte_min_max_ns": [
+      6320,
+      8506
+    ],
+    "tantivy_min_max_ns": [
+      15027,
+      15966
+    ]
+  },
+  {
+    "id": "Q091",
+    "aliases": [
+      "Q091"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3911,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 21096,
+    "tantivy_median_ns": 497610,
+    "tantivy_over_objekte": 23.58788395904437,
+    "objekte_min_max_ns": [
+      21000,
+      21673
+    ],
+    "tantivy_min_max_ns": [
+      490932,
+      509208
+    ]
+  },
+  {
+    "id": "Q092",
+    "aliases": [
+      "Q092"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 6493,
+    "tantivy_median_ns": 15545,
+    "tantivy_over_objekte": 2.3941167411058064,
+    "objekte_min_max_ns": [
+      6292,
+      6654
+    ],
+    "tantivy_min_max_ns": [
+      14752,
+      16005
+    ]
+  },
+  {
+    "id": "Q093",
+    "aliases": [
+      "Q093"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3856,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 20135,
+    "tantivy_median_ns": 497284,
+    "tantivy_over_objekte": 24.697491929476037,
+    "objekte_min_max_ns": [
+      19914,
+      24223
+    ],
+    "tantivy_min_max_ns": [
+      485336,
+      533173
+    ]
+  },
+  {
+    "id": "Q094",
+    "aliases": [
+      "Q094"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3864,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 20639,
+    "tantivy_median_ns": 494195,
+    "tantivy_over_objekte": 23.944716313774894,
+    "objekte_min_max_ns": [
+      20481,
+      24833
+    ],
+    "tantivy_min_max_ns": [
+      488249,
+      513095
+    ]
+  },
+  {
+    "id": "Q095",
+    "aliases": [
+      "Q095"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 81831,
+    "tantivy_median_ns": 16550,
+    "tantivy_over_objekte": 0.20224609255661058,
+    "objekte_min_max_ns": [
+      81118,
+      83980
+    ],
+    "tantivy_min_max_ns": [
+      15874,
+      17321
+    ]
+  },
+  {
+    "id": "Q096",
+    "aliases": [
+      "Q096"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 70390,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 94039,
+    "tantivy_median_ns": 833933,
+    "tantivy_over_objekte": 8.867948404385414,
+    "objekte_min_max_ns": [
+      91462,
+      105324
+    ],
+    "tantivy_min_max_ns": [
+      829219,
+      863629
+    ]
+  },
+  {
+    "id": "Q097",
+    "aliases": [
+      "Q097"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 55233,
+    "tantivy_median_ns": 15874,
+    "tantivy_over_objekte": 0.28740064816323574,
+    "objekte_min_max_ns": [
+      54576,
+      59199
+    ],
+    "tantivy_min_max_ns": [
+      15373,
+      16142
+    ]
+  },
+  {
+    "id": "Q098",
+    "aliases": [
+      "Q098"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 54451,
+    "tantivy_median_ns": 15249,
+    "tantivy_over_objekte": 0.28004995316890413,
+    "objekte_min_max_ns": [
+      54308,
+      57123
+    ],
+    "tantivy_min_max_ns": [
+      15124,
+      15800
+    ]
+  },
+  {
+    "id": "Q100",
+    "aliases": [
+      "Q100"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 77657085,
+    "tantivy_median_ns": 16504,
+    "tantivy_over_objekte": 0.00021252407298059153,
+    "objekte_min_max_ns": [
+      76983162,
+      78546792
+    ],
+    "tantivy_min_max_ns": [
+      16087,
+      16979
+    ]
+  },
+  {
+    "id": "Q101",
+    "aliases": [
+      "Q101"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "series",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 23689,
+    "tantivy_median_ns": 19528,
+    "tantivy_over_objekte": 0.8243488538984338,
+    "objekte_min_max_ns": [
+      23303,
+      25508
+    ],
+    "tantivy_min_max_ns": [
+      19141,
+      20780
+    ]
+  },
+  {
+    "id": "Q102",
+    "aliases": [
+      "Q102"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "series",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 18778,
+    "tantivy_median_ns": 14543,
+    "tantivy_over_objekte": 0.7744701246139098,
+    "objekte_min_max_ns": [
+      18320,
+      19505
+    ],
+    "tantivy_min_max_ns": [
+      14248,
+      15281
+    ]
+  },
+  {
+    "id": "Q103",
+    "aliases": [
+      "Q103"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 4108,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 26704,
+    "tantivy_median_ns": 151903,
+    "tantivy_over_objekte": 5.688398741761534,
+    "objekte_min_max_ns": [
+      25248,
+      27522
+    ],
+    "tantivy_min_max_ns": [
+      142959,
+      158567
+    ]
+  },
+  {
+    "id": "Q104",
+    "aliases": [
+      "Q104"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "array and nested filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 106,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 68737,
+    "tantivy_median_ns": 2022415,
+    "tantivy_over_objekte": 29.422508983516884,
+    "objekte_min_max_ns": [
+      67716,
+      69857
+    ],
+    "tantivy_min_max_ns": [
+      1986046,
+      2066644
+    ]
+  },
+  {
+    "id": "Q081",
+    "aliases": [
+      "Q081"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 888,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 3764587,
+    "tantivy_median_ns": 11055,
+    "tantivy_over_objekte": 0.002936577106598944,
+    "objekte_min_max_ns": [
+      3643236,
+      3944427
+    ],
+    "tantivy_min_max_ns": [
+      10433,
+      11129
+    ]
+  },
+  {
+    "id": "Q083",
+    "aliases": [
+      "Q083"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4040,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 3547435,
+    "tantivy_median_ns": 31871,
+    "tantivy_over_objekte": 0.00898423790710753,
+    "objekte_min_max_ns": [
+      3406155,
+      3912760
+    ],
+    "tantivy_min_max_ns": [
+      30958,
+      32617
+    ]
+  },
+  {
+    "id": "Q084",
+    "aliases": [
+      "Q084"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4922,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 14341,
+    "tantivy_median_ns": 15470,
+    "tantivy_over_objekte": 1.0787253329614392,
+    "objekte_min_max_ns": [
+      13778,
+      20128
+    ],
+    "tantivy_min_max_ns": [
+      15114,
+      15514
+    ]
+  },
+  {
+    "id": "Q086",
+    "aliases": [
+      "Q086"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4903,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 9611,
+    "tantivy_median_ns": 14567,
+    "tantivy_over_objekte": 1.515659140568099,
+    "objekte_min_max_ns": [
+      9305,
+      9866
+    ],
+    "tantivy_min_max_ns": [
+      14328,
+      14623
+    ]
+  },
+  {
+    "id": "Q087",
+    "aliases": [
+      "Q087"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4903,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 8750,
+    "tantivy_median_ns": 14076,
+    "tantivy_over_objekte": 1.6086857142857143,
+    "objekte_min_max_ns": [
+      8396,
+      9102
+    ],
+    "tantivy_min_max_ns": [
+      13831,
+      14325
+    ]
+  },
+  {
+    "id": "Q088",
+    "aliases": [
+      "Q088"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 5,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 61571,
+    "tantivy_median_ns": 4964,
+    "tantivy_over_objekte": 0.08062237092137532,
+    "objekte_min_max_ns": [
+      57539,
+      87563
+    ],
+    "tantivy_min_max_ns": [
+      4800,
+      5235
+    ]
+  },
+  {
+    "id": "Q089",
+    "aliases": [
+      "Q089"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3653,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 14726,
+    "tantivy_median_ns": 16596,
+    "tantivy_over_objekte": 1.1269862827651773,
+    "objekte_min_max_ns": [
+      14455,
+      15300
+    ],
+    "tantivy_min_max_ns": [
+      14249,
+      16817
+    ]
+  },
+  {
+    "id": "Q090",
+    "aliases": [
+      "Q090"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 8337,
+    "tantivy_median_ns": 1374,
+    "tantivy_over_objekte": 0.16480748470672904,
+    "objekte_min_max_ns": [
+      8198,
+      8750
+    ],
+    "tantivy_min_max_ns": [
+      1346,
+      1414
+    ]
+  },
+  {
+    "id": "Q091",
+    "aliases": [
+      "Q091"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3911,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 15977,
+    "tantivy_median_ns": 15651,
+    "tantivy_over_objekte": 0.9795956687738624,
+    "objekte_min_max_ns": [
+      15522,
+      16250
+    ],
+    "tantivy_min_max_ns": [
+      15429,
+      15851
+    ]
+  },
+  {
+    "id": "Q092",
+    "aliases": [
+      "Q092"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 7378,
+    "tantivy_median_ns": 1459,
+    "tantivy_over_objekte": 0.1977500677690431,
+    "objekte_min_max_ns": [
+      7201,
+      7715
+    ],
+    "tantivy_min_max_ns": [
+      1356,
+      1597
+    ]
+  },
+  {
+    "id": "Q093",
+    "aliases": [
+      "Q093"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3856,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 14211,
+    "tantivy_median_ns": 13907,
+    "tantivy_over_objekte": 0.9786081204700584,
+    "objekte_min_max_ns": [
+      14136,
+      14678
+    ],
+    "tantivy_min_max_ns": [
+      13785,
+      14550
+    ]
+  },
+  {
+    "id": "Q094",
+    "aliases": [
+      "Q094"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3864,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 15259,
+    "tantivy_median_ns": 15503,
+    "tantivy_over_objekte": 1.0159905629464578,
+    "objekte_min_max_ns": [
+      14928,
+      15404
+    ],
+    "tantivy_min_max_ns": [
+      15190,
+      16205
+    ]
+  },
+  {
+    "id": "Q095",
+    "aliases": [
+      "Q095"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 128976,
+    "tantivy_median_ns": 3190,
+    "tantivy_over_objekte": 0.0247332837116983,
+    "objekte_min_max_ns": [
+      126505,
+      156736
+    ],
+    "tantivy_min_max_ns": [
+      3097,
+      3331
+    ]
+  },
+  {
+    "id": "Q096",
+    "aliases": [
+      "Q096"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 70390,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 88908,
+    "tantivy_median_ns": 106934,
+    "tantivy_over_objekte": 1.2027489089845682,
+    "objekte_min_max_ns": [
+      86341,
+      93704
+    ],
+    "tantivy_min_max_ns": [
+      106562,
+      128022
+    ]
+  },
+  {
+    "id": "Q097",
+    "aliases": [
+      "Q097"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 61405,
+    "tantivy_median_ns": 1820,
+    "tantivy_over_objekte": 0.029639280188909697,
+    "objekte_min_max_ns": [
+      60137,
+      70335
+    ],
+    "tantivy_min_max_ns": [
+      1602,
+      1956
+    ]
+  },
+  {
+    "id": "Q098",
+    "aliases": [
+      "Q098"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 59327,
+    "tantivy_median_ns": 1475,
+    "tantivy_over_objekte": 0.024862204392603705,
+    "objekte_min_max_ns": [
+      58212,
+      61114
+    ],
+    "tantivy_min_max_ns": [
+      1388,
+      1659
+    ]
+  },
+  {
+    "id": "Q100",
+    "aliases": [
+      "Q100"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 78376075,
+    "tantivy_median_ns": 2802,
+    "tantivy_over_objekte": 3.575070581169062e-05,
+    "objekte_min_max_ns": [
+      77900405,
+      79113018
+    ],
+    "tantivy_min_max_ns": [
+      2591,
+      2994
+    ]
+  },
+  {
+    "id": "Q101",
+    "aliases": [
+      "Q101"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "series",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 47568,
+    "tantivy_median_ns": 2901,
+    "tantivy_over_objekte": 0.06098637739656912,
+    "objekte_min_max_ns": [
+      46432,
+      50228
+    ],
+    "tantivy_min_max_ns": [
+      2715,
+      2954
+    ]
+  },
+  {
+    "id": "Q102",
+    "aliases": [
+      "Q102"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "series",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 20111,
+    "tantivy_median_ns": 2334,
+    "tantivy_over_objekte": 0.11605588981154592,
+    "objekte_min_max_ns": [
+      19640,
+      20739
+    ],
+    "tantivy_min_max_ns": [
+      2243,
+      2713
+    ]
+  },
+  {
+    "id": "Q103",
+    "aliases": [
+      "Q103"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 4108,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 16023,
+    "tantivy_median_ns": 11238,
+    "tantivy_over_objekte": 0.7013667852462085,
+    "objekte_min_max_ns": [
+      15652,
+      16907
+    ],
+    "tantivy_min_max_ns": [
+      11047,
+      11332
+    ]
+  },
+  {
+    "id": "Q104",
+    "aliases": [
+      "Q104"
+    ],
+    "contract": "predicate_count",
+    "family": "array and nested filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 106,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 34531,
+    "tantivy_median_ns": 4655,
+    "tantivy_over_objekte": 0.1348064058382323,
+    "objekte_min_max_ns": [
+      34055,
+      36420
+    ],
+    "tantivy_min_max_ns": [
+      4572,
+      5076
+    ]
+  },
+  {
+    "id": "Q151",
+    "aliases": [
+      "Q151"
+    ],
+    "contract": "predicate_count",
+    "family": "extended requests",
+    "collection": "entries",
+    "representation": "none",
+    "count": 4928,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 2071,
+    "tantivy_median_ns": 4271,
+    "tantivy_over_objekte": 2.062288749396427,
+    "objekte_min_max_ns": [
+      1388,
+      2396
+    ],
+    "tantivy_min_max_ns": [
+      3011,
+      5100
+    ]
+  },
+  {
+    "id": "Q152",
+    "aliases": [
+      "Q152",
+      "Q190"
+    ],
+    "contract": "predicate_count",
+    "family": "extended requests",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3821,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 152081,
+    "tantivy_median_ns": 94551,
+    "tantivy_over_objekte": 0.6217147441166221,
+    "objekte_min_max_ns": [
+      141105,
+      171053
+    ],
+    "tantivy_min_max_ns": [
+      65602,
+      111735
+    ]
+  },
+  {
+    "id": "Q153",
+    "aliases": [
+      "Q153"
+    ],
+    "contract": "predicate_count",
+    "family": "extended requests",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1316,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 18930123,
+    "tantivy_median_ns": 273510470,
+    "tantivy_over_objekte": 14.448425401145043,
+    "objekte_min_max_ns": [
+      18624490,
+      19997596
+    ],
+    "tantivy_min_max_ns": [
+      271916173,
+      273995891
+    ]
+  },
+  {
+    "id": "Q001",
+    "aliases": [
+      "Q001"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 3269,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 38339919,
+    "tantivy_median_ns": 261632379,
+    "tantivy_over_objekte": 6.824020128994013,
+    "objekte_min_max_ns": [
+      37626223,
+      39098907
+    ],
+    "tantivy_min_max_ns": [
+      260687150,
+      266711848
+    ]
+  },
+  {
+    "id": "Q002",
+    "aliases": [
+      "Q002"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 5608,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 51588298,
+    "tantivy_median_ns": 264215045,
+    "tantivy_over_objekte": 5.121608101899388,
+    "objekte_min_max_ns": [
+      50864190,
+      53745499
+    ],
+    "tantivy_min_max_ns": [
+      260722322,
+      319403519
+    ]
+  },
+  {
+    "id": "Q003",
+    "aliases": [
+      "Q003"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 2866,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 23133329,
+    "tantivy_median_ns": 264426014,
+    "tantivy_over_objekte": 11.430521478339758,
+    "objekte_min_max_ns": [
+      22686861,
+      23504154
+    ],
+    "tantivy_min_max_ns": [
+      261414316,
+      265812298
+    ]
+  },
+  {
+    "id": "Q004",
+    "aliases": [
+      "Q004"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 2995,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 55487331,
+    "tantivy_median_ns": 263750758,
+    "tantivy_over_objekte": 4.753350958617923,
+    "objekte_min_max_ns": [
+      52661352,
+      56116835
+    ],
+    "tantivy_min_max_ns": [
+      261716154,
+      267208968
+    ]
+  },
+  {
+    "id": "Q005",
+    "aliases": [
+      "Q005"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 516,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 22235435,
+    "tantivy_median_ns": 263637260,
+    "tantivy_over_objekte": 11.85662704597414,
+    "objekte_min_max_ns": [
+      21106158,
+      22618723
+    ],
+    "tantivy_min_max_ns": [
+      262054947,
+      266097632
+    ]
+  },
+  {
+    "id": "Q006",
+    "aliases": [
+      "Q006"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 65548,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 799755223,
+    "tantivy_median_ns": 268921450,
+    "tantivy_over_objekte": 0.33625469676988906,
+    "objekte_min_max_ns": [
+      788793160,
+      814920381
+    ],
+    "tantivy_min_max_ns": [
+      267816675,
+      270723545
+    ]
+  },
+  {
+    "id": "Q007",
+    "aliases": [
+      "Q007"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 147798,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 796107751,
+    "tantivy_median_ns": 297026926,
+    "tantivy_over_objekte": 0.37309889977443517,
+    "objekte_min_max_ns": [
+      788619835,
+      836278640
+    ],
+    "tantivy_min_max_ns": [
+      296624200,
+      300419474
+    ]
+  },
+  {
+    "id": "Q008",
+    "aliases": [
+      "Q008"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 41730,
+    "tantivy_median_ns": 261279897,
+    "tantivy_over_objekte": 6261.200503235083,
+    "objekte_min_max_ns": [
+      40453,
+      46184
+    ],
+    "tantivy_min_max_ns": [
+      258437028,
+      261872649
+    ]
+  },
+  {
+    "id": "Q009",
+    "aliases": [
+      "Q009"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "places",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 7378,
+    "tantivy_median_ns": 259867574,
+    "tantivy_over_objekte": 35221.95364597452,
+    "objekte_min_max_ns": [
+      6959,
+      7678
+    ],
+    "tantivy_min_max_ns": [
+      258862334,
+      318849770
+    ]
+  },
+  {
+    "id": "Q010",
+    "aliases": [
+      "Q010"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "places",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 5154,
+    "tantivy_median_ns": 259504045,
+    "tantivy_over_objekte": 50350.02813348855,
+    "objekte_min_max_ns": [
+      5093,
+      5518
+    ],
+    "tantivy_min_max_ns": [
+      259289339,
+      261126652
+    ]
+  },
+  {
+    "id": "Q011",
+    "aliases": [
+      "Q011"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 62,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 17521402,
+    "tantivy_median_ns": 262054498,
+    "tantivy_over_objekte": 14.956251674380852,
+    "objekte_min_max_ns": [
+      16856870,
+      17674292
+    ],
+    "tantivy_min_max_ns": [
+      260533667,
+      262516643
+    ]
+  },
+  {
+    "id": "Q012",
+    "aliases": [
+      "Q012"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 31,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 33988827,
+    "tantivy_median_ns": 261715655,
+    "tantivy_over_objekte": 7.700049636899797,
+    "objekte_min_max_ns": [
+      32748674,
+      34417511
+    ],
+    "tantivy_min_max_ns": [
+      260306919,
+      265665436
+    ]
+  },
+  {
+    "id": "Q013",
+    "aliases": [
+      "Q013"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 57,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 49861387,
+    "tantivy_median_ns": 261850981,
+    "tantivy_over_objekte": 5.251578360626029,
+    "objekte_min_max_ns": [
+      48703789,
+      50963669
+    ],
+    "tantivy_min_max_ns": [
+      261230515,
+      263784036
+    ]
+  },
+  {
+    "id": "Q014",
+    "aliases": [
+      "Q014"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1742,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 58199379,
+    "tantivy_median_ns": 262429304,
+    "tantivy_over_objekte": 4.509142683464028,
+    "objekte_min_max_ns": [
+      54514113,
+      58794325
+    ],
+    "tantivy_min_max_ns": [
+      261375109,
+      265647598
+    ]
+  },
+  {
+    "id": "Q015",
+    "aliases": [
+      "Q015"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 2684,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 57999342,
+    "tantivy_median_ns": 265661925,
+    "tantivy_over_objekte": 4.5804299814297895,
+    "objekte_min_max_ns": [
+      55227572,
+      59113288
+    ],
+    "tantivy_min_max_ns": [
+      263233991,
+      271514375
+    ]
+  },
+  {
+    "id": "Q016",
+    "aliases": [
+      "Q016"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "series",
+    "representation": "derived_literal_term_dictionary",
+    "count": 325,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 1090110,
+    "tantivy_median_ns": 260812258,
+    "tantivy_over_objekte": 239.25315610351248,
+    "objekte_min_max_ns": [
+      1064692,
+      1136043
+    ],
+    "tantivy_min_max_ns": [
+      259403543,
+      261894212
+    ]
+  },
+  {
+    "id": "Q017",
+    "aliases": [
+      "Q017"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "series",
+    "representation": "derived_literal_term_dictionary",
+    "count": 390,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 1046653,
+    "tantivy_median_ns": 260235240,
+    "tantivy_over_objekte": 248.63564142079562,
+    "objekte_min_max_ns": [
+      1020544,
+      1167285
+    ],
+    "tantivy_min_max_ns": [
+      259658138,
+      262937554
+    ]
+  },
+  {
+    "id": "Q018",
+    "aliases": [
+      "Q018"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 228,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 3225550,
+    "tantivy_median_ns": 261834797,
+    "tantivy_over_objekte": 81.17524050161988,
+    "objekte_min_max_ns": [
+      3131854,
+      3308144
+    ],
+    "tantivy_min_max_ns": [
+      259750482,
+      264904143
+    ]
+  },
+  {
+    "id": "Q019",
+    "aliases": [
+      "Q019"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1316,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 13488894,
+    "tantivy_median_ns": 259884116,
+    "tantivy_over_objekte": 19.266525187313356,
+    "objekte_min_max_ns": [
+      13115660,
+      13819024
+    ],
+    "tantivy_min_max_ns": [
+      259480483,
+      263904587
+    ]
+  },
+  {
+    "id": "Q020",
+    "aliases": [
+      "Q020"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 163,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 2436342,
+    "tantivy_median_ns": 259704844,
+    "tantivy_over_objekte": 106.59621842910396,
+    "objekte_min_max_ns": [
+      2358853,
+      2543052
+    ],
+    "tantivy_min_max_ns": [
+      258756144,
+      315545910
+    ]
+  },
+  {
+    "id": "Q021",
+    "aliases": [
+      "Q021"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 230,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 7312065,
+    "tantivy_median_ns": 259867970,
+    "tantivy_over_objekte": 35.53961432235627,
+    "objekte_min_max_ns": [
+      7057027,
+      7444591
+    ],
+    "tantivy_min_max_ns": [
+      258297153,
+      264778213
+    ]
+  },
+  {
+    "id": "Q022",
+    "aliases": [
+      "Q022"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1493,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 11864254,
+    "tantivy_median_ns": 260257856,
+    "tantivy_over_objekte": 21.9363017683202,
+    "objekte_min_max_ns": [
+      11490532,
+      12322035
+    ],
+    "tantivy_min_max_ns": [
+      258388656,
+      263021112
+    ]
+  },
+  {
+    "id": "Q023",
+    "aliases": [
+      "Q023"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 5307,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 65349109,
+    "tantivy_median_ns": 260764813,
+    "tantivy_over_objekte": 3.9903346348608975,
+    "objekte_min_max_ns": [
+      63397957,
+      68120966
+    ],
+    "tantivy_min_max_ns": [
+      259486380,
+      263028362
+    ]
+  },
+  {
+    "id": "Q024",
+    "aliases": [
+      "Q024"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1927,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 24541108,
+    "tantivy_median_ns": 260144679,
+    "tantivy_over_objekte": 10.600364050392509,
+    "objekte_min_max_ns": [
+      23425122,
+      25970131
+    ],
+    "tantivy_min_max_ns": [
+      258141673,
+      262137439
+    ]
+  },
+  {
+    "id": "Q025",
+    "aliases": [
+      "Q025"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 60319,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 344147196,
+    "tantivy_median_ns": 261532833,
+    "tantivy_over_objekte": 0.7599446865753339,
+    "objekte_min_max_ns": [
+      332240503,
+      349259979
+    ],
+    "tantivy_min_max_ns": [
+      260065333,
+      266012207
+    ]
+  },
+  {
+    "id": "Q026",
+    "aliases": [
+      "Q026"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 18825,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 404863252,
+    "tantivy_median_ns": 265138826,
+    "tantivy_over_objekte": 0.6548848893798838,
+    "objekte_min_max_ns": [
+      391534435,
+      419146661
+    ],
+    "tantivy_min_max_ns": [
+      260679453,
+      268185000
+    ]
+  },
+  {
+    "id": "Q027",
+    "aliases": [
+      "Q027"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 215,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 3294959,
+    "tantivy_median_ns": 260994720,
+    "tantivy_over_objekte": 79.21030883844078,
+    "objekte_min_max_ns": [
+      3123566,
+      3421762
+    ],
+    "tantivy_min_max_ns": [
+      259191226,
+      265087168
+    ]
+  },
+  {
+    "id": "Q028",
+    "aliases": [
+      "Q028"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "items",
+    "representation": "derived_literal_term_dictionary",
+    "count": 4177,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 11086501,
+    "tantivy_median_ns": 260606233,
+    "tantivy_over_objekte": 23.50662603106246,
+    "objekte_min_max_ns": [
+      10811661,
+      11423666
+    ],
+    "tantivy_min_max_ns": [
+      259177292,
+      266911058
+    ]
+  },
+  {
+    "id": "Q029",
+    "aliases": [
+      "Q029"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "pages",
+    "representation": "derived_literal_term_dictionary",
+    "count": 7,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 23310,
+    "tantivy_median_ns": 262365834,
+    "tantivy_over_objekte": 11255.505534105534,
+    "objekte_min_max_ns": [
+      21689,
+      24423
+    ],
+    "tantivy_min_max_ns": [
+      258718070,
+      265911267
+    ]
+  },
+  {
+    "id": "Q030",
+    "aliases": [
+      "Q030"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1264,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 9438324,
+    "tantivy_median_ns": 54094625,
+    "tantivy_over_objekte": 5.73138038066928,
+    "objekte_min_max_ns": [
+      9344912,
+      9573889
+    ],
+    "tantivy_min_max_ns": [
+      53672602,
+      55491969
+    ]
+  },
+  {
+    "id": "Q001",
+    "aliases": [
+      "Q001"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 3269,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 39498185,
+    "tantivy_median_ns": 260428152,
+    "tantivy_over_objekte": 6.593420735661652,
+    "objekte_min_max_ns": [
+      38679446,
+      40252059
+    ],
+    "tantivy_min_max_ns": [
+      258776392,
+      267340440
+    ]
+  },
+  {
+    "id": "Q002",
+    "aliases": [
+      "Q002"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 5608,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 53096310,
+    "tantivy_median_ns": 260534435,
+    "tantivy_over_objekte": 4.906827517769125,
+    "objekte_min_max_ns": [
+      51075817,
+      55132228
+    ],
+    "tantivy_min_max_ns": [
+      259430553,
+      265792823
+    ]
+  },
+  {
+    "id": "Q003",
+    "aliases": [
+      "Q003"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 2866,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 23806192,
+    "tantivy_median_ns": 261132375,
+    "tantivy_over_objekte": 10.96909472123891,
+    "objekte_min_max_ns": [
+      23399387,
+      24965877
+    ],
+    "tantivy_min_max_ns": [
+      259741223,
+      264854867
+    ]
+  },
+  {
+    "id": "Q004",
+    "aliases": [
+      "Q004"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 2995,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 55009011,
+    "tantivy_median_ns": 260567757,
+    "tantivy_over_objekte": 4.736819518533063,
+    "objekte_min_max_ns": [
+      53994810,
+      56723462
+    ],
+    "tantivy_min_max_ns": [
+      258463892,
+      265685318
+    ]
+  },
+  {
+    "id": "Q005",
+    "aliases": [
+      "Q005"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 516,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 22912128,
+    "tantivy_median_ns": 259648968,
+    "tantivy_over_objekte": 11.33238117384819,
+    "objekte_min_max_ns": [
+      21381276,
+      23218441
+    ],
+    "tantivy_min_max_ns": [
+      258477464,
+      262920182
+    ]
+  },
+  {
+    "id": "Q006",
+    "aliases": [
+      "Q006"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 65548,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 790411213,
+    "tantivy_median_ns": 266984224,
+    "tantivy_over_objekte": 0.3377788923143731,
+    "objekte_min_max_ns": [
+      771949514,
+      810249423
+    ],
+    "tantivy_min_max_ns": [
+      266159862,
+      268817984
+    ]
+  },
+  {
+    "id": "Q007",
+    "aliases": [
+      "Q007"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 147798,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 795782445,
+    "tantivy_median_ns": 295291203,
+    "tantivy_over_objekte": 0.37107026531604376,
+    "objekte_min_max_ns": [
+      785381281,
+      811484091
+    ],
+    "tantivy_min_max_ns": [
+      293941973,
+      297542701
+    ]
+  },
+  {
+    "id": "Q008",
+    "aliases": [
+      "Q008"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "*",
+    "representation": "derived_literal_term_dictionary",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 140236,
+    "tantivy_median_ns": 260229615,
+    "tantivy_over_objekte": 1855.6548603782196,
+    "objekte_min_max_ns": [
+      135067,
+      141908
+    ],
+    "tantivy_min_max_ns": [
+      259248019,
+      262308910
+    ]
+  },
+  {
+    "id": "Q009",
+    "aliases": [
+      "Q009"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "places",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 15284,
+    "tantivy_median_ns": 269895219,
+    "tantivy_over_objekte": 17658.676982465324,
+    "objekte_min_max_ns": [
+      14431,
+      15681
+    ],
+    "tantivy_min_max_ns": [
+      267789947,
+      272384470
+    ]
+  },
+  {
+    "id": "Q010",
+    "aliases": [
+      "Q010"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "places",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 7936,
+    "tantivy_median_ns": 268308103,
+    "tantivy_over_objekte": 33808.9847530242,
+    "objekte_min_max_ns": [
+      7356,
+      8108
+    ],
+    "tantivy_min_max_ns": [
+      267722402,
+      269432280
+    ]
+  },
+  {
+    "id": "Q011",
+    "aliases": [
+      "Q011"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 62,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 18131939,
+    "tantivy_median_ns": 268224436,
+    "tantivy_over_objekte": 14.792926228132579,
+    "objekte_min_max_ns": [
+      17470903,
+      18297284
+    ],
+    "tantivy_min_max_ns": [
+      267225378,
+      269422348
+    ]
+  },
+  {
+    "id": "Q012",
+    "aliases": [
+      "Q012"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 31,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 33528475,
+    "tantivy_median_ns": 268629206,
+    "tantivy_over_objekte": 8.011972092378194,
+    "objekte_min_max_ns": [
+      30308333,
+      34000232
+    ],
+    "tantivy_min_max_ns": [
+      267278315,
+      269812471
+    ]
+  },
+  {
+    "id": "Q013",
+    "aliases": [
+      "Q013"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 57,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 49703251,
+    "tantivy_median_ns": 268857699,
+    "tantivy_over_objekte": 5.409257816958492,
+    "objekte_min_max_ns": [
+      45501123,
+      50155829
+    ],
+    "tantivy_min_max_ns": [
+      267658847,
+      270194578
+    ]
+  },
+  {
+    "id": "Q014",
+    "aliases": [
+      "Q014"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1742,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 58936211,
+    "tantivy_median_ns": 269346368,
+    "tantivy_over_objekte": 4.570133767167353,
+    "objekte_min_max_ns": [
+      54206128,
+      61055031
+    ],
+    "tantivy_min_max_ns": [
+      268548414,
+      271672551
+    ]
+  },
+  {
+    "id": "Q015",
+    "aliases": [
+      "Q015"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "agents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 2684,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 59563127,
+    "tantivy_median_ns": 273058556,
+    "tantivy_over_objekte": 4.584355619878721,
+    "objekte_min_max_ns": [
+      54062908,
+      60400947
+    ],
+    "tantivy_min_max_ns": [
+      271714841,
+      278949698
+    ]
+  },
+  {
+    "id": "Q016",
+    "aliases": [
+      "Q016"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "series",
+    "representation": "derived_literal_term_dictionary",
+    "count": 325,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 1386215,
+    "tantivy_median_ns": 270748036,
+    "tantivy_over_objekte": 195.31460559869862,
+    "objekte_min_max_ns": [
+      1364538,
+      1416759
+    ],
+    "tantivy_min_max_ns": [
+      268880026,
+      274538263
+    ]
+  },
+  {
+    "id": "Q017",
+    "aliases": [
+      "Q017"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "series",
+    "representation": "derived_literal_term_dictionary",
+    "count": 390,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 1269935,
+    "tantivy_median_ns": 269580241,
+    "tantivy_over_objekte": 212.27877096071848,
+    "objekte_min_max_ns": [
+      1260190,
+      1319255
+    ],
+    "tantivy_min_max_ns": [
+      267887545,
+      272656645
+    ]
+  },
+  {
+    "id": "Q018",
+    "aliases": [
+      "Q018"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 228,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 3429363,
+    "tantivy_median_ns": 269007789,
+    "tantivy_over_objekte": 78.4424947140329,
+    "objekte_min_max_ns": [
+      3276158,
+      3655170
+    ],
+    "tantivy_min_max_ns": [
+      267668366,
+      274055518
+    ]
+  },
+  {
+    "id": "Q019",
+    "aliases": [
+      "Q019"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1316,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 13795363,
+    "tantivy_median_ns": 270087501,
+    "tantivy_over_objekte": 19.578136581110623,
+    "objekte_min_max_ns": [
+      13009057,
+      14290071
+    ],
+    "tantivy_min_max_ns": [
+      268566835,
+      272760287
+    ]
+  },
+  {
+    "id": "Q020",
+    "aliases": [
+      "Q020"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 163,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 2567481,
+    "tantivy_median_ns": 268532226,
+    "tantivy_over_objekte": 104.5897617158608,
+    "objekte_min_max_ns": [
+      2415706,
+      2627066
+    ],
+    "tantivy_min_max_ns": [
+      267604814,
+      270013336
+    ]
+  },
+  {
+    "id": "Q021",
+    "aliases": [
+      "Q021"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 230,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 7421104,
+    "tantivy_median_ns": 268934317,
+    "tantivy_over_objekte": 36.239125202934765,
+    "objekte_min_max_ns": [
+      7093421,
+      7626851
+    ],
+    "tantivy_min_max_ns": [
+      268366635,
+      271234632
+    ]
+  },
+  {
+    "id": "Q022",
+    "aliases": [
+      "Q022"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1493,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 12373131,
+    "tantivy_median_ns": 269210107,
+    "tantivy_over_objekte": 21.757638143490116,
+    "objekte_min_max_ns": [
+      11565901,
+      12738346
+    ],
+    "tantivy_min_max_ns": [
+      267349065,
+      270902084
+    ]
+  },
+  {
+    "id": "Q023",
+    "aliases": [
+      "Q023"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 5307,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 66048069,
+    "tantivy_median_ns": 269340465,
+    "tantivy_over_objekte": 4.077946094078844,
+    "objekte_min_max_ns": [
+      65173151,
+      68363679
+    ],
+    "tantivy_min_max_ns": [
+      268155101,
+      270968985
+    ]
+  },
+  {
+    "id": "Q024",
+    "aliases": [
+      "Q024"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1927,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 24982547,
+    "tantivy_median_ns": 269028391,
+    "tantivy_over_objekte": 10.768653452348154,
+    "objekte_min_max_ns": [
+      24335788,
+      25521022
+    ],
+    "tantivy_min_max_ns": [
+      267343354,
+      269897564
+    ]
+  },
+  {
+    "id": "Q025",
+    "aliases": [
+      "Q025"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 60319,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 346930063,
+    "tantivy_median_ns": 269907235,
+    "tantivy_over_objekte": 0.7779874498797759,
+    "objekte_min_max_ns": [
+      341484554,
+      394943098
+    ],
+    "tantivy_min_max_ns": [
+      268363759,
+      272166555
+    ]
+  },
+  {
+    "id": "Q026",
+    "aliases": [
+      "Q026"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 18825,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 410125810,
+    "tantivy_median_ns": 271197558,
+    "tantivy_over_objekte": 0.6612545501586452,
+    "objekte_min_max_ns": [
+      401116920,
+      422673883
+    ],
+    "tantivy_min_max_ns": [
+      269601929,
+      274929388
+    ]
+  },
+  {
+    "id": "Q027",
+    "aliases": [
+      "Q027"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "contents",
+    "representation": "derived_literal_term_dictionary",
+    "count": 215,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 3482229,
+    "tantivy_median_ns": 269771980,
+    "tantivy_over_objekte": 77.47106235689841,
+    "objekte_min_max_ns": [
+      3353701,
+      3657457
+    ],
+    "tantivy_min_max_ns": [
+      267227682,
+      271721606
+    ]
+  },
+  {
+    "id": "Q028",
+    "aliases": [
+      "Q028"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "items",
+    "representation": "derived_literal_term_dictionary",
+    "count": 4177,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 11603069,
+    "tantivy_median_ns": 270161862,
+    "tantivy_over_objekte": 23.283655556991,
+    "objekte_min_max_ns": [
+      11359563,
+      11815850
+    ],
+    "tantivy_min_max_ns": [
+      268155722,
+      273300934
+    ]
+  },
+  {
+    "id": "Q029",
+    "aliases": [
+      "Q029"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "pages",
+    "representation": "derived_literal_term_dictionary",
+    "count": 7,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 36689,
+    "tantivy_median_ns": 269716760,
+    "tantivy_over_objekte": 7351.433944779089,
+    "objekte_min_max_ns": [
+      33714,
+      37455
+    ],
+    "tantivy_min_max_ns": [
+      267402259,
+      274128338
+    ]
+  },
+  {
+    "id": "Q030",
+    "aliases": [
+      "Q030"
+    ],
+    "contract": "predicate_count",
+    "family": "literal FTS",
+    "collection": "entries",
+    "representation": "derived_literal_term_dictionary",
+    "count": 1264,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 9836579,
+    "tantivy_median_ns": 53346955,
+    "tantivy_over_objekte": 5.423324003192573,
+    "objekte_min_max_ns": [
+      9741380,
+      9929378
+    ],
+    "tantivy_min_max_ns": [
+      52479387,
+      54910519
+    ]
+  },
+  {
+    "id": "Q142",
+    "aliases": [
+      "Q142"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "mixed requests",
+    "collection": "entries",
+    "representation": "derived_literal_and_typed_json",
+    "count": 11,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 155477,
+    "tantivy_median_ns": 260915803,
+    "tantivy_over_objekte": 1678.163348919776,
+    "objekte_min_max_ns": [
+      149769,
+      164601
+    ],
+    "tantivy_min_max_ns": [
+      259348495,
+      266527709
+    ]
+  },
+  {
+    "id": "Q144",
+    "aliases": [
+      "Q144"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "mixed requests",
+    "collection": "contents",
+    "representation": "derived_literal_and_typed_json",
+    "count": 3939,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 63876980,
+    "tantivy_median_ns": 261807451,
+    "tantivy_over_objekte": 4.098619737501679,
+    "objekte_min_max_ns": [
+      62820027,
+      66202207
+    ],
+    "tantivy_min_max_ns": [
+      260303862,
+      266954519
+    ]
+  },
+  {
+    "id": "Q145",
+    "aliases": [
+      "Q145"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "mixed requests",
+    "collection": "contents",
+    "representation": "derived_literal_and_typed_json",
+    "count": 40947,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 319357098,
+    "tantivy_median_ns": 243469330,
+    "tantivy_over_objekte": 0.7623733166563281,
+    "objekte_min_max_ns": [
+      310817897,
+      348803208
+    ],
+    "tantivy_min_max_ns": [
+      242007351,
+      248119893
+    ]
+  },
+  {
+    "id": "Q146",
+    "aliases": [
+      "Q146"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "mixed requests",
+    "collection": "agents",
+    "representation": "derived_literal_and_typed_json",
+    "count": 62,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 32228132,
+    "tantivy_median_ns": 46382159,
+    "tantivy_over_objekte": 1.4391823578232832,
+    "objekte_min_max_ns": [
+      31870019,
+      32353926
+    ],
+    "tantivy_min_max_ns": [
+      46000250,
+      46593860
+    ]
+  },
+  {
+    "id": "Q148",
+    "aliases": [
+      "Q148"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "mixed requests",
+    "collection": "items",
+    "representation": "derived_literal_and_typed_json",
+    "count": 4105,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 14280012,
+    "tantivy_median_ns": 19109147,
+    "tantivy_over_objekte": 1.3381744357077572,
+    "objekte_min_max_ns": [
+      13954841,
+      14376928
+    ],
+    "tantivy_min_max_ns": [
+      18980926,
+      20191187
+    ]
+  },
+  {
+    "id": "Q141",
+    "aliases": [
+      "Q141"
+    ],
+    "contract": "predicate_count",
+    "family": "mixed requests",
+    "collection": "entries",
+    "representation": "derived_literal_and_typed_json",
+    "count": 823,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 12714755,
+    "tantivy_median_ns": 269555618,
+    "tantivy_over_objekte": 21.200221160376273,
+    "objekte_min_max_ns": [
+      12399443,
+      12925627
+    ],
+    "tantivy_min_max_ns": [
+      268782111,
+      276851695
+    ]
+  },
+  {
+    "id": "Q142",
+    "aliases": [
+      "Q142"
+    ],
+    "contract": "predicate_count",
+    "family": "mixed requests",
+    "collection": "entries",
+    "representation": "derived_literal_and_typed_json",
+    "count": 11,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 190333,
+    "tantivy_median_ns": 270212008,
+    "tantivy_over_objekte": 1419.6802866554933,
+    "objekte_min_max_ns": [
+      180970,
+      195544
+    ],
+    "tantivy_min_max_ns": [
+      269762287,
+      277050060
+    ]
+  },
+  {
+    "id": "Q143",
+    "aliases": [
+      "Q143"
+    ],
+    "contract": "predicate_count",
+    "family": "mixed requests",
+    "collection": "entries",
+    "representation": "derived_literal_and_typed_json",
+    "count": 2057,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 28241337,
+    "tantivy_median_ns": 87958027,
+    "tantivy_over_objekte": 3.1145135586179933,
+    "objekte_min_max_ns": [
+      27510733,
+      28669184
+    ],
+    "tantivy_min_max_ns": [
+      87462847,
+      92531607
+    ]
+  },
+  {
+    "id": "Q144",
+    "aliases": [
+      "Q144"
+    ],
+    "contract": "predicate_count",
+    "family": "mixed requests",
+    "collection": "contents",
+    "representation": "derived_literal_and_typed_json",
+    "count": 3939,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 64512437,
+    "tantivy_median_ns": 274177199,
+    "tantivy_over_objekte": 4.249989796541092,
+    "objekte_min_max_ns": [
+      62998119,
+      65577271
+    ],
+    "tantivy_min_max_ns": [
+      269768282,
+      276038424
+    ]
+  },
+  {
+    "id": "Q145",
+    "aliases": [
+      "Q145"
+    ],
+    "contract": "predicate_count",
+    "family": "mixed requests",
+    "collection": "contents",
+    "representation": "derived_literal_and_typed_json",
+    "count": 40947,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 323389771,
+    "tantivy_median_ns": 250495368,
+    "tantivy_over_objekte": 0.7745927375049844,
+    "objekte_min_max_ns": [
+      312800817,
+      329044684
+    ],
+    "tantivy_min_max_ns": [
+      248919032,
+      254170073
+    ]
+  },
+  {
+    "id": "Q146",
+    "aliases": [
+      "Q146"
+    ],
+    "contract": "predicate_count",
+    "family": "mixed requests",
+    "collection": "agents",
+    "representation": "derived_literal_and_typed_json",
+    "count": 62,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 32342468,
+    "tantivy_median_ns": 45160187,
+    "tantivy_over_objekte": 1.3963123346060047,
+    "objekte_min_max_ns": [
+      31996798,
+      33065906
+    ],
+    "tantivy_min_max_ns": [
+      44927811,
+      45348382
+    ]
+  },
+  {
+    "id": "Q148",
+    "aliases": [
+      "Q148"
+    ],
+    "contract": "predicate_count",
+    "family": "mixed requests",
+    "collection": "items",
+    "representation": "derived_literal_and_typed_json",
+    "count": 4105,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 15053313,
+    "tantivy_median_ns": 19808431,
+    "tantivy_over_objekte": 1.3158851476748008,
+    "objekte_min_max_ns": [
+      14767336,
+      15777033
+    ],
+    "tantivy_min_max_ns": [
+      19613698,
+      20983696
+    ]
+  },
+  {
+    "id": "Q031",
+    "aliases": [
+      "Q031"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 203,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 18032,
+    "tantivy_median_ns": 93111,
+    "tantivy_over_objekte": 5.163653504880213,
+    "objekte_min_max_ns": [
+      16971,
+      43362
+    ],
+    "tantivy_min_max_ns": [
+      92413,
+      100144
+    ]
+  },
+  {
+    "id": "Q032",
+    "aliases": [
+      "Q032"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 7,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 7879,
+    "tantivy_median_ns": 27907,
+    "tantivy_over_objekte": 3.5419469475821805,
+    "objekte_min_max_ns": [
+      7705,
+      8125
+    ],
+    "tantivy_min_max_ns": [
+      27498,
+      29961
+    ]
+  },
+  {
+    "id": "Q033",
+    "aliases": [
+      "Q033"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 210,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 11908,
+    "tantivy_median_ns": 85575,
+    "tantivy_over_objekte": 7.186345314074572,
+    "objekte_min_max_ns": [
+      11541,
+      12416
+    ],
+    "tantivy_min_max_ns": [
+      84305,
+      88244
+    ]
+  },
+  {
+    "id": "Q034",
+    "aliases": [
+      "Q034"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 4035,
+    "tantivy_median_ns": 18099,
+    "tantivy_over_objekte": 4.485501858736059,
+    "objekte_min_max_ns": [
+      3757,
+      4517
+    ],
+    "tantivy_min_max_ns": [
+      17485,
+      20850
+    ]
+  },
+  {
+    "id": "Q035",
+    "aliases": [
+      "Q035"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 124,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 20524,
+    "tantivy_median_ns": 103714,
+    "tantivy_over_objekte": 5.053303449619957,
+    "objekte_min_max_ns": [
+      20214,
+      22261
+    ],
+    "tantivy_min_max_ns": [
+      100704,
+      110663
+    ]
+  },
+  {
+    "id": "Q036",
+    "aliases": [
+      "Q036"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 86,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 18121,
+    "tantivy_median_ns": 103457,
+    "tantivy_over_objekte": 5.709232382318857,
+    "objekte_min_max_ns": [
+      17709,
+      18766
+    ],
+    "tantivy_min_max_ns": [
+      99825,
+      109212
+    ]
+  },
+  {
+    "id": "Q037",
+    "aliases": [
+      "Q037"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 753,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 57316,
+    "tantivy_median_ns": 283954,
+    "tantivy_over_objekte": 4.954183823016261,
+    "objekte_min_max_ns": [
+      56494,
+      63769
+    ],
+    "tantivy_min_max_ns": [
+      272733,
+      292596
+    ]
+  },
+  {
+    "id": "Q038",
+    "aliases": [
+      "Q038"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 3257,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 44955,
+    "tantivy_median_ns": 1507267,
+    "tantivy_over_objekte": 33.52835057279502,
+    "objekte_min_max_ns": [
+      43978,
+      47508
+    ],
+    "tantivy_min_max_ns": [
+      1499470,
+      1545366
+    ]
+  },
+  {
+    "id": "Q039",
+    "aliases": [
+      "Q039"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 22366,
+    "tantivy_median_ns": 20769,
+    "tantivy_over_objekte": 0.9285969775552178,
+    "objekte_min_max_ns": [
+      22039,
+      22633
+    ],
+    "tantivy_min_max_ns": [
+      20307,
+      22328
+    ]
+  },
+  {
+    "id": "Q040",
+    "aliases": [
+      "Q040"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 4010,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 32115,
+    "tantivy_median_ns": 1119481,
+    "tantivy_over_objekte": 34.85850848513156,
+    "objekte_min_max_ns": [
+      31860,
+      32476
+    ],
+    "tantivy_min_max_ns": [
+      1092721,
+      1140977
+    ]
+  },
+  {
+    "id": "Q041",
+    "aliases": [
+      "Q041"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 39,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 65299,
+    "tantivy_median_ns": 1400690,
+    "tantivy_over_objekte": 21.450405059801835,
+    "objekte_min_max_ns": [
+      64114,
+      65560
+    ],
+    "tantivy_min_max_ns": [
+      1370267,
+      1471181
+    ]
+  },
+  {
+    "id": "Q042",
+    "aliases": [
+      "Q042"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 1520,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 45645,
+    "tantivy_median_ns": 1749406,
+    "tantivy_over_objekte": 38.32634461605871,
+    "objekte_min_max_ns": [
+      45169,
+      47584
+    ],
+    "tantivy_min_max_ns": [
+      1716704,
+      1784551
+    ]
+  },
+  {
+    "id": "Q043",
+    "aliases": [
+      "Q043"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 3022,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 1869450,
+    "tantivy_median_ns": 1193709,
+    "tantivy_over_objekte": 0.6385348631950574,
+    "objekte_min_max_ns": [
+      1808452,
+      1921805
+    ],
+    "tantivy_min_max_ns": [
+      1164771,
+      1215643
+    ]
+  },
+  {
+    "id": "Q044",
+    "aliases": [
+      "Q044"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 60,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 41231,
+    "tantivy_median_ns": 470279,
+    "tantivy_over_objekte": 11.405956683078266,
+    "objekte_min_max_ns": [
+      40715,
+      46520
+    ],
+    "tantivy_min_max_ns": [
+      440667,
+      480916
+    ]
+  },
+  {
+    "id": "Q045",
+    "aliases": [
+      "Q045"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 1107,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 51395,
+    "tantivy_median_ns": 557842,
+    "tantivy_over_objekte": 10.854013036287576,
+    "objekte_min_max_ns": [
+      50585,
+      68044
+    ],
+    "tantivy_min_max_ns": [
+      534877,
+      567670
+    ]
+  },
+  {
+    "id": "Q046",
+    "aliases": [
+      "Q046"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3308,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 311022,
+    "tantivy_median_ns": 672697,
+    "tantivy_over_objekte": 2.162859862003331,
+    "objekte_min_max_ns": [
+      310510,
+      314471
+    ],
+    "tantivy_min_max_ns": [
+      646590,
+      685131
+    ]
+  },
+  {
+    "id": "Q047",
+    "aliases": [
+      "Q047"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 13462,
+    "tantivy_median_ns": 26461,
+    "tantivy_over_objekte": 1.9656068934779378,
+    "objekte_min_max_ns": [
+      12426,
+      13715
+    ],
+    "tantivy_min_max_ns": [
+      25576,
+      28238
+    ]
+  },
+  {
+    "id": "Q048",
+    "aliases": [
+      "Q048"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 2377,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 20681,
+    "tantivy_median_ns": 519856,
+    "tantivy_over_objekte": 25.136888931869834,
+    "objekte_min_max_ns": [
+      20177,
+      21088
+    ],
+    "tantivy_min_max_ns": [
+      483877,
+      533502
+    ]
+  },
+  {
+    "id": "Q049",
+    "aliases": [
+      "Q049"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4702,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 14699,
+    "tantivy_median_ns": 451254,
+    "tantivy_over_objekte": 30.69963943125383,
+    "objekte_min_max_ns": [
+      14240,
+      14948
+    ],
+    "tantivy_min_max_ns": [
+      429556,
+      454068
+    ]
+  },
+  {
+    "id": "Q050",
+    "aliases": [
+      "Q050"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 81,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 298621,
+    "tantivy_median_ns": 298028,
+    "tantivy_over_objekte": 0.9980142052970152,
+    "objekte_min_max_ns": [
+      296410,
+      327655
+    ],
+    "tantivy_min_max_ns": [
+      286134,
+      349977
+    ]
+  },
+  {
+    "id": "Q051",
+    "aliases": [
+      "Q051"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 1942,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 126610,
+    "tantivy_median_ns": 416995,
+    "tantivy_over_objekte": 3.2935392149119345,
+    "objekte_min_max_ns": [
+      124139,
+      127251
+    ],
+    "tantivy_min_max_ns": [
+      413628,
+      448723
+    ]
+  },
+  {
+    "id": "Q052",
+    "aliases": [
+      "Q052"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 86764,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 1897621,
+    "tantivy_median_ns": 2113653,
+    "tantivy_over_objekte": 1.113843596798307,
+    "objekte_min_max_ns": [
+      1885872,
+      1925847
+    ],
+    "tantivy_min_max_ns": [
+      2086086,
+      2121128
+    ]
+  },
+  {
+    "id": "Q053",
+    "aliases": [
+      "Q053"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 2387,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 116573,
+    "tantivy_median_ns": 348428,
+    "tantivy_over_objekte": 2.988925394388066,
+    "objekte_min_max_ns": [
+      115217,
+      119217
+    ],
+    "tantivy_min_max_ns": [
+      347912,
+      357256
+    ]
+  },
+  {
+    "id": "Q054",
+    "aliases": [
+      "Q054"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 66,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 1760076,
+    "tantivy_median_ns": 1716503,
+    "tantivy_over_objekte": 0.975243682659158,
+    "objekte_min_max_ns": [
+      1747036,
+      1776456
+    ],
+    "tantivy_min_max_ns": [
+      1696967,
+      1743768
+    ]
+  },
+  {
+    "id": "Q055",
+    "aliases": [
+      "Q055"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 112778,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 1497319,
+    "tantivy_median_ns": 1633868,
+    "tantivy_over_objekte": 1.0911956637162823,
+    "objekte_min_max_ns": [
+      1481476,
+      1521366
+    ],
+    "tantivy_min_max_ns": [
+      1618366,
+      1648739
+    ]
+  },
+  {
+    "id": "Q056",
+    "aliases": [
+      "Q056"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 11672,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 106002,
+    "tantivy_median_ns": 390996,
+    "tantivy_over_objekte": 3.688571913737477,
+    "objekte_min_max_ns": [
+      104293,
+      108012
+    ],
+    "tantivy_min_max_ns": [
+      384295,
+      398289
+    ]
+  },
+  {
+    "id": "Q057",
+    "aliases": [
+      "Q057"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 4177,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 19630,
+    "tantivy_median_ns": 148745,
+    "tantivy_over_objekte": 7.577432501273561,
+    "objekte_min_max_ns": [
+      18509,
+      20783
+    ],
+    "tantivy_min_max_ns": [
+      146084,
+      155273
+    ]
+  },
+  {
+    "id": "Q058",
+    "aliases": [
+      "Q058"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 6224,
+    "tantivy_median_ns": 15780,
+    "tantivy_over_objekte": 2.5353470437017993,
+    "objekte_min_max_ns": [
+      6099,
+      6525
+    ],
+    "tantivy_min_max_ns": [
+      15481,
+      16264
+    ]
+  },
+  {
+    "id": "Q059",
+    "aliases": [
+      "Q059"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 4177,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 15424,
+    "tantivy_median_ns": 144143,
+    "tantivy_over_objekte": 9.345370850622407,
+    "objekte_min_max_ns": [
+      15006,
+      16400
+    ],
+    "tantivy_min_max_ns": [
+      139806,
+      146804
+    ]
+  },
+  {
+    "id": "Q060",
+    "aliases": [
+      "Q060"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "series",
+    "representation": "typed_json",
+    "count": 1187,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 26155,
+    "tantivy_median_ns": 130221,
+    "tantivy_over_objekte": 4.978818581533168,
+    "objekte_min_max_ns": [
+      25295,
+      27267
+    ],
+    "tantivy_min_max_ns": [
+      126006,
+      138401
+    ]
+  },
+  {
+    "id": "Q061",
+    "aliases": [
+      "Q061"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 16280,
+    "tantivy_median_ns": 18456,
+    "tantivy_over_objekte": 1.1336609336609336,
+    "objekte_min_max_ns": [
+      15929,
+      17191
+    ],
+    "tantivy_min_max_ns": [
+      17847,
+      18659
+    ]
+  },
+  {
+    "id": "Q031",
+    "aliases": [
+      "Q031",
+      "Q126",
+      "Q127"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 203,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 27468,
+    "tantivy_median_ns": 10080,
+    "tantivy_over_objekte": 0.3669724770642202,
+    "objekte_min_max_ns": [
+      26659,
+      32816
+    ],
+    "tantivy_min_max_ns": [
+      9736,
+      10993
+    ]
+  },
+  {
+    "id": "Q032",
+    "aliases": [
+      "Q032"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 7,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 5258,
+    "tantivy_median_ns": 2548,
+    "tantivy_over_objekte": 0.48459490300494484,
+    "objekte_min_max_ns": [
+      4811,
+      5549
+    ],
+    "tantivy_min_max_ns": [
+      2492,
+      2623
+    ]
+  },
+  {
+    "id": "Q033",
+    "aliases": [
+      "Q033"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 210,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 7431,
+    "tantivy_median_ns": 8249,
+    "tantivy_over_objekte": 1.1100793971201723,
+    "objekte_min_max_ns": [
+      7326,
+      7540
+    ],
+    "tantivy_min_max_ns": [
+      8153,
+      8580
+    ]
+  },
+  {
+    "id": "Q034",
+    "aliases": [
+      "Q034"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 7157,
+    "tantivy_median_ns": 5343,
+    "tantivy_over_objekte": 0.7465418471426576,
+    "objekte_min_max_ns": [
+      6824,
+      18694
+    ],
+    "tantivy_min_max_ns": [
+      4815,
+      5749
+    ]
+  },
+  {
+    "id": "Q035",
+    "aliases": [
+      "Q035"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 124,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 26504,
+    "tantivy_median_ns": 30949,
+    "tantivy_over_objekte": 1.1677105342589797,
+    "objekte_min_max_ns": [
+      26209,
+      31352
+    ],
+    "tantivy_min_max_ns": [
+      30049,
+      31805
+    ]
+  },
+  {
+    "id": "Q036",
+    "aliases": [
+      "Q036"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 86,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 11907,
+    "tantivy_median_ns": 22178,
+    "tantivy_over_objekte": 1.862601830855799,
+    "objekte_min_max_ns": [
+      11280,
+      12442
+    ],
+    "tantivy_min_max_ns": [
+      21532,
+      24068
+    ]
+  },
+  {
+    "id": "Q037",
+    "aliases": [
+      "Q037"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 753,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 34147,
+    "tantivy_median_ns": 9523,
+    "tantivy_over_objekte": 0.2788824786950537,
+    "objekte_min_max_ns": [
+      33848,
+      37095
+    ],
+    "tantivy_min_max_ns": [
+      9104,
+      10221
+    ]
+  },
+  {
+    "id": "Q038",
+    "aliases": [
+      "Q038",
+      "Q128",
+      "Q129",
+      "Q130"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 3257,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 31302,
+    "tantivy_median_ns": 11218,
+    "tantivy_over_objekte": 0.3583796562519967,
+    "objekte_min_max_ns": [
+      31168,
+      31924
+    ],
+    "tantivy_min_max_ns": [
+      10591,
+      12135
+    ]
+  },
+  {
+    "id": "Q039",
+    "aliases": [
+      "Q039"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 24071,
+    "tantivy_median_ns": 2444,
+    "tantivy_over_objekte": 0.10153296497860496,
+    "objekte_min_max_ns": [
+      23496,
+      25099
+    ],
+    "tantivy_min_max_ns": [
+      2315,
+      2600
+    ]
+  },
+  {
+    "id": "Q040",
+    "aliases": [
+      "Q040"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 4010,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 25383,
+    "tantivy_median_ns": 11685,
+    "tantivy_over_objekte": 0.4603474766576055,
+    "objekte_min_max_ns": [
+      25208,
+      26976
+    ],
+    "tantivy_min_max_ns": [
+      11310,
+      11752
+    ]
+  },
+  {
+    "id": "Q041",
+    "aliases": [
+      "Q041"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 39,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 27690,
+    "tantivy_median_ns": 5755,
+    "tantivy_over_objekte": 0.20783676417479235,
+    "objekte_min_max_ns": [
+      27446,
+      29912
+    ],
+    "tantivy_min_max_ns": [
+      5419,
+      6477
+    ]
+  },
+  {
+    "id": "Q042",
+    "aliases": [
+      "Q042"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 1520,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 37366,
+    "tantivy_median_ns": 11039,
+    "tantivy_over_objekte": 0.2954289996253278,
+    "objekte_min_max_ns": [
+      36808,
+      62093
+    ],
+    "tantivy_min_max_ns": [
+      10792,
+      20594
+    ]
+  },
+  {
+    "id": "Q043",
+    "aliases": [
+      "Q043"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "agents",
+    "representation": "typed_json",
+    "count": 3022,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 2204719,
+    "tantivy_median_ns": 46573,
+    "tantivy_over_objekte": 0.02112423397267407,
+    "objekte_min_max_ns": [
+      2194059,
+      2269143
+    ],
+    "tantivy_min_max_ns": [
+      45700,
+      46990
+    ]
+  },
+  {
+    "id": "Q044",
+    "aliases": [
+      "Q044"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 60,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 13240,
+    "tantivy_median_ns": 10498,
+    "tantivy_over_objekte": 0.7929003021148037,
+    "objekte_min_max_ns": [
+      12786,
+      26499
+    ],
+    "tantivy_min_max_ns": [
+      9890,
+      10661
+    ]
+  },
+  {
+    "id": "Q045",
+    "aliases": [
+      "Q045"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 1107,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 39404,
+    "tantivy_median_ns": 58689,
+    "tantivy_over_objekte": 1.4894173180387777,
+    "objekte_min_max_ns": [
+      38805,
+      50670
+    ],
+    "tantivy_min_max_ns": [
+      58092,
+      59662
+    ]
+  },
+  {
+    "id": "Q046",
+    "aliases": [
+      "Q046",
+      "Q131",
+      "Q132"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 3308,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 324567,
+    "tantivy_median_ns": 180022,
+    "tantivy_over_objekte": 0.5546528143649847,
+    "objekte_min_max_ns": [
+      314390,
+      354532
+    ],
+    "tantivy_min_max_ns": [
+      177891,
+      181835
+    ]
+  },
+  {
+    "id": "Q047",
+    "aliases": [
+      "Q047"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 7179,
+    "tantivy_median_ns": 4554,
+    "tantivy_over_objekte": 0.6343501880484748,
+    "objekte_min_max_ns": [
+      6814,
+      7604
+    ],
+    "tantivy_min_max_ns": [
+      4412,
+      4727
+    ]
+  },
+  {
+    "id": "Q048",
+    "aliases": [
+      "Q048"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 2377,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 12585,
+    "tantivy_median_ns": 16856,
+    "tantivy_over_objekte": 1.3393722685736988,
+    "objekte_min_max_ns": [
+      12439,
+      15227
+    ],
+    "tantivy_min_max_ns": [
+      16731,
+      16998
+    ]
+  },
+  {
+    "id": "Q049",
+    "aliases": [
+      "Q049"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "entries",
+    "representation": "typed_json",
+    "count": 4702,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 9220,
+    "tantivy_median_ns": 17818,
+    "tantivy_over_objekte": 1.9325379609544469,
+    "objekte_min_max_ns": [
+      8997,
+      9563
+    ],
+    "tantivy_min_max_ns": [
+      17383,
+      17971
+    ]
+  },
+  {
+    "id": "Q050",
+    "aliases": [
+      "Q050",
+      "Q133",
+      "Q137",
+      "Q138",
+      "Q139"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 81,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 122467,
+    "tantivy_median_ns": 8652,
+    "tantivy_over_objekte": 0.07064760302775441,
+    "objekte_min_max_ns": [
+      119368,
+      124835
+    ],
+    "tantivy_min_max_ns": [
+      8272,
+      9087
+    ]
+  },
+  {
+    "id": "Q051",
+    "aliases": [
+      "Q051"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 1942,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 79646,
+    "tantivy_median_ns": 15213,
+    "tantivy_over_objekte": 0.19100770911282425,
+    "objekte_min_max_ns": [
+      78526,
+      105239
+    ],
+    "tantivy_min_max_ns": [
+      14636,
+      15910
+    ]
+  },
+  {
+    "id": "Q052",
+    "aliases": [
+      "Q052"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 86764,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 2039787,
+    "tantivy_median_ns": 1011033,
+    "tantivy_over_objekte": 0.4956561640994869,
+    "objekte_min_max_ns": [
+      2030404,
+      2161015
+    ],
+    "tantivy_min_max_ns": [
+      997196,
+      1029661
+    ]
+  },
+  {
+    "id": "Q053",
+    "aliases": [
+      "Q053"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 2387,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 86055,
+    "tantivy_median_ns": 19957,
+    "tantivy_over_objekte": 0.23190982511184707,
+    "objekte_min_max_ns": [
+      82530,
+      87554
+    ],
+    "tantivy_min_max_ns": [
+      19513,
+      20450
+    ]
+  },
+  {
+    "id": "Q054",
+    "aliases": [
+      "Q054"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 66,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 1619346,
+    "tantivy_median_ns": 1036173,
+    "tantivy_over_objekte": 0.6398712813691453,
+    "objekte_min_max_ns": [
+      1586397,
+      1675433
+    ],
+    "tantivy_min_max_ns": [
+      1033902,
+      1053114
+    ]
+  },
+  {
+    "id": "Q055",
+    "aliases": [
+      "Q055"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 112778,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 1512548,
+    "tantivy_median_ns": 762687,
+    "tantivy_over_objekte": 0.5042398654455925,
+    "objekte_min_max_ns": [
+      1499751,
+      1582159
+    ],
+    "tantivy_min_max_ns": [
+      753977,
+      785936
+    ]
+  },
+  {
+    "id": "Q056",
+    "aliases": [
+      "Q056"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 11672,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 86686,
+    "tantivy_median_ns": 67496,
+    "tantivy_over_objekte": 0.7786263064393327,
+    "objekte_min_max_ns": [
+      85050,
+      100118
+    ],
+    "tantivy_min_max_ns": [
+      66615,
+      70873
+    ]
+  },
+  {
+    "id": "Q057",
+    "aliases": [
+      "Q057"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 4177,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 10648,
+    "tantivy_median_ns": 11918,
+    "tantivy_over_objekte": 1.1192712246431256,
+    "objekte_min_max_ns": [
+      10201,
+      35888
+    ],
+    "tantivy_min_max_ns": [
+      11647,
+      13838
+    ]
+  },
+  {
+    "id": "Q058",
+    "aliases": [
+      "Q058"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 0,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 7604,
+    "tantivy_median_ns": 1210,
+    "tantivy_over_objekte": 0.15912677538137823,
+    "objekte_min_max_ns": [
+      7425,
+      8007
+    ],
+    "tantivy_min_max_ns": [
+      1126,
+      1333
+    ]
+  },
+  {
+    "id": "Q059",
+    "aliases": [
+      "Q059"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "items",
+    "representation": "typed_json",
+    "count": 4177,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 11266,
+    "tantivy_median_ns": 11433,
+    "tantivy_over_objekte": 1.0148233623291318,
+    "objekte_min_max_ns": [
+      11077,
+      11966
+    ],
+    "tantivy_min_max_ns": [
+      11373,
+      12263
+    ]
+  },
+  {
+    "id": "Q060",
+    "aliases": [
+      "Q060"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "series",
+    "representation": "typed_json",
+    "count": 1187,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 16578,
+    "tantivy_median_ns": 5082,
+    "tantivy_over_objekte": 0.3065508505247919,
+    "objekte_min_max_ns": [
+      16058,
+      17114
+    ],
+    "tantivy_min_max_ns": [
+      5013,
+      5415
+    ]
+  },
+  {
+    "id": "Q061",
+    "aliases": [
+      "Q061"
+    ],
+    "contract": "predicate_count",
+    "family": "scalar and numeric filters",
+    "collection": "places",
+    "representation": "typed_json",
+    "count": 1,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 34003,
+    "tantivy_median_ns": 3255,
+    "tantivy_over_objekte": 0.09572684763109138,
+    "objekte_min_max_ns": [
+      32509,
+      39087
+    ],
+    "tantivy_min_max_ns": [
+      3110,
+      3413
+    ]
+  },
+  {
+    "id": "Q134",
+    "aliases": [
+      "Q134"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "sorted pages",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 133948,
+    "offset": 0,
+    "page_length": 100,
+    "samples": 7,
+    "objekte_median_ns": 375852,
+    "tantivy_median_ns": 2203565,
+    "tantivy_over_objekte": 5.862852931473027,
+    "objekte_min_max_ns": [
+      371646,
+      384944
+    ],
+    "tantivy_min_max_ns": [
+      2188772,
+      2286764
+    ]
+  },
+  {
+    "id": "Q135",
+    "aliases": [
+      "Q135"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "sorted pages",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 133948,
+    "offset": 1000,
+    "page_length": 100,
+    "samples": 7,
+    "objekte_median_ns": 903667,
+    "tantivy_median_ns": 3013830,
+    "tantivy_over_objekte": 3.3351112743964313,
+    "objekte_min_max_ns": [
+      847582,
+      927444
+    ],
+    "tantivy_min_max_ns": [
+      2980033,
+      3049747
+    ]
+  },
+  {
+    "id": "Q136",
+    "aliases": [
+      "Q136"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "sorted pages",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 133948,
+    "offset": 10000,
+    "page_length": 100,
+    "samples": 7,
+    "objekte_median_ns": 5694825,
+    "tantivy_median_ns": 5257892,
+    "tantivy_over_objekte": 0.9232754298859052,
+    "objekte_min_max_ns": [
+      5293340,
+      5969162
+    ],
+    "tantivy_min_max_ns": [
+      5213077,
+      5338297
+    ]
+  },
+  {
+    "id": "Q137",
+    "aliases": [
+      "Q137",
+      "Q138",
+      "Q139"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "sorted pages",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 81,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 354986,
+    "tantivy_median_ns": 354950,
+    "tantivy_over_objekte": 0.9998985875499316,
+    "objekte_min_max_ns": [
+      352012,
+      356487
+    ],
+    "tantivy_min_max_ns": [
+      349738,
+      368050
+    ]
+  },
+  {
+    "id": "Q134",
+    "aliases": [
+      "Q134",
+      "Q135",
+      "Q136"
+    ],
+    "contract": "predicate_count",
+    "family": "sorted pages",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 133948,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 276912,
+    "tantivy_median_ns": 524551,
+    "tantivy_over_objekte": 1.8942877159530827,
+    "objekte_min_max_ns": [
+      272765,
+      281249
+    ],
+    "tantivy_min_max_ns": [
+      520147,
+      548553
+    ]
+  },
+  {
+    "id": "Q120",
+    "aliases": [
+      "Q120"
+    ],
+    "contract": "ordered_locator_page",
+    "family": "structure and metadata",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 42700,
+    "offset": 0,
+    "page_length": 50,
+    "samples": 7,
+    "objekte_median_ns": 102602,
+    "tantivy_median_ns": 594270,
+    "tantivy_over_objekte": 5.791992358823415,
+    "objekte_min_max_ns": [
+      93367,
+      109377
+    ],
+    "tantivy_min_max_ns": [
+      583613,
+      596523
+    ]
+  },
+  {
+    "id": "Q120",
+    "aliases": [
+      "Q120"
+    ],
+    "contract": "predicate_count",
+    "family": "structure and metadata",
+    "collection": "contents",
+    "representation": "typed_json",
+    "count": 42700,
+    "offset": 0,
+    "page_length": 0,
+    "samples": 7,
+    "objekte_median_ns": 94917,
+    "tantivy_median_ns": 91163,
+    "tantivy_over_objekte": 0.9604496560152554,
+    "objekte_min_max_ns": [
+      92711,
+      98873
+    ],
+    "tantivy_min_max_ns": [
+      89222,
+      94719
+    ]
+  }
+]

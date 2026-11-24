@@ -1,0 +1,437 @@
+{
+  "measurement_revision": "0f2e6adfa8e3140f8492c1e835efe97d69942a8c",
+  "corpus_fingerprint": "eec50dbfbfd023aad31e9c3609f4a7f14b177ecc1a022c182321ae704c188cf6",
+  "tantivy_version": "0.27.0",
+  "coverage": {
+    "historical": {
+      "predicate_count": {
+        "compatible_verified": 104,
+        "unsupported": 46
+      },
+      "ordered_locator_page": {
+        "compatible_verified": 94,
+        "unsupported": 56
+      }
+    },
+    "extended": {
+      "predicate_count": {
+        "compatible_verified": 4,
+        "unsupported": 66
+      },
+      "ordered_locator_page": {
+        "unsupported": 70
+      }
+    }
+  },
+  "verified_predicate_source_cases": 108,
+  "distinct_measured_contracts": 186,
+  "builds": {
+    "historical": {
+      "objekte": {
+        "engine": "objekte",
+        "elapsed_ns": 3493278856,
+        "documents": 148486,
+        "collection_counts": {
+          "agents": 4010,
+          "contents": 133948,
+          "entries": 4928,
+          "items": 4180,
+          "pages": 8,
+          "places": 210,
+          "series": 1202
+        },
+        "peak_rss_kb": 461840,
+        "resident_ready_kb": 417620,
+        "index_bytes": null,
+        "segments": 15,
+        "writer_memory_bytes": null
+      },
+      "tantivy": {
+        "engine": "tantivy",
+        "elapsed_ns": 6487094071,
+        "documents": 148486,
+        "collection_counts": {
+          "agents": 4010,
+          "contents": 133948,
+          "entries": 4928,
+          "items": 4180,
+          "pages": 8,
+          "places": 210,
+          "series": 1202
+        },
+        "peak_rss_kb": 412176,
+        "resident_ready_kb": 403712,
+        "index_bytes": 189050946,
+        "segments": 5,
+        "writer_memory_bytes": 100000000
+      }
+    },
+    "extended": {
+      "objekte": {
+        "engine": "objekte",
+        "elapsed_ns": 3650889295,
+        "documents": 148486,
+        "collection_counts": {
+          "agents": 4010,
+          "contents": 133948,
+          "entries": 4928,
+          "items": 4180,
+          "pages": 8,
+          "places": 210,
+          "series": 1202
+        },
+        "peak_rss_kb": 515584,
+        "resident_ready_kb": 471696,
+        "index_bytes": null,
+        "segments": 15,
+        "writer_memory_bytes": null
+      },
+      "tantivy": {
+        "engine": "tantivy",
+        "elapsed_ns": 6434816923,
+        "documents": 148486,
+        "collection_counts": {
+          "agents": 4010,
+          "contents": 133948,
+          "entries": 4928,
+          "items": 4180,
+          "pages": 8,
+          "places": 210,
+          "series": 1202
+        },
+        "peak_rss_kb": 403348,
+        "resident_ready_kb": 394704,
+        "index_bytes": 189050946,
+        "segments": 5,
+        "writer_memory_bytes": 100000000
+      }
+    }
+  },
+  "highlights": [
+    {
+      "id": "Q001",
+      "aliases": [
+        "Q001"
+      ],
+      "contract": "predicate_count",
+      "family": "literal FTS",
+      "collection": "*",
+      "representation": "derived_literal_term_dictionary",
+      "count": 3269,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 39498185,
+      "tantivy_median_ns": 260428152,
+      "tantivy_over_objekte": 6.593420735661652,
+      "objekte_min_max_ns": [
+        38679446,
+        40252059
+      ],
+      "tantivy_min_max_ns": [
+        258776392,
+        267340440
+      ]
+    },
+    {
+      "id": "Q006",
+      "aliases": [
+        "Q006"
+      ],
+      "contract": "predicate_count",
+      "family": "literal FTS",
+      "collection": "*",
+      "representation": "derived_literal_term_dictionary",
+      "count": 65548,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 790411213,
+      "tantivy_median_ns": 266984224,
+      "tantivy_over_objekte": 0.3377788923143731,
+      "objekte_min_max_ns": [
+        771949514,
+        810249423
+      ],
+      "tantivy_min_max_ns": [
+        266159862,
+        268817984
+      ]
+    },
+    {
+      "id": "Q007",
+      "aliases": [
+        "Q007"
+      ],
+      "contract": "predicate_count",
+      "family": "literal FTS",
+      "collection": "*",
+      "representation": "derived_literal_term_dictionary",
+      "count": 147798,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 795782445,
+      "tantivy_median_ns": 295291203,
+      "tantivy_over_objekte": 0.37107026531604376,
+      "objekte_min_max_ns": [
+        785381281,
+        811484091
+      ],
+      "tantivy_min_max_ns": [
+        293941973,
+        297542701
+      ]
+    },
+    {
+      "id": "Q009",
+      "aliases": [
+        "Q009"
+      ],
+      "contract": "predicate_count",
+      "family": "literal FTS",
+      "collection": "places",
+      "representation": "derived_literal_term_dictionary",
+      "count": 1,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 15284,
+      "tantivy_median_ns": 269895219,
+      "tantivy_over_objekte": 17658.676982465324,
+      "objekte_min_max_ns": [
+        14431,
+        15681
+      ],
+      "tantivy_min_max_ns": [
+        267789947,
+        272384470
+      ]
+    },
+    {
+      "id": "Q030",
+      "aliases": [
+        "Q030"
+      ],
+      "contract": "predicate_count",
+      "family": "literal FTS",
+      "collection": "entries",
+      "representation": "derived_literal_term_dictionary",
+      "count": 1264,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 9836579,
+      "tantivy_median_ns": 53346955,
+      "tantivy_over_objekte": 5.423324003192573,
+      "objekte_min_max_ns": [
+        9741380,
+        9929378
+      ],
+      "tantivy_min_max_ns": [
+        52479387,
+        54910519
+      ]
+    },
+    {
+      "id": "Q044",
+      "aliases": [
+        "Q044"
+      ],
+      "contract": "predicate_count",
+      "family": "scalar and numeric filters",
+      "collection": "entries",
+      "representation": "typed_json",
+      "count": 60,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 13240,
+      "tantivy_median_ns": 10498,
+      "tantivy_over_objekte": 0.7929003021148037,
+      "objekte_min_max_ns": [
+        12786,
+        26499
+      ],
+      "tantivy_min_max_ns": [
+        9890,
+        10661
+      ]
+    },
+    {
+      "id": "Q044",
+      "aliases": [
+        "Q044"
+      ],
+      "contract": "ordered_locator_page",
+      "family": "scalar and numeric filters",
+      "collection": "entries",
+      "representation": "typed_json",
+      "count": 60,
+      "offset": 0,
+      "page_length": 50,
+      "samples": 7,
+      "objekte_median_ns": 41231,
+      "tantivy_median_ns": 470279,
+      "tantivy_over_objekte": 11.405956683078266,
+      "objekte_min_max_ns": [
+        40715,
+        46520
+      ],
+      "tantivy_min_max_ns": [
+        440667,
+        480916
+      ]
+    },
+    {
+      "id": "Q054",
+      "aliases": [
+        "Q054"
+      ],
+      "contract": "predicate_count",
+      "family": "scalar and numeric filters",
+      "collection": "contents",
+      "representation": "typed_json",
+      "count": 66,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 1619346,
+      "tantivy_median_ns": 1036173,
+      "tantivy_over_objekte": 0.6398712813691453,
+      "objekte_min_max_ns": [
+        1586397,
+        1675433
+      ],
+      "tantivy_min_max_ns": [
+        1033902,
+        1053114
+      ]
+    },
+    {
+      "id": "Q081",
+      "aliases": [
+        "Q081"
+      ],
+      "contract": "predicate_count",
+      "family": "array and nested filters",
+      "collection": "entries",
+      "representation": "typed_json",
+      "count": 888,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 3764587,
+      "tantivy_median_ns": 11055,
+      "tantivy_over_objekte": 0.002936577106598944,
+      "objekte_min_max_ns": [
+        3643236,
+        3944427
+      ],
+      "tantivy_min_max_ns": [
+        10433,
+        11129
+      ]
+    },
+    {
+      "id": "Q134",
+      "aliases": [
+        "Q134"
+      ],
+      "contract": "ordered_locator_page",
+      "family": "sorted pages",
+      "collection": "contents",
+      "representation": "typed_json",
+      "count": 133948,
+      "offset": 0,
+      "page_length": 100,
+      "samples": 7,
+      "objekte_median_ns": 375852,
+      "tantivy_median_ns": 2203565,
+      "tantivy_over_objekte": 5.862852931473027,
+      "objekte_min_max_ns": [
+        371646,
+        384944
+      ],
+      "tantivy_min_max_ns": [
+        2188772,
+        2286764
+      ]
+    },
+    {
+      "id": "Q135",
+      "aliases": [
+        "Q135"
+      ],
+      "contract": "ordered_locator_page",
+      "family": "sorted pages",
+      "collection": "contents",
+      "representation": "typed_json",
+      "count": 133948,
+      "offset": 1000,
+      "page_length": 100,
+      "samples": 7,
+      "objekte_median_ns": 903667,
+      "tantivy_median_ns": 3013830,
+      "tantivy_over_objekte": 3.3351112743964313,
+      "objekte_min_max_ns": [
+        847582,
+        927444
+      ],
+      "tantivy_min_max_ns": [
+        2980033,
+        3049747
+      ]
+    },
+    {
+      "id": "Q136",
+      "aliases": [
+        "Q136"
+      ],
+      "contract": "ordered_locator_page",
+      "family": "sorted pages",
+      "collection": "contents",
+      "representation": "typed_json",
+      "count": 133948,
+      "offset": 10000,
+      "page_length": 100,
+      "samples": 7,
+      "objekte_median_ns": 5694825,
+      "tantivy_median_ns": 5257892,
+      "tantivy_over_objekte": 0.9232754298859052,
+      "objekte_min_max_ns": [
+        5293340,
+        5969162
+      ],
+      "tantivy_min_max_ns": [
+        5213077,
+        5338297
+      ]
+    },
+    {
+      "id": "Q145",
+      "aliases": [
+        "Q145"
+      ],
+      "contract": "predicate_count",
+      "family": "mixed requests",
+      "collection": "contents",
+      "representation": "derived_literal_and_typed_json",
+      "count": 40947,
+      "offset": 0,
+      "page_length": 0,
+      "samples": 7,
+      "objekte_median_ns": 323389771,
+      "tantivy_median_ns": 250495368,
+      "tantivy_over_objekte": 0.7745927375049844,
+      "objekte_min_max_ns": [
+        312800817,
+        329044684
+      ],
+      "tantivy_min_max_ns": [
+        248919032,
+        254170073
+      ]
+    }
+  ]
+}
