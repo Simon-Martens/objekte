@@ -530,6 +530,12 @@ impl PublishedIndex {
                     IndexError::InvalidPublication("segment collection missing".into())
                 })?;
             for segment in Arc::make_mut(segments).iter_mut() {
+                if !matches!(
+                    segment.index.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                ) {
+                    continue;
+                }
                 if let Some(slots) = segment.index.file_records(file.id) {
                     let slots = slots.to_vec();
                     let segment = Arc::make_mut(segment);
@@ -545,6 +551,68 @@ impl PublishedIndex {
             }
         }
         Ok(retired_records)
+    }
+
+    /// Reconcile optional provenance without retiring registrar-owned records.
+    /// Range links survive only while their observed content revision remains
+    /// valid. Path-only links follow a live file across content revisions.
+    pub(super) fn refresh_record_links(
+        &mut self,
+        file: crate::model::FileId,
+        replacement: Option<&FileEntry>,
+    ) -> Vec<CollectionId> {
+        let mut memberships = Vec::new();
+        for group in &mut self.segments {
+            for published in Arc::make_mut(group).iter_mut() {
+                let Some(file_index) = published.index.file_index.get(&file).copied() else {
+                    continue;
+                };
+                if !matches!(
+                    published.index.backing,
+                    crate::index::segment::SegmentBacking::Retained { .. }
+                ) {
+                    continue;
+                }
+                let segment = Arc::make_mut(published);
+                let index = Arc::make_mut(&mut segment.index);
+                let crate::index::segment::SegmentBacking::Retained { links, .. } =
+                    &mut index.backing
+                else {
+                    unreachable!()
+                };
+                let mut kept = Vec::new();
+                for &slot in &index.files[file_index].records {
+                    let Some(locator) = links[slot.0 as usize].as_mut() else {
+                        continue;
+                    };
+                    let preserve = replacement.is_some_and(|entry| {
+                        locator.range.is_none() || locator.revision == entry.revision
+                    });
+                    if preserve {
+                        locator.revision = replacement.expect("live replacement").revision;
+                        kept.push(slot);
+                    } else {
+                        links[slot.0 as usize] = None;
+                    }
+                }
+                if kept.is_empty() {
+                    index.files.remove(file_index);
+                    index.file_index.clear();
+                    for (position, file) in index.files.iter().enumerate() {
+                        index.file_index.insert(file.entry.id, position);
+                    }
+                } else {
+                    index.files[file_index].entry =
+                        replacement.expect("kept links have replacement").clone();
+                    index.files[file_index].records = kept;
+                    if !memberships.contains(&index.collection) {
+                        memberships.push(index.collection);
+                    }
+                }
+                index.recompute_accounting();
+            }
+        }
+        memberships
     }
 }
 

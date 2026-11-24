@@ -285,6 +285,83 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
             .len(),
         0
     );
+    let handle = view.file_handle(row.id).unwrap();
+    std::fs::rename(root.join("source.txt"), root.join("moved.txt")).unwrap();
+    let moved = index.move_file(handle, &root.join("moved.txt")).unwrap();
+    let after_move = index.view().unwrap();
+    assert_eq!(
+        after_move
+            .get_record("first", "same", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .unwrap()
+            .path,
+        std::path::PathBuf::from("moved.txt")
+    );
+    assert_eq!(
+        view.get_record("first", "same", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .unwrap()
+            .path,
+        std::path::PathBuf::from("source.txt")
+    );
+    std::fs::write(root.join("moved.txt"), b"alpha gamma expanded").unwrap();
+    let updated = index
+        .update_file(moved.file, &root.join("moved.txt"))
+        .unwrap();
+    let after_update = index.view().unwrap();
+    assert!(
+        after_update
+            .get_record("first", "same", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .is_none()
+    );
+    assert!(
+        after_update
+            .get_record("first", "path-only", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .is_some()
+    );
+    assert_eq!(
+        after_update
+            .file_catalog()
+            .unwrap()
+            .records_for_file(row.id)
+            .unwrap()
+            .len(),
+        1
+    );
+    index.delete_file(updated.file).unwrap();
+    let after_delete = index.view().unwrap();
+    assert!(
+        after_delete
+            .file_catalog()
+            .unwrap()
+            .file_by_path(std::path::Path::new("moved.txt"))
+            .is_none()
+    );
+    assert!(
+        after_delete
+            .get_record("first", "same", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .is_none()
+    );
+    assert!(
+        after_delete
+            .get_record("second", "same", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
     session.finish().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -357,8 +357,151 @@ impl Index {
         path: &Path,
         options: UpdateOptions<'_>,
     ) -> Result<FileMutationResult, IndexError> {
+        if self.catalog_only_file(handle)? {
+            return self.change_catalog_only_file(handle, path, false);
+        }
         self.replace_file(handle, FileMutationKind::Replaced, options, |index| {
             index.prepare_replace_file(handle, path)
+        })
+    }
+
+    fn catalog_only_file(&self, handle: FileHandle) -> Result<bool, IndexError> {
+        if handle.instance_id != self.instance_id() {
+            return Err(IndexError::ForeignInstance);
+        }
+        let view = self.view()?;
+        let file = view
+            .file_entry(handle.file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        Ok(file.collections.iter().all(|collection| {
+            view.repository().collections[collection.0 as usize]
+                .file_source
+                .is_none()
+        }))
+    }
+
+    /// Refresh metadata for a registrar-declared file with no file importer.
+    /// Its independently owned records survive the file content change.
+    fn change_catalog_only_file(
+        &self,
+        handle: FileHandle,
+        path: &Path,
+        moving: bool,
+    ) -> Result<FileMutationResult, IndexError> {
+        let view = self.view()?;
+        let actual = view
+            .file_version_including_inactive(handle.file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        if actual != handle.version {
+            return Err(IndexError::FileConflict {
+                file: handle.file_id,
+                expected: handle.version,
+                actual,
+            });
+        }
+        let previous = view
+            .file_entry(handle.file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        let root = view
+            .repository()
+            .files()
+            .root()
+            .ok_or(IndexError::UnknownFile)?;
+        let canonical = path
+            .canonicalize()
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        let relative = canonical
+            .strip_prefix(root)
+            .map_err(|_| IndexError::InvalidPublication("catalog path escapes root".into()))?;
+        if !moving && relative != previous.relative_path.as_path() {
+            return Err(IndexError::InvalidPublication(
+                "catalog update path differs from active file".into(),
+            ));
+        }
+        if view
+            .file_handle_for_path(relative)
+            .is_some_and(|other| other.file_id != handle.file_id)
+        {
+            return Err(IndexError::DestinationExists);
+        }
+        let metadata =
+            std::fs::metadata(&canonical).map_err(|error| IndexError::Io(error.to_string()))?;
+        if !metadata.is_file() {
+            return Err(IndexError::InvalidPublication(
+                "catalog update is not a regular file".into(),
+            ));
+        }
+        let revision = SourceRevision::from_metadata(&metadata).map_err(IndexError::Io)?;
+        let creation = created_ns(&metadata);
+        let source_unchanged = revision == previous.revision;
+        if relative == previous.relative_path.as_path()
+            && revision == previous.revision
+            && creation == previous.created_ns
+        {
+            return Ok(FileMutationResult {
+                revision: view.revision(),
+                file: handle,
+                previous_records: 0,
+                retired_records: 0,
+                indexed_records: 0,
+                affected_collections: Vec::new(),
+                kind: FileMutationKind::Unchanged,
+                strategy: FileMutationStrategy::Unchanged,
+                fallback_reason: None,
+            });
+        }
+        let mut next = (*view.0).clone();
+        let mut entry = previous.clone();
+        entry.relative_path = relative.to_path_buf().into();
+        entry.revision = revision;
+        entry.created_ns = creation;
+        next.refresh_record_links(handle.file_id, Some(&entry));
+        next.catalog = next
+            .catalog
+            .replaced(entry, None, None)
+            .map_err(IndexError::InvalidPublication)?;
+        next.file_versions = next
+            .file_versions
+            .advanced(handle.file_id)
+            .map_err(IndexError::ResourceLimit)?
+            .0;
+        next.revision = view.revision().next()?;
+        let file = FileHandle {
+            instance_id: self.instance_id(),
+            file_id: handle.file_id,
+            version: next
+                .file_versions
+                .get(handle.file_id)
+                .ok_or(IndexError::UnknownFile)?,
+        };
+        let revision = self.publish_prepared(view.revision(), next)?;
+        Ok(FileMutationResult {
+            revision,
+            file,
+            previous_records: 0,
+            retired_records: 0,
+            indexed_records: 0,
+            affected_collections: previous
+                .collections
+                .iter()
+                .map(|id| {
+                    view.repository().collections[id.0 as usize]
+                        .definition
+                        .name
+                        .clone()
+                })
+                .collect(),
+            kind: if moving {
+                FileMutationKind::Moved
+            } else {
+                FileMutationKind::Replaced
+            },
+            strategy: if moving && source_unchanged {
+                FileMutationStrategy::ContentPreservingMove
+            } else {
+                FileMutationStrategy::AppendReplacement
+            },
+            fallback_reason: None,
         })
     }
 
@@ -370,6 +513,9 @@ impl Index {
         handle: FileHandle,
         destination: &Path,
     ) -> Result<FileMutationResult, IndexError> {
+        if self.catalog_only_file(handle)? {
+            return self.change_catalog_only_file(handle, destination, true);
+        }
         if let Some(moved) = self.try_content_preserving_move(handle, destination)? {
             return Ok(moved);
         }
