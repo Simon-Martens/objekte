@@ -21,6 +21,7 @@ use objekte_search_core::records::{RecordKey, RecordVersion};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
+use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 
@@ -1110,4 +1111,103 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
     owned_session.finish().unwrap();
     provider_session.finish().unwrap();
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn fileless_relations_resolve_target_fields_and_backlinks() {
+    let mut entries_schema = Schema::default();
+    let mut mentions_schema = Schema::default();
+    let add = |schema: &mut Schema, name: &str, kind| {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    };
+    add(&mut entries_schema, "id", LogicalType::Id);
+    add(&mut entries_schema, "title", LogicalType::String);
+    add(&mut mentions_schema, "id", LogicalType::Id);
+    add(&mut mentions_schema, "entry", LogicalType::Id);
+    mentions_schema
+        .register_relation(RelationDefinition {
+            path: vec!["entry".into()],
+            target_collection: "entries".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: Some("mentions".into()),
+        })
+        .unwrap();
+    let mut builder = Index::builder();
+    let entries = builder.collection("entries", entries_schema).unwrap();
+    let mentions = builder.collection("mentions", mentions_schema).unwrap();
+    let entries_registration = builder.register_records(entries, "entries", 1).unwrap();
+    let mentions_registration = builder.register_records(mentions, "mentions", 1).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let entries_writer = session.writer(entries_registration).unwrap();
+    let mut batch = entries_writer.batch();
+    batch
+        .insert(
+            "a",
+            Value::from_json(serde_json::json!({"id":"a","title":"Leipzig"})).unwrap(),
+        )
+        .unwrap();
+    entries_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let mentions_writer = session.writer(mentions_registration).unwrap();
+    let mut batch = mentions_writer.batch();
+    batch
+        .insert(
+            "m",
+            Value::from_json(serde_json::json!({"id":"m","entry":"a"})).unwrap(),
+        )
+        .unwrap();
+    mentions_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let query = Query {
+        collections: vec!["mentions".into()],
+        fts: None,
+        filter: Some(parse_filter("entry.title = 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            offset: 0,
+            limit: 10,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let result = index.view().unwrap().search(&query).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "m");
+    let logical = Query {
+        options: QueryOptions {
+            return_mode: ReturnMode::Logical,
+            ..query.options.clone()
+        },
+        ..query
+    };
+    let result = index.view().unwrap().search(&logical).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert!(matches!(result.hits[0].payload, Some(Payload::Logical(_))));
+    let residual = Query {
+        filter: Some(parse_filter("entry.title ~ 'Leipzig'").unwrap()),
+        ..logical
+    };
+    assert_eq!(
+        index.view().unwrap().search(&residual).unwrap().count,
+        Some(1)
+    );
+    session.finish().unwrap();
 }

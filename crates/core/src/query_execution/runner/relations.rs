@@ -560,7 +560,18 @@ fn try_direct_relation_page(
     mut cache_builder: Option<&mut LifecycleCacheBuilder>,
     retained_budget: Option<usize>,
 ) -> Result<Option<SearchResult>, String> {
-    if query.options.return_mode != ReturnMode::Locator || prepared.len() != 1 {
+    if prepared.len() != 1
+        || (query.options.return_mode != ReturnMode::Locator
+            && segments
+                .iter()
+                .flat_map(|group| group.iter())
+                .all(|segment| {
+                    matches!(
+                        segment.index.backing,
+                        crate::index::segment::SegmentBacking::FileRange { .. }
+                    )
+                }))
+    {
         return Ok(None);
     }
     let source_index = &prepared[0].collection_index;
@@ -820,17 +831,64 @@ fn try_direct_relation_page(
             if let Some(context) = context {
                 context.check_string()?;
             }
-            let resolved =
-                segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
-                    .ok_or("direct relation target retired")?;
-            if resolved.record.class == RecordClass::RawFallback {
+            let address = RecordSlot(slot);
+            let record = segment
+                .record(address)
+                .ok_or("direct relation target retired")?;
+            if record.class == RecordClass::RawFallback {
                 continue;
             }
             let matched = if must.as_ref().is_some_and(|must| must.contains(slot)) {
                 // This is an index-only Locator/count proof. Actual payload or
                 // residual reads use the checked pinned source identity.
                 true
+            } else if !matches!(
+                segment.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            ) {
+                let provider_body = if segment.backing.provider_version(address).is_some() {
+                    if let Some(context) = context {
+                        context.charge_reads(1)?;
+                    }
+                    counters.relation_target_reads += 1;
+                    Some(read_provider(repo, segment, address)?)
+                } else {
+                    None
+                };
+                let retained_body = segment.backing.retained_body(address);
+                let value = provider_body
+                    .as_ref()
+                    .map(|body| &body.value)
+                    .or_else(|| retained_body.map(|body| &body.value))
+                    .ok_or("direct relation target body missing")?;
+                let text = provider_body
+                    .as_ref()
+                    .map(|body| body.text.as_slice())
+                    .or_else(|| retained_body.map(|body| body.text.as_slice()))
+                    .ok_or("direct relation target text missing")?;
+                let locator = segment.backing.file_locator(address);
+                let ctx = RecordContext {
+                    value,
+                    source_bytes: None,
+                    record,
+                    range: locator.and_then(|link| link.range),
+                    file: locator.and_then(|link| catalog.entry(link.file)),
+                    collection_name: &target_collection.definition.name,
+                    repository_root: repo.files.root(),
+                };
+                match &predicate {
+                    DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
+                    DirectRelationPredicate::Fts(local) => {
+                        if text.is_empty() {
+                            crate::reference::fts::eval_borrowed_value_fts(local, &ctx, None)?
+                        } else {
+                            eval_bound_fts(local, text, &ctx, &mut HashSet::new())?
+                        }
+                    }
+                }
             } else {
+                let resolved = segment_record_ref(segment, &published.active, catalog, address)?
+                    .ok_or("direct relation target retired")?;
                 let path = repo
                     .files
                     .required_root()
@@ -890,15 +948,14 @@ fn try_direct_relation_page(
             };
             if matched {
                 counters.relation_target_matches += 1;
-                if !target_ids.contains(resolved.record.id.0.as_ref()) {
+                if !target_ids.contains(record.id.0.as_ref()) {
                     let sort_key = if let Some(path) = direct_sort_column.as_deref() {
                         Some(segment.sorting.key(path, RecordSlot(slot))?.clone())
                     } else {
                         None
                     };
                     let sort_bytes = sort_key.as_ref().map_or(0, |key| {
-                        resolved
-                            .record
+                        record
                             .id
                             .0
                             .len()
@@ -906,8 +963,7 @@ fn try_direct_relation_page(
                             .saturating_add(64)
                     });
                     if !reserve_route(
-                        resolved
-                            .record
+                        record
                             .id
                             .0
                             .len()
@@ -917,9 +973,9 @@ fn try_direct_relation_page(
                         return Ok(None);
                     }
                     if let Some(key) = sort_key {
-                        target_sort_keys.insert(resolved.record.id.0.clone(), key);
+                        target_sort_keys.insert(record.id.0.clone(), key);
                     }
-                    target_ids.insert(resolved.record.id.0.to_string());
+                    target_ids.insert(record.id.0.to_string());
                 }
             }
         }
@@ -950,7 +1006,14 @@ fn try_direct_relation_page(
         .offset
         .checked_add(query.options.limit)
         .ok_or("direct relation page size overflow")?;
-    if context.is_none()
+    if query.options.return_mode == ReturnMode::Locator
+        && segments[*source_index].iter().all(|segment| {
+            matches!(
+                segment.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            )
+        })
+        && context.is_none()
         && cache_builder.is_none()
         && retained_budget.is_none()
         && direct_sort_column.is_none()
@@ -1016,13 +1079,10 @@ fn try_direct_relation_page(
             if let Some(context) = context {
                 context.check_string()?;
             }
-            let resolved = segment_record_ref(
-                &published.index,
-                &published.active,
-                catalog,
-                RecordSlot(slot),
-            )?
-            .ok_or("direct relation source retired")?;
+            let record = published
+                .index
+                .record(RecordSlot(slot))
+                .ok_or("direct relation source retired")?;
             let key = if direct_sort_column.is_some() {
                 let relation = published
                     .index
@@ -1045,28 +1105,42 @@ fn try_direct_relation_page(
                 RankKey {
                     parts: vec![(target_key.clone(), term.descending, term.options)],
                     collection: repo.collections[*source_index].definition.name.clone(),
-                    id: resolved.record.id.0.to_string(),
+                    id: record.id.0.to_string(),
                 }
             } else {
-                segment_rank_key(
-                    repo,
-                    sort,
-                    *source_index,
-                    &published.index,
-                    &resolved.record,
-                    None,
-                )?
+                segment_rank_key(repo, sort, *source_index, &published.index, record, None)?
             };
             if stored_order.is_none() {
                 total += 1;
                 counters.exact_posting_matches += 1;
             }
-            let hit = segment_locator_hit(
-                &repo.collections[*source_index],
-                resolved,
-                revision,
-                evidence.clone(),
-            );
+            let hit = if matches!(
+                published.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            ) {
+                let resolved = segment_record_ref(
+                    &published.index,
+                    &published.active,
+                    catalog,
+                    RecordSlot(slot),
+                )?
+                .ok_or("direct relation source retired")?;
+                segment_locator_hit(
+                    &repo.collections[*source_index],
+                    resolved,
+                    revision,
+                    evidence.clone(),
+                )
+            } else {
+                retained_locator_hit(
+                    &repo.collections[*source_index],
+                    &published.index,
+                    catalog,
+                    record,
+                    revision,
+                    evidence.clone(),
+                )
+            };
             if let Some(builder) = cache_builder.as_mut() {
                 builder.push(
                     &key,
@@ -1098,8 +1172,29 @@ fn try_direct_relation_page(
         .into_iter()
         .skip(query.options.offset)
         .take(query.options.limit)
-        .map(|winner| winner.hit)
-        .collect::<Vec<_>>();
+        .map(|winner| {
+            let mut hit = winner.hit;
+            if query.options.return_mode != ReturnMode::Locator {
+                let (collection_index, segment_index) = winner
+                    .segment
+                    .ok_or("direct relation winner segment missing")?;
+                let published = &segments[collection_index][segment_index];
+                let payload = get_segment_record_by_id(
+                    repo,
+                    collection_index,
+                    &published.index,
+                    &published.active,
+                    catalog,
+                    revision,
+                    &hit.record_id,
+                    query.options.return_mode.clone(),
+                )?
+                .ok_or("direct relation winner retired")?;
+                hit.payload = payload.payload;
+            }
+            Ok::<_, String>(hit)
+        })
+        .collect::<Result<Vec<_>, _>>()?;
     counters.total_matches = total;
     counters.match_count_complete = true;
     counters.returned_records = page.len() as u64;
@@ -1993,6 +2088,35 @@ pub(super) fn search_segmented_relations(
     prune_segments: bool,
     reference: bool,
 ) -> Result<SearchResult, String> {
+    if segments
+        .iter()
+        .flat_map(|group| group.iter())
+        .any(|segment| {
+            !matches!(
+                segment.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            )
+        })
+    {
+        if !reference
+            && let Some(result) = try_direct_relation_page(
+                repo,
+                query,
+                base_active,
+                segments,
+                catalog,
+                revision,
+                sort,
+                prepared,
+                context,
+                cache_builder.as_deref_mut(),
+                retained_budget,
+            )?
+        {
+            return Ok(result);
+        }
+        return Err("native relation query requires a supported direct relation plan".into());
+    }
     let mut exact_relation_plan = None;
     if !reference {
         if prepared.len() == 1
