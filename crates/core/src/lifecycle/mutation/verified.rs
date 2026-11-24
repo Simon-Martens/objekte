@@ -132,7 +132,12 @@ pub(crate) fn verify_old_content(
                     current.push((
                         *collection_id,
                         record.id.clone(),
-                        record.range,
+                        shard
+                            .index
+                            .backing
+                            .file_locator(*slot)
+                            .and_then(|locator| locator.range)
+                            .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?,
                         record.class,
                     ));
                 }

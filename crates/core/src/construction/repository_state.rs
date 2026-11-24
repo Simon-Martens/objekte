@@ -419,27 +419,30 @@ fn segment_metadata_generation(
             }
         }
         for record in &segment.index.records {
+            let locator = segment
+                .index
+                .backing
+                .file_locator(record.slot)
+                .ok_or("file-backed segment metadata has no file locator")?;
+            let range = locator
+                .range
+                .ok_or("file-backed record has no byte range")?;
             let file = files
                 .files
-                .get_mut(record.file.0 as usize)
+                .get_mut(locator.file.0 as usize)
                 .ok_or("segment metadata file missing")?;
             if record.class == RecordClass::Logical {
-                builder.add_record(
-                    file,
-                    record.id.clone(),
-                    record.range.start,
-                    record.range.end,
-                )?;
+                builder.add_record(file, record.id.clone(), range.start, range.end)?;
             } else {
                 let segment_file = segment
                     .index
-                    .file(record.file)
+                    .file(locator.file)
                     .ok_or("fallback segment file missing")?;
                 let Some(local) = record.diagnostic_ref.stored_index() else {
                     builder.add_raw_fallback(
                         file,
                         record.id.clone(),
-                        record.range,
+                        range,
                         record.diagnostic_ref,
                     )?;
                     record_count += 1;
@@ -462,7 +465,7 @@ fn segment_metadata_generation(
                     builder.add_raw_fallback(
                         file,
                         record.id.clone(),
-                        record.range,
+                        range,
                         crate::inventory::DiagnosticRef(u32::MAX),
                     )?;
                     record_count += 1;
@@ -476,8 +479,7 @@ fn segment_metadata_generation(
                 let reference = crate::inventory::DiagnosticRef(
                     u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
                 );
-                let slot =
-                    builder.add_raw_fallback(file, record.id.clone(), record.range, reference)?;
+                let slot = builder.add_raw_fallback(file, record.id.clone(), range, reference)?;
                 file.diagnostics[global].record = Some(slot);
             }
             record_count += 1;

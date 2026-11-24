@@ -469,10 +469,13 @@ impl IndexView {
                 continue;
             };
             if !segment.active.contains(slot)
-                || segment
-                    .index
-                    .record(slot)
-                    .is_none_or(|record| record.file != file)
+                || segment.index.record(slot).is_none_or(|_| {
+                    segment
+                        .index
+                        .backing
+                        .file_locator(slot)
+                        .is_none_or(|locator| locator.file != file)
+                })
             {
                 continue;
             }

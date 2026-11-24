@@ -178,7 +178,11 @@ impl IndexedCollectionSegment {
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
             }
-            selected_by_file.entry(record.file).or_default().push(slot);
+            let locator = self
+                .backing
+                .file_locator(RecordSlot(old as u32))
+                .ok_or("file compaction record has no file locator")?;
+            selected_by_file.entry(locator.file).or_default().push(slot);
             Ok(())
         })?;
         let all_files = 0..self.file_count();
@@ -230,6 +234,7 @@ impl IndexedCollectionSegment {
             return Err("active record file missing".into());
         }
         let mut records = vec![None; next as usize];
+        let mut locators = vec![None; next as usize];
         let mut id_lookup = HashMap::new();
         slot_map.for_each_selected(|old, slot| {
             let record = self
@@ -238,7 +243,11 @@ impl IndexedCollectionSegment {
             if record.slot.0 as usize != old {
                 return Err("compaction record slots out of order".into());
             }
-            if !file_index.contains_key(&record.file) {
+            let locator = self
+                .backing
+                .file_locator(RecordSlot(old as u32))
+                .ok_or("file compaction record has no file locator")?;
+            if !file_index.contains_key(&locator.file) {
                 return Err("active record file missing".into());
             }
             let mut compacted = record.clone();
@@ -246,7 +255,7 @@ impl IndexedCollectionSegment {
             if compacted.class == RecordClass::RawFallback {
                 compacted.diagnostic_ref = match compacted.diagnostic_ref.stored_index() {
                     Some(old) => diagnostic_refs
-                        .get(&compacted.file)
+                        .get(&locator.file)
                         .and_then(|refs| refs.get(old))
                         .and_then(|reference| *reference)
                         .ok_or("active fallback diagnostic removed")?,
@@ -262,12 +271,22 @@ impl IndexedCollectionSegment {
             if target.replace(compacted).is_some() {
                 return Err("duplicate compacted record target".into());
             }
+            let target_locator = locators
+                .get_mut(slot.0 as usize)
+                .ok_or("compacted locator target outside active domain")?;
+            if target_locator.replace(locator).is_some() {
+                return Err("duplicate compacted locator target".into());
+            }
             Ok(())
         })?;
         let records = records
             .into_iter()
             .collect::<Option<Vec<_>>>()
             .ok_or("compacted record target missing")?;
+        let locators = locators
+            .into_iter()
+            .collect::<Option<Vec<_>>>()
+            .ok_or("compacted file locator missing")?;
         let bounds = slot_map.bounds()?;
         let (logical_records, empty_array_records) = if let Some(domains) = domain_projection {
             (domains.logical, domains.empty_array)
@@ -366,7 +385,7 @@ impl IndexedCollectionSegment {
         for index in custom_text.values() {
             index.validate(records.len())?;
         }
-        let backing = super::SegmentBacking::file_ranges(&records);
+        let backing = super::SegmentBacking::FileRange { locators };
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,

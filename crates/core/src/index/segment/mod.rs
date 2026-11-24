@@ -285,6 +285,18 @@ impl SegmentBacking {
         }
     }
 
+    pub(crate) fn max_file_range_len(&self) -> u64 {
+        match self {
+            Self::FileRange { locators } => locators
+                .iter()
+                .filter_map(|locator| locator.range)
+                .map(ByteRange::len)
+                .max()
+                .unwrap_or(0),
+            Self::Retained { .. } | Self::Provider { .. } => 0,
+        }
+    }
+
     pub(crate) fn retained_body(&self, slot: RecordSlot) -> Option<&RetainedBody> {
         let Self::Retained {
             blocks, addresses, ..
@@ -603,12 +615,7 @@ impl IndexedCollectionSegment {
             .iter()
             .map(|file| file.entry.revision.size)
             .fold(0u64, u64::saturating_add);
-        let max_record_range_len = self
-            .records
-            .iter()
-            .map(|record| record.range.end.saturating_sub(record.range.start))
-            .max()
-            .unwrap_or(0);
+        let max_record_range_len = self.backing.max_file_range_len();
         self.accounting = SegmentAccounting {
             retained_bytes_estimated: retained,
             source_bytes_estimated,
