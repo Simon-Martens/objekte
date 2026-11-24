@@ -1,6 +1,6 @@
 # Musenalm: Objekte versus Tantivy
 
-Measured on 2026-11-24 using release code revision `0f2e6adfa8e3140f8492c1e835efe97d69942a8c` and Tantivy 0.27.0. The later `01cb6c3322` commit adds regression tests only. The [full per-case report](../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/REPORT.md), [run manifest](../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/run-manifest.json), [inventory](../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/compatibility-inventory.json), [verification](../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/verification.json), [raw samples](../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/objekte-historical-samples.json), and [compact evidence](evidence.json) retain the underlying observations. The result directory also has the Tantivy, extended-mode, and aggregate samples.
+Measured on 2026-11-24 using release code revision `0f2e6adfa8e3140f8492c1e835efe97d69942a8c` and Tantivy 0.27.0. The later `01cb6c3322` commit adds regression tests only. The [full per-case report](../../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/REPORT.md), [run manifest](../../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/run-manifest.json), [inventory](../../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/compatibility-inventory.json), [verification](../../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/verification.json), [raw samples](../../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/objekte-historical-samples.json), and [compact evidence](evidence.json) retain the underlying observations. The result directory also has the Tantivy, extended-mode, and aggregate samples.
 
 ## Reproduce
 
@@ -10,11 +10,11 @@ From the integration worktree, with the same physical fixture path:
 python3 bench/run_musenalm_tantivy.py full --root /home/simon/source/objekte/examples/musenalm --result-dir bench/results/musenalm/tantivy-full-reproduction
 ```
 
-The result directory must be fresh. See [benchmark README](../../../bench/tantivy/README.md) for the quick command and overrides. The run manifest records the corpus, schema, workload and lockfile hashes; rustc and host; 32-CPU affinity; one build and query worker per engine; 100 MB Tantivy writer budget; zero Objekte verified-result cache; warm source-file cache; and the sequential engine order (Objekte then Tantivy). Every timed request had one warm-up and seven samples. Build cost has **one observation** per engine and schema mode.
+The result directory must be fresh. See [benchmark README](../../../../bench/tantivy/README.md) for the quick command and overrides. The run manifest records the corpus, schema, workload and lockfile hashes; rustc and host; 32-CPU affinity; one build and query worker per engine; 100 MB Tantivy writer budget; zero Objekte verified-result cache; warm source-file cache; and the sequential engine order (Objekte then Tantivy). Every timed request had one warm-up and seven samples. Build cost has **one observation** per engine and schema mode.
 
 ## Correctness and coverage
 
-The seven collections contain 148,486 records, including 133,948 `contents` records. Both engines saw the same complete identity universe and collection counts. For every admitted predicate, verification compared the complete matching `(collection, record_id)` set and rejected duplicate identities. For every admitted page, it compared ordered locator tuples, including deep offsets. No verification failed. The separate [independent jq oracle](../../../bench/results/musenalm/tantivy-jq-20261124/REPORT.md) passed 300/300 historical ASCII and Unicode membership comparisons; its metadata fingerprint matches this run (`eec50dbfbfd023aad31e9c3609f4a7f14b177ecc1a022c182321ae704c188cf6`).
+The seven collections contain 148,486 records, including 133,948 `contents` records. Both engines saw the same complete identity universe and collection counts. For every admitted predicate, verification compared the complete matching `(collection, record_id)` set and rejected duplicate identities. For every admitted page, it compared ordered locator tuples, including deep offsets. No verification failed. The separate [independent jq oracle](../../../../bench/results/musenalm/tantivy-jq-20261124/REPORT.md) passed 300/300 historical ASCII and Unicode membership comparisons; its metadata fingerprint matches this run (`eec50dbfbfd023aad31e9c3609f4a7f14b177ecc1a022c182321ae704c188cf6`).
 
 | Cases | Predicate count verified | Locator page verified | Unsupported predicates | Unsupported pages |
 | --- | ---: | ---: | ---: | ---: |
@@ -37,7 +37,7 @@ Objekte uses its ordinary in-memory index with the historical or extended Musena
 
 ## Selected query medians
 
-All times include the contracted search and, for pages, retrieval of winning locators. Ratio is Tantivy / Objekte; values above 1 favor Objekte. The [full report](../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/REPORT.md) lists all 186 rows with min–max variability.
+All times include the contracted search and, for pages, retrieval of winning locators. Ratio is Tantivy / Objekte; values above 1 favor Objekte. The [full report](../../../../bench/results/musenalm/tantivy-full-0f2e6adf-20261124/REPORT.md) lists all 186 rows with min–max variability.
 
 | Case and contract | Matches | Objekte | Tantivy | Ratio |
 | --- | ---: | ---: | ---: | ---: |
