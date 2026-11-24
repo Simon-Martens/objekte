@@ -1,6 +1,7 @@
 //! Bounded result retention, grouped source access, and payload materialization.
 
 use crate::measurement::timer::DetailedInstant;
+use crate::records::RecordIdSlot;
 use std::cmp::Ordering;
 use std::cmp::Reverse;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
@@ -461,9 +462,10 @@ fn inventory_fts_evidence(
             value: &empty,
             source_bytes: None,
             record,
-            file,
+            range: (record).record_range(),
+            file: Some(file),
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.required_root(),
+            repository_root: Some(repo.files.required_root()),
         };
         let mut evidence = HashSet::new();
         if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
@@ -492,9 +494,10 @@ fn segment_metadata_fts_evidence(
             value: &empty,
             source_bytes: None,
             record: resolved.record,
-            file: resolved.file,
+            range: (resolved.record).record_range(),
+            file: Some(resolved.file),
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.required_root(),
+            repository_root: Some(repo.files.required_root()),
         };
         let mut evidence = HashSet::new();
         if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
@@ -2931,9 +2934,10 @@ fn search_segmented_impl(
                             value: &extracted.value,
                             source_bytes: Some(&bytes),
                             record,
-                            file: resolved.file,
+                            range: (record).record_range(),
+                            file: Some(resolved.file),
                             collection_name: &collection.definition.name,
-                            repository_root: &repo.files.required_root(),
+                            repository_root: Some(repo.files.required_root()),
                         };
                         total += 1;
                         counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
@@ -5653,9 +5657,10 @@ fn materialize_computed_cached<'a>(
             value: &empty,
             source_bytes: None,
             record,
-            file: &repo.files.files[record.file.0 as usize],
+            range: (record).record_range(),
+            file: Some(&repo.files.files[record.file.0 as usize]),
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.required_root(),
+            repository_root: Some(repo.files.required_root()),
         };
         let key = rank_key_from_context(&sort, repo, member.collection_index, &ctx, None)?;
         counters.sort_key_evaluations += 1;
@@ -5736,9 +5741,10 @@ fn materialize_computed_cached<'a>(
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
                     record,
-                    file: &repo.files.files[file_id as usize],
+                    range: (record).record_range(),
+                    file: Some(&repo.files.files[file_id as usize]),
                     collection_name: &collection.definition.name,
-                    repository_root: &repo.files.required_root(),
+                    repository_root: Some(repo.files.required_root()),
                 };
                 let key = rank_key_from_context(&sort, repo, collection_index, &ctx, None)?;
                 offer_cached_key(

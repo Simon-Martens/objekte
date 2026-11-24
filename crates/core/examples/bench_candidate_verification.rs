@@ -272,9 +272,10 @@ fn in_memory(
                 value: &extracted.value,
                 source_bytes: Some(bytes),
                 record: &record,
-                file: &file,
+                file: Some(&file),
+                range: Some(record.range),
                 collection_name: "records",
-                repository_root: Path::new("."),
+                repository_root: Some(Path::new(".")),
             };
             let mut evidence = HashSet::new();
             let fts_match = fts.as_ref().map_or(Ok(true), |fts| {

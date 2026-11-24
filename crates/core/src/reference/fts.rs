@@ -309,7 +309,7 @@ pub(crate) fn eval_bound_fts_field(
 ) -> Result<bool, String> {
     let mut matched = false;
     if let PathRoot::Metadata(metadata) = field.path.root {
-        if let Value::String(text) | Value::Id(text) = metadata_value(metadata, ctx)?
+        if let Some(Value::String(text) | Value::Id(text)) = metadata_value(metadata, ctx)?
             && text_contains(
                 &text,
                 &field.literal,

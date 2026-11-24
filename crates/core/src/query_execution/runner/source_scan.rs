@@ -1,6 +1,7 @@
 //! Indexed source-file scanning.
 
 use super::*;
+use crate::records::RecordIdSlot;
 
 pub(super) fn scan_file(
     repo: &Repository,
@@ -218,9 +219,10 @@ pub(super) fn scan_file(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record,
-                file,
+                range: (record).record_range(),
+                file: Some(file),
                 collection_name: &collection.definition.name,
-                repository_root: &repo.files.required_root(),
+                repository_root: Some(repo.files.required_root()),
             };
             let mut evidence = HashSet::new();
             let direct_result = if let Some(direct) = direct {

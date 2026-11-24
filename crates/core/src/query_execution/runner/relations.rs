@@ -1,6 +1,7 @@
 //! Segment relation planning and page execution.
 
 use super::*;
+use crate::records::RecordIdSlot;
 
 #[cfg(test)]
 thread_local! {
@@ -526,9 +527,10 @@ fn scan_direct_target_parallel(
         value: &extracted.value,
         source_bytes: Some(&bytes),
         record: resolved.record,
-        file: resolved.file,
+        range: (resolved.record).record_range(),
+        file: Some(resolved.file),
         collection_name: &target_collection.definition.name,
-        repository_root: &repo.files.required_root(),
+        repository_root: Some(repo.files.required_root()),
     };
     let matched = match predicate {
         DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
@@ -878,9 +880,10 @@ fn try_direct_relation_page(
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
                     record: resolved.record,
-                    file: resolved.file,
+                    range: (resolved.record).record_range(),
+                    file: Some(resolved.file),
                     collection_name: &target_collection.definition.name,
-                    repository_root: &repo.files.required_root(),
+                    repository_root: Some(repo.files.required_root()),
                 };
                 match &predicate {
                     DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
@@ -1444,9 +1447,10 @@ fn scan_relation_file_parallel(
         value: &extracted.value,
         source_bytes: Some(&bytes),
         record,
-        file: resolved.file,
+        range: (record).record_range(),
+        file: Some(resolved.file),
         collection_name: &resolved.collection.definition.name,
-        repository_root: &repo.files.required_root(),
+        repository_root: Some(repo.files.required_root()),
     };
     let mut evidence = HashSet::new();
     let mut relation_work = crate::query_execution::relations::work::RelationWork::default();
@@ -2286,9 +2290,10 @@ pub(super) fn search_segmented_relations(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record,
-                file: resolved.file,
+                range: (record).record_range(),
+                file: Some(resolved.file),
                 collection_name: &resolved.collection.definition.name,
-                repository_root: &repo.files.required_root(),
+                repository_root: Some(repo.files.required_root()),
             };
             let mut evidence = HashSet::new();
             let mut relation_work =

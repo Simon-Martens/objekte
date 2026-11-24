@@ -513,7 +513,7 @@ pub(crate) fn relation_rank_key_merged(
         return Ok(Some(RankKey {
             parts,
             collection: repo.collections[collection_index].definition.name.clone(),
-            id: ctx.record.id.0.to_string(),
+            id: ctx.record.record_id().0.to_string(),
         }));
     }
     let mut parts = Vec::with_capacity(terms.len());
@@ -557,7 +557,7 @@ pub(crate) fn relation_rank_key_merged(
     Ok(Some(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
-        id: ctx.record.id.0.to_string(),
+        id: ctx.record.record_id().0.to_string(),
     }))
 }
 
@@ -610,9 +610,10 @@ pub(crate) fn cached_filter_target_sort_key(
         value: &value,
         source_bytes: None,
         record: resolved.record,
-        file: resolved.file,
+        range: (resolved.record).record_range(),
+        file: Some(resolved.file),
         collection_name: &resolved.collection.definition.name,
-        repository_root: view.repository_root(),
+        repository_root: Some(view.repository_root()),
     };
     Ok(Some(computed.key_from_related_target_value(&ctx)?))
 }
@@ -791,7 +792,7 @@ pub(crate) fn rank_key_from_context(
             target_values,
         )?,
         collection: repo.collections[collection_index].definition.name.clone(),
-        id: ctx.record.id.0.to_string(),
+        id: ctx.record.record_id().0.to_string(),
     })
 }
 
@@ -807,9 +808,10 @@ pub(crate) fn rank_key_without_source(
         value: &empty,
         source_bytes: None,
         record,
-        file: &repo.files.files[record.file.0 as usize],
+        range: (record).record_range(),
+        file: Some(&repo.files.files[record.file.0 as usize]),
         collection_name: &collection.definition.name,
-        repository_root: &repo.files.required_root(),
+        repository_root: Some(repo.files.required_root()),
     };
     rank_key_from_context(sort, repo, collection_index, &ctx, None)
 }

@@ -285,12 +285,13 @@ fn scoped_values<'a>(
         PathRoot::Data => walk_scoped(ctx.value, &query_path.steps, &mut Vec::new(), &mut values),
         PathRoot::Metadata(field) => {
             let value = if field == MetadataField::RecordId && transform == Transform::CaseFold {
-                Value::String(ctx.record.id.0.to_string())
+                Some(Value::String(ctx.record.record_id().0.to_string()))
             } else {
                 metadata_value(field, ctx)?
             };
-            values.push((Vec::new(), Some(Cow::Owned(value))));
-            true
+            let found = value.is_some();
+            values.push((Vec::new(), value.map(Cow::Owned)));
+            found
         }
         PathRoot::Backlinks => return Err("backlink path requires relation binding".into()),
     };

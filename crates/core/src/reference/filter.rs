@@ -1,6 +1,5 @@
 use std::collections::HashSet;
 
-use crate::inventory::RecordEntry;
 use crate::model::{MetadataField, Number, PathRoot, Value};
 use crate::query::binding::filter::{BoundExpr, BoundTerm, Derived};
 use crate::query::semantics::comparison::{compare_bound, compare_scalar, eval_field_term};
@@ -26,10 +25,11 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
         if term.derived == Derived::None && !term.multi {
             let value = if field == MetadataField::RecordId && term.transform == Transform::CaseFold
             {
-                Value::String(ctx.record.id.0.to_string())
+                Some(Value::String(ctx.record.record_id().0.to_string()))
             } else {
                 metadata_value(field, ctx)?
             };
+            let Some(value) = value else { return Ok(false) };
             if matches!(value, Value::Null) && !matches!(term.literal, Value::Null) {
                 return Ok(false);
             }
@@ -39,11 +39,11 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     let owned;
     let mut selected = if let PathRoot::Metadata(field) = term.path.root {
         owned = if field == MetadataField::RecordId && term.transform == Transform::CaseFold {
-            Value::String(ctx.record.id.0.to_string())
+            Some(Value::String(ctx.record.record_id().0.to_string()))
         } else {
             metadata_value(field, ctx)?
         };
-        Some(vec![&owned])
+        owned.as_ref().map(|value| vec![value])
     } else {
         select_values(term, ctx)?
     };
@@ -97,7 +97,7 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
         return Ok(false);
     }
     let record_token = (term.path.root == PathRoot::Data).then_some((
-        ctx.record as *const RecordEntry as usize,
+        ctx.record as *const dyn crate::records::RecordIdSlot as *const () as usize,
         ctx.value as *const Value as usize,
     ));
     if term.multi {

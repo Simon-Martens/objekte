@@ -1,5 +1,6 @@
 //! Query-scoped sorting bindings and scalar-key preparation.
 
+use crate::records::RecordIdSlot;
 use std::cmp::Ordering;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex, OnceLock};
@@ -462,7 +463,7 @@ impl<'a> BoundSort<'a> {
             .map(|term| {
                 let key = match &term.source {
                     BoundSortSource::Stored(column) => {
-                        column.keys[ctx.record.slot.0 as usize].clone()
+                        column.keys[ctx.record.record_slot().0 as usize].clone()
                     }
                     BoundSortSource::Computed(computed) => {
                         if computed.related.is_some() {
@@ -535,7 +536,7 @@ impl ComputedSort {
                 terminal,
                 0,
                 collection_index,
-                ctx.record.slot,
+                ctx.record.record_slot(),
                 Some(ctx.value),
                 target_cache.ok_or("related sort target cache missing")?,
                 external_targets,
@@ -554,9 +555,11 @@ impl ComputedSort {
         }
         if let PathRoot::Metadata(field) = &self.path.field.root {
             let value = metadata_value(*field, ctx)?;
-            return self.reduce(&[&value], false);
+            return value
+                .as_ref()
+                .map_or(Ok(SortKey::Missing), |value| self.reduce(&[value], false));
         }
-        if ctx.record.class == RecordClass::RawFallback {
+        if ctx.record.record_class() == RecordClass::RawFallback {
             return Ok(SortKey::Unavailable);
         }
         let mut selected = Vec::new();
@@ -677,11 +680,14 @@ impl ComputedSort {
                     value: source_value.unwrap_or(&empty),
                     source_bytes: None,
                     record: current.record,
-                    file: current.file,
+                    range: (current.record).record_range(),
+                    file: Some(current.file),
                     collection_name: &current.collection.definition.name,
-                    repository_root: view.repository_root(),
+                    repository_root: Some(view.repository_root()),
                 };
-                reduced.observe_value(&metadata_value(field, &ctx)?, self)?;
+                if let Some(value) = metadata_value(field, &ctx)? {
+                    reduced.observe_value(&value, self)?;
+                }
             } else {
                 let owned = if source_value.is_none() {
                     cache.load(view, address)?

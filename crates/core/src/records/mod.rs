@@ -7,10 +7,12 @@ use crate::inventory::{DiagnosticRef, RecordClass};
 use crate::model::{CollectionId, RecordId, RecordSlot};
 
 /// Common identity and slot needed by sorting and ranking for every backing.
-pub(crate) trait RecordIdSlot {
+#[doc(hidden)]
+pub trait RecordIdSlot {
     fn record_id(&self) -> &RecordId;
     fn record_slot(&self) -> RecordSlot;
     fn record_class(&self) -> crate::inventory::RecordClass;
+    fn record_range(&self) -> Option<crate::inventory::ByteRange>;
 }
 
 impl RecordIdSlot for crate::inventory::RecordEntry {
@@ -22,6 +24,9 @@ impl RecordIdSlot for crate::inventory::RecordEntry {
     }
     fn record_class(&self) -> crate::inventory::RecordClass {
         self.class
+    }
+    fn record_range(&self) -> Option<crate::inventory::ByteRange> {
+        Some(self.range)
     }
 }
 

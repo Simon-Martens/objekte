@@ -1,5 +1,6 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
+use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
 use std::sync::Arc;
@@ -1091,9 +1092,10 @@ fn segment_file_modified_matches(
                 value: &empty,
                 source_bytes: None,
                 record: &record,
-                file: &file,
+                range: (&record).record_range(),
+                file: Some(&file),
                 collection_name: &collection.definition.name,
-                repository_root: std::path::Path::new(""),
+                repository_root: Some(std::path::Path::new("")),
             };
             eval_term(term, &ctx)?
         };
@@ -1139,9 +1141,10 @@ fn segment_record_range_matches(
             value: &empty,
             source_bytes: None,
             record: &record,
-            file: &file,
+            range: (&record).record_range(),
+            file: Some(&file),
             collection_name: &collection.definition.name,
-            repository_root: std::path::Path::new(""),
+            repository_root: Some(std::path::Path::new("")),
         };
         if eval_term(term, &ctx)? {
             matches.insert(slot);
@@ -1336,9 +1339,10 @@ fn segment_metadata_matches(
             value: &empty,
             source_bytes: None,
             record,
-            file,
+            range: (record).record_range(),
+            file: Some(file),
             collection_name: &collection.definition.name,
-            repository_root: catalog.repository_root(),
+            repository_root: Some(catalog.repository_root()),
         };
         return Ok(Some(if eval_term(term, &ctx)? {
             domain.clone()
@@ -1362,9 +1366,10 @@ fn segment_metadata_matches(
             value: &empty,
             source_bytes: None,
             record,
-            file,
+            range: (record).record_range(),
+            file: Some(file),
             collection_name: &collection.definition.name,
-            repository_root: catalog.repository_root(),
+            repository_root: Some(catalog.repository_root()),
         };
         if eval_term(term, &ctx)? {
             matches.insert(slot);
@@ -2160,9 +2165,10 @@ fn fallback_truth(
                         value: &empty,
                         source_bytes: None,
                         record,
-                        file,
+                        range: (record).record_range(),
+                        file: Some(file),
                         collection_name: &collection.definition.name,
-                        repository_root: &repo.files.required_root(),
+                        repository_root: Some(repo.files.required_root()),
                     };
                     if eval_term(term, &ctx)? {
                         yes.insert(slot);
@@ -2361,9 +2367,10 @@ fn term_set(
                     value: &empty,
                     source_bytes: None,
                     record,
-                    file,
+                    range: (record).record_range(),
+                    file: Some(file),
                     collection_name: &collection.definition.name,
-                    repository_root: &repo.files.required_root(),
+                    repository_root: Some(repo.files.required_root()),
                 };
                 if eval_term(term, &ctx)? {
                     result.insert(slot);
@@ -2437,9 +2444,10 @@ fn term_set(
                     value: &empty,
                     source_bytes: None,
                     record,
-                    file,
+                    range: (record).record_range(),
+                    file: Some(file),
                     collection_name: &collection.definition.name,
-                    repository_root: &repo.files.required_root(),
+                    repository_root: Some(repo.files.required_root()),
                 };
                 if eval_term(term, &ctx)? {
                     result.extend(slots.iter().map(|s| s.0));
@@ -2457,9 +2465,10 @@ fn term_set(
                     value: &empty,
                     source_bytes: None,
                     record,
-                    file,
+                    range: (record).record_range(),
+                    file: Some(file),
                     collection_name: &collection.definition.name,
-                    repository_root: &repo.files.required_root(),
+                    repository_root: Some(repo.files.required_root()),
                 };
                 if eval_term(term, &ctx)? {
                     return Ok(Some(domain.clone()));
@@ -2473,9 +2482,10 @@ fn term_set(
                 value: &empty,
                 source_bytes: None,
                 record,
-                file,
+                range: (record).record_range(),
+                file: Some(file),
                 collection_name: &collection.definition.name,
-                repository_root: &repo.files.required_root(),
+                repository_root: Some(repo.files.required_root()),
             };
             if eval_term(term, &ctx)? {
                 result.insert(record.slot.0);

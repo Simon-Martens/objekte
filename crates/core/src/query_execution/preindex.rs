@@ -1,5 +1,6 @@
 //! Exact, bounded source search before a repository index is available.
 
+use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
@@ -280,9 +281,10 @@ impl SourceScan {
                             value,
                             source_bytes: bytes.as_deref(),
                             record: &entry,
-                            file: &file,
+                            range: (&entry).record_range(),
+                            file: Some(&file),
                             collection_name: &collection.definition.name,
-                            repository_root: &self.files.required_root(),
+                            repository_root: Some(&self.files.required_root()),
                         };
                         let mut evidence = HashSet::new();
                         let fts_match = match (&fts, &extracted) {

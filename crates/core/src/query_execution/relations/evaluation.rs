@@ -1,5 +1,6 @@
 //! Exact relation truth, membership and evidence evaluation.
 
+use crate::records::RecordIdSlot;
 use std::sync::Arc;
 
 use super::view::{MergedRecordSlot, MergedRelationView, positions_match, read_reference_value};
@@ -32,7 +33,7 @@ fn relation_target_uses_value_text(collection: &crate::repository::state::Collec
 }
 
 fn relation_source_uses_value_text(repo: &Repository, source: &RecordContext<'_>) -> bool {
-    source.record.class == RecordClass::Logical
+    source.record.record_class() == RecordClass::Logical
         && repo
             .collections
             .iter()
@@ -250,7 +251,7 @@ fn eval_fts_with_relations_inner(
                 &config,
                 0,
                 source_index,
-                ctx.record.slot,
+                ctx.record.record_slot(),
                 &mut truth,
                 work,
                 &[],
@@ -377,7 +378,7 @@ fn eval_related_term_mode(
         &config,
         0,
         start,
-        source.record.slot,
+        source.record.record_slot(),
         &mut truth,
         work,
         &[],
@@ -464,9 +465,10 @@ fn visit_merged_hop(
                 value: &value,
                 source_bytes: None,
                 record: current.record,
-                file: current.file,
+                range: (current.record).record_range(),
+                file: Some(current.file),
                 collection_name: &current.collection.definition.name,
-                repository_root: view.repository_root(),
+                repository_root: Some(view.repository_root()),
             };
             merge_truth(
                 truth,
@@ -517,9 +519,10 @@ fn visit_merged_hop(
                 value: &value,
                 source_bytes: None,
                 record: current.record,
-                file: current.file,
+                range: (current.record).record_range(),
+                file: Some(current.file),
                 collection_name: &current.collection.definition.name,
-                repository_root: view.repository_root(),
+                repository_root: Some(view.repository_root()),
             };
             merge_truth(
                 truth,
@@ -531,9 +534,10 @@ fn visit_merged_hop(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record: current.record,
-                file: current.file,
+                range: (current.record).record_range(),
+                file: Some(current.file),
                 collection_name: &current.collection.definition.name,
-                repository_root: view.repository_root(),
+                repository_root: Some(view.repository_root()),
             };
             merge_truth(
                 truth,
@@ -855,9 +859,10 @@ fn visit_hop(
                 value,
                 source_bytes: None,
                 record,
-                file,
+                range: (record).record_range(),
+                file: Some(file),
                 collection_name: &collection.definition.name,
-                repository_root: &repo.files.required_root(),
+                repository_root: Some(repo.files.required_root()),
             };
             merge_truth(
                 truth,
@@ -893,9 +898,10 @@ fn visit_hop(
             value: &extracted.value,
             source_bytes: Some(&bytes),
             record,
-            file,
+            range: (record).record_range(),
+            file: Some(file),
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.required_root(),
+            repository_root: Some(repo.files.required_root()),
         };
         merge_truth(
             truth,

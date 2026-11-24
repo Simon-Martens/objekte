@@ -1,5 +1,6 @@
 //! Bounded exact positive-witness semijoins for forward relation predicates.
 
+use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
 
@@ -703,9 +704,10 @@ fn verify_target_records(
                     value: &prepared.value,
                     source_bytes: Some(&bytes),
                     record,
-                    file,
+                    range: (record).record_range(),
+                    file: Some(file),
                     collection_name: &collection.definition.name,
-                    repository_root: &repo.files.required_root(),
+                    repository_root: Some(repo.files.required_root()),
                 };
                 work.target_reads += 1;
                 if evaluate(&ctx, &prepared.text)? {
@@ -935,9 +937,10 @@ fn verify_qualified_targets(
                     value: &prepared.value,
                     source_bytes: Some(&bytes),
                     record: resolved.record,
-                    file: resolved.file,
+                    range: (resolved.record).record_range(),
+                    file: Some(resolved.file),
                     collection_name: &resolved.collection.definition.name,
-                    repository_root: &view.repository().files.required_root(),
+                    repository_root: Some(&view.repository().files.required_root()),
                 };
                 work.target_reads += 1;
                 if evaluate(&ctx, &prepared.text)? {

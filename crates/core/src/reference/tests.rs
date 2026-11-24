@@ -1,5 +1,6 @@
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::{FileId, RecordId, RecordSlot};
+use crate::records::RecordIdSlot;
 use crate::schema::{CustomBinding, FieldDefinition, Schema, Transform};
 use prelude::*;
 
@@ -78,8 +79,9 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
         value: &value,
         source_bytes: None,
         record: &record,
-        file: &file,
+        range: (&record).record_range(),
+        file: Some(&file),
         collection_name: "test",
-        repository_root: Path::new("/tmp"),
+        repository_root: Some(Path::new("/tmp")),
     });
 }

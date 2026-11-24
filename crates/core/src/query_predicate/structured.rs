@@ -1,5 +1,6 @@
 //! Structured predicate evidence reconstructed from exact membership proofs.
 
+use crate::records::RecordIdSlot;
 use std::collections::HashSet;
 
 use crate::inventory::RecordClass;
@@ -84,9 +85,10 @@ pub(crate) fn proven_evidence(
         value: &empty,
         source_bytes: None,
         record,
-        file,
+        range: (record).record_range(),
+        file: Some(file),
         collection_name: &collection.definition.name,
-        repository_root: &repo.files.required_root(),
+        repository_root: Some(repo.files.required_root()),
     };
     let mut evidence = HashSet::new();
     if eval_unavailable_filter(expr, &ctx, &mut evidence)? != Some(true) {

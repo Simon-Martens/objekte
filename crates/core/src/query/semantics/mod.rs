@@ -8,7 +8,7 @@ pub(crate) use std::collections::HashMap;
 pub(crate) use std::path::Path;
 pub(crate) use std::sync::Arc;
 
-pub(crate) use crate::inventory::{FileEntry, RecordEntry};
+pub(crate) use crate::inventory::FileEntry;
 pub(crate) use crate::model::text::{fold, fold_into};
 pub(crate) use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 pub(crate) use crate::query::binding::filter::{

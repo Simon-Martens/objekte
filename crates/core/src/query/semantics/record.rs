@@ -1,25 +1,25 @@
 pub struct RecordContext<'a> {
     pub value: &'a Value,
     pub source_bytes: Option<&'a [u8]>,
-    pub record: &'a RecordEntry,
-    pub file: &'a FileEntry,
+    pub record: &'a dyn crate::records::RecordIdSlot,
+    pub file: Option<&'a FileEntry>,
+    pub range: Option<crate::inventory::ByteRange>,
     pub collection_name: &'a str,
-    pub repository_root: &'a Path,
+    pub repository_root: Option<&'a Path>,
 }
 
 pub(crate) fn metadata_value(
     field: MetadataField,
     ctx: &RecordContext<'_>,
-) -> Result<Value, String> {
+) -> Result<Option<Value>, String> {
     metadata_value_for_record(
         field,
-        &ctx.record.id,
-        ctx.record.class,
-        Some((ctx.file, Some(ctx.record.range))),
+        ctx.record.record_id(),
+        ctx.record.record_class(),
+        ctx.file.map(|file| (file, ctx.range)),
         ctx.collection_name,
-        Some(ctx.repository_root),
-    )?
-    .ok_or_else(|| "file-backed record metadata unexpectedly absent".into())
+        ctx.repository_root,
+    )
 }
 
 /// Resolve a metadata field without conflating a missing file or range with a

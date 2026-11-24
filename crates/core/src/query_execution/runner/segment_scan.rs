@@ -1,6 +1,7 @@
 //! Segment source verification and scanning.
 
 use super::*;
+use crate::records::RecordIdSlot;
 
 /// Verify one local segment candidate with the narrow source or value consumer.
 /// Relation and opaque binding requests stay on the established evaluator.
@@ -122,9 +123,10 @@ pub(super) fn verify_local_segment_record(
         value: &extracted.value,
         source_bytes: Some(bytes),
         record,
-        file,
+        range: (record).record_range(),
+        file: Some(file),
         collection_name: &collection.definition.name,
-        repository_root: &repo.files.required_root(),
+        repository_root: Some(repo.files.required_root()),
     };
     let mut evidence = HashSet::new();
     let filter_matches = if let Some(fields) = filter_proof {
@@ -299,9 +301,10 @@ pub(super) fn scan_segment_file_parallel(
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
                 record,
-                file: resolved.file,
+                range: (record).record_range(),
+                file: Some(resolved.file),
                 collection_name: &collection.definition.name,
-                repository_root: &repo.files.required_root(),
+                repository_root: Some(repo.files.required_root()),
             };
             result.matches += 1;
             result.sort_key_evaluations += u64::from(sort.bound.has_computed);
