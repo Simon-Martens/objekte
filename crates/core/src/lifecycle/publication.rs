@@ -1,3 +1,4 @@
+use smallvec::SmallVec;
 use std::collections::HashMap;
 use std::hash::{Hash, Hasher};
 use std::sync::Arc;
@@ -54,7 +55,7 @@ pub(crate) struct RoutedRecord {
 #[derive(Clone)]
 pub(crate) struct RecordRoutes {
     shards: Arc<Vec<Arc<HashMap<RecordId, RoutedRecord>>>>,
-    file_shards: Arc<Vec<Arc<HashMap<FileId, Vec<SegmentId>>>>>,
+    file_shards: Arc<Vec<Arc<HashMap<FileId, SmallVec<[SegmentId; 1]>>>>>,
     positions: Arc<HashMap<SegmentId, usize>>,
 }
 
@@ -94,7 +95,7 @@ impl RecordRoutes {
     pub(crate) fn segments_for_file(&self, file: FileId) -> &[SegmentId] {
         self.file_shards[file.0 as usize % RECORD_ROUTE_SHARDS]
             .get(&file)
-            .map(Vec::as_slice)
+            .map(SmallVec::as_slice)
             .unwrap_or(&[])
     }
 

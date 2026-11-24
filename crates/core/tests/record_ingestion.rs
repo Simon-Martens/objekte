@@ -255,6 +255,35 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
         .wait_published()
         .unwrap();
     let view = index.view().unwrap();
+    for (predicate, expected) in [
+        ("@record.byte_start = 0", vec!["same"]),
+        ("@record.byte_start != 0", vec![]),
+    ] {
+        let query = Query {
+            collections: vec!["first".into()],
+            filter: Some(parse_filter(predicate).unwrap()),
+            fts: None,
+            options: QueryOptions {
+                sort: Vec::new(),
+                offset: 0,
+                count: true,
+                limit: 10,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let result = view.search(&query).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{predicate}"
+        );
+        assert_eq!(result.hits, view.search_reference(&query).unwrap().hits);
+    }
     assert!(
         before
             .file_catalog()

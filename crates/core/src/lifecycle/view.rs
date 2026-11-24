@@ -629,7 +629,10 @@ impl IndexView {
                     .filter(|slot| self.0.active[number].contains(**slot))
                     .count() as u64;
             }
-            for segment in self.0.segments.get(number)?.iter() {
+            let routes = self.0.record_routes.get(number)?;
+            let segments = self.0.segments.get(number)?;
+            for segment_id in routes.segments_for_file(file) {
+                let segment = segments.get(routes.position(*segment_id)?)?;
                 if let Some(slots) = segment.index.file_records(file) {
                     count += slots
                         .iter()

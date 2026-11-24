@@ -23,7 +23,7 @@ use crate::model::FileId;
 use crate::query::Operator;
 use crate::repository::Repository;
 
-const SHARDS: usize = 1024;
+const SHARDS: usize = 256;
 
 #[derive(Clone)]
 struct ChangedFile {

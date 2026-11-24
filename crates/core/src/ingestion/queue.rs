@@ -830,4 +830,60 @@ mod tests {
         assert_eq!(session.metrics().pending_spool_bytes, 0);
         session.finish().unwrap();
     }
+
+    #[test]
+    fn disk_full_after_partial_write_rolls_back_and_allows_retry() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-disk-full-spool-{}-{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "disk-full", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024 * 1024,
+                spool_bytes: 1024 * 1024,
+                spool_directory: Some(root.clone()),
+            })
+            .unwrap();
+        session
+            .core
+            .queue
+            .spool
+            .lock()
+            .unwrap()
+            .inject_disk_full_after(12);
+        let writer = session.writer(registration).unwrap();
+        let rejected = writer.submit(batch(session.core.id, registration, "record-1"));
+        let rejected = match rejected {
+            Err(SubmitError::SpoolIo(batch, message)) => {
+                assert!(message.contains("No space left on device"));
+                batch
+            }
+            _ => panic!("disk-full write must return owned input"),
+        };
+        assert_eq!(session.metrics().accepted_batches, 0);
+        assert_eq!(session.metrics().pending_spool_bytes, 0);
+        let spool_root = std::fs::read_dir(&root)
+            .unwrap()
+            .next()
+            .unwrap()
+            .unwrap()
+            .path();
+        assert_eq!(std::fs::read_dir(&spool_root).unwrap().count(), 0);
+        let receipt = writer.submit(rejected).unwrap();
+        assert_eq!(receipt.sequence(), 1);
+        receipt.wait_published().unwrap();
+        session.finish().unwrap();
+        assert_eq!(session.metrics().published_batches, 1);
+        assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
+        std::fs::remove_dir(root).unwrap();
+    }
 }

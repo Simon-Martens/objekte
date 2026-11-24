@@ -1129,24 +1129,50 @@ fn segment_record_range_matches(
     }
     let empty = Value::Object(BTreeMap::new());
     let file = metadata_probe_file();
-    let mut record = metadata_probe_record();
+    let record = metadata_probe_record();
+    let direct_literal = if term.transform == Transform::Identity
+        && term.derived == Derived::None
+        && term.period.is_none()
+        && matches!(
+            term.operator,
+            Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+        ) {
+        match &term.literal {
+            Value::Number(value) => Some(value),
+            _ => None,
+        }
+    } else {
+        None
+    };
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
-        record.range = segment
+        let range = segment
             .backing
             .file_locator(RecordSlot(slot))
-            .and_then(|locator| locator.range)
-            .ok_or("segment record range missing")?;
-        let ctx = RecordContext {
-            value: &empty,
-            source_bytes: None,
-            record: &record,
-            range: (&record).record_range(),
-            file: Some(&file),
-            collection_name: &collection.definition.name,
-            repository_root: Some(std::path::Path::new("")),
+            .and_then(|locator| locator.range);
+        let selected = if let Some(literal) = direct_literal {
+            range.is_some_and(|range| {
+                let value = match term.path.root {
+                    PathRoot::Metadata(MetadataField::RecordByteStart) => range.start,
+                    PathRoot::Metadata(MetadataField::RecordByteEnd) => range.end,
+                    PathRoot::Metadata(MetadataField::RecordByteLength) => range.len(),
+                    _ => unreachable!("byte range field checked above"),
+                };
+                order_matches(Number::integer(value as i128).cmp(literal), term.operator)
+            })
+        } else {
+            let ctx = RecordContext {
+                value: &empty,
+                source_bytes: None,
+                record: &record,
+                range,
+                file: Some(&file),
+                collection_name: &collection.definition.name,
+                repository_root: Some(std::path::Path::new("")),
+            };
+            eval_term(term, &ctx)?
         };
-        if eval_term(term, &ctx)? {
+        if selected {
             matches.insert(slot);
         }
     }

@@ -53,6 +53,8 @@ pub(super) struct SpoolManager {
     session_id: u64,
     active: Option<(PathBuf, u64)>,
     pending_frames: HashMap<PathBuf, usize>,
+    #[cfg(test)]
+    disk_full_after: Option<usize>,
 }
 
 #[derive(Clone)]
@@ -70,6 +72,8 @@ impl SpoolManager {
             session_id,
             active: None,
             pending_frames: HashMap::new(),
+            #[cfg(test)]
+            disk_full_after: None,
         }
     }
 
@@ -115,6 +119,8 @@ impl SpoolManager {
                 true,
             )
         };
+        #[cfg(test)]
+        let disk_full_after = self.disk_full_after.take();
         let result = (|| {
             let mut file = if created {
                 OpenOptions::new().write(true).create_new(true).open(&path)
@@ -122,6 +128,12 @@ impl SpoolManager {
                 OpenOptions::new().append(true).open(&path)
             }
             .map_err(|error| error.to_string())?;
+            #[cfg(test)]
+            if let Some(bytes) = disk_full_after {
+                file.write_all(&frame.0[..bytes.min(frame.0.len())])
+                    .map_err(|error| error.to_string())?;
+                return Err("No space left on device (injected)".into());
+            }
             file.write_all(&frame.0)
                 .map_err(|error| error.to_string())?;
             file.flush().map_err(|error| error.to_string())?;
@@ -144,6 +156,11 @@ impl SpoolManager {
             offset,
             length,
         })
+    }
+
+    #[cfg(test)]
+    pub(super) fn inject_disk_full_after(&mut self, bytes: usize) {
+        self.disk_full_after = Some(bytes);
     }
 
     pub(super) fn release(&mut self, frame: &SpoolFrame) {
