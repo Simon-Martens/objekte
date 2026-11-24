@@ -6,8 +6,10 @@ use objekte_search_core::ingestion::{IngestionOptions, SubmitError};
 use objekte_search_core::inventory::{ByteRange, SourceRevision};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
-use objekte_search_core::query::options::ReturnMode;
-use objekte_search_core::query::{Query, QueryOptions, parse_filter};
+use objekte_search_core::query::options::{ReturnMode, SortField};
+use objekte_search_core::query::{
+    CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
+};
 use objekte_search_core::query_execution::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
 };
@@ -523,6 +525,22 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
     )
     .unwrap();
     assert_eq!(streamed, ["entry-47"]);
+    let text_query = Query {
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "Leipzig".into(),
+            pattern_parameter: None,
+            fields: vec![FtsField {
+                path: objekte_search_core::model::FieldPath::parse("note").unwrap(),
+                binding: None,
+                query_path: None,
+            }],
+        }),
+        filter: None,
+        ..query.clone()
+    };
+    assert_eq!(view.search(&text_query).unwrap().count, Some(1));
     *reader.0.lock().unwrap() = (RecordVersion::new(8), record(1809, "Wien"));
     assert!(
         view.get_record("entries", "entry-47", ReturnMode::Logical)
@@ -747,5 +765,96 @@ fn fileless_rebuild_keeps_retained_records_and_rejects_stale_provider() {
             .payload,
         Some(Payload::Logical(Value::String("kept".into())))
     );
+    session.finish().unwrap();
+}
+
+#[test]
+fn fileless_residual_text_sort_and_stream_agree() {
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["year".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", schema).unwrap();
+    let registration = builder.register_records(collection, "residual", 1).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    batch.insert("alpha", record(1808, "abc Leipzig")).unwrap();
+    batch.insert("beta", record(1808, "abXbc Leipzig")).unwrap();
+    batch.insert("gamma", record(1809, "Wien")).unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let view = index.view().unwrap();
+    let base = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("year = 1808 && note ~ 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("year", false)],
+            offset: 0,
+            limit: 10,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    let result = view.search(&base).unwrap();
+    assert_eq!(result.count, Some(2));
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["alpha", "beta"]
+    );
+    let text = Query {
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "abc".into(),
+            pattern_parameter: None,
+            fields: vec![FtsField {
+                path: objekte_search_core::model::FieldPath::parse("note").unwrap(),
+                binding: None,
+                query_path: None,
+            }],
+        }),
+        filter: None,
+        ..base
+    };
+    let result = view.search(&text).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "alpha");
+    assert!(
+        result.hits[0]
+            .matched_fields
+            .iter()
+            .any(|field| field.to_string().contains("note"))
+    );
+    let mut streamed = Vec::new();
+    view.search_stream_scoped(
+        &text,
+        ResultScope::All { offset: 0 },
+        StreamOptions::default(),
+        &CancellationToken::new(),
+        &mut |event| {
+            if let StreamEvent::OrderedRows { rows, .. } = event {
+                streamed.extend(rows.iter().map(|hit| hit.record_id.clone()));
+            }
+            Ok(StreamControl::Continue)
+        },
+    )
+    .unwrap();
+    assert_eq!(streamed, ["alpha"]);
     session.finish().unwrap();
 }

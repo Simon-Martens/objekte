@@ -3883,11 +3883,9 @@ fn prepare_fts_accesses<'a, 'b>(
             0.0
         }
     } else {
-        let logical_text_complete = collection
-            .required_file_reader()
-            .reader()
-            .logical_text_coverage()
-            == LogicalTextCoverage::AllStringFields;
+        let logical_text_complete = collection.source.as_ref().is_some_and(|source| {
+            source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
+        });
         for field in &fts.fields {
             if field.path.root != PathRoot::Data
                 || field
