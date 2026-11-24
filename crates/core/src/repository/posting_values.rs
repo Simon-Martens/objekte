@@ -500,7 +500,7 @@ fn scan_inferred_segment(
             for (slot, bytes) in reader.read(batch)?.0 {
                 let value = prepare_query_record_with_execution(
                     RecordClass::Logical,
-                    &collection.source,
+                    &collection.required_file_reader(),
                     &collection.definition.schema,
                     &bytes,
                     &ScanProjection::full(false),
@@ -600,7 +600,7 @@ fn verify_legacy_facts(
             for (_, bytes) in reader.read(&ranges)?.0 {
                 let value = prepare_query_record_with_execution(
                     RecordClass::Logical,
-                    &collection.source,
+                    &collection.required_file_reader(),
                     &collection.definition.schema,
                     &bytes,
                     &ScanProjection::full(false),

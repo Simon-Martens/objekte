@@ -2340,14 +2340,14 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &[FilePreparationBinding {
             collection: CollectionId(0),
             definition: collection.required_file_definition(),
-            source: &collection.source,
+            source: &collection.required_file_reader(),
         }],
         repo.options.bigram_alphabet,
         repo.options.inference,
         1,
     )
     .unwrap();
-    let mut admission = SegmentAdmission::new(CollectionId(0), &collection.source);
+    let mut admission = SegmentAdmission::new(CollectionId(0), &collection.required_file_reader());
     admission
         .admit(
             &prepared.source,
@@ -3408,14 +3408,14 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         &[FilePreparationBinding {
             collection: CollectionId(0),
             definition: collection.required_file_definition(),
-            source: &collection.source,
+            source: &collection.required_file_reader(),
         }],
         repo.options.bigram_alphabet,
         repo.options.inference,
         1,
     )
     .unwrap();
-    let mut admission = SegmentAdmission::new(CollectionId(0), &collection.source);
+    let mut admission = SegmentAdmission::new(CollectionId(0), &collection.required_file_reader());
     admission
         .admit(
             &prepared.source,

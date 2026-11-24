@@ -505,13 +505,15 @@ fn scan_direct_target_parallel(
             });
         }
     };
-    let borrow_value_text = !target_collection.source.is_extension()
-        && target_collection.source.scalar_verification()
+    let borrow_value_text = !target_collection.required_file_reader().is_extension()
+        && target_collection
+            .required_file_reader()
+            .scalar_verification()
             == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
         && matches!(predicate, DirectRelationPredicate::Fts(_));
     let extracted = prepare_query_record_with_execution(
         resolved.record.class,
-        &target_collection.source,
+        &target_collection.required_file_reader(),
         &target_collection.definition.schema,
         &bytes,
         &ScanProjection::full(
@@ -852,13 +854,15 @@ fn try_direct_relation_page(
                 counters.relation_target_reads += 1;
                 counters.relation_target_file_opens += 1;
                 counters.relation_bytes_read += bytes.len() as u64;
-                let borrow_value_text = !target_collection.source.is_extension()
-                    && target_collection.source.scalar_verification()
+                let borrow_value_text = !target_collection.required_file_reader().is_extension()
+                    && target_collection
+                        .required_file_reader()
+                        .scalar_verification()
                         == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
                     && matches!(predicate, DirectRelationPredicate::Fts(_));
                 let extracted = prepare_query_record_with_execution(
                     resolved.record.class,
-                    &target_collection.source,
+                    &target_collection.required_file_reader(),
                     &target_collection.definition.schema,
                     &bytes,
                     &ScanProjection::full(
@@ -1379,7 +1383,10 @@ fn scan_relation_file_parallel(
     );
     if fts.is_none()
         && !sort.bound.has_computed
-        && resolved.collection.source.scalar_verification()
+        && resolved
+            .collection
+            .required_file_reader()
+            .scalar_verification()
             == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
         && let Some(fields) = filter.and_then(segment_filter_source_fields)
     {
@@ -1388,7 +1395,10 @@ fn scan_relation_file_parallel(
     projection.resolved_text_only =
         projection.collect_text && fts.is_some_and(|fts| !fts.fields.is_empty());
     let combined_fts = fts.filter(|fts| {
-        resolved.collection.source.scalar_verification()
+        resolved
+            .collection
+            .required_file_reader()
+            .scalar_verification()
             == Some(crate::source::verification::ScalarVerification::DecodedScalars)
             && source_fts_eligible(resolved.collection, fts, true)
     });
@@ -1396,7 +1406,7 @@ fn scan_relation_file_parallel(
         && let Some(combined_fts) = combined_fts
     {
         let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
-            &resolved.collection.source,
+            &resolved.collection.required_file_reader(),
             &resolved.collection.definition.schema,
             &bytes,
             &projection,
@@ -1409,7 +1419,7 @@ fn scan_relation_file_parallel(
         (
             prepare_query_record_with_execution(
                 record.class,
-                &resolved.collection.source,
+                &resolved.collection.required_file_reader(),
                 &resolved.collection.definition.schema,
                 &bytes,
                 &projection,
@@ -2159,7 +2169,7 @@ pub(super) fn search_segmented_relations(
             .flatten();
         let borrowed_value_text = borrowed_value_text(collection_plan, fts.as_ref());
         let combined_fts = (!reference).then_some(()).and(fts.as_ref().filter(|fts| {
-            collection_plan.source.scalar_verification()
+            collection_plan.required_file_reader().scalar_verification()
                 == Some(crate::source::verification::ScalarVerification::DecodedScalars)
                 && source_fts_eligible(collection_plan, fts, true)
         }));
@@ -2171,7 +2181,7 @@ pub(super) fn search_segmented_relations(
         if !reference
             && fts.is_none()
             && !sort.bound.has_computed
-            && collection_plan.source.scalar_verification()
+            && collection_plan.required_file_reader().scalar_verification()
                 == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
             && let Some(fields) = filter.as_ref().and_then(segment_filter_source_fields)
         {
@@ -2226,7 +2236,7 @@ pub(super) fn search_segmented_relations(
                 && let Some(combined_fts) = combined_fts
             {
                 let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
-                    &resolved.collection.source,
+                    &resolved.collection.required_file_reader(),
                     &resolved.collection.definition.schema,
                     &bytes,
                     &projection,
@@ -2239,7 +2249,7 @@ pub(super) fn search_segmented_relations(
                 (
                     prepare_query_record_with_execution(
                         record.class,
-                        &resolved.collection.source,
+                        &resolved.collection.required_file_reader(),
                         &resolved.collection.definition.schema,
                         &bytes,
                         &projection,

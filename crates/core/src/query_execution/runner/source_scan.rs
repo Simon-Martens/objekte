@@ -176,13 +176,13 @@ pub(super) fn scan_file(
             let combined_fts = decode
                 .then_some(())
                 .filter(|_| {
-                    collection.source.scalar_verification()
+                    collection.required_file_reader().scalar_verification()
                         == Some(crate::source::verification::ScalarVerification::DecodedScalars)
                 })
                 .and_then(|_| fts.filter(|fts| source_fts_eligible(collection, fts, true)));
             let (extracted, combined_result) = if let Some(combined_fts) = combined_fts {
                 let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
-                    &collection.source,
+                    &collection.required_file_reader(),
                     &collection.definition.schema,
                     &bytes,
                     record_projection,
@@ -195,7 +195,7 @@ pub(super) fn scan_file(
             } else if decode {
                 let extracted = prepare_query_record_with_execution(
                     record.class,
-                    &collection.source,
+                    &collection.required_file_reader(),
                     &collection.definition.schema,
                     &bytes,
                     record_projection,
@@ -479,7 +479,7 @@ pub(super) fn scan_file(
                         {
                             prepare_query_record_with_execution(
                                 record.class,
-                                &collection.source,
+                                &collection.required_file_reader(),
                                 &collection.definition.schema,
                                 &bytes,
                                 &ScanProjection::full(false),

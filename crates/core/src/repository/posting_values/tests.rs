@@ -337,15 +337,16 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
             &[FilePreparationBinding {
                 collection: CollectionId(0),
                 definition: state.required_file_definition(),
-                source: &state.source,
+                source: &state.required_file_reader(),
             }],
             restored.options().bigram_alphabet,
             restored.options().inference,
             1,
         )
         .unwrap();
-        let batch =
-            admission.get_or_insert_with(|| SegmentAdmission::new(CollectionId(0), &state.source));
+        let batch = admission.get_or_insert_with(|| {
+            SegmentAdmission::new(CollectionId(0), &state.required_file_reader())
+        });
         batch
             .admit(
                 &prepared.source,
@@ -533,15 +534,16 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
             &[FilePreparationBinding {
                 collection: CollectionId(0),
                 definition: state.required_file_definition(),
-                source: &state.source,
+                source: &state.required_file_reader(),
             }],
             repo.options().bigram_alphabet,
             repo.options().inference,
             1,
         )
         .unwrap();
-        let batch =
-            admission.get_or_insert_with(|| SegmentAdmission::new(CollectionId(0), &state.source));
+        let batch = admission.get_or_insert_with(|| {
+            SegmentAdmission::new(CollectionId(0), &state.required_file_reader())
+        });
         batch
             .admit(
                 &prepared.source,
@@ -670,7 +672,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
                 crate::construction::file_preparation::FilePreparationBinding {
                     collection: crate::model::CollectionId(0),
                     definition: state.required_file_definition(),
-                    source: &state.source,
+                    source: &state.required_file_reader(),
                 },
             ],
             repo.options().bigram_alphabet,
@@ -680,7 +682,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
         .unwrap();
         let mut admission = crate::construction::segment_admission::SegmentAdmission::new(
             crate::model::CollectionId(0),
-            &state.source,
+            &state.required_file_reader(),
         );
         admission
             .admit(
@@ -1476,7 +1478,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
                 crate::construction::file_preparation::FilePreparationBinding {
                     collection: crate::model::CollectionId(0),
                     definition: state.required_file_definition(),
-                    source: &state.source,
+                    source: &state.required_file_reader(),
                 },
             ],
             repo.options().bigram_alphabet,
@@ -1486,7 +1488,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
         .unwrap();
         let mut admission = crate::construction::segment_admission::SegmentAdmission::new(
             crate::model::CollectionId(0),
-            &state.source,
+            &state.required_file_reader(),
         );
         admission
             .admit(

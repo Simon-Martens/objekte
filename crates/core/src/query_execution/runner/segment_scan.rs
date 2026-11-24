@@ -79,7 +79,7 @@ pub(super) fn verify_local_segment_record(
     }
     let borrowed_value_text = borrowed_value_text(collection, fts);
     let combined_fts = fts.filter(|fts| {
-        collection.source.scalar_verification()
+        collection.required_file_reader().scalar_verification()
             == Some(crate::source::verification::ScalarVerification::DecodedScalars)
             && source_fts_eligible(collection, fts, true)
     });
@@ -87,7 +87,7 @@ pub(super) fn verify_local_segment_record(
         && let Some(combined_fts) = combined_fts
     {
         let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
-            &collection.source,
+            &collection.required_file_reader(),
             &collection.definition.schema,
             bytes,
             projection,
@@ -100,7 +100,7 @@ pub(super) fn verify_local_segment_record(
         (
             prepare_query_record_with_execution(
                 record.class,
-                &collection.source,
+                &collection.required_file_reader(),
                 &collection.definition.schema,
                 bytes,
                 projection,

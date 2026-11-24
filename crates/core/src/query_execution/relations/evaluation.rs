@@ -27,7 +27,7 @@ use crate::source::{ScanProjection, TextSegment};
 use super::work::{MAX_QUERY_RELATION_BYTES, RelationWork};
 
 fn relation_target_uses_value_text(collection: &crate::repository::state::CollectionState) -> bool {
-    collection.source.scalar_verification()
+    collection.required_file_reader().scalar_verification()
         == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
 }
 
@@ -496,7 +496,7 @@ fn visit_merged_hop(
         work.target_read(bytes.len() as u64)?;
         let extracted = crate::source::preparation::prepare_query_record_with_execution(
             current.record.class,
-            &current.collection.source,
+            &current.collection.required_file_reader(),
             &current.collection.definition.schema,
             &bytes,
             &ScanProjection::full(collect_text),
@@ -882,7 +882,7 @@ fn visit_hop(
         work.target_read(bytes.len() as u64)?;
         let extracted = crate::source::preparation::prepare_query_record_with_execution(
             record.class,
-            &collection.source,
+            &collection.required_file_reader(),
             &collection.definition.schema,
             &bytes,
             &ScanProjection::full(collect_text),

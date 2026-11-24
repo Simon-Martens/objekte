@@ -103,8 +103,8 @@ pub(crate) fn base_as_segment(
     let mut segment = IndexedCollectionSegment {
         id: crate::index::segment::SegmentId::new(1),
         collection: collection.generation.collection,
-        source_id: collection.source.id().into(),
-        source_version: collection.source.version(),
+        source_id: collection.required_file_reader().id().into(),
+        source_version: collection.required_file_reader().version(),
         files: segment_files,
         file_index,
         records,

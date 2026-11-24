@@ -563,7 +563,7 @@ impl<'a> MergedRelationView<'a> {
         }
         let extracted = crate::source::preparation::prepare_query_record_with_execution(
             resolved.record.class,
-            &resolved.collection.source,
+            &resolved.collection.required_file_reader(),
             &resolved.collection.definition.schema,
             &bytes,
             &ScanProjection::full(false),
@@ -736,7 +736,7 @@ impl<'a> MergedRelationView<'a> {
         }
         let extracted = crate::source::preparation::prepare_query_record_with_execution(
             resolved.record.class,
-            &resolved.collection.source,
+            &resolved.collection.required_file_reader(),
             &resolved.collection.definition.schema,
             &bytes,
             &ScanProjection::full(false),
@@ -859,7 +859,7 @@ pub(super) fn read_reference_value(
     work.source_read(bytes.len() as u64)?;
     let extracted = crate::source::preparation::prepare_query_record_with_execution(
         record.class,
-        &collection.source,
+        &collection.required_file_reader(),
         &collection.definition.schema,
         &bytes,
         &ScanProjection::full(false),

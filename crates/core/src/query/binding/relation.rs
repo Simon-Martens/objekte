@@ -93,7 +93,10 @@ pub(crate) fn bind_fts_with_relations(
         if let Some((hops, terminal)) = resolve_path(repo, collection_index, &path)? {
             let target = hops.last().ok_or("relation FTS has no hop")?.to.0 as usize;
             if terminal.has_explicit_array_step
-                && repo.collections[target].source.reader().text_derivation()
+                && repo.collections[target]
+                    .required_file_reader()
+                    .reader()
+                    .text_derivation()
                     != TextDerivation::LogicalStringsAfterConversion
             {
                 return Err(
@@ -128,7 +131,7 @@ pub(crate) fn bind_fts_with_relations(
             local.fields.push(direct);
             if path.has_explicit_array_step {
                 if repo.collections[collection_index]
-                    .source
+                    .required_file_reader()
                     .reader()
                     .text_derivation()
                     != TextDerivation::LogicalStringsAfterConversion

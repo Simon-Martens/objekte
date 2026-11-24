@@ -54,13 +54,13 @@ pub(crate) fn verify_old_content(
             .collections()
             .get(collection_id.0 as usize)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        if collection.source.is_extension() {
+        if collection.required_file_reader().is_extension() {
             return Err(VerifiedFallbackReason::UnsupportedReader);
         }
         bindings.push(FilePreparationBinding {
             collection: *collection_id,
             definition: collection.required_file_definition(),
-            source: &collection.source,
+            source: &collection.required_file_reader(),
         });
     }
     let input = SourceFileInput {

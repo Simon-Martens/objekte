@@ -1275,7 +1275,11 @@ fn segment_raw_covers_identity_field(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
 ) -> bool {
-    collection.source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
+    collection
+        .required_file_reader()
+        .reader()
+        .logical_text_coverage()
+        == LogicalTextCoverage::AllStringFields
         && collection.definition.schema.raw.is_none()
         && segment.raw.record_count as usize == segment.record_count()
 }
@@ -2288,11 +2292,16 @@ pub(crate) struct Plan {
 /// registration and raw binding versions are fixed by the collection's
 /// immutable generation and snapshot configuration.
 fn raw_covers_identity_field(collection: &CollectionState) -> Result<(), String> {
-    if collection.source.reader().logical_text_coverage() != LogicalTextCoverage::AllStringFields {
+    if collection
+        .required_file_reader()
+        .reader()
+        .logical_text_coverage()
+        != LogicalTextCoverage::AllStringFields
+    {
         return Err(format!(
             "source {}@{} does not cover every logical string field",
-            collection.source.id(),
-            collection.source.version()
+            collection.required_file_reader().id(),
+            collection.required_file_reader().version()
         ));
     }
     if let Some(binding) = &collection.definition.schema.raw {
@@ -3384,8 +3393,8 @@ fn plan_logical_expr<'a>(
                 } else if selected.kind == AccessPathKind::RawBigram && dynamic_binding {
                     format!(
                         "undeclared dynamic string-witness restriction via shared raw index {}@{}; empty-selection preservation: {}; exact field residual retained",
-                        collection.source.id(),
-                        collection.source.version(),
+                        collection.required_file_reader().id(),
+                        collection.required_file_reader().version(),
                         structural_candidates.is_some()
                     )
                 } else if selected.kind == AccessPathKind::Scanner
@@ -3852,7 +3861,10 @@ fn prepare_fts_accesses<'a, 'b>(
             0.0
         }
     } else {
-        let logical_text_complete = collection.source.reader().logical_text_coverage()
+        let logical_text_complete = collection
+            .required_file_reader()
+            .reader()
+            .logical_text_coverage()
             == LogicalTextCoverage::AllStringFields;
         for field in &fts.fields {
             if field.path.root != PathRoot::Data

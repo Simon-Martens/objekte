@@ -5709,7 +5709,7 @@ fn materialize_computed_cached<'a>(
                 let record = &collection.generation.records[member.slot as usize];
                 let extracted = prepare_query_record_with_execution(
                     record.class,
-                    &collection.source,
+                    &collection.required_file_reader(),
                     &collection.definition.schema,
                     &bytes,
                     &ScanProjection::full(false),

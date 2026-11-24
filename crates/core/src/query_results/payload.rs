@@ -46,7 +46,7 @@ pub(crate) fn payload_from_bytes_with_execution(
         let collection = collection.ok_or("result collection missing")?;
         Some(prepare_query_record_with_execution(
             record_class,
-            &collection.source,
+            &collection.required_file_reader(),
             &collection.definition.schema,
             &bytes,
             &ScanProjection::full(false),

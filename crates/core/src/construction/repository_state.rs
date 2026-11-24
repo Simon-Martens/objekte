@@ -183,7 +183,7 @@ pub(crate) fn initialize_empty(
             definition: declaration,
             file_source: Some(file_source),
             file_definition: Some(definition),
-            source,
+            source: Some(source),
             generation,
             postings,
             inference,

@@ -209,7 +209,7 @@ impl MergedSortTargetCache {
         };
         let extracted = crate::source::preparation::prepare_query_record_with_execution(
             current.record.class,
-            &current.collection.source,
+            &current.collection.required_file_reader(),
             &current.collection.definition.schema,
             &bytes,
             &crate::source::ScanProjection::full(false),
@@ -1257,7 +1257,7 @@ impl SortTargetCache {
             }
             let extracted = crate::source::preparation::prepare_query_record_with_execution(
                 record.class,
-                &collection.source,
+                &collection.required_file_reader(),
                 &collection.definition.schema,
                 &bytes,
                 &crate::source::ScanProjection::full(false),

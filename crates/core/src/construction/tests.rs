@@ -61,7 +61,7 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         .unwrap();
     let id = collection.generation.collection;
     let definition = Arc::new(collection.required_file_definition().clone());
-    let source = collection.source.clone();
+    let source = collection.required_file_reader().clone();
     let source_files = Arc::new(
         repository
             .files()

@@ -48,15 +48,17 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             &[FilePreparationBinding {
                 collection: CollectionId(collection_index as u32),
                 definition: collection.required_file_definition(),
-                source: &collection.source,
+                source: &collection.required_file_reader(),
             }],
             repo.options().bigram_alphabet,
             repo.options().inference,
             repo.collections().len(),
         )
         .unwrap();
-        let mut admission =
-            SegmentAdmission::new(CollectionId(collection_index as u32), &collection.source);
+        let mut admission = SegmentAdmission::new(
+            CollectionId(collection_index as u32),
+            &collection.required_file_reader(),
+        );
         admission
             .admit(
                 &prepared.source,
@@ -3666,7 +3668,7 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
     .unwrap();
     let extracted = crate::source::preparation::prepare_query_record_with_execution(
         record.class,
-        &collection.source,
+        &collection.required_file_reader(),
         &collection.definition.schema,
         &bytes,
         &crate::source::ScanProjection::full(true),

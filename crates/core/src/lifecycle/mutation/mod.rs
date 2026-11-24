@@ -200,7 +200,7 @@ fn path_independent_memberships(
             root,
             &collection.required_file_source().source_path,
             &collection.required_file_source().discovery,
-            &collection.source,
+            &collection.required_file_reader(),
             destination,
         )
         .map_err(IndexError::Build)?;
@@ -208,7 +208,7 @@ fn path_independent_memberships(
             return Ok(false);
         }
         if selected
-            && (collection.source.is_extension()
+            && (collection.required_file_reader().is_extension()
                 || !matches!(
                     collection.required_file_source().identity,
                     IdentityPolicy::Generated | IdentityPolicy::Intrinsic(_)

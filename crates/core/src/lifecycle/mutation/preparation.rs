@@ -100,8 +100,8 @@ pub(super) fn index_prepared_file(
             .get(collection.collection.0 as usize)
             .ok_or_else(|| IndexError::InvalidPublication("collection missing".into()))?;
         if collection.collection != state.generation.collection
-            || collection.source_id != state.source.id()
-            || collection.source_version != state.source.version()
+            || collection.source_id != state.required_file_reader().id()
+            || collection.source_version != state.required_file_reader().version()
         {
             return Err(IndexError::Build(
                 "prepared collection binding changed".into(),
@@ -109,7 +109,7 @@ pub(super) fn index_prepared_file(
         }
         let mut admission = SegmentAdmission::with_limits_and_id(
             collection.collection,
-            &state.source,
+            &state.required_file_reader(),
             policy,
             SegmentId::new(next_segment_id),
         );
@@ -140,7 +140,7 @@ pub(super) fn index_prepared_file(
                     &mut admission,
                     SegmentAdmission::with_limits_and_id(
                         collection.collection,
-                        &state.source,
+                        &state.required_file_reader(),
                         policy,
                         SegmentId::new(next_segment_id),
                     ),
@@ -155,7 +155,7 @@ pub(super) fn index_prepared_file(
                     &mut admission,
                     SegmentAdmission::with_limits_and_id(
                         collection.collection,
-                        &state.source,
+                        &state.required_file_reader(),
                         policy,
                         SegmentId::new(next_segment_id),
                     ),
@@ -233,7 +233,7 @@ fn prepare_file_at(
             root,
             &collection.required_file_source().source_path,
             &collection.required_file_source().discovery,
-            &collection.source,
+            &collection.required_file_reader(),
             relative,
         )
         .map_err(IndexError::Build)?
@@ -241,7 +241,7 @@ fn prepare_file_at(
             bindings.push(FilePreparationBinding {
                 collection: collection.generation.collection,
                 definition: collection.required_file_definition(),
-                source: &collection.source,
+                source: &collection.required_file_reader(),
             });
         }
     }
@@ -324,7 +324,7 @@ pub(super) fn prepare_replacement_bytes(
             root,
             &collection.required_file_source().source_path,
             &collection.required_file_source().discovery,
-            &collection.source,
+            &collection.required_file_reader(),
             &relative,
         )
         .map_err(IndexError::Build)?
@@ -332,7 +332,7 @@ pub(super) fn prepare_replacement_bytes(
             bindings.push(FilePreparationBinding {
                 collection: collection.generation.collection,
                 definition: collection.required_file_definition(),
-                source: &collection.source,
+                source: &collection.required_file_reader(),
             });
         }
     }

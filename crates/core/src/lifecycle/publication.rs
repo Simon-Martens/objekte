@@ -242,8 +242,8 @@ impl PublishedIndex {
             self.repository.collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("segment collection missing".into())
             })?;
-        if index.source_id != collection.source.id()
-            || index.source_version != collection.source.version()
+        if index.source_id != collection.required_file_reader().id()
+            || index.source_version != collection.required_file_reader().version()
         {
             return Err(IndexError::IncompatibleConfiguration(
                 "segment source registration changed".into(),

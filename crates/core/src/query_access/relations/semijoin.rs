@@ -692,7 +692,7 @@ fn verify_target_records(
                 let file = &repo.files.files[file_id.0 as usize];
                 let prepared = crate::source::preparation::prepare_query_record_with_execution(
                     record.class,
-                    &collection.source,
+                    &collection.required_file_reader(),
                     &collection.definition.schema,
                     &bytes,
                     &projection,
@@ -924,7 +924,7 @@ fn verify_qualified_targets(
                 };
                 let prepared = crate::source::preparation::prepare_query_record_with_execution(
                     resolved.record.class,
-                    &resolved.collection.source,
+                    &resolved.collection.required_file_reader(),
                     &resolved.collection.definition.schema,
                     &bytes,
                     &projection,

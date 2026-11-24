@@ -30,7 +30,7 @@ pub struct CollectionState {
     pub(crate) file_source: Option<FileSourceConfig>,
     /// Compatibility boundary for the existing file preparation pipeline.
     pub(crate) file_definition: Option<CollectionDefinition>,
-    pub(crate) source: PreparedSource,
+    pub(crate) source: Option<PreparedSource>,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
@@ -69,6 +69,12 @@ impl CollectionState {
         self.file_definition
             .as_ref()
             .expect("file definition required by file adapter")
+    }
+
+    pub(crate) fn required_file_reader(&self) -> &PreparedSource {
+        self.source
+            .as_ref()
+            .expect("file reader required by file adapter")
     }
 }
 

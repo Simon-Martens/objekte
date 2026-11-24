@@ -505,7 +505,7 @@ fn prepare_with_limits(
                     let projected =
                         crate::source::preparation::prepare_query_record_with_execution(
                             collection.generation.records[slot as usize].class,
-                            &collection.source,
+                            &collection.required_file_reader(),
                             &collection.definition.schema,
                             &bytes,
                             &projection,
