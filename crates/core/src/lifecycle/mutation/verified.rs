@@ -59,7 +59,7 @@ pub(crate) fn verify_old_content(
         }
         bindings.push(FilePreparationBinding {
             collection: *collection_id,
-            definition: &collection.definition,
+            definition: collection.required_file_definition(),
             source: &collection.source,
         });
     }

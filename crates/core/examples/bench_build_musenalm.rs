@@ -156,7 +156,8 @@ fn run() -> Result<(), String> {
     );
     let registrations = index.collections().iter().zip(&observation.collection_parts).map(|(state, counts)| {
         let definition = &state.definition;
-        serde_json::json!({"name":definition.name,"source_path":definition.source_path,"format":definition.format,"identity":format!("{:?}",definition.identity),"files":counts.files,"records":counts.records,"type_hints":definition.schema.fields().len(),"indexed_paths":definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })
+        let source = state.file_source().expect("Musenalm file source");
+        serde_json::json!({"name":definition.name,"source_path":source.source_path,"format":source.format,"identity":format!("{:?}",source.identity),"files":counts.files,"records":counts.records,"type_hints":definition.schema.fields().len(),"indexed_paths":definition.schema.fields().iter().filter(|(_,field)|field.indexed).map(|(p,_)|p.join(".")).collect::<Vec<_>>(),"sort_fields":definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })
     }).collect::<Vec<_>>();
     let index_stores = observation.bigram_stores;
     let distinct_gram_keys = observation.distinct_gram_keys;

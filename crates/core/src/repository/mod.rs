@@ -96,7 +96,7 @@ impl Repository {
             self.files.root.clone(),
             self.collections
                 .iter()
-                .map(|state| state.definition.clone())
+                .map(|state| state.required_file_definition().clone())
                 .collect(),
             self.options,
             &self.sources,

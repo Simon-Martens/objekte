@@ -2339,7 +2339,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         },
         &[FilePreparationBinding {
             collection: CollectionId(0),
-            definition: &collection.definition,
+            definition: collection.required_file_definition(),
             source: &collection.source,
         }],
         repo.options.bigram_alphabet,
@@ -3407,7 +3407,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         input,
         &[FilePreparationBinding {
             collection: CollectionId(0),
-            definition: &collection.definition,
+            definition: collection.required_file_definition(),
             source: &collection.source,
         }],
         repo.options.bigram_alphabet,

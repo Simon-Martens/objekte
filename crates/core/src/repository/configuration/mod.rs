@@ -58,6 +58,59 @@ pub struct FileSourceConfig {
     pub discovery: Discovery,
 }
 
+/// Borrowed collection policy consumed by the shared segment builder.
+pub(crate) trait CollectionPolicy {
+    fn schema(&self) -> &Schema;
+    fn sort_fields(&self) -> &[FieldPath];
+    fn sort_locale(&self) -> &str;
+    fn sort_options(&self) -> SortOptions;
+    fn sort_overrides(&self) -> &HashMap<FieldPath, SortConfig>;
+}
+
+impl CollectionPolicy for CollectionDeclaration {
+    fn schema(&self) -> &Schema {
+        &self.schema
+    }
+
+    fn sort_fields(&self) -> &[FieldPath] {
+        &self.sort_fields
+    }
+
+    fn sort_locale(&self) -> &str {
+        &self.sort_locale
+    }
+
+    fn sort_options(&self) -> SortOptions {
+        self.sort_options
+    }
+
+    fn sort_overrides(&self) -> &HashMap<FieldPath, SortConfig> {
+        &self.sort_overrides
+    }
+}
+
+impl CollectionPolicy for CollectionDefinition {
+    fn schema(&self) -> &Schema {
+        &self.schema
+    }
+
+    fn sort_fields(&self) -> &[FieldPath] {
+        &self.sort_fields
+    }
+
+    fn sort_locale(&self) -> &str {
+        &self.sort_locale
+    }
+
+    fn sort_options(&self) -> SortOptions {
+        self.sort_options
+    }
+
+    fn sort_overrides(&self) -> &HashMap<FieldPath, SortConfig> {
+        &self.sort_overrides
+    }
+}
+
 /// Caller-supplied file configuration retained by the existing file-opening
 /// facade. New registrars use [`CollectionDeclaration`] directly.
 #[derive(Clone, Debug)]

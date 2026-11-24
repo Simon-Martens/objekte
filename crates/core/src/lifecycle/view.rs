@@ -269,6 +269,17 @@ impl IndexView {
         self.repository()
             .collections()
             .iter()
+            .filter_map(|state| state.file_definition.as_ref())
+    }
+
+    /// All collection declarations, including collections without a file
+    /// importer, from this pinned publication.
+    pub fn collection_declarations(
+        &self,
+    ) -> impl Iterator<Item = &crate::repository::configuration::CollectionDeclaration> + '_ {
+        self.repository()
+            .collections()
+            .iter()
             .map(|state| &state.definition)
     }
 

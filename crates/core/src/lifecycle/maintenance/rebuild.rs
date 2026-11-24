@@ -47,7 +47,7 @@ impl Index {
             let definitions = repository
                 .collections()
                 .iter()
-                .map(|collection| collection.definition.clone())
+                .map(|collection| collection.required_file_definition().clone())
                 .collect::<Vec<_>>();
             let task = Self::start_build(
                 repository.files().root.clone(),

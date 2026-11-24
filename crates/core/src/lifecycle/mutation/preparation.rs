@@ -231,8 +231,8 @@ fn prepare_file_at(
     for collection in repository.collections() {
         if selects_file(
             root,
-            &collection.definition.source_path,
-            &collection.definition.discovery,
+            &collection.required_file_source().source_path,
+            &collection.required_file_source().discovery,
             &collection.source,
             relative,
         )
@@ -240,7 +240,7 @@ fn prepare_file_at(
         {
             bindings.push(FilePreparationBinding {
                 collection: collection.generation.collection,
-                definition: &collection.definition,
+                definition: collection.required_file_definition(),
                 source: &collection.source,
             });
         }
@@ -322,8 +322,8 @@ pub(super) fn prepare_replacement_bytes(
     for collection in repository.collections() {
         if selects_file(
             root,
-            &collection.definition.source_path,
-            &collection.definition.discovery,
+            &collection.required_file_source().source_path,
+            &collection.required_file_source().discovery,
             &collection.source,
             &relative,
         )
@@ -331,7 +331,7 @@ pub(super) fn prepare_replacement_bytes(
         {
             bindings.push(FilePreparationBinding {
                 collection: collection.generation.collection,
-                definition: &collection.definition,
+                definition: collection.required_file_definition(),
                 source: &collection.source,
             });
         }

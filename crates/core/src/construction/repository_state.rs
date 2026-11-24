@@ -176,9 +176,13 @@ pub(crate) fn initialize_empty(
             &sorting,
         );
         pending_relations.push(RelationContribution::for_schema(&definition.schema));
+        let file_source = definition.file_source();
+        let declaration = definition.declaration();
         collections.push(CollectionState {
             repository_instance: 0,
-            definition,
+            definition: declaration,
+            file_source: Some(file_source),
+            file_definition: Some(definition),
             source,
             generation,
             postings,

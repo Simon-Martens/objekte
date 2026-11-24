@@ -198,8 +198,8 @@ fn path_independent_memberships(
     for collection in repository.collections() {
         let selected = selects_file(
             root,
-            &collection.definition.source_path,
-            &collection.definition.discovery,
+            &collection.required_file_source().source_path,
+            &collection.required_file_source().discovery,
             &collection.source,
             destination,
         )
@@ -210,7 +210,7 @@ fn path_independent_memberships(
         if selected
             && (collection.source.is_extension()
                 || !matches!(
-                    collection.definition.identity,
+                    collection.required_file_source().identity,
                     IdentityPolicy::Generated | IdentityPolicy::Intrinsic(_)
                 )
                 || collection

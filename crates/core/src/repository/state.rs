@@ -13,7 +13,7 @@ use crate::inventory::CollectionGeneration;
 use crate::model::{RecordId, RecordSlot};
 use crate::source::registry::PreparedSource;
 
-use super::configuration::CollectionDefinition;
+use super::configuration::{CollectionDeclaration, CollectionDefinition, FileSourceConfig};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct GlobalInferenceSummary {
@@ -25,7 +25,11 @@ pub struct CollectionState {
     /// Repository instance owning this pinned collection snapshot. Segment
     /// adapters use it to construct a full local-domain identity.
     pub(crate) repository_instance: u64,
-    pub definition: CollectionDefinition,
+    pub definition: CollectionDeclaration,
+    /// Present only when this collection has a configured file importer.
+    pub(crate) file_source: Option<FileSourceConfig>,
+    /// Compatibility boundary for the existing file preparation pipeline.
+    pub(crate) file_definition: Option<CollectionDefinition>,
     pub(crate) source: PreparedSource,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
@@ -45,6 +49,27 @@ pub struct CollectionState {
     pub identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
     pub relations: Vec<RelationIndex>,
+}
+
+impl CollectionState {
+    /// File importer configuration, when this collection has one.
+    pub fn file_source(&self) -> Option<&FileSourceConfig> {
+        self.file_source.as_ref()
+    }
+
+    /// Existing file adapter paths only. Direct record paths inspect the
+    /// optional registration and never request file discovery settings.
+    pub(crate) fn required_file_source(&self) -> &FileSourceConfig {
+        self.file_source
+            .as_ref()
+            .expect("file source configuration required by file adapter")
+    }
+
+    pub(crate) fn required_file_definition(&self) -> &CollectionDefinition {
+        self.file_definition
+            .as_ref()
+            .expect("file definition required by file adapter")
+    }
 }
 
 /// Collection size summary used by query planning.

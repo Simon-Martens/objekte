@@ -23,7 +23,7 @@ use crate::inventory::{
     append_shifted_bitmap,
 };
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
-use crate::repository::configuration::CollectionDefinition;
+use crate::repository::configuration::CollectionPolicy;
 use crate::repository::statistics::IncrementalSegmentProfile;
 use crate::source::registry::PreparedSource;
 
@@ -330,13 +330,13 @@ struct SegmentAggregate {
 
 impl SegmentAggregate {
     fn new(
-        definition: &CollectionDefinition,
+        definition: &impl CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
     ) -> Result<Self, String> {
         let custom_postings = definition
-            .schema
+            .schema()
             .operations
             .iter()
             .filter(|(_, binding)| binding.operation.posting())
@@ -344,19 +344,19 @@ impl SegmentAggregate {
                 (
                     key.clone(),
                     CustomPostingIndex {
-                        index: PostingIndex::new(&definition.schema.fields[&key.0]),
+                        index: PostingIndex::new(&definition.schema().fields[&key.0]),
                         complete: binding.operation.complete_coverage(),
                     },
                 )
             })
             .collect();
         let custom_text = definition
-            .schema
+            .schema()
             .custom
             .keys()
             .chain(
                 definition
-                    .schema
+                    .schema()
                     .operations
                     .iter()
                     .filter(|(_, binding)| {
@@ -366,13 +366,13 @@ impl SegmentAggregate {
             )
             .map(|key| {
                 (
-                    canonical_custom_text_key(&definition.schema, &key.0, &key.1),
+                    canonical_custom_text_key(definition.schema(), &key.0, &key.1),
                     BigramContribution::new(alphabet),
                 )
             })
             .collect();
         Ok(Self {
-            postings: PostingCollection::new(&definition.schema),
+            postings: PostingCollection::new(definition.schema()),
             postings_pristine: true,
             inference: InferenceBuilder::for_collection(inference_config, collection_count),
             custom_postings,
@@ -382,13 +382,13 @@ impl SegmentAggregate {
             logical_records: RoaringBitmap::new(),
             empty_array_records: RoaringBitmap::new(),
             sorting: SortBuilder::new(
-                &definition.sort_fields,
-                &definition.schema,
-                &definition.sort_locale,
-                definition.sort_options,
-                &definition.sort_overrides,
+                definition.sort_fields(),
+                definition.schema(),
+                definition.sort_locale(),
+                definition.sort_options(),
+                definition.sort_overrides(),
             )?,
-            relations: RelationContribution::for_schema(&definition.schema),
+            relations: RelationContribution::for_schema(definition.schema()),
         })
     }
 
@@ -786,7 +786,7 @@ impl SegmentAdmission {
 impl CollectionSegment {
     pub fn into_indexed(
         self,
-        definition: &CollectionDefinition,
+        definition: &impl CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -804,7 +804,7 @@ impl CollectionSegment {
 
     pub fn into_indexed_profiled(
         self,
-        definition: &CollectionDefinition,
+        definition: &impl CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -825,7 +825,7 @@ impl CollectionSegment {
 
     pub(crate) fn into_indexed_observation_profiled(
         self,
-        definition: &CollectionDefinition,
+        definition: &impl CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -851,7 +851,7 @@ impl CollectionSegment {
 
     fn into_indexed_profiled_inner(
         self,
-        definition: &CollectionDefinition,
+        definition: &impl CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -964,7 +964,7 @@ impl CollectionSegment {
                 let (state, observation) = builder.finish_candidates_with_observation(
                     &logical_records,
                     record_count,
-                    &definition.schema,
+                    definition.schema(),
                     capture_observation,
                 )?;
                 (Some(state), observation)

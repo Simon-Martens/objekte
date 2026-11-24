@@ -47,7 +47,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             },
             &[FilePreparationBinding {
                 collection: CollectionId(collection_index as u32),
-                definition: &collection.definition,
+                definition: collection.required_file_definition(),
                 source: &collection.source,
             }],
             repo.options().bigram_alphabet,

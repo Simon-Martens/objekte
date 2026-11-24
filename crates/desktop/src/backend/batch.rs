@@ -172,11 +172,17 @@ pub(super) fn validate_output_path(
         BackendError::new(BackendErrorKind::Options, "output path needs a file name")
     })?;
     let resolved = parent.join(file_name);
-    if session.repository.collections().iter().any(|collection| {
-        let source = session.paths.root.join(&collection.definition.source_path);
-        let source = source.canonicalize().unwrap_or(source);
-        resolved.starts_with(&source)
-    }) {
+    if session
+        .repository
+        .collections()
+        .iter()
+        .filter_map(|collection| collection.file_source())
+        .any(|source| {
+            let source = session.paths.root.join(&source.source_path);
+            let source = source.canonicalize().unwrap_or(source);
+            resolved.starts_with(&source)
+        })
+    {
         return Err(BackendError::new(
             BackendErrorKind::Options,
             "output must be outside scanned collection directories",

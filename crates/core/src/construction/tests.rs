@@ -60,7 +60,7 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         .find(|collection| collection.definition.name == "contents")
         .unwrap();
     let id = collection.generation.collection;
-    let definition = Arc::new(collection.definition.clone());
+    let definition = Arc::new(collection.required_file_definition().clone());
     let source = collection.source.clone();
     let source_files = Arc::new(
         repository
@@ -124,7 +124,7 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         .into_iter()
         .map(|chunk| {
             chunk.into_indexed(
-                &definition,
+                definition.as_ref(),
                 options.bigram_alphabet,
                 options.inference,
                 repository.collections().len(),

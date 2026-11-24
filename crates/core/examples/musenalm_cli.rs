@@ -265,7 +265,7 @@ fn run() -> Result<(), String> {
             definition.name,
             counts.files,
             counts.records,
-            definition.format,
+            state.file_source().expect("Musenalm file source").format,
             definition.schema.fields().len(),
             definition
                 .schema

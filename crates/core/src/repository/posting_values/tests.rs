@@ -336,7 +336,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
             },
             &[FilePreparationBinding {
                 collection: CollectionId(0),
-                definition: &state.definition,
+                definition: state.required_file_definition(),
                 source: &state.source,
             }],
             restored.options().bigram_alphabet,
@@ -532,7 +532,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
             },
             &[FilePreparationBinding {
                 collection: CollectionId(0),
-                definition: &state.definition,
+                definition: state.required_file_definition(),
                 source: &state.source,
             }],
             repo.options().bigram_alphabet,
@@ -669,7 +669,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
             &[
                 crate::construction::file_preparation::FilePreparationBinding {
                     collection: crate::model::CollectionId(0),
-                    definition: &state.definition,
+                    definition: state.required_file_definition(),
                     source: &state.source,
                 },
             ],
@@ -1475,7 +1475,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
             &[
                 crate::construction::file_preparation::FilePreparationBinding {
                     collection: crate::model::CollectionId(0),
-                    definition: &state.definition,
+                    definition: state.required_file_definition(),
                     source: &state.source,
                 },
             ],

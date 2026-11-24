@@ -124,7 +124,7 @@ impl PublishedIndex {
         let definitions = repository
             .collections()
             .iter()
-            .map(|collection| collection.definition.clone())
+            .map(|collection| collection.required_file_definition().clone())
             .collect::<Vec<_>>();
         let configuration_identity =
             crate::repository::configuration::identity::configuration_hash(

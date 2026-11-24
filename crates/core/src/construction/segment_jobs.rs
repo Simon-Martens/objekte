@@ -418,7 +418,7 @@ impl SegmentBuildScheduler {
             } else {
                 segment
                     .into_indexed_observation_profiled(
-                        &definition,
+                        definition.as_ref(),
                         options.bigram_alphabet,
                         options.inference,
                         collection_count,
