@@ -2286,22 +2286,24 @@ fn search_segmented_impl(
     if base_active.iter().any(|active| active.len() != 0) {
         return Err("populated flat-base search is not a supported optimized state".into());
     }
-    let has_direct_backing = segments
-        .iter()
-        .flat_map(|group| group.iter())
-        .any(|published| {
-            !matches!(
-                published.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            )
-        });
+    let has_direct_backing = segments.iter().enumerate().any(|(number, group)| {
+        (query.collections.is_empty()
+            || query
+                .collections
+                .contains(&repo.collections[number].definition.name))
+            && group.iter().any(|published| {
+                !matches!(
+                    published.index.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                )
+            })
+    });
     query
         .options
         .offset
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
-    let cache_key = if !has_direct_backing
-        && retained_budget.is_none()
+    let cache_key = if retained_budget.is_none()
         && let Some(scope) = cache
         && context.is_none_or(|context| context.limits == ExecutionLimits::default())
     {
@@ -2968,17 +2970,30 @@ fn search_segmented_impl(
                         record,
                         Some(&ctx),
                     )?;
+                    let mut matched_fields = if query.options.evidence {
+                        evidence.into_iter().collect::<Vec<_>>()
+                    } else {
+                        Vec::new()
+                    };
+                    matched_fields.sort_unstable();
+                    if let Some(builder) = cache_builder.as_mut() {
+                        builder.push(
+                            &key,
+                            CachedMember {
+                                collection_index,
+                                segment_index: Some(segment_index),
+                                slot: slot.0,
+                                matched_fields: matched_fields.clone().into(),
+                            },
+                        );
+                    }
                     let hit = retained_locator_hit(
                         collection,
                         segment,
                         catalog,
                         record,
                         revision,
-                        if query.options.evidence {
-                            evidence.into_iter().collect()
-                        } else {
-                            Vec::new()
-                        },
+                        matched_fields,
                     );
                     offer_merged(
                         &mut winners,
@@ -3569,7 +3584,14 @@ fn search_segmented_impl(
     }
     Ok(SearchResult {
         count: (query.options.count && counters.match_count_complete).then_some(total as usize),
-        hits: page.into_iter().map(|winner| winner.hit).collect(),
+        hits: page
+            .into_iter()
+            .map(|winner| {
+                let mut hit = winner.hit;
+                hit.matched_fields.sort_unstable();
+                hit
+            })
+            .collect(),
         counters,
     })
 }

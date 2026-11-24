@@ -16,7 +16,7 @@ use crate::query::options::ReturnMode;
 use crate::query_diagnostics::trace::PlanActual;
 use crate::query_execution::runner::{
     SegmentRecordRef, SourceHitLocator, direct_payload, get_segment_record_by_id, make_hit,
-    record_unavailable_hit, segment_locator_hit, segment_record_ref,
+    record_unavailable_hit, segment_locator_hit,
 };
 use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
 use crate::query_results::payload::payload_from_bytes;
@@ -235,9 +235,63 @@ pub(crate) fn materialize_lifecycle_cached(
     };
     let mut hits = Vec::new();
     let mut files = HashSet::new();
-    for member in cached
+    let mut validated_providers = HashMap::new();
+    for (position, member) in cached.members.iter().enumerate() {
+        let Some(segment_index) = member.segment_index else {
+            continue;
+        };
+        let segment = segments
+            .get(member.collection_index)
+            .and_then(|group| group.get(segment_index))
+            .ok_or("cached provider segment missing")?;
+        if !matches!(
+            &segment.index.backing,
+            crate::index::segment::SegmentBacking::Provider { .. }
+        ) {
+            continue;
+        }
+        if let Some(context) = context {
+            context.check_string()?;
+            context.charge_reads(1)?;
+        }
+        let record = segment
+            .index
+            .record(RecordSlot(member.slot))
+            .ok_or("cached provider record missing")?;
+        let hit = get_segment_record_by_id(
+            repo,
+            member.collection_index,
+            &segment.index,
+            &segment.active,
+            catalog,
+            revision,
+            record.id.0.as_ref(),
+            ReturnMode::Logical,
+        )?
+        .ok_or("cached provider record retired")?;
+        if let Some(context) = context {
+            let bytes = hit.payload.as_ref().map_or(0, |payload| {
+                crate::query_execution::streaming::payload_bytes(payload) as u64
+            });
+            if bytes > context.limits.source_record_bytes {
+                return Err(context.fail(
+                    ExecutionErrorKind::Resource,
+                    "cached provider record exceeds source read allowance",
+                ));
+            }
+            context.charge_bytes(bytes)?;
+        }
+        if query.options.return_mode == ReturnMode::Logical
+            && position >= query.options.offset
+            && position - query.options.offset < query.options.limit
+        {
+            validated_providers.insert(position, hit);
+        }
+    }
+    for (position, member) in cached
         .members
         .iter()
+        .enumerate()
         .skip(query.options.offset)
         .take(query.options.limit)
     {
@@ -248,37 +302,124 @@ pub(crate) fn materialize_lifecycle_cached(
             .collections
             .get(member.collection_index)
             .ok_or("cached lifecycle collection missing")?;
-        let (record, file, payload) = if let Some(segment_index) = member.segment_index {
+        if let Some(segment_index) = member.segment_index {
             let segment = segments
                 .get(member.collection_index)
                 .and_then(|group| group.get(segment_index))
                 .ok_or("cached lifecycle segment missing")?;
-            let resolved = segment_record_ref(
+            let slot = RecordSlot(member.slot);
+            if !segment.active.contains(slot) {
+                return Err("cached lifecycle segment slot retired".into());
+            }
+            let record = segment
+                .index
+                .record(slot)
+                .ok_or("cached lifecycle segment record missing")?;
+            let mut hit = get_segment_record_by_id(
+                repo,
+                member.collection_index,
                 &segment.index,
                 &segment.active,
                 catalog,
-                RecordSlot(member.slot),
+                revision,
+                record.id.0.as_ref(),
+                ReturnMode::Locator,
             )?
-            .ok_or("cached lifecycle segment slot retired")?;
-            charge_lifecycle_cached_payload(context, query, &resolved.record)?;
-            let payload = if query.options.return_mode == ReturnMode::Locator {
-                Ok(None)
-            } else {
-                get_segment_record_by_id(
-                    repo,
-                    member.collection_index,
-                    &segment.index,
-                    &segment.active,
-                    catalog,
-                    revision,
-                    &resolved.record.id.0,
-                    query.options.return_mode.clone(),
-                )
-                .and_then(|hit| hit.ok_or_else(|| "cached lifecycle record missing".to_owned()))
-                .map(|hit| hit.payload)
-            };
-            (resolved.record, resolved.file, payload)
-        } else {
+            .ok_or("cached lifecycle segment locator missing")?;
+            hit.matched_fields = member.matched_fields.to_vec();
+            if query.options.return_mode != ReturnMode::Locator {
+                let file_backed = matches!(
+                    &segment.index.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                );
+                let provider_backed = matches!(
+                    &segment.index.backing,
+                    crate::index::segment::SegmentBacking::Provider { .. }
+                );
+                let source_bytes = hit.source_range_len();
+                if let Some(context) = context {
+                    if file_backed {
+                        if source_bytes > context.limits.source_record_bytes {
+                            return Err(context.fail(
+                                ExecutionErrorKind::Resource,
+                                "cached lifecycle record exceeds source read allowance",
+                            ));
+                        }
+                        context.charge_reads(1)?;
+                        context.charge_bytes(source_bytes)?;
+                    } else if provider_backed && query.options.return_mode == ReturnMode::Bytes {
+                        context.charge_reads(1)?;
+                    }
+                }
+                let materialized =
+                    if provider_backed && query.options.return_mode == ReturnMode::Logical {
+                        Ok(validated_providers.remove(&position))
+                    } else {
+                        get_segment_record_by_id(
+                            repo,
+                            member.collection_index,
+                            &segment.index,
+                            &segment.active,
+                            catalog,
+                            revision,
+                            record.id.0.as_ref(),
+                            query.options.return_mode.clone(),
+                        )
+                    };
+                let materialized = match materialized {
+                    Ok(Some(materialized)) => materialized,
+                    Ok(None) => return Err("cached lifecycle record missing".into()),
+                    Err(message) => {
+                        if record_unavailable_hit(
+                            repo,
+                            catalog,
+                            SourceHitLocator::from_hit(&hit),
+                            message.clone(),
+                            &mut counters,
+                        )? {
+                            continue;
+                        }
+                        return Err(message);
+                    }
+                };
+                if file_backed || provider_backed {
+                    let bytes = if file_backed {
+                        source_bytes
+                    } else {
+                        materialized.payload.as_ref().map_or(0, |payload| {
+                            crate::query_execution::streaming::payload_bytes(payload) as u64
+                        })
+                    };
+                    if provider_backed
+                        && query.options.return_mode == ReturnMode::Bytes
+                        && let Some(context) = context
+                    {
+                        if bytes > context.limits.source_record_bytes {
+                            return Err(context.fail(
+                                ExecutionErrorKind::Resource,
+                                "cached provider record exceeds source read allowance",
+                            ));
+                        }
+                        context.charge_bytes(bytes)?;
+                    }
+                    counters.selected_payload_reads += 1;
+                    counters.selected_payload_bytes += bytes;
+                    if file_backed {
+                        counters.bytes_read += bytes;
+                        counters.record_parses +=
+                            u64::from(query.options.return_mode == ReturnMode::Logical);
+                        if let Some(file) = &hit.file {
+                            files.insert(file.file_id.0);
+                        }
+                    }
+                }
+                hit.payload = materialized.payload;
+            }
+            hit.matched_fields.sort_unstable();
+            hits.push(hit);
+            continue;
+        }
+        let (record, file, payload) = {
             let record = collection
                 .generation
                 .records
@@ -340,6 +481,7 @@ pub(crate) fn materialize_lifecycle_cached(
                 return Err(message);
             }
         }
+        hit.matched_fields.sort_unstable();
         hits.push(hit);
     }
     counters.distinct_files = files.len() as u64;

@@ -147,6 +147,12 @@ fn public_batches_publish_typed_records_and_preserve_old_views() {
     assert_eq!(logical.counters.selected_payload_reads, 0);
     assert_eq!(logical.counters.files_opened, 0);
     assert_eq!(logical.counters.record_parses, 0);
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let cold = view.search(&logical_query).unwrap();
+    let warm = view.search(&logical_query).unwrap();
+    assert!(!cold.counters.verified_result_hit);
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.hits, cold.hits);
 
     let mut replacement = writer.batch();
     replacement
@@ -1350,6 +1356,22 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
         },
     };
     assert_eq!(view.search(&query).unwrap().count, Some(1));
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    reader.1.lock().unwrap().clear();
+    let cold = view.search(&query).unwrap();
+    let cold_reader_calls = reader.1.lock().unwrap().len();
+    reader.1.lock().unwrap().clear();
+    let warm = view.search(&query).unwrap();
+    assert!(!cold.counters.verified_result_hit);
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.hits, cold.hits);
+    assert!(cold_reader_calls >= 1);
+    assert_eq!(reader.1.lock().unwrap().len(), 1);
+    index.configure_verified_cache(0).unwrap();
+    assert_eq!(view.search(&query).unwrap().hits, warm.hits);
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    assert!(!view.search(&query).unwrap().counters.verified_result_hit);
+    assert!(view.search(&query).unwrap().counters.verified_result_hit);
     let by_file = Query {
         filter: Some(parse_filter("@file.path = 'source.txt'").unwrap()),
         options: QueryOptions {
@@ -2684,8 +2706,36 @@ fn public_builder_mixes_file_ranges_and_typed_records_in_one_collection() {
         assert_eq!(found.hits[0].record_id, expected);
         assert_eq!(found.hits, view.search_reference(&text_query).unwrap().hits);
     }
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let file_only = Query {
+        collections: vec!["entries".into()],
+        filter: Some(parse_filter("id = 'file'").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let cold_file = view.search(&file_only).unwrap();
+    let warm_file = view.search(&file_only).unwrap();
+    assert!(!cold_file.counters.verified_result_hit);
+    assert!(warm_file.counters.verified_result_hit);
+    assert_eq!(cold_file.hits, warm_file.hits);
     session.finish().unwrap();
     index.rebuild().unwrap();
+    assert!(
+        !index
+            .view()
+            .unwrap()
+            .search(&file_only)
+            .unwrap()
+            .counters
+            .verified_result_hit
+    );
     let rebuilt = index.view().unwrap().search(&query).unwrap();
     assert_eq!(rebuilt.count, Some(2));
     assert_eq!(rebuilt.hits[0].record_id, "file");
