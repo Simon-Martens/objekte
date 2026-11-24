@@ -121,18 +121,7 @@ impl PublishedIndex {
         active: Vec<ActiveRecords>,
         segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     ) -> Result<Self, IndexError> {
-        let definitions = repository
-            .collections()
-            .iter()
-            .map(|collection| collection.required_file_definition().clone())
-            .collect::<Vec<_>>();
-        let configuration_identity =
-            crate::repository::configuration::identity::configuration_hash(
-                &definitions,
-                repository.options(),
-                &repository.sources,
-            )
-            .map_err(IndexError::IncompatibleConfiguration)?;
+        let configuration_identity = repository.configuration_identity;
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
         let catalog = FileCatalog::from_parts(

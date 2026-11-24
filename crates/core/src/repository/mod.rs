@@ -55,6 +55,7 @@ pub struct Repository {
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     pub(crate) catalog: FileCatalog,
+    pub(crate) configuration_identity: [u8; 32],
     pub(crate) revision: IndexRevision,
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
@@ -92,16 +93,35 @@ impl Repository {
     /// enumerating or opening any source file. Maintenance can then publish
     /// active-only compacted contributions as new segments.
     pub(crate) fn empty_like(&self) -> Result<Self, String> {
-        let mut empty = crate::construction::repository_state::initialize_empty(
-            self.files.required_root().to_path_buf(),
-            self.collections
-                .iter()
-                .map(|state| state.required_file_definition().clone())
-                .collect(),
-            self.options,
-            &self.sources,
-            None,
-        )?;
+        let mut empty = if let Some(root) = self.files.root() {
+            crate::construction::repository_state::initialize_empty(
+                root.to_path_buf(),
+                self.collections
+                    .iter()
+                    .map(|state| state.required_file_definition().clone())
+                    .collect(),
+                self.options,
+                &self.sources,
+                None,
+            )?
+        } else {
+            // The same frozen registration identity is carried across maintenance.
+            let mut empty = crate::construction::repository_state::initialize_empty_programmatic(
+                self.collections
+                    .iter()
+                    .map(|state| state.definition.clone())
+                    .collect(),
+                self.options,
+                &[],
+            )?;
+            empty.configuration_identity = self.configuration_identity;
+            empty.catalog = FileCatalog::from_parts(
+                Arc::clone(&empty.files),
+                Vec::new(),
+                self.configuration_identity,
+            );
+            empty
+        };
         for (source, target) in self.collections.iter().zip(&mut empty.collections) {
             target.global_inference = source.global_inference.clone().or_else(|| {
                 source

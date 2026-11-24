@@ -20,11 +20,21 @@ use crate::inventory::{
 use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::{IndexError, IndexRevision};
 use crate::model::{CollectionId, RecordId, RecordSlot};
-use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use crate::repository::configuration::{
+    CollectionDeclaration, CollectionDefinition, FileSourceConfig, RepositoryOptions,
+};
 use crate::repository::state::{CollectionState, CollectionStats, GlobalInferenceSummary};
 use crate::repository::statistics::{BuildProfileStats, StartupStats, build_profile_rss_bytes};
 use crate::repository::{Repository, next_repository_instance};
+use crate::source::registry::PreparedSource;
 use crate::source::registry::SourceRegistry;
+
+struct EmptyCollectionInput {
+    declaration: CollectionDeclaration,
+    file_source: Option<FileSourceConfig>,
+    file_definition: Option<CollectionDefinition>,
+    source: Option<PreparedSource>,
+}
 
 pub(crate) fn finish_fresh_fingerprints(
     files: &FileInventory,
@@ -76,11 +86,74 @@ pub(crate) fn initialize_empty(
         options,
         sources,
     )?;
+    let inputs = definitions
+        .into_iter()
+        .map(|definition| {
+            let source = sources.resolve(&definition.format)?;
+            Ok(EmptyCollectionInput {
+                declaration: definition.declaration(),
+                file_source: Some(definition.file_source()),
+                file_definition: Some(definition),
+                source: Some(source),
+            })
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    initialize_empty_configured(
+        Some(root),
+        inputs,
+        options,
+        sources,
+        configuration_identity,
+        pool,
+    )
+}
+
+pub(crate) fn initialize_empty_programmatic(
+    declarations: Vec<CollectionDeclaration>,
+    options: RepositoryOptions,
+    registrations: &[(CollectionId, String, u32, u32)],
+) -> Result<Repository, String> {
+    let configuration_identity =
+        crate::repository::configuration::identity::programmatic_configuration_hash(
+            &declarations,
+            options,
+            registrations,
+        );
+    let inputs = declarations
+        .into_iter()
+        .map(|declaration| EmptyCollectionInput {
+            declaration,
+            file_source: None,
+            file_definition: None,
+            source: None,
+        })
+        .collect();
+    initialize_empty_configured(
+        None,
+        inputs,
+        options,
+        &SourceRegistry::default(),
+        configuration_identity,
+        None,
+    )
+}
+
+fn initialize_empty_configured(
+    root: Option<PathBuf>,
+    inputs: Vec<EmptyCollectionInput>,
+    options: RepositoryOptions,
+    sources: &SourceRegistry,
+    configuration_identity: [u8; 32],
+    pool: Option<&rayon::ThreadPool>,
+) -> Result<Repository, String> {
     let build_workers = crate::construction::scheduling::resolve_build_workers(
         options.build_workers,
         std::thread::available_parallelism().ok(),
     )?;
-    let files = Arc::new(FileInventory::new(root));
+    let files = Arc::new(match root {
+        Some(root) => FileInventory::new(root),
+        None => FileInventory::without_root(),
+    });
     let fallback_pool = pool
         .is_none()
         .then(|| {
@@ -94,10 +167,11 @@ pub(crate) fn initialize_empty(
     let empty_pool = pool
         .or(fallback_pool.as_ref())
         .expect("empty construction pool is always available");
-    let collection_count = definitions.len();
+    let collection_count = inputs.len();
     let mut collections = Vec::with_capacity(collection_count);
     let mut pending_relations = Vec::with_capacity(collection_count);
-    for (number, definition) in definitions.into_iter().enumerate() {
+    for (number, input) in inputs.into_iter().enumerate() {
+        let definition = input.declaration;
         if collections
             .iter()
             .any(|state: &CollectionState| state.definition.name == definition.name)
@@ -105,7 +179,6 @@ pub(crate) fn initialize_empty(
             return Err(format!("duplicate collection: {}", definition.name));
         }
         let id = CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
-        let source = sources.resolve(&definition.format)?;
         let generation =
             CollectionBuilder::new(id, definition.name.clone(), 1, 0).finish(&files)?;
         let postings = PostingCollection::new(&definition.schema);
@@ -176,14 +249,12 @@ pub(crate) fn initialize_empty(
             &sorting,
         );
         pending_relations.push(RelationContribution::for_schema(&definition.schema));
-        let file_source = definition.file_source();
-        let declaration = definition.declaration();
         collections.push(CollectionState {
             repository_instance: 0,
-            definition: declaration,
-            file_source: Some(file_source),
-            file_definition: Some(definition),
-            source: Some(source),
+            definition,
+            file_source: input.file_source,
+            file_definition: input.file_definition,
+            source: input.source,
             generation,
             postings,
             inference,
@@ -240,6 +311,7 @@ pub(crate) fn initialize_empty(
         active,
         segments,
         catalog,
+        configuration_identity,
         revision: IndexRevision::INITIAL,
         sources: sources.clone(),
         build_parses: 0,
@@ -258,6 +330,32 @@ pub(crate) fn initialize_empty(
             crate::index::sorting::INFERRED_ORDER_CACHE_BYTES,
         )),
     })
+}
+
+#[cfg(test)]
+mod programmatic_tests {
+    use super::*;
+    use crate::lifecycle::Index;
+    use crate::schema::Schema;
+
+    #[test]
+    fn fileless_empty_index_publishes_without_a_root_or_reader() {
+        let declaration = CollectionDeclaration::new("entries", Schema::default());
+        let repository = initialize_empty_programmatic(
+            vec![declaration],
+            RepositoryOptions::default(),
+            &[(CollectionId(0), "application.entries".into(), 1, 1)],
+        )
+        .unwrap();
+        assert!(repository.files.root().is_none());
+        assert!(repository.collections[0].source.is_none());
+        let expected_identity = repository.configuration_identity;
+        let index = Index::from_repository(repository).unwrap();
+        let view = index.view().unwrap();
+        assert_eq!(view.configuration_identity(), expected_identity);
+        assert_eq!(view.collection_declarations().count(), 1);
+        assert_eq!(view.index_observation().records, 0);
+    }
 }
 struct SegmentMetadata {
     generation: CollectionGeneration,

@@ -83,16 +83,7 @@ fn path_bounds_with_ids(
 
 impl FileCatalog {
     fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
-        let definitions = base
-            .collections()
-            .iter()
-            .map(|collection| collection.required_file_definition().clone())
-            .collect::<Vec<_>>();
-        crate::repository::configuration::identity::configuration_hash(
-            &definitions,
-            base.options(),
-            &base.sources,
-        )
+        Ok(base.configuration_identity)
     }
 
     /// Materialize stable file-ID slots for an explicit maintenance rebase.

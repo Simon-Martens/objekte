@@ -4,10 +4,11 @@ use std::path::Path;
 
 use sha2::{Digest, Sha256};
 
-use super::{CollectionDefinition, RepositoryOptions};
+use super::{CollectionDeclaration, CollectionDefinition, RepositoryOptions};
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
 use crate::index::sorting::COLLATION_VERSION;
+use crate::model::CollectionId;
 use crate::source::registry::SourceRegistry;
 
 const CONFIGURATION_HASH_VERSION: u32 = 17;
@@ -33,6 +34,98 @@ fn path_bytes(path: &Path) -> Vec<u8> {
 fn feed(hash: &mut Sha256, bytes: &[u8]) {
     hash.update((bytes.len() as u64).to_le_bytes());
     hash.update(bytes);
+}
+
+fn feed_policy(hash: &mut Sha256, definition: &impl super::CollectionPolicy) {
+    feed(hash, definition.sort_locale().as_bytes());
+    feed(hash, format!("{:?}", definition.sort_options()).as_bytes());
+    let mut overrides: Vec<_> = definition.sort_overrides().iter().collect();
+    overrides.sort_by_key(|item| item.0.display());
+    for (path, config) in overrides {
+        feed(hash, path.display().as_bytes());
+        feed(hash, config.locale.as_bytes());
+        feed(hash, format!("{:?}", config.options).as_bytes());
+    }
+    for field in definition.sort_fields() {
+        feed(hash, field.display().as_bytes());
+    }
+    for composite in &definition.schema().composite_sorts {
+        feed(hash, format!("{composite:?}").as_bytes());
+    }
+    let mut fields: Vec<_> = definition.schema().fields.values().collect();
+    fields.sort_by(|a, b| a.path.cmp(&b.path));
+    for field in fields {
+        feed(
+            hash,
+            format!(
+                "{:?}|{:?}|{}|{}|{}|{}|{:?}",
+                field.path,
+                field.kind,
+                field.required,
+                field.nullable,
+                field.indexed,
+                field.multi,
+                field.element_nullable
+            )
+            .as_bytes(),
+        );
+    }
+    if let Some(fingerprint) = definition.schema().source_fingerprint {
+        hash.update(fingerprint);
+    }
+    let mut excluded: Vec<_> = definition.schema().auto_index_excluded.iter().collect();
+    excluded.sort();
+    for path in excluded {
+        feed(hash, format!("auto-index-excluded:{path:?}").as_bytes());
+    }
+    for relation in definition.schema().relations().values() {
+        feed(hash, format!("{:?}", relation).as_bytes());
+    }
+    let mut custom: Vec<_> = definition.schema().custom.iter().collect();
+    custom.sort_by(|a, b| a.0.cmp(b.0));
+    for ((path, name), binding) in custom {
+        feed(
+            hash,
+            format!(
+                "{:?}|{name}|{}|{:?}",
+                path, binding.version, binding.transform
+            )
+            .as_bytes(),
+        );
+    }
+    let mut operations: Vec<_> = definition.schema().operations.iter().collect();
+    operations.sort_by(|a, b| a.0.cmp(b.0));
+    for ((path, name), binding) in operations {
+        feed(
+            hash,
+            format!(
+                "{:?}|{name}|{}|{}|{}|{}",
+                path,
+                binding.version,
+                binding.operation.posting(),
+                binding.operation.bigram(),
+                binding.operation.complete_coverage()
+            )
+            .as_bytes(),
+        );
+    }
+    let mut defaults: Vec<_> = definition.schema().defaults.iter().collect();
+    defaults.sort_by(|a, b| a.0.cmp(b.0));
+    for (path, name) in defaults {
+        feed(hash, format!("{:?}|{name}", path).as_bytes());
+    }
+    if let Some(raw) = &definition.schema().raw {
+        feed(
+            hash,
+            format!(
+                "raw|{}|{}|{}",
+                raw.name,
+                raw.version,
+                raw.operation.bigram()
+            )
+            .as_bytes(),
+        );
+    }
 }
 
 pub fn configuration_hash(
@@ -68,103 +161,43 @@ pub fn configuration_hash(
             &mut hash,
             format!("{:?}/{:?}", definition.format, definition.identity).as_bytes(),
         );
-        feed(&mut hash, definition.sort_locale.as_bytes());
-        feed(
-            &mut hash,
-            format!("{:?}", definition.sort_options).as_bytes(),
-        );
-        let mut overrides: Vec<_> = definition.sort_overrides.iter().collect();
-        overrides.sort_by_key(|item| item.0.display());
-        for (path, config) in overrides {
-            feed(&mut hash, path.display().as_bytes());
-            feed(&mut hash, config.locale.as_bytes());
-            feed(&mut hash, format!("{:?}", config.options).as_bytes());
-        }
-        for field in &definition.sort_fields {
-            feed(&mut hash, field.display().as_bytes());
-        }
-        for composite in &definition.schema.composite_sorts {
-            feed(&mut hash, format!("{composite:?}").as_bytes());
-        }
-        let mut fields: Vec<_> = definition.schema.fields.values().collect();
-        fields.sort_by(|a, b| a.path.cmp(&b.path));
-        for field in fields {
-            feed(
-                &mut hash,
-                format!(
-                    "{:?}|{:?}|{}|{}|{}|{}|{:?}",
-                    field.path,
-                    field.kind,
-                    field.required,
-                    field.nullable,
-                    field.indexed,
-                    field.multi,
-                    field.element_nullable
-                )
-                .as_bytes(),
-            );
-        }
-        if let Some(fingerprint) = definition.schema.source_fingerprint {
-            hash.update(fingerprint);
-        }
-        let mut excluded: Vec<_> = definition.schema.auto_index_excluded.iter().collect();
-        excluded.sort();
-        for path in excluded {
-            feed(
-                &mut hash,
-                format!("auto-index-excluded:{path:?}").as_bytes(),
-            );
-        }
-        for relation in definition.schema.relations().values() {
-            feed(&mut hash, format!("{:?}", relation).as_bytes());
-        }
-        let mut custom: Vec<_> = definition.schema.custom.iter().collect();
-        custom.sort_by(|a, b| a.0.cmp(b.0));
-        for ((path, name), binding) in custom {
-            feed(
-                &mut hash,
-                format!(
-                    "{:?}|{name}|{}|{:?}",
-                    path, binding.version, binding.transform
-                )
-                .as_bytes(),
-            );
-        }
-        let mut operations: Vec<_> = definition.schema.operations.iter().collect();
-        operations.sort_by(|a, b| a.0.cmp(b.0));
-        for ((path, name), binding) in operations {
-            feed(
-                &mut hash,
-                format!(
-                    "{:?}|{name}|{}|{}|{}|{}",
-                    path,
-                    binding.version,
-                    binding.operation.posting(),
-                    binding.operation.bigram(),
-                    binding.operation.complete_coverage()
-                )
-                .as_bytes(),
-            );
-        }
-        let mut defaults: Vec<_> = definition.schema.defaults.iter().collect();
-        defaults.sort_by(|a, b| a.0.cmp(b.0));
-        for (path, name) in defaults {
-            feed(&mut hash, format!("{:?}|{name}", path).as_bytes());
-        }
-        if let Some(raw) = &definition.schema.raw {
-            feed(
-                &mut hash,
-                format!(
-                    "raw|{}|{}|{}",
-                    raw.name,
-                    raw.version,
-                    raw.operation.bigram()
-                )
-                .as_bytes(),
-            );
-        }
+        feed_policy(&mut hash, definition);
     }
     Ok(hash.finalize().into())
+}
+
+/// Configuration identity for a source-neutral index. This has a distinct
+/// domain from historical file configurations and contains no path or format.
+pub(crate) fn programmatic_configuration_hash(
+    declarations: &[CollectionDeclaration],
+    options: RepositoryOptions,
+    registrations: &[(CollectionId, String, u32, u32)],
+) -> [u8; 32] {
+    let mut hash = Sha256::new();
+    hash.update(2u32.to_le_bytes());
+    hash.update(1u32.to_le_bytes());
+    hash.update(BIGRAM_VERSION.to_le_bytes());
+    feed(&mut hash, FOLDED_REPRESENTATION.as_bytes());
+    feed(&mut hash, std::env::consts::OS.as_bytes());
+    feed(&mut hash, COLLATION_VERSION.as_bytes());
+    hash.update([match options.bigram_alphabet {
+        BigramAlphabet::Ascii => 0,
+        BigramAlphabet::Unicode => 1,
+    }]);
+    feed(&mut hash, format!("{:?}", options.inference).as_bytes());
+    for declaration in declarations {
+        feed(&mut hash, declaration.name.as_bytes());
+        feed_policy(&mut hash, declaration);
+    }
+    let mut registrations = registrations.to_vec();
+    registrations.sort_unstable();
+    for (collection, id, version, representation_version) in registrations {
+        hash.update(collection.0.to_le_bytes());
+        feed(&mut hash, id.as_bytes());
+        hash.update(version.to_le_bytes());
+        hash.update(representation_version.to_le_bytes());
+    }
+    hash.finalize().into()
 }
 
 #[cfg(test)]
