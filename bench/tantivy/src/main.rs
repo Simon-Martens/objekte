@@ -26,13 +26,14 @@ use objekte_search_core::query::{
 use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::workload::load_extended_manifest;
 use serde::Serialize;
-use tantivy::collector::{Count, DocSetCollector};
+use tantivy::collector::sort_key::SortByStaticFastValue;
+use tantivy::collector::{Count, DocSetCollector, MultiCollector, TopDocs};
 use tantivy::query::{BooleanQuery, Occur, Query, RangeQuery, RegexQuery, TermQuery};
 use tantivy::schema::{
     Field, IndexRecordOption, JsonObjectOptions, STORED, STRING, Schema, Term, TextFieldIndexing,
     Value as TantivyValue,
 };
-use tantivy::{Index, TantivyDocument, doc};
+use tantivy::{Index, Order, TantivyDocument, doc};
 
 #[derive(Serialize)]
 struct InventoryRow {
@@ -175,6 +176,8 @@ fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
     let record_id = builder.add_text_field("record_id", STRING | STORED);
     let relative_path = builder.add_text_field("relative_path", STORED);
     let byte_end = builder.add_u64_field("byte_end", STORED);
+    let identity_ordinal = builder.add_u64_field("identity_ordinal", tantivy::schema::FAST);
+    let numbering_sort = builder.add_f64_field("numbering_sort", tantivy::schema::FAST);
     let fts_global = builder.add_text_field("fts_global", STRING);
     let fts_scoped = builder.add_text_field("fts_scoped", STRING);
     let source_json = builder.add_json_field(
@@ -247,7 +250,10 @@ fn build_tantivy(root: &Path) -> Result<(BuildObservation, Index), String> {
             if !identities.insert((name.to_owned(), id.to_owned())) {
                 return Err(format!("duplicate identity {name}/{id}"));
             }
-            let mut document = doc!(collection => name, record_id => id, relative_path => relative.as_ref(), byte_end => bytes.len() as u64, source_json => value.clone());
+            let mut document = doc!(collection => name, record_id => id, relative_path => relative.as_ref(), byte_end => bytes.len() as u64, identity_ordinal => identities.len() as u64, source_json => value.clone());
+            if let Some(number) = value.get("numbering").and_then(|value| value.as_f64()) {
+                document.add_f64(numbering_sort, number);
+            }
             index_strings(
                 &value,
                 &mut Vec::new(),
@@ -405,6 +411,270 @@ struct VerifiedCount {
     id: String,
     count: usize,
     elapsed_ns: u128,
+}
+
+#[derive(Serialize)]
+struct QuerySample {
+    id: String,
+    contract: &'static str,
+    repetition: usize,
+    elapsed_ns: u128,
+    count: usize,
+    page_len: usize,
+}
+
+#[derive(Serialize)]
+struct MeasurementRun {
+    build: BuildObservation,
+    samples: Vec<QuerySample>,
+}
+
+fn selected_cases(
+    selected: &str,
+) -> Result<Vec<objekte_search_core::workload::BenchmarkCase>, String> {
+    let core_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../crates/core/benches");
+    let cases = load_extended_manifest(
+        &core_path.join("musenalm_queries.json"),
+        &core_path.join("musenalm_queries_extended.json"),
+    )?;
+    selected
+        .split(',')
+        .map(|id| {
+            cases
+                .iter()
+                .find(|case| case.id == id)
+                .cloned()
+                .ok_or_else(|| format!("unknown case {id}"))
+        })
+        .collect()
+}
+
+fn measure_objekte(
+    root: &Path,
+    selected: &str,
+    repetitions: usize,
+) -> Result<MeasurementRun, String> {
+    let cases = selected_cases(selected)?;
+    let start = Instant::now();
+    let index = objekte_search_core::lifecycle::Index::start_build(
+        root,
+        musenalm::load_definitions(root)?,
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            query_workers: 1,
+            ..RepositoryOptions::default()
+        },
+        objekte_search_core::source::registry::SourceRegistry::builtin(),
+    )
+    .and_then(|task| task.wait_complete())
+    .map_err(|error| error.to_string())?;
+    let view = index.view().map_err(|error| error.to_string())?;
+    let build = BuildObservation {
+        engine: "objekte",
+        elapsed_ns: start.elapsed().as_nanos(),
+        documents: view.index_observation().records,
+        collection_counts: BTreeMap::new(),
+        peak_rss_kb: peak_rss_kb(),
+    };
+    let prepared = cases
+        .iter()
+        .map(|case| {
+            let mut count = case.query()?;
+            count.options.sort.clear();
+            count.options.offset = 0;
+            count.options.limit = 0;
+            count.options.count = true;
+            count.options.return_mode = ReturnMode::Locator;
+            count.options.evidence = false;
+            let mut page = case.query()?;
+            page.options.count = true;
+            page.options.return_mode = ReturnMode::Locator;
+            page.options.evidence = false;
+            Ok((case.id.clone(), count, page))
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    let mut samples = Vec::new();
+    for repetition in 0..=repetitions {
+        for index in 0..prepared.len() {
+            let (id, count_query, page_query) = &prepared[(index + repetition) % prepared.len()];
+            for (contract, query) in [
+                ("predicate_count", count_query),
+                ("ordered_locator_page", page_query),
+            ] {
+                let start = Instant::now();
+                let result = view.search(query)?;
+                let elapsed_ns = start.elapsed().as_nanos();
+                let count = result.count.ok_or("Objekte returned no count")?;
+                let page_len = result.hits.len();
+                std::hint::black_box(&result);
+                if repetition > 0 {
+                    samples.push(QuerySample {
+                        id: id.clone(),
+                        contract,
+                        repetition: repetition - 1,
+                        elapsed_ns,
+                        count,
+                        page_len,
+                    });
+                }
+            }
+        }
+    }
+    Ok(MeasurementRun { build, samples })
+}
+
+fn measure_tantivy(
+    root: &Path,
+    selected: &str,
+    repetitions: usize,
+) -> Result<MeasurementRun, String> {
+    let cases = selected_cases(selected)?;
+    let (build, index) = build_tantivy(root)?;
+    let reader = index.reader().map_err(|error| error.to_string())?;
+    let searcher = reader.searcher();
+    let schema = index.schema();
+    let source = schema
+        .get_field("source")
+        .map_err(|error| error.to_string())?;
+    let collection = schema
+        .get_field("collection")
+        .map_err(|error| error.to_string())?;
+    let record_id = schema
+        .get_field("record_id")
+        .map_err(|error| error.to_string())?;
+    let global = schema
+        .get_field("fts_global")
+        .map_err(|error| error.to_string())?;
+    let scoped = schema
+        .get_field("fts_scoped")
+        .map_err(|error| error.to_string())?;
+    let prepared = cases
+        .iter()
+        .map(|case| {
+            let bound = case.query()?;
+            let mut clauses = Vec::new();
+            if let Some(filter) = &bound.filter {
+                clauses.push((Occur::Must, translate(filter, source, record_id)?));
+            }
+            if let Some(fts) = &bound.fts {
+                clauses.push((Occur::Must, literal_fts(fts, global, scoped)?));
+            }
+            if case.collection != "*" {
+                clauses.push((Occur::Must, term_query(collection, &case.collection)));
+            }
+            if !bound.options.sort.is_empty()
+                && !(bound.options.sort.len() == 1 && bound.options.sort[0].field == "numbering")
+            {
+                return Err(format!("{}: page sort requires another mapping", case.id));
+            }
+            Ok((
+                case.id.clone(),
+                Box::new(BooleanQuery::new(clauses)) as Box<dyn Query>,
+                bound.options.offset,
+                bound.options.limit,
+                !bound.options.sort.is_empty(),
+            ))
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    let mut samples = Vec::new();
+    for repetition in 0..=repetitions {
+        for index in 0..prepared.len() {
+            let (id, query, offset, limit, numeric) =
+                &prepared[(index + repetition) % prepared.len()];
+            let start = Instant::now();
+            let count = searcher
+                .search(query, &Count)
+                .map_err(|error| error.to_string())?;
+            let elapsed_ns = start.elapsed().as_nanos();
+            std::hint::black_box(count);
+            if repetition > 0 {
+                samples.push(QuerySample {
+                    id: id.clone(),
+                    contract: "predicate_count",
+                    repetition: repetition - 1,
+                    elapsed_ns,
+                    count,
+                    page_len: 0,
+                });
+            }
+            let start = Instant::now();
+            let mut collectors = MultiCollector::new();
+            let count_handle = collectors.add_collector(Count);
+            if *numeric {
+                let page_handle =
+                    collectors.add_collector(TopDocs::with_limit(offset + limit).order_by((
+                        (
+                            SortByStaticFastValue::<f64>::for_field("numbering_sort"),
+                            Order::Asc,
+                        ),
+                        (
+                            SortByStaticFastValue::<u64>::for_field("identity_ordinal"),
+                            Order::Asc,
+                        ),
+                    )));
+                let mut fruit = searcher
+                    .search(query, &collectors)
+                    .map_err(|error| error.to_string())?;
+                let count = count_handle.extract(&mut fruit);
+                let winners = page_handle
+                    .extract(&mut fruit)
+                    .into_iter()
+                    .skip(*offset)
+                    .collect::<Vec<_>>();
+                for (_, address) in &winners {
+                    std::hint::black_box(
+                        searcher
+                            .doc::<TantivyDocument>(*address)
+                            .map_err(|error| error.to_string())?,
+                    );
+                }
+                let elapsed_ns = start.elapsed().as_nanos();
+                if repetition > 0 {
+                    samples.push(QuerySample {
+                        id: id.clone(),
+                        contract: "ordered_locator_page",
+                        repetition: repetition - 1,
+                        elapsed_ns,
+                        count,
+                        page_len: winners.len(),
+                    });
+                }
+            } else {
+                let page_handle = collectors.add_collector(
+                    TopDocs::with_limit(offset + limit)
+                        .order_by_fast_field::<u64>("identity_ordinal", Order::Asc),
+                );
+                let mut fruit = searcher
+                    .search(query, &collectors)
+                    .map_err(|error| error.to_string())?;
+                let count = count_handle.extract(&mut fruit);
+                let winners = page_handle
+                    .extract(&mut fruit)
+                    .into_iter()
+                    .skip(*offset)
+                    .collect::<Vec<_>>();
+                for (_, address) in &winners {
+                    std::hint::black_box(
+                        searcher
+                            .doc::<TantivyDocument>(*address)
+                            .map_err(|error| error.to_string())?,
+                    );
+                }
+                let elapsed_ns = start.elapsed().as_nanos();
+                if repetition > 0 {
+                    samples.push(QuerySample {
+                        id: id.clone(),
+                        contract: "ordered_locator_page",
+                        repetition: repetition - 1,
+                        elapsed_ns,
+                        count,
+                        page_len: winners.len(),
+                    });
+                }
+            }
+        }
+    }
+    Ok(MeasurementRun { build, samples })
 }
 
 fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, String> {
@@ -575,6 +845,58 @@ fn verify_counts(root: &Path, selected: &str) -> Result<Vec<VerifiedCount>, Stri
                     (collection.clone(), id.clone(), path.clone(), 0, *end)
                 })
                 .collect::<Vec<_>>();
+            let ordered_hits = searcher
+                .search(
+                    &query,
+                    &TopDocs::with_limit(case.offset + case.limit).order_by((
+                        (
+                            SortByStaticFastValue::<f64>::for_field("numbering_sort"),
+                            Order::Asc,
+                        ),
+                        (
+                            SortByStaticFastValue::<u64>::for_field("identity_ordinal"),
+                            Order::Asc,
+                        ),
+                    )),
+                )
+                .map_err(|error| error.to_string())?;
+            let fast_page = ordered_hits
+                .into_iter()
+                .skip(case.offset)
+                .map(|(_, address)| {
+                    let document = searcher
+                        .doc::<TantivyDocument>(address)
+                        .map_err(|error| error.to_string())?;
+                    let collection_value = document
+                        .get_first(collection)
+                        .and_then(|value| value.as_str())
+                        .ok_or("missing collection")?;
+                    let id_value = document
+                        .get_first(record_id)
+                        .and_then(|value| value.as_str())
+                        .ok_or("missing record ID")?;
+                    let path = document
+                        .get_first(relative_path)
+                        .and_then(|value| value.as_str())
+                        .ok_or("missing path")?;
+                    let end = document
+                        .get_first(byte_end)
+                        .and_then(|value| value.as_u64())
+                        .ok_or("missing byte end")?;
+                    Ok((
+                        collection_value.to_owned(),
+                        id_value.to_owned(),
+                        path.to_owned(),
+                        0,
+                        end,
+                    ))
+                })
+                .collect::<Result<Vec<_>, String>>()?;
+            if fast_page != expected {
+                return Err(format!(
+                    "{id}: bounded numeric collector differs from full reference page"
+                ));
+            }
             let mut page_request = case.query()?;
             page_request.options.count = true;
             page_request.options.return_mode = ReturnMode::Locator;
@@ -644,7 +966,7 @@ fn build_objekte(root: &Path) -> Result<BuildObservation, String> {
 
 fn run() -> Result<(), String> {
     let args = std::env::args().collect::<Vec<_>>();
-    if args.len() != 4 && args.len() != 5 {
+    if !(4..=6).contains(&args.len()) {
         return Err(
             "usage: objekte-tantivy-benchmark inventory|build-objekte|build-tantivy ROOT OUTPUT"
                 .into(),
@@ -664,6 +986,27 @@ fn run() -> Result<(), String> {
                 .get(4)
                 .ok_or("verify-counts requires comma-separated IDs")?;
             let result = verify_counts(&root, selected)?;
+            fs::write(
+                output,
+                serde_json::to_vec_pretty(&result).map_err(|error| error.to_string())?,
+            )
+            .map_err(|error| error.to_string())
+        }
+        "measure-objekte" | "measure-tantivy" => {
+            let selected = args.get(4).ok_or("measure requires comma-separated IDs")?;
+            let repetitions = args
+                .get(5)
+                .ok_or("measure requires a repetition count")?
+                .parse::<usize>()
+                .map_err(|error| error.to_string())?;
+            if repetitions == 0 {
+                return Err("repetitions must be positive".into());
+            }
+            let result = if args[1] == "measure-objekte" {
+                measure_objekte(&root, selected, repetitions)?
+            } else {
+                measure_tantivy(&root, selected, repetitions)?
+            };
             fs::write(
                 output,
                 serde_json::to_vec_pretty(&result).map_err(|error| error.to_string())?,
