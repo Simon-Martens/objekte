@@ -12,13 +12,14 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
-use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
-use crate::query::options::SortField;
-use crate::query::{
-    semantics::record::RecordContext, semantics::record::data_values_small,
-    semantics::record::metadata_value,
+use crate::inventory::{
+    ByteRange, CollectionGeneration, FileEntry, FileInventory, RecordClass, RecordEntry,
 };
+use crate::model::{
+    FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
+};
+use crate::query::options::SortField;
+use crate::query::semantics::record::{data_values_small, metadata_value_for_record};
 use crate::schema::Schema;
 
 mod inferred_order;
@@ -320,9 +321,10 @@ impl SortBuilder {
         &mut self,
         slot: RecordSlot,
         record: &Value,
-        entry: &RecordEntry,
-        file: &FileEntry,
-        root: &std::path::Path,
+        id: &RecordId,
+        class: RecordClass,
+        file: Option<(&FileEntry, Option<ByteRange>)>,
+        root: Option<&std::path::Path>,
         collection_name: &str,
     ) -> Result<(), String> {
         for column in self.columns.values_mut() {
@@ -332,16 +334,9 @@ impl SortBuilder {
             let owned;
             let selected = match column.path.root {
                 PathRoot::Metadata(field) => {
-                    let ctx = RecordContext {
-                        value: record,
-                        source_bytes: None,
-                        record: entry,
-                        file,
-                        collection_name,
-                        repository_root: root,
-                    };
-                    owned = metadata_value(field, &ctx)?;
-                    Some(smallvec::smallvec![&owned])
+                    owned =
+                        metadata_value_for_record(field, id, class, file, collection_name, root)?;
+                    owned.as_ref().map(|value| smallvec::smallvec![value])
                 }
                 PathRoot::Data => data_values_small(record, &column.path.segments),
                 PathRoot::Backlinks => return Err("related sort field is not registered".into()),
@@ -439,6 +434,40 @@ pub(crate) fn compare_composite(
         }
     }
     Ordering::Equal
+}
+
+#[cfg(test)]
+mod neutral_metadata_tests {
+    use super::*;
+
+    #[test]
+    fn unlinked_record_has_missing_file_sort_key_and_record_identity() {
+        let file_path = FieldPath::parse("@file.id").unwrap();
+        let id_path = FieldPath::parse("@record.id").unwrap();
+        let mut builder = SortBuilder::new(
+            &[file_path.clone(), id_path.clone()],
+            &Schema::default(),
+            "und",
+            SortOptions::default(),
+            &HashMap::new(),
+        )
+        .unwrap();
+        let id = RecordId::intrinsic("entry-47").unwrap();
+        builder
+            .add(
+                RecordSlot(0),
+                &Value::Null,
+                &id,
+                RecordClass::Logical,
+                None,
+                None,
+                "entries",
+            )
+            .unwrap();
+        let keys = builder.into_keys();
+        assert!(matches!(keys[&file_path][0], SortKey::Missing));
+        assert!(matches!(&keys[&id_path][0], SortKey::Id(value) if value == "entry-47"));
+    }
 }
 
 fn descending_order(

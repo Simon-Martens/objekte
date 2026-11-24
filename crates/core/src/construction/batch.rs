@@ -435,9 +435,10 @@ impl<'a> BatchBuilder<'a> {
         self.sorting.add(
             slot,
             &empty,
-            self.records.last().unwrap(),
-            file,
-            self.root,
+            &self.records.last().unwrap().id,
+            RecordClass::RawFallback,
+            Some((file, Some(range))),
+            Some(self.root),
             &self.definition.name,
         )?;
         if std::str::from_utf8(bytes).is_err() {
@@ -539,6 +540,16 @@ impl<'a> BatchBuilder<'a> {
         })()
         .map_err(|error| format!("{}:{}..{}: {error}", path.display(), range.start, range.end))?;
         let slot = self.next_slot()?;
+        let text_derivation = self.source.reader().text_derivation();
+        self.add_logical_indexes(
+            slot,
+            &id,
+            &extracted,
+            Some((file, Some(range))),
+            Some(self.root),
+            text_derivation,
+            sample,
+        )?;
         self.records.push(RecordEntry {
             slot,
             id,
@@ -548,6 +559,21 @@ impl<'a> BatchBuilder<'a> {
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
         });
+        Ok(())
+    }
+
+    /// Index one validated logical value after its registrar has resolved the
+    /// record identity. Source-specific fallback and identity remain outside.
+    fn add_logical_indexes(
+        &mut self,
+        slot: RecordSlot,
+        id: &RecordId,
+        extracted: &ExtractedRecord,
+        file: Option<(&FileEntry, Option<ByteRange>)>,
+        root: Option<&Path>,
+        text_derivation: TextDerivation,
+        sample: bool,
+    ) -> Result<(), String> {
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
         self.postings.add(slot, &extracted.value)?;
         if let Some(started) = stage_started {
@@ -599,7 +625,7 @@ impl<'a> BatchBuilder<'a> {
         }
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
         let has_empty_array;
-        if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
+        if text_derivation == TextDerivation::LogicalStringsAfterConversion {
             if let Some(binding) = &self.definition.schema.raw {
                 let mut observed_empty = false;
                 self.raw.add_record_with(slot, |emit| {
@@ -645,9 +671,10 @@ impl<'a> BatchBuilder<'a> {
         self.sorting.add(
             slot,
             &extracted.value,
-            self.records.last().unwrap(),
+            id,
+            RecordClass::Logical,
             file,
-            self.root,
+            root,
             &self.definition.name,
         )?;
         if let Some(started) = stage_started {
