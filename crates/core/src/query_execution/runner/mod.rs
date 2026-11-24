@@ -596,9 +596,6 @@ pub(crate) fn segment_record_ref<'a>(
         .backing
         .file_locator(slot)
         .ok_or("segment record has no file-range backing")?;
-    debug_assert_eq!(locator.file, record.file);
-    debug_assert_eq!(locator.range, Some(record.range));
-    debug_assert_eq!(locator.revision, record.revision);
     let file_index = segment
         .file_index
         .get(&locator.file)
@@ -1308,10 +1305,14 @@ fn has_unavailable_active_source(
                             .iter()
                             .filter(|slot| segment.active.contains(**slot))
                             .any(|slot| {
-                                segment.index.record(*slot).is_none_or(|record| {
-                                    record.range.start > record.range.end
-                                        || record.range.end > current.revision.size
-                                })
+                                segment
+                                    .index
+                                    .backing
+                                    .file_locator(*slot)
+                                    .and_then(|locator| locator.range)
+                                    .is_none_or(|range| {
+                                        range.start > range.end || range.end > current.revision.size
+                                    })
                             })
                     {
                         return true;
@@ -2633,11 +2634,16 @@ fn search_segmented_impl(
             let mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> = Vec::new();
             let mut ordered_files = true;
             for slot in candidates.iter() {
-                let record = segment
+                segment
                     .record(RecordSlot(slot))
                     .ok_or("segment candidate missing")?;
+                let locator = segment
+                    .backing
+                    .file_locator(RecordSlot(slot))
+                    .ok_or("segment candidate file locator missing")?;
+                let range = locator.range.ok_or("segment candidate range missing")?;
                 if let Some(context) = context
-                    && record.range.len() > context.limits.source_record_bytes
+                    && range.len() > context.limits.source_record_bytes
                 {
                     return Err(context.fail(
                         ExecutionErrorKind::Resource,
@@ -2645,13 +2651,13 @@ fn search_segmented_impl(
                     ));
                 }
                 if let Some((previous_file, ranges)) = files.last_mut() {
-                    ordered_files &= *previous_file <= record.file.0;
-                    if *previous_file == record.file.0 {
-                        ranges.push((slot, record.range));
+                    ordered_files &= *previous_file <= locator.file.0;
+                    if *previous_file == locator.file.0 {
+                        ranges.push((slot, range));
                         continue;
                     }
                 }
-                files.push((record.file.0, SmallVec::from_buf([(slot, record.range)])));
+                files.push((locator.file.0, SmallVec::from_buf([(slot, range)])));
             }
             let files = order_segment_file_groups(files, ordered_files);
             // Local residual verification is independent by source file. Limit the
@@ -2875,7 +2881,11 @@ fn search_segmented_impl(
                         let record = segment
                             .record(RecordSlot(slot))
                             .ok_or("segment scan slot missing")?;
-                        if record.file.0 != file_id {
+                        if segment
+                            .backing
+                            .file_locator(RecordSlot(slot))
+                            .is_none_or(|locator| locator.file.0 != file_id)
+                        {
                             return Err("segment scan file ownership mismatch".into());
                         }
                         let resolved = SegmentRecordRef { record, file };
@@ -3899,10 +3909,14 @@ fn try_lifecycle_ordered_stream(
                 };
                 let segment = &segments[collection_index][segment_index].index;
                 for slot in selected {
-                    let record = segment
+                    segment
                         .record(RecordSlot(slot))
                         .ok_or("ordered candidate record missing")?;
-                    candidate_files.insert(record.file);
+                    let locator = segment
+                        .backing
+                        .file_locator(RecordSlot(slot))
+                        .ok_or("ordered candidate file locator missing")?;
+                    candidate_files.insert(locator.file);
                     if candidate_files.len() > 64 {
                         parallel_sources = true;
                         break 'segments;
