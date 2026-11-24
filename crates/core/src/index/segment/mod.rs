@@ -259,6 +259,54 @@ pub(crate) enum SegmentBacking {
 
 #[allow(dead_code)] // Retained and provider accessors are used by their scan dispatch.
 impl SegmentBacking {
+    /// Bytes owned by this segment's backing columns. Shared retained blocks
+    /// are charged here for maintenance; publication-wide reports deduplicate
+    /// their allocations by block identity.
+    fn estimated_storage_bytes(&self) -> usize {
+        match self {
+            Self::FileRange { locators } => locators
+                .capacity()
+                .saturating_mul(std::mem::size_of::<FileRangeLocator>()),
+            Self::Retained {
+                blocks,
+                addresses,
+                links,
+                ..
+            } => {
+                let columns = blocks
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<Arc<[RetainedBody]>>())
+                    .saturating_add(
+                        addresses
+                            .capacity()
+                            .saturating_mul(std::mem::size_of::<RetainedAddress>()),
+                    )
+                    .saturating_add(
+                        links
+                            .capacity()
+                            .saturating_mul(std::mem::size_of::<Option<FileRangeLocator>>()),
+                    );
+                blocks.iter().fold(columns, |total, block| {
+                    block.iter().fold(total, |total, body| {
+                        total
+                            .saturating_add(crate::ingestion::estimated_value_bytes(&body.value))
+                            .saturating_add(crate::ingestion::estimated_text_bytes(&body.text))
+                    })
+                })
+            }
+            Self::Provider {
+                versions, links, ..
+            } => versions
+                .capacity()
+                .saturating_mul(std::mem::size_of::<RecordVersion>())
+                .saturating_add(
+                    links
+                        .capacity()
+                        .saturating_mul(std::mem::size_of::<Option<FileRangeLocator>>()),
+                ),
+        }
+    }
+
     pub(crate) fn compatible_with(&self, other: &Self) -> bool {
         match (self, other) {
             (Self::FileRange { .. }, Self::FileRange { .. }) => true,
@@ -430,6 +478,47 @@ impl SegmentBacking {
 #[cfg(test)]
 mod backing_tests {
     use super::*;
+
+    #[test]
+    fn native_backing_accounting_includes_owned_columns_and_retained_bodies() {
+        let short = SegmentBacking::Retained {
+            blocks: vec![
+                vec![RetainedBody {
+                    value: Value::String(String::from("a")),
+                    text: Vec::new(),
+                }]
+                .into(),
+            ],
+            addresses: vec![RetainedAddress {
+                block: 0,
+                offset: 0,
+            }],
+            links: vec![None],
+            registration: 0,
+        };
+        let long = SegmentBacking::Retained {
+            blocks: vec![
+                vec![RetainedBody {
+                    value: Value::String("a".repeat(4096)),
+                    text: Vec::new(),
+                }]
+                .into(),
+            ],
+            addresses: vec![RetainedAddress {
+                block: 0,
+                offset: 0,
+            }],
+            links: vec![None],
+            registration: 0,
+        };
+        assert!(long.estimated_storage_bytes() >= short.estimated_storage_bytes() + 4095);
+        let provider = SegmentBacking::Provider {
+            versions: vec![RecordVersion::new(1)],
+            links: vec![None],
+            registration: 0,
+        };
+        assert!(provider.estimated_storage_bytes() >= std::mem::size_of::<RecordVersion>());
+    }
 
     #[test]
     fn retained_consolidation_shares_blocks_and_remaps_addresses() {
@@ -793,6 +882,7 @@ impl IndexedCollectionSegment {
         if let Some(inference) = &self.inference {
             retained = retained.saturating_add(inference_bytes(inference));
         }
+        retained = retained.saturating_add(self.backing.estimated_storage_bytes());
         let source_bytes_estimated = self
             .files
             .iter()

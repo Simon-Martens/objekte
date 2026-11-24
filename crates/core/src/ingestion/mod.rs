@@ -423,7 +423,7 @@ impl Batch {
     }
 }
 
-fn estimated_text_bytes(text: &Vec<TextSegment>) -> usize {
+pub(crate) fn estimated_text_bytes(text: &Vec<TextSegment>) -> usize {
     text.iter().fold(
         text.capacity()
             .saturating_mul(std::mem::size_of::<TextSegment>()),
@@ -446,7 +446,7 @@ fn estimated_text_bytes(text: &Vec<TextSegment>) -> usize {
     )
 }
 
-fn estimated_value_bytes(value: &Value) -> usize {
+pub(crate) fn estimated_value_bytes(value: &Value) -> usize {
     let mut total = 0usize;
     let mut pending = vec![value];
     while let Some(value) = pending.pop() {
