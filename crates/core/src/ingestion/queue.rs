@@ -80,6 +80,10 @@ pub struct SessionMetrics {
     pub pending_spool_bytes: u64,
     pub high_water_ram_bytes: usize,
     pub high_water_spool_bytes: u64,
+    pub spool_written_bytes: u64,
+    pub spool_read_bytes: u64,
+    pub in_flight_estimated_bytes: usize,
+    pub high_water_in_flight_estimated_bytes: usize,
     pub overflow_write_ns: u128,
     pub failure_sequence: Option<u64>,
 }
@@ -90,6 +94,7 @@ struct State {
     completed: u64,
     last_revision: IndexRevision,
     closed: bool,
+    paused: bool,
     failure: Option<(u64, IngestionError)>,
     metrics: SessionMetrics,
 }
@@ -133,6 +138,7 @@ impl SessionCore {
                 completed: 0,
                 last_revision: revision,
                 closed: false,
+                paused: false,
                 failure: None,
                 metrics: SessionMetrics::default(),
             }),
@@ -175,6 +181,7 @@ impl Drop for SessionCore {
     fn drop(&mut self) {
         if let Ok(mut state) = self.queue.state.lock() {
             state.closed = true;
+            state.paused = false;
             self.queue.changed.notify_all();
         }
     }
@@ -218,6 +225,31 @@ impl IngestionSession {
             .metrics
     }
 
+    /// Park the admission worker before any batch is accepted. This bounded
+    /// measurement hook lets a producer exercise RAM and spool capacity while
+    /// publication is intentionally held back.
+    #[doc(hidden)]
+    pub fn pause_worker_for_measurement(&self) -> Result<(), IndexError> {
+        let queue = &self.core.queue;
+        let mut state = queue.state.lock().map_err(|_| IndexError::LockPoisoned)?;
+        if state.closed || state.next_sequence != 1 {
+            return Err(IndexError::Build(
+                "worker can only be paused before first admission".into(),
+            ));
+        }
+        state.paused = true;
+        Ok(())
+    }
+
+    /// Release a worker parked by `pause_worker_for_measurement`.
+    #[doc(hidden)]
+    pub fn resume_worker_for_measurement(&self) {
+        if let Ok(mut state) = self.core.queue.state.lock() {
+            state.paused = false;
+            self.core.queue.changed.notify_all();
+        }
+    }
+
     pub fn flush(&self) -> PublishedRevision {
         let queue = &self.core.queue;
         let mut state = queue.state.lock().expect("queue mutex poisoned");
@@ -237,6 +269,7 @@ impl IngestionSession {
         {
             let mut state = self.core.queue.state.lock().expect("queue mutex poisoned");
             state.closed = true;
+            state.paused = false;
             self.core.queue.changed.notify_all();
         }
         let result = self.flush();
@@ -258,6 +291,7 @@ impl IngestionSession {
         self.core.queue.cancelled.store(true, Ordering::Release);
         let mut state = self.core.queue.state.lock().expect("queue mutex poisoned");
         state.closed = true;
+        state.paused = false;
         self.core.queue.changed.notify_all();
     }
 }
@@ -360,6 +394,7 @@ impl RecordWriter {
             return Err(SubmitError::SpoolIo(batch, message));
         }
         let path = written.expect("spool write succeeded");
+        state.metrics.spool_written_bytes = state.metrics.spool_written_bytes.saturating_add(bytes);
         if state.closed || state.failure.is_some() {
             state.metrics.pending_spool_bytes -= bytes;
             drop(state);
@@ -411,7 +446,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
     loop {
         let item = {
             let mut state = queue.state.lock().expect("queue mutex poisoned");
-            while state.items.is_empty() && !state.closed {
+            while (state.items.is_empty() || state.paused) && !state.closed {
                 state = queue.changed.wait(state).expect("queue mutex poisoned");
             }
             let Some(item) = state.items.pop_front() else {
@@ -420,6 +455,11 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             if matches!(item.storage, Storage::Memory(_)) {
                 state.metrics.pending_ram_bytes -= item.weight;
             }
+            state.metrics.in_flight_estimated_bytes = item.weight;
+            state.metrics.high_water_in_flight_estimated_bytes = state
+                .metrics
+                .high_water_in_flight_estimated_bytes
+                .max(item.weight);
             item
         };
         #[cfg(test)]
@@ -441,6 +481,10 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 let _ = std::fs::remove_file(path);
                 let mut state = queue.state.lock().expect("queue mutex poisoned");
                 state.metrics.pending_spool_bytes -= item.encoded_bytes;
+                state.metrics.spool_read_bytes = state
+                    .metrics
+                    .spool_read_bytes
+                    .saturating_add(item.encoded_bytes);
                 result
             }
         };
@@ -463,6 +507,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         };
         item.receipt.complete(result.clone());
         let mut state = queue.state.lock().expect("queue mutex poisoned");
+        state.metrics.in_flight_estimated_bytes = 0;
         state.completed = item.sequence;
         match result {
             Ok(revision) => {
@@ -677,5 +722,56 @@ mod tests {
         );
         assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
         std::fs::remove_dir(root).unwrap();
+    }
+
+    #[test]
+    fn measurement_pause_keeps_accepted_prefix_unpublished_until_resume() {
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder.register_records(collection, "paused", 1).unwrap();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024 * 1024,
+                spool_bytes: 1024 * 1024,
+                spool_directory: None,
+            })
+            .unwrap();
+        session.pause_worker_for_measurement().unwrap();
+        let writer = session.writer(registration).unwrap();
+        let receipt = writer
+            .submit(batch(session.core.id, registration, "record-1"))
+            .unwrap();
+        assert_eq!(session.metrics().accepted_batches, 1);
+        assert_eq!(session.metrics().published_batches, 0);
+        assert!(session.metrics().pending_spool_bytes > 0);
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "record-1",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_none()
+        );
+        session.resume_worker_for_measurement();
+        receipt.wait_published().unwrap();
+        session.finish().unwrap();
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "record-1",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_some()
+        );
     }
 }
