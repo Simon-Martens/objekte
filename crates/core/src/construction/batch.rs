@@ -301,6 +301,45 @@ pub(crate) struct BatchBuilder<'a> {
     profile: BuildWorkProfile,
 }
 
+/// Borrowed logical admission state shared by file and direct producers.
+/// Source-specific identity, fallback, and storage ownership stay with the
+/// respective producer.
+struct LogicalIndexContext<'a> {
+    schema: &'a Schema,
+    collection_name: &'a str,
+    postings: &'a mut PostingCollection,
+    inference: &'a mut Option<InferenceBuilder>,
+    custom_postings: &'a mut HashMap<(Vec<String>, String), CustomPostingIndex>,
+    raw: &'a mut BigramBuilder,
+    fallback_text: &'a mut BigramBuilder,
+    custom_text: &'a mut HashMap<(Vec<String>, String), BigramBuilder>,
+    logical_records: &'a mut RoaringBitmap,
+    empty_array_records: &'a mut RoaringBitmap,
+    sorting: &'a mut SortBuilder,
+    relations: &'a mut Vec<RelationContribution>,
+    profile: &'a mut BuildWorkProfile,
+}
+
+impl<'a> LogicalIndexContext<'a> {
+    fn from_file_batch(batch: &'a mut BatchBuilder<'_>) -> Self {
+        Self {
+            schema: &batch.definition.schema,
+            collection_name: &batch.definition.name,
+            postings: &mut batch.postings,
+            inference: &mut batch.inference,
+            custom_postings: &mut batch.custom_postings,
+            raw: &mut batch.raw,
+            fallback_text: &mut batch.fallback_text,
+            custom_text: &mut batch.custom_text,
+            logical_records: &mut batch.logical_records,
+            empty_array_records: &mut batch.empty_array_records,
+            sorting: &mut batch.sorting,
+            relations: &mut batch.relations,
+            profile: &mut batch.profile,
+        }
+    }
+}
+
 impl<'a> BatchBuilder<'a> {
     pub(super) fn new(
         root: &'a Path,
@@ -562,6 +601,29 @@ impl<'a> BatchBuilder<'a> {
         Ok(())
     }
 
+    fn add_logical_indexes(
+        &mut self,
+        slot: RecordSlot,
+        id: &RecordId,
+        extracted: &ExtractedRecord,
+        file: Option<(&FileEntry, Option<ByteRange>)>,
+        root: Option<&Path>,
+        text_derivation: TextDerivation,
+        sample: bool,
+    ) -> Result<(), String> {
+        LogicalIndexContext::from_file_batch(self).add_logical_indexes(
+            slot,
+            id,
+            extracted,
+            file,
+            root,
+            text_derivation,
+            sample,
+        )
+    }
+}
+
+impl LogicalIndexContext<'_> {
     /// Index one validated logical value after its registrar has resolved the
     /// record identity. Source-specific fallback and identity remain outside.
     fn add_logical_indexes(
@@ -581,25 +643,21 @@ impl<'a> BatchBuilder<'a> {
         }
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
         if let Some(inference) = &mut self.inference {
-            inference.observe_record_with_schema(
-                slot,
-                &extracted.value,
-                Some(&self.definition.schema),
-            )?;
+            inference.observe_record_with_schema(slot, &extracted.value, Some(self.schema))?;
         }
         if let Some(started) = stage_started {
             self.profile.inference_ns += started.elapsed().as_nanos() as u64;
         }
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        for relation in &mut self.relations {
+        for relation in self.relations.iter_mut() {
             relation.add_logical(slot, &extracted.value)?;
         }
         if let Some(started) = stage_started {
             self.profile.relations_ns += started.elapsed().as_nanos() as u64;
         }
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        for (key, custom) in &mut self.custom_postings {
-            let binding = &self.definition.schema.operations[key];
+        for (key, custom) in self.custom_postings.iter_mut() {
+            let binding = &self.schema.operations[key];
             let selected = data_values(&extracted.value, &key.0);
             let mapped = selected.as_ref().map(|values| {
                 values
@@ -626,7 +684,7 @@ impl<'a> BatchBuilder<'a> {
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
         let has_empty_array;
         if text_derivation == TextDerivation::LogicalStringsAfterConversion {
-            if let Some(binding) = &self.definition.schema.raw {
+            if let Some(binding) = &self.schema.raw {
                 let mut observed_empty = false;
                 self.raw.add_record_with(slot, |emit| {
                     observed_empty =
@@ -644,7 +702,7 @@ impl<'a> BatchBuilder<'a> {
             }
         } else {
             has_empty_array = crate::model::structure::contains_empty_array(&extracted.value);
-            if let Some(binding) = &self.definition.schema.raw {
+            if let Some(binding) = &self.schema.raw {
                 self.raw.add_record(
                     slot,
                     extracted
@@ -675,15 +733,15 @@ impl<'a> BatchBuilder<'a> {
             RecordClass::Logical,
             file,
             root,
-            &self.definition.name,
+            self.collection_name,
         )?;
         if let Some(started) = stage_started {
             self.profile.sorting_ns += started.elapsed().as_nanos() as u64;
         }
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        for (key, index) in &mut self.custom_text {
+        for (key, index) in self.custom_text.iter_mut() {
             let values = data_values(&extracted.value, &key.0).unwrap_or_default();
-            if let Some(binding) = self.definition.schema.operations.get(key) {
+            if let Some(binding) = self.schema.operations.get(key) {
                 index.add_record(
                     slot,
                     values
@@ -700,7 +758,9 @@ impl<'a> BatchBuilder<'a> {
         }
         Ok(())
     }
+}
 
+impl BatchBuilder<'_> {
     pub(super) fn outcome(
         &mut self,
         file: &mut FileEntry,
