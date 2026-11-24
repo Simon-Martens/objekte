@@ -760,6 +760,208 @@ impl LogicalIndexContext<'_> {
     }
 }
 
+/// Prepare typed records through the same logical index admission as file
+/// records. The returned bodies move into immutable segment storage.
+pub(crate) fn build_retained_contribution(
+    inputs: Vec<(RecordId, Value, Vec<crate::source::TextSegment>)>,
+    declaration: &crate::repository::configuration::CollectionDeclaration,
+    options: &crate::repository::configuration::RepositoryOptions,
+) -> Result<
+    (
+        Vec<crate::records::RecordHeader>,
+        Vec<crate::index::segment::RetainedBody>,
+        BatchContribution,
+    ),
+    String,
+> {
+    let schema = &declaration.schema;
+    let mut postings = PostingCollection::new(schema);
+    let mut inference = InferenceBuilder::with_job_count(options.inference, true, 1);
+    let mut custom_postings = schema
+        .operations
+        .iter()
+        .filter(|(_, binding)| binding.operation.posting())
+        .map(|(key, binding)| {
+            (
+                key.clone(),
+                CustomPostingIndex {
+                    index: PostingIndex::new(&schema.fields[&key.0]),
+                    complete: binding.operation.complete_coverage(),
+                },
+            )
+        })
+        .collect::<HashMap<_, _>>();
+    let mut raw = BigramBuilder::new(options.bigram_alphabet);
+    let mut fallback_text = BigramBuilder::new(options.bigram_alphabet);
+    let mut custom_text = schema
+        .custom
+        .keys()
+        .chain(
+            schema
+                .operations
+                .iter()
+                .filter(|(_, binding)| {
+                    binding.operation.bigram() && binding.operation.complete_coverage()
+                })
+                .map(|(key, _)| key),
+        )
+        .map(|key| {
+            (
+                canonical_custom_text_key(schema, &key.0, &key.1),
+                BigramBuilder::new(options.bigram_alphabet),
+            )
+        })
+        .collect::<HashMap<_, _>>();
+    let mut logical_records = RoaringBitmap::new();
+    let mut empty_array_records = RoaringBitmap::new();
+    let mut sorting = SortBuilder::new(
+        &declaration.sort_fields,
+        schema,
+        &declaration.sort_locale,
+        declaration.sort_options,
+        &declaration.sort_overrides,
+    )?;
+    let mut relations = RelationContribution::for_schema(schema);
+    let mut profile = BuildWorkProfile::default();
+    let mut headers = Vec::with_capacity(inputs.len());
+    let mut bodies = Vec::with_capacity(inputs.len());
+    for (id, value, text) in inputs {
+        let slot = RecordSlot(u32::try_from(headers.len()).map_err(|_| "too many batch records")?);
+        let text_derivation = if text.is_empty() {
+            TextDerivation::LogicalStringsAfterConversion
+        } else {
+            TextDerivation::ReaderSegments
+        };
+        let mut extracted = ExtractedRecord { value, text };
+        finish_build_record(schema, &mut extracted)?;
+        LogicalIndexContext {
+            schema,
+            collection_name: &declaration.name,
+            postings: &mut postings,
+            inference: &mut inference,
+            custom_postings: &mut custom_postings,
+            raw: &mut raw,
+            fallback_text: &mut fallback_text,
+            custom_text: &mut custom_text,
+            logical_records: &mut logical_records,
+            empty_array_records: &mut empty_array_records,
+            sorting: &mut sorting,
+            relations: &mut relations,
+            profile: &mut profile,
+        }
+        .add_logical_indexes(slot, &id, &extracted, None, None, text_derivation, false)?;
+        headers.push(crate::records::RecordHeader {
+            slot,
+            id,
+            class: RecordClass::Logical,
+            diagnostic_ref: DiagnosticRef(0),
+        });
+        bodies.push(crate::index::segment::RetainedBody {
+            value: extracted.value,
+            text: extracted.text,
+        });
+    }
+    let custom_text = custom_text
+        .into_iter()
+        .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
+        .collect::<Result<HashMap<_, _>, _>>()?;
+    Ok((
+        headers,
+        bodies,
+        BatchContribution {
+            files: Vec::new(),
+            file_fingerprints: Vec::new(),
+            records: Vec::new(),
+            postings,
+            inference,
+            custom_postings,
+            raw: raw.finish_blocks()?,
+            fallback_text: fallback_text.finish_blocks()?,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sort_keys: sorting.into_keys(),
+            relations,
+            record_parses: 0,
+            failed_parses: 0,
+            source_reads: 0,
+            source_bytes_read: 0,
+            profile,
+        },
+    ))
+}
+
+#[cfg(test)]
+mod retained_contribution_tests {
+    use super::*;
+
+    #[test]
+    fn typed_record_uses_fileless_native_segment_and_shared_logical_indexes() {
+        let mut schema = Schema::default();
+        schema
+            .register_field(crate::schema::FieldDefinition {
+                path: vec!["year".into()],
+                kind: crate::model::LogicalType::Number,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+        let declaration =
+            crate::repository::configuration::CollectionDeclaration::new("entries", schema);
+        let options = crate::repository::configuration::RepositoryOptions::default();
+        let id = RecordId::intrinsic("entry-47").unwrap();
+        let value = Value::Object(std::collections::BTreeMap::from([
+            (
+                "year".into(),
+                Value::Number(crate::model::Number::integer(1808)),
+            ),
+            ("title".into(), Value::String("Almanach".into())),
+        ]));
+        let (headers, bodies, contribution) = build_retained_contribution(
+            vec![(id.clone(), value.clone(), Vec::new())],
+            &declaration,
+            &options,
+        )
+        .unwrap();
+        let segment = crate::construction::segment_admission::CollectionSegment::from_retained(
+            crate::index::segment::SegmentId::new(2),
+            CollectionId(0),
+            "application.entries".into(),
+            1,
+            0,
+            headers,
+            bodies,
+            contribution,
+        )
+        .unwrap();
+        let pool = rayon::ThreadPoolBuilder::new()
+            .num_threads(1)
+            .build()
+            .unwrap();
+        let indexed = segment
+            .into_indexed(
+                &declaration,
+                options.bigram_alphabet,
+                options.inference,
+                1,
+                &pool,
+            )
+            .unwrap();
+        assert_eq!(indexed.record_count(), 1);
+        assert_eq!(indexed.file_count(), 0);
+        assert_eq!(indexed.record(RecordSlot(0)).unwrap().id, id);
+        assert_eq!(
+            indexed.backing.retained_body(RecordSlot(0)).unwrap().value,
+            value
+        );
+        assert_eq!(indexed.logical_records.len(), 1);
+        assert!(indexed.postings.fields.contains_key(&vec!["year".into()]));
+    }
+}
+
 impl BatchBuilder<'_> {
     pub(super) fn outcome(
         &mut self,

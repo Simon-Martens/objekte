@@ -304,7 +304,8 @@ pub(crate) struct CollectionSegment {
     pub source_version: u32,
     pub files: Vec<SegmentFile>,
     pub file_index: HashMap<FileId, usize>,
-    pub records: Vec<RecordEntry>,
+    pub records: Vec<crate::records::RecordHeader>,
+    pub backing: crate::index::segment::SegmentBacking,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub(crate) batches: Vec<SegmentBatch>,
     pub record_parses: u64,
@@ -770,6 +771,7 @@ impl SegmentAdmission {
     }
 
     pub fn finish(self) -> CollectionSegment {
+        let backing = crate::index::segment::SegmentBacking::file_ranges(&self.records);
         CollectionSegment {
             id: self.id,
             collection: self.collection,
@@ -777,7 +779,12 @@ impl SegmentAdmission {
             source_version: self.source_version,
             files: self.files,
             file_index: self.file_index,
-            records: self.records,
+            records: self
+                .records
+                .iter()
+                .map(crate::records::RecordHeader::from)
+                .collect(),
+            backing,
             id_lookup: self.id_lookup,
             batches: self.batches,
             record_parses: self.record_parses,
@@ -787,6 +794,63 @@ impl SegmentAdmission {
 }
 
 impl CollectionSegment {
+    /// Admit one typed batch as an ordinary native segment. The logical
+    /// contribution uses the same finalization and index validation as files.
+    pub(crate) fn from_retained(
+        id: SegmentId,
+        collection: CollectionId,
+        source_id: String,
+        source_version: u32,
+        registration: u32,
+        records: Vec<crate::records::RecordHeader>,
+        bodies: Vec<crate::index::segment::RetainedBody>,
+        contribution: BatchContribution,
+    ) -> Result<Self, String> {
+        if records.is_empty() || records.len() != bodies.len() {
+            return Err("retained batch is empty or has mismatched body count".into());
+        }
+        let count = u32::try_from(records.len()).map_err(|_| "too many retained records")?;
+        let mut id_lookup = HashMap::with_capacity(records.len());
+        let mut addresses = Vec::with_capacity(records.len());
+        for (slot, record) in records.iter().enumerate() {
+            if record.slot.0 as usize != slot {
+                return Err("retained record slots out of order".into());
+            }
+            if id_lookup.insert(record.id.clone(), record.slot).is_some() {
+                return Err(format!(
+                    "duplicate record ID in retained segment: {}",
+                    record.id.0
+                ));
+            }
+            addresses.push(crate::index::segment::RetainedAddress {
+                block: 0,
+                offset: record.slot.0,
+            });
+        }
+        Ok(Self {
+            id,
+            collection,
+            source_id,
+            source_version,
+            files: Vec::new(),
+            file_index: HashMap::new(),
+            records,
+            backing: crate::index::segment::SegmentBacking::Retained {
+                blocks: vec![std::sync::Arc::from(bodies)],
+                addresses,
+                registration,
+            },
+            id_lookup,
+            batches: vec![SegmentBatch {
+                base: 0,
+                count,
+                contribution,
+            }],
+            record_parses: 0,
+            failed_parses: 0,
+        })
+    }
+
     pub fn into_indexed(
         self,
         definition: &impl CollectionPolicy,
@@ -953,7 +1017,7 @@ impl CollectionSegment {
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut sorting = sorting.finish_for_records(&self.records)?;
         sorting.refresh_file_status_for_records(&self.records, |slot| {
-            let file = self.records.get(slot.0 as usize)?.file;
+            let file = self.backing.file_locator(slot)?.file;
             Some(
                 self.files
                     .iter()
@@ -994,7 +1058,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.identity_order_ns = started.elapsed().as_nanos() as u64;
         }
-        let backing = crate::index::segment::SegmentBacking::file_ranges(&self.records);
+        let backing = self.backing;
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
@@ -1002,11 +1066,7 @@ impl CollectionSegment {
             source_version: self.source_version,
             files: self.files,
             file_index: self.file_index,
-            records: self
-                .records
-                .iter()
-                .map(crate::records::RecordHeader::from)
-                .collect(),
+            records: self.records,
             backing,
             id_lookup: self.id_lookup,
             identity_order,

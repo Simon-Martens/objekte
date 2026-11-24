@@ -450,7 +450,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
         segment
             .records
             .iter()
-            .map(|record| record.file)
+            .map(|record| segment.backing.file_locator(record.slot).unwrap().file)
             .collect::<Vec<_>>(),
         [FileId(400), FileId(400), FileId(1200)]
     );

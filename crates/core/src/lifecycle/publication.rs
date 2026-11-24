@@ -55,6 +55,12 @@ fn cheapest_consolidation_pair(
             }
             let left_index = &group[left].index;
             let right_index = &group[right].index;
+            if left_index.source_id != right_index.source_id
+                || left_index.source_version != right_index.source_version
+                || !left_index.backing.compatible_with(&right_index.backing)
+            {
+                continue;
+            }
             let mut overlaps = false;
             for file_number in 0..left_index.file_count() {
                 let file_id = left_index.files.get(file_number)?.entry.id;

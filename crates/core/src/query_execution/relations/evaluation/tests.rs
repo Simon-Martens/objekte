@@ -2973,7 +2973,11 @@ fn base_repository(root: &std::path::Path, definitions: Vec<CollectionDefinition
         );
         let segment = Arc::clone(&repo.segments[collection_index][0].index);
         let records = (0..segment.records.len())
-            .map(|slot| segment.file_record(crate::model::RecordSlot(slot as u32)).unwrap())
+            .map(|slot| {
+                segment
+                    .file_record(crate::model::RecordSlot(slot as u32))
+                    .unwrap()
+            })
             .collect::<Vec<_>>();
         let files = segment
             .files

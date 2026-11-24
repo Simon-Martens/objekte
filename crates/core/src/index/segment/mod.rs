@@ -257,6 +257,31 @@ pub(crate) enum SegmentBacking {
 
 #[allow(dead_code)] // Retained and provider accessors are used by their scan dispatch.
 impl SegmentBacking {
+    pub(crate) fn compatible_with(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::FileRange { .. }, Self::FileRange { .. }) => true,
+            (
+                Self::Retained {
+                    registration: left, ..
+                },
+                Self::Retained {
+                    registration: right,
+                    ..
+                },
+            )
+            | (
+                Self::Provider {
+                    registration: left, ..
+                },
+                Self::Provider {
+                    registration: right,
+                    ..
+                },
+            ) => left == right,
+            _ => false,
+        }
+    }
+
     /// Concatenate compatible columns while sharing retained body blocks.
     pub(crate) fn concatenate(backings: &[&Self]) -> Result<Self, String> {
         let first = backings
@@ -679,7 +704,7 @@ impl IndexedCollectionSegment {
         }
         retained = retained
             .saturating_add(
-                self.records.capacity() * std::mem::size_of::<crate::inventory::RecordEntry>(),
+                self.records.capacity() * std::mem::size_of::<crate::records::RecordHeader>(),
             )
             .saturating_add(self.identity_order.capacity() * std::mem::size_of::<RecordSlot>())
             .saturating_add(

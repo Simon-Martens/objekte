@@ -1339,7 +1339,10 @@ fn segment_metadata_matches(
             value: &empty,
             source_bytes: None,
             record,
-            range: segment.backing.file_locator(record.slot).and_then(|locator| locator.range),
+            range: segment
+                .backing
+                .file_locator(record.slot)
+                .and_then(|locator| locator.range),
             file: Some(file),
             collection_name: &collection.definition.name,
             repository_root: Some(catalog.repository_root()),
@@ -1366,7 +1369,10 @@ fn segment_metadata_matches(
             value: &empty,
             source_bytes: None,
             record,
-            range: segment.backing.file_locator(record.slot).and_then(|locator| locator.range),
+            range: segment
+                .backing
+                .file_locator(record.slot)
+                .and_then(|locator| locator.range),
             file: Some(file),
             collection_name: &collection.definition.name,
             repository_root: Some(catalog.repository_root()),
