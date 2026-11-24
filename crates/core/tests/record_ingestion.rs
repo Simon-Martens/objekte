@@ -8,6 +8,9 @@ use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
+use objekte_search_core::query_execution::streaming::{
+    CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
+};
 use objekte_search_core::query_results::Payload;
 use objekte_search_core::records::reader::{
     RecordProjection, RecordRead, RecordReadError, RecordReader,
@@ -505,6 +508,21 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
         ..query.clone()
     };
     assert_eq!(view.search(&residual).unwrap().count, Some(1));
+    let mut streamed = Vec::new();
+    view.search_stream_scoped(
+        &residual,
+        ResultScope::All { offset: 0 },
+        StreamOptions::default(),
+        &CancellationToken::new(),
+        &mut |event| {
+            if let StreamEvent::OrderedRows { rows, .. } = event {
+                streamed.extend(rows.iter().map(|hit| hit.record_id.clone()));
+            }
+            Ok(StreamControl::Continue)
+        },
+    )
+    .unwrap();
+    assert_eq!(streamed, ["entry-47"]);
     *reader.0.lock().unwrap() = (RecordVersion::new(8), record(1809, "Wien"));
     assert!(
         view.get_record("entries", "entry-47", ReturnMode::Logical)
@@ -583,5 +601,86 @@ fn routed_direct_lookup_survives_many_batches_and_compaction() {
             .payload,
         Some(Payload::Logical(Value::String("value-12".into())))
     );
+    session.finish().unwrap();
+}
+
+#[test]
+fn fileless_records_stream_in_page_and_all_scopes() {
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "fixture.stream", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    for number in 0..7 {
+        batch
+            .insert(format!("entry-{number}"), Value::String("Leipzig".into()))
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let view = index.view().unwrap();
+    let query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            offset: 0,
+            limit: 3,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: false,
+        },
+    };
+    for (scope, expected) in [
+        (
+            ResultScope::Page {
+                offset: 0,
+                limit: 3,
+            },
+            3,
+        ),
+        (ResultScope::All { offset: 0 }, 7),
+    ] {
+        let mut ids = Vec::new();
+        let outcome = view
+            .search_stream_scoped(
+                &query,
+                scope,
+                StreamOptions::default(),
+                &CancellationToken::new(),
+                &mut |event| {
+                    if let StreamEvent::OrderedRows { rows, .. } = event {
+                        ids.extend(rows.iter().map(|hit| hit.record_id.clone()));
+                    }
+                    Ok(StreamControl::Continue)
+                },
+            )
+            .unwrap();
+        assert_eq!(ids.len(), expected);
+        assert!(matches!(outcome, StreamOutcome::Complete(_)));
+    }
+    let residual = Query {
+        filter: Some(parse_filter("@record.id = 'entry-3'").unwrap()),
+        ..query
+    };
+    let mut streamed = Vec::new();
+    view.search_stream_scoped(
+        &residual,
+        ResultScope::All { offset: 0 },
+        StreamOptions::default(),
+        &CancellationToken::new(),
+        &mut |event| {
+            if let StreamEvent::OrderedRows { rows, .. } = event {
+                streamed.extend(rows.iter().map(|hit| hit.record_id.clone()));
+            }
+            Ok(StreamControl::Continue)
+        },
+    )
+    .unwrap();
+    assert_eq!(streamed, ["entry-3"]);
     session.finish().unwrap();
 }

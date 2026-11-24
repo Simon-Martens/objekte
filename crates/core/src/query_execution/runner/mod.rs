@@ -3929,6 +3929,20 @@ fn try_lifecycle_ordered_stream(
     mut delivery: Option<&mut Delivery<'_>>,
     mut page_output: Option<&mut Vec<SearchHit>>,
 ) -> Result<Option<StreamOutcome>, String> {
+    // The ordered cursor below reads file ranges directly. Native records use
+    // the shared segmented evaluator until that cursor supports their backing.
+    if segments
+        .iter()
+        .flat_map(|group| group.iter())
+        .any(|segment| {
+            !matches!(
+                segment.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            )
+        })
+    {
+        return Ok(None);
+    }
     if base_active.iter().any(|active| active.len() != 0)
         || matches!(scope, ResultScope::Page { limit: 0, .. })
     {
