@@ -1131,9 +1131,10 @@ fn segment_record_range_matches(
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
         record.range = segment
-            .record(RecordSlot(slot))
-            .map(|record| record.range)
-            .ok_or("segment record row missing")?;
+            .backing
+            .file_locator(RecordSlot(slot))
+            .and_then(|locator| locator.range)
+            .ok_or("segment record range missing")?;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
@@ -1324,7 +1325,11 @@ fn segment_metadata_matches(
         let record = segment
             .record(crate::model::RecordSlot(slot))
             .ok_or("segment record row missing")?;
-        let Some(file) = catalog.entry(record.file) else {
+        let Some(file) = segment
+            .backing
+            .file_locator(crate::model::RecordSlot(slot))
+            .and_then(|locator| catalog.entry(locator.file))
+        else {
             return Ok(None);
         };
         let ctx = RecordContext {
@@ -1346,7 +1351,11 @@ fn segment_metadata_matches(
         let record = segment
             .record(crate::model::RecordSlot(slot))
             .ok_or("segment record row missing")?;
-        let Some(file) = catalog.entry(record.file) else {
+        let Some(file) = segment
+            .backing
+            .file_locator(crate::model::RecordSlot(slot))
+            .and_then(|locator| catalog.entry(locator.file))
+        else {
             return Ok(None);
         };
         let ctx = RecordContext {

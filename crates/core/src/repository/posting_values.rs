@@ -474,7 +474,13 @@ fn scan_inferred_segment(
                     .index
                     .record(*slot)
                     .ok_or("segment record row missing")?;
-                Ok((record.class == RecordClass::Logical).then_some((slot.0, record.range)))
+                let range = segment
+                    .index
+                    .backing
+                    .file_locator(*slot)
+                    .and_then(|locator| locator.range)
+                    .ok_or("segment record range missing")?;
+                Ok((record.class == RecordClass::Logical).then_some((slot.0, range)))
             })
             .collect::<Result<Vec<_>, String>>()?
             .into_iter()
@@ -1141,10 +1147,10 @@ pub(crate) fn posting_values_segmented(
                     candidates
                         .iter()
                         .filter_map(|slot| {
-                            segment
-                                .records
-                                .get(slot as usize)
-                                .map(|record| (slot, record.file, record.range, record.revision))
+                            let locator = segment
+                                .backing
+                                .file_locator(crate::model::RecordSlot(slot))?;
+                            Some((slot, locator.file, locator.range?, locator.revision))
                         })
                         .collect::<Vec<_>>()
                 }

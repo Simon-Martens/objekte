@@ -255,7 +255,11 @@ pub(super) fn scan_segment_file_parallel(
             let record = segment
                 .record(RecordSlot(slot))
                 .ok_or("segment scan slot missing")?;
-            if record.file.0 != file_id {
+            if segment
+                .backing
+                .file_locator(RecordSlot(slot))
+                .is_none_or(|locator| locator.file.0 != file_id)
+            {
                 return Err("segment scan file ownership mismatch".into());
             }
             let resolved = SegmentRecordRef { record, file };

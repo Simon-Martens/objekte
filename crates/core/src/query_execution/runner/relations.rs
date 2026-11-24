@@ -770,10 +770,13 @@ fn try_direct_relation_page(
             && may.len() > 1
             && may.iter().all(|slot| {
                 segment.record(RecordSlot(slot)).is_some_and(|record| {
-                    record.range.len() <= 64 * 1024
+                    let Some(locator) = segment.backing.file_locator(RecordSlot(slot)) else {
+                        return false;
+                    };
+                    locator.range.is_some_and(|range| range.len() <= 64 * 1024)
                         && record.id.0.len() <= 1024
                         && catalog
-                            .entry(record.file)
+                            .entry(locator.file)
                             .is_some_and(|file| file.relative_path.to_string_lossy().len() <= 4096)
                 })
             });
@@ -1762,12 +1765,18 @@ fn try_parallel_relation_page(
                     .index
                     .record(slot)
                     .ok_or("parallel relation slot missing")?;
+                let locator = published
+                    .index
+                    .backing
+                    .file_locator(slot)
+                    .ok_or("parallel relation locator missing")?;
+                let range = locator.range.ok_or("parallel relation range missing")?;
                 let file = published
                     .index
-                    .file(record.file)
+                    .file(locator.file)
                     .ok_or("parallel relation file missing")?;
-                if !selected_files.insert(record.file)
-                    || record.range.len() > 64 * 1024
+                if !selected_files.insert(locator.file)
+                    || range.len() > 64 * 1024
                     || record.id.0.len() > 1024
                     || file.entry.relative_path.to_string_lossy().len() > 4096
                 {
@@ -1775,9 +1784,9 @@ fn try_parallel_relation_page(
                 }
                 jobs.push(RelationFileJob {
                     segment_index,
-                    file_id: record.file.0,
+                    file_id: locator.file.0,
                     slot,
-                    range: record.range,
+                    range,
                 });
                 if jobs.len() > 50_000 {
                     return Ok(None);
@@ -1805,7 +1814,13 @@ fn try_parallel_relation_page(
                 .index
                 .record(slot)
                 .ok_or("parallel relation slot missing")?;
-            if record.range.len() > 64 * 1024
+            let range = published
+                .index
+                .backing
+                .file_locator(slot)
+                .and_then(|locator| locator.range)
+                .ok_or("parallel relation range missing")?;
+            if range.len() > 64 * 1024
                 || record.id.0.len() > 1024
                 || file.entry.relative_path.to_string_lossy().len() > 4096
             {
@@ -1815,7 +1830,7 @@ fn try_parallel_relation_page(
                 segment_index,
                 file_id: file.entry.id.0,
                 slot,
-                range: record.range,
+                range,
             });
             if jobs.len() > 50_000 {
                 return Ok(None);
@@ -2550,14 +2565,19 @@ pub(super) fn search_segmented_relations(
                     if !published.active.contains(slot) {
                         continue;
                     }
-                    let record = published
+                    published
                         .index
                         .record(slot)
                         .ok_or("merged segment candidate missing")?;
+                    let locator = published
+                        .index
+                        .backing
+                        .file_locator(slot)
+                        .ok_or("merged segment candidate locator missing")?;
                     let index = published
                         .index
                         .file_index
-                        .get(&record.file)
+                        .get(&locator.file)
                         .copied()
                         .ok_or("merged segment candidate file missing")?;
                     selected.insert(index);
@@ -2580,11 +2600,17 @@ pub(super) fn search_segmented_relations(
                     if published.active.contains(*slot)
                         && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
                     {
-                        let record = published
+                        published
                             .index
                             .record(*slot)
                             .ok_or("merged segment record missing")?;
-                        ranges.push((slot.0, record.range));
+                        let range = published
+                            .index
+                            .backing
+                            .file_locator(*slot)
+                            .and_then(|locator| locator.range)
+                            .ok_or("merged segment record range missing")?;
+                        ranges.push((slot.0, range));
                     }
                 }
                 if let Some(context) = context
