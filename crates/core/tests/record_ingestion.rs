@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 use std::sync::{Arc, Mutex};
 
 use objekte_search_core::files::FileCatalog;
@@ -18,7 +18,11 @@ use objekte_search_core::records::reader::{
     RecordProjection, RecordRead, RecordReadError, RecordReader,
 };
 use objekte_search_core::records::{RecordKey, RecordVersion};
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+};
 use objekte_search_core::schema::{FieldDefinition, Schema};
+use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
 
 fn record(year: i128, note: &str) -> Value {
     Value::Object(BTreeMap::from([
@@ -857,4 +861,253 @@ fn fileless_residual_text_sort_and_stream_agree() {
     .unwrap();
     assert_eq!(streamed, ["alpha"]);
     session.finish().unwrap();
+}
+
+struct CorpusReader(Mutex<HashMap<String, Value>>);
+
+impl RecordReader for CorpusReader {
+    fn read_projected(
+        &self,
+        key: &RecordKey,
+        expected_version: RecordVersion,
+        _: &RecordProjection,
+    ) -> Result<RecordRead, RecordReadError> {
+        if expected_version != RecordVersion::new(1) {
+            return Err(RecordReadError::ChangedVersion {
+                expected: expected_version,
+                actual: Some(RecordVersion::new(1)),
+            });
+        }
+        let value = self
+            .0
+            .lock()
+            .unwrap()
+            .get(key.record.0.as_ref())
+            .cloned()
+            .ok_or_else(|| RecordReadError::Unavailable("record missing".into()))?;
+        Ok(RecordRead {
+            version: expected_version,
+            value,
+            text: Vec::new(),
+            original_bytes: None,
+        })
+    }
+}
+
+#[test]
+fn logical_corpus_agrees_across_json_retained_and_provider() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-cross-backing-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("entries")).unwrap();
+    let documents = [
+        serde_json::json!({"id":"r1","details":{"city":"Leipzig"},"tags":["alpha","beta"],"issued":"2024-02-29","amount":1.25,"optional":null}),
+        serde_json::json!({"id":"r2","details":{"city":"Wien"},"tags":["beta"],"issued":"2024-03-01","amount":2.5}),
+    ];
+    for (number, document) in documents.iter().enumerate() {
+        std::fs::write(
+            root.join("entries").join(format!("{number}.json")),
+            serde_json::to_vec(document).unwrap(),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    for (path, kind) in [
+        (vec!["id"], LogicalType::Id),
+        (vec!["details", "city"], LogicalType::String),
+        (vec!["issued"], LogicalType::Date),
+        (vec!["amount"], LogicalType::Number),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: path.into_iter().map(str::to_owned).collect(),
+                kind,
+                required: false,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let mut file_definition =
+        CollectionDefinition::folder("entries", "entries", SourceFormat::Json);
+    file_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    file_definition.schema = schema.clone();
+    let files = Index::start_build(
+        &root,
+        vec![file_definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+
+    let mut owned_builder = Index::builder();
+    let collection = owned_builder.collection("entries", schema.clone()).unwrap();
+    let registration = owned_builder
+        .register_records(collection, "owned", 1)
+        .unwrap();
+    let owned = owned_builder.build().unwrap();
+    let owned_session = owned.ingestion();
+    let writer = owned_session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    for (number, document) in documents.iter().enumerate() {
+        batch
+            .insert(
+                format!("r{}", number + 1),
+                Value::from_json(document.clone()).unwrap(),
+            )
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+
+    let values = ["r1", "r2"]
+        .into_iter()
+        .map(|id| {
+            let hit = owned
+                .view()
+                .unwrap()
+                .get_record("entries", id, ReturnMode::Logical)
+                .unwrap()
+                .unwrap();
+            let Some(Payload::Logical(value)) = hit.payload else {
+                panic!("logical payload missing")
+            };
+            (id.to_owned(), value)
+        })
+        .collect();
+    let reader = Arc::new(CorpusReader(Mutex::new(values)));
+    let mut provider_builder = Index::builder();
+    let collection = provider_builder.collection("entries", schema).unwrap();
+    let registration = provider_builder
+        .register_records(collection, "reader", 1)
+        .unwrap();
+    provider_builder
+        .register_reader(registration, reader)
+        .unwrap();
+    let provider = provider_builder.build().unwrap();
+    let provider_session = provider.ingestion();
+    let writer = provider_session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    for (number, document) in documents.iter().enumerate() {
+        batch
+            .insert_from_reader(
+                format!("r{}", number + 1),
+                Value::from_json(document.clone()).unwrap(),
+                RecordVersion::new(1),
+            )
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+
+    let query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("amount >= 1.25 && details.city ~ 'i'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("amount", false)],
+            offset: 0,
+            limit: 10,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    let answers = [&files, &owned, &provider]
+        .into_iter()
+        .map(|index| {
+            let result = index.view().unwrap().search(&query).unwrap();
+            assert_eq!(result.count, Some(2));
+            result
+                .hits
+                .into_iter()
+                .map(|hit| (hit.record_id, hit.payload, hit.matched_fields))
+                .collect::<Vec<_>>()
+        })
+        .collect::<Vec<_>>();
+    assert_eq!(answers[0], answers[1]);
+    assert_eq!(answers[1], answers[2]);
+    assert_eq!(
+        answers[0]
+            .iter()
+            .map(|row| row.0.as_str())
+            .collect::<Vec<_>>(),
+        ["r1", "r2"]
+    );
+    for (filter, expected) in [
+        ("optional:null = true", "r1"),
+        ("optional:exists = false", "r2"),
+        ("tags[0] = 'alpha'", "r1"),
+        ("issued = 2024-02-29", "r1"),
+        ("amount = 2.5", "r2"),
+    ] {
+        let selected = Query {
+            filter: Some(parse_filter(filter).unwrap()),
+            ..query.clone()
+        };
+        for index in [&files, &owned, &provider] {
+            let result = index.view().unwrap().search(&selected).unwrap();
+            assert_eq!(result.count, Some(1), "{filter}");
+            assert_eq!(result.hits[0].record_id, expected, "{filter}");
+        }
+    }
+    let scoped_text = Query {
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "Leipzig".into(),
+            pattern_parameter: None,
+            fields: vec![FtsField {
+                path: objekte_search_core::model::FieldPath::parse("details.city").unwrap(),
+                binding: None,
+                query_path: None,
+            }],
+        }),
+        filter: None,
+        ..query.clone()
+    };
+    for index in [&files, &owned, &provider] {
+        let result = index.view().unwrap().search(&scoped_text).unwrap();
+        assert_eq!(result.count, Some(1));
+        assert_eq!(result.hits[0].record_id, "r1");
+    }
+    for id in ["r1", "r2"] {
+        assert!(
+            files
+                .view()
+                .unwrap()
+                .get_record("entries", id, ReturnMode::Locator)
+                .unwrap()
+                .unwrap()
+                .file
+                .is_some()
+        );
+        assert!(
+            owned
+                .view()
+                .unwrap()
+                .get_record("entries", id, ReturnMode::Locator)
+                .unwrap()
+                .unwrap()
+                .file
+                .is_none()
+        );
+        assert!(
+            provider
+                .view()
+                .unwrap()
+                .get_record("entries", id, ReturnMode::Locator)
+                .unwrap()
+                .unwrap()
+                .file
+                .is_none()
+        );
+    }
+    owned_session.finish().unwrap();
+    provider_session.finish().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
