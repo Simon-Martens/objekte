@@ -71,6 +71,13 @@ enum ReferenceValueVisit {
 }
 
 impl<'a> MergedRelationView<'a> {
+    pub(crate) fn collection_state(&self, id: CollectionId) -> Result<&'a CollectionState, String> {
+        self.repo
+            .collections
+            .get(id.0 as usize)
+            .ok_or_else(|| "merged collection missing".into())
+    }
+
     /// A worker keeps its own source-availability log while borrowing the
     /// same immutable pinned publication and catalog.
     pub(crate) fn fork_for_worker(&self) -> Self {

@@ -2785,20 +2785,7 @@ fn try_native_relation_scan(
     retained_budget: Option<usize>,
     reference: bool,
 ) -> Result<Option<SearchResult>, String> {
-    let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
-        matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
-    });
-    if related_sort
-        || base_active.iter().any(|active| active.len() != 0)
-        || prepared.iter().any(|entry| {
-            segments[entry.collection_index].iter().any(|published| {
-                matches!(
-                    published.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                )
-            })
-        })
-    {
+    if base_active.iter().any(|active| active.len() != 0) {
         return Ok(None);
     }
     let view = crate::query_execution::relations::view::MergedRelationView::new(
@@ -2816,6 +2803,8 @@ fn try_native_relation_scan(
     let mut winner_bytes = 0usize;
     let mut counters = WorkCounters::default();
     let mut total = 0u64;
+    let mut sort_cache = MergedSortTargetCache::default();
+    sort_cache.configure_execution(context);
     for entry in prepared {
         let collection_index = entry.collection_index;
         let collection = &repo.collections[collection_index];
@@ -2838,18 +2827,59 @@ fn try_native_relation_scan(
                 if record.class == RecordClass::RawFallback {
                     continue;
                 }
-                if view.is_native_provider(address)
-                    && let Some(context) = context
-                {
-                    context.charge_reads(1)?;
-                }
-                let Some((value, text)) = view.native_value(address, entry.fts.is_some())? else {
-                    return Err("native relation source body missing".into());
+                let (value, text, file, range, source_bytes) = if view.is_native(address) {
+                    if view.is_native_provider(address)
+                        && let Some(context) = context
+                    {
+                        context.charge_reads(1)?;
+                    }
+                    let Some((value, text)) = view.native_value(address, entry.fts.is_some())?
+                    else {
+                        return Err("native relation source body missing".into());
+                    };
+                    let (file, range) = view.native_origin(address)?;
+                    (value, text, file, range, None)
+                } else {
+                    let Some(resolved) = view.record(address)? else {
+                        return Err("file relation source missing".into());
+                    };
+                    let path = repo
+                        .files
+                        .required_root()
+                        .join(&resolved.file.relative_path);
+                    if let Some(context) = context {
+                        context.charge_reads(1)?;
+                        context.charge_bytes(resolved.record.range.len())?;
+                    }
+                    let bytes = read_record_range_for_search(
+                        &path,
+                        resolved.file.revision,
+                        resolved.record.range,
+                        context,
+                    )?;
+                    let extracted = prepare_query_record_with_execution(
+                        record.class,
+                        &collection.required_file_reader(),
+                        &collection.definition.schema,
+                        &bytes,
+                        &ScanProjection::full(entry.fts.is_some()),
+                        false,
+                        context,
+                    )?;
+                    counters.files_opened += 1;
+                    counters.bytes_read += bytes.len() as u64;
+                    counters.record_parses += 1;
+                    (
+                        extracted.value,
+                        extracted.text,
+                        Some(resolved.file),
+                        Some(resolved.record.range),
+                        Some(bytes),
+                    )
                 };
-                let (file, range) = view.native_origin(address)?;
                 let ctx = RecordContext {
                     value: &value,
-                    source_bytes: None,
+                    source_bytes: source_bytes.as_deref(),
                     record,
                     range,
                     file,
@@ -2915,14 +2945,18 @@ fn try_native_relation_scan(
                 if cap == 0 {
                     continue;
                 }
-                let key = segment_rank_key(
+                let key = relation_rank_key_merged(
                     repo,
                     sort,
-                    collection_index,
-                    &published.index,
-                    record,
-                    Some(&ctx),
-                )?;
+                    &view,
+                    segments,
+                    address,
+                    &ctx,
+                    &mut sort_cache,
+                    entry.filter.as_ref(),
+                    reference,
+                )?
+                .ok_or("native relation sort key unavailable")?;
                 counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
                 let hit = retained_locator_hit(
                     collection,
@@ -2980,6 +3014,11 @@ fn try_native_relation_scan(
         hits.push(hit);
     }
     counters.total_matches = total;
+    counters.sort_target_reads += sort_cache.reads;
+    counters.sort_target_reuse += sort_cache.reuse;
+    counters.relation_edge_visits += sort_cache.edge_visits;
+    counters.relation_source_reads += sort_cache.relation_source_reads;
+    counters.relation_bytes_read += sort_cache.relation_source_bytes;
     counters.match_count_complete = true;
     counters.returned_records = hits.len() as u64;
     Ok(Some(SearchResult {

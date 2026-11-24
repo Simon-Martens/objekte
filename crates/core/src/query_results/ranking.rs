@@ -603,16 +603,24 @@ pub(crate) fn cached_filter_target_sort_key(
     let Some(value) = view.cached_value(target) else {
         return Ok(None);
     };
-    let Some(resolved) = view.record(target)? else {
+    let Some(record) = view.record_header(target)? else {
         return Ok(None);
+    };
+    let (file, range) = if view.is_native(target) {
+        view.native_origin(target)?
+    } else {
+        let Some(resolved) = view.record(target)? else {
+            return Ok(None);
+        };
+        (Some(resolved.file), Some(resolved.record.range))
     };
     let ctx = RecordContext {
         value: &value,
         source_bytes: None,
-        record: &resolved.record,
-        range: (resolved.record).record_range(),
-        file: Some(resolved.file),
-        collection_name: &resolved.collection.definition.name,
+        record: &record,
+        range,
+        file,
+        collection_name: &view.collection_state(target.collection)?.definition.name,
         repository_root: Some(view.repository_root()),
     };
     Ok(Some(computed.key_from_related_target_value(&ctx)?))

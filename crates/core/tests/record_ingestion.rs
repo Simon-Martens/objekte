@@ -1487,6 +1487,30 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "m");
     assert_eq!(index.view().unwrap().segment_summaries().len(), 6);
+    let related_sort = Query {
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("entry.place.name", false)],
+            ..query.options.clone()
+        },
+        ..query.clone()
+    };
+    let sorted = index.view().unwrap().search(&related_sort).unwrap();
+    let sorted_reference = index
+        .view()
+        .unwrap()
+        .search_reference(&related_sort)
+        .unwrap();
+    assert_eq!(sorted.count, Some(2));
+    assert_eq!(sorted.hits, sorted_reference.hits);
+    assert_eq!(
+        sorted
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m", "n"]
+    );
     for expression in [
         "entry.place.name ~ 'Leipzig'",
         "!(entry.place.name = 'Wien')",

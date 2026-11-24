@@ -1,6 +1,5 @@
 //! Query-scoped sorting bindings and scalar-key preparation.
 
-use crate::records::RecordIdSlot;
 use std::cmp::Ordering;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex, OnceLock};
@@ -170,6 +169,35 @@ impl MergedSortTargetCache {
             self.reuse += 1;
             return Ok(Some(value.clone()));
         }
+        if view.is_native(address) {
+            let Some((value, _)) = view.native_value(address, false)? else {
+                return Ok(None);
+            };
+            let estimated = estimated_sort_value_bytes(&value)
+                .checked_add(128)
+                .ok_or("sort target byte estimate overflow")? as u64;
+            let next = self
+                .retained_bytes
+                .checked_add(estimated)
+                .ok_or("sort target byte budget overflow")?;
+            if next > MAX_SORT_TARGET_BYTES {
+                return Err("sort target cache budget exceeded".into());
+            }
+            if view.is_native_provider(address) {
+                if let Some(execution) = &self.execution {
+                    execution.check_string()?;
+                    execution.charge_reads(1)?;
+                }
+                self.reads += 1;
+                if source {
+                    self.relation_source_reads += 1;
+                }
+            }
+            self.retained_bytes = next;
+            let value = Arc::new(value);
+            self.values.insert(address, value.clone());
+            return Ok(Some(value));
+        }
         let Some(current) = view.record(address)? else {
             return Ok(None);
         };
@@ -230,6 +258,24 @@ impl MergedSortTargetCache {
         self.values.insert(address, value.clone());
         Ok(Some(value))
     }
+}
+
+fn estimated_sort_value_bytes(value: &Value) -> usize {
+    let mut total = 0usize;
+    let mut pending = vec![value];
+    while let Some(value) = pending.pop() {
+        total = total.saturating_add(std::mem::size_of::<Value>());
+        match value {
+            Value::String(text) | Value::Id(text) => total = total.saturating_add(text.len()),
+            Value::Object(fields) => {
+                total = total.saturating_add(fields.keys().map(String::len).sum::<usize>());
+                pending.extend(fields.values());
+            }
+            Value::Array(array) => pending.extend(&array.values),
+            _ => {}
+        }
+    }
+    total
 }
 
 fn expression(field: &SortField) -> Result<SortExpression, String> {
@@ -665,24 +711,34 @@ impl ComputedSort {
         if *unverifiable {
             return Ok(());
         }
-        let Some(current) = view.record(address)? else {
+        let Some(record) = view.record_header(address)? else {
             reduced.observe_unavailable()?;
             return Ok(());
         };
-        if current.record.class == RecordClass::RawFallback {
+        if record.class == RecordClass::RawFallback {
             reduced.observe_unavailable()?;
             return Ok(());
         }
+        let collection = view.collection_state(address.collection)?;
         if depth == hops.len() {
             if let PathRoot::Metadata(field) = terminal.field.root {
                 let empty = Value::Null;
+                let (file, range) = if view.is_native(address) {
+                    view.native_origin(address)?
+                } else {
+                    let Some(current) = view.record(address)? else {
+                        reduced.observe_unavailable()?;
+                        return Ok(());
+                    };
+                    (Some(current.file), Some(current.record.range))
+                };
                 let ctx = RecordContext {
                     value: source_value.unwrap_or(&empty),
                     source_bytes: None,
-                    record: &current.record,
-                    range: (current.record).record_range(),
-                    file: Some(current.file),
-                    collection_name: &current.collection.definition.name,
+                    record: &record,
+                    range,
+                    file,
+                    collection_name: &collection.definition.name,
                     repository_root: Some(view.repository_root()),
                 };
                 if let Some(value) = metadata_value(field, &ctx)? {
@@ -737,7 +793,7 @@ impl ComputedSort {
                     let mut positions = Vec::new();
                     visit_reference_occurrences(
                         value,
-                        &current.collection.relations[hop.relation.ordinal as usize]
+                        &collection.relations[hop.relation.ordinal as usize]
                             .declaration
                             .path,
                         &mut positions,
@@ -840,7 +896,7 @@ impl ComputedSort {
                     let mut positions = Vec::new();
                     visit_reference_occurrences(
                         value,
-                        &current.collection.relations[hop.relation.ordinal as usize]
+                        &collection.relations[hop.relation.ordinal as usize]
                             .declaration
                             .path,
                         &mut positions,
@@ -912,7 +968,7 @@ impl ComputedSort {
                     discovery.attach(cache.execution.as_ref());
                     let lookup = view.reference_backlink_sources_with_completeness(
                         hop.relation,
-                        &current.record.id.0,
+                        &record.id.0,
                         Some(&mut discovery),
                     )?;
                     cache.relation_source_reads += discovery.source_reads;
@@ -923,7 +979,7 @@ impl ComputedSort {
                     }
                     lookup.sources
                 } else {
-                    view.backlink_sources(hop.relation, &current.record.id.0)?
+                    view.backlink_sources(hop.relation, &record.id.0)?
                 };
                 for (position, source) in sources.into_iter().enumerate() {
                     if *unverifiable {
