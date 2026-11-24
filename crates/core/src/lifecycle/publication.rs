@@ -749,14 +749,17 @@ impl Index {
                 }
                 index
                     .sorting
-                    .refresh_file_status_for_records(&index.records, |file| {
-                        repository
-                            .files
-                            .files
-                            .get(file.0 as usize)
-                            .map_or(crate::inventory::FileStatus::Valid.code(), |entry| {
-                                entry.status.code()
-                            })
+                    .refresh_file_status_for_records(&index.records, |slot| {
+                        let file = index.backing.file_locator(slot)?.file;
+                        Some(
+                            repository
+                                .files
+                                .files
+                                .get(file.0 as usize)
+                                .map_or(crate::inventory::FileStatus::Valid.code(), |entry| {
+                                    entry.status.code()
+                                }),
+                        )
                     });
                 if let Some(decision) = decision {
                     if let Some(inference) = index.inference.as_mut() {

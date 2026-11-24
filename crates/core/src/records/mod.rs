@@ -4,7 +4,26 @@ use serde::{Deserialize, Serialize};
 
 use crate::files::RecordFileInfo;
 use crate::inventory::{DiagnosticRef, RecordClass};
-use crate::model::{CollectionId, RecordId};
+use crate::model::{CollectionId, RecordId, RecordSlot};
+
+/// Common identity and slot needed by sorting and ranking for every backing.
+pub(crate) trait RecordIdSlot {
+    fn record_id(&self) -> &RecordId;
+    fn record_slot(&self) -> RecordSlot;
+    fn record_class(&self) -> crate::inventory::RecordClass;
+}
+
+impl RecordIdSlot for crate::inventory::RecordEntry {
+    fn record_id(&self) -> &RecordId {
+        &self.id
+    }
+    fn record_slot(&self) -> RecordSlot {
+        self.slot
+    }
+    fn record_class(&self) -> crate::inventory::RecordClass {
+        self.class
+    }
+}
 
 pub mod reader;
 

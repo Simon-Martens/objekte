@@ -12,14 +12,13 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::inventory::{
-    ByteRange, CollectionGeneration, FileEntry, FileInventory, RecordClass, RecordEntry,
-};
+use crate::inventory::{ByteRange, CollectionGeneration, FileEntry, FileInventory, RecordClass};
 use crate::model::{
     FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
 use crate::query::options::SortField;
 use crate::query::semantics::record::{data_values_small, metadata_value_for_record};
+use crate::records::RecordIdSlot;
 use crate::schema::Schema;
 
 mod inferred_order;
@@ -381,17 +380,21 @@ impl SortBuilder {
     /// the dense per-file ownership table required by a base generation.
     pub(crate) fn finish_for_records(
         mut self,
-        records: &[RecordEntry],
+        records: &[impl RecordIdSlot],
     ) -> Result<SortCollection, String> {
         for column in self.columns.values_mut() {
             if column.keys.len() != records.len() {
                 return Err("sort column coverage mismatch".into());
             }
-            column.ascending = records.iter().map(|r| r.slot).collect();
+            column.ascending = records.iter().map(|r| r.record_slot()).collect();
             column.ascending.sort_by(|a, b| {
                 column.keys[a.0 as usize]
                     .compare_with(&column.keys[b.0 as usize], false, column.options)
-                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+                    .then_with(|| {
+                        records[a.0 as usize]
+                            .record_id()
+                            .cmp(records[b.0 as usize].record_id())
+                    })
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
@@ -403,10 +406,13 @@ impl SortBuilder {
                     .iter()
                     .map(|field| (&self.columns[&field.path], field.descending))
                     .collect();
-                let mut order: Vec<_> = records.iter().map(|record| record.slot).collect();
+                let mut order: Vec<_> = records.iter().map(|record| record.record_slot()).collect();
                 order.sort_by(|a, b| {
-                    compare_composite(&columns, *a, *b)
-                        .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+                    compare_composite(&columns, *a, *b).then_with(|| {
+                        records[a.0 as usize]
+                            .record_id()
+                            .cmp(records[b.0 as usize].record_id())
+                    })
                 });
                 CompositeSortOrder { fields, order }
             })
@@ -513,16 +519,20 @@ impl SortCollection {
         generation: &CollectionGeneration,
         inventory: &FileInventory,
     ) {
-        self.refresh_file_status_for_records(&generation.records, |file| {
-            inventory.files[file.0 as usize].status.code()
+        self.refresh_file_status_for_records(&generation.records, |slot| {
+            let record = &generation.records[slot.0 as usize];
+            inventory
+                .files
+                .get(record.file.0 as usize)
+                .map(|file| file.status.code())
         });
     }
 
     /// Finalize status-dependent orders from a segment's local file table.
     pub(crate) fn refresh_file_status_for_records(
         &mut self,
-        records: &[RecordEntry],
-        status: impl Fn(crate::model::FileId) -> u8,
+        records: &[impl crate::records::RecordIdSlot],
+        status: impl Fn(RecordSlot) -> Option<u8>,
     ) {
         let mut refreshed = false;
         for column in self.columns.values_mut() {
@@ -531,14 +541,20 @@ impl SortCollection {
             }
             refreshed = true;
             for record in records {
-                column.keys[record.slot.0 as usize] =
-                    SortKey::Number(Number::integer(status(record.file) as i128));
+                column.keys[record.record_slot().0 as usize] = status(record.record_slot())
+                    .map_or(SortKey::Missing, |code| {
+                        SortKey::Number(Number::integer(code as i128))
+                    });
             }
-            column.ascending = records.iter().map(|r| r.slot).collect();
+            column.ascending = records.iter().map(|r| r.record_slot()).collect();
             column.ascending.sort_by(|a, b| {
                 column.keys[a.0 as usize]
                     .compare_with(&column.keys[b.0 as usize], false, column.options)
-                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+                    .then_with(|| {
+                        records[a.0 as usize]
+                            .record_id()
+                            .cmp(records[b.0 as usize].record_id())
+                    })
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
@@ -557,8 +573,11 @@ impl SortCollection {
                     .map(|field| (&self.columns[&field.path], field.descending))
                     .collect::<Vec<_>>();
                 composite.order.sort_by(|a, b| {
-                    compare_composite(&columns, *a, *b)
-                        .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+                    compare_composite(&columns, *a, *b).then_with(|| {
+                        records[a.0 as usize]
+                            .record_id()
+                            .cmp(records[b.0 as usize].record_id())
+                    })
                 });
             }
         }

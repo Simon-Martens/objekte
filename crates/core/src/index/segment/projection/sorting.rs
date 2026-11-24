@@ -3,12 +3,12 @@ use std::collections::HashMap;
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap};
 use crate::index::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
-use crate::inventory::RecordEntry;
+use crate::records::RecordIdSlot;
 
 pub(crate) fn project_sorting(
     source: &SortCollection,
     slots: &SlotMap<'_>,
-    records: &[RecordEntry],
+    records: &[impl RecordIdSlot],
 ) -> Result<SortCollection, String> {
     let mut sorting = SortCollection {
         columns: HashMap::with_capacity(source.columns.len()),
@@ -55,17 +55,25 @@ pub(crate) fn project_sorting(
             .into_iter()
             .collect::<Option<Vec<_>>>()
             .ok_or("sort projection slot mismatch")?;
-        column.ascending = records.iter().map(|record| record.slot).collect();
+        column.ascending = records.iter().map(|record| record.record_slot()).collect();
         column.ascending.sort_by(|a, b| {
             column.keys[a.0 as usize]
                 .compare_with(&column.keys[b.0 as usize], false, column.options)
-                .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+                .then_with(|| {
+                    records[a.0 as usize]
+                        .record_id()
+                        .cmp(records[b.0 as usize].record_id())
+                })
         });
-        column.descending = records.iter().map(|record| record.slot).collect();
+        column.descending = records.iter().map(|record| record.record_slot()).collect();
         column.descending.sort_by(|a, b| {
             column.keys[a.0 as usize]
                 .compare_with(&column.keys[b.0 as usize], true, column.options)
-                .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+                .then_with(|| {
+                    records[a.0 as usize]
+                        .record_id()
+                        .cmp(records[b.0 as usize].record_id())
+                })
         });
         sorting.columns.insert(path.clone(), column);
     }
@@ -81,10 +89,13 @@ pub(crate) fn project_sorting(
                     .ok_or("composite sort column missing")
             })
             .collect::<Result<Vec<_>, _>>()?;
-        composite.order = records.iter().map(|record| record.slot).collect();
+        composite.order = records.iter().map(|record| record.record_slot()).collect();
         composite.order.sort_by(|a, b| {
-            compare_composite(&columns, *a, *b)
-                .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+            compare_composite(&columns, *a, *b).then_with(|| {
+                records[a.0 as usize]
+                    .record_id()
+                    .cmp(records[b.0 as usize].record_id())
+            })
         });
     }
     Ok(sorting)

@@ -20,6 +20,7 @@ use crate::query::sort_binding::{
 use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind};
 use crate::query_results::cache::CacheBudget;
 use crate::query_results::verified::CachedMember;
+use crate::records::RecordIdSlot;
 use crate::repository::Repository;
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
@@ -371,13 +372,13 @@ pub(crate) fn segment_rank_key(
     sort: &ResolvedSort<'_>,
     collection_index: usize,
     segment: &IndexedCollectionSegment,
-    record: &RecordEntry,
+    record: &impl RecordIdSlot,
     ctx: Option<&RecordContext<'_>>,
 ) -> Result<RankKey, String> {
     #[cfg(test)]
     {
         SEGMENT_RANK_KEY_CONSTRUCTIONS.with(|value| value.set(value.get() + 1));
-        LAST_SEGMENT_RANK_KEY.with(|value| value.set((segment.id.get(), record.slot.0)));
+        LAST_SEGMENT_RANK_KEY.with(|value| value.set((segment.id.get(), record.record_slot().0)));
     }
     let terms = sort.bound.terms[collection_index]
         .as_ref()
@@ -389,7 +390,7 @@ pub(crate) fn segment_rank_key(
                 let column = segment.sorting.column(&base_column.path.display())?;
                 column
                     .keys
-                    .get(record.slot.0 as usize)
+                    .get(record.record_slot().0 as usize)
                     .ok_or("segment sort slot missing")?
                     .clone()
             }
@@ -402,7 +403,7 @@ pub(crate) fn segment_rank_key(
     Ok(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
-        id: String::from(record.id.0.as_ref()),
+        id: String::from(record.record_id().0.as_ref()),
     })
 }
 
@@ -411,7 +412,7 @@ pub(crate) fn segment_rank_key_owned_bytes(
     sort: &ResolvedSort<'_>,
     collection_index: usize,
     segment: &IndexedCollectionSegment,
-    record: &RecordEntry,
+    record: &impl RecordIdSlot,
 ) -> Result<usize, String> {
     let terms = sort.bound.terms[collection_index]
         .as_ref()
@@ -419,7 +420,7 @@ pub(crate) fn segment_rank_key_owned_bytes(
     let mut bytes = rank_key_storage_bytes(
         terms.len(),
         repo.collections[collection_index].definition.name.len(),
-        record.id.0.len(),
+        record.record_id().0.len(),
         0,
     )
     .ok_or("ordered sort key size overflow")?;
@@ -433,7 +434,7 @@ pub(crate) fn segment_rank_key_owned_bytes(
             .get(&base_column.path)
             .ok_or("segment sort column missing")?
             .keys
-            .get(record.slot.0 as usize)
+            .get(record.record_slot().0 as usize)
             .ok_or("segment sort slot missing")?;
         let variable = owned_sort_key_bytes(key);
         bytes = bytes

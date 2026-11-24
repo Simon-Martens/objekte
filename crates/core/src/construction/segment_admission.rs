@@ -952,11 +952,14 @@ impl CollectionSegment {
         }
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut sorting = sorting.finish_for_records(&self.records)?;
-        sorting.refresh_file_status_for_records(&self.records, |file| {
-            self.files
-                .iter()
-                .find(|entry| entry.entry.id == file)
-                .map_or(FileStatus::Valid.code(), |entry| entry.entry.status.code())
+        sorting.refresh_file_status_for_records(&self.records, |slot| {
+            let file = self.records.get(slot.0 as usize)?.file;
+            Some(
+                self.files
+                    .iter()
+                    .find(|entry| entry.entry.id == file)
+                    .map_or(FileStatus::Valid.code(), |entry| entry.entry.status.code()),
+            )
         });
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
