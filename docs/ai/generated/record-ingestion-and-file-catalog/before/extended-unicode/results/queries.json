@@ -1,0 +1,91 @@
+[
+  {
+    "id": "Q155",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= $minimum_year",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "minimum_year": 1800
+    }
+  },
+  {
+    "id": "Q163",
+    "collection": "entries",
+    "fts": "Almanach.*",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q166",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.preferred_title ~ 'Taschenbuch'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q170",
+    "collection": "entries",
+    "fts": null,
+    "filter": "@record.id = 'jv829b9kekdb5d3' && @backlinks.contents__entry.preferred_title ?~ 'Lieder'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q195",
+    "collection": "agents",
+    "fts": null,
+    "filter": "annotation:? = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": false
+  },
+  {
+    "id": "Q219",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year:number = true && year >= 1800",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": false
+  }
+]

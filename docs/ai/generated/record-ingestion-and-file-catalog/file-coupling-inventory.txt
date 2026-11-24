@@ -1,0 +1,1663 @@
+crates/core/examples/bench_record_ingestion_gate.rs:153:                "path": hit.file_path.to_string_lossy().replace('\\', "/"),
+crates/core/examples/musenalm_cli.rs:49:        "generation": hit.generation, "file_id": hit.file_id,
+crates/core/examples/musenalm_cli.rs:50:        "file_path": hit.file_path.to_string_lossy(), "file_size": hit.file_size,
+crates/core/examples/musenalm_cli.rs:51:        "file_created_ns": hit.file_created_ns, "byte_start": hit.byte_start,
+crates/core/examples/musenalm_cli.rs:53:        "matched_fields": hit.matched_fields, "file_status": hit.file_status.code(),
+crates/core/examples/musenalm_cli.rs:395:            hit.file_id,
+crates/core/examples/musenalm_cli.rs:396:            hit.file_path.display(),
+crates/core/examples/musenalm_cli.rs:399:            hit.file_size,
+crates/core/examples/musenalm_cli.rs:400:            hit.file_created_ns,
+crates/core/examples/musenalm_cli.rs:402:            hit.file_status.label(),
+crates/core/examples/musenalm_cli.rs:403:            hit.file_status.code(),
+crates/core/examples/musenalm_cli.rs:409:            objekte_search_core::model::FileId(hit.file_id),
+crates/desktop/src/ui/state.rs:5:use objekte_search_core::model::FileId;
+crates/desktop/src/ui/state.rs:126:    pub file_catalogue: Option<FileCatalogue>,
+crates/desktop/src/ui/state.rs:127:    pub visible_file_ids: Arc<Vec<FileId>>,
+crates/desktop/src/ui/state.rs:206:        let Some(catalogue) = &self.file_catalogue else {
+crates/desktop/src/ui/state.rs:212:            catalogue.view.revision().0,
+crates/desktop/src/ui/state.rs:217:        self.visible_file_ids = catalogue.filtered_ids(scope.0.as_deref(), scope.1.as_deref());
+crates/desktop/src/ui/state.rs:221:    fn install_directories(&mut self, catalog: DirectoryCatalog) {
+crates/desktop/src/ui/state.rs:222:        self.directories = catalog.all;
+crates/desktop/src/ui/state.rs:223:        self.directories_by_collection = catalog.by_collection;
+crates/desktop/src/ui/state.rs:268:                self.file_catalogue = None;
+crates/desktop/src/ui/state.rs:330:            UiUpdate::FileCatalogue(catalogue) => {
+crates/desktop/src/ui/state.rs:331:                self.file_catalogue = Some(catalogue);
+crates/core/examples/bench_musenalm.rs:278:                for row in view.catalogue_rows() {
+crates/core/examples/bench_musenalm.rs:290:                "discovery_ns":build_status.as_ref().and_then(|status| status.catalogue_elapsed_ns).unwrap_or(0),
+crates/core/examples/bench_musenalm.rs:732:    for file in repo.catalogue_rows() {
+crates/cli/src/tui/view/mod.test.rs:5:fn discovered_file_catalogue_shows_physical_metadata_without_record_claims() {
+crates/cli/src/tui/view/mod.test.rs:14:    assert!(screen.contains("3 files in catalogue"));
+crates/desktop/src/ui/render.rs:638:            let catalogue_view = self
+crates/desktop/src/ui/render.rs:640:                .file_catalogue
+crates/desktop/src/ui/render.rs:642:                .map(|catalogue| catalogue.view.clone());
+crates/desktop/src/ui/render.rs:654:                                        let Some(view) = &catalogue_view else {
+crates/desktop/src/ui/render.rs:657:                                        let Some(row) = view.catalogue_row(file_ids[item - directory_count]) else {
+crates/core/examples/bench_inventory_membership.rs:6:use objekte_search_core::inventory::{CollectionBuilder, FileInventory, SourceRevision};
+crates/core/examples/bench_inventory_membership.rs:11:        let mut inventory = FileInventory::new(PathBuf::from("/synthetic"));
+crates/core/tests/non_json_relations.rs:5:use objekte_search_core::inventory::ByteRange;
+crates/core/tests/non_json_relations.rs:26:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/tests/non_json_relations.rs:27:        Ok(vec![ByteRange::checked(
+crates/cli/src/tui/view/mod.rs:113:            _ if app.view == View::Files => ("file catalogue".to_owned(), DIM),
+crates/cli/src/tui/view/mod.rs:140:                Paragraph::new(format!(" {} files in catalogue", app.file_count()))
+crates/cli/src/tui/view/mod.rs:499:        let status_color = match hit.file_status {
+crates/cli/src/tui/view/mod.rs:552:            pad_clip("FileId", id_width),
+crates/cli/src/tui/view/mod.rs:657:        let status_color = match hit.file_status {
+crates/cli/src/tui/view/mod.rs:889:    let status_color = match hit.file_status {
+crates/cli/src/tui/view/mod.rs:903:            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+crates/cli/src/tui/view/mod.rs:1100:    let status_color = match hit.file_status {
+crates/cli/src/tui/view/mod.rs:1110:            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+crates/cli/src/tui/view/mod.rs:1407:                "Ctrl+I            File catalogue / results",
+crates/cli/src/tui/view/mod.rs:1433:                "Ctrl+I            File catalogue / results",
+crates/core/src/tests/foundation_invariants.rs:75:        .map(|hit| hit.file_path.file_stem().unwrap().to_str().unwrap())
+crates/core/src/tests/foundation_invariants.rs:172:                    .map(|hit| hit.file_path.file_stem().unwrap().to_str().unwrap())
+crates/core/tests/inline_sort.rs:245:        assert_eq!(hit.file_path, std::path::Path::new("data/c.json"));
+crates/core/tests/inline_sort.rs:248:        assert_eq!(hit.byte_end, hit.file_size);
+crates/core/tests/inline_sort.rs:294:                    assert_eq!(bytes, &std::fs::read(root.join(&hit.file_path)).unwrap());
+crates/core/examples/bench_index_construction.rs:213:        let record_entry_size = std::mem::size_of::<objekte_search_core::inventory::RecordEntry>();
+crates/core/examples/bench_index_construction.rs:375:    let index = task.wait_catalogue().map_err(|e| e.to_string())?;
+crates/core/examples/bench_index_construction.rs:376:    let catalogue_observed_ns = started.elapsed().as_nanos() as u64;
+crates/core/examples/bench_index_construction.rs:443:    for row in view.catalogue_rows() {
+crates/core/examples/bench_index_construction.rs:503:        "discovery_ns":timing.catalogue_elapsed_ns,
+crates/core/examples/bench_index_construction.rs:504:        "catalogue_observed_ns":catalogue_observed_ns,
+crates/core/examples/bench_index_construction.rs:569:                relative_path: hit.file_path,
+crates/core/examples/bench_index_construction.rs:625:        if result.hits.first().is_none_or(|hit| hit.file_path != path) {
+crates/core/examples/bench_index_construction.rs:690:    for file in repo.catalogue_rows() {
+crates/core/examples/bench_corrective_cases.rs:324:            serde_json::json!({"case":format!("{name}-build"),"median_ns":build_samples[5],"samples_ns":build_samples,"parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"resident_bytes":memory_bytes("VmRSS:"),"process_peak_resident_bytes":memory_bytes("VmHWM:"),"file_status":repo.file_status(objekte_search_core::model::FileId(0)).ok_or("missing built file")?.code()})
+crates/core/examples/bench_corrective_cases.rs:328:                repo.file_status(objekte_search_core::model::FileId(0)),
+crates/desktop/src/ui/panels.rs:1338:                    .when(index.catalogue_complete && !index.construction_complete, |this| this.child(
+crates/cli/src/tui/record.rs:132:        plain(&mut rows, "File", hit.file_path.display().to_string());
+crates/cli/src/tui/record.rs:141:            format!("{} ({})", hit.file_status.label(), hit.file_status.code()),
+crates/cli/src/tui/record.rs:388:        "@file.id" => Some(hit.file_id.to_string()),
+crates/cli/src/tui/record.rs:389:        "@file.path" => Some(hit.file_path.display().to_string()),
+crates/cli/src/tui/record.rs:390:        "@file.size" => Some(hit.file_size.to_string()),
+crates/cli/src/tui/record.rs:391:        "@file.status" => Some(hit.file_status.code().to_string()),
+crates/cli/src/tui/record.rs:392:        "@file.created" => Some(hit.file_created_ns.map_or("null".into(), |value| {
+crates/cli/src/tui/mod.test.rs:102:fn typing_from_catalogue_opens_query_control() {
+crates/core/examples/bench_candidate_verification.rs:14:    ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SourceRevision,
+crates/core/examples/bench_candidate_verification.rs:17:use objekte_search_core::model::{CollectionId, FileId, RecordId, RecordSlot};
+crates/core/examples/bench_candidate_verification.rs:240:    let file = FileEntry {
+crates/core/examples/bench_candidate_verification.rs:241:        id: FileId(0),
+crates/core/examples/bench_candidate_verification.rs:253:    let record = RecordEntry {
+crates/core/examples/bench_candidate_verification.rs:256:        file: FileId(0),
+crates/core/examples/bench_candidate_verification.rs:257:        range: ByteRange { start: 0, end: 0 },
+crates/core/examples/bench_candidate_verification.rs:550:                        "file_status": hit.file_status.label(),
+crates/core/src/source/test_support.rs:4:use crate::inventory::ByteRange;
+crates/core/src/source/test_support.rs:14:    pub(crate) ranges: Vec<ByteRange>,
+crates/core/src/source/test_support.rs:24:    fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/source/test_support.rs:28:    fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
+crates/core/src/source/test_support.rs:67:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/source/test_support.rs:73:                    ranges.push(ByteRange::checked(
+crates/cli/src/tui/mod.rs:44:/// A repository can be ready immediately or still building its initial catalogue.
+crates/cli/src/tui/mod.rs:132:/// Opens the screen as soon as discovery publishes the physical file catalogue.
+crates/desktop/src/ui/model.rs:4://! operation generations before it sends updates here. A pinned catalogue
+crates/desktop/src/ui/model.rs:12:use objekte_search_core::model::FileId;
+crates/desktop/src/ui/model.rs:382:    pub catalogue_complete: bool,
+crates/desktop/src/ui/model.rs:411:            catalogue_complete: false,
+crates/desktop/src/ui/model.rs:596:/// A pinned catalogue and compact physical-file IDs. Paths remain owned by
+crates/desktop/src/ui/model.rs:601:    pub ids: Arc<Vec<FileId>>,
+crates/desktop/src/ui/model.rs:602:    pub by_collection: BTreeMap<String, Arc<Vec<FileId>>>,
+crates/desktop/src/ui/model.rs:610:    ) -> Arc<Vec<FileId>> {
+crates/desktop/src/ui/model.rs:626:                    self.view.catalogue_row(*id).is_some_and(|row| {
+crates/cli/src/tui/export.rs:35:        "file": hit.file_path.to_string_lossy(),
+crates/cli/src/tui/export.rs:39:        "file_status": hit.file_status.code(),
+crates/cli/src/tui/export.rs:40:        "file_status_label": hit.file_status.label(),
+crates/cli/src/tui/completion.rs:53:                MetadataField::FileId,
+crates/cli/src/output.rs:11:use objekte_search_core::model::FileId;
+crates/cli/src/output.rs:172:        let diagnostic = repo.diagnostic(FileId(hit.file_id), hit.diagnostic_ref);
+crates/cli/src/output.rs:182:                "path": path_representation::query_path(&hit.file_path),
+crates/cli/src/output.rs:184:                "file_id": hit.file_id,
+crates/cli/src/output.rs:185:                "size_bytes": hit.file_size,
+crates/cli/src/output.rs:186:                "created_ms": hit.file_created_ns.map(signed_milliseconds_value),
+crates/cli/src/output.rs:194:                "status": file_status(hit.file_status),
+crates/core/src/source/registry/tests.rs:5:use crate::inventory::{ByteRange, SourceRevision};
+crates/core/src/source/registry/tests.rs:36:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/source/registry/tests.rs:42:                    ranges.push(ByteRange::checked(
+crates/core/src/source/registry/tests.rs:52:            ranges.push(ByteRange::checked(
+crates/core/src/source/registry/tests.rs:251:            hit.file_path.ends_with("data/records.txt")
+crates/core/src/source/registry/tests.rs:310:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/source/registry/tests.rs:311:        Ok(vec![ByteRange::checked(
+crates/core/src/source/registry/tests.rs:493:        vec![ByteRange { start: 5, end: 2 }],
+crates/core/src/source/registry/tests.rs:494:        vec![ByteRange { start: 0, end: 7 }],
+crates/core/src/source/registry/tests.rs:496:            ByteRange { start: 0, end: 3 },
+crates/core/src/source/registry/tests.rs:497:            ByteRange { start: 2, end: 6 },
+crates/core/src/source/registry/tests.rs:500:            ByteRange { start: 4, end: 6 },
+crates/core/src/source/registry/tests.rs:501:            ByteRange { start: 0, end: 2 },
+crates/core/src/source/registry/tests.rs:515:            ByteRange { start: 0, end: 2 },
+crates/core/src/source/registry/tests.rs:516:            ByteRange { start: 3, end: 6 },
+crates/core/src/source/registry/tests.rs:539:            (ByteRange { start: 0, end: 2 }, "logical"),
+crates/core/src/source/registry/tests.rs:540:            (ByteRange { start: 3, end: 6 }, "malformed")
+crates/core/src/source/registry/tests.rs:564:        Some((ByteRange { start: 0, end: 6 }, DiagnosticCategory::Framing))
+crates/core/src/source/registry/tests.rs:589:            ranges.push(ByteRange { start, end });
+crates/core/src/source/registry/tests.rs:642:                    ByteRange { start: 0, end: 2 },
+crates/core/src/source/registry/tests.rs:643:                    ByteRange { start: 3, end: 6 },
+crates/cli/src/tui/app.rs:15:use objekte_search_core::model::{FieldPath, FileId, LogicalType, PathRoot, Value};
+crates/cli/src/tui/app.rs:166:            Self::Files => "Toggle file catalogue             Ctrl+I",
+crates/cli/src/tui/app.rs:205:    catalogue_view: IndexView,
+crates/cli/src/tui/app.rs:206:    catalogue_count: usize,
+crates/cli/src/tui/app.rs:207:    cached_file_ids: Option<Vec<FileId>>,
+crates/cli/src/tui/app.rs:315:        let catalogue_view = snapshot_view
+crates/cli/src/tui/app.rs:317:        // Restored indexes may have sparse FileIds after reconciliation. Fresh
+crates/cli/src/tui/app.rs:320:            catalogue_view
+crates/cli/src/tui/app.rs:321:                .catalogue_rows()
+crates/cli/src/tui/app.rs:325:        let catalogue_count = build_status.as_ref().map_or_else(
+crates/cli/src/tui/app.rs:372:            catalogue_view,
+crates/cli/src/tui/app.rs:373:            catalogue_count,
+crates/cli/src/tui/app.rs:471:        self.catalogue_count = snapshot.status.discovered_files;
+crates/cli/src/tui/app.rs:491:            let previous_revision = self.catalogue_view.revision();
+crates/cli/src/tui/app.rs:493:            self.catalogue_view = view;
+crates/cli/src/tui/app.rs:530:        self.catalogue_count
+crates/cli/src/tui/app.rs:537:            FileId(u32::try_from(index).ok()?)
+crates/cli/src/tui/app.rs:539:        self.catalogue_view.catalogue_row(id)
+crates/cli/src/tui/app.rs:851:            objekte_search_core::model::FileId(hit.file_id),
+crates/cli/src/tui/app.rs:1141:        let choices = completion::choices(&self.catalogue_view, scope, &context);
+crates/cli/src/tui/app.rs:1289:                        self.hits.sort_by_key(|hit| (hit.file_id, hit.byte_start));
+crates/cli/src/tui/app.rs:1425:        let published_view = incomplete.then(|| self.catalogue_view.clone());
+crates/cli/src/tui/app.rs:1476:                        Err("index catalogue is not ready".into()),
+crates/desktop/src/controller/runtime.test.rs:504:fn file_catalogue_uses_pinned_file_ids_without_copied_paths() {
+crates/desktop/src/controller/runtime.test.rs:507:    let catalogue = indexed_file_catalogue(view, &fixture.session.collections);
+crates/desktop/src/controller/runtime.test.rs:508:    assert_eq!(catalogue.ids.len(), 3);
+crates/desktop/src/controller/runtime.test.rs:509:    assert_eq!(catalogue.filtered_ids(Some("files"), None).len(), 3);
+crates/desktop/src/controller/runtime.test.rs:510:    assert_eq!(catalogue.filtered_ids(Some("missing"), None).len(), 0);
+crates/desktop/src/controller/runtime.test.rs:511:    for id in catalogue.ids.iter().copied() {
+crates/desktop/src/controller/runtime.test.rs:512:        assert!(catalogue.view.catalogue_row(id).is_some());
+crates/core/src/query_predicate/structured.rs:74:    record: &crate::inventory::RecordEntry,
+crates/core/src/query_predicate/structured.rs:89:        repository_root: &repo.files.root,
+crates/core/src/source/preparation/tests.rs:307:        fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+crates/core/src/source/preparation/tests.rs:482:        fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+crates/core/src/source/preparation/tests.rs:483:            Ok(vec![crate::inventory::ByteRange::checked(
+crates/core/src/source/extraction/tests.rs:10:    ByteRange, DiagnosticCategory, ReaderDiagnostic, SourceFormat, SourceOutcome, SourceReader,
+crates/core/src/source/extraction/tests.rs:48:            ranges: vec![ByteRange {
+crates/core/src/source/extraction/tests.rs:177:        ByteRange { start: 6, end: 9 },
+crates/core/src/source/extraction/tests.rs:189:        ByteRange { start: 13, end: 15 },
+crates/core/src/source/extraction/tests.rs:199:        ByteRange { start: 15, end: 15 },
+crates/core/src/source/extraction/tests.rs:210:        ByteRange { start: 7, end: 10 },
+crates/core/src/source/extraction/tests.rs:273:            ByteRange { start: 0, end: 7 },
+crates/core/src/source/extraction/tests.rs:274:            ByteRange { start: 8, end: 15 }
+crates/core/src/source/mod.rs:7:use crate::inventory::ByteRange;
+crates/core/src/source/mod.rs:113:        range: ByteRange,
+crates/core/src/source/mod.rs:117:        range: ByteRange,
+crates/core/src/source/mod.rs:180:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
+crates/core/src/source/mod.rs:200:    fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
+crates/core/src/source/extraction.rs:9:use crate::inventory::{ByteRange, SourceRevision};
+crates/core/src/source/extraction.rs:87:    F: FnMut(ByteRange, ExtractedRecord) -> Result<(), String>,
+crates/core/src/source/extraction.rs:100:    F: FnMut(ByteRange, ExtractedRecord) -> Result<(), String>,
+crates/core/src/source/extraction.rs:122:) -> Result<Option<(Arc<Vec<u8>>, Vec<ByteRange>)>, String> {
+crates/core/src/source/extraction.rs:148:    ranges: &[ByteRange],
+crates/core/src/source/extraction.rs:161:    ranges: &[ByteRange],
+crates/core/src/source/extraction.rs:219:    range: ByteRange,
+crates/core/src/source/extraction.rs:417:            let range = ByteRange::checked(0, size, size)?;
+crates/core/src/source/json_lines.rs:3:use crate::inventory::ByteRange;
+crates/core/src/source/json_lines.rs:38:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/source/json_lines.rs:44:                    result.push(ByteRange::checked(
+crates/core/src/source/json_lines.rs:54:            result.push(ByteRange::checked(
+crates/desktop/src/controller/filter_validation.rs:99:        MetadataField::FileId,
+crates/desktop/src/controller/filter_validation.rs:113:            | MetadataField::FileId
+crates/desktop/src/backend/record_json.rs:87:        "file": hit.file_path.to_string_lossy(),
+crates/desktop/src/backend/record_json.rs:91:        "file_status": hit.file_status.code(),
+crates/desktop/src/backend/record_json.rs:92:        "file_status_label": hit.file_status.label(),
+crates/desktop/src/controller/runtime.rs:373:        file_catalogue: FileCatalogue,
+crates/desktop/src/controller/runtime.rs:756:            let file_catalogue = indexed_file_catalogue(view, &collections);
+crates/desktop/src/controller/runtime.rs:761:                file_catalogue,
+crates/desktop/src/controller/runtime.rs:890:                    self.index_ui.catalogue_complete = snapshot.status.catalogue_complete;
+crates/desktop/src/controller/runtime.rs:2571:                file_catalogue,
+crates/desktop/src/controller/runtime.rs:2576:                    updates.push(UiUpdate::FileCatalogue(file_catalogue));
+crates/desktop/src/controller/runtime.rs:2590:                        file_catalogue,
+crates/desktop/src/controller/runtime.rs:2703:                        updates.push(UiUpdate::FileCatalogue(file_catalogue));
+crates/desktop/src/controller/runtime.rs:4068:    let file_catalogue = indexed_file_catalogue(view, &session.collections);
+crates/desktop/src/controller/runtime.rs:4074:        file_catalogue,
+crates/desktop/src/controller/runtime.rs:4079:fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalogue {
+crates/desktop/src/controller/runtime.rs:4085:    for row in view.catalogue_rows() {
+crates/desktop/src/controller/projection.rs:158:                    "@file" => hit.file_path.display().to_string(),
+crates/desktop/src/controller/projection.rs:168:                    file: hit.file_path.display().to_string(),
+crates/desktop/src/controller/projection.rs:233:        format!("{} · raw fallback", hit.file_status.label())
+crates/desktop/src/controller/projection.rs:235:        hit.file_status.label().to_owned()
+crates/desktop/src/controller/projection.rs:249:        MetadataField::FileId => hit.file_id.to_string(),
+crates/desktop/src/controller/projection.rs:250:        MetadataField::FilePath => query_path(&hit.file_path),
+crates/desktop/src/controller/projection.rs:251:        MetadataField::FileSize => hit.file_size.to_string(),
+crates/desktop/src/controller/projection.rs:252:        MetadataField::FileCreated => hit.file_created_ns.map_or_else(
+crates/desktop/src/controller/projection.rs:257:        MetadataField::FileStatus => hit.file_status.code().to_string(),
+crates/desktop/src/controller/projection.rs:489:            hit.file_status == FileStatus::Valid && hit.record_class == RecordClass::Logical,
+crates/desktop/src/controller/projection.rs:529:        ("File", hit.file_path.display().to_string()),
+crates/desktop/src/controller/projection.rs:534:        ("File status", format!("{:?}", hit.file_status)),
+crates/core/src/lifecycle/view.rs:9:use crate::inventory::{ActiveRecords, FileEntry};
+crates/core/src/lifecycle/view.rs:10:use crate::model::{CollectionId, FileId, Value};
+crates/core/src/lifecycle/view.rs:43:/// Logical counts come from this revision's active catalogue and liveness
+crates/core/src/lifecycle/view.rs:169:        for file in self.catalogue_rows() {
+crates/core/src/lifecycle/view.rs:256:    /// Construction status for one catalogue file in this pinned publication.
+crates/core/src/lifecycle/view.rs:257:    pub fn file_status(&self, file: FileId) -> Option<crate::inventory::FileStatus> {
+crates/core/src/lifecycle/view.rs:262:        self.0.catalog.construction_complete()
+crates/core/src/lifecycle/view.rs:294:    /// path catalogue or implying that the file has been parsed.
+crates/core/src/lifecycle/view.rs:295:    pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow<'_>> {
+crates/core/src/lifecycle/view.rs:296:        if !self.0.catalog.is_active(id) {
+crates/core/src/lifecycle/view.rs:299:        let file = self.0.catalog.entry(id)?;
+crates/core/src/lifecycle/view.rs:310:    pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow<'_>> + '_ {
+crates/core/src/lifecycle/view.rs:311:        (0..self.0.catalog.allocated_files())
+crates/core/src/lifecycle/view.rs:312:            .filter_map(|number| self.catalogue_row(FileId(number as u32)))
+crates/core/src/lifecycle/view.rs:347:    /// second resident catalogue.
+crates/core/src/lifecycle/view.rs:448:        let file = FileId(hit.file_id);
+crates/core/src/lifecycle/view.rs:467:            let Some(position) = self.0.catalog.entry(file).and_then(|entry| {
+crates/core/src/lifecycle/view.rs:500:    pub fn file_handle(&self, file: FileId) -> Option<FileHandle> {
+crates/core/src/lifecycle/view.rs:501:        self.0.catalog.is_active(file).then(|| {
+crates/core/src/lifecycle/view.rs:519:            .catalog
+crates/core/src/lifecycle/view.rs:526:        (0..self.0.catalog.allocated_files()).filter_map(|number| {
+crates/core/src/lifecycle/view.rs:528:                .catalog
+crates/core/src/lifecycle/view.rs:529:                .entry(FileId(number as u32))
+crates/core/src/lifecycle/view.rs:543:        (0..self.0.catalog.allocated_files()).filter_map(move |number| {
+crates/core/src/lifecycle/view.rs:544:            let entry = self.0.catalog.entry(FileId(number as u32))?;
+crates/core/src/lifecycle/view.rs:551:    pub fn file_version(&self, file: FileId) -> Option<FileVersion> {
+crates/core/src/lifecycle/view.rs:553:            .catalog
+crates/core/src/lifecycle/view.rs:558:    pub(crate) fn file_version_including_inactive(&self, file: FileId) -> Option<FileVersion> {
+crates/core/src/lifecycle/view.rs:562:    pub(crate) fn file_entry(&self, file: FileId) -> Option<&FileEntry> {
+crates/core/src/lifecycle/view.rs:563:        self.0.catalog.entry(file)
+crates/core/src/lifecycle/view.rs:568:        file: FileId,
+crates/core/src/lifecycle/view.rs:572:            .catalog
+crates/core/src/lifecycle/view.rs:578:    pub(crate) fn file_fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
+crates/core/src/lifecycle/view.rs:579:        self.0.catalog.fingerprint(file)
+crates/core/src/lifecycle/view.rs:582:    pub(crate) fn file_configuration(&self, file: FileId) -> Option<[u8; 32]> {
+crates/core/src/lifecycle/view.rs:583:        self.0.catalog.configuration(file)
+crates/core/src/lifecycle/view.rs:586:    pub(crate) fn file_record_count(&self, file: FileId) -> Option<u64> {
+crates/core/src/lifecycle/view.rs:656:            &self.0.catalog,
+crates/core/src/lifecycle/view.rs:677:            discovered_files: self.0.catalog.active_files() as usize,
+crates/core/src/lifecycle/view.rs:735:            &self.0.catalog,
+crates/core/src/lifecycle/view.rs:764:            discovered_files: self.0.catalog.active_files() as usize,
+crates/core/src/lifecycle/view.rs:947:            &self.0.catalog,
+crates/core/src/lifecycle/view.rs:959:            discovered_files: self.0.catalog.active_files() as usize,
+crates/core/src/lifecycle/view.rs:1047:            &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1065:            &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1093:                &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1112:                &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1139:                &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1172:                &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1195:                &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1218:            &self.0.catalog,
+crates/core/src/lifecycle/view.rs:1421:            &self.0.catalog,
+crates/desktop/src/backend/query.test.rs:48:        assert!(hit.file_path.starts_with("dir"));
+crates/desktop/src/controller/projection.test.rs:22:            hit.file_created_ns = Some(1_000_000_000);
+crates/desktop/src/controller/projection.test.rs:27:            let actual_size = std::fs::metadata(fixture._root.path().join(&hit.file_path))
+crates/desktop/src/controller/projection.test.rs:39:                ("@file.id", hit.file_id.to_string()),
+crates/desktop/src/controller/projection.test.rs:40:                ("@file.path", hit.file_path.display().to_string()),
+crates/desktop/src/controller/projection.test.rs:44:                ("@file.status", hit.file_status.code().to_string()),
+crates/desktop/src/controller/projection.test.rs:68:    hit.file_created_ns = None;
+crates/desktop/src/controller/projection.test.rs:69:    hit.file_path = "percent%file.json".into();
+crates/desktop/src/controller/projection.test.rs:101:    std::fs::remove_file(fixture._root.path().join(&hit.file_path)).unwrap();
+crates/desktop/src/controller/projection.test.rs:102:    let expected = hit.file_size.to_string();
+crates/core/src/lifecycle/maintenance/rebuild.rs:83:                FileVersions::filled(next.catalog.allocated_files(), FileVersion(next_revision.0));
+crates/desktop/src/backend/open.test.rs:51:fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cache() {
+crates/desktop/src/backend/open.test.rs:69:    let catalogue = session.repository.index().view().unwrap();
+crates/desktop/src/backend/open.test.rs:70:    assert_eq!(catalogue.catalogue_rows().count(), 64);
+crates/desktop/src/backend/open.test.rs:85:fn incremental_catalogue_preserves_non_utf8_file_paths() {
+crates/desktop/src/backend/open.test.rs:100:    let rows = view.catalogue_rows().collect::<Vec<_>>();
+crates/core/src/source/access/tests.rs:12:        classify_source_read_failure(&path, original, Some(ByteRange { start: 0, end: 3 })),
+crates/core/src/source/access/tests.rs:42:    let range = ByteRange::checked(0, 3, revision.size).unwrap();
+crates/core/src/source/access/tests.rs:100:            .read(&[(0, ByteRange { start, end })])
+crates/core/src/source/access/tests.rs:119:        reader.read(&[(0, ByteRange { start: 17, end: 18 })]),
+crates/core/src/source/access/tests.rs:137:            (2, ByteRange { start: 4, end: 6 }),
+crates/core/src/source/access/tests.rs:138:            (1, ByteRange { start: 0, end: 2 }),
+crates/core/src/source/access/tests.rs:147:            .read(&[(3, ByteRange { start: 6, end: 8 })])
+crates/core/src/source/access/tests.rs:155:            .read(&[(4, ByteRange { start: 1, end: 2 })])
+crates/core/src/source/access/tests.rs:164:            (0, ByteRange { start: 0, end: 1 }),
+crates/core/src/source/access/tests.rs:165:            (1, ByteRange { start: 10, end: 11 }),
+crates/core/src/source/access/tests.rs:173:    assert!(failed.read(&[(0, ByteRange { start: 0, end: 4 })]).is_err());
+crates/core/src/source/access/tests.rs:203:                ByteRange {
+crates/core/src/source/access/tests.rs:242:            .read(&[(0, ByteRange { start: 0, end: 8 })])
+crates/core/src/source/access/tests.rs:273:    let range = ByteRange { start: 0, end: 8 };
+crates/core/src/lifecycle/catalog.rs:19:    FileEntry, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
+crates/core/src/lifecycle/catalog.rs:22:use crate::model::FileId;
+crates/core/src/lifecycle/catalog.rs:30:    entry: Arc<FileEntry>,
+crates/core/src/lifecycle/catalog.rs:39:    base_files: Arc<crate::inventory::FileInventory>,
+crates/core/src/lifecycle/catalog.rs:45:    changed: Arc<Vec<Arc<HashMap<FileId, ChangedFile>>>>,
+crates/core/src/lifecycle/catalog.rs:46:    changed_paths: Arc<Vec<Arc<HashMap<SharedPath, FileId>>>>,
+crates/core/src/lifecycle/catalog.rs:49:    changed_relative_paths: Arc<BTreeMap<(Arc<str>, FileId), ()>>,
+crates/core/src/lifecycle/catalog.rs:70:) -> (Bound<(Arc<str>, FileId)>, Bound<(Arc<str>, FileId)>) {
+crates/core/src/lifecycle/catalog.rs:73:        Bound::Included(key) => Bound::Included((Arc::clone(key), FileId(0))),
+crates/core/src/lifecycle/catalog.rs:74:        Bound::Excluded(key) => Bound::Excluded((Arc::clone(key), FileId(u32::MAX))),
+crates/core/src/lifecycle/catalog.rs:78:        Bound::Included(key) => Bound::Included((Arc::clone(key), FileId(u32::MAX))),
+crates/core/src/lifecycle/catalog.rs:79:        Bound::Excluded(key) => Bound::Excluded((Arc::clone(key), FileId(0))),
+crates/core/src/lifecycle/catalog.rs:102:    ) -> Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>> {
+crates/core/src/lifecycle/catalog.rs:105:                let id = FileId(number);
+crates/core/src/lifecycle/catalog.rs:112:    /// Rebuild a published catalog from checked cache slots. `None` preserves
+crates/core/src/lifecycle/catalog.rs:117:        slots: Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
+crates/core/src/lifecycle/catalog.rs:122:            return Err("restored catalog is shorter than base inventory".into());
+crates/core/src/lifecycle/catalog.rs:133:            let id = FileId(number as u32);
+crates/core/src/lifecycle/catalog.rs:153:                return Err("invalid restored file catalog entry".into());
+crates/core/src/lifecycle/catalog.rs:213:        files: Arc<crate::inventory::FileInventory>,
+crates/core/src/lifecycle/catalog.rs:255:            return Err("catalog rebase changed discovered files or configuration".into());
+crates/core/src/lifecycle/catalog.rs:278:    pub(crate) fn is_active(&self, file: FileId) -> bool {
+crates/core/src/lifecycle/catalog.rs:282:    pub(crate) fn entry(&self, file: FileId) -> Option<&FileEntry> {
+crates/core/src/lifecycle/catalog.rs:292:    pub(crate) fn fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
+crates/core/src/lifecycle/catalog.rs:307:    pub(crate) fn configuration(&self, file: FileId) -> Option<[u8; 32]> {
+crates/core/src/lifecycle/catalog.rs:317:    pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {
+crates/core/src/lifecycle/catalog.rs:342:    ) -> Option<Vec<FileId>> {
+crates/core/src/lifecycle/catalog.rs:350:    ) -> Vec<FileId> {
+crates/core/src/lifecycle/catalog.rs:360:    ) -> Option<Vec<FileId>> {
+crates/core/src/lifecycle/catalog.rs:369:    ) -> Option<Vec<FileId>> {
+crates/core/src/lifecycle/catalog.rs:421:            let Some(entry) = self.entry(FileId(number)) else {
+crates/core/src/lifecycle/catalog.rs:438:    pub(crate) fn scan_stamp(&self, file: FileId) -> Option<FileStamp> {
+crates/core/src/lifecycle/catalog.rs:449:    pub(crate) fn active_ids(&self) -> impl Iterator<Item = FileId> + '_ {
+crates/core/src/lifecycle/catalog.rs:450:        self.active.iter().map(FileId)
+crates/core/src/lifecycle/catalog.rs:453:    pub(crate) fn retired(&self, file: FileId) -> Result<Self, String> {
+crates/core/src/lifecycle/catalog.rs:467:        entry: FileEntry,
+crates/core/src/lifecycle/catalog.rs:500:        entry: FileEntry,
+crates/core/src/source/json/mod.rs:3:use crate::inventory::ByteRange;
+crates/core/src/source/json/mod.rs:43:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/source/json/mod.rs:44:        Ok(vec![ByteRange::checked(
+crates/core/src/source/json/mod.rs:98:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/lifecycle/tests.rs:7:use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot};
+crates/core/src/lifecycle/tests.rs:22:fn pinned_catalogue_metadata_tracks_each_publication_independently() {
+crates/core/src/lifecycle/tests.rs:24:        "objekte-pinned-catalogue-{}-{}",
+crates/core/src/lifecycle/tests.rs:64:    let catalogue_paths = |view: &crate::lifecycle::IndexView| {
+crates/core/src/lifecycle/tests.rs:65:        view.catalogue_rows()
+crates/core/src/lifecycle/tests.rs:70:    assert_eq!(catalogue_paths(&initial), paths(&initial));
+crates/core/src/lifecycle/tests.rs:78:    assert_eq!(catalogue_paths(&after_add), paths(&after_add));
+crates/core/src/lifecycle/tests.rs:86:    assert_eq!(catalogue_paths(&after_move), paths(&after_move));
+crates/core/src/lifecycle/tests.rs:799:fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
+crates/core/src/lifecycle/tests.rs:849:    assert_eq!(hit.file_path, std::path::PathBuf::from("data/renamed.json"));
+crates/core/src/lifecycle/tests.rs:900:    let first_file = old.file_handle(FileId(0)).unwrap();
+crates/core/src/lifecycle/tests.rs:929:    assert_eq!(current.file_version(FileId(0)).unwrap().0, new_revision.0);
+crates/core/src/lifecycle/tests.rs:930:    assert_eq!(old.file_handle(FileId(0)).unwrap(), first_file);
+crates/core/src/lifecycle/tests.rs:1095:    let handle = old.file_handle(FileId(0)).unwrap();
+crates/core/src/lifecycle/tests.rs:1148:    assert!(current.file_handle(FileId(0)).is_none());
+crates/core/src/lifecycle/tests.rs:1207:    assert_eq!(prepared.file.source.id, FileId(1));
+crates/core/src/lifecycle/tests.rs:1221:        staged.catalog.id_for(std::path::Path::new("data/b.jsonl")),
+crates/core/src/lifecycle/tests.rs:1222:        Some(FileId(1))
+crates/core/src/lifecycle/tests.rs:1252:    let handle = index.view().unwrap().file_handle(FileId(0)).unwrap();
+crates/core/src/lifecycle/tests.rs:1266:            .catalog
+crates/core/src/lifecycle/tests.rs:1272:            .catalog
+crates/core/src/lifecycle/tests.rs:1274:        Some(FileId(0))
+crates/core/src/lifecycle/tests.rs:1277:        staged.file_versions.get(FileId(0)).unwrap().0,
+crates/core/src/lifecycle/tests.rs:1293:            .all(|hit| hit.file_path.ends_with("new.jsonl"))
+crates/core/src/lifecycle/tests.rs:1302:            hit.file_path
+crates/core/src/query_execution/streaming.rs:788:        + hit.file_path.as_os_str().len()
+crates/desktop/src/backend/open.rs:76:/// Return a searchable catalogue while a fresh index continues building.
+crates/desktop/src/backend/open.rs:120:            if status.catalogue_complete
+crates/desktop/src/backend/open.rs:131:        build.wait_catalogue()
+crates/core/src/source/framing/tests.rs:24:            ranges.push(ByteRange {
+crates/core/src/source/framing/tests.rs:90:            actual.push(ByteRange {
+crates/core/src/source/framing/tests.rs:143:use crate::inventory::ByteRange;
+crates/core/src/source/framing.rs:7:use crate::inventory::ByteRange;
+crates/core/src/source/framing.rs:9:pub(crate) fn validate_reader_ranges(ranges: &[ByteRange], file_size: usize) -> Result<(), String> {
+crates/core/src/source/framing.rs:13:        ByteRange::checked(range.start, range.end, size)
+crates/core/src/source/framing.rs:29:    pub ranges: Vec<ByteRange>,
+crates/core/src/source/framing.rs:143:                current.ranges.push(ByteRange::checked(
+crates/core/src/lifecycle/maintenance/compaction/partition/tests.rs:179:            .map(|hit| hit.file_path)
+crates/core/src/lifecycle/maintenance/compaction/partition/tests.rs:240:    let parts = compact_source_parts_with_limits(&source, &active, &view.0.catalog, 2, 2, || false)
+crates/core/src/lifecycle/maintenance/compaction/partition/tests.rs:255:        compact_source_parts_with_limits(&source, &sparse, &view.0.catalog, 2, 2, || false)
+crates/core/src/lifecycle/session.rs:10:use crate::model::{FileId, Value};
+crates/core/src/lifecycle/session.rs:69:    /// Resolve diagnostics from the current catalog, including files added
+crates/core/src/lifecycle/session.rs:72:    pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<SourceDiagnostic> {
+crates/core/src/inventory/tests.rs:6:    let empty = FileInventory::from_restored_entries(root.clone(), Vec::new()).unwrap();
+crates/core/src/inventory/tests.rs:14:    let mut built = FileInventory::new(root.clone());
+crates/core/src/inventory/tests.rs:25:    let restored = FileInventory::from_restored_entries(root.clone(), built.files.clone()).unwrap();
+crates/core/src/inventory/tests.rs:41:    assert!(FileInventory::from_restored_entries(root.clone(), duplicate).is_err());
+crates/core/src/inventory/tests.rs:43:    bad_id[1].id = FileId(9);
+crates/core/src/inventory/tests.rs:44:    assert!(FileInventory::from_restored_entries(root.clone(), bad_id).is_err());
+crates/core/src/inventory/tests.rs:47:    assert!(FileInventory::from_restored_entries(root.clone(), escaping).is_err());
+crates/core/src/inventory/tests.rs:50:    assert!(FileInventory::from_restored_entries(root, bad_status).is_err());
+crates/core/src/inventory/tests.rs:68:    let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
+crates/core/src/inventory/tests.rs:128:    assert_eq!(generation.records[1].range, ByteRange { start: 4, end: 10 });
+crates/core/src/inventory/tests.rs:146:    assert!(ByteRange::checked(9, 11, 10).is_err());
+crates/core/src/inventory/tests.rs:147:    assert!(ByteRange::checked(5, 4, 10).is_err());
+crates/core/src/inventory/tests.rs:152:    let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
+crates/core/src/inventory/tests.rs:157:    for (name, id) in [("data/a.json", FileId(0)), ("other/a.json", FileId(1))] {
+crates/core/src/inventory/tests.rs:208:    let mut inventory = FileInventory::new(PathBuf::from("/tmp/repo"));
+crates/core/src/inventory/tests.rs:226:    assert!(builder.include_file(FileId(4)).is_err());
+crates/core/src/inventory/tests.rs:251:                ByteRange { start: 0, end: 10 },
+crates/core/src/inventory/tests.rs:293:        range: Some(ByteRange { start: 0, end: 10 }),
+crates/core/src/inventory/tests.rs:316:            ByteRange { start: 0, end: 10 },
+crates/core/src/inventory/tests.rs:345:    let mut inventory = FileInventory::new(PathBuf::from("/tmp/repo"));
+crates/core/src/inventory/tests.rs:365:            empty.file_records.records_for(FileId(file)),
+crates/core/src/inventory/tests.rs:369:    assert_eq!(empty.file_records.records_for(FileId(4)), None);
+crates/core/src/inventory/tests.rs:435:    let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
+crates/core/src/inventory/tests.rs:453:        range: Some(ByteRange { start: 0, end: 3 }),
+crates/core/src/inventory/tests.rs:487:    let (second, version) = first.advanced(FileId(1024)).unwrap();
+crates/core/src/inventory/tests.rs:489:    assert_eq!(first.get(FileId(1024)), Some(FileVersion::INITIAL));
+crates/core/src/inventory/tests.rs:490:    assert_eq!(second.get(FileId(1024)), Some(FileVersion(2)));
+crates/core/src/inventory/tests.rs:491:    assert_eq!(second.get(FileId(0)), Some(FileVersion::INITIAL));
+crates/core/src/inventory/tests.rs:492:    assert_eq!(second.get(FileId(1025)), None);
+crates/core/src/inventory/tests.rs:494:    assert_eq!(third.get(FileId(1025)), Some(FileVersion::INITIAL));
+crates/core/src/inventory/tests.rs:495:    assert_eq!(second.get(FileId(1025)), None);
+crates/core/src/inventory/tests.rs:505:    assert_eq!(restored.get(FileId(0)), Some(FileVersion(7)));
+crates/core/src/inventory/tests.rs:506:    assert_eq!(restored.get(FileId(1024)), Some(FileVersion(3)));
+crates/core/src/inventory/tests.rs:507:    let (advanced, version) = restored.advanced(FileId(1024)).unwrap();
+crates/core/src/inventory/tests.rs:509:    assert_eq!(restored.get(FileId(1024)), Some(FileVersion(3)));
+crates/core/src/inventory/tests.rs:510:    assert_eq!(advanced.get(FileId(1025)), Some(FileVersion(1)));
+crates/core/src/source/access/session/tests.rs:9:    let mut files = FileInventory::new(root.clone());
+crates/core/src/source/access/session/tests.rs:21:        .read(FileId(0), &[(0, ByteRange { start: 0, end: 5 })])
+crates/core/src/source/access/session/tests.rs:27:        .read(FileId(0), &[(0, ByteRange { start: 10, end: 15 })])
+crates/core/src/source/access/session/tests.rs:34:            .read(FileId(n), &[(0, ByteRange { start: 0, end: 1 })])
+crates/core/src/source/access/session/tests.rs:41:        .read(FileId(0), &[(0, ByteRange { start: 20, end: 21 })])
+crates/core/src/source/access/session/tests.rs:49:                FileId(0),
+crates/core/src/source/access/session/tests.rs:52:                    ByteRange {
+crates/core/src/source/access/session/tests.rs:71:    let mut files = FileInventory::new(root.clone());
+crates/core/src/source/access/session/tests.rs:85:                FileId(0),
+crates/core/src/source/access/session/tests.rs:88:                    ByteRange {
+crates/core/src/source/access/session/tests.rs:114:            ByteRange {
+crates/core/src/source/access/session/tests.rs:122:    let mut files = FileInventory::new(root.clone());
+crates/core/src/source/access/session/tests.rs:127:    let single = session.read_bounded(FileId(0), &ranges[..1], 8192).unwrap();
+crates/core/src/source/access/session/tests.rs:131:    let read = session.read_bounded(FileId(0), &ranges, 8192).unwrap();
+crates/core/src/source/access/session/tests.rs:141:            .read_bounded(FileId(0), &ranges[..1], 40)
+crates/core/src/source/access/session/tests.rs:166:    let mut files = FileInventory::new(root.clone());
+crates/core/src/source/access/session/tests.rs:171:    let range = |start| ByteRange {
+crates/core/src/source/access/session/tests.rs:177:            .read(FileId(0), &[(0, range(0))])
+crates/core/src/source/access/session/tests.rs:194:    let cached = session.read(FileId(0), &[(0, range(10))]).unwrap();
+crates/core/src/source/access/session/tests.rs:197:    let uncached = session.read(FileId(0), &[(0, range(70_000))]).unwrap();
+crates/core/src/source/access/session/tests.rs:226:    let old = reader.read(&[(0, ByteRange { start: 0, end: 3 })]).unwrap();
+crates/core/src/source/access/session/tests.rs:228:    let old_again = reader.read(&[(0, ByteRange { start: 4, end: 9 })]).unwrap();
+crates/core/src/lifecycle/publication.rs:8:use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
+crates/core/src/lifecycle/publication.rs:9:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/lifecycle/publication.rs:19:/// catalog and configuration all belong to the same publication revision.
+crates/core/src/lifecycle/publication.rs:32:    pub(crate) catalog: FileCatalog,
+crates/core/src/lifecycle/publication.rs:61:                if right_index.file_index.get(&file_id).copied().is_some() {
+crates/core/src/lifecycle/publication.rs:138:        let catalog = FileCatalog::from_parts(
+crates/core/src/lifecycle/publication.rs:143:        let processed_files = catalog.active_files() as usize;
+crates/core/src/lifecycle/publication.rs:161:            catalog,
+crates/core/src/lifecycle/publication.rs:170:        self.catalog.set_construction_complete(false);
+crates/core/src/lifecycle/publication.rs:178:        debug_assert_eq!(self.catalog.allocated_files(), self.file_versions.len());
+crates/core/src/lifecycle/publication.rs:183:            indexed_files: self.catalog.active_files() as usize,
+crates/core/src/lifecycle/publication.rs:185:            initial_construction_complete: self.catalog.construction_complete(),
+crates/core/src/lifecycle/publication.rs:253:            if self.catalog.entry(file.entry.id).is_none_or(|current| {
+crates/core/src/lifecycle/publication.rs:286:        if !self.catalog.construction_complete() {
+crates/core/src/lifecycle/publication.rs:292:                    let catalogue_entry = self.catalog.entry(file.entry.id).ok_or_else(|| {
+crates/core/src/lifecycle/publication.rs:295:                    if catalogue_entry.collections.iter().all(|collection| {
+crates/core/src/lifecycle/publication.rs:360:            // A current zero-record file still owns its catalogue contribution.
+crates/core/src/lifecycle/publication.rs:373:                    if self.catalog.entry(file.id).is_some_and(|current| {
+crates/core/src/lifecycle/publication.rs:407:                    &self.catalog,
+crates/core/src/lifecycle/publication.rs:480:    /// Retire slots owned by one incarnation without touching the catalog.
+crates/core/src/lifecycle/publication.rs:481:    /// The caller either replaces or removes its catalog entry atomically.
+crates/core/src/lifecycle/publication.rs:482:    pub(super) fn retire_file_records(&mut self, file: &FileEntry) -> Result<u64, IndexError> {
+crates/core/src/lifecycle/publication.rs:544:            .catalog
+crates/core/src/lifecycle/publication.rs:557:        next.catalog = next
+crates/core/src/lifecycle/publication.rs:558:            .catalog
+crates/core/src/lifecycle/publication.rs:680:        if next.processed_files != next.catalog.active_files() as usize {
+crates/core/src/lifecycle/publication.rs:828:        next.catalog
+crates/core/src/lifecycle/publication.rs:831:        next.catalog.set_construction_complete(true);
+crates/core/src/lifecycle/publication.rs:864:        let notify_cache = next.catalog.construction_complete();
+crates/core/src/source/access/session/mod.rs:6:use crate::inventory::{ByteRange, FileInventory, SourceRevision};
+crates/core/src/source/access/session/mod.rs:7:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/source/access/session/mod.rs:8:use crate::model::FileId;
+crates/core/src/source/access/session/mod.rs:16:    file_id: FileId,
+crates/core/src/source/access/session/mod.rs:25:    Inventory(&'a FileInventory),
+crates/core/src/source/access/session/mod.rs:28:        catalog: &'a FileCatalog,
+crates/core/src/source/access/session/mod.rs:48:    pub fn new(files: &'a FileInventory) -> Self {
+crates/core/src/source/access/session/mod.rs:59:    pub(crate) fn from_catalog(root: &'a Path, catalog: &'a FileCatalog) -> Self {
+crates/core/src/source/access/session/mod.rs:61:            source: SourceFileTable::Catalog { root, catalog },
+crates/core/src/source/access/session/mod.rs:94:    fn check_execution_ranges(&self, ranges: &[(u32, ByteRange)]) -> Result<(), String> {
+crates/core/src/source/access/session/mod.rs:110:    fn handle(&mut self, file_id: FileId) -> Result<(usize, u64), String> {
+crates/core/src/source/access/session/mod.rs:125:            SourceFileTable::Catalog { root, catalog } => {
+crates/core/src/source/access/session/mod.rs:126:                let file = catalog.entry(file_id).ok_or("unknown source file")?;
+crates/core/src/source/access/session/mod.rs:155:        file_id: FileId,
+crates/core/src/source/access/session/mod.rs:156:        ranges: &[(u32, ByteRange)],
+crates/core/src/source/access/session/mod.rs:169:            ByteRange::checked(range.start, range.end, source.revision.size)?;
+crates/core/src/source/access/session/mod.rs:193:                let window = ByteRange::checked(range.start, end, source.revision.size)?;
+crates/core/src/source/access/session/mod.rs:218:        file_id: FileId,
+crates/core/src/source/access/session/mod.rs:219:        ranges: &[(u32, ByteRange)],
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:19:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:22:use crate::model::FileId;
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:30:    catalog: &FileCatalog,
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:37:        catalog,
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:47:    catalog: &FileCatalog,
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:57:    let mut selections = Vec::<(HashSet<FileId>, ActiveRecords)>::new();
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:58:    let mut files = HashSet::<FileId>::new();
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:61:    let seal = |selections: &mut Vec<(HashSet<FileId>, ActiveRecords)>,
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:62:                files: &mut HashSet<FileId>,
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:75:    for file_index in 0..source.file_count() {
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:78:            .get(file_index)
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:83:        let Some(current) = catalog.entry(file.entry.id) else {
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:179:            if let Some(current) = catalog.entry(file.entry.id) {
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:217:    let slots = root.catalog.snapshot_slots();
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:218:    let catalog =
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:230:            &catalog,
+crates/core/src/lifecycle/maintenance/compaction/partition.rs:251:    root.catalog = catalog;
+crates/core/src/lifecycle/open.rs:53:        repository.catalog = published.catalog;
+crates/core/src/inventory/mod.rs:14:use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
+crates/core/src/inventory/mod.rs:134:    pub file: FileId,
+crates/core/src/inventory/mod.rs:139:    pub range: Option<ByteRange>,
+crates/core/src/inventory/mod.rs:151:        file: FileId,
+crates/core/src/inventory/mod.rs:155:        range: ByteRange,
+crates/core/src/inventory/mod.rs:275:    pub(crate) fn get(&self, file: FileId) -> Option<FileVersion> {
+crates/core/src/inventory/mod.rs:287:    pub(crate) fn advanced(&self, file: FileId) -> Result<(Self, FileVersion), String> {
+crates/core/src/inventory/mod.rs:574:pub struct FileEntry {
+crates/core/src/inventory/mod.rs:575:    pub id: FileId,
+crates/core/src/inventory/mod.rs:585:impl FileEntry {
+crates/core/src/inventory/mod.rs:622:pub struct FileInventory {
+crates/core/src/inventory/mod.rs:624:    pub files: Vec<FileEntry>,
+crates/core/src/inventory/mod.rs:626:    by_path: HashMap<SharedPath, FileId>,
+crates/core/src/inventory/mod.rs:629:    pub(crate) relative_paths: BTreeMap<Arc<str>, FileId>,
+crates/core/src/inventory/mod.rs:686:impl FileInventory {
+crates/core/src/inventory/mod.rs:707:        let file_table_slot_bytes = self.files.capacity() * std::mem::size_of::<FileEntry>();
+crates/core/src/inventory/mod.rs:709:            self.by_path.capacity() * std::mem::size_of::<(SharedPath, FileId)>();
+crates/core/src/inventory/mod.rs:711:            self.relative_paths.len() * std::mem::size_of::<(Arc<str>, FileId)>();
+crates/core/src/inventory/mod.rs:721:            file_entry_size: std::mem::size_of::<FileEntry>(),
+crates/core/src/inventory/mod.rs:747:            + self.files.capacity() * std::mem::size_of::<FileEntry>()
+crates/core/src/inventory/mod.rs:748:            + self.by_path.capacity() * std::mem::size_of::<(SharedPath, FileId)>();
+crates/core/src/inventory/mod.rs:764:        inventory += self.relative_paths.len() * std::mem::size_of::<(Arc<str>, FileId)>();
+crates/core/src/inventory/mod.rs:789:        entries: Vec<FileEntry>,
+crates/core/src/inventory/mod.rs:807:    ) -> Result<FileId, String> {
+crates/core/src/inventory/mod.rs:821:        let id = FileId(u32::try_from(self.files.len()).map_err(|_| "too many files")?);
+crates/core/src/inventory/mod.rs:825:        self.files.push(FileEntry {
+crates/core/src/inventory/mod.rs:840:        file: FileId,
+crates/core/src/inventory/mod.rs:850:    pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<&SourceDiagnostic> {
+crates/core/src/inventory/mod.rs:933:    pub fn native_path(&self, id: FileId) -> Option<PathBuf> {
+crates/core/src/inventory/mod.rs:939:    pub fn id_for(&self, path: &Path) -> Option<FileId> {
+crates/core/src/inventory/mod.rs:946:    ) -> Vec<FileId> {
+crates/core/src/inventory/mod.rs:961:    ) -> Option<Vec<FileId>> {
+crates/core/src/inventory/mod.rs:984:pub struct ByteRange {
+crates/core/src/inventory/mod.rs:989:impl ByteRange {
+crates/core/src/inventory/mod.rs:1006:pub struct RecordEntry {
+crates/core/src/inventory/mod.rs:1009:    pub file: FileId,
+crates/core/src/inventory/mod.rs:1010:    pub range: ByteRange,
+crates/core/src/inventory/mod.rs:1027:    pub fn records_for(&self, file: FileId) -> Option<&[RecordSlot]> {
+crates/core/src/inventory/mod.rs:1046:    pub files: Vec<FileId>,
+crates/core/src/inventory/mod.rs:1047:    pub records: Vec<RecordEntry>,
+crates/core/src/inventory/mod.rs:1052:    pub fn validate(&self, inventory: &FileInventory) -> Result<(), String> {
+crates/core/src/inventory/mod.rs:1134:    files: Vec<FileId>,
+crates/core/src/inventory/mod.rs:1136:    records: Vec<RecordEntry>,
+crates/core/src/inventory/mod.rs:1152:    pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
+crates/core/src/inventory/mod.rs:1168:    pub fn include_file(&mut self, file: FileId) -> Result<(), String> {
+crates/core/src/inventory/mod.rs:1181:    pub(crate) fn contains_file(&self, file: FileId) -> bool {
+crates/core/src/inventory/mod.rs:1187:        file: &FileEntry,
+crates/core/src/inventory/mod.rs:1195:        let range = ByteRange::checked(start, end, file.revision.size)?;
+crates/core/src/inventory/mod.rs:1201:        self.records.push(RecordEntry {
+crates/core/src/inventory/mod.rs:1215:        file: &FileEntry,
+crates/core/src/inventory/mod.rs:1217:        range: ByteRange,
+crates/core/src/inventory/mod.rs:1233:        self.records.push(RecordEntry {
+crates/core/src/inventory/mod.rs:1245:    pub fn finish(self, inventory: &FileInventory) -> Result<CollectionGeneration, String> {
+crates/core/src/lifecycle/reconciliation/scan/tests.rs:5:use crate::model::{CollectionId, FileId};
+crates/core/src/lifecycle/reconciliation/scan/tests.rs:41:                let id = FileId(current.len() as u32);
+crates/core/src/lifecycle/reconciliation/scan/tests.rs:194:                let id = FileId(prior.len() as u32);
+crates/core/src/lifecycle/reconciliation/scan/tests.rs:277:        |_| Some((FileId(0), previous.clone())),
+crates/core/src/lifecycle/reconciliation/scan/tests.rs:320:                FileId(9),
+crates/core/src/lifecycle/reconciliation/scan/tests.rs:501:        .catalog
+crates/core/src/lifecycle/reconciliation/scan/tests.rs:504:    let file = view.0.catalog.entry(file_id).unwrap();
+crates/core/src/lifecycle/reconciliation/mod.rs:177:                    .catalog
+crates/core/src/lifecycle/reconciliation/mod.rs:179:                    .and_then(|id| snapshot.0.catalog.scan_stamp(id).map(|stamp| (id, stamp)))
+crates/core/src/lifecycle/reconciliation/mod.rs:190:            for id in snapshot.0.catalog.active_ids() {
+crates/core/src/lifecycle/reconciliation/mod.rs:197:                let Some(stamp) = snapshot.0.catalog.scan_stamp(id) else {
+crates/core/src/inference/tests.rs:6:use crate::inventory::ByteRange;
+crates/core/src/inference/tests.rs:2725:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/inference/tests.rs:2726:        Ok(vec![ByteRange::checked(
+crates/core/src/lifecycle/reconciliation/scan/mod.rs:13:use crate::model::{CollectionId, FileId};
+crates/core/src/lifecycle/reconciliation/scan/mod.rs:95:    lookup_existing: impl Fn(&Path) -> Option<(FileId, FileStamp)>,
+crates/core/src/source/access/mod.rs:8:use crate::inventory::{ByteRange, SourceRevision};
+crates/core/src/source/access/mod.rs:61:fn record_search_read(path: &Path, range: ByteRange) {
+crates/core/src/source/access/mod.rs:82:    range: Option<ByteRange>,
+crates/core/src/source/access/mod.rs:100:    range: Option<ByteRange>,
+crates/core/src/source/access/mod.rs:185:    range: ByteRange,
+crates/core/src/source/access/mod.rs:189:    ByteRange::checked(range.start, range.end, revision.size)?;
+crates/core/src/source/access/mod.rs:198:    range: ByteRange,
+crates/core/src/source/access/mod.rs:206:    ByteRange::checked(range.start, range.end, revision.size)?;
+crates/core/src/source/access/mod.rs:220:    range: ByteRange,
+crates/core/src/source/access/mod.rs:231:    range: ByteRange,
+crates/core/src/source/access/mod.rs:246:    ByteRange::checked(range.start, range.end, revision.size)?;
+crates/core/src/source/access/mod.rs:259:    range: ByteRange,
+crates/core/src/source/access/mod.rs:271:    ByteRange::checked(range.start, range.end, revision.size)?;
+crates/core/src/source/access/mod.rs:279:    range: ByteRange,
+crates/core/src/source/access/mod.rs:282:    ByteRange::checked(range.start, range.end, u64::MAX)?;
+crates/core/src/source/access/mod.rs:288:    range: ByteRange,
+crates/core/src/source/access/mod.rs:304:    ranges: &[(u32, ByteRange)],
+crates/core/src/source/access/mod.rs:463:        ranges: &[(u32, ByteRange)],
+crates/core/src/source/access/mod.rs:471:            ByteRange::checked(range.start, range.end, self.revision.size)?;
+crates/core/src/source/access/mod.rs:487:            ByteRange::checked(range.start, range.end, self.revision.size)?;
+crates/core/src/source/access/mod.rs:531:        ranges: &[(u32, ByteRange)],
+crates/core/src/source/access/mod.rs:543:            ByteRange::checked(range.start, range.end, self.revision.size)?;
+crates/core/src/source/access/mod.rs:577:    range: Option<ByteRange>,
+crates/core/src/source/access/mod.rs:589:    range: Option<ByteRange>,
+crates/core/src/source/access/mod.rs:623:    range: Option<ByteRange>,
+crates/core/src/source/access/mod.rs:635:    range: Option<ByteRange>,
+crates/core/src/query_execution/relations/view.rs:11:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/query_execution/relations/view.rs:35:    pub record: &'a crate::inventory::RecordEntry,
+crates/core/src/query_execution/relations/view.rs:36:    pub file: &'a crate::inventory::FileEntry,
+crates/core/src/query_execution/relations/view.rs:46:    catalog: &'a FileCatalog,
+crates/core/src/query_execution/relations/view.rs:75:    /// same immutable pinned publication and catalog.
+crates/core/src/query_execution/relations/view.rs:81:            catalog: self.catalog,
+crates/core/src/query_execution/relations/view.rs:130:        file: &crate::inventory::FileEntry,
+crates/core/src/query_execution/relations/view.rs:131:        range: crate::inventory::ByteRange,
+crates/core/src/query_execution/relations/view.rs:134:        let path = self.repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/relations/view.rs:144:        &self.repo.files.root
+crates/core/src/query_execution/relations/view.rs:151:    pub(crate) fn catalog(&self) -> &'a FileCatalog {
+crates/core/src/query_execution/relations/view.rs:152:        self.catalog
+crates/core/src/query_execution/relations/view.rs:187:        catalog: &'a FileCatalog,
+crates/core/src/query_execution/relations/view.rs:227:            catalog,
+crates/core/src/query_execution/relations/view.rs:325:            let file_index = segment
+crates/core/src/query_execution/relations/view.rs:326:                .file_index
+crates/core/src/query_execution/relations/view.rs:332:                .get(file_index)
+crates/core/src/query_execution/relations/view.rs:354:            .catalog
+crates/core/src/query_execution/relations/view.rs:544:        let path = self.repo.files.root.join(&resolved.file.relative_path);
+crates/core/src/query_execution/relations/view.rs:713:        let path = self.repo.files.root.join(&resolved.file.relative_path);
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:10:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:71:    files: &crate::inventory::FileInventory,
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:74:    let mut file_index = HashMap::new();
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:87:        file_index.insert(*id, segment_files.len());
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:107:        file_index,
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:177:    // in an immutable shard. Keep the existing catalog and unaffected shard
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:225:                    &next.catalog,
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:258:    next.catalog = FileCatalog::restored(Arc::clone(&empty), old.catalog.snapshot_slots())
+crates/core/src/lifecycle/maintenance/compaction/mod.rs:279:                &next.catalog,
+crates/core/src/lifecycle/initial/tests.rs:10:use crate::inventory::ByteRange;
+crates/core/src/lifecycle/initial/tests.rs:11:use crate::model::{FileId, LogicalType};
+crates/core/src/lifecycle/initial/tests.rs:27:    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/lifecycle/initial/tests.rs:424:    let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+crates/core/src/lifecycle/initial/tests.rs:441:                catalogue_tx.send(index.clone()).unwrap();
+crates/core/src/lifecycle/initial/tests.rs:449:    let catalogue = catalogue_rx.recv().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:451:    let before_release = catalogue.view().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:533:        let (catalogue_tx, catalogue_rx) = mpsc::channel();
+crates/core/src/lifecycle/initial/tests.rs:551:                catalogue_tx.send(index.clone()).unwrap();
+crates/core/src/lifecycle/initial/tests.rs:569:        let catalogue = catalogue_rx.recv().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:570:        let report = catalogue
+crates/core/src/lifecycle/initial/tests.rs:585:            catalogue
+crates/core/src/lifecycle/initial/tests.rs:645:    let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+crates/core/src/lifecycle/initial/tests.rs:669:                    catalogue_tx.send(index.clone()).unwrap();
+crates/core/src/lifecycle/initial/tests.rs:682:    let catalogue = catalogue_rx.recv().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:718:    let view = catalogue.view().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:774:        let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+crates/core/src/lifecycle/initial/tests.rs:793:                        catalogue_tx.send(index.clone()).unwrap();
+crates/core/src/lifecycle/initial/tests.rs:802:        let catalogue = catalogue_rx.recv().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:820:            catalogue
+crates/core/src/lifecycle/initial/tests.rs:919:    let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
+crates/core/src/lifecycle/initial/tests.rs:942:                    catalogue_tx.send(index.clone()).unwrap();
+crates/core/src/lifecycle/initial/tests.rs:955:    let index = catalogue_rx.recv().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:956:    let catalogue = index.view().unwrap();
+crates/core/src/lifecycle/initial/tests.rs:957:    assert!(!catalogue.initial_construction_complete());
+crates/core/src/lifecycle/initial/tests.rs:959:        catalogue
+crates/core/src/lifecycle/initial/tests.rs:967:    assert!(catalogue.inference_report("data").is_none_or(|report| {
+crates/core/src/lifecycle/initial/tests.rs:973:    assert_eq!(catalogue.catalogue_rows().count(), 2_050);
+crates/core/src/lifecycle/initial/tests.rs:974:    assert_eq!(catalogue.catalogue_row(FileId(0)).unwrap().size > 0, true);
+crates/core/src/lifecycle/initial/tests.rs:975:    assert_eq!(catalogue.file_record_count(FileId(0)), None);
+crates/core/src/lifecycle/initial/tests.rs:976:    assert!(catalogue.search(&all_query()).is_err());
+crates/core/src/lifecycle/initial/tests.rs:978:        catalogue
+crates/core/src/lifecycle/initial/tests.rs:982:    assert!(catalogue.search_reference(&all_query()).is_err());
+crates/core/src/lifecycle/initial/tests.rs:983:    assert!(catalogue.explain(&all_query()).is_err());
+crates/core/src/lifecycle/initial/tests.rs:984:    let available = catalogue.search_available(&all_query()).unwrap();
+crates/core/src/lifecycle/initial/tests.rs:1066:        .search_added_since(&catalogue, &follow_query)
+crates/core/src/lifecycle/initial/tests.rs:1120:        .search_added_since(&catalogue, &follow_query)
+crates/core/src/lifecycle/initial/tests.rs:1219:            .diagnostic(FileId(hit.file_id), hit.diagnostic_ref)
+crates/core/src/lifecycle/initial/tests.rs:1282:                view.diagnostic(FileId(hit.file_id), hit.diagnostic_ref)
+crates/core/src/lifecycle/initial/tests.rs:1524:                        hit.file_path,
+crates/core/src/lifecycle/initial/tests.rs:1525:                        hit.file_status,
+crates/core/src/query_execution/preindex.rs:9:    DiagnosticRef, FileEntry, FileInventory, RecordClass, RecordEntry, SourceDiagnostic,
+crates/core/src/query_execution/preindex.rs:14:use crate::model::{CollectionId, FileId, RecordId, RecordSlot, Value};
+crates/core/src/query_execution/preindex.rs:34:    files: Vec<FileId>,
+crates/core/src/query_execution/preindex.rs:40:    files: FileInventory,
+crates/core/src/query_execution/preindex.rs:48:        let mut files = FileInventory::new(root.clone());
+crates/core/src/query_execution/preindex.rs:254:                        let entry = RecordEntry {
+crates/core/src/query_execution/preindex.rs:361:                            hit.file_id,
+crates/core/src/query_execution/preindex.rs:372:                for hit in winners.values_mut().filter(|hit| hit.file_id == file.id.0) {
+crates/core/src/query_execution/preindex.rs:373:                    hit.file_status = file.status;
+crates/core/src/query_execution/preindex.rs:400:    file: &FileEntry,
+crates/core/src/schema/validation.rs:262:        | MetadataField::FileId
+crates/core/src/lifecycle/mutation/preparation.rs:13:use crate::inventory::{FileEntry, FileStatus, SourceRevision};
+crates/core/src/lifecycle/mutation/preparation.rs:15:use crate::model::FileId;
+crates/core/src/lifecycle/mutation/preparation.rs:40:        let id = FileId(
+crates/core/src/lifecycle/mutation/preparation.rs:41:            u32::try_from(view.0.catalog.allocated_files())
+crates/core/src/lifecycle/mutation/preparation.rs:75:        if !view.0.catalog.is_active(handle.file_id) {
+crates/core/src/lifecycle/mutation/preparation.rs:93:) -> Result<(FileEntry, Vec<IndexedCollectionSegment>), IndexError> {
+crates/core/src/lifecycle/mutation/preparation.rs:173:    let mut entry = FileEntry {
+crates/core/src/lifecycle/mutation/preparation.rs:203:    id: FileId,
+crates/core/src/lifecycle/mutation/preparation.rs:224:        .catalog
+crates/core/src/construction/tests.rs:17:use crate::inventory::{ByteRange, FileInventory, FileStatus, RecordClass, SourceRevision};
+crates/core/src/construction/tests.rs:18:use crate::model::{CollectionId, FieldPath, FileId, LogicalType, RecordSlot, Value};
+crates/core/src/construction/tests.rs:168:        id: FileId(0),
+crates/core/src/construction/tests.rs:261:        id: FileId(0),
+crates/core/src/construction/tests.rs:291:        Some((FileId(0), Sha256::digest(json_bytes).into()))
+crates/core/src/construction/tests.rs:367:            id: FileId(91),
+crates/core/src/construction/tests.rs:412:        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/construction/tests.rs:417:                ByteRange::checked(7, 10, bytes.len() as u64)?,
+crates/core/src/construction/tests.rs:418:                ByteRange::checked(11, 14, bytes.len() as u64)?,
+crates/core/src/construction/tests.rs:422:        fn frame_outcome(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
+crates/core/src/construction/tests.rs:471:        id: FileId(301),
+crates/core/src/construction/tests.rs:619:            id: FileId(19),
+crates/core/src/construction/tests.rs:697:            id: FileId(91),
+crates/core/src/construction/tests.rs:705:        assert_eq!(prepared.source.id, FileId(91));
+crates/core/src/construction/tests.rs:716:            assert_eq!(batch.files[0].entry.id, FileId(91));
+crates/core/src/construction/tests.rs:761:        id: FileId(500),
+crates/core/src/construction/tests.rs:834:        id: FileId(33),
+crates/core/src/construction/tests.rs:886:        id: FileId(1),
+crates/core/src/construction/tests.rs:972:        fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/construction/tests.rs:973:            Ok(vec![ByteRange::checked(
+crates/core/src/construction/tests.rs:1036:    let mut inventory = FileInventory::new(root.clone());
+crates/core/src/construction/tests.rs:1172:        fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/construction/tests.rs:1173:            Ok(vec![ByteRange::checked(
+crates/core/src/construction/tests.rs:1260:    assert_eq!(repo.collections()[0].generation.files, [FileId(0)]);
+crates/core/src/construction/tests.rs:1261:    assert_eq!(repo.collections()[1].generation.files, [FileId(1)]);
+crates/core/src/construction/tests.rs:1284:        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/construction/tests.rs:1288:                ByteRange::checked(0, split as u64, size)?,
+crates/core/src/construction/tests.rs:1289:                ByteRange::checked(split as u64 + 1, size, size)?,
+crates/core/src/construction/tests.rs:1437:            .records_for(FileId(0))
+crates/core/src/construction/tests.rs:1470:        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/construction/tests.rs:1578:                .records_for(FileId(0))
+crates/core/src/construction/tests.rs:1800:        id: FileId(0),
+crates/core/src/construction/tests.rs:1835:        FileId(0),
+crates/core/src/construction/tests.rs:1861:        FileId(0),
+crates/core/src/construction/tests.rs:1889:        FileId(0),
+crates/core/src/construction/tests.rs:1909:    let mut inventory = FileInventory::new("/synthetic".into());
+crates/core/src/construction/tests.rs:1933:    let mut large = FileInventory::new("/synthetic".into());
+crates/core/src/construction/tests.rs:2064:                collection.generation.file_records.records_for(FileId(514)),
+crates/core/src/construction/tests.rs:2230:                    .records_for(FileId(0))
+crates/core/src/lifecycle/catalog/tests.rs:4:use crate::model::{CollectionId, FileId};
+crates/core/src/lifecycle/catalog/tests.rs:12:        "objekte-file-catalog-{}-{:?}",
+crates/core/src/lifecycle/catalog/tests.rs:40:        Some(FileId(0))
+crates/core/src/lifecycle/catalog/tests.rs:51:        Some(FileId(0))
+crates/core/src/lifecycle/catalog/tests.rs:53:    assert_eq!(changed.fingerprint(FileId(0)), Some([7; 32]));
+crates/core/src/lifecycle/catalog/tests.rs:56:        Some(vec![FileId(0)])
+crates/core/src/lifecycle/catalog/tests.rs:62:    assert_eq!(changed.configuration(FileId(0)), Some([8; 32]));
+crates/core/src/lifecycle/catalog/tests.rs:65:        Some(FileId(0))
+crates/core/src/lifecycle/catalog/tests.rs:69:    let retired = changed.retired(FileId(1)).unwrap();
+crates/core/src/lifecycle/catalog/tests.rs:73:    added.id = FileId(2);
+crates/core/src/lifecycle/catalog/tests.rs:80:    assert_eq!(prefix, [FileId(0), FileId(2)]);
+crates/core/src/lifecycle/catalog/tests.rs:87:        Some(FileId(2))
+crates/core/src/lifecycle/catalog/tests.rs:98:            let id = FileId(number as u32);
+crates/core/src/lifecycle/catalog/tests.rs:113:        Some(FileId(0))
+crates/core/src/lifecycle/catalog/tests.rs:117:        Some(FileId(2))
+crates/core/src/lifecycle/catalog/tests.rs:119:    assert_eq!(restored.fingerprint(FileId(0)), Some([7; 32]));
+crates/core/src/lifecycle/catalog/tests.rs:122:        Some(vec![FileId(2)])
+crates/core/src/lifecycle/catalog/tests.rs:124:    assert_eq!(restored.configuration(FileId(0)), Some([8; 32]));
+crates/core/src/lifecycle/catalog/tests.rs:125:    assert!(restored.entry(FileId(1)).is_none());
+crates/core/src/lifecycle/catalog/tests.rs:141:    wrong_id[2].as_mut().unwrap().0.id = FileId(7);
+crates/core/src/lifecycle/initial.rs:27:    pub catalogue_complete: bool,
+crates/core/src/lifecycle/initial.rs:33:    pub catalogue_elapsed_ns: Option<u64>,
+crates/core/src/lifecycle/initial.rs:43:            catalogue_complete: false,
+crates/core/src/lifecycle/initial.rs:49:            catalogue_elapsed_ns: None,
+crates/core/src/lifecycle/initial.rs:110:        state.status.catalogue_complete = true;
+crates/core/src/lifecycle/initial.rs:113:        state.status.catalogue_elapsed_ns.get_or_insert(elapsed_ns);
+crates/core/src/lifecycle/initial.rs:192:    /// pinned view is still explicitly incomplete for query and catalogue UI.
+crates/core/src/lifecycle/initial.rs:242:    pub fn wait_catalogue(&self) -> Result<Index, IndexError> {
+crates/core/src/lifecycle/initial.rs:314:    /// catalogue and record publications before completion; callers choose
+crates/core/src/query_execution/runner/tests.rs:801:        &view.0.catalog,
+crates/core/src/query_execution/runner/tests.rs:831:        &view.0.catalog,
+crates/core/src/query_execution/runner/tests.rs:897:        &view.0.catalog,
+crates/core/src/query_execution/runner/tests.rs:2129:                ByteRange {
+crates/core/src/query_execution/runner/tests.rs:2274:    use crate::model::{CollectionId, FileId};
+crates/core/src/query_execution/runner/tests.rs:2331:            id: FileId(1),
+crates/core/src/query_execution/runner/tests.rs:2371:    let catalog = FileCatalog::from_repository(Arc::clone(&repo))
+crates/core/src/query_execution/runner/tests.rs:2424:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2438:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2458:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2472:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2481:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2497:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2512:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2523:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2533:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2544:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2563:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2574:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2597:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2634:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2664:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2686:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2733:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2754:        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+crates/core/src/query_execution/runner/tests.rs:2762:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2774:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2791:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2806:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2823:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2836:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:2853:    let all = search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+crates/core/src/query_execution/runner/tests.rs:2856:        search_segmented_reference(&repo, &query, &base_active, &segments, &catalog, revision)
+crates/core/src/query_execution/runner/tests.rs:2862:        search_analyze_segmented(&repo, &query, &base_active, &segments, &catalog, revision)
+crates/core/src/query_execution/runner/tests.rs:2877:            .map(|hit| hit.file_path.as_path())
+crates/core/src/query_execution/runner/tests.rs:2887:        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+crates/core/src/query_execution/runner/tests.rs:2899:        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+crates/core/src/query_execution/runner/tests.rs:2912:        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+crates/core/src/query_execution/runner/tests.rs:2914:        search_segmented_reference(&repo, &query, &base_active, &segments, &catalog, revision)
+crates/core/src/query_execution/runner/tests.rs:2934:        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+crates/core/src/query_execution/runner/tests.rs:2967:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3003:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3037:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3059:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3086:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3117:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3129:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3142:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3148:        |hit| hit.file_path != std::path::Path::new("data/base.jsonl") || hit.byte_start != 0
+crates/core/src/query_execution/runner/tests.rs:3151:        |hit| hit.file_path != std::path::Path::new("data/delta.jsonl")
+crates/core/src/query_execution/runner/tests.rs:3178:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3202:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3217:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3230:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3244:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3260:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3276:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3296:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3314:            &retired_segments, &catalog, IndexRevision(3),
+crates/core/src/query_execution/runner/tests.rs:3324:            &retired_segments, &catalog, IndexRevision(3),
+crates/core/src/query_execution/runner/tests.rs:3337:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3351:        search_active_available(&repo, &query, &base_only_active, &catalog, IndexRevision(3))
+crates/core/src/query_execution/runner/tests.rs:3367:    use crate::model::{CollectionId, FileId, RecordSlot};
+crates/core/src/query_execution/runner/tests.rs:3396:        id: FileId(1),
+crates/core/src/query_execution/runner/tests.rs:3439:    let catalog = FileCatalog::from_repository(Arc::clone(&repo))
+crates/core/src/query_execution/runner/tests.rs:3451:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3468:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3484:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:3494:    let mut moved_entry = catalog.entry(FileId(1)).unwrap().clone();
+crates/core/src/query_execution/runner/tests.rs:3496:    let moved_catalog = catalog.replaced(moved_entry, None, None).unwrap();
+crates/core/src/query_execution/runner/tests.rs:3502:        &moved_catalog,
+crates/core/src/query_execution/runner/tests.rs:3513:    let mut base_entry = moved_catalog.entry(FileId(0)).unwrap().clone();
+crates/core/src/query_execution/runner/tests.rs:3515:    let moved_catalog = moved_catalog.replaced(base_entry, None, None).unwrap();
+crates/core/src/query_execution/runner/tests.rs:3524:        &moved_catalog,
+crates/core/src/query_execution/runner/tests.rs:3529:        if hit.file_path == std::path::Path::new("data/base-moved.jsonl")
+crates/core/src/query_execution/runner/tests.rs:3538:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3552:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3567:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:3574:    let retired_catalog = catalog.retired(FileId(1)).unwrap();
+crates/core/src/query_execution/runner/tests.rs:3581:            &retired_catalog,
+crates/core/src/query_execution/runner/tests.rs:3889:    let index = crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection)
+crates/core/src/query_execution/runner/tests.rs:4184:    let catalog = FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+crates/core/src/query_execution/runner/tests.rs:4191:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:4212:            &catalog,
+crates/core/src/query_execution/runner/tests.rs:4231:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:4253:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:4282:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:4303:        &catalog,
+crates/core/src/query_execution/runner/tests.rs:4501:            .diagnostic(crate::model::FileId(bad.file_id), bad.diagnostic_ref)
+crates/core/src/query_execution/runner/tests.rs:4508:            Some(crate::inventory::ByteRange { start: 18, end: 27 })
+crates/core/src/query_execution/runner/tests.rs:4594:                .all(|hit| hit.file_status == FileStatus::Broken)
+crates/core/src/query_execution/runner/tests.rs:4617:                crate::model::FileId(restored_bad.file_id),
+crates/core/src/query_execution/runner/tests.rs:6069:                                + hit.file_path.to_string_lossy().len()
+crates/core/src/query_execution/runner/tests.rs:6764:            .records_for(crate::model::FileId(0))
+crates/core/src/query_execution/runner/tests.rs:7135:        &view.0.catalog,
+crates/core/src/query_execution/runner/tests.rs:7150:            &view.0.catalog,
+crates/core/src/query_execution/runner/tests.rs:7600:    let full_bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+crates/core/src/query_execution/runner/tests.rs:7605:        Some(&view.0.catalog),
+crates/core/src/query_execution/runner/tests.rs:8564:        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/query_execution/runner/tests.rs:8675:        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+crates/core/src/query_execution/runner/tests.rs:8970:        &repo.catalog
+crates/core/src/query_execution/relations/target_cache.rs:9:use crate::model::{CollectionId, FileId, PathRoot, RecordSlot, Value};
+crates/core/src/query_execution/relations/target_cache.rs:389:        let mut grouped = BTreeMap::<FileId, Vec<(u32, crate::inventory::ByteRange)>>::new();
+crates/core/src/lifecycle/mutation/mod.rs:20:use crate::model::{CollectionId, FileId, MetadataField, PathRoot};
+crates/core/src/lifecycle/mutation/mod.rs:49:    /// file; only its catalog route and file version changed.
+crates/core/src/lifecycle/mutation/mod.rs:96:    pub file: FileId,
+crates/core/src/lifecycle/mutation/mod.rs:187:    old: &crate::inventory::FileEntry,
+crates/core/src/lifecycle/mutation/mod.rs:438:            next.catalog = next
+crates/core/src/lifecycle/mutation/mod.rs:439:                .catalog
+crates/core/src/query_access/text.rs:377:    let catalog = ProviderCatalog::new(providers);
+crates/core/src/query_access/text.rs:386:    let offers = catalog
+crates/core/src/query_access/text.rs:394:    let applied = catalog
+crates/core/src/query_access/text.rs:438:    let catalog = ProviderCatalog::new(providers);
+crates/core/src/query_access/text.rs:439:    let offers = catalog
+crates/core/src/lifecycle/mod.rs:15:use crate::model::{CollectionId, FileId};
+crates/core/src/lifecycle/mod.rs:18:pub(crate) mod catalog;
+crates/core/src/lifecycle/mod.rs:60:    pub file_id: FileId,
+crates/core/src/lifecycle/mod.rs:73:        file: FileId,
+crates/core/src/lifecycle/mod.rs:176:    pub id: FileId,
+crates/core/src/lifecycle/mutation/staging.rs:27:        if !current.0.catalog.is_active(handle.file_id) {
+crates/core/src/lifecycle/mutation/staging.rs:32:            .catalog
+crates/core/src/lifecycle/mutation/staging.rs:47:        next.catalog = next
+crates/core/src/lifecycle/mutation/staging.rs:48:            .catalog
+crates/core/src/lifecycle/mutation/staging.rs:90:        if view.0.catalog.allocated_files() != prepared.file.source.id.0 as usize {
+crates/core/src/lifecycle/mutation/staging.rs:97:            .catalog
+crates/core/src/lifecycle/mutation/staging.rs:113:        next.catalog = next
+crates/core/src/lifecycle/mutation/staging.rs:114:            .catalog
+crates/core/src/lifecycle/mutation/staging.rs:169:            .catalog
+crates/core/src/lifecycle/mutation/staging.rs:174:            .catalog
+crates/core/src/lifecycle/mutation/staging.rs:191:        next.catalog = next
+crates/core/src/lifecycle/mutation/staging.rs:192:            .catalog
+crates/core/src/lifecycle/mutation/staging.rs:204:        // a new shard there. Recheck its retired ratio after the catalog swap.
+crates/core/src/index/sorting/mod.rs:15:use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
+crates/core/src/index/sorting/mod.rs:323:        entry: &RecordEntry,
+crates/core/src/index/sorting/mod.rs:324:        file: &FileEntry,
+crates/core/src/index/sorting/mod.rs:389:        records: &[RecordEntry],
+crates/core/src/index/sorting/mod.rs:485:        inventory: &FileInventory,
+crates/core/src/index/sorting/mod.rs:495:        records: &[RecordEntry],
+crates/core/src/index/sorting/mod.rs:496:        status: impl Fn(crate::model::FileId) -> u8,
+crates/core/src/construction/segment_admission.test.rs:12:use crate::model::{CollectionId, FileId};
+crates/core/src/construction/segment_admission.test.rs:54:            id: FileId(number as u32),
+crates/core/src/construction/segment_admission.test.rs:66:        &[FileId(0), FileId(1)],
+crates/core/src/construction/segment_admission.test.rs:117:        id: FileId(0),
+crates/core/src/construction/segment_admission.test.rs:209:                id: FileId(number),
+crates/core/src/construction/segment_admission.test.rs:370:            FileId(400),
+crates/core/src/construction/segment_admission.test.rs:374:        (FileId(900), "zero.jsonl", b"".as_slice()),
+crates/core/src/construction/segment_admission.test.rs:375:        (FileId(1200), "broken.jsonl", b"{bad}\n".as_slice()),
+crates/core/src/construction/segment_admission.test.rs:394:        if id == FileId(400) {
+crates/core/src/construction/segment_admission.test.rs:410:        } else if id == FileId(900) {
+crates/core/src/construction/segment_admission.test.rs:431:        [FileId(400), FileId(900), FileId(1200)]
+crates/core/src/construction/segment_admission.test.rs:455:        [FileId(400), FileId(400), FileId(1200)]
+crates/core/src/construction/segment_admission.test.rs:495:    assert_eq!(indexed.file_records(FileId(900)).unwrap(), []);
+crates/core/src/construction/segment_admission.test.rs:496:    assert_eq!(indexed.record(RecordSlot(2)).unwrap().file, FileId(1200));
+crates/core/src/construction/segment_admission.test.rs:534:        id: FileId(700),
+crates/core/src/construction/segment_admission.test.rs:555:            .all(|segment| segment.files[0].entry.id == FileId(700) && segment.records.len() == 1)
+crates/core/src/construction/segment_admission.test.rs:574:        assert_eq!(indexed.files[0].entry.id, FileId(700));
+crates/core/src/construction/segment_admission.test.rs:588:        id: FileId(500),
+crates/core/src/query_execution/relations/evaluation.rs:860:                repository_root: &repo.files.root,
+crates/core/src/query_execution/relations/evaluation.rs:898:            repository_root: &repo.files.root,
+crates/core/src/model/mod.rs:350:pub struct FileId(pub u32);
+crates/core/src/model/mod.rs:376:    pub fn generated(file: FileId, modified_ns: i128, start: u64) -> Self {
+crates/core/src/model/mod.rs:385:        file: FileId,
+crates/core/src/model/mod.rs:447:    FileId,
+crates/core/src/model/mod.rs:465:            Self::FileId => "@file.id",
+crates/core/src/model/mod.rs:483:            "@file.id" => Ok(Self::FileId),
+crates/core/src/query_access/segment.rs:6:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/query_access/segment.rs:8:use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
+crates/core/src/query_access/segment.rs:58:    file_catalog: Option<&'a FileCatalog>,
+crates/core/src/query_access/segment.rs:68:        file_catalog: Option<&'a FileCatalog>,
+crates/core/src/query_access/segment.rs:73:            file_catalog,
+crates/core/src/query_access/segment.rs:298:                    self.file_catalog,
+crates/core/src/query_access/segment.rs:457:            NativeSegmentProvider::new(&published.index, collection, Some(&view.0.catalog));
+crates/core/src/index/sorting/inferred_order.rs:10:use crate::inventory::{RecordClass, RecordEntry};
+crates/core/src/index/sorting/inferred_order.rs:222:        records: &[RecordEntry],
+crates/core/src/index/sorting/inferred_order.rs:426:    records: &[RecordEntry],
+crates/core/src/model/tests.rs:213:        RecordId::generated(FileId(1), 2, 3),
+crates/core/src/lifecycle/mutation/verified.rs:15:use crate::model::{CollectionId, FileId, RecordSlot};
+crates/core/src/lifecycle/mutation/verified.rs:161:        crate::inventory::ByteRange,
+crates/core/src/lifecycle/mutation/verified.rs:194:    file: FileId,
+crates/core/src/lifecycle/mutation/verified.rs:200:    let new_entry = next.catalog.entry(file)?;
+crates/core/src/lifecycle/mutation/verified.rs:281:    file: FileId,
+crates/core/src/lifecycle/mutation/verified.rs:287:    let new_entry = next.catalog.entry(file)?;
+crates/core/src/lifecycle/mutation/verified.rs:350:                    && next.catalog.entry(entry.id).is_some_and(|current| {
+crates/core/src/lifecycle/mutation/verified.rs:396:    replaced_file: crate::model::FileId,
+crates/core/src/lifecycle/mutation/verified.rs:402:    let catalog = candidate.catalog.clone();
+crates/core/src/lifecycle/mutation/verified.rs:415:        // staging, so it has the highest ordinal for this FileId. Deletion
+crates/core/src/lifecycle/mutation/verified.rs:417:        let replacement_ordinal = catalog
+crates/core/src/lifecycle/mutation/verified.rs:447:                        && catalog.entry(entry.id).is_some_and(|current| {
+crates/core/src/repository/statistics.rs:59:    pub discovery_catalogue_ns: u64,
+crates/core/src/construction/segment_admission.rs:22:    CollectionBuilder, DiagnosticRef, FileInventory, FileStatus, RecordClass, RecordEntry,
+crates/core/src/construction/segment_admission.rs:25:use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
+crates/core/src/construction/segment_admission.rs:40:    pub inventory: &'a mut FileInventory,
+crates/core/src/construction/segment_admission.rs:286:    file_index: HashMap<FileId, usize>,
+crates/core/src/construction/segment_admission.rs:287:    records: Vec<RecordEntry>,
+crates/core/src/construction/segment_admission.rs:303:    pub file_index: HashMap<FileId, usize>,
+crates/core/src/construction/segment_admission.rs:304:    pub records: Vec<RecordEntry>,
+crates/core/src/construction/segment_admission.rs:566:            file_index: HashMap::new(),
+crates/core/src/construction/segment_admission.rs:636:        if self.file_index.contains_key(&source.id) {
+crates/core/src/construction/segment_admission.rs:680:            let index = if batch_file.first_range || !self.file_index.contains_key(&file_id) {
+crates/core/src/construction/segment_admission.rs:681:                if batch_file.first_range && self.file_index.contains_key(&file_id) {
+crates/core/src/construction/segment_admission.rs:693:                self.file_index.insert(file_id, index);
+crates/core/src/construction/segment_admission.rs:697:                    .file_index
+crates/core/src/construction/segment_admission.rs:739:                        .file_index
+crates/core/src/construction/segment_admission.rs:776:            file_index: self.file_index,
+crates/core/src/construction/segment_admission.rs:997:            file_index: self.file_index,
+crates/core/src/lifecycle/mutation/tests.rs:440:                    hit.file_path,
+crates/core/src/lifecycle/mutation/tests.rs:441:                    hit.file_status,
+crates/core/src/lifecycle/mutation/tests.rs:773:        old_hit.file_path,
+crates/core/src/lifecycle/mutation/tests.rs:785:                .map(|hit| hit.file_path.as_path())
+crates/core/src/lifecycle/mutation/tests.rs:808:                .all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl"))
+crates/core/src/lifecycle/mutation/tests.rs:821:                .all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl"))
+crates/core/src/query_execution/runner/source_scan.rs:20:    ranges: &[(u32, ByteRange)],
+crates/core/src/query_execution/runner/source_scan.rs:33:        .native_path(crate::model::FileId(file_id))
+crates/core/src/query_execution/runner/source_scan.rs:108:                    crate::model::FileId(file_id),
+crates/core/src/query_execution/runner/source_scan.rs:113:                session.read(crate::model::FileId(file_id), batch)?
+crates/core/src/query_execution/runner/source_scan.rs:223:                repository_root: &repo.files.root,
+crates/core/src/query_execution/preindex/tests.rs:117:                hit.file_path.clone(),
+crates/core/src/query_execution/preindex/tests.rs:138:                    && hit.file_path == row.path
+crates/core/src/query_execution/preindex/tests.rs:303:                .find(|hit| hit.file_path == std::path::Path::new("data/broken.json"))
+crates/core/src/query_execution/preindex/tests.rs:396:fn registered_json_uses_generated_ids_with_builtin_scalar_verification() {
+crates/core/src/repository/state.rs:40:    pub(crate) text_bindings: crate::query_access::catalog::TextBindingCatalog,
+crates/core/src/construction/scheduling.rs:18:use crate::model::{CollectionId, FileId};
+crates/core/src/construction/scheduling.rs:59:    pub(crate) file_fingerprint: Option<(FileId, [u8; 32])>,
+crates/core/src/construction/scheduling.rs:189:    pub files: Vec<FileId>,
+crates/core/src/construction/scheduling.rs:430:    jobs: &[&[FileId]],
+crates/core/src/query_access/mod.rs:8:pub(crate) mod catalog;
+crates/core/src/query_access/relations/mod.rs:36:/// One pinned relation catalog. Offers carry the selected traversal strategy;
+crates/core/src/query_access/relations/mod.rs:151:            MergedRelationView::new(self.repo, &empty_active, self.segments, &self.repo.catalog)?;
+crates/core/src/query_access/registry.rs:166:    fn catalog_selects_cost_wins_independently_of_registration_order() {
+crates/core/src/query_access/registry.rs:174:            let catalog = ProviderCatalog::new(providers);
+crates/core/src/query_access/registry.rs:175:            let offers = catalog
+crates/core/src/query_access/registry.rs:205:        let catalog =
+crates/core/src/query_access/registry.rs:207:        let offers = catalog
+crates/core/src/query_access/registry.rs:234:        let catalog = ProviderCatalog::new([&failing as &dyn IndexAccessProvider]);
+crates/core/src/query_access/registry.rs:237:        let error = match catalog.apply(
+crates/core/src/query_execution/relations/evaluation/tests.rs:23:    use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/query_execution/relations/evaluation/tests.rs:24:    use crate::model::{CollectionId, FileId};
+crates/core/src/query_execution/relations/evaluation/tests.rs:30:        file_id: FileId,
+crates/core/src/query_execution/relations/evaluation/tests.rs:104:    let catalog = FileCatalog::from_repository(Arc::clone(&repo))
+crates/core/src/query_execution/relations/evaluation/tests.rs:119:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:137:    let target = stage(&repo, &root, 0, FileId(next_file), "entries/new-a.json");
+crates/core/src/query_execution/relations/evaluation/tests.rs:142:        FileId(next_file + 1),
+crates/core/src/query_execution/relations/evaluation/tests.rs:145:    let catalog = catalog
+crates/core/src/query_execution/relations/evaluation/tests.rs:170:            &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:229:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:253:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:277:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:296:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:312:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:322:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:353:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:363:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:447:            &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:485:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:500:            &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:509:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:530:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:560:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:578:    use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/query_execution/relations/evaluation/tests.rs:599:    let catalog = FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:652:            &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:709:            &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:1048:        &view.0.catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:1236:    let view = MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:1538:        &pinned.0.catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:1562:        &pinned.0.catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:1583:        MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:1691:        MergedRelationView::new(repo, &pinned.0.active, &perturbed, &pinned.0.catalog).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:1716:            &pinned.0.catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:1949:fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
+crates/core/src/query_execution/relations/evaluation/tests.rs:2198:    let view = MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:2252:        MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:2322:        &pinned.0.catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:2600:        &pinned.0.catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:3076:                    "file_path": hit.file_path,
+crates/core/src/query_execution/relations/evaluation/tests.rs:3683:        repository_root: &repo.files.root,
+crates/core/src/query_execution/relations/evaluation/tests.rs:3700:    let catalog =
+crates/core/src/query_execution/relations/evaluation/tests.rs:3701:        crate::lifecycle::catalog::FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:3702:    let merged = MergedRelationView::new(&repo, &repo.active, &repo.segments, &catalog).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:3838:    let catalog =
+crates/core/src/query_execution/relations/evaluation/tests.rs:3839:        crate::lifecycle::catalog::FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+crates/core/src/query_execution/relations/evaluation/tests.rs:3854:        &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:3864:            &catalog,
+crates/core/src/query_execution/relations/evaluation/tests.rs:3874:        &catalog,
+crates/core/src/index/segment/projection/sorting.rs:6:use crate::inventory::RecordEntry;
+crates/core/src/index/segment/projection/sorting.rs:11:    records: &[RecordEntry],
+crates/core/src/repository/search.rs:28:            snapshot.catalog,
+crates/core/src/repository/search.rs:94:            &self.catalog,
+crates/core/src/repository/search.rs:262:                &self.catalog,
+crates/core/src/repository/search.rs:445:            &self.catalog,
+crates/core/src/repository/search.rs:468:            &self.catalog,
+crates/core/src/query_access/catalog.rs:1://! Borrowed views of published search accesses. A catalogue never owns a
+crates/core/src/query_access/catalog.rs:472:    /// bound field. No catalogue is rebuilt by traversing the schema.
+crates/core/src/query_execution/restrictions/dynamic_filter_tests.rs:140:                            crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/restrictions/dynamic_filter_tests.rs:145:                                Some(&repo.catalog),
+crates/core/src/query_execution/restrictions/dynamic_filter_tests.rs:301:    fn frame(&self, file: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+crates/core/src/query_execution/restrictions/dynamic_filter_tests.rs:302:        Ok(vec![crate::inventory::ByteRange::checked(
+crates/core/src/query_access/relations/semijoin.rs:12:use crate::model::{CollectionId, FileId, RecordSlot};
+crates/core/src/query_access/relations/semijoin.rs:48:    byte_range: impl Fn(&T) -> crate::inventory::ByteRange,
+crates/core/src/query_access/relations/semijoin.rs:251:        let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+crates/core/src/query_access/relations/semijoin.rs:256:            Some(&repo.catalog),
+crates/core/src/query_access/relations/semijoin.rs:359:        let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+crates/core/src/query_access/relations/semijoin.rs:364:            Some(&repo.catalog),
+crates/core/src/query_access/relations/semijoin.rs:650:    let mut grouped = BTreeMap::<FileId, Vec<(u32, crate::inventory::ByteRange)>>::new();
+crates/core/src/query_access/relations/semijoin.rs:708:                    repository_root: &repo.files.root,
+crates/core/src/query_access/relations/semijoin.rs:791:        let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+crates/core/src/query_access/relations/semijoin.rs:796:            Some(view.catalog()),
+crates/core/src/query_access/relations/semijoin.rs:876:        (crate::model::CollectionId, FileId),
+crates/core/src/query_access/relations/semijoin.rs:877:        Vec<(SegmentRecordAddress, crate::inventory::ByteRange)>,
+crates/core/src/query_access/relations/semijoin.rs:890:    let mut access = SourceAccessSession::from_catalog(view.repository_root(), view.catalog());
+crates/core/src/query_access/relations/semijoin.rs:1379:    let catalog =
+crates/core/src/query_access/relations/semijoin.rs:1395:            let proposed = catalog
+crates/core/src/query_access/relations/semijoin.rs:1421:        let restriction = catalog
+crates/core/src/construction/repository_state/tests.rs:4:    use crate::inventory::{FileInventory, SourceRevision};
+crates/core/src/construction/repository_state/tests.rs:7:    let mut inventory = FileInventory::new(std::path::PathBuf::from("/tmp"));
+crates/core/src/query_execution/runner/segment_scan.rs:11:    record: &RecordEntry,
+crates/core/src/query_execution/runner/segment_scan.rs:12:    file: &FileEntry,
+crates/core/src/query_execution/runner/segment_scan.rs:127:        repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/segment_scan.rs:205:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/segment_scan.rs:212:    ranges: &[(u32, ByteRange)],
+crates/core/src/query_execution/runner/segment_scan.rs:220:        catalog,
+crates/core/src/query_execution/runner/segment_scan.rs:221:        crate::model::FileId(file_id),
+crates/core/src/query_execution/runner/segment_scan.rs:223:    let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/segment_scan.rs:300:                repository_root: &repo.files.root,
+crates/core/src/query_access/relations/semijoin/tests.rs:38:    fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+crates/core/src/query_access/relations/semijoin/tests.rs:169:    use crate::inventory::ByteRange;
+crates/core/src/query_access/relations/semijoin/tests.rs:174:    let empty: Vec<ByteRange> = Vec::new();
+crates/core/src/query_access/relations/semijoin/tests.rs:188:    let oversized = [ByteRange {
+crates/core/src/query_access/relations/semijoin/tests.rs:199:    let mut ranges = vec![ByteRange { start: 0, end: 1 }; 128];
+crates/core/src/query_access/relations/semijoin/tests.rs:200:    ranges.push(ByteRange {
+crates/core/src/query_access/relations/semijoin/tests.rs:224:        ByteRange {
+crates/core/src/query_access/relations/semijoin/tests.rs:228:        ByteRange {
+crates/core/src/query_access/relations/semijoin/tests.rs:617:                "file_path": hit.file_path,
+crates/core/src/query_access/relations/semijoin/tests.rs:920:        &repo.catalog,
+crates/core/src/query_execution/restrictions/tests.rs:28:    use crate::model::{CollectionId, FileId, RecordSlot};
+crates/core/src/query_execution/restrictions/tests.rs:65:            id: FileId(200),
+crates/core/src/query_execution/restrictions/tests.rs:753:    fn frame(&self, file: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+crates/core/src/query_execution/restrictions/tests.rs:754:        Ok(vec![crate::inventory::ByteRange::checked(
+crates/core/src/query_execution/runner/ordered.rs:37:    _catalog: &FileCatalog,
+crates/core/src/query_execution/runner/ordered.rs:38:    file: &FileEntry,
+crates/core/src/query_execution/runner/ordered.rs:39:    record: &RecordEntry,
+crates/core/src/query_execution/runner/ordered.rs:41:    reader: &mut Option<(crate::model::FileId, RecordRangeReader)>,
+crates/core/src/query_execution/runner/ordered.rs:47:        let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/ordered.rs:61:    record: &'a RecordEntry,
+crates/core/src/query_execution/runner/ordered.rs:141:    record: &RecordEntry,
+crates/core/src/query_execution/runner/ordered.rs:184:    record: &RecordEntry,
+crates/core/src/query_execution/runner/ordered.rs:203:    record: &RecordEntry,
+crates/core/src/query_execution/runner/ordered.rs:278:        let catalog =
+crates/core/src/query_execution/runner/ordered.rs:279:            crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection);
+crates/core/src/query_execution/runner/ordered.rs:280:        let index = catalog.sortable_scalar(&part.path.segments)?;
+crates/core/src/query_execution/runner/ordered.rs:297:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/ordered.rs:332:        let Ok(bounds) = segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/runner/ordered.rs:337:            Some(catalog),
+crates/core/src/query_execution/runner/ordered.rs:386:        crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection);
+crates/core/src/query_execution/runner/ordered.rs:452:    if !posting_order_eligible(repo, query, Some(prepared), &repo.segments, &repo.catalog) {
+crates/core/src/query_execution/runner/ordered.rs:517:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/ordered.rs:530:    if !posting_order_eligible(repo, query, Some(prepared), segments, catalog) {
+crates/core/src/query_execution/runner/ordered.rs:566:            let bounds = segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/runner/ordered.rs:571:                Some(catalog),
+crates/core/src/query_execution/runner/ordered.rs:654:            let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
+crates/core/src/query_execution/runner/ordered.rs:692:                catalog,
+crates/core/src/query_execution/runner/ordered.rs:703:                        catalog,
+crates/core/src/query_execution/runner/ordered.rs:716:                selected_files.insert(hit.file_id);
+crates/core/src/repository/relations.rs:9:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/repository/relations.rs:10:use crate::model::{CollectionId, FileId, RecordSlot};
+crates/core/src/repository/relations.rs:28:    pub file: FileId,
+crates/core/src/repository/relations.rs:496:    catalog: &FileCatalog,
+crates/core/src/repository/relations.rs:507:    let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
+crates/core/src/repository/relations.rs:556:    catalog: &FileCatalog,
+crates/core/src/repository/relations.rs:567:    let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
+crates/core/src/repository/relations.rs:593:    catalog: &FileCatalog,
+crates/core/src/repository/relations.rs:595:    let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
+crates/core/src/index/segment/mod.rs:23:use crate::inventory::{ActiveRecords, RecordEntry};
+crates/core/src/index/segment/mod.rs:25:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/index/segment/mod.rs:26:use crate::model::{CollectionId, FileId, Number, RecordSlot};
+crates/core/src/index/segment/mod.rs:208:    pub entry: crate::inventory::FileEntry,
+crates/core/src/index/segment/mod.rs:250:    pub file_index: HashMap<FileId, usize>,
+crates/core/src/index/segment/mod.rs:251:    pub records: Vec<RecordEntry>,
+crates/core/src/index/segment/mod.rs:303:    pub catalog: &'a FileCatalog,
+crates/core/src/index/segment/mod.rs:452:                self.records.capacity() * std::mem::size_of::<crate::inventory::RecordEntry>(),
+crates/core/src/index/segment/mod.rs:456:                self.file_index
+crates/core/src/index/segment/mod.rs:550:    pub fn file(&self, id: FileId) -> Option<&SegmentFile> {
+crates/core/src/index/segment/mod.rs:551:        self.files.get(*self.file_index.get(&id)?)
+crates/core/src/index/segment/mod.rs:554:    pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
+crates/core/src/index/segment/mod.rs:558:    pub fn file_records(&self, id: FileId) -> Option<&[RecordSlot]> {
+crates/core/src/repository/mod.rs:12:use crate::inventory::{ActiveRecords, FileInventory};
+crates/core/src/repository/mod.rs:14:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/repository/mod.rs:49:    pub(crate) files: Arc<FileInventory>,
+crates/core/src/repository/mod.rs:57:    pub(crate) catalog: FileCatalog,
+crates/core/src/repository/records.rs:38:                &self.catalog,
+crates/core/src/repository/records.rs:145:        let file = crate::model::FileId(hit.file_id);
+crates/core/src/repository/records.rs:164:            let Some(position) = self.catalog.entry(file).and_then(|entry| {
+crates/core/src/construction/repository_state.rs:18:    ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
+crates/core/src/construction/repository_state.rs:20:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/construction/repository_state.rs:30:    files: &FileInventory,
+crates/core/src/construction/repository_state.rs:83:    let files = Arc::new(FileInventory::new(root));
+crates/core/src/construction/repository_state.rs:170:            crate::query_access::catalog::TextBindingCatalog::new(&definition.schema);
+crates/core/src/construction/repository_state.rs:223:    let catalog = FileCatalog::from_parts(Arc::clone(&files), Vec::new(), configuration_identity);
+crates/core/src/construction/repository_state.rs:238:        catalog,
+crates/core/src/construction/repository_state.rs:271:    files: &mut FileInventory,
+crates/core/src/construction/repository_state.rs:448:    discovered: Arc<FileInventory>,
+crates/core/src/index/segment/consolidation.test.rs:90:            FileId(100),
+crates/core/src/index/segment/consolidation.test.rs:96:            FileId(500),
+crates/core/src/index/segment/consolidation.test.rs:100:        (FileId(900), "empty.jsonl", b"".as_slice()),
+crates/core/src/index/segment/consolidation.test.rs:173:        [FileId(100), FileId(500), FileId(900)]
+crates/core/src/index/segment/consolidation.test.rs:176:        merged.file_records(FileId(500)).unwrap(),
+crates/core/src/index/segment/consolidation.test.rs:258:            id: FileId(10_000 + number),
+crates/core/src/index/segment/consolidation.test.rs:299:                .file_records(FileId(10_000 + number))
+crates/core/src/index/segment/consolidation.test.rs:336:        (FileId(10), "first.jsonl", "first\nsecond\n"),
+crates/core/src/index/segment/consolidation.test.rs:337:        (FileId(20), "second.jsonl", "third\nfourth\n"),
+crates/core/src/index/segment/consolidation.test.rs:398:        consolidated.index.file_records(FileId(10)).unwrap(),
+crates/core/src/index/segment/consolidation.test.rs:402:        consolidated.index.file_records(FileId(20)).unwrap(),
+crates/core/src/repository/inspection.rs:10:use crate::inventory::FileInventory;
+crates/core/src/repository/inspection.rs:24:    pub fn files(&self) -> &FileInventory {
+crates/core/src/repository/inspection.rs:156:            catalog: &self.catalog,
+crates/core/src/repository/posting_values/tests.rs:72:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:83:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:101:            &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:112:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:139:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:150:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:163:            &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:174:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:314:    use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/repository/posting_values/tests.rs:315:    use crate::model::{CollectionId, FileId};
+crates/core/src/repository/posting_values/tests.rs:331:                id: FileId((restored.files().files.len() + index) as u32),
+crates/core/src/repository/posting_values/tests.rs:371:    let mut catalog = FileCatalog::from_repository(Arc::clone(&restored)).unwrap();
+crates/core/src/repository/posting_values/tests.rs:373:        catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
+crates/core/src/repository/posting_values/tests.rs:398:        &catalog,
+crates/core/src/repository/posting_values/tests.rs:433:            &catalog,
+crates/core/src/repository/posting_values/tests.rs:452:            &catalog,
+crates/core/src/repository/posting_values/tests.rs:467:    use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/repository/posting_values/tests.rs:468:    use crate::model::{CollectionId, FileId, RecordSlot};
+crates/core/src/repository/posting_values/tests.rs:528:                id: FileId((repo.files().files.len() + index) as u32),
+crates/core/src/repository/posting_values/tests.rs:577:    let mut catalog = FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+crates/core/src/repository/posting_values/tests.rs:579:        catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
+crates/core/src/repository/posting_values/tests.rs:593:        &catalog,
+crates/core/src/repository/posting_values/tests.rs:721:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:730:        &repo.catalog,
+crates/core/src/repository/posting_values/tests.rs:831:            &opt_out.catalog,
+crates/core/src/query_execution/restrictions.rs:13:    ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
+crates/core/src/query_execution/restrictions.rs:16:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/query_execution/restrictions.rs:18:    FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
+crates/core/src/query_execution/restrictions.rs:26:use crate::query_access::catalog::{
+crates/core/src/query_execution/restrictions.rs:248:        file_catalog: Option<&'a FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:250:        Self::new_with_predicates(segment, collection, file_catalog, None, None)
+crates/core/src/query_execution/restrictions.rs:256:        file_catalog: Option<&'a FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:271:            provider: NativeSegmentProvider::new(segment, collection, file_catalog),
+crates/core/src/query_execution/restrictions.rs:281:    fn catalog(&self) -> ProviderCatalog<'_> {
+crates/core/src/query_execution/restrictions.rs:341:                .catalog()
+crates/core/src/query_execution/restrictions.rs:359:            .catalog()
+crates/core/src/query_execution/restrictions.rs:470:    segment_filter_bounds_with_catalog(segment, active, expr, collection, None)
+crates/core/src/query_execution/restrictions.rs:476:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:480:    let mut context = SegmentPlanContext::new(segment, collection, catalog);
+crates/core/src/query_execution/restrictions.rs:491:        .catalog()
+crates/core/src/query_execution/restrictions.rs:504:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:510:            segment_filter_estimate_with_term(segment, collection, catalog, term, input_len)
+crates/core/src/query_execution/restrictions.rs:516:                    segment_filter_estimate(segment, collection, catalog, part, input_len)?
+crates/core/src/query_execution/restrictions.rs:533:pub(crate) fn segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/restrictions.rs:538:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:541:    segment_filter_bounds_with_input_catalog(segment, active, expr, collection, catalog, &domain)
+crates/core/src/query_execution/restrictions.rs:544:pub(crate) fn segment_filter_bounds_with_input_catalog(
+crates/core/src/query_execution/restrictions.rs:549:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:552:    segment_filter_bounds_with_input_catalog_and_predicates(
+crates/core/src/query_execution/restrictions.rs:553:        segment, active, expr, collection, catalog, input, None, None,
+crates/core/src/query_execution/restrictions.rs:557:pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
+crates/core/src/query_execution/restrictions.rs:562:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:579:        segment, collection, catalog, predicates, execution,
+crates/core/src/query_execution/restrictions.rs:588:        catalog,
+crates/core/src/query_execution/restrictions.rs:778:        |provider, catalog, chosen| {
+crates/core/src/query_execution/restrictions.rs:782:            let applied = catalog
+crates/core/src/query_execution/restrictions.rs:846:    let catalog = ProviderCatalog::new(providers);
+crates/core/src/query_execution/restrictions.rs:847:    let offers = catalog
+crates/core/src/query_execution/restrictions.rs:863:    selected(&provider, &catalog, chosen)
+crates/core/src/query_execution/restrictions.rs:947:fn metadata_probe_file() -> FileEntry {
+crates/core/src/query_execution/restrictions.rs:948:    FileEntry {
+crates/core/src/query_execution/restrictions.rs:949:        id: FileId(0),
+crates/core/src/query_execution/restrictions.rs:963:fn metadata_probe_record() -> RecordEntry {
+crates/core/src/query_execution/restrictions.rs:964:    RecordEntry {
+crates/core/src/query_execution/restrictions.rs:967:        file: FileId(0),
+crates/core/src/query_execution/restrictions.rs:968:        range: ByteRange { start: 0, end: 0 },
+crates/core/src/query_execution/restrictions.rs:1013:    catalog: &FileCatalog,
+crates/core/src/query_execution/restrictions.rs:1024:        let Some(entry) = catalog.entry(id) else {
+crates/core/src/query_execution/restrictions.rs:1283:/// Metadata is resident in the published record and file catalog. Evaluate it
+crates/core/src/query_execution/restrictions.rs:1291:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:1306:    let Some(catalog) = catalog else {
+crates/core/src/query_execution/restrictions.rs:1323:        let Some(file) = catalog.entry(record.file) else {
+crates/core/src/query_execution/restrictions.rs:1332:            repository_root: catalog.repository_root(),
+crates/core/src/query_execution/restrictions.rs:1345:        let Some(file) = catalog.entry(record.file) else {
+crates/core/src/query_execution/restrictions.rs:1354:            repository_root: catalog.repository_root(),
+crates/core/src/query_execution/restrictions.rs:1371:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:1382:            let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
+crates/core/src/query_execution/restrictions.rs:1389:                            catalog,
+crates/core/src/query_execution/restrictions.rs:1403:            if let (Some(catalog), Some((bounds, indices))) = (catalog, &path_range) {
+crates/core/src/query_execution/restrictions.rs:1405:                for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
+crates/core/src/query_execution/restrictions.rs:1455:                    catalog,
+crates/core/src/query_execution/restrictions.rs:1476:                    catalog,
+crates/core/src/query_execution/restrictions.rs:1496:                catalog,
+crates/core/src/query_execution/restrictions.rs:1513:    catalog: Option<&FileCatalog>,
+crates/core/src/query_execution/restrictions.rs:1557:                && let Some(catalog) = catalog
+crates/core/src/query_execution/restrictions.rs:1560:                    catalog.relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN)
+crates/core/src/query_execution/restrictions.rs:1570:                    segment_file_path_matches(segment, domain, catalog, operator, literal)?
+crates/core/src/query_execution/restrictions.rs:1584:                segment_metadata_matches(segment, collection, domain, term, catalog)?
+crates/core/src/query_execution/restrictions.rs:1598:            let index_catalog = IndexCatalog::segment(segment, collection);
+crates/core/src/query_execution/restrictions.rs:1599:            let selected = index_catalog
+crates/core/src/query_execution/restrictions.rs:1609:                        .assess(term, index_catalog.logical, &mut 0)
+crates/core/src/query_execution/restrictions.rs:1616:                    let work = |proposal: &crate::query_access::catalog::PostingProposal| {
+crates/core/src/query_execution/restrictions.rs:1625:                    index_catalog.logical,
+crates/core/src/query_execution/restrictions.rs:1663:            let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
+crates/core/src/query_execution/restrictions.rs:1666:            if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
+crates/core/src/query_execution/restrictions.rs:1668:                for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
+crates/core/src/query_execution/restrictions.rs:1691:                    catalog,
+crates/core/src/query_execution/restrictions.rs:1709:                    catalog,
+crates/core/src/query_execution/restrictions.rs:1724:                catalog,
+crates/core/src/query_execution/restrictions.rs:1869:    fn catalog(&self) -> ProviderCatalog<'_> {
+crates/core/src/query_execution/restrictions.rs:1900:        let catalog = self.catalog();
+crates/core/src/query_execution/restrictions.rs:1902:            Some(predicates) => catalog.propose_prepared(predicates, key, input_estimate),
+crates/core/src/query_execution/restrictions.rs:1903:            None => catalog.propose(key, AccessRequest::Structured(term), input_estimate),
+crates/core/src/query_execution/restrictions.rs:1905:        drop(catalog);
+crates/core/src/query_execution/restrictions.rs:1995:        let catalog = self.catalog();
+crates/core/src/query_execution/restrictions.rs:1996:        let restricted = catalog
+crates/core/src/query_execution/restrictions.rs:2042:        let catalog = ProviderCatalog::new(providers);
+crates/core/src/query_execution/restrictions.rs:2043:        let offers = catalog
+crates/core/src/query_execution/restrictions.rs:2152:                        repository_root: &repo.files.root,
+crates/core/src/query_execution/restrictions.rs:2348:                    repository_root: &repo.files.root,
+crates/core/src/query_execution/restrictions.rs:2402:            MetadataField::FileId
+crates/core/src/query_execution/restrictions.rs:2424:                    repository_root: &repo.files.root,
+crates/core/src/query_execution/restrictions.rs:2444:                    repository_root: &repo.files.root,
+crates/core/src/query_execution/restrictions.rs:2460:                repository_root: &repo.files.root,
+crates/core/src/query_execution/restrictions.rs:2618:        let catalog = IndexCatalog::collection(collection);
+crates/core/src/query_execution/restrictions.rs:2619:        for access in catalog
+crates/core/src/query_execution/restrictions.rs:2628:            if let Some(proposal) = access.assess(term, catalog.logical, dictionary_keys_visited)? {
+crates/core/src/query_execution/restrictions.rs:2746:            let catalog = IndexCatalog::collection(collection);
+crates/core/src/query_execution/restrictions.rs:2747:            match catalog.posting(
+crates/core/src/query_execution/restrictions.rs:2753:                Some(access) => access.execute(term, catalog.logical, input, operation)?,
+crates/core/src/construction/file_preparation.rs:16:use crate::inventory::{ByteRange, RecordClass, SourceRevision};
+crates/core/src/construction/file_preparation.rs:17:use crate::model::{CollectionId, FileId, RecordId};
+crates/core/src/construction/file_preparation.rs:75:    pub(crate) fn record_layout(&self) -> Vec<(CollectionId, RecordId, ByteRange, RecordClass)> {
+crates/core/src/construction/file_preparation.rs:489:fn validate_supplied_ranges(ranges: &[ByteRange], size: u64) -> Result<(), BytesPreparationError> {
+crates/core/src/construction/file_preparation.rs:492:        ByteRange::checked(range.start, range.end, size)
+crates/core/src/construction/file_preparation.rs:529:            range: ByteRange::checked(0, input.revision.size, input.revision.size)?,
+crates/core/src/construction/file_preparation.rs:552:    ranges: &[ByteRange],
+crates/core/src/construction/file_preparation.rs:574:            let absolute = |range: ByteRange| -> Result<ByteRange, String> {
+crates/core/src/construction/file_preparation.rs:581:                ByteRange::checked(start, end, revision_size)
+crates/core/src/construction/file_preparation.rs:639:    file_id: FileId,
+crates/core/src/construction/file_preparation.rs:686:    file_id: FileId,
+crates/core/src/construction/file_preparation.rs:713:    file_id: FileId,
+crates/core/src/construction/file_preparation.rs:888:    file_id: FileId,
+crates/core/src/construction/file_preparation.rs:970:    file_id: FileId,
+crates/core/src/construction/batch.rs:19:    ByteRange, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, RecordEntry,
+crates/core/src/construction/batch.rs:22:use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
+crates/core/src/construction/batch.rs:93:    pub(crate) entry: FileEntry,
+crates/core/src/construction/batch.rs:102:    pub(crate) id: FileId,
+crates/core/src/construction/batch.rs:109:    pub(crate) fn from_entry(entry: &FileEntry) -> Self {
+crates/core/src/construction/batch.rs:118:    pub(super) fn for_collection(&self, collection: CollectionId) -> FileEntry {
+crates/core/src/construction/batch.rs:119:        FileEntry {
+crates/core/src/construction/batch.rs:136:    files: &'a [FileId],
+crates/core/src/construction/batch.rs:137:    inventory: &FileInventory,
+crates/core/src/construction/batch.rs:138:) -> Vec<&'a [FileId]> {
+crates/core/src/construction/batch.rs:169:    pub(super) file_fingerprints: Vec<(FileId, [u8; 32])>,
+crates/core/src/construction/batch.rs:170:    pub(super) records: Vec<RecordEntry>,
+crates/core/src/construction/batch.rs:264:    pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
+crates/core/src/construction/batch.rs:286:    pub(super) records: Vec<RecordEntry>,
+crates/core/src/construction/batch.rs:386:        file: &mut FileEntry,
+crates/core/src/construction/batch.rs:387:        range: ByteRange,
+crates/core/src/construction/batch.rs:412:        self.records.push(RecordEntry {
+crates/core/src/construction/batch.rs:463:        file: &mut FileEntry,
+crates/core/src/construction/batch.rs:466:        range: ByteRange,
+crates/core/src/construction/batch.rs:542:        self.records.push(RecordEntry {
+crates/core/src/construction/batch.rs:679:        file: &mut FileEntry,
+crates/core/src/construction/batch.rs:753:    file_ids: &[FileId],
+crates/core/src/construction/batch.rs:778:    file_ids: &[FileId],
+crates/core/src/construction/discovery/tests.rs:4:    use crate::inventory::FileInventory;
+crates/core/src/construction/discovery/tests.rs:45:        let mut inventory = FileInventory::new(root.clone());
+crates/core/src/construction/initial.rs:22:use crate::inventory::{CollectionBuilder, FileInventory, append_shifted_bitmap};
+crates/core/src/construction/initial.rs:24:use crate::model::{CollectionId, FileId};
+crates/core/src/construction/initial.rs:37:        file: FileId,
+crates/core/src/construction/initial.rs:45:    member_files: Vec<FileId>,
+crates/core/src/construction/initial.rs:58:        member_files: Vec<FileId>,
+crates/core/src/construction/initial.rs:508:        on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
+crates/core/src/construction/initial.rs:517:            on_catalogue,
+crates/core/src/construction/initial.rs:531:        on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
+crates/core/src/construction/initial.rs:541:            on_catalogue,
+crates/core/src/construction/initial.rs:554:        on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
+crates/core/src/construction/initial.rs:583:        let mut files = FileInventory::new(root.clone());
+crates/core/src/construction/initial.rs:596:                    Vec<FileId>,
+crates/core/src/construction/initial.rs:668:            profile.discovery_catalogue_ns = discovery_ns;
+crates/core/src/construction/initial.rs:730:        on_catalogue(&index)?;
+crates/core/src/query_execution/runner/relations.rs:75:            let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/relations.rs:261:        let bounds = segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/runner/relations.rs:371:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:380:            segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/runner/relations.rs:385:                Some(catalog),
+crates/core/src/query_execution/runner/relations.rs:456:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:464:        catalog,
+crates/core/src/query_execution/runner/relations.rs:484:    let path = repo.files.root.join(&resolved.file.relative_path);
+crates/core/src/query_execution/runner/relations.rs:522:        repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/relations.rs:552:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:648:            let bounds = segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/runner/relations.rs:653:                Some(catalog),
+crates/core/src/query_execution/runner/relations.rs:730:                let bounds = segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/runner/relations.rs:735:                    Some(catalog),
+crates/core/src/query_execution/runner/relations.rs:766:                        && catalog
+crates/core/src/query_execution/runner/relations.rs:782:                                catalog,
+crates/core/src/query_execution/runner/relations.rs:818:                segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
+crates/core/src/query_execution/runner/relations.rs:828:                let path = repo.files.root.join(&resolved.file.relative_path);
+crates/core/src/query_execution/runner/relations.rs:866:                    repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/relations.rs:960:                catalog,
+crates/core/src/query_execution/runner/relations.rs:1010:                catalog,
+crates/core/src/query_execution/runner/relations.rs:1141:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:1188:            let bounds = segment_filter_bounds_with_catalog(
+crates/core/src/query_execution/runner/relations.rs:1193:                Some(catalog),
+crates/core/src/query_execution/runner/relations.rs:1210:        catalog,
+crates/core/src/query_execution/runner/relations.rs:1244:        catalog,
+crates/core/src/query_execution/runner/relations.rs:1260:    range: ByteRange,
+crates/core/src/query_execution/runner/relations.rs:1299:    _catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:1324:    let path = repo.files.root.join(&resolved.file.relative_path);
+crates/core/src/query_execution/runner/relations.rs:1423:        repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/relations.rs:1563:    file: &FileEntry,
+crates/core/src/query_execution/runner/relations.rs:1565:    ranges: &[(u32, ByteRange)],
+crates/core/src/query_execution/runner/relations.rs:1637:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:1706:                catalog,
+crates/core/src/query_execution/runner/relations.rs:1765:        for file_index in 0..published.index.file_count() {
+crates/core/src/query_execution/runner/relations.rs:1769:                .get(file_index)
+crates/core/src/query_execution/runner/relations.rs:1806:        catalog,
+crates/core/src/query_execution/runner/relations.rs:1830:                        catalog,
+crates/core/src/query_execution/runner/relations.rs:1952:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:2068:                        catalog,
+crates/core/src/query_execution/runner/relations.rs:2081:                        catalog,
+crates/core/src/query_execution/runner/relations.rs:2096:                        catalog,
+crates/core/src/query_execution/runner/relations.rs:2115:        catalog,
+crates/core/src/query_execution/runner/relations.rs:2253:                repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/relations.rs:2463:            let path = repo.files.root.join(&resolved.file.relative_path);
+crates/core/src/query_execution/runner/relations.rs:2488:                    catalog,
+crates/core/src/query_execution/runner/relations.rs:2533:                        .file_index
+crates/core/src/query_execution/runner/relations.rs:2543:            for file_index in file_indices {
+crates/core/src/query_execution/runner/relations.rs:2547:                    .get(file_index)
+crates/core/src/query_execution/runner/relations.rs:2585:                let path = repo.files.root.join(&resolved.file.relative_path);
+crates/core/src/query_execution/runner/relations.rs:2623:                    catalog,
+crates/core/src/query_execution/runner/relations.rs:2642:                        catalog,
+crates/core/src/query_execution/runner/relations.rs:2695:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:2703:        catalog,
+crates/core/src/query_execution/runner/relations.rs:2713:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/relations.rs:2736:        catalog,
+crates/core/src/query_execution/runner/relations.rs:2786:                        let catalog = crate::query_access::catalog::IndexCatalog::segment(
+crates/core/src/query_execution/runner/relations.rs:2790:                        let exact = catalog
+crates/core/src/query_execution/runner/relations.rs:2799:                                access.assess(term, catalog.logical, &mut 0).transpose()
+crates/core/src/query_execution/runner/relations.rs:2904:                let catalog = crate::query_access::catalog::IndexCatalog::segment(
+crates/core/src/query_execution/runner/relations.rs:2908:                let selected = catalog
+crates/core/src/query_execution/runner/relations.rs:2916:                    .filter_map(|access| access.assess(term, catalog.logical, &mut 0).transpose())
+crates/core/src/query_execution/runner/relations.rs:2953:                    == crate::query_access::catalog::PostingOperation::SelfComparePresence
+crates/core/src/query_execution/runner/relations.rs:3037:                    let catalog = crate::query_access::catalog::IndexCatalog::segment(
+crates/core/src/query_execution/runner/relations.rs:3041:                    let proposal = catalog
+crates/core/src/query_execution/runner/relations.rs:3050:                            access.assess(term, catalog.logical, &mut 0).transpose()
+crates/core/src/index/segment/consolidation.rs:351:    /// Shards with overlapping FileIds or logical IDs must first be resolved
+crates/core/src/index/segment/consolidation.rs:369:        let mut file_index = HashMap::new();
+crates/core/src/index/segment/consolidation.rs:398:                if file_index.insert(entry.id, files.len()).is_some() {
+crates/core/src/index/segment/consolidation.rs:568:            file_index,
+crates/core/src/index/segment/compaction.rs:12:use crate::inventory::{ActiveRecords, DiagnosticRef, FileEntry, FileStatus, RecordClass};
+crates/core/src/index/segment/compaction.rs:13:use crate::model::{FileId, RecordSlot};
+crates/core/src/index/segment/compaction.rs:28:        retain_file: impl Fn(&FileEntry) -> bool,
+crates/core/src/index/segment/compaction.rs:55:        retain_file: impl Fn(&FileEntry) -> bool,
+crates/core/src/index/segment/compaction.rs:120:        selected_files: &HashSet<FileId>,
+crates/core/src/index/segment/compaction.rs:136:                self.file_index
+crates/core/src/index/segment/compaction.rs:161:        retain_file: impl Fn(&FileEntry) -> bool,
+crates/core/src/index/segment/compaction.rs:171:        let mut file_index = HashMap::new();
+crates/core/src/index/segment/compaction.rs:172:        let mut diagnostic_refs: HashMap<FileId, Vec<Option<DiagnosticRef>>> = HashMap::new();
+crates/core/src/index/segment/compaction.rs:173:        let mut selected_by_file: HashMap<FileId, Vec<RecordSlot>> = HashMap::new();
+crates/core/src/index/segment/compaction.rs:223:            file_index.insert(entry.id, files.len());
+crates/core/src/index/segment/compaction.rs:241:            if !file_index.contains_key(&record.file) {
+crates/core/src/index/segment/compaction.rs:375:            file_index,
+crates/core/src/index/segment/compaction.test.rs:754:    interrupted.files[0].entry.id = crate::model::FileId(10);
+crates/core/src/index/segment/compaction.test.rs:755:    interrupted.file_index.remove(&old_file);
+crates/core/src/index/segment/compaction.test.rs:756:    interrupted.file_index.insert(crate::model::FileId(10), 0);
+crates/core/src/index/segment/compaction.test.rs:759:            record.file = crate::model::FileId(10);
+crates/core/src/index/segment/compaction.test.rs:1682:            FileId(100),
+crates/core/src/index/segment/compaction.test.rs:1687:            FileId(200),
+crates/core/src/index/segment/compaction.test.rs:1711:        if id == FileId(200) {
+crates/core/src/index/segment/compaction.test.rs:1812:        .compact_active(&active, 3, |file| file.id == FileId(200))
+crates/core/src/index/segment/compaction.test.rs:1819:    assert_eq!(compacted.files[0].entry.id, FileId(200));
+crates/core/src/index/segment/compaction.test.rs:1862:        all.compact_active(&active, 2, |file| file.id == FileId(200))
+crates/core/src/index/segment/compaction.test.rs:2448:            id: FileId(77),
+crates/core/src/index/segment/compaction.test.rs:2495:    assert_eq!(combined.index.files[0].entry.id, FileId(77));
+crates/core/src/index/segment/compaction.test.rs:2524:        id: FileId(66),
+crates/core/src/query_execution/runner/mod.rs:20:use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
+crates/core/src/query_execution/runner/mod.rs:22:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/query_execution/runner/mod.rs:45:    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
+crates/core/src/query_execution/runner/mod.rs:466:            repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/mod.rs:481:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:489:        let resolved = segment_record_ref(segment, active, catalog, RecordSlot(slot))?
+crates/core/src/query_execution/runner/mod.rs:497:            repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/mod.rs:517:    record: &RecordEntry,
+crates/core/src/query_execution/runner/mod.rs:546:    pub record: &'a RecordEntry,
+crates/core/src/query_execution/runner/mod.rs:547:    pub file: &'a FileEntry,
+crates/core/src/query_execution/runner/mod.rs:553:    catalog: &'a FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:554:    file_id: crate::model::FileId,
+crates/core/src/query_execution/runner/mod.rs:555:) -> Result<&'a FileEntry, String> {
+crates/core/src/query_execution/runner/mod.rs:559:    let file_index = segment
+crates/core/src/query_execution/runner/mod.rs:560:        .file_index
+crates/core/src/query_execution/runner/mod.rs:566:        .get(file_index)
+crates/core/src/query_execution/runner/mod.rs:569:    let file = catalog
+crates/core/src/query_execution/runner/mod.rs:581:    catalog: &'a FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:591:    let file_index = segment
+crates/core/src/query_execution/runner/mod.rs:592:        .file_index
+crates/core/src/query_execution/runner/mod.rs:598:        .get(file_index)
+crates/core/src/query_execution/runner/mod.rs:601:    let file = catalog
+crates/core/src/query_execution/runner/mod.rs:604:    // The catalog owns the path in this publication. A compatible move may
+crates/core/src/query_execution/runner/mod.rs:619:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:634:    let Some(resolved) = segment_record_ref(segment, active, catalog, slot)? else {
+crates/core/src/query_execution/runner/mod.rs:647:            let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/mod.rs:687:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:718:        let file = catalog
+crates/core/src/query_execution/runner/mod.rs:732:                let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/mod.rs:762:        let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
+crates/core/src/query_execution/runner/mod.rs:772:                catalog,
+crates/core/src/query_execution/runner/mod.rs:788:            let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/mod.rs:910:            file_id: hit.file_id,
+crates/core/src/query_execution/runner/mod.rs:919:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:924:    let file = catalog
+crates/core/src/query_execution/runner/mod.rs:925:        .entry(crate::model::FileId(hit.file_id))
+crates/core/src/query_execution/runner/mod.rs:926:        .ok_or("materialized hit file missing from pinned catalog")?;
+crates/core/src/query_execution/runner/mod.rs:927:    let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/mod.rs:928:    let range = ByteRange {
+crates/core/src/query_execution/runner/mod.rs:1026:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1029:    search_segmented_lifecycle(repo, query, base_active, segments, catalog, revision, None)
+crates/core/src/query_execution/runner/mod.rs:1037:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1042:        return search_segmented_reference(repo, query, base_active, segments, catalog, revision);
+crates/core/src/query_execution/runner/mod.rs:1050:        catalog,
+crates/core/src/query_execution/runner/mod.rs:1059:        Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
+crates/core/src/query_execution/runner/mod.rs:1060:            search_segmented_reference(repo, query, base_active, segments, catalog, revision)
+crates/core/src/query_execution/runner/mod.rs:1088:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1097:        catalog,
+crates/core/src/query_execution/runner/mod.rs:1109:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1120:        catalog,
+crates/core/src/query_execution/runner/mod.rs:1137:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1148:        return search_segmented_reference(repo, query, base_active, segments, catalog, revision)
+crates/core/src/query_execution/runner/mod.rs:1156:        catalog,
+crates/core/src/query_execution/runner/mod.rs:1171:            ) && has_unavailable_active_source(repo, base_active, segments, catalog)
+crates/core/src/query_execution/runner/mod.rs:1190:                    catalog,
+crates/core/src/query_execution/runner/mod.rs:1216:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1219:    search_active_available_lifecycle(repo, query, base_active, catalog, revision, None)
+crates/core/src/query_execution/runner/mod.rs:1227:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1233:        Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
+crates/core/src/query_execution/runner/mod.rs:1234:            search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
+crates/core/src/query_execution/runner/mod.rs:1246:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1248:    let unavailable = |file: &FileEntry| {
+crates/core/src/query_execution/runner/mod.rs:1249:        let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/mod.rs:1256:                && let Some(file) = catalog.entry(*file_id)
+crates/core/src/query_execution/runner/mod.rs:1272:            for file_index in 0..segment.index.file_count() {
+crates/core/src/query_execution/runner/mod.rs:1273:                let Some(file) = segment.index.files.get(file_index) else {
+crates/core/src/query_execution/runner/mod.rs:1280:                    && let Some(current) = catalog.entry(file.entry.id)
+crates/core/src/query_execution/runner/mod.rs:1310:                    && !crate::query_access::catalog::self_comparison_shape(term)
+crates/core/src/query_execution/runner/mod.rs:1370:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1390:        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+crates/core/src/query_execution/runner/mod.rs:1395:            Some(catalog),
+crates/core/src/query_execution/runner/mod.rs:1466:    mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)>,
+crates/core/src/query_execution/runner/mod.rs:1468:) -> Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> {
+crates/core/src/query_execution/runner/mod.rs:1473:    let mut grouped: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> = Vec::new();
+crates/core/src/query_execution/runner/mod.rs:1555:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1626:                segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
+crates/core/src/query_execution/runner/mod.rs:1697:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1744:                    segment_filter_bounds_with_input_catalog_and_predicates(
+crates/core/src/query_execution/runner/mod.rs:1749:                        Some(catalog),
+crates/core/src/query_execution/runner/mod.rs:1799:        catalog,
+crates/core/src/query_execution/runner/mod.rs:1828:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1886:        catalog,
+crates/core/src/query_execution/runner/mod.rs:1905:        let selected_files = hits.iter().map(|hit| hit.file_id).collect::<HashSet<_>>();
+crates/core/src/query_execution/runner/mod.rs:1935:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:1965:    let resolved = segment_record_ref(segment, &published.active, catalog, slot)?
+crates/core/src/query_execution/runner/mod.rs:2012:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:2059:                    catalog,
+crates/core/src/query_execution/runner/mod.rs:2105:            catalog,
+crates/core/src/query_execution/runner/mod.rs:2132:            catalog,
+crates/core/src/query_execution/runner/mod.rs:2151:            catalog,
+crates/core/src/query_execution/runner/mod.rs:2173:            catalog,
+crates/core/src/query_execution/runner/mod.rs:2221:            catalog,
+crates/core/src/query_execution/runner/mod.rs:2271:                        Some(catalog),
+crates/core/src/query_execution/runner/mod.rs:2317:                        segment_filter_bounds_with_input_catalog_and_predicates(
+crates/core/src/query_execution/runner/mod.rs:2322:                            Some(catalog),
+crates/core/src/query_execution/runner/mod.rs:2391:                    catalog,
+crates/core/src/query_execution/runner/mod.rs:2433:                        catalog,
+crates/core/src/query_execution/runner/mod.rs:2521:                            segment_record_ref(segment, &published.active, catalog, *slot)?
+crates/core/src/query_execution/runner/mod.rs:2566:                        catalog,
+crates/core/src/query_execution/runner/mod.rs:2610:            let mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> = Vec::new();
+crates/core/src/query_execution/runner/mod.rs:2664:                    catalog
+crates/core/src/query_execution/runner/mod.rs:2665:                        .entry(crate::model::FileId(*file_id))
+crates/core/src/query_execution/runner/mod.rs:2700:                                    catalog,
+crates/core/src/query_execution/runner/mod.rs:2739:                                catalog,
+crates/core/src/query_execution/runner/mod.rs:2821:                    catalog,
+crates/core/src/query_execution/runner/mod.rs:2822:                    crate::model::FileId(file_id),
+crates/core/src/query_execution/runner/mod.rs:2824:                let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_execution/runner/mod.rs:2903:                            repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/mod.rs:3040:                    catalog,
+crates/core/src/query_execution/runner/mod.rs:3051:                            catalog,
+crates/core/src/query_execution/runner/mod.rs:3065:                    selected_files.insert(winner.hit.file_id);
+crates/core/src/query_execution/runner/mod.rs:3129:/// sorting. Source payloads are always read against this pinned catalog.
+crates/core/src/query_execution/runner/mod.rs:3243:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:3267:        catalog,
+crates/core/src/query_execution/runner/mod.rs:3444:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:3481:                catalog,
+crates/core/src/query_execution/runner/mod.rs:3602:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:3693:                    catalog,
+crates/core/src/query_execution/runner/mod.rs:3732:                        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+crates/core/src/query_execution/runner/mod.rs:3737:                            Some(catalog),
+crates/core/src/query_execution/runner/mod.rs:4035:            segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
+crates/core/src/query_execution/runner/mod.rs:4129:                catalog,
+crates/core/src/query_execution/runner/mod.rs:4159:                        catalog,
+crates/core/src/query_execution/runner/mod.rs:4303:                        catalog,
+crates/core/src/query_execution/runner/mod.rs:4326:                                catalog,
+crates/core/src/query_execution/runner/mod.rs:4527:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:4539:        catalog,
+crates/core/src/query_execution/runner/mod.rs:4554:    catalog: &FileCatalog,
+crates/core/src/query_execution/runner/mod.rs:4648:                catalog,
+crates/core/src/query_execution/runner/mod.rs:4720:        catalog,
+crates/core/src/query_execution/runner/mod.rs:4764:        catalog,
+crates/core/src/query_execution/runner/mod.rs:4808:                catalog,
+crates/core/src/query_execution/runner/mod.rs:4822:                        catalog,
+crates/core/src/query_execution/runner/mod.rs:5029:    if posting_order_eligible(repo, query, None, &repo.segments, &repo.catalog) {
+crates/core/src/query_execution/runner/mod.rs:5189:        posting_order_eligible(repo, execution_query, None, &repo.segments, &repo.catalog);
+crates/core/src/query_execution/runner/mod.rs:5434:                let range = ByteRange {
+crates/core/src/query_execution/runner/mod.rs:5439:                    crate::model::FileId(hit.file_id),
+crates/core/src/query_execution/runner/mod.rs:5621:            repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/mod.rs:5645:    let mut batch = Vec::<(u32, ByteRange)>::with_capacity(128);
+crates/core/src/query_execution/runner/mod.rs:5678:                source_access.read_bounded(crate::model::FileId(file_id), &batch, available)?
+crates/core/src/query_execution/runner/mod.rs:5680:                source_access.read(crate::model::FileId(file_id), &batch)?
+crates/core/src/query_execution/runner/mod.rs:5704:                    repository_root: &repo.files.root,
+crates/core/src/query_execution/runner/mod.rs:5918:        && posting_order_eligible(repo, query, Some(&prepared), &repo.segments, &repo.catalog)
+crates/core/src/query_execution/runner/mod.rs:6704:        let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();
+crates/core/src/query/semantics/mod.rs:11:pub(crate) use crate::inventory::{FileEntry, RecordEntry};
+crates/core/src/reference/relations.rs:9:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/reference/relations.rs:73:    catalog: &FileCatalog,
+crates/core/src/reference/relations.rs:82:        catalog,
+crates/core/src/reference/tests.rs:1:use crate::inventory::{ByteRange, SourceRevision};
+crates/core/src/reference/tests.rs:2:use crate::model::{FileId, RecordId, RecordSlot};
+crates/core/src/reference/tests.rs:55:    let record = RecordEntry {
+crates/core/src/reference/tests.rs:58:        file: FileId(0),
+crates/core/src/reference/tests.rs:59:        range: ByteRange { start: 0, end: 4 },
+crates/core/src/reference/tests.rs:67:    let file = FileEntry {
+crates/core/src/reference/tests.rs:68:        id: FileId(0),
+crates/core/src/reference/tests/prelude.rs:4:pub(crate) use crate::inventory::{FileEntry, RecordEntry};
+crates/core/src/query_results/materialize.rs:8:use crate::inventory::ByteRange;
+crates/core/src/query_results/materialize.rs:32:        let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
+crates/core/src/query_results/materialize.rs:65:                    source_access.read_bounded(crate::model::FileId(file_id), batch, limit)?
+crates/core/src/query_results/materialize.rs:67:                    source_access.read(crate::model::FileId(file_id), batch)?
+crates/core/src/query_results/cache.rs:9:use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
+crates/core/src/query_results/cache.rs:11:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/query_results/cache.rs:34:    pub(crate) range: crate::inventory::ByteRange,
+crates/core/src/query_results/cache.rs:67:            used.checked_add(128 * std::mem::size_of::<(u32, crate::inventory::ByteRange)>())
+crates/core/src/query_results/cache.rs:196:    catalog: &FileCatalog,
+crates/core/src/query_results/cache.rs:259:                catalog,
+crates/core/src/query_results/cache.rs:272:                    catalog,
+crates/core/src/query_results/cache.rs:290:            let file = catalog
+crates/core/src/query_results/cache.rs:297:                let path = repo.files.root.join(&file.relative_path);
+crates/core/src/query_results/cache.rs:330:                    catalog,
+crates/core/src/query_results/cache.rs:455:    let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
+crates/core/src/query_results/cache.rs:508:            let read = source_access.read(crate::model::FileId(file_id), batch)?;
+crates/core/src/query_results/cache.rs:535:    record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:11:use crate::inventory::RecordEntry;
+crates/core/src/query_results/ranking.rs:136:    record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:232:    record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:346:        record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:374:    record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:414:    record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:758:    record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:801:    record: &RecordEntry,
+crates/core/src/query_results/ranking.rs:811:        repository_root: &repo.files.root,
+crates/core/src/repository/posting_values.rs:16:use crate::lifecycle::catalog::FileCatalog;
+crates/core/src/repository/posting_values.rs:445:    catalog: &FileCatalog,
+crates/core/src/repository/posting_values.rs:462:    for file_index in 0..segment.index.file_count() {
+crates/core/src/repository/posting_values.rs:466:            .get(file_index)
+crates/core/src/repository/posting_values.rs:486:        let current = catalog
+crates/core/src/repository/posting_values.rs:495:            &repo.files.root.join(&current.relative_path),
+crates/core/src/repository/posting_values.rs:551:    catalog: &FileCatalog,
+crates/core/src/repository/posting_values.rs:557:            crate::model::FileId,
+crates/core/src/repository/posting_values.rs:558:            crate::inventory::ByteRange,
+crates/core/src/repository/posting_values.rs:564:        crate::model::FileId,
+crates/core/src/repository/posting_values.rs:567:            crate::inventory::ByteRange,
+crates/core/src/repository/posting_values.rs:580:        let current = catalog
+crates/core/src/repository/posting_values.rs:590:            &repo.files.root.join(&current.relative_path),
+crates/core/src/repository/posting_values.rs:735:    catalog: &FileCatalog,
+crates/core/src/repository/posting_values.rs:772:                match crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+crates/core/src/repository/posting_values.rs:777:                    Some(catalog),
+crates/core/src/repository/posting_values.rs:814:        catalog,
+crates/core/src/repository/posting_values.rs:881:    catalog: &FileCatalog,
+crates/core/src/repository/posting_values.rs:977:                catalog,
+crates/core/src/repository/posting_values.rs:1009:        for file_index in 0..segment.index.file_count() {
+crates/core/src/repository/posting_values.rs:1013:                .get(file_index)
+crates/core/src/repository/posting_values.rs:1020:                let current = catalog
+crates/core/src/repository/posting_values.rs:1156:                    catalog,
+crates/core/src/repository/posting_values.rs:1167:                    catalog,
+crates/core/src/repository/posting_values.rs:1329:                &self.catalog,
+crates/core/src/repository/posting_values.rs:1391:                &self.catalog,
+crates/core/src/repository/posting_values.rs:1530:                    &self.catalog,
+crates/core/src/repository/posting_values.rs:1541:                    &self.catalog,
+crates/core/src/reference/filter.rs:3:use crate::inventory::RecordEntry;
+crates/core/src/reference/filter.rs:100:        ctx.record as *const RecordEntry as usize,
+crates/core/src/query/semantics/record.rs:4:    pub record: &'a RecordEntry,
+crates/core/src/query/semantics/record.rs:5:    pub file: &'a FileEntry,
+crates/core/src/query/semantics/record.rs:20:        MetadataField::FileId => number(ctx.file.id.0 as u64),
