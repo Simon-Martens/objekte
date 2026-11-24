@@ -774,6 +774,32 @@ pub(crate) fn build_retained_contribution(
     ),
     String,
 > {
+    build_native_contribution(inputs, declaration, options, true)
+}
+
+pub(crate) fn build_provider_contribution(
+    inputs: Vec<(RecordId, Value, Vec<crate::source::TextSegment>)>,
+    declaration: &crate::repository::configuration::CollectionDeclaration,
+    options: &crate::repository::configuration::RepositoryOptions,
+) -> Result<(Vec<crate::records::RecordHeader>, BatchContribution), String> {
+    let (headers, _, contribution) =
+        build_native_contribution(inputs, declaration, options, false)?;
+    Ok((headers, contribution))
+}
+
+fn build_native_contribution(
+    inputs: Vec<(RecordId, Value, Vec<crate::source::TextSegment>)>,
+    declaration: &crate::repository::configuration::CollectionDeclaration,
+    options: &crate::repository::configuration::RepositoryOptions,
+    retain_bodies: bool,
+) -> Result<
+    (
+        Vec<crate::records::RecordHeader>,
+        Vec<crate::index::segment::RetainedBody>,
+        BatchContribution,
+    ),
+    String,
+> {
     let schema = &declaration.schema;
     let mut postings = PostingCollection::new(schema);
     let mut inference = InferenceBuilder::with_job_count(options.inference, true, 1);
@@ -824,7 +850,7 @@ pub(crate) fn build_retained_contribution(
     let mut relations = RelationContribution::for_schema(schema);
     let mut profile = BuildWorkProfile::default();
     let mut headers = Vec::with_capacity(inputs.len());
-    let mut bodies = Vec::with_capacity(inputs.len());
+    let mut bodies = Vec::with_capacity(if retain_bodies { inputs.len() } else { 0 });
     for (id, value, text) in inputs {
         let slot = RecordSlot(u32::try_from(headers.len()).map_err(|_| "too many batch records")?);
         let text_derivation = if text.is_empty() {
@@ -856,10 +882,12 @@ pub(crate) fn build_retained_contribution(
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
         });
-        bodies.push(crate::index::segment::RetainedBody {
-            value: extracted.value,
-            text: extracted.text,
-        });
+        if retain_bodies {
+            bodies.push(crate::index::segment::RetainedBody {
+                value: extracted.value,
+                text: extracted.text,
+            });
+        }
     }
     let custom_text = custom_text
         .into_iter()

@@ -9,7 +9,7 @@ use std::time::Instant;
 use crate::lifecycle::{Index, IndexError, IndexRevision, RecordRegistration};
 
 use super::spool::{self, SpoolManager};
-use super::{Batch, IngestionError, IngestionOptions, PublishedRevision, SubmitError};
+use super::{Batch, IngestionError, IngestionOptions, Operation, PublishedRevision, SubmitError};
 
 static NEXT_SESSION: AtomicU64 = AtomicU64::new(1);
 const MAX_PENDING_DESCRIPTORS: usize = 65_536;
@@ -75,6 +75,7 @@ struct Queued {
 pub struct SessionMetrics {
     pub accepted_batches: u64,
     pub published_batches: u64,
+    pub root_installations: u64,
     pub pending_ram_bytes: usize,
     pub pending_spool_bytes: u64,
     pub high_water_ram_bytes: usize,
@@ -104,6 +105,7 @@ struct Queue {
     spool: Mutex<SpoolManager>,
     encoding: Mutex<()>,
     options: IngestionOptions,
+    group_target_records: usize,
     cancelled: AtomicBool,
     publication_decision: Mutex<()>,
     #[cfg(test)]
@@ -133,6 +135,14 @@ impl SessionCore {
             .view()
             .expect("index view available at session creation")
             .revision();
+        let group_target_records = index
+            .view()
+            .expect("index view available at session creation")
+            .repository()
+            .options()
+            .segment_policy
+            .target_records
+            .get();
         let queue = Arc::new(Queue {
             state: Mutex::new(State {
                 items: VecDeque::new(),
@@ -148,6 +158,7 @@ impl SessionCore {
             spool: Mutex::new(SpoolManager::new(id, &options)),
             encoding: Mutex::new(()),
             options,
+            group_target_records,
             cancelled: AtomicBool::new(false),
             publication_decision: Mutex::new(()),
             #[cfg(test)]
@@ -545,9 +556,24 @@ fn enqueue(
     }
 }
 
+fn groupable(batch: &Batch) -> bool {
+    batch.files.is_empty()
+        && !batch.operations.is_empty()
+        && batch.operations.iter().all(|operation| {
+            matches!(
+                operation,
+                Operation::Insert {
+                    file: None,
+                    version: None,
+                    ..
+                }
+            )
+        })
+}
+
 fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
     loop {
-        let item = {
+        let mut item = {
             let mut state = queue.state.lock().expect("queue mutex poisoned");
             while (state.items.is_empty() || state.paused) && !state.closed {
                 state = queue.changed.wait(state).expect("queue mutex poisoned");
@@ -565,6 +591,112 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 .max(item.weight);
             item
         };
+        let group_enabled = {
+            #[cfg(test)]
+            {
+                queue
+                    .worker_entry
+                    .lock()
+                    .expect("worker hook mutex poisoned")
+                    .is_none()
+            }
+            #[cfg(not(test))]
+            {
+                true
+            }
+        };
+        if group_enabled
+            && let Storage::Memory(first) = &item.storage
+            && groupable(first)
+            && first.operations.len() < queue.group_target_records
+        {
+            let registration = first.registration;
+            let mut records = first.operations.len();
+            let mut bytes = first.estimated_bytes;
+            let mut group = vec![item];
+            {
+                let mut state = queue.state.lock().expect("queue mutex poisoned");
+                while let Some(front) = state.items.front() {
+                    let Storage::Memory(batch) = &front.storage else {
+                        break;
+                    };
+                    if batch.registration != registration
+                        || !groupable(batch)
+                        || records.saturating_add(batch.operations.len())
+                            > queue.group_target_records
+                        || bytes.saturating_add(front.weight) > 4 * 1024 * 1024
+                    {
+                        break;
+                    }
+                    let batch_records = batch.operations.len();
+                    let next = state.items.pop_front().expect("front batch exists");
+                    state.metrics.pending_ram_bytes -= next.weight;
+                    state.metrics.in_flight_estimated_bytes = state
+                        .metrics
+                        .in_flight_estimated_bytes
+                        .saturating_add(next.weight);
+                    state.metrics.high_water_in_flight_estimated_bytes = state
+                        .metrics
+                        .high_water_in_flight_estimated_bytes
+                        .max(state.metrics.in_flight_estimated_bytes);
+                    records += batch_records;
+                    bytes += next.weight;
+                    group.push(next);
+                }
+            }
+            if group.len() > 1 {
+                let mut combined = Batch::new(session_id, registration);
+                combined.operations.reserve(records);
+                for member in &group {
+                    if let Storage::Memory(batch) = &member.storage {
+                        combined.operations.extend(batch.operations.iter().cloned());
+                    }
+                }
+                let first_sequence = group[0].sequence;
+                let grouped = if queue.cancelled.load(Ordering::Acquire) {
+                    Err(IngestionError::Cancelled {
+                        originating_sequence: first_sequence,
+                    })
+                } else {
+                    std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                        super::publication::install_batch(
+                            &index,
+                            &queue.cancelled,
+                            &queue.publication_decision,
+                            combined,
+                            first_sequence,
+                        )
+                    }))
+                    .unwrap_or_else(|_| {
+                        Err(IngestionError::Spool("ingestion worker panicked".into()))
+                    })
+                };
+                if let Ok(revision) = grouped {
+                    let last_sequence = group.last().expect("group has members").sequence;
+                    let count = group.len() as u64;
+                    for member in group {
+                        member.receipt.complete(Ok(revision));
+                    }
+                    let mut state = queue.state.lock().expect("queue mutex poisoned");
+                    state.metrics.in_flight_estimated_bytes = 0;
+                    state.completed = last_sequence;
+                    state.last_revision = revision;
+                    state.metrics.published_batches += count;
+                    state.metrics.root_installations += 1;
+                    queue.changed.notify_all();
+                    continue;
+                }
+                let mut state = queue.state.lock().expect("queue mutex poisoned");
+                for pending in group.drain(1..).rev() {
+                    state.metrics.pending_ram_bytes += pending.weight;
+                    state.items.push_front(pending);
+                }
+                item = group.pop().expect("first group member remains");
+                state.metrics.in_flight_estimated_bytes = item.weight;
+            } else {
+                item = group.pop().expect("single group member remains");
+            }
+        }
         #[cfg(test)]
         {
             let hook = queue
@@ -621,6 +753,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             Ok(revision) => {
                 state.last_revision = revision;
                 state.metrics.published_batches += 1;
+                state.metrics.root_installations += 1;
             }
             Err(error) => {
                 state.closed = true;
@@ -1094,6 +1227,79 @@ mod tests {
         }
         let next = index.ingestion();
         assert_ne!(next.core.id, session.core.id);
+    }
+
+    #[test]
+    fn compatible_backlog_seals_one_segment_and_one_root_for_many_receipts() {
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder.register_records(collection, "group", 1).unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        session.pause_worker_for_measurement().unwrap();
+        let writer = session.writer(registration).unwrap();
+        let mut receipts = Vec::new();
+        for number in 0..128 {
+            receipts.push(
+                writer
+                    .submit(batch(
+                        session.core.id,
+                        registration,
+                        &format!("record-{number}"),
+                    ))
+                    .unwrap(),
+            );
+        }
+        session.resume_worker_for_measurement();
+        let revisions = receipts
+            .iter()
+            .map(Receipt::wait_published)
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap();
+        assert!(revisions.iter().all(|revision| *revision == revisions[0]));
+        session.finish().unwrap();
+        assert_eq!(session.metrics().accepted_batches, 128);
+        assert_eq!(session.metrics().published_batches, 128);
+        assert_eq!(session.metrics().root_installations, 1);
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .segment_summaries()
+                .iter()
+                .any(|segment| segment.active_records == 128)
+        );
+        assert_eq!(index.status().unwrap().live_records, 128);
+    }
+
+    #[test]
+    fn failed_middle_group_member_publishes_valid_prefix_only() {
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "group-failure", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        session.pause_worker_for_measurement().unwrap();
+        let writer = session.writer(registration).unwrap();
+        let first = writer
+            .submit(batch(session.core.id, registration, "first"))
+            .unwrap();
+        let duplicate = writer
+            .submit(batch(session.core.id, registration, "first"))
+            .unwrap();
+        let suffix = writer
+            .submit(batch(session.core.id, registration, "suffix"))
+            .unwrap();
+        session.resume_worker_for_measurement();
+        first.wait_published().unwrap();
+        assert!(duplicate.wait_published().is_err());
+        assert!(
+            matches!(suffix.wait_published(), Err(IngestionError::Cancelled { originating_sequence }) if originating_sequence == duplicate.sequence())
+        );
+        assert_eq!(session.metrics().root_installations, 1);
+        assert_eq!(index.status().unwrap().live_records, 1);
     }
 
     #[test]

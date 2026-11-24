@@ -173,6 +173,8 @@ fn ingest(
             "mode": "ingest", "records": count, "batch_size": batch_size, "producers": producers,
             "overflow": overflow, "producer_accept_ns": accept_ns, "publish_drain_ns": publish_ns,
             "accepted_batches": metrics.accepted_batches, "published_batches": metrics.published_batches,
+            "root_installations": metrics.root_installations,
+            "active_segment_count": view.segment_summaries().iter().filter(|segment| segment.active).count(),
             "high_water_ram_bytes": metrics.high_water_ram_bytes,
             "high_water_spool_bytes": metrics.high_water_spool_bytes,
             "spool_written_bytes": metrics.spool_written_bytes,

@@ -813,8 +813,69 @@ impl CollectionSegment {
             return Err("retained batch is empty or has mismatched body count".into());
         }
         let count = u32::try_from(records.len()).map_err(|_| "too many retained records")?;
+        let backing = crate::index::segment::SegmentBacking::Retained {
+            blocks: vec![std::sync::Arc::from(bodies)],
+            addresses: (0..count)
+                .map(|offset| crate::index::segment::RetainedAddress { block: 0, offset })
+                .collect(),
+            links: vec![None; count as usize],
+            registration,
+        };
+        Self::from_native(
+            id,
+            collection,
+            source_id,
+            source_version,
+            raw_covers_logical_fields,
+            records,
+            backing,
+            contribution,
+        )
+    }
+
+    pub(crate) fn from_provider(
+        id: SegmentId,
+        collection: CollectionId,
+        source_id: String,
+        source_version: u32,
+        registration: u32,
+        raw_covers_logical_fields: bool,
+        records: Vec<crate::records::RecordHeader>,
+        versions: Vec<crate::records::RecordVersion>,
+        contribution: BatchContribution,
+    ) -> Result<Self, String> {
+        if records.is_empty() || records.len() != versions.len() {
+            return Err("provider batch is empty or has mismatched version count".into());
+        }
+        let backing = crate::index::segment::SegmentBacking::Provider {
+            versions,
+            links: vec![None; records.len()],
+            registration,
+        };
+        Self::from_native(
+            id,
+            collection,
+            source_id,
+            source_version,
+            raw_covers_logical_fields,
+            records,
+            backing,
+            contribution,
+        )
+    }
+
+    fn from_native(
+        id: SegmentId,
+        collection: CollectionId,
+        source_id: String,
+        source_version: u32,
+        raw_covers_logical_fields: bool,
+        records: Vec<crate::records::RecordHeader>,
+        backing: crate::index::segment::SegmentBacking,
+        contribution: BatchContribution,
+    ) -> Result<Self, String> {
+        let count = u32::try_from(records.len()).map_err(|_| "too many native records")?;
         let mut id_lookup = HashMap::with_capacity(records.len());
-        let mut addresses = Vec::with_capacity(records.len());
         for (slot, record) in records.iter().enumerate() {
             if record.slot.0 as usize != slot {
                 return Err("retained record slots out of order".into());
@@ -825,10 +886,6 @@ impl CollectionSegment {
                     record.id.0
                 ));
             }
-            addresses.push(crate::index::segment::RetainedAddress {
-                block: 0,
-                offset: record.slot.0,
-            });
         }
         Ok(Self {
             id,
@@ -838,12 +895,7 @@ impl CollectionSegment {
             files: Vec::new(),
             file_index: HashMap::new(),
             records,
-            backing: crate::index::segment::SegmentBacking::Retained {
-                blocks: vec![std::sync::Arc::from(bodies)],
-                addresses,
-                links: vec![None; count as usize],
-                registration,
-            },
+            backing,
             raw_covers_logical_fields,
             id_lookup,
             batches: vec![SegmentBatch {

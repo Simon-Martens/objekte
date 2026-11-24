@@ -3,7 +3,7 @@
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicBool, Ordering};
 
-use crate::construction::batch::build_retained_contribution;
+use crate::construction::batch::{build_provider_contribution, build_retained_contribution};
 use crate::construction::segment_admission::CollectionSegment;
 use crate::index::segment::{
     FileRangeLocator, IndexedCollectionSegment, SegmentBacking, SegmentFile, SegmentId,
@@ -293,20 +293,36 @@ fn build_segment(
     let declaration = &view.repository().collections[collection.0 as usize].definition;
     let options = view.repository().options();
     let raw_covers_logical_fields = inputs.iter().all(|(_, _, text)| text.is_empty());
-    let (headers, bodies, contribution) =
-        build_retained_contribution(inputs, declaration, &options)
+    let draft = if let Some(versions) = versions {
+        let (headers, contribution) = build_provider_contribution(inputs, declaration, &options)
             .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
-    let draft = CollectionSegment::from_retained(
-        SegmentId::new(2),
-        collection,
-        registration.adapter_id.clone(),
-        registration.version,
-        registration.handle.ordinal,
-        raw_covers_logical_fields,
-        headers,
-        bodies,
-        contribution,
-    )
+        CollectionSegment::from_provider(
+            SegmentId::new(2),
+            collection,
+            registration.adapter_id.clone(),
+            registration.version,
+            registration.handle.ordinal,
+            raw_covers_logical_fields,
+            headers,
+            versions,
+            contribution,
+        )
+    } else {
+        let (headers, bodies, contribution) =
+            build_retained_contribution(inputs, declaration, &options)
+                .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+        CollectionSegment::from_retained(
+            SegmentId::new(2),
+            collection,
+            registration.adapter_id.clone(),
+            registration.version,
+            registration.handle.ordinal,
+            raw_covers_logical_fields,
+            headers,
+            bodies,
+            contribution,
+        )
+    }
     .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
     let mut segment = draft
         .into_indexed(
@@ -317,13 +333,6 @@ fn build_segment(
             &view.repository().workers,
         )
         .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
-    if let Some(versions) = versions {
-        segment.backing = SegmentBacking::Provider {
-            versions,
-            links: vec![None; segment.records.len()],
-            registration: registration.handle.ordinal,
-        };
-    }
     attach_links(
         &mut segment,
         links,
