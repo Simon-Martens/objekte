@@ -60,6 +60,47 @@ pub(crate) struct RecordRoutes {
 }
 
 impl RecordRoutes {
+    /// Resident directory capacity for one published root. Record IDs share
+    /// payload allocations with headers and are therefore excluded here.
+    pub(crate) fn estimated_directory_bytes(&self) -> usize {
+        let id_routes = self.shards.iter().fold(0usize, |bytes, shard| {
+            bytes.saturating_add(
+                shard
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<(RecordId, RoutedRecord)>() + 16),
+            )
+        });
+        let file_routes =
+            self.file_shards.iter().fold(0usize, |bytes, shard| {
+                bytes
+                    .saturating_add(shard.capacity().saturating_mul(
+                        std::mem::size_of::<(FileId, SmallVec<[SegmentId; 1]>)>() + 16,
+                    ))
+                    .saturating_add(
+                        shard
+                            .values()
+                            .map(|segments| {
+                                segments
+                                    .capacity()
+                                    .saturating_sub(1)
+                                    .saturating_mul(std::mem::size_of::<SegmentId>())
+                            })
+                            .sum::<usize>(),
+                    )
+            });
+        id_routes
+            .saturating_add(file_routes)
+            .saturating_add(
+                self.positions
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<(SegmentId, usize)>() + 16),
+            )
+            .saturating_add(
+                2 * RECORD_ROUTE_SHARDS
+                    * std::mem::size_of::<Arc<HashMap<RecordId, RoutedRecord>>>(),
+            )
+    }
+
     fn empty() -> Self {
         Self {
             shards: Arc::new(

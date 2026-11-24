@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::num::NonZeroUsize;
 use std::path::Path;
 use std::sync::{Arc, Weak};
@@ -60,6 +60,15 @@ pub struct IndexObservation {
     pub inventory_heap_bytes: usize,
     pub diagnostic_heap_bytes: usize,
     pub collection_parts: Vec<CollectionIndexObservation>,
+}
+
+/// Approximate resident bytes owned by native backings and route directories
+/// in this publication. Shared retained blocks are counted once in a view.
+#[derive(Clone, Copy, Debug, Default, serde::Serialize)]
+pub struct NativeStorageEstimate {
+    pub retained_body_bytes: usize,
+    pub backing_column_bytes: usize,
+    pub route_directory_bytes: usize,
 }
 
 /// One collection's facts for a pinned index publication. Definitions remain
@@ -348,6 +357,42 @@ impl IndexView {
                     .sum::<usize>(),
             )
             .saturating_add(self.estimated_construction_observation_bytes())
+    }
+
+    pub fn native_storage_estimate(&self) -> NativeStorageEstimate {
+        let mut estimate = NativeStorageEstimate::default();
+        let mut retained_blocks = HashSet::new();
+        for segment in self.0.segments.iter().flat_map(|group| group.iter()) {
+            let backing = &segment.index.backing;
+            estimate.backing_column_bytes = estimate
+                .backing_column_bytes
+                .saturating_add(backing.estimated_column_bytes());
+            if let crate::index::segment::SegmentBacking::Retained { blocks, .. } = backing {
+                for block in blocks {
+                    if retained_blocks.insert(block.as_ptr() as usize) {
+                        estimate.retained_body_bytes =
+                            estimate
+                                .retained_body_bytes
+                                .saturating_add(block.iter().fold(0usize, |bytes, body| {
+                                    bytes
+                                        .saturating_add(crate::ingestion::estimated_value_bytes(
+                                            &body.value,
+                                        ))
+                                        .saturating_add(crate::ingestion::estimated_text_bytes(
+                                            &body.text,
+                                        ))
+                                }));
+                    }
+                }
+            }
+        }
+        estimate.route_directory_bytes = self
+            .0
+            .record_routes
+            .iter()
+            .map(|routes| routes.estimated_directory_bytes())
+            .sum();
+        estimate
     }
 
     /// Temporary provisional-build observation estimate. Completed views hold 0.

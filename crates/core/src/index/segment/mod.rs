@@ -263,6 +263,11 @@ impl SegmentBacking {
     /// are charged here for maintenance; publication-wide reports deduplicate
     /// their allocations by block identity.
     fn estimated_storage_bytes(&self) -> usize {
+        self.estimated_column_bytes()
+            .saturating_add(self.retained_body_bytes())
+    }
+
+    pub(crate) fn estimated_column_bytes(&self) -> usize {
         match self {
             Self::FileRange { locators } => locators
                 .capacity()
@@ -272,28 +277,19 @@ impl SegmentBacking {
                 addresses,
                 links,
                 ..
-            } => {
-                let columns = blocks
-                    .capacity()
-                    .saturating_mul(std::mem::size_of::<Arc<[RetainedBody]>>())
-                    .saturating_add(
-                        addresses
-                            .capacity()
-                            .saturating_mul(std::mem::size_of::<RetainedAddress>()),
-                    )
-                    .saturating_add(
-                        links
-                            .capacity()
-                            .saturating_mul(std::mem::size_of::<Option<FileRangeLocator>>()),
-                    );
-                blocks.iter().fold(columns, |total, block| {
-                    block.iter().fold(total, |total, body| {
-                        total
-                            .saturating_add(crate::ingestion::estimated_value_bytes(&body.value))
-                            .saturating_add(crate::ingestion::estimated_text_bytes(&body.text))
-                    })
-                })
-            }
+            } => blocks
+                .capacity()
+                .saturating_mul(std::mem::size_of::<Arc<[RetainedBody]>>())
+                .saturating_add(
+                    addresses
+                        .capacity()
+                        .saturating_mul(std::mem::size_of::<RetainedAddress>()),
+                )
+                .saturating_add(
+                    links
+                        .capacity()
+                        .saturating_mul(std::mem::size_of::<Option<FileRangeLocator>>()),
+                ),
             Self::Provider {
                 versions, links, ..
             } => versions
@@ -305,6 +301,19 @@ impl SegmentBacking {
                         .saturating_mul(std::mem::size_of::<Option<FileRangeLocator>>()),
                 ),
         }
+    }
+
+    pub(crate) fn retained_body_bytes(&self) -> usize {
+        let Self::Retained { blocks, .. } = self else {
+            return 0;
+        };
+        blocks.iter().fold(0usize, |total, block| {
+            block.iter().fold(total, |total, body| {
+                total
+                    .saturating_add(crate::ingestion::estimated_value_bytes(&body.value))
+                    .saturating_add(crate::ingestion::estimated_text_bytes(&body.text))
+            })
+        })
     }
 
     pub(crate) fn compatible_with(&self, other: &Self) -> bool {

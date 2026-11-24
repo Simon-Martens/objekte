@@ -186,7 +186,9 @@ fn ingest(
             "pending_ram_bytes": metrics.pending_ram_bytes,
             "pending_spool_bytes": metrics.pending_spool_bytes,
             "segments": view.segment_summaries().len(),
-            "index_family_bytes": view.estimated_index_bytes(), "ready_rss_kib": rss_kib("VmRSS:"),
+            "index_family_bytes": view.estimated_index_bytes(),
+            "native_storage": view.native_storage_estimate(),
+            "ready_rss_kib": rss_kib("VmRSS:"),
             "peak_rss_kib": rss_kib("VmHWM:")
         })
     );
@@ -373,7 +375,9 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
             "coverage_segment_visits": coverage_counts.route_segment_visits,
             "unrelated_segment_visits": route_counts.route_segment_visits.saturating_sub(hits as u64),
             "reverse_members": members, "reverse_ns": reverse_ns,
-            "index_family_bytes": view.estimated_index_bytes(), "ready_rss_kib": rss_kib("VmRSS:"),
+            "index_family_bytes": view.estimated_index_bytes(),
+            "native_storage": view.native_storage_estimate(),
+            "ready_rss_kib": rss_kib("VmRSS:"),
             "peak_rss_kib": rss_kib("VmHWM:")
         })
     );
