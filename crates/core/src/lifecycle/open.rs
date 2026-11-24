@@ -60,6 +60,7 @@ impl Index {
         let verified_cache_bytes = published.repository.options().verified_cache_bytes;
         Self(Arc::new(IndexInner {
             instance_id,
+            record_registrations: Vec::new(),
             timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
             verified_cache: Mutex::new(crate::query_results::verified::VerifiedCache::new(

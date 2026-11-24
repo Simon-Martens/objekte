@@ -15,6 +15,7 @@ use crate::inventory::FileVersion;
 use crate::model::{CollectionId, FileId};
 use crate::query_results::SearchResult;
 
+mod builder;
 pub(crate) mod catalog;
 pub mod initial;
 pub mod maintenance;
@@ -23,6 +24,7 @@ mod open;
 pub mod reconciliation;
 mod service;
 
+pub use builder::{IndexBuilder, RecordRegistration};
 use maintenance::MaintenanceJob;
 use reconciliation::{MaintenanceState, PeriodicReconciliation, ReconciliationState};
 
@@ -295,6 +297,7 @@ pub(crate) fn index_family_estimate(
 
 struct IndexInner {
     instance_id: u64,
+    record_registrations: Vec<builder::RegisteredRecordSource>,
     timings: Mutex<IndexTimingsMs>,
     /// Set under the publication write lock before closing waits for workers.
     /// Every data publication checks it while holding that same lock.
