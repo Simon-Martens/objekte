@@ -40,6 +40,7 @@ pub(crate) struct RegisteredRecordSource {
     pub(crate) version: u32,
     pub(crate) representation_version: u32,
     pub(crate) file_links: bool,
+    pub(crate) reader: Option<std::sync::Arc<dyn crate::records::reader::RecordReader>>,
 }
 
 /// Declare collections and record sources before publishing the first view.
@@ -198,8 +199,30 @@ impl IndexBuilder {
             version,
             representation_version,
             file_links: false,
+            reader: None,
         });
         Ok(handle)
+    }
+
+    /// Bind a versioned projected reader before freezing the index.
+    pub fn register_reader(
+        &mut self,
+        registration: RecordRegistration,
+        reader: std::sync::Arc<dyn crate::records::reader::RecordReader>,
+    ) -> Result<(), IndexError> {
+        if registration.builder_id != self.builder_id {
+            return Err(IndexError::ForeignInstance);
+        }
+        let source = self
+            .registrations
+            .get_mut(registration.ordinal as usize)
+            .filter(|source| source.handle == registration)
+            .ok_or(IndexError::ForeignInstance)?;
+        if source.reader.is_some() {
+            return Err(IndexError::Build("record reader already registered".into()));
+        }
+        source.reader = Some(reader);
+        Ok(())
     }
 
     /// Install one file service before build. An installed empty catalog is

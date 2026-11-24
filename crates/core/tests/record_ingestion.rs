@@ -1,4 +1,5 @@
 use std::collections::BTreeMap;
+use std::sync::{Arc, Mutex};
 
 use objekte_search_core::files::FileCatalog;
 use objekte_search_core::ingestion::{IngestionOptions, SubmitError};
@@ -8,6 +9,10 @@ use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::query_results::Payload;
+use objekte_search_core::records::reader::{
+    RecordProjection, RecordRead, RecordReadError, RecordReader,
+};
+use objekte_search_core::records::{RecordKey, RecordVersion};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 
 fn record(year: i128, note: &str) -> Value {
@@ -364,4 +369,103 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
     assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
     session.finish().unwrap();
     std::fs::remove_dir_all(root).unwrap();
+}
+
+struct VersionedFixture(Mutex<(RecordVersion, Value)>);
+
+impl RecordReader for VersionedFixture {
+    fn read_projected(
+        &self,
+        _: &RecordKey,
+        expected_version: RecordVersion,
+        _: &RecordProjection,
+    ) -> Result<RecordRead, RecordReadError> {
+        let current = self.0.lock().unwrap();
+        if current.0 != expected_version {
+            return Err(RecordReadError::ChangedVersion {
+                expected: expected_version,
+                actual: Some(current.0),
+            });
+        }
+        Ok(RecordRead {
+            version: current.0,
+            value: current.1.clone(),
+            text: Vec::new(),
+            original_bytes: None,
+        })
+    }
+}
+
+#[test]
+fn versioned_provider_disposes_input_and_checks_rereads() {
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["year".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", schema).unwrap();
+    let registration = builder
+        .register_records(collection, "fixture.reader", 1)
+        .unwrap();
+    let reader = Arc::new(VersionedFixture(Mutex::new((
+        RecordVersion::new(7),
+        record(1808, "Leipzig"),
+    ))));
+    builder
+        .register_reader(registration, reader.clone())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    batch
+        .insert_from_reader("entry-47", record(1808, "Leipzig"), RecordVersion::new(7))
+        .unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(
+        view.get_record("entries", "entry-47", ReturnMode::Logical)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Logical(record(1808, "Leipzig")))
+    );
+    let query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("year = 1808").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: false,
+        },
+    };
+    assert_eq!(view.search(&query).unwrap().count, Some(1));
+    let residual = Query {
+        filter: Some(parse_filter("note ~ 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            return_mode: ReturnMode::Locator,
+            ..query.options.clone()
+        },
+        ..query.clone()
+    };
+    assert_eq!(view.search(&residual).unwrap().count, Some(1));
+    *reader.0.lock().unwrap() = (RecordVersion::new(8), record(1809, "Wien"));
+    assert!(
+        view.get_record("entries", "entry-47", ReturnMode::Logical)
+            .is_err()
+    );
+    assert!(view.search(&residual).is_err());
+    session.finish().unwrap();
 }

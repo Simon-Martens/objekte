@@ -12,6 +12,7 @@ use serde::{Deserialize, Serialize};
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::lifecycle::{IndexError, IndexRevision, RecordRegistration};
 use crate::model::{RecordId, Value};
+use crate::records::RecordVersion;
 use crate::source::TextSegment;
 
 pub use queue::{IngestionSession, Receipt, RecordWriter, SessionMetrics};
@@ -55,12 +56,14 @@ pub(crate) enum Operation {
         value: Value,
         text: Vec<TextSegment>,
         file: Option<(FileToken, Option<ByteRange>)>,
+        version: Option<RecordVersion>,
     },
     Replace {
         id: RecordId,
         value: Value,
         text: Vec<TextSegment>,
         file: Option<(FileToken, Option<ByteRange>)>,
+        version: Option<RecordVersion>,
     },
     Delete {
         id: RecordId,
@@ -130,6 +133,7 @@ impl Batch {
                 value,
                 text,
                 file: None,
+                version: None,
             },
             bytes,
         )
@@ -153,6 +157,7 @@ impl Batch {
                 value,
                 text,
                 file: None,
+                version: None,
             },
             bytes,
         )
@@ -220,6 +225,7 @@ impl Batch {
                 value,
                 text: Vec::new(),
                 file,
+                version: None,
             },
             bytes,
         )
@@ -241,6 +247,7 @@ impl Batch {
                 value,
                 text: Vec::new(),
                 file,
+                version: None,
             },
             bytes,
         )
@@ -249,6 +256,58 @@ impl Batch {
     pub fn delete(&mut self, id: impl AsRef<str>) -> Result<(), String> {
         let id = RecordId::intrinsic(id.as_ref())?;
         self.push(Operation::Delete { id }, 0)
+    }
+
+    /// Admit a decoded value for indexing, then reread its versioned source
+    /// for residual evaluation or payloads after publication.
+    pub fn insert_from_reader(
+        &mut self,
+        id: impl AsRef<str>,
+        value: Value,
+        version: RecordVersion,
+    ) -> Result<(), String> {
+        self.insert_from_reader_with_text(id, value, Vec::new(), version)
+    }
+
+    pub fn insert_from_reader_with_text(
+        &mut self,
+        id: impl AsRef<str>,
+        value: Value,
+        text: Vec<TextSegment>,
+        version: RecordVersion,
+    ) -> Result<(), String> {
+        let id = RecordId::intrinsic(id.as_ref())?;
+        let bytes = estimated_value_bytes(&value).saturating_add(estimated_text_bytes(&text));
+        self.push(
+            Operation::Insert {
+                id,
+                value,
+                text,
+                file: None,
+                version: Some(version),
+            },
+            bytes,
+        )
+    }
+
+    pub fn replace_from_reader(
+        &mut self,
+        id: impl AsRef<str>,
+        value: Value,
+        version: RecordVersion,
+    ) -> Result<(), String> {
+        let id = RecordId::intrinsic(id.as_ref())?;
+        let bytes = estimated_value_bytes(&value);
+        self.push(
+            Operation::Replace {
+                id,
+                value,
+                text: Vec::new(),
+                file: None,
+                version: Some(version),
+            },
+            bytes,
+        )
     }
 
     pub fn len(&self) -> usize {

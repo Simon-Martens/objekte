@@ -115,6 +115,8 @@ pub(super) fn install_batch(
     let mut changes = Vec::with_capacity(batch.operations.len());
     let mut inputs = Vec::new();
     let mut links = Vec::new();
+    let mut provider_inputs = Vec::new();
+    let mut provider_versions = Vec::new();
     for operation in batch.operations {
         match operation {
             Operation::Insert {
@@ -122,26 +124,48 @@ pub(super) fn install_batch(
                 value,
                 text,
                 file,
+                version,
             } => {
                 changes.push(RecordMutation {
                     id: id.clone(),
                     kind: RecordMutationKind::Insert,
                 });
-                inputs.push((id, value, text));
-                links.push(file);
+                if let Some(version) = version {
+                    if registration.reader.is_none() || file.is_some() {
+                        return Err(IngestionError::Index(IndexError::Build(
+                            "provider input needs a registered reader and no file link".into(),
+                        )));
+                    }
+                    provider_inputs.push((id, value, text));
+                    provider_versions.push(version);
+                } else {
+                    inputs.push((id, value, text));
+                    links.push(file);
+                }
             }
             Operation::Replace {
                 id,
                 value,
                 text,
                 file,
+                version,
             } => {
                 changes.push(RecordMutation {
                     id: id.clone(),
                     kind: RecordMutationKind::Replace,
                 });
-                inputs.push((id, value, text));
-                links.push(file);
+                if let Some(version) = version {
+                    if registration.reader.is_none() || file.is_some() {
+                        return Err(IngestionError::Index(IndexError::Build(
+                            "provider input needs a registered reader and no file link".into(),
+                        )));
+                    }
+                    provider_inputs.push((id, value, text));
+                    provider_versions.push(version);
+                } else {
+                    inputs.push((id, value, text));
+                    links.push(file);
+                }
             }
             Operation::Delete { id } => changes.push(RecordMutation {
                 id,
@@ -149,6 +173,7 @@ pub(super) fn install_batch(
             }),
         }
     }
+    let mut segments = Vec::new();
     let segment = if inputs.is_empty() {
         None
     } else {
@@ -207,6 +232,40 @@ pub(super) fn install_batch(
         segment.recompute_accounting();
         Some(segment)
     };
+    if let Some(segment) = segment {
+        segments.push(segment);
+    }
+    if !provider_inputs.is_empty() {
+        let (headers, bodies, contribution) =
+            build_retained_contribution(provider_inputs, declaration, &options)
+                .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+        let draft = CollectionSegment::from_retained(
+            SegmentId::new(2),
+            collection,
+            registration.adapter_id.clone(),
+            registration.version,
+            batch.registration.ordinal,
+            headers,
+            bodies,
+            contribution,
+        )
+        .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+        let mut segment = draft
+            .into_indexed(
+                declaration,
+                options.bigram_alphabet,
+                options.inference,
+                view.repository().collections.len(),
+                &view.repository().workers,
+            )
+            .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+        segment.backing = SegmentBacking::Provider {
+            versions: provider_versions,
+            registration: batch.registration.ordinal,
+        };
+        segment.recompute_accounting();
+        segments.push(segment);
+    }
     if cancelled.load(Ordering::Acquire) {
         return Err(IngestionError::Cancelled {
             originating_sequence: sequence,
@@ -218,7 +277,7 @@ pub(super) fn install_batch(
             collection,
             batch.registration.ordinal,
             &changes,
-            segment,
+            segments,
             &files,
         )
         .map_err(IngestionError::Index)

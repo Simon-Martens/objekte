@@ -673,7 +673,7 @@ impl Index {
             collection,
             registration,
             changes,
-            segment,
+            segment.into_iter().collect(),
             &[],
         )
     }
@@ -684,7 +684,7 @@ impl Index {
         collection: CollectionId,
         registration: u32,
         changes: &[RecordMutation],
-        segment: Option<IndexedCollectionSegment>,
+        segments: Vec<IndexedCollectionSegment>,
         files: &[crate::inventory::FileEntry],
     ) -> Result<IndexRevision, IndexError> {
         let view = self.view()?;
@@ -816,7 +816,7 @@ impl Index {
                 }
             }
         }
-        if let Some(segment) = segment {
+        for segment in segments {
             if segment.collection != collection {
                 return Err(IndexError::ForeignInstance);
             }

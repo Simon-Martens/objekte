@@ -644,6 +644,40 @@ pub(crate) fn get_segment_record_by_id(
     let Some(slot) = segment.id_lookup.get(record_id).copied() else {
         return Ok(None);
     };
+    if segment.backing.provider_version(slot).is_some() {
+        if !active.contains(slot) {
+            return Ok(None);
+        }
+        let record = segment.record(slot).ok_or("provider record slot missing")?;
+        let payload = match return_mode {
+            ReturnMode::Locator => None,
+            ReturnMode::Logical => {
+                Some(Payload::Logical(read_provider(repo, segment, slot)?.value))
+            }
+            ReturnMode::Bytes => Some(match read_provider(repo, segment, slot)?.original_bytes {
+                Some(bytes) => Payload::Bytes(bytes),
+                None => Payload::OriginalBytesUnavailable,
+            }),
+        };
+        return Ok(Some(SearchHit {
+            collection: collection.definition.name.clone(),
+            record_id: record.id.0.to_string(),
+            generation: revision.0,
+            file: None,
+            file_id: 0,
+            file_path: std::path::PathBuf::new(),
+            file_size: 0,
+            file_created_ns: None,
+            byte_start: 0,
+            byte_end: 0,
+            modified_ns: 0,
+            matched_fields: Vec::new(),
+            file_status: crate::inventory::FileStatus::Valid,
+            record_class: record.class,
+            diagnostic_ref: record.diagnostic_ref,
+            payload,
+        }));
+    }
     if let Some(body) = segment.backing.retained_body(slot) {
         if !active.contains(slot) {
             return Ok(None);
@@ -727,6 +761,41 @@ pub(crate) fn get_segment_record_by_id(
         diagnostic_ref: record.diagnostic_ref,
         payload,
     }))
+}
+
+fn read_provider(
+    repo: &Repository,
+    segment: &IndexedCollectionSegment,
+    slot: RecordSlot,
+) -> Result<crate::records::reader::RecordRead, String> {
+    let crate::index::segment::SegmentBacking::Provider {
+        registration,
+        versions,
+    } = &segment.backing
+    else {
+        return Err("segment is not provider-backed".into());
+    };
+    let expected = *versions
+        .get(slot.0 as usize)
+        .ok_or("provider version missing")?;
+    let source = repo
+        .record_registrations
+        .get(*registration as usize)
+        .ok_or("provider registration missing")?;
+    let reader = source.reader.as_ref().ok_or("provider reader missing")?;
+    let record = segment.record(slot).ok_or("provider record missing")?;
+    let key = crate::records::RecordKey::new(segment.collection, record.id.clone());
+    let read = reader
+        .read_projected(
+            &key,
+            expected,
+            &crate::records::reader::RecordProjection::full(),
+        )
+        .map_err(|error| error.to_string())?;
+    if read.version != expected {
+        return Err("provider returned a different record version".into());
+    }
+    Ok(read)
 }
 
 /// One current-view direct lookup. A missing source is distinct from an ID
@@ -827,6 +896,7 @@ pub(crate) fn direct_lookup_segmented(
         if matches!(
             &segment.index.backing,
             crate::index::segment::SegmentBacking::Retained { .. }
+                | crate::index::segment::SegmentBacking::Provider { .. }
         ) {
             let mut hit = get_segment_record_by_id(
                 repo,
@@ -2100,7 +2170,10 @@ fn offer_admitted_segment_slot(
     #[cfg(test)]
     SEGMENT_SLOT_EVIDENCE_CALLS.with(|calls| calls.set(calls.get() + 1));
     let matched_fields = evidence();
-    let retained = segment.backing.retained_body(slot).is_some();
+    let retained = !matches!(
+        segment.backing,
+        crate::index::segment::SegmentBacking::FileRange { .. }
+    );
     let resolved = if retained {
         None
     } else {
@@ -2776,6 +2849,7 @@ fn search_segmented_impl(
             if matches!(
                 segment.backing,
                 crate::index::segment::SegmentBacking::Retained { .. }
+                    | crate::index::segment::SegmentBacking::Provider { .. }
             ) {
                 for slot in candidates.iter() {
                     if let Some(context) = context {
@@ -2783,12 +2857,24 @@ fn search_segmented_impl(
                     }
                     let slot = RecordSlot(slot);
                     let record = segment.record(slot).ok_or("retained candidate missing")?;
-                    let body = segment
-                        .backing
-                        .retained_body(slot)
-                        .ok_or("retained body missing")?;
+                    let provider_body = if segment.backing.provider_version(slot).is_some() {
+                        Some(read_provider(repo, segment, slot)?)
+                    } else {
+                        None
+                    };
+                    let retained_body = segment.backing.retained_body(slot);
+                    let value = provider_body
+                        .as_ref()
+                        .map(|body| &body.value)
+                        .or_else(|| retained_body.map(|body| &body.value))
+                        .ok_or("record body missing")?;
+                    let text = provider_body
+                        .as_ref()
+                        .map(|body| body.text.as_slice())
+                        .or_else(|| retained_body.map(|body| body.text.as_slice()))
+                        .ok_or("record text missing")?;
                     let ctx = RecordContext {
-                        value: &body.value,
+                        value,
                         source_bytes: None,
                         record,
                         file: None,
@@ -2811,14 +2897,14 @@ fn search_segmented_impl(
                         continue;
                     }
                     if let Some(fts) = &fts {
-                        let matched = if body.text.is_empty() {
+                        let matched = if text.is_empty() {
                             crate::reference::fts::eval_borrowed_value_fts(
                                 fts,
                                 &ctx,
                                 Some(&mut evidence),
                             )?
                         } else {
-                            eval_bound_fts(fts, &body.text, &ctx, &mut evidence)?
+                            eval_bound_fts(fts, text, &ctx, &mut evidence)?
                         };
                         counters.raw_text_verifications += 1;
                         if !matched {
