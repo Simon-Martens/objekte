@@ -50,6 +50,7 @@ pub(crate) fn raw_text(hit: &SearchHit) -> String {
             .and_then(|value| serde_json::to_string_pretty(&value).ok())
             .unwrap_or_default(),
         Some(Payload::LogicalUnavailable { .. }) => "Logical value unavailable".into(),
+        Some(Payload::OriginalBytesUnavailable) => "Original source bytes unavailable".into(),
         None => "Record payload not loaded".into(),
     };
     text.chars()
@@ -76,6 +77,9 @@ fn export_record(hit: &SearchHit) -> Result<Json, String> {
             serde_json::to_value(value).map_err(|error| error.to_string())
         }
         Some(Payload::LogicalUnavailable { .. }) => Ok(Json::Null),
+        Some(Payload::OriginalBytesUnavailable) => {
+            Err("original source bytes are unavailable".into())
+        }
         None => Err("query did not return record data".into()),
     }
 }

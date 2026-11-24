@@ -536,6 +536,9 @@ fn write_oracle(
                         "kind": "logical_unavailable",
                         "diagnostic_ref": diagnostic_ref.0,
                     }),
+                    Some(Payload::OriginalBytesUnavailable) => {
+                        json!({"kind": "original_bytes_unavailable"})
+                    }
                 };
                 writeln!(
                     writer,

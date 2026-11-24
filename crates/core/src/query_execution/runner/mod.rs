@@ -652,7 +652,7 @@ pub(crate) fn get_segment_record_by_id(
         let payload = match return_mode {
             ReturnMode::Locator => None,
             ReturnMode::Logical => Some(Payload::Logical(body.value.clone())),
-            ReturnMode::Bytes => return Err("OriginalBytesUnavailable".into()),
+            ReturnMode::Bytes => Some(Payload::OriginalBytesUnavailable),
         };
         return Ok(Some(SearchHit {
             collection: collection.definition.name.clone(),

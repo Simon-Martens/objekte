@@ -24,6 +24,9 @@ fn record(hit: &SearchHit) -> Result<Value, String> {
             serde_json::to_value(value).map_err(|error| error.to_string())
         }
         Some(Payload::LogicalUnavailable { .. }) => Ok(Value::Null),
+        Some(Payload::OriginalBytesUnavailable) => {
+            Err("original source bytes are unavailable".into())
+        }
         None => Err("query did not return record data".into()),
     }
 }

@@ -182,6 +182,9 @@ fn canonical(root: &Path, alphabet: BigramAlphabet, extended: bool) -> Result<()
                 Some(Payload::Logical(value)) => serde_json::to_value(value)?,
                 Some(Payload::Bytes(bytes)) => json!({"original_bytes_hex": bytes_hex(&bytes)}),
                 Some(Payload::LogicalUnavailable { .. }) => json!({"logical_unavailable": true}),
+                Some(Payload::OriginalBytesUnavailable) => {
+                    json!({"original_bytes_unavailable": true})
+                }
             };
             hits.push(json!({
                 "collection": hit.collection, "id": hit.record_id,

@@ -40,7 +40,12 @@ pub struct SearchHit {
 pub enum Payload {
     Bytes(Vec<u8>),
     Logical(crate::model::Value),
-    LogicalUnavailable { diagnostic_ref: DiagnosticRef },
+    LogicalUnavailable {
+        diagnostic_ref: DiagnosticRef,
+    },
+    /// The record is live, but its registrar did not supply authoritative
+    /// original bytes. Logical typed storage is never serialized to invent it.
+    OriginalBytesUnavailable,
 }
 
 /// Requested exact match count, returned page, and measured work.

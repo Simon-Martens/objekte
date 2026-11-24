@@ -503,7 +503,9 @@ pub fn detail_view_with_query(
             Some(Payload::Logical(_)) => {
                 "Logical representation; original source unavailable".into()
             }
-            Some(Payload::LogicalUnavailable { .. }) | None => "Original source unavailable".into(),
+            Some(Payload::LogicalUnavailable { .. })
+            | Some(Payload::OriginalBytesUnavailable)
+            | None => "Original source unavailable".into(),
         },
         ..DetailView::default()
     };

@@ -42,6 +42,9 @@ fn hit_json(hit: &SearchHit) -> serde_json::Value {
         Some(Payload::LogicalUnavailable { diagnostic_ref }) => serde_json::json!({
             "kind": "logical_unavailable", "diagnostic_ref": diagnostic_ref.0,
         }),
+        Some(Payload::OriginalBytesUnavailable) => {
+            serde_json::json!({"kind": "original_bytes_unavailable"})
+        }
         None => serde_json::Value::Null,
     };
     serde_json::json!({
@@ -424,6 +427,7 @@ fn run() -> Result<(), String> {
                 serde_json::to_string(value).map_err(|e| e.to_string())?
             ),
             Some(Payload::LogicalUnavailable { .. }) => println!("  logical=unavailable"),
+            Some(Payload::OriginalBytesUnavailable) => println!("  original_bytes=unavailable"),
             None => {}
         }
     }

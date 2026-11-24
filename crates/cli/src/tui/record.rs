@@ -281,6 +281,7 @@ pub(super) fn raw_text(hit: &SearchHit) -> String {
             .and_then(|value| serde_json::to_string_pretty(&value).ok())
             .unwrap_or_default(),
         Some(Payload::LogicalUnavailable { .. }) => "Logical value unavailable".into(),
+        Some(Payload::OriginalBytesUnavailable) => "Original source bytes unavailable".into(),
         None => "Record payload not loaded".into(),
     };
     text.chars()

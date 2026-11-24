@@ -55,6 +55,11 @@ fn public_batches_publish_typed_records_and_preserve_old_views() {
         .unwrap();
     assert_eq!(hit.payload, Some(Payload::Logical(record(1808, "Leipzig"))));
     assert!(hit.file.is_none());
+    assert_eq!(
+        view.get_record("entries", "entry-47", ReturnMode::Bytes)
+            .unwrap().unwrap().payload,
+        Some(Payload::OriginalBytesUnavailable)
+    );
 
     let query = Query {
         collections: vec!["entries".into()],

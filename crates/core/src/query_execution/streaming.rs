@@ -799,7 +799,7 @@ pub(crate) fn payload_bytes(payload: &Payload) -> usize {
     match payload {
         Payload::Bytes(data) => data.len(),
         Payload::Logical(value) => value_bytes(value),
-        Payload::LogicalUnavailable { .. } => 0,
+        Payload::LogicalUnavailable { .. } | Payload::OriginalBytesUnavailable => 0,
     }
 }
 
