@@ -24,7 +24,42 @@ pub enum IdentityPolicy {
     Intrinsic(Vec<String>),
 }
 
-/// Caller-supplied source, schema, identity, and sort configuration.
+/// Source-neutral collection schema and query/index policy. The declaration
+/// is fixed once an index is built; registrations supply records separately.
+#[derive(Clone, Debug)]
+pub struct CollectionDeclaration {
+    pub name: String,
+    pub schema: Schema,
+    pub sort_fields: Vec<FieldPath>,
+    pub sort_locale: String,
+    pub sort_options: SortOptions,
+    pub sort_overrides: HashMap<FieldPath, SortConfig>,
+}
+
+impl CollectionDeclaration {
+    pub fn new(name: impl Into<String>, schema: Schema) -> Self {
+        Self {
+            name: name.into(),
+            schema,
+            sort_fields: Vec::new(),
+            sort_locale: "und".into(),
+            sort_options: SortOptions::default(),
+            sort_overrides: HashMap::new(),
+        }
+    }
+}
+
+/// Configuration for a file importer, separate from collection semantics.
+#[derive(Clone, Debug)]
+pub struct FileSourceConfig {
+    pub source_path: PathBuf,
+    pub format: SourceFormat,
+    pub identity: IdentityPolicy,
+    pub discovery: Discovery,
+}
+
+/// Caller-supplied file configuration retained by the existing file-opening
+/// facade. New registrars use [`CollectionDeclaration`] directly.
 #[derive(Clone, Debug)]
 pub struct CollectionDefinition {
     pub name: String,
@@ -40,6 +75,41 @@ pub struct CollectionDefinition {
 }
 
 impl CollectionDefinition {
+    pub fn from_parts(declaration: CollectionDeclaration, source: FileSourceConfig) -> Self {
+        Self {
+            name: declaration.name,
+            source_path: source.source_path,
+            format: source.format,
+            identity: source.identity,
+            discovery: source.discovery,
+            schema: declaration.schema,
+            sort_fields: declaration.sort_fields,
+            sort_locale: declaration.sort_locale,
+            sort_options: declaration.sort_options,
+            sort_overrides: declaration.sort_overrides,
+        }
+    }
+
+    pub fn declaration(&self) -> CollectionDeclaration {
+        CollectionDeclaration {
+            name: self.name.clone(),
+            schema: self.schema.clone(),
+            sort_fields: self.sort_fields.clone(),
+            sort_locale: self.sort_locale.clone(),
+            sort_options: self.sort_options,
+            sort_overrides: self.sort_overrides.clone(),
+        }
+    }
+
+    pub fn file_source(&self) -> FileSourceConfig {
+        FileSourceConfig {
+            source_path: self.source_path.clone(),
+            format: self.format.clone(),
+            identity: self.identity.clone(),
+            discovery: self.discovery.clone(),
+        }
+    }
+
     /// Define a recursive folder collection with no declared fields or typed indexes.
     /// JSONL and registered readers use per-record generated identities because a file
     /// can contain several records. Callers may override any of these defaults.
