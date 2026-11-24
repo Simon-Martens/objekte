@@ -4,6 +4,7 @@ use crate::index::segment::SegmentBacking;
 use crate::inventory::{FileVersion, FileVersions};
 use crate::lifecycle::initial::InitialBuildPhase;
 use crate::lifecycle::maintenance::MaintenancePhase;
+use crate::lifecycle::mutation::preparation::{index_prepared_file, prepare_file_at};
 use crate::lifecycle::{Index, IndexError, IndexRevision};
 
 /// Outcome of explicit full reconstruction from the configured source files.
@@ -154,6 +155,59 @@ impl Index {
                     }
                 }
                 let mut next = (*view.0).clone();
+                let imported_files = view
+                    .0
+                    .catalog
+                    .snapshot_slots()
+                    .into_iter()
+                    .flatten()
+                    .map(|(entry, _, _)| entry)
+                    .filter(|entry| !view.0.imported_collections(entry).is_empty())
+                    .collect::<Vec<_>>();
+                for old in imported_files {
+                    if cancelled() {
+                        return Err(IndexError::Cancelled);
+                    }
+                    let relative = old.relative_path.as_path();
+                    let prepared = prepare_file_at(&view, relative, old.id)?;
+                    if prepared.source.revision != old.revision
+                        || prepared.source.created_ns != old.created_ns
+                    {
+                        return Err(IndexError::SourceUnavailable(format!(
+                            "file changed during rebuild: {}",
+                            relative.display()
+                        )));
+                    }
+                    let (mut entry, indexed) = index_prepared_file(
+                        repository,
+                        &prepared.source,
+                        prepared.collections,
+                        next.next_segment_ordinal,
+                        repository.options().segment_policy,
+                    )?;
+                    next.retire_file_records(&old)?;
+                    for collection in next.refresh_record_links(old.id, Some(&entry))? {
+                        if !entry.collections.contains(&collection) {
+                            entry.collections.push(collection);
+                        }
+                    }
+                    next.catalog = next
+                        .catalog
+                        .replaced(
+                            entry,
+                            prepared.fingerprint,
+                            Some(view.configuration_identity()),
+                        )
+                        .map_err(IndexError::InvalidPublication)?;
+                    next.file_versions = next
+                        .file_versions
+                        .advanced(old.id)
+                        .map_err(IndexError::ResourceLimit)?
+                        .0;
+                    for segment in indexed {
+                        next = next.with_segment(segment)?;
+                    }
+                }
                 next.revision = view.revision().next()?;
                 if cancelled() {
                     return Err(IndexError::Cancelled);

@@ -59,6 +59,95 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
+fn native_link_refresh_touches_only_routed_segments_and_skips_unchanged_file() {
+    let root = test_root("native-link-locality");
+    let attachment = root.join("data/attachment.txt");
+    std::fs::write(&attachment, b"independent bytes").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&attachment).unwrap()).unwrap();
+    let mut builder = Index::builder().with_options(RepositoryOptions {
+        segment_policy: crate::index::segment::SegmentPolicy {
+            target_records: std::num::NonZeroUsize::new(1).unwrap(),
+            max_files: std::num::NonZeroUsize::new(1).unwrap(),
+        },
+        ..RepositoryOptions::default()
+    });
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder.register_records(collection, "locality", 1).unwrap();
+    let catalog = builder
+        .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder.enable_file_links(registration, catalog).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut linked = writer.batch();
+    let token = linked
+        .declare_file("data/attachment.txt", revision)
+        .unwrap();
+    linked
+        .insert_with_file(
+            "linked",
+            crate::model::Value::String("value".into()),
+            token,
+            None,
+        )
+        .unwrap();
+    writer.submit(linked).unwrap().wait_published().unwrap();
+    for number in 0..31 {
+        let mut batch = writer.batch();
+        batch
+            .insert(
+                format!("unrelated-{number}"),
+                crate::model::Value::String("value".into()),
+            )
+            .unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+    }
+    let before = index.view().unwrap();
+    let entry = before
+        .0
+        .catalog
+        .entry(crate::model::FileId(0))
+        .unwrap()
+        .clone();
+    let mut unchanged = (*before.0).clone();
+    assert_eq!(
+        unchanged
+            .refresh_record_links(entry.id, Some(&entry))
+            .unwrap(),
+        vec![collection]
+    );
+    for (left, right) in before.0.segments[0]
+        .iter()
+        .zip(unchanged.segments[0].iter())
+    {
+        assert!(std::sync::Arc::ptr_eq(left, right));
+    }
+    let mut removed = (*before.0).clone();
+    assert!(
+        removed
+            .refresh_record_links(entry.id, None)
+            .unwrap()
+            .is_empty()
+    );
+    assert!(
+        removed.record_routes[0]
+            .segments_for_file(entry.id)
+            .is_empty()
+    );
+    assert_eq!(removed.segments[0].len(), before.0.segments[0].len());
+    for (left, right) in before.0.segments[0].iter().zip(removed.segments[0].iter()) {
+        if left.index.file_index.contains_key(&entry.id) {
+            assert!(!std::sync::Arc::ptr_eq(left, right));
+        } else {
+            assert!(std::sync::Arc::ptr_eq(left, right));
+        }
+    }
+    assert!(removed.record_routes[0].get("linked").is_some());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn deleting_obsolete_file_incarnation_keeps_new_owner_route() {
     let root = test_root("obsolete-file-incarnation");
     let index = crate::lifecycle::Index::start_build(

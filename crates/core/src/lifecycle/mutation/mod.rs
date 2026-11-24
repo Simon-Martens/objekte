@@ -235,6 +235,36 @@ fn path_independent_memberships(
     Ok(true)
 }
 
+fn destination_has_importer(view: &IndexView, destination: &Path) -> Result<bool, IndexError> {
+    let relative = relative_path(view, destination)?;
+    if crate::inventory::discovery::contains_generated_directory(&relative) {
+        return Err(IndexError::IncompatibleConfiguration(
+            "move destination is in a generated index namespace".into(),
+        ));
+    }
+    let root =
+        view.repository().files().root().ok_or_else(|| {
+            IndexError::SourceUnavailable("file catalog is not registered".into())
+        })?;
+    for collection in view.repository().collections() {
+        let Some(source) = collection.file_source() else {
+            continue;
+        };
+        if selects_file(
+            root,
+            &source.source_path,
+            &source.discovery,
+            &collection.required_file_reader(),
+            &relative,
+        )
+        .map_err(IndexError::Build)?
+        {
+            return Ok(true);
+        }
+    }
+    Ok(false)
+}
+
 fn hash_destination(path: &Path) -> Result<([u8; 32], SourceRevision, Option<i128>), IndexError> {
     let mut source =
         std::fs::File::open(path).map_err(|error| IndexError::Io(error.to_string()))?;
@@ -361,7 +391,7 @@ impl Index {
         options: UpdateOptions<'_>,
     ) -> Result<FileMutationResult, IndexError> {
         if self.catalog_only_file(handle)? {
-            return self.change_catalog_only_file(handle, path, false);
+            return self.change_catalog_only_file(handle, path, false, false);
         }
         self.replace_file(handle, FileMutationKind::Replaced, options, |index| {
             index.prepare_replace_file(handle, path)
@@ -386,6 +416,7 @@ impl Index {
         handle: FileHandle,
         path: &Path,
         moving: bool,
+        retire_imported: bool,
     ) -> Result<FileMutationResult, IndexError> {
         let view = self.view()?;
         let actual = view
@@ -454,7 +485,25 @@ impl Index {
         entry.relative_path = relative.to_path_buf().into();
         entry.revision = revision;
         entry.created_ns = creation;
-        next.refresh_record_links(handle.file_id, Some(&entry))?;
+        let imported = if retire_imported {
+            view.0.imported_collections(previous)
+        } else {
+            std::collections::BTreeSet::new()
+        };
+        let retired_records = if retire_imported {
+            next.retire_file_records(previous)?
+        } else {
+            0
+        };
+        let linked = next.refresh_record_links(handle.file_id, Some(&entry))?;
+        entry
+            .collections
+            .retain(|collection| !imported.contains(collection));
+        for collection in linked {
+            if !entry.collections.contains(&collection) {
+                entry.collections.push(collection);
+            }
+        }
         next.catalog = next
             .catalog
             .replaced(entry, None, None)
@@ -477,8 +526,8 @@ impl Index {
         Ok(FileMutationResult {
             revision,
             file,
-            previous_records: 0,
-            retired_records: 0,
+            previous_records: retired_records,
+            retired_records,
             indexed_records: 0,
             affected_collections: previous
                 .collections
@@ -512,8 +561,44 @@ impl Index {
         handle: FileHandle,
         destination: &Path,
     ) -> Result<FileMutationResult, IndexError> {
-        if self.catalog_only_file(handle)? {
-            return self.change_catalog_only_file(handle, destination, true);
+        if handle.instance_id != self.instance_id() {
+            return Err(IndexError::ForeignInstance);
+        }
+        let view = self.view()?;
+        let actual = view
+            .file_version_including_inactive(handle.file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        if actual != handle.version {
+            return Err(IndexError::FileConflict {
+                file: handle.file_id,
+                expected: handle.version,
+                actual,
+            });
+        }
+        let old = view
+            .file_entry(handle.file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        let imported = !view.0.imported_collections(old).is_empty();
+        let selected = destination_has_importer(&view, destination)?;
+        if !selected {
+            if imported {
+                let relative = relative_path(&view, destination)?;
+                let root = view.repository().files().required_root();
+                if !root.join(relative).is_file() {
+                    return Err(IndexError::IncompatibleConfiguration(
+                        "no configured collection selects this file".into(),
+                    ));
+                }
+            }
+            return self.change_catalog_only_file(handle, destination, true, imported);
+        }
+        if !imported {
+            return self.replace_file(
+                handle,
+                FileMutationKind::Moved,
+                UpdateOptions::default(),
+                |index| index.prepare_replace_file(handle, destination),
+            );
         }
         if let Some(moved) = self.try_content_preserving_move(handle, destination)? {
             return Ok(moved);
@@ -878,7 +963,7 @@ impl Index {
     }
 }
 
-mod preparation;
+pub(crate) mod preparation;
 mod staging;
 #[cfg(test)]
 mod tests;

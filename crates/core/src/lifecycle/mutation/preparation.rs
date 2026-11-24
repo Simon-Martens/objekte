@@ -84,7 +84,7 @@ impl Index {
         })
     }
 }
-pub(super) fn index_prepared_file(
+pub(crate) fn index_prepared_file(
     repository: &Repository,
     source: &SourceFileInput,
     collections: Vec<PreparedCollectionBuild>,
@@ -197,7 +197,7 @@ pub(super) fn index_prepared_file(
     Ok((entry, indexed))
 }
 
-fn prepare_file_at(
+pub(crate) fn prepare_file_at(
     view: &IndexView,
     path: &Path,
     id: FileId,

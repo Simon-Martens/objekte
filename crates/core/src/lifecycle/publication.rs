@@ -111,6 +111,24 @@ impl RecordRoutes {
             .unwrap_or(&[])
     }
 
+    fn remove_file_segment(&mut self, file: FileId, segment: SegmentId) {
+        let shard_number = file.0 as usize % RECORD_ROUTE_SHARDS;
+        if !self.file_shards[shard_number]
+            .get(&file)
+            .is_some_and(|routes| routes.contains(&segment))
+        {
+            return;
+        }
+        let shards = Arc::make_mut(&mut self.file_shards);
+        let shard = Arc::make_mut(&mut shards[shard_number]);
+        if let Some(routes) = shard.get_mut(&file) {
+            routes.retain(|id| *id != segment);
+            if routes.is_empty() {
+                shard.remove(&file);
+            }
+        }
+    }
+
     pub(crate) fn position(&self, segment: SegmentId) -> Option<usize> {
         self.positions.get(&segment).copied()
     }
@@ -784,6 +802,9 @@ impl PublishedIndex {
                     .filter(|slot| segment.active.contains(*slot))
                     .collect::<Vec<_>>();
                 if active_slots.is_empty() {
+                    if !source.records.is_empty() {
+                        routes.remove_file_segment(file.id, segment.id);
+                    }
                     continue;
                 }
                 let route_keys = active_slots
@@ -807,6 +828,7 @@ impl PublishedIndex {
                 for (id, slot) in route_keys {
                     routes.remove_if_matches(id.0.as_ref(), segment.id, slot);
                 }
+                routes.remove_file_segment(file.id, segment.id);
             }
         }
         Ok(retired_records)
@@ -821,9 +843,18 @@ impl PublishedIndex {
         replacement: Option<&FileEntry>,
     ) -> Result<Vec<CollectionId>, IndexError> {
         let mut memberships = Vec::new();
-        for (number, group) in self.segments.iter_mut().enumerate() {
-            let mut changed = false;
-            for published in Arc::make_mut(group).iter_mut() {
+        for number in 0..self.segments.len() {
+            let routes = &self.record_routes[number];
+            let positions = routes
+                .segments_for_file(file)
+                .iter()
+                .filter_map(|id| routes.position(*id))
+                .collect::<Vec<_>>();
+            if positions.is_empty() {
+                continue;
+            }
+            for position in positions {
+                let published = &self.segments[number][position];
                 let Some(file_index) = published.index.file_index.get(&file).copied() else {
                     continue;
                 };
@@ -833,6 +864,34 @@ impl PublishedIndex {
                 ) {
                     continue;
                 }
+                let old_entry = &published.index.files[file_index].entry;
+                let old_slots = &published.index.files[file_index].records;
+                let kept = old_slots
+                    .iter()
+                    .copied()
+                    .filter(|slot| {
+                        published
+                            .index
+                            .backing
+                            .file_locator(*slot)
+                            .is_some_and(|locator| {
+                                replacement.is_some_and(|entry| {
+                                    locator.range.is_none() || locator.revision == entry.revision
+                                })
+                            })
+                    })
+                    .collect::<Vec<_>>();
+                if !kept.is_empty() && !memberships.contains(&published.index.collection) {
+                    memberships.push(published.index.collection);
+                }
+                if replacement == Some(old_entry) && kept.len() == old_slots.len() {
+                    continue;
+                }
+                let group = Arc::make_mut(&mut self.segments[number]);
+                let published = group.get_mut(position).ok_or_else(|| {
+                    IndexError::InvalidPublication("routed segment missing".into())
+                })?;
+                let segment_id = published.id;
                 let segment = Arc::make_mut(published);
                 let index = Arc::make_mut(&mut segment.index);
                 let links = match &mut index.backing {
@@ -841,7 +900,6 @@ impl PublishedIndex {
                     crate::index::segment::SegmentBacking::FileRange { .. } => unreachable!(),
                 };
                 let old_slots = std::mem::take(&mut index.files[file_index].records);
-                let mut kept = Vec::new();
                 for &slot in &old_slots {
                     let Some(locator) = links[slot.0 as usize].as_mut() else {
                         continue;
@@ -851,7 +909,6 @@ impl PublishedIndex {
                     });
                     if preserve {
                         locator.revision = replacement.expect("live replacement").revision;
-                        kept.push(slot);
                     } else {
                         links[slot.0 as usize] = None;
                     }
@@ -862,13 +919,11 @@ impl PublishedIndex {
                     for (position, file) in index.files.iter().enumerate() {
                         index.file_index.insert(file.entry.id, position);
                     }
+                    self.record_routes[number].remove_file_segment(file, segment_id);
                 } else {
                     index.files[file_index].entry =
                         replacement.expect("kept links have replacement").clone();
                     index.files[file_index].records = kept;
-                    if !memberships.contains(&index.collection) {
-                        memberships.push(index.collection);
-                    }
                 }
                 index
                     .refresh_metadata_sort_slots(
@@ -878,10 +933,6 @@ impl PublishedIndex {
                     )
                     .map_err(IndexError::Build)?;
                 index.recompute_accounting();
-                changed = true;
-            }
-            if changed {
-                self.record_routes[number] = RecordRoutes::from_group(group);
             }
         }
         Ok(memberships)

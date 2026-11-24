@@ -731,6 +731,89 @@ fn declared_attachment_outside_importer_selection_uses_catalog_only_lifecycle() 
 }
 
 #[test]
+fn move_across_importer_selection_indexes_and_retires_only_imported_records() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-importer-transition-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::create_dir_all(root.join("attachments")).unwrap();
+    let outside = root.join("attachments/one.json");
+    let inside = root.join("data/one.json");
+    std::fs::write(&outside, br#"{"title":"imported"}"#).unwrap();
+    let observed = SourceRevision::from_metadata(&std::fs::metadata(&outside).unwrap()).unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "independent", 1)
+        .unwrap();
+    let catalog = builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder.enable_file_links(registration, catalog).unwrap();
+    let importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    builder
+        .register_file_source(collection, importer.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let writer = index.ingestion().writer(registration).unwrap();
+    let mut batch = writer.batch();
+    let file = batch
+        .declare_file("attachments/one.json", observed)
+        .unwrap();
+    batch
+        .insert_with_file("linked", Value::String("kept".into()), file, None)
+        .unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let before = index.view().unwrap();
+    assert_eq!(index.status().unwrap().live_records, 1);
+    let handle = before.file_handle_for_path(&outside).unwrap();
+    std::fs::rename(&outside, &inside).unwrap();
+    let imported = index.move_file(handle, &inside).unwrap();
+    assert_eq!(imported.indexed_records, 1);
+    assert_eq!(index.status().unwrap().live_records, 2);
+    let with_import = index.view().unwrap();
+    assert_eq!(
+        with_import
+            .file_catalog()
+            .unwrap()
+            .records_for_file(handle.file_id)
+            .unwrap()
+            .len(),
+        2
+    );
+    std::fs::rename(&inside, &outside).unwrap();
+    let removed = index.move_file(imported.file, &outside).unwrap();
+    assert_eq!(removed.retired_records, 1);
+    assert_eq!(removed.indexed_records, 0);
+    assert_eq!(index.status().unwrap().live_records, 1);
+    let after = index.view().unwrap();
+    assert_eq!(
+        after
+            .file_catalog()
+            .unwrap()
+            .records_for_file(handle.file_id)
+            .unwrap()
+            .len(),
+        1
+    );
+    assert_eq!(
+        after
+            .file_catalog()
+            .unwrap()
+            .file_for_record("entries", "linked")
+            .unwrap()
+            .unwrap()
+            .path,
+        std::path::PathBuf::from("attachments/one.json")
+    );
+    assert_eq!(with_import.index_observation().records, 2);
+    assert_eq!(before.index_observation().records, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn rootless_file_operations_and_reconciliation_return_without_panicking() {
     let mut builder = Index::builder();
     let collection = builder.collection("entries", Schema::default()).unwrap();
@@ -875,7 +958,22 @@ fn mixed_reconciliation_preserves_original_collection_ids_and_independent_files(
     );
     assert!(current.file_handle_for_path(&attached).is_some());
     assert!(pinned.file_handle_for_path(&imported).is_some());
+    let previous_segment_ids = current
+        .segment_summaries()
+        .into_iter()
+        .filter(|segment| segment.active)
+        .map(|segment| segment.id)
+        .collect::<Vec<_>>();
     index.rebuild().unwrap();
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .segment_summaries()
+            .iter()
+            .any(|segment| segment.active && !previous_segment_ids.contains(&segment.id)),
+        "rebuild must construct a new file-source segment"
+    );
     let imported_handle = index
         .view()
         .unwrap()
