@@ -104,6 +104,7 @@ pub(crate) fn initialize_empty(
         options,
         sources,
         configuration_identity,
+        false,
         pool,
     )
 }
@@ -112,12 +113,14 @@ pub(crate) fn initialize_empty_programmatic(
     declarations: Vec<CollectionDeclaration>,
     options: RepositoryOptions,
     registrations: &[(CollectionId, String, u32, u32)],
+    catalog_root: Option<PathBuf>,
 ) -> Result<Repository, String> {
     let configuration_identity =
         crate::repository::configuration::identity::programmatic_configuration_hash(
             &declarations,
             options,
             registrations,
+            catalog_root.is_some(),
         );
     let inputs = declarations
         .into_iter()
@@ -129,11 +132,12 @@ pub(crate) fn initialize_empty_programmatic(
         })
         .collect();
     initialize_empty_configured(
-        None,
+        catalog_root,
         inputs,
         options,
         &SourceRegistry::default(),
         configuration_identity,
+        true,
         None,
     )
 }
@@ -144,6 +148,7 @@ fn initialize_empty_configured(
     options: RepositoryOptions,
     sources: &SourceRegistry,
     configuration_identity: [u8; 32],
+    programmatic: bool,
     pool: Option<&rayon::ThreadPool>,
 ) -> Result<Repository, String> {
     let build_workers = crate::construction::scheduling::resolve_build_workers(
@@ -304,6 +309,7 @@ fn initialize_empty_configured(
     for collection in &mut collections {
         collection.repository_instance = instance_id;
     }
+    let catalog_registered = !programmatic || files.root().is_some();
     Ok(Repository {
         files,
         base_fingerprints: Vec::new(),
@@ -312,6 +318,8 @@ fn initialize_empty_configured(
         segments,
         catalog,
         configuration_identity,
+        programmatic,
+        catalog_registered,
         revision: IndexRevision::INITIAL,
         sources: sources.clone(),
         build_parses: 0,
@@ -345,6 +353,7 @@ mod programmatic_tests {
             vec![declaration],
             RepositoryOptions::default(),
             &[(CollectionId(0), "application.entries".into(), 1, 1)],
+            None,
         )
         .unwrap();
         assert!(repository.files.root().is_none());

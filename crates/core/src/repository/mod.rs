@@ -56,6 +56,8 @@ pub struct Repository {
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     pub(crate) catalog: FileCatalog,
     pub(crate) configuration_identity: [u8; 32],
+    pub(crate) programmatic: bool,
+    pub(crate) catalog_registered: bool,
     pub(crate) revision: IndexRevision,
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
@@ -93,9 +95,9 @@ impl Repository {
     /// enumerating or opening any source file. Maintenance can then publish
     /// active-only compacted contributions as new segments.
     pub(crate) fn empty_like(&self) -> Result<Self, String> {
-        let mut empty = if let Some(root) = self.files.root() {
+        let mut empty = if !self.programmatic {
             crate::construction::repository_state::initialize_empty(
-                root.to_path_buf(),
+                self.files.required_root().to_path_buf(),
                 self.collections
                     .iter()
                     .map(|state| state.required_file_definition().clone())
@@ -113,6 +115,7 @@ impl Repository {
                     .collect(),
                 self.options,
                 &[],
+                self.files.root().map(|root| root.to_path_buf()),
             )?;
             empty.configuration_identity = self.configuration_identity;
             empty.catalog = FileCatalog::from_parts(

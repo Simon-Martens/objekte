@@ -98,6 +98,13 @@ pub struct CollectionIndexObservation {
 }
 
 impl IndexView {
+    /// File service pinned to this view, present only when explicitly installed
+    /// or opened through the file-backed facade.
+    pub fn file_catalog(&self) -> Option<crate::files::FileCatalogView<'_>> {
+        self.repository()
+            .catalog_registered
+            .then_some(crate::files::FileCatalogView { view: self })
+    }
     /// Startup observations belonging to this immutable publication.
     pub fn startup_stats(&self) -> &crate::repository::statistics::StartupStats {
         self.repository().startup()

@@ -24,7 +24,7 @@ mod open;
 pub mod reconciliation;
 mod service;
 
-pub use builder::{IndexBuilder, RecordRegistration};
+pub use builder::{FileCatalogRegistration, IndexBuilder, RecordRegistration};
 use maintenance::MaintenanceJob;
 use reconciliation::{MaintenanceState, PeriodicReconciliation, ReconciliationState};
 

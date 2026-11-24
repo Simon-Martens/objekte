@@ -172,10 +172,12 @@ pub(crate) fn programmatic_configuration_hash(
     declarations: &[CollectionDeclaration],
     options: RepositoryOptions,
     registrations: &[(CollectionId, String, u32, u32)],
+    catalog_registered: bool,
 ) -> [u8; 32] {
     let mut hash = Sha256::new();
     hash.update(2u32.to_le_bytes());
     hash.update(1u32.to_le_bytes());
+    hash.update([u8::from(catalog_registered)]);
     hash.update(BIGRAM_VERSION.to_le_bytes());
     feed(&mut hash, FOLDED_REPRESENTATION.as_bytes());
     feed(&mut hash, std::env::consts::OS.as_bytes());

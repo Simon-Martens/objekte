@@ -1,8 +1,10 @@
 //! Frozen programmatic collection and record-source registration.
 
+use std::path::PathBuf;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 
+use crate::files::FileCatalog;
 use crate::model::CollectionId;
 use crate::repository::configuration::{CollectionDeclaration, RepositoryOptions};
 use crate::schema::Schema;
@@ -20,6 +22,12 @@ pub struct RecordRegistration {
     pub(crate) collection: CollectionId,
 }
 
+/// Capability for the single file catalog installed on this index.
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub struct FileCatalogRegistration {
+    builder_id: u64,
+}
+
 impl RecordRegistration {
     pub fn collection(self) -> CollectionId {
         self.collection
@@ -31,6 +39,7 @@ pub(crate) struct RegisteredRecordSource {
     pub(crate) adapter_id: String,
     pub(crate) version: u32,
     pub(crate) representation_version: u32,
+    pub(crate) file_links: bool,
 }
 
 /// Declare collections and record sources before publishing the first view.
@@ -38,6 +47,7 @@ pub struct IndexBuilder {
     builder_id: u64,
     collections: Vec<CollectionDeclaration>,
     registrations: Vec<RegisteredRecordSource>,
+    catalog_root: Option<PathBuf>,
     options: RepositoryOptions,
 }
 
@@ -47,6 +57,7 @@ impl Default for IndexBuilder {
             builder_id: NEXT_BUILDER_ID.fetch_add(1, Ordering::Relaxed),
             collections: Vec::new(),
             registrations: Vec::new(),
+            catalog_root: None,
             options: RepositoryOptions::default(),
         }
     }
@@ -149,8 +160,47 @@ impl IndexBuilder {
             adapter_id,
             version,
             representation_version,
+            file_links: false,
         });
         Ok(handle)
+    }
+
+    /// Install one file service before build. An installed empty catalog is
+    /// still visible to readers as a service with zero files.
+    pub fn register_file_catalog(
+        &mut self,
+        catalog: FileCatalog,
+    ) -> Result<FileCatalogRegistration, IndexError> {
+        if self.catalog_root.is_some() {
+            return Err(IndexError::Build(
+                "file catalog is already registered".into(),
+            ));
+        }
+        self.catalog_root = Some(catalog.into_root());
+        Ok(FileCatalogRegistration {
+            builder_id: self.builder_id,
+        })
+    }
+
+    /// Permit one registration to attach optional file provenance to records.
+    pub fn enable_file_links(
+        &mut self,
+        registration: RecordRegistration,
+        catalog: FileCatalogRegistration,
+    ) -> Result<(), IndexError> {
+        if catalog.builder_id != self.builder_id || self.catalog_root.is_none() {
+            return Err(IndexError::ForeignInstance);
+        }
+        if registration.builder_id != self.builder_id {
+            return Err(IndexError::ForeignInstance);
+        }
+        let source = self
+            .registrations
+            .get_mut(registration.ordinal as usize)
+            .filter(|source| source.handle == registration)
+            .ok_or(IndexError::ForeignInstance)?;
+        source.file_links = true;
+        Ok(())
     }
 
     /// Publish a usable empty index with no file discovery or source reads.
@@ -171,6 +221,7 @@ impl IndexBuilder {
             self.collections,
             self.options,
             &identities,
+            self.catalog_root,
         )
         .map_err(IndexError::Build)?;
         let mut index = Index::from_repository(repository)?;
@@ -202,6 +253,7 @@ mod tests {
         );
         assert_eq!(view.index_observation().files, 0);
         assert_eq!(view.index_observation().records, 0);
+        assert!(view.file_catalog().is_none());
         assert!(
             view.get_record(
                 "entries",
@@ -210,6 +262,38 @@ mod tests {
             )
             .unwrap()
             .is_none()
+        );
+    }
+
+    #[test]
+    fn explicitly_installed_empty_catalog_is_visible_and_scoped() {
+        let mut without = Index::builder();
+        let without_entries = without.collection("entries", Schema::default()).unwrap();
+        without
+            .register_records(without_entries, "application.entries", 1)
+            .unwrap();
+        let without_identity = without
+            .build()
+            .unwrap()
+            .view()
+            .unwrap()
+            .configuration_identity();
+        let mut builder = Index::builder();
+        let entries = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(entries, "application.entries", 1)
+            .unwrap();
+        let catalog = builder
+            .register_file_catalog(FileCatalog::new(std::env::temp_dir()).unwrap())
+            .unwrap();
+        builder.enable_file_links(registration, catalog).unwrap();
+        let view = builder.build().unwrap().view().unwrap();
+        let files = view.file_catalog().unwrap();
+        assert_ne!(view.configuration_identity(), without_identity);
+        assert_eq!(view.index_observation().files, 0);
+        assert_eq!(
+            files.records_for_file(crate::model::FileId(0)),
+            Err(crate::files::LookupError::FileNotFound)
         );
     }
 }
