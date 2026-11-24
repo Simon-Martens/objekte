@@ -1,7 +1,7 @@
 //! Ordered admission, bounded resident input, and receipt completion.
 
 use std::collections::VecDeque;
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU64, AtomicUsize, Ordering};
 use std::sync::{Arc, Condvar, Mutex};
 use std::thread::JoinHandle;
 use std::time::Instant;
@@ -105,6 +105,7 @@ struct Queue {
     encoding: Mutex<()>,
     options: IngestionOptions,
     cancelled: AtomicBool,
+    publication_decision: Mutex<()>,
     #[cfg(test)]
     worker_entry: Mutex<Option<WorkerEntryHook>>,
 }
@@ -122,6 +123,7 @@ pub(crate) struct SessionCore {
     index: Index,
     queue: Arc<Queue>,
     worker: Mutex<Option<JoinHandle<()>>>,
+    public_owners: AtomicUsize,
 }
 
 impl SessionCore {
@@ -147,6 +149,7 @@ impl SessionCore {
             encoding: Mutex::new(()),
             options,
             cancelled: AtomicBool::new(false),
+            publication_decision: Mutex::new(()),
             #[cfg(test)]
             worker_entry: Mutex::new(None),
         });
@@ -155,10 +158,15 @@ impl SessionCore {
             index: index.clone(),
             queue: Arc::clone(&queue),
             worker: Mutex::new(None),
+            public_owners: AtomicUsize::new(0),
         });
+        let worker_core = Arc::clone(&core);
         let worker = std::thread::Builder::new()
             .name(format!("objekte-ingestion-{id}"))
-            .spawn(move || run_worker(index, queue, id))
+            .spawn(move || {
+                run_worker(index, queue, id);
+                drop(worker_core);
+            })
             .expect("ingestion worker thread could not start");
         *core.worker.lock().expect("worker mutex poisoned") = Some(worker);
         core
@@ -176,6 +184,41 @@ impl SessionCore {
     pub(crate) fn options(&self) -> &IngestionOptions {
         &self.queue.options
     }
+
+    pub(crate) fn is_drained(&self) -> bool {
+        let state = self.queue.state.lock().expect("queue mutex poisoned");
+        state.completed == state.next_sequence - 1
+            && state.items.is_empty()
+            && state.metrics.in_flight_estimated_bytes == 0
+    }
+
+    pub(crate) fn wait_drained(&self) {
+        let mut state = self.queue.state.lock().expect("queue mutex poisoned");
+        while state.completed != state.next_sequence - 1
+            || !state.items.is_empty()
+            || state.metrics.in_flight_estimated_bytes != 0
+        {
+            state = self
+                .queue
+                .changed
+                .wait(state)
+                .expect("queue mutex poisoned");
+        }
+    }
+
+    fn add_owner(&self) {
+        self.public_owners.fetch_add(1, Ordering::Relaxed);
+    }
+
+    fn release_owner(&self) {
+        if self.public_owners.fetch_sub(1, Ordering::AcqRel) == 1 {
+            if let Ok(mut state) = self.queue.state.lock() {
+                state.closed = true;
+                state.paused = false;
+                self.queue.changed.notify_all();
+            }
+        }
+    }
 }
 
 impl Drop for SessionCore {
@@ -188,13 +231,13 @@ impl Drop for SessionCore {
     }
 }
 
-#[derive(Clone)]
 pub struct IngestionSession {
     pub(crate) core: Arc<SessionCore>,
 }
 
 impl IngestionSession {
     pub(crate) fn from_core(core: Arc<SessionCore>) -> Self {
+        core.add_owner();
         Self { core }
     }
 
@@ -211,6 +254,7 @@ impl IngestionSession {
         let Some(source) = source else {
             return Err(IndexError::ForeignInstance);
         };
+        self.core.add_owner();
         Ok(RecordWriter {
             core: Arc::clone(&self.core),
             registration,
@@ -291,6 +335,12 @@ impl IngestionSession {
     /// Cancel work that has not yet installed. Accepted receipts are woken
     /// with the terminal cancellation sequence.
     pub fn cancel(&self) {
+        let _decision = self
+            .core
+            .queue
+            .publication_decision
+            .lock()
+            .expect("publication decision mutex poisoned");
         self.core.queue.cancelled.store(true, Ordering::Release);
         let mut state = self.core.queue.state.lock().expect("queue mutex poisoned");
         state.closed = true;
@@ -299,7 +349,18 @@ impl IngestionSession {
     }
 }
 
-#[derive(Clone)]
+impl Clone for IngestionSession {
+    fn clone(&self) -> Self {
+        Self::from_core(Arc::clone(&self.core))
+    }
+}
+
+impl Drop for IngestionSession {
+    fn drop(&mut self) {
+        self.core.release_owner();
+    }
+}
+
 pub struct RecordWriter {
     core: Arc<SessionCore>,
     registration: RecordRegistration,
@@ -441,6 +502,24 @@ impl RecordWriter {
     }
 }
 
+impl Clone for RecordWriter {
+    fn clone(&self) -> Self {
+        self.core.add_owner();
+        Self {
+            core: Arc::clone(&self.core),
+            registration: self.registration,
+            reader_available: self.reader_available,
+            file_links_available: self.file_links_available,
+        }
+    }
+}
+
+impl Drop for RecordWriter {
+    fn drop(&mut self) {
+        self.core.release_owner();
+    }
+}
+
 fn enqueue(
     state: &mut State,
     queue: &Queue,
@@ -526,6 +605,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                     super::publication::install_batch(
                         &index,
                         &queue.cancelled,
+                        &queue.publication_decision,
                         batch,
                         item.sequence,
                     )
@@ -812,6 +892,208 @@ mod tests {
                 .unwrap()
                 .is_some()
         );
+    }
+
+    #[test]
+    fn successor_waits_for_closed_session_to_publish_accepted_prefix() {
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder.register_records(collection, "drain", 1).unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        let writer = session.writer(registration).unwrap();
+        let (reached, arrivals) = mpsc::channel();
+        let (release, exits) = mpsc::channel();
+        *session.core.queue.worker_entry.lock().unwrap() = Some(WorkerEntryHook {
+            reached,
+            release: exits,
+        });
+        let first = writer
+            .submit(batch(session.core.id, registration, "first"))
+            .unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            first.sequence()
+        );
+        let finish_session = session.clone();
+        let finish = std::thread::spawn(move || finish_session.finish());
+        while session.core.is_open() {
+            std::thread::yield_now();
+        }
+        let (successor_sender, successor_receiver) = mpsc::channel();
+        let successor_index = index.clone();
+        let successor = std::thread::spawn(move || {
+            let next = successor_index.ingestion();
+            successor_sender.send(next).unwrap();
+        });
+        assert!(
+            successor_receiver
+                .recv_timeout(Duration::from_millis(50))
+                .is_err()
+        );
+        release.send(()).unwrap();
+        let revision = first.wait_published().unwrap();
+        assert_eq!(finish.join().unwrap().unwrap(), revision);
+        let next = successor_receiver
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap();
+        successor.join().unwrap();
+        let next_writer = next.writer(registration).unwrap();
+        let second = next_writer
+            .submit(batch(next.core.id, registration, "second"))
+            .unwrap();
+        assert!(second.wait_published().unwrap() > revision);
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "first",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_some()
+        );
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "second",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_some()
+        );
+    }
+
+    #[test]
+    fn last_public_owner_drop_keeps_old_worker_until_accepted_prefix_finishes() {
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "owner-drop", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        let writer = session.writer(registration).unwrap();
+        let (reached, arrivals) = mpsc::channel();
+        let (release, exits) = mpsc::channel();
+        *session.core.queue.worker_entry.lock().unwrap() = Some(WorkerEntryHook {
+            reached,
+            release: exits,
+        });
+        let first = writer
+            .submit(batch(session.core.id, registration, "first"))
+            .unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            first.sequence()
+        );
+        drop(writer);
+        drop(session);
+        let (successor_sender, successor_receiver) = mpsc::channel();
+        let successor_index = index.clone();
+        let successor = std::thread::spawn(move || {
+            successor_sender.send(successor_index.ingestion()).unwrap();
+        });
+        assert!(
+            successor_receiver
+                .recv_timeout(Duration::from_millis(50))
+                .is_err()
+        );
+        release.send(()).unwrap();
+        first.wait_published().unwrap();
+        let next = successor_receiver
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap();
+        successor.join().unwrap();
+        let next_writer = next.writer(registration).unwrap();
+        next_writer
+            .submit(batch(next.core.id, registration, "second"))
+            .unwrap()
+            .wait_published()
+            .unwrap();
+        for id in ["first", "second"] {
+            assert!(
+                index
+                    .view()
+                    .unwrap()
+                    .get_record("entries", id, crate::query::options::ReturnMode::Locator)
+                    .unwrap()
+                    .is_some()
+            );
+        }
+    }
+
+    #[test]
+    fn cancellation_keeps_installed_prefix_and_cancels_waiting_suffix() {
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder.register_records(collection, "cancel", 1).unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        let writer = session.writer(registration).unwrap();
+        let (reached, arrivals) = mpsc::channel();
+        let (release, exits) = mpsc::channel();
+        *session.core.queue.worker_entry.lock().unwrap() = Some(WorkerEntryHook {
+            reached,
+            release: exits,
+        });
+        let first = writer
+            .submit(batch(session.core.id, registration, "first"))
+            .unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            first.sequence()
+        );
+        release.send(()).unwrap();
+        let published = first.wait_published().unwrap();
+        let second = writer
+            .submit(batch(session.core.id, registration, "second"))
+            .unwrap();
+        let third = writer
+            .submit(batch(session.core.id, registration, "third"))
+            .unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            second.sequence()
+        );
+        session.cancel();
+        release.send(()).unwrap();
+        assert!(
+            matches!(second.wait_published(), Err(IngestionError::Cancelled { originating_sequence }) if originating_sequence == second.sequence())
+        );
+        assert!(
+            matches!(third.wait_published(), Err(IngestionError::Cancelled { originating_sequence }) if originating_sequence == second.sequence())
+        );
+        assert_eq!(index.view().unwrap().revision(), published);
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "first",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_some()
+        );
+        for id in ["second", "third"] {
+            assert!(
+                index
+                    .view()
+                    .unwrap()
+                    .get_record("entries", id, crate::query::options::ReturnMode::Locator)
+                    .unwrap()
+                    .is_none()
+            );
+        }
+        let next = index.ingestion();
+        assert_ne!(next.core.id, session.core.id);
     }
 
     #[test]

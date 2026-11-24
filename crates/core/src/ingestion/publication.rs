@@ -1,5 +1,6 @@
 //! Typed batch preparation and one immutable lifecycle installation.
 
+use std::sync::Mutex;
 use std::sync::atomic::{AtomicBool, Ordering};
 
 use crate::construction::batch::build_retained_contribution;
@@ -17,6 +18,7 @@ use super::{Batch, IngestionError, Operation, PublishedRevision};
 pub(super) fn install_batch(
     index: &Index,
     cancelled: &AtomicBool,
+    publication_decision: &Mutex<()>,
     batch: Batch,
     sequence: u64,
 ) -> PublishedRevision {
@@ -227,6 +229,9 @@ pub(super) fn install_batch(
             &files,
         )?);
     }
+    let _decision = publication_decision
+        .lock()
+        .map_err(|_| IngestionError::Index(IndexError::LockPoisoned))?;
     if cancelled.load(Ordering::Acquire) {
         return Err(IngestionError::Cancelled {
             originating_sequence: sequence,

@@ -116,24 +116,31 @@ impl Index {
         &self,
         options: crate::ingestion::IngestionOptions,
     ) -> Result<crate::ingestion::IngestionSession, IndexError> {
-        let mut active = self
-            .0
-            .ingestion
-            .lock()
-            .map_err(|_| IndexError::LockPoisoned)?;
-        if let Some(core) = active.upgrade()
-            && core.is_open()
-        {
-            if core.options() != &options {
-                return Err(IndexError::Build(
-                    "active ingestion session has different options".into(),
-                ));
+        loop {
+            let mut active = self
+                .0
+                .ingestion
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            if let Some(core) = active.upgrade() {
+                if core.is_open() {
+                    if core.options() != &options {
+                        return Err(IndexError::Build(
+                            "active ingestion session has different options".into(),
+                        ));
+                    }
+                    return Ok(crate::ingestion::IngestionSession::from_core(core));
+                }
+                if !core.is_drained() {
+                    drop(active);
+                    core.wait_drained();
+                    continue;
+                }
             }
+            let core = crate::ingestion::queue::SessionCore::new(self.clone(), options);
+            *active = std::sync::Arc::downgrade(&core);
             return Ok(crate::ingestion::IngestionSession::from_core(core));
         }
-        let core = crate::ingestion::queue::SessionCore::new(self.clone(), options);
-        *active = std::sync::Arc::downgrade(&core);
-        Ok(crate::ingestion::IngestionSession::from_core(core))
     }
 }
 
