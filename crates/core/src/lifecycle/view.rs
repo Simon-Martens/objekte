@@ -534,8 +534,7 @@ impl IndexView {
     /// absolute path beneath this view's source root.
     pub fn file_handle_for_path(&self, path: &Path) -> Option<FileHandle> {
         let relative = if path.is_absolute() {
-            path.strip_prefix(&self.0.repository.files().required_root())
-                .ok()?
+            path.strip_prefix(self.0.repository.files().root()?).ok()?
         } else {
             path
         };

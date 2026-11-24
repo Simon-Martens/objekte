@@ -1,5 +1,5 @@
 use smallvec::SmallVec;
-use std::collections::HashMap;
+use std::collections::{BTreeSet, HashMap};
 use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 use std::sync::atomic::Ordering;
@@ -675,6 +675,47 @@ impl PublishedIndex {
             self.last_size_maintenance_revision = self.revision.0;
         }
         Ok(())
+    }
+
+    /// File import membership comes from file-backed contributions, not from
+    /// independently declared navigation links in the same collection.
+    pub(crate) fn imported_collections(&self, file: &FileEntry) -> BTreeSet<CollectionId> {
+        let mut imported = BTreeSet::new();
+        if let Some(base) = self.repository.files().files.get(file.id.0 as usize)
+            && base.revision == file.revision
+            && base.created_ns == file.created_ns
+        {
+            for collection in &base.collections {
+                if self.repository.collections()[collection.0 as usize]
+                    .generation
+                    .files
+                    .contains(&file.id)
+                {
+                    imported.insert(*collection);
+                }
+            }
+        }
+        for collection in &file.collections {
+            let number = collection.0 as usize;
+            let routes = &self.record_routes[number];
+            for id in routes.segments_for_file(file.id) {
+                let Some(position) = routes.position(*id) else {
+                    continue;
+                };
+                let segment = &self.segments[number][position].index;
+                if matches!(
+                    &segment.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                ) && segment.file(file.id).is_some_and(|owned| {
+                    owned.entry.revision == file.revision
+                        && owned.entry.created_ns == file.created_ns
+                }) {
+                    imported.insert(*collection);
+                    break;
+                }
+            }
+        }
+        imported
     }
 
     /// Retire slots owned by one incarnation without touching the catalog.

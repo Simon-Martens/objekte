@@ -553,6 +553,178 @@ fn declared_attachment_outside_importer_selection_uses_catalog_only_lifecycle() 
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn rootless_file_operations_and_reconciliation_return_without_panicking() {
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder.register_records(collection, "rootless", 1).unwrap();
+    let index = builder.build().unwrap();
+    let writer = index.ingestion().writer(registration).unwrap();
+    let mut batch = writer.batch();
+    batch
+        .insert("direct", Value::String("kept".into()))
+        .unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    assert!(
+        index
+            .add_file(std::path::Path::new("missing.json"))
+            .is_err()
+    );
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .file_handle_for_path(std::path::Path::new("/tmp/missing.json"))
+            .is_none()
+    );
+    let report = index.start_reconcile().unwrap().wait().unwrap();
+    assert!(report.issues.is_empty());
+    assert_eq!(report.examined, 0);
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .get_record("entries", "direct", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-empty-catalog-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let mut builder = Index::builder();
+    builder.collection("entries", Schema::default()).unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    let empty_catalog = builder.build().unwrap();
+    assert!(empty_catalog.view().unwrap().file_catalog().is_some());
+    let report = empty_catalog.start_reconcile().unwrap().wait().unwrap();
+    assert!(report.issues.is_empty());
+    assert_eq!(report.examined, 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mixed_reconciliation_preserves_original_collection_ids_and_independent_files() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-mixed-reconcile-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::create_dir_all(root.join("attachments")).unwrap();
+    let imported = root.join("data/item.json");
+    let attached = root.join("attachments/cover.bin");
+    std::fs::write(&imported, b"{\"name\":\"first\"}").unwrap();
+    std::fs::write(&attached, b"cover").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&attached).unwrap()).unwrap();
+    let mut builder = Index::builder();
+    let direct = builder.collection("direct", Schema::default()).unwrap();
+    let files = builder.collection("files", Schema::default()).unwrap();
+    let direct_registration = builder.register_records(direct, "direct", 1).unwrap();
+    let linked_registration = builder.register_records(files, "linked", 1).unwrap();
+    let catalog = builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder
+        .enable_file_links(linked_registration, catalog)
+        .unwrap();
+    builder
+        .register_file_source(
+            files,
+            CollectionDefinition::folder("files", "data", SourceFormat::Json).file_source(),
+        )
+        .unwrap();
+    let index = builder.build().unwrap();
+    let writer = index.ingestion().writer(direct_registration).unwrap();
+    let mut batch = writer.batch();
+    batch
+        .insert("direct-1", Value::String("kept".into()))
+        .unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let linked_writer = index.ingestion().writer(linked_registration).unwrap();
+    let mut batch = linked_writer.batch();
+    let file = batch
+        .declare_file("attachments/cover.bin", revision)
+        .unwrap();
+    batch
+        .insert_with_file("linked-1", Value::String("kept".into()), file, None)
+        .unwrap();
+    linked_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+
+    let first = index.start_reconcile().unwrap().wait().unwrap();
+    assert!(first.issues.is_empty(), "{:?}", first.issues);
+    assert_eq!(first.added, 1);
+    let pinned = index.view().unwrap();
+    assert!(pinned.file_handle_for_path(&imported).is_some());
+    assert!(pinned.file_handle_for_path(&attached).is_some());
+    assert_eq!(
+        pinned
+            .file_catalog()
+            .unwrap()
+            .file_by_path(std::path::Path::new("data/item.json"))
+            .unwrap()
+            .collections,
+        vec![files]
+    );
+    let unchanged = index.start_reconcile().unwrap().wait().unwrap();
+    assert!(unchanged.issues.is_empty(), "{:?}", unchanged.issues);
+    assert_eq!(unchanged.unchanged, 1);
+    assert_eq!(unchanged.removed, 0);
+    std::fs::write(&imported, b"{\"name\":\"updated-longer\"}").unwrap();
+    let updated = index.start_reconcile().unwrap().wait().unwrap();
+    assert!(updated.issues.is_empty(), "{:?}", updated.issues);
+    assert_eq!(updated.updated, 1);
+    let current = index.view().unwrap();
+    assert!(
+        current
+            .get_record("direct", "direct-1", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        current
+            .get_record("files", "linked-1", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    assert!(current.file_handle_for_path(&attached).is_some());
+    assert!(pinned.file_handle_for_path(&imported).is_some());
+    index.rebuild().unwrap();
+    let imported_handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&imported)
+        .unwrap();
+    index.delete_file(imported_handle).unwrap();
+    index.rebuild().unwrap();
+    let after_delete = index.view().unwrap();
+    assert!(
+        after_delete
+            .get_record("direct", "direct-1", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        after_delete
+            .get_record("files", "linked-1", ReturnMode::Logical)
+            .unwrap()
+            .is_some()
+    );
+    assert!(after_delete.file_handle_for_path(&imported).is_none());
+    assert!(after_delete.file_handle_for_path(&attached).is_some());
+    assert!(pinned.file_handle_for_path(&imported).is_some());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 struct VersionedFixture(Mutex<(RecordVersion, Value)>, Mutex<Vec<RecordProjection>>);
 
 impl RecordReader for VersionedFixture {

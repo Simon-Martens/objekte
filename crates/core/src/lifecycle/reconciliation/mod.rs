@@ -106,7 +106,7 @@ impl Index {
         cancelled: impl Fn() -> bool,
         mut on_progress: impl FnMut(&ReconciliationReport),
     ) -> ReconciliationReport {
-        use crate::lifecycle::reconciliation::scan::{ScanChange, scan_sources_batched};
+        use crate::lifecycle::reconciliation::scan::{ScanChange, scan_sources_batched_with_ids};
 
         let started = Instant::now();
         let mut report = ReconciliationReport::default();
@@ -120,11 +120,33 @@ impl Index {
             }
         };
         let repository = snapshot.repository();
-        let root = &repository.files().required_root();
-        let definitions = repository
+        let Some(root) = repository.files().root() else {
+            report.duration = started.elapsed();
+            on_progress(&report);
+            return report;
+        };
+        let registrations = repository
             .collections()
             .iter()
-            .map(|collection| collection.required_file_definition().clone())
+            .enumerate()
+            .filter_map(|(number, collection)| {
+                collection.file_definition.as_ref().map(|definition| {
+                    (
+                        crate::model::CollectionId(number as u32),
+                        definition.clone(),
+                    )
+                })
+            })
+            .collect::<Vec<_>>();
+        if registrations.is_empty() {
+            report.duration = started.elapsed();
+            on_progress(&report);
+            return report;
+        }
+        let ids = registrations.iter().map(|(id, _)| *id).collect::<Vec<_>>();
+        let definitions = registrations
+            .into_iter()
+            .map(|(_, definition)| definition)
             .collect::<Vec<_>>();
         let mut apply = |change: ScanChange| {
             if cancelled() {
@@ -166,17 +188,21 @@ impl Index {
             report.duration = started.elapsed();
             on_progress(&report);
         };
-        let scan = scan_sources_batched(
+        let scan = scan_sources_batched_with_ids(
             root,
             &definitions,
+            &ids,
             &repository.sources,
             |_| false,
             |path| {
-                snapshot
-                    .0
-                    .catalog
-                    .id_for(path)
-                    .and_then(|id| snapshot.0.catalog.scan_stamp(id).map(|stamp| (id, stamp)))
+                snapshot.0.catalog.id_for(path).and_then(|id| {
+                    snapshot.0.catalog.scan_stamp(id).map(|mut stamp| {
+                        if let Some(entry) = snapshot.file_entry(id) {
+                            stamp.collections = snapshot.0.imported_collections(entry);
+                        }
+                        (id, stamp)
+                    })
+                })
             },
             &cancelled,
             256,
@@ -194,10 +220,19 @@ impl Index {
                 if scan.seen_existing.contains(id.0) {
                     continue;
                 }
+                let Some(entry) = snapshot.file_entry(id) else {
+                    continue;
+                };
+                let imported = snapshot.0.imported_collections(entry);
+                if imported.is_empty() {
+                    continue;
+                }
                 let Some(stamp) = snapshot.0.catalog.scan_stamp(id) else {
                     continue;
                 };
-                if stamp.collections.is_subset(&scan.complete_collections) {
+                if imported.is_subset(&scan.complete_collections) {
+                    let mut stamp = stamp;
+                    stamp.collections = imported;
                     apply(ScanChange::Remove(stamp));
                 }
             }

@@ -203,7 +203,10 @@ fn prepare_file_at(
     id: FileId,
 ) -> Result<PreparedFileBuild, IndexError> {
     let repository = view.repository();
-    let root = &repository.files().required_root();
+    let root = repository
+        .files()
+        .root()
+        .ok_or_else(|| IndexError::SourceUnavailable("file catalog is not registered".into()))?;
     let relative = if path.is_absolute() {
         path.strip_prefix(root)
             .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?

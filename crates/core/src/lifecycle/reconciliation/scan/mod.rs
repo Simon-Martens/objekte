@@ -87,9 +87,39 @@ struct ScanScope<'a> {
 /// scopes can safely establish absence; the second yields metadata and bounded
 /// change batches. Files selected by overlapping collections are observed once
 /// and carry all proven memberships in the same transaction.
+#[cfg(test)]
 pub(crate) fn scan_sources_batched(
     root: &Path,
     definitions: &[CollectionDefinition],
+    sources: &SourceRegistry,
+    excluded: impl Fn(&Path) -> bool,
+    lookup_existing: impl Fn(&Path) -> Option<(FileId, FileStamp)>,
+    cancelled: impl Fn() -> bool,
+    batch_files: usize,
+    on_batch: impl FnMut(Vec<ScanChange>),
+) -> SourceScanSummary {
+    let ids = definitions
+        .iter()
+        .enumerate()
+        .filter_map(|(number, _)| u32::try_from(number).ok().map(CollectionId))
+        .collect::<Vec<_>>();
+    scan_sources_batched_with_ids(
+        root,
+        definitions,
+        &ids,
+        sources,
+        excluded,
+        lookup_existing,
+        cancelled,
+        batch_files,
+        on_batch,
+    )
+}
+
+pub(crate) fn scan_sources_batched_with_ids(
+    root: &Path,
+    definitions: &[CollectionDefinition],
+    ids: &[CollectionId],
     sources: &SourceRegistry,
     excluded: impl Fn(&Path) -> bool,
     lookup_existing: impl Fn(&Path) -> Option<(FileId, FileStamp)>,
@@ -105,9 +135,9 @@ pub(crate) fn scan_sources_batched(
             summary.cancelled = true;
             break;
         }
-        let id = match u32::try_from(number) {
-            Ok(id) => CollectionId(id),
-            Err(_) => {
+        let id = match ids.get(number).copied() {
+            Some(id) => id,
+            None => {
                 summary.issues.push(ScanIssue {
                     collection: CollectionId(u32::MAX),
                     message: "too many collections".into(),

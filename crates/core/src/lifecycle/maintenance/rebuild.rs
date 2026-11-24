@@ -107,9 +107,29 @@ impl Index {
                                     if cancelled() {
                                         return Err(IndexError::Cancelled);
                                     }
-                                    let current = view
-                                        .file_entry(file.entry.id)
-                                        .ok_or(IndexError::UnknownFile)?;
+                                    let current = view.file_entry(file.entry.id);
+                                    let current_incarnation = current.is_some_and(|entry| {
+                                        entry.revision == file.entry.revision
+                                            && entry.created_ns == file.entry.created_ns
+                                            && view
+                                                .0
+                                                .imported_collections(entry)
+                                                .contains(&segment.index.collection)
+                                    });
+                                    if !current_incarnation {
+                                        if file
+                                            .records
+                                            .iter()
+                                            .any(|slot| segment.active.contains(*slot))
+                                        {
+                                            return Err(IndexError::InvalidPublication(
+                                                "obsolete file incarnation still has live records"
+                                                    .into(),
+                                            ));
+                                        }
+                                        continue;
+                                    }
+                                    let current = current.expect("current incarnation checked");
                                     let path = repository
                                         .files()
                                         .required_root()
