@@ -1,0 +1,80 @@
+[
+  {
+    "id": "Q031",
+    "collection": "places",
+    "fts": null,
+    "filter": "fictional = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q061",
+    "collection": "places",
+    "fts": null,
+    "filter": "name = \"Leipzig\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q067",
+    "collection": "agents",
+    "fts": null,
+    "filter": "name:lower ~ \"goethe\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q099",
+    "collection": "contents",
+    "fts": null,
+    "filter": "musenalm_type ?~ \"Lied\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q104",
+    "collection": "agents",
+    "fts": null,
+    "filter": "data.gnd.gender.label ?= \"Weiblich\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q111",
+    "collection": "entries",
+    "fts": null,
+    "filter": "@record.byte_start = 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

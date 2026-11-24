@@ -1,0 +1,97 @@
+{
+  "fixture": "/home/simon/source/objekte/examples/musenalm",
+  "pairs": 3,
+  "first_side": [
+    "before",
+    "after",
+    "before"
+  ],
+  "sides": {
+    "before": {
+      "sha": "d8d703dbd24e1ef72f9a37cf7a235a7a559e0598",
+      "build_binary_sha256": "41ad3f75a3da7ecce900e9c63e6cef9e35d26a2c6dea4ed8a30ed9047ca9713b",
+      "query_binary_sha256": "90a5b8398b8da5eca9ce5d61dcdee5a3cf92402ea417e31f06c93c681940a66a",
+      "lifecycle_binary_sha256": "f9db2f3a46a54e6370226f521b9bb4fcf5d7e22e0b0fe243f26da9552a8156af"
+    },
+    "after": {
+      "sha": "4f2f8cbb3f88ca4e279509d9d2b60052312467c4",
+      "build_binary_sha256": "0c2bf87901e0a6c0982576184b91f5af3023fc66757ce7b7b18cf88957a83373",
+      "query_binary_sha256": "ebcadf1887949223478b233b23432e621bb443c176d147c70d0fdc7610cd2205",
+      "lifecycle_binary_sha256": "5c16e9cd41ed96381970c4405d0c4302c554bee925e690f3e33c48fbc0293289"
+    }
+  },
+  "invocations": [
+    {
+      "label": "lifecycle-small-pair-1-before",
+      "side": "before",
+      "command": [
+        "/home/simon/source/objekte-baseline-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/confirmation/lifecycle-recheck/lifecycle-small-pair-1-before/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "536e516e5a94197a8bca9bca8547192732e277cf792abe4126d20731320b9c50",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-pair-1-after",
+      "side": "after",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/confirmation/lifecycle-recheck/lifecycle-small-pair-1-after/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "d24e70e07b570dc157ef1b6dde64474363c515690ab88670cd26529699dc4930",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-pair-2-after",
+      "side": "after",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/confirmation/lifecycle-recheck/lifecycle-small-pair-2-after/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "b25d41920f11c2e0e3c90f03ae86a25577b8933985cc21cbe088637047aeb447",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-pair-2-before",
+      "side": "before",
+      "command": [
+        "/home/simon/source/objekte-baseline-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/confirmation/lifecycle-recheck/lifecycle-small-pair-2-before/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "2f2852fcf2033094fee8b4dd15cc868662c55d606dc2af1e81255b47de3a722c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-pair-3-before",
+      "side": "before",
+      "command": [
+        "/home/simon/source/objekte-baseline-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/confirmation/lifecycle-recheck/lifecycle-small-pair-3-before/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "c09355a4032e23fddbf29f804da57c633ba51591a8b941f9786ef8e7a8bfa3cc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-pair-3-after",
+      "side": "after",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/confirmation/lifecycle-recheck/lifecycle-small-pair-3-after/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "e6ce8df60cd6a3ac37eba0989b5db5ba83ecb935ddd04356dd179d5088258a65",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "Q050",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry = \"00fx8ln651na0e3\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q051",
+    "collection": "contents",
+    "fts": null,
+    "filter": "year = 1808",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q057",
+    "collection": "items",
+    "fts": null,
+    "filter": "basis = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q064",
+    "collection": "places",
+    "fts": null,
+    "filter": "name ~ \"Leip%\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q067",
+    "collection": "agents",
+    "fts": null,
+    "filter": "name:lower ~ \"goethe\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q090",
+    "collection": "entries",
+    "fts": null,
+    "filter": "agents.uncertain ?= true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

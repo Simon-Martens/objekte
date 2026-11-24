@@ -1,0 +1,9 @@
+case_id,profile,status,min_ns,median_ns,p95_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,verified_result_hits,preparation_median_ns,planning_median_ns
+Q061,unicode-off,ok,11415,12029,107527,107527,7,1,1,1,1,267,1,0,1,1,0,0,0
+Q069,unicode-off,ok,20110983,20662920,22727432,22727432,7,4010,50,4010,4010,29483280,0,0,4010,4010,0,0,0
+Q111,unicode-off,ok,143727,146657,183640,183640,7,4928,50,4928,0,0,0,4928,0,0,0,0,0
+Q116,unicode-off,ok,192608,195927,266950,266950,7,70428,50,70428,0,0,0,70428,0,0,0,0,0
+Q121,unicode-off,ok,27275,28140,74542,74542,7,341,50,341,0,0,0,341,0,0,0,0,0
+Q122,unicode-off,ok,22557,23142,34581,34581,7,67,50,67,0,0,0,67,0,0,0,0,0
+Q123,unicode-off,ok,21187,21450,37363,37363,7,4153,50,4153,0,0,0,4153,0,0,0,0,0
+Q124,unicode-off,ok,156552,223051,224740,224740,7,0,0,0,0,0,0,0,0,0,0,0,0

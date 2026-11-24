@@ -1,0 +1,321 @@
+{
+  "base_commit": "55f6bb8ba596f1503d232f86a67a58a233c441b4",
+  "worktree": "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog",
+  "fixture": "/home/simon/source/objekte/examples/musenalm",
+  "fixture_fingerprint": {
+    "json_files": 148498,
+    "content_sha256": "79acbab9155aa95bc869afde56dc1b402e5a09f9c6a80a5106fc665e2c3f20c5",
+    "metadata_sha256": "b0a47239de14ad78c0aa059c3c1a6e48f3d988ae234d6c904fc78c3a96429106"
+  },
+  "cargo_lock_sha256": "dc29ff42cf24b2cc4de67a2297f3c4d676c9034c0b91315465d1fb1136b486f7",
+  "historical_manifest_sha256": "56f2ba99e3a889b95975a6b460c4ef894732ad769f99e6f69086a3f0d3ac91c0",
+  "extended_manifest_sha256": "58677b830a55027ba1d2b6dfec9189f0685d47e2e41a8e20639ac1afb94cc94f",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "governors": [
+    "performance"
+  ],
+  "workers": 32,
+  "query_workers": 1,
+  "rustflags": "",
+  "allocator": "Rust release default (system)",
+  "binaries": {
+    "bench_build_musenalm": {
+      "path": "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_build_musenalm",
+      "sha256": "fc1d89f543f8f7c1fb2ed0f6f7c46af0d9a6f0a54303ecfacf91c262f94ed7bb"
+    },
+    "bench_musenalm": {
+      "path": "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+      "sha256": "78708cc4d981fbbdd1e5524cc8f3fc77fdb426a8a4475d4c54fbcc17c15721db"
+    },
+    "bench_lifecycle_mutations": {
+      "path": "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+      "sha256": "6a65003f9c4f78155dee28befba2eb96e80efdf79bf404a61bbab968802d7abb"
+    }
+  },
+  "invocations": [
+    {
+      "label": "build-ascii-1",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_build_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--alphabet",
+        "ascii",
+        "--build-workers",
+        "32"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 5384404922,
+      "stdout_sha256": "8e8d952bf4056e15610d4ed04753c25f72eb2bcb1628a1308061e435bb46706a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "build-ascii-2",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_build_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--alphabet",
+        "ascii",
+        "--build-workers",
+        "32"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 5372117951,
+      "stdout_sha256": "b726821ecf4099fdf1e1873ba1957704e4f37edfd33c0931e50f6483464994d2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "build-ascii-3",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_build_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--alphabet",
+        "ascii",
+        "--build-workers",
+        "32"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 5453229656,
+      "stdout_sha256": "612890c9c1272ccf60b1f4500d9b57f4c277ad54f59f0be05869d1524ce2adfc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "build-unicode-1",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_build_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--alphabet",
+        "unicode",
+        "--build-workers",
+        "32"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 5533170431,
+      "stdout_sha256": "a1925a9f0194aad5b7ae60821ac621c093a8625c06038f757defd9d8f247c957",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "build-unicode-2",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_build_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--alphabet",
+        "unicode",
+        "--build-workers",
+        "32"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 5544417182,
+      "stdout_sha256": "c1ca3485a8655dda0fd366b0e0b0ac32de08c693dbb4e156ded70017b35add31",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "build-unicode-3",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_build_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--alphabet",
+        "unicode",
+        "--build-workers",
+        "32"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 5554901696,
+      "stdout_sha256": "df8680e4a90350f5a449eb5d1b675045b0edced5870fec0713e22d6a9aa60edf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "historical-ascii",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--repetitions",
+        "1",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/historical-ascii/results"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 9375057486,
+      "stdout_sha256": "c80b9ba2280d9c5a2c221c4ff46b8df10aa72fabb6068a3fb0b5ee35535fd2b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused-ascii",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/focused-ascii/results",
+        "--cases",
+        "Q001,Q030,Q034,Q035,Q054,Q081,Q116,Q136,Q144"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 1825994646,
+      "stdout_sha256": "01a55aca65d060e3b9885e1456d80d6089295cb53fb58c9162bdaeb50b8a52fc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "historical-unicode",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "unicode-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--repetitions",
+        "1",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/historical-unicode/results"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 9049969273,
+      "stdout_sha256": "b80aefdd7ef33a719f437ac05f79176ff02639e07cd4d0b36bdb0e278450ec90",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "focused-unicode",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "unicode-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/focused-unicode/results",
+        "--cases",
+        "Q001,Q030,Q034,Q035,Q054,Q081,Q116,Q136,Q144"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 1931025591,
+      "stdout_sha256": "13a1e70834b6e8cd5ac0bc76ea6a47d2041e3528e6436a6c8f21c03276b112d2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "extended-unicode",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--extended",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "unicode-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--cases",
+        "Q155,Q163,Q166,Q170,Q195,Q219",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/extended-unicode/results"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 1320841585,
+      "stdout_sha256": "16a3ae784982108d6511433aa465f4a9e5d004f2618a9e39657fb3152b0e1eff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-1",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/lifecycle-small-1/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 8545863,
+      "stdout_sha256": "0f6b7e7cbf169c460525e1a17a35d9c659fdb2c1e5a9a20f8cb5042170f13e82",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-2",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/lifecycle-small-2/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 9148592,
+      "stdout_sha256": "da1339fbe74a07ef227cc3b3d8564b7a8c4e2b1fae0c3cc5493156efeec8251c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "lifecycle-small-3",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_lifecycle_mutations",
+        "small",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/after/lifecycle-small-3/mutation-fixture"
+      ],
+      "exit_status": 0,
+      "driver_elapsed_ns": 8479131,
+      "stdout_sha256": "8a3d593483ce9ea597b4d290fe6a9c78b7c10f88c8bdfa13bcf8e65143de2c1d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

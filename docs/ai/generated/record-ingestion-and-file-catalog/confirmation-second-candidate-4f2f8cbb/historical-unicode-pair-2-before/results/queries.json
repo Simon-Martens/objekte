@@ -1,0 +1,85 @@
+[
+  {
+    "id": "Q093",
+    "collection": "entries",
+    "fts": null,
+    "filter": "items.media ?= \"Original\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q097",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors.conjecture ?= true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q107",
+    "collection": "agents",
+    "fts": null,
+    "filter": "data:exists = true && data:null = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q115",
+    "collection": "entries",
+    "fts": null,
+    "filter": "items:length >= 2",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q121",
+    "collection": "series",
+    "fts": null,
+    "filter": "entries:length >= 3",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q137",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry = \"00fx8ln651na0e3\"",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "bytes",
+    "evidence": true
+  }
+]
