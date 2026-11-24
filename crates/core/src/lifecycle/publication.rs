@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 use std::sync::atomic::Ordering;
 
@@ -7,7 +9,7 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle::catalog::FileCatalog;
-use crate::model::{CollectionId, RecordId};
+use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::repository::Repository;
 
 use super::{
@@ -26,6 +28,7 @@ pub(crate) struct PublishedIndex {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+    pub(crate) record_routes: Vec<RecordRoutes>,
     pub(crate) next_segment_ordinal: u64,
     /// Hysteresis for byte-triggered coalescing; count and retirement remain
     /// independent triggers and may run sooner.
@@ -37,6 +40,98 @@ pub(crate) struct PublishedIndex {
     /// Only populated during an initial build. One bitmap per collection
     /// prevents a shared physical file from being counted too early.
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
+}
+
+const RECORD_ROUTE_SHARDS: usize = 64;
+
+#[derive(Clone, Copy)]
+pub(crate) struct RoutedRecord {
+    pub(crate) segment: SegmentId,
+    pub(crate) slot: RecordSlot,
+}
+
+/// Delta ID routes share all untouched shards with older pinned roots.
+#[derive(Clone)]
+pub(crate) struct RecordRoutes {
+    shards: Arc<Vec<Arc<HashMap<RecordId, RoutedRecord>>>>,
+    file_shards: Arc<Vec<Arc<HashMap<FileId, Vec<SegmentId>>>>>,
+    positions: Arc<HashMap<SegmentId, usize>>,
+}
+
+impl RecordRoutes {
+    fn empty() -> Self {
+        Self {
+            shards: Arc::new(
+                (0..RECORD_ROUTE_SHARDS)
+                    .map(|_| Arc::new(HashMap::new()))
+                    .collect(),
+            ),
+            file_shards: Arc::new(
+                (0..RECORD_ROUTE_SHARDS)
+                    .map(|_| Arc::new(HashMap::new()))
+                    .collect(),
+            ),
+            positions: Arc::new(HashMap::new()),
+        }
+    }
+
+    fn shard(id: &str) -> usize {
+        let mut hasher = std::collections::hash_map::DefaultHasher::new();
+        id.hash(&mut hasher);
+        (hasher.finish() as usize) % RECORD_ROUTE_SHARDS
+    }
+
+    pub(crate) fn get(&self, id: &str) -> Option<(usize, RecordSlot)> {
+        let address = self.shards[Self::shard(id)].get(id)?;
+        Some((*self.positions.get(&address.segment)?, address.slot))
+    }
+
+    fn remove(&mut self, id: &str) {
+        let shards = Arc::make_mut(&mut self.shards);
+        Arc::make_mut(&mut shards[Self::shard(id)]).remove(id);
+    }
+
+    pub(crate) fn segments_for_file(&self, file: FileId) -> &[SegmentId] {
+        self.file_shards[file.0 as usize % RECORD_ROUTE_SHARDS]
+            .get(&file)
+            .map(Vec::as_slice)
+            .unwrap_or(&[])
+    }
+
+    pub(crate) fn position(&self, segment: SegmentId) -> Option<usize> {
+        self.positions.get(&segment).copied()
+    }
+
+    fn add_segment(&mut self, segment: &PublishedSegment, position: usize) {
+        Arc::make_mut(&mut self.positions).insert(segment.id, position);
+        let shards = Arc::make_mut(&mut self.shards);
+        for (id, &slot) in &segment.index.id_lookup {
+            if segment.active.contains(slot) {
+                Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())]).insert(
+                    id.clone(),
+                    RoutedRecord {
+                        segment: segment.id,
+                        slot,
+                    },
+                );
+            }
+        }
+        let file_shards = Arc::make_mut(&mut self.file_shards);
+        for file in &segment.index.files {
+            Arc::make_mut(&mut file_shards[file.entry.id.0 as usize % RECORD_ROUTE_SHARDS])
+                .entry(file.entry.id)
+                .or_default()
+                .push(segment.id);
+        }
+    }
+
+    fn from_group(group: &[Arc<PublishedSegment>]) -> Self {
+        let mut routes = Self::empty();
+        for (position, segment) in group.iter().enumerate() {
+            routes.add_segment(segment, position);
+        }
+        routes
+    }
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -100,6 +195,16 @@ fn cheapest_consolidation_pair(
     None
 }
 impl PublishedIndex {
+    pub(crate) fn rebuild_record_routes(&mut self, number: usize) {
+        self.record_routes[number] = RecordRoutes::from_group(&self.segments[number]);
+    }
+
+    pub(crate) fn rebuild_all_record_routes(&mut self) {
+        for number in 0..self.segments.len() {
+            self.rebuild_record_routes(number);
+        }
+    }
+
     pub(crate) fn from_repository_owned(
         instance_id: u64,
         revision: IndexRevision,
@@ -157,6 +262,10 @@ impl PublishedIndex {
             .unwrap_or(0)
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        let record_routes = segments
+            .iter()
+            .map(|group| RecordRoutes::from_group(group))
+            .collect();
         Ok(Self {
             instance_id,
             revision,
@@ -164,6 +273,7 @@ impl PublishedIndex {
             configuration_identity,
             active,
             segments,
+            record_routes,
             next_segment_ordinal,
             last_size_maintenance_revision: 0,
             catalog,
@@ -286,14 +396,11 @@ impl PublishedIndex {
         }
         for (id, _) in &index.id_lookup {
             let existing_duplicate =
-                self.segments[number]
-                    .iter()
-                    .try_fold(false, |found, segment| {
-                        let slot = segment.index.id_lookup.get(id.0.as_ref()).copied();
-                        Ok::<_, IndexError>(
-                            found || slot.is_some_and(|slot| segment.active.contains(slot)),
-                        )
-                    })?;
+                self.record_routes[number]
+                    .get(id.0.as_ref())
+                    .is_some_and(|(position, slot)| {
+                        self.segments[number][position].active.contains(slot)
+                    });
             if collection
                 .id_lookup
                 .get(id)
@@ -347,6 +454,8 @@ impl PublishedIndex {
             active,
             observation,
         }));
+        let group = &self.segments[number];
+        self.record_routes[number].add_segment(group.last().expect("new segment"), group.len() - 1);
         if self.next_segment_ordinal == 0 {
             self.next_segment_ordinal = 1;
         }
@@ -407,6 +516,7 @@ impl PublishedIndex {
                 }
             }
             *group = kept;
+            self.record_routes[number] = RecordRoutes::from_group(group);
         }
         let count_triggered = group.len() >= admission_limit;
         if !count_triggered {
@@ -449,6 +559,7 @@ impl PublishedIndex {
                         }),
                     );
                 }
+                self.record_routes[number] = RecordRoutes::from_group(group);
                 return Ok(());
             }
         }
@@ -494,6 +605,7 @@ impl PublishedIndex {
             active,
             observation: None,
         }));
+        self.record_routes[number] = RecordRoutes::from_group(group);
         if size_triggered {
             self.last_size_maintenance_revision = self.revision.0;
         }
@@ -547,6 +659,12 @@ impl PublishedIndex {
                         .active
                         .retired(&slots)
                         .map_err(IndexError::InvalidPublication)?;
+                    for slot in slots {
+                        if let Some(record) = segment.index.record(slot) {
+                            self.record_routes[collection_id.0 as usize]
+                                .remove(record.id.0.as_ref());
+                        }
+                    }
                 }
             }
         }
@@ -562,7 +680,8 @@ impl PublishedIndex {
         replacement: Option<&FileEntry>,
     ) -> Vec<CollectionId> {
         let mut memberships = Vec::new();
-        for group in &mut self.segments {
+        for (number, group) in self.segments.iter_mut().enumerate() {
+            let mut changed = false;
             for published in Arc::make_mut(group).iter_mut() {
                 let Some(file_index) = published.index.file_index.get(&file).copied() else {
                     continue;
@@ -610,6 +729,10 @@ impl PublishedIndex {
                     }
                 }
                 index.recompute_accounting();
+                changed = true;
+            }
+            if changed {
+                self.record_routes[number] = RecordRoutes::from_group(group);
             }
         }
         memberships
@@ -763,18 +886,9 @@ impl Index {
                 .get(&change.id)
                 .copied()
                 .filter(|slot| next.active[number].contains(*slot));
-            let mut found = None;
-            for (index, published) in next.segments[number].iter().enumerate() {
-                if let Some(slot) = published.index.id_lookup.get(&change.id).copied()
-                    && published.active.contains(slot)
-                {
-                    if found.replace((index, slot)).is_some() || base.is_some() {
-                        return Err(IndexError::InvalidPublication(
-                            "duplicate live record ID".into(),
-                        ));
-                    }
-                }
-            }
+            let found = next.record_routes[number]
+                .get(change.id.0.as_ref())
+                .filter(|(index, slot)| next.segments[number][*index].active.contains(*slot));
             match change.kind {
                 RecordMutationKind::Insert => {
                     if base.is_some() || found.is_some() {
@@ -813,6 +927,7 @@ impl Index {
                         .active
                         .retired(&[slot])
                         .map_err(IndexError::InvalidPublication)?;
+                    next.record_routes[number].remove(change.id.0.as_ref());
                 }
             }
         }

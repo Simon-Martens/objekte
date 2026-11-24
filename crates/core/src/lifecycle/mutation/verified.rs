@@ -272,6 +272,7 @@ pub(crate) fn preserve_single_record_slots(
         });
         group.remove(new_position);
     }
+    candidate.rebuild_all_record_routes();
     Some(candidate)
 }
 
@@ -390,6 +391,7 @@ pub(crate) fn preserve_partition_record_slots(
         });
         group.remove(new_position);
     }
+    candidate.rebuild_all_record_routes();
     Some(candidate)
 }
 
@@ -473,6 +475,7 @@ pub(crate) fn remove_verified_old_shards(
                 position += 1;
             }
         }
+        candidate.rebuild_record_routes(collection.0 as usize);
     }
     Ok(candidate)
 }

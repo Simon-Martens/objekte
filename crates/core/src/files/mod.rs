@@ -132,7 +132,11 @@ impl<'a> FileCatalogView<'a> {
                     }
                 }
             }
-            for segment in self.view.0.segments[number].iter() {
+            for segment_id in self.view.0.record_routes[number].segments_for_file(id) {
+                let position = self.view.0.record_routes[number]
+                    .position(*segment_id)
+                    .ok_or(LookupError::Query("file segment route is stale".into()))?;
+                let segment = &self.view.0.segments[number][position];
                 if let Some(&file_index) = segment.index.file_index.get(&id) {
                     for &slot in &segment.index.files[file_index].records {
                         if segment.active.contains(slot) {
@@ -164,11 +168,43 @@ impl<'a> FileCatalogView<'a> {
             .enumerate()
             .find(|(_, state)| state.definition.name == collection)
             .map(|(index, _)| crate::model::CollectionId(index as u32));
-        Ok(self
-            .records_for_file(id)?
-            .into_iter()
-            .filter(|key| Some(key.collection) == collection_id)
-            .map(|key| key.record)
-            .collect())
+        let file = self
+            .view
+            .0
+            .catalog
+            .entry(id)
+            .ok_or(LookupError::FileNotFound)?;
+        let Some(collection_id) = collection_id else {
+            return Ok(Vec::new());
+        };
+        if !file.collections.contains(&collection_id) {
+            return Ok(Vec::new());
+        }
+        let number = collection_id.0 as usize;
+        let state = &self.view.0.repository.collections[number];
+        let mut records = Vec::new();
+        if let Some(slots) = state.generation.file_records.records_for(id) {
+            for &slot in slots {
+                if self.view.0.active[number].contains(slot) {
+                    records.push(state.generation.records[slot.0 as usize].id.clone());
+                }
+            }
+        }
+        for segment_id in self.view.0.record_routes[number].segments_for_file(id) {
+            let position = self.view.0.record_routes[number]
+                .position(*segment_id)
+                .ok_or(LookupError::Query("file segment route is stale".into()))?;
+            let segment = &self.view.0.segments[number][position];
+            if let Some(&file_index) = segment.index.file_index.get(&id) {
+                for &slot in &segment.index.files[file_index].records {
+                    if segment.active.contains(slot) {
+                        records.push(segment.index.records[slot.0 as usize].id.clone());
+                    }
+                }
+            }
+        }
+        records.sort();
+        records.dedup();
+        Ok(records)
     }
 }

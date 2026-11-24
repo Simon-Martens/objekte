@@ -255,6 +255,7 @@ fn partition_base_with_limits_inner(
         .map(|_| ActiveRecords::all(0).map_err(IndexError::ResourceLimit))
         .collect::<Result<Vec<_>, _>>()?;
     root.segments = groups;
+    root.rebuild_all_record_routes();
     Ok(root)
 }
 

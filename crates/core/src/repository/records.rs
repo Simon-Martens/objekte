@@ -35,6 +35,7 @@ impl Repository {
                 return_mode,
                 domains,
                 &self.segments,
+                None,
                 &self.catalog,
                 self.revision,
             )? {

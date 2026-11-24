@@ -258,6 +258,7 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
         .unwrap();
     assert_eq!(row.collections.len(), 2);
     assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
+    assert_eq!(files.records_for_file_in_collection(row.id, "first").unwrap().len(), 2);
     assert_eq!(
         files
             .file_for_record("first", "path-only")
@@ -520,4 +521,61 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
     );
     session.finish().unwrap();
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn routed_direct_lookup_survives_many_batches_and_compaction() {
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "fixture.routes", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    for number in 0..96 {
+        let mut batch = writer.batch();
+        batch
+            .insert(
+                format!("entry-{number}"),
+                Value::String(format!("value-{number}")),
+            )
+            .unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+    }
+    let before = index.view().unwrap();
+    for number in [0, 12, 48, 95] {
+        assert_eq!(
+            before
+                .get_record("entries", &format!("entry-{number}"), ReturnMode::Logical)
+                .unwrap()
+                .unwrap()
+                .payload,
+            Some(Payload::Logical(Value::String(format!("value-{number}"))))
+        );
+    }
+    let mut change = writer.batch();
+    change
+        .replace("entry-12", Value::String("new".into()))
+        .unwrap();
+    writer.submit(change).unwrap().wait_published().unwrap();
+    index.compact().unwrap();
+    let after = index.view().unwrap();
+    assert_eq!(
+        after
+            .get_record("entries", "entry-12", ReturnMode::Logical)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Logical(Value::String("new".into())))
+    );
+    assert_eq!(
+        before
+            .get_record("entries", "entry-12", ReturnMode::Logical)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Logical(Value::String("value-12".into())))
+    );
+    session.finish().unwrap();
 }

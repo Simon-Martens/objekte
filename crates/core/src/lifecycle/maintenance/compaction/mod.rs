@@ -220,6 +220,7 @@ fn compact_published_with_budget(
                 {
                     compacted.extend(group[position..].iter().cloned());
                     next.segments[number] = Arc::new(compacted);
+                    next.rebuild_record_routes(number);
                     break 'collections;
                 }
                 work.records = work.records.saturating_add(records);
@@ -250,6 +251,7 @@ fn compact_published_with_budget(
                 }
             }
             next.segments[number] = Arc::new(compacted);
+            next.rebuild_record_routes(number);
         }
         return Ok((next, work));
     }
@@ -317,6 +319,7 @@ fn compact_published_with_budget(
         }
         drop(compact_source);
         next.segments[number] = Arc::new(compacted);
+        next.rebuild_record_routes(number);
     }
     Ok((next, CompactionWork::default()))
 }

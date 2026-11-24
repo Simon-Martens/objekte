@@ -1066,6 +1066,7 @@ impl IndexView {
             return_mode,
             &self.0.active,
             &self.0.segments,
+            Some(&self.0.record_routes),
             &self.0.catalog,
             self.revision(),
         )?;

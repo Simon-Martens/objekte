@@ -3317,7 +3317,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert!(matches!(
         direct_lookup_segmented(
             &repo, "data", delta_id, ReturnMode::Bytes, &retired_base,
-            &retired_segments, &catalog, IndexRevision(3),
+            &retired_segments, None, &catalog, IndexRevision(3),
         ).unwrap(),
         DirectLookupResult::SourceUnavailable(diagnostic)
             if diagnostic.kind == crate::measurement::SourceUnavailableKind::Missing
@@ -3327,7 +3327,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert!(matches!(
         direct_lookup_segmented(
             &repo, "data", base_id, ReturnMode::Bytes, &retired_base,
-            &retired_segments, &catalog, IndexRevision(3),
+            &retired_segments, None, &catalog, IndexRevision(3),
         ).unwrap(),
         DirectLookupResult::SourceUnavailable(diagnostic)
             if diagnostic.kind == crate::measurement::SourceUnavailableKind::Missing
@@ -3340,6 +3340,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             ReturnMode::Locator,
             &retired_base,
             &retired_segments,
+            None,
             &catalog,
             IndexRevision(3),
         )
@@ -3527,6 +3528,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         ReturnMode::Bytes,
         &[ActiveRecords::all(1).unwrap()],
         &[Arc::new(Vec::new())],
+        None,
         &moved_catalog,
         IndexRevision(10),
     )

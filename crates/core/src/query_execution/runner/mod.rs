@@ -830,6 +830,7 @@ pub(crate) fn direct_lookup_segmented(
     return_mode: ReturnMode,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    routes: Option<&[crate::lifecycle::publication::RecordRoutes]>,
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<DirectLookupResult, String> {
@@ -844,16 +845,26 @@ pub(crate) fn direct_lookup_segmented(
         .get(record_id)
         .copied()
         .filter(|slot| base_active[collection_index].contains(*slot));
-    let mut selected_segment = None;
-    for (index, segment) in segments[collection_index].iter().enumerate() {
-        if let Some(slot) = segment.index.id_lookup.get(record_id).copied()
-            && segment.active.contains(slot)
-        {
-            if base.is_some() || selected_segment.is_some() {
-                return Err("duplicate active direct-lookup ID".into());
+    let selected_segment = if let Some(routes) = routes {
+        routes[collection_index]
+            .get(record_id)
+            .filter(|(index, slot)| segments[collection_index][*index].active.contains(*slot))
+    } else {
+        let mut selected = None;
+        for (index, segment) in segments[collection_index].iter().enumerate() {
+            if let Some(slot) = segment.index.id_lookup.get(record_id).copied()
+                && segment.active.contains(slot)
+            {
+                if base.is_some() || selected.is_some() {
+                    return Err("duplicate active direct-lookup ID".into());
+                }
+                selected = Some((index, slot));
             }
-            selected_segment = Some((index, slot));
         }
+        selected
+    };
+    if base.is_some() && selected_segment.is_some() {
+        return Err("duplicate active direct-lookup ID".into());
     }
     let (record, file, result) = if let Some(slot) = base {
         let record = collection
