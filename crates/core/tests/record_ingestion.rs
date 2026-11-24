@@ -1132,7 +1132,12 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
         ..query.clone()
     };
     for index in [&files, &owned, &provider] {
-        let result = index.view().unwrap().search(&scoped_text).unwrap();
+        let view = index.view().unwrap();
+        let result = view.search(&scoped_text).unwrap();
+        assert_eq!(
+            result.hits,
+            view.search_reference(&scoped_text).unwrap().hits
+        );
         assert_eq!(result.count, Some(1));
         assert_eq!(result.hits[0].record_id, "r1");
     }
@@ -1365,6 +1370,28 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
             })
             .unwrap();
     }
+    mentions_schema
+        .register_field(FieldDefinition {
+            path: vec!["note".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    mentions_schema
+        .register_field(FieldDefinition {
+            path: vec!["expected_city".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
     entries_schema
         .register_relation(RelationDefinition {
             path: vec!["place".into()],
@@ -1394,6 +1421,22 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
     let places_registration = builder.register_records(places, "places", 1).unwrap();
     let entries_registration = builder.register_records(entries, "entries", 1).unwrap();
     let mentions_registration = builder.register_records(mentions, "mentions", 1).unwrap();
+    let reader = Arc::new(CorpusReader(
+        Mutex::new(HashMap::from([
+            (
+                "p".to_string(),
+                Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+            ),
+            (
+                "q".to_string(),
+                Value::from_json(serde_json::json!({"name":"Wien"})).unwrap(),
+            ),
+        ])),
+        Mutex::new(Vec::new()),
+    ));
+    builder
+        .register_reader(places_registration, reader)
+        .unwrap();
     let index = builder.build().unwrap();
     let session = index.ingestion();
     for (registration, id, value) in [
@@ -1405,12 +1448,26 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
         (places_registration, "q", serde_json::json!({"name":"Wien"})),
         (entries_registration, "e", serde_json::json!({"place":"p"})),
         (entries_registration, "f", serde_json::json!({"place":"q"})),
-        (mentions_registration, "m", serde_json::json!({"entry":"e"})),
-        (mentions_registration, "n", serde_json::json!({"entry":"f"})),
+        (
+            mentions_registration,
+            "m",
+            serde_json::json!({"entry":"e","note":"plain","expected_city":"Leipzig"}),
+        ),
+        (
+            mentions_registration,
+            "n",
+            serde_json::json!({"entry":"f","note":"Leipzig","expected_city":"Berlin"}),
+        ),
     ] {
         let writer = session.writer(registration).unwrap();
         let mut batch = writer.batch();
-        batch.insert(id, Value::from_json(value).unwrap()).unwrap();
+        if registration == places_registration {
+            batch
+                .insert_from_reader(id, Value::from_json(value).unwrap(), RecordVersion::new(1))
+                .unwrap();
+        } else {
+            batch.insert(id, Value::from_json(value).unwrap()).unwrap();
+        }
         writer.submit(batch).unwrap().wait_published().unwrap();
     }
     let query = Query {
@@ -1430,5 +1487,60 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "m");
     assert_eq!(index.view().unwrap().segment_summaries().len(), 6);
+    for expression in [
+        "entry.place.name ~ 'Leipzig'",
+        "!(entry.place.name = 'Wien')",
+        "entry.place.name = expected_city",
+    ] {
+        let residual = Query {
+            filter: Some(parse_filter(expression).unwrap()),
+            ..query.clone()
+        };
+        let result = index.view().unwrap().search(&residual).unwrap();
+        let reference = index.view().unwrap().search_reference(&residual).unwrap();
+        assert_eq!(result.count, reference.count, "{expression}");
+        assert_eq!(result.hits, reference.hits, "{expression}");
+        assert_eq!(result.count, Some(1), "{expression}");
+        assert_eq!(result.hits[0].record_id, "m", "{expression}");
+    }
+    let related_text = Query {
+        filter: None,
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "Leipzig".into(),
+            pattern_parameter: None,
+            fields: vec![
+                FtsField {
+                    path: objekte_search_core::model::FieldPath::parse("entry.place.name").unwrap(),
+                    binding: None,
+                    query_path: None,
+                },
+                FtsField {
+                    path: objekte_search_core::model::FieldPath::parse("note").unwrap(),
+                    binding: None,
+                    query_path: None,
+                },
+            ],
+        }),
+        ..query
+    };
+    let result = index.view().unwrap().search(&related_text).unwrap();
+    let reference = index
+        .view()
+        .unwrap()
+        .search_reference(&related_text)
+        .unwrap();
+    assert_eq!(result.count, reference.count);
+    assert_eq!(result.hits, reference.hits);
+    assert_eq!(result.count, Some(2));
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m", "n"]
+    );
     session.finish().unwrap();
 }

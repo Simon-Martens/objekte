@@ -28,8 +28,10 @@ use crate::source::{ScanProjection, TextSegment};
 use super::work::{MAX_QUERY_RELATION_BYTES, RelationWork};
 
 fn relation_target_uses_value_text(collection: &crate::repository::state::CollectionState) -> bool {
-    collection.required_file_reader().scalar_verification()
-        == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
+    collection.source.as_ref().is_some_and(|source| {
+        source.scalar_verification()
+            == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
+    })
 }
 
 fn relation_source_uses_value_text(repo: &Repository, source: &RecordContext<'_>) -> bool {
@@ -38,7 +40,9 @@ fn relation_source_uses_value_text(repo: &Repository, source: &RecordContext<'_>
             .collections
             .iter()
             .find(|collection| collection.definition.name == source.collection_name)
-            .is_some_and(relation_target_uses_value_text)
+            .is_some_and(|collection| {
+                collection.source.is_none() || relation_target_uses_value_text(collection)
+            })
 }
 
 /// Independent logical ID occurrences and presence/null state.
@@ -316,10 +320,10 @@ fn eval_related_fts_terminal(
     target: &RecordContext<'_>,
     target_segments: &[TextSegment],
 ) -> Result<bool, String> {
-    if borrowed_text {
+    if borrowed_text || target_segments.is_empty() {
         #[cfg(test)]
         BORROWED_RELATION_TARGETS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        debug_assert!(target_segments.is_empty());
+        debug_assert!(!borrowed_text || target_segments.is_empty());
         eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
     } else {
         eval_bound_fts_field(field, fts.case_sensitivity, target_segments, target, None)
@@ -438,15 +442,44 @@ fn visit_merged_hop(
     if decisive(*truth, quantifier) {
         return Ok(());
     }
-    let Some(current) = view.record(address)? else {
+    let Some(header) = view.record_header(address)? else {
         merge_truth(truth, None, quantifier);
         return Ok(());
     };
     if depth == hops.len() {
-        if current.record.class == RecordClass::RawFallback {
+        if header.class == RecordClass::RawFallback {
             merge_truth(truth, None, quantifier);
             return Ok(());
         }
+        if view.is_native(address) {
+            work.before_read(0, true)?;
+            let Some((value, text)) = view.native_value(address, collect_text)? else {
+                merge_truth(truth, None, quantifier);
+                return Ok(());
+            };
+            if view.is_native_provider(address) {
+                work.target_read(0)?;
+            }
+            let (file, range) = view.native_origin(address)?;
+            let ctx = RecordContext {
+                value: &value,
+                source_bytes: None,
+                record: &header,
+                range,
+                file,
+                collection_name: &view.repository().collections[address.collection.0 as usize]
+                    .definition
+                    .name,
+                repository_root: view.repository().files.root(),
+            };
+            merge_truth(
+                truth,
+                Some(terminal(&ctx, &text, source_positions)?),
+                quantifier,
+            );
+            return Ok(());
+        }
+        let current = view.record(address)?.ok_or("merged file target retired")?;
         if current.record.range.len() > MAX_QUERY_RELATION_BYTES {
             return Err(format!(
                 "relation target record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
@@ -647,7 +680,7 @@ fn visit_merged_hop(
             }
         }
         HopDirection::Backlink => {
-            let target_id = current.record.id.0.as_ref();
+            let target_id = header.id.0.as_ref();
             let sources = if reference {
                 view.reference_backlink_sources(hop.relation, target_id, Some(&mut *work))?
             } else {

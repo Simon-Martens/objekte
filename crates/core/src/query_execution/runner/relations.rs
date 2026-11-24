@@ -2771,6 +2771,224 @@ fn try_exact_native_boolean_page(
     }))
 }
 
+#[allow(clippy::too_many_arguments)]
+fn try_native_relation_scan(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sort: &ResolvedSort<'_>,
+    prepared: &[PreparedCollectionQuery],
+    context: Option<&ExecutionContext>,
+    retained_budget: Option<usize>,
+    reference: bool,
+) -> Result<Option<SearchResult>, String> {
+    let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
+        matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
+    });
+    if related_sort
+        || base_active.iter().any(|active| active.len() != 0)
+        || prepared.iter().any(|entry| {
+            segments[entry.collection_index].iter().any(|published| {
+                matches!(
+                    published.index.backing,
+                    crate::index::segment::SegmentBacking::FileRange { .. }
+                )
+            })
+        })
+    {
+        return Ok(None);
+    }
+    let view = crate::query_execution::relations::view::MergedRelationView::new(
+        repo,
+        base_active,
+        segments,
+        catalog,
+    )?;
+    let cap = query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("native relation page size overflow")?;
+    let mut winners = BinaryHeap::new();
+    let mut winner_bytes = 0usize;
+    let mut counters = WorkCounters::default();
+    let mut total = 0u64;
+    for entry in prepared {
+        let collection_index = entry.collection_index;
+        let collection = &repo.collections[collection_index];
+        for (segment_index, published) in segments[collection_index].iter().enumerate() {
+            for slot in published.active.bitmap().iter() {
+                if let Some(context) = context {
+                    context.check_string()?;
+                    context.check_slots(counters.candidates + 1)?;
+                }
+                let slot = RecordSlot(slot);
+                let address = crate::query_execution::relations::view::MergedRecordSlot {
+                    collection: published.index.collection,
+                    segment: Some(segment_index),
+                    slot,
+                };
+                let record = published
+                    .index
+                    .record(slot)
+                    .ok_or("native relation source slot missing")?;
+                if record.class == RecordClass::RawFallback {
+                    continue;
+                }
+                if view.is_native_provider(address)
+                    && let Some(context) = context
+                {
+                    context.charge_reads(1)?;
+                }
+                let Some((value, text)) = view.native_value(address, entry.fts.is_some())? else {
+                    return Err("native relation source body missing".into());
+                };
+                let (file, range) = view.native_origin(address)?;
+                let ctx = RecordContext {
+                    value: &value,
+                    source_bytes: None,
+                    record,
+                    range,
+                    file,
+                    collection_name: &collection.definition.name,
+                    repository_root: repo.files.root(),
+                };
+                let mut relation_work =
+                    crate::query_execution::relations::work::RelationWork::default();
+                relation_work.attach(context);
+                let mut evidence = HashSet::new();
+                let filter_matches = if let Some(filter) = entry.filter.as_ref() {
+                    crate::query_execution::relations::evaluation::eval_filter_truth_merged(
+                        &view,
+                        filter,
+                        address,
+                        &ctx,
+                        &mut evidence,
+                        &mut relation_work,
+                        reference,
+                    )? == Some(true)
+                } else {
+                    true
+                };
+                let fts_matches = if filter_matches {
+                    entry.fts.as_ref().map_or(Ok(true), |fts| {
+                        if text.is_empty()
+                            && fts.fields.iter().all(|field| field.related.is_none())
+                        {
+                            crate::reference::fts::eval_borrowed_value_fts(
+                                fts,
+                                &ctx,
+                                Some(&mut evidence),
+                            )
+                        } else {
+                            crate::query_execution::relations::evaluation::eval_fts_with_relations_merged(
+                                &view,
+                                fts,
+                                &text,
+                                address,
+                                &ctx,
+                                &mut evidence,
+                                &mut relation_work,
+                                reference,
+                            )
+                        }
+                    })?
+                } else {
+                    false
+                };
+                counters.candidates += 1;
+                counters.add_scan(
+                    ScanWork {
+                        scanned_records: 1,
+                        residual_evaluations: u64::from(entry.filter.is_some()),
+                        ..ScanWork::default()
+                    },
+                    &relation_work,
+                )?;
+                if !(filter_matches && fts_matches) {
+                    continue;
+                }
+                total += 1;
+                if cap == 0 {
+                    continue;
+                }
+                let key = segment_rank_key(
+                    repo,
+                    sort,
+                    collection_index,
+                    &published.index,
+                    record,
+                    Some(&ctx),
+                )?;
+                counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
+                let hit = retained_locator_hit(
+                    collection,
+                    &published.index,
+                    catalog,
+                    record,
+                    revision,
+                    if query.options.evidence {
+                        evidence.into_iter().collect()
+                    } else {
+                        Vec::new()
+                    },
+                );
+                offer_merged(
+                    &mut winners,
+                    cap,
+                    MergedPageHit {
+                        key,
+                        hit,
+                        segment: Some((collection_index, segment_index)),
+                        record_address: None,
+                        retained_bytes: 0,
+                    },
+                    retained_budget.zip(context),
+                    &mut winner_bytes,
+                )?;
+            }
+        }
+    }
+    let mut hits = Vec::new();
+    for winner in winners
+        .into_sorted_vec()
+        .into_iter()
+        .skip(query.options.offset)
+    {
+        let mut hit = winner.hit;
+        if query.options.return_mode != ReturnMode::Locator {
+            let (collection_index, segment_index) = winner.segment.expect("native source segment");
+            let published = &segments[collection_index][segment_index];
+            let mut payload = get_segment_record_by_id(
+                repo,
+                collection_index,
+                &published.index,
+                &published.active,
+                catalog,
+                revision,
+                &hit.record_id,
+                query.options.return_mode.clone(),
+            )?
+            .ok_or("native relation winner retired")?;
+            payload.matched_fields = hit.matched_fields;
+            hit = payload;
+            counters.selected_payload_reads += 1;
+        }
+        hits.push(hit);
+    }
+    counters.total_matches = total;
+    counters.match_count_complete = true;
+    counters.returned_records = hits.len() as u64;
+    Ok(Some(SearchResult {
+        count: query.options.count.then_some(total as usize),
+        hits,
+        counters,
+    }))
+}
+
 pub(super) fn search_segmented_relations(
     repo: &Repository,
     query: &Query,
@@ -2813,7 +3031,23 @@ pub(super) fn search_segmented_relations(
         {
             return Ok(result);
         }
-        if let Some(result) = try_exact_native_boolean_page(
+        if !reference
+            && let Some(result) = try_exact_native_boolean_page(
+                repo,
+                query,
+                base_active,
+                segments,
+                catalog,
+                revision,
+                sort,
+                prepared,
+                context,
+                retained_budget,
+            )?
+        {
+            return Ok(result);
+        }
+        if let Some(result) = try_native_relation_scan(
             repo,
             query,
             base_active,
@@ -2824,6 +3058,7 @@ pub(super) fn search_segmented_relations(
             prepared,
             context,
             retained_budget,
+            reference,
         )? {
             return Ok(result);
         }
@@ -3583,33 +3818,6 @@ pub(crate) fn search_segmented_reference(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
-    if base_active.iter().all(|active| active.len() == 0)
-        && segments
-            .iter()
-            .flat_map(|group| group.iter())
-            .any(|segment| {
-                !matches!(
-                    segment.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                )
-            })
-    {
-        let mut restrictions = super::SegmentRestrictionCache::new(segments);
-        return super::search_segmented_impl(
-            repo,
-            query,
-            base_active,
-            segments,
-            catalog,
-            revision,
-            None,
-            None,
-            None,
-            None,
-            &mut restrictions,
-            false,
-        );
-    }
     crate::reference::relations::search_segmented(
         repo,
         query,
@@ -3632,7 +3840,19 @@ pub(crate) fn search_segmented_reference_records(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
-    let sort = ResolvedSort::new_reference(repo, query)?;
+    let sort = if segments
+        .iter()
+        .flat_map(|group| group.iter())
+        .any(|segment| {
+            !matches!(
+                segment.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            )
+        }) {
+        ResolvedSort::new(repo, query)?
+    } else {
+        ResolvedSort::new_reference(repo, query)?
+    };
     let prepared = collections
         .iter_mut()
         .map(|entry| PreparedCollectionQuery {

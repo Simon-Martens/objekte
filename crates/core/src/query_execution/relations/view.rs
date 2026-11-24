@@ -301,6 +301,144 @@ impl<'a> MergedRelationView<'a> {
             .transpose()
     }
 
+    pub(crate) fn record_header(
+        &self,
+        address: MergedRecordSlot,
+    ) -> Result<Option<crate::records::RecordHeader>, String> {
+        let index = address.collection.0 as usize;
+        if let Some(segment_index) = address.segment {
+            let published = self.segments[index]
+                .get(segment_index)
+                .ok_or("merged segment missing")?;
+            if !published.active.contains(address.slot) {
+                return Ok(None);
+            }
+            return published
+                .index
+                .record(address.slot)
+                .cloned()
+                .map(Some)
+                .ok_or_else(|| "merged segment slot missing".into());
+        }
+        if !self.base_active[index].contains(address.slot) {
+            return Ok(None);
+        }
+        self.repo.collections[index]
+            .generation
+            .records
+            .get(address.slot.0 as usize)
+            .map(crate::records::RecordHeader::from)
+            .map(Some)
+            .ok_or_else(|| "merged base slot missing".into())
+    }
+
+    pub(crate) fn is_native(&self, address: MergedRecordSlot) -> bool {
+        address.segment.is_some_and(|position| {
+            !matches!(
+                self.segments[address.collection.0 as usize][position]
+                    .index
+                    .backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            )
+        })
+    }
+
+    pub(crate) fn is_native_provider(&self, address: MergedRecordSlot) -> bool {
+        address.segment.is_some_and(|position| {
+            matches!(
+                self.segments[address.collection.0 as usize][position]
+                    .index
+                    .backing,
+                crate::index::segment::SegmentBacking::Provider { .. }
+            )
+        })
+    }
+
+    pub(crate) fn native_value(
+        &self,
+        address: MergedRecordSlot,
+        collect_text: bool,
+    ) -> Result<Option<(Value, Vec<crate::source::TextSegment>)>, String> {
+        let Some(position) = address.segment else {
+            return Ok(None);
+        };
+        let published = self.segments[address.collection.0 as usize]
+            .get(position)
+            .ok_or("native segment missing")?;
+        if !published.active.contains(address.slot) {
+            return Ok(None);
+        }
+        let segment = &published.index;
+        if let Some(body) = segment.backing.retained_body(address.slot) {
+            return Ok(Some((body.value.clone(), body.text.clone())));
+        }
+        let crate::index::segment::SegmentBacking::Provider {
+            registration,
+            versions,
+            ..
+        } = &segment.backing
+        else {
+            return Ok(None);
+        };
+        let expected = *versions
+            .get(address.slot.0 as usize)
+            .ok_or("native provider version missing")?;
+        let source = self
+            .repo
+            .record_registrations
+            .get(*registration as usize)
+            .ok_or("native provider registration missing")?;
+        let reader = source
+            .reader
+            .as_ref()
+            .ok_or("native provider reader missing")?;
+        let record = segment
+            .record(address.slot)
+            .ok_or("native provider slot missing")?;
+        let key = crate::records::RecordKey::new(segment.collection, record.id.clone());
+        let result = reader
+            .read_projected(
+                &key,
+                expected,
+                &crate::records::reader::RecordProjection {
+                    text: collect_text,
+                    ..Default::default()
+                },
+            )
+            .map_err(|error| error.to_string())?;
+        if result.version != expected {
+            return Err("native provider returned another version".into());
+        }
+        Ok(Some((result.value, result.text)))
+    }
+
+    pub(crate) fn native_origin(
+        &self,
+        address: MergedRecordSlot,
+    ) -> Result<
+        (
+            Option<&'a crate::inventory::FileEntry>,
+            Option<crate::inventory::ByteRange>,
+        ),
+        String,
+    > {
+        let Some(position) = address.segment else {
+            return Ok((None, None));
+        };
+        let segment = &self.segments[address.collection.0 as usize][position].index;
+        let Some(locator) = segment.backing.file_locator(address.slot) else {
+            return Ok((None, None));
+        };
+        let file = self
+            .catalog
+            .entry(locator.file)
+            .ok_or("native link file retired")?;
+        if file.revision != locator.revision || !file.collections.contains(&address.collection) {
+            return Err("native link file changed without retirement".into());
+        }
+        Ok((Some(file), locator.range))
+    }
+
     pub(crate) fn record(
         &self,
         address: MergedRecordSlot,
@@ -528,6 +666,28 @@ impl<'a> MergedRelationView<'a> {
         if let Some(value) = self.cached_value(address) {
             return Ok(Some(value));
         }
+        if self.is_native(address) {
+            let Some(record) = self.record_header(address)? else {
+                return Ok(None);
+            };
+            if record.class == RecordClass::RawFallback {
+                return Ok(None);
+            }
+            let mut work = work;
+            if let Some(work) = work.as_deref_mut() {
+                work.before_read(0, false)?;
+            }
+            let Some((value, _)) = self.native_value(address, false)? else {
+                return Ok(None);
+            };
+            if self.is_native_provider(address)
+                && let Some(work) = work.as_deref_mut()
+            {
+                work.source_read(0)?;
+            }
+            let value = Arc::new(value);
+            return Ok(Some(value));
+        }
         let Some(resolved) = self.record(address)? else {
             return Ok(None);
         };
@@ -654,12 +814,12 @@ impl<'a> MergedRelationView<'a> {
             .into_iter()
             .map(|address| {
                 let record = self
-                    .record(address)?
+                    .record_header(address)?
                     .ok_or("active reference source record missing")?;
-                if record.record.class != crate::inventory::RecordClass::Logical {
+                if record.class != crate::inventory::RecordClass::Logical {
                     return Ok(None);
                 }
-                Ok(Some((record.record.id.0.to_string(), address)))
+                Ok(Some((record.id.0.to_string(), address)))
             })
             .filter_map(|entry| entry.transpose())
             .collect::<Result<Vec<_>, String>>()?;
@@ -699,6 +859,13 @@ impl<'a> MergedRelationView<'a> {
         mut visit: impl FnMut(&Value) -> Result<(), String>,
     ) -> Result<ReferenceValueVisit, String> {
         if let Some(value) = self.cached_value(address) {
+            visit(&value)?;
+            return Ok(ReferenceValueVisit::Visited);
+        }
+        if self.is_native(address) {
+            let Some(value) = self.reference_value(address, work.as_deref_mut())? else {
+                return Ok(ReferenceValueVisit::Unavailable);
+            };
             visit(&value)?;
             return Ok(ReferenceValueVisit::Visited);
         }
@@ -771,12 +938,9 @@ impl<'a> MergedRelationView<'a> {
         let mut identity = HashMap::new();
         for address in self.visible_addresses(collection)? {
             let record = self
-                .record(address)?
+                .record_header(address)?
                 .ok_or("active reference identity record missing")?;
-            if identity
-                .insert(record.record.id.0.to_string(), address)
-                .is_some()
-            {
+            if identity.insert(record.id.0.to_string(), address).is_some() {
                 return Err("duplicate active merged record ID".into());
             }
         }
