@@ -5391,6 +5391,7 @@ name = "objekte-tantivy-benchmark"
 version = "0.1.0"
 dependencies = [
  "objekte-search-core",
+ "regex",
  "serde",
  "serde_json",
  "sha2 0.10.9",
