@@ -28,7 +28,6 @@ pub(super) fn install_batch(
         .filter(|source| source.handle == batch.registration)
         .ok_or_else(|| IngestionError::Index(crate::lifecycle::IndexError::ForeignInstance))?;
     let collection = batch.registration.collection;
-    let declaration = &view.repository().collections[collection.0 as usize].definition;
     let options = view.repository().options();
     if !batch.files.is_empty() && !registration.file_links {
         return Err(IngestionError::Index(IndexError::Build(
@@ -178,73 +177,55 @@ pub(super) fn install_batch(
             }),
         }
     }
+    let target = options.segment_policy.target_records.get();
+    let max_files = options.segment_policy.max_files.get();
     let mut segments = Vec::new();
-    let segment = if inputs.is_empty() {
-        None
-    } else {
-        let (headers, bodies, contribution) =
-            build_retained_contribution(inputs, declaration, &options).map_err(|error| {
-                IngestionError::Index(crate::lifecycle::IndexError::Build(error))
-            })?;
-        let draft = CollectionSegment::from_retained(
-            SegmentId::new(2),
-            collection,
-            registration.adapter_id.clone(),
-            registration.version,
-            batch.registration.ordinal,
-            headers,
-            bodies,
-            contribution,
-        )
-        .map_err(|error| IngestionError::Index(crate::lifecycle::IndexError::Build(error)))?;
-        let mut segment = draft
-            .into_indexed(
-                declaration,
-                options.bigram_alphabet,
-                options.inference,
-                view.repository().collections.len(),
-                &view.repository().workers,
-            )
-            .map_err(|error| IngestionError::Index(crate::lifecycle::IndexError::Build(error)))?;
-        attach_links(&mut segment, links, &files)?;
-        segment.recompute_accounting();
-        Some(segment)
-    };
-    if let Some(segment) = segment {
-        segments.push(segment);
+    let mut retained = inputs.into_iter().zip(links).peekable();
+    loop {
+        let part = next_partition(&mut retained, target, max_files, |(_, link)| {
+            link.map(|(token, _)| token)
+        });
+        if part.is_empty() {
+            break;
+        }
+        let (inputs, links) = part.into_iter().unzip();
+        segments.push(build_segment(
+            &view,
+            registration,
+            inputs,
+            links,
+            None,
+            &files,
+        )?);
     }
-    if !provider_inputs.is_empty() {
-        let (headers, bodies, contribution) =
-            build_retained_contribution(provider_inputs, declaration, &options)
-                .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
-        let draft = CollectionSegment::from_retained(
-            SegmentId::new(2),
-            collection,
-            registration.adapter_id.clone(),
-            registration.version,
-            batch.registration.ordinal,
-            headers,
-            bodies,
-            contribution,
-        )
-        .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
-        let mut segment = draft
-            .into_indexed(
-                declaration,
-                options.bigram_alphabet,
-                options.inference,
-                view.repository().collections.len(),
-                &view.repository().workers,
-            )
-            .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
-        segment.backing = SegmentBacking::Provider {
-            versions: provider_versions,
-            links: vec![None; segment.records.len()],
-            registration: batch.registration.ordinal,
-        };
-        attach_links(&mut segment, provider_links, &files)?;
-        segment.recompute_accounting();
-        segments.push(segment);
+    let mut provider = provider_inputs
+        .into_iter()
+        .zip(provider_links)
+        .zip(provider_versions)
+        .peekable();
+    loop {
+        let part = next_partition(&mut provider, target, max_files, |((_, link), _)| {
+            link.map(|(token, _)| token)
+        });
+        if part.is_empty() {
+            break;
+        }
+        let mut inputs = Vec::with_capacity(part.len());
+        let mut links = Vec::with_capacity(part.len());
+        let mut versions = Vec::with_capacity(part.len());
+        for ((input, link), version) in part {
+            inputs.push(input);
+            links.push(link);
+            versions.push(version);
+        }
+        segments.push(build_segment(
+            &view,
+            registration,
+            inputs,
+            links,
+            Some(versions),
+            &files,
+        )?);
     }
     if cancelled.load(Ordering::Acquire) {
         return Err(IngestionError::Cancelled {
@@ -261,6 +242,84 @@ pub(super) fn install_batch(
             &files,
         )
         .map_err(IngestionError::Index)
+}
+
+fn next_partition<I, T>(
+    pending: &mut std::iter::Peekable<I>,
+    target_records: usize,
+    max_files: usize,
+    file_of: impl Fn(&T) -> Option<super::FileToken>,
+) -> Vec<T>
+where
+    I: Iterator<Item = T>,
+{
+    let mut part = Vec::new();
+    let mut files = std::collections::HashSet::new();
+    while part.len() < target_records {
+        let Some(next) = pending.peek() else { break };
+        if let Some(file) = file_of(next)
+            && !files.contains(&file.0)
+            && files.len() >= max_files
+        {
+            break;
+        }
+        let next = pending.next().expect("peeked input");
+        if let Some(file) = file_of(&next) {
+            files.insert(file.0);
+        }
+        part.push(next);
+    }
+    part
+}
+
+fn build_segment(
+    view: &crate::lifecycle::IndexView,
+    registration: &crate::lifecycle::builder::RegisteredRecordSource,
+    inputs: Vec<(
+        crate::model::RecordId,
+        crate::model::Value,
+        Vec<crate::source::TextSegment>,
+    )>,
+    links: Vec<Option<(super::FileToken, Option<crate::inventory::ByteRange>)>>,
+    versions: Option<Vec<crate::records::RecordVersion>>,
+    files: &[FileEntry],
+) -> Result<IndexedCollectionSegment, IngestionError> {
+    let collection = registration.handle.collection();
+    let declaration = &view.repository().collections[collection.0 as usize].definition;
+    let options = view.repository().options();
+    let (headers, bodies, contribution) =
+        build_retained_contribution(inputs, declaration, &options)
+            .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+    let draft = CollectionSegment::from_retained(
+        SegmentId::new(2),
+        collection,
+        registration.adapter_id.clone(),
+        registration.version,
+        registration.handle.ordinal,
+        headers,
+        bodies,
+        contribution,
+    )
+    .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+    let mut segment = draft
+        .into_indexed(
+            declaration,
+            options.bigram_alphabet,
+            options.inference,
+            view.repository().collections.len(),
+            &view.repository().workers,
+        )
+        .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+    if let Some(versions) = versions {
+        segment.backing = SegmentBacking::Provider {
+            versions,
+            links: vec![None; segment.records.len()],
+            registration: registration.handle.ordinal,
+        };
+    }
+    attach_links(&mut segment, links, files)?;
+    segment.recompute_accounting();
+    Ok(segment)
 }
 
 fn attach_links(
@@ -304,4 +363,48 @@ fn attach_links(
             .push(RecordSlot(slot as u32));
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::index::segment::SegmentPolicy;
+    use crate::lifecycle::Index;
+    use crate::model::Value;
+    use crate::repository::configuration::RepositoryOptions;
+    use crate::schema::Schema;
+    use std::num::NonZeroUsize;
+
+    #[test]
+    fn one_batch_seals_at_record_policy_target() {
+        let mut options = RepositoryOptions::default();
+        options.segment_policy =
+            SegmentPolicy::with_target_records(NonZeroUsize::new(3).unwrap()).unwrap();
+        let mut builder = Index::builder().with_options(options);
+        let collection = builder.collection("records", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "test.partition", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        let writer = session.writer(registration).unwrap();
+        let mut batch = writer.batch();
+        for number in 0..8 {
+            batch
+                .insert(
+                    format!("record-{number}"),
+                    Value::String(format!("value-{number}")),
+                )
+                .unwrap();
+        }
+        writer.submit(batch).unwrap().wait_published().unwrap();
+        let view = index.view().unwrap();
+        assert_eq!(
+            view.0.segments[0]
+                .iter()
+                .map(|segment| segment.index.record_count())
+                .collect::<Vec<_>>(),
+            vec![3, 3, 2]
+        );
+        session.finish().unwrap();
+    }
 }
