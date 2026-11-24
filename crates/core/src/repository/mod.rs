@@ -58,6 +58,7 @@ pub struct Repository {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) programmatic: bool,
     pub(crate) catalog_registered: bool,
+    pub(crate) record_registrations: Arc<Vec<crate::lifecycle::builder::RegisteredRecordSource>>,
     pub(crate) revision: IndexRevision,
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
@@ -140,6 +141,7 @@ impl Repository {
             }
         }
         empty.build_parses = self.build_parses;
+        empty.record_registrations = Arc::clone(&self.record_registrations);
         empty.build_failed_parses = self.build_failed_parses;
         empty.startup = self.startup.clone();
         Ok(empty)

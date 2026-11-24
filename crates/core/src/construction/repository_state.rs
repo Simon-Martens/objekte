@@ -320,6 +320,7 @@ fn initialize_empty_configured(
         configuration_identity,
         programmatic,
         catalog_registered,
+        record_registrations: Arc::new(Vec::new()),
         revision: IndexRevision::INITIAL,
         sources: sources.clone(),
         build_parses: 0,

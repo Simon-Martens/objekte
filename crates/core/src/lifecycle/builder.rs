@@ -1,7 +1,6 @@
 //! Frozen programmatic collection and record-source registration.
 
 use std::path::PathBuf;
-use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::files::FileCatalog;
@@ -34,6 +33,7 @@ impl RecordRegistration {
     }
 }
 
+#[derive(Clone)]
 pub(crate) struct RegisteredRecordSource {
     pub(crate) handle: RecordRegistration,
     pub(crate) adapter_id: String,
@@ -217,18 +217,15 @@ impl IndexBuilder {
                 )
             })
             .collect::<Vec<_>>();
-        let repository = crate::construction::repository_state::initialize_empty_programmatic(
+        let mut repository = crate::construction::repository_state::initialize_empty_programmatic(
             self.collections,
             self.options,
             &identities,
             self.catalog_root,
         )
         .map_err(IndexError::Build)?;
-        let mut index = Index::from_repository(repository)?;
-        Arc::get_mut(&mut index.0)
-            .expect("newly constructed index has no additional owners")
-            .record_registrations = self.registrations;
-        Ok(index)
+        repository.record_registrations = std::sync::Arc::new(self.registrations);
+        Index::from_repository(repository)
     }
 }
 
@@ -244,9 +241,12 @@ mod tests {
             .register_records(entries, "application.entries", 1)
             .unwrap();
         let index = builder.build().unwrap();
-        assert_eq!(index.0.record_registrations.len(), 1);
-        assert_eq!(index.0.record_registrations[0].handle, registration);
         let view = index.view().unwrap();
+        assert_eq!(view.repository().record_registrations.len(), 1);
+        assert_eq!(
+            view.repository().record_registrations[0].handle,
+            registration
+        );
         assert_eq!(
             view.collection_declarations().next().unwrap().name,
             "entries"
