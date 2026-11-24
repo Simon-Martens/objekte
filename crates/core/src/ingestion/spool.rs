@@ -73,7 +73,9 @@ pub(super) struct SpoolManager {
     configured_parent: Option<PathBuf>,
     session_id: u64,
     active: Option<(PathBuf, u64)>,
-    pending_frames: HashMap<PathBuf, usize>,
+    // Frame count and physical bytes; an already consumed prefix still uses
+    // disk until the final frame in its chunk is released.
+    pending_frames: HashMap<PathBuf, (usize, u64)>,
     #[cfg(test)]
     disk_full_after: Option<usize>,
 }
@@ -171,7 +173,9 @@ impl SpoolManager {
         }
         self.active =
             (offset + length < CHUNK_TARGET_BYTES).then(|| (path.clone(), offset + length));
-        *self.pending_frames.entry(path.clone()).or_default() += 1;
+        let pending = self.pending_frames.entry(path.clone()).or_default();
+        pending.0 += 1;
+        pending.1 = offset + length;
         Ok(SpoolFrame {
             path,
             offset,
@@ -184,13 +188,19 @@ impl SpoolManager {
         self.disk_full_after = Some(bytes);
     }
 
-    pub(super) fn release(&mut self, frame: &SpoolFrame) {
+    /// Return the physical bytes reclaimed when the last frame of a chunk
+    /// leaves the queue. The caller can then release the spool reservation.
+    pub(super) fn release(&mut self, frame: &SpoolFrame) -> u64 {
         let Some(pending) = self.pending_frames.get_mut(&frame.path) else {
-            return;
+            return 0;
         };
-        *pending -= 1;
-        if *pending == 0 {
-            self.pending_frames.remove(&frame.path);
+        pending.0 -= 1;
+        if pending.0 == 0 {
+            let bytes = self
+                .pending_frames
+                .remove(&frame.path)
+                .expect("chunk exists")
+                .1;
             if self
                 .active
                 .as_ref()
@@ -199,7 +209,9 @@ impl SpoolManager {
                 self.active = None;
             }
             let _ = fs::remove_file(&frame.path);
+            return bytes;
         }
+        0
     }
 
     pub(super) fn cleanup(&mut self) {

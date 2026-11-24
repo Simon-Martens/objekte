@@ -15,23 +15,26 @@ static NEXT_SESSION: AtomicU64 = AtomicU64::new(1);
 const MAX_PENDING_DESCRIPTORS: usize = 65_536;
 
 struct ReceiptState {
-    result: Mutex<Option<PublishedRevision>>,
+    // Consecutive sequences with the same publication outcome share one span.
+    // Receipts do not each retain a mutex and condition variable.
+    results: Mutex<Vec<(u64, PublishedRevision)>>,
     changed: Condvar,
 }
 
 impl ReceiptState {
     fn new() -> Self {
         Self {
-            result: Mutex::new(None),
+            results: Mutex::new(Vec::new()),
             changed: Condvar::new(),
         }
     }
-    fn complete(&self, result: PublishedRevision) {
-        let mut guard = self.result.lock().expect("receipt mutex poisoned");
-        if guard.is_none() {
-            *guard = Some(result);
-            self.changed.notify_all();
+    fn complete_through(&self, sequence: u64, result: PublishedRevision) {
+        let mut guard = self.results.lock().expect("receipt mutex poisoned");
+        if guard.last().is_some_and(|(last, _)| *last >= sequence) {
+            return;
         }
+        guard.push((sequence, result));
+        self.changed.notify_all();
     }
 }
 
@@ -46,15 +49,16 @@ impl Receipt {
         self.sequence
     }
     pub fn wait_published(&self) -> PublishedRevision {
-        let mut guard = self.state.result.lock().expect("receipt mutex poisoned");
-        while guard.is_none() {
+        let mut guard = self.state.results.lock().expect("receipt mutex poisoned");
+        while guard.last().is_none_or(|(last, _)| *last < self.sequence) {
             guard = self
                 .state
                 .changed
                 .wait(guard)
                 .expect("receipt mutex poisoned");
         }
-        guard.as_ref().expect("terminal receipt").clone()
+        let position = guard.partition_point(|(last, _)| *last < self.sequence);
+        guard.get(position).expect("terminal receipt").1.clone()
     }
 }
 
@@ -68,7 +72,15 @@ struct Queued {
     weight: usize,
     encoded_bytes: u64,
     storage: Storage,
-    receipt: Arc<ReceiptState>,
+}
+
+/// Spool overflow keeps only sequence and frame coordinates outside the
+/// resident descriptor window. The shared receipt ledger owns completion.
+struct OverflowQueued {
+    sequence: u64,
+    weight: usize,
+    encoded_bytes: u64,
+    frame: spool::SpoolFrame,
 }
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -90,6 +102,7 @@ pub struct SessionMetrics {
 
 struct State {
     items: VecDeque<Queued>,
+    overflow: VecDeque<OverflowQueued>,
     next_sequence: u64,
     completed: u64,
     last_revision: IndexRevision,
@@ -101,6 +114,7 @@ struct State {
 
 struct Queue {
     state: Mutex<State>,
+    receipts: Arc<ReceiptState>,
     changed: Condvar,
     spool: Mutex<SpoolManager>,
     encoding: Mutex<()>,
@@ -146,6 +160,7 @@ impl SessionCore {
         let queue = Arc::new(Queue {
             state: Mutex::new(State {
                 items: VecDeque::new(),
+                overflow: VecDeque::new(),
                 next_sequence: 1,
                 completed: 0,
                 last_revision: revision,
@@ -155,6 +170,7 @@ impl SessionCore {
                 metrics: SessionMetrics::default(),
             }),
             changed: Condvar::new(),
+            receipts: Arc::new(ReceiptState::new()),
             spool: Mutex::new(SpoolManager::new(id, &options)),
             encoding: Mutex::new(()),
             options,
@@ -200,6 +216,7 @@ impl SessionCore {
         let state = self.queue.state.lock().expect("queue mutex poisoned");
         state.completed == state.next_sequence - 1
             && state.items.is_empty()
+            && state.overflow.is_empty()
             && state.metrics.in_flight_estimated_bytes == 0
     }
 
@@ -207,6 +224,7 @@ impl SessionCore {
         let mut state = self.queue.state.lock().expect("queue mutex poisoned");
         while state.completed != state.next_sequence - 1
             || !state.items.is_empty()
+            || !state.overflow.is_empty()
             || state.metrics.in_flight_estimated_bytes != 0
         {
             state = self
@@ -417,10 +435,10 @@ impl RecordWriter {
         if state.closed || state.failure.is_some() {
             return Err(SubmitError::Closed(batch));
         }
-        if state.items.len() >= MAX_PENDING_DESCRIPTORS {
-            return Err(SubmitError::Capacity(batch));
-        }
-        if state.metrics.pending_ram_bytes.saturating_add(weight) <= queue.options.pending_ram_bytes
+        if state.items.len() < MAX_PENDING_DESCRIPTORS
+            && state.overflow.is_empty()
+            && state.metrics.pending_ram_bytes.saturating_add(weight)
+                <= queue.options.pending_ram_bytes
         {
             state.metrics.pending_ram_bytes += weight;
             state.metrics.high_water_ram_bytes = state
@@ -484,24 +502,15 @@ impl RecordWriter {
         let frame = written.expect("spool write succeeded");
         state.metrics.spool_written_bytes = state.metrics.spool_written_bytes.saturating_add(bytes);
         if state.closed || state.failure.is_some() {
-            state.metrics.pending_spool_bytes -= bytes;
             drop(state);
-            queue
+            let reclaimed = queue
                 .spool
                 .lock()
                 .expect("spool mutex poisoned")
                 .release(&frame);
+            let mut state = queue.state.lock().expect("queue mutex poisoned");
+            state.metrics.pending_spool_bytes -= reclaimed;
             return Err(SubmitError::Closed(batch));
-        }
-        if state.items.len() >= MAX_PENDING_DESCRIPTORS {
-            state.metrics.pending_spool_bytes -= bytes;
-            drop(state);
-            queue
-                .spool
-                .lock()
-                .expect("spool mutex poisoned")
-                .release(&frame);
-            return Err(SubmitError::Capacity(batch));
         }
         Ok(enqueue(
             &mut state,
@@ -541,18 +550,28 @@ fn enqueue(
     let sequence = state.next_sequence;
     state.next_sequence += 1;
     state.metrics.accepted_batches += 1;
-    let receipt = Arc::new(ReceiptState::new());
-    state.items.push_back(Queued {
-        sequence,
-        weight,
-        encoded_bytes,
-        storage,
-        receipt: Arc::clone(&receipt),
-    });
+    if state.items.len() >= MAX_PENDING_DESCRIPTORS || !state.overflow.is_empty() {
+        let Storage::Spool(frame) = storage else {
+            unreachable!("memory admission checks descriptor capacity")
+        };
+        state.overflow.push_back(OverflowQueued {
+            sequence,
+            weight,
+            encoded_bytes,
+            frame,
+        });
+    } else {
+        state.items.push_back(Queued {
+            sequence,
+            weight,
+            encoded_bytes,
+            storage,
+        });
+    }
     queue.changed.notify_all();
     Receipt {
         sequence,
-        state: receipt,
+        state: Arc::clone(&queue.receipts),
     }
 }
 
@@ -575,10 +594,20 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
     loop {
         let mut item = {
             let mut state = queue.state.lock().expect("queue mutex poisoned");
-            while (state.items.is_empty() || state.paused) && !state.closed {
+            while (state.items.is_empty() && state.overflow.is_empty() || state.paused)
+                && !state.closed
+            {
                 state = queue.changed.wait(state).expect("queue mutex poisoned");
             }
-            let Some(item) = state.items.pop_front() else {
+            let next = state.items.pop_front().or_else(|| {
+                state.overflow.pop_front().map(|overflow| Queued {
+                    sequence: overflow.sequence,
+                    weight: overflow.weight,
+                    encoded_bytes: overflow.encoded_bytes,
+                    storage: Storage::Spool(overflow.frame),
+                })
+            });
+            let Some(item) = next else {
                 break;
             };
             if matches!(item.storage, Storage::Memory(_)) {
@@ -674,9 +703,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 if let Ok(revision) = grouped {
                     let last_sequence = group.last().expect("group has members").sequence;
                     let count = group.len() as u64;
-                    for member in group {
-                        member.receipt.complete(Ok(revision));
-                    }
+                    queue.receipts.complete_through(last_sequence, Ok(revision));
                     let mut state = queue.state.lock().expect("queue mutex poisoned");
                     state.metrics.in_flight_estimated_bytes = 0;
                     state.completed = last_sequence;
@@ -713,13 +740,13 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             Storage::Spool(frame) => {
                 let result = spool::read(&frame, queue.options.spool_bytes, session_id)
                     .map_err(IngestionError::Spool);
-                queue
+                let reclaimed = queue
                     .spool
                     .lock()
                     .expect("spool mutex poisoned")
                     .release(&frame);
                 let mut state = queue.state.lock().expect("queue mutex poisoned");
-                state.metrics.pending_spool_bytes -= item.encoded_bytes;
+                state.metrics.pending_spool_bytes -= reclaimed;
                 state.metrics.spool_read_bytes = state
                     .metrics
                     .spool_read_bytes
@@ -745,7 +772,9 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 .unwrap_or_else(|_| Err(IngestionError::Spool("ingestion worker panicked".into())))
             })
         };
-        item.receipt.complete(result.clone());
+        queue
+            .receipts
+            .complete_through(item.sequence, result.clone());
         let mut state = queue.state.lock().expect("queue mutex poisoned");
         state.metrics.in_flight_estimated_bytes = 0;
         state.completed = item.sequence;
@@ -759,24 +788,40 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 state.closed = true;
                 state.failure = Some((item.sequence, error));
                 state.metrics.failure_sequence = Some(item.sequence);
+                let mut abandoned_frames = Vec::new();
                 while let Some(pending) = state.items.pop_front() {
                     if matches!(pending.storage, Storage::Memory(_)) {
                         state.metrics.pending_ram_bytes -= pending.weight;
                     } else {
-                        state.metrics.pending_spool_bytes -= pending.encoded_bytes;
                         if let Storage::Spool(frame) = pending.storage {
-                            queue
-                                .spool
-                                .lock()
-                                .expect("spool mutex poisoned")
-                                .release(&frame);
+                            abandoned_frames.push(frame);
                         }
                     }
-                    pending.receipt.complete(Err(IngestionError::Cancelled {
-                        originating_sequence: item.sequence,
-                    }));
                     state.completed = pending.sequence;
                 }
+                while let Some(pending) = state.overflow.pop_front() {
+                    abandoned_frames.push(pending.frame);
+                    state.completed = pending.sequence;
+                }
+                if state.completed > item.sequence {
+                    queue.receipts.complete_through(
+                        state.completed,
+                        Err(IngestionError::Cancelled {
+                            originating_sequence: item.sequence,
+                        }),
+                    );
+                }
+                drop(state);
+                let mut spool = queue.spool.lock().expect("spool mutex poisoned");
+                let mut reclaimed = 0u64;
+                for frame in abandoned_frames {
+                    reclaimed = reclaimed.saturating_add(spool.release(&frame));
+                }
+                drop(spool);
+                let mut state = queue.state.lock().expect("queue mutex poisoned");
+                state.metrics.pending_spool_bytes -= reclaimed;
+                queue.changed.notify_all();
+                continue;
             }
         }
         queue.changed.notify_all();
@@ -796,6 +841,66 @@ mod tests {
         let mut batch = Batch::new(session_id, registration);
         batch.insert(id, Value::String("Leipzig".into())).unwrap();
         batch
+    }
+
+    #[test]
+    #[ignore = "large paused-worker descriptor overflow stress"]
+    fn spool_overflow_accepts_beyond_resident_descriptor_window() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-queue-descriptor-overflow-{}",
+            std::process::id()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder.register_records(collection, "overflow", 1).unwrap();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024,
+                spool_bytes: 64 * 1024 * 1024,
+                spool_directory: Some(root.clone()),
+            })
+            .unwrap();
+        session.pause_worker_for_measurement().unwrap();
+        let writer = session.writer(registration).unwrap();
+        let mut receipts = Vec::new();
+        for number in 0..MAX_PENDING_DESCRIPTORS + 4 {
+            receipts.push(
+                writer
+                    .submit(batch(
+                        session.core.id,
+                        registration,
+                        &format!("r{number:05}"),
+                    ))
+                    .unwrap(),
+            );
+        }
+        assert_eq!(
+            session.core.queue.state.lock().unwrap().items.len(),
+            MAX_PENDING_DESCRIPTORS
+        );
+        assert_eq!(session.core.queue.state.lock().unwrap().overflow.len(), 4);
+        assert!(matches!(
+            writer.try_submit(batch(session.core.id, registration, "later")),
+            Err(SubmitError::WouldBlock(_))
+        ));
+        receipts.remove(100);
+        session.cancel();
+        for receipt in receipts {
+            assert!(matches!(
+                receipt.wait_published(),
+                Err(IngestionError::Cancelled {
+                    originating_sequence: 1
+                })
+            ));
+        }
+        assert!(session.finish().is_err());
+        assert_eq!(session.metrics().pending_spool_bytes, 0);
+        assert_eq!(index.status().unwrap().live_records, 0);
+        assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
+        std::fs::remove_dir(root).unwrap();
     }
 
     #[test]
@@ -860,9 +965,15 @@ mod tests {
             arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
             second.sequence()
         );
-        let third = writer.submit(third).unwrap();
+        // The first frame's bytes remain allocated in the shared chunk until
+        // its last pending frame is consumed.
+        let third = match writer.submit(third) {
+            Err(SubmitError::Capacity(batch)) => batch,
+            _ => panic!("partially consumed chunk still occupies spool quota"),
+        };
         release.send(()).unwrap();
         second.wait_published().unwrap();
+        let third = writer.submit(third).unwrap();
         assert_eq!(
             arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
             third.sequence()
