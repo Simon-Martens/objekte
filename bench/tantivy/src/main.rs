@@ -1,5 +1,16 @@
+#[cfg(not(test))]
 #[path = "../../../crates/core/examples/support/musenalm.rs"]
 mod musenalm;
+
+#[cfg(test)]
+mod musenalm {
+    pub fn load_definitions(
+        _root: &std::path::Path,
+    ) -> Result<Vec<objekte_search_core::repository::configuration::CollectionDefinition>, String>
+    {
+        Err("Musenalm loader is exercised by the core example tests".into())
+    }
+}
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
@@ -679,5 +690,71 @@ fn main() {
     if let Err(error) = run() {
         eprintln!("benchmark error: {error}");
         std::process::exit(1);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn literal_translation_preserves_case_scope_and_value_boundaries() {
+        let mut builder = Schema::builder();
+        let global = builder.add_text_field("global", STRING);
+        let scoped = builder.add_text_field("scoped", STRING);
+        let index = Index::create_in_ram(builder.build());
+        let mut writer = index.writer(50_000_000).unwrap();
+        for value in [
+            serde_json::json!({"title": "Almanachband", "url": "https://example.org", "preferred_title": "Ä"}),
+            serde_json::json!({"title": "almanachband", "preferred_title": "Taschenbuch"}),
+            serde_json::json!({"title": ["Alma", "nach"], "preferred_title": "text"}),
+            serde_json::json!({"title": "Taschenbuch", "preferred_title": "text"}),
+        ] {
+            let mut document = TantivyDocument::default();
+            index_strings(&value, &mut Vec::new(), &mut document, global, scoped);
+            writer.add_document(document).unwrap();
+        }
+        writer.commit().unwrap();
+        let reader = index.reader().unwrap();
+        let searcher = reader.searcher();
+        let request = |literal: &str, path: Option<&str>| objekte_search_core::query::FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: literal.into(),
+            pattern_parameter: None,
+            fields: path
+                .into_iter()
+                .map(|path| objekte_search_core::query::FtsField {
+                    path: objekte_search_core::model::FieldPath::parse(path).unwrap(),
+                    binding: None,
+                    query_path: None,
+                })
+                .collect(),
+        };
+        for (needle, path, expected) in [
+            ("Almanach", None, 1),
+            ("almanach", None, 1),
+            ("https://", None, 1),
+            ("Ä", None, 1),
+            ("Almanach", Some("title"), 1),
+            ("Taschenbuch", Some("preferred_title"), 1),
+        ] {
+            let query = literal_fts(&request(needle, path), global, scoped).unwrap();
+            assert_eq!(searcher.search(&query, &Count).unwrap(), expected);
+        }
+        assert_eq!(
+            searcher
+                .search(
+                    &literal_fts(
+                        &request("Almanach", Some("preferred_title")),
+                        global,
+                        scoped
+                    )
+                    .unwrap(),
+                    &Count
+                )
+                .unwrap(),
+            0
+        );
     }
 }
