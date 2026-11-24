@@ -100,6 +100,14 @@ struct Queue {
     spool: Mutex<SpoolManager>,
     options: IngestionOptions,
     cancelled: AtomicBool,
+    #[cfg(test)]
+    worker_entry: Mutex<Option<WorkerEntryHook>>,
+}
+
+#[cfg(test)]
+struct WorkerEntryHook {
+    reached: std::sync::mpsc::Sender<u64>,
+    release: std::sync::mpsc::Receiver<()>,
 }
 
 /// A session is the single ordered producer stream for one index. The index
@@ -132,6 +140,8 @@ impl SessionCore {
             spool: Mutex::new(SpoolManager::new(id, &options)),
             options,
             cancelled: AtomicBool::new(false),
+            #[cfg(test)]
+            worker_entry: Mutex::new(None),
         });
         let core = Arc::new(Self {
             id,
@@ -356,6 +366,12 @@ impl RecordWriter {
             let _ = std::fs::remove_file(path);
             return Err(SubmitError::Closed(batch));
         }
+        if state.items.len() >= MAX_PENDING_DESCRIPTORS {
+            state.metrics.pending_spool_bytes -= bytes;
+            drop(state);
+            let _ = std::fs::remove_file(path);
+            return Err(SubmitError::Capacity(batch));
+        }
         Ok(enqueue(
             &mut state,
             queue,
@@ -406,6 +422,17 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             }
             item
         };
+        #[cfg(test)]
+        {
+            let hook = queue
+                .worker_entry
+                .lock()
+                .expect("worker hook mutex poisoned");
+            if let Some(hook) = hook.as_ref() {
+                let _ = hook.reached.send(item.sequence);
+                let _ = hook.release.recv();
+            }
+        }
         let batch = match item.storage {
             Storage::Memory(batch) => Ok(batch),
             Storage::Spool(path) => {
@@ -465,4 +492,190 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         queue.changed.notify_all();
     }
     queue.spool.lock().expect("spool mutex poisoned").cleanup();
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::model::Value;
+    use crate::schema::Schema;
+    use std::sync::mpsc;
+    use std::time::Duration;
+
+    fn batch(session_id: u64, registration: RecordRegistration, id: &str) -> Batch {
+        let mut batch = Batch::new(session_id, registration);
+        batch.insert(id, Value::String("Leipzig".into())).unwrap();
+        batch
+    }
+
+    #[test]
+    fn paused_worker_spools_bounded_prefix_and_returns_retryable_batch() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-queue-pressure-{}-{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder.register_records(collection, "pressure", 1).unwrap();
+        let frame_bytes = spool::encode(&batch(0, registration, "record-1"))
+            .unwrap()
+            .len();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024 * 1024,
+                spool_bytes: frame_bytes * 2,
+                spool_directory: Some(root.clone()),
+            })
+            .unwrap();
+        let writer = session.writer(registration).unwrap();
+        let (reached, arrivals) = mpsc::channel();
+        let (release, exits) = mpsc::channel();
+        *session.core.queue.worker_entry.lock().unwrap() = Some(WorkerEntryHook {
+            reached,
+            release: exits,
+        });
+        let first = writer
+            .submit(batch(session.core.id, registration, "record-1"))
+            .unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            first.sequence()
+        );
+        let second = writer
+            .submit(batch(session.core.id, registration, "record-2"))
+            .unwrap();
+        let third = match writer.try_submit(batch(session.core.id, registration, "record-3")) {
+            Err(SubmitError::WouldBlock(batch)) => batch,
+            _ => panic!("memory-only submission must return its batch"),
+        };
+        let third = match writer.submit(third) {
+            Err(SubmitError::Capacity(batch)) => batch,
+            _ => panic!("full spool must return its batch"),
+        };
+        assert_eq!(session.metrics().pending_spool_bytes, frame_bytes * 2);
+        release.send(()).unwrap();
+        first.wait_published().unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            second.sequence()
+        );
+        let third = writer.submit(third).unwrap();
+        release.send(()).unwrap();
+        second.wait_published().unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            third.sequence()
+        );
+        release.send(()).unwrap();
+        third.wait_published().unwrap();
+        session.finish().unwrap();
+        assert_eq!(session.metrics().accepted_batches, 3);
+        assert_eq!(session.metrics().published_batches, 3);
+        assert_eq!(session.metrics().pending_spool_bytes, 0);
+        for id in ["record-1", "record-2", "record-3"] {
+            assert!(
+                index
+                    .view()
+                    .unwrap()
+                    .get_record("entries", id, crate::query::options::ReturnMode::Locator)
+                    .unwrap()
+                    .is_some()
+            );
+        }
+        assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
+        std::fs::remove_dir(root).unwrap();
+    }
+
+    #[test]
+    fn partial_spool_frame_fails_receipt_without_publication() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-queue-corruption-{}-{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "corruption", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024 * 1024,
+                spool_bytes: 1024 * 1024,
+                spool_directory: Some(root.clone()),
+            })
+            .unwrap();
+        let writer = session.writer(registration).unwrap();
+        let (reached, arrivals) = mpsc::channel();
+        let (release, exits) = mpsc::channel();
+        *session.core.queue.worker_entry.lock().unwrap() = Some(WorkerEntryHook {
+            reached,
+            release: exits,
+        });
+        let first = writer
+            .submit(batch(session.core.id, registration, "record-1"))
+            .unwrap();
+        assert_eq!(
+            arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+            first.sequence()
+        );
+        let second = writer
+            .submit(batch(session.core.id, registration, "record-2"))
+            .unwrap();
+        let directory = std::fs::read_dir(&root)
+            .unwrap()
+            .next()
+            .unwrap()
+            .unwrap()
+            .path();
+        let frame = std::fs::read_dir(directory)
+            .unwrap()
+            .map(|entry| entry.unwrap().path())
+            .min()
+            .unwrap();
+        std::fs::write(frame, b"OBRQ").unwrap();
+        release.send(()).unwrap();
+        assert!(matches!(
+            first.wait_published(),
+            Err(IngestionError::Spool(_))
+        ));
+        assert!(
+            matches!(second.wait_published(), Err(IngestionError::Cancelled { originating_sequence }) if originating_sequence == first.sequence())
+        );
+        assert!(session.finish().is_err());
+        assert_eq!(session.metrics().published_batches, 0);
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "record-1",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_none()
+        );
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "record-2",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_none()
+        );
+        assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
+        std::fs::remove_dir(root).unwrap();
+    }
 }
