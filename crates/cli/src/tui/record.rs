@@ -129,17 +129,21 @@ impl RecordState {
             );
         }
         plain(&mut rows, "Metadata", String::new());
-        plain(&mut rows, "File", hit.file_path.display().to_string());
-        plain(
-            &mut rows,
-            "Bytes",
-            format!("{}..{}", hit.byte_start, hit.byte_end),
-        );
-        plain(
-            &mut rows,
-            "Status",
-            format!("{} ({})", hit.file_status.label(), hit.file_status.code()),
-        );
+        if let Some(file) = &hit.file {
+            plain(&mut rows, "File", file.path.display().to_string());
+            if let Some(range) = file.range {
+                plain(
+                    &mut rows,
+                    "Bytes",
+                    format!("{}..{}", range.start, range.end),
+                );
+            }
+            plain(
+                &mut rows,
+                "Status",
+                format!("{} ({})", file.status.label(), file.status.code()),
+            );
+        }
         plain(
             &mut rows,
             "Record class",
@@ -382,18 +386,50 @@ fn project(hit: &SearchHit, value: Option<&serde_json::Value>, label: &str) -> S
     let metadata = match label {
         "@record.id" => Some(hit.record_id.clone()),
         "@record.raw_text" => Some(raw_text(hit)),
-        "@record.byte_start" => Some(hit.byte_start.to_string()),
-        "@record.byte_end" => Some(hit.byte_end.to_string()),
-        "@record.byte_length" => Some((hit.byte_end - hit.byte_start).to_string()),
+        "@record.byte_start" => Some(
+            hit.source_range()
+                .map_or("null".into(), |range| range.start.to_string()),
+        ),
+        "@record.byte_end" => Some(
+            hit.source_range()
+                .map_or("null".into(), |range| range.end.to_string()),
+        ),
+        "@record.byte_length" => Some(
+            hit.source_range()
+                .map_or("null".into(), |range| range.len().to_string()),
+        ),
         "@record.class" => Some(hit.record_class.code().to_string()),
-        "@file.id" => Some(hit.file_id.to_string()),
-        "@file.path" => Some(hit.file_path.display().to_string()),
-        "@file.size" => Some(hit.file_size.to_string()),
-        "@file.status" => Some(hit.file_status.code().to_string()),
-        "@file.created" => Some(hit.file_created_ns.map_or("null".into(), |value| {
-            format!("{} ms", signed_milliseconds_3(value))
+        "@file.id" => Some(
+            hit.file
+                .as_ref()
+                .map_or("null".into(), |file| file.file_id.0.to_string()),
+        ),
+        "@file.path" => Some(
+            hit.file
+                .as_ref()
+                .map_or("null".into(), |file| file.path.display().to_string()),
+        ),
+        "@file.size" => Some(
+            hit.file
+                .as_ref()
+                .map_or("null".into(), |file| file.revision.size.to_string()),
+        ),
+        "@file.status" => Some(
+            hit.file
+                .as_ref()
+                .map_or("null".into(), |file| file.status.code().to_string()),
+        ),
+        "@file.created" => Some(
+            hit.file
+                .as_ref()
+                .and_then(|file| file.created_ns)
+                .map_or("null".into(), |value| {
+                    format!("{} ms", signed_milliseconds_3(value))
+                }),
+        ),
+        "@file.modified" => Some(hit.file.as_ref().map_or("null".into(), |file| {
+            format!("{} ms", signed_milliseconds_3(file.revision.modified_ns))
         })),
-        "@file.modified" => Some(format!("{} ms", signed_milliseconds_3(hit.modified_ns))),
         "@collection.name" => Some(hit.collection.clone()),
         _ => None,
     };

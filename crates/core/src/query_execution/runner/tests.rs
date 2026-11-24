@@ -2843,7 +2843,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     values_request.descending = false;
     assert_eq!(result.count, Some(3));
     assert_eq!(
-        result.hits[0].file_path,
+        result.hits[0].file.as_ref().unwrap().path,
         std::path::Path::new("data/base.jsonl")
     );
     assert_eq!(result.hits[0].generation, revision.0);
@@ -2874,7 +2874,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(
         all.hits
             .iter()
-            .map(|hit| hit.file_path.as_path())
+            .map(|hit| hit.file.as_ref().expect("file origin").path.as_path())
             .collect::<Vec<_>>(),
         [
             std::path::Path::new("data/delta.jsonl"),
@@ -2917,7 +2917,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(text.hits, reference_text.hits);
     assert_eq!(text.count, Some(1));
     assert_eq!(
-        text.hits[0].file_path,
+        text.hits[0].file.as_ref().unwrap().path,
         std::path::Path::new("data/delta.jsonl")
     );
     query.fts = None;
@@ -3144,12 +3144,16 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         .is_err()
     );
     values_request.continuation = None;
-    assert!(live.hits.iter().all(
-        |hit| hit.file_path != std::path::Path::new("data/base.jsonl") || hit.byte_start != 0
-    ));
+    assert!(
+        live.hits
+            .iter()
+            .all(|hit| hit.file.as_ref().expect("file origin").path
+                != std::path::Path::new("data/base.jsonl")
+                || hit.source_range().expect("file range").start != 0)
+    );
     assert!(live.hits.iter().all(|hit| {
-        hit.file_path != std::path::Path::new("data/delta.jsonl")
-            || hit.byte_start
+        hit.file.as_ref().expect("file origin").path != std::path::Path::new("data/delta.jsonl")
+            || hit.source_range().expect("file range").start
                 != retired_segments[0][1]
                     .index
                     .file_record(RecordSlot(1))
@@ -3462,9 +3466,12 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     )
     .unwrap()
     .unwrap();
-    assert_eq!(locator.file_id, 1);
+    assert_eq!(locator.file.as_ref().unwrap().file_id.0, 1);
     assert_eq!(locator.generation, revision.0);
-    assert_eq!(locator.file_path, std::path::Path::new("data/added.jsonl"));
+    assert_eq!(
+        locator.file.as_ref().unwrap().path,
+        std::path::Path::new("data/added.jsonl")
+    );
     assert_eq!(locator.record_id, id);
     assert!(locator.payload.is_none());
     let bytes = get_segment_record_by_id(
@@ -3513,7 +3520,10 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     )
     .unwrap()
     .unwrap();
-    assert_eq!(moved.file_path, std::path::Path::new("data/moved.jsonl"));
+    assert_eq!(
+        moved.file.as_ref().unwrap().path,
+        std::path::Path::new("data/moved.jsonl")
+    );
     assert_eq!(moved.payload, bytes.payload);
     let base_path = root.join("data/base-moved.jsonl");
     std::fs::rename(root.join("data/base.jsonl"), &base_path).unwrap();
@@ -3534,7 +3544,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     )
     .unwrap();
     assert!(matches!(base_hit, DirectLookupResult::Found(hit)
-        if hit.file_path == std::path::Path::new("data/base-moved.jsonl")
+        if hit.file.as_ref().expect("file origin").path == std::path::Path::new("data/base-moved.jsonl")
             && hit.payload == Some(Payload::Bytes(b"{\"name\":\"base\"}".to_vec()))));
     let retired = active.retired(&[RecordSlot(0)]).unwrap();
     assert!(
@@ -4410,7 +4420,10 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
     let payload = repo.search(&query).unwrap();
     assert_eq!(payload.count, Some(2));
     assert_eq!(payload.counters.distinct_files, 1);
-    assert_eq!(payload.hits[0].file_id, payload.hits[1].file_id);
+    assert_eq!(
+        payload.hits[0].file.as_ref().unwrap().file_id,
+        payload.hits[1].file.as_ref().unwrap().file_id
+    );
     assert!(payload.hits.iter().all(|hit| matches!(
         &hit.payload,
         Some(Payload::Bytes(bytes)) if bytes == br#"{"body":"needle","memo":"needle"}"#
@@ -4501,14 +4514,14 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
             .iter()
             .find(|hit| hit.record_class == RecordClass::RawFallback)
             .unwrap();
-        assert_eq!(bad.file_status, FileStatus::Broken);
+        assert_eq!(bad.file.as_ref().unwrap().status, FileStatus::Broken);
         assert!(matches!(
             bad.payload,
             Some(Payload::LogicalUnavailable { .. })
         ));
         let issue = built
             .files
-            .diagnostic(crate::model::FileId(bad.file_id), bad.diagnostic_ref)
+            .diagnostic(bad.file.as_ref().unwrap().file_id, bad.diagnostic_ref)
             .expect("fallback hit must identify its diagnostic");
         assert_eq!(issue.category, crate::source::DiagnosticCategory::Syntax);
         assert_eq!(issue.code, "json.parse");
@@ -4597,11 +4610,14 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
             expression: None,
         }];
         let ordered = built.search(&sorted).unwrap();
-        assert_eq!(ordered.hits[0].file_status, FileStatus::Valid);
+        assert_eq!(
+            ordered.hits[0].file.as_ref().unwrap().status,
+            FileStatus::Valid
+        );
         assert!(
             ordered.hits[1..]
                 .iter()
-                .all(|hit| hit.file_status == FileStatus::Broken)
+                .all(|hit| hit.file.as_ref().expect("file origin").status == FileStatus::Broken)
         );
         assert_eq!(ordered.hits, built.search_reference(&sorted).unwrap().hits);
         let restored = crate::lifecycle::Index::build_repository_for_test(
@@ -4624,7 +4640,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         assert_eq!(restored_bad.diagnostic_ref, bad.diagnostic_ref);
         assert_eq!(
             restored.files.diagnostic(
-                crate::model::FileId(restored_bad.file_id),
+                restored_bad.file.as_ref().unwrap().file_id,
                 restored_bad.diagnostic_ref
             ),
             Some(&built_issue)
@@ -5037,7 +5053,7 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
     let (indexed, trace) = repo.explain_analyze(&path_range).unwrap();
     assert_eq!(indexed.count, Some(1));
     assert_eq!(
-        indexed.hits[0].file_path,
+        indexed.hits[0].file.as_ref().unwrap().path,
         std::path::Path::new("data/valid.json")
     );
     assert!(trace[0].terms.iter().any(|term| {
@@ -6076,7 +6092,13 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
                         .iter()
                         .map(|hit| {
                             std::mem::size_of::<crate::query_results::SearchHit>()
-                                + hit.file_path.to_string_lossy().len()
+                                + hit
+                                    .file
+                                    .as_ref()
+                                    .expect("file origin")
+                                    .path
+                                    .to_string_lossy()
+                                    .len()
                         })
                         .sum::<usize>();
                 }
@@ -6182,7 +6204,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
         result
             .hits
             .iter()
-            .map(|hit| hit.byte_start)
+            .map(|hit| hit.source_range().expect("file range").start)
             .collect::<Vec<_>>(),
         starts[1000..1005]
     );
@@ -6199,7 +6221,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
         exact
             .hits
             .iter()
-            .map(|hit| hit.byte_start)
+            .map(|hit| hit.source_range().expect("file range").start)
             .collect::<Vec<_>>(),
         starts[1000..1005]
     );

@@ -1216,7 +1216,10 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
     for hit in result.hits {
         assert_eq!(hit.record_class, crate::inventory::RecordClass::RawFallback);
         let diagnostic = view
-            .diagnostic(FileId(hit.file_id), hit.diagnostic_ref)
+            .diagnostic(
+                FileId(hit.file.as_ref().expect("file origin").file_id.0),
+                hit.diagnostic_ref,
+            )
             .unwrap();
         let expected_collection = view
             .repository()
@@ -1279,8 +1282,11 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
     for hit in &result.hits {
         if hit.record_class == crate::inventory::RecordClass::RawFallback {
             assert!(
-                view.diagnostic(FileId(hit.file_id), hit.diagnostic_ref)
-                    .is_some()
+                view.diagnostic(
+                    FileId(hit.file.as_ref().expect("file origin").file_id.0),
+                    hit.diagnostic_ref
+                )
+                .is_some()
             );
         }
     }
@@ -1299,8 +1305,8 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
             .iter()
             .map(|hit| (
                 &hit.record_id,
-                hit.byte_start,
-                hit.byte_end,
+                hit.source_range().expect("file range").start,
+                hit.source_range().expect("file range").end,
                 hit.record_class
             ))
             .collect::<Vec<_>>(),
@@ -1309,8 +1315,8 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
             .iter()
             .map(|hit| (
                 &hit.record_id,
-                hit.byte_start,
-                hit.byte_end,
+                hit.source_range().expect("file range").start,
+                hit.source_range().expect("file range").end,
                 hit.record_class
             ))
             .collect::<Vec<_>>()
@@ -1521,8 +1527,8 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
                     (
                         hit.collection,
                         hit.record_id,
-                        hit.file_path,
-                        hit.file_status,
+                        hit.file.as_ref().expect("file origin").path.clone(),
+                        hit.file.as_ref().expect("file origin").status,
                     )
                 })
                 .collect::<Vec<_>>();

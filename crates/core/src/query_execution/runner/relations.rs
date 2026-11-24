@@ -97,15 +97,7 @@ fn materialize_merged_address(
             file,
             Some(record.range),
         )),
-        file_id: file.id.0,
-        file_path: file.relative_path.to_path_buf(),
-        file_size: file.revision.size,
-        file_created_ns: file.created_ns,
-        byte_start: record.range.start,
-        byte_end: record.range.end,
-        modified_ns: record.revision.modified_ns,
         matched_fields: Vec::new(),
-        file_status: file.status,
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload,
@@ -2669,7 +2661,7 @@ pub(super) fn search_segmented_relations(
             if let Some(context) = context {
                 context.check_string()?;
                 context.charge_reads(1)?;
-                context.charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
+                context.charge_bytes(winner.hit.source_range_len())?;
             }
             let payload_hit = if let Some(address) = winner.record_address {
                 materialize_merged_address(repo, &view, address, query.options.return_mode.clone())
@@ -2700,7 +2692,7 @@ pub(super) fn search_segmented_relations(
                     if record_unavailable_hit(
                         repo,
                         catalog,
-                        SourceHitLocator::from(&winner.hit),
+                        SourceHitLocator::from_hit(&winner.hit),
                         message.clone(),
                         &mut counters,
                     )? {

@@ -176,7 +176,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         result
             .hits
             .into_iter()
-            .map(|hit| hit.file_path)
+            .map(|hit| hit.file.as_ref().expect("file origin").path.clone())
             .collect::<Vec<_>>()
     };
     assert_eq!(paths(before), paths(after));

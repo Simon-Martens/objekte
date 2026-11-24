@@ -49,11 +49,11 @@ fn hit_json(hit: &SearchHit) -> serde_json::Value {
     };
     serde_json::json!({
         "collection": hit.collection, "record_id": hit.record_id,
-        "generation": hit.generation, "file_id": hit.file_id,
-        "file_path": hit.file_path.to_string_lossy(), "file_size": hit.file_size,
-        "file_created_ns": hit.file_created_ns, "byte_start": hit.byte_start,
-        "byte_end": hit.byte_end, "modified_ns": hit.modified_ns,
-        "matched_fields": hit.matched_fields, "file_status": hit.file_status.code(),
+        "generation": hit.generation, "file_id": hit.file.as_ref().expect("file origin").file_id.0,
+        "file_path": hit.file.as_ref().expect("file origin").path.to_string_lossy(), "file_size": hit.file.as_ref().expect("file origin").revision.size,
+        "file_created_ns": hit.file.as_ref().expect("file origin").created_ns, "byte_start": hit.source_range().expect("file range").start,
+        "byte_end": hit.source_range().expect("file range").end, "modified_ns": hit.file.as_ref().expect("file origin").revision.modified_ns,
+        "matched_fields": hit.matched_fields, "file_status": hit.file.as_ref().expect("file origin").status.code(),
         "record_class": hit.record_class.code(), "diagnostic_ref": hit.diagnostic_ref.0,
         "payload": payload,
     })
@@ -395,21 +395,21 @@ fn run() -> Result<(), String> {
             hit.collection,
             hit.record_id,
             hit.generation,
-            hit.file_id,
-            hit.file_path.display(),
-            hit.byte_start,
-            hit.byte_end,
-            hit.file_size,
-            hit.file_created_ns,
-            hit.modified_ns,
-            hit.file_status.label(),
-            hit.file_status.code(),
+            hit.file.as_ref().expect("file origin").file_id.0,
+            hit.file.as_ref().expect("file origin").path.display(),
+            hit.source_range().expect("file range").start,
+            hit.source_range().expect("file range").end,
+            hit.file.as_ref().expect("file origin").revision.size,
+            hit.file.as_ref().expect("file origin").created_ns,
+            hit.file.as_ref().expect("file origin").revision.modified_ns,
+            hit.file.as_ref().expect("file origin").status.label(),
+            hit.file.as_ref().expect("file origin").status.code(),
             hit.record_class.code(),
             hit.diagnostic_ref.0,
             hit.matched_fields
         );
         if let Some(issue) = repository.diagnostic(
-            objekte_search_core::model::FileId(hit.file_id),
+            objekte_search_core::model::FileId(hit.file.as_ref().expect("file origin").file_id.0),
             hit.diagnostic_ref,
         ) {
             println!(

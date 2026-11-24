@@ -673,7 +673,7 @@ pub(super) fn try_inferred_segment_order_page(
         let mut retained = Vec::with_capacity(page.len());
         for (cursor, mut hit) in page {
             let segment = cursors[cursor].0;
-            let source_bytes = hit.byte_end.saturating_sub(hit.byte_start);
+            let source_bytes = hit.source_range_len();
             if let Some(execution) = execution {
                 if source_bytes > execution.limits.source_record_bytes {
                     return Err(execution.fail(
@@ -701,7 +701,7 @@ pub(super) fn try_inferred_segment_order_page(
                     if record_unavailable_hit(
                         repo,
                         catalog,
-                        SourceHitLocator::from(&hit),
+                        SourceHitLocator::from_hit(&hit),
                         message.clone(),
                         &mut counters,
                     )? {
@@ -713,7 +713,9 @@ pub(super) fn try_inferred_segment_order_page(
             if query.options.return_mode == ReturnMode::Bytes
                 || hit.record_class != RecordClass::RawFallback
             {
-                selected_files.insert(hit.file_id);
+                if let Some(file) = &hit.file {
+                    selected_files.insert(file.file_id.0);
+                }
                 counters.selected_payload_reads += 1;
                 counters.selected_payload_bytes += source_bytes;
             }

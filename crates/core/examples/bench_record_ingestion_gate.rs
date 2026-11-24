@@ -175,6 +175,14 @@ fn canonical(root: &Path, alphabet: BigramAlphabet, extended: bool) -> Result<()
         let result = view.search(&case.query()?)?;
         let mut hits = Vec::new();
         for hit in result.hits {
+            let path = hit
+                .file
+                .as_ref()
+                .expect("file origin")
+                .path
+                .to_string_lossy()
+                .replace('\\', "/");
+            let range = hit.source_range().expect("file range");
             let mut fields = hit.matched_fields;
             fields.sort();
             let payload = match hit.payload {
@@ -187,9 +195,9 @@ fn canonical(root: &Path, alphabet: BigramAlphabet, extended: bool) -> Result<()
                 }
             };
             hits.push(json!({
-                "collection": hit.collection, "id": hit.record_id,
-                "path": hit.file_path.to_string_lossy().replace('\\', "/"),
-                "range": [hit.byte_start, hit.byte_end],
+                "collection": hit.collection.clone(), "id": hit.record_id.clone(),
+                "path": path,
+                "range": [range.start, range.end],
                 "matched_fields": fields, "payload": payload,
             }));
         }

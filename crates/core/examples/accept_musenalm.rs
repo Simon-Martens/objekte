@@ -32,15 +32,8 @@ fn hit_difference(actual: &SearchHit, expected: &SearchHit) -> Option<String> {
     field!(collection);
     field!(record_id);
     field!(generation);
-    field!(file_id);
-    field!(file_path);
-    field!(file_size);
-    field!(file_created_ns);
-    field!(byte_start);
-    field!(byte_end);
-    field!(modified_ns);
+    field!(file);
     field!(matched_fields);
-    field!(file_status);
     field!(record_class);
     field!(diagnostic_ref);
     field!(payload);

@@ -348,15 +348,7 @@ impl SourceScan {
                                 &file,
                                 Some(range),
                             )),
-                            file_id: file.id.0,
-                            file_path: file.relative_path.to_path_buf(),
-                            file_size: file.revision.size,
-                            file_created_ns: file.created_ns,
-                            byte_start: range.start,
-                            byte_end: range.end,
-                            modified_ns: file.revision.modified_ns,
                             matched_fields,
-                            file_status: file.status,
                             record_class: class,
                             diagnostic_ref,
                             payload,
@@ -364,8 +356,12 @@ impl SourceScan {
                         let key = (
                             hit.collection.clone(),
                             hit.record_id.clone(),
-                            hit.file_id,
-                            hit.byte_start,
+                            hit.file.as_ref().expect("preindex file origin").file_id.0,
+                            hit.file
+                                .as_ref()
+                                .and_then(|file| file.range)
+                                .expect("preindex range")
+                                .start,
                         );
                         winners.insert(key, hit);
                         if winners.len() > retain {
@@ -375,8 +371,11 @@ impl SourceScan {
                     },
                 )?;
                 counters.bytes_read += file.revision.size;
-                for hit in winners.values_mut().filter(|hit| hit.file_id == file.id.0) {
-                    hit.file_status = file.status;
+                for hit in winners.values_mut().filter(|hit| {
+                    hit.file
+                        .as_ref()
+                        .is_some_and(|origin| origin.file_id == file.id)
+                }) {
                     if let Some(origin) = &mut hit.file {
                         origin.status = file.status;
                     }

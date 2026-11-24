@@ -496,9 +496,10 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
             Style::new()
         };
         let summary = record_summary(hit);
-        let status_color = match hit.file_status {
-            FileStatus::Valid => GREEN,
-            FileStatus::Broken | FileStatus::Unreadable => RED,
+        let status_color = match hit.file.as_ref().map(|file| file.status) {
+            Some(FileStatus::Valid) => GREEN,
+            Some(FileStatus::Broken | FileStatus::Unreadable) => RED,
+            None => DIM,
         };
         let mut spans = vec![
             Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
@@ -654,9 +655,10 @@ fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
         let index = app.scroll + row;
         let selected = index == app.selected;
         let display = app.display_rows.get(index);
-        let status_color = match hit.file_status {
-            FileStatus::Valid => GREEN,
-            FileStatus::Broken | FileStatus::Unreadable => RED,
+        let status_color = match hit.file.as_ref().map(|file| file.status) {
+            Some(FileStatus::Valid) => GREEN,
+            Some(FileStatus::Broken | FileStatus::Unreadable) => RED,
+            None => DIM,
         };
         let mut spans = vec![
             Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
@@ -886,9 +888,10 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     } else {
         "linked record ".to_owned()
     };
-    let status_color = match hit.file_status {
-        FileStatus::Valid => GREEN,
-        FileStatus::Broken | FileStatus::Unreadable => RED,
+    let status_color = match hit.file.as_ref().map(|file| file.status) {
+        Some(FileStatus::Valid) => GREEN,
+        Some(FileStatus::Broken | FileStatus::Unreadable) => RED,
+        None => DIM,
     };
     frame.render_widget(
         Paragraph::new(Line::from(vec![
@@ -900,7 +903,12 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
                 Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
             ),
             Span::styled("   ● ", Style::new().fg(status_color)),
-            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+            Span::styled(
+                hit.file
+                    .as_ref()
+                    .map_or("unlinked", |file| file.status.label()),
+                Style::new().fg(DIM),
+            ),
         ])),
         Rect { height: 1, ..area },
     );
@@ -1097,9 +1105,10 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         width: area.width.saturating_sub(3),
         ..area
     };
-    let status_color = match hit.file_status {
-        FileStatus::Valid => GREEN,
-        FileStatus::Broken | FileStatus::Unreadable => RED,
+    let status_color = match hit.file.as_ref().map(|file| file.status) {
+        Some(FileStatus::Valid) => GREEN,
+        Some(FileStatus::Broken | FileStatus::Unreadable) => RED,
+        None => DIM,
     };
     frame.render_widget(
         Paragraph::new(Line::from(vec![
@@ -1107,7 +1116,12 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
             Span::styled(" / ", Style::new().fg(FAINT)),
             Span::styled(hit.record_id.clone(), Style::new().fg(TEXT)),
             Span::styled("  ● ", Style::new().fg(status_color)),
-            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+            Span::styled(
+                hit.file
+                    .as_ref()
+                    .map_or("unlinked", |file| file.status.label()),
+                Style::new().fg(DIM),
+            ),
         ])),
         Rect { height: 1, ..inner },
     );

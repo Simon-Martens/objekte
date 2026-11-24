@@ -551,7 +551,7 @@ fn write_oracle(
                         "collection": hit.collection,
                         "record_id": hit.record_id,
                         "matched_fields": hit.matched_fields,
-                        "file_status": hit.file_status.label(),
+                        "file_status": hit.file.as_ref().expect("file origin").status.label(),
                         "record_class": format!("{:?}", hit.record_class),
                         "diagnostic_ref": hit.diagnostic_ref.0,
                         "payload": payload,

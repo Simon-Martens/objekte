@@ -258,7 +258,13 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
         .unwrap();
     assert_eq!(row.collections.len(), 2);
     assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
-    assert_eq!(files.records_for_file_in_collection(row.id, "first").unwrap().len(), 2);
+    assert_eq!(
+        files
+            .records_for_file_in_collection(row.id, "first")
+            .unwrap()
+            .len(),
+        2
+    );
     assert_eq!(
         files
             .file_for_record("first", "path-only")

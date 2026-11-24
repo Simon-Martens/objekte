@@ -531,15 +531,7 @@ pub(crate) fn make_hit(
             file,
             Some(record.range),
         )),
-        file_id: file.id.0,
-        file_path: file.relative_path.to_path_buf(),
-        file_size: file.revision.size,
-        file_created_ns: file.created_ns,
-        byte_start: record.range.start,
-        byte_end: record.range.end,
-        modified_ns: record.revision.modified_ns,
         matched_fields,
-        file_status: file.status,
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload,
@@ -668,24 +660,6 @@ pub(crate) fn get_segment_record_by_id(
             collection: collection.definition.name.clone(),
             record_id: record.id.0.to_string(),
             generation: revision.0,
-            file_id: file.as_ref().map_or(0, |file| file.file_id.0),
-            file_path: file
-                .as_ref()
-                .map_or_else(std::path::PathBuf::new, |file| file.path.clone()),
-            file_size: file.as_ref().map_or(0, |file| file.revision.size),
-            file_created_ns: file.as_ref().and_then(|file| file.created_ns),
-            byte_start: file
-                .as_ref()
-                .and_then(|file| file.range)
-                .map_or(0, |range| range.start),
-            byte_end: file
-                .as_ref()
-                .and_then(|file| file.range)
-                .map_or(0, |range| range.end),
-            modified_ns: file.as_ref().map_or(0, |file| file.revision.modified_ns),
-            file_status: file
-                .as_ref()
-                .map_or(crate::inventory::FileStatus::Valid, |file| file.status),
             file,
             matched_fields: Vec::new(),
             record_class: record.class,
@@ -712,24 +686,6 @@ pub(crate) fn get_segment_record_by_id(
             collection: collection.definition.name.clone(),
             record_id: record.id.0.to_string(),
             generation: revision.0,
-            file_id: file.as_ref().map_or(0, |file| file.file_id.0),
-            file_path: file
-                .as_ref()
-                .map_or_else(std::path::PathBuf::new, |file| file.path.clone()),
-            file_size: file.as_ref().map_or(0, |file| file.revision.size),
-            file_created_ns: file.as_ref().and_then(|file| file.created_ns),
-            byte_start: file
-                .as_ref()
-                .and_then(|file| file.range)
-                .map_or(0, |range| range.start),
-            byte_end: file
-                .as_ref()
-                .and_then(|file| file.range)
-                .map_or(0, |range| range.end),
-            modified_ns: file.as_ref().map_or(0, |file| file.revision.modified_ns),
-            file_status: file
-                .as_ref()
-                .map_or(crate::inventory::FileStatus::Valid, |file| file.status),
             file,
             matched_fields: Vec::new(),
             record_class: record.class,
@@ -763,15 +719,7 @@ pub(crate) fn get_segment_record_by_id(
             file,
             Some(record.range),
         )),
-        file_id: file.id.0,
-        file_path: file.relative_path.to_path_buf(),
-        file_size: file.revision.size,
-        file_created_ns: file.created_ns,
-        byte_start: record.range.start,
-        byte_end: record.range.end,
-        modified_ns: record.revision.modified_ns,
         matched_fields: Vec::new(),
-        file_status: file.status,
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload,
@@ -903,15 +851,7 @@ pub(crate) fn direct_lookup_segmented(
                     file,
                     Some(record.range),
                 )),
-                file_id: file.id.0,
-                file_path: file.relative_path.to_path_buf(),
-                file_size: file.revision.size,
-                file_created_ns: file.created_ns,
-                byte_start: record.range.start,
-                byte_end: record.range.end,
-                modified_ns: file.revision.modified_ns,
                 matched_fields: Vec::new(),
-                file_status: file.status,
                 record_class: record.class,
                 diagnostic_ref: record.diagnostic_ref,
                 payload,
@@ -1066,15 +1006,7 @@ pub(crate) fn segment_locator_hit(
             file,
             Some(record.range),
         )),
-        file_id: file.id.0,
-        file_path: file.relative_path.to_path_buf(),
-        file_size: file.revision.size,
-        file_created_ns: file.created_ns,
-        byte_start: record.range.start,
-        byte_end: record.range.end,
-        modified_ns: record.revision.modified_ns,
         matched_fields,
-        file_status: file.status,
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload: None,
@@ -1102,24 +1034,6 @@ fn retained_locator_hit(
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: revision.0,
-        file_id: file.as_ref().map_or(0, |file| file.file_id.0),
-        file_path: file
-            .as_ref()
-            .map_or_else(std::path::PathBuf::new, |file| file.path.clone()),
-        file_size: file.as_ref().map_or(0, |file| file.revision.size),
-        file_created_ns: file.as_ref().and_then(|file| file.created_ns),
-        byte_start: file
-            .as_ref()
-            .and_then(|file| file.range)
-            .map_or(0, |range| range.start),
-        byte_end: file
-            .as_ref()
-            .and_then(|file| file.range)
-            .map_or(0, |range| range.end),
-        modified_ns: file.as_ref().map_or(0, |file| file.revision.modified_ns),
-        file_status: file
-            .as_ref()
-            .map_or(crate::inventory::FileStatus::Valid, |file| file.status),
         file,
         matched_fields,
         record_class: record.class,
@@ -1135,23 +1049,26 @@ pub(crate) struct SourceHitLocator {
     byte_end: u64,
 }
 
-impl From<&SearchHit> for SourceHitLocator {
-    fn from(hit: &SearchHit) -> Self {
-        Self {
-            file_id: hit.file_id,
-            byte_start: hit.byte_start,
-            byte_end: hit.byte_end,
-        }
+impl SourceHitLocator {
+    pub(crate) fn from_hit(hit: &SearchHit) -> Option<Self> {
+        let file = hit.file.as_ref()?;
+        let range = file.range?;
+        Some(Self {
+            file_id: file.file_id.0,
+            byte_start: range.start,
+            byte_end: range.end,
+        })
     }
 }
 
 pub(crate) fn record_unavailable_hit(
     repo: &Repository,
     catalog: &FileCatalog,
-    hit: SourceHitLocator,
+    hit: Option<SourceHitLocator>,
     message: String,
     counters: &mut WorkCounters,
 ) -> Result<bool, String> {
+    let Some(hit) = hit else { return Ok(false) };
     let file = catalog
         .entry(crate::model::FileId(hit.file_id))
         .ok_or("materialized hit file missing from pinned catalog")?;
@@ -2137,7 +2054,10 @@ fn try_lifecycle_ordered_page(
         collector.set_phase("search");
     }
     if query.options.return_mode != ReturnMode::Locator {
-        let selected_files = hits.iter().map(|hit| hit.file_id).collect::<HashSet<_>>();
+        let selected_files = hits
+            .iter()
+            .filter_map(|hit| hit.file.as_ref().map(|file| file.file_id))
+            .collect::<HashSet<_>>();
         counters.distinct_files = counters.distinct_files.max(selected_files.len() as u64);
         counters.files_opened = counters.files_opened.max(selected_files.len() as u64);
         if query.options.return_mode == ReturnMode::Logical {
@@ -3419,7 +3339,7 @@ fn search_segmented_impl(
             if let Some((collection_index, segment_index)) = winner.segment {
                 if let Some(context) = context {
                     context.check_string()?;
-                    let bytes = winner.hit.byte_end.saturating_sub(winner.hit.byte_start);
+                    let bytes = winner.hit.source_range_len();
                     if bytes > context.limits.source_record_bytes {
                         return Err(context.fail(
                             ExecutionErrorKind::Resource,
@@ -3447,7 +3367,7 @@ fn search_segmented_impl(
                         if record_unavailable_hit(
                             repo,
                             catalog,
-                            SourceHitLocator::from(&winner.hit),
+                            SourceHitLocator::from_hit(&winner.hit),
                             message.clone(),
                             &mut counters,
                         )? {
@@ -3459,8 +3379,10 @@ fn search_segmented_impl(
                 if query.options.return_mode == ReturnMode::Bytes
                     || winner.hit.record_class != RecordClass::RawFallback
                 {
-                    let bytes = winner.hit.byte_end.saturating_sub(winner.hit.byte_start);
-                    selected_files.insert(winner.hit.file_id);
+                    let bytes = winner.hit.source_range_len();
+                    if let Some(file) = &winner.hit.file {
+                        selected_files.insert(file.file_id.0);
+                    }
                     counters.selected_payload_reads += 1;
                     counters.selected_payload_bytes += bytes;
                 }
@@ -3847,14 +3769,14 @@ fn materialize_segmented_stream_hit(
         return Ok(hit);
     }
     context.check_string()?;
-    if hit.byte_end.saturating_sub(hit.byte_start) > context.limits.source_record_bytes {
+    if hit.source_range_len() > context.limits.source_record_bytes {
         return Err(context.fail(
             ExecutionErrorKind::Resource,
             "stream record exceeds source read allowance",
         ));
     }
     context.charge_reads(1)?;
-    context.charge_bytes(hit.byte_end.saturating_sub(hit.byte_start))?;
+    context.charge_bytes(hit.source_range_len())?;
     let collection_index = repo
         .collections
         .iter()
@@ -4559,7 +4481,7 @@ fn try_lifecycle_ordered_stream(
                     if record_unavailable_hit(
                         repo,
                         catalog,
-                        SourceHitLocator::from(&locator),
+                        SourceHitLocator::from_hit(&locator),
                         message.clone(),
                         &mut counters,
                     )? {
@@ -4729,7 +4651,7 @@ fn try_lifecycle_ordered_stream(
                             if record_unavailable_hit(
                                 repo,
                                 catalog,
-                                SourceHitLocator::from(&hit),
+                                SourceHitLocator::from_hit(&hit),
                                 message.clone(),
                                 &mut counters,
                             )? {
@@ -5203,7 +5125,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             if let Err(message) = delivery.check() {
                 return segmented_stream_error(&mut delivery, context, message);
             }
-            let locator = SourceHitLocator::from(&hit);
+            let locator = SourceHitLocator::from_hit(&hit);
             let mut hit = match materialize_segmented_stream_hit(
                 repo,
                 hit,
@@ -5245,7 +5167,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             repo.stamp_native_hit_at(&mut hit, revision);
             if query.options.return_mode != ReturnMode::Locator {
                 result.counters.files_opened += 1;
-                result.counters.bytes_read += hit.byte_end.saturating_sub(hit.byte_start);
+                result.counters.bytes_read += hit.source_range_len();
                 result.counters.record_parses += u64::from(
                     query.options.return_mode == ReturnMode::Logical
                         && hit.record_class == RecordClass::Logical,
@@ -5814,8 +5736,7 @@ fn deliver_ranked_all(
     let mut batch = Vec::new();
     for mut hit in std::mem::take(&mut result.hits).into_iter().skip(offset) {
         delivery.check()?;
-        let source_bytes =
-            usize::try_from(hit.byte_end.saturating_sub(hit.byte_start)).unwrap_or(usize::MAX);
+        let source_bytes = usize::try_from(hit.source_range_len()).unwrap_or(usize::MAX);
         let current = batch.iter().fold(0usize, |total, prior| {
             total.saturating_add(crate::query_execution::streaming::hit_bytes(prior))
         });
@@ -5836,12 +5757,13 @@ fn deliver_ranked_all(
                     diagnostic_ref: hit.diagnostic_ref,
                 });
             } else {
-                let range = ByteRange {
-                    start: hit.byte_start,
-                    end: hit.byte_end,
-                };
+                let origin = hit
+                    .file
+                    .as_ref()
+                    .ok_or("file origin missing from source hit")?;
+                let range = origin.range.ok_or("source hit has no byte range")?;
                 let mut read = source_access.read_bounded(
-                    crate::model::FileId(hit.file_id),
+                    origin.file_id,
                     &[(0, range)],
                     delivery.max_buffered_bytes(),
                 )?;

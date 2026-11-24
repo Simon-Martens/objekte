@@ -72,7 +72,16 @@ fn assert_ids(repo: &Repository, filter: &str, expected: &[&str]) {
     let actual = optimized
         .hits
         .iter()
-        .map(|hit| hit.file_path.file_stem().unwrap().to_str().unwrap())
+        .map(|hit| {
+            hit.file
+                .as_ref()
+                .expect("file origin")
+                .path
+                .file_stem()
+                .unwrap()
+                .to_str()
+                .unwrap()
+        })
         .collect::<HashSet<_>>();
     assert_eq!(
         actual,
@@ -169,7 +178,15 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
             assert_eq!(
                 full.hits
                     .iter()
-                    .map(|hit| hit.file_path.file_stem().unwrap().to_str().unwrap())
+                    .map(|hit| hit
+                        .file
+                        .as_ref()
+                        .expect("file origin")
+                        .path
+                        .file_stem()
+                        .unwrap()
+                        .to_str()
+                        .unwrap())
                     .collect::<Vec<_>>(),
                 ["x", "y", "null", "missing", "broken"]
             );

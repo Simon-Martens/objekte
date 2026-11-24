@@ -248,8 +248,13 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
             ["needle-alpha", "needle-beta"]
         );
         assert!(fts_found.hits.iter().all(|hit| {
-            hit.file_path.ends_with("data/records.txt")
-                && hit.byte_end > hit.byte_start
+            hit.file
+                .as_ref()
+                .expect("file origin")
+                .path
+                .ends_with("data/records.txt")
+                && hit.source_range().expect("file range").end
+                    > hit.source_range().expect("file range").start
                 && hit.matched_fields == ["title"]
                 && matches!(&hit.payload, Some(Payload::Logical(Value::Object(value)))
                     if matches!(value["title"], Value::String(ref title) if title == "needle"))

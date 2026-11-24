@@ -437,8 +437,8 @@ fn final_mutated_view_matches_independent_fresh_build() {
                 (
                     hit.collection,
                     hit.record_id,
-                    hit.file_path,
-                    hit.file_status,
+                    hit.file.as_ref().expect("file origin").path.clone(),
+                    hit.file.as_ref().expect("file origin").status,
                     hit.payload,
                 )
             })
@@ -642,7 +642,9 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         view.get_record("right", "same", ReturnMode::Locator)
             .unwrap()
             .unwrap()
-            .file_path,
+            .file
+            .unwrap()
+            .path,
         std::path::Path::new("data/right/item.jsonl")
     );
     index.shutdown().unwrap();
@@ -770,7 +772,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
         .unwrap()
         .unwrap();
     assert_eq!(
-        old_hit.file_path,
+        old_hit.file.as_ref().unwrap().path,
         std::path::Path::new("data/original.jsonl")
     );
     assert!(pinned.get_record("items", "A", ReturnMode::Bytes).is_err());
@@ -782,7 +784,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
         assert_eq!(
             all.hits
                 .iter()
-                .map(|hit| hit.file_path.as_path())
+                .map(|hit| hit.file.as_ref().expect("file origin").path.as_path())
                 .collect::<Vec<_>>(),
             [
                 std::path::Path::new("data/a-other.jsonl"),
@@ -805,7 +807,8 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
             ranged
                 .hits
                 .iter()
-                .all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl"))
+                .all(|hit| hit.file.as_ref().expect("file origin").path
+                    == std::path::Path::new("data/z-moved.jsonl"))
         );
         let empty_range = view
             .search(&query(
@@ -818,13 +821,17 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
             filtered
                 .hits
                 .iter()
-                .all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl"))
+                .all(|hit| hit.file.as_ref().expect("file origin").path
+                    == std::path::Path::new("data/z-moved.jsonl"))
         );
         let direct = view
             .get_record("items", "A", ReturnMode::Bytes)
             .unwrap()
             .unwrap();
-        assert_eq!(direct.file_path, std::path::Path::new("data/z-moved.jsonl"));
+        assert_eq!(
+            direct.file.as_ref().unwrap().path,
+            std::path::Path::new("data/z-moved.jsonl")
+        );
         assert_eq!(
             direct.payload,
             Some(Payload::Bytes(

@@ -463,7 +463,9 @@ impl IndexView {
         else {
             return;
         };
-        let file = FileId(hit.file_id);
+        let Some(file) = hit.file.as_ref().map(|origin| origin.file_id) else {
+            return;
+        };
         for segment in self.0.segments[collection].iter() {
             let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
                 continue;

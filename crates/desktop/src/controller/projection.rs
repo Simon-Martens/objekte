@@ -238,10 +238,14 @@ fn discover_columns(value: &Value, segments: &mut Vec<String>, found: &mut BTree
 }
 
 fn status_label(hit: &SearchHit) -> String {
+    let status = hit
+        .file
+        .as_ref()
+        .map_or("unlinked", |file| file.status.label());
     if hit.record_class == RecordClass::RawFallback {
-        format!("{} · raw fallback", hit.file_status.label())
+        format!("{} · raw fallback", status)
     } else {
-        hit.file_status.label().to_owned()
+        status.to_owned()
     }
 }
 
@@ -251,19 +255,43 @@ fn project_metadata(hit: &SearchHit, repository_root: &Path, path: &str) -> Opti
     let field = MetadataField::parse(path).ok()?;
     Some(match field {
         MetadataField::RecordId => hit.record_id.clone(),
-        MetadataField::RecordByteStart => hit.byte_start.to_string(),
-        MetadataField::RecordByteEnd => hit.byte_end.to_string(),
-        MetadataField::RecordByteLength => (hit.byte_end - hit.byte_start).to_string(),
+        MetadataField::RecordByteStart => hit
+            .source_range()
+            .map_or("null".into(), |range| range.start.to_string()),
+        MetadataField::RecordByteEnd => hit
+            .source_range()
+            .map_or("null".into(), |range| range.end.to_string()),
+        MetadataField::RecordByteLength => hit
+            .source_range()
+            .map_or("null".into(), |range| range.len().to_string()),
         MetadataField::RecordClass => hit.record_class.code().to_string(),
-        MetadataField::FileId => hit.file_id.to_string(),
-        MetadataField::FilePath => query_path(&hit.file_path),
-        MetadataField::FileSize => hit.file_size.to_string(),
-        MetadataField::FileCreated => hit.file_created_ns.map_or_else(
-            || "null".into(),
-            |timestamp| format!("{} ms", signed_milliseconds_3(timestamp)),
-        ),
-        MetadataField::FileModified => format!("{} ms", signed_milliseconds_3(hit.modified_ns)),
-        MetadataField::FileStatus => hit.file_status.code().to_string(),
+        MetadataField::FileId => hit
+            .file
+            .as_ref()
+            .map_or("null".into(), |file| file.file_id.0.to_string()),
+        MetadataField::FilePath => hit
+            .file
+            .as_ref()
+            .map_or("null".into(), |file| query_path(&file.path)),
+        MetadataField::FileSize => hit
+            .file
+            .as_ref()
+            .map_or("null".into(), |file| file.revision.size.to_string()),
+        MetadataField::FileCreated => hit
+            .file
+            .as_ref()
+            .and_then(|file| file.created_ns)
+            .map_or_else(
+                || "null".into(),
+                |timestamp| format!("{} ms", signed_milliseconds_3(timestamp)),
+            ),
+        MetadataField::FileModified => hit.file.as_ref().map_or("null".into(), |file| {
+            format!("{} ms", signed_milliseconds_3(file.revision.modified_ns))
+        }),
+        MetadataField::FileStatus => hit
+            .file
+            .as_ref()
+            .map_or("null".into(), |file| file.status.code().to_string()),
         MetadataField::CollectionName => hit.collection.clone(),
         MetadataField::RepositoryRoot => query_path(repository_root),
     })
@@ -495,7 +523,10 @@ pub fn detail_view_with_query(
     let mut detail = DetailView {
         title: format!("{} / {}", hit.collection, hit.record_id),
         validity: Some(
-            hit.file_status == FileStatus::Valid && hit.record_class == RecordClass::Logical,
+            hit.file
+                .as_ref()
+                .is_none_or(|file| file.status == FileStatus::Valid)
+                && hit.record_class == RecordClass::Logical,
         ),
         raw_source: source_text(hit),
         source_label: match hit.payload {
@@ -537,12 +568,24 @@ pub fn detail_view_with_query(
     let metadata = [
         ("Collection", hit.collection.clone()),
         ("Record ID", hit.record_id.clone()),
-        ("File", hit.file_path.display().to_string()),
+        (
+            "File",
+            hit.file
+                .as_ref()
+                .map_or("null".into(), |file| file.path.display().to_string()),
+        ),
         (
             "Byte range",
-            format!("{}..{}", hit.byte_start, hit.byte_end),
+            hit.source_range().map_or("null".into(), |range| {
+                format!("{}..{}", range.start, range.end)
+            }),
         ),
-        ("File status", format!("{:?}", hit.file_status)),
+        (
+            "File status",
+            hit.file
+                .as_ref()
+                .map_or("null".into(), |file| format!("{:?}", file.status)),
+        ),
         ("Record class", format!("{:?}", hit.record_class)),
         ("Diagnostic", format!("{:?}", hit.diagnostic_ref)),
     ];

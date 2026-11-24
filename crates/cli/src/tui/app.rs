@@ -851,10 +851,8 @@ impl App {
         &self,
         hit: &SearchHit,
     ) -> Option<objekte_search_core::inventory::SourceDiagnostic> {
-        self.repo.diagnostic(
-            objekte_search_core::model::FileId(hit.file_id),
-            hit.diagnostic_ref,
-        )
+        self.repo
+            .diagnostic(hit.file.as_ref()?.file_id, hit.diagnostic_ref)
     }
 
     pub(super) fn busy(&self) -> bool {
@@ -1290,7 +1288,12 @@ impl App {
                                 self.hits.push(hit);
                             }
                         }
-                        self.hits.sort_by_key(|hit| (hit.file_id, hit.byte_start));
+                        self.hits.sort_by_key(|hit| {
+                            (
+                                hit.file.as_ref().map(|file| file.file_id),
+                                hit.source_range().map(|range| range.start),
+                            )
+                        });
                         self.hits.truncate(PAGE_SIZE);
                         self.next_offset = self.hits.len();
                     } else if update.offset == 0 {

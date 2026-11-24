@@ -614,9 +614,9 @@ fn emit_relation_probe(
             serde_json::json!({
                 "record_id": hit.record_id,
                 "matched_fields": hit.matched_fields,
-                "file_path": hit.file_path,
-                "byte_start": hit.byte_start,
-                "byte_end": hit.byte_end,
+                "file_path": hit.file.as_ref().expect("file origin").path,
+                "byte_start": hit.source_range().expect("file range").start,
+                "byte_end": hit.source_range().expect("file range").end,
                 "record_class": format!("{:?}", hit.record_class),
             })
         })

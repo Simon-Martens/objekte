@@ -45,7 +45,13 @@ fn directory_scope_preserves_prefix_boundaries_and_combines_with_filter() {
     assert_eq!(second.count, Some(2));
     assert!(second.next_page_start.is_none());
     for hit in first.hits.iter().chain(&second.hits) {
-        assert!(hit.file_path.starts_with("dir"));
+        assert!(
+            hit.file
+                .as_ref()
+                .expect("file origin")
+                .path
+                .starts_with("dir")
+        );
     }
     let combined = QuerySpec {
         filter: "title ~ 'A%'".into(),
@@ -62,7 +68,7 @@ fn directory_scope_preserves_prefix_boundaries_and_combines_with_filter() {
     .unwrap();
     assert_eq!(filtered.count, Some(1));
     assert_eq!(
-        filtered.hits[0].file_path,
+        filtered.hits[0].file.as_ref().unwrap().path,
         std::path::PathBuf::from("dir/a.json")
     );
 }

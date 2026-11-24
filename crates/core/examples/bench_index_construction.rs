@@ -566,7 +566,7 @@ fn select_storage_probe(repo: &IndexView) -> Result<StorageProbeSample, String> 
             return Ok(StorageProbeSample {
                 collection: hit.collection,
                 record_id: hit.record_id,
-                relative_path: hit.file_path,
+                relative_path: hit.file.as_ref().expect("file origin").path.clone(),
             });
         }
     }
@@ -622,7 +622,11 @@ fn probe_storage_operations(repo: &IndexView) -> Result<serde_json::Value, Strin
     ))?;
     let query_probe = |query: &Query| {
         let result = repo.search(query)?;
-        if result.hits.first().is_none_or(|hit| hit.file_path != path) {
+        if result
+            .hits
+            .first()
+            .is_none_or(|hit| hit.file.as_ref().expect("file origin").path != path)
+        {
             return Err("path query returned a different file".into());
         }
         std::hint::black_box(result.count);

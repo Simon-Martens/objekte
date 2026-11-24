@@ -1,9 +1,7 @@
 //! Ranking, ordering, cache and delivery result units.
 
-use std::path::PathBuf;
-
 use crate::files::RecordFileInfo;
-use crate::inventory::{DiagnosticRef, FileStatus, RecordClass};
+use crate::inventory::{DiagnosticRef, RecordClass};
 use crate::measurement::WorkCounters;
 
 pub(crate) mod cache;
@@ -22,18 +20,21 @@ pub struct SearchHit {
     pub generation: u64,
     /// Optional origin resolved from the same pinned publication as this hit.
     pub file: Option<RecordFileInfo>,
-    pub file_id: u32,
-    pub file_path: PathBuf,
-    pub file_size: u64,
-    pub file_created_ns: Option<i128>,
-    pub byte_start: u64,
-    pub byte_end: u64,
-    pub modified_ns: i128,
     pub matched_fields: Vec<String>,
-    pub file_status: FileStatus,
     pub record_class: RecordClass,
     pub diagnostic_ref: DiagnosticRef,
     pub payload: Option<Payload>,
+}
+
+impl SearchHit {
+    pub fn source_range(&self) -> Option<crate::inventory::ByteRange> {
+        self.file.as_ref()?.range
+    }
+
+    pub fn source_range_len(&self) -> u64 {
+        self.source_range()
+            .map_or(0, crate::inventory::ByteRange::len)
+    }
 }
 
 #[derive(Clone, Debug, PartialEq)]

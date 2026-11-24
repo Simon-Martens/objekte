@@ -785,7 +785,10 @@ pub(crate) fn hit_bytes(hit: &SearchHit) -> usize {
     let mut bytes = std::mem::size_of::<SearchHit>()
         + hit.collection.len()
         + hit.record_id.len()
-        + hit.file_path.as_os_str().len()
+        + hit
+            .file
+            .as_ref()
+            .map_or(0, |file| file.path.as_os_str().len())
         + hit
             .matched_fields
             .iter()

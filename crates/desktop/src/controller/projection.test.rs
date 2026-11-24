@@ -19,29 +19,66 @@ fn metadata_columns_show_captured_values_without_a_json_payload() {
             }
         }
         for hit in &mut page.hits {
-            hit.file_created_ns = Some(1_000_000_000);
-            hit.modified_ns = -1_234_567_890;
+            hit.file.as_mut().expect("file origin").created_ns = Some(1_000_000_000);
+            hit.file.as_mut().expect("file origin").revision.modified_ns = -1_234_567_890;
         }
         let (view, _, _) = page_view_with_prior(&page, &spec, &[], &[], &columns);
         for (row, hit) in view.rows.iter().zip(&page.hits) {
-            let actual_size = std::fs::metadata(fixture._root.path().join(&hit.file_path))
-                .unwrap()
-                .len();
+            let actual_size = std::fs::metadata(
+                fixture
+                    ._root
+                    .path()
+                    .join(&hit.file.as_ref().expect("file origin").path),
+            )
+            .unwrap()
+            .len();
             for (column, expected) in [
                 ("@record.id", hit.record_id.clone()),
-                ("@record.byte_start", hit.byte_start.to_string()),
-                ("@record.byte_end", hit.byte_end.to_string()),
+                (
+                    "@record.byte_start",
+                    hit.source_range().expect("file range").start.to_string(),
+                ),
+                (
+                    "@record.byte_end",
+                    hit.source_range().expect("file range").end.to_string(),
+                ),
                 (
                     "@record.byte_length",
-                    (hit.byte_end - hit.byte_start).to_string(),
+                    (hit.source_range().expect("file range").end
+                        - hit.source_range().expect("file range").start)
+                        .to_string(),
                 ),
                 ("@record.class", hit.record_class.code().to_string()),
-                ("@file.id", hit.file_id.to_string()),
-                ("@file.path", hit.file_path.display().to_string()),
+                (
+                    "@file.id",
+                    hit.file
+                        .as_ref()
+                        .expect("file origin")
+                        .file_id
+                        .0
+                        .to_string(),
+                ),
+                (
+                    "@file.path",
+                    hit.file
+                        .as_ref()
+                        .expect("file origin")
+                        .path
+                        .display()
+                        .to_string(),
+                ),
                 ("@file.size", actual_size.to_string()),
                 ("@file.created", "1000.000 ms".into()),
                 ("@file.modified", "-1234.568 ms".into()),
-                ("@file.status", hit.file_status.code().to_string()),
+                (
+                    "@file.status",
+                    hit.file
+                        .as_ref()
+                        .expect("file origin")
+                        .status
+                        .code()
+                        .to_string(),
+                ),
                 ("@collection.name", hit.collection.clone()),
                 (
                     "@repository.root",
@@ -65,8 +102,8 @@ fn metadata_and_quoted_data_paths_remain_distinct_and_creation_can_be_null() {
     let mut page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
     page.hits.truncate(1);
     let hit = &mut page.hits[0];
-    hit.file_created_ns = None;
-    hit.file_path = "percent%file.json".into();
+    hit.file.as_mut().expect("file origin").created_ns = None;
+    hit.file.as_mut().expect("file origin").path = "percent%file.json".into();
     hit.payload = Some(Payload::Bytes(
         br#"{"@file":{"size":"data size"}}"#.to_vec(),
     ));
@@ -80,7 +117,13 @@ fn metadata_and_quoted_data_paths_remain_distinct_and_creation_can_be_null() {
     assert_eq!(
         &view.rows[0].cells[..4],
         &[
-            page.hits[0].file_size.to_string(),
+            page.hits[0]
+                .file
+                .as_ref()
+                .unwrap()
+                .revision
+                .size
+                .to_string(),
             "data size".into(),
             "null".into(),
             "percent%25file.json".into(),
@@ -98,8 +141,20 @@ fn metadata_projection_keeps_the_page_values_after_the_source_disappears() {
     let mut page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
     let hit = &mut page.hits[0];
     hit.payload = None;
-    std::fs::remove_file(fixture._root.path().join(&hit.file_path)).unwrap();
-    let expected = hit.file_size.to_string();
+    std::fs::remove_file(
+        fixture
+            ._root
+            .path()
+            .join(&hit.file.as_ref().expect("file origin").path),
+    )
+    .unwrap();
+    let expected = hit
+        .file
+        .as_ref()
+        .expect("file origin")
+        .revision
+        .size
+        .to_string();
     let columns = vec!["@file.size".into()];
     let (view, _, _) = page_view_with_prior(&page, &spec, &[], &[], &columns);
     assert_eq!(view.rows[0].cells[0], expected);

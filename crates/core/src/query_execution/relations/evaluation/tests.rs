@@ -1839,7 +1839,7 @@ fn adopted_base_view_reference_search_uses_pinned_publication() {
     assert_eq!(expected.hits[0].record_id, "m2");
     assert_eq!(expected.hits[0].matched_fields, ["id"]);
     assert_eq!(
-        expected.hits[0].file_path,
+        expected.hits[0].file.as_ref().unwrap().path,
         std::path::Path::new("mentions/m2.json")
     );
 
@@ -1856,7 +1856,7 @@ fn adopted_base_view_reference_search_uses_pinned_publication() {
     assert_eq!(locator.hits[0].matched_fields, ["id"]);
     assert_eq!(locator.hits[0].generation, view.revision().0);
     assert_eq!(
-        locator.hits[0].file_path,
+        locator.hits[0].file.as_ref().unwrap().path,
         std::path::Path::new("mentions/m2.json")
     );
     assert!(locator.hits[0].payload.is_none());
@@ -1965,7 +1965,7 @@ fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     request.options.return_mode = ReturnMode::Locator;
     let old_lookup = pinned.search_reference(&request).unwrap();
     assert_eq!(old_lookup.count, Some(1));
-    let old_path = old_lookup.hits[0].file_path.clone();
+    let old_path = old_lookup.hits[0].file.as_ref().unwrap().path.clone();
     assert_eq!(old_path, std::path::Path::new("entries/a.json"));
 
     let original = root.join("entries/a.json");
@@ -1980,7 +1980,7 @@ fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     let current = current.search_reference(&request).unwrap();
     assert_eq!(current.count, Some(1));
     assert_eq!(
-        current.hits[0].file_path,
+        current.hits[0].file.as_ref().unwrap().path,
         std::path::Path::new("entries/renamed-a.json")
     );
     assert_eq!(
@@ -3084,9 +3084,9 @@ fn emit_relation_probe(
                 serde_json::json!({
                     "record_id": hit.record_id,
                     "matched_fields": hit.matched_fields,
-                    "file_path": hit.file_path,
-                    "byte_start": hit.byte_start,
-                    "byte_end": hit.byte_end,
+                    "file_path": hit.file.as_ref().expect("file origin").path,
+                    "byte_start": hit.source_range().expect("file range").start,
+                    "byte_end": hit.source_range().expect("file range").end,
                     "record_class": format!("{:?}", hit.record_class),
                 })
             })

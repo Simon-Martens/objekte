@@ -435,7 +435,9 @@ fn benchmark_locator_sample_follows_live_records_after_source_deletion() {
             .unwrap()
             .is_some()
     );
-    let handle = initial.file_handle_for_path(&first.file_path).unwrap();
+    let handle = initial
+        .file_handle_for_path(&first.file.as_ref().unwrap().path)
+        .unwrap();
     index.delete_file(handle).unwrap();
 
     let current = index.view().unwrap();
@@ -846,7 +848,10 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
         .get_record("data", "A", ReturnMode::Bytes)
         .unwrap()
         .unwrap();
-    assert_eq!(hit.file_path, std::path::PathBuf::from("data/renamed.json"));
+    assert_eq!(
+        hit.file.as_ref().expect("file origin").path,
+        std::path::PathBuf::from("data/renamed.json")
+    );
     assert_eq!(
         hit.payload,
         Some(crate::query_results::Payload::Bytes(bytes.to_vec()))
@@ -1286,20 +1291,23 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     let current = index.view().unwrap();
     let result = current.search(&query).unwrap();
     assert_eq!(result.count, Some(2));
-    assert!(
-        result
-            .hits
-            .iter()
-            .all(|hit| hit.file_path.ends_with("new.jsonl"))
-    );
+    assert!(result.hits.iter().all(|hit| {
+        hit.file
+            .as_ref()
+            .expect("file origin")
+            .path
+            .ends_with("new.jsonl")
+    }));
     for hit in &result.hits {
         assert_eq!(
             current
                 .get_record(&hit.collection, &hit.record_id, ReturnMode::Locator)
                 .unwrap()
                 .unwrap()
-                .file_path,
-            hit.file_path
+                .file
+                .unwrap()
+                .path,
+            hit.file.as_ref().expect("file origin").path
         );
     }
     assert!(matches!(

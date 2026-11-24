@@ -309,7 +309,14 @@ fn mouse_click_opens_references_and_backlinks_and_inspection_needs_no_source_fil
     let app = &mut fixture.app;
     wait_for_hits(app);
     select_id(app, "A");
-    let source = app.current_detail_hit().unwrap().file_path.clone();
+    let source = app
+        .current_detail_hit()
+        .unwrap()
+        .file
+        .as_ref()
+        .unwrap()
+        .path
+        .clone();
     app.detail_area = ratatui::layout::Rect::new(0, 0, 80, 60);
     let record_rows = app
         .record

@@ -242,10 +242,16 @@ fn defining_public_modules_configure_build_query_pin_and_inspect_results() {
         );
         assert_eq!(result.count, Some(3));
         assert_eq!(hit.collection, "data");
-        assert_eq!(hit.file_path, std::path::Path::new("data/c.json"));
+        assert_eq!(
+            hit.file.as_ref().expect("file origin").path,
+            std::path::Path::new("data/c.json")
+        );
         assert_eq!(hit.generation, view.revision().0);
-        assert_eq!(hit.byte_start, 0);
-        assert_eq!(hit.byte_end, hit.file_size);
+        assert_eq!(hit.source_range().expect("file range").start, 0);
+        assert_eq!(
+            hit.source_range().expect("file range").end,
+            hit.file.as_ref().expect("file origin").revision.size
+        );
         assert!(hit.payload.is_none());
 
         let mut second = query.clone();
@@ -291,7 +297,11 @@ fn defining_public_modules_configure_build_query_pin_and_inspect_results() {
                     );
                 }
                 (ReturnMode::Bytes, Some(Payload::Bytes(bytes))) => {
-                    assert_eq!(bytes, &std::fs::read(root.join(&hit.file_path)).unwrap());
+                    assert_eq!(
+                        bytes,
+                        &std::fs::read(root.join(&hit.file.as_ref().expect("file origin").path))
+                            .unwrap()
+                    );
                 }
                 _ => panic!("unexpected payload for {mode:?}: {:?}", hit.payload),
             }

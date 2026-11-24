@@ -114,9 +114,9 @@ fn locator_sequence(
         .map(|hit| {
             (
                 hit.collection.clone(),
-                hit.file_path.clone(),
-                hit.byte_start,
-                hit.byte_end,
+                hit.file.as_ref().expect("file origin").path.clone(),
+                hit.source_range().expect("file range").start,
+                hit.source_range().expect("file range").end,
                 hit.record_class,
                 hit.record_id.clone(),
             )
@@ -135,9 +135,9 @@ fn assert_expected_locators(
             .iter()
             .filter(|hit| {
                 hit.collection == "files"
-                    && hit.file_path == row.path
-                    && hit.byte_start == row.start
-                    && hit.byte_end == row.end
+                    && hit.file.as_ref().expect("file origin").path == row.path
+                    && hit.source_range().expect("file range").start == row.start
+                    && hit.source_range().expect("file range").end == row.end
                     && hit.record_class == row.class
                     && hit.record_id == row.id.0.as_ref()
             })
@@ -300,7 +300,10 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
         }] {
             let fallback = hits
                 .iter()
-                .find(|hit| hit.file_path == std::path::Path::new("data/broken.json"))
+                .find(|hit| {
+                    hit.file.as_ref().expect("file origin").path
+                        == std::path::Path::new("data/broken.json")
+                })
                 .unwrap();
             assert!(matches!(
                 &fallback.payload,

@@ -262,7 +262,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     assert_eq!(after.count, before.count);
     assert_eq!(after.hits.len(), before.hits.len());
     assert_eq!(after.hits[0].record_id, before.hits[0].record_id);
-    assert_eq!(after.hits[0].file_path, before.hits[0].file_path);
+    assert_eq!(after.hits[0].file, before.hits[0].file);
     assert_eq!(after.hits[0].generation, report.revision.0);
     assert_eq!(old.search(&all()).unwrap().count, Some(2));
     std::fs::remove_dir_all(root).unwrap();
