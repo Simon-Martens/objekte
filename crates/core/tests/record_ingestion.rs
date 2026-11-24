@@ -1,6 +1,8 @@
 use std::collections::BTreeMap;
 
+use objekte_search_core::files::FileCatalog;
 use objekte_search_core::ingestion::{IngestionOptions, SubmitError};
+use objekte_search_core::inventory::{ByteRange, SourceRevision};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::options::ReturnMode;
@@ -57,7 +59,9 @@ fn public_batches_publish_typed_records_and_preserve_old_views() {
     assert!(hit.file.is_none());
     assert_eq!(
         view.get_record("entries", "entry-47", ReturnMode::Bytes)
-            .unwrap().unwrap().payload,
+            .unwrap()
+            .unwrap()
+            .payload,
         Some(Payload::OriginalBytesUnavailable)
     );
 
@@ -164,4 +168,123 @@ fn overflow_and_rejected_batch_keep_inputs_and_publication_atomic() {
             .unwrap()
             .is_some()
     );
+}
+
+#[test]
+fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-links-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir(&root).unwrap();
+    std::fs::write(root.join("source.txt"), b"alpha beta").unwrap();
+    std::fs::write(root.join("empty.txt"), b"").unwrap();
+    let revision =
+        SourceRevision::from_metadata(&std::fs::metadata(root.join("source.txt")).unwrap())
+            .unwrap();
+    let empty_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(root.join("empty.txt")).unwrap()).unwrap();
+    let mut builder = Index::builder();
+    let first = builder.collection("first", Schema::default()).unwrap();
+    let second = builder.collection("second", Schema::default()).unwrap();
+    let first_registration = builder.register_records(first, "test.first", 1).unwrap();
+    let second_registration = builder.register_records(second, "test.second", 1).unwrap();
+    let catalog = builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder
+        .enable_file_links(first_registration, catalog)
+        .unwrap();
+    builder
+        .enable_file_links(second_registration, catalog)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let before = index.view().unwrap();
+    let session = index.ingestion();
+    let first_writer = session.writer(first_registration).unwrap();
+    let mut batch = first_writer.batch();
+    let file = batch.declare_file("source.txt", revision).unwrap();
+    batch
+        .insert_with_file(
+            "same",
+            record(1808, "alpha"),
+            file,
+            Some(ByteRange::checked(0, 5, revision.size).unwrap()),
+        )
+        .unwrap();
+    batch
+        .insert_with_file("path-only", record(1809, "beta"), file, None)
+        .unwrap();
+    batch.insert("unlinked", record(1810, "none")).unwrap();
+    batch.declare_file("empty.txt", empty_revision).unwrap();
+    first_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let second_writer = session.writer(second_registration).unwrap();
+    let mut batch = second_writer.batch();
+    let shared = batch.declare_file("source.txt", revision).unwrap();
+    batch
+        .insert_with_file(
+            "same",
+            record(1811, "alpha"),
+            shared,
+            Some(ByteRange::checked(6, 10, revision.size).unwrap()),
+        )
+        .unwrap();
+    second_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let view = index.view().unwrap();
+    assert!(
+        before
+            .file_catalog()
+            .unwrap()
+            .file_by_path(std::path::Path::new("source.txt"))
+            .is_none()
+    );
+    let files = view.file_catalog().unwrap();
+    let row = files
+        .file_by_path(std::path::Path::new("source.txt"))
+        .unwrap();
+    assert_eq!(row.collections.len(), 2);
+    assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
+    assert_eq!(
+        files
+            .file_for_record("first", "path-only")
+            .unwrap()
+            .unwrap()
+            .range,
+        None
+    );
+    assert_eq!(files.file_for_record("first", "unlinked").unwrap(), None);
+    assert_eq!(
+        view.get_record("first", "same", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file
+            .unwrap()
+            .range
+            .unwrap()
+            .end,
+        5
+    );
+    assert_eq!(
+        files
+            .records_for_file(
+                files
+                    .file_by_path(std::path::Path::new("empty.txt"))
+                    .unwrap()
+                    .id
+            )
+            .unwrap()
+            .len(),
+        0
+    );
+    session.finish().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }

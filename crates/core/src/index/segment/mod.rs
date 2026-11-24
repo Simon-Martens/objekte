@@ -247,6 +247,7 @@ pub(crate) enum SegmentBacking {
     Retained {
         blocks: Vec<Arc<[RetainedBody]>>,
         addresses: Vec<RetainedAddress>,
+        links: Vec<Option<FileRangeLocator>>,
         registration: u32,
     },
     Provider {
@@ -301,10 +302,12 @@ impl SegmentBacking {
             Self::Retained { registration, .. } => {
                 let mut blocks = Vec::new();
                 let mut addresses = Vec::new();
+                let mut links = Vec::new();
                 for backing in backings {
                     let Self::Retained {
                         blocks: source_blocks,
                         addresses: source_addresses,
+                        links: source_links,
                         registration: source_registration,
                     } = backing
                     else {
@@ -324,10 +327,12 @@ impl SegmentBacking {
                             offset: address.offset,
                         });
                     }
+                    links.extend_from_slice(source_links);
                 }
                 Ok(Self::Retained {
                     blocks,
                     addresses,
+                    links,
                     registration: *registration,
                 })
             }
@@ -378,6 +383,7 @@ impl SegmentBacking {
     pub(crate) fn file_locator(&self, slot: RecordSlot) -> Option<FileRangeLocator> {
         match self {
             Self::FileRange { locators } => locators.get(slot.0 as usize).copied(),
+            Self::Retained { links, .. } => links.get(slot.0 as usize).copied().flatten(),
             _ => None,
         }
     }
@@ -437,6 +443,7 @@ mod backing_tests {
                 block: 0,
                 offset: 0,
             }],
+            links: vec![None],
             registration: 4,
         };
         let second = SegmentBacking::Retained {
@@ -445,6 +452,7 @@ mod backing_tests {
                 block: 0,
                 offset: 0,
             }],
+            links: vec![None],
             registration: 4,
         };
         let combined = SegmentBacking::concatenate(&[&first, &second]).unwrap();
@@ -810,6 +818,9 @@ impl IndexedCollectionSegment {
     /// This value is transient; native segment storage keeps source columns
     /// separate from the common header.
     pub(crate) fn file_record(&self, slot: RecordSlot) -> Option<RecordEntry> {
+        if !matches!(self.backing, SegmentBacking::FileRange { .. }) {
+            return None;
+        }
         let header = self.record(slot)?;
         let locator = self.backing.file_locator(slot)?;
         Some(RecordEntry {

@@ -654,20 +654,35 @@ pub(crate) fn get_segment_record_by_id(
             ReturnMode::Logical => Some(Payload::Logical(body.value.clone())),
             ReturnMode::Bytes => Some(Payload::OriginalBytesUnavailable),
         };
+        let file = segment.backing.file_locator(slot).and_then(|locator| {
+            catalog
+                .entry(locator.file)
+                .map(|entry| crate::files::RecordFileInfo::from_entry(entry, locator.range))
+        });
         return Ok(Some(SearchHit {
             collection: collection.definition.name.clone(),
             record_id: record.id.0.to_string(),
             generation: revision.0,
-            file: None,
-            file_id: 0,
-            file_path: std::path::PathBuf::new(),
-            file_size: 0,
-            file_created_ns: None,
-            byte_start: 0,
-            byte_end: 0,
-            modified_ns: 0,
+            file_id: file.as_ref().map_or(0, |file| file.file_id.0),
+            file_path: file
+                .as_ref()
+                .map_or_else(std::path::PathBuf::new, |file| file.path.clone()),
+            file_size: file.as_ref().map_or(0, |file| file.revision.size),
+            file_created_ns: file.as_ref().and_then(|file| file.created_ns),
+            byte_start: file
+                .as_ref()
+                .and_then(|file| file.range)
+                .map_or(0, |range| range.start),
+            byte_end: file
+                .as_ref()
+                .and_then(|file| file.range)
+                .map_or(0, |range| range.end),
+            modified_ns: file.as_ref().map_or(0, |file| file.revision.modified_ns),
+            file_status: file
+                .as_ref()
+                .map_or(crate::inventory::FileStatus::Valid, |file| file.status),
+            file,
             matched_fields: Vec::new(),
-            file_status: crate::inventory::FileStatus::Valid,
             record_class: record.class,
             diagnostic_ref: record.diagnostic_ref,
             payload,
@@ -971,25 +986,45 @@ pub(crate) fn segment_locator_hit(
 
 fn retained_locator_hit(
     collection: &CollectionState,
+    segment: &IndexedCollectionSegment,
+    catalog: &FileCatalog,
     record: &crate::records::RecordHeader,
     revision: IndexRevision,
     mut matched_fields: Vec<String>,
 ) -> SearchHit {
     matched_fields.sort();
+    let file = segment
+        .backing
+        .file_locator(record.slot)
+        .and_then(|locator| {
+            catalog
+                .entry(locator.file)
+                .map(|entry| crate::files::RecordFileInfo::from_entry(entry, locator.range))
+        });
     SearchHit {
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: revision.0,
-        file: None,
-        file_id: 0,
-        file_path: std::path::PathBuf::new(),
-        file_size: 0,
-        file_created_ns: None,
-        byte_start: 0,
-        byte_end: 0,
-        modified_ns: 0,
+        file_id: file.as_ref().map_or(0, |file| file.file_id.0),
+        file_path: file
+            .as_ref()
+            .map_or_else(std::path::PathBuf::new, |file| file.path.clone()),
+        file_size: file.as_ref().map_or(0, |file| file.revision.size),
+        file_created_ns: file.as_ref().and_then(|file| file.created_ns),
+        byte_start: file
+            .as_ref()
+            .and_then(|file| file.range)
+            .map_or(0, |range| range.start),
+        byte_end: file
+            .as_ref()
+            .and_then(|file| file.range)
+            .map_or(0, |range| range.end),
+        modified_ns: file.as_ref().map_or(0, |file| file.revision.modified_ns),
+        file_status: file
+            .as_ref()
+            .map_or(crate::inventory::FileStatus::Valid, |file| file.status),
+        file,
         matched_fields,
-        file_status: crate::inventory::FileStatus::Valid,
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload: None,
@@ -2112,6 +2147,8 @@ fn offer_admitted_segment_slot(
     } else {
         retained_locator_hit(
             collection,
+            segment,
+            catalog,
             segment
                 .record(slot)
                 .ok_or("active retained candidate missing")?,
@@ -2800,6 +2837,8 @@ fn search_segmented_impl(
                     )?;
                     let hit = retained_locator_hit(
                         collection,
+                        segment,
+                        catalog,
                         record,
                         revision,
                         if query.options.evidence {

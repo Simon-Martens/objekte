@@ -838,6 +838,7 @@ impl CollectionSegment {
             backing: crate::index::segment::SegmentBacking::Retained {
                 blocks: vec![std::sync::Arc::from(bodies)],
                 addresses,
+                links: vec![None; count as usize],
                 registration,
             },
             id_lookup,

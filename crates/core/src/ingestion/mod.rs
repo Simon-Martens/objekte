@@ -5,15 +5,26 @@ pub(crate) mod queue;
 mod spool;
 
 use std::collections::HashSet;
-use std::path::PathBuf;
+use std::path::{Component, Path, PathBuf};
 
 use serde::{Deserialize, Serialize};
 
+use crate::inventory::{ByteRange, SourceRevision};
 use crate::lifecycle::{IndexError, IndexRevision, RecordRegistration};
 use crate::model::{RecordId, Value};
 use crate::source::TextSegment;
 
 pub use queue::{IngestionSession, Receipt, RecordWriter, SessionMetrics};
+
+/// A file declaration local to one batch.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct FileToken(pub(crate) u32);
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub(crate) struct StagedFile {
+    pub(crate) path: PathBuf,
+    pub(crate) revision: SourceRevision,
+}
 
 /// Pending input capacity. These budgets cover accepted input, not final
 /// index storage or all in-flight construction allocations.
@@ -43,11 +54,13 @@ pub(crate) enum Operation {
         id: RecordId,
         value: Value,
         text: Vec<TextSegment>,
+        file: Option<(FileToken, Option<ByteRange>)>,
     },
     Replace {
         id: RecordId,
         value: Value,
         text: Vec<TextSegment>,
+        file: Option<(FileToken, Option<ByteRange>)>,
     },
     Delete {
         id: RecordId,
@@ -68,6 +81,7 @@ pub struct Batch {
     pub(crate) session_id: u64,
     pub(crate) registration: RecordRegistration,
     pub(crate) operations: Vec<Operation>,
+    pub(crate) files: Vec<StagedFile>,
     keys: HashSet<RecordId>,
     pub(crate) estimated_bytes: usize,
 }
@@ -78,6 +92,7 @@ impl Batch {
             session_id,
             registration,
             operations: Vec::new(),
+            files: Vec::new(),
             keys: HashSet::new(),
             estimated_bytes: std::mem::size_of::<Self>(),
         }
@@ -109,7 +124,15 @@ impl Batch {
     ) -> Result<(), String> {
         let id = RecordId::intrinsic(id.as_ref())?;
         let bytes = estimated_value_bytes(&value).saturating_add(estimated_text_bytes(&text));
-        self.push(Operation::Insert { id, value, text }, bytes)
+        self.push(
+            Operation::Insert {
+                id,
+                value,
+                text,
+                file: None,
+            },
+            bytes,
+        )
     }
 
     pub fn replace(&mut self, id: impl AsRef<str>, value: Value) -> Result<(), String> {
@@ -124,7 +147,103 @@ impl Batch {
     ) -> Result<(), String> {
         let id = RecordId::intrinsic(id.as_ref())?;
         let bytes = estimated_value_bytes(&value).saturating_add(estimated_text_bytes(&text));
-        self.push(Operation::Replace { id, value, text }, bytes)
+        self.push(
+            Operation::Replace {
+                id,
+                value,
+                text,
+                file: None,
+            },
+            bytes,
+        )
+    }
+
+    /// Declare a physical file whose revision was observed by the producer.
+    /// A declaration remains useful even when this batch has no linked records.
+    pub fn declare_file(
+        &mut self,
+        relative_path: impl AsRef<Path>,
+        observed_file_revision: SourceRevision,
+    ) -> Result<FileToken, String> {
+        let path = relative_path.as_ref();
+        if path.as_os_str().is_empty()
+            || !path
+                .components()
+                .all(|part| matches!(part, Component::Normal(_)))
+        {
+            return Err("file path must be relative and contained".into());
+        }
+        if self.files.iter().any(|file| file.path == path) {
+            return Err("file already declared in batch".into());
+        }
+        let token =
+            FileToken(u32::try_from(self.files.len()).map_err(|_| "too many files in batch")?);
+        self.estimated_bytes = self
+            .estimated_bytes
+            .saturating_add(std::mem::size_of::<StagedFile>())
+            .saturating_add(path.as_os_str().len());
+        self.files.push(StagedFile {
+            path: path.to_path_buf(),
+            revision: observed_file_revision,
+        });
+        Ok(token)
+    }
+
+    fn checked_file(
+        &self,
+        token: FileToken,
+        range: Option<ByteRange>,
+    ) -> Result<Option<(FileToken, Option<ByteRange>)>, String> {
+        let file = self
+            .files
+            .get(token.0 as usize)
+            .ok_or("unknown batch file token")?;
+        if range.is_some_and(|range| range.end > file.revision.size || range.start > range.end) {
+            return Err("file range exceeds observed file revision".into());
+        }
+        Ok(Some((token, range)))
+    }
+
+    pub fn insert_with_file(
+        &mut self,
+        id: impl AsRef<str>,
+        value: Value,
+        token: FileToken,
+        range: Option<ByteRange>,
+    ) -> Result<(), String> {
+        let file = self.checked_file(token, range)?;
+        let id = RecordId::intrinsic(id.as_ref())?;
+        let bytes = estimated_value_bytes(&value);
+        self.push(
+            Operation::Insert {
+                id,
+                value,
+                text: Vec::new(),
+                file,
+            },
+            bytes,
+        )
+    }
+
+    pub fn replace_with_file(
+        &mut self,
+        id: impl AsRef<str>,
+        value: Value,
+        token: FileToken,
+        range: Option<ByteRange>,
+    ) -> Result<(), String> {
+        let file = self.checked_file(token, range)?;
+        let id = RecordId::intrinsic(id.as_ref())?;
+        let bytes = estimated_value_bytes(&value);
+        self.push(
+            Operation::Replace {
+                id,
+                value,
+                text: Vec::new(),
+                file,
+            },
+            bytes,
+        )
     }
 
     pub fn delete(&mut self, id: impl AsRef<str>) -> Result<(), String> {
@@ -136,7 +255,7 @@ impl Batch {
         self.operations.len()
     }
     pub fn is_empty(&self) -> bool {
-        self.operations.is_empty()
+        self.operations.is_empty() && self.files.is_empty()
     }
 }
 

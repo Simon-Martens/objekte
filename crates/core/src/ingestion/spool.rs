@@ -8,11 +8,11 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use bincode::Options;
 use sha2::{Digest, Sha256};
 
-use super::{Batch, IngestionOptions, Operation};
+use super::{Batch, IngestionOptions, Operation, StagedFile};
 use crate::lifecycle::RecordRegistration;
 
 const MAGIC: &[u8; 4] = b"OBRQ";
-const FORMAT_VERSION: u32 = 1;
+const FORMAT_VERSION: u32 = 2;
 const HEADER_BYTES: usize = 4 + 4 + 8 + 32;
 static NEXT_FRAME: AtomicU64 = AtomicU64::new(1);
 
@@ -33,7 +33,7 @@ impl EncodedFrame {
 
 pub(super) fn encode(batch: &Batch) -> Result<EncodedFrame, String> {
     let payload = encoding()
-        .serialize(&(batch.registration, &batch.operations))
+        .serialize(&(batch.registration, &batch.files, &batch.operations))
         .map_err(|error| error.to_string())?;
     let length = u64::try_from(payload.len()).map_err(|_| "spool frame too large")?;
     let mut frame = Vec::with_capacity(HEADER_BYTES.saturating_add(payload.len()));
@@ -141,11 +141,13 @@ pub(super) fn read(path: &Path, max_frame_bytes: u64, session_id: u64) -> Result
     if Sha256::digest(&payload).as_slice() != &header[16..48] {
         return Err("spool frame checksum mismatch".into());
     }
-    let (registration, operations): (RecordRegistration, Vec<Operation>) = encoding()
-        .with_limit(max_frame_bytes)
-        .deserialize(&payload)
-        .map_err(|error| error.to_string())?;
+    let (registration, files, operations): (RecordRegistration, Vec<StagedFile>, Vec<Operation>) =
+        encoding()
+            .with_limit(max_frame_bytes)
+            .deserialize(&payload)
+            .map_err(|error| error.to_string())?;
     let mut batch = Batch::new(session_id, registration);
+    batch.files = files;
     batch.operations = operations;
     Ok(batch)
 }
