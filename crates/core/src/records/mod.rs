@@ -6,6 +6,8 @@ use crate::files::RecordFileInfo;
 use crate::inventory::{DiagnosticRef, RecordClass};
 use crate::model::{CollectionId, RecordId};
 
+pub mod reader;
+
 /// A logical record key. IDs are unique among live records only within their
 /// collection; a segment slot is a separate physical address in a pinned view.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
