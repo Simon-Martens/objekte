@@ -66,6 +66,28 @@ impl Default for IndexBuilder {
 
 impl Index {
     /// Begin a programmatic index configuration; no path or file service is needed.
+    ///
+    /// # Example: owned typed records
+    ///
+    /// ```
+    /// use objekte_search_core::lifecycle::Index;
+    /// use objekte_search_core::model::Value;
+    /// use objekte_search_core::query::options::ReturnMode;
+    /// use objekte_search_core::schema::Schema;
+    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+    /// let mut builder = Index::builder();
+    /// let collection = builder.collection("entries", Schema::default())?;
+    /// let registration = builder.register_records(collection, "my.entries", 1)?;
+    /// let index = builder.build()?;
+    /// let session = index.ingestion();
+    /// let writer = session.writer(registration)?;
+    /// let mut batch = writer.batch();
+    /// batch.insert("entry-1", Value::String("Leipzig".into()))?;
+    /// writer.submit(batch).unwrap().wait_published()?;
+    /// assert!(index.view()?.get_record("entries", "entry-1", ReturnMode::Logical)?.is_some());
+    /// session.finish()?;
+    /// # Ok(()) }
+    /// ```
     pub fn builder() -> IndexBuilder {
         IndexBuilder::default()
     }
@@ -205,6 +227,41 @@ impl IndexBuilder {
     }
 
     /// Bind a versioned projected reader before freezing the index.
+    ///
+    /// # Example: reread one immutable version
+    ///
+    /// ```
+    /// use std::sync::Arc;
+    /// use objekte_search_core::lifecycle::Index;
+    /// use objekte_search_core::model::Value;
+    /// use objekte_search_core::records::{RecordKey, RecordVersion};
+    /// use objekte_search_core::records::reader::{RecordProjection, RecordRead, RecordReadError, RecordReader};
+    /// use objekte_search_core::schema::Schema;
+    /// struct Reader;
+    /// impl RecordReader for Reader {
+    ///     fn read_projected(&self, _: &RecordKey, expected: RecordVersion, _: &RecordProjection)
+    ///         -> Result<RecordRead, RecordReadError> {
+    ///         if expected != RecordVersion::new(7) {
+    ///             return Err(RecordReadError::ChangedVersion { expected, actual: Some(RecordVersion::new(7)) });
+    ///         }
+    ///         Ok(RecordRead { version: expected, value: Value::String("Leipzig".into()),
+    ///             text: Vec::new(), original_bytes: None })
+    ///     }
+    /// }
+    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+    /// let mut builder = Index::builder();
+    /// let collection = builder.collection("entries", Schema::default())?;
+    /// let registration = builder.register_records(collection, "my.reader", 1)?;
+    /// builder.register_reader(registration, Arc::new(Reader))?;
+    /// let index = builder.build()?;
+    /// let session = index.ingestion();
+    /// let writer = session.writer(registration)?;
+    /// let mut batch = writer.batch();
+    /// batch.insert_from_reader("entry-1", Value::String("Leipzig".into()), RecordVersion::new(7))?;
+    /// writer.submit(batch).unwrap().wait_published()?;
+    /// session.finish()?;
+    /// # Ok(()) }
+    /// ```
     pub fn register_reader(
         &mut self,
         registration: RecordRegistration,
@@ -242,7 +299,44 @@ impl IndexBuilder {
         })
     }
 
-    /// Permit one registration to attach optional file provenance to records.
+    /// Allow this registration to attach optional file and range provenance.
+    ///
+    /// # Example: two records in one file
+    ///
+    /// ```
+    /// use objekte_search_core::files::FileCatalog;
+    /// use objekte_search_core::inventory::{ByteRange, SourceRevision};
+    /// use objekte_search_core::lifecycle::Index;
+    /// use objekte_search_core::model::Value;
+    /// use objekte_search_core::schema::Schema;
+    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+    /// let root = std::env::temp_dir().join(format!("objekte-doc-links-{}", std::process::id()));
+    /// std::fs::create_dir(&root)?;
+    /// std::fs::write(root.join("source.txt"), b"alpha beta")?;
+    /// let revision = SourceRevision::from_metadata(&std::fs::metadata(root.join("source.txt"))?)?;
+    /// let mut builder = Index::builder();
+    /// let collection = builder.collection("entries", Schema::default())?;
+    /// let registration = builder.register_records(collection, "my.linked", 1)?;
+    /// let catalog = builder.register_file_catalog(FileCatalog::new(&root)?)?;
+    /// builder.enable_file_links(registration, catalog)?;
+    /// let index = builder.build()?;
+    /// let session = index.ingestion();
+    /// let writer = session.writer(registration)?;
+    /// let mut batch = writer.batch();
+    /// let file = batch.declare_file("source.txt", revision)?;
+    /// batch.insert_with_file("a", Value::String("alpha".into()), file,
+    ///     Some(ByteRange::checked(0, 5, revision.size)?))?;
+    /// batch.insert_with_file("b", Value::String("beta".into()), file,
+    ///     Some(ByteRange::checked(6, 10, revision.size)?))?;
+    /// writer.submit(batch).unwrap().wait_published()?;
+    /// let view = index.view()?;
+    /// let catalog = view.file_catalog().unwrap();
+    /// let link = catalog.file_for_record("entries", "a")?.unwrap();
+    /// assert_eq!(catalog.records_for_file(link.file_id)?.len(), 2);
+    /// session.finish()?;
+    /// std::fs::remove_dir_all(root)?;
+    /// # Ok(()) }
+    /// ```
     pub fn enable_file_links(
         &mut self,
         registration: RecordRegistration,
