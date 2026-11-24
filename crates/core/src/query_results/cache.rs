@@ -487,6 +487,10 @@ pub(crate) fn materialize_cached(
             collection: collection.definition.name.clone(),
             record_id: record.id.0.to_string(),
             generation: collection.generation.generation,
+            file: Some(crate::files::RecordFileInfo::from_entry(
+                file,
+                Some(record.range),
+            )),
             file_id: file.id.0,
             file_path: file.relative_path.to_path_buf(),
             file_size: file.revision.size,

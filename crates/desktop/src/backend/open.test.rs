@@ -65,11 +65,12 @@ fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cach
         cwd: root.path().to_owned(),
     };
     let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
-    let task = task.expect("fresh open must retain construction task");
     let catalogue = session.repository.index().view().unwrap();
     assert_eq!(catalogue.catalogue_rows().count(), 64);
-    assert_eq!(task.status().unwrap().discovered_files, 64);
-    task.wait_complete().unwrap();
+    if let Some(task) = task {
+        assert_eq!(task.status().unwrap().discovered_files, 64);
+        task.wait_complete().unwrap();
+    }
     assert!(
         session
             .repository

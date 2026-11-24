@@ -524,6 +524,10 @@ pub(crate) fn make_hit(
         collection: repo.collections[collection_index].definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: repo.collections[collection_index].generation.generation,
+        file: Some(crate::files::RecordFileInfo::from_entry(
+            file,
+            Some(record.range),
+        )),
         file_id: file.id.0,
         file_path: file.relative_path.to_path_buf(),
         file_size: file.revision.size,
@@ -653,6 +657,10 @@ pub(crate) fn get_segment_record_by_id(
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: revision.0,
+        file: Some(crate::files::RecordFileInfo::from_entry(
+            file,
+            Some(record.range),
+        )),
         file_id: file.id.0,
         file_path: file.relative_path.to_path_buf(),
         file_size: file.revision.size,
@@ -742,6 +750,10 @@ pub(crate) fn direct_lookup_segmented(
                 collection: collection.definition.name.clone(),
                 record_id: record.id.0.to_string(),
                 generation: revision.0,
+                file: Some(crate::files::RecordFileInfo::from_entry(
+                    file,
+                    Some(record.range),
+                )),
                 file_id: file.id.0,
                 file_path: file.relative_path.to_path_buf(),
                 file_size: file.revision.size,
@@ -882,6 +894,10 @@ pub(crate) fn segment_locator_hit(
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: revision.0,
+        file: Some(crate::files::RecordFileInfo::from_entry(
+            file,
+            Some(record.range),
+        )),
         file_id: file.id.0,
         file_path: file.relative_path.to_path_buf(),
         file_size: file.revision.size,

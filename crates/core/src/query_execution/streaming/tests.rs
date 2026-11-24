@@ -17,6 +17,20 @@ fn stream_test_hit(id: &str, payload_bytes: usize) -> SearchHit {
         collection: "data".into(),
         record_id: id.into(),
         generation: 1,
+        file: Some(crate::files::RecordFileInfo {
+            file_id: crate::model::FileId(1),
+            path: PathBuf::from("data/all.jsonl"),
+            revision: crate::inventory::SourceRevision {
+                size: payload_bytes as u64,
+                modified_ns: 0,
+            },
+            created_ns: None,
+            status: crate::inventory::FileStatus::Valid,
+            range: Some(crate::inventory::ByteRange {
+                start: 0,
+                end: payload_bytes as u64,
+            }),
+        }),
         file_id: 1,
         file_path: PathBuf::from("data/all.jsonl"),
         file_size: payload_bytes as u64,

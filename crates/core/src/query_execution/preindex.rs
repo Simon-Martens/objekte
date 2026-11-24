@@ -342,6 +342,10 @@ impl SourceScan {
                             collection: collection.definition.name.clone(),
                             record_id: entry.id.0.to_string(),
                             generation: 1,
+                            file: Some(crate::files::RecordFileInfo::from_entry(
+                                &file,
+                                Some(range),
+                            )),
                             file_id: file.id.0,
                             file_path: file.relative_path.to_path_buf(),
                             file_size: file.revision.size,
@@ -371,6 +375,9 @@ impl SourceScan {
                 counters.bytes_read += file.revision.size;
                 for hit in winners.values_mut().filter(|hit| hit.file_id == file.id.0) {
                     hit.file_status = file.status;
+                    if let Some(origin) = &mut hit.file {
+                        origin.status = file.status;
+                    }
                 }
             }
         }

@@ -2,6 +2,7 @@
 
 use std::path::PathBuf;
 
+use crate::files::RecordFileInfo;
 use crate::inventory::{DiagnosticRef, FileStatus, RecordClass};
 use crate::measurement::WorkCounters;
 
@@ -19,6 +20,8 @@ pub struct SearchHit {
     pub collection: String,
     pub record_id: String,
     pub generation: u64,
+    /// Optional origin resolved from the same pinned publication as this hit.
+    pub file: Option<RecordFileInfo>,
     pub file_id: u32,
     pub file_path: PathBuf,
     pub file_size: u64,
