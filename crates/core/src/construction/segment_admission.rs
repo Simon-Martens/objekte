@@ -141,7 +141,10 @@ impl CollectionAdmission<'_> {
         let mut records = batch.records.into_iter();
         for batch_file in batch.files {
             let file_id = batch_file.entry.id;
-            let path = self.inventory.root.join(&batch_file.entry.relative_path);
+            let path = self
+                .inventory
+                .required_root()
+                .join(&batch_file.entry.relative_path);
             if batch_file.first_range {
                 self.builder.include_file(file_id)?;
             } else if !self.builder.contains_file(file_id) {

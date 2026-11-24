@@ -239,7 +239,7 @@ impl FileCatalog {
     }
 
     pub(crate) fn repository_root(&self) -> &Path {
-        &self.base_files.root
+        &self.base_files.required_root()
     }
 
     pub(crate) fn set_construction_complete(&mut self, complete: bool) {

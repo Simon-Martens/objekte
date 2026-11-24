@@ -620,7 +620,7 @@ impl FileEntry {
 /// Authoritative source-file table shared by collections.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileInventory {
-    pub root: PathBuf,
+    pub root: Option<PathBuf>,
     pub files: Vec<FileEntry>,
     #[serde(skip)]
     by_path: HashMap<SharedPath, FileId>,
@@ -714,7 +714,7 @@ impl FileInventory {
             .iter()
             .map(|file| file.collections.capacity() * std::mem::size_of::<CollectionId>())
             .sum::<usize>();
-        let root_payload_bytes = self.root.capacity();
+        let root_payload_bytes = self.root.as_ref().map_or(0, PathBuf::capacity);
         FileStorageDiagnostic {
             files_len: self.files.len(),
             files_capacity: self.files.capacity(),
@@ -743,7 +743,7 @@ impl FileInventory {
     /// Approximate heap used by inventory and retained diagnostics, separately.
     /// Hash-table control bytes and allocator overhead are not included.
     pub fn estimated_heap_bytes(&self) -> (usize, usize) {
-        let mut inventory = self.root.capacity()
+        let mut inventory = self.root.as_ref().map_or(0, PathBuf::capacity)
             + self.files.capacity() * std::mem::size_of::<FileEntry>()
             + self.by_path.capacity() * std::mem::size_of::<(SharedPath, FileId)>();
         let mut diagnostics = 0;
@@ -773,11 +773,30 @@ impl FileInventory {
 
     pub fn new(root: PathBuf) -> Self {
         Self {
-            root,
+            root: Some(root),
             files: Vec::new(),
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
         }
+    }
+
+    /// An index with no file catalog has no filesystem root or file entries.
+    pub fn without_root() -> Self {
+        Self {
+            root: None,
+            files: Vec::new(),
+            by_path: HashMap::new(),
+            relative_paths: BTreeMap::new(),
+        }
+    }
+
+    pub fn root(&self) -> Option<&Path> {
+        self.root.as_deref()
+    }
+
+    pub(crate) fn required_root(&self) -> &Path {
+        self.root()
+            .expect("file adapter requires a registered catalog root")
     }
 
     /// Restore an already decoded file table without first populating lookup
@@ -789,7 +808,7 @@ impl FileInventory {
         entries: Vec<FileEntry>,
     ) -> Result<Self, String> {
         let mut inventory = Self {
-            root,
+            root: Some(root),
             files: entries,
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
@@ -805,6 +824,9 @@ impl FileInventory {
         created_ns: Option<i128>,
         collection: CollectionId,
     ) -> Result<FileId, String> {
+        if self.root.is_none() {
+            return Err("file catalog is not registered".into());
+        }
         if !valid_relative_path(&relative_path) {
             return Err("file path must be repository-relative and contained".into());
         }
@@ -905,6 +927,9 @@ impl FileInventory {
     }
 
     pub fn rebuild_lookup(&mut self) -> Result<(), String> {
+        if self.root.is_none() && !self.files.is_empty() {
+            return Err("file entries require a registered catalog root".into());
+        }
         self.by_path.clear();
         self.by_path.reserve(self.files.len());
         self.relative_paths.clear();
@@ -931,9 +956,10 @@ impl FileInventory {
     }
 
     pub fn native_path(&self, id: FileId) -> Option<PathBuf> {
+        let root = self.root()?;
         self.files
             .get(id.0 as usize)
-            .map(|f| self.root.join(&f.relative_path))
+            .map(|f| root.join(&f.relative_path))
     }
 
     pub fn id_for(&self, path: &Path) -> Option<FileId> {

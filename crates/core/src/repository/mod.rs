@@ -93,7 +93,7 @@ impl Repository {
     /// active-only compacted contributions as new segments.
     pub(crate) fn empty_like(&self) -> Result<Self, String> {
         let mut empty = crate::construction::repository_state::initialize_empty(
-            self.files.root.clone(),
+            self.files.required_root().to_path_buf(),
             self.collections
                 .iter()
                 .map(|state| state.required_file_definition().clone())

@@ -808,7 +808,7 @@ pub(crate) fn rank_key_without_source(
         record,
         file: &repo.files.files[record.file.0 as usize],
         collection_name: &collection.definition.name,
-        repository_root: &repo.files.root,
+        repository_root: &repo.files.required_root(),
     };
     rank_key_from_context(sort, repo, collection_index, &ctx, None)
 }

@@ -359,9 +359,13 @@ impl App {
             receiver
         });
         let settings_path = if options.single_collection {
-            repository.files().root.join(".objekte/.cache/obj-tui.json")
+            repository
+                .files()
+                .root()
+                .expect("file-backed TUI root")
+                .join(".objekte/.cache/obj-tui.json")
         } else {
-            Settings::path(&repository.files().root)
+            Settings::path(repository.files().root().expect("file-backed TUI root"))
         };
         let (settings, status) = match Settings::load(&settings_path) {
             Ok(settings) => (settings, None),

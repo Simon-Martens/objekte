@@ -705,7 +705,7 @@ fn verify_target_records(
                     record,
                     file,
                     collection_name: &collection.definition.name,
-                    repository_root: &repo.files.root,
+                    repository_root: &repo.files.required_root(),
                 };
                 work.target_reads += 1;
                 if evaluate(&ctx, &prepared.text)? {
@@ -937,7 +937,7 @@ fn verify_qualified_targets(
                     record: resolved.record,
                     file: resolved.file,
                     collection_name: &resolved.collection.definition.name,
-                    repository_root: &view.repository().files.root,
+                    repository_root: &view.repository().files.required_root(),
                 };
                 work.target_reads += 1;
                 if evaluate(&ctx, &prepared.text)? {

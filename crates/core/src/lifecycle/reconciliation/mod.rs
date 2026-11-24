@@ -120,7 +120,7 @@ impl Index {
             }
         };
         let repository = snapshot.repository();
-        let root = &repository.files().root;
+        let root = &repository.files().required_root();
         let definitions = repository
             .collections()
             .iter()

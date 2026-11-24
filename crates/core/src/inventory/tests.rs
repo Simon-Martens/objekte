@@ -1,6 +1,27 @@
 use super::*;
 
 #[test]
+fn inventory_without_catalog_has_no_root_or_file_identity() {
+    let mut inventory = FileInventory::without_root();
+    assert_eq!(inventory.root(), None);
+    assert!(inventory.files.is_empty());
+    assert_eq!(inventory.native_path(FileId(0)), None);
+    assert!(
+        inventory
+            .add(
+                "data/a.json".into(),
+                SourceRevision {
+                    modified_ns: 0,
+                    size: 1,
+                },
+                None,
+                CollectionId(0),
+            )
+            .is_err()
+    );
+}
+
+#[test]
 fn restored_entries_build_lookup_once_with_add_equivalent_results() {
     let root = PathBuf::from("/tmp/restore-inventory");
     let empty = FileInventory::from_restored_entries(root.clone(), Vec::new()).unwrap();

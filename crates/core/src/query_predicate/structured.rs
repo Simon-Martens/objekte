@@ -86,7 +86,7 @@ pub(crate) fn proven_evidence(
         record,
         file,
         collection_name: &collection.definition.name,
-        repository_root: &repo.files.root,
+        repository_root: &repo.files.required_root(),
     };
     let mut evidence = HashSet::new();
     if eval_unavailable_filter(expr, &ctx, &mut evidence)? != Some(true) {

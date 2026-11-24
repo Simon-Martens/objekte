@@ -463,7 +463,7 @@ fn inventory_fts_evidence(
             record,
             file,
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.root,
+            repository_root: &repo.files.required_root(),
         };
         let mut evidence = HashSet::new();
         if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
@@ -494,7 +494,7 @@ fn segment_metadata_fts_evidence(
             record: resolved.record,
             file: resolved.file,
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.root,
+            repository_root: &repo.files.required_root(),
         };
         let mut evidence = HashSet::new();
         if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
@@ -655,7 +655,7 @@ pub(crate) fn get_segment_record_by_id(
             })
         }
         ReturnMode::Bytes | ReturnMode::Logical => {
-            let path = repo.files.root.join(&file.relative_path);
+            let path = repo.files.required_root().join(&file.relative_path);
             let bytes = read_record_range_for_search(&path, file.revision, record.range, None)?;
             payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
         }
@@ -744,7 +744,7 @@ pub(crate) fn direct_lookup_segmented(
                 }))
             }
             ReturnMode::Bytes | ReturnMode::Logical => {
-                let path = repo.files.root.join(&file.relative_path);
+                let path = repo.files.required_root().join(&file.relative_path);
                 read_record_range_for_search(&path, file.revision, record.range, None)
                     .and_then(|bytes| {
                         payload_from_bytes(record.class, Some(collection), &return_mode, bytes)
@@ -804,7 +804,7 @@ pub(crate) fn direct_lookup_segmented(
         }
         Ok(None) => Err("active direct-lookup record disappeared".into()),
         Err(message) => {
-            let path = repo.files.root.join(&file.relative_path);
+            let path = repo.files.required_root().join(&file.relative_path);
             if let Some(kind) =
                 probe_source_unavailable_for_search(&path, file.revision, Some(record.range))
             {
@@ -947,7 +947,7 @@ pub(crate) fn record_unavailable_hit(
     let file = catalog
         .entry(crate::model::FileId(hit.file_id))
         .ok_or("materialized hit file missing from pinned catalog")?;
-    let path = repo.files.root.join(&file.relative_path);
+    let path = repo.files.required_root().join(&file.relative_path);
     let range = ByteRange {
         start: hit.byte_start,
         end: hit.byte_end,
@@ -1269,7 +1269,7 @@ fn has_unavailable_active_source(
     catalog: &FileCatalog,
 ) -> bool {
     let unavailable = |file: &FileEntry| {
-        let path = repo.files.root.join(&file.relative_path);
+        let path = repo.files.required_root().join(&file.relative_path);
         probe_source_unavailable_for_search(&path, file.revision, None).is_some()
     };
     for (index, collection) in repo.collections.iter().enumerate() {
@@ -2844,7 +2844,7 @@ fn search_segmented_impl(
                     catalog,
                     crate::model::FileId(file_id),
                 )?;
-                let path = repo.files.root.join(&file.relative_path);
+                let path = repo.files.required_root().join(&file.relative_path);
                 let mut reader = RecordRangeReader::open_for_search(&path, file.revision, context)?;
                 delta_opened.insert(file_id);
                 counters.files_opened += 1;
@@ -2923,7 +2923,7 @@ fn search_segmented_impl(
                             record,
                             file: resolved.file,
                             collection_name: &collection.definition.name,
-                            repository_root: &repo.files.root,
+                            repository_root: &repo.files.required_root(),
                         };
                         total += 1;
                         counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
@@ -5641,7 +5641,7 @@ fn materialize_computed_cached<'a>(
             record,
             file: &repo.files.files[record.file.0 as usize],
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.root,
+            repository_root: &repo.files.required_root(),
         };
         let key = rank_key_from_context(&sort, repo, member.collection_index, &ctx, None)?;
         counters.sort_key_evaluations += 1;
@@ -5724,7 +5724,7 @@ fn materialize_computed_cached<'a>(
                     record,
                     file: &repo.files.files[file_id as usize],
                     collection_name: &collection.definition.name,
-                    repository_root: &repo.files.root,
+                    repository_root: &repo.files.required_root(),
                 };
                 let key = rank_key_from_context(&sort, repo, collection_index, &ctx, None)?;
                 offer_cached_key(

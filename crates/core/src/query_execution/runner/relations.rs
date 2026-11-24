@@ -72,7 +72,7 @@ fn materialize_merged_address(
             })
         }
         ReturnMode::Bytes | ReturnMode::Logical => {
-            let path = repo.files.root.join(&file.relative_path);
+            let path = repo.files.required_root().join(&file.relative_path);
             let bytes = crate::source::access::read_record_range_for_search(
                 &path,
                 file.revision,
@@ -485,7 +485,10 @@ fn scan_direct_target_parallel(
             unavailable: false,
         });
     }
-    let path = repo.files.root.join(&resolved.file.relative_path);
+    let path = repo
+        .files
+        .required_root()
+        .join(&resolved.file.relative_path);
     let bytes = match read_record_range_for_search(
         &path,
         resolved.file.revision,
@@ -523,7 +526,7 @@ fn scan_direct_target_parallel(
         record: resolved.record,
         file: resolved.file,
         collection_name: &target_collection.definition.name,
-        repository_root: &repo.files.root,
+        repository_root: &repo.files.required_root(),
     };
     let matched = match predicate {
         DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
@@ -829,7 +832,10 @@ fn try_direct_relation_page(
                 // residual reads use the checked pinned source identity.
                 true
             } else {
-                let path = repo.files.root.join(&resolved.file.relative_path);
+                let path = repo
+                    .files
+                    .required_root()
+                    .join(&resolved.file.relative_path);
                 if let Some(context) = context {
                     context.charge_reads(1)?;
                     context.charge_bytes(resolved.record.range.len())?;
@@ -867,7 +873,7 @@ fn try_direct_relation_page(
                     record: resolved.record,
                     file: resolved.file,
                     collection_name: &target_collection.definition.name,
-                    repository_root: &repo.files.root,
+                    repository_root: &repo.files.required_root(),
                 };
                 match &predicate {
                     DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
@@ -1325,7 +1331,10 @@ fn scan_relation_file_parallel(
     let resolved = view
         .record(address)?
         .ok_or("active parallel relation source missing")?;
-    let path = repo.files.root.join(&resolved.file.relative_path);
+    let path = repo
+        .files
+        .required_root()
+        .join(&resolved.file.relative_path);
     let mut reader = match RecordRangeReader::open_for_search(&path, resolved.file.revision, None) {
         Ok(reader) => reader,
         Err(message) => {
@@ -1424,7 +1433,7 @@ fn scan_relation_file_parallel(
         record,
         file: resolved.file,
         collection_name: &resolved.collection.definition.name,
-        repository_root: &repo.files.root,
+        repository_root: &repo.files.required_root(),
     };
     let mut evidence = HashSet::new();
     let mut relation_work = crate::query_execution::relations::work::RelationWork::default();
@@ -2254,7 +2263,7 @@ pub(super) fn search_segmented_relations(
                 record,
                 file: resolved.file,
                 collection_name: &resolved.collection.definition.name,
-                repository_root: &repo.files.root,
+                repository_root: &repo.files.required_root(),
             };
             let mut evidence = HashSet::new();
             let mut relation_work =
@@ -2464,7 +2473,10 @@ pub(super) fn search_segmented_relations(
             let resolved = view
                 .record(first)?
                 .ok_or("active merged base file missing")?;
-            let path = repo.files.root.join(&resolved.file.relative_path);
+            let path = repo
+                .files
+                .required_root()
+                .join(&resolved.file.relative_path);
             read_relation_source_file(
                 resolved.file,
                 &path,
@@ -2586,7 +2598,10 @@ pub(super) fn search_segmented_relations(
                 let resolved = view
                     .record(first)?
                     .ok_or("active merged segment file missing")?;
-                let path = repo.files.root.join(&resolved.file.relative_path);
+                let path = repo
+                    .files
+                    .required_root()
+                    .join(&resolved.file.relative_path);
                 read_relation_source_file(
                     resolved.file,
                     &path,

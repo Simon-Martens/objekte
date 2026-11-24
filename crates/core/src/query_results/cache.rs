@@ -294,7 +294,7 @@ pub(crate) fn materialize_lifecycle_cached(
             let payload = if query.options.return_mode == ReturnMode::Locator {
                 Ok(None)
             } else {
-                let path = repo.files.root.join(&file.relative_path);
+                let path = repo.files.required_root().join(&file.relative_path);
                 read_record_range_for_search(&path, file.revision, record.range, None)
                     .and_then(|bytes| {
                         payload_from_bytes(

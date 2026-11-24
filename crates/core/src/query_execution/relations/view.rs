@@ -131,7 +131,7 @@ impl<'a> MergedRelationView<'a> {
         range: crate::inventory::ByteRange,
         message: String,
     ) {
-        let path = self.repo.files.root.join(&file.relative_path);
+        let path = self.repo.files.required_root().join(&file.relative_path);
         self.source_errors.borrow_mut().record(SourceDiagnostic {
             file_id: file.id.0,
             file_path: file.relative_path.to_path_buf(),
@@ -141,7 +141,7 @@ impl<'a> MergedRelationView<'a> {
     }
 
     pub(crate) fn repository_root(&self) -> &std::path::Path {
-        &self.repo.files.root
+        &self.repo.files.required_root()
     }
 
     pub(crate) fn repository(&self) -> &'a Repository {
@@ -541,7 +541,11 @@ impl<'a> MergedRelationView<'a> {
                 execution.check_string()?;
             }
         }
-        let path = self.repo.files.root.join(&resolved.file.relative_path);
+        let path = self
+            .repo
+            .files
+            .required_root()
+            .join(&resolved.file.relative_path);
         let bytes = match read_record_range_for_search(
             &path,
             resolved.file.revision,
@@ -710,7 +714,11 @@ impl<'a> MergedRelationView<'a> {
                 execution.check_string()?;
             }
         }
-        let path = self.repo.files.root.join(&resolved.file.relative_path);
+        let path = self
+            .repo
+            .files
+            .required_root()
+            .join(&resolved.file.relative_path);
         let bytes = match read_record_range_for_search(
             &path,
             resolved.file.revision,

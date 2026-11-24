@@ -204,7 +204,7 @@ pub fn query_page_on_view(
         let first_result_ns =
             (!available.result.hits.is_empty()).then(|| started.elapsed().as_nanos());
         return Ok(QueryPage {
-            repository_root: session.repository.files().root.clone(),
+            repository_root: session.paths.root.clone(),
             instance_id: view.instance_id(),
             revision: view.revision(),
             hits: available.result.hits,
@@ -259,7 +259,7 @@ pub fn query_page_on_view(
                 Some(next)
             };
             Ok(QueryPage {
-                repository_root: session.repository.files().root.clone(),
+                repository_root: session.paths.root.clone(),
                 instance_id: view.instance_id(),
                 revision: view.revision(),
                 hits: page,

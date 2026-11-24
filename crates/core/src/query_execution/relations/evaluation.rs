@@ -857,7 +857,7 @@ fn visit_hop(
                 record,
                 file,
                 collection_name: &collection.definition.name,
-                repository_root: &repo.files.root,
+                repository_root: &repo.files.required_root(),
             };
             merge_truth(
                 truth,
@@ -895,7 +895,7 @@ fn visit_hop(
             record,
             file,
             collection_name: &collection.definition.name,
-            repository_root: &repo.files.root,
+            repository_root: &repo.files.required_root(),
         };
         merge_truth(
             truth,

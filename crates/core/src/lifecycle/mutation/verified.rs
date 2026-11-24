@@ -71,7 +71,7 @@ pub(crate) fn verify_old_content(
     };
     let options = repository.options();
     let reconstructed = prepare_file_build_from_bytes(
-        &repository.files().root,
+        &repository.files().required_root(),
         input,
         old_bytes,
         &bindings,

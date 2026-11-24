@@ -287,7 +287,7 @@ fn incremental_delta_page(
         Ok(Some(result)) => Ok((
             GridRequestKind::Delta(loaded),
             backend::QueryPage {
-                repository_root: session.repository.files().root.clone(),
+                repository_root: session.paths.root.clone(),
                 instance_id: view.instance_id(),
                 revision: view.revision(),
                 first_result_ns: (!result.hits.is_empty()).then(|| started.elapsed().as_nanos()),

@@ -3680,7 +3680,7 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
         record,
         file,
         collection_name: &collection.definition.name,
-        repository_root: &repo.files.root,
+        repository_root: repo.files.required_root(),
     };
     let mut base_fields = std::collections::HashSet::new();
     let mut work = RelationWork::default();

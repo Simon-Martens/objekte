@@ -86,7 +86,7 @@ impl SourceScan {
     }
 
     pub fn root(&self) -> &Path {
-        &self.files.root
+        &self.files.required_root()
     }
 
     pub fn collections(&self) -> impl Iterator<Item = &str> {
@@ -149,7 +149,7 @@ impl SourceScan {
                     return Err("source scan cancelled".into());
                 }
                 let mut file = self.files.files[file_id.0 as usize].clone();
-                let path = self.files.root.join(&file.relative_path);
+                let path = self.files.required_root().join(&file.relative_path);
                 counters.files_opened += 1;
                 counters.distinct_files += 1;
                 extract_file_outcomes_for_search(
@@ -231,7 +231,7 @@ impl SourceScan {
                         };
                         let id = if let Some(record) = &extracted {
                             record_id(
-                                &self.files.root,
+                                &self.files.required_root(),
                                 &collection.definition,
                                 &collection.source,
                                 &path,
@@ -282,7 +282,7 @@ impl SourceScan {
                             record: &entry,
                             file: &file,
                             collection_name: &collection.definition.name,
-                            repository_root: &self.files.root,
+                            repository_root: &self.files.required_root(),
                         };
                         let mut evidence = HashSet::new();
                         let fts_match = match (&fts, &extracted) {

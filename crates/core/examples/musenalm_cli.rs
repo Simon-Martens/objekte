@@ -285,7 +285,7 @@ fn run() -> Result<(), String> {
         "build_parses={} build_failed_parses={} root={} alphabet={alphabet:?}",
         index.build_parses(),
         index.build_failed_parses(),
-        index.files().root.display()
+        index.files().root().expect("Musenalm file root").display()
     );
     if ndjson.is_some() {
         eprintln!("{message}");

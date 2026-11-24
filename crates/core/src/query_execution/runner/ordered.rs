@@ -44,7 +44,7 @@ pub(super) fn read_lifecycle_ordered_record(
 ) -> Result<(Vec<u8>, bool), String> {
     let opened = reader.as_ref().is_none_or(|(id, _)| *id != file.id);
     if opened {
-        let path = repo.files.root.join(&file.relative_path);
+        let path = repo.files.required_root().join(&file.relative_path);
         *reader = Some((
             file.id,
             RecordRangeReader::open_for_search(&path, file.revision, Some(context))?,

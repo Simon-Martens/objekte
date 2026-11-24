@@ -203,7 +203,7 @@ fn prepare_file_at(
     id: FileId,
 ) -> Result<PreparedFileBuild, IndexError> {
     let repository = view.repository();
-    let root = &repository.files().root;
+    let root = &repository.files().required_root();
     let relative = if path.is_absolute() {
         path.strip_prefix(root)
             .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?
@@ -317,7 +317,7 @@ pub(super) fn prepare_replacement_bytes(
         return Err(IndexError::DestinationExists);
     }
     let repository = view.repository();
-    let root = &repository.files().root;
+    let root = &repository.files().required_root();
     let mut bindings = Vec::new();
     for collection in repository.collections() {
         if selects_file(

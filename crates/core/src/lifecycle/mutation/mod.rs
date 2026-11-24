@@ -163,7 +163,7 @@ fn collection_names(
 }
 
 fn relative_path(view: &IndexView, path: &Path) -> Result<PathBuf, IndexError> {
-    let root = &view.repository().files().root;
+    let root = &view.repository().files().required_root();
     let relative = if path.is_absolute() {
         path.strip_prefix(root)
             .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?
@@ -194,7 +194,7 @@ fn path_independent_memberships(
         return Ok(false);
     }
     let repository = view.repository();
-    let root = &repository.files().root;
+    let root = &repository.files().required_root();
     for collection in repository.collections() {
         let selected = selects_file(
             root,
@@ -427,7 +427,7 @@ impl Index {
             if view.file_configuration(handle.file_id) != Some(view.configuration_identity()) {
                 return Ok(None);
             }
-            let absolute = view.repository().files().root.join(&relative);
+            let absolute = view.repository().files().required_root().join(&relative);
             let (digest, revision, creation) = hash_destination(&absolute)?;
             if digest != fingerprint || revision != old.revision || creation != old.created_ns {
                 return Ok(None);

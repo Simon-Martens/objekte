@@ -220,7 +220,7 @@ pub(super) fn scan_file(
                 record,
                 file,
                 collection_name: &collection.definition.name,
-                repository_root: &repo.files.root,
+                repository_root: &repo.files.required_root(),
             };
             let mut evidence = HashSet::new();
             let direct_result = if let Some(direct) = direct {
