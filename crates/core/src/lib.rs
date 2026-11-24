@@ -14,6 +14,7 @@
 //! | Publish a revised index | `lifecycle` | construction, segment publication and repository state |
 
 mod construction;
+pub mod files;
 pub mod index;
 pub mod inference;
 pub mod inventory;
@@ -27,6 +28,7 @@ pub mod query_execution;
 mod query_plan;
 mod query_predicate;
 pub mod query_results;
+pub mod records;
 pub mod reference;
 pub mod repository;
 pub mod schema;

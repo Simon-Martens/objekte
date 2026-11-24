@@ -50,16 +50,28 @@ fn direct_probe(root: &Path) -> Result<(), Box<dyn Error>> {
         ("note", LogicalType::String, false),
     ] {
         definition.schema.register_field(FieldDefinition {
-            path: vec![name.into()], kind, required: true, nullable: false,
-            indexed, multi: false, element_nullable: Vec::new(),
+            path: vec![name.into()],
+            kind,
+            required: true,
+            nullable: false,
+            indexed,
+            multi: false,
+            element_nullable: Vec::new(),
         })?;
     }
-    let index = Index::start_build(root, vec![definition], RepositoryOptions::default(),
-                                   SourceRegistry::builtin())?.wait_complete()?;
+    let index = Index::start_build(
+        root,
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )?
+    .wait_complete()?;
     let view = index.view()?;
     let exact = view.search(&query("year = 1808")?)?;
-    if exact.count != Some(1024) || exact.counters.files_opened != 0 ||
-       exact.counters.bytes_read != 0 {
+    if exact.count != Some(1024)
+        || exact.counters.files_opened != 0
+        || exact.counters.bytes_read != 0
+    {
         return Err(format!("exact count violated: {:?}", exact.counters).into());
     }
     let residual = query("year = 1808 && note ~ 'Leipzig'")?;
@@ -79,24 +91,31 @@ fn direct_probe(root: &Path) -> Result<(), Box<dyn Error>> {
         }
         lookup_samples_ns.push(started.elapsed().as_nanos() as u64);
     }
-    if lookup_hits != 35_000 { return Err("lookup hit count mismatch".into()); }
+    if lookup_hits != 35_000 {
+        return Err("lookup hit count mismatch".into());
+    }
     let mut residual_samples_ns = Vec::new();
     let mut last = None;
     for _ in 0..7 {
         let started = Instant::now();
         let result = view.search(&residual)?;
         residual_samples_ns.push(started.elapsed().as_nanos() as u64);
-        if result.count != Some(1024) { return Err("residual count mismatch".into()); }
+        if result.count != Some(1024) {
+            return Err("residual count mismatch".into());
+        }
         black_box(&result.count);
         last = Some(result.counters);
     }
-    println!("{}", json!({
-        "records": 16384, "lookup_operations_per_sample": 10000,
-        "lookup_hits": lookup_hits, "lookup_samples_ns": lookup_samples_ns,
-        "residual_samples_ns": residual_samples_ns,
-        "residual_count": 1024, "residual_counters": last,
-        "exact_count": exact.count, "exact_counters": exact.counters,
-    }));
+    println!(
+        "{}",
+        json!({
+            "records": 16384, "lookup_operations_per_sample": 10000,
+            "lookup_hits": lookup_hits, "lookup_samples_ns": lookup_samples_ns,
+            "residual_samples_ns": residual_samples_ns,
+            "residual_count": 1024, "residual_counters": last,
+            "exact_count": exact.count, "exact_counters": exact.counters,
+        })
+    );
     Ok(())
 }
 
@@ -112,29 +131,45 @@ fn bytes_hex(bytes: &[u8]) -> String {
 
 fn canonical(root: &Path, alphabet: BigramAlphabet, extended: bool) -> Result<(), Box<dyn Error>> {
     let historical = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
-    let additional = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json");
+    let additional =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json");
     let cases = if extended {
         load_extended_manifest(&historical, &additional)?
     } else {
-        load_manifest(&historical)?.into_iter().map(|request| {
-            objekte_search_core::workload::BenchmarkCase {
-                request, parameters: BTreeMap::new(), clock_unix_seconds: None,
-            }
-        }).collect()
+        load_manifest(&historical)?
+            .into_iter()
+            .map(|request| objekte_search_core::workload::BenchmarkCase {
+                request,
+                parameters: BTreeMap::new(),
+                clock_unix_seconds: None,
+            })
+            .collect()
     };
     let (definitions, _) = if extended {
         musenalm::load_extended_definitions_with_schemas(root)?
     } else {
         musenalm::load_definitions_with_schemas(root)?
     };
-    let index = Index::start_build(root, definitions,
-        RepositoryOptions { bigram_alphabet: alphabet, query_workers: 1,
-                            ..RepositoryOptions::default() },
-        SourceRegistry::builtin())?.wait_complete()?;
+    let index = Index::start_build(
+        root,
+        definitions,
+        RepositoryOptions {
+            bigram_alphabet: alphabet,
+            query_workers: 1,
+            ..RepositoryOptions::default()
+        },
+        SourceRegistry::builtin(),
+    )?
+    .wait_complete()?;
     let view = index.view()?;
     let mut output = Vec::new();
     for case in cases {
-        if extended && !matches!(case.id.as_str(), "Q155" | "Q163" | "Q166" | "Q170" | "Q195" | "Q219") {
+        if extended
+            && !matches!(
+                case.id.as_str(),
+                "Q155" | "Q163" | "Q166" | "Q170" | "Q195" | "Q219"
+            )
+        {
             continue;
         }
         let result = view.search(&case.query()?)?;
@@ -159,9 +194,12 @@ fn canonical(root: &Path, alphabet: BigramAlphabet, extended: bool) -> Result<()
     }
     let encoded = serde_json::to_vec(&output)?;
     let digest = Sha256::digest(&encoded);
-    println!("{}", json!({"alphabet": format!("{alphabet:?}"),
+    println!(
+        "{}",
+        json!({"alphabet": format!("{alphabet:?}"),
                              "extended": extended, "semantic_sha256": format!("{digest:x}"),
-                             "cases": output}));
+                             "cases": output})
+    );
     Ok(())
 }
 

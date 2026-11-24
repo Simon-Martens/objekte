@@ -357,12 +357,8 @@ pub struct RecordSlot(pub u32);
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct RecordId(pub std::sync::Arc<str>);
 
-/// Collection-scoped identity used outside slot storage.
-#[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
-pub struct RecordIdentity {
-    pub collection: CollectionId,
-    pub record: RecordId,
-}
+/// Compatibility import for the collection-scoped key owned by `records`.
+pub use crate::records::RecordKey as RecordIdentity;
 
 impl RecordId {
     pub fn intrinsic(text: impl Into<String>) -> Result<Self, String> {
