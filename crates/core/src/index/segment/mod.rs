@@ -257,6 +257,78 @@ pub(crate) enum SegmentBacking {
 
 #[allow(dead_code)] // Retained and provider accessors are used by their scan dispatch.
 impl SegmentBacking {
+    /// Concatenate compatible columns while sharing retained body blocks.
+    pub(crate) fn concatenate(backings: &[&Self]) -> Result<Self, String> {
+        let first = backings
+            .first()
+            .ok_or("no segment backing to concatenate")?;
+        match first {
+            Self::FileRange { .. } => {
+                let mut locators = Vec::new();
+                for backing in backings {
+                    let Self::FileRange { locators: source } = backing else {
+                        return Err("mixed segment backings in consolidation".into());
+                    };
+                    locators.extend_from_slice(source);
+                }
+                Ok(Self::FileRange { locators })
+            }
+            Self::Retained { registration, .. } => {
+                let mut blocks = Vec::new();
+                let mut addresses = Vec::new();
+                for backing in backings {
+                    let Self::Retained {
+                        blocks: source_blocks,
+                        addresses: source_addresses,
+                        registration: source_registration,
+                    } = backing
+                    else {
+                        return Err("mixed segment backings in consolidation".into());
+                    };
+                    if source_registration != registration {
+                        return Err("retained registration mismatch in consolidation".into());
+                    }
+                    let offset =
+                        u32::try_from(blocks.len()).map_err(|_| "too many retained blocks")?;
+                    blocks.extend(source_blocks.iter().cloned());
+                    for address in source_addresses {
+                        addresses.push(RetainedAddress {
+                            block: offset
+                                .checked_add(address.block)
+                                .ok_or("retained block index overflow")?,
+                            offset: address.offset,
+                        });
+                    }
+                }
+                Ok(Self::Retained {
+                    blocks,
+                    addresses,
+                    registration: *registration,
+                })
+            }
+            Self::Provider { registration, .. } => {
+                let mut versions = Vec::new();
+                for backing in backings {
+                    let Self::Provider {
+                        versions: source,
+                        registration: source_registration,
+                    } = backing
+                    else {
+                        return Err("mixed segment backings in consolidation".into());
+                    };
+                    if source_registration != registration {
+                        return Err("provider registration mismatch in consolidation".into());
+                    }
+                    versions.extend_from_slice(source);
+                }
+                Ok(Self::Provider {
+                    versions,
+                    registration: *registration,
+                })
+            }
+        }
+    }
+
     pub(crate) fn file_ranges(records: &[RecordEntry]) -> Self {
         Self::FileRange {
             locators: records
@@ -315,6 +387,54 @@ impl SegmentBacking {
             return None;
         };
         versions.get(slot.0 as usize).copied()
+    }
+}
+
+#[cfg(test)]
+mod backing_tests {
+    use super::*;
+
+    #[test]
+    fn retained_consolidation_shares_blocks_and_remaps_addresses() {
+        let first_block: Arc<[RetainedBody]> = vec![RetainedBody {
+            value: Value::Object(Default::default()),
+            text: Vec::new(),
+        }]
+        .into();
+        let second_block: Arc<[RetainedBody]> = vec![RetainedBody {
+            value: Value::String("second".into()),
+            text: Vec::new(),
+        }]
+        .into();
+        let first = SegmentBacking::Retained {
+            blocks: vec![Arc::clone(&first_block)],
+            addresses: vec![RetainedAddress {
+                block: 0,
+                offset: 0,
+            }],
+            registration: 4,
+        };
+        let second = SegmentBacking::Retained {
+            blocks: vec![Arc::clone(&second_block)],
+            addresses: vec![RetainedAddress {
+                block: 0,
+                offset: 0,
+            }],
+            registration: 4,
+        };
+        let combined = SegmentBacking::concatenate(&[&first, &second]).unwrap();
+        let SegmentBacking::Retained {
+            blocks, addresses, ..
+        } = &combined
+        else {
+            panic!("wrong backing");
+        };
+        assert!(Arc::ptr_eq(&blocks[0], &first_block));
+        assert!(Arc::ptr_eq(&blocks[1], &second_block));
+        assert_eq!(addresses[1].block, 1);
+        assert!(
+            matches!(combined.retained_body(RecordSlot(1)).unwrap().value, Value::String(ref value) if value == "second")
+        );
     }
 }
 
