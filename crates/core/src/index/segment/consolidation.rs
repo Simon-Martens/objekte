@@ -559,6 +559,7 @@ impl IndexedCollectionSegment {
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;
+        let backing = super::SegmentBacking::file_ranges(&records);
         let mut index = IndexedCollectionSegment {
             id: first.id,
             collection: first.collection,
@@ -567,6 +568,7 @@ impl IndexedCollectionSegment {
             files,
             file_index,
             records,
+            backing,
             id_lookup,
             identity_order,
             postings,

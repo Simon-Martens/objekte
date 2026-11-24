@@ -98,6 +98,8 @@ pub(crate) fn base_as_segment(
             .map_err(IndexError::InvalidPublication)
         })
         .collect::<Result<Vec<_>, _>>()?;
+    let records = collection.generation.records.clone();
+    let backing = crate::index::segment::SegmentBacking::file_ranges(&records);
     let mut segment = IndexedCollectionSegment {
         id: crate::index::segment::SegmentId::new(1),
         collection: collection.generation.collection,
@@ -105,7 +107,8 @@ pub(crate) fn base_as_segment(
         source_version: collection.source.version(),
         files: segment_files,
         file_index,
-        records: collection.generation.records.clone(),
+        records,
+        backing,
         id_lookup: collection.id_lookup.clone(),
         identity_order: collection.identity_order.clone(),
         postings: collection.postings.clone(),

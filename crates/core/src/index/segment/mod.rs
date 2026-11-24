@@ -20,10 +20,12 @@ use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
 use crate::inference::InferenceState;
-use crate::inventory::{ActiveRecords, RecordEntry};
+use crate::inventory::{ActiveRecords, ByteRange, RecordEntry, SourceRevision};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, Number, RecordSlot};
+use crate::model::{CollectionId, FileId, Number, RecordSlot, Value};
+use crate::records::RecordVersion;
+use crate::source::TextSegment;
 
 const ACCOUNTING_OVERHEAD: usize = 48;
 
@@ -209,6 +211,101 @@ pub(crate) struct SegmentFile {
     pub records: Vec<RecordSlot>,
 }
 
+/// Source-specific file coordinates, addressed by the common record slot.
+/// A file-only provenance link can omit the byte range; ordinary file imports
+/// always supply one.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct FileRangeLocator {
+    pub file: FileId,
+    pub range: Option<ByteRange>,
+    pub revision: SourceRevision,
+}
+
+/// A retained body belongs to an immutable block shared by segments and old
+/// views. Compaction moves block coordinates without copying `Value` trees.
+#[derive(Clone, Debug)]
+#[allow(dead_code)] // Retained construction and reads are wired with direct ingestion.
+pub(crate) struct RetainedBody {
+    pub value: Value,
+    pub text: Vec<TextSegment>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct RetainedAddress {
+    pub block: u32,
+    pub offset: u32,
+}
+
+/// One backing is selected before a segment scan. Per-record coordinates live
+/// in compact slot-indexed columns; registrations are segment-scoped.
+#[derive(Clone)]
+#[allow(dead_code)] // The other variants are populated by the direct registrars.
+pub(crate) enum SegmentBacking {
+    FileRange {
+        locators: Vec<FileRangeLocator>,
+    },
+    Retained {
+        blocks: Vec<Arc<[RetainedBody]>>,
+        addresses: Vec<RetainedAddress>,
+        registration: u32,
+    },
+    Provider {
+        versions: Vec<RecordVersion>,
+        registration: u32,
+    },
+}
+
+#[allow(dead_code)] // Retained and provider accessors are used by their scan dispatch.
+impl SegmentBacking {
+    pub(crate) fn file_ranges(records: &[RecordEntry]) -> Self {
+        Self::FileRange {
+            locators: records
+                .iter()
+                .map(|record| FileRangeLocator {
+                    file: record.file,
+                    range: Some(record.range),
+                    revision: record.revision,
+                })
+                .collect(),
+        }
+    }
+
+    pub(crate) fn record_count(&self) -> usize {
+        match self {
+            Self::FileRange { locators } => locators.len(),
+            Self::Retained { addresses, .. } => addresses.len(),
+            Self::Provider { versions, .. } => versions.len(),
+        }
+    }
+
+    pub(crate) fn file_locator(&self, slot: RecordSlot) -> Option<FileRangeLocator> {
+        match self {
+            Self::FileRange { locators } => locators.get(slot.0 as usize).copied(),
+            _ => None,
+        }
+    }
+
+    pub(crate) fn retained_body(&self, slot: RecordSlot) -> Option<&RetainedBody> {
+        let Self::Retained {
+            blocks, addresses, ..
+        } = self
+        else {
+            return None;
+        };
+        let address = addresses.get(slot.0 as usize)?;
+        blocks
+            .get(address.block as usize)?
+            .get(address.offset as usize)
+    }
+
+    pub(crate) fn provider_version(&self, slot: RecordSlot) -> Option<RecordVersion> {
+        let Self::Provider { versions, .. } = self else {
+            return None;
+        };
+        versions.get(slot.0 as usize).copied()
+    }
+}
+
 /// Saturating native retained-size and query-planning estimates.
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct SegmentAccounting {
@@ -249,6 +346,7 @@ pub(crate) struct IndexedCollectionSegment {
     pub files: Vec<SegmentFile>,
     pub file_index: HashMap<FileId, usize>,
     pub records: Vec<RecordEntry>,
+    pub backing: SegmentBacking,
     pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub postings: PostingCollection,
@@ -526,7 +624,8 @@ impl IndexedCollectionSegment {
     }
 
     pub(crate) fn record_count(&self) -> usize {
-        self.records.len()
+        debug_assert_eq!(self.records.len(), self.backing.record_count());
+        self.backing.record_count()
     }
 
     pub(crate) fn max_record_range_len(&self) -> u64 {

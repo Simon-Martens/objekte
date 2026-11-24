@@ -988,6 +988,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.identity_order_ns = started.elapsed().as_nanos() as u64;
         }
+        let backing = crate::index::segment::SegmentBacking::file_ranges(&self.records);
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
@@ -996,6 +997,7 @@ impl CollectionSegment {
             files: self.files,
             file_index: self.file_index,
             records: self.records,
+            backing,
             id_lookup: self.id_lookup,
             identity_order,
             postings,

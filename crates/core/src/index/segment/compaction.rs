@@ -366,6 +366,7 @@ impl IndexedCollectionSegment {
         for index in custom_text.values() {
             index.validate(records.len())?;
         }
+        let backing = super::SegmentBacking::file_ranges(&records);
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
@@ -374,6 +375,7 @@ impl IndexedCollectionSegment {
             files,
             file_index,
             records,
+            backing,
             id_lookup,
             identity_order,
             postings,

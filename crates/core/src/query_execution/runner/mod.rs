@@ -592,9 +592,16 @@ pub(crate) fn segment_record_ref<'a>(
         return Ok(None);
     }
     let record = segment.record(slot).ok_or("segment record slot missing")?;
+    let locator = segment
+        .backing
+        .file_locator(slot)
+        .ok_or("segment record has no file-range backing")?;
+    debug_assert_eq!(locator.file, record.file);
+    debug_assert_eq!(locator.range, Some(record.range));
+    debug_assert_eq!(locator.revision, record.revision);
     let file_index = segment
         .file_index
-        .get(&record.file)
+        .get(&locator.file)
         .copied()
         .ok_or("segment record file missing")?;
     let segment_revision = segment
@@ -603,7 +610,7 @@ pub(crate) fn segment_record_ref<'a>(
         .map(|file| file.entry.revision)
         .ok_or("segment record file missing")?;
     let file = catalog
-        .entry(record.file)
+        .entry(locator.file)
         .ok_or("active segment record file is retired")?;
     // The catalog owns the path in this publication. A compatible move may
     // route an unchanged segment to a new path without rebuilding postings.
