@@ -877,6 +877,14 @@ fn process_custom_stream_profiled(
         } else {
             None
         };
+        // Each file still charges completed results to its local window.
+        // Release shared input capacity when the decoder frees the chunk,
+        // even if this file pauses before it can consume the result.
+        let (worker_credit, credit) = if file_window > 1 {
+            (credit, None)
+        } else {
+            (None, credit)
+        };
         stats.peak_weight_bytes = stats.peak_weight_bytes.max(buffered.saturating_add(weight));
         let worker_budget = shared_budget.cloned();
         let (send, receive) = mpsc::sync_channel(1);
@@ -931,6 +939,7 @@ fn process_custom_stream_profiled(
             }))
             .unwrap_or_else(|_| Err("registered decoder panicked".into()));
             drop(chunk);
+            drop(worker_credit);
             drop(active);
             let completed = worker_budget
                 .as_ref()
@@ -2501,6 +2510,11 @@ fn process_pull_framed_input(
             } else {
                 None
             };
+            let (worker_credit, credit) = if file_window > 1 {
+                (credit, None)
+            } else {
+                (None, credit)
+            };
             let chunk = pending.take().expect("checked pending chunk");
             let index = dispatched;
             let sender = sender.clone();
@@ -2549,6 +2563,7 @@ fn process_pull_framed_input(
                 }))
                 .unwrap_or_else(|_| Err("file decoder panicked".into()));
                 drop(chunk);
+                drop(worker_credit);
                 drop(active);
                 let completed = worker_budget
                     .as_ref()
