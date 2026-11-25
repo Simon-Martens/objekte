@@ -529,6 +529,7 @@ fn process_custom_stream_profiled(
     expected_bytes: Option<&[u8]>,
     hash: bool,
     limits: BoundedBuildLimits,
+    record_target: usize,
     shared_budget: Option<&StreamBudget>,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<(BuildScheduleStats, Option<[u8; 32]>), String> {
@@ -546,11 +547,8 @@ fn process_custom_stream_profiled(
     let inline = pool.current_num_threads() == 1 || pool.current_thread_index().is_some();
     let window = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let counters = Arc::new(JobCounters::default());
-    type Waiting<'a> = (
-        u64,
-        mpsc::Receiver<Result<BatchContribution, String>>,
-        Option<StreamCredit<'a>>,
-    );
+    type ChunkResult = Result<(BatchContribution, Option<BatchContribution>), String>;
+    type Waiting<'a> = (u64, mpsc::Receiver<ChunkResult>, Option<StreamCredit<'a>>);
     let mut waiting = VecDeque::<Waiting<'_>>::new();
     let mut stats = BuildScheduleStats {
         weight_limit_bytes: limits.admitted_bytes,
@@ -562,8 +560,9 @@ fn process_custom_stream_profiled(
     let mut previous_lines = 0;
     let mut emitted = 0usize;
     let mut ordinal = 0usize;
+    let mut remaining = record_target;
 
-    let mut drain = |pending: Waiting<'_>, ready: Option<Result<BatchContribution, String>>| {
+    let mut drain = |pending: Waiting<'_>, ready: Option<ChunkResult>| {
         let started = crate::measurement::timer::DetailedInstant::now();
         let result = match ready {
             Some(result) => result,
@@ -573,7 +572,11 @@ fn process_custom_stream_profiled(
                 .map_err(|error| format!("stream decoder stopped: {error}"))?,
         };
         let wait = started.elapsed().as_nanos() as u64;
-        result.and_then(&mut admit)?;
+        let (part, continuation) = result?;
+        admit(part)?;
+        if let Some(continuation) = continuation {
+            admit(continuation)?;
+        }
         counters.admitted.fetch_add(1, Ordering::Relaxed);
         Ok::<_, String>(wait)
     };
@@ -609,25 +612,42 @@ fn process_custom_stream_profiled(
         let counters = Arc::clone(&counters);
         let index = ordinal;
         ordinal += 1;
+        let split = remaining.min(chunk.ranges.len());
+        remaining -= split;
+        if remaining == 0 {
+            remaining = record_target - (chunk.ranges.len() - split);
+        }
         let execute = move || {
             let result = counters.run(|| {
-                process_framed_batch(
-                    &root,
-                    &input,
-                    &FilePreparationBinding {
-                        collection,
-                        definition: &definition,
-                        source: &source,
-                    },
-                    &chunk.bytes,
-                    &chunk.ranges,
-                    chunk.file_offset,
-                    chunk.preceding_lines,
-                    index == 0,
-                    alphabet,
-                    inference,
-                    window,
-                )
+                let binding = FilePreparationBinding {
+                    collection,
+                    definition: &definition,
+                    source: &source,
+                };
+                let process = |ranges, first| {
+                    process_framed_batch(
+                        &root,
+                        &input,
+                        &binding,
+                        &chunk.bytes,
+                        ranges,
+                        chunk.file_offset,
+                        chunk.preceding_lines,
+                        first,
+                        alphabet,
+                        inference,
+                        window,
+                    )
+                };
+                // A reader chunk can straddle a segment boundary. Both
+                // parts borrow the same buffer and decode disjoint ranges.
+                let part = process(&chunk.ranges[..split], index == 0)?;
+                let continuation = if split < chunk.ranges.len() {
+                    Some(process(&chunk.ranges[split..], false)?)
+                } else {
+                    None
+                };
+                Ok((part, continuation))
             });
             let _ = send.send(result);
         };
@@ -1005,6 +1025,7 @@ fn prepare_managed_stream(
             expected_bytes,
             hash,
             limits,
+            policy.target_records.get(),
             Some(&repository.stream_budget),
             &mut consume,
         )?;
@@ -1032,6 +1053,7 @@ fn prepare_managed_stream(
             options.detailed_profiling_enabled(),
             reader,
             limits,
+            policy.target_records.get(),
             Some(&repository.stream_budget),
             &mut consume,
         )?;
@@ -1414,6 +1436,7 @@ pub(crate) fn process_framed_file(
         alphabet,
         inference,
         false,
+        usize::MAX,
         &mut admit,
     )
 }
@@ -1429,6 +1452,7 @@ pub(crate) fn process_framed_file_profiled(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     profile_build: bool,
+    record_target: usize,
     admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     process_framed_file_with_budget(
@@ -1442,6 +1466,7 @@ pub(crate) fn process_framed_file_profiled(
         alphabet,
         inference,
         profile_build,
+        record_target,
         None,
         admit,
     )
@@ -1458,9 +1483,12 @@ pub(super) fn process_framed_file_with_budget(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     profile_build: bool,
+    record_target: usize,
     shared_budget: Option<&StreamBudget>,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
+    let mut limits = BoundedBuildLimits::default();
+    limits.ranges = limits.ranges.min(record_target);
     if source.reader().supports_streaming_build() {
         let input = source_files[file_id.0 as usize].clone();
         let path = root.join(&input.relative_path);
@@ -1482,7 +1510,8 @@ pub(super) fn process_framed_file_with_budget(
             inference,
             None,
             true,
-            BoundedBuildLimits::default(),
+            limits,
+            record_target,
             shared_budget,
             admit,
         )?;
@@ -1502,6 +1531,8 @@ pub(super) fn process_framed_file_with_budget(
             alphabet,
             inference,
             profile_build,
+            record_target,
+            shared_budget,
             admit,
         );
     }
@@ -1720,6 +1751,8 @@ fn process_bounded_json_lines_file(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     profile_build: bool,
+    record_target: usize,
+    shared_budget: Option<&StreamBudget>,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
@@ -1760,19 +1793,20 @@ fn process_bounded_json_lines_file(
         bytes_read: &bytes_read,
         expected_bytes: None,
     }));
-    let mut stats = process_bounded_json_lines_reader(
+    let mut stats = process_bounded_json_lines_input(
         pool,
         root,
         definition,
         collection,
         source,
-        file_id,
-        source_files,
+        Arc::new(input.clone()),
         alphabet,
         inference,
         profile_build,
         reader,
         BoundedBuildLimits::default(),
+        record_target,
+        shared_budget,
         admit,
     )?;
     crate::source::access::check_revision(&path, &file, input.revision)?;
@@ -1804,6 +1838,7 @@ impl Default for BoundedBuildLimits {
     }
 }
 
+#[cfg(test)]
 pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -1832,6 +1867,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
         profile_build,
         reader,
         limits,
+        usize::MAX,
         None,
         admit,
     )
@@ -1849,6 +1885,7 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     profile_build: bool,
     mut reader: BoundedJsonLines<R>,
     limits: BoundedBuildLimits,
+    record_target: usize,
     shared_budget: Option<&StreamBudget>,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
@@ -1856,8 +1893,19 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     // Failed input aborts private work. Reopening the pathname here could
     // read a different file from the one being observed.
+    let mut remaining = record_target;
+    let mut next_chunk = || {
+        let chunk = reader.next_chunk(limits.chunk_bytes, limits.ranges.min(remaining))?;
+        if let Some(chunk) = &chunk {
+            remaining -= chunk.ranges.len();
+            if remaining == 0 {
+                remaining = record_target;
+            }
+        }
+        Ok::<_, String>(chunk)
+    };
     let first_started = crate::measurement::timer::start_if_enabled(profile_build);
-    let first = match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
+    let first = match next_chunk() {
         Ok(Some(chunk)) => chunk,
         Ok(None) => BoundedBuildChunk {
             bytes: Vec::new(),
@@ -1889,7 +1937,7 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
         while dispatched - next < max_jobs {
             if pending.is_none() && !eof {
                 let started = crate::measurement::timer::start_if_enabled(profile_build);
-                match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
+                match next_chunk() {
                     Ok(Some(chunk)) => {
                         if let Some(started) = started {
                             stats.framing_ns += started.elapsed().as_nanos() as u64;

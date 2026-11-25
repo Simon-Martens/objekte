@@ -383,7 +383,7 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
         RepositoryOptions {
             build_workers: std::num::NonZeroUsize::new(1),
             segment_policy: crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(256).unwrap(),
                 max_files: std::num::NonZeroUsize::new(1).unwrap(),
             },
             ..Default::default()
@@ -431,7 +431,7 @@ fn large_file_finalizes_private_segments_before_eof() {
             RepositoryOptions {
                 build_workers: std::num::NonZeroUsize::new(1),
                 segment_policy: crate::index::segment::SegmentPolicy {
-                    target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                    target_records: std::num::NonZeroUsize::new(256).unwrap(),
                     max_files: std::num::NonZeroUsize::new(1).unwrap(),
                 },
                 ..Default::default()
@@ -487,7 +487,7 @@ fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
             RepositoryOptions {
                 build_workers: std::num::NonZeroUsize::new(workers),
                 segment_policy: crate::index::segment::SegmentPolicy {
-                    target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                    target_records: std::num::NonZeroUsize::new(256).unwrap(),
                     max_files: std::num::NonZeroUsize::new(1).unwrap(),
                 },
                 ..Default::default()
@@ -537,7 +537,7 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
             RepositoryOptions {
                 build_workers: std::num::NonZeroUsize::new(2),
                 segment_policy: crate::index::segment::SegmentPolicy {
-                    target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                    target_records: std::num::NonZeroUsize::new(256).unwrap(),
                     max_files: std::num::NonZeroUsize::new(1).unwrap(),
                 },
                 inference: InferenceConfig {
@@ -655,7 +655,7 @@ fn private_final_drain_consumes_worker_error_before_returning() {
                 RepositoryOptions {
                     build_workers: std::num::NonZeroUsize::new(4),
                     segment_policy: crate::index::segment::SegmentPolicy {
-                        target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                        target_records: std::num::NonZeroUsize::new(256).unwrap(),
                         max_files: std::num::NonZeroUsize::new(1).unwrap(),
                     },
                     inference: InferenceConfig {
@@ -783,7 +783,7 @@ fn private_work_cancels_while_outstanding_and_after_validation() {
                     RepositoryOptions {
                         build_workers: std::num::NonZeroUsize::new(1),
                         segment_policy: crate::index::segment::SegmentPolicy {
-                            target_records: std::num::NonZeroUsize::new(1).unwrap(),
+                            target_records: std::num::NonZeroUsize::new(256).unwrap(),
                             max_files: std::num::NonZeroUsize::new(1).unwrap(),
                         },
                         ..Default::default()
@@ -1841,4 +1841,68 @@ fn registered_stream_seals_private_work_before_eof_and_discards_late_failure() {
         assert_eq!(pinned.file_record_count(FileId(0)), None);
         std::fs::remove_dir_all(root).unwrap();
     }
+}
+
+#[test]
+fn small_jsonl_partitions_follow_the_record_target_across_file_continuations() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-small-jsonl-segments-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let bytes = |start| {
+        (start..start + 10)
+            .map(|id| format!("{{\"id\":\"row-{id}\"}}\n"))
+            .collect::<String>()
+    };
+    std::fs::write(root.join("data/initial.jsonl"), bytes(0)).unwrap();
+    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+    definition.identity =
+        crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
+    let index = Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: NonZeroUsize::new(4).unwrap(),
+                max_files: NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let pinned = index.view().unwrap();
+    assert_eq!(
+        pinned
+            .segment_summaries()
+            .iter()
+            .map(|segment| segment.records)
+            .collect::<Vec<_>>(),
+        [4, 4, 2]
+    );
+    let next = root.join("data/next.jsonl");
+    std::fs::write(&next, bytes(10)).unwrap();
+    let added = index.add_file(&next).unwrap();
+    assert_eq!(added.indexed_records, 10);
+    let after = index.view().unwrap();
+    assert_eq!(after.file_record_count(added.file.file_id), Some(10));
+    assert!(
+        after
+            .segment_summaries()
+            .iter()
+            .all(|segment| segment.files == 1)
+    );
+    assert_eq!(
+        after
+            .segment_summaries()
+            .iter()
+            .map(|segment| segment.records)
+            .sum::<usize>(),
+        20
+    );
+    assert_eq!(pinned.file_record_count(FileId(0)), Some(10));
+    std::fs::remove_dir_all(root).unwrap();
 }

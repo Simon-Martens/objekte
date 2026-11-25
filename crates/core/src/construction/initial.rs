@@ -98,6 +98,7 @@ fn stage_small_stream(
         options.bigram_alphabet,
         options.inference,
         options.detailed_profiling_enabled(),
+        options.segment_policy.target_records.get(),
         Some(shared_budget),
         |batch| {
             parses += batch.record_parses;
@@ -846,8 +847,27 @@ impl Repository {
                 &ordinary
             };
             let streams = state.source.reader().supports_streaming_build();
+            let bounded_lines = state.source.reader().supports_bounded_json_lines_build();
+            let record_target = options.segment_policy.target_records.get() as u64;
+            let needs_chunks = |file: FileId| {
+                let size = discovered.files[file.0 as usize].revision.size;
+                streams || size > 8 * 1024 * 1024
+                    // Even one-byte records need a separator, except at EOF.
+                    || (bounded_lines && size.div_ceil(2) > record_target)
+            };
             let batches = if streams {
                 members.chunks(1).collect::<Vec<_>>()
+            } else if bounded_lines {
+                crate::construction::batch::file_batches(members, &discovered)
+                    .into_iter()
+                    .flat_map(|batch| {
+                        if batch.iter().copied().any(needs_chunks) {
+                            batch.chunks(1).collect::<Vec<_>>()
+                        } else {
+                            vec![batch]
+                        }
+                    })
+                    .collect()
             } else {
                 crate::construction::batch::file_batches(members, &discovered)
             };
@@ -861,10 +881,7 @@ impl Repository {
                     small_streams.push(batch[0]);
                     continue;
                 }
-                if batch.len() == 1
-                    && (streams
-                        || discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024)
-                {
+                if batch.len() == 1 && needs_chunks(batch[0]) {
                     large_jobs.push(ScheduledBuildJob::Large {
                         collection_index,
                         collection: state.id,
@@ -993,6 +1010,7 @@ impl Repository {
                             options.bigram_alphabet,
                             options.inference,
                             options.detailed_profiling_enabled(),
+                            options.segment_policy.target_records.get(),
                             |batch| {
                                 if cancelled() {
                                     return Err("initial construction cancelled".into());
@@ -1306,14 +1324,30 @@ impl Repository {
                     .reader()
                     .supports_streaming_build()
             });
-            let batches = if streaming {
-                files.chunks(1).collect::<Vec<_>>()
-            } else {
-                crate::construction::batch::file_batches(&files, &discovered)
-                    .into_iter()
-                    .flat_map(|batch| batch.chunks(options.segment_policy.max_files.get()))
-                    .collect()
+            let bounded_lines = bindings.iter().any(|id| {
+                pending[id.0 as usize]
+                    .source
+                    .reader()
+                    .supports_bounded_json_lines_build()
+            });
+            let needs_chunks = |file: FileId| {
+                let size = discovered.files[file.0 as usize].revision.size;
+                streaming
+                    || size > 8 * 1024 * 1024
+                    || (bounded_lines
+                        && size.div_ceil(2) > options.segment_policy.target_records.get() as u64)
             };
+            let batches = crate::construction::batch::file_batches(&files, &discovered)
+                .into_iter()
+                .flat_map(|batch| {
+                    let limit = if batch.iter().copied().any(needs_chunks) {
+                        1
+                    } else {
+                        options.segment_policy.max_files.get()
+                    };
+                    batch.chunks(limit)
+                })
+                .collect::<Vec<_>>();
             for files in batches {
                 let mut builds = Vec::new();
                 let collection_count = pending.len();
@@ -1356,11 +1390,7 @@ impl Repository {
                         }
                         Ok(())
                     };
-                    if files.len() == 1
-                        && (streaming
-                            || discovered.files[files[0].0 as usize].revision.size
-                                > 8 * 1024 * 1024)
-                    {
+                    if files.len() == 1 && needs_chunks(files[0]) {
                         let stats =
                             crate::construction::file_preparation::process_framed_file_profiled(
                                 &pool,
@@ -1373,6 +1403,7 @@ impl Repository {
                                 options.bigram_alphabet,
                                 options.inference,
                                 options.detailed_profiling_enabled(),
+                                options.segment_policy.target_records.get(),
                                 &mut admit,
                             )
                             .map_err(|error| {
