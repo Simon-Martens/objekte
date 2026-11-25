@@ -4,8 +4,7 @@ use std::time::SystemTime;
 use super::relative_path;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
-    BytesPreparationError, FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild,
-    prepare_file_build, prepare_file_build_from_bytes,
+    FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_file_build,
 };
 use crate::construction::segment_admission::SegmentAdmission;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
@@ -312,8 +311,7 @@ pub(super) fn prepare_replacement_bytes(
             actual,
         });
     }
-    let previous = view
-        .file_entry(handle.file_id)
+    view.file_entry(handle.file_id)
         .ok_or(IndexError::UnknownFile)?;
     let relative = relative_path(&view, path)?;
     if view
@@ -350,33 +348,69 @@ pub(super) fn prepare_replacement_bytes(
             "no configured collection selects this file".into(),
         ));
     }
+    // The byte form is a conditional update, never an alternative source of
+    // indexed file content. Compare against the file opened by core before
+    // preparing the managed path below.
+    let source_path = root.join(&relative);
+    let mut opened = std::fs::File::open(&source_path)
+        .map_err(|error| IndexError::SourceUnavailable(error.to_string()))?;
+    let metadata = opened
+        .metadata()
+        .map_err(|error| IndexError::SourceUnavailable(error.to_string()))?;
+    let observed =
+        SourceRevision::from_metadata(&metadata).map_err(IndexError::SourceUnavailable)?;
+    if observed != revision {
+        return Err(IndexError::SourceUnavailable(
+            "declared source revision differs from core observation".into(),
+        ));
+    }
+    let mut chunk = [0u8; 64 * 1024];
+    let mut offset = 0usize;
+    loop {
+        let count = std::io::Read::read(&mut opened, &mut chunk)
+            .map_err(|error| IndexError::SourceUnavailable(error.to_string()))?;
+        if count == 0 {
+            break;
+        }
+        let end = offset
+            .checked_add(count)
+            .ok_or_else(|| IndexError::SourceUnavailable("source size overflow".into()))?;
+        if bytes.get(offset..end) != Some(&chunk[..count]) {
+            return Err(IndexError::SourceUnavailable(
+                "supplied bytes differ from core-observed file".into(),
+            ));
+        }
+        offset = end;
+    }
+    if offset != bytes.len()
+        || SourceRevision::from_metadata(
+            &opened
+                .metadata()
+                .map_err(|error| IndexError::SourceUnavailable(error.to_string()))?,
+        )
+        .map_err(IndexError::SourceUnavailable)?
+            != observed
+    {
+        return Err(IndexError::SourceUnavailable(
+            "source changed during byte comparison".into(),
+        ));
+    }
     let input = SourceFileInput {
         id: handle.file_id,
         relative_path: relative.into(),
-        revision,
-        created_ns: previous.created_ns,
+        revision: observed,
+        created_ns: created_ns(&metadata),
     };
     let options = repository.options();
-    let file = prepare_file_build_from_bytes(
+    let file = prepare_file_build(
         root,
         input,
-        bytes,
         &bindings,
         options.bigram_alphabet,
         options.inference,
         1,
     )
-    .map_err(|error| match error {
-        BytesPreparationError::RevisionSizeMismatch { declared, actual } => {
-            IndexError::SourceUnavailable(format!(
-                "declared source size {declared} differs from supplied {actual} bytes"
-            ))
-        }
-        BytesPreparationError::UnsupportedReader { source_id, reason } => {
-            IndexError::Extension(format!("{source_id}: {reason}"))
-        }
-        BytesPreparationError::Build(message) => IndexError::Build(message),
-    })?;
+    .map_err(IndexError::Build)?;
     Ok(PreparedReplacement {
         expected_revision: view.revision(),
         expected_handle: handle,

@@ -1311,6 +1311,14 @@ fn supplied_bytes_update_preserves_source_and_checks_deletion_conflict() {
     assert_eq!(same.file, updated.file);
     assert_eq!(std::fs::read(&path).unwrap(), bytes);
 
+    let mut different = bytes.to_vec();
+    different[0] = b'[';
+    assert!(matches!(
+        index.update_file_from_bytes(updated.file, &path, &different, revision),
+        Err(IndexError::SourceUnavailable(_))
+    ));
+    assert_eq!(index.status().unwrap().revision, updated.revision);
+
     let wrong = SourceRevision {
         size: revision.size + 1,
         ..revision
