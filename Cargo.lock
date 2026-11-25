@@ -5195,6 +5195,7 @@ dependencies = [
  "clap",
  "ctrlc",
  "libc",
+ "objekte-loader-json",
  "objekte-search-core",
  "ratatui",
  "regex",
@@ -5215,6 +5216,15 @@ dependencies = [
  "serde",
  "serde_json",
  "tempfile",
+]
+
+[[package]]
+name = "objekte-loader-json"
+version = "0.1.0"
+dependencies = [
+ "objekte-search-core",
+ "serde_json",
+ "sha2 0.10.9",
 ]
 
 [[package]]

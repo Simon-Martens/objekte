@@ -39,3 +39,9 @@ pub mod workload;
 
 #[cfg(test)]
 mod tests;
+
+#[cfg(test)]
+extern crate self as objekte_search_core;
+
+#[cfg(test)]
+use schema::json as json_schema;

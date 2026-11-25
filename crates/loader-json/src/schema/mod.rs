@@ -4,12 +4,13 @@ use std::collections::HashSet;
 use std::path::Path;
 
 use serde_json::Value;
+use sha2::{Digest, Sha256};
 
-use crate::model::{FieldPath, LogicalType, PathRoot};
-use crate::query::options::SortField;
-use crate::query::path::QueryPath;
-use crate::schema::relations::{RelationCardinality, RelationDefinition};
-use crate::schema::{FieldDefinition, Schema};
+use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
+use objekte_search_core::query::options::SortField;
+use objekte_search_core::query::path::QueryPath;
+use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
+use objekte_search_core::schema::{FieldDefinition, Schema};
 
 pub struct CompiledSchema {
     pub schema: Schema,
@@ -25,7 +26,9 @@ pub fn load_schema_file(path: &Path, collection: &str) -> Result<CompiledSchema,
         serde_json::from_slice(&bytes).map_err(|error| format!("{}: {error}", path.display()))?;
     let mut compiled = compile_schema(&document, collection)
         .map_err(|error| format!("{}: {error}", path.display()))?;
-    compiled.schema.set_source_fingerprint(&bytes);
+    compiled
+        .schema
+        .set_source_digest(Sha256::digest(&bytes).into());
     Ok(compiled)
 }
 

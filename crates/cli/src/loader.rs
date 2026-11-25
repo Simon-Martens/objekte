@@ -3,14 +3,12 @@
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 
+use objekte_loader_json::configuration::{load_explicit_schema, load_repository_configuration};
+use objekte_loader_json::schema::CompiledSchema;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::inventory::discovery::SymlinkPolicy;
-use objekte_search_core::repository::configuration::loader::{
-    load_explicit_schema, load_repository_configuration,
-};
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::schema::json::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};

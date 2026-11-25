@@ -5,7 +5,9 @@ use crate::query::Operator;
 use crate::query::options::SortField;
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-pub mod json;
+#[cfg(test)]
+#[path = "../../../loader-json/src/schema/mod.rs"]
+pub(crate) mod json;
 pub mod operation;
 pub mod relations;
 pub mod validation;
@@ -52,10 +54,13 @@ pub struct Schema {
 }
 
 impl Schema {
-    /// Include the exact selected schema bytes in snapshot compatibility.
-    pub fn set_source_fingerprint(&mut self, bytes: &[u8]) {
-        use sha2::Digest;
-        self.source_fingerprint = Some(sha2::Sha256::digest(bytes).into());
+    /// Attach the loader's digest of the schema source used to build this schema.
+    pub fn set_source_digest(&mut self, digest: [u8; 32]) {
+        self.source_fingerprint = Some(digest);
+    }
+
+    pub fn source_digest(&self) -> Option<[u8; 32]> {
+        self.source_fingerprint
     }
 
     pub fn prohibit_auto_index(&mut self, path: Vec<String>) -> Result<(), String> {

@@ -14,6 +14,7 @@ tui = ["dep:ratatui", "dep:regex", "dep:unicode-width", "dep:unicode-casefold"]
 detailed-profiling = ["objekte-search-core/detailed-profiling"]
 
 [dependencies]
+objekte-loader-json = { path = "../loader-json" }
 objekte-search-core = { path = "../core" }
 clap = { version = "4.5", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }

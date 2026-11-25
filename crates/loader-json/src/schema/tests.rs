@@ -1,5 +1,5 @@
 use super::*;
-use crate::model::Value as LogicalValue;
+use objekte_search_core::model::Value as LogicalValue;
 
 #[test]
 fn plain_schema_distinguishes_manual_indexes_and_optouts() {
@@ -108,7 +108,7 @@ fn explicit_schema_load_uses_only_the_requested_file() {
     .unwrap();
     let compiled = load_schema_file(&selected, "documents").unwrap();
     assert!(compiled.schema.fields()[&vec!["title".into()]].indexed);
-    assert!(compiled.schema.source_fingerprint.is_some());
+    assert!(compiled.schema.source_digest().is_some());
 
     let unselected = root.join("other.json");
     assert!(
