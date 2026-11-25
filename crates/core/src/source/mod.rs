@@ -1,6 +1,7 @@
 //! Format-independent source contracts, framing, extraction, and access.
 
 use std::collections::HashSet;
+use std::io::Read;
 
 use serde::{Deserialize, Serialize};
 
@@ -17,6 +18,8 @@ pub mod registry;
 #[cfg(test)]
 mod test_support;
 pub mod text;
+
+pub use framing::BoundedBuildChunk as BuildChunk;
 pub(crate) mod verification;
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
@@ -179,6 +182,28 @@ pub trait SourceReader: Send + Sync {
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
+
+    /// Optional format-neutral bounded build framing. Consume the supplied
+    /// input once and emit consecutive chunks covering its original bytes.
+    /// Ranges address each chunk; `file_offset` maps them to absolute offsets.
+    /// Core validates offsets and feeds each chunk to the ordinary reader
+    /// parser and segment builder. An error after any emission aborts the
+    /// complete file candidate. `None` selects the default `frame` adapter.
+    fn stream_build_chunks(
+        &self,
+        _input: &mut dyn Read,
+        _max_chunk_bytes: usize,
+        _max_ranges: usize,
+        _emit: &mut dyn FnMut(BuildChunk) -> Result<(), String>,
+    ) -> Option<Result<(), String>> {
+        None
+    }
+
+    /// Whether fresh construction should use `stream_build_chunks` instead of
+    /// buffering the file for `frame`. Implement together with that method.
+    fn supports_streaming_build(&self) -> bool {
+        false
+    }
 
     /// Opt in only when `frame` treats each nonblank newline-delimited span as
     /// one record, excluding the LF byte and retaining any preceding CR.

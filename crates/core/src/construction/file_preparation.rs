@@ -20,7 +20,8 @@ use crate::schema::Schema;
 use crate::source::{
     ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_file_build_outcomes,
     extraction::extract_framed_build_outcomes, extraction::frame_file_for_build,
-    framing::BoundedBuildChunk, framing::BoundedJsonLines, registry::PreparedSource,
+    framing::BoundedBuildChunk, framing::BoundedJsonLines, framing::validate_reader_ranges,
+    registry::PreparedSource,
 };
 
 use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput, process_batch};
@@ -314,6 +315,91 @@ fn prepare_bounded_json_lines(
     Ok((contributions, fingerprint))
 }
 
+fn prepare_custom_stream(
+    root: &Path,
+    input: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    hash_bytes: bool,
+    file: &mut std::fs::File,
+) -> Option<Result<(Vec<BatchContribution>, Option<[u8; 32]>), String>> {
+    if let Err(error) = file.seek(SeekFrom::Start(0)) {
+        return Some(Err(error.to_string()));
+    }
+    let mut digest = Sha256::new();
+    let mut bytes_read = 0u64;
+    let mut input_reader = HashingReader {
+        inner: &mut *file,
+        digest: hash_bytes.then_some(&mut digest),
+        bytes_read: &mut bytes_read,
+    };
+    let limits = BoundedBuildLimits::default();
+    let mut contributions = Vec::new();
+    let mut next_offset = 0u64;
+    let mut preceding_lines = 0u64;
+    let mut emit = |chunk: BoundedBuildChunk| -> Result<(), String> {
+        if chunk.file_offset != next_offset || chunk.preceding_lines < preceding_lines {
+            return Err("reader contract: streamed chunks are not consecutive".into());
+        }
+        if chunk.bytes.len() > limits.chunk_bytes && chunk.ranges.len() != 1 {
+            return Err("reader contract: oversized chunk must contain one record".into());
+        }
+        validate_reader_ranges(&chunk.ranges, chunk.bytes.len())?;
+        next_offset = next_offset
+            .checked_add(chunk.bytes.len() as u64)
+            .ok_or("source offset overflow")?;
+        if next_offset > input.revision.size {
+            return Err("reader contract: chunk exceeds observed source".into());
+        }
+        preceding_lines = chunk.preceding_lines;
+        contributions.push(process_framed_batch(
+            root,
+            input,
+            binding,
+            &chunk.bytes,
+            &chunk.ranges,
+            chunk.file_offset,
+            chunk.preceding_lines,
+            contributions.is_empty(),
+            alphabet,
+            inference,
+            inference_jobs,
+        )?);
+        Ok(())
+    };
+    let result = binding.source.reader().stream_build_chunks(
+        &mut input_reader,
+        limits.chunk_bytes,
+        limits.ranges,
+        &mut emit,
+    )?;
+    drop(emit);
+    drop(input_reader);
+    Some(result.and_then(|()| {
+        if bytes_read != input.revision.size || next_offset != bytes_read {
+            return Err("reader contract: streamed chunks do not cover observed source".into());
+        }
+        if contributions.is_empty() {
+            contributions.push(process_framed_batch(
+                root,
+                input,
+                binding,
+                &[],
+                &[],
+                0,
+                0,
+                true,
+                alphabet,
+                inference,
+                inference_jobs,
+            )?);
+        }
+        Ok((contributions, hash_bytes.then(|| digest.finalize().into())))
+    }))
+}
+
 /// Prepare one physical file across all supplied eligible collections. JSONL
 /// uses bounded chunks; other readers retain their existing whole-buffer
 /// framing. A malformed frame falls back to ordinary build extraction.
@@ -355,9 +441,22 @@ pub(crate) fn prepare_file_build(
                 return Err("stale source revision during preparation".into());
             }
         }
-        let contributions = if binding.source.reader().supports_bounded_json_lines_build()
-            && opened.is_some()
-        {
+        let contributions = if let Some(result) = opened.as_mut().and_then(|file| {
+            prepare_custom_stream(
+                root,
+                &input,
+                binding,
+                alphabet,
+                inference,
+                inference_jobs,
+                fingerprint.is_none(),
+                file,
+            )
+        }) {
+            let (contributions, digest) = result?;
+            fingerprint = fingerprint.or(digest);
+            contributions
+        } else if binding.source.reader().supports_bounded_json_lines_build() && opened.is_some() {
             let (contributions, digest) = prepare_bounded_json_lines(
                 root,
                 &input,
@@ -829,6 +928,39 @@ pub(crate) fn process_framed_file_profiled(
     profile_build: bool,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
+    if source.reader().supports_streaming_build() {
+        let input = source_files[file_id.0 as usize].clone();
+        let prepared = prepare_file_build(
+            &root,
+            input.clone(),
+            &[FilePreparationBinding {
+                collection,
+                definition: &definition,
+                source: &source,
+            }],
+            alphabet,
+            inference,
+            1,
+        )?;
+        let count = prepared.collections[0].contributions.len();
+        let mut stats = BuildScheduleStats {
+            source_reads: u64::from(prepared.fingerprint.is_some()),
+            source_bytes_read: input.revision.size,
+            file_fingerprint: prepared.fingerprint.map(|digest| (file_id, digest)),
+            framing_chunks: count as u64,
+            framing_bytes: input.revision.size,
+            weight_limit_bytes: BoundedBuildLimits::default().admitted_bytes,
+            peak_weight_bytes: BoundedBuildLimits::default().chunk_bytes as u64,
+            ..Default::default()
+        };
+        for collection_build in prepared.collections {
+            for contribution in collection_build.contributions {
+                admit(contribution)?;
+            }
+        }
+        stats.peak_active_jobs = 1;
+        return Ok(stats);
+    }
     if source.reader().supports_bounded_json_lines_build() {
         return process_bounded_json_lines_file(
             pool,

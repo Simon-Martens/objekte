@@ -26,6 +26,238 @@ use std::num::NonZeroUsize;
 use std::sync::Arc;
 use std::time::Instant;
 
+struct PipeLineReader {
+    streaming: bool,
+    failure: Option<&'static str>,
+}
+
+impl crate::source::SourceReader for PipeLineReader {
+    fn name(&self) -> &'static str {
+        "pipe-lines"
+    }
+
+    fn supports_streaming_build(&self) -> bool {
+        self.streaming
+    }
+
+    fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+        let mut ranges = Vec::new();
+        let mut start = 0usize;
+        for (index, byte) in bytes.iter().enumerate() {
+            if *byte == b'\n' {
+                if index > start {
+                    ranges.push(ByteRange {
+                        start: start as u64,
+                        end: index as u64,
+                    });
+                }
+                start = index + 1;
+            }
+        }
+        if start < bytes.len() {
+            ranges.push(ByteRange {
+                start: start as u64,
+                end: bytes.len() as u64,
+            });
+        }
+        Ok(ranges)
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        let text = std::str::from_utf8(bytes).map_err(|error| error.to_string())?;
+        let (_, title) = text.split_once('|').ok_or("missing field separator")?;
+        let mut fields = std::collections::BTreeMap::new();
+        fields.insert("title".into(), Value::String(title.into()));
+        Ok(ExtractedRecord {
+            value: Value::Object(fields),
+            text: vec![TextSegment {
+                path: vec!["title".into()],
+                text: title.into(),
+            }],
+        })
+    }
+
+    fn stream_build_chunks(
+        &self,
+        input: &mut dyn std::io::Read,
+        _max_chunk_bytes: usize,
+        _max_ranges: usize,
+        emit: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+    ) -> Option<Result<(), String>> {
+        if !self.streaming {
+            return None;
+        }
+        use std::io::BufRead;
+        Some((|| {
+            let mut reader = std::io::BufReader::with_capacity(3, input);
+            let mut offset = 0u64;
+            let mut lines = 0u64;
+            let mut chunk = Vec::new();
+            loop {
+                chunk.clear();
+                let count = reader
+                    .read_until(b'\n', &mut chunk)
+                    .map_err(|e| e.to_string())?;
+                if count == 0 {
+                    break;
+                }
+                let content = count - usize::from(chunk.last() == Some(&b'\n'));
+                let range = ByteRange {
+                    start: 0,
+                    end: content as u64,
+                };
+                let ranges = if self.failure == Some("range") && offset > 0 {
+                    vec![ByteRange {
+                        end: count as u64 + 1,
+                        ..range
+                    }]
+                } else if content > 0 {
+                    vec![range]
+                } else {
+                    Vec::new()
+                };
+                emit(crate::source::BuildChunk {
+                    bytes: std::mem::take(&mut chunk),
+                    ranges,
+                    file_offset: offset,
+                    preceding_lines: lines,
+                })?;
+                if self.failure == Some("fatal") {
+                    return Err("reader aborted after emission".into());
+                }
+                offset += count as u64;
+                lines += u64::from(content < count);
+            }
+            Ok(())
+        })())
+    }
+}
+
+#[test]
+fn registered_streaming_reader_matches_whole_framing_and_aborts_atomically() {
+    let root = std::env::temp_dir().join(format!("objekte-pipe-stream-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/source.pipe");
+    let bytes = "one|München\ntwo|Leipzig".as_bytes();
+    std::fs::write(&path, bytes).unwrap();
+    let mut sources = crate::source::registry::SourceRegistry::builtin();
+    sources
+        .register(
+            "pipe-stream",
+            1,
+            "pipe",
+            Arc::new(PipeLineReader {
+                streaming: true,
+                failure: None,
+            }),
+        )
+        .unwrap();
+    sources
+        .register(
+            "pipe-whole",
+            1,
+            "pipe",
+            Arc::new(PipeLineReader {
+                streaming: false,
+                failure: None,
+            }),
+        )
+        .unwrap();
+    let streaming = sources
+        .resolve(&SourceFormat::registered("pipe-stream"))
+        .unwrap();
+    let whole = sources
+        .resolve(&SourceFormat::registered("pipe-whole"))
+        .unwrap();
+    let definition =
+        CollectionDefinition::folder("records", "data", SourceFormat::registered("pipe-stream"));
+    let input = SourceFileInput {
+        id: FileId(0),
+        relative_path: "data/source.pipe".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        created_ns: super::file_preparation::created_ns(&std::fs::metadata(&path).unwrap()),
+    };
+    let binding = |source| FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source,
+    };
+    let options = RepositoryOptions::default();
+    let streamed = prepare_file_build(
+        &root,
+        input.clone(),
+        &[binding(&streaming)],
+        options.bigram_alphabet,
+        options.inference,
+        1,
+    )
+    .unwrap();
+    let framed = prepare_file_build(
+        &root,
+        input.clone(),
+        &[binding(&whole)],
+        options.bigram_alphabet,
+        options.inference,
+        1,
+    )
+    .unwrap();
+    assert_eq!(streamed.record_layout(), framed.record_layout());
+    assert_eq!(streamed.fingerprint, Some(Sha256::digest(bytes).into()));
+    assert_eq!(streamed.record_layout().len(), 2);
+    assert_eq!(
+        streamed.record_layout()[0].2,
+        ByteRange { start: 0, end: 12 }
+    );
+    assert_eq!(
+        streamed.record_layout()[1].2,
+        ByteRange {
+            start: 13,
+            end: bytes.len() as u64
+        }
+    );
+    for failure in ["range", "fatal"] {
+        let mut bad_sources = crate::source::registry::SourceRegistry::builtin();
+        bad_sources
+            .register(
+                "pipe-bad",
+                1,
+                "pipe",
+                Arc::new(PipeLineReader {
+                    streaming: true,
+                    failure: Some(failure),
+                }),
+            )
+            .unwrap();
+        let bad = bad_sources
+            .resolve(&SourceFormat::registered("pipe-bad"))
+            .unwrap();
+        assert!(
+            prepare_file_build(
+                &root,
+                input.clone(),
+                &[FilePreparationBinding {
+                    collection: CollectionId(0),
+                    definition: &definition,
+                    source: &bad,
+                }],
+                options.bigram_alphabet,
+                options.inference,
+                1
+            )
+            .is_err()
+        );
+    }
+    let built = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        options,
+        sources,
+    )
+    .unwrap();
+    assert_eq!(built.collections()[0].generation.records.len(), 2);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 /// Diagnostic prototype for a direct batch-to-shard fresh build. This only
 /// measures the dominant `contents` collection and does not publish an index.
 #[test]

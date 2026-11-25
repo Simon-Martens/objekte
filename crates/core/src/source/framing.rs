@@ -24,7 +24,7 @@ pub(crate) fn validate_reader_ranges(ranges: &[ByteRange], file_size: usize) -> 
 
 /// Frame a source once for independent construction jobs. Errors that the
 /// ordinary extraction path records as file outcomes use that path unchanged.
-pub(crate) struct BoundedBuildChunk {
+pub struct BoundedBuildChunk {
     pub bytes: Vec<u8>,
     pub ranges: Vec<ByteRange>,
     pub file_offset: u64,
