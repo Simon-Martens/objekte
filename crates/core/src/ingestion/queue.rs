@@ -77,6 +77,9 @@ struct GroupInfo {
 
 impl GroupInfo {
     fn for_batch(batch: &Batch) -> Option<Self> {
+        if batch.operations.len() > 128 {
+            return None;
+        }
         Some(Self {
             registration: batch.registration,
             shape: group_shape(batch)?,
@@ -431,9 +434,9 @@ impl RecordWriter {
         self.offer(batch, true)
     }
 
-    fn offer(&self, mut batch: Batch, memory_only: bool) -> Result<Receipt, SubmitError<Batch>> {
+    fn offer(&self, batch: Batch, memory_only: bool) -> Result<Receipt, SubmitError<Batch>> {
         let queue = &self.core.queue;
-        batch.estimated_bytes = batch.owned_capacity_bytes();
+        debug_assert_eq!(batch.estimated_bytes, batch.owned_capacity_bytes());
         if batch.session_id != self.core.id || batch.registration != self.registration {
             return Err(SubmitError::ForeignHandle(batch));
         }
@@ -684,6 +687,14 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             && let Some(info) = item.group
             && info.records < queue.group_target_records
         {
+            // Large batches already amortize construction. Limiting their
+            // coalesced group keeps transient indexed columns and retained
+            // bodies from raising peak RSS merely to save root swaps.
+            let group_record_limit = queue.group_target_records.min(if info.records == 1 {
+                usize::MAX
+            } else {
+                info.records.saturating_mul(4).max(512)
+            });
             let mut records = info.records;
             let mut bytes = item.weight;
             let mut group = vec![item];
@@ -705,7 +716,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                     };
                     if next_info.registration != info.registration
                         || next_info.shape != info.shape
-                        || records.saturating_add(next_info.records) > queue.group_target_records
+                        || records.saturating_add(next_info.records) > group_record_limit
                         || bytes.saturating_add(next_weight) > 4 * 1024 * 1024
                     {
                         break;

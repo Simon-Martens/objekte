@@ -160,15 +160,30 @@ impl Batch {
 
     fn push(&mut self, operation: Operation, value_bytes: usize) -> Result<(), String> {
         let id = operation.id();
+        let id_bytes = id.0.len();
+        let old_keys = self.keys.capacity();
+        let old_operations = self.operations.capacity();
         if !self.keys.insert(id.clone()) {
             return Err(format!("conflicting operations for record {}", id.0));
         }
-        self.estimated_bytes = self.estimated_bytes.saturating_add(
-            std::mem::size_of::<Operation>()
-                .saturating_add(id.0.len())
-                .saturating_add(value_bytes),
-        );
         self.operations.push(operation);
+        self.estimated_bytes = self
+            .estimated_bytes
+            .saturating_add(id_bytes.saturating_mul(2).saturating_add(value_bytes));
+        self.estimated_bytes = self
+            .estimated_bytes
+            .saturating_add(
+                self.operations
+                    .capacity()
+                    .saturating_sub(old_operations)
+                    .saturating_mul(std::mem::size_of::<Operation>()),
+            )
+            .saturating_add(
+                self.keys
+                    .capacity()
+                    .saturating_sub(old_keys)
+                    .saturating_mul(std::mem::size_of::<RecordId>() + std::mem::size_of::<usize>()),
+            );
         Ok(())
     }
 
@@ -293,14 +308,20 @@ impl Batch {
             batch_id: self.batch_id,
             ordinal: u32::try_from(self.files.len()).map_err(|_| "too many files in batch")?,
         };
-        self.estimated_bytes = self
-            .estimated_bytes
-            .saturating_add(std::mem::size_of::<StagedFile>())
-            .saturating_add(path.as_os_str().len());
+        let old_capacity = self.files.capacity();
         self.files.push(StagedFile {
             path: path.to_path_buf(),
             revision: observed_file_revision,
         });
+        self.estimated_bytes = self
+            .estimated_bytes
+            .saturating_add(path.as_os_str().len())
+            .saturating_add(
+                self.files
+                    .capacity()
+                    .saturating_sub(old_capacity)
+                    .saturating_mul(std::mem::size_of::<StagedFile>()),
+            );
         Ok(token)
     }
 

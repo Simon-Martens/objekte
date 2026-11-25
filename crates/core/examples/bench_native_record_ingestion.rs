@@ -129,6 +129,7 @@ fn ingest(
     }
     let writer = session.writer(registration)?;
     let inputs = batches(&writer, count, batch_size, producers)?;
+    let prebuilt_rss_kib = rss_kib("VmRSS:");
     let producer_started = Instant::now();
     let handles = inputs
         .into_iter()
@@ -142,6 +143,7 @@ fn ingest(
         receipts.extend(handle.join().map_err(|_| "producer thread panicked")??);
     }
     let accept_ns = producer_started.elapsed().as_nanos();
+    let accepted_rss_kib = rss_kib("VmRSS:");
     let before_release = session.metrics();
     if overflow && before_release.high_water_spool_bytes == 0 {
         return Err("overflow run did not use the spool".into());
@@ -155,6 +157,7 @@ fn ingest(
     }
     session.finish()?;
     let publish_ns = publish_started.elapsed().as_nanos();
+    let published_rss_kib = rss_kib("VmRSS:");
     let metrics = session.metrics();
     let view = index.view()?;
     if index.status()?.live_records != count as u64 {
@@ -173,6 +176,9 @@ fn ingest(
         "{}",
         json!({
             "mode": "ingest", "records": count, "batch_size": batch_size, "producers": producers,
+            "prebuilt_rss_kib": prebuilt_rss_kib,
+            "accepted_rss_kib": accepted_rss_kib,
+            "published_rss_kib": published_rss_kib,
             "overflow": overflow, "producer_accept_ns": accept_ns, "publish_drain_ns": publish_ns,
             "accepted_batches": metrics.accepted_batches, "published_batches": metrics.published_batches,
             "root_installations": metrics.root_installations,
