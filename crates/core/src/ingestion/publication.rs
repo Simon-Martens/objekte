@@ -1,13 +1,15 @@
 //! Typed batch preparation and one immutable lifecycle installation.
 
-use std::sync::Mutex;
+use std::collections::HashSet;
 use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, Mutex};
 
-use crate::construction::batch::{build_provider_contribution, build_retained_contribution};
+use crate::construction::batch::{NativeRecordInput, build_native_contribution};
 use crate::construction::segment_admission::CollectionSegment;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
 use crate::lifecycle::publication::{RecordMutation, RecordMutationKind};
-use crate::lifecycle::{Index, IndexError};
+use crate::lifecycle::{Index, IndexError, IndexRevision, IndexView, RecordRegistration};
+use crate::records::RecordVersion;
 
 use super::{Batch, IngestionError, Operation, PublishedRevision};
 
@@ -123,22 +125,29 @@ pub(super) fn install_batch(
 }
 
 fn build_segment(
-    view: &crate::lifecycle::IndexView,
+    view: &IndexView,
     registration: &crate::lifecycle::builder::RegisteredRecordSource,
-    inputs: Vec<(
-        crate::model::RecordId,
-        crate::model::Value,
-        Vec<crate::source::TextSegment>,
-    )>,
-    versions: Option<Vec<crate::records::RecordVersion>>,
+    mut inputs: Vec<NativeRecordInput>,
+    versions: Option<Vec<RecordVersion>>,
+) -> Result<IndexedCollectionSegment, IngestionError> {
+    build_segment_inputs(view, registration, &mut inputs, versions.as_deref(), &mut 0)
+}
+
+fn build_segment_inputs(
+    view: &IndexView,
+    registration: &crate::lifecycle::builder::RegisteredRecordSource,
+    inputs: &mut [NativeRecordInput],
+    versions: Option<&[RecordVersion]>,
+    completed: &mut usize,
 ) -> Result<IndexedCollectionSegment, IngestionError> {
     let collection = registration.handle.collection();
     let declaration = &view.repository().collections[collection.0 as usize].definition;
     let options = view.repository().options();
     let raw_covers_logical_fields = inputs.iter().all(|(_, _, text)| text.is_empty());
-    let draft = if let Some(versions) = versions {
-        let (headers, contribution) = build_provider_contribution(inputs, declaration, &options)
+    let (headers, bodies, contribution) =
+        build_native_contribution(inputs, declaration, &options, versions.is_none(), completed)
             .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+    let draft = if let Some(versions) = versions {
         CollectionSegment::from_provider(
             SegmentId::new(2),
             collection,
@@ -147,13 +156,10 @@ fn build_segment(
             registration.handle.ordinal,
             raw_covers_logical_fields,
             headers,
-            versions,
+            versions.to_vec(),
             contribution,
         )
     } else {
-        let (headers, bodies, contribution) =
-            build_retained_contribution(inputs, declaration, &options)
-                .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
         CollectionSegment::from_retained(
             SegmentId::new(2),
             collection,
@@ -178,6 +184,201 @@ fn build_segment(
         .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
     segment.recompute_accounting();
     Ok(segment)
+}
+
+#[derive(Debug, Default)]
+pub(super) struct GroupPublication {
+    pub(super) committed: Option<(u64, IndexRevision)>,
+    pub(super) failure: Option<(u64, IngestionError)>,
+}
+
+struct Member {
+    sequence: u64,
+    end: usize,
+}
+
+pub(super) fn install_group(
+    index: &Index,
+    cancelled: &AtomicBool,
+    publication_decision: &Mutex<()>,
+    handle: RecordRegistration,
+    batches: Vec<(u64, Batch)>,
+    record_capacity: usize,
+    mut failure: Option<(u64, IngestionError)>,
+    #[cfg(test)] prepared: impl FnOnce(),
+) -> GroupPublication {
+    let Some(first) = batches.first().map(|(sequence, _)| *sequence) else {
+        return GroupPublication {
+            committed: None,
+            failure,
+        };
+    };
+    let reject = |error| GroupPublication {
+        committed: None,
+        failure: Some((first, error)),
+    };
+    let view = match index.view() {
+        Ok(view) => view,
+        Err(error) => return reject(IngestionError::Index(error)),
+    };
+    let Some(registration) = view
+        .repository()
+        .record_registrations
+        .get(handle.ordinal as usize)
+        .filter(|source| source.handle == handle)
+    else {
+        return reject(IngestionError::Index(IndexError::ForeignInstance));
+    };
+    if cancelled.load(Ordering::Acquire) {
+        return reject(IngestionError::Cancelled {
+            originating_sequence: first,
+        });
+    }
+    let mut inputs = Vec::with_capacity(record_capacity);
+    let mut versions = Vec::new();
+    let mut changes = Vec::with_capacity(record_capacity);
+    let mut members = Vec::with_capacity(batches.len());
+    let mut seen = HashSet::with_capacity(record_capacity);
+    'batches: for (sequence, batch) in batches {
+        for operation in batch.operations {
+            let Operation::Insert {
+                id,
+                value,
+                text,
+                version,
+            } = operation
+            else {
+                unreachable!("only compatible insert batches can coalesce");
+            };
+            if !seen.insert(id.clone()) {
+                failure = Some((
+                    sequence,
+                    IngestionError::Index(IndexError::DuplicateRecordId {
+                        collection: view.repository().collections[handle.collection.0 as usize]
+                            .definition
+                            .name
+                            .clone(),
+                        record_id: id.0.to_string(),
+                    }),
+                ));
+                // The entire member is discarded, including its earlier inputs.
+                break 'batches;
+            }
+            changes.push(RecordMutation {
+                id: id.clone(),
+                kind: RecordMutationKind::Insert,
+            });
+            inputs.push((id, value, text));
+            if let Some(version) = version {
+                versions.push(version);
+            }
+        }
+        members.push(Member {
+            sequence,
+            end: inputs.len(),
+        });
+    }
+    drop(seen);
+    let mut segment = loop {
+        let Some(member) = members.last() else {
+            return GroupPublication {
+                committed: None,
+                failure,
+            };
+        };
+        inputs.truncate(member.end);
+        changes.truncate(member.end);
+        versions.truncate(member.end);
+        let mut completed = 0;
+        match build_segment_inputs(
+            &view,
+            registration,
+            &mut inputs,
+            (!versions.is_empty()).then_some(versions.as_slice()),
+            &mut completed,
+        ) {
+            Ok(segment) => break Arc::new(segment),
+            Err(error) if completed < member.end => {
+                let invalid = members.partition_point(|member| member.end <= completed);
+                failure = Some((members[invalid].sequence, error));
+                members.truncate(invalid);
+            }
+            Err(error) => return reject(error),
+        }
+    };
+    drop(inputs);
+    drop(versions);
+    #[cfg(test)]
+    prepared();
+
+    loop {
+        let prefix = members.last().expect("nonempty prepared prefix");
+        let result = index.publish_prepared_record_batch(
+            &view,
+            handle,
+            &changes[..prefix.end],
+            std::slice::from_mut(&mut segment),
+            || {
+                let guard = publication_decision
+                    .lock()
+                    .map_err(|_| IndexError::LockPoisoned)?;
+                if cancelled.load(Ordering::Acquire) {
+                    return Err(IndexError::Cancelled);
+                }
+                Ok(guard)
+            },
+        );
+        match result {
+            Ok(revision) => {
+                return GroupPublication {
+                    committed: Some((prefix.sequence, revision)),
+                    failure,
+                };
+            }
+            Err(IndexError::Cancelled) => {
+                return reject(IngestionError::Cancelled {
+                    originating_sequence: first,
+                });
+            }
+            Err(error @ IndexError::DuplicateRecordId { .. }) => {
+                let IndexError::DuplicateRecordId { ref record_id, .. } = error else {
+                    unreachable!()
+                };
+                let Some(slot) = changes[..prefix.end]
+                    .iter()
+                    .position(|change| change.id.0.as_ref() == record_id)
+                else {
+                    return reject(IngestionError::Index(error));
+                };
+                let member = members.partition_point(|member| member.end <= slot);
+                failure = Some((members[member].sequence, IngestionError::Index(error)));
+                members.truncate(member);
+                let Some(prefix) = members.last() else {
+                    return GroupPublication {
+                        committed: None,
+                        failure,
+                    };
+                };
+                match compact_prefix(&segment, prefix.end) {
+                    Ok(compacted) => segment = Arc::new(compacted),
+                    Err(error) => return reject(IngestionError::Index(IndexError::Build(error))),
+                }
+            }
+            Err(error) => return reject(IngestionError::Index(error)),
+        }
+    }
+}
+
+fn compact_prefix(
+    segment: &IndexedCollectionSegment,
+    length: usize,
+) -> Result<IndexedCollectionSegment, String> {
+    let mut live = roaring::RoaringBitmap::new();
+    live.insert_range(0..u32::try_from(length).map_err(|_| "group record count overflow")?);
+    let active = crate::inventory::ActiveRecords::from_bitmap(segment.record_count(), live)?;
+    segment
+        .compact_active(&active, segment.record_count(), |_| false)
+        .map(|compacted| compacted.index)
 }
 
 #[cfg(test)]

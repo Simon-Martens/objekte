@@ -1046,15 +1046,26 @@ impl Index {
         publication_guard: impl Fn() -> Result<G, IndexError>,
     ) -> Result<IndexRevision, IndexError> {
         let mut segments: Vec<_> = segments.into_iter().map(Arc::new).collect();
+        self.publish_prepared_record_batch(
+            prepared_from,
+            registration,
+            changes,
+            &mut segments,
+            publication_guard,
+        )
+    }
+
+    pub(crate) fn publish_prepared_record_batch<G>(
+        &self,
+        prepared_from: &IndexView,
+        registration: crate::lifecycle::builder::RecordRegistration,
+        changes: &[RecordMutation],
+        segments: &mut [Arc<IndexedCollectionSegment>],
+        publication_guard: impl Fn() -> Result<G, IndexError>,
+    ) -> Result<IndexRevision, IndexError> {
         loop {
             let view = self.view()?;
-            match self.stage_record_batch(
-                prepared_from,
-                &view,
-                registration,
-                changes,
-                &mut segments,
-            ) {
+            match self.stage_record_batch(prepared_from, &view, registration, changes, segments) {
                 Ok(next) => {
                     let _guard = publication_guard()?;
                     match self.publish_prepared(view.revision(), next) {

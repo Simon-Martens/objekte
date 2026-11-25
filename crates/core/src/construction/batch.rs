@@ -760,10 +760,13 @@ impl LogicalIndexContext<'_> {
     }
 }
 
+pub(crate) type NativeRecordInput = (RecordId, Value, Vec<crate::source::TextSegment>);
+
 /// Prepare typed records through the same logical index admission as file
 /// records. The returned bodies move into immutable segment storage.
+#[cfg(test)]
 pub(crate) fn build_retained_contribution(
-    inputs: Vec<(RecordId, Value, Vec<crate::source::TextSegment>)>,
+    mut inputs: Vec<NativeRecordInput>,
     declaration: &crate::repository::configuration::CollectionDeclaration,
     options: &crate::repository::configuration::RepositoryOptions,
 ) -> Result<
@@ -774,24 +777,15 @@ pub(crate) fn build_retained_contribution(
     ),
     String,
 > {
-    build_native_contribution(inputs, declaration, options, true)
+    build_native_contribution(&mut inputs, declaration, options, true, &mut 0)
 }
 
-pub(crate) fn build_provider_contribution(
-    inputs: Vec<(RecordId, Value, Vec<crate::source::TextSegment>)>,
-    declaration: &crate::repository::configuration::CollectionDeclaration,
-    options: &crate::repository::configuration::RepositoryOptions,
-) -> Result<(Vec<crate::records::RecordHeader>, BatchContribution), String> {
-    let (headers, _, contribution) =
-        build_native_contribution(inputs, declaration, options, false)?;
-    Ok((headers, contribution))
-}
-
-fn build_native_contribution(
-    inputs: Vec<(RecordId, Value, Vec<crate::source::TextSegment>)>,
+pub(crate) fn build_native_contribution(
+    inputs: &mut [NativeRecordInput],
     declaration: &crate::repository::configuration::CollectionDeclaration,
     options: &crate::repository::configuration::RepositoryOptions,
     retain_bodies: bool,
+    completed_records: &mut usize,
 ) -> Result<
     (
         Vec<crate::records::RecordHeader>,
@@ -850,73 +844,93 @@ fn build_native_contribution(
     let mut relations = RelationContribution::for_schema(schema);
     let mut profile = BuildWorkProfile::default();
     let mut headers = Vec::with_capacity(inputs.len());
-    let mut bodies = Vec::with_capacity(if retain_bodies { inputs.len() } else { 0 });
-    for (id, value, text) in inputs {
+    *completed_records = 0;
+    for (id, value, text) in inputs.iter_mut() {
         let slot = RecordSlot(u32::try_from(headers.len()).map_err(|_| "too many batch records")?);
         let text_derivation = if text.is_empty() {
             TextDerivation::LogicalStringsAfterConversion
         } else {
             TextDerivation::ReaderSegments
         };
-        let mut extracted = ExtractedRecord { value, text };
-        finish_build_record(schema, &mut extracted)?;
-        LogicalIndexContext {
-            schema,
-            collection_name: &declaration.name,
-            postings: &mut postings,
-            inference: &mut inference,
-            custom_postings: &mut custom_postings,
-            raw: &mut raw,
-            fallback_text: &mut fallback_text,
-            custom_text: &mut custom_text,
-            logical_records: &mut logical_records,
-            empty_array_records: &mut empty_array_records,
-            sorting: &mut sorting,
-            relations: &mut relations,
-            profile: &mut profile,
-        }
-        .add_logical_indexes(slot, &id, &extracted, None, None, text_derivation, false)?;
+        let mut extracted = ExtractedRecord {
+            value: std::mem::replace(value, Value::Null),
+            text: std::mem::take(text),
+        };
+        let result = finish_build_record(schema, &mut extracted).and_then(|()| {
+            LogicalIndexContext {
+                schema,
+                collection_name: &declaration.name,
+                postings: &mut postings,
+                inference: &mut inference,
+                custom_postings: &mut custom_postings,
+                raw: &mut raw,
+                fallback_text: &mut fallback_text,
+                custom_text: &mut custom_text,
+                logical_records: &mut logical_records,
+                empty_array_records: &mut empty_array_records,
+                sorting: &mut sorting,
+                relations: &mut relations,
+                profile: &mut profile,
+            }
+            .add_logical_indexes(
+                slot,
+                id,
+                &extracted,
+                None,
+                None,
+                text_derivation,
+                false,
+            )
+        });
+        // Preserve earlier member input if this attempt has to publish a
+        // valid prefix. Restoring ownership does not copy the payload.
+        *value = extracted.value;
+        *text = extracted.text;
+        result?;
         headers.push(crate::records::RecordHeader {
             slot,
-            id,
+            id: id.clone(),
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
         });
-        if retain_bodies {
-            bodies.push(crate::index::segment::RetainedBody {
-                value: extracted.value,
-                text: extracted.text,
-            });
-        }
+        *completed_records += 1;
     }
     let custom_text = custom_text
         .into_iter()
         .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
         .collect::<Result<HashMap<_, _>, _>>()?;
-    Ok((
-        headers,
-        bodies,
-        BatchContribution {
-            files: Vec::new(),
-            file_fingerprints: Vec::new(),
-            records: Vec::new(),
-            postings,
-            inference,
-            custom_postings,
-            raw: raw.finish_blocks()?,
-            fallback_text: fallback_text.finish_blocks()?,
-            custom_text,
-            logical_records,
-            empty_array_records,
-            sort_keys: sorting.into_keys(),
-            relations,
-            record_parses: 0,
-            failed_parses: 0,
-            source_reads: 0,
-            source_bytes_read: 0,
-            profile,
-        },
-    ))
+    let contribution = BatchContribution {
+        files: Vec::new(),
+        file_fingerprints: Vec::new(),
+        records: Vec::new(),
+        postings,
+        inference,
+        custom_postings,
+        raw: raw.finish_blocks()?,
+        fallback_text: fallback_text.finish_blocks()?,
+        custom_text,
+        logical_records,
+        empty_array_records,
+        sort_keys: sorting.into_keys(),
+        relations,
+        record_parses: 0,
+        failed_parses: 0,
+        source_reads: 0,
+        source_bytes_read: 0,
+        profile,
+    };
+    let bodies = if retain_bodies {
+        inputs
+            .iter_mut()
+            .map(|(_, value, text)| crate::index::segment::RetainedBody {
+                value: std::mem::replace(value, Value::Null),
+                text: std::mem::take(text),
+            })
+            .collect()
+    } else {
+        Vec::new()
+    };
+    Ok((headers, bodies, contribution))
 }
 
 #[cfg(test)]

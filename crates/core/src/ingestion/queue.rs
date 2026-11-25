@@ -723,19 +723,36 @@ fn take_next(
     Some(item)
 }
 
+fn decode_item(
+    queue: &Queue,
+    session_id: u64,
+    storage: Storage,
+    encoded_bytes: u64,
+) -> Result<Batch, IngestionError> {
+    match storage {
+        Storage::Memory(batch) => Ok(batch),
+        Storage::Failed(error) => Err(error),
+        Storage::Spool(frame) => {
+            let result = spool::read(&frame, queue.options.spool_bytes, session_id)
+                .map_err(IngestionError::Spool);
+            let reclaimed = queue
+                .spool
+                .lock()
+                .expect("spool mutex poisoned")
+                .release(&frame);
+            let mut state = queue.state.lock().expect("queue mutex poisoned");
+            state.metrics.pending_spool_bytes -= reclaimed;
+            state.metrics.spool_read_bytes =
+                state.metrics.spool_read_bytes.saturating_add(encoded_bytes);
+            result
+        }
+    }
+}
+
 fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
-    // A failed coalesced attempt is replayed in ordinal order from this
-    // bounded in-flight prefix. No decoded spool batch is put back into the
-    // resident admission window or charged against its configured RAM cap.
-    let mut retry = VecDeque::<Queued>::new();
     loop {
-        let (mut item, from_retry) = if let Some(item) = retry.pop_front() {
-            (item, true)
-        } else {
-            let Some(item) = take_next(&queue, true, |_, _| true) else {
-                break;
-            };
-            (item, false)
+        let Some(mut item) = take_next(&queue, true, |_, _| true) else {
+            break;
         };
         let group_enabled = {
             #[cfg(test)]
@@ -752,7 +769,6 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             }
         };
         if group_enabled
-            && !from_retry
             && let Some(info) = item.group
             && info.records < queue.group_target_records
         {
@@ -780,94 +796,74 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 group.push(next);
             }
             if group.len() > 1 {
-                let mut reclaimed = 0u64;
-                let mut read_bytes = 0u64;
-                for member in &mut group {
-                    if matches!(member.storage, Storage::Spool(_)) {
-                        let mut old = Storage::Failed(IngestionError::Cancelled {
-                            originating_sequence: 0,
-                        });
-                        std::mem::swap(&mut member.storage, &mut old);
-                        let Storage::Spool(frame) = old else {
-                            unreachable!("spool member was selected")
-                        };
-                        let decoded = spool::read(&frame, queue.options.spool_bytes, session_id)
-                            .map_err(IngestionError::Spool);
-                        reclaimed = reclaimed.saturating_add(
-                            queue
-                                .spool
-                                .lock()
-                                .expect("spool mutex poisoned")
-                                .release(&frame),
-                        );
-                        read_bytes = read_bytes.saturating_add(member.encoded_bytes);
-                        member.storage = match decoded {
-                            Ok(batch) => Storage::Memory(batch),
-                            Err(error) => Storage::Failed(error),
-                        };
+                let first_sequence = group[0].sequence;
+                let mut members = Vec::with_capacity(group.len());
+                let mut failure = None;
+                for member in group {
+                    if queue.cancelled.load(Ordering::Acquire) {
+                        failure = Some((
+                            member.sequence,
+                            IngestionError::Cancelled {
+                                originating_sequence: member.sequence,
+                            },
+                        ));
+                        break;
+                    }
+                    match decode_item(&queue, session_id, member.storage, member.encoded_bytes) {
+                        Ok(batch) => members.push((member.sequence, batch)),
+                        Err(error) => {
+                            failure = Some((member.sequence, error));
+                            break;
+                        }
                     }
                 }
-                let mut state = queue.state.lock().expect("queue mutex poisoned");
-                state.metrics.pending_spool_bytes -= reclaimed;
-                state.metrics.spool_read_bytes =
-                    state.metrics.spool_read_bytes.saturating_add(read_bytes);
-                drop(state);
-                let first_sequence = group[0].sequence;
-                let grouped = if group
-                    .iter()
-                    .any(|member| matches!(member.storage, Storage::Failed(_)))
-                {
-                    Err(IngestionError::Spool(
-                        "group contains an unreadable frame".into(),
-                    ))
-                } else if queue.cancelled.load(Ordering::Acquire) {
-                    Err(IngestionError::Cancelled {
-                        originating_sequence: first_sequence,
-                    })
-                } else {
-                    let mut combined = Batch::new(session_id, info.registration);
-                    combined.operations.reserve(records);
-                    for member in &group {
-                        let Storage::Memory(batch) = &member.storage else {
-                            unreachable!("group member decoded")
-                        };
-                        combined.operations.extend(batch.operations.iter().cloned());
-                    }
-                    std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                        super::publication::install_batch(
-                            &index,
-                            &queue.cancelled,
-                            &queue.publication_decision,
-                            combined,
-                            first_sequence,
-                            #[cfg(test)]
-                            || {
-                                if let Some(hook) = queue.prepared.lock().unwrap().take() {
-                                    hook.reached.send(first_sequence).unwrap();
-                                    hook.release.recv().unwrap();
-                                }
-                            },
-                        )
-                    }))
-                    .unwrap_or_else(|_| {
-                        Err(IngestionError::Spool("ingestion worker panicked".into()))
-                    })
-                };
-                if let Ok(revision) = grouped {
-                    let last_sequence = group.last().expect("group has members").sequence;
-                    let count = group.len() as u64;
+                let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    super::publication::install_group(
+                        &index,
+                        &queue.cancelled,
+                        &queue.publication_decision,
+                        info.registration,
+                        members,
+                        records,
+                        failure,
+                        #[cfg(test)]
+                        || {
+                            if let Some(hook) = queue.prepared.lock().unwrap().take() {
+                                hook.reached.send(first_sequence).unwrap();
+                                hook.release.recv().unwrap();
+                            }
+                        },
+                    )
+                }))
+                .unwrap_or_else(|_| super::publication::GroupPublication {
+                    committed: None,
+                    failure: Some((
+                        first_sequence,
+                        IngestionError::Spool("ingestion worker panicked".into()),
+                    )),
+                });
+                if let Some((last_sequence, revision)) = outcome.committed {
                     queue.receipts.complete_through(last_sequence, Ok(revision));
                     let mut state = queue.state.lock().expect("queue mutex poisoned");
-                    state.metrics.in_flight_estimated_bytes = 0;
                     state.completed = last_sequence;
                     state.last_revision = revision;
-                    state.metrics.published_batches += count;
+                    state.metrics.published_batches += last_sequence - first_sequence + 1;
                     state.metrics.root_installations += 1;
+                    if outcome.failure.is_none() {
+                        state.metrics.in_flight_estimated_bytes = 0;
+                    }
                     queue.changed.notify_all();
-                    continue;
                 }
-                retry = group.into();
-                continue;
+                let Some((sequence, error)) = outcome.failure else {
+                    continue;
+                };
+                item = Queued {
+                    sequence,
+                    weight: bytes,
+                    encoded_bytes: 0,
+                    storage: Storage::Failed(error),
+                    group: None,
+                };
             } else {
                 item = group.pop().expect("single group member remains");
             }
@@ -883,26 +879,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 let _ = hook.release.recv();
             }
         }
-        let batch = match item.storage {
-            Storage::Memory(batch) => Ok(batch),
-            Storage::Failed(error) => Err(error),
-            Storage::Spool(frame) => {
-                let result = spool::read(&frame, queue.options.spool_bytes, session_id)
-                    .map_err(IngestionError::Spool);
-                let reclaimed = queue
-                    .spool
-                    .lock()
-                    .expect("spool mutex poisoned")
-                    .release(&frame);
-                let mut state = queue.state.lock().expect("queue mutex poisoned");
-                state.metrics.pending_spool_bytes -= reclaimed;
-                state.metrics.spool_read_bytes = state
-                    .metrics
-                    .spool_read_bytes
-                    .saturating_add(item.encoded_bytes);
-                result
-            }
-        };
+        let batch = decode_item(&queue, session_id, item.storage, item.encoded_bytes);
         let result = if queue.cancelled.load(Ordering::Acquire) {
             Err(IngestionError::Cancelled {
                 originating_sequence: item.sequence,
@@ -944,7 +921,6 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 state.closed = true;
                 state.failure = Some((item.sequence, error));
                 state.metrics.failure_sequence = Some(item.sequence);
-                retry.clear();
                 state.items.clear();
                 state.overflow = 0;
                 state.metrics.pending_ram_bytes = 0;
@@ -1832,6 +1808,42 @@ mod tests {
     }
 
     #[test]
+    fn coalesced_retained_payload_keeps_its_owned_string() {
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "group-payload", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        let writer = session.writer(registration).unwrap();
+        session.pause_worker_for_measurement().unwrap();
+        let first = "Leipzig".repeat(8192);
+        let original_allocation = first.as_ptr();
+        let mut input = writer.batch();
+        input.insert("first", Value::String(first)).unwrap();
+        let a = writer.submit(input).unwrap();
+        let b = writer
+            .submit(batch(session.core.id, registration, "second"))
+            .unwrap();
+        session.resume_worker_for_measurement();
+        assert_eq!(a.wait_published().unwrap(), b.wait_published().unwrap());
+        let view = index.view().unwrap();
+        let segment = &view.0.segments[0][0].index;
+        let body = segment
+            .backing
+            .retained_body(crate::model::RecordSlot(0))
+            .unwrap();
+        let Value::String(retained) = &body.value else {
+            panic!("expected retained string")
+        };
+        assert_eq!(retained.as_ptr(), original_allocation);
+        assert_eq!(session.metrics().root_installations, 1);
+        assert_eq!(view.0.segments[0].len(), 1);
+        session.finish().unwrap();
+    }
+
+    #[test]
     fn failed_middle_group_member_publishes_valid_prefix_only() {
         let mut builder = Index::builder();
         let collection = builder.collection("entries", Schema::default()).unwrap();
@@ -1845,20 +1857,40 @@ mod tests {
         let first = writer
             .submit(batch(session.core.id, registration, "first"))
             .unwrap();
-        let duplicate = writer
-            .submit(batch(session.core.id, registration, "first"))
+        let second = writer
+            .submit(batch(session.core.id, registration, "second"))
             .unwrap();
+        let mut failing = batch(session.core.id, registration, "must-not-leak");
+        failing
+            .insert("first", Value::String("duplicate".into()))
+            .unwrap();
+        let duplicate = writer.submit(failing).unwrap();
         let suffix = writer
             .submit(batch(session.core.id, registration, "suffix"))
             .unwrap();
         session.resume_worker_for_measurement();
-        first.wait_published().unwrap();
+        assert_eq!(
+            first.wait_published().unwrap(),
+            second.wait_published().unwrap()
+        );
         assert!(duplicate.wait_published().is_err());
         assert!(
             matches!(suffix.wait_published(), Err(IngestionError::Cancelled { originating_sequence }) if originating_sequence == duplicate.sequence())
         );
         assert_eq!(session.metrics().root_installations, 1);
-        assert_eq!(index.status().unwrap().live_records, 1);
+        assert_eq!(index.status().unwrap().live_records, 2);
+        assert!(
+            index
+                .view()
+                .unwrap()
+                .get_record(
+                    "entries",
+                    "must-not-leak",
+                    crate::query::options::ReturnMode::Locator
+                )
+                .unwrap()
+                .is_none()
+        );
     }
 
     #[test]
