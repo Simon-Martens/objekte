@@ -675,6 +675,7 @@ fn verify_target_records(
     if let Some(first) = first_field {
         projection.top_level = Some(HashSet::from([first.to_owned()]));
     }
+    access.select_backend(&collection.required_file_reader());
     for (file_id, ranges) in grouped {
         let mut start = 0;
         while start < ranges.len() {
@@ -905,6 +906,7 @@ fn verify_qualified_targets(
         projection.top_level = Some(HashSet::from([first.to_owned()]));
     }
     for ((collection, file_id), ranges) in grouped {
+        access.select_backend(&view.collection_state(collection)?.required_file_reader());
         let mut start = 0;
         while start < ranges.len() {
             if let Some(execution) = execution {

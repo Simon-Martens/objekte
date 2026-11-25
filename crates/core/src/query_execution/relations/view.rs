@@ -804,6 +804,7 @@ impl<'a> MergedRelationView<'a> {
             .required_root()
             .join(&resolved.file.relative_path);
         let bytes = match read_record_range_for_search(
+            resolved.collection.required_file_reader().reader(),
             &path,
             resolved.file.revision,
             resolved.record.range,
@@ -984,6 +985,7 @@ impl<'a> MergedRelationView<'a> {
             .required_root()
             .join(&resolved.file.relative_path);
         let bytes = match read_record_range_for_search(
+            resolved.collection.required_file_reader().reader(),
             &path,
             resolved.file.revision,
             resolved.record.range,
@@ -1115,8 +1117,13 @@ pub(super) fn read_reference_value(
         ));
     }
     work.before_read(record.range.len(), false)?;
-    let bytes =
-        read_record_range_for_search(&path, record.revision, record.range, work.execution())?;
+    let bytes = read_record_range_for_search(
+        collection.required_file_reader().reader(),
+        &path,
+        record.revision,
+        record.range,
+        work.execution(),
+    )?;
     work.source_read(bytes.len() as u64)?;
     let extracted = crate::source::preparation::prepare_query_record_with_execution(
         record.class,

@@ -75,6 +75,7 @@ fn materialize_merged_address(
         ReturnMode::Bytes | ReturnMode::Logical => {
             let path = repo.files.required_root().join(&file.relative_path);
             let bytes = crate::source::access::read_record_range_for_search(
+                resolved.collection.required_file_reader().reader(),
                 &path,
                 file.revision,
                 record.range,
@@ -508,6 +509,7 @@ fn scan_direct_target_parallel(
         .required_root()
         .join(&resolved.file.relative_path);
     let bytes = match read_record_range_for_search(
+        target_collection.required_file_reader().reader(),
         &path,
         resolved.file.revision,
         resolved.record.range,
@@ -523,11 +525,10 @@ fn scan_direct_target_parallel(
             });
         }
     };
-    let borrow_value_text = !target_collection.required_file_reader().is_extension()
-        && target_collection
-            .required_file_reader()
-            .scalar_verification()
-            == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
+    let borrow_value_text = target_collection
+        .required_file_reader()
+        .scalar_verification()
+        == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
         && matches!(predicate, DirectRelationPredicate::Fts(_));
     let extracted = prepare_query_record_with_execution(
         resolved.record.class,
@@ -966,6 +967,7 @@ fn try_direct_relation_page(
                     context.charge_bytes(resolved.record.range.len())?;
                 }
                 let bytes = match read_record_range_for_search(
+                    target_collection.required_file_reader().reader(),
                     &path,
                     resolved.file.revision,
                     resolved.record.range,
@@ -977,11 +979,10 @@ fn try_direct_relation_page(
                 counters.relation_target_reads += 1;
                 counters.relation_target_file_opens += 1;
                 counters.relation_bytes_read += bytes.len() as u64;
-                let borrow_value_text = !target_collection.required_file_reader().is_extension()
-                    && target_collection
-                        .required_file_reader()
-                        .scalar_verification()
-                        == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
+                let borrow_value_text = target_collection
+                    .required_file_reader()
+                    .scalar_verification()
+                    == Some(crate::source::verification::ScalarVerification::ResolvedStrings)
                     && matches!(predicate, DirectRelationPredicate::Fts(_));
                 let extracted = prepare_query_record_with_execution(
                     resolved.record.class,
@@ -1528,7 +1529,9 @@ fn scan_relation_file_parallel(
         .required_root()
         .join(&resolved.file.relative_path);
     let mut reader = match RecordRangeReader::open_for_search(&path, resolved.file.revision, None) {
-        Ok(reader) => reader,
+        Ok(reader) => {
+            reader.with_backend(resolved.collection.required_file_reader().reader_handle())
+        }
         Err(message) => {
             scan.unavailable.record(SourceDiagnostic {
                 file_id: resolved.file.id.0,
@@ -1772,6 +1775,7 @@ fn merge_parallel_relation_work(
 
 #[allow(clippy::too_many_arguments)]
 fn read_relation_source_file(
+    source: &crate::source::registry::PreparedSource,
     file: &FileEntry,
     path: &std::path::Path,
     ranges: &[(u32, ByteRange)],
@@ -1788,7 +1792,7 @@ fn read_relation_source_file(
     ) -> Result<(), String>,
 ) -> Result<(), String> {
     let mut reader = match RecordRangeReader::open_for_search(path, file.revision, context) {
-        Ok(reader) => reader,
+        Ok(reader) => reader.with_backend(source.reader_handle()),
         Err(message) => {
             source_errors.record(SourceDiagnostic {
                 file_id: file.id.0,
@@ -3029,6 +3033,7 @@ fn try_native_relation_scan(
                             context.charge_bytes(resolved.record.range.len())?;
                         }
                         let bytes = read_record_range_for_search(
+                            resolved.collection.required_file_reader().reader(),
                             &path,
                             resolved.file.revision,
                             resolved.record.range,
@@ -3515,19 +3520,15 @@ pub(super) fn search_segmented_relations(
                 direct_plan
                     .as_ref()
                     .map(|direct| {
-                        direct
-                            .scalar_verification
-                            .ok_or_else(|| "direct scalar verification missing".to_owned())
-                            .and_then(|verification| {
-                                verification.scan_borrowed_segments(
-                                    &bytes,
-                                    &BorrowedScanQuery {
-                                        fts: direct.fts,
-                                        filter: direct.filter.map(|(term, _)| term),
-                                        retain_evidence: query.options.evidence,
-                                    },
-                                )
-                            })
+                        crate::source::verification::scan_borrowed_segments(
+                            resolved.collection.required_file_reader(),
+                            &bytes,
+                            &BorrowedScanQuery {
+                                fts: direct.fts,
+                                filter: direct.filter.map(|(term, _)| term),
+                                retain_evidence: query.options.evidence,
+                            },
+                        )
                     })
                     .transpose()?
             } else {
@@ -3791,6 +3792,7 @@ pub(super) fn search_segmented_relations(
                 .required_root()
                 .join(&resolved.file.relative_path);
             read_relation_source_file(
+                &resolved.collection.required_file_reader(),
                 resolved.file,
                 &path,
                 &ranges,
@@ -3927,6 +3929,7 @@ pub(super) fn search_segmented_relations(
                     .required_root()
                     .join(&resolved.file.relative_path);
                 read_relation_source_file(
+                    &resolved.collection.required_file_reader(),
                     resolved.file,
                     &path,
                     &ranges,

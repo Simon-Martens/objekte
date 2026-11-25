@@ -11,8 +11,18 @@ use crate::model::Value;
 pub mod access;
 pub mod extraction;
 pub(crate) mod framing;
-pub mod json;
-pub mod json_lines;
+#[cfg(test)]
+#[path = "../../../loader-json/src/document/mod.rs"]
+pub(crate) mod json;
+#[cfg(test)]
+#[path = "../../../loader-jsonl/src/reader.rs"]
+pub(crate) mod json_lines;
+#[cfg(test)]
+use json_lines::JsonLinesReader;
+#[cfg(test)]
+#[path = "../../../loader-jsonl/src/framing.rs"]
+mod jsonl_framing;
+
 pub(crate) mod preparation;
 pub mod registry;
 #[cfg(test)]
@@ -20,7 +30,7 @@ mod test_support;
 pub mod text;
 
 pub use framing::BoundedBuildChunk as BuildChunk;
-pub(crate) mod verification;
+pub mod verification;
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -170,8 +180,83 @@ impl ScanProjection {
     }
 }
 
+/// Forward framing over a revision-bound input supplied by core. The framer
+/// owns format state and buffers, while core bounds decoder jobs and indexes
+/// the emitted record ranges in order.
+pub trait BuildFramer {
+    fn next_chunk(
+        &mut self,
+        max_bytes: usize,
+        max_records: usize,
+    ) -> Result<Option<BuildChunk>, String>;
+    fn retained_input_capacity(&self) -> usize {
+        0
+    }
+}
+
+pub(crate) fn fingerprint_input(input: &mut dyn Read) -> std::io::Result<[u8; 32]> {
+    use sha2::{Digest, Sha256};
+    let mut digest = Sha256::new();
+    std::io::copy(input, &mut digest)?;
+    Ok(digest.finalize().into())
+}
+
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
+
+    /// Read a whole document from the catalog's opened input. The caller can
+    /// reuse the destination allocation. Streaming readers can instead frame
+    /// bounded chunks directly over that same input.
+    fn read_document(&self, input: &mut dyn Read, output: &mut Vec<u8>) -> std::io::Result<()> {
+        input.read_to_end(output).map(|_| ())
+    }
+
+    /// Read an exact record range or a coalesced window. Core validates its
+    /// location against the indexed revision and positions the input first.
+    /// The returned bytes must be identical to the original source bytes.
+    fn read_range(&self, input: &mut dyn Read, output: &mut [u8]) -> std::io::Result<()> {
+        input.read_exact(output)
+    }
+
+    /// Verify source contents from the beginning of the catalog's opened
+    /// input. All readers use the same raw SHA-256 identity.
+    fn fingerprint(&self, input: &mut dyn Read) -> std::io::Result<[u8; 32]> {
+        fingerprint_input(input)
+    }
+
+    /// Identity and build capabilities supplied by the registration.
+    fn supports_relative_path_identity(&self) -> bool {
+        false
+    }
+    fn supports_verified_layout(&self) -> bool {
+        false
+    }
+    fn prefers_file_batches(&self) -> bool {
+        false
+    }
+
+    fn scalar_verification(&self) -> Option<verification::ScalarVerification> {
+        None
+    }
+
+    fn scan_scalars(
+        &self,
+        _bytes: &[u8],
+        _query: &verification::ScalarQuery<'_>,
+    ) -> Result<verification::BorrowedScanResult, String> {
+        Err("reader does not support borrowed scalar scanning".into())
+    }
+
+    fn project_and_scan_scalars(
+        &self,
+        _bytes: &[u8],
+        _projection: &ScanProjection,
+        _query: verification::ScalarText<'_>,
+        _evidence: bool,
+    ) -> Result<(Value, verification::BorrowedScanResult), String> {
+        Err("reader does not support a combined projection and scalar scan".into())
+    }
+
     fn text_derivation(&self) -> TextDerivation {
         TextDerivation::ReaderSegments
     }
@@ -208,11 +293,23 @@ pub trait SourceReader: Send + Sync {
         false
     }
 
-    /// Opt in only when `frame` treats each nonblank newline-delimited span as
-    /// one record, excluding the LF byte and retaining any preceding CR.
-    /// The default keeps third-party readers on whole-file framing.
-    fn supports_bounded_json_lines_build(&self) -> bool {
+    /// Opt in to independently decodable chunks pulled from an opened source.
+    fn uses_pull_framing(&self) -> bool {
         false
+    }
+
+    fn build_framer<'a>(
+        &self,
+        _input: &'a mut dyn Read,
+        _max_record_bytes: Option<usize>,
+    ) -> Option<Box<dyn BuildFramer + 'a>> {
+        None
+    }
+
+    /// Conservative record bound for ordinary file batches. Readers with
+    /// unbounded record expansion use their own scheduled file jobs.
+    fn maximum_records(&self, _file_bytes: u64) -> u64 {
+        1
     }
 
     /// Optional conservative projection estimate, checked before query parsing.

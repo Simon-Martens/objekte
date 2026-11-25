@@ -1,7 +1,9 @@
 //! Query-scoped source sessions with bounded retained windows and handles.
 
 use roaring::RoaringBitmap;
-use std::path::Path;
+use std::{path::Path, sync::Arc};
+
+use crate::source::{SourceReader, registry::PreparedSource};
 
 use crate::inventory::{ByteRange, FileInventory, SourceRevision};
 use crate::lifecycle::catalog::FileCatalog;
@@ -32,6 +34,7 @@ enum SourceFileTable<'a> {
 pub(crate) struct SourceAccessSession<'a> {
     source: SourceFileTable<'a>,
     open: Vec<OpenSource>,
+    backend: Option<Arc<dyn SourceReader>>,
     distinct: RoaringBitmap,
     clock: u64,
     execution: Option<crate::query_execution::streaming::ExecutionContext>,
@@ -49,6 +52,7 @@ impl<'a> SourceAccessSession<'a> {
         Self {
             source: SourceFileTable::Inventory(files),
             open: Vec::new(),
+            backend: None,
             distinct: RoaringBitmap::new(),
             clock: 0,
             execution: None,
@@ -60,6 +64,7 @@ impl<'a> SourceAccessSession<'a> {
         Self {
             source: SourceFileTable::Catalog { root, catalog },
             open: Vec::new(),
+            backend: None,
             distinct: RoaringBitmap::new(),
             clock: 0,
             execution: None,
@@ -81,6 +86,11 @@ impl<'a> SourceAccessSession<'a> {
     ) {
         self.execution = Some(execution.clone());
         self.record_limit = Some(execution.limits.target_record_bytes);
+    }
+
+    pub(crate) fn select_backend(&mut self, source: &PreparedSource) {
+        let backend = source.reader_handle();
+        self.backend = Some(backend);
     }
 
     pub fn distinct_files(&self) -> u64 {
@@ -109,7 +119,9 @@ impl<'a> SourceAccessSession<'a> {
 
     fn handle(&mut self, file_id: FileId) -> Result<(usize, u64), String> {
         self.clock = self.clock.wrapping_add(1);
-        if let Some(index) = self.open.iter().position(|entry| entry.file_id == file_id) {
+        if let Some(index) = self.open.iter().position(|entry| {
+            entry.file_id == file_id && entry.reader.uses_backend(self.backend.as_ref())
+        }) {
             self.open[index].last_used = self.clock;
             return Ok((index, 0));
         }
@@ -127,7 +139,11 @@ impl<'a> SourceAccessSession<'a> {
                 (root.join(&file.relative_path), file.revision)
             }
         };
-        let reader = RecordRangeReader::open_for_search(&path, revision, self.execution.as_ref())?;
+        let mut reader =
+            RecordRangeReader::open_for_search(&path, revision, self.execution.as_ref())?;
+        if let Some(backend) = &self.backend {
+            reader = reader.with_backend(Arc::clone(backend));
+        }
         self.distinct.insert(file_id.0);
         if self.open.len() == MAX_OPEN_HANDLES {
             let oldest = self

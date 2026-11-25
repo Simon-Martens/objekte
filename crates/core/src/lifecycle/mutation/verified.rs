@@ -59,7 +59,11 @@ pub(super) fn verify_old_content_with_layout(
             .collections()
             .get(collection_id.0 as usize)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        if collection.required_file_reader().is_extension() {
+        if !collection
+            .required_file_reader()
+            .reader()
+            .supports_verified_layout()
+        {
             return Err(VerifiedFallbackReason::UnsupportedReader);
         }
         bindings.push(FilePreparationBinding {

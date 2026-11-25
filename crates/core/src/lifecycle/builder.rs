@@ -64,7 +64,10 @@ impl Default for IndexBuilder {
             file_sources: Vec::new(),
             registrations: Vec::new(),
             catalog_root: None,
+            #[cfg(test)]
             sources: SourceRegistry::builtin(),
+            #[cfg(not(test))]
+            sources: SourceRegistry::default(),
             options: RepositoryOptions::default(),
         }
     }

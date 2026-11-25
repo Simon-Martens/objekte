@@ -1,9 +1,9 @@
 //! Query-scoped, bounded source handles and range windows.
 
+use super::SourceReader;
 use std::io::{Read, Seek, SeekFrom};
 use std::path::Path;
-
-use sha2::{Digest, Sha256};
+use std::sync::Arc;
 
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::measurement::SourceUnavailableKind;
@@ -154,18 +154,7 @@ fn opened_identity_matches(
     let position = file.stream_position().map_err(|error| error.to_string())?;
     file.seek(SeekFrom::Start(0))
         .map_err(|error| error.to_string())?;
-    let mut hasher = Sha256::new();
-    let mut buffer = [0u8; 64 * 1024];
-    let digest = (|| -> Result<[u8; 32], String> {
-        loop {
-            let count = file.read(&mut buffer).map_err(|error| error.to_string())?;
-            if count == 0 {
-                break;
-            }
-            hasher.update(&buffer[..count]);
-        }
-        Ok(hasher.finalize().into())
-    })();
+    let digest = super::fingerprint_input(file).map_err(|error| error.to_string());
     file.seek(SeekFrom::Start(position))
         .map_err(|error| error.to_string())?;
     Ok(digest? == fingerprint && opened_revision_matches(file, expected)?)
@@ -187,12 +176,13 @@ pub fn read_record_range(
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
     check_opened_revision(&file, revision)?;
     ByteRange::checked(range.start, range.end, revision.size)?;
-    read_record_range_from_opened(&mut file, range)
+    read_record_range_from_opened(&mut file, range, None)
 }
 
 /// Query read of a range published by an index. Verify the source object
 /// recorded in the pinned view before returning its bytes.
 pub(crate) fn read_record_range_for_search(
+    reader: &dyn SourceReader,
     path: &Path,
     revision: SourceRevision,
     range: ByteRange,
@@ -214,7 +204,7 @@ pub(crate) fn read_record_range_for_search(
     let mut file =
         std::fs::File::open(path).map_err(|error| format!("{}: {error}", path.display()))?;
     check_opened_revision(&file, revision)?;
-    let bytes = read_record_range_from_opened(&mut file, range)?;
+    let bytes = read_record_range_from_opened(&mut file, range, Some(reader))?;
     check_opened_revision(&file, revision)?;
     Ok(bytes)
 }
@@ -254,7 +244,7 @@ fn read_record_range_checked_impl(
         return Err(source_changed(execution, "stale source identity".into()));
     }
     ByteRange::checked(range.start, range.end, revision.size)?;
-    let bytes = read_record_range_from_opened(&mut file, range)?;
+    let bytes = read_record_range_from_opened(&mut file, range, None)?;
     if !opened_identity_matches(&mut file, revision, proof)? {
         return Err(source_changed(execution, "stale source identity".into()));
     }
@@ -279,29 +269,36 @@ pub(crate) fn read_record_range_with_execution(
         ));
     }
     ByteRange::checked(range.start, range.end, revision.size)?;
-    read_record_range_from_opened(&mut file, range)
+    read_record_range_from_opened(&mut file, range, None)
 }
 
 /// Build-only fallback read: discovery supplied the source revision, while
 /// construction assumes the source remains stable and performs no new probe.
 pub(crate) fn read_record_range_for_build(
+    reader: &dyn SourceReader,
     path: &Path,
     range: ByteRange,
 ) -> Result<Vec<u8>, String> {
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
     ByteRange::checked(range.start, range.end, u64::MAX)?;
-    read_record_range_from_opened(&mut file, range)
+    read_record_range_from_opened(&mut file, range, Some(reader))
 }
 
 fn read_record_range_from_opened(
     file: &mut std::fs::File,
     range: ByteRange,
+    reader: Option<&dyn SourceReader>,
 ) -> Result<Vec<u8>, String> {
     let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
     let mut bytes = vec![0; len];
     file.seek(SeekFrom::Start(range.start))
         .map_err(|e| e.to_string())?;
-    file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
+    if let Some(reader) = reader {
+        reader.read_range(file, &mut bytes)
+    } else {
+        file.read_exact(&mut bytes)
+    }
+    .map_err(|error| error.to_string())?;
     Ok(bytes)
 }
 
@@ -318,6 +315,7 @@ pub fn read_record_ranges(
 
 /// One opened source handle for a bounded sequence of range batches.
 pub struct RecordRangeReader {
+    backend: Option<Arc<dyn SourceReader>>,
     file: std::fs::File,
     revision: SourceRevision,
     check_freshness: bool,
@@ -402,6 +400,7 @@ impl RecordRangeReader {
             return Err(source_changed(execution, message.into()));
         }
         Ok(Self {
+            backend: None,
             file,
             revision,
             check_freshness: true,
@@ -414,6 +413,19 @@ impl RecordRangeReader {
             #[cfg(test)]
             max_window_read: 0,
         })
+    }
+
+    pub(crate) fn with_backend(mut self, backend: Arc<dyn SourceReader>) -> Self {
+        self.backend = Some(backend);
+        self
+    }
+
+    fn uses_backend(&self, backend: Option<&Arc<dyn SourceReader>>) -> bool {
+        match (&self.backend, backend) {
+            (None, None) => true,
+            (Some(current), Some(next)) => Arc::ptr_eq(current, next),
+            _ => false,
+        }
     }
 
     fn current_matches(&mut self) -> Result<bool, String> {
@@ -449,7 +461,12 @@ impl RecordRangeReader {
                 .map_err(|e| e.to_string())?;
             self.position = Some(start);
         }
-        if let Err(error) = self.file.read_exact(bytes) {
+        let read = if let Some(backend) = &self.backend {
+            backend.read_range(&mut self.file, bytes)
+        } else {
+            self.file.read_exact(bytes)
+        };
+        if let Err(error) = read {
             self.position = None;
             return Err(error.to_string());
         }

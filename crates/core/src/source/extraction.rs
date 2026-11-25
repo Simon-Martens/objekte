@@ -12,9 +12,11 @@ use crate::inventory::{ByteRange, SourceRevision};
 use super::access::check_revision;
 use super::framing::validate_reader_ranges;
 use super::{
-    DiagnosticCategory, ExtractedRecord, ReaderDiagnostic, ReaderFailure, SourceFormat,
-    SourceOutcome, SourceReader, registry::SourceRegistry,
+    DiagnosticCategory, ExtractedRecord, ReaderDiagnostic, ReaderFailure, SourceOutcome,
+    SourceReader,
 };
+#[cfg(test)]
+use super::{SourceFormat, registry::SourceRegistry};
 
 /// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
@@ -78,7 +80,8 @@ impl Read for TimedBuildReader<'_> {
 
 /// Call `consume` once for every independently parseable record. No index
 /// family rereads or reparses the source; builders share the extracted value.
-pub fn extract_file<F>(
+#[cfg(test)]
+pub(crate) fn extract_file<F>(
     path: &Path,
     format: SourceFormat,
     expected: SourceRevision,
@@ -127,7 +130,7 @@ pub(crate) fn frame_file_for_build(
         Err(_) => return Ok(None),
     };
     let mut bytes = Vec::new();
-    if file.read_to_end(&mut bytes).is_err() {
+    if source.read_document(&mut file, &mut bytes).is_err() {
         return Ok(None);
     }
     let ranges = match source.frame_outcome(&bytes) {
@@ -382,13 +385,15 @@ where
         }
     }
     let read_result = if let Some(sample) = profile.as_deref_mut() {
-        TimedBuildReader {
-            inner: &mut file,
-            sample,
-        }
-        .read_to_end(&mut *bytes)
+        source.read_document(
+            &mut TimedBuildReader {
+                inner: &mut file,
+                sample,
+            },
+            bytes,
+        )
     } else {
-        file.read_to_end(&mut *bytes)
+        source.read_document(&mut file, bytes)
     };
     if let Some(stats) = buffer_profile.as_deref_mut() {
         stats.files_read += 1;

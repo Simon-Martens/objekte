@@ -36,7 +36,8 @@ fn source_scan_matches_reference_search_before_an_index_exists() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let scan = SourceScan::open(&root, vec![definition.clone()]).unwrap();
+    let scan =
+        SourceScan::open(&root, vec![definition.clone()], SourceRegistry::builtin()).unwrap();
     let indexed = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
@@ -272,7 +273,7 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
         let _ = (plain_file, plain_modified, percent_file, percent_modified);
 
         let indexed_hits = indexed.search(&plain_query()).unwrap();
-        let scan = SourceScan::open(&root, vec![definition]).unwrap();
+        let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
         let scanned_hits = scan
             .search(&plain_query(), &CancellationToken::new())
             .unwrap();
@@ -380,7 +381,7 @@ fn jsonl_identity_checks_exact_ranges_classes_and_fallback_identity() {
         },
     ];
     let indexed_hits = indexed.search(&plain_query()).unwrap();
-    let scan = SourceScan::open(&root, vec![definition]).unwrap();
+    let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
     let scanned_hits = scan
         .search(&plain_query(), &CancellationToken::new())
         .unwrap();
@@ -437,7 +438,7 @@ fn registered_json_uses_generated_ids_with_builtin_scalar_verification() {
         id: RecordId::generated(file.id, file.revision.modified_ns, 0),
     }];
     let indexed_hits = indexed.search(&plain_query()).unwrap();
-    let scan = SourceScan::open(&root, vec![definition]).unwrap();
+    let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
     let scanned_hits = scan
         .search(&plain_query(), &CancellationToken::new())
         .unwrap();
@@ -457,18 +458,10 @@ fn relative_path_errors_name_one_valid_file_and_exact_range() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("jsonl")).unwrap();
-    std::fs::create_dir_all(root.join("registered")).unwrap();
     std::fs::write(root.join("jsonl/valid.jsonl"), b"{\"title\":\"valid\"}\n").unwrap();
-    std::fs::write(root.join("registered/valid.json"), br#"{"title":"valid"}"#).unwrap();
-    for (format, source_path, file_name, end) in [
-        (SourceFormat::JsonLines, "jsonl", "valid.jsonl", 17),
-        (
-            SourceFormat::registered("json"),
-            "registered",
-            "valid.json",
-            17,
-        ),
-    ] {
+    for (format, source_path, file_name, end) in
+        [(SourceFormat::JsonLines, "jsonl", "valid.jsonl", 17)]
+    {
         let mut definition = CollectionDefinition::folder("files", source_path, format.clone());
         definition.identity = IdentityPolicy::RelativePath;
         let error = crate::lifecycle::Index::build_repository_for_test(
@@ -483,16 +476,16 @@ fn relative_path_errors_name_one_valid_file_and_exact_range() {
         assert!(error.contains(file_name), "{format:?}: {error}");
         assert!(error.contains(&format!("0..{end}")), "{format:?}: {error}");
         assert!(
-            error.contains("relative-path identity requires a single-record JSON reader"),
+            error.contains("relative-path identity requires a reader that supports it"),
             "{format:?}: {error}"
         );
-        let scan = SourceScan::open(&root, vec![definition]).unwrap();
+        let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
         let error = scan
             .search(&plain_query(), &CancellationToken::new())
             .unwrap_err();
         assert_eq!(
             error,
-            "relative-path identity requires a single-record JSON reader"
+            "relative-path identity requires a reader that supports it"
         );
     }
     std::fs::remove_dir_all(root).unwrap();

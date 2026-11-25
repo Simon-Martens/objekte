@@ -160,6 +160,7 @@ impl Index {
                             relative.display()
                         )));
                     }
+                    let backend = prepared.reader(repository);
                     let (mut entry, indexed) = index_prepared_file(
                         repository,
                         &prepared.source,
@@ -186,7 +187,12 @@ impl Index {
                         .advanced(old.id)
                         .map_err(IndexError::ResourceLimit)?
                         .0;
-                    observed.push((prepared.source, prepared.identity, prepared.fingerprint));
+                    observed.push((
+                        prepared.source,
+                        prepared.identity,
+                        prepared.fingerprint,
+                        backend,
+                    ));
                     for segment in indexed {
                         next = next.with_segment(segment)?;
                     }
@@ -200,12 +206,13 @@ impl Index {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
-                for (source, identity, fingerprint) in observed {
+                for (source, identity, fingerprint, backend) in observed {
                     crate::construction::file_preparation::verify_current_source(
                         repository.files().required_root(),
                         &source,
                         identity,
                         fingerprint,
+                        backend.map(|source| source.reader()),
                     )
                     .map_err(IndexError::SourceUnavailable)?;
                 }

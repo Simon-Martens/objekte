@@ -43,9 +43,12 @@ pub struct SourceScan {
 }
 
 impl SourceScan {
-    pub fn open(root: &Path, definitions: Vec<CollectionDefinition>) -> Result<Self, String> {
+    pub fn open(
+        root: &Path,
+        definitions: Vec<CollectionDefinition>,
+        sources: SourceRegistry,
+    ) -> Result<Self, String> {
         let root = root.canonicalize().map_err(|error| error.to_string())?;
-        let sources = SourceRegistry::builtin();
         let mut files = FileInventory::new(root.clone());
         let mut collections = Vec::with_capacity(definitions.len());
         for (number, definition) in definitions.into_iter().enumerate() {
@@ -179,6 +182,7 @@ impl SourceScan {
                                         range,
                                         None,
                                         Some(read_record_range_for_search(
+                                            collection.source.reader(),
                                             &path,
                                             file.revision,
                                             range,
@@ -268,6 +272,7 @@ impl SourceScan {
                         }
                         if filter.is_some() && bytes.is_none() {
                             bytes = Some(read_record_range_for_search(
+                                collection.source.reader(),
                                 &path,
                                 file.revision,
                                 range,
@@ -335,7 +340,13 @@ impl SourceScan {
                             }
                             ReturnMode::Bytes => {
                                 let raw = bytes.take().map(Ok).unwrap_or_else(|| {
-                                    read_record_range_for_search(&path, file.revision, range, None)
+                                    read_record_range_for_search(
+                                        collection.source.reader(),
+                                        &path,
+                                        file.revision,
+                                        range,
+                                        None,
+                                    )
                                 })?;
                                 Some(Payload::Bytes(raw))
                             }
@@ -416,8 +427,8 @@ fn record_id(
                 .ok_or("non-UTF-8 filename identity")?,
         ),
         IdentityPolicy::RelativePath => {
-            if !definition.format.supports_relative_path_identity() {
-                return Err("relative-path identity requires a single-record JSON reader".into());
+            if !source.reader().supports_relative_path_identity() {
+                return Err("relative-path identity requires a reader that supports it".into());
             }
             let relative = path
                 .strip_prefix(root.join(&definition.source_path))

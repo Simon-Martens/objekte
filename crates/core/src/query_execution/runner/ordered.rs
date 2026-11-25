@@ -34,7 +34,7 @@ impl Ord for LifecycleOrderCursor {
 
 pub(super) fn read_lifecycle_ordered_record(
     repo: &Repository,
-    _catalog: &FileCatalog,
+    source: &crate::source::registry::PreparedSource,
     file: &FileEntry,
     record: &RecordEntry,
     slot: RecordSlot,
@@ -47,7 +47,8 @@ pub(super) fn read_lifecycle_ordered_record(
         let path = repo.files.required_root().join(&file.relative_path);
         *reader = Some((
             file.id,
-            RecordRangeReader::open_for_search(&path, file.revision, Some(context))?,
+            RecordRangeReader::open_for_search(&path, file.revision, Some(context))?
+                .with_backend(source.reader_handle()),
         ));
     }
     let (_, source) = reader.as_mut().ok_or("ordered source reader missing")?;
@@ -155,6 +156,7 @@ pub(crate) fn direct_payload(
         }));
     }
     let collection = &repo.collections[collection_index];
+    source_access.select_backend(&collection.required_file_reader());
     let mut read = if let Some(limit) = stream_limit {
         source_access.read_bounded(record.file, &[(0, record.range)], limit)?
     } else {

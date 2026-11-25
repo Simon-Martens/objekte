@@ -46,12 +46,16 @@ pub(super) fn scan_file(
     let mut retained_bytes = 0u64;
     let mut retained_key_bytes = 0u64;
     let mut buffered_bytes = 0usize;
+    if let Some(access) = source_access.as_deref_mut() {
+        access.select_backend(&collection.required_file_reader());
+    }
     let mut reader = if source_access.is_some() {
         None
     } else {
-        Some(RecordRangeReader::open_for_search(
-            &path, revision, execution,
-        )?)
+        Some(
+            RecordRangeReader::open_for_search(&path, revision, execution)?
+                .with_backend(collection.required_file_reader().reader_handle()),
+        )
     };
     outcome.files_opened = u64::from(reader.is_some());
     // These built-in readers search the converted logical strings. Keep the
@@ -230,18 +234,16 @@ pub(super) fn scan_file(
                 let filter = direct.filter.and_then(|(term, proof)| {
                     Residual::proven(proof, slot).is_none().then_some(term)
                 });
-                direct
-                    .scalar_verification
-                    .ok_or("direct scalar verification missing")?
-                    .scan_borrowed_segments(
-                        &bytes,
-                        &BorrowedScanQuery {
-                            fts: direct.fts,
-                            filter,
-                            retain_evidence: query.options.evidence,
-                        },
-                    )
-                    .map(Some)?
+                crate::source::verification::scan_borrowed_segments(
+                    collection.required_file_reader(),
+                    &bytes,
+                    &BorrowedScanQuery {
+                        fts: direct.fts,
+                        filter,
+                        retain_evidence: query.options.evidence,
+                    },
+                )
+                .map(Some)?
             } else {
                 None
             };

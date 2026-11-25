@@ -501,7 +501,8 @@ fn scan_inferred_segment(
             &repo.files.required_root().join(&current.relative_path),
             current.revision,
             None,
-        )?;
+        )?
+        .with_backend(collection.required_file_reader().reader_handle());
         for batch in ranges.chunks(128) {
             for (slot, bytes) in reader.read(batch)?.0 {
                 let value = prepare_query_record_with_execution(
@@ -596,7 +597,8 @@ fn verify_legacy_facts(
             &repo.files.required_root().join(&current.relative_path),
             current.revision,
             None,
-        )?;
+        )?
+        .with_backend(collection.required_file_reader().reader_handle());
         entries.sort_unstable_by_key(|(slot, _, _)| *slot);
         for batch in entries.chunks(128) {
             let ranges = batch

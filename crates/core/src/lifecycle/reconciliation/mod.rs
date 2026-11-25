@@ -270,12 +270,19 @@ impl Index {
                     ));
                 }
                 let source = prepared.file.source.clone();
+                let backend = prepared.file.reader(snapshot.repository());
                 let identity = prepared.file.identity;
                 let fingerprint = prepared.file.fingerprint;
                 let expected = prepared.expected_revision;
                 let next = self.stage_prepared_add(prepared)?;
-                verify_current_source(root, &source, identity, fingerprint)
-                    .map_err(IndexError::SourceUnavailable)?;
+                verify_current_source(
+                    root,
+                    &source,
+                    identity,
+                    fingerprint,
+                    backend.map(|source| source.reader()),
+                )
+                .map_err(IndexError::SourceUnavailable)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
             ScanChange::Update { previous, observed } => {
@@ -289,12 +296,19 @@ impl Index {
                     ));
                 }
                 let source = prepared.file.source.clone();
+                let backend = prepared.file.reader(snapshot.repository());
                 let identity = prepared.file.identity;
                 let fingerprint = prepared.file.fingerprint;
                 let expected = prepared.expected_revision;
                 let next = self.stage_prepared_replace(prepared)?;
-                verify_current_source(root, &source, identity, fingerprint)
-                    .map_err(IndexError::SourceUnavailable)?;
+                verify_current_source(
+                    root,
+                    &source,
+                    identity,
+                    fingerprint,
+                    backend.map(|source| source.reader()),
+                )
+                .map_err(IndexError::SourceUnavailable)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
             ScanChange::Remove(observed) => {

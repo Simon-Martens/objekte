@@ -13,6 +13,14 @@ use objekte_search_core::source::SourceFormat;
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
 
+/// Install the document and line readers used by all bundled frontends.
+pub fn installed_sources() -> objekte_search_core::source::registry::SourceRegistry {
+    let mut sources = objekte_search_core::source::registry::SourceRegistry::default();
+    objekte_loader_json::register(&mut sources).expect("built-in JSON registrations");
+    objekte_loader_jsonl::register(&mut sources).expect("built-in JSON Lines registration");
+    sources
+}
+
 fn load_schema_configuration(
     paths: &ResolvedPaths,
 ) -> Result<Option<(CompiledSchema, bool)>, String> {

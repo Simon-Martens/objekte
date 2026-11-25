@@ -3672,6 +3672,7 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
     let file = &repo.files.files[record.file.0 as usize];
     let path = repo.files.native_path(record.file).unwrap();
     let bytes = crate::source::access::read_record_range_for_search(
+        &crate::source::json::JsonReader,
         &path,
         record.revision,
         record.range,

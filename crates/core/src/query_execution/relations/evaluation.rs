@@ -518,6 +518,7 @@ fn visit_merged_hop(
             execution.check_string()?;
         }
         let bytes = match read_record_range_for_search(
+            current.collection.required_file_reader().reader(),
             &path,
             current.file.revision,
             current.record.range,
@@ -967,8 +968,13 @@ fn visit_hop(
             ));
         }
         work.before_read(record.range.len(), true)?;
-        let bytes =
-            read_record_range_for_search(&path, record.revision, record.range, work.execution())?;
+        let bytes = read_record_range_for_search(
+            collection.required_file_reader().reader(),
+            &path,
+            record.revision,
+            record.range,
+            work.execution(),
+        )?;
         work.target_read(bytes.len() as u64)?;
         let extracted = crate::source::preparation::prepare_query_record_with_execution(
             record.class,

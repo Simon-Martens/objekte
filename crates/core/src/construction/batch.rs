@@ -520,7 +520,7 @@ impl<'a> BatchBuilder<'a> {
             return if let Some(bytes) = source_bytes {
                 self.fallback(file, range, bytes, issue)
             } else {
-                let bytes = read_record_range_for_build(path, range)?;
+                let bytes = read_record_range_for_build(self.source.reader(), path, range)?;
                 self.fallback(file, range, &bytes, issue)
             };
         }
@@ -1000,10 +1000,8 @@ pub(super) fn build_record_id(
                 RecordId::intrinsic(stem)
             }
             IdentityPolicy::RelativePath => {
-                if !definition.format.supports_relative_path_identity() {
-                    return Err(
-                        "relative-path identity requires a single-record JSON reader".into(),
-                    );
+                if !source.reader().supports_relative_path_identity() {
+                    return Err("relative-path identity requires a reader that supports it".into());
                 }
                 let source_dir = root.join(&definition.source_path);
                 let relative = path

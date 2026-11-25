@@ -12,7 +12,7 @@ fn large_delta_fixture(records: usize) -> (tempfile::TempDir, OpenedSession, Ind
         root.path(),
         vec![definition],
         RepositoryOptions::default(),
-        objekte_search_core::source::registry::SourceRegistry::builtin(),
+        objekte_cli::loader::installed_sources(),
     )
     .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())
@@ -79,7 +79,7 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
             },
             ..Default::default()
         },
-        objekte_search_core::source::registry::SourceRegistry::builtin(),
+        objekte_cli::loader::installed_sources(),
     )
     .unwrap()
     .wait_complete()
@@ -595,7 +595,7 @@ fn completion_uses_bounded_postings_and_keeps_typed_literals() {
         root.path(),
         vec![definition],
         RepositoryOptions::default(),
-        objekte_search_core::source::registry::SourceRegistry::builtin(),
+        objekte_cli::loader::installed_sources(),
     )
     .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())

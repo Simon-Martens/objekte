@@ -410,6 +410,7 @@ fn prepare_with_limits(
                 .push((slot, record.range));
         }
         projected_fields.insert(collection_id, fields.clone());
+        access.select_backend(&collection.required_file_reader());
         let projection = ScanProjection {
             top_level: Some(fields),
             collect_text: false,

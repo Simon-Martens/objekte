@@ -75,6 +75,7 @@ impl Repository {
             }
             ReturnMode::Bytes | ReturnMode::Logical => {
                 let mut access = SourceAccessSession::new(&self.files);
+                access.select_backend(&collection.required_file_reader());
                 let mut read = access.read(record.file, &[(slot.0, record.range)])?;
                 let bytes = read.records.pop().ok_or("source record missing")?.1;
                 crate::query_results::payload::payload_from_bytes(

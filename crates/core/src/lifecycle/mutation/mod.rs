@@ -2,10 +2,7 @@
 //! path. Source files remain owned by the application.
 
 use std::collections::BTreeSet;
-use std::io::Read;
 use std::path::{Component, Path, PathBuf};
-
-use sha2::{Digest, Sha256};
 
 use crate::construction::file_preparation::{PreparedFileBuild, verify_current_source};
 use crate::inventory::SourceRevision;
@@ -40,6 +37,7 @@ fn verify_file_source(view: &IndexView, file: &PreparedFileBuild) -> Result<(), 
         &file.source,
         identity,
         file.fingerprint,
+        file.reader(view.repository()).map(|source| source.reader()),
     )
     .map_err(IndexError::SourceUnavailable)
 }
@@ -224,7 +222,10 @@ fn path_independent_memberships(
             return Ok(false);
         }
         if selected
-            && (collection.required_file_reader().is_extension()
+            && (!collection
+                .required_file_reader()
+                .reader()
+                .supports_verified_layout()
                 || !matches!(
                     collection.required_file_source().identity,
                     IdentityPolicy::Generated | IdentityPolicy::Intrinsic(_)
@@ -278,7 +279,10 @@ fn destination_has_importer(view: &IndexView, destination: &Path) -> Result<bool
     Ok(false)
 }
 
-fn hash_destination(path: &Path) -> Result<([u8; 32], SourceRevision, Option<i128>), IndexError> {
+fn hash_destination(
+    path: &Path,
+    backend: &dyn crate::source::SourceReader,
+) -> Result<([u8; 32], SourceRevision, Option<i128>), IndexError> {
     let mut source =
         std::fs::File::open(path).map_err(|error| IndexError::Io(error.to_string()))?;
     let before = source
@@ -291,17 +295,9 @@ fn hash_destination(path: &Path) -> Result<([u8; 32], SourceRevision, Option<i12
     }
     let revision = SourceRevision::from_metadata(&before).map_err(IndexError::Io)?;
     let creation = created_ns(&before);
-    let mut hasher = Sha256::new();
-    let mut buffer = [0u8; 64 * 1024];
-    loop {
-        let count = source
-            .read(&mut buffer)
-            .map_err(|error| IndexError::Io(error.to_string()))?;
-        if count == 0 {
-            break;
-        }
-        hasher.update(&buffer[..count]);
-    }
+    let digest = backend
+        .fingerprint(&mut source)
+        .map_err(|error| IndexError::Io(error.to_string()))?;
     let after = source
         .metadata()
         .map_err(|error| IndexError::Io(error.to_string()))?;
@@ -325,7 +321,7 @@ fn hash_destination(path: &Path) -> Result<([u8; 32], SourceRevision, Option<i12
             ));
         }
     }
-    Ok((hasher.finalize().into(), revision, creation))
+    Ok((digest, revision, creation))
 }
 
 impl Index {
@@ -711,7 +707,16 @@ impl Index {
                 return Ok(None);
             }
             let absolute = view.repository().files().required_root().join(&relative);
-            let (digest, revision, creation) = hash_destination(&absolute)?;
+            let Some(backend) = old.collections.iter().find_map(|id| {
+                view.repository()
+                    .collections()
+                    .get(id.0 as usize)?
+                    .source
+                    .as_ref()
+            }) else {
+                return Ok(None);
+            };
+            let (digest, revision, creation) = hash_destination(&absolute, backend.reader())?;
             if digest != fingerprint || revision != old.revision || creation != old.created_ns {
                 return Ok(None);
             }

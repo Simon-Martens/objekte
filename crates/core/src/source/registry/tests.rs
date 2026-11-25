@@ -825,7 +825,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
 }
 
 #[test]
-fn registered_readers_do_not_enable_relative_path_identity() {
+fn relative_path_identity_depends_on_the_registered_reader() {
     let root = std::env::temp_dir().join(format!(
         "objekte-registered-identity-{}",
         std::process::id()
@@ -868,41 +868,28 @@ fn registered_readers_do_not_enable_relative_path_identity() {
             .unwrap();
         sources
     };
-    for (format, source_path, sources) in [
-        (
-            SourceFormat::registered("json"),
-            "json",
-            SourceRegistry::builtin(),
-        ),
-        (
-            SourceFormat::registered("json"),
-            "custom",
-            custom_json.clone(),
-        ),
-        (SourceFormat::registered("tiny"), "tiny", custom_non_json),
-    ] {
-        let mut definition = CollectionDefinition::folder("data", source_path, format.clone());
-        definition.identity = IdentityPolicy::RelativePath;
-        let error = crate::lifecycle::Index::build_repository_for_test(
-            &root,
-            vec![definition],
-            RepositoryOptions::default(),
-            sources,
-        )
-        .err()
-        .expect("registered relative-path identity must be rejected")
-        .to_string();
-        assert!(
-            error.contains("relative-path identity requires a single-record JSON reader"),
-            "{format:?}: {error}"
-        );
-    }
+    let mut definition =
+        CollectionDefinition::folder("data", "tiny", SourceFormat::registered("tiny"));
+    definition.identity = IdentityPolicy::RelativePath;
+    let error = crate::lifecycle::Index::build_repository_for_test(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        custom_non_json,
+    )
+    .err()
+    .expect("a reader without the capability must reject relative-path identity")
+    .to_string();
+    assert!(
+        error.contains("relative-path identity requires a reader that supports it"),
+        "{error}"
+    );
 
     let custom = custom_json
         .resolve(&SourceFormat::registered("json"))
         .unwrap();
     assert!(custom.reader().supports_trusted_query_extraction());
-    assert_eq!(custom.scalar_verification(), None);
+    assert!(custom.reader().supports_relative_path_identity());
     let successful = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition::folder(
@@ -950,9 +937,12 @@ fn registered_readers_do_not_enable_relative_path_identity() {
         multi_sources,
     )
     .err()
-    .expect("multiple records must collide under path identity")
+    .expect("a format name must not grant relative-path identity")
     .to_string();
-    assert!(error.contains("duplicate record ID"), "{error}");
+    assert!(
+        error.contains("relative-path identity requires a reader that supports it"),
+        "{error}"
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

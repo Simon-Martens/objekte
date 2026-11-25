@@ -725,7 +725,13 @@ pub(crate) fn get_segment_record_by_id(
         }
         ReturnMode::Bytes | ReturnMode::Logical => {
             let path = repo.files.required_root().join(&file.relative_path);
-            let bytes = read_record_range_for_search(&path, file.revision, record.range, None)?;
+            let bytes = read_record_range_for_search(
+                collection.required_file_reader().reader(),
+                &path,
+                file.revision,
+                record.range,
+                None,
+            )?;
             payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
         }
     };
@@ -940,11 +946,17 @@ pub(crate) fn direct_lookup_segmented_counted(
             }
             ReturnMode::Bytes | ReturnMode::Logical => {
                 let path = repo.files.required_root().join(&file.relative_path);
-                read_record_range_for_search(&path, file.revision, record.range, None)
-                    .and_then(|bytes| {
-                        payload_from_bytes(record.class, Some(collection), &return_mode, bytes)
-                    })
-                    .map(|(payload, _)| payload)
+                read_record_range_for_search(
+                    collection.required_file_reader().reader(),
+                    &path,
+                    file.revision,
+                    record.range,
+                    None,
+                )
+                .and_then(|bytes| {
+                    payload_from_bytes(record.class, Some(collection), &return_mode, bytes)
+                })
+                .map(|(payload, _)| payload)
             }
         };
         let result = payload.map(|payload| {
@@ -3470,7 +3482,8 @@ fn search_segmented_impl(
                     crate::model::FileId(file_id),
                 )?;
                 let path = repo.files.required_root().join(&file.relative_path);
-                let mut reader = RecordRangeReader::open_for_search(&path, file.revision, context)?;
+                let mut reader = RecordRangeReader::open_for_search(&path, file.revision, context)?
+                    .with_backend(collection.required_file_reader().reader_handle());
                 delta_opened.insert(file_id);
                 counters.files_opened += 1;
                 let mut cursor = 0;
@@ -4922,7 +4935,7 @@ fn try_lifecycle_ordered_stream(
             context.charge_bytes(record.range.len())?;
             let read = match read_lifecycle_ordered_record(
                 repo,
-                catalog,
+                collection.required_file_reader(),
                 file,
                 &record,
                 cursor.slot,
@@ -5099,7 +5112,7 @@ fn try_lifecycle_ordered_stream(
                     context.charge_bytes(record.range.len())?;
                     let read = read_lifecycle_ordered_record(
                         repo,
-                        catalog,
+                        collection.required_file_reader(),
                         file,
                         &record,
                         cursor.slot,
@@ -6237,6 +6250,12 @@ fn deliver_ranked_all(
                     .as_ref()
                     .ok_or("file origin missing from source hit")?;
                 let range = origin.range.ok_or("source hit has no byte range")?;
+                let collection = repo
+                    .collections
+                    .iter()
+                    .find(|collection| collection.definition.name == hit.collection)
+                    .ok_or("missing hit collection")?;
+                source_access.select_backend(&collection.required_file_reader());
                 let mut read = source_access.read_bounded(
                     origin.file_id,
                     &[(0, range)],
@@ -6245,16 +6264,9 @@ fn deliver_ranked_all(
                 result.counters.files_opened += read.opened;
                 result.counters.bytes_read += read.bytes_read;
                 let bytes = read.records.pop().ok_or("source record missing")?.1;
-                let collection = if query.options.return_mode == ReturnMode::Logical {
-                    repo.collections
-                        .iter()
-                        .find(|collection| collection.definition.name == hit.collection)
-                } else {
-                    None
-                };
                 let (payload, parses) = payload_from_bytes_with_execution(
                     hit.record_class,
-                    collection,
+                    Some(collection),
                     &query.options.return_mode,
                     bytes,
                     Some(execution),
@@ -6455,6 +6467,7 @@ fn materialize_computed_cached<'a>(
         let file_id = reads[start].file_id;
         touched_files.insert(file_id);
         let collection = &repo.collections[collection_index];
+        source_access.select_backend(&collection.required_file_reader());
         while start < reads.len()
             && reads[start].collection_index == collection_index
             && reads[start].file_id == file_id

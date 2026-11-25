@@ -225,6 +225,7 @@ impl MergedSortTargetCache {
             execution.charge_bytes(current.record.range.len())?;
         }
         let bytes = match crate::source::access::read_record_range_for_search(
+            current.collection.required_file_reader().reader(),
             &path,
             current.file.revision,
             current.record.range,
@@ -1306,6 +1307,7 @@ impl SortTargetCache {
                 .native_path(record.file)
                 .ok_or("sort target path is missing")?;
             let bytes = crate::source::access::read_record_range_for_search(
+                collection.required_file_reader().reader(),
                 &path,
                 record.revision,
                 record.range,

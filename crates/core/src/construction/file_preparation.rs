@@ -1,7 +1,7 @@
 //! File, chunk and supplied-byte preparation for construction.
 
 use std::collections::{BTreeMap, VecDeque};
-use std::io::{BufRead, BufReader, Cursor, Read, Seek, SeekFrom};
+use std::io::{Cursor, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -22,9 +22,9 @@ use crate::repository::configuration::CollectionDefinition;
 use crate::repository::statistics::StreamMemoryStats;
 use crate::schema::Schema;
 use crate::source::{
-    ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_framed_build_outcomes,
-    framing::BoundedBuildChunk, framing::BoundedJsonLines, framing::validate_reader_ranges,
-    registry::PreparedSource,
+    BuildFramer, ReaderDiagnostic, ReaderFailure, SourceOutcome,
+    extraction::extract_framed_build_outcomes, framing::BoundedBuildChunk,
+    framing::validate_reader_ranges, registry::PreparedSource,
 };
 
 use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput};
@@ -104,6 +104,19 @@ pub(crate) fn created_ns(metadata: &std::fs::Metadata) -> Option<i128> {
 }
 
 impl PreparedFileBuild {
+    pub(crate) fn reader<'a>(
+        &self,
+        repository: &'a crate::repository::Repository,
+    ) -> Option<&'a PreparedSource> {
+        self.collections.first().and_then(|binding| {
+            repository
+                .collections()
+                .get(binding.collection.0 as usize)?
+                .source
+                .as_ref()
+        })
+    }
+
     pub(crate) fn record_count(&self) -> u64 {
         self.collections
             .iter()
@@ -159,6 +172,7 @@ pub(crate) fn verify_current_source(
     source: &SourceFileInput,
     identity: Option<FileObjectIdentity>,
     fingerprint: Option<[u8; 32]>,
+    backend: Option<&dyn crate::source::SourceReader>,
 ) -> Result<(), String> {
     let path = root.join(&source.relative_path);
     let canonical = path.canonicalize().map_err(|error| error.to_string())?;
@@ -177,19 +191,15 @@ pub(crate) fn verify_current_source(
             return Err("source object changed before publication".into());
         }
     } else if let Some(expected) = fingerprint {
-        let mut digest = Sha256::new();
         let mut file = std::fs::File::open(&canonical).map_err(|error| error.to_string())?;
         crate::source::access::check_revision(&canonical, &file, source.revision)?;
-        let mut chunk = [0u8; 64 * 1024];
-        loop {
-            let count = file.read(&mut chunk).map_err(|error| error.to_string())?;
-            if count == 0 {
-                break;
-            }
-            digest.update(&chunk[..count]);
+        let digest = match backend {
+            Some(backend) => backend.fingerprint(&mut file),
+            None => crate::source::fingerprint_input(&mut file),
         }
+        .map_err(|error| error.to_string())?;
         crate::source::access::check_revision(&canonical, &file, source.revision)?;
-        if <[u8; 32]>::from(digest.finalize()) != expected {
+        if digest != expected {
             return Err("source content changed before publication".into());
         }
     } else {
@@ -328,16 +338,19 @@ fn prepare_bounded_json_lines(
     }
     let mut digest = Sha256::new();
     let bytes_read = AtomicU64::new(0);
-    let reader = HashingReader {
+    let mut reader = HashingReader {
         inner: &mut *file,
         digest: hash_bytes.then_some(&mut digest),
         bytes_read: &bytes_read,
         expected_bytes,
     };
-    let mut reader = BoundedJsonLines::from_reader(BufReader::new(reader));
+    let mut framer = open_build_framer(binding.source.reader(), &mut reader, false)?;
     let limits = BoundedBuildLimits::default();
     let mut contributions = Vec::new();
-    while let Some(chunk) = reader.next_chunk(limits.chunk_bytes, limits.ranges)? {
+    while let Some(chunk) = framer.next_chunk(limits.chunk_bytes, limits.ranges)? {
+        if chunk.ranges.is_empty() {
+            continue;
+        }
         contributions.push(process_framed_batch(
             root,
             input,
@@ -352,7 +365,7 @@ fn prepare_bounded_json_lines(
             inference_jobs,
         )?);
     }
-    drop(reader);
+    drop(framer);
     if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
         != input.revision
         || source_revision_at(&path)? != input.revision
@@ -1100,7 +1113,7 @@ pub(crate) fn prepare_observed_file_build(
         let reader = binding.source.reader();
         let compare = expected_bytes.filter(|_| fingerprint.is_none());
         if let (Some(repository), Some(file)) = (streaming_repository, opened.as_mut())
-            && (reader.supports_streaming_build() || reader.supports_bounded_json_lines_build())
+            && (reader.supports_streaming_build() || reader.uses_pull_framing())
         {
             let (indexed, digest) = prepare_managed_stream(
                 repository,
@@ -1154,7 +1167,7 @@ pub(crate) fn prepare_observed_file_build(
                     let (contributions, digest) = result?;
                     fingerprint = fingerprint.or(digest);
                     contributions
-                } else if reader.supports_bounded_json_lines_build() {
+                } else if reader.uses_pull_framing() {
                     let (contributions, digest) = prepare_bounded_json_lines(
                         root,
                         &input,
@@ -1172,7 +1185,7 @@ pub(crate) fn prepare_observed_file_build(
                     let bytes = whole.get_or_insert_with(|| {
                         file.seek(SeekFrom::Start(0))?;
                         let mut bytes = Vec::new();
-                        file.read_to_end(&mut bytes)?;
+                        reader.read_document(&mut &*file, &mut bytes)?;
                         Ok::<_, std::io::Error>(bytes)
                     });
                     match bytes {
@@ -1335,12 +1348,13 @@ fn prepare_managed_stream(
             .map_err(|error| error.to_string())?;
         let bytes_read = AtomicU64::new(0);
         let mut digest = Sha256::new();
-        let reader = BoundedJsonLines::with_buffered_reader(BufReader::new(HashingReader {
+        let mut reader = HashingReader {
             inner: file,
             digest: hash.then_some(&mut digest),
             bytes_read: &bytes_read,
             expected_bytes,
-        }));
+        };
+        let framer = open_build_framer(binding.source.reader(), &mut reader, true)?;
         process_bounded_json_lines_input(
             pool,
             root,
@@ -1351,7 +1365,7 @@ fn prepare_managed_stream(
             options.bigram_alphabet,
             options.inference,
             options.detailed_profiling_enabled(),
-            reader,
+            framer,
             limits,
             policy.target_records.get(),
             Some(&repository.stream_budget),
@@ -1419,8 +1433,9 @@ fn prepare_file_build_with_fingerprint(
     let mut collections = Vec::with_capacity(bindings.len());
     for binding in bindings {
         let mut contributions = Vec::new();
-        if binding.source.reader().supports_bounded_json_lines_build() {
-            let mut reader = BoundedJsonLines::from_reader(BufReader::new(Cursor::new(bytes)));
+        if binding.source.reader().uses_pull_framing() {
+            let mut input_bytes = Cursor::new(bytes);
+            let mut reader = open_build_framer(binding.source.reader(), &mut input_bytes, false)?;
             let limits = BoundedBuildLimits::default();
             while let Some(chunk) = reader
                 .next_chunk(limits.chunk_bytes, limits.ranges)
@@ -1913,7 +1928,7 @@ pub(super) fn process_framed_file_with_budget(
         stats.file_fingerprint = digest.map(|digest| (file_id, digest));
         return Ok(stats);
     }
-    if source.reader().supports_bounded_json_lines_build() {
+    if source.reader().uses_pull_framing() {
         return process_bounded_json_lines_file(
             pool,
             root,
@@ -1966,7 +1981,7 @@ pub(super) fn process_framed_file_with_budget(
         return Err("stale source revision before large-file extraction".into());
     }
     let mut bytes = Vec::new();
-    if let Err(error) = file.read_to_end(&mut bytes) {
+    if let Err(error) = source.reader().read_document(&mut file, &mut bytes) {
         let read_bytes = bytes.len() as u64;
         let mut stats = admit_large_unreadable(
             &root,
@@ -2126,6 +2141,16 @@ mod tests;
 /// contributions alive. A single line larger than the normal chunk size is a
 /// singleton job; memory therefore scales with the largest record, not the
 /// whole file. Parsing remains parallel and admission remains file-order.
+fn open_build_framer<'a>(
+    reader: &dyn crate::source::SourceReader,
+    input: &'a mut dyn Read,
+    bounded: bool,
+) -> Result<Box<dyn BuildFramer + 'a>, String> {
+    reader
+        .build_framer(input, bounded.then_some(128 * 1024 * 1024))
+        .ok_or_else(|| "reader advertised pull framing but did not provide a framer".into())
+}
+
 fn process_bounded_json_lines_file(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -2175,12 +2200,13 @@ fn process_bounded_json_lines_file(
     let bytes_read = AtomicU64::new(0);
     let expected_size = source_files[file_id.0 as usize].revision.size;
     let _framing = shared_budget.map(|budget| budget.enter_framing(pool));
-    let reader = BoundedJsonLines::with_buffered_reader(BufReader::new(HashingReader {
+    let mut reader = HashingReader {
         inner: &file,
         digest: Some(&mut digest),
         bytes_read: &bytes_read,
         expected_bytes: None,
-    }));
+    };
+    let framer = open_build_framer(source.reader(), &mut reader, shared_budget.is_some())?;
     let mut stats = process_bounded_json_lines_input(
         pool,
         root,
@@ -2191,7 +2217,7 @@ fn process_bounded_json_lines_file(
         alphabet,
         inference,
         profile_build,
-        reader,
+        framer,
         BoundedBuildLimits::default(),
         record_target,
         shared_budget,
@@ -2228,7 +2254,7 @@ impl Default for BoundedBuildLimits {
 }
 
 #[cfg(test)]
-pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
+pub(crate) fn process_bounded_json_lines_reader(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
@@ -2239,7 +2265,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     profile_build: bool,
-    reader: BoundedJsonLines<R>,
+    reader: impl BuildFramer,
     limits: BoundedBuildLimits,
     cancelled: &dyn Fn() -> bool,
     admit: impl FnMut(BatchContribution) -> Result<(), String>,
@@ -2255,7 +2281,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
         alphabet,
         inference,
         profile_build,
-        reader,
+        Box::new(reader),
         limits,
         usize::MAX,
         None,
@@ -2264,7 +2290,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     )
 }
 
-fn process_bounded_json_lines_input<R: BufRead + Send>(
+fn process_bounded_json_lines_input(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
@@ -2274,7 +2300,7 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     profile_build: bool,
-    mut reader: BoundedJsonLines<R>,
+    mut reader: Box<dyn BuildFramer + '_>,
     limits: BoundedBuildLimits,
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
@@ -2283,14 +2309,11 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
 ) -> Result<BuildScheduleStats, String> {
     let path = root.join(&input.relative_path);
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
-    if shared_budget.is_some() {
-        reader.limit_record_bytes(128 * 1024 * 1024);
-    }
     let mut scratch = shared_budget.map(|budget| {
         budget.activity(
             StreamActivity::PendingInput,
             0,
-            reader.retained_line_capacity() as u64,
+            reader.retained_input_capacity() as u64,
         )
     });
     // Failed input aborts private work. Reopening the pathname here could
@@ -2299,7 +2322,7 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     let mut next_chunk = || {
         let chunk = reader.next_chunk(limits.chunk_bytes, limits.ranges.min(remaining))?;
         if let Some(scratch) = scratch.as_mut() {
-            scratch.set(0, reader.retained_line_capacity() as u64);
+            scratch.set(0, reader.retained_input_capacity() as u64);
         }
         if let Some(chunk) = &chunk {
             remaining -= chunk.ranges.len();

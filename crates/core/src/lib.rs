@@ -45,3 +45,12 @@ extern crate self as objekte_search_core;
 
 #[cfg(test)]
 use schema::json as json_schema;
+
+#[cfg(test)]
+#[macro_export]
+macro_rules! objekte_json_unit_tests {
+    ($($module:tt)*) => { $($module)* };
+}
+
+#[cfg(test)]
+extern crate self as objekte_loader_json;

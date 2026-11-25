@@ -57,6 +57,7 @@ pub(crate) fn materialize_winner_page(
                 return Err("stream cancelled".into());
             }
             let collection = &repo.collections[collection_index];
+            source_access.select_backend(&collection.required_file_reader());
             for batch in ranges.chunks(if stream_limit.is_some() { 1 } else { 128 }) {
                 if cancellation.is_some_and(CancellationToken::is_cancelled) {
                     return Err("stream cancelled".into());

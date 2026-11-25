@@ -42,7 +42,7 @@ pub(super) fn fixture(count: usize) -> Fixture {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        objekte_search_core::source::registry::SourceRegistry::builtin(),
+        objekte_cli::loader::installed_sources(),
     )
     .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())
@@ -133,7 +133,7 @@ pub(super) fn relation_fixture() -> Fixture {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        objekte_search_core::source::registry::SourceRegistry::builtin(),
+        objekte_cli::loader::installed_sources(),
     )
     .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())

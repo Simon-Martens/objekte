@@ -7,3 +7,5 @@ pub mod output;
 pub mod query_input;
 #[cfg(feature = "tui")]
 pub mod tui;
+
+extern crate self as objekte_cli;

@@ -5192,16 +5192,21 @@ name = "objekte-cli"
 version = "0.1.0"
 dependencies = [
  "base64",
+ "bincode",
  "clap",
  "ctrlc",
  "libc",
  "objekte-loader-json",
+ "objekte-loader-jsonl",
  "objekte-search-core",
  "ratatui",
  "regex",
  "serde",
  "serde_json",
+ "sha2 0.10.9",
+ "smallvec",
  "tempfile",
+ "time",
  "unicode-casefold",
  "unicode-width",
 ]
@@ -5222,9 +5227,21 @@ dependencies = [
 name = "objekte-loader-json"
 version = "0.1.0"
 dependencies = [
+ "memchr",
  "objekte-search-core",
+ "serde",
  "serde_json",
  "sha2 0.10.9",
+ "smallvec",
+]
+
+[[package]]
+name = "objekte-loader-jsonl"
+version = "0.1.0"
+dependencies = [
+ "memchr",
+ "objekte-loader-json",
+ "objekte-search-core",
 ]
 
 [[package]]

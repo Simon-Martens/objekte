@@ -1126,14 +1126,19 @@ impl Repository {
                 );
                 continue;
             }
-            let bounded_lines = state.source.reader().supports_bounded_json_lines_build();
+            let record_bound = |file: FileId| {
+                state
+                    .source
+                    .reader()
+                    .maximum_records(discovered.files[file.0 as usize].revision.size)
+                    .max(1)
+            };
             let record_target = options.segment_policy.target_records.get() as u64;
             let needs_chunks = |file: FileId| {
                 let size = discovered.files[file.0 as usize].revision.size;
                 state.source.is_extension()
                     || size > 8 * 1024 * 1024
-                    // Even one-byte records need a separator, except at EOF.
-                    || (bounded_lines && size.div_ceil(2) > record_target)
+                    || record_bound(file) > record_target
             };
             let batches = super::batch::file_batches(members, &discovered);
             for batch in batches.into_iter().flat_map(|batch| {
@@ -1142,17 +1147,7 @@ impl Repository {
                     options.segment_policy.max_files.get(),
                     options.segment_policy.target_records.get(),
                     needs_chunks,
-                    |file| {
-                        if bounded_lines {
-                            discovered.files[file.0 as usize]
-                                .revision
-                                .size
-                                .div_ceil(2)
-                                .max(1) as usize
-                        } else {
-                            1
-                        }
-                    },
+                    |file| record_bound(file) as usize,
                 )
             }) {
                 if batch.len() == 1 && needs_chunks(batch[0]) {
@@ -1646,18 +1641,24 @@ impl Repository {
             let registered = bindings
                 .iter()
                 .any(|id| pending[id.0 as usize].source.is_extension());
-            let bounded_lines = bindings.iter().any(|id| {
-                pending[id.0 as usize]
-                    .source
-                    .reader()
-                    .supports_bounded_json_lines_build()
-            });
+            let readers: Vec<_> = bindings
+                .iter()
+                .map(|id| pending[id.0 as usize].source.clone())
+                .collect();
+            let record_bound = |file: FileId| {
+                let size = discovered.files[file.0 as usize].revision.size;
+                readers
+                    .iter()
+                    .map(|source| source.reader().maximum_records(size))
+                    .max()
+                    .unwrap_or(1)
+                    .max(1)
+            };
             let needs_chunks = |file: FileId| {
                 let size = discovered.files[file.0 as usize].revision.size;
                 registered
                     || size > 8 * 1024 * 1024
-                    || (bounded_lines
-                        && size.div_ceil(2) > options.segment_policy.target_records.get() as u64)
+                    || record_bound(file) > options.segment_policy.target_records.get() as u64
             };
             let batches = super::batch::file_batches(&files, &discovered)
                 .into_iter()
@@ -1667,17 +1668,7 @@ impl Repository {
                         options.segment_policy.max_files.get(),
                         options.segment_policy.target_records.get(),
                         needs_chunks,
-                        |file| {
-                            if bounded_lines {
-                                discovered.files[file.0 as usize]
-                                    .revision
-                                    .size
-                                    .div_ceil(2)
-                                    .max(1) as usize
-                            } else {
-                                1
-                            }
-                        },
+                        |file| record_bound(file) as usize,
                     )
                 })
                 .collect::<Vec<_>>();

@@ -1259,6 +1259,7 @@ fn prepared_add_rejects_same_stamp_path_replacement_before_publication() {
             &source,
             identity,
             fingerprint,
+            None,
         )
         .is_err()
     );
@@ -2238,8 +2239,16 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
         fn supports_streaming_build(&self) -> bool {
             !self.core_jsonl
         }
-        fn supports_bounded_json_lines_build(&self) -> bool {
+        fn uses_pull_framing(&self) -> bool {
             self.core_jsonl
+        }
+
+        fn build_framer<'a>(
+            &self,
+            input: &'a mut dyn Read,
+            limit: Option<usize>,
+        ) -> Option<Box<dyn crate::source::BuildFramer + 'a>> {
+            crate::source::json_lines::JsonLinesReader.build_framer(input, limit)
         }
 
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {

@@ -1,32 +1,21 @@
 //! Repository-local source registration and collection resolution.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 use std::sync::Arc;
 
-use super::SourceFormat;
-use super::SourceReader;
-use super::json::{JsonDecodedScalarsReader, JsonReader};
-use super::json_lines::JsonLinesReader;
-use super::verification::ScalarVerification;
+use super::{SourceFormat, SourceReader, verification::ScalarVerification};
 
-/// Stable source identity, discovery suffix, and reader implementation.
-#[derive(Clone)]
 pub struct SourceRegistration {
     pub id: String,
     pub version: u32,
     pub extension: String,
     pub reader: Arc<dyn SourceReader>,
+    file_batches: bool,
 }
 
 /// Prepared source handle resolved once per collection.
 #[derive(Clone)]
-pub struct PreparedSource(Arc<SourceRegistration>, SourceProvenance);
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-enum SourceProvenance {
-    Extension,
-    Builtin(ScalarVerification),
-}
+pub struct PreparedSource(Arc<SourceRegistration>);
 
 impl PreparedSource {
     pub fn id(&self) -> &str {
@@ -45,15 +34,16 @@ impl PreparedSource {
         self.0.reader.as_ref()
     }
 
+    pub(crate) fn reader_handle(&self) -> Arc<dyn SourceReader> {
+        Arc::clone(&self.0.reader)
+    }
+
     pub(crate) fn is_extension(&self) -> bool {
-        self.1 == SourceProvenance::Extension
+        !self.0.file_batches
     }
 
     pub(crate) fn scalar_verification(&self) -> Option<ScalarVerification> {
-        match self.1 {
-            SourceProvenance::Extension => None,
-            SourceProvenance::Builtin(verification) => Some(verification),
-        }
+        self.reader().scalar_verification()
     }
 }
 
@@ -61,29 +51,14 @@ impl PreparedSource {
 #[derive(Clone, Default)]
 pub struct SourceRegistry {
     entries: HashMap<String, Arc<SourceRegistration>>,
-    builtin_ids: HashSet<String>,
 }
 
 impl SourceRegistry {
-    pub fn builtin() -> Self {
+    #[cfg(test)]
+    pub(crate) fn builtin() -> Self {
         let mut sources = Self::default();
-        sources
-            .register("json", 1, "json", Arc::new(JsonReader))
-            .expect("valid JSON source registration");
-        sources
-            .register(
-                "json_decoded_scalars",
-                1,
-                "json",
-                Arc::new(JsonDecodedScalarsReader),
-            )
-            .expect("valid decoded-scalar JSON source registration");
-        sources
-            .register("jsonl", 1, "jsonl", Arc::new(JsonLinesReader))
-            .expect("valid JSON Lines source registration");
-        sources
-            .builtin_ids
-            .extend(["json".into(), "json_decoded_scalars".into(), "jsonl".into()]);
+        super::json::register(&mut sources).unwrap();
+        super::json_lines::register(&mut sources).unwrap();
         sources
     }
 
@@ -94,8 +69,29 @@ impl SourceRegistry {
         extension: impl Into<String>,
         reader: Arc<dyn SourceReader>,
     ) -> Result<(), String> {
-        let id = id.into();
-        let extension = extension.into();
+        let file_batches = reader.prefers_file_batches();
+        self.register_source(id.into(), version, extension.into(), reader, file_batches)
+    }
+
+    /// Opt a reader with a conservative record bound into ordinary small-file batches.
+    pub fn register_file_batched(
+        &mut self,
+        id: impl Into<String>,
+        version: u32,
+        extension: impl Into<String>,
+        reader: Arc<dyn SourceReader>,
+    ) -> Result<(), String> {
+        self.register_source(id.into(), version, extension.into(), reader, true)
+    }
+
+    fn register_source(
+        &mut self,
+        id: String,
+        version: u32,
+        extension: String,
+        reader: Arc<dyn SourceReader>,
+        file_batches: bool,
+    ) -> Result<(), String> {
         if id.is_empty() || version == 0 || extension.is_empty() || extension.contains(['/', '\\'])
         {
             return Err("invalid source registration".into());
@@ -110,6 +106,7 @@ impl SourceRegistry {
                 version,
                 extension,
                 reader,
+                file_batches,
             }),
         );
         Ok(())
@@ -119,22 +116,7 @@ impl SourceRegistry {
         self.entries
             .get(format.id())
             .cloned()
-            .map(|source| {
-                let provenance = if self.builtin_ids.contains(&source.id) {
-                    match source.id.as_str() {
-                        "json" | "jsonl" => {
-                            SourceProvenance::Builtin(ScalarVerification::ResolvedStrings)
-                        }
-                        "json_decoded_scalars" => {
-                            SourceProvenance::Builtin(ScalarVerification::DecodedScalars)
-                        }
-                        _ => SourceProvenance::Extension,
-                    }
-                } else {
-                    SourceProvenance::Extension
-                };
-                PreparedSource(source, provenance)
-            })
+            .map(PreparedSource)
             .ok_or_else(|| format!("unknown source registration: {}", format.id()))
     }
 }

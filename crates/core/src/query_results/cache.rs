@@ -436,16 +436,22 @@ pub(crate) fn materialize_lifecycle_cached(
                 Ok(None)
             } else {
                 let path = repo.files.required_root().join(&file.relative_path);
-                read_record_range_for_search(&path, file.revision, record.range, None)
-                    .and_then(|bytes| {
-                        payload_from_bytes(
-                            record.class,
-                            Some(collection),
-                            &query.options.return_mode,
-                            bytes,
-                        )
-                    })
-                    .map(|(payload, _)| payload)
+                read_record_range_for_search(
+                    collection.required_file_reader().reader(),
+                    &path,
+                    file.revision,
+                    record.range,
+                    None,
+                )
+                .and_then(|bytes| {
+                    payload_from_bytes(
+                        record.class,
+                        Some(collection),
+                        &query.options.return_mode,
+                        bytes,
+                    )
+                })
+                .map(|(payload, _)| payload)
             };
             (record.clone(), file, payload)
         };
@@ -645,6 +651,7 @@ pub(crate) fn materialize_cached(
     let mut source_access = SourceAccessSession::new(&repo.files);
     for ((collection_index, file_id), ranges) in files {
         let collection = &repo.collections[collection_index];
+        source_access.select_backend(&collection.required_file_reader());
         for batch in ranges.chunks(128) {
             let read = source_access.read(crate::model::FileId(file_id), batch)?;
             counters.files_opened += read.opened;

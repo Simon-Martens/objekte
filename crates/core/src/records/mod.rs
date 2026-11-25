@@ -121,3 +121,6 @@ mod tests {
         );
     }
 }
+
+#[cfg(test)]
+pub(crate) use crate::source::json::records::*;

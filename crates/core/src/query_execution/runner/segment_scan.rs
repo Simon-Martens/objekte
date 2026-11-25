@@ -44,10 +44,8 @@ pub(super) fn verify_local_segment_record(
                 false,
             ));
         }
-        let verification = direct
-            .scalar_verification
-            .ok_or("direct scalar verification missing")?;
-        let result = verification.scan_borrowed_segments(
+        let result = crate::source::verification::scan_borrowed_segments(
+            collection.required_file_reader(),
             bytes,
             &BorrowedScanQuery {
                 fts: direct.fts,
@@ -223,7 +221,8 @@ pub(super) fn scan_segment_file_parallel(
         crate::model::FileId(file_id),
     )?;
     let path = repo.files.required_root().join(&file.relative_path);
-    let mut reader = RecordRangeReader::open_for_search(&path, file.revision, None)?;
+    let mut reader = RecordRangeReader::open_for_search(&path, file.revision, None)?
+        .with_backend(collection.required_file_reader().reader_handle());
     let mut result = SegmentFileScan {
         bytes_read: 0,
         scanned_records: 0,
