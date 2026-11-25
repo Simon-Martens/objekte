@@ -138,27 +138,19 @@ pub(super) fn scan_file(
             }
             let record = &collection.generation.records[slot as usize];
             let file = &repo.files.files[file_id as usize];
+            let compared_to = |worst: &crate::query_results::ranking::RankKey| {
+                sort.compare_to_rank(collection_index, record, &collection.definition.name, worst)
+                    .map(std::cmp::Ordering::is_lt)
+            };
             let may_reach_page = !sort.bound.has_computed
                 && keep_cap > 0
                 && (winners.len() < keep_cap
-                    || winners.peek().is_some_and(|worst| {
-                        sort.compare_to_rank(
-                            collection_index,
-                            record,
-                            &collection.definition.name,
-                            &worst.key,
-                        )
-                        .is_lt()
-                    }))
-                && payload_cutoff.is_none_or(|worst| {
-                    sort.compare_to_rank(
-                        collection_index,
-                        record,
-                        &collection.definition.name,
-                        worst,
-                    )
-                    .is_lt()
-                });
+                    || winners
+                        .peek()
+                        .map(|worst| compared_to(&worst.key))
+                        .transpose()?
+                        .unwrap_or(false))
+                && payload_cutoff.map(compared_to).transpose()?.unwrap_or(true);
             let logical_projection =
                 query.options.return_mode == ReturnMode::Logical && may_reach_page;
             let direct = direct_plan.filter(|_| {
@@ -496,7 +488,7 @@ pub(super) fn scan_file(
                         materialize(&query.options.return_mode, bytes, Some(payload_record))?
                     };
                     let key = computed_key
-                        .unwrap_or_else(|| rank_key(sort, repo, collection_index, record));
+                        .map_or_else(|| rank_key(sort, repo, collection_index, record), Ok)?;
                     let key_bytes = if sort.bound.has_computed || max_retained_bytes.is_some() {
                         rank_key_bytes(&key)
                     } else {

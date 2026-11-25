@@ -1,5 +1,6 @@
 //! Sort configuration and comparison of logical order keys.
 
+use std::borrow::Cow;
 use std::cmp::Ordering;
 
 use serde::{Deserialize, Serialize};
@@ -7,6 +8,20 @@ use time::{Date, OffsetDateTime};
 
 use crate::model::{FieldPath, Number};
 use crate::query::options::SortField;
+
+use crate::model::RecordSlot;
+
+use super::ordered_slots::OrderedSlots;
+use super::transfer::StorageResult;
+
+/// Keys and traversal for one pinned scalar sort specification.
+pub(crate) trait OrderColumnReader: Send + Sync {
+    fn path(&self) -> &FieldPath;
+    fn options(&self) -> SortOptions;
+    fn locale(&self) -> &str;
+    fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>>;
+    fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots>;
+}
 
 pub const COLLATION_VERSION: &str =
     "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";

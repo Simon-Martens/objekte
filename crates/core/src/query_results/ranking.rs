@@ -6,7 +6,8 @@ use std::sync::Arc;
 
 use super::{Payload, SearchHit};
 use crate::index::segment::PublishedSegment;
-use crate::index::sorting::{SortColumn, SortKey, SortOptions};
+use crate::index::sorting::{SortKey, SortOptions};
+use crate::index::storage::order::OrderColumnReader;
 use crate::index::storage::segment::SegmentReader;
 use crate::inventory::RecordEntry;
 use crate::measurement::WorkCounters;
@@ -166,7 +167,7 @@ pub(crate) fn offer(
     let enters = if let Some(key) = &key_override {
         cap > 0 && (winners.len() < cap || winners.peek().is_some_and(|worst| key < &worst.key))
     } else {
-        would_enter_page(repo, sort, collection_index, record, winners, cap)
+        would_enter_page(repo, sort, collection_index, record, winners, cap)?
     };
     if !enters {
         return Ok(());
@@ -179,7 +180,7 @@ pub(crate) fn offer(
         }
         rank_key_without_source(sort, repo, collection_index, record)?
     } else {
-        rank_key(sort, repo, collection_index, record)
+        rank_key(sort, repo, collection_index, record)?
     };
     if winners.len() == cap {
         let old = winners.pop().unwrap();
@@ -233,19 +234,17 @@ pub(crate) fn would_enter_page(
     record: &RecordEntry,
     winners: &BinaryHeap<Winner>,
     cap: usize,
-) -> bool {
+) -> Result<bool, String> {
     would_enter_page_with(winners, cap, |worst| {
-        Ok::<_, std::convert::Infallible>(
-            sort.compare_to_rank(
+        Ok(sort
+            .compare_to_rank(
                 collection_index,
                 record,
                 &repo.collections[collection_index].definition.name,
                 worst,
-            )
-            .is_lt(),
-        )
+            )?
+            .is_lt())
     })
-    .unwrap_or_else(|never| match never {})
 }
 
 pub(crate) fn would_enter_page_with<E>(
@@ -287,9 +286,57 @@ pub(crate) struct RankKey {
     pub(crate) id: String,
 }
 
+/// Checked stored keys kept alive by the selected order readers.
+pub(crate) struct StoredRankKey<'a> {
+    parts: smallvec::SmallVec<[(std::borrow::Cow<'a, SortKey>, bool, SortOptions); 2]>,
+    collection: &'a str,
+    id: &'a str,
+}
+
+impl<'a> StoredRankKey<'a> {
+    pub(crate) fn read(
+        columns: &[(&'a dyn OrderColumnReader, bool)],
+        record: &'a RecordEntry,
+        collection: &'a str,
+    ) -> crate::index::storage::transfer::StorageResult<Self> {
+        let parts = columns
+            .iter()
+            .map(|&(column, descending)| {
+                Ok((column.key(record.slot)?, descending, column.options()))
+            })
+            .collect::<Result<_, _>>()?;
+        Ok(Self {
+            parts,
+            collection,
+            id: &record.id.0,
+        })
+    }
+}
+
+impl PartialEq for StoredRankKey<'_> {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other).is_eq()
+    }
+}
+
+impl Eq for StoredRankKey<'_> {}
+
+impl PartialOrd for StoredRankKey<'_> {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for StoredRankKey<'_> {
+    fn cmp(&self, other: &Self) -> Ordering {
+        crate::query::sort_binding::compare_parts(&self.parts, &other.parts)
+            .then_with(|| (self.collection, self.id).cmp(&(other.collection, other.id)))
+    }
+}
+
 /// Sort paths are parsed and columns resolved once per query.
 pub(crate) struct ResolvedSort<'a> {
-    pub(crate) columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
+    pub(crate) columns: Vec<Option<Vec<(&'a dyn OrderColumnReader, bool)>>>,
     pub(crate) bound: BoundSort<'a>,
     pub(crate) target_cache: std::sync::Mutex<SortTargetCache>,
 }
@@ -347,9 +394,9 @@ impl<'a> ResolvedSort<'a> {
         record: &RecordEntry,
         collection_name: &str,
         worst: &RankKey,
-    ) -> Ordering {
+    ) -> Result<Ordering, String> {
         if self.bound.has_computed {
-            return Ordering::Less;
+            return Ok(Ordering::Less);
         }
         for ((column, descending), (other, _, _)) in self.columns[collection_index]
             .as_ref()
@@ -357,13 +404,14 @@ impl<'a> ResolvedSort<'a> {
             .iter()
             .zip(&worst.parts)
         {
-            let key = &column.keys[record.slot.0 as usize];
-            let order = key.compare_with(other, *descending, column.options);
+            let key = column.key(record.slot)?;
+            let order = key.compare_with(other, *descending, column.options());
             if !order.is_eq() {
-                return order;
+                return Ok(order);
             }
         }
-        (collection_name, record.id.0.as_ref()).cmp(&(worst.collection.as_str(), worst.id.as_str()))
+        Ok((collection_name, record.id.0.as_ref())
+            .cmp(&(worst.collection.as_str(), worst.id.as_str())))
     }
 }
 
@@ -388,7 +436,7 @@ pub(crate) fn segment_rank_key<S: SegmentReader + ?Sized>(
     for term in terms {
         let key = match &term.source {
             BoundSortSource::Stored(base_column) => segment
-                .stored_key(&base_column.path, record.record_slot())
+                .stored_key(base_column.path(), record.record_slot())
                 .map_err(|error| error.to_string())?
                 .ok_or("segment sort key missing")?
                 .into_owned(),
@@ -427,7 +475,7 @@ pub(crate) fn segment_rank_key_owned_bytes<S: SegmentReader + ?Sized>(
             return Err("computed segment sort has no owned-key prediction".into());
         };
         let key = segment
-            .stored_key(&base_column.path, record.record_slot())
+            .stored_key(base_column.path(), record.record_slot())
             .map_err(|error| error.to_string())?
             .ok_or("segment sort key missing")?;
         let variable = owned_sort_key_bytes(key.as_ref());
@@ -459,7 +507,7 @@ pub(crate) fn segment_compare_to_rank<S: SegmentReader + ?Sized>(
             return Err("computed segment sort has no stored comparison".into());
         };
         let key = segment
-            .stored_key(&base_column.path, slot)
+            .stored_key(base_column.path(), slot)
             .map_err(|error| error.to_string())?
             .ok_or("segment sort key missing")?;
         let order = key.compare_with(other, term.descending, term.options);
@@ -513,16 +561,12 @@ pub(crate) fn relation_rank_key_merged(
                 if let Some(segment_index) = address.segment {
                     let segment = &segments[collection_index][segment_index].index;
                     segment
-                        .stored_key(&column.path, address.slot)
+                        .stored_key(column.path(), address.slot)
                         .map_err(|error| error.to_string())?
                         .ok_or("merged segment sort key missing")?
                         .into_owned()
                 } else {
-                    column
-                        .keys
-                        .get(address.slot.0 as usize)
-                        .ok_or("merged base sort slot missing")?
-                        .clone()
+                    column.key(address.slot)?.into_owned()
                 }
             }
             BoundSortSource::Computed(computed) => {
@@ -754,22 +798,26 @@ pub(crate) fn rank_key(
     repo: &Repository,
     collection_index: usize,
     record: &RecordEntry,
-) -> RankKey {
+) -> Result<RankKey, String> {
     let collection = &repo.collections[collection_index];
     let parts = sort.columns[collection_index]
         .as_ref()
         .expect("selected collection")
         .iter()
         .map(|(column, descending)| {
-            let key = column.keys[record.slot.0 as usize].clone();
-            (key, *descending, column.options)
+            let key = column.key(record.slot)?.into_owned();
+            Ok::<_, crate::index::storage::transfer::StorageError>((
+                key,
+                *descending,
+                column.options(),
+            ))
         })
-        .collect();
-    RankKey {
+        .collect::<Result<_, _>>()?;
+    Ok(RankKey {
         parts,
         collection: collection.definition.name.clone(),
         id: record.id.0.to_string(),
-    }
+    })
 }
 
 pub(crate) fn rank_key_from_context(

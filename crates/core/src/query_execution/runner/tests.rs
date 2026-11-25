@@ -8974,13 +8974,7 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
         },
     };
     assert!(inferred_order_index(&repo, &request, &repo.segments).is_some());
-    assert!(!posting_order_eligible(
-        &repo,
-        &request,
-        None,
-        &repo.segments,
-        &repo.catalog
-    ));
+    assert!(!posting_order_eligible(&repo, &request, None, &repo.segments, &repo.catalog).unwrap());
     let cold = repo.search(&request).unwrap();
     assert_eq!(cold.hits, repo.search_reference(&request).unwrap().hits);
     assert!(!cold.counters.verified_result_hit);

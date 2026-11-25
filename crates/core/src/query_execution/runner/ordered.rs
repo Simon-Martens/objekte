@@ -2,7 +2,8 @@
 
 use super::*;
 use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::query_results::ranking::RankKey;
+use crate::index::storage::order::OrderColumnReader;
+use crate::query_results::ranking::{RankKey, StoredRankKey};
 
 pub(super) struct LifecycleOrderCursor<'a> {
     pub(super) key: RankKey,
@@ -58,10 +59,10 @@ pub(super) fn read_lifecycle_ordered_record(
 }
 
 pub(super) struct StoredCursor<'a> {
-    columns: &'a [(&'a SortColumn, bool)],
+    columns: &'a [(&'a dyn OrderColumnReader, bool)],
+    rank: StoredRankKey<'a>,
     order: OrderedSlotCursor<'a>,
     record: &'a RecordEntry,
-    collection_name: &'a str,
     collection_index: usize,
     plan_index: usize,
 }
@@ -82,26 +83,13 @@ impl PartialOrd for StoredCursor<'_> {
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
-        let mut keys = Ordering::Equal;
-        for ((a, descending), (b, _)) in self.columns.iter().zip(other.columns) {
-            keys = a.keys[self.record.slot.0 as usize].compare_with(
-                &b.keys[other.record.slot.0 as usize],
-                *descending,
-                a.options,
-            );
-            if !keys.is_eq() {
-                break;
-            }
-        }
-        keys.then_with(|| {
-            (self.collection_name, &self.record.id).cmp(&(other.collection_name, &other.record.id))
-        })
+        self.rank.cmp(&other.rank)
     }
 }
 
 pub(super) fn stored_cursor<'a>(
     repo: &'a Repository,
-    columns: &'a [(&'a SortColumn, bool)],
+    columns: &'a [(&'a dyn OrderColumnReader, bool)],
     mut order: OrderedSlotCursor<'a>,
     collection_index: usize,
     plan_index: usize,
@@ -110,15 +98,17 @@ pub(super) fn stored_cursor<'a>(
         return Ok(None);
     };
     let collection = &repo.collections[collection_index];
+    let record = collection
+        .generation
+        .records
+        .get(slot.0 as usize)
+        .ok_or("base ordered slot missing")?;
+    let rank = StoredRankKey::read(columns, record, &collection.definition.name)?;
     Ok(Some(StoredCursor {
         columns,
+        rank,
         order,
-        record: collection
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("base ordered slot missing")?,
-        collection_name: &collection.definition.name,
+        record,
         collection_index,
         plan_index,
     }))
@@ -301,23 +291,23 @@ pub(super) fn posting_order_eligible(
     bound: Option<&crate::query::prepared::PreparedQuery>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &dyn FileCatalogReader,
-) -> bool {
+) -> Result<bool, String> {
     let Some((collection_index, _, _)) = inferred_order_index(repo, query, segments) else {
-        return false;
+        return Ok(false);
     };
     if query.fts.is_some() {
-        return false;
+        return Ok(false);
     }
     if query.filter.is_none() {
-        return true;
+        return Ok(true);
     }
     let owned = if bound.is_none() {
-        crate::query::prepared::prepare(repo, query).ok()
+        Some(crate::query::prepared::prepare(repo, query)?)
     } else {
         None
     };
     let Some(prepared) = bound.or(owned.as_ref()) else {
-        return false;
+        return Ok(false);
     };
     let Some(filter) = prepared
         .collections
@@ -325,7 +315,7 @@ pub(super) fn posting_order_eligible(
         .find(|entry| entry.collection_index == collection_index)
         .and_then(|entry| entry.filter.as_ref())
     else {
-        return false;
+        return Ok(false);
     };
     let collection = &repo.collections[collection_index];
     let mut saw_segment = false;
@@ -335,23 +325,21 @@ pub(super) fn posting_order_eligible(
         }
         saw_segment = true;
         let logical = &segment.active.bitmap() & &segment.index.logical_records;
-        let Ok(bounds) = segment_filter_bounds_with_catalog(
+        let bounds = segment_filter_bounds_with_catalog(
             segment.id,
             &segment.index,
             &segment.active,
             filter,
             collection,
             Some(catalog),
-        ) else {
-            return false;
-        };
+        )?;
         if !excludes_raw_fallback(filter)
             || (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical)
         {
-            return false;
+            return Ok(false);
         }
     }
-    saw_segment
+    Ok(saw_segment)
 }
 
 pub(super) fn inferred_order_column(
@@ -360,7 +348,7 @@ pub(super) fn inferred_order_column(
     prepared: &crate::query::prepared::PreparedQuery,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     execution: Option<&ExecutionContext>,
-) -> Result<Option<(usize, Arc<SortColumn>)>, String> {
+) -> Result<Option<(usize, Arc<dyn OrderColumnReader>)>, String> {
     let Some((collection_index, path, _index)) = inferred_order_index(repo, query, segments) else {
         return Ok(None);
     };
@@ -387,7 +375,7 @@ pub(super) fn inferred_order_column_for_segment(
     path: &FieldPath,
     segment: &PublishedSegment,
     execution: Option<&ExecutionContext>,
-) -> Result<Option<Arc<SortColumn>>, String> {
+) -> Result<Option<Arc<dyn OrderColumnReader>>, String> {
     let collection = &repo.collections[collection_index];
     let segment_index =
         crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection);
@@ -423,7 +411,7 @@ pub(super) fn inferred_order_column_for_segment(
             ));
         }
     }
-    Ok(column)
+    Ok(column.map(|column| column as Arc<dyn OrderColumnReader>))
 }
 
 pub(super) fn cached_inferred_order(
@@ -456,7 +444,7 @@ pub(super) fn try_inferred_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
-    if !posting_order_eligible(repo, query, Some(prepared), &repo.segments, &repo.catalog) {
+    if !posting_order_eligible(repo, query, Some(prepared), &repo.segments, &repo.catalog)? {
         return Ok(None);
     }
     if active.is_some() {
@@ -474,7 +462,7 @@ pub(super) fn try_inferred_order_page(
                 vec![BoundSortTerm {
                     source: BoundSortSource::Stored(column.as_ref()),
                     descending: query.options.sort[0].descending,
-                    options: column.options,
+                    options: column.options(),
                 }]
             })
         })
@@ -534,7 +522,7 @@ pub(super) fn try_inferred_segment_order_page(
     {
         return Ok(None);
     }
-    if !posting_order_eligible(repo, query, Some(prepared), segments, catalog) {
+    if !posting_order_eligible(repo, query, Some(prepared), segments, catalog)? {
         return Ok(None);
     }
     let collection_index = prepared.collections[0].collection_index;
@@ -588,7 +576,7 @@ pub(super) fn try_inferred_segment_order_page(
         };
         candidate_count = candidate_count.saturating_add(candidates.len());
         input_records = input_records.saturating_add(segment.active.len());
-        cursors.push((segment, column, candidates, 0usize));
+        cursors.push((segment, column, candidates));
     }
     let evidence = if query.options.evidence {
         filter
@@ -598,67 +586,64 @@ pub(super) fn try_inferred_segment_order_page(
         Vec::new()
     };
     let descending = query.options.sort[0].descending;
-    let mut ranked = Vec::with_capacity(query.options.offset.saturating_add(query.options.limit));
-    let mut rank = 0usize;
-    while rank < cap && rank < candidate_count as usize {
-        for (_, column, candidates, position) in &mut cursors {
-            let order = if descending {
-                &column.descending
-            } else {
-                &column.ascending
-            };
-            while let Some(slot) = order.get(*position) {
-                if candidates.contains(slot.0) {
-                    break;
-                }
-                *position += 1;
+    let mut orders = cursors
+        .iter()
+        .map(|(_, column, _)| {
+            Ok::<_, crate::index::storage::transfer::StorageError>(OrderedSlotCursor::new(
+                column.slots(descending)?,
+            ))
+        })
+        .collect::<Result<Vec<_>, _>>()?;
+    let mut read_head = |index: usize| -> Result<_, String> {
+        let (segment, column, candidates) = &cursors[index];
+        while let Some(slot) = orders[index].next_slot()? {
+            if candidates.contains(slot.0) {
+                let key = column.key(slot)?;
+                let record = segment
+                    .index
+                    .header(slot)?
+                    .ok_or("inferred order slot missing")?;
+                return Ok(Some((slot, key, record)));
             }
         }
-        let Some(best) = cursors
+        Ok(None)
+    };
+    let page_candidates = cap.min(candidate_count as usize);
+    let mut heads = (0..if page_candidates == 0 {
+        0
+    } else {
+        cursors.len()
+    })
+        .map(&mut read_head)
+        .collect::<Result<Vec<_>, _>>()?;
+    let mut ranked = Vec::with_capacity(cap);
+    for rank in 0..page_candidates {
+        if let Some(execution) = execution {
+            execution.check_string()?;
+        }
+        let (best, &(slot, _, _)) = heads
             .iter()
             .enumerate()
-            .filter_map(|(index, cursor)| {
-                let order = if descending {
-                    &cursor.1.descending
-                } else {
-                    &cursor.1.ascending
-                };
-                order.get(cursor.3).map(|slot| (index, *slot))
-            })
-            .min_by(|(left_index, left_slot), (right_index, right_slot)| {
-                let left = &cursors[*left_index];
-                let right = &cursors[*right_index];
-                let left_record = left
-                    .0
-                    .index
-                    .record(*left_slot)
-                    .expect("inferred cursor record");
-                let right_record = right
-                    .0
-                    .index
-                    .record(*right_slot)
-                    .expect("inferred cursor record");
-                left.1.keys[left_slot.0 as usize]
-                    .compare_with(
-                        &right.1.keys[right_slot.0 as usize],
-                        descending,
-                        left.1.options,
-                    )
-                    .then_with(|| left_record.id.cmp(&right_record.id))
-            })
-        else {
-            break;
-        };
-        cursors[best.0].3 += 1;
+            .filter_map(|(index, head)| head.as_ref().map(|head| (index, head)))
+            .min_by(
+                |(left, (_, left_key, left_header)), (_, (_, right_key, right_header))| {
+                    left_key
+                        .compare_with(right_key, descending, cursors[*left].1.options())
+                        .then_with(|| left_header.id.cmp(&right_header.id))
+                },
+            )
+            .ok_or("inferred order stopped before all candidates were visited")?;
         if rank >= query.options.offset {
-            ranked.push((best.0, best.1));
+            ranked.push((best, slot));
         }
-        rank += 1;
+        if rank + 1 < page_candidates {
+            heads[best] = read_head(best)?;
+        }
     }
     let mut page = ranked
         .into_iter()
         .map(|(cursor, slot)| {
-            let (segment, _, _, _) = &cursors[cursor];
+            let (segment, _, _) = &cursors[cursor];
             let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
                 .ok_or("inferred ordered segment record retired")?;
             Ok((
@@ -1053,22 +1038,18 @@ pub(super) fn try_stored_order_page(
         let columns = sort.columns[entry.collection_index]
             .as_ref()
             .expect("selected collection");
-        let order = if query.options.sort.len() > 1 {
-            &repo.collections[entry.collection_index]
-                .sorting
-                .composite(&query.options.sort)
-                .expect("composite checked")
-                .order
-        } else if let Some(field) = query.options.sort.first() {
-            let column = columns[0].0;
-            if field.descending {
-                &column.descending
+        let order: &dyn crate::index::storage::ordered_slots::OrderedSlots =
+            if query.options.sort.len() > 1 {
+                &repo.collections[entry.collection_index]
+                    .sorting
+                    .composite(&query.options.sort)
+                    .expect("composite checked")
+                    .order
+            } else if let Some(field) = query.options.sort.first() {
+                columns[0].0.slots(field.descending)?
             } else {
-                &column.ascending
-            }
-        } else {
-            &repo.collections[entry.collection_index].identity_order
-        };
+                &repo.collections[entry.collection_index].identity_order
+            };
         if let Some(cursor) = stored_cursor(
             repo,
             columns,

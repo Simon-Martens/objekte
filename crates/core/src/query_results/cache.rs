@@ -20,7 +20,7 @@ use crate::query_execution::runner::{
 };
 use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
 use crate::query_results::payload::payload_from_bytes;
-use crate::query_results::ranking::ResolvedSort;
+use crate::query_results::ranking::{ResolvedSort, StoredRankKey};
 use crate::query_results::verified::{CachedMember, CachedResult};
 use crate::repository::Repository;
 use crate::source::access::SourceAccessSession;
@@ -70,8 +70,12 @@ pub(crate) fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Re
     u64::try_from(bytes).map_err(|_| "cached sort memory count overflow".into())
 }
 
-pub(crate) fn sort_cached_members(repo: &Repository, query: &Query, members: &mut [CachedMember]) {
-    let sort = ResolvedSort::new(repo, query).expect("sort validated");
+pub(crate) fn sort_cached_members(
+    repo: &Repository,
+    query: &Query,
+    members: &mut [CachedMember],
+) -> Result<(), String> {
+    let sort = ResolvedSort::new(repo, query)?;
     if query.options.sort.is_empty() {
         members.sort_by(|a, b| {
             let a_collection = &repo.collections[a.collection_index];
@@ -85,31 +89,39 @@ pub(crate) fn sort_cached_members(repo: &Repository, query: &Query, members: &mu
                     &b_collection.generation.records[b.slot as usize].id.0,
                 ))
         });
-    } else {
-        members.sort_by(|a, b| {
-            let a_collection = &repo.collections[a.collection_index];
-            let b_collection = &repo.collections[b.collection_index];
-            let a_record = &a_collection.generation.records[a.slot as usize];
-            let b_record = &b_collection.generation.records[b.slot as usize];
-            for ((a_column, descending), (b_column, _)) in sort.columns[a.collection_index]
-                .as_ref()
-                .unwrap()
-                .iter()
-                .zip(sort.columns[b.collection_index].as_ref().unwrap())
-            {
-                let order = a_column.keys[a.slot as usize].compare_with(
-                    &b_column.keys[b.slot as usize],
-                    *descending,
-                    a_column.options,
-                );
-                if !order.is_eq() {
-                    return order;
-                }
-            }
-            (&a_collection.definition.name, &a_record.id)
-                .cmp(&(&b_collection.definition.name, &b_record.id))
-        });
+        return Ok(());
     }
+
+    let mut error = None;
+    members.sort_by_cached_key(|member| {
+        if error.is_some() {
+            return None;
+        }
+        let collection = &repo.collections[member.collection_index];
+        let result = collection
+            .generation
+            .records
+            .get(member.slot as usize)
+            .ok_or_else(|| "cached rank slot missing".to_owned())
+            .and_then(|record| {
+                let columns = sort.columns[member.collection_index]
+                    .as_deref()
+                    .ok_or("cached sort collection missing")?;
+                Ok(StoredRankKey::read(
+                    columns,
+                    record,
+                    &collection.definition.name,
+                )?)
+            });
+        match result {
+            Ok(key) => Some(key),
+            Err(failure) => {
+                error = Some(failure);
+                None
+            }
+        }
+    });
+    error.map_or(Ok(()), Err)
 }
 
 pub(crate) fn record_base_cache_hits(repo: &Repository, cached: &CachedResult) {

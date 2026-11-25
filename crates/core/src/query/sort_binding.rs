@@ -8,7 +8,8 @@ use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
 use crate::index::relation::RelationTarget;
-use crate::index::sorting::{SortColumn, SortConfig, SortKey, SortOptions, make_collator};
+use crate::index::sorting::{SortConfig, SortKey, SortOptions, make_collator};
+use crate::index::storage::order::OrderColumnReader;
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;
@@ -23,8 +24,11 @@ use crate::schema::{operation::BindingOperation, operation::Transform};
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
 
-pub(crate) fn stored_column_matches_config(column: &SortColumn, config: &SortConfig) -> bool {
-    column.locale == config.locale && column.options == config.options
+pub(crate) fn stored_column_matches_config(
+    column: &dyn OrderColumnReader,
+    config: &SortConfig,
+) -> bool {
+    column.locale() == config.locale && column.options() == config.options
 }
 
 #[cfg(test)]
@@ -49,7 +53,7 @@ pub(crate) struct BoundSortTerm<'a> {
 
 /// A resident column or a key that must be read for each matching record.
 pub(crate) enum BoundSortSource<'a> {
-    Stored(&'a SortColumn),
+    Stored(&'a dyn OrderColumnReader),
     Computed(Box<ComputedSort>),
 }
 
@@ -425,8 +429,8 @@ impl<'a> BoundSort<'a> {
                 let (source, locale, options) = if let Some(column) = column {
                     (
                         BoundSortSource::Stored(column),
-                        column.locale.clone(),
-                        column.options,
+                        column.locale().to_owned(),
+                        column.options(),
                     )
                 } else {
                     has_computed = true;
@@ -510,7 +514,7 @@ impl<'a> BoundSort<'a> {
             .map(|term| {
                 let key = match &term.source {
                     BoundSortSource::Stored(column) => {
-                        column.keys[ctx.record.record_slot().0 as usize].clone()
+                        column.key(ctx.record.record_slot())?.into_owned()
                     }
                     BoundSortSource::Computed(computed) => {
                         if computed.related.is_some() {
@@ -1741,12 +1745,14 @@ pub(crate) fn key_bytes(key: &SortKey) -> usize {
 }
 
 /// Compare already prepared terms without reading source or allocating keys.
-pub(crate) fn compare_parts(
-    left: &[(SortKey, bool, SortOptions)],
-    right: &[(SortKey, bool, SortOptions)],
+pub(crate) fn compare_parts<K: std::borrow::Borrow<SortKey>>(
+    left: &[(K, bool, SortOptions)],
+    right: &[(K, bool, SortOptions)],
 ) -> Ordering {
     for ((left, descending, options), (right, _, _)) in left.iter().zip(right) {
-        let order = left.compare_with(right, *descending, *options);
+        let order = left
+            .borrow()
+            .compare_with(right.borrow(), *descending, *options);
         if !order.is_eq() {
             return order;
         }

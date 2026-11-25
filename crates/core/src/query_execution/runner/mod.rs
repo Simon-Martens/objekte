@@ -4318,7 +4318,7 @@ fn lifecycle_segment_order<'a>(
         .and_then(Option::as_ref)
         .and_then(|terms| terms.first())
         .and_then(|term| match &term.source {
-            BoundSortSource::Stored(column) => Some((&column.path, term.descending)),
+            BoundSortSource::Stored(column) => Some((column.path(), term.descending)),
             BoundSortSource::Computed(_) => None,
         });
     Ok(segment
@@ -5894,7 +5894,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
         );
     }
-    if posting_order_eligible(repo, query, None, &repo.segments, &repo.catalog) {
+    if posting_order_eligible(repo, query, None, &repo.segments, &repo.catalog)? {
         return search_impl(repo, query, None, None, None, None, None, None);
     }
     let budget = {
@@ -5935,7 +5935,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         None,
     )?;
     if tracker.complete() && Some(members.len()) == result.count {
-        sort_cached_members(repo, &membership_query, &mut members);
+        sort_cached_members(repo, &membership_query, &mut members)?;
         let displaced = repo
             .verified
             .lock()
@@ -6054,7 +6054,12 @@ pub(crate) fn search_stream_scoped_with_context_active(
     }
     let execution_query = &execution_query;
     let inferred_order =
-        posting_order_eligible(repo, execution_query, None, &repo.segments, &repo.catalog);
+        posting_order_eligible(repo, execution_query, None, &repo.segments, &repo.catalog)
+            .map_err(|message| StreamError::Execution {
+                kind: ExecutionErrorKind::Execution,
+                message,
+                progress: delivery.progress,
+            })?;
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
             kind: crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
@@ -6226,7 +6231,9 @@ pub(crate) fn search_stream_scoped_with_context_active(
     let publish_cache =
         tracker.as_ref().is_some_and(CacheBudget::complete) && Some(members.len()) == result.count;
     if publish_cache {
-        sort_cached_members(repo, &membership_query, &mut members);
+        if let Err(error) = sort_cached_members(repo, &membership_query, &mut members) {
+            return segmented_stream_error(&mut delivery, context, error);
+        }
     }
     // This check is the completion decision. Cancellation observed afterwards
     // cannot undo a successfully delivered page or a committed cache entry.
@@ -6785,7 +6792,7 @@ pub(crate) fn explain_with_active(
         && !has_source_dependent
         && !has_related_fts
         && prepared.collections.len() == 1
-        && posting_order_eligible(repo, query, Some(&prepared), &repo.segments, &repo.catalog)
+        && posting_order_eligible(repo, query, Some(&prepared), &repo.segments, &repo.catalog)?
         && inferred_order_index(repo, query, &repo.segments)
             .is_some_and(|(index, _, _)| prepared.collections[0].collection_index == index);
     let mut traces = Vec::new();
@@ -7394,7 +7401,7 @@ fn search_impl_with_resolved_sort<'a>(
                 let record = &collection.generation.records[slot as usize];
                 let needs_evidence = query.options.evidence
                     && (cache_members.is_some()
-                        || would_enter_page(repo, &sort, collection_index, record, &winners, cap));
+                        || would_enter_page(repo, &sort, collection_index, record, &winners, cap)?);
                 let mut evidence = if needs_evidence {
                     filter
                         .as_ref()

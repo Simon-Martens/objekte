@@ -27,6 +27,7 @@ mod inferred_order;
 
 pub(crate) use inferred_order::{InferredOrderCache, InferredOrderKey};
 
+use crate::index::storage::order::OrderColumnReader;
 pub(crate) use crate::index::storage::order::simple_composite_part;
 pub use crate::index::storage::order::{
     COLLATION_VERSION, CollationStrength, CompositeSortPart, Placement, SortConfig, SortKey,
@@ -72,6 +73,35 @@ pub struct SortColumn {
     pub locale: String,
     pub options: SortOptions,
     pub collation_version: String,
+}
+
+impl OrderColumnReader for SortColumn {
+    fn path(&self) -> &FieldPath {
+        &self.path
+    }
+
+    fn options(&self) -> SortOptions {
+        self.options
+    }
+
+    fn locale(&self) -> &str {
+        &self.locale
+    }
+
+    fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>> {
+        self.keys
+            .get(slot.0 as usize)
+            .map(Cow::Borrowed)
+            .ok_or_else(|| StorageError::invalid("read native sort key", "slot outside order"))
+    }
+
+    fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots> {
+        Ok(if descending {
+            &self.descending
+        } else {
+            &self.ascending
+        })
+    }
 }
 
 /// All sort columns available for a collection.
