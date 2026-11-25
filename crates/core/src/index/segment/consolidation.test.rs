@@ -9,7 +9,6 @@ use crate::model::{CollectionId, FieldPath, LogicalType};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
-use crate::source::registry::SourceRegistry;
 use std::time::Instant;
 
 #[test]
@@ -24,7 +23,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
     for (path, kind, indexed) in [
         ("n", LogicalType::Number, true),
         ("ref", LogicalType::Id, false),
@@ -70,8 +69,8 @@ fn consolidation_matches_direct_admission_without_source_files() {
             },
         ])
         .unwrap();
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -89,16 +88,16 @@ fn consolidation_matches_direct_admission_without_source_files() {
     let files = [
         (
             FileId(100),
-            "a.jsonl",
-            b"{\"n\":1,\"extra\":11,\"ref\":\"x\"}\n{\"n\":2,\"extra\":22,\"ref\":\"y\"}\n"
+            "a.rows",
+            b"(\"n\"=1,\"extra\"=11,\"ref\"=\"x\")\n(\"n\"=2,\"extra\"=22,\"ref\"=\"y\")\n"
                 .as_slice(),
         ),
         (
             FileId(500),
-            "b.jsonl",
-            b"{\"n\":3,\"extra\":33,\"ref\":\"z\"}\n{bad}\n".as_slice(),
+            "b.rows",
+            b"(\"n\"=3,\"extra\"=33,\"ref\"=\"z\")\n(bad)\n".as_slice(),
         ),
-        (FileId(900), "empty.jsonl", b"".as_slice()),
+        (FileId(900), "empty.rows", b"".as_slice()),
     ];
     let mut shards = Vec::new();
     let mut direct = SegmentAdmission::new(CollectionId(0), &source);
@@ -233,9 +232,10 @@ fn consolidation_matches_direct_admission_without_source_files() {
 fn seventy_small_shards_consolidate_after_sources_are_removed() {
     let root = std::env::temp_dir().join(format!("objekte-segment-seventy-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -252,9 +252,9 @@ fn seventy_small_shards_consolidate_after_sources_are_removed() {
         .unwrap();
     let mut shards = Vec::new();
     for number in 0..70u32 {
-        let name = format!("{number}.jsonl");
+        let name = format!("{number}.rows");
         let path = root.join(&name);
-        std::fs::write(&path, format!("{{\"n\":{number}}}\n")).unwrap();
+        std::fs::write(&path, format!("(\"n\"={number})\n")).unwrap();
         let input = SourceFileInput {
             id: FileId(10_000 + number),
             relative_path: name.into(),
@@ -315,9 +315,10 @@ fn consolidation_translates_independent_local_zero_slots() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -334,8 +335,8 @@ fn consolidation_translates_independent_local_zero_slots() {
         .unwrap();
     let mut shards = Vec::new();
     for (file, name, records) in [
-        (FileId(10), "first.jsonl", "first\nsecond\n"),
-        (FileId(20), "second.jsonl", "third\nfourth\n"),
+        (FileId(10), "first.rows", "first\nsecond\n"),
+        (FileId(20), "second.rows", "third\nfourth\n"),
     ] {
         let path = root.join(name);
         std::fs::write(&path, records).unwrap();

@@ -66,12 +66,7 @@ fn pristine_posting_collection_transfers_null_structural_and_empty_batches() {
     batch
         .add(
             RecordSlot(0),
-            &Value::from_json(serde_json::json!({
-                "nullable": null,
-                "tags": [],
-                "blocked": "structural"
-            }))
-            .unwrap(),
+            &fixture_value!({ "nullable" => null, "tags" => [], "blocked" => ("structural") }),
         )
         .unwrap();
     let expected_presence = batch
@@ -179,18 +174,16 @@ fn presence_null_array_dedup_and_cardinality() {
         element_nullable: Vec::new(),
     };
     let mut index = PostingIndex::new(&field);
-    for (slot, json) in [
-        serde_json::json!({}),
-        serde_json::json!({"values":null}),
-        serde_json::json!({"values":[]}),
-        serde_json::json!({"values":["a","a","b"]}),
+    for (slot, fixture) in [
+        fixture_value!({}),
+        fixture_value!({ "values" => null }),
+        fixture_value!({ "values" => [] }),
+        fixture_value!({ "values" => [("a"), ("a"), ("b")] }),
     ]
     .into_iter()
     .enumerate()
     {
-        index
-            .add(RecordSlot(slot as u32), &Value::from_json(json).unwrap())
-            .unwrap();
+        index.add(RecordSlot(slot as u32), &fixture).unwrap();
     }
     index.finish_stats();
     index.validate(4).unwrap();
@@ -240,25 +233,23 @@ fn terminal_selection_truth_table_uses_presence_null_and_lengths_only() {
         element_nullable: Vec::new(),
     };
     let mut index = PostingIndex::structural(&field);
-    for (slot, json) in [
-        serde_json::json!({}),
-        serde_json::json!({"x": null}),
-        serde_json::json!({"x": ""}),
-        serde_json::json!({"x": "Ada"}),
-        serde_json::json!({"x": 0}),
-        serde_json::json!({"x": false}),
-        serde_json::json!({"x": []}),
-        serde_json::json!({"x": [null]}),
-        serde_json::json!({"x": [""]}),
-        serde_json::json!({"x": {}}),
-        serde_json::json!({"x": {"a": null}}),
+    for (slot, fixture) in [
+        fixture_value!({}),
+        fixture_value!({ "x" => null }),
+        fixture_value!({ "x" => ("") }),
+        fixture_value!({ "x" => ("Ada") }),
+        fixture_value!({ "x" => (0) }),
+        fixture_value!({ "x" => (false) }),
+        fixture_value!({ "x" => [] }),
+        fixture_value!({ "x" => [null] }),
+        fixture_value!({ "x" => [("")] }),
+        fixture_value!({ "x" => {  } }),
+        fixture_value!({ "x" => { "a" => null } }),
     ]
     .into_iter()
     .enumerate()
     {
-        index
-            .add(RecordSlot(slot as u32), &Value::from_json(json).unwrap())
-            .unwrap();
+        index.add(RecordSlot(slot as u32), &fixture).unwrap();
     }
     let null = Value::Null;
     let text = Value::String("Ada".into());
@@ -537,16 +528,16 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
     let root = std::env::temp_dir().join(format!("objekte-array-null-{}", std::process::id()));
     let path = root.join("data");
     std::fs::create_dir_all(&path).unwrap();
-    for (id, json) in [
-        ("missing", "{}"),
-        ("explicit", r#"{"tags":null}"#),
-        ("empty", r#"{"tags":[]}"#),
-        ("null_item", r#"{"tags":[null]}"#),
-        ("all_null", r#"{"tags":[null,null]}"#),
-        ("value", r#"{"tags":["a"]}"#),
-        ("mixed", r#"{"tags":[null,"a"]}"#),
+    for (id, fixture) in [
+        ("missing", "()"),
+        ("explicit", r#"("tags"=null)"#),
+        ("empty", r#"("tags"=[])"#),
+        ("null_item", r#"("tags"=[null])"#),
+        ("all_null", r#"("tags"=[null,null])"#),
+        ("value", r#"("tags"=["a"])"#),
+        ("mixed", r#"("tags"=[null,"a"])"#),
     ] {
-        std::fs::write(path.join(format!("{id}.json")), json).unwrap();
+        std::fs::write(path.join(format!("{id}.row")), fixture).unwrap();
     }
     for indexed in [false, true] {
         let mut schema = crate::schema::Schema::default();
@@ -566,7 +557,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
             vec![CollectionDefinition {
                 name: "data".into(),
                 source_path: "data".into(),
-                format: crate::source::test_support::DOCUMENTS,
+                format: crate::source::test_support::document_format(),
                 identity: IdentityPolicy::Filename,
                 discovery: Default::default(),
                 schema,
@@ -578,7 +569,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -669,22 +660,22 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
 
     let root = std::env::temp_dir().join(format!("objekte-nested-length-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (id, json) in [
+    for (id, fixture) in [
         (
             "mixed",
-            r#"{"groups":[{"tags":["a"]},{"tags":["a","b","c"]}]}"#,
+            r#"("groups"=[("tags"=["a"]),("tags"=["a","b","c"])])"#,
         ),
         (
             "reversed",
-            r#"{"groups":[{"tags":["a","b","c"]},{"tags":["a"]}]}"#,
+            r#"("groups"=[("tags"=["a","b","c"]),("tags"=["a"])])"#,
         ),
-        ("triple", r#"{"groups":[{"tags":["a","b","c"]}]}"#),
-        ("empty", r#"{"groups":[]}"#),
-        ("empty_tags", r#"{"groups":[{"tags":[]}]}"#),
-        ("null_tags", r#"{"groups":[{"tags":null}]}"#),
-        ("missing", r#"{}"#),
+        ("triple", r#"("groups"=[("tags"=["a","b","c"])])"#),
+        ("empty", r#"("groups"=[])"#),
+        ("empty_tags", r#"("groups"=[("tags"=[])])"#),
+        ("null_tags", r#"("groups"=[("tags"=null)])"#),
+        ("missing", r#"()"#),
     ] {
-        std::fs::write(root.join(format!("data/{id}.json")), json).unwrap();
+        std::fs::write(root.join(format!("data/{id}.row")), fixture).unwrap();
     }
     for indexed in [false, true] {
         let mut schema = crate::schema::Schema::default();
@@ -704,7 +695,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
             vec![CollectionDefinition {
                 name: "data".into(),
                 source_path: "data".into(),
-                format: crate::source::test_support::DOCUMENTS,
+                format: crate::source::test_support::document_format(),
                 identity: IdentityPolicy::Filename,
                 discovery: Default::default(),
                 schema,
@@ -716,7 +707,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -958,17 +949,17 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
     schema.register_field(array.clone()).unwrap();
     let mut numbers = PostingIndex::new(&number);
     let mut arrays = PostingIndex::structural(&array);
-    for (slot, json) in [
-        serde_json::json!({"n":null, "a":[]}),
-        serde_json::json!({"n":1, "a":[1]}),
-        serde_json::json!({"n":2, "a":[1,2]}),
-        serde_json::json!({"n":3, "a":[1,2,3]}),
-        serde_json::json!({"a":[1,2,3,4]}),
+    for (slot, fixture) in [
+        fixture_value!({ "n" => null, "a" => [] }),
+        fixture_value!({ "n" => (1), "a" => [(1)] }),
+        fixture_value!({ "n" => (2), "a" => [(1), (2)] }),
+        fixture_value!({ "n" => (3), "a" => [(1), (2), (3)] }),
+        fixture_value!({ "a" => [(1), (2), (3), (4)] }),
     ]
     .into_iter()
     .enumerate()
     {
-        let record = Value::from_json(json).unwrap();
+        let record = fixture;
         numbers.add(RecordSlot(slot as u32), &record).unwrap();
         arrays.add(RecordSlot(slot as u32), &record).unwrap();
     }
@@ -1023,24 +1014,24 @@ fn declared_terminal_summary_is_exact_without_a_value_dictionary() {
     for (name, body) in [
         (
             "00",
-            r#"{"nums":[],"objects":[],"text":"","blocked":[],"score":1,"shape":{}}"#,
+            r#"("nums"=[],"objects"=[],"text"="","blocked"=[],"score"=1,"shape"=())"#,
         ),
         (
             "01",
-            r#"{"nums":[1],"objects":[{"x":1}],"text":" ","blocked":[1],"score":null,"shape":null}"#,
+            r#"("nums"=[1],"objects"=[("x"=1)],"text"=" ","blocked"=[1],"score"=null,"shape"=null)"#,
         ),
-        ("02", r#"{"nums":[1,2],"objects":[{},{}],"text":"Ω"}"#),
+        ("02", r#"("nums"=[1,2],"objects"=[(),()],"text"="Ω")"#),
         (
             "03",
-            r#"{"nums":[1,2,3],"objects":[{},{},{}],"text":"\t\n"}"#,
+            r#"("nums"=[1,2,3],"objects"=[(),(),()],"text"="\t\n")"#,
         ),
-        ("04", r#"{"nums":null,"objects":null,"text":null}"#),
-        ("05", r#"{}"#),
-        ("06", r#"{"text":""}"#),
-        ("07", r#"{"text":"Ω","text":""}"#),
-        ("08", r#"{"text":"","text":"Ω"}"#),
+        ("04", r#"("nums"=null,"objects"=null,"text"=null)"#),
+        ("05", r#"()"#),
+        ("06", r#"("text"="")"#),
+        ("07", r#"("text"="Ω","text"="")"#),
+        ("08", r#"("text"="","text"="Ω")"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let mut schema = Schema::default();
     for (name, kind, multi) in [
@@ -1090,10 +1081,7 @@ fn declared_terminal_summary_is_exact_without_a_value_dictionary() {
     wrong
         .add(
             RecordSlot(0),
-            &Value::from_json(serde_json::json!({
-                "nums": "not an array", "objects": 7, "text": []
-            }))
-            .unwrap(),
+            &fixture_value!({ "nums" => ("not an array"), "objects" => (7), "text" => [] }),
         )
         .unwrap();
     assert!(wrong.fields[&vec!["nums".into()]].lengths.is_empty());
@@ -1104,7 +1092,7 @@ fn declared_terminal_summary_is_exact_without_a_value_dictionary() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1117,7 +1105,7 @@ fn declared_terminal_summary_is_exact_without_a_value_dictionary() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1192,23 +1180,22 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::registry::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!("objekte-state-posting-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("00", r#"{"u":"unindexed","legacy":[]}"#),
-        ("01", r#"{"x":null,"u":"unindexed","legacy":[1]}"#),
-        ("02", r#"{"x":"","u":"unindexed"}"#),
-        ("03", r#"{"x":0,"u":"unindexed"}"#),
-        ("04", r#"{"x":false,"u":"unindexed"}"#),
-        ("05", r#"{"x":[],"u":"unindexed"}"#),
-        ("06", r#"{"x":{},"u":"unindexed"}"#),
-        ("07", r#"{"x":"hello","u":"unindexed"}"#),
-        ("08", r#"{"x":[null,"hello"],"u":"unindexed"}"#),
+        ("00", r#"("u"="unindexed","legacy"=[])"#),
+        ("01", r#"("x"=null,"u"="unindexed","legacy"=[1])"#),
+        ("02", r#"("x"="","u"="unindexed")"#),
+        ("03", r#"("x"=0,"u"="unindexed")"#),
+        ("04", r#"("x"=false,"u"="unindexed")"#),
+        ("05", r#"("x"=[],"u"="unindexed")"#),
+        ("06", r#"("x"=(),"u"="unindexed")"#),
+        ("07", r#"("x"="hello","u"="unindexed")"#),
+        ("08", r#"("x"=[null,"hello"],"u"="unindexed")"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let mut schema = Schema::default();
     for (name, kind, indexed) in [
@@ -1234,7 +1221,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -1251,7 +1238,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
         &root,
         vec![definition.clone()],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1335,7 +1322,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
         &root,
         vec![definition],
         options,
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1385,8 +1372,8 @@ fn mixed_selected_occurrences_prove_presence_and_null_but_keep_ambiguous_types_v
     let text = Value::String("text".into());
     let empty = Value::String(String::new());
     let zero = Value::Number(Number::integer(0));
-    let empty_array = Value::from_json(serde_json::json!([])).unwrap();
-    let empty_object = Value::from_json(serde_json::json!({})).unwrap();
+    let empty_array = fixture_value!([]);
+    let empty_object = fixture_value!({});
     let false_value = Value::Bool(false);
     for (slot, selected) in [
         Some(vec![&null, &text]),
@@ -1464,8 +1451,8 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for slot in 0..64 {
         std::fs::write(
-            root.join(format!("data/{slot:02}.json")),
-            format!(r#"{{"selected":{slot},"dynamic_{slot:02}":{slot}}}"#),
+            root.join(format!("data/{slot:02}.row")),
+            format!(r#"("selected"={slot},"dynamic_{slot:02}"={slot})"#),
         )
         .unwrap();
     }
@@ -1486,7 +1473,7 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1499,7 +1486,7 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1552,18 +1539,18 @@ fn covered_terminal_presence_and_homogeneous_types_answer_without_source_reads()
     let mut documents = String::new();
     for slot in 0..120 {
         documents.push_str(&format!(
-            "{{\"year\":{},\"flag\":{},\"name\":\"name-{slot}\",\"label\":\"42\",\"identifier\":\"A\"}}\n",
+            "(\"year\"={},\"flag\"={},\"name\"=\"name-{slot}\",\"label\"=\"42\",\"identifier\"=\"A\")\n",
             slot + 1,
             slot % 2 == 0
         ));
     }
     documents.push_str(concat!(
-        "{\"x\":null,\"year\":0,\"flag\":false,\"name\":\"\",\"label\":\"42\"}\n",
-        "{\"x\":\"\",\"year\":1,\"flag\":true,\"name\":\"Ada\",\"label\":\"42\"}\n",
-        "{\"x\":[\"Ada\"],\"year\":2,\"flag\":false,\"name\":\"B\",\"label\":\"42\"}\n",
-        "{\"x\":{\"nested\":null},\"year\":3,\"flag\":true,\"name\":\"C\",\"label\":\"42\"}\n"
+        "(\"x\"=null,\"year\"=0,\"flag\"=false,\"name\"=\"\",\"label\"=\"42\")\n",
+        "(\"x\"=\"\",\"year\"=1,\"flag\"=true,\"name\"=\"Ada\",\"label\"=\"42\")\n",
+        "(\"x\"=[\"Ada\"],\"year\"=2,\"flag\"=false,\"name\"=\"B\",\"label\"=\"42\")\n",
+        "(\"x\"=(\"nested\"=null),\"year\"=3,\"flag\"=true,\"name\"=\"C\",\"label\"=\"42\")\n"
     ));
-    std::fs::write(root.join("data/records.jsonl"), documents).unwrap();
+    std::fs::write(root.join("data/records.rows"), documents).unwrap();
     let mut schema = Schema::default();
     for (path, kind, indexed) in [
         (vec!["x".into()], LogicalType::Unknown, false),
@@ -1590,7 +1577,7 @@ fn covered_terminal_presence_and_homogeneous_types_answer_without_source_reads()
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::LINES,
+            format: crate::source::test_support::line_format(),
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -1603,7 +1590,7 @@ fn covered_terminal_presence_and_homogeneous_types_answer_without_source_reads()
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1661,12 +1648,12 @@ fn trailing_wildcard_never_reuses_the_container_posting() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("a", r#"{"x":[]}"#),
-        ("b", r#"{"x":[null]}"#),
-        ("c", r#"{"x":["Ada"]}"#),
-        ("d", "{}"),
+        ("a", r#"("x"=[])"#),
+        ("b", r#"("x"=[null])"#),
+        ("c", r#"("x"=["Ada"])"#),
+        ("d", "()"),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let mut schema = Schema::default();
     schema
@@ -1685,7 +1672,7 @@ fn trailing_wildcard_never_reuses_the_container_posting() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1698,7 +1685,7 @@ fn trailing_wildcard_never_reuses_the_container_posting() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1767,12 +1754,12 @@ fn trailing_wildcard_fallback_holds_for_initial_and_delta_segments() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let a = root.join("data/a.json");
-    let b = root.join("data/b.json");
-    let c = root.join("data/c.json");
-    let d = root.join("data/d.json");
-    std::fs::write(&a, r#"{"x":[]}"#).unwrap();
-    std::fs::write(&d, "{}").unwrap();
+    let a = root.join("data/a.row");
+    let b = root.join("data/b.row");
+    let c = root.join("data/c.row");
+    let d = root.join("data/d.row");
+    std::fs::write(&a, r#"("x"=[])"#).unwrap();
+    std::fs::write(&d, "()").unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -1788,7 +1775,7 @@ fn trailing_wildcard_fallback_holds_for_initial_and_delta_segments() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -1804,7 +1791,7 @@ fn trailing_wildcard_fallback_holds_for_initial_and_delta_segments() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1836,8 +1823,8 @@ fn trailing_wildcard_fallback_holds_for_initial_and_delta_segments() {
         );
     }
     drop(initial);
-    std::fs::write(&b, r#"{"x":[null]}"#).unwrap();
-    std::fs::write(&c, r#"{"x":["Ada"]}"#).unwrap();
+    std::fs::write(&b, r#"("x"=[null])"#).unwrap();
+    std::fs::write(&c, r#"("x"=["Ada"])"#).unwrap();
     index.add_file(&b).unwrap();
     index.add_file(&c).unwrap();
     let delta = index.view().unwrap();
@@ -1882,12 +1869,12 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
     let root = std::env::temp_dir().join(format!("objekte-state-mutation-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let a = root.join("data/a.json");
-    let b = root.join("data/b.json");
-    let moved = root.join("data/c.json");
-    let added = root.join("data/d.json");
-    std::fs::write(&a, br#"{"x":null,"shape":{}}"#).unwrap();
-    std::fs::write(&b, br#"{"x":"hello","shape":null}"#).unwrap();
+    let a = root.join("data/a.row");
+    let b = root.join("data/b.row");
+    let moved = root.join("data/c.row");
+    let added = root.join("data/d.row");
+    std::fs::write(&a, br#"("x"=null,"shape"=())"#).unwrap();
+    std::fs::write(&b, br#"("x"="hello","shape"=null)"#).unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -1916,7 +1903,7 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1929,7 +1916,7 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1970,7 +1957,7 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
     check(&initial, [1, 1, 0, 1, 1, 1]);
     let a_handle = initial.file_handle_for_path(&a).unwrap();
     let b_handle = initial.file_handle_for_path(&b).unwrap();
-    std::fs::write(&a, br#"{"x":[],"shape":null}"#).unwrap();
+    std::fs::write(&a, br#"("x"=[],"shape"=null)"#).unwrap();
     let replaced = index.update_file(a_handle, &a).unwrap();
     check(&index.view().unwrap(), [0, 1, 1, 1, 0, 2]);
     check(&initial, [1, 1, 0, 1, 1, 1]);
@@ -1979,7 +1966,7 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
     check(&index.view().unwrap(), [0, 1, 1, 1, 0, 2]);
     index.delete_file(replaced.file).unwrap();
     check(&index.view().unwrap(), [0, 1, 0, 0, 0, 1]);
-    std::fs::write(&added, br#"{"x":0,"shape":{}}"#).unwrap();
+    std::fs::write(&added, br#"("x"=0,"shape"=())"#).unwrap();
     index.add_file(&added).unwrap();
     check(&index.view().unwrap(), [0, 1, 0, 0, 1, 1]);
     let number = index
@@ -2006,17 +1993,17 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     let values = [
-        serde_json::json!(null),
-        serde_json::json!(""),
-        serde_json::json!("text"),
-        serde_json::json!(0),
-        serde_json::json!(17),
-        serde_json::json!(false),
-        serde_json::json!(true),
-        serde_json::json!([]),
-        serde_json::json!([null, "text"]),
-        serde_json::json!({}),
-        serde_json::json!({"nested": null}),
+        fixture_value!(null),
+        fixture_value!(("")),
+        fixture_value!(("text")),
+        fixture_value!((0)),
+        fixture_value!((17)),
+        fixture_value!((false)),
+        fixture_value!((true)),
+        fixture_value!([]),
+        fixture_value!([null, ("text")]),
+        fixture_value!({}),
+        fixture_value!({ "nested" => null }),
     ];
     let mut state = 0x8f2e_37a1_u64;
     for slot in 0..96 {
@@ -2025,13 +2012,13 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
         state ^= state << 17;
         let choice = (state % (values.len() as u64 + 1)) as usize;
         let record = if choice == values.len() {
-            serde_json::json!({"y": slot % 3})
+            fixture_value!({ "y" => (slot % 3) })
         } else {
-            serde_json::json!({"x": values[choice], "y": slot % 3})
+            fixture_value!({ "x" => (&values[choice]), "y" => (slot % 3) })
         };
         std::fs::write(
-            root.join(format!("data/{slot:03}.json")),
-            serde_json::to_vec(&record).unwrap(),
+            root.join(format!("data/{slot:03}.row")),
+            record.fixture_text(),
         )
         .unwrap();
     }
@@ -2052,7 +2039,7 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -2065,7 +2052,7 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2111,3 +2098,5 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

@@ -414,12 +414,15 @@ mod tests {
         let _ = std::fs::remove_dir_all(&root);
         std::fs::create_dir_all(root.join("data")).unwrap();
         std::fs::write(
-            root.join("data/records.jsonl"),
-            b"{\"id\":\"0\",\"value\":10}\n{\"id\":\"1\",\"value\":20}\n{bad}\n",
+            root.join("data/records.rows"),
+            b"(\"id\"=\"0\",\"value\"=10)\n(\"id\"=\"1\",\"value\"=20)\n(bad)\n",
         )
         .unwrap();
-        let mut definition =
-            CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        let mut definition = CollectionDefinition::folder(
+            "data",
+            "data",
+            crate::source::test_support::line_format(),
+        );
         definition.identity =
             crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
         definition
@@ -441,7 +444,7 @@ mod tests {
                 verified_cache_bytes: 0,
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -546,7 +549,7 @@ fn managed_queries_and_components_use_distinct_published_domains() {
     use crate::query_access::text::NativeSegmentTextProvider;
     use crate::query_diagnostics::trace::ObservationStatus;
     use crate::repository::configuration::{IdentityPolicy, RepositoryOptions};
-    use crate::source::registry::SourceRegistry;
+
     use std::collections::BTreeSet;
 
     let root = std::env::temp_dir().join(format!(
@@ -576,22 +579,22 @@ fn managed_queries_and_components_use_distinct_published_domains() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap()
     .wait_complete()
     .unwrap();
-    let path = root.join("data/first.json");
+    let path = root.join("data/first.row");
     std::fs::write(
         &path,
-        br#"{"id":"first","year":2000,"title":"domainneedle"}"#,
+        br#"("id"="first","year"=2000,"title"="domainneedle")"#,
     )
     .unwrap();
     let first = index.add_file(&path).unwrap();
-    let second = root.join("data/second.json");
+    let second = root.join("data/second.row");
     std::fs::write(
         &second,
-        br#"{"id":"second","year":2000,"title":"domainneedle"}"#,
+        br#"("id"="second","year"=2000,"title"="domainneedle")"#,
     )
     .unwrap();
     index.add_file(&second).unwrap();
@@ -734,10 +737,10 @@ fn managed_queries_and_components_use_distinct_published_domains() {
                 .is_err()
         );
     }
-    let replacement = root.join("data/replacement.json");
+    let replacement = root.join("data/replacement.row");
     std::fs::write(
         &replacement,
-        br#"{"id":"updated","year":2000,"title":"domainneedle"}"#,
+        br#"("id"="updated","year"=2000,"title"="domainneedle")"#,
     )
     .unwrap();
     index.update_file(first.file, &replacement).unwrap();

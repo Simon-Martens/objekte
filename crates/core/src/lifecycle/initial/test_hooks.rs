@@ -88,3 +88,77 @@ pub(crate) fn enter_file(path: &Path) -> Option<ActiveFile> {
 }
 
 pub use crate::construction::file_shard_diagnostics::measure_direct_shard_build;
+
+/// Check that conversion and borrowed text admission agree with owned strings.
+pub fn assert_equivalent_logical_bigrams(
+    schema: &crate::schema::Schema,
+    record: &mut crate::source::ExtractedRecord,
+    expected: &[&str],
+) {
+    use crate::index::bigram::{BigramAlphabet, BigramBuilder};
+    use crate::model::RecordSlot;
+    use crate::source::text::visit_logical_strings;
+
+    crate::construction::file_preparation::finish_build_record(schema, record).unwrap();
+    let mut strings = Vec::new();
+    visit_logical_strings(&record.value, &mut |text| strings.push(text.to_owned()));
+    assert_eq!(strings, expected);
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut borrowed = BigramBuilder::new(alphabet);
+        borrowed
+            .add_record_with(RecordSlot(0), |emit| {
+                visit_logical_strings(&record.value, emit)
+            })
+            .unwrap();
+        let borrowed = borrowed.finish().unwrap();
+        let mut owned = BigramBuilder::new(alphabet);
+        owned.add_record(RecordSlot(0), strings.iter()).unwrap();
+        let owned = owned.finish().unwrap();
+        assert_eq!(borrowed.normal, owned.normal);
+        assert_eq!(borrowed.skip, owned.skip);
+    }
+}
+
+/// A compiled text predicate for adapter scan tests.
+pub struct ScanTextBinding(crate::query::binding::fts::BoundFts);
+
+impl<'a> From<&'a ScanTextBinding> for crate::source::verification::ScalarText<'a> {
+    fn from(binding: &'a ScanTextBinding) -> Self {
+        (&binding.0).into()
+    }
+}
+
+/// A compiled single-term predicate for adapter scan tests.
+pub struct ScanFilterBinding(crate::query::binding::filter::BoundTerm);
+
+impl<'a> From<&'a ScanFilterBinding> for crate::source::verification::ScalarFilter<'a> {
+    fn from(binding: &'a ScanFilterBinding) -> Self {
+        (&binding.0).into()
+    }
+}
+
+pub fn bind_scan_text(
+    fts: &crate::query::FtsQuery,
+    schema: &crate::schema::Schema,
+) -> Result<ScanTextBinding, String> {
+    crate::query::binding::fts::bind_fts(fts, schema).map(ScanTextBinding)
+}
+
+pub fn bind_scan_filter(
+    filter: &crate::query::FilterExpr,
+    schema: &crate::schema::Schema,
+) -> Result<ScanFilterBinding, String> {
+    use crate::query::binding::filter::{BoundExpr, bind_filter};
+    match bind_filter(filter, schema)? {
+        BoundExpr::Term(term) => Ok(ScanFilterBinding(term)),
+        _ => Err("scan fixture requires a single term".into()),
+    }
+}
+
+pub fn fold_candidate_transforms() -> usize {
+    crate::query::semantics::folding::fold_candidate_transforms()
+}
+
+pub fn fold_scratch_stats() -> (usize, usize) {
+    crate::query::semantics::folding::fold_scratch_stats()
+}

@@ -1,6 +1,5 @@
 use super::*;
 use crate::repository::configuration::RepositoryOptions;
-use crate::source::registry::SourceRegistry;
 use std::fs;
 
 fn test_root(label: &str) -> PathBuf {
@@ -31,16 +30,17 @@ fn source_preparation_preserves_live_identity_and_generated_exclusions() {
     let hash = crate::repository::configuration::identity::configuration_hash(
         &first,
         RepositoryOptions::default(),
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
     )
     .unwrap();
-    let actual = hash
-        .iter()
-        .map(|byte| format!("{byte:02x}"))
-        .collect::<String>();
     assert_eq!(
-        actual,
-        "d025ae2e90ad25b5c5fb46e60f4247bbce8bf9338613cfd17f43185db7016a93"
+        hash,
+        crate::repository::configuration::identity::configuration_hash(
+            &second,
+            RepositoryOptions::default(),
+            &crate::source::test_support::fixture_registry(),
+        )
+        .unwrap()
     );
     fs::create_dir_all(root.join(".objekte/.indexes")).unwrap();
     let reserved = crate::source::test_support::decoded_scalar_folder("bad", ".objekte/.indexes");

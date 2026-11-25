@@ -1742,7 +1742,8 @@ mod tests {
                 std::process::id()
             ));
             std::fs::create_dir_all(root.join("data")).unwrap();
-            let mut builder = Index::builder();
+            let mut builder = Index::builder()
+                .with_source_registry(crate::source::test_support::fixture_registry());
             let collection = builder.collection("entries", Schema::default()).unwrap();
             let registration = builder
                 .register_records(collection, "prepared-test", 1)
@@ -1808,8 +1809,8 @@ mod tests {
                 (false, true) => "manual-a",
                 (_, false) => "file-a",
             };
-            let path = root.join("data/item.json");
-            std::fs::write(&path, format!(r#"{{"id":"{file_id}"}}"#)).unwrap();
+            let path = root.join("data/item.row");
+            std::fs::write(&path, format!(r#"("id"="{file_id}")"#)).unwrap();
             index.add_file(&path).unwrap();
             let pinned = index.view().unwrap();
             assert!(

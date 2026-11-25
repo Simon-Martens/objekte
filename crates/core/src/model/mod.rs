@@ -8,8 +8,6 @@ use serde::{Deserialize, Deserializer, Serialize, de};
 use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
 pub(crate) mod decimal;
-#[cfg(test)]
-mod json;
 pub mod path_representation;
 pub(crate) mod structure;
 pub mod text;
@@ -220,7 +218,7 @@ impl ArrayValue {
         })
     }
 
-    /// Preserve every parsed JSON member without imposing a declared element type.
+    /// Preserve every parsed member without imposing a declared element type.
     pub fn from_unrestricted(values: Vec<Value>) -> Self {
         let mut element_type: Option<LogicalType> = None;
         let mut mixed_elements = false;

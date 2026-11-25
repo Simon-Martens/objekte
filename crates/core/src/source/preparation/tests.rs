@@ -12,10 +12,9 @@ fn built_and_trusted_logical(
 ) -> (Value, Value) {
     use crate::inventory::RecordClass;
     use crate::query_results::Payload;
-    use crate::source::registry::SourceRegistry;
 
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::DOCUMENTS)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::document_format())
         .unwrap();
     let mut built = source.reader().parse_for_build_outcome(bytes).unwrap();
     finish_build_record(schema, &mut built).unwrap();
@@ -106,7 +105,7 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
     use crate::schema::FieldDefinition;
-    use crate::source::registry::SourceRegistry;
+
     use std::collections::HashSet;
 
     let mut schema = Schema::default();
@@ -155,7 +154,7 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
             .unwrap();
     }
     assert!(!schema.has_converted_fields());
-    let bytes = br#"{"values":[],"all_null":[null,null],"populated":[1,2],"nested":[[],[null],[3]],"objects":[{"tags":[]}],"inferred":[1,null]}"#;
+    let bytes = br#"("values"=[],"all_null"=[null,null],"populated"=[1,2],"nested"=[[],[null],[3]],"objects"=[("tags"=[])],"inferred"=[1,null])"#;
     let (built, trusted) = built_and_trusted_logical(&schema, bytes, &ScanProjection::full(false));
     assert_eq!(trusted, built);
     let Value::Object(fields) = &trusted else {
@@ -191,12 +190,12 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
     expected.retain(|name, _| selected.contains(name));
     assert_eq!(projected, Value::Object(expected));
 
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::DOCUMENTS)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::document_format())
         .unwrap();
     for stale in [
-        br#"{"values":["wrong"]}"#.as_slice(),
-        br#"{"values":null}"#.as_slice(),
+        br#"("values"=["wrong"])"#.as_slice(),
+        br#"("values"=null)"#.as_slice(),
     ] {
         assert!(
             prepare_query_record(
@@ -220,17 +219,17 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
 #[test]
 fn recorded_validation_selects_trusted_or_validating_extraction() {
     use crate::inventory::RecordClass;
-    use crate::source::json::JsonDecodedScalarsReader;
+    use crate::source::test_support::SCALAR_READER;
     use crate::source::{SourceFormat, registry::SourceRegistry};
     use std::collections::HashSet;
     use std::sync::Arc;
 
-    let builtin = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::DECODED_SCALARS)
+    let builtin = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::scalar_format())
         .unwrap();
     let mut registry = SourceRegistry::default();
     registry
-        .register("custom", 1, "json", Arc::new(JsonDecodedScalarsReader))
+        .register("custom", 1, "row", Arc::new(SCALAR_READER))
         .unwrap();
     let extension = registry
         .resolve(&SourceFormat::registered("custom"))
@@ -240,7 +239,7 @@ fn recorded_validation_selects_trusted_or_validating_extraction() {
         collect_text: false,
         resolved_text_only: false,
     };
-    let bytes = br#"{"wanted":5,"ignored":!}"#;
+    let bytes = br#"("wanted"=5,"ignored"=!)"#;
 
     assert!(builtin.reader().supports_trusted_query_extraction());
     assert!(extension.reader().supports_trusted_query_extraction());
@@ -285,7 +284,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
     use crate::model::LogicalType;
     use crate::query_execution::streaming::ExecutionContext;
     use crate::schema::FieldDefinition;
-    use crate::source::json::JsonReader;
+    use crate::source::test_support::DOCUMENT_READER;
     use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
     use std::collections::HashSet;
     use std::sync::{
@@ -305,11 +304,11 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
         }
 
         fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
-            JsonReader.frame(bytes)
+            DOCUMENT_READER.frame(bytes)
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonReader.parse(bytes)
+            DOCUMENT_READER.parse(bytes)
         }
 
         fn supports_trusted_query_extraction(&self) -> bool {
@@ -322,7 +321,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
             projection: &ScanProjection,
         ) -> Result<ExtractedRecord, String> {
             self.validating.fetch_add(1, Ordering::Relaxed);
-            JsonReader.parse_for_query(bytes, projection)
+            DOCUMENT_READER.parse_for_query(bytes, projection)
         }
 
         fn parse_for_query_trusted(
@@ -331,7 +330,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
             projection: &ScanProjection,
         ) -> Result<ExtractedRecord, String> {
             self.trusted.fetch_add(1, Ordering::Relaxed);
-            JsonReader.parse_for_query_trusted(bytes, projection)
+            DOCUMENT_READER.parse_for_query_trusted(bytes, projection)
         }
     }
 
@@ -347,7 +346,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
             element_nullable: vec![true],
         })
         .unwrap();
-    let bytes = br#"{"values":[]}"#;
+    let bytes = br#"("values"=[])"#;
     for opt_in in [false, true] {
         for with_execution in [false, true] {
             let validating = Arc::new(AtomicUsize::new(0));
@@ -357,7 +356,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
                 .register(
                     "tracking",
                     1,
-                    "json",
+                    "row",
                     Arc::new(TrackingReader {
                         opt_in,
                         validating: validating.clone(),
@@ -423,7 +422,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
 
             // The indexed record was valid at build time; a later malformed
             // skipped field does not change its recorded validation state.
-            let changed = br#"{"values":[],"ignored":!}"#;
+            let changed = br#"("values"=[],"ignored"=!)"#;
             let changed_result = if with_execution {
                 let execution = ExecutionContext::new(
                     crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
@@ -543,7 +542,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
             // A custom registration may use a builtin-looking ID in an empty registry.
             registry
                 .register(
-                    "json",
+                    "fixture-record",
                     1,
                     "tiny",
                     Arc::new(ExpandingReader {
@@ -554,7 +553,9 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
                     }),
                 )
                 .unwrap();
-            let source = registry.resolve(&SourceFormat::registered("json")).unwrap();
+            let source = registry
+                .resolve(&SourceFormat::registered("fixture-record"))
+                .unwrap();
             assert!(source.reader().uses_extension_query_limits());
             let execution = context();
             let error = prepare_query_record_with_execution(

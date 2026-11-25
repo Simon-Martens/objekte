@@ -22,19 +22,19 @@ fn truth_table_covers_logical_values_and_empty_selection() {
             [true, false, true, false, false, false, false],
         ),
         (
-            Value::from_json(serde_json::json!([])).unwrap(),
+            fixture_value!([]),
             [true, false, false, false, false, true, false],
         ),
         (
-            Value::from_json(serde_json::json!([null])).unwrap(),
+            fixture_value!([null]),
             [true, false, true, false, false, true, false],
         ),
         (
-            Value::from_json(serde_json::json!({})).unwrap(),
+            fixture_value!({}),
             [true, false, false, false, false, false, true],
         ),
         (
-            Value::from_json(serde_json::json!({"a":null})).unwrap(),
+            fixture_value!({ "a" => null }),
             [true, false, true, false, false, false, true],
         ),
     ];
@@ -71,3 +71,5 @@ fn truth_table_covers_logical_values_and_empty_selection() {
         assert!(selected_matches(Some(&selected), predicate));
     }
 }
+
+use crate::source::test_support::fixture_value;

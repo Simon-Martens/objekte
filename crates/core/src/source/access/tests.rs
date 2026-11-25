@@ -5,14 +5,14 @@ fn source_failure_classifier_keeps_missing_revision_and_range_distinct() {
         .join("target")
         .join(format!("source-failure-classifier-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("record.json");
-    std::fs::write(&path, b"{}").unwrap();
+    let path = root.join("record.row");
+    std::fs::write(&path, b"()").unwrap();
     let original = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
     assert_eq!(
         classify_source_read_failure(&path, original, Some(ByteRange { start: 0, end: 3 })),
         SourceUnavailableKind::UnusableRange,
     );
-    std::fs::write(&path, b"{\"id\":1}").unwrap();
+    std::fs::write(&path, b"(\"id\"=1)").unwrap();
     assert_eq!(
         classify_source_read_failure(&path, original, None),
         SourceUnavailableKind::RevisionMismatch,
@@ -36,7 +36,7 @@ fn typed_source_change_requires_a_confirmed_revision_mismatch() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("source.json");
+    let path = root.join("source.row");
     std::fs::write(&path, b"old").unwrap();
     let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
     let range = ByteRange::checked(0, 3, revision.size).unwrap();
@@ -68,20 +68,18 @@ fn typed_source_change_requires_a_confirmed_revision_mismatch() {
 
 #[test]
 fn nearby_multi_record_ranges_share_one_read_window() {
-    let path = std::env::temp_dir().join(format!("objekte-batch-{}.jsonl", std::process::id()));
-    std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
+    let path = std::env::temp_dir().join(format!("objekte-batch-{}.rows", std::process::id()));
+    std::fs::write(&path, b"(\"x\"=1)\n(\"x\"=2)\n").unwrap();
     let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
-    let ranges = JsonLinesReader
-        .frame(&std::fs::read(&path).unwrap())
-        .unwrap();
+    let ranges = LINE_READER.frame(&std::fs::read(&path).unwrap()).unwrap();
     let (records, bytes_read) =
         read_record_ranges(&path, revision, &[(1, ranges[1]), (0, ranges[0])]).unwrap();
     assert_eq!(records.len(), 2);
     assert_eq!(records[0].0, 0);
-    assert_eq!(records[1].1, b"{\"x\":2}");
+    assert_eq!(records[1].1, b"(\"x\"=2)");
     assert_eq!(bytes_read, 15);
     let (single, single_bytes) = read_record_ranges(&path, revision, &[(1, ranges[1])]).unwrap();
-    assert_eq!(single, vec![(1, b"{\"x\":2}".to_vec())]);
+    assert_eq!(single, vec![(1, b"(\"x\"=2)".to_vec())]);
     assert_eq!(single_bytes, 7);
     std::fs::remove_file(path).unwrap();
 }
@@ -177,18 +175,16 @@ fn positioned_reader_tracks_coalesced_windows_and_failed_reads() {
 
 #[test]
 fn changed_source_rejects_old_ranges_and_incomplete_extraction() {
-    let path = std::env::temp_dir().join(format!("objekte-stale-{}.jsonl", std::process::id()));
-    std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
+    let path = std::env::temp_dir().join(format!("objekte-stale-{}.rows", std::process::id()));
+    std::fs::write(&path, b"(\"x\"=1)\n(\"x\"=2)\n").unwrap();
     let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
-    let ranges = JsonLinesReader
-        .frame(&std::fs::read(&path).unwrap())
-        .unwrap();
+    let ranges = LINE_READER.frame(&std::fs::read(&path).unwrap()).unwrap();
     let changed = extract_file(
         &path,
-        crate::source::test_support::LINES,
+        crate::source::test_support::line_format(),
         revision,
         |_, _| {
-            std::fs::write(&path, b"{\"x\":1}\n{\"x\":22}\n").map_err(|e| e.to_string())?;
+            std::fs::write(&path, b"(\"x\"=1)\n(\"x\"=22)\n").map_err(|e| e.to_string())?;
             Ok(())
         },
     );
@@ -338,6 +334,6 @@ fn checked_range_reads_reject_replaced_path_with_spoofed_revision() {
     std::fs::remove_dir_all(root).unwrap();
 }
 use super::*;
-use crate::source::json_lines::JsonLinesReader;
+use crate::source::test_support::LINE_READER;
 use crate::source::{SourceReader, extraction::extract_file};
 use sha2::{Digest, Sha256};

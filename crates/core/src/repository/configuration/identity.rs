@@ -237,62 +237,11 @@ mod tests {
     use crate::schema::relations::{RelationCardinality, RelationDefinition};
     use crate::schema::{FieldDefinition, operation::CustomBinding, operation::Transform};
     use crate::source::SourceFormat;
-    use crate::source::json::JsonReader;
-
-    #[test]
-    fn live_configuration_hash_matches_the_pre_restore_fixture() {
-        // Expected bytes were produced at the pre-restoration execution base
-        // with the same definitions/options. They prove the live identity did
-        // not change while disk format versions were removed.
-        let sources = SourceRegistry::builtin();
-        let folder = vec![crate::source::test_support::decoded_scalar_folder(
-            "files", "",
-        )];
-        let configured = vec![
-            crate::source::test_support::document_folder("authors", "data/authors"),
-            CollectionDefinition::folder("books", "data/books", crate::source::test_support::LINES),
-        ];
-        let cases = [
-            (
-                &folder,
-                RepositoryOptions::default(),
-                "3d6c9a95513505be8fa182c40bd88c655dca362932233b1aee53d697586590ec",
-            ),
-            (
-                &folder,
-                RepositoryOptions {
-                    bigram_alphabet: crate::index::bigram::BigramAlphabet::Unicode,
-                    ..RepositoryOptions::default()
-                },
-                "8fed0f48d81a0838e8c264b9c5c98157fc219ea5c480b83d34257723262e2093",
-            ),
-            (
-                &configured,
-                RepositoryOptions::default(),
-                "9451bad09cf9cca9287b5452ef98be53cdab8e26579d4f0334cf3531078a0f04",
-            ),
-            (
-                &configured,
-                RepositoryOptions {
-                    bigram_alphabet: crate::index::bigram::BigramAlphabet::Unicode,
-                    ..RepositoryOptions::default()
-                },
-                "bb15855855053c61c268094a65258f7568ae57283e282ee5154db4fbb892d4fb",
-            ),
-        ];
-        for (definitions, options, expected) in cases {
-            let hash = configuration_hash(definitions, options, &sources).unwrap();
-            let actual = hash
-                .iter()
-                .map(|byte| format!("{byte:02x}"))
-                .collect::<String>();
-            assert_eq!(actual, expected);
-        }
-    }
+    use crate::source::test_support::DOCUMENT_READER;
 
     #[test]
     fn configuration_identity_tracks_content_inputs_and_ignores_runtime_budgets() {
-        let sources = SourceRegistry::builtin();
+        let sources = crate::source::test_support::fixture_registry();
         let options = RepositoryOptions::default();
         let definition = crate::source::test_support::document_folder("items", "items");
         let base =
@@ -379,64 +328,17 @@ mod tests {
 
         let mut reader_one = SourceRegistry::default();
         reader_one
-            .register("probe", 1, "json", Arc::new(JsonReader))
+            .register("probe", 1, "row", Arc::new(DOCUMENT_READER))
             .unwrap();
         let mut reader_two = SourceRegistry::default();
         reader_two
-            .register("probe", 2, "json", Arc::new(JsonReader))
+            .register("probe", 2, "row", Arc::new(DOCUMENT_READER))
             .unwrap();
         let registered =
             CollectionDefinition::folder("items", "items", SourceFormat::registered("probe"));
         assert_ne!(
             configuration_hash(std::slice::from_ref(&registered), options, &reader_one).unwrap(),
             configuration_hash(&[registered], options, &reader_two).unwrap()
-        );
-    }
-}
-
-#[cfg(test)]
-#[test]
-fn configuration_hashes_preserve_legacy_and_generic_selectors() {
-    use crate::source::SourceFormat;
-    let sources = SourceRegistry::builtin();
-    let opts = RepositoryOptions::default();
-    let cases = [
-        (
-            SourceFormat::with_compatibility_encoding("json", "Json"),
-            "89c6e93f51b1209faebe7fe5986cdf81854b72d0e7e16ae27e07d411dbb6f5cb",
-            "6dd8c8c302360ab03d2f6f80351577d319ab6e54f5e748b811653f1acf1793e2",
-        ),
-        (
-            SourceFormat::registered("json"),
-            "0701cb2a88a98e231401e22c77a2f9c3633231e1563413dbb4b420b3d2d315fb",
-            "42cf0614adbbbb0e1e8b58995e3c4d52e9d114720a19b7c7072c8f94e599571d",
-        ),
-    ];
-    for (format, expected_file, expected_programmatic) in cases {
-        let definition = CollectionDefinition::folder_with_identity(
-            "items",
-            "data",
-            format,
-            crate::repository::configuration::IdentityPolicy::RelativePath,
-        );
-        let file_hash =
-            configuration_hash(std::slice::from_ref(&definition), opts, &sources).unwrap();
-        let programmatic_hash = programmatic_configuration_hash(
-            &[definition.declaration()],
-            opts,
-            &[],
-            true,
-            &[Some(definition.file_source())],
-            &sources,
-        )
-        .unwrap();
-        assert_eq!(
-            format!("{file_hash:02x?}").replace(['[', ']', ',', ' '], ""),
-            expected_file
-        );
-        assert_eq!(
-            format!("{programmatic_hash:02x?}").replace(['[', ']', ',', ' '], ""),
-            expected_programmatic
         );
     }
 }

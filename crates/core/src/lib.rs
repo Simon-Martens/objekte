@@ -38,18 +38,3 @@ pub mod source;
 
 #[cfg(test)]
 mod tests;
-
-#[cfg(test)]
-extern crate self as objekte_search_core;
-
-#[cfg(test)]
-#[macro_export]
-macro_rules! objekte_json_unit_tests {
-    ($($module:tt)*) => { $($module)* };
-}
-
-#[cfg(test)]
-extern crate self as objekte_loader_json;
-
-#[cfg(test)]
-pub(crate) use source::json::value::value_from_json;

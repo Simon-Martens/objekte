@@ -7,7 +7,6 @@ use crate::lifecycle::maintenance::{
 };
 use crate::lifecycle::{Index, IndexError};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use crate::source::registry::SourceRegistry;
 
 const HOOK_TIMEOUT: Duration = Duration::from_secs(10);
 
@@ -67,8 +66,8 @@ fn maintenance_admission_shares_only_the_real_worker() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/records.jsonl"),
-        b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n",
+        root.join("data/records.rows"),
+        b"(\"name\"=\"A\")\n(\"name\"=\"B\")\n",
     )
     .unwrap();
     let index = Index::start_build(
@@ -76,20 +75,20 @@ fn maintenance_admission_shares_only_the_real_worker() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     let retired = index
         .view()
         .unwrap()
-        .file_handle_for_path(std::path::Path::new("data/records.jsonl"))
+        .file_handle_for_path(std::path::Path::new("data/records.rows"))
         .unwrap();
     index.delete_file(retired).unwrap();
-    std::fs::remove_file(root.join("data/records.jsonl")).unwrap();
+    std::fs::remove_file(root.join("data/records.rows")).unwrap();
 
     let (reached, arrivals) = mpsc::channel();
     let (release, released) = mpsc::channel();
@@ -169,8 +168,8 @@ fn concurrent_quiesce_and_shutdown_wait_for_the_same_worker() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/records.jsonl"),
-        b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n",
+        root.join("data/records.rows"),
+        b"(\"name\"=\"A\")\n(\"name\"=\"B\")\n",
     )
     .unwrap();
     let index = Index::start_build(
@@ -178,20 +177,20 @@ fn concurrent_quiesce_and_shutdown_wait_for_the_same_worker() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
     let pinned_revision = pinned.revision();
     let retired = pinned
-        .file_handle_for_path(std::path::Path::new("data/records.jsonl"))
+        .file_handle_for_path(std::path::Path::new("data/records.rows"))
         .unwrap();
     index.delete_file(retired).unwrap();
-    std::fs::remove_file(root.join("data/records.jsonl")).unwrap();
+    std::fs::remove_file(root.join("data/records.rows")).unwrap();
     let revision = index.view().unwrap().revision();
 
     let (reached, arrivals) = mpsc::channel();

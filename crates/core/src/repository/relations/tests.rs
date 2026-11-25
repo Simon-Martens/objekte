@@ -22,7 +22,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,
@@ -91,22 +91,22 @@ fn fixture() -> std::path::PathBuf {
         std::fs::create_dir_all(root.join(name)).unwrap();
     }
     for (path, body) in [
-        ("entries/a.json", r#"{"id":"A","mention":"m1"}"#),
-        ("entries/b.json", r#"{"id":"B"}"#),
+        ("entries/a.row", r#"("id"="A","mention"="m1")"#),
+        ("entries/b.row", r#"("id"="B")"#),
         (
-            "mentions/m1.json",
-            r#"{"id":"m1","primary":"A","others":["A","A","Z"]}"#,
+            "mentions/m1.row",
+            r#"("id"="m1","primary"="A","others"=["A","A","Z"])"#,
         ),
         (
-            "mentions/m2.json",
-            r#"{"id":"m2","primary":null,"others":[]}"#,
+            "mentions/m2.row",
+            r#"("id"="m2","primary"=null,"others"=[])"#,
         ),
-        ("mentions/m3.json", r#"{"id":"m3"}"#),
+        ("mentions/m3.row", r#"("id"="m3")"#),
         (
-            "mentions/m4.json",
-            r#"{"id":"m4","primary":"A","others":["A"]}"#,
+            "mentions/m4.row",
+            r#"("id"="m4","primary"="A","others"=["A"])"#,
         ),
-        ("mentions/broken.json", "{broken"),
+        ("mentions/broken.row", "(broken"),
     ] {
         std::fs::write(root.join(path), body).unwrap();
     }
@@ -263,7 +263,7 @@ fn resident_inspection_paginates_and_restores_without_source_files() {
         &root,
         definitions(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -271,7 +271,7 @@ fn resident_inspection_paginates_and_restores_without_source_files() {
         &root,
         definitions(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -323,7 +323,7 @@ fn live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlink
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

@@ -30,7 +30,7 @@ fn definition() -> CollectionDefinition {
     CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,
@@ -61,15 +61,15 @@ fn query(filter: &str) -> Query {
 fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
     let root = std::env::temp_dir().join(format!("objekte-typed-id-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (name, json) in [
+    for (name, fixture) in [
         (
             "a",
-            r#"{"id":"A","entry":"TargetA","refs":["TargetA","TargetA"],"name":"a"}"#,
+            r#"("id"="A","entry"="TargetA","refs"=["TargetA","TargetA"],"name"="a")"#,
         ),
-        ("b", r#"{"id":"a","entry":"targeta","refs":[],"name":"A"}"#),
-        ("c", r#"{"id":"C","entry":"Missing","name":"x"}"#),
+        ("b", r#"("id"="a","entry"="targeta","refs"=[],"name"="A")"#),
+        ("c", r#"("id"="C","entry"="Missing","name"="x")"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), fixture).unwrap();
     }
     let options = RepositoryOptions {
         verified_cache_bytes: 1024 * 1024,
@@ -79,7 +79,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         &root,
         vec![definition()],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -87,7 +87,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         &root,
         vec![definition()],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -275,7 +275,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
 #[test]
 fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separate() {
     let schema = definition().schema;
-    let mut empty = Value::from_json(serde_json::json!({"id":"A","entry":""})).unwrap();
+    let mut empty = fixture_value!({ "id" => ("A"), "entry" => ("") });
     assert!(
         schema
             .coerce_record(&mut empty)
@@ -283,7 +283,7 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
             .contains("ID is empty")
     );
     for text in ["~generated:1:2:3", "~fallback:0"] {
-        let mut value = Value::from_json(serde_json::json!({"id":"A","entry":text})).unwrap();
+        let mut value = fixture_value!({ "id" => ("A"), "entry" => (text) });
         schema.coerce_record(&mut value).unwrap();
         let Value::Object(fields) = value else {
             panic!("expected object")
@@ -293,7 +293,7 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
     }
     let root = std::env::temp_dir().join(format!("objekte-generated-id-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), r#"{"id":"A","entry":"X"}"#).unwrap();
+    std::fs::write(root.join("data/a.row"), r#"("id"="A","entry"="X")"#).unwrap();
     let mut definition = definition();
     definition.identity = IdentityPolicy::Generated;
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -302,7 +302,7 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -315,3 +315,5 @@ fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separa
     assert_eq!(repo.search(&by_id).unwrap().hits[0].record_id, id);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::fixture_value;

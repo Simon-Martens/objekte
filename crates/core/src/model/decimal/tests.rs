@@ -3,7 +3,7 @@ use super::*;
 #[test]
 fn decimal_public_parse_and_deserialization_require_canonical_values() {
     for invalid in ["", "-", "abc", "01", "1.", ".1", "1e", "1e+", "1a"] {
-        assert!(ExactDecimal::parse(invalid).is_err(), "{invalid:?}");
+        assert!(ExactDecimal::parse(invalid).is_err(), "(invalid=?)");
     }
 
     for invalid in [

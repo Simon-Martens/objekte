@@ -108,7 +108,7 @@ mod metadata_tests {
 
         let file = FileEntry {
             id: FileId(4),
-            relative_path: "data/a.json".into(),
+            relative_path: "data/a.row".into(),
             revision: SourceRevision {
                 size: 100,
                 modified_ns: 0,

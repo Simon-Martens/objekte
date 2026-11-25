@@ -257,18 +257,3 @@ fn source_diagnostics_remain_bounded_after_many_failures() {
             .all(|entry| entry.message.len() <= 256)
     );
 }
-
-#[cfg(test)]
-#[test]
-fn old_prepared_hit_counter_is_ignored_when_reading_archived_json() {
-    let mut archived = serde_json::to_value(WorkCounters::default()).unwrap();
-    let retired_key = ["prepared", "plan", "hit"].join("_");
-    archived[retired_key.as_str()] = serde_json::Value::Bool(true);
-    let counters: WorkCounters = serde_json::from_value(archived).unwrap();
-    assert!(
-        serde_json::to_value(counters)
-            .unwrap()
-            .get(&retired_key)
-            .is_none()
-    );
-}

@@ -13,7 +13,6 @@ use crate::model::{CollectionId, FileId};
 use crate::model::{FieldPath, LogicalType, Number};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
-use crate::source::registry::SourceRegistry;
 use std::time::Instant;
 
 #[test]
@@ -28,7 +27,7 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
     definition
         .schema
         .register_field(FieldDefinition {
@@ -41,15 +40,15 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
             element_nullable: vec![],
         })
         .unwrap();
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let mut inputs = Vec::new();
-    for (number, bytes) in [b"{\"n\":1}\n".as_slice(), b"{bad}\n".as_slice()]
+    for (number, bytes) in [b"(\"n\"=1)\n".as_slice(), b"(bad)\n".as_slice()]
         .into_iter()
         .enumerate()
     {
-        let name = format!("{number}.jsonl");
+        let name = format!("{number}.rows");
         std::fs::write(root.join(&name), bytes).unwrap();
         inputs.push(SourceFileInput {
             id: FileId(number as u32),
@@ -109,15 +108,16 @@ fn disabled_inference_does_not_create_compact_observation() {
             .as_nanos()
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
-    std::fs::write(root.join("0.jsonl"), "{\"x\":1}\n").unwrap();
+    std::fs::write(root.join("0.rows"), "(\"x\"=1)\n").unwrap();
     let input = SourceFileInput {
         id: FileId(0),
-        relative_path: "0.jsonl".into(),
-        revision: SourceRevision::from_metadata(&std::fs::metadata(root.join("0.jsonl")).unwrap())
+        relative_path: "0.rows".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(root.join("0.rows")).unwrap())
             .unwrap(),
         created_ns: None,
     };
@@ -167,7 +167,7 @@ fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
     for (name, kind, indexed) in [
         ("n", LogicalType::Number, true),
         ("s", LogicalType::String, false),
@@ -194,24 +194,24 @@ fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
         .schema
         .prohibit_auto_index(vec!["blocked".into()])
         .unwrap();
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     for (name, body) in [
-        ("0.jsonl", ""),
-        ("1.jsonl", "{\"n\":null,\"blocked\":[]}\n"),
-        ("2.jsonl", "{\"n\":2,\"s\":\"value\"}\n"),
+        ("0.rows", ""),
+        ("1.rows", "(\"n\"=null,\"blocked\"=[])\n"),
+        ("2.rows", "(\"n\"=2,\"s\"=\"value\")\n"),
     ] {
         std::fs::write(root.join(name), body).unwrap();
     }
     let inputs = (0..3)
         .map(|number| {
-            let name = format!("{number}.jsonl");
+            let name = format!("{number}.rows");
             SourceFileInput {
                 id: FileId(number),
                 relative_path: name.clone().into(),
                 revision: SourceRevision::from_metadata(
-                    &std::fs::metadata(root.join(format!("{number}.jsonl"))).unwrap(),
+                    &std::fs::metadata(root.join(format!("{number}.rows"))).unwrap(),
                 )
                 .unwrap(),
                 created_ns: None,
@@ -333,7 +333,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
     definition
         .schema
         .register_field(FieldDefinition {
@@ -347,8 +347,8 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
         })
         .unwrap();
     definition.sort_fields.push(FieldPath::parse("n").unwrap());
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -371,11 +371,11 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     for (id, name, bytes) in [
         (
             FileId(400),
-            "one.jsonl",
-            b"{\"n\":1}\n{\"n\":2}\n".as_slice(),
+            "one.rows",
+            b"(\"n\"=1)\n(\"n\"=2)\n".as_slice(),
         ),
-        (FileId(900), "zero.jsonl", b"".as_slice()),
-        (FileId(1200), "broken.jsonl", b"{bad}\n".as_slice()),
+        (FileId(900), "zero.rows", b"".as_slice()),
+        (FileId(1200), "broken.rows", b"(bad)\n".as_slice()),
     ] {
         let path = root.join(name);
         std::fs::write(&path, bytes).unwrap();
@@ -515,14 +515,14 @@ fn same_physical_file_can_enter_two_collection_segments() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("shared.jsonl");
-    std::fs::write(&path, b"{\"n\":1}\n").unwrap();
+    let path = root.join("shared.rows");
+    std::fs::write(&path, b"(\"n\"=1)\n").unwrap();
     let definitions = [
-        CollectionDefinition::folder("left", ".", crate::source::test_support::LINES),
-        CollectionDefinition::folder("right", ".", crate::source::test_support::LINES),
+        CollectionDefinition::folder("left", ".", crate::source::test_support::line_format()),
+        CollectionDefinition::folder("right", ".", crate::source::test_support::line_format()),
     ];
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let bindings = [
         FilePreparationBinding {
@@ -538,7 +538,7 @@ fn same_physical_file_can_enter_two_collection_segments() {
     ];
     let input = SourceFileInput {
         id: FileId(700),
-        relative_path: "shared.jsonl".into(),
+        relative_path: "shared.rows".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
@@ -588,18 +588,18 @@ fn same_physical_file_can_enter_two_collection_segments() {
 fn measure_single_file_segment_cost() {
     let root = std::env::temp_dir().join(format!("objekte-segment-timing-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("sample.jsonl");
-    std::fs::write(&path, b"{\"name\":\"a small record\",\"n\":42}\n").unwrap();
+    let path = root.join("sample.rows");
+    std::fs::write(&path, b"(\"name\"=\"a small record\",\"n\"=42)\n").unwrap();
     let input = SourceFileInput {
         id: FileId(500),
-        relative_path: "sample.jsonl".into(),
+        relative_path: "sample.rows".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
     let definition =
-        CollectionDefinition::folder("sample", ".", crate::source::test_support::LINES);
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+        CollectionDefinition::folder("sample", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),

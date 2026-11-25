@@ -12,26 +12,23 @@ use crate::query_execution::restrictions::AccessPathKind;
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::{ExtractedRecord, SourceFormat, SourceReader, registry::SourceRegistry};
+use crate::source::{ExtractedRecord, SourceFormat, SourceReader};
 
-fn value(json: &str) -> Value {
-    Value::from_json(serde_json::from_str(json).unwrap()).unwrap()
+fn value(text: &str) -> Value {
+    crate::source::test_support::fixture_value_from_text(text)
 }
 
 fn temporary_root(tag: &str) -> std::path::PathBuf {
     std::env::temp_dir().join(format!("objekte-inference-{tag}-{}", std::process::id()))
 }
 
-fn write_json_documents(
-    root: &std::path::Path,
-    documents: impl IntoIterator<Item = serde_json::Value>,
-) {
+fn write_fixture_documents(root: &std::path::Path, documents: impl IntoIterator<Item = Value>) {
     let _ = std::fs::remove_dir_all(root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (number, document) in documents.into_iter().enumerate() {
         std::fs::write(
-            root.join(format!("data/{number:03}.json")),
-            document.to_string(),
+            root.join(format!("data/{number:03}.row")),
+            document.fixture_text(),
         )
         .unwrap();
     }
@@ -59,18 +56,16 @@ fn open_category_repository(root: &std::path::Path, min_nonblank_occurrences: u6
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap()
 }
 
-fn category_records(short_index: usize) -> Vec<serde_json::Value> {
+fn category_records(short_index: usize) -> Vec<Value> {
     (0..513)
         .map(|number| {
-            serde_json::json!({
-                "category": if number == short_index { "b" } else { "category_alpha" }
-            })
+            fixture_value!({ "category" => (if number == short_index { "b" } else { "category_alpha" }) })
         })
         .collect()
 }
@@ -91,11 +86,11 @@ fn query(filter: &str) -> Query {
     }
 }
 
-fn write_named_json(root: &std::path::Path, records: &[(&str, serde_json::Value)]) {
+fn write_named_fixtures(root: &std::path::Path, records: &[(&str, Value)]) {
     let _ = std::fs::remove_dir_all(root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, value) in records {
-        std::fs::write(root.join("data").join(name), value.to_string()).unwrap();
+        std::fs::write(root.join("data").join(name), value.fixture_text()).unwrap();
     }
 }
 
@@ -111,7 +106,7 @@ fn build_default_auto_repository(root: &std::path::Path) -> Repository {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap()
@@ -130,28 +125,31 @@ fn result_ids(result: &crate::query_results::SearchResult) -> Vec<String> {
 #[test]
 fn empty_string_posting_offers_keep_empty_traversals() {
     let root = temporary_root("empty-string-offer");
-    write_named_json(
+    write_named_fixtures(
         &root,
         &[
             (
-                "A.json",
-                serde_json::json!({"items":{"name":""},"tag":"keep"}),
+                "A.row",
+                fixture_value!({ "items" => { "name" => ("") }, "tag" => ("keep") }),
             ),
-            ("B.json", serde_json::json!({"items":[],"tag":"keep"})),
             (
-                "C.json",
-                serde_json::json!({"items":{"name":"Ada"},"tag":"keep"}),
+                "B.row",
+                fixture_value!({ "items" => [], "tag" => ("keep") }),
             ),
-            ("D.json", serde_json::json!({"tag":"other"})),
+            (
+                "C.row",
+                fixture_value!({ "items" => { "name" => ("Ada") }, "tag" => ("keep") }),
+            ),
+            ("D.row", fixture_value!({ "tag" => ("other") })),
         ],
     );
     let repo = build_default_auto_repository(&root);
     for (filter, expected) in [
-        ("items.name = \"\"", vec!["path:A.json", "path:B.json"]),
-        ("items.name ?= \"\"", vec!["path:A.json"]),
+        ("items.name = \"\"", vec!["path:A.row", "path:B.row"]),
+        ("items.name ?= \"\"", vec!["path:A.row"]),
         (
             "items.name = \"\" && tag = 'keep'",
-            vec!["path:A.json", "path:B.json"],
+            vec!["path:A.row", "path:B.row"],
         ),
     ] {
         let mut request = query(filter);
@@ -167,19 +165,19 @@ fn empty_string_posting_offers_keep_empty_traversals() {
     }
 
     let scalar_root = temporary_root("simple-empty-string");
-    write_named_json(
+    write_named_fixtures(
         &scalar_root,
         &[
-            ("A.json", serde_json::json!({"name":""})),
-            ("B.json", serde_json::json!({"name":"Ada"})),
-            ("C.json", serde_json::json!({"other":true})),
+            ("A.row", fixture_value!({ "name" => ("") })),
+            ("B.row", fixture_value!({ "name" => ("Ada") })),
+            ("C.row", fixture_value!({ "other" => (true) })),
         ],
     );
     let scalar = build_default_auto_repository(&scalar_root);
     let mut request = query("name = \"\"");
     request.options.return_mode = ReturnMode::Locator;
     let actual = scalar.search(&request).unwrap();
-    assert_eq!(result_ids(&actual), ["path:A.json"]);
+    assert_eq!(result_ids(&actual), ["path:A.row"]);
     assert_eq!(actual.counters.files_opened, 0);
     assert_eq!(actual.counters.record_parses, 0);
     let plan = scalar.explain(&request).unwrap();
@@ -195,17 +193,17 @@ fn empty_string_posting_offers_keep_empty_traversals() {
 #[test]
 fn length_postings_follow_bound_quantification_and_root_traversal() {
     let root = temporary_root("length-proof");
-    write_named_json(
+    write_named_fixtures(
         &root,
         &[
-            ("A.json", serde_json::json!([{"x":[]},{"x":[7]}])),
-            ("B.json", serde_json::json!({"x":[7]})),
+            ("A.row", fixture_value!([{ "x" => [] }, { "x" => [(7)] }])),
+            ("B.row", fixture_value!({ "x" => [(7)] })),
         ],
     );
     let repo = build_default_auto_repository(&root);
     for (filter, expected) in [
-        ("x:length = 1", vec!["path:B.json"]),
-        ("x:length ?= 1", vec!["path:A.json", "path:B.json"]),
+        ("x:length = 1", vec!["path:B.row"]),
+        ("x:length ?= 1", vec!["path:A.row", "path:B.row"]),
     ] {
         let mut request = query(filter);
         request.options.return_mode = ReturnMode::Locator;
@@ -221,33 +219,33 @@ fn length_postings_follow_bound_quantification_and_root_traversal() {
     std::fs::remove_dir_all(root).unwrap();
 
     let extended = temporary_root("length-proof-extended");
-    write_named_json(
+    write_named_fixtures(
         &extended,
         &[
-            ("A.json", serde_json::json!([{"x":[]},{"x":[7]}])),
-            ("B.json", serde_json::json!({"x":[7]})),
-            ("C.json", serde_json::json!({"x":[]})),
-            ("D.json", serde_json::json!({})),
-            ("E.json", serde_json::json!([])),
-            ("F.json", serde_json::json!([[]])),
+            ("A.row", fixture_value!([{ "x" => [] }, { "x" => [(7)] }])),
+            ("B.row", fixture_value!({ "x" => [(7)] })),
+            ("C.row", fixture_value!({ "x" => [] })),
+            ("D.row", fixture_value!({})),
+            ("E.row", fixture_value!([])),
+            ("F.row", fixture_value!([[]])),
         ],
     );
     let repo = build_default_auto_repository(&extended);
     for (filter, expected) in [
         (
             "x:length = 1",
-            vec!["path:B.json", "path:E.json", "path:F.json"],
+            vec!["path:B.row", "path:E.row", "path:F.row"],
         ),
-        ("x:length ?= 1", vec!["path:A.json", "path:B.json"]),
+        ("x:length ?= 1", vec!["path:A.row", "path:B.row"]),
         (
             "x:length != 1",
-            vec!["path:C.json", "path:E.json", "path:F.json"],
+            vec!["path:C.row", "path:E.row", "path:F.row"],
         ),
         (
             "x:length <= 0",
-            vec!["path:C.json", "path:E.json", "path:F.json"],
+            vec!["path:C.row", "path:E.row", "path:F.row"],
         ),
-        ("x:length ?!= 1", vec!["path:A.json", "path:C.json"]),
+        ("x:length ?!= 1", vec!["path:A.row", "path:C.row"]),
     ] {
         let mut request = query(filter);
         request.options.return_mode = ReturnMode::Locator;
@@ -263,18 +261,18 @@ fn length_postings_follow_bound_quantification_and_root_traversal() {
     std::fs::remove_dir_all(extended).unwrap();
 
     let object = temporary_root("length-object-root");
-    write_named_json(
+    write_named_fixtures(
         &object,
         &[
-            ("A.json", serde_json::json!({"x":[]})),
-            ("B.json", serde_json::json!({"x":[7]})),
-            ("C.json", serde_json::json!({})),
+            ("A.row", fixture_value!({ "x" => [] })),
+            ("B.row", fixture_value!({ "x" => [(7)] })),
+            ("C.row", fixture_value!({})),
         ],
     );
     let repo = build_default_auto_repository(&object);
     for (filter, expected) in [
-        ("x:length = 0", vec!["path:A.json"]),
-        ("x:length ?= 1", vec!["path:B.json"]),
+        ("x:length = 0", vec!["path:A.row"]),
+        ("x:length ?= 1", vec!["path:B.row"]),
     ] {
         let mut request = query(filter);
         request.options.return_mode = ReturnMode::Locator;
@@ -298,15 +296,15 @@ fn length_postings_follow_bound_quantification_and_root_traversal() {
     let documents = (0..513)
         .map(|number| {
             if number == 0 {
-                serde_json::json!({"x":[7]})
+                fixture_value!({ "x" => [(7)] })
             } else if number == 512 {
-                serde_json::json!([])
+                fixture_value!([])
             } else {
-                serde_json::json!({"other":true})
+                fixture_value!({ "other" => (true) })
             }
         })
         .collect::<Vec<_>>();
-    write_json_documents(&split, documents);
+    write_fixture_documents(&split, documents);
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &split,
         vec![crate::source::test_support::document_folder("data", "data")],
@@ -322,7 +320,7 @@ fn length_postings_follow_bound_quantification_and_root_traversal() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -332,7 +330,7 @@ fn length_postings_follow_bound_quantification_and_root_traversal() {
     let actual = repo.search(&request).unwrap();
     let reference = repo.search_reference(&request).unwrap();
     assert_eq!(result_ids(&actual), result_ids(&reference));
-    assert_eq!(result_ids(&actual), ["path:000.json", "path:512.json"]);
+    assert_eq!(result_ids(&actual), ["path:000.row", "path:512.row"]);
     std::fs::remove_dir_all(split).unwrap();
 }
 
@@ -360,7 +358,7 @@ fn documented_inference_defaults_match_the_exported_policy() {
 #[test]
 fn partial_short_values_do_not_override_failed_general_dictionary_admission() {
     let root = temporary_root("mixed-short-general-rejection");
-    write_json_documents(&root, category_records(512));
+    write_fixture_documents(&root, category_records(512));
     let repo = open_category_repository(&root, 514);
     let path: Vec<String> = vec!["category".into()];
     assert_eq!(repo.segments[0].len(), 2);
@@ -426,7 +424,7 @@ fn short_dictionary_coverage_is_independent_of_segment_order() {
     let mut outcomes = Vec::new();
     for short_index in [0, 512] {
         let root = temporary_root(&format!("short-order-{short_index}"));
-        write_json_documents(&root, category_records(short_index));
+        write_fixture_documents(&root, category_records(short_index));
         let repo = open_category_repository(&root, 514);
         let path: Vec<String> = vec!["category".into()];
         let diagnostic = repo
@@ -458,9 +456,9 @@ fn short_dictionary_coverage_is_independent_of_segment_order() {
 #[test]
 fn complete_short_and_general_dictionaries_remain_exact_positive_controls() {
     let short_root = temporary_root("all-short-positive");
-    write_json_documents(
+    write_fixture_documents(
         &short_root,
-        (0..513).map(|_| serde_json::json!({"category": "b"})),
+        (0..513).map(|_| fixture_value!({ "category" => ("b") })),
     );
     let short = open_category_repository(&short_root, 514);
     let path: Vec<String> = vec!["category".into()];
@@ -482,7 +480,7 @@ fn complete_short_and_general_dictionaries_remain_exact_positive_controls() {
     assert_eq!(result.counters.record_parses, 0);
 
     let general_root = temporary_root("general-admission-positive");
-    write_json_documents(&general_root, category_records(512));
+    write_fixture_documents(&general_root, category_records(512));
     let general = open_category_repository(&general_root, 512);
     let general_diagnostic = general
         .inference_index_diagnostics("data")
@@ -503,11 +501,11 @@ fn complete_short_and_general_dictionaries_remain_exact_positive_controls() {
 #[test]
 fn short_dictionary_coverage_respects_null_missing_and_uncovered_domains() {
     let exact_root = temporary_root("short-null-missing");
-    let mut exact = vec![serde_json::json!({"category": "b"}); 510];
-    exact.push(serde_json::json!({"category": null}));
-    exact.push(serde_json::json!({"other": true}));
-    exact.push(serde_json::json!({"category": "b"}));
-    write_json_documents(&exact_root, exact);
+    let mut exact = vec![fixture_value!({ "category" => ("b") }); 510];
+    exact.push(fixture_value!({ "category" => null }));
+    exact.push(fixture_value!({ "other" => (true) }));
+    exact.push(fixture_value!({ "category" => ("b") }));
+    write_fixture_documents(&exact_root, exact);
     let repo = open_category_repository(&exact_root, 514);
     let path: Vec<String> = vec!["category".into()];
     let diagnostic = repo
@@ -524,11 +522,11 @@ fn short_dictionary_coverage_respects_null_missing_and_uncovered_domains() {
     assert_eq!(result.counters.record_parses, 0);
 
     let partial_root = temporary_root("short-null-long");
-    let mut partial = vec![serde_json::json!({"category": "b"}); 510];
-    partial.push(serde_json::json!({"category": null}));
-    partial.push(serde_json::json!({"category": "category_alpha"}));
-    partial.push(serde_json::json!({"category": "b"}));
-    write_json_documents(&partial_root, partial);
+    let mut partial = vec![fixture_value!({ "category" => ("b") }); 510];
+    partial.push(fixture_value!({ "category" => null }));
+    partial.push(fixture_value!({ "category" => ("category_alpha") }));
+    partial.push(fixture_value!({ "category" => ("b") }));
+    write_fixture_documents(&partial_root, partial);
     let partial = open_category_repository(&partial_root, 514);
     let diagnostic = partial
         .inference_index_diagnostics("data")
@@ -556,18 +554,18 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     let records = 513usize;
     for number in 0..records {
         let body = if number == 0 {
-            r#"{"category":"category_alpha","items":[],"shape":"direct","maybe":[null,"mixed"],"code":"A"}"#
+            r#"("category"="category_alpha","items"=[],"shape"="direct","maybe"=[null,"mixed"],"code"="A")"#
                 .to_owned()
         } else if number + 1 == records {
-            r#"{"category":"category_alpha","items":[{"name":"alpha"}],"shape":[1],"only_late":true,"code":"A"}"#
+            r#"("category"="category_alpha","items"=[("name"="alpha")],"shape"=[1],"only_late"=true,"code"="A")"#
                 .to_owned()
         } else {
             format!(
-                r#"{{"category":"category_alpha","code":"{}"}}"#,
+                r#"("category"="category_alpha","code"="{}")"#,
                 if number.is_multiple_of(2) { "A" } else { "B" }
             )
         };
-        std::fs::write(root.join(format!("data/{number:03}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{number:03}.row")), body).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -589,7 +587,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -713,7 +711,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -760,7 +758,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -787,8 +785,8 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
     for number in 0..records {
         let value = format!("category_global_{:02}", number % 65);
         std::fs::write(
-            root.join(format!("data/{number:04}.json")),
-            serde_json::json!({ "category": value }).to_string(),
+            root.join(format!("data/{number:04}.row")),
+            fixture_value!({ "category" => (value) }).fixture_text(),
         )
         .unwrap();
     }
@@ -810,7 +808,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -859,7 +857,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -895,15 +893,15 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..513usize {
         let items = match number {
-            0 => r#""items":[{"value":1},{"value":null}]"#,
-            1 => r#""items":{"value":"text"}"#,
-            2 => r#""items":{"value":2}"#,
-            _ => r#""items":{"value":2}"#,
+            0 => r#""items"=[("value"=1),("value"=null)]"#,
+            1 => r#""items"=("value"="text")"#,
+            2 => r#""items"=("value"=2)"#,
+            _ => r#""items"=("value"=2)"#,
         };
         let list = format!(r#" [{}]"#, vec!["1"; number].join(","));
         std::fs::write(
-            root.join(format!("data/{number:03}.json")),
-            format!("{{{items},\"list\":{list}}}"),
+            root.join(format!("data/{number:03}.row")),
+            format!("({items},\"list\"={list})"),
         )
         .unwrap();
     }
@@ -925,7 +923,7 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -991,7 +989,7 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..2 {
-        std::fs::write(root.join(format!("data/{number:03}.json")), r#"{"x":[1]}"#).unwrap();
+        std::fs::write(root.join(format!("data/{number:03}.row")), r#"("x"=[1])"#).unwrap();
     }
     let options = RepositoryOptions {
         segment_policy: crate::index::segment::SegmentPolicy {
@@ -1016,7 +1014,7 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options.clone(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1032,13 +1030,13 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
     drop(single);
 
     for number in 2..513 {
-        std::fs::write(root.join(format!("data/{number:03}.json")), r#"{"x":[1]}"#).unwrap();
+        std::fs::write(root.join(format!("data/{number:03}.row")), r#"("x"=[1])"#).unwrap();
     }
     let partitioned = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options.clone(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1060,12 +1058,12 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
     assert_eq!(result.counters.record_parses, 0);
     drop(partitioned);
 
-    std::fs::write(root.join("data/512.json"), r#"{"x":[1,2]}"#).unwrap();
+    std::fs::write(root.join("data/512.row"), r#"("x"=[1,2])"#).unwrap();
     let over_budget = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1093,8 +1091,8 @@ fn repeated_percent_boundary_is_inclusive_and_exact() {
     for number in 0..10 {
         let value = if number < 7 { "long-a" } else { "long-b" };
         std::fs::write(
-            root.join(format!("data/{number:02}.json")),
-            format!(r#"{{"category":"{value}"}}"#),
+            root.join(format!("data/{number:02}.row")),
+            format!(r#"("category"="{value}")"#),
         )
         .unwrap();
     }
@@ -1115,7 +1113,7 @@ fn repeated_percent_boundary_is_inclusive_and_exact() {
                 },
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap()
@@ -1153,9 +1151,9 @@ fn segmented_observation_overflow_uses_residual_scanning() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..513usize {
         std::fs::write(
-            root.join(format!("data/{number:03}.json")),
+            root.join(format!("data/{number:03}.row")),
             format!(
-                r#"{{"flag":{},"payload":"{}-{number}"}}"#,
+                r#"("flag"={},"payload"="{}-{number}")"#,
                 number.is_multiple_of(2),
                 "x".repeat(64)
             ),
@@ -1178,7 +1176,7 @@ fn segmented_observation_overflow_uses_residual_scanning() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1213,11 +1211,11 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
     let root = temporary_root("mutation-stale-report");
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let initial = root.join("data/initial.jsonl");
+    let initial = root.join("data/initial.rows");
     let mut initial_source = String::new();
     for number in 0..24usize {
         initial_source.push_str(&format!(
-            "{{\"id\":\"i{number}\",\"flag\":{},\"category\":\"alpha\"}}\n",
+            "(\"id\"=\"i{number}\",\"flag\"={},\"category\"=\"alpha\")\n",
             number.is_multiple_of(2)
         ));
     }
@@ -1227,7 +1225,7 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions {
             inference: InferenceConfig {
@@ -1236,7 +1234,7 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1249,11 +1247,11 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
     assert_eq!(before.counters.files_opened, 0);
     drop(view);
 
-    let added = root.join("data/added.jsonl");
+    let added = root.join("data/added.rows");
     let mut added_source = String::new();
     for number in 0..24 {
         added_source.push_str(&format!(
-            "{{\"id\":\"a{number}\",\"flag\":true,\"category\":\"beta\"}}\n"
+            "(\"id\"=\"a{number}\",\"flag\"=true,\"category\"=\"beta\")\n"
         ));
     }
     std::fs::write(&added, added_source).unwrap();
@@ -1290,13 +1288,13 @@ fn auto_index_retains_selected_null_after_value_admission_fails() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("00", r#"{"arr":[],"text":""}"#),
-        ("01", r#"{"arr":[{}],"text":"long unique text one"}"#),
-        ("02", r#"{"arr":[{},{}],"text":"long unique text two"}"#),
-        ("03", r#"{"arr":[{},{},{}],"text":" "}"#),
-        ("04", r#"{"text":null}"#),
+        ("00", r#"("arr"=[],"text"="")"#),
+        ("01", r#"("arr"=[()],"text"="long unique text one")"#),
+        ("02", r#"("arr"=[(),()],"text"="long unique text two")"#),
+        ("03", r#"("arr"=[(),(),()],"text"=" ")"#),
+        ("04", r#"("text"=null)"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let make = |max_keys| {
         crate::lifecycle::Index::build_repository_for_test(
@@ -1315,7 +1313,7 @@ fn auto_index_retains_selected_null_after_value_admission_fails() {
                 },
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap()
@@ -1361,13 +1359,13 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, document) in [
-        ("00", r#"{"score":1}"#),
-        ("01", r#"{"score":2}"#),
-        ("02", r#"{"score":3}"#),
-        ("03", r#"{"score":null}"#),
-        ("04", r#"{"other":true}"#),
+        ("00", r#"("score"=1)"#),
+        ("01", r#"("score"=2)"#),
+        ("02", r#"("score"=3)"#),
+        ("03", r#"("score"=null)"#),
+        ("04", r#"("other"=true)"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), document).unwrap();
     }
     let mut declared_definition = crate::source::test_support::document_folder("data", "data");
     declared_definition
@@ -1390,7 +1388,7 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
         &root,
         vec![declared_definition],
         options.clone(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1404,7 +1402,7 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
             },
             ..options
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1462,11 +1460,11 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for slot in 0..32 {
         let object = (0..16)
-            .map(|field| (format!("f{field}"), serde_json::json!(slot % 4)))
-            .collect::<serde_json::Map<_, _>>();
+            .map(|field| (format!("f{field}"), fixture_value!((slot % 4))))
+            .collect::<std::collections::BTreeMap<_, _>>();
         std::fs::write(
-            root.join(format!("data/{slot:02}.json")),
-            serde_json::Value::Object(object).to_string(),
+            root.join(format!("data/{slot:02}.row")),
+            Value::Object(object).fixture_text(),
         )
         .unwrap();
     }
@@ -1480,7 +1478,7 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1534,21 +1532,21 @@ fn short_strings_keep_ordered_membership_and_explicit_residual_coverage() {
     let uuid = "550e8400-e29b-41d4-a716-446655440000";
     let long_between = format!("A{}", "\0".repeat(64));
     let inputs = vec![
-        serde_json::json!({"code": uuid}),
-        serde_json::json!({"code": "A"}),
-        serde_json::json!({"code": long_between}),
-        serde_json::json!({"code": ["B", "long".repeat(17)]}),
-        serde_json::json!({"code": "ü".repeat(32)}),
-        serde_json::json!({"code": "ü".repeat(33)}),
-        serde_json::json!({"code": null}),
-        serde_json::json!({"other": "A"}),
-        serde_json::json!("root"),
-        serde_json::json!(["x", "x"]),
+        fixture_value!({ "code" => (uuid) }),
+        fixture_value!({ "code" => ("A") }),
+        fixture_value!({ "code" => (long_between) }),
+        fixture_value!({ "code" => [("B"), ("long".repeat(17))] }),
+        fixture_value!({ "code" => ("ü".repeat(32)) }),
+        fixture_value!({ "code" => ("ü".repeat(33)) }),
+        fixture_value!({ "code" => null }),
+        fixture_value!({ "other" => ("A") }),
+        fixture_value!(("root")),
+        fixture_value!([("x"), ("x")]),
     ];
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     for (slot, input) in inputs.into_iter().enumerate() {
         batch
-            .observe_record(RecordSlot(slot as u32), &Value::from_json(input).unwrap())
+            .observe_record(RecordSlot(slot as u32), &input)
             .unwrap();
     }
     let mut coordinator = InferenceBuilder::new(config, false).unwrap();
@@ -1607,10 +1605,8 @@ fn high_cardinality_short_identifiers_do_not_use_enum_threshold() {
     };
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     for slot in 0..128 {
-        let input = serde_json::json!({"code": format!("550e8400-e29b-41d4-a716-{slot:012}")});
-        batch
-            .observe_record(RecordSlot(slot), &Value::from_json(input).unwrap())
-            .unwrap();
+        let input = fixture_value!({ "code" => (format!("550e8400-e29b-41d4-a716-{slot:012}")) });
+        batch.observe_record(RecordSlot(slot), &input).unwrap();
     }
     let mut coordinator = InferenceBuilder::new(config, false).unwrap();
     coordinator.merge_shifted(batch, 0).unwrap();
@@ -1640,17 +1636,8 @@ fn default_batch_budget_keeps_multi_field_short_string_index_complete() {
     };
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     for slot in 0..512 {
-        let input = serde_json::json!({
-            "code": format!("550e8400-e29b-41d4-a716-{slot:012}"),
-            "name": format!("name-{slot}"),
-            "year": 1800 + slot,
-            "group": format!("g{}", slot % 8),
-            "flag": slot % 2 == 0,
-            "nested": {"label": format!("label-{slot}")},
-        });
-        batch
-            .observe_record(RecordSlot(slot), &Value::from_json(input).unwrap())
-            .unwrap();
+        let input = fixture_value!({ "code" => (format!("550e8400-e29b-41d4-a716-{slot:012}")), "name" => (format!("name-{slot}")), "year" => (1800 + slot), "group" => (format!("g{}", slot % 8)), "flag" => (slot % 2 == 0), "nested" => { "label" => (format!("label-{slot}")) } });
+        batch.observe_record(RecordSlot(slot), &input).unwrap();
     }
     let mut coordinator = InferenceBuilder::new(config, false).unwrap();
     coordinator.merge_shifted(batch, 0).unwrap();
@@ -1668,12 +1655,12 @@ fn default_batch_budget_keeps_dense_numeric_records_inferred() {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
     };
-    let mut fields = serde_json::Map::new();
+    let mut fields = std::collections::BTreeMap::new();
     for number in 0..350 {
-        fields.insert(format!("field_{number:03}"), serde_json::json!(number));
+        fields.insert(format!("field_{number:03}"), fixture_value!((number)));
     }
-    fields.insert("year".into(), serde_json::json!(1800));
-    let record = Value::from_json(serde_json::Value::Object(fields)).unwrap();
+    fields.insert("year".into(), fixture_value!((1800)));
+    let record = Value::Object(fields);
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     for slot in 0..512 {
         batch.observe_record(RecordSlot(slot), &record).unwrap();
@@ -1711,17 +1698,17 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for slot in 0..128 {
-        let text = serde_json::json!({"code": format!("id-{slot:04}")}).to_string();
-        std::fs::write(root.join(format!("data/{slot:03}.json")), text).unwrap();
+        let text = fixture_value!({ "code" => (format!("id-{slot:04}")) }).fixture_text();
+        std::fs::write(root.join(format!("data/{slot:03}.row")), text).unwrap();
     }
     let long = format!("A{}", "\0".repeat(64));
     for (name, input) in [
-        ("a", serde_json::json!({"code":"A"})),
-        ("long", serde_json::json!({"code":long})),
-        ("mixed", serde_json::json!({"code":["Z", long]})),
-        ("missing", serde_json::json!({"other":"A"})),
+        ("a", fixture_value!({ "code" => ("A") })),
+        ("long", fixture_value!({ "code" => (&long) })),
+        ("mixed", fixture_value!({ "code" => [("Z"), (long)] })),
+        ("missing", fixture_value!({ "other" => ("A") })),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), input.to_string()).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), input.fixture_text()).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -1734,7 +1721,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1747,7 +1734,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["path:036.json"]
+        ["path:036.row"]
     );
     assert_eq!(result.hits, repo.search_reference(&exact).unwrap().hits);
     assert!(result.counters.record_parses < 20);
@@ -1769,7 +1756,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["path:a.json", "path:long.json"]
+        ["path:a.row", "path:long.row"]
     );
     assert_eq!(result.hits, repo.search_reference(&range).unwrap().hits);
     std::fs::remove_dir_all(root).unwrap();
@@ -1777,7 +1764,6 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
 
 #[test]
 fn mixed_short_strings_match_reference_across_static_and_native_publication() {
-    use crate::source::registry::SourceRegistry;
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
     let root = std::env::temp_dir().join(format!(
         "objekte-inference-matrix-{}-{}",
@@ -1787,24 +1773,28 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let long_between = format!("A{}", "\0".repeat(64));
     let inputs = [
-        serde_json::json!({"code":"A"}),
-        serde_json::json!({"code":"B"}),
-        serde_json::json!({"code":"Z".repeat(65)}),
-        serde_json::json!({"code":["A", "Z".repeat(65)]}),
-        serde_json::json!({"code":["A", "A"]}),
-        serde_json::json!({"code":[]}),
-        serde_json::json!({"code":null}),
-        serde_json::json!({"other":"A"}),
-        serde_json::json!({"code":7}),
-        serde_json::json!({"code":long_between}),
-        serde_json::json!({"code":"ü".repeat(32)}),
-        serde_json::json!({"code":"ü".repeat(33)}),
-        serde_json::json!({"code":"urn:uuid:550e8400-e29b-41d4-a716-446655440000"}),
+        fixture_value!({ "code" => ("A") }),
+        fixture_value!({ "code" => ("B") }),
+        fixture_value!({ "code" => ("Z".repeat(65)) }),
+        fixture_value!({ "code" => [("A"), ("Z".repeat(65))] }),
+        fixture_value!({ "code" => [("A"), ("A")] }),
+        fixture_value!({ "code" => [] }),
+        fixture_value!({ "code" => null }),
+        fixture_value!({ "other" => ("A") }),
+        fixture_value!({ "code" => (7) }),
+        fixture_value!({ "code" => (long_between) }),
+        fixture_value!({ "code" => ("ü".repeat(32)) }),
+        fixture_value!({ "code" => ("ü".repeat(33)) }),
+        fixture_value!({ "code" => ("urn:uuid:550e8400-e29b-41d4-a716-446655440000") }),
     ];
     for (slot, value) in inputs.iter().enumerate() {
-        std::fs::write(root.join(format!("data/{slot:02}.json")), value.to_string()).unwrap();
+        std::fs::write(
+            root.join(format!("data/{slot:02}.row")),
+            value.fixture_text(),
+        )
+        .unwrap();
     }
-    std::fs::write(root.join("data/bad.json"), "{").unwrap();
+    std::fs::write(root.join("data/bad.row"), "{").unwrap();
     let definition = crate::source::test_support::document_folder("data", "data");
     let filters = [
         "code ?= 'A'",
@@ -1820,7 +1810,7 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
         "!(code ?= 'A')",
         "code ?= 'A' || code:exists = false",
         "code ?= 'A' && code > 'A'",
-        "@record.id = 'path:00.json'",
+        "@record.id = 'path:00.row'",
     ];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
@@ -1836,7 +1826,7 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -1846,7 +1836,7 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
             &root,
             vec![definition.clone()],
             options,
-            SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
@@ -1880,10 +1870,10 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
         };
         assert_eq!(
             ids("code ?= 'A'"),
-            ["path:00.json", "path:03.json", "path:04.json"]
+            ["path:00.row", "path:03.row", "path:04.row"]
         );
         assert!(
-            ids("code > 'A'").contains(&"path:09.json".to_owned()),
+            ids("code > 'A'").contains(&"path:09.row".to_owned()),
             "long value must survive the residual"
         );
         drop(restored_view);
@@ -1901,20 +1891,20 @@ fn empty_ancestor_reconciles_late_descendant_and_null_statistics() {
     };
     let mut first = InferenceBuilder::new(config, true).unwrap();
     first
-        .observe_record(RecordSlot(0), &value(r#"{"items":[]}"#))
+        .observe_record(RecordSlot(0), &value(r#"("items"=[])"#))
         .unwrap();
     first
         .observe_record(
             RecordSlot(1),
-            &value(r#"{"items":[{"title":"A"},{"title":"A"}]}"#),
+            &value(r#"("items"=[("title"="A"),("title"="A")])"#),
         )
         .unwrap();
     let mut second = InferenceBuilder::new(config, true).unwrap();
     second
-        .observe_record(RecordSlot(0), &value(r#"{"items":[{"title":null}]}"#))
+        .observe_record(RecordSlot(0), &value(r#"("items"=[("title"=null)])"#))
         .unwrap();
     second
-        .observe_record(RecordSlot(1), &value(r#"{"items":[{}]}"#))
+        .observe_record(RecordSlot(1), &value(r#"("items"=[()])"#))
         .unwrap();
     let mut combined = InferenceBuilder::new(config, false).unwrap();
     combined.merge_shifted(first, 0).unwrap();
@@ -1952,11 +1942,11 @@ fn admitted_nested_state_posting_excludes_empty_ancestor_from_exists() {
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     for slot in 0..24 {
         let record = if slot < 12 {
-            value(r#"{"items":[]}"#)
+            value(r#"("items"=[])"#)
         } else if slot < 22 {
-            value(r#"{"items":[{"title":"A"}]}"#)
+            value(r#"("items"=[("title"="A")])"#)
         } else {
-            value(r#"{"items":[{"title":null}]}"#)
+            value(r#"("items"=[("title"=null)])"#)
         };
         batch.observe_record(RecordSlot(slot), &record).unwrap();
     }
@@ -2002,7 +1992,7 @@ fn terminal_array_null_observation_is_not_exact_null() {
     };
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     batch
-        .observe_record(RecordSlot(0), &value(r#"{"tags":[null]}"#))
+        .observe_record(RecordSlot(0), &value(r#"("tags"=[null])"#))
         .unwrap();
     let mut combined = InferenceBuilder::new(config, false).unwrap();
     combined.merge_shifted(batch, 0).unwrap();
@@ -2031,17 +2021,17 @@ fn inference_admission_keeps_baseline_shape_and_budget_decisions() {
         ..Default::default()
     };
     let mut builder = InferenceBuilder::new(config, false).unwrap();
-    for (slot, json) in [
-        r#"{"only_null":null,"nullable":1,"budget":1}"#,
-        r#"{"only_null":null,"nullable":null,"mixed":1,"budget":2}"#,
-        r#"{"mixed":{},"budget":3}"#,
-        "{}",
+    for (slot, fixture) in [
+        r#"("only_null"=null,"nullable"=1,"budget"=1)"#,
+        r#"("only_null"=null,"nullable"=null,"mixed"=1,"budget"=2)"#,
+        r#"("mixed"=(),"budget"=3)"#,
+        "()",
     ]
     .into_iter()
     .enumerate()
     {
         builder
-            .observe_record(RecordSlot(slot as u32), &value(json))
+            .observe_record(RecordSlot(slot as u32), &value(fixture))
             .unwrap();
     }
     let logical = RoaringBitmap::from_iter(0..4);
@@ -2080,7 +2070,7 @@ fn nested_array_depth_counts_arrays_below_the_terminal_path() {
     };
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     batch
-        .observe_record(RecordSlot(0), &value(r#"{"two":[[1]],"three":[[[1]]]}"#))
+        .observe_record(RecordSlot(0), &value(r#"("two"=[[1]],"three"=[[[1]]])"#))
         .unwrap();
     let mut combined = InferenceBuilder::new(config, false).unwrap();
     combined.merge_shifted(batch, 0).unwrap();
@@ -2113,7 +2103,7 @@ fn inference_batch_admission_does_not_depend_on_worker_count() {
         .map(|value| value.to_string())
         .collect::<Vec<_>>()
         .join(",");
-    let record = value(&format!(r#"{{"numbers":[{array}]}}"#));
+    let record = value(&format!(r#"("numbers"=[{array}])"#));
     let mut reports = Vec::new();
     for jobs in [2, 128] {
         let mut batch = InferenceBuilder::with_job_count(config, true, jobs).unwrap();
@@ -2128,7 +2118,7 @@ fn inference_batch_admission_does_not_depend_on_worker_count() {
             state.report.fields[0].index_status,
             InferenceIndexStatus::Built
         );
-        reports.push(serde_json::to_value(state.report).unwrap());
+        reports.push(bincode::serialize(&state.report).unwrap());
     }
     assert_eq!(reports[0], reports[1]);
 }
@@ -2140,12 +2130,12 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
     for collection in ["one", "many"] {
         std::fs::create_dir_all(root.join(collection)).unwrap();
         for slot in 0..10 {
-            let json = if collection == "one" {
-                r#"{"flag":true}"#
+            let fixture = if collection == "one" {
+                r#"("flag"=true)"#
             } else {
-                r#"{"a":true,"b":true,"c":true}"#
+                r#"("a"=true,"b"=true,"c"=true)"#
             };
-            std::fs::write(root.join(format!("{collection}/{slot:02}.json")), json).unwrap();
+            std::fs::write(root.join(format!("{collection}/{slot:02}.row")), fixture).unwrap();
         }
     }
     let mut config = InferenceConfig {
@@ -2171,7 +2161,7 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
                 inference: config,
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2192,8 +2182,8 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
             repo.search_reference(&request).unwrap().hits
         );
         observed.push((
-            serde_json::to_value(one).unwrap(),
-            serde_json::to_value(many).unwrap(),
+            bincode::serialize(&one).unwrap(),
+            bincode::serialize(&many).unwrap(),
         ));
     }
     assert_eq!(observed[0], observed[1]);
@@ -2207,8 +2197,8 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for index in 0..513 {
         std::fs::write(
-            root.join(format!("data/{index:04}.json")),
-            format!(r#"{{"manual":"m{index:04}","blocked":"b{index:04}","kind":"a"}}"#),
+            root.join(format!("data/{index:04}.row")),
+            format!(r#"("manual"="m{index:04}","blocked"="b{index:04}","kind"="a")"#),
         )
         .unwrap();
     }
@@ -2245,7 +2235,7 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
                 inference: config,
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2265,7 +2255,7 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
         assert_eq!(indexes.len(), 1);
         let index = &indexes[&vec!["kind".into()]];
         outcomes.push((
-            serde_json::to_value(report).unwrap(),
+            bincode::serialize(&report).unwrap(),
             index.presence.clone(),
             index
                 .values
@@ -2305,12 +2295,12 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
         };
         let score = if index == 3 { 99 } else { 0 };
         std::fs::write(
-            root.join(format!("data/{index:02}.json")),
-            format!(r#"{{"flag":{flag},"score":{score},"tag":"{tag}"}}"#),
+            root.join(format!("data/{index:02}.row")),
+            format!(r#"("flag"={flag},"score"={score},"tag"="{tag}")"#),
         )
         .unwrap();
     }
-    std::fs::write(root.join("data/bad.json"), "{").unwrap();
+    std::fs::write(root.join("data/bad.row"), "{").unwrap();
     let definition = crate::source::test_support::document_folder("data", "data");
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let mut answers = Vec::new();
@@ -2333,7 +2323,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -2381,7 +2371,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
             let request = query("flag = true");
             let result = repo.search(&request).unwrap();
             assert_eq!(result.hits.len(), 1);
-            assert_eq!(result.hits[0].record_id, "path:03.json");
+            assert_eq!(result.hits[0].record_id, "path:03.row");
             assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
             answers.push(result.hits.clone());
             scans.push(result.counters.record_parses);
@@ -2393,7 +2383,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                     &root,
                     vec![definition.clone()],
                     options,
-                    crate::source::registry::SourceRegistry::builtin(),
+                    crate::source::test_support::fixture_registry(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -2477,7 +2467,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                     &root,
                     vec![definition.clone()],
                     options,
-                    crate::source::registry::SourceRegistry::builtin(),
+                    crate::source::test_support::fixture_registry(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -2489,13 +2479,13 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                         build_workers: std::num::NonZeroUsize::new(1),
                         ..options
                     },
-                    crate::source::registry::SourceRegistry::builtin(),
+                    crate::source::test_support::fixture_registry(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
                 assert_eq!(
-                    serde_json::to_value(repo.inference_report("data").unwrap()).unwrap(),
-                    serde_json::to_value(one_worker.inference_report("data").unwrap()).unwrap(),
+                    bincode::serialize(repo.inference_report("data").unwrap()).unwrap(),
+                    bincode::serialize(one_worker.inference_report("data").unwrap()).unwrap(),
                 );
                 let disabled = crate::lifecycle::Index::build_repository_for_test(
                     &root,
@@ -2504,7 +2494,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                         inference: InferenceConfig::default(),
                         ..options
                     },
-                    crate::source::registry::SourceRegistry::builtin(),
+                    crate::source::test_support::fixture_registry(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -2529,7 +2519,7 @@ fn budget_exhaustion_never_publishes_partial_postings() {
     config.policy.max_paths = 1;
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     batch
-        .observe_record(RecordSlot(0), &value(r#"{"a":true,"b":1}"#))
+        .observe_record(RecordSlot(0), &value(r#"("a"=true,"b"=1)"#))
         .unwrap();
     let mut combined = InferenceBuilder::new(config, false).unwrap();
     combined.merge_shifted(batch, 0).unwrap();
@@ -2554,15 +2544,15 @@ fn mixed_shapes_and_explicit_optouts_decline_inferred_postings() {
         ..Default::default()
     };
     let mut batch = InferenceBuilder::new(config, true).unwrap();
-    for (slot, json) in [
-        r#"{"mixed":true,"shape":1,"blocked":true,"declared":true}"#,
-        r#"{"mixed":42,"shape":[1],"blocked":false,"declared":false}"#,
+    for (slot, fixture) in [
+        r#"("mixed"=true,"shape"=1,"blocked"=true,"declared"=true)"#,
+        r#"("mixed"=42,"shape"=[1],"blocked"=false,"declared"=false)"#,
     ]
     .into_iter()
     .enumerate()
     {
         batch
-            .observe_record(RecordSlot(slot as u32), &value(json))
+            .observe_record(RecordSlot(slot as u32), &value(fixture))
             .unwrap();
     }
     let mut schema = Schema::default();
@@ -2610,13 +2600,13 @@ fn high_cardinality_and_long_text_drop_only_their_own_candidates() {
     };
     let mut batch = InferenceBuilder::new(config, true).unwrap();
     for slot in 0..24 {
-        let json = format!(
-            r#"{{"flag":{},"unique":"value-{slot}","long":"{}"}}"#,
+        let fixture = format!(
+            r#"("flag"={},"unique"="value-{slot}","long"="{}")"#,
             slot == 0,
             "x".repeat(80)
         );
         batch
-            .observe_record(RecordSlot(slot), &value(&json))
+            .observe_record(RecordSlot(slot), &value(&fixture))
             .unwrap();
     }
     let mut combined = InferenceBuilder::new(config, false).unwrap();
@@ -2681,7 +2671,7 @@ fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {
     std::fs::write(root.join("data/a.pipe"), "true|hidden title").unwrap();
     std::fs::write(root.join("data/b.pipe"), "false|other title").unwrap();
     let source = || {
-        let mut registry = SourceRegistry::builtin();
+        let mut registry = crate::source::test_support::fixture_registry();
         registry
             .register("pipe", 1, "pipe", std::sync::Arc::new(PipeReader))
             .unwrap();
@@ -2725,13 +2715,13 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
     let root = temporary_root("empty-selection");
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (name, json) in [
-        ("a", r#"{"items":[]}"#),
-        ("b", r#"{"items":[{"flag":true}]}"#),
-        ("c", r#"{"items":[{"flag":false}]}"#),
-        ("d", r#"{"items":[{}]}"#),
+    for (name, fixture) in [
+        ("a", r#"("items"=[])"#),
+        ("b", r#"("items"=[("flag"=true)])"#),
+        ("c", r#"("items"=[("flag"=false)])"#),
+        ("d", r#"("items"=[()])"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), fixture).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -2743,7 +2733,7 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2758,8 +2748,8 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
         InferenceIndexStatus::Built
     );
     for (filter, expected) in [
-        ("items.flag = true", vec!["path:a.json", "path:b.json"]),
-        ("items.flag ?= true", vec!["path:b.json"]),
+        ("items.flag = true", vec!["path:a.row", "path:b.row"]),
+        ("items.flag ?= true", vec!["path:b.row"]),
     ] {
         let request = query(filter);
         let result = repo.search(&request).unwrap();
@@ -2783,15 +2773,15 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for slot in 0..24 {
-        let json = match slot {
-            3 => r#"{"flag":true}"#,
-            5 => r#"{"nullable":null}"#,
-            6 => r#"{"nullable":false}"#,
-            7 => r#"{"items":{"flag":true}}"#,
-            8 => r#"{"only_null":null}"#,
-            _ => r#"{"other":false}"#,
+        let fixture = match slot {
+            3 => r#"("flag"=true)"#,
+            5 => r#"("nullable"=null)"#,
+            6 => r#"("nullable"=false)"#,
+            7 => r#"("items"=("flag"=true))"#,
+            8 => r#"("only_null"=null)"#,
+            _ => r#"("other"=false)"#,
         };
-        std::fs::write(root.join(format!("data/{slot:02}.json")), json).unwrap();
+        std::fs::write(root.join(format!("data/{slot:02}.row")), fixture).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -2804,16 +2794,16 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
-        ("flag:exists = true", vec!["path:03.json"]),
-        ("flag:? = true", vec!["path:03.json"]),
-        ("nullable:null = true", vec!["path:05.json"]),
-        ("nullable:? = true", vec!["path:06.json"]),
-        ("items.flag:exists = true", vec!["path:07.json"]),
+        ("flag:exists = true", vec!["path:03.row"]),
+        ("flag:? = true", vec!["path:03.row"]),
+        ("nullable:null = true", vec!["path:05.row"]),
+        ("nullable:? = true", vec!["path:06.row"]),
+        ("items.flag:exists = true", vec!["path:07.row"]),
     ] {
         let mut request = query(filter);
         request.options.return_mode = ReturnMode::Locator;
@@ -2862,7 +2852,7 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["path:08.json"]
+        ["path:08.row"]
     );
     assert_eq!(result.hits, repo.search_reference(&null_only).unwrap().hits);
     assert!(result.counters.record_parses > 0);
@@ -2883,14 +2873,14 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, document) in [
-        ("00", r#"{"year":1799}"#),
-        ("01", r#"{"year":1800}"#),
-        ("02", r#"{"year":1805}"#),
-        ("03", r#"{"year":1810}"#),
-        ("04", r#"{"year":null}"#),
-        ("05", r#"{"other":[1800,1810]}"#),
+        ("00", r#"("year"=1799)"#),
+        ("01", r#"("year"=1800)"#),
+        ("02", r#"("year"=1805)"#),
+        ("03", r#"("year"=1810)"#),
+        ("04", r#"("year"=null)"#),
+        ("05", r#"("other"=[1800,1810])"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), document).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -2903,19 +2893,19 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
-        ("year = 1800", vec!["path:01.json"]),
-        ("year > 1800", vec!["path:02.json", "path:03.json"]),
+        ("year = 1800", vec!["path:01.row"]),
+        ("year > 1800", vec!["path:02.row", "path:03.row"]),
         (
             "year >= 1800 && year < 1810",
-            vec!["path:01.json", "path:02.json"],
+            vec!["path:01.row", "path:02.row"],
         ),
-        ("year < 1800", vec!["path:00.json"]),
-        ("year <= 1800", vec!["path:00.json", "path:01.json"]),
+        ("year < 1800", vec!["path:00.row"]),
+        ("year <= 1800", vec!["path:00.row", "path:01.row"]),
     ] {
         let mut request = query(filter);
         request.options.return_mode = ReturnMode::Locator;
@@ -2953,8 +2943,8 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
     let root = temporary_root("numeric-empty-ancestor");
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/one.json"), r#"{"items":{"year":1800}}"#).unwrap();
-    std::fs::write(root.join("data/empty.json"), r#"{"items":[]}"#).unwrap();
+    std::fs::write(root.join("data/one.row"), r#"("items"=("year"=1800))"#).unwrap();
+    std::fs::write(root.join("data/empty.row"), r#"("items"=[])"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
@@ -2965,7 +2955,7 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2984,9 +2974,9 @@ fn paired_comparison_keeps_missing_and_successful_empty_traversal_distinct() {
     let root = temporary_root("paired-empty-traversal");
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/empty.json"), r#"{"items":[]}"#).unwrap();
-    std::fs::write(root.join("data/missing.json"), "{}").unwrap();
-    std::fs::write(root.join("data/value.json"), r#"{"items":[{"flag":"A"}]}"#).unwrap();
+    std::fs::write(root.join("data/empty.row"), r#"("items"=[])"#).unwrap();
+    std::fs::write(root.join("data/missing.row"), "()").unwrap();
+    std::fs::write(root.join("data/value.row"), r#"("items"=[("flag"="A")])"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
@@ -2994,7 +2984,7 @@ fn paired_comparison_keeps_missing_and_successful_empty_traversal_distinct() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3009,7 +2999,7 @@ fn paired_comparison_keeps_missing_and_successful_empty_traversal_distinct() {
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
-        ["path:empty.json", "path:value.json"]
+        ["path:empty.row", "path:value.row"]
     );
     assert!(
         repo.explain(&request)
@@ -3026,14 +3016,14 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, document) in [
-        ("00", r#"{"code":"A1","flag":true}"#),
-        ("01", r#"{"code":"B2","flag":false}"#),
-        ("02", r#"{"code":"a1","flag":true}"#),
-        ("03", r#"{"code":"","flag":null}"#),
-        ("04", r#"{"other":17}"#),
-        ("05", r#"{"code":"A10","flag":false}"#),
+        ("00", r#"("code"="A1","flag"=true)"#),
+        ("01", r#"("code"="B2","flag"=false)"#),
+        ("02", r#"("code"="a1","flag"=true)"#),
+        ("03", r#"("code"="","flag"=null)"#),
+        ("04", r#"("other"=17)"#),
+        ("05", r#"("code"="A10","flag"=false)"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), document).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -3046,42 +3036,37 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     for (filter, expected) in [
-        ("code = 'A1'", vec!["path:00.json"]),
+        ("code = 'A1'", vec!["path:00.row"]),
         (
             "code != 'A1'",
-            vec![
-                "path:01.json",
-                "path:02.json",
-                "path:03.json",
-                "path:05.json",
-            ],
+            vec!["path:01.row", "path:02.row", "path:03.row", "path:05.row"],
         ),
-        ("code >= 'A10' && code < 'B2'", vec!["path:05.json"]),
-        ("code ~ 'A1'", vec!["path:00.json", "path:05.json"]),
+        ("code >= 'A10' && code < 'B2'", vec!["path:05.row"]),
+        ("code ~ 'A1'", vec!["path:00.row", "path:05.row"]),
         (
             "code !~ 'A1'",
-            vec!["path:01.json", "path:02.json", "path:03.json"],
+            vec!["path:01.row", "path:02.row", "path:03.row"],
         ),
-        ("flag = true", vec!["path:00.json", "path:02.json"]),
-        ("flag != false", vec!["path:00.json", "path:02.json"]),
-        ("flag > false", vec!["path:00.json", "path:02.json"]),
-        ("flag < true", vec!["path:01.json", "path:05.json"]),
+        ("flag = true", vec!["path:00.row", "path:02.row"]),
+        ("flag != false", vec!["path:00.row", "path:02.row"]),
+        ("flag > false", vec!["path:00.row", "path:02.row"]),
+        ("flag < true", vec!["path:01.row", "path:05.row"]),
         (
             "flag:exists = true",
             vec![
-                "path:00.json",
-                "path:01.json",
-                "path:02.json",
-                "path:03.json",
-                "path:05.json",
+                "path:00.row",
+                "path:01.row",
+                "path:02.row",
+                "path:03.row",
+                "path:05.row",
             ],
         ),
-        ("flag:null = true", vec!["path:03.json"]),
+        ("flag:null = true", vec!["path:03.row"]),
     ] {
         let mut request = query(filter);
         request.options.return_mode = ReturnMode::Locator;
@@ -3117,14 +3102,14 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, document) in [
-        ("00", r#"{"year":3,"code":"z","flag":false}"#),
-        ("01", r#"{"year":1,"code":"ä","flag":true}"#),
-        ("02", r#"{"year":3,"code":"a","flag":true}"#),
-        ("03", r#"{"year":null,"code":null,"flag":null}"#),
-        ("04", r#"{"other":"missing"}"#),
+        ("00", r#"("year"=3,"code"="z","flag"=false)"#),
+        ("01", r#"("year"=1,"code"="ä","flag"=true)"#),
+        ("02", r#"("year"=3,"code"="a","flag"=true)"#),
+        ("03", r#"("year"=null,"code"=null,"flag"=null)"#),
+        ("04", r#"("other"="missing")"#),
         ("05", "{"),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), document).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -3137,7 +3122,7 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3193,8 +3178,8 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, code) in [("short", "A".to_owned()), ("long", "z".repeat(65))] {
         std::fs::write(
-            root.join(format!("data/{name}.json")),
-            serde_json::json!({"code":code}).to_string(),
+            root.join(format!("data/{name}.row")),
+            fixture_value!({ "code" => (code) }).fixture_text(),
         )
         .unwrap();
     }
@@ -3208,7 +3193,7 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3232,3 +3217,5 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
     assert!(!repo.explain(&request).unwrap().is_empty());
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

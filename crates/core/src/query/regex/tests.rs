@@ -63,14 +63,14 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
     let data = root.join("data");
     std::fs::create_dir_all(&data).unwrap();
     let lines = [
-        serde_json::json!({"title":"foo", "body":"bar"}).to_string(),
-        serde_json::json!({"title":"foo-bar", "body":"x"}).to_string(),
-        serde_json::json!({"title":"FOO\nBAR", "body":"x"}).to_string(),
-        serde_json::json!({"title":"Straße", "body":"x"}).to_string(),
-        serde_json::json!({"title":"MÜLLER", "body":"x"}).to_string(),
-        "{\"title\":needle".into(),
+        fixture_value!({ "title" => ("foo"), "body" => ("bar") }).fixture_text(),
+        fixture_value!({ "title" => ("foo-bar"), "body" => ("x") }).fixture_text(),
+        fixture_value!({ "title" => ("FOO\nBAR"), "body" => ("x") }).fixture_text(),
+        fixture_value!({ "title" => ("Straße"), "body" => ("x") }).fixture_text(),
+        fixture_value!({ "title" => ("MÜLLER"), "body" => ("x") }).fixture_text(),
+        "(\"title\"=needle".into(),
     ];
-    std::fs::write(data.join("records.jsonl"), lines.join("\n")).unwrap();
+    std::fs::write(data.join("records.rows"), lines.join("\n")).unwrap();
     let mut schema = Schema::default();
     for name in ["title", "body"] {
         schema
@@ -98,7 +98,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -116,7 +116,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                 verified_cache_bytes: 1024 * 1024,
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -188,7 +188,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             ),
             (
                 query(
-                    "\\{\\\"title\\\":needle",
+                    "\\(\\\"title\\\"=needle",
                     None,
                     CaseSensitivity::Sensitive,
                     RegexOptions::default(),
@@ -286,7 +286,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         let bound = bind_fts(folded.fts.as_ref().unwrap(), &definition.schema).unwrap();
         assert!(fts_candidates(&repo.collections()[0], &bound).is_some());
         let fallback = query(
-            "\\{\\\"title\\\":needle",
+            "\\(\\\"title\\\"=needle",
             None,
             CaseSensitivity::Sensitive,
             RegexOptions::default(),
@@ -346,7 +346,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                 bigram_alphabet: alphabet,
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -540,11 +540,11 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
     let root = std::env::temp_dir().join(format!("objekte-regex-raw-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/records.jsonl"),
+        root.join("data/records.rows"),
         [
-            serde_json::json!({"title": "foo-bar"}).to_string(),
-            serde_json::json!({"title": "fooXbar"}).to_string(),
-            "{\"title\":\"foobar".into(),
+            fixture_value!({ "title" => ("foo-bar") }).fixture_text(),
+            fixture_value!({ "title" => ("fooXbar") }).fixture_text(),
+            "(\"title\"=\"foobar".into(),
         ]
         .join("\n"),
     )
@@ -560,7 +560,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -598,7 +598,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -614,7 +614,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -666,3 +666,5 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

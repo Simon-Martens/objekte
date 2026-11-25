@@ -356,7 +356,7 @@ impl BigramContribution {
         })
     }
 
-    #[cfg(test)]
+    #[cfg(any(test, feature = "test-hooks"))]
     pub(crate) fn into_index(self) -> Result<BigramIndex, String> {
         let Self {
             alphabet,
@@ -830,7 +830,7 @@ impl BigramBuilder {
         Ok(self.contribution)
     }
 
-    #[cfg(test)]
+    #[cfg(any(test, feature = "test-hooks"))]
     pub fn finish(self) -> Result<BigramIndex, String> {
         self.finish_blocks()?.into_index()
     }

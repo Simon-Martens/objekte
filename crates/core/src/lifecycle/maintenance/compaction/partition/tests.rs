@@ -18,14 +18,14 @@ fn index_from_repository_adopts_native_segments_without_repartitioning() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), r#"{"name":"a"}"#).unwrap();
+    std::fs::write(root.join("data/a.row"), r#"("name"="a")"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![crate::source::test_support::document_folder(
             "items", "data",
         )],
         crate::repository::configuration::RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -54,24 +54,24 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let large = root.join("data/a-large.jsonl");
+    let large = root.join("data/a-large.rows");
     let mut source = std::io::BufWriter::new(std::fs::File::create(&large).unwrap());
     for number in 0..(65 * super::BASE_PARTITION_RECORDS) {
-        writeln!(source, "{{\"name\":\"item-{number}\"}}").unwrap();
+        writeln!(source, "(\"name\"=\"item-{number}\")").unwrap();
     }
     source.flush().unwrap();
     drop(source);
-    let small = root.join("data/z-small.jsonl");
-    std::fs::write(&small, b"{\"name\":\"small\"}\n").unwrap();
+    let small = root.join("data/z-small.rows");
+    std::fs::write(&small, b"(\"name\"=\"small\")\n").unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -84,7 +84,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
     assert_eq!(full.len(), 65);
     let mut handle = before.file_handle_for_path(&small).unwrap();
     for update in 0..70 {
-        std::fs::write(&small, format!("{{\"name\":\"small-{update}\"}}\n")).unwrap();
+        std::fs::write(&small, format!("(\"name\"=\"small-{update}\")\n")).unwrap();
         handle = index.update_file(handle, &small).unwrap().file;
         let current = index.view().unwrap();
         assert!(current.0.segments[0].len() <= 65 + crate::lifecycle::MAX_SEGMENTS_PER_COLLECTION);
@@ -114,8 +114,8 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..7 {
         std::fs::write(
-            root.join(format!("data/{number}.jsonl")),
-            format!("{{\"name\":\"item-{number}\"}}\n"),
+            root.join(format!("data/{number}.rows")),
+            format!("(\"name\"=\"item-{number}\")\n"),
         )
         .unwrap();
     }
@@ -124,10 +124,10 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -182,7 +182,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
             converted
                 .view()
                 .unwrap()
-                .file_handle_for_path(std::path::Path::new(&format!("data/{number}.jsonl")))
+                .file_handle_for_path(std::path::Path::new(&format!("data/{number}.rows")))
                 .is_some()
         );
     }
@@ -202,9 +202,9 @@ fn compacts_one_large_file_in_source_free_parts() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let path = root.join("data/many.jsonl");
+    let path = root.join("data/many.rows");
     let bytes = (0..9)
-        .map(|number| format!("{{\"name\":\"item-{number}\"}}\n"))
+        .map(|number| format!("(\"name\"=\"item-{number}\")\n"))
         .collect::<String>();
     std::fs::write(&path, bytes).unwrap();
     let repository = crate::lifecycle::Index::build_repository_for_test(
@@ -212,10 +212,10 @@ fn compacts_one_large_file_in_source_free_parts() {
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -270,15 +270,15 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..7 {
         std::fs::write(
-            root.join(format!("data/{number}.jsonl")),
-            format!("{{\"name\":\"item-{number}\",\"kind\":\"same\"}}\n"),
+            root.join(format!("data/{number}.rows")),
+            format!("(\"name\"=\"item-{number}\",\"kind\"=\"same\")\n"),
         )
         .unwrap();
     }
     let definitions = vec![CollectionDefinition::folder(
         "items",
         "data",
-        crate::source::test_support::LINES,
+        crate::source::test_support::line_format(),
     )];
     let options = RepositoryOptions {
         inference: InferenceConfig {
@@ -291,7 +291,7 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
         &root,
         definitions.clone(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -299,11 +299,16 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
     let build_failed_parses = repository.build_failed_parses();
     let startup = repository.startup().clone();
     assert_eq!(build_parses, 7);
-    let mut report = serde_json::to_value(repository.inference_report("items").unwrap()).unwrap();
-    report["complete"] = serde_json::Value::Bool(false);
+    let mut report = repository.inference_report("items").unwrap().clone();
+    report.complete = false;
     let diagnostics =
-        serde_json::to_value(repository.inference_index_diagnostics("items").unwrap()).unwrap();
-    assert!(!diagnostics.as_array().unwrap().is_empty());
+        bincode::serialize(&repository.inference_index_diagnostics("items").unwrap()).unwrap();
+    assert!(
+        !repository
+            .inference_index_diagnostics("items")
+            .unwrap()
+            .is_empty()
+    );
     let published = PublishedIndex::from_repository(
         crate::repository::next_repository_instance(),
         IndexRevision::INITIAL,
@@ -317,11 +322,11 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
         let view = index.view().unwrap();
         let repository = view.repository();
         assert_eq!(
-            serde_json::to_value(repository.inference_report("items").unwrap()).unwrap(),
-            report
+            bincode::serialize(repository.inference_report("items").unwrap()).unwrap(),
+            bincode::serialize(&report).unwrap()
         );
         assert_eq!(
-            serde_json::to_value(repository.inference_index_diagnostics("items").unwrap()).unwrap(),
+            bincode::serialize(&repository.inference_index_diagnostics("items").unwrap()).unwrap(),
             diagnostics
         );
         assert!(

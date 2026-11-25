@@ -12,46 +12,46 @@ use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::json::JsonReader;
+use crate::source::test_support::DOCUMENT_READER;
 use crate::source::{
     ExtractedRecord, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
-    SourceReader, TextDerivation, registry::SourceRegistry,
+    SourceReader, TextDerivation,
 };
 
 use super::{Strategy, candidates_with_strategy};
 
-struct CountedJsonReader(Arc<AtomicUsize>);
+struct CountedDocumentReader(Arc<AtomicUsize>);
 
-impl SourceReader for CountedJsonReader {
+impl SourceReader for CountedDocumentReader {
     fn name(&self) -> &'static str {
-        "counted_json"
+        "counted_fixture"
     }
 
     fn text_derivation(&self) -> TextDerivation {
-        JsonReader.text_derivation()
+        DOCUMENT_READER.text_derivation()
     }
 
     fn logical_text_coverage(&self) -> LogicalTextCoverage {
-        JsonReader.logical_text_coverage()
+        DOCUMENT_READER.logical_text_coverage()
     }
 
     fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
-        JsonReader.frame(bytes)
+        DOCUMENT_READER.frame(bytes)
     }
 
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
         self.0.fetch_add(1, Ordering::Relaxed);
-        JsonReader.parse(bytes)
+        DOCUMENT_READER.parse(bytes)
     }
 
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         self.0.fetch_add(1, Ordering::Relaxed);
-        JsonReader.parse_outcome(bytes)
+        DOCUMENT_READER.parse_outcome(bytes)
     }
 
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         self.0.fetch_add(1, Ordering::Relaxed);
-        JsonReader.parse_for_build_outcome(bytes)
+        DOCUMENT_READER.parse_for_build_outcome(bytes)
     }
 
     fn parse_for_query(
@@ -60,7 +60,7 @@ impl SourceReader for CountedJsonReader {
         projection: &ScanProjection,
     ) -> Result<ExtractedRecord, String> {
         self.0.fetch_add(1, Ordering::Relaxed);
-        JsonReader.parse_for_query(bytes, projection)
+        DOCUMENT_READER.parse_for_query(bytes, projection)
     }
 }
 
@@ -76,23 +76,19 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
         std::fs::create_dir_all(root.join(collection)).unwrap();
     }
     std::fs::write(
-        root.join("sources/S.json"),
-        r#"{"id":"S","entry":"T","title":"Local"}"#,
+        root.join("sources/S.row"),
+        r#"("id"="S","entry"="T","title"="Local")"#,
     )
     .unwrap();
-    std::fs::write(
-        root.join("targets/T.json"),
-        r#"{"id":"T","title":"Needle"}"#,
-    )
-    .unwrap();
+    std::fs::write(root.join("targets/T.row"), r#"("id"="T","title"="Needle")"#).unwrap();
     let parses = Arc::new(AtomicUsize::new(0));
-    let mut registry = SourceRegistry::builtin();
+    let mut registry = crate::source::test_support::fixture_registry();
     registry
         .register(
-            "counted_json",
+            "counted_fixture",
             1,
-            "json",
-            Arc::new(CountedJsonReader(parses.clone())),
+            "row",
+            Arc::new(CountedDocumentReader(parses.clone())),
         )
         .unwrap();
     let mut definitions = definitions();
@@ -110,7 +106,7 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
     let definitions = definitions
         .into_iter()
         .map(|mut definition| {
-            definition.format = SourceFormat::registered("counted_json");
+            definition.format = SourceFormat::registered("counted_fixture");
             definition
         })
         .collect();
@@ -128,8 +124,8 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
     let relation = query("entry.title ?~ 'Needle'");
     let related_fts = selected_fts(None, "Needle", false);
     // Any attempted source open now fails, even if the reader would skip parsing.
-    std::fs::rename(root.join("sources/S.json"), root.join("sources/S.hidden")).unwrap();
-    std::fs::rename(root.join("targets/T.json"), root.join("targets/T.hidden")).unwrap();
+    std::fs::rename(root.join("sources/S.row"), root.join("sources/S.hidden")).unwrap();
+    std::fs::rename(root.join("targets/T.row"), root.join("targets/T.hidden")).unwrap();
     let before_explain = parses.load(Ordering::Relaxed);
     for request in [&relation, &related_fts] {
         let traces = repo.explain(request).unwrap();
@@ -145,8 +141,8 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
         );
     }
     assert_eq!(parses.load(Ordering::Relaxed), before_explain);
-    std::fs::rename(root.join("sources/S.hidden"), root.join("sources/S.json")).unwrap();
-    std::fs::rename(root.join("targets/T.hidden"), root.join("targets/T.json")).unwrap();
+    std::fs::rename(root.join("sources/S.hidden"), root.join("sources/S.row")).unwrap();
+    std::fs::rename(root.join("targets/T.hidden"), root.join("targets/T.row")).unwrap();
     let before_analyze = parses.load(Ordering::Relaxed);
     let (_, analyzed) = repo.explain_analyze(&relation).unwrap();
     assert!(analyzed[0].actual.as_ref().unwrap().relation_target_reads > 0);
@@ -255,22 +251,22 @@ fn second_target_in_batch_is_checked_before_source_read() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("sources")).unwrap();
     std::fs::create_dir_all(root.join("targets")).unwrap();
-    let first = b"{\"id\":\"T0\",\"title\":\"a\"}\n";
-    let second = b"{\"id\":\"T1\",\"title\":\"a much longer title\"}\n";
+    let first = b"(\"id\"=\"T0\",\"title\"=\"a\")\n";
+    let second = b"(\"id\"=\"T1\",\"title\"=\"a much longer title\")\n";
     std::fs::write(
-        root.join("targets/records.jsonl"),
+        root.join("targets/records.rows"),
         [first.as_slice(), second.as_slice()].concat(),
     )
     .unwrap();
     let mut definitions = definitions();
-    definitions[1].format = crate::source::test_support::LINES;
+    definitions[1].format = crate::source::test_support::line_format();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -446,7 +442,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,
@@ -505,8 +501,8 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
             _ => ("Other", "T01"),
         };
         std::fs::write(
-            root.join(format!("targets/T{index:02}.json")),
-            format!(r#"{{"id":"T{index:02}","title":"{title}","related_entry":"{link}"}}"#),
+            root.join(format!("targets/T{index:02}.row")),
+            format!(r#"("id"="T{index:02}","title"="{title}","related_entry"="{link}")"#),
         )
         .unwrap();
     }
@@ -520,12 +516,12 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
         };
         let title = if index == 0 { "rare" } else { "common" };
         std::fs::write(
-            root.join(format!("sources/S{index:02}.json")),
-            format!(r#"{{"id":"S{index:02}","entry":"{link}","title":"{title}"}}"#),
+            root.join(format!("sources/S{index:02}.row")),
+            format!(r#"("id"="S{index:02}","entry"="{link}","title"="{title}")"#),
         )
         .unwrap();
     }
-    std::fs::write(root.join("sources/broken.json"), "{broken").unwrap();
+    std::fs::write(root.join("sources/broken.row"), "(broken").unwrap();
 
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -535,7 +531,7 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -606,38 +602,8 @@ fn emit_relation_probe(
     if std::env::var_os("OBJEKTE_RELATION_PROBE").is_none() {
         return;
     }
-    let hits = result
-        .hits
-        .iter()
-        .map(|hit| {
-            serde_json::json!({
-                "record_id": hit.record_id,
-                "matched_fields": hit.matched_fields,
-                "file_path": hit.file.as_ref().expect("file origin").path,
-                "byte_start": hit.source_range().expect("file range").start,
-                "byte_end": hit.source_range().expect("file range").end,
-                "record_class": format!("{:?}", hit.record_class),
-            })
-        })
-        .collect::<Vec<_>>();
-    let observation = serde_json::json!({
-        "case_id": case_id,
-        "repetition": 0,
-        "revision": option_env!("OBJEKTE_BUILD_REVISION"),
-        "alphabet": format!("{alphabet:?}"),
-        "query_workers": RepositoryOptions::default().query_workers,
-        "result": {
-            "status": "ok",
-            "error": null,
-            "count": result.count,
-            "hits": hits,
-            "counters": result.counters,
-        },
-        "plan": trace,
-    });
     println!(
-        "RELATION_PROBE {}",
-        serde_json::to_string(&observation).unwrap()
+        "RELATION_PROBE case_id={case_id} alphabet={alphabet:?} result={result:?} plan={trace:?}"
     );
 }
 
@@ -655,13 +621,8 @@ fn emit_relation_timing(case_id: &str, repo: &Repository, request: &Query, repet
     }
     samples.sort_unstable();
     println!(
-        "RELATION_TIMING {}",
-        serde_json::json!({
-            "case_id": case_id,
-            "repetitions": repetitions,
-            "samples_ns": samples,
-            "median_ns": samples[samples.len() / 2],
-        })
+        "RELATION_TIMING case_id={case_id} repetitions={repetitions} samples_ns={samples:?} median_ns={}",
+        samples[samples.len() / 2]
     );
 }
 
@@ -677,16 +638,16 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         std::fs::create_dir_all(root.join(name)).unwrap();
     }
     std::fs::write(
-        root.join("targets/T0.json"),
-        r#"{"id":"T0","title":"Needle","related_entry":"T0"}"#,
+        root.join("targets/T0.row"),
+        r#"("id"="T0","title"="Needle","related_entry"="T0")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("targets/T1.json"),
-        r#"{"id":"T1","title":"Other","related_entry":"T0"}"#,
+        root.join("targets/T1.row"),
+        r#"("id"="T1","title"="Other","related_entry"="T0")"#,
     )
     .unwrap();
-    // Ordinary JSON files are extracted in batches of up to 512 files. Put the
+    // Ordinary fixture files are extracted in batches of up to 512 files. Put the
     // colliding records on either side of that boundary so the public policy
     // genuinely produces two source segments.
     for number in 0..513 {
@@ -701,8 +662,8 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
             _ => ("missing", "filler"),
         };
         std::fs::write(
-            root.join(format!("sources/{number:03}.json")),
-            format!(r#"{{"id":"{id}","entry":"{target}","title":"{title}"}}"#),
+            root.join(format!("sources/{number:03}.row")),
+            format!(r#"("id"="{id}","entry"="{target}","title"="{title}")"#),
         )
         .unwrap();
     }
@@ -717,7 +678,7 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -830,8 +791,8 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
             (format!("T{number:03}"), "Other")
         };
         std::fs::write(
-            root.join(format!("targets/{number:03}.json")),
-            format!(r#"{{"id":"{id}","title":"{title}","related_entry":"T000"}}"#),
+            root.join(format!("targets/{number:03}.row")),
+            format!(r#"("id"="{id}","title"="{title}","related_entry"="T000")"#),
         )
         .unwrap();
     }
@@ -842,8 +803,8 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
             (format!("S{number:03}"), "T000")
         };
         std::fs::write(
-            root.join(format!("sources/{number:03}.json")),
-            format!(r#"{{"id":"{id}","entry":"{target}","title":"local"}}"#),
+            root.join(format!("sources/{number:03}.row")),
+            format!(r#"("id"="{id}","entry"="{target}","title"="local")"#),
         )
         .unwrap();
     }
@@ -858,7 +819,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -958,8 +919,8 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         std::fs::create_dir_all(root.join(name)).unwrap();
     }
     std::fs::write(
-        root.join("targets/T0.json"),
-        r#"{"id":"T0","title":"Needle","related_entry":"T0"}"#,
+        root.join("targets/T0.row"),
+        r#"("id"="T0","title"="Needle","related_entry"="T0")"#,
     )
     .unwrap();
     let matching = std::collections::HashMap::from([
@@ -979,8 +940,8 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
             "missing"
         };
         std::fs::write(
-            root.join(format!("sources/{number:04}.json")),
-            format!(r#"{{"id":"{id}","entry":"{entry}","title":"local"}}"#),
+            root.join(format!("sources/{number:04}.row")),
+            format!(r#"("id"="{id}","entry"="{entry}","title"="local")"#),
         )
         .unwrap();
     }
@@ -994,7 +955,7 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1055,13 +1016,13 @@ fn related_fts_reads_current_target_revisions_across_file_lifecycle_and_compacti
         std::fs::create_dir_all(root.join(name)).unwrap();
     }
     std::fs::write(
-        root.join("targets/T0.json"),
-        r#"{"id":"T0","title":"Needle","related_entry":"T0"}"#,
+        root.join("targets/T0.row"),
+        r#"("id"="T0","title"="Needle","related_entry"="T0")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("sources/S0.json"),
-        r#"{"id":"S0","entry":"T0","title":"local"}"#,
+        root.join("sources/S0.row"),
+        r#"("id"="S0","entry"="T0","title"="local")"#,
     )
     .unwrap();
     let index = crate::lifecycle::Index::start_build(
@@ -1071,7 +1032,7 @@ fn related_fts_reads_current_target_revisions_across_file_lifecycle_and_compacti
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1102,10 +1063,10 @@ fn related_fts_reads_current_target_revisions_across_file_lifecycle_and_compacti
     };
     assert_ids(&["S0"], "Needle", None);
 
-    let target = root.join("targets/T2.json");
+    let target = root.join("targets/T2.row");
     std::fs::write(
         &target,
-        r#"{"id":"T2","title":"Needle","related_entry":"T2"}"#,
+        r#"("id"="T2","title"="Needle","related_entry"="T2")"#,
     )
     .unwrap();
     let mut target_handle = index.add_file(&target).unwrap().file;
@@ -1116,14 +1077,14 @@ fn related_fts_reads_current_target_revisions_across_file_lifecycle_and_compacti
             .is_none(),
         "the new target must not exist in the discovery inventory"
     );
-    let source = root.join("sources/S2.json");
-    std::fs::write(&source, r#"{"id":"S2","entry":"T2","title":"local"}"#).unwrap();
+    let source = root.join("sources/S2.row");
+    std::fs::write(&source, r#"("id"="S2","entry"="T2","title"="local")"#).unwrap();
     index.add_file(&source).unwrap();
     assert_ids(&["S0", "S2"], "Needle", None);
 
     std::fs::write(
         &target,
-        r#"{"id":"T2","title":"Other","related_entry":"T2"}"#,
+        r#"("id"="T2","title"="Other","related_entry"="T2")"#,
     )
     .unwrap();
     target_handle = index.update_file(target_handle, &target).unwrap().file;
@@ -1132,14 +1093,14 @@ fn related_fts_reads_current_target_revisions_across_file_lifecycle_and_compacti
 
     std::fs::write(
         &target,
-        r#"{"id":"T2","title":"CompletelyDifferent","related_entry":"T2"}"#,
+        r#"("id"="T2","title"="CompletelyDifferent","related_entry"="T2")"#,
     )
     .unwrap();
     target_handle = index.update_file(target_handle, &target).unwrap().file;
     assert_ids(&[], "Needle", Some("@record.id = 'S2'"));
     assert_ids(&["S2"], "CompletelyDifferent", None);
 
-    let moved = root.join("targets/moved-T2.json");
+    let moved = root.join("targets/moved-T2.row");
     std::fs::rename(&target, &moved).unwrap();
     target_handle = index.update_file(target_handle, &moved).unwrap().file;
     assert!(!target.exists());
@@ -1184,8 +1145,8 @@ fn seeded_array_fixture(
             "Other"
         };
         std::fs::write(
-            root.join(format!("targets/T{index:02}.json")),
-            serde_json::json!({"id": format!("T{index:02}"), "title": title}).to_string(),
+            root.join(format!("targets/T{index:02}.row")),
+            fixture_value!({ "id" => (format!("T{index:02}")), "title" => (title) }).fixture_text(),
         )
         .unwrap();
     }
@@ -1194,9 +1155,9 @@ fn seeded_array_fixture(
     for index in 0..32 {
         let id = format!("S{index:02}");
         let value = if index % 11 == 0 {
-            serde_json::json!({"id": id})
+            fixture_value!({ "id" => (id) })
         } else if index % 11 == 1 {
-            serde_json::json!({"id": id, "links": null})
+            fixture_value!({ "id" => (id), "links" => null })
         } else {
             let count = if index == 3 {
                 100
@@ -1221,11 +1182,11 @@ fn seeded_array_fixture(
             {
                 expected_not_equal.push(id.clone());
             }
-            serde_json::json!({"id": id, "links": links})
+            fixture_value!({ "id" => (id), "links" => (links) })
         };
         std::fs::write(
-            root.join(format!("sources/S{index:02}.json")),
-            value.to_string(),
+            root.join(format!("sources/S{index:02}.row")),
+            value.fixture_text(),
         )
         .unwrap();
     }
@@ -1264,7 +1225,7 @@ fn seeded_array_fixture(
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1288,9 +1249,9 @@ fn relation_fts_page_evidence_is_keyed_by_the_winning_segment_address() {
         ("other", "OTHER"),
     ] {
         std::fs::write(
-            root.join(format!("targets/{name}.json")),
+            root.join(format!("targets/{name}.row")),
             format!(
-                r#"{{"id":"{id}","name":"{}"}}"#,
+                r#"("id"="{id}","name"="{}")"#,
                 if name == "other" { "Other" } else { "Needle" }
             ),
         )
@@ -1302,9 +1263,9 @@ fn relation_fts_page_evidence_is_keyed_by_the_winning_segment_address() {
         ("c", "S_C", "AUTHOR", "EDITOR", "yes", "yes"),
     ] {
         std::fs::write(
-            root.join(format!("sources/{file}.json")),
+            root.join(format!("sources/{file}.row")),
             format!(
-                r#"{{"id":"{id}","author":"{author}","editor":"{editor}","local_a":"{local_a}","local_b":"{local_b}"}}"#
+                r#"("id"="{id}","author"="{author}","editor"="{editor}","local_a"="{local_a}","local_b"="{local_b}")"#
             ),
         )
         .unwrap();
@@ -1342,7 +1303,7 @@ fn relation_fts_page_evidence_is_keyed_by_the_winning_segment_address() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1620,7 +1581,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             &root,
             definitions(),
             snapshot_options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1628,7 +1589,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             &root,
             definitions(),
             snapshot_options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1735,3 +1696,5 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
         }
     }
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

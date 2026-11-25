@@ -196,7 +196,7 @@ impl SourceReader for JsonDecodedScalarsReader {
 }
 
 #[cfg(test)]
-crate::objekte_json_unit_tests! { mod tests; }
+mod tests;
 
 /// Install both JSON document text representations in a source registry.
 pub fn register(

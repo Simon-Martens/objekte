@@ -25,7 +25,6 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     use crate::construction::segment_admission::SegmentAdmission;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::model::{CollectionId, FileId, RecordSlot};
-    use crate::source::registry::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-bounds-{}-{:?}",
@@ -34,14 +33,14 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let path = root.join("data/data.jsonl");
+    let path = root.join("data/data.rows");
     std::fs::write(
         &path,
-        b"{\"kind\":\"a\"}\n{\"kind\":\"b\"}\n{bad}\n{\"kind\":\"a\"}\n",
+        b"(\"kind\"=\"a\")\n(\"kind\"=\"b\")\n(bad)\n(\"kind\"=\"a\")\n",
     )
     .unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     definition
         .schema
         .register_field(FieldDefinition {
@@ -54,8 +53,8 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
             element_nullable: vec![],
         })
         .unwrap();
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let inference = crate::inference::InferenceConfig::default();
     let alphabet = crate::index::bigram::BigramAlphabet::Ascii;
@@ -63,7 +62,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         &root,
         SourceFileInput {
             id: FileId(200),
-            relative_path: "data/data.jsonl".into(),
+            relative_path: "data/data.rows".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: None,
         },
@@ -98,7 +97,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -161,21 +160,14 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..24 {
         let mixed_year = if number == 0 {
-            serde_json::Value::Null
+            crate::model::Value::Null
         } else {
-            serde_json::json!(number)
+            fixture_value!((number))
         };
-        let payload = serde_json::json!({
-            "kind": [if number % 3 == 0 { "Lied" } else { "Buch" }],
-            "dynamic": {"type": [if number % 4 == 0 { "Person" } else { "Group" }]},
-            "inferred": if number % 5 == 0 { "special" } else { "ordinary" },
-            "year": 1700 + number * 10,
-            "mixed_year": mixed_year,
-            "padding": if number % 2 == 0 { "x".repeat(128) } else { String::new() },
-        });
+        let payload = fixture_value!({ "kind" => [(if number % 3 == 0 { "Lied" } else { "Buch" })], "dynamic" => { "type" => [(if number % 4 == 0 { "Person" } else { "Group" })] }, "inferred" => (if number % 5 == 0 { "special" } else { "ordinary" }), "year" => (1700 + number * 10), "mixed_year" => (mixed_year), "padding" => (if number % 2 == 0 { "x".repeat(128) } else { String::new() }) });
         std::fs::write(
-            root.join(format!("data/{number:03}.json")),
-            payload.to_string(),
+            root.join(format!("data/{number:03}.row")),
+            payload.fixture_text(),
         )
         .unwrap();
     }
@@ -251,7 +243,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -259,7 +251,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         &root,
         vec![definition],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -375,8 +367,8 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
         ("c", "unrelated text"),
     ] {
         std::fs::write(
-            root.join(format!("data/{id}.json")),
-            serde_json::json!({"title":title}).to_string(),
+            root.join(format!("data/{id}.row")),
+            fixture_value!({ "title" => (title) }).fixture_text(),
         )
         .unwrap();
     }
@@ -415,7 +407,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -450,7 +442,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -801,7 +793,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     use crate::query::{FtsField, FtsQuery};
     use crate::repository::configuration::RepositoryOptions;
     use crate::schema::{FieldDefinition, Schema, operation::RegisteredBinding};
-    use crate::source::{SourceFormat, registry::SourceRegistry};
+    use crate::source::SourceFormat;
 
     let root =
         std::env::temp_dir().join(format!("objekte-separator-matcher-{}", std::process::id()));
@@ -868,7 +860,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         }
     };
     let sources = || {
-        let mut registry = SourceRegistry::builtin();
+        let mut registry = crate::source::test_support::fixture_registry();
         registry
             .register("sep", 1, "sep", Arc::new(SeparatorReader(parses.clone())))
             .unwrap();
@@ -1101,8 +1093,8 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     use crate::schema::{Schema, operation::RegisteredBinding};
     let root = std::env::temp_dir().join(format!("objekte-raw-compat-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), r#"{"title":"hello world"}"#).unwrap();
-    std::fs::write(root.join("data/b.json"), r#"{"title":"other"}"#).unwrap();
+    std::fs::write(root.join("data/a.row"), r#"("title"="hello world")"#).unwrap();
+    std::fs::write(root.join("data/b.row"), r#"("title"="other")"#).unwrap();
     let definition = || {
         let mut schema = Schema::default();
         schema
@@ -1126,7 +1118,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
         CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1149,7 +1141,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
                 &root,
                 vec![definition()],
                 options,
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -1213,8 +1205,8 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
         std::process::id()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), br#"{"title":"HELLO"}"#).unwrap();
-    std::fs::write(root.join("data/b.json"), br#"{"title":"HELLO""#).unwrap();
+    std::fs::write(root.join("data/a.row"), br#"("title"="HELLO")"#).unwrap();
+    std::fs::write(root.join("data/b.row"), br#"("title"="HELLO""#).unwrap();
     let mut schema = crate::schema::Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -1241,7 +1233,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -1262,7 +1254,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1311,7 +1303,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -1380,14 +1372,14 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
     let root = std::env::temp_dir().join(format!("objekte-keyed-binding-{}", std::process::id()));
     let path = root.join("data");
     std::fs::create_dir_all(&path).unwrap();
-    for (id, json) in [
-        ("a", r#"{"title":"  ALPHA  ","text":"NEEDLE Place"}"#),
-        ("b", r#"{"title":"alpha","text":"other"}"#),
-        ("c", r#"{"title":"beta","text":"needle!"}"#),
-        ("d", r#"{"text":"other"}"#),
-        ("e", r#"{"title":"","text":"other"}"#),
+    for (id, fixture) in [
+        ("a", r#"("title"="  ALPHA  ","text"="NEEDLE Place")"#),
+        ("b", r#"("title"="alpha","text"="other")"#),
+        ("c", r#"("title"="beta","text"="needle!")"#),
+        ("d", r#"("text"="other")"#),
+        ("e", r#"("title"="","text"="other")"#),
     ] {
-        std::fs::write(path.join(format!("{id}.json")), json).unwrap();
+        std::fs::write(path.join(format!("{id}.row")), fixture).unwrap();
     }
     let definition = |posting, bigram, complete, version| {
         let mut schema = crate::schema::Schema::default();
@@ -1432,7 +1424,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1531,7 +1523,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1602,7 +1594,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         &root,
         vec![definition(true, true, true, 1)],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1611,7 +1603,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         &root,
         vec![definition(true, true, true, 1)],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1665,8 +1657,8 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
         ("four", "wanted-value-that-is-definitely-long"),
     ] {
         std::fs::write(
-            root.join(format!("data/{path}.json")),
-            format!(r#"{{"kind":"{kind}"}}"#),
+            root.join(format!("data/{path}.row")),
+            format!(r#"("kind"="{kind}")"#),
         )
         .unwrap();
     }
@@ -1697,7 +1689,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             inference,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1872,14 +1864,14 @@ fn record_id_lookup_respects_case_fold_binding() {
     let path = root.join("data");
     std::fs::create_dir_all(&path).unwrap();
     for id in ["ABC", "abc", "Straße", "STRASSE"] {
-        std::fs::write(path.join(format!("{id}.json")), "{}").unwrap();
+        std::fs::write(path.join(format!("{id}.row")), "()").unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema: Default::default(),
@@ -1891,7 +1883,7 @@ fn record_id_lookup_respects_case_fold_binding() {
         crate::repository::configuration::RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1944,8 +1936,8 @@ fn indexed_restriction_precedes_written_first_scan() {
         ("c", "other", "nope"),
     ] {
         std::fs::write(
-            path.join(format!("{id}.json")),
-            serde_json::json!({"kind":kind,"text":text}).to_string(),
+            path.join(format!("{id}.row")),
+            fixture_value!({ "kind" => (kind), "text" => (text) }).fixture_text(),
         )
         .unwrap();
     }
@@ -1978,7 +1970,7 @@ fn indexed_restriction_precedes_written_first_scan() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1988,7 +1980,7 @@ fn indexed_restriction_precedes_written_first_scan() {
             sort_overrides: Default::default(),
         }],
         crate::repository::configuration::RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2098,8 +2090,8 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
             "ordinary text"
         };
         std::fs::write(
-            path.join(format!("{i:03}.json")),
-            serde_json::json!({"kind":"broad","text":text}).to_string(),
+            path.join(format!("{i:03}.row")),
+            fixture_value!({ "kind" => ("broad"), "text" => (text) }).fixture_text(),
         )
         .unwrap();
     }
@@ -2122,7 +2114,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -2132,7 +2124,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
             sort_overrides: Default::default(),
         }],
         crate::repository::configuration::RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2186,3 +2178,5 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

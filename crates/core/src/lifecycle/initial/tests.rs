@@ -12,25 +12,25 @@ use crate::model::{FileId, LogicalType};
 use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::schema::FieldDefinition;
-use crate::source::json_lines::JsonLinesReader;
-use crate::source::{ExtractedRecord, SourceFormat, SourceReader, registry::SourceRegistry};
+use crate::source::test_support::LINE_READER;
+use crate::source::{ExtractedRecord, SourceFormat, SourceReader};
 
-struct CountingJsonLinesReader {
+struct CountingLineReader {
     parses: Arc<AtomicUsize>,
 }
 
-impl SourceReader for CountingJsonLinesReader {
+impl SourceReader for CountingLineReader {
     fn name(&self) -> &'static str {
-        "counting-jsonl"
+        "counting-lines"
     }
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
-        JsonLinesReader.frame(file)
+        LINE_READER.frame(file)
     }
 
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
         self.parses.fetch_add(1, Ordering::Relaxed);
-        JsonLinesReader.parse(bytes)
+        LINE_READER.parse(bytes)
     }
 }
 
@@ -47,25 +47,25 @@ fn start_build_is_the_single_scan_and_repeated_waits_do_not_rebuild() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, rank) in [("a", 10), ("b", 20), ("c", 20)] {
         std::fs::write(
-            root.join(format!("data/{name}.counted-jsonl")),
-            format!("{{\"id\":\"{name}\",\"rank\":{rank}}}\n"),
+            root.join(format!("data/{name}.counted-lines")),
+            format!("(\"id\"=\"{name}\",\"rank\"={rank})\n"),
         )
         .unwrap();
     }
     let parses = Arc::new(AtomicUsize::new(0));
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
-            "counted-jsonl",
+            "counted-lines",
             1,
-            "counted-jsonl",
-            Arc::new(CountingJsonLinesReader {
+            "counted-lines",
+            Arc::new(CountingLineReader {
                 parses: Arc::clone(&parses),
             }),
         )
         .unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", "data", SourceFormat::registered("counted-jsonl"));
+        CollectionDefinition::folder("data", "data", SourceFormat::registered("counted-lines"));
     definition.identity =
         crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
@@ -158,21 +158,21 @@ fn start_build_rejects_invalid_segment_limits_before_dispatch() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.counted-jsonl"), b"{\"id\":\"a\"}\n").unwrap();
+    std::fs::write(root.join("data/a.counted-lines"), b"(\"id\"=\"a\")\n").unwrap();
     let parses = Arc::new(AtomicUsize::new(0));
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
-            "counted-jsonl",
+            "counted-lines",
             1,
-            "counted-jsonl",
-            Arc::new(CountingJsonLinesReader {
+            "counted-lines",
+            Arc::new(CountingLineReader {
                 parses: Arc::clone(&parses),
             }),
         )
         .unwrap();
     let definition =
-        CollectionDefinition::folder("data", "data", SourceFormat::registered("counted-jsonl"));
+        CollectionDefinition::folder("data", "data", SourceFormat::registered("counted-lines"));
     let oversized = NonZeroUsize::new(u32::MAX as usize + 1).unwrap();
     for (policy, expected) in [
         (
@@ -220,10 +220,10 @@ fn completed_generation_releases_provisional_inference_observation() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (name, value) in [("a.json", "A"), ("b.json", "B"), ("c.json", "A")] {
+    for (name, value) in [("a.row", "A"), ("b.row", "B"), ("c.row", "A")] {
         std::fs::write(
             root.join("data").join(name),
-            serde_json::json!({"value":value}).to_string(),
+            fixture_value!({ "value" => (value) }).fixture_text(),
         )
         .unwrap();
     }
@@ -238,7 +238,7 @@ fn completed_generation_releases_provisional_inference_observation() {
             },
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
         |_| Ok(()),
         |index| {
             let view = index.view()?;
@@ -283,14 +283,14 @@ fn repository_conversion_rejects_retained_owner_and_view_promptly() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    std::fs::write(root.join("data/a.row"), br#"("name"="A")"#).unwrap();
     let definition = crate::source::test_support::document_folder("data", "data");
     let build = || {
         let repository = Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
-            SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .unwrap();
         Index::from_repository(repository).unwrap()
@@ -333,47 +333,47 @@ fn all_query() -> Query {
     }
 }
 
-fn write_large_jsonl(root: &std::path::Path, label: &str) -> usize {
+fn write_large_lines(root: &std::path::Path, label: &str) -> usize {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let mut source = String::new();
     let mut records = 0usize;
     while source.len() <= 9 * 1024 * 1024 {
         source.push_str(&format!(
-            "{{\"id\":\"r{records:06}\",\"text\":\"{label} {records}\"}}\n"
+            "(\"id\"=\"r{records:06}\",\"text\"=\"{label} {records}\")\n"
         ));
         records += 1;
     }
-    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    std::fs::write(root.join("data/large.rows"), source).unwrap();
     records
 }
 
-fn write_large_relation_jsonl(root: &std::path::Path) -> usize {
+fn write_large_relation_lines(root: &std::path::Path) -> usize {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let mut source = String::new();
     let mut records = 0usize;
     while source.len() <= 9 * 1024 * 1024 {
         source.push_str(&format!(
-            "{{\"id\":\"r{records:06}\",\"entry\":\"r{records:06}\",\"text\":\"final drain {records}\"}}\n"
+            "(\"id\"=\"r{records:06}\",\"entry\"=\"r{records:06}\",\"text\"=\"final drain {records}\")\n"
         ));
         records += 1;
     }
-    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    std::fs::write(root.join("data/large.rows"), source).unwrap();
     records
 }
 
 #[test]
-fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
+fn one_large_lines_file_can_produce_more_than_the_segment_job_window() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-large-jsonl-segments-{}-{}",
+        "objekte-large-lines-segments-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
             .unwrap()
             .as_nanos()
     ));
-    let records = write_large_jsonl(&root, "large framed record");
+    let records = write_large_lines(&root, "large framed record");
     let definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     let task = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
@@ -385,7 +385,7 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap();
     let index = task.wait_complete().unwrap();
@@ -415,9 +415,9 @@ fn large_file_finalizes_private_segments_before_eof() {
             .unwrap()
             .as_nanos()
     ));
-    let records = write_large_jsonl(&root, "private segment");
+    let records = write_large_lines(&root, "private segment");
     let definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
     let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
     let thread_gate = std::sync::Arc::clone(&gate);
@@ -434,7 +434,7 @@ fn large_file_finalizes_private_segments_before_eof() {
                 },
                 ..Default::default()
             },
-            SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
             |index| {
                 catalogue_tx.send(index.clone()).unwrap();
                 Ok(())
@@ -474,9 +474,9 @@ fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
             .unwrap()
             .as_nanos()
     ));
-    let records = write_large_jsonl(&root, "bounded private segment");
+    let records = write_large_lines(&root, "bounded private segment");
     let definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     for workers in [1usize, 3] {
         let publications = std::sync::Arc::new(AtomicUsize::new(0));
         let callback_publications = std::sync::Arc::clone(&publications);
@@ -491,7 +491,7 @@ fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
                 },
                 ..Default::default()
             },
-            SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
             |_| Ok(()),
             move |_| {
                 callback_publications.fetch_add(1, Ordering::Relaxed);
@@ -526,11 +526,11 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
             std::process::id()
         ));
         let _ = std::fs::remove_dir_all(&root);
-        write_large_jsonl(&root, "private failure");
+        write_large_lines(&root, "private failure");
         let definition = CollectionDefinition::folder(
             collection_name,
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         );
         let (catalogue_tx, catalogue_rx) = mpsc::channel();
         let result = Repository::build_incremental_with_sources(
@@ -548,7 +548,7 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
                 },
                 ..Default::default()
             },
-            SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
             |index| {
                 catalogue_tx.send(index.clone()).unwrap();
                 Ok(())
@@ -615,10 +615,10 @@ fn private_final_drain_consumes_worker_error_before_returning() {
             .unwrap()
             .as_nanos()
     ));
-    let records = write_large_relation_jsonl(&root);
+    let records = write_large_relation_lines(&root);
     assert!(records > 2);
     let mut definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     definition
         .schema
         .register_field(FieldDefinition {
@@ -667,7 +667,7 @@ fn private_final_drain_consumes_worker_error_before_returning() {
                     },
                     ..Default::default()
                 },
-                SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
                 |index| {
                     catalogue_tx.send(index.clone()).unwrap();
                     Ok(())
@@ -764,7 +764,7 @@ fn private_work_cancels_while_outstanding_and_after_validation() {
             std::process::id()
         ));
         let _ = std::fs::remove_dir_all(&root);
-        write_large_jsonl(&root, "private cancellation");
+        write_large_lines(&root, "private cancellation");
         let collection_name = if after_validation {
             "__test_cancel_after_validation__"
         } else {
@@ -773,7 +773,7 @@ fn private_work_cancels_while_outstanding_and_after_validation() {
         let definition = CollectionDefinition::folder(
             collection_name,
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         );
         let cancelled = std::sync::Arc::new(AtomicBool::new(false));
         let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
@@ -794,7 +794,7 @@ fn private_work_cancels_while_outstanding_and_after_validation() {
                         },
                         ..Default::default()
                     },
-                    SourceRegistry::builtin(),
+                    crate::source::test_support::fixture_registry(),
                     |index| {
                         catalogue_tx.send(index.clone()).unwrap();
                         Ok(())
@@ -847,8 +847,8 @@ fn multi_worker_segment_finalization_actually_overlaps() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..1_100 {
         std::fs::write(
-            root.join(format!("data/{number:03}.json")),
-            format!(r#"{{"id":"{number}","text":"segment overlap needle {number}"}}"#),
+            root.join(format!("data/{number:03}.row")),
+            format!(r#"("id"="{number}","text"="segment overlap needle {number}")"#),
         )
         .unwrap();
     }
@@ -869,7 +869,7 @@ fn multi_worker_segment_finalization_actually_overlaps() {
                     },
                     ..Default::default()
                 },
-                SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
                 |_| Ok(()),
                 |_| Ok(()),
                 || false,
@@ -900,11 +900,11 @@ fn discovery_and_segments_publish_without_losing_records() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..2_050 {
         std::fs::write(
-            root.join(format!("data/f{number:04}.json")),
+            root.join(format!("data/f{number:04}.row")),
             if number == 2_049 {
-                format!(r#"{{"name":"n{number}","late":{{"rare.field":42}}}}"#)
+                format!(r#"("name"="n{number}","late"=("rare.field"=42))"#)
             } else {
-                format!(r#"{{"name":"n{number}"}}"#)
+                format!(r#"("name"="n{number}")"#)
             },
         )
         .unwrap();
@@ -943,7 +943,7 @@ fn discovery_and_segments_publish_without_losing_records() {
                     },
                     ..RepositoryOptions::default()
                 },
-                SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
                 |index| {
                     catalogue_tx.send(index.clone()).unwrap();
                     resume_rx.recv().unwrap();
@@ -982,7 +982,7 @@ fn discovery_and_segments_publish_without_losing_records() {
     assert!(catalogue.search(&all_query()).is_err());
     assert!(
         catalogue
-            .get_record("data", "~generated:data/f0000.json", ReturnMode::Locator)
+            .get_record("data", "~generated:data/f0000.row", ReturnMode::Locator)
             .is_err()
     );
     assert!(catalogue.search_reference(&all_query()).is_err());
@@ -1199,7 +1199,7 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/broken.json"), b"{ broken").unwrap();
+    std::fs::write(root.join("data/broken.row"), b"{ broken").unwrap();
     let definitions = vec![
         crate::source::test_support::document_folder("first", "data"),
         crate::source::test_support::document_folder("second", "data"),
@@ -1208,7 +1208,7 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
         &root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap()
     .wait_complete()
@@ -1239,9 +1239,9 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
 }
 
 #[test]
-fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
+fn lines_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-initial-jsonl-{}-{}",
+        "objekte-initial-lines-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -1250,17 +1250,17 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/multi.jsonl"),
-        b"{\"name\":\"first\"}\n{broken}\n{\"name\":\"third\"}\n",
+        root.join("data/multi.rows"),
+        b"(\"name\"=\"first\")\n(broken)\n(\"name\"=\"third\")\n",
     )
     .unwrap();
     let definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap()
     .wait_complete()
@@ -1301,7 +1301,7 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1343,14 +1343,14 @@ fn large_framed_file_admission_has_component_accounting() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let mut source = b"{\"title\":\"".to_vec();
+    let mut source = b"(\"title\"=\"".to_vec();
     source.extend(std::iter::repeat_n(b'x', 8 * 1024 * 1024 + 1));
-    source.extend_from_slice(b"\"}\n");
-    std::fs::write(root.join("data/large.jsonl"), source).unwrap();
+    source.extend_from_slice(b"\")\n");
+    std::fs::write(root.join("data/large.rows"), source).unwrap();
     let definitions = vec![CollectionDefinition::folder(
         "data",
         "data",
-        crate::source::test_support::LINES,
+        crate::source::test_support::line_format(),
     )];
     let options = RepositoryOptions {
         build_workers: std::num::NonZeroUsize::new(2),
@@ -1361,7 +1361,7 @@ fn large_framed_file_admission_has_component_accounting() {
         &root,
         definitions.clone(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap();
     let index = task.wait_complete().unwrap();
@@ -1405,8 +1405,8 @@ fn incremental_admission_totals_match_each_collection() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/one.json"), br#"{"title":"one"}"#).unwrap();
-    std::fs::write(root.join("data/two.json"), br#"{"title":"two"}"#).unwrap();
+    std::fs::write(root.join("data/one.row"), br#"("title"="one")"#).unwrap();
+    std::fs::write(root.join("data/two.row"), br#"("title"="two")"#).unwrap();
     let definitions = ["first", "second"]
         .into_iter()
         .map(|name| crate::source::test_support::document_folder(name, "data"))
@@ -1418,7 +1418,7 @@ fn incremental_admission_totals_match_each_collection() {
             profile_build: true,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap();
     let index = task.wait_complete().unwrap();
@@ -1446,11 +1446,11 @@ fn incremental_admission_totals_match_each_collection() {
 }
 
 #[test]
-fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
+fn direct_fixture_build_matches_static_inference_overlap_and_native_publication() {
     use crate::inference::{InferenceConfig, InferenceMode};
 
     let root = std::env::temp_dir().join(format!(
-        "objekte-direct-json-{}-{}",
+        "objekte-direct-fixture-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -1458,9 +1458,9 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), br#"{"name":"alpha","n":1}"#).unwrap();
-    std::fs::write(root.join("data/b.json"), br#"{"name":"beta","n":2}"#).unwrap();
-    std::fs::write(root.join("data/c.json"), b"{broken").unwrap();
+    std::fs::write(root.join("data/a.row"), br#"("name"="alpha","n"=1)"#).unwrap();
+    std::fs::write(root.join("data/b.row"), br#"("name"="beta","n"=2)"#).unwrap();
+    std::fs::write(root.join("data/c.row"), b"(broken").unwrap();
     let definitions = ["one", "two"]
         .into_iter()
         .map(|name| crate::source::test_support::document_folder(name, "data"))
@@ -1479,7 +1479,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         &root,
         definitions.clone(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1488,7 +1488,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         &root,
         definitions.clone(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1545,13 +1545,13 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         assert_eq!(hits(actual), hits(expected.clone()));
         for name in ["one", "two"] {
             assert_eq!(
-                serde_json::to_value(view.repository().inference_report(name).unwrap()).unwrap(),
-                serde_json::to_value(static_repo.inference_report(name).unwrap()).unwrap()
+                bincode::serialize(view.repository().inference_report(name).unwrap()).unwrap(),
+                bincode::serialize(static_repo.inference_report(name).unwrap()).unwrap()
             );
             assert_eq!(
-                serde_json::to_value(view.repository().inference_index_diagnostics(name).unwrap())
+                bincode::serialize(&view.repository().inference_index_diagnostics(name).unwrap())
                     .unwrap(),
-                serde_json::to_value(static_repo.inference_index_diagnostics(name).unwrap())
+                bincode::serialize(&static_repo.inference_index_diagnostics(name).unwrap())
                     .unwrap()
             );
         }
@@ -1562,7 +1562,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
         &root,
         definitions,
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1596,11 +1596,11 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
                     return Err("last file binding failed deliberately".into());
                 }
             }
-            JsonLinesReader.frame(bytes)
+            LINE_READER.frame(bytes)
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonLinesReader.parse(bytes)
+            LINE_READER.parse(bytes)
         }
     }
 
@@ -1616,8 +1616,8 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
         ));
         std::fs::create_dir_all(root.join("shared")).unwrap();
         std::fs::create_dir_all(root.join("independent")).unwrap();
-        std::fs::write(root.join("independent/solo.json"), b"{}").unwrap();
-        let mut bytes = b"{\"id\":\"one\"}\n{\"id\":\"two\"}\n".to_vec();
+        std::fs::write(root.join("independent/solo.row"), b"()").unwrap();
+        let mut bytes = b"(\"id\"=\"one\")\n(\"id\"=\"two\")\n".to_vec();
         if empty {
             bytes.clear();
         }
@@ -1627,7 +1627,7 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
         std::fs::write(root.join("shared/two.bindings"), bytes).unwrap();
         let (entered, arrivals) = mpsc::channel();
         let (release, exits) = mpsc::channel();
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register(
                 "shared-binding",
@@ -1664,7 +1664,7 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
             .unwrap()
             .id;
         let solo = catalog
-            .file_by_path(std::path::Path::new("independent/solo.json"))
+            .file_by_path(std::path::Path::new("independent/solo.row"))
             .unwrap()
             .id;
         assert_eq!(catalog.records_for_file(solo).unwrap().len(), 1);
@@ -1722,7 +1722,7 @@ fn registered_stream_seals_private_work_before_eof_and_discards_late_failure() {
             Err("expected registered stream".into())
         }
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonLinesReader.parse(bytes)
+            LINE_READER.parse(bytes)
         }
         fn stream_build_chunks(
             &self,
@@ -1778,7 +1778,7 @@ fn registered_stream_seals_private_work_before_eof_and_discards_late_failure() {
         let (paused, waiting) = mpsc::channel();
         let (release, resume) = mpsc::channel();
         let (catalogue, views) = mpsc::channel();
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register(
                 "private-stream",
@@ -1851,20 +1851,23 @@ fn registered_stream_seals_private_work_before_eof_and_discards_late_failure() {
 }
 
 #[test]
-fn small_jsonl_partitions_follow_the_record_target_across_file_continuations() {
+fn small_lines_partitions_follow_the_record_target_across_file_continuations() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-small-jsonl-segments-{}",
+        "objekte-small-lines-segments-{}",
         std::process::id()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     let bytes = |start| {
         (start..start + 10)
-            .map(|id| format!("{{\"id\":\"row-{id}\"}}\n"))
+            .map(|id| format!("(\"id\"=\"row-{id}\")\n"))
             .collect::<String>()
     };
-    std::fs::write(root.join("data/initial.jsonl"), bytes(0)).unwrap();
-    let mut definition =
-        CollectionDefinition::folder("entries", "data", crate::source::test_support::LINES);
+    std::fs::write(root.join("data/initial.rows"), bytes(0)).unwrap();
+    let mut definition = CollectionDefinition::folder(
+        "entries",
+        "data",
+        crate::source::test_support::line_format(),
+    );
     definition.identity =
         crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
     let index = Index::start_build(
@@ -1877,7 +1880,7 @@ fn small_jsonl_partitions_follow_the_record_target_across_file_continuations() {
             },
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap()
     .wait_complete()
@@ -1891,7 +1894,7 @@ fn small_jsonl_partitions_follow_the_record_target_across_file_continuations() {
             .collect::<Vec<_>>(),
         [4, 4, 2]
     );
-    let next = root.join("data/next.jsonl");
+    let next = root.join("data/next.rows");
     std::fs::write(&next, bytes(10)).unwrap();
     let added = index.add_file(&next).unwrap();
     assert_eq!(added.indexed_records, 10);
@@ -1921,7 +1924,7 @@ fn ordinary_file_batches_respect_distinct_file_limit_before_decoding() {
         std::env::temp_dir().join(format!("objekte-small-file-limit-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for file in ["a", "b", "c"] {
-        std::fs::write(root.join(format!("data/{file}.json")), b"{}").unwrap();
+        std::fs::write(root.join(format!("data/{file}.row")), b"()").unwrap();
     }
     let index = Index::start_build(
         &root,
@@ -1935,7 +1938,7 @@ fn ordinary_file_batches_respect_distinct_file_limit_before_decoding() {
             },
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap()
     .wait_complete()
@@ -1968,11 +1971,11 @@ fn initial_publication_rechecks_symlink_eligibility_after_framing() {
             use std::os::unix::fs::symlink;
             std::fs::rename(self.0.join("selected"), self.0.join(self.1)).unwrap();
             symlink(self.1, self.0.join("selected")).unwrap();
-            JsonLinesReader.frame(bytes)
+            LINE_READER.frame(bytes)
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonLinesReader.parse(bytes)
+            LINE_READER.parse(bytes)
         }
     }
 
@@ -1987,8 +1990,8 @@ fn initial_publication_rechecks_symlink_eligibility_after_framing() {
         ));
         std::fs::create_dir_all(root.join("data/selected")).unwrap();
         let relative = std::path::Path::new("data/selected/entry.relink");
-        std::fs::write(root.join(relative), b"{}\n").unwrap();
-        let mut registry = SourceRegistry::builtin();
+        std::fs::write(root.join(relative), b"()\n").unwrap();
+        let mut registry = crate::source::test_support::fixture_registry();
         registry
             .register(
                 "relink-test",
@@ -2034,11 +2037,11 @@ fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
         }
 
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
-            JsonLinesReader.frame(bytes)
+            LINE_READER.frame(bytes)
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonLinesReader.parse(bytes)
+            LINE_READER.parse(bytes)
         }
     }
 
@@ -2054,11 +2057,11 @@ fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
         let managed = root.join("data/managed.whole");
         let document = |prefix: &str| {
             (0..count)
-                .map(|id| format!("{{\"id\":\"{prefix}{id:04}\"}}\n"))
+                .map(|id| format!("(\"id\"=\"{prefix}{id:04}\")\n"))
                 .collect::<String>()
         };
         std::fs::write(&initial, document("a")).unwrap();
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register("whole-lines", 1, "whole", Arc::new(WholeLines))
             .unwrap();
@@ -2134,7 +2137,7 @@ fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
             ranges.sort_by(|a, b| a.0.cmp(&b.0));
             assert_eq!(ranges.len(), count);
             for (i, (id, range)) in ranges.into_iter().enumerate() {
-                let width = format!("{{\"id\":\"{prefix}{i:04}\"}}\n").len() as u64;
+                let width = format!("(\"id\"=\"{prefix}{i:04}\")\n").len() as u64;
                 assert_eq!(id, format!("{prefix}{i:04}"));
                 assert_eq!(
                     range,
@@ -2189,7 +2192,7 @@ impl SourceReader for RegisteredPackingReader {
     }
 
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-        JsonLinesReader.parse(bytes)
+        LINE_READER.parse(bytes)
     }
 
     fn stream_build_chunks(
@@ -2208,7 +2211,7 @@ impl SourceReader for RegisteredPackingReader {
                     || buffered
                         .fill_buf()
                         .map_err(|e| e.to_string())?
-                        .starts_with(b"{\"id\":\"held"))
+                        .starts_with(b"(\"id\"=\"held"))
             {
                 gate.entered.send(()).map_err(|e| e.to_string())?;
                 gate.released
@@ -2220,7 +2223,8 @@ impl SourceReader for RegisteredPackingReader {
                     return Err("fatal final binding".into());
                 }
             }
-            let mut framer = crate::source::framing::BoundedJsonLines::from_reader(buffered);
+            let mut framer =
+                crate::source::test_support::framing::FixtureLines::from_reader(buffered);
             while let Some(chunk) = framer.next_chunk(max_bytes, max_ranges)? {
                 emit(chunk)?;
             }
@@ -2245,7 +2249,7 @@ fn registered_small_files_pack_into_shared_segments_and_publications() {
             std::process::id()
         ));
         std::fs::create_dir_all(root.join("data")).unwrap();
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register(
                 "packing",
@@ -2260,7 +2264,7 @@ fn registered_small_files_pack_into_shared_segments_and_publications() {
         for file in 0..64 {
             std::fs::write(
                 root.join(format!("data/{file:02}.pack")),
-                format!("{{\"id\":\"r{file:02}\"}}\n"),
+                format!("(\"id\"=\"r{file:02}\")\n"),
             )
             .unwrap();
         }
@@ -2325,7 +2329,7 @@ fn independent_registered_groups_publish_while_a_binding_waits() {
     let padded = |prefix: &str, large: bool| {
         let mut data = Vec::new();
         for record in 0..if large { 10 } else { 1 } {
-            let mut line = format!("{{\"id\":\"{prefix}{record}\"}}").into_bytes();
+            let mut line = format!("(\"id\"=\"{prefix}{record}\")").into_bytes();
             if large {
                 line.resize(950 * 1024, b' ');
             }
@@ -2355,7 +2359,7 @@ fn independent_registered_groups_publish_while_a_binding_waits() {
             released: std::sync::Mutex::new(released),
             fail,
         });
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register(
                 "packing",
@@ -2458,7 +2462,7 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..10 {
-        std::fs::write(root.join(format!("data/item-{number}.json")), b"{}").unwrap();
+        std::fs::write(root.join(format!("data/item-{number}.row")), b"()").unwrap();
     }
     let index = Index::start_build(
         &root,
@@ -2472,7 +2476,7 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
             },
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap()
     .wait_complete()
@@ -2492,12 +2496,12 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
     assert_eq!(result.count, Some(10));
     let catalogue = view.file_catalog().unwrap();
     for number in 0..10 {
-        let path = format!("data/item-{number}.json");
+        let path = format!("data/item-{number}.row");
         let file = catalogue.file_by_path(std::path::Path::new(&path)).unwrap();
         assert_eq!(catalogue.records_for_file(file.id).unwrap().len(), 1);
     }
     let file = view
-        .file_handle_for_path(std::path::Path::new("data/item-0.json"))
+        .file_handle_for_path(std::path::Path::new("data/item-0.row"))
         .unwrap();
     index.delete_file(file).unwrap();
     assert_eq!(view.search(&query).unwrap().count, Some(10));
@@ -2509,11 +2513,11 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
 fn registered_cancellation_keeps_prior_group_and_drains_active_callback() {
     let root = std::env::temp_dir().join(format!("objekte-review-cancel-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/held.pack"), b"{\"id\":\"held0\"}\n").unwrap();
-    std::fs::write(root.join("data/peer.pack"), b"{\"id\":\"peer\"}\n").unwrap();
+    std::fs::write(root.join("data/held.pack"), b"(\"id\"=\"held0\")\n").unwrap();
+    std::fs::write(root.join("data/peer.pack"), b"(\"id\"=\"peer\")\n").unwrap();
     let (entered, arrivals) = mpsc::sync_channel(1);
     let (release, exits) = mpsc::channel();
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
             "packing",
@@ -2658,7 +2662,7 @@ fn registered_fatal_completion_waits_for_held_sibling() {
     let (fatal, fatal_gate) = mpsc::channel();
     let (held, held_gate) = mpsc::channel();
     let exited = Arc::new(AtomicUsize::new(0));
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
             "packing",
@@ -2742,7 +2746,7 @@ fn registered_empty_frames_keep_constant_unsealed_work() {
             unreachable!()
         }
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonLinesReader.parse(bytes)
+            LINE_READER.parse(bytes)
         }
         fn stream_build_chunks(
             &self,
@@ -2783,7 +2787,7 @@ fn registered_empty_frames_keep_constant_unsealed_work() {
     for (headers, trailer) in [
         (64, &b""[..]),
         (30_000, &b""[..]),
-        (30_000, &br#"{"id":"tail"}"#[..]),
+        (30_000, &br#"("id"="tail")"#[..]),
         (30_000, &b"!"[..]),
     ] {
         let root = std::env::temp_dir().join(format!(
@@ -2795,8 +2799,8 @@ fn registered_empty_frames_keep_constant_unsealed_work() {
         let mut input = vec![b'#'; headers];
         input.extend_from_slice(trailer);
         std::fs::write(root.join("data/headers.pack"), input).unwrap();
-        std::fs::write(root.join("data/other.pack"), br#"{"id":"peer"}"#).unwrap();
-        let mut sources = SourceRegistry::builtin();
+        std::fs::write(root.join("data/other.pack"), br#"("id"="peer")"#).unwrap();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register("packing", 1, "pack", Arc::new(HeaderReader))
             .unwrap();
@@ -2890,7 +2894,7 @@ fn large_registered_file_decodes_concurrently_beside_a_small_file() {
             unreachable!()
         }
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            if bytes.starts_with(b"{\"id\":\"large") {
+            if bytes.starts_with(b"(\"id\"=\"large") {
                 self.arrival.send(()).map_err(|e| e.to_string())?;
                 let (mutex, changed) = self.release.as_ref();
                 let (guard, timed) = changed
@@ -2904,7 +2908,7 @@ fn large_registered_file_decodes_concurrently_beside_a_small_file() {
                     return Err("timed out waiting for large decoder release".into());
                 }
             }
-            JsonLinesReader.parse(bytes)
+            LINE_READER.parse(bytes)
         }
         fn stream_build_chunks(
             &self,
@@ -2926,17 +2930,17 @@ fn large_registered_file_decodes_concurrently_beside_a_small_file() {
         std::process::id()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/small.pack"), b"{\"id\":\"small\"}\n").unwrap();
+    std::fs::write(root.join("data/small.pack"), b"(\"id\"=\"small\")\n").unwrap();
     let mut bytes = Vec::new();
     for id in 0..9 {
-        bytes.extend_from_slice(format!("{{\"id\":\"large{id}\"}}").as_bytes());
+        bytes.extend_from_slice(format!("(\"id\"=\"large{id}\")").as_bytes());
         bytes.resize((id + 1) * (1024 * 1024) - 1, b' ');
         bytes.push(b'\n');
     }
     std::fs::write(root.join("data/large.pack"), bytes).unwrap();
     let (arrival, entered) = mpsc::sync_channel(9);
     let release = Arc::new((std::sync::Mutex::new(false), std::sync::Condvar::new()));
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
             "packing",
@@ -2988,15 +2992,15 @@ fn large_registered_file_decodes_concurrently_beside_a_small_file() {
 }
 
 #[test]
-fn registered_bounded_jsonl_blank_frames_keep_constant_unsealed_work() {
+fn registered_bounded_lines_blank_frames_keep_constant_unsealed_work() {
     use sha2::{Digest, Sha256};
     use std::io::{BufWriter, Write};
 
     let line_size = 1024 * 1024;
     let mut blank = vec![b' '; line_size];
     blank[line_size - 1] = b'\n';
-    let record = b"{\"id\":\"tail\"}\n";
-    let peer_record = b"{\"id\":\"peer\"}\n";
+    let record = b"(\"id\"=\"tail\")\n";
+    let peer_record = b"(\"id\"=\"peer\")\n";
     let mut observations = Vec::new();
 
     for frames in [16, 64] {
@@ -3021,13 +3025,13 @@ fn registered_bounded_jsonl_blank_frames_keep_constant_unsealed_work() {
             drop(main);
             std::fs::write(root.join("data/peer.blank-lines"), peer_record).unwrap();
 
-            let mut sources = SourceRegistry::builtin();
+            let mut sources = crate::source::test_support::fixture_registry();
             sources
                 .register(
                     "bounded-blank-lines",
                     1,
                     "blank-lines",
-                    Arc::new(JsonLinesReader),
+                    Arc::new(LINE_READER),
                 )
                 .unwrap();
             let task = Index::start_build(
@@ -3110,3 +3114,5 @@ fn registered_bounded_jsonl_blank_frames_keep_constant_unsealed_work() {
         );
     }
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

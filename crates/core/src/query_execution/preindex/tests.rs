@@ -17,12 +17,12 @@ fn source_scan_matches_reference_search_before_an_index_exists() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/a.json"),
-        br#"{"title":"Alpha","meta":{"tag":"x"}}"#,
+        root.join("data/a.row"),
+        br#"("title"="Alpha","meta"=("tag"="x"))"#,
     )
     .unwrap();
-    std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
-    std::fs::write(root.join("data/c.json"), br#"{"title":"broken""#).unwrap();
+    std::fs::write(root.join("data/b.row"), br#"("title"="Beta")"#).unwrap();
+    std::fs::write(root.join("data/c.row"), br#"("title"="broken""#).unwrap();
     let mut definition = crate::source::test_support::document_folder("files", "data");
     definition
         .schema
@@ -36,15 +36,19 @@ fn source_scan_matches_reference_search_before_an_index_exists() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let scan =
-        SourceScan::open(&root, vec![definition.clone()], SourceRegistry::builtin()).unwrap();
+    let scan = SourceScan::open(
+        &root,
+        vec![definition.clone()],
+        crate::source::test_support::fixture_registry(),
+    )
+    .unwrap();
     let indexed = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition],
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -174,20 +178,20 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data/nested")).unwrap();
-    let plain = br#"{"title":"plain"}"#;
-    let percent = br#"{"title":"percent"}"#;
-    let broken = br#"{"title":"broken""#;
-    std::fs::write(root.join("data/plain.json"), plain).unwrap();
-    std::fs::write(root.join("data/nested/percent%file.json"), percent).unwrap();
-    std::fs::write(root.join("data/broken.json"), broken).unwrap();
+    let plain = br#"("title"="plain")"#;
+    let percent = br#"("title"="percent")"#;
+    let broken = br#"("title"="broken""#;
+    std::fs::write(root.join("data/plain.row"), plain).unwrap();
+    std::fs::write(root.join("data/nested/percent%file.row"), percent).unwrap();
+    std::fs::write(root.join("data/broken.row"), broken).unwrap();
     #[cfg(unix)]
-    let backslash = br#"{"title":"backslash"}"#;
+    let backslash = br#"("title"="backslash")"#;
     #[cfg(unix)]
-    std::fs::write(root.join("data/nested/back\\slash.json"), backslash).unwrap();
+    std::fs::write(root.join("data/nested/back\\slash.row"), backslash).unwrap();
 
     for format in [
-        crate::source::test_support::DOCUMENTS,
-        crate::source::test_support::DECODED_SCALARS,
+        crate::source::test_support::document_format(),
+        crate::source::test_support::scalar_format(),
     ] {
         let mut definition = CollectionDefinition::folder("files", "data", format.clone());
         definition.identity = IdentityPolicy::RelativePath;
@@ -195,11 +199,13 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
-            SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
-        let source = SourceRegistry::builtin().resolve(&format).unwrap();
+        let source = crate::source::test_support::fixture_registry()
+            .resolve(&format)
+            .unwrap();
         let file = |relative: &str| {
             let entry = indexed
                 .files
@@ -209,9 +215,9 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
                 .unwrap();
             (entry.id, entry.revision.modified_ns)
         };
-        let (plain_file, plain_modified) = file("data/plain.json");
-        let (percent_file, percent_modified) = file("data/nested/percent%file.json");
-        let (broken_file, broken_modified) = file("data/broken.json");
+        let (plain_file, plain_modified) = file("data/plain.row");
+        let (percent_file, percent_modified) = file("data/nested/percent%file.row");
+        let (broken_file, broken_modified) = file("data/broken.row");
         let relative_id = |relative: &std::path::Path| {
             RecordId::intrinsic(format!(
                 "path:{}",
@@ -221,21 +227,21 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
         };
         let mut expected = vec![
             ExpectedLocator {
-                path: "data/plain.json".into(),
+                path: "data/plain.row".into(),
                 start: 0,
                 end: plain.len() as u64,
                 class: crate::inventory::RecordClass::Logical,
-                id: relative_id(std::path::Path::new("plain.json")),
+                id: relative_id(std::path::Path::new("plain.row")),
             },
             ExpectedLocator {
-                path: "data/nested/percent%file.json".into(),
+                path: "data/nested/percent%file.row".into(),
                 start: 0,
                 end: percent.len() as u64,
                 class: crate::inventory::RecordClass::Logical,
-                id: relative_id(std::path::Path::new("nested/percent%file.json")),
+                id: relative_id(std::path::Path::new("nested/percent%file.row")),
             },
             ExpectedLocator {
-                path: "data/broken.json".into(),
+                path: "data/broken.row".into(),
                 start: 0,
                 end: broken.len() as u64,
                 class: crate::inventory::RecordClass::RawFallback,
@@ -243,7 +249,7 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
                     CollectionId(0),
                     source.id(),
                     source.version(),
-                    std::path::Path::new("data/broken.json"),
+                    std::path::Path::new("data/broken.row"),
                     broken_file,
                     broken_modified,
                     0,
@@ -253,21 +259,21 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
         ];
         #[cfg(unix)]
         {
-            let (backslash_file, backslash_modified) = file("data/nested/back\\slash.json");
+            let (backslash_file, backslash_modified) = file("data/nested/back\\slash.row");
             assert_eq!(
-                relative_id(std::path::Path::new("nested/back\\slash.json"))
+                relative_id(std::path::Path::new("nested/back\\slash.row"))
                     .0
                     .as_ref(),
-                "path:nested/back%5Cslash.json"
+                "path:nested/back%5Cslash.row"
             );
             expected.push(ExpectedLocator {
-                path: "data/nested/back\\slash.json".into(),
+                path: "data/nested/back\\slash.row".into(),
                 start: 0,
                 end: backslash.len() as u64,
                 class: crate::inventory::RecordClass::Logical,
                 id: {
-                    let id = relative_id(std::path::Path::new("nested/back\\slash.json"));
-                    assert_eq!(id.0.as_ref(), "path:nested/back%5Cslash.json");
+                    let id = relative_id(std::path::Path::new("nested/back\\slash.row"));
+                    assert_eq!(id.0.as_ref(), "path:nested/back%5Cslash.row");
                     id
                 },
             });
@@ -276,7 +282,12 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
         let _ = (plain_file, plain_modified, percent_file, percent_modified);
 
         let indexed_hits = indexed.search(&plain_query()).unwrap();
-        let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
+        let scan = SourceScan::open(
+            &root,
+            vec![definition],
+            crate::source::test_support::fixture_registry(),
+        )
+        .unwrap();
         let scanned_hits = scan
             .search(&plain_query(), &CancellationToken::new())
             .unwrap();
@@ -306,7 +317,7 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
                 .iter()
                 .find(|hit| {
                     hit.file.as_ref().expect("file origin").path
-                        == std::path::Path::new("data/broken.json")
+                        == std::path::Path::new("data/broken.row")
                 })
                 .unwrap();
             assert!(matches!(
@@ -320,9 +331,9 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
 }
 
 #[test]
-fn jsonl_identity_checks_exact_ranges_classes_and_fallback_identity() {
+fn lines_identity_checks_exact_ranges_classes_and_fallback_identity() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-jsonl-identity-{}-{}",
+        "objekte-lines-identity-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::SystemTime::UNIX_EPOCH)
@@ -330,19 +341,19 @@ fn jsonl_identity_checks_exact_ranges_classes_and_fallback_identity() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let first = br#"{"title":"first"}"#;
-    let second = br#"{"title":"second"}"#;
-    let broken = br#"{"title":"broken""#;
+    let first = br#"("title"="first")"#;
+    let second = br#"("title"="second")"#;
+    let broken = br#"("title"="broken""#;
     let bytes = [first.as_slice(), b"\n", second, b"\n", broken].concat();
     assert_eq!(bytes.len(), 54);
-    std::fs::write(root.join("data/items.jsonl"), &bytes).unwrap();
+    std::fs::write(root.join("data/items.rows"), &bytes).unwrap();
     let definition =
-        CollectionDefinition::folder("files", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("files", "data", crate::source::test_support::line_format());
     let indexed = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -350,33 +361,33 @@ fn jsonl_identity_checks_exact_ranges_classes_and_fallback_identity() {
         .files
         .files
         .iter()
-        .find(|entry| entry.relative_path == std::path::Path::new("data/items.jsonl"))
+        .find(|entry| entry.relative_path == std::path::Path::new("data/items.rows"))
         .unwrap();
     let expected = vec![
         ExpectedLocator {
-            path: "data/items.jsonl".into(),
+            path: "data/items.rows".into(),
             start: 0,
             end: 17,
             class: crate::inventory::RecordClass::Logical,
             id: RecordId::generated(file.id, file.revision.modified_ns, 0),
         },
         ExpectedLocator {
-            path: "data/items.jsonl".into(),
+            path: "data/items.rows".into(),
             start: 18,
             end: 36,
             class: crate::inventory::RecordClass::Logical,
             id: RecordId::generated(file.id, file.revision.modified_ns, 18),
         },
         ExpectedLocator {
-            path: "data/items.jsonl".into(),
+            path: "data/items.rows".into(),
             start: 37,
             end: 54,
             class: crate::inventory::RecordClass::RawFallback,
             id: RecordId::fallback(
                 CollectionId(0),
-                "jsonl",
+                "fixture-lines",
                 1,
-                std::path::Path::new("data/items.jsonl"),
+                std::path::Path::new("data/items.rows"),
                 file.id,
                 file.revision.modified_ns,
                 37,
@@ -385,14 +396,23 @@ fn jsonl_identity_checks_exact_ranges_classes_and_fallback_identity() {
         },
     ];
     let indexed_hits = indexed.search(&plain_query()).unwrap();
-    let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
+    let scan = SourceScan::open(
+        &root,
+        vec![definition],
+        crate::source::test_support::fixture_registry(),
+    )
+    .unwrap();
     let scanned_hits = scan
         .search(&plain_query(), &CancellationToken::new())
         .unwrap();
     assert_eq!(indexed_hits.count, Some(3));
     assert_eq!(scanned_hits.count, Some(3));
-    assert_expected_locators(&indexed_hits.hits, &expected, "indexed JSONL");
-    assert_expected_locators(&scanned_hits.hits, &expected, "source-scan JSONL");
+    assert_expected_locators(&indexed_hits.hits, &expected, "indexed line-framed source");
+    assert_expected_locators(
+        &scanned_hits.hits,
+        &expected,
+        "source-scan line-framed source",
+    );
     assert_eq!(
         locator_sequence(&scanned_hits.hits),
         locator_sequence(&indexed_hits.hits)
@@ -401,9 +421,9 @@ fn jsonl_identity_checks_exact_ranges_classes_and_fallback_identity() {
 }
 
 #[test]
-fn registered_json_uses_generated_ids_with_builtin_scalar_verification() {
+fn registered_fixture_uses_generated_ids_with_declared_scalar_verification() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-registered-json-success-{}-{}",
+        "objekte-registered-fixture-success-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::SystemTime::UNIX_EPOCH)
@@ -411,11 +431,13 @@ fn registered_json_uses_generated_ids_with_builtin_scalar_verification() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let bytes = br#"{"title":"registered"}"#;
-    std::fs::write(root.join("data/one.json"), bytes).unwrap();
-    let format = SourceFormat::registered("json");
+    let bytes = br#"("title"="registered")"#;
+    std::fs::write(root.join("data/one.row"), bytes).unwrap();
+    let format = SourceFormat::registered("fixture-record");
     let definition = CollectionDefinition::folder("files", "data", format.clone());
-    let source = SourceRegistry::builtin().resolve(&format).unwrap();
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&format)
+        .unwrap();
     assert_eq!(
         source.scalar_verification(),
         Some(crate::source::verification::ScalarVerification::ResolvedStrings)
@@ -424,7 +446,7 @@ fn registered_json_uses_generated_ids_with_builtin_scalar_verification() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -432,22 +454,31 @@ fn registered_json_uses_generated_ids_with_builtin_scalar_verification() {
         .files
         .files
         .iter()
-        .find(|entry| entry.relative_path == std::path::Path::new("data/one.json"))
+        .find(|entry| entry.relative_path == std::path::Path::new("data/one.row"))
         .unwrap();
     let expected = vec![ExpectedLocator {
-        path: "data/one.json".into(),
+        path: "data/one.row".into(),
         start: 0,
         end: bytes.len() as u64,
         class: crate::inventory::RecordClass::Logical,
         id: RecordId::generated(file.id, file.revision.modified_ns, 0),
     }];
     let indexed_hits = indexed.search(&plain_query()).unwrap();
-    let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
+    let scan = SourceScan::open(
+        &root,
+        vec![definition],
+        crate::source::test_support::fixture_registry(),
+    )
+    .unwrap();
     let scanned_hits = scan
         .search(&plain_query(), &CancellationToken::new())
         .unwrap();
-    assert_expected_locators(&indexed_hits.hits, &expected, "indexed registered json");
-    assert_expected_locators(&scanned_hits.hits, &expected, "source scan registered json");
+    assert_expected_locators(&indexed_hits.hits, &expected, "indexed registered fixture");
+    assert_expected_locators(
+        &scanned_hits.hits,
+        &expected,
+        "source scan registered fixture",
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -461,12 +492,16 @@ fn relative_path_errors_name_one_valid_file_and_exact_range() {
             .unwrap()
             .as_nanos(),
     ));
-    std::fs::create_dir_all(root.join("jsonl")).unwrap();
-    std::fs::write(root.join("jsonl/valid.jsonl"), b"{\"title\":\"valid\"}\n").unwrap();
+    std::fs::create_dir_all(root.join("fixture-lines")).unwrap();
+    std::fs::write(
+        root.join("fixture-lines/valid.rows"),
+        b"(\"title\"=\"valid\")\n",
+    )
+    .unwrap();
     for (format, source_path, file_name, end) in [(
-        crate::source::test_support::LINES,
-        "jsonl",
-        "valid.jsonl",
+        crate::source::test_support::line_format(),
+        "fixture-lines",
+        "valid.rows",
         17,
     )] {
         let mut definition = CollectionDefinition::folder("files", source_path, format.clone());
@@ -475,7 +510,7 @@ fn relative_path_errors_name_one_valid_file_and_exact_range() {
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
-            SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .err()
         .expect("relative path should be rejected")
@@ -486,7 +521,12 @@ fn relative_path_errors_name_one_valid_file_and_exact_range() {
             error.contains("relative-path identity requires a reader that supports it"),
             "{format:?}: {error}"
         );
-        let scan = SourceScan::open(&root, vec![definition], SourceRegistry::builtin()).unwrap();
+        let scan = SourceScan::open(
+            &root,
+            vec![definition],
+            crate::source::test_support::fixture_registry(),
+        )
+        .unwrap();
         let error = scan
             .search(&plain_query(), &CancellationToken::new())
             .unwrap_err();

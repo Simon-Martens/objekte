@@ -93,10 +93,8 @@ fn declared_and_prohibited_paths_keep_observations_without_posting_maps() {
     )
     .unwrap();
     for (slot, text) in ["one", "two", "one"].into_iter().enumerate() {
-        let value = Value::from_json(serde_json::json!({
-            "manual": text, "blocked": text, "eligible": text
-        }))
-        .unwrap();
+        let value =
+            fixture_value!({ "manual" => (text), "blocked" => (text), "eligible" => (text) });
         observer
             .observe_record_with_schema(RecordSlot(slot as u32), &value, Some(&schema))
             .unwrap();
@@ -163,12 +161,7 @@ fn manual_and_opt_out_short_summaries_stop_at_existing_distinct_bounds() {
         for size in partitions {
             let mut batch = InferenceBuilder::new(config, true).unwrap();
             for (local, value) in values[cursor..cursor + size].iter().enumerate() {
-                let record = Value::from_json(serde_json::json!({
-                    "manual": value,
-                    "blocked": value,
-                    "eligible": "same",
-                }))
-                .unwrap();
+                let record = fixture_value!({ "manual" => (value), "blocked" => (value), "eligible" => ("same") });
                 batch
                     .observe_record_with_schema(RecordSlot(local as u32), &record, Some(&schema))
                     .unwrap();
@@ -259,20 +252,12 @@ fn repeated_and_unusual_paths_reuse_names_and_traversal_storage() {
         true,
     )
     .unwrap();
-    let first = Value::from_json(serde_json::json!({
-        "unusual.key": {"nested": [null, {"leaf": "a"}]},
-        "other": true
-    }))
-    .unwrap();
+    let first = fixture_value!({ "unusual.key" => { "nested" => [null, { "leaf" => ("a") }] }, "other" => (true) });
     observer.observe_record(RecordSlot(0), &first).unwrap();
     let names = observer.field_names.len();
     let capacity = observer.visit_path.capacity();
     assert!(capacity > 0);
-    let second = Value::from_json(serde_json::json!({
-        "other": false,
-        "unusual.key": {"nested": [{"leaf": "b"}]}
-    }))
-    .unwrap();
+    let second = fixture_value!({ "other" => (false), "unusual.key" => { "nested" => [{ "leaf" => ("b") }] } });
     observer.observe_record(RecordSlot(1), &second).unwrap();
     assert_eq!(observer.field_names.len(), names);
     assert_eq!(observer.visit_path.capacity(), capacity);
@@ -397,3 +382,5 @@ fn long_and_already_dropped_values_never_build_owned_keys() {
     assert_eq!(indexed.key_builds, 0);
     assert_eq!(indexed.short_values.as_ref().unwrap().len(), 1);
 }
+
+use crate::source::test_support::fixture_value;

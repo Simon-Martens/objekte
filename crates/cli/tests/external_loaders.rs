@@ -6,7 +6,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use objekte_loader_json::configuration::load_optional_schema;
 use objekte_search_core::inventory::ByteRange;
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::model::LogicalType;
+use objekte_search_core::model::{LogicalType, RecordId};
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
@@ -102,6 +102,17 @@ fn loader_registration_is_independent_and_preserves_bytes() {
     for hit in result.hits {
         assert!(!hit.matched_fields.is_empty());
         let range = hit.source_range().unwrap();
+        let file = hit.file.as_ref().unwrap();
+        if hit.collection == "documents" {
+            assert_eq!(hit.record_id, "path:one.json");
+        } else {
+            assert_eq!(
+                hit.record_id,
+                RecordId::generated(file.file_id, file.revision.modified_ns, range.start)
+                    .0
+                    .as_ref()
+            );
+        }
         let mut expected = document.to_vec();
         if hit.collection == "lines" && range.start == 4 {
             expected.push(b'\r');
@@ -277,6 +288,13 @@ fn opened_inputs_reach_the_registered_reader_and_exact_counts_skip_content() {
         .unwrap()
         .search(&query(&["texts"], ReturnMode::Bytes))
         .unwrap();
+    let file = result.hits[0].file.as_ref().unwrap();
+    assert_eq!(
+        result.hits[0].record_id,
+        RecordId::generated(file.file_id, file.revision.modified_ns, 0)
+            .0
+            .as_ref()
+    );
     assert_eq!(
         result.hits[0].payload,
         Some(Payload::Bytes(b"first".to_vec()))
@@ -382,3 +400,9 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         "contents",
     );
 }
+
+#[path = "external_loaders/document.rs"]
+mod document;
+
+#[path = "external_loaders/compatibility.rs"]
+mod compatibility;

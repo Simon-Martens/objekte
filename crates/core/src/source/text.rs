@@ -61,7 +61,7 @@ pub fn text_segments(value: &Value) -> Vec<TextSegment> {
     output
 }
 
-#[cfg(test)]
+#[cfg(feature = "test-hooks")]
 pub(crate) fn visit_logical_strings(value: &Value, emit: &mut dyn FnMut(&str)) {
     let _ = visit_logical_strings_and_empty(value, emit);
 }

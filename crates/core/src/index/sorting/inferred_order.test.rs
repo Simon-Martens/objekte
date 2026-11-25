@@ -223,16 +223,16 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let root = std::env::temp_dir().join(format!("objekte-collation-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (id, body) in [
-        ("a", r#"{"name":"ä"}"#),
-        ("b", r#"{"name":"z"}"#),
-        ("c", r#"{"name":"a10"}"#),
-        ("d", r#"{"name":"a2"}"#),
-        ("e", r#"{"name":null}"#),
-        ("f", r#"{}"#),
-        ("g", r#"{"name":"A"}"#),
-        ("h", r#"{"name":"a"}"#),
+        ("a", r#"("name"="ä")"#),
+        ("b", r#"("name"="z")"#),
+        ("c", r#"("name"="a10")"#),
+        ("d", r#"("name"="a2")"#),
+        ("e", r#"("name"=null)"#),
+        ("f", r#"()"#),
+        ("g", r#"("name"="A")"#),
+        ("h", r#"("name"="a")"#),
     ] {
-        std::fs::write(root.join(format!("data/{id}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{id}.row")), body).unwrap();
     }
     let path = FieldPath::parse("name").unwrap();
     let mut schema = Schema::default();
@@ -250,7 +250,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -288,7 +288,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -309,7 +309,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -333,7 +333,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         &root,
         vec![changed.clone()],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -397,7 +397,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -418,7 +418,7 @@ fn cross_collection_sort_rejects_different_collation() {
     let root = std::env::temp_dir().join(format!("objekte-cross-sort-{}", std::process::id()));
     for name in ["a", "b"] {
         std::fs::create_dir_all(root.join(name)).unwrap();
-        std::fs::write(root.join(format!("{name}/one.json")), r#"{"name":"one"}"#).unwrap();
+        std::fs::write(root.join(format!("{name}/one.row")), r#"("name"="one")"#).unwrap();
     }
     let mut schema = Schema::default();
     schema
@@ -435,7 +435,7 @@ fn cross_collection_sort_rejects_different_collation() {
     let definitions = ["a", "b"].map(|name| CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema: schema.clone(),
@@ -450,7 +450,7 @@ fn cross_collection_sort_rejects_different_collation() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -499,12 +499,12 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), r#"{"name":"A"}"#).unwrap();
-    std::fs::write(root.join("data/b.json"), r#"{"name":"Z","required":true}"#).unwrap();
+    std::fs::write(root.join("data/a.row"), r#"("name"="A")"#).unwrap();
+    std::fs::write(root.join("data/b.row"), r#"("name"="Z","required"=true)"#).unwrap();
     for (id, name) in [("c", "C"), ("d", "D")] {
         std::fs::write(
-            root.join(format!("data/{id}.json")),
-            format!(r#"{{"name":"{name}","required":true}}"#),
+            root.join(format!("data/{id}.row")),
+            format!(r#"("name"="{name}","required"=true)"#),
         )
         .unwrap();
     }
@@ -578,7 +578,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             &root,
             definitions.clone(),
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -587,7 +587,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
                 .files
                 .iter()
                 .find(|file| {
-                    file.relative_path == std::path::PathBuf::from(format!("data/{name}.json"))
+                    file.relative_path == std::path::PathBuf::from(format!("data/{name}.row"))
                 })
                 .unwrap()
                 .status
@@ -600,11 +600,11 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
         for (descending, expected) in [
             (
                 false,
-                ["path:c.json", "path:d.json", "path:b.json", "path:a.json"],
+                ["path:c.row", "path:d.row", "path:b.row", "path:a.row"],
             ),
             (
                 true,
-                ["path:a.json", "path:b.json", "path:d.json", "path:c.json"],
+                ["path:a.row", "path:b.row", "path:d.row", "path:c.row"],
             ),
         ] {
             for offset in 0..4 {
@@ -631,7 +631,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             &root,
             definitions,
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

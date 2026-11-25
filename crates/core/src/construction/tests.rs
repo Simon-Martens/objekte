@@ -138,7 +138,7 @@ fn registered_streaming_reader_matches_whole_framing_and_aborts_atomically() {
     let path = root.join("data/source.pipe");
     let bytes = "one|München\ntwo|Leipzig".as_bytes();
     std::fs::write(&path, bytes).unwrap();
-    let mut sources = crate::source::registry::SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
             "pipe-stream",
@@ -214,7 +214,7 @@ fn registered_streaming_reader_matches_whole_framing_and_aborts_atomically() {
         }
     );
     for failure in ["range", "fatal"] {
-        let mut bad_sources = crate::source::registry::SourceRegistry::builtin();
+        let mut bad_sources = crate::source::test_support::fixture_registry();
         bad_sources
             .register(
                 "pipe-bad",
@@ -267,19 +267,19 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("shared.jsonl");
-    let bytes = b"{\"name\":\"one\"}\n{broken}\n{\"name\":\"three\"}\n";
+    let path = root.join("shared.rows");
+    let bytes = b"(\"name\"=\"one\")\n(broken)\n(\"name\"=\"three\")\n";
     std::fs::write(&path, bytes).unwrap();
     let input = SourceFileInput {
         id: FileId(0),
-        relative_path: "shared.jsonl".into(),
+        relative_path: "shared.rows".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
     let definition =
-        CollectionDefinition::folder("shared", ".", crate::source::test_support::LINES);
-    let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+        CollectionDefinition::folder("shared", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let expected = Some((input.id, Sha256::digest(bytes).into()));
     let batch = process_batch(
@@ -366,28 +366,28 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     assert_eq!(admitted, 3);
     assert_eq!(bounded.file_fingerprint, expected);
 
-    let json_bytes = b"{\"name\":\"single\"}";
-    std::fs::write(root.join("single.json"), json_bytes).unwrap();
-    let json_input = SourceFileInput {
+    let record_bytes = b"(\"name\"=\"single\")";
+    std::fs::write(root.join("single.row"), record_bytes).unwrap();
+    let record_input = SourceFileInput {
         id: FileId(0),
-        relative_path: "single.json".into(),
+        relative_path: "single.row".into(),
         revision: SourceRevision::from_metadata(
-            &std::fs::metadata(root.join("single.json")).unwrap(),
+            &std::fs::metadata(root.join("single.row")).unwrap(),
         )
         .unwrap(),
         created_ns: None,
     };
-    let json_source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::DOCUMENTS)
+    let record_source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::document_format())
         .unwrap();
     let generic = process_framed_file(
         &pool,
         Arc::new(root.clone()),
         Arc::new(crate::source::test_support::document_folder("single", ".")),
         CollectionId(0),
-        json_source,
-        json_input.id,
-        Arc::new(vec![json_input]),
+        record_source,
+        record_input.id,
+        Arc::new(vec![record_input]),
         BigramAlphabet::Ascii,
         InferenceConfig::default(),
         |_| Ok(()),
@@ -395,7 +395,7 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     .unwrap();
     assert_eq!(
         generic.file_fingerprint,
-        Some((FileId(0), Sha256::digest(json_bytes).into()))
+        Some((FileId(0), Sha256::digest(record_bytes).into()))
     );
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -434,9 +434,9 @@ fn assert_same_preparation(file: &PreparedFileBuild, supplied: &PreparedFileBuil
 }
 
 #[test]
-fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
+fn supplied_bytes_match_shared_lines_and_never_touch_source_path() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-supplied-jsonl-{}-{}",
+        "objekte-supplied-lines-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -444,13 +444,13 @@ fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("shared.jsonl");
+    let path = root.join("shared.rows");
     let definitions = [
-        CollectionDefinition::folder("first", ".", crate::source::test_support::LINES),
-        CollectionDefinition::folder("second", ".", crate::source::test_support::LINES),
+        CollectionDefinition::folder("first", ".", crate::source::test_support::line_format()),
+        CollectionDefinition::folder("second", ".", crate::source::test_support::line_format()),
     ];
-    let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let bindings = definitions
         .iter()
@@ -467,12 +467,12 @@ fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
     };
     for bytes in [
         b"".as_slice(),
-        b"{\"name\":\"one\"}\n{broken}\n{\"name\":\"three\"}\n".as_slice(),
+        b"(\"name\"=\"one\")\n(broken)\n(\"name\"=\"three\")\n".as_slice(),
     ] {
         std::fs::write(&path, bytes).unwrap();
         let input = SourceFileInput {
             id: FileId(91),
-            relative_path: "shared.jsonl".into(),
+            relative_path: "shared.rows".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: super::file_preparation::created_ns(&std::fs::metadata(&path).unwrap()),
         };
@@ -504,9 +504,7 @@ fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
 
 #[test]
 fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
-    use crate::source::{
-        DiagnosticCategory, ReaderDiagnostic, ReaderFailure, SourceReader, registry::SourceRegistry,
-    };
+    use crate::source::{DiagnosticCategory, ReaderDiagnostic, ReaderFailure, SourceReader};
     use sha2::Digest;
 
     struct ShiftedReader;
@@ -560,7 +558,7 @@ fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
     let path = root.join("shifted.shift");
     let bytes = b"header|one|two|";
     std::fs::write(&path, bytes).unwrap();
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register("shifted", 1, "shift", std::sync::Arc::new(ShiftedReader))
         .unwrap();
@@ -697,9 +695,9 @@ fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
 }
 
 #[test]
-fn supplied_bytes_match_json_and_broken_fallback_without_file() {
+fn supplied_bytes_match_fixture_and_broken_fallback_without_file() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-supplied-json-{}-{}",
+        "objekte-supplied-fixture-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -707,10 +705,10 @@ fn supplied_bytes_match_json_and_broken_fallback_without_file() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("data.json");
+    let path = root.join("data.row");
     let definition = crate::source::test_support::document_folder("data", ".");
-    let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::DOCUMENTS)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::document_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -721,11 +719,11 @@ fn supplied_bytes_match_json_and_broken_fallback_without_file() {
         mode: crate::inference::InferenceMode::Disabled,
         policy: Default::default(),
     };
-    for bytes in [b"{\"name\":\"one\"}".as_slice(), b"{broken}".as_slice()] {
+    for bytes in [b"(\"name\"=\"one\")".as_slice(), b"(broken)".as_slice()] {
         std::fs::write(&path, bytes).unwrap();
         let input = SourceFileInput {
             id: FileId(19),
-            relative_path: "data.json".into(),
+            relative_path: "data.row".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: None,
         };
@@ -756,7 +754,7 @@ fn supplied_bytes_match_json_and_broken_fallback_without_file() {
 }
 
 #[test]
-fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
+fn single_file_preparation_handles_lines_cardinality_and_shared_membership() {
     use sha2::{Digest, Sha256};
 
     let root = std::env::temp_dir().join(format!(
@@ -769,11 +767,11 @@ fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let definitions = [
-        CollectionDefinition::folder("first", ".", crate::source::test_support::LINES),
-        CollectionDefinition::folder("second", ".", crate::source::test_support::LINES),
+        CollectionDefinition::folder("first", ".", crate::source::test_support::line_format()),
+        CollectionDefinition::folder("second", ".", crate::source::test_support::line_format()),
     ];
-    let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let bindings = [
         FilePreparationBinding {
@@ -793,17 +791,17 @@ fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
     };
     for (bytes, expected) in [
         (b"".as_slice(), 0),
-        (b"{\"name\":\"one\"}\n".as_slice(), 1),
+        (b"(\"name\"=\"one\")\n".as_slice(), 1),
         (
-            b"{\"name\":\"one\"}\n{\"name\":\"two\"}\n{\"name\":\"three\"}\n".as_slice(),
+            b"(\"name\"=\"one\")\n(\"name\"=\"two\")\n(\"name\"=\"three\")\n".as_slice(),
             3,
         ),
     ] {
-        let path = root.join("shared.jsonl");
+        let path = root.join("shared.rows");
         std::fs::write(&path, bytes).unwrap();
         let input = SourceFileInput {
             id: FileId(91),
-            relative_path: "shared.jsonl".into(),
+            relative_path: "shared.rows".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: super::file_preparation::created_ns(&std::fs::metadata(&path).unwrap()),
         };
@@ -819,7 +817,7 @@ fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
         assert_eq!(prepared.collections.len(), 2);
         for (index, collection) in prepared.collections.iter().enumerate() {
             assert_eq!(collection.collection, CollectionId(index as u32));
-            assert_eq!(collection.source_id, "jsonl");
+            assert_eq!(collection.source_id, "fixture-lines");
             assert_eq!(collection.source_version, 1);
             assert_eq!(collection.contributions.len(), 1);
             let batch = &collection.contributions[0];
@@ -849,9 +847,10 @@ fn single_file_preparation_preserves_broken_fallback_and_bounded_chunks() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
-    let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -862,15 +861,15 @@ fn single_file_preparation_preserves_broken_fallback_and_bounded_chunks() {
         mode: crate::inference::InferenceMode::Disabled,
         policy: Default::default(),
     };
-    let mut bytes = b"{broken}\n".to_vec();
+    let mut bytes = b"(broken)\n".to_vec();
     for index in 0..600 {
-        bytes.extend_from_slice(format!("{{\"n\":{index}}}\n").as_bytes());
+        bytes.extend_from_slice(format!("(\"n\"={index})\n").as_bytes());
     }
-    let path = root.join("data.jsonl");
+    let path = root.join("data.rows");
     std::fs::write(&path, &bytes).unwrap();
     let input = SourceFileInput {
         id: FileId(500),
-        relative_path: "data.jsonl".into(),
+        relative_path: "data.rows".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
@@ -926,11 +925,11 @@ fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("data.json");
-    std::fs::write(&path, b"{broken}").unwrap();
+    let path = root.join("data.row");
+    std::fs::write(&path, b"(broken)").unwrap();
     let definition = crate::source::test_support::document_folder("data", ".");
-    let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::DOCUMENTS)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::document_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -943,7 +942,7 @@ fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
     };
     let input = SourceFileInput {
         id: FileId(33),
-        relative_path: "data.json".into(),
+        relative_path: "data.row".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
@@ -958,7 +957,7 @@ fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
     .unwrap();
     assert_eq!(
         prepared.fingerprint,
-        Some(Sha256::digest(b"{broken}").into())
+        Some(Sha256::digest(b"(broken)").into())
     );
     assert_eq!(
         prepared.collections[0].contributions[0].files[0]
@@ -966,7 +965,7 @@ fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
             .status,
         FileStatus::Broken
     );
-    std::fs::write(&path, b"{\"changed\":true}").unwrap();
+    std::fs::write(&path, b"(\"changed\"=true)").unwrap();
     assert!(
         prepare_file_build(
             &root,
@@ -991,18 +990,18 @@ fn measure_single_file_preparation_cost() {
         std::process::id(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("sample.jsonl");
-    std::fs::write(&path, b"{\"name\":\"a small record\",\"n\":42}\n").unwrap();
+    let path = root.join("sample.rows");
+    std::fs::write(&path, b"(\"name\"=\"a small record\",\"n\"=42)\n").unwrap();
     let input = SourceFileInput {
         id: FileId(1),
-        relative_path: "sample.jsonl".into(),
+        relative_path: "sample.rows".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
     let definition =
-        CollectionDefinition::folder("sample", ".", crate::source::test_support::LINES);
-    let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+        CollectionDefinition::folder("sample", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -1027,7 +1026,7 @@ fn measure_single_file_preparation_cost() {
         assert_eq!(prepared.collections[0].contributions[0].records.len(), 1);
     }
     eprintln!(
-        "single-file JSONL preparation: {:.1} µs/call (100 calls, debug/release as invoked)",
+        "single-file line-framed source preparation: {:.1} µs/call (100 calls, debug/release as invoked)",
         started.elapsed().as_secs_f64() * 10_000.0
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -1064,7 +1063,7 @@ fn worker_allowance_is_bounded_and_keeps_one_oversized_job_live() {
 fn file_workers_overlap_while_admission_keeps_file_order() {
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
-    use crate::source::{SourceReader, registry::SourceRegistry};
+    use crate::source::SourceReader;
 
     struct DelayedReader {
         active: AtomicUsize,
@@ -1166,7 +1165,7 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         first_failed: AtomicBool::new(false),
         parsed: AtomicUsize::new(0),
     });
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register("delayed", 1, "delayed", reader.clone())
         .unwrap();
@@ -1230,7 +1229,7 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         first_failed: AtomicBool::new(false),
         parsed: AtomicUsize::new(0),
     });
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register("delayed", 1, "delayed", failing.clone())
         .unwrap();
@@ -1264,7 +1263,7 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
 fn repository_pool_runs_file_batches_from_distinct_collections_together() {
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
-    use crate::source::{SourceReader, registry::SourceRegistry};
+    use crate::source::SourceReader;
 
     if std::thread::available_parallelism().map_or(1, NonZeroUsize::get) < 2 {
         return;
@@ -1335,7 +1334,7 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
         peak: AtomicUsize::new(0),
         second_started: AtomicBool::new(false),
     });
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register("cross", 1, "cross", reader.clone())
         .unwrap();
@@ -1379,7 +1378,7 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
     use std::collections::BTreeMap;
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
-    use crate::source::{SourceReader, registry::SourceRegistry};
+    use crate::source::SourceReader;
 
     struct TwoRanges {
         wait: bool,
@@ -1494,7 +1493,7 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
             peak: AtomicUsize::new(0),
             second_started: AtomicBool::new(false),
         });
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources.register("two", 1, "two", reader.clone()).unwrap();
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
@@ -1519,8 +1518,8 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
         assert_eq!(parallel_reader.peak.load(Ordering::SeqCst), 2);
     }
     assert_eq!(
-        serde_json::to_value(&one.collections()[0].generation).unwrap(),
-        serde_json::to_value(&parallel.collections()[0].generation).unwrap()
+        bincode::serialize(&one.collections()[0].generation).unwrap(),
+        bincode::serialize(&parallel.collections()[0].generation).unwrap()
     );
     assert_eq!(
         one.collections()[0].raw.normal,
@@ -1555,20 +1554,20 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
 }
 
 #[test]
-fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
-    use crate::source::json_lines::JsonLinesReader;
+fn oversized_lines_preserves_malformed_siblings_and_fallback_grams() {
+    use crate::source::test_support::LINE_READER;
     use crate::source::{
         LogicalTextCoverage, ReaderFailure, ScanProjection, SourceReader, TextDerivation,
         registry::SourceRegistry,
     };
 
     // Keep a reader on the pre-existing whole-buffer route for an independent
-    // build-path comparison against the built-in bounded JSONL route.
-    struct WholeJsonLines;
+    // build-path comparison against the built-in bounded line-framed source route.
+    struct WholeLines;
 
-    impl SourceReader for WholeJsonLines {
+    impl SourceReader for WholeLines {
         fn name(&self) -> &'static str {
-            "jsonl"
+            "fixture-lines"
         }
 
         fn logical_text_coverage(&self) -> LogicalTextCoverage {
@@ -1580,19 +1579,19 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         }
 
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
-            JsonLinesReader.frame(bytes)
+            LINE_READER.frame(bytes)
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonLinesReader.parse(bytes)
+            LINE_READER.parse(bytes)
         }
 
         fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-            JsonLinesReader.parse_outcome(bytes)
+            LINE_READER.parse_outcome(bytes)
         }
 
         fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-            JsonLinesReader.parse_for_build_outcome(bytes)
+            LINE_READER.parse_for_build_outcome(bytes)
         }
 
         fn parse_for_query(
@@ -1600,12 +1599,12 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
             bytes: &[u8],
             projection: &ScanProjection,
         ) -> Result<ExtractedRecord, String> {
-            JsonLinesReader.parse_for_query(bytes, projection)
+            LINE_READER.parse_for_query(bytes, projection)
         }
     }
 
     let root = std::env::temp_dir().join(format!(
-        "objekte-build-oversized-jsonl-{}-{}",
+        "objekte-build-oversized-lines-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -1613,12 +1612,12 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let mut bytes = b"{\"title\":\"".to_vec();
+    let mut bytes = b"(\"title\"=\"".to_vec();
     bytes.extend(std::iter::repeat_n(b'a', 8 * 1024 * 1024));
-    bytes.extend_from_slice(b"\"}\n{\"title\":\"healthy\"}\n{\"title\":\n{\"title\":\"");
+    bytes.extend_from_slice(b"\")\n(\"title\"=\"healthy\")\n(\"title\"=\n(\"title\"=\"");
     bytes.push(0xff);
-    bytes.extend_from_slice(b"\"}\n");
-    std::fs::write(root.join("data/large.jsonl"), bytes).unwrap();
+    bytes.extend_from_slice(b"\")\n");
+    std::fs::write(root.join("data/large.rows"), bytes).unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -1634,7 +1633,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -1655,7 +1654,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
                 build_workers: Some(NonZeroUsize::new(workers).unwrap()),
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap()
@@ -1664,7 +1663,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     let parallel = build(available.min(2));
     let mut whole_sources = SourceRegistry::default();
     whole_sources
-        .register("jsonl", 1, "jsonl", std::sync::Arc::new(WholeJsonLines))
+        .register("fixture-lines", 1, "rows", std::sync::Arc::new(WholeLines))
         .unwrap();
     let whole = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -1705,20 +1704,20 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         }
     }
     assert_eq!(
-        serde_json::to_value(&one.collections()[0].generation).unwrap(),
-        serde_json::to_value(&parallel.collections()[0].generation).unwrap()
+        bincode::serialize(&one.collections()[0].generation).unwrap(),
+        bincode::serialize(&parallel.collections()[0].generation).unwrap()
     );
     assert_eq!(
-        serde_json::to_value(&one.collections()[0].generation).unwrap(),
-        serde_json::to_value(&whole.collections()[0].generation).unwrap()
+        bincode::serialize(&one.collections()[0].generation).unwrap(),
+        bincode::serialize(&whole.collections()[0].generation).unwrap()
     );
     assert_eq!(
-        serde_json::to_value(&one.files().files[0].diagnostics).unwrap(),
-        serde_json::to_value(&parallel.files().files[0].diagnostics).unwrap()
+        bincode::serialize(&one.files().files[0].diagnostics).unwrap(),
+        bincode::serialize(&parallel.files().files[0].diagnostics).unwrap()
     );
     assert_eq!(
-        serde_json::to_value(&one.files().files[0].diagnostics).unwrap(),
-        serde_json::to_value(&whole.files().files[0].diagnostics).unwrap()
+        bincode::serialize(&one.files().files[0].diagnostics).unwrap(),
+        bincode::serialize(&whole.files().files[0].diagnostics).unwrap()
     );
     assert_eq!(
         one.collections()[0].raw.normal,
@@ -1781,13 +1780,13 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
             build_workers: NonZeroUsize::new(1),
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
-        serde_json::to_value(&one.collections()[0].generation).unwrap(),
-        serde_json::to_value(&restored.collections()[0].generation).unwrap()
+        bincode::serialize(&one.collections()[0].generation).unwrap(),
+        bincode::serialize(&restored.collections()[0].generation).unwrap()
     );
     assert_eq!(
         one.collections()[0].raw.normal,
@@ -1801,9 +1800,9 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
 }
 
 #[test]
-fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
+fn large_lines_many_chunks_keep_order_and_bounded_source_reservations() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-build-many-jsonl-chunks-{}-{}",
+        "objekte-build-many-lines-chunks-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -1818,14 +1817,14 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
     }
     let first_record_start = bytes.len() as u64;
     for index in 0..300 {
-        bytes.extend_from_slice(format!("{{\"title\":\"item-{index:03}\"}}\n").as_bytes());
+        bytes.extend_from_slice(format!("(\"title\"=\"item-{index:03}\")\n").as_bytes());
     }
     let source_size = bytes.len() as u64;
-    std::fs::write(root.join("data/large.jsonl"), bytes).unwrap();
+    std::fs::write(root.join("data/large.rows"), bytes).unwrap();
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema: Schema::default(),
@@ -1841,7 +1840,7 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
             build_workers: NonZeroUsize::new(1),
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1864,11 +1863,11 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
 }
 
 #[test]
-fn bounded_jsonl_read_failure_never_reopens_the_source() {
+fn bounded_lines_read_failure_never_reopens_the_source() {
     use std::io::{BufReader, Read};
 
     use crate::inference::{InferenceMode, InferencePolicy};
-    use crate::source::{framing::BoundedJsonLines, registry::SourceRegistry};
+    use crate::source::test_support::framing::FixtureLines;
 
     struct FailingRead {
         bytes: std::io::Cursor<Vec<u8>>,
@@ -1887,7 +1886,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
         }
     }
 
-    let bytes = b"{}\n".repeat(513);
+    let bytes = b"()\n".repeat(513);
     let root = std::env::temp_dir().join(format!(
         "objekte-missing-bounded-file-{}-{}",
         std::process::id(),
@@ -1899,7 +1898,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
     let definition = Arc::new(CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema: Schema::default(),
@@ -1910,7 +1909,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
     });
     let source_files = Arc::new(vec![SourceFileInput {
         id: FileId(0),
-        relative_path: "missing.jsonl".into(),
+        relative_path: "missing.rows".into(),
         revision: SourceRevision {
             modified_ns: 0,
             size: bytes.len() as u64,
@@ -1918,8 +1917,8 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
         },
         created_ns: None,
     }]);
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(1)
@@ -1930,7 +1929,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
         policy: InferencePolicy::default(),
     };
     let make = |limit| {
-        BoundedJsonLines::from_reader(BufReader::with_capacity(
+        FixtureLines::from_reader(BufReader::with_capacity(
             1,
             FailingRead {
                 bytes: std::io::Cursor::new(bytes.clone()),
@@ -1978,7 +1977,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
         BigramAlphabet::Ascii,
         inference,
         false,
-        BoundedJsonLines::from_reader(BufReader::new(std::io::Cursor::new(blank_lines))),
+        FixtureLines::from_reader(BufReader::new(std::io::Cursor::new(blank_lines))),
         BoundedBuildLimits {
             chunk_bytes: 1024,
             ranges: 256,
@@ -2040,7 +2039,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
             BigramAlphabet::Ascii,
             inference,
             false,
-            BoundedJsonLines::from_reader(std::io::Cursor::new(bytes)),
+            FixtureLines::from_reader(std::io::Cursor::new(bytes)),
             BoundedBuildLimits {
                 chunk_bytes: 8,
                 ranges: 1,
@@ -2052,7 +2051,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
     };
     let mut batches = Vec::new();
     let stats = run_spaced(
-        b"       \n{}\n       \n{bad}\n       \n",
+        b"       \n()\n       \n(bad)\n       \n",
         &|| false,
         &mut |batch| {
             let diagnostic_line = batch.files[0]
@@ -2100,7 +2099,7 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
         ids.push(
             inventory
                 .add(
-                    format!("{index:04}.json").into(),
+                    format!("{index:04}.row").into(),
                     SourceRevision {
                         modified_ns: 1,
                         size: 0,
@@ -2125,7 +2124,7 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
         ids.push(
             large
                 .add(
-                    format!("{index}.json").into(),
+                    format!("{index}.row").into(),
                     SourceRevision {
                         modified_ns: 1,
                         size: size * 1024 * 1024,
@@ -2152,22 +2151,22 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..512 {
         std::fs::write(
-            root.join(format!("data/{number:04}.jsonl")),
+            root.join(format!("data/{number:04}.rows")),
             if number == 511 {
-                b"{\"title\":\"x\",\"noise\":[]}".as_slice()
+                b"(\"title\"=\"x\",\"noise\"=[])".as_slice()
             } else {
-                b"{\"title\":\"x\"}".as_slice()
+                b"(\"title\"=\"x\")".as_slice()
             },
         )
         .unwrap();
     }
-    std::fs::write(root.join("data/0512.jsonl"), b"{\"title\":").unwrap();
+    std::fs::write(root.join("data/0512.rows"), b"(\"title\"=").unwrap();
     std::fs::write(
-        root.join("data/0513.jsonl"),
-        b"{\"title\":\"y\",\"noise\":[]}",
+        root.join("data/0513.rows"),
+        b"(\"title\"=\"y\",\"noise\"=[])",
     )
     .unwrap();
-    std::fs::write(root.join("data/0514.jsonl"), b"").unwrap();
+    std::fs::write(root.join("data/0514.rows"), b"").unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -2193,7 +2192,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -2215,7 +2214,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2223,7 +2222,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2238,7 +2237,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
                 ),
                 ..options
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -2322,12 +2321,12 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
         let a = &built.collections()[0];
         let b = &parallel.collections()[0];
         assert_eq!(
-            serde_json::to_value(&a.generation).unwrap(),
-            serde_json::to_value(&b.generation).unwrap()
+            bincode::serialize(&a.generation).unwrap(),
+            bincode::serialize(&b.generation).unwrap()
         );
         assert_eq!(
-            serde_json::to_value(&built.files().files).unwrap(),
-            serde_json::to_value(&parallel.files().files).unwrap()
+            bincode::serialize(&built.files().files).unwrap(),
+            bincode::serialize(&parallel.files().files).unwrap()
         );
         assert_eq!(a.logical_records, b.logical_records);
         assert_eq!(a.empty_array_records, b.empty_array_records);
@@ -2357,9 +2356,9 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
 fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
     let root = std::env::temp_dir().join(format!("objekte-build-shared-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let mut contents = "{\"title\":\n".repeat(70);
-    contents.push_str("{\"title\":\"ok\"}\n");
-    std::fs::write(root.join("data/mixed.jsonl"), contents).unwrap();
+    let mut contents = "(\"title\"=\n".repeat(70);
+    contents.push_str("(\"title\"=\"ok\")\n");
+    std::fs::write(root.join("data/mixed.rows"), contents).unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -2377,7 +2376,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         .map(|name| CollectionDefinition {
             name: name.into(),
             source_path: "data".into(),
-            format: crate::source::test_support::LINES,
+            format: crate::source::test_support::line_format(),
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema: schema.clone(),
@@ -2394,7 +2393,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         &root,
         definitions.clone(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2402,7 +2401,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         &root,
         definitions,
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2468,8 +2467,8 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
             format!("id-{number}")
         };
         std::fs::write(
-            root.join(format!("data/{number:04}.jsonl")),
-            format!("{{\"id\":\"{id}\"}}\n"),
+            root.join(format!("data/{number:04}.rows")),
+            format!("(\"id\"=\"{id}\")\n"),
         )
         .unwrap();
     }
@@ -2490,7 +2489,7 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::LINES,
+            format: crate::source::test_support::line_format(),
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
@@ -2502,13 +2501,13 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .err()
     .unwrap();
     assert!(
-        error.contains("duplicate record ID") && error.contains("0512.jsonl"),
+        error.contains("duplicate record ID") && error.contains("0512.rows"),
         "{error}"
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -2518,7 +2517,7 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
 #[test]
 fn observed_handle_supplies_whole_document_while_path_is_replaced() {
     use crate::construction::file_preparation::{created_ns, prepare_observed_file_build};
-    use crate::source::{SourceReader, json::JsonReader, registry::SourceRegistry};
+    use crate::source::{SourceReader, test_support::DOCUMENT_READER};
 
     struct RestoreAtFrame {
         original: std::path::PathBuf,
@@ -2530,10 +2529,10 @@ fn observed_handle_supplies_whole_document_while_path_is_replaced() {
         }
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
             std::fs::rename(&self.original, &self.path).map_err(|error| error.to_string())?;
-            JsonReader.frame(bytes)
+            DOCUMENT_READER.frame(bytes)
         }
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            JsonReader.parse(bytes)
+            DOCUMENT_READER.parse(bytes)
         }
     }
     let root = std::env::temp_dir().join(format!(
@@ -2544,8 +2543,8 @@ fn observed_handle_supplies_whole_document_while_path_is_replaced() {
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("source.swap");
     let saved = root.join("saved");
-    let a = br#"{"id":"A"}"#;
-    let b = br#"{"id":"B"}"#;
+    let a = br#"("id"="A")"#;
+    let b = br#"("id"="B")"#;
     std::fs::write(&path, a).unwrap();
     let opened = std::fs::File::open(&path).unwrap();
     let metadata = opened.metadata().unwrap();
@@ -2561,7 +2560,7 @@ fn observed_handle_supplies_whole_document_while_path_is_replaced() {
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
         .unwrap();
-    let mut registry = SourceRegistry::builtin();
+    let mut registry = crate::source::test_support::fixture_registry();
     registry
         .register(
             "swap",
@@ -2608,7 +2607,7 @@ fn observed_handle_supplies_whole_document_while_path_is_replaced() {
 
 #[test]
 fn registered_streaming_reader_initial_build_dispatches_small_files_and_decodes_in_order() {
-    use crate::source::{SourceReader, registry::SourceRegistry};
+    use crate::source::SourceReader;
     use std::sync::atomic::{AtomicUsize, Ordering};
     use std::sync::{Condvar, Mutex};
     use std::time::Duration;
@@ -2691,7 +2690,7 @@ fn registered_streaming_reader_initial_build_dispatches_small_files_and_decodes_
             completion_order: Mutex::new(Vec::new()),
             progress: Condvar::new(),
         });
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register("streaming-probe", 1, "probe", probe.clone())
             .unwrap();
@@ -2740,7 +2739,7 @@ fn registered_streaming_reader_initial_build_dispatches_small_files_and_decodes_
 
 #[test]
 fn registered_streaming_reader_callbacks_overlap_across_small_files() {
-    use crate::source::{SourceReader, registry::SourceRegistry};
+    use crate::source::SourceReader;
     use std::sync::atomic::{AtomicUsize, Ordering};
     use std::sync::{Condvar, Mutex};
     use std::time::Duration;
@@ -2807,7 +2806,7 @@ fn registered_streaming_reader_callbacks_overlap_across_small_files() {
         arrived: Condvar::new(),
         frames: AtomicUsize::new(0),
     });
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register("peer-probe", 1, "peer", reader.clone())
         .unwrap();

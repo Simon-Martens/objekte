@@ -12,13 +12,13 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let source = root.join("data/a.json");
-    std::fs::write(&source, br#"{"name":"A"}"#).unwrap();
+    let source = root.join("data/a.row");
+    std::fs::write(&source, br#"("name"="A")"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -88,12 +88,12 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    std::fs::write(root.join("data/a.row"), br#"("name"="A")"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -113,8 +113,8 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
         },
     };
     assert_eq!(pinned.search(&query).unwrap().count, Some(1));
-    let second = root.join("data/b.json");
-    std::fs::write(&second, br#"{"name":"B"}"#).unwrap();
+    let second = root.join("data/b.row");
+    std::fs::write(&second, br#"("name"="B")"#).unwrap();
     index.add_file(&second).unwrap();
     assert_eq!(adapter.search(&query).unwrap().count, Some(2));
     assert_eq!(pinned.search(&query).unwrap().count, Some(1));
@@ -139,7 +139,7 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -166,19 +166,19 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let original = root.join("data/original.jsonl");
-    let destination = root.join("data/moved.jsonl");
-    std::fs::write(&original, b"{\"name\":\"old\"}\n").unwrap();
+    let original = root.join("data/original.rows");
+    let destination = root.join("data/moved.rows");
+    std::fs::write(&original, b"(\"name\"=\"old\")\n").unwrap();
     let original_metadata = std::fs::metadata(&original).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -200,7 +200,7 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
     let handle = pinned.file_handle_for_path(&original).unwrap();
     std::fs::rename(&original, &destination).unwrap();
     index.move_file(handle, &destination).unwrap();
-    std::fs::write(&original, b"{\"name\":\"new\"}\n").unwrap();
+    std::fs::write(&original, b"(\"name\"=\"new\")\n").unwrap();
     std::fs::File::open(&original)
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(original_metadata.modified().unwrap()))
@@ -217,11 +217,11 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
     assert!(!matches!(
         pinned.get_record_available("data", &id, ReturnMode::Bytes),
         Ok(DirectLookupResult::Found(hit))
-            if hit.payload == Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec())),
+            if hit.payload == Some(Payload::Bytes(b"(\"name\"=\"new\")".to_vec())),
     ));
     query.options.return_mode = ReturnMode::Bytes;
     assert!(!matches!(pinned.search(&query), Ok(result)
-        if result.hits.iter().any(|hit| hit.payload == Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec())))));
+        if result.hits.iter().any(|hit| hit.payload == Some(Payload::Bytes(b"(\"name\"=\"new\")".to_vec())))));
 
     let mut rows = Vec::new();
     let outcome = pinned.search_stream_scoped(
@@ -239,7 +239,7 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
     assert!(
         !rows
             .iter()
-            .any(|hit| hit.payload == Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec())))
+            .any(|hit| hit.payload == Some(Payload::Bytes(b"(\"name\"=\"new\")".to_vec())))
     );
     assert!(
         !matches!(outcome, Ok(StreamOutcome::Complete(summary)) if summary.counters.match_count_complete && rows.len() == 1)

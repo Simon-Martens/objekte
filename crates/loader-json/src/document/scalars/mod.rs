@@ -14,28 +14,26 @@ use scan::BorrowedEvent;
 pub(crate) use scan::{
     BorrowedScanQuery, extract_query_record_borrowed_fts_worker, scan_borrowed_segments_worker,
 };
-#[cfg(test)]
-crate::objekte_json_unit_tests! { pub(crate) use scan::{borrowed_scan_calls, combined_scan_calls}; }
 use strings::with_next_quoted_text;
 
 #[cfg(test)]
-crate::objekte_json_unit_tests! {
-    thread_local! {
-        static OWNED_VALUE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-        static OWNED_SEGMENT_PUSHES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-        static OWNED_SEGMENT_TEXT_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-    }
+thread_local! {
+    static OWNED_VALUE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static OWNED_SEGMENT_PUSHES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static OWNED_SEGMENT_TEXT_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
 
-    pub(crate) fn owned_query_construction_counts() -> (usize, usize) {
-        (
-            OWNED_VALUE_VISITS.with(std::cell::Cell::get),
-            OWNED_SEGMENT_PUSHES.with(std::cell::Cell::get),
-        )
-    }
+#[cfg(test)]
+pub(crate) fn owned_query_construction_counts() -> (usize, usize) {
+    (
+        OWNED_VALUE_VISITS.with(std::cell::Cell::get),
+        OWNED_SEGMENT_PUSHES.with(std::cell::Cell::get),
+    )
+}
 
-    pub(crate) fn owned_segment_text_bytes() -> usize {
-        OWNED_SEGMENT_TEXT_BYTES.with(std::cell::Cell::get)
-    }
+#[cfg(test)]
+pub(crate) fn owned_segment_text_bytes() -> usize {
+    OWNED_SEGMENT_TEXT_BYTES.with(std::cell::Cell::get)
 }
 
 /// JSON permits exactly these four bytes between tokens.
@@ -126,7 +124,7 @@ impl ScalarWalker<'_> {
         }
 
         #[cfg(test)]
-        crate::objekte_json_unit_tests! {
+        {
             OWNED_SEGMENT_PUSHES.with(|count| count.set(count.get() + 1));
             OWNED_SEGMENT_TEXT_BYTES.with(|count| count.set(count.get() + text.len()));
         }
@@ -206,7 +204,7 @@ impl ScalarWalker<'_> {
         mut combined: Option<&mut scan::CombinedFts<'_>>,
     ) -> Result<Option<Value>, String> {
         #[cfg(test)]
-        crate::objekte_json_unit_tests! {
+        {
             OWNED_VALUE_VISITS.with(|count| count.set(count.get() + 1));
         }
         // serde_json rejects the 128th nested container. The root is depth 0.

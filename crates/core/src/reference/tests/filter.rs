@@ -3,10 +3,7 @@ use super::{fixture_schema, with_record};
 use crate::query::parse_filter;
 #[test]
 fn membership_filter_and_unavailable_truth_match_evidence_evaluation() {
-    let value = Value::from_json(serde_json::json!({
-        "name": "Ada", "values": ["x", "y"], "people": [{"name": "Bob"}]
-    }))
-    .unwrap();
+    let value = fixture_value!({ "name" => ("Ada"), "values" => [("x"), ("y")], "people" => [{ "name" => ("Bob") }] });
     with_record(value, |ctx| {
         for filter in [
             "name = 'Ada'",
@@ -44,10 +41,7 @@ fn invalid_branches_rejected_before_evaluation() {
 
 #[test]
 fn evidence_excludes_false_boolean_branches() {
-    let value = Value::from_json(
-        serde_json::json!({"name":"Ada","values":["yes"],"people":[{"name":"Bob"}]}),
-    )
-    .unwrap();
+    let value = fixture_value!({ "name" => ("Ada"), "values" => [("yes")], "people" => [{ "name" => ("Bob") }] });
     with_record(value, |ctx| {
         let bound = bind_filter(
             &parse_filter("(name = 'Ada' && values ?= 'no') || people.name ?= 'Bob'").unwrap(),
@@ -81,11 +75,7 @@ fn explicit_temporal_hints_coerce_values_and_reject_bad_inputs() {
             })
             .unwrap();
     }
-    let mut value = Value::from_json(serde_json::json!({
-        "day":"2026-01-02","time":"2026-01-02T03:04:05+02:00",
-        "seconds":1767319445,"days":["2026-01-01","2026-01-02"]
-    }))
-    .unwrap();
+    let mut value = fixture_value!({ "day" => ("2026-01-02"), "time" => ("2026-01-02T03:04:05+02:00"), "seconds" => (1767319445), "days" => [("2026-01-01"), ("2026-01-02")] });
     schema.coerce_record(&mut value).unwrap();
     let Value::Object(fields) = value else {
         panic!("object");
@@ -96,7 +86,7 @@ fn explicit_temporal_hints_coerce_values_and_reject_bad_inputs() {
     assert!(
         matches!(fields["days"],Value::Array(ref array) if array.element_type == Some(LogicalType::Date))
     );
-    let mut invalid = Value::from_json(serde_json::json!({"day":"not a date"})).unwrap();
+    let mut invalid = fixture_value!({ "day" => ("not a date") });
     assert!(schema.coerce_record(&mut invalid).is_err());
 }
 
@@ -105,7 +95,7 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
     let schema = Schema::default();
     for (value, checks) in [
         (
-            serde_json::json!({}),
+            fixture_value!({}),
             vec![
                 ("x:? = false", true),
                 ("x:exists = false", true),
@@ -114,7 +104,7 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
             ],
         ),
         (
-            serde_json::json!({"x":null}),
+            fixture_value!({ "x" => null }),
             vec![
                 ("x:? = false", true),
                 ("x:null = true", true),
@@ -122,7 +112,7 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
             ],
         ),
         (
-            serde_json::json!({"x":""}),
+            fixture_value!({ "x" => ("") }),
             vec![
                 ("x:? = false", true),
                 ("x:string = true", true),
@@ -130,19 +120,19 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
             ],
         ),
         (
-            serde_json::json!({"x":" "}),
+            fixture_value!({ "x" => (" ") }),
             vec![("x:? = true", true), ("x:string = true", true)],
         ),
         (
-            serde_json::json!({"x":0}),
+            fixture_value!({ "x" => (0) }),
             vec![("x:? = true", true), ("x:number = true", true)],
         ),
         (
-            serde_json::json!({"x":false}),
+            fixture_value!({ "x" => (false) }),
             vec![("x:? = true", true), ("x:number = false", true)],
         ),
         (
-            serde_json::json!({"x":[]}),
+            fixture_value!({ "x" => [] }),
             vec![
                 ("x:? = false", true),
                 ("x:array = true", true),
@@ -150,7 +140,7 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
             ],
         ),
         (
-            serde_json::json!({"x":[null]}),
+            fixture_value!({ "x" => [null] }),
             vec![
                 ("x:? = true", true),
                 ("x:array = true", true),
@@ -158,15 +148,15 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
             ],
         ),
         (
-            serde_json::json!({"x":{}}),
+            fixture_value!({ "x" => {  } }),
             vec![("x:? = false", true), ("x:object = true", true)],
         ),
         (
-            serde_json::json!({"x":{"a":null}}),
+            fixture_value!({ "x" => { "a" => null } }),
             vec![("x:? = true", true), ("x:object = true", true)],
         ),
     ] {
-        with_record(Value::from_json(value).unwrap(), |ctx| {
+        with_record(value, |ctx| {
             for (source, expected) in checks {
                 let bound = bind_filter(&parse_filter(source).unwrap(), &schema).unwrap();
                 assert_eq!(
@@ -177,7 +167,7 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
             }
         });
     }
-    let value = Value::from_json(serde_json::json!({"items":[null,"", "hello",0,{}]})).unwrap();
+    let value = fixture_value!({ "items" => [null, (""), ("hello"), (0), {  }] });
     with_record(value, |ctx| {
         for (source, expected) in [
             ("items:array = true", true),
@@ -201,3 +191,5 @@ fn boolean_state_predicates_match_source_selection_and_composition() {
         }
     });
 }
+
+use crate::source::test_support::fixture_value;

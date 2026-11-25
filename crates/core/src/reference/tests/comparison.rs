@@ -43,20 +43,28 @@ fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
 #[test]
 fn bound_contains_reuses_prepared_pattern_across_scalar_and_array_values() {
     for (filter, document, expected) in [
-        ("name ~ 'a%b'", serde_json::json!({"name":"axxb"}), true),
-        ("name !~ 'a%b'", serde_json::json!({"name":"axxb"}), false),
-        ("name ~ 'a\\%b'", serde_json::json!({"name":"a%b"}), true),
+        ("name ~ 'a%b'", fixture_value!({ "name" => ("axxb") }), true),
+        (
+            "name !~ 'a%b'",
+            fixture_value!({ "name" => ("axxb") }),
+            false,
+        ),
+        (
+            "name ~ 'a\\%b'",
+            fixture_value!({ "name" => ("a%b") }),
+            true,
+        ),
         (
             "name:lower ~ 'str%se'",
-            serde_json::json!({"name":"Straße"}),
+            fixture_value!({ "name" => ("Straße") }),
             true,
         ),
         (
             "values ?~ 'a%b'",
-            serde_json::json!({"values":["no", "axxb"]}),
+            fixture_value!({ "values" => [("no"), ("axxb")] }),
             true,
         ),
-        ("values ?~ 'a%b'", serde_json::json!({"values":[]}), false),
+        ("values ?~ 'a%b'", fixture_value!({ "values" => [] }), false),
     ] {
         PREPARED_CONTAINS_BUILDS.with(|count| count.set(0));
         let bound = bind_filter(&parse_filter(filter).unwrap(), &fixture_schema()).unwrap();
@@ -65,7 +73,7 @@ fn bound_contains_reuses_prepared_pattern_across_scalar_and_array_values() {
         };
         assert!(term.prepared_contains.is_some());
         assert_eq!(PREPARED_CONTAINS_BUILDS.with(|count| count.get()), 1);
-        let value = Value::from_json(document).unwrap();
+        let value = document;
         with_record(value, |ctx| {
             for _ in 0..32 {
                 assert_eq!(
@@ -168,11 +176,7 @@ fn incremental_indexed_value_paths_match_complete_rebuild_in_any_registration_or
 
 #[test]
 fn small_selection_preserves_scalar_and_array_path_states() {
-    let value = Value::from_json(serde_json::json!({
-        "name": "Ada", "empty": [], "null": null,
-        "people": [{"name": "A"}, {"name": "B"}]
-    }))
-    .unwrap();
+    let value = fixture_value!({ "name" => ("Ada"), "empty" => [], "null" => null, "people" => [{ "name" => ("A") }, { "name" => ("B") }] });
     let path = |parts: &[&str]| {
         parts
             .iter()
@@ -225,7 +229,7 @@ fn scalar_metadata_comparisons_preserve_null_and_timestamp_rules() {
 
 #[test]
 fn truth_table_arrays_null_and_case_folding() {
-    let value = Value::from_json(serde_json::json!({"name":"Straße", "values":["a","b"], "people":[{"name":"Ada","aliases":["A","Ada"]},{"name":"Bob","aliases":["B"]}]})).unwrap();
+    let value = fixture_value!({ "name" => ("Straße"), "values" => [("a"), ("b")], "people" => [{ "name" => ("Ada"), "aliases" => [("A"), ("Ada")] }, { "name" => ("Bob"), "aliases" => [("B")] }] });
     with_record(value, |ctx| {
         for (input, expected) in [
             ("values ?!= 'a'", true),
@@ -262,7 +266,7 @@ fn missing_null_empty_truth_table() {
         ("name:null = false", true),
         ("name != 'x'", false),
     ] {
-        let value = Value::from_json(serde_json::json!({"values": []})).unwrap();
+        let value = fixture_value!({ "values" => [] });
         with_record(value, |ctx| {
             let bound = bind_filter(&parse_filter(input).unwrap(), &fixture_schema()).unwrap();
             assert_eq!(
@@ -272,7 +276,7 @@ fn missing_null_empty_truth_table() {
             );
         });
     }
-    let value = Value::from_json(serde_json::json!({"name":null,"values":[null,"x"]})).unwrap();
+    let value = fixture_value!({ "name" => null, "values" => [null, ("x")] });
     with_record(value, |ctx| {
         for (input, expected) in [
             ("name:exists = true", true),
@@ -323,7 +327,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -336,13 +340,13 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     let options = RepositoryOptions {
         ..Default::default()
     };
-    std::fs::write(root.join("data/bad.json"), r#"{"count":"7","other":"ok"}"#).unwrap();
+    std::fs::write(root.join("data/bad.row"), r#"("count"="7","other"="ok")"#).unwrap();
     for indexed in [false, true] {
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition(indexed)],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -360,9 +364,9 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
                 .contains("count: expected Number")
         );
     }
-    std::fs::remove_file(root.join("data/bad.json")).unwrap();
-    std::fs::write(root.join("data/seven.json"), r#"{"count":7,"other":"ok"}"#).unwrap();
-    std::fs::write(root.join("data/eight.json"), r#"{"count":8,"other":"ok"}"#).unwrap();
+    std::fs::remove_file(root.join("data/bad.row")).unwrap();
+    std::fs::write(root.join("data/seven.row"), r#"("count"=7,"other"="ok")"#).unwrap();
+    std::fs::write(root.join("data/eight.row"), r#"("count"=8,"other"="ok")"#).unwrap();
     let query = Query {
         collections: vec![],
         fts: None,
@@ -381,7 +385,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
             &root,
             vec![definition(indexed)],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -404,7 +408,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         &root,
         vec![definition(true)],
         persisted,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -413,7 +417,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         &root,
         vec![definition(true)],
         persisted,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -431,22 +435,22 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
     };
 
     let root = std::env::temp_dir().join(format!("objekte-dynamic-fields-{}", std::process::id()));
-    for (collection, id, json) in [
+    for (collection, id, fixture) in [
         (
             "alpha",
             "one",
-            r#"{"count":7,"title":"Hello","when":"2026-01-01","tags":[1,2]}"#,
+            r#"("count"=7,"title"="Hello","when"="2026-01-01","tags"=[1,2])"#,
         ),
-        ("alpha", "two", r#"{"count":8,"title":"Other","tags":[]}"#),
+        ("alpha", "two", r#"("count"=8,"title"="Other","tags"=[])"#),
         (
             "beta",
             "three",
-            r#"{"count":7,"title":"HELLO","when":"2026-01-01","tags":[1,2]}"#,
+            r#"("count"=7,"title"="HELLO","when"="2026-01-01","tags"=[1,2])"#,
         ),
-        ("beta", "four", r#"{"count":"7","title":"Else","tags":[]}"#),
+        ("beta", "four", r#"("count"="7","title"="Else","tags"=[])"#),
     ] {
         std::fs::create_dir_all(root.join(collection)).unwrap();
-        std::fs::write(root.join(collection).join(format!("{id}.json")), json).unwrap();
+        std::fs::write(root.join(collection).join(format!("{id}.row")), fixture).unwrap();
     }
     let mut declared = Schema::default();
     declared
@@ -464,7 +468,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         CollectionDefinition {
             name: "alpha".into(),
             source_path: "alpha".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema: declared,
@@ -476,7 +480,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         CollectionDefinition {
             name: "beta".into(),
             source_path: "beta".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema: Schema::default(),
@@ -600,7 +604,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         &root,
         definitions.clone(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -610,10 +614,12 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         &root,
         definitions,
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     check(&restored);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::fixture_value;

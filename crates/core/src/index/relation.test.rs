@@ -37,7 +37,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,
@@ -122,24 +122,24 @@ fn fixture(name: &str) -> std::path::PathBuf {
         std::fs::create_dir_all(root.join(collection)).unwrap();
     }
     for (path, bytes) in [
-        ("entries/a.json", r#"{"id":"A"}"#),
-        ("entries/b.json", r#"{"id":"B"}"#),
-        ("people/a.json", r#"{"id":"A"}"#),
-        ("people/p.json", r#"{"id":"P"}"#),
+        ("entries/a.row", r#"("id"="A")"#),
+        ("entries/b.row", r#"("id"="B")"#),
+        ("people/a.row", r#"("id"="A")"#),
+        ("people/p.row", r#"("id"="P")"#),
         (
-            "mentions/m1.json",
-            r#"{"id":"m1","entry":"A","contributors":["P","A","P"],"items":[{"entry":"A"},{"entry":"Z"}],"groups":[{"items":[{"entry":"A"},{"entry":"A"}]},{"items":[{"entry":"B"}]}]}"#,
+            "mentions/m1.row",
+            r#"("id"="m1","entry"="A","contributors"=["P","A","P"],"items"=[("entry"="A"),("entry"="Z")],"groups"=[("items"=[("entry"="A"),("entry"="A")]),("items"=[("entry"="B")])])"#,
         ),
         (
-            "mentions/m2.json",
-            r#"{"id":"m2","entry":"Z","contributors":[],"items":[],"groups":[{"items":[]}]}"#,
+            "mentions/m2.row",
+            r#"("id"="m2","entry"="Z","contributors"=[],"items"=[],"groups"=[("items"=[])])"#,
         ),
         (
-            "mentions/m3.json",
-            r#"{"id":"m3","entry":null,"contributors":null}"#,
+            "mentions/m3.row",
+            r#"("id"="m3","entry"=null,"contributors"=null)"#,
         ),
-        ("mentions/m4.json", r#"{"id":"m4"}"#),
-        ("mentions/broken.json", "{broken"),
+        ("mentions/m4.row", r#"("id"="m4")"#),
+        ("mentions/broken.row", "(broken"),
     ] {
         std::fs::write(root.join(path), bytes).unwrap();
     }
@@ -292,7 +292,7 @@ fn check(repo: &Repository) {
         [m1.0]
     );
     let file = &repo.files().files[mentions.generation.records[m1.0 as usize].file.0 as usize];
-    assert!(file.relative_path.ends_with("mentions/m1.json"));
+    assert!(file.relative_path.ends_with("mentions/m1.row"));
     validate_indexes(repo.collections()).unwrap();
     let mut corrupted = nested.clone();
     corrupted.edges[0].target = RelationTarget::Resolved(people.id_lookup["P"]);
@@ -476,7 +476,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         &root,
         definitions("entries"),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -489,7 +489,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         &root,
         definitions("entries"),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -504,7 +504,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         &root,
         definitions("people"),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -527,7 +527,7 @@ fn publication_validation_still_rejects_broken_relation_state() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -621,19 +621,19 @@ fn profile_large_fanout_relation_publication() {
     for collection in ["entries", "people", "mentions"] {
         std::fs::create_dir_all(root.join(collection)).unwrap();
     }
-    std::fs::write(root.join("entries/a.json"), r#"{"id":"A"}"#).unwrap();
-    std::fs::write(root.join("people/p.json"), r#"{"id":"P"}"#).unwrap();
+    std::fs::write(root.join("entries/a.row"), r#"("id"="A")"#).unwrap();
+    std::fs::write(root.join("people/p.row"), r#"("id"="P")"#).unwrap();
     let repeated = vec![r#""P""#; 16].join(",");
-    let mut jsonl = String::new();
+    let mut lines = String::new();
     for index in 0..2_000 {
-        jsonl.push_str(&format!(
-            "{{\"id\":\"m{index}\",\"entry\":\"A\",\"contributors\":[{repeated}]}}\n"
+        lines.push_str(&format!(
+            "(\"id\"=\"m{index}\",\"entry\"=\"A\",\"contributors\"=[{repeated}])\n"
         ));
     }
-    let input_bytes = jsonl.len();
-    std::fs::write(root.join("mentions/fanout.jsonl"), jsonl).unwrap();
+    let input_bytes = lines.len();
+    std::fs::write(root.join("mentions/fanout.rows"), lines).unwrap();
     let mut definitions = definitions("entries");
-    definitions[2].format = crate::source::test_support::LINES;
+    definitions[2].format = crate::source::test_support::line_format();
     REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
     let started = std::time::Instant::now();
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -642,7 +642,7 @@ fn profile_large_fanout_relation_publication() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -691,7 +691,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin()
+            crate::source::test_support::fixture_registry()
         )
         .map_err(|error| error.to_string())
         .err()
@@ -712,14 +712,14 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin()
+            crate::source::test_support::fixture_registry()
         )
         .map_err(|error| error.to_string())
         .err()
         .unwrap()
         .contains("duplicate reverse relation alias")
     );
-    std::fs::write(root.join("entries/duplicate.json"), r#"{"id":"A"}"#).unwrap();
+    std::fs::write(root.join("entries/duplicate.row"), r#"("id"="A")"#).unwrap();
     assert!(
         crate::lifecycle::Index::build_repository_for_test(
             &root,
@@ -727,7 +727,7 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin()
+            crate::source::test_support::fixture_registry()
         )
         .map_err(|error| error.to_string())
         .err()
@@ -849,31 +849,31 @@ fn relation_paths_reject_scalar_ancestors_and_embedded_descendants() {
 }
 
 #[test]
-fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
-    let root = std::env::temp_dir().join(format!("objekte-relation-jsonl-{}", std::process::id()));
+fn lines_siblings_and_shared_target_file_keep_relation_ownership() {
+    let root = std::env::temp_dir().join(format!("objekte-relation-lines-{}", std::process::id()));
     for collection in ["entries", "people", "mentions"] {
         std::fs::create_dir_all(root.join(collection)).unwrap();
     }
     std::fs::write(
-        root.join("entries/records.jsonl"),
-        "{\"id\":\"A\"}\n{\"id\":\"B\"}\n",
+        root.join("entries/records.rows"),
+        "(\"id\"=\"A\")\n(\"id\"=\"B\")\n",
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/records.jsonl"),
-        "{\"id\":\"m1\",\"entry\":\"A\"}\n{\"broken\":\n{\"id\":\"m2\",\"entry\":\"B\"}\n",
+        root.join("mentions/records.rows"),
+        "(\"id\"=\"m1\",\"entry\"=\"A\")\n(\"broken\"=\n(\"id\"=\"m2\",\"entry\"=\"B\")\n",
     )
     .unwrap();
     let mut defs = definitions("entries");
-    defs[0].format = crate::source::test_support::LINES;
-    defs[2].format = crate::source::test_support::LINES;
+    defs[0].format = crate::source::test_support::line_format();
+    defs[2].format = crate::source::test_support::line_format();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         defs,
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -930,7 +930,7 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     for collection in ["entries", "people", "mentions"] {
         std::fs::create_dir_all(root.join(collection)).unwrap();
     }
-    std::fs::write(root.join("entries/broken.json"), "{broken").unwrap();
+    std::fs::write(root.join("entries/broken.row"), "(broken").unwrap();
     let options = RepositoryOptions {
         ..Default::default()
     };
@@ -938,15 +938,15 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
         &root,
         definitions("entries"),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     let target_id = initial.collections()[0].generation.records[0].id.0.clone();
     assert!(target_id.starts_with("~fallback:"));
     std::fs::write(
-        root.join("mentions/link.json"),
-        serde_json::json!({"id":"link","entry":target_id}).to_string(),
+        root.join("mentions/link.row"),
+        fixture_value!({ "id" => ("link"), "entry" => (target_id.as_ref()) }).fixture_text(),
     )
     .unwrap();
     let options = RepositoryOptions {
@@ -957,7 +957,7 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
             &root,
             definitions("entries"),
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -992,3 +992,5 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

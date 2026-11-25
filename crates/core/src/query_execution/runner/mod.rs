@@ -4359,7 +4359,7 @@ fn push_lifecycle_order_cursor(
 }
 
 /// Reuse one checked source handle while adjacent rows in a stored order
-/// belong to the same file. This avoids reopening a large JSONL file for
+/// belong to the same file. This avoids reopening a large multi-record file for
 /// every ordered row without retaining file bodies or an unbounded handle set.
 /// Traverse resident sort/identity orders across lifecycle partitions. The
 /// first final page can be emitted before an optional exact-count pass reaches
@@ -4667,7 +4667,7 @@ fn try_lifecycle_ordered_stream(
         })
     {
         // A stored cursor is best for selective verification and for one
-        // large JSONL source. Above this small distinct-source threshold, the
+        // large multi-record source. Above this small distinct-source threshold, the
         // file-parallel route amortizes verification across query workers.
         let mut candidate_files = HashSet::new();
         let mut parallel_sources = false;

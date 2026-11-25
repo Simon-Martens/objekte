@@ -3,8 +3,8 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 use crate::inventory::SourceRevision;
-use crate::source::json::JsonReader;
-use crate::source::json_lines::JsonLinesReader;
+use crate::source::test_support::DOCUMENT_READER;
+use crate::source::test_support::LINE_READER;
 use crate::source::test_support::OutcomeReader;
 use crate::source::{
     ByteRange, DiagnosticCategory, ReaderDiagnostic, SourceOutcome, SourceReader,
@@ -101,14 +101,12 @@ fn reusable_build_buffer_preserves_outcomes_and_releases_large_storage() {
 
 #[test]
 fn unavailable_source_read_is_classified_without_fabricating_records() {
-    let missing = std::env::temp_dir().join(format!(
-        "objekte-missing-source-{}.json",
-        std::process::id()
-    ));
+    let missing =
+        std::env::temp_dir().join(format!("objekte-missing-source-{}.row", std::process::id()));
     let mut issues = Vec::new();
     let counts = extract_file_outcomes(
         &missing,
-        &JsonReader,
+        &DOCUMENT_READER,
         SourceRevision {
             modified_ns: 0,
             size: 0,
@@ -130,21 +128,21 @@ fn unavailable_source_read_is_classified_without_fabricating_records() {
 }
 
 #[test]
-fn malformed_jsonl_coordinate_work_grows_with_file_size() {
+fn malformed_lines_coordinate_work_grows_with_file_size() {
     fn scan_work(frames: usize) -> (usize, usize) {
         let bytes = b"{oops}\n".repeat(frames);
-        let ranges = JsonLinesReader.frame(&bytes).unwrap();
+        let ranges = LINE_READER.frame(&bytes).unwrap();
         FILE_COORDINATE_SCANNED_BYTES.with(|scanned| scanned.set(0));
         let mut malformed = 0;
         let counters = extract_framed_outcomes_impl(
-            Path::new("malformed.jsonl"),
-            &JsonLinesReader,
+            Path::new("malformed.rows"),
+            &LINE_READER,
             &bytes,
             &ranges,
             true,
             |outcome| {
                 let SourceOutcome::Malformed { diagnostic, .. } = outcome else {
-                    panic!("invalid JSONL frame was accepted")
+                    panic!("invalid line-framed source frame was accepted")
                 };
                 malformed += 1;
                 assert_eq!(diagnostic.line, Some(malformed));
@@ -217,17 +215,14 @@ fn file_coordinates_preserve_custom_reader_line_and_column_meaning() {
 
 #[test]
 fn fused_extraction_parses_once_and_reports_bad_record() {
-    let path = std::env::temp_dir().join(format!(
-        "objekte-source-{}-{}.jsonl",
-        std::process::id(),
-        42
-    ));
-    std::fs::write(&path, b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n").unwrap();
+    let path =
+        std::env::temp_dir().join(format!("objekte-source-{}-{}.rows", std::process::id(), 42));
+    std::fs::write(&path, b"(\"name\"=\"A\")\n(\"name\"=\"B\")\n").unwrap();
     let mut seen = Vec::new();
     let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
     let stats = extract_file(
         &path,
-        crate::source::test_support::LINES,
+        crate::source::test_support::line_format(),
         revision,
         |range, record| {
             seen.push((range, record.text[0].text.clone()));
@@ -237,11 +232,11 @@ fn fused_extraction_parses_once_and_reports_bad_record() {
     .unwrap();
     assert_eq!(stats.record_parses, 2);
     assert_eq!(seen.len(), 2);
-    std::fs::write(&path, b"{\"name\":\"A\"}\n{oops}\n").unwrap();
+    std::fs::write(&path, b"(\"name\"=\"A\")\n(oops)\n").unwrap();
     assert!(
         extract_file(
             &path,
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
             SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             |_, _| Ok(())
         )
@@ -256,23 +251,22 @@ fn build_reads_use_actual_bytes_without_revision_probes() {
     let root =
         std::env::temp_dir().join(format!("objekte-build-stable-input-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("records.jsonl");
-    std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
+    let path = root.join("records.rows");
+    std::fs::write(&path, b"(\"x\"=1)\n(\"x\"=2)\n").unwrap();
     let wrong_revision = SourceRevision {
         modified_ns: 0,
         size: 1,
         object_id: None,
     };
     let mut ranges = Vec::new();
-    let counters =
-        extract_file_build_outcomes(&path, &JsonLinesReader, wrong_revision, |outcome| {
-            let SourceOutcome::Logical { range, .. } = outcome else {
-                panic!("expected logical record")
-            };
-            ranges.push(range);
-            Ok(())
-        })
-        .unwrap();
+    let counters = extract_file_build_outcomes(&path, &LINE_READER, wrong_revision, |outcome| {
+        let SourceOutcome::Logical { range, .. } = outcome else {
+            panic!("expected logical record")
+        };
+        ranges.push(range);
+        Ok(())
+    })
+    .unwrap();
     assert_eq!(counters.record_parses, 2);
     assert_eq!(
         ranges,
@@ -281,32 +275,30 @@ fn build_reads_use_actual_bytes_without_revision_probes() {
             ByteRange { start: 8, end: 15 }
         ]
     );
-    assert!(extract_file_outcomes(&path, &JsonLinesReader, wrong_revision, |_| Ok(())).is_err());
-    let framed = frame_file_for_build(&path, &JsonLinesReader)
-        .unwrap()
-        .unwrap();
+    assert!(extract_file_outcomes(&path, &LINE_READER, wrong_revision, |_| Ok(())).is_err());
+    let framed = frame_file_for_build(&path, &LINE_READER).unwrap().unwrap();
     assert_eq!(framed.0.len(), 16);
     assert_eq!(framed.1, ranges);
 
-    let malformed = root.join("malformed.jsonl");
+    let malformed = root.join("malformed.rows");
     std::fs::write(&malformed, b"{\n").unwrap();
-    extract_file_build_outcomes(&malformed, &JsonLinesReader, wrong_revision, |outcome| {
+    extract_file_build_outcomes(&malformed, &LINE_READER, wrong_revision, |outcome| {
         assert!(matches!(outcome, SourceOutcome::Malformed { .. }));
         Ok(())
     })
     .unwrap();
-    let empty = root.join("empty.jsonl");
+    let empty = root.join("empty.rows");
     std::fs::write(&empty, b"").unwrap();
     assert_eq!(
-        extract_file_build_outcomes(&empty, &JsonLinesReader, wrong_revision, |_| panic!(
+        extract_file_build_outcomes(&empty, &LINE_READER, wrong_revision, |_| panic!(
             "empty file must not emit a record"
         ))
         .unwrap()
         .framed_records,
         0
     );
-    let missing = root.join("missing.jsonl");
-    extract_file_build_outcomes(&missing, &JsonLinesReader, wrong_revision, |outcome| {
+    let missing = root.join("missing.rows");
+    extract_file_build_outcomes(&missing, &LINE_READER, wrong_revision, |outcome| {
         assert!(matches!(outcome, SourceOutcome::Unreadable { .. }));
         Ok(())
     })
@@ -323,12 +315,12 @@ fn fresh_build_rejects_same_stamp_replacement_after_discovery() {
         std::thread::current().id()
     ));
     std::fs::create_dir(&root).unwrap();
-    let path = root.join("source.json");
+    let path = root.join("source.row");
     let substitute = root.join("replacement");
-    std::fs::write(&path, br#"{"id":"A"}"#).unwrap();
+    std::fs::write(&path, br#"("id"="A")"#).unwrap();
     let discovery = std::fs::metadata(&path).unwrap();
     let expected = SourceRevision::from_metadata(&discovery).unwrap();
-    std::fs::write(&substitute, br#"{"id":"B"}"#).unwrap();
+    std::fs::write(&substitute, br#"("id"="B")"#).unwrap();
     std::fs::File::open(&substitute)
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(discovery.modified().unwrap()))
@@ -342,7 +334,7 @@ fn fresh_build_rejects_same_stamp_replacement_after_discovery() {
     assert_ne!(expected.object_id, current.object_id);
     let result = extract_file_build_outcomes_hashed_with_buffer(
         &path,
-        &JsonReader,
+        &DOCUMENT_READER,
         expected,
         &mut Vec::new(),
         None,

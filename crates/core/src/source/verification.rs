@@ -8,7 +8,7 @@ use crate::schema::Schema;
 use super::{ExtractedRecord, ScanProjection, registry::PreparedSource};
 
 #[cfg(test)]
-pub(crate) use super::json::scalars::{borrowed_scan_calls, combined_scan_calls};
+pub(crate) use super::test_support::{borrowed_scan_calls, combined_scan_calls};
 
 /// Scope temporary matching scratch to this source record.
 pub fn scalar_match_session() -> impl Drop {
@@ -149,7 +149,7 @@ pub(crate) fn scan_borrowed_segments(
     )
 }
 
-/// Trusted decoded-scalar JSON keeps its source corpus while producing only
+/// A reader with combined scalar scanning can match its text corpus while producing only
 /// the logical projection required by residual evaluation or output.
 pub(crate) fn prepare_decoded_record_with_borrowed_fts(
     source: &PreparedSource,

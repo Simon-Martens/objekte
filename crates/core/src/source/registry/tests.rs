@@ -149,21 +149,21 @@ fn combined_query(expression: &str) -> Query {
 }
 
 #[test]
-fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
+fn custom_readers_under_builtin_names_never_use_declared_scalar_verification() {
     use crate::source::verification::ScalarVerification;
 
-    let builtins = SourceRegistry::builtin();
+    let builtins = crate::source::test_support::fixture_registry();
     for (format, expected) in [
         (
-            crate::source::test_support::DOCUMENTS,
+            crate::source::test_support::document_format(),
             Some(ScalarVerification::ResolvedStrings),
         ),
         (
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
             Some(ScalarVerification::ResolvedStrings),
         ),
         (
-            crate::source::test_support::DECODED_SCALARS,
+            crate::source::test_support::scalar_format(),
             Some(ScalarVerification::DecodedScalars),
         ),
     ] {
@@ -172,7 +172,12 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
         assert_eq!(source.scalar_verification(), expected);
     }
 
-    for registration_id in ["json", "jsonl", "json_decoded_scalars", "custom-control"] {
+    for registration_id in [
+        "fixture-record",
+        "fixture-lines",
+        "fixture-scalars",
+        "custom-control",
+    ] {
         let root = std::env::temp_dir().join(format!(
             "objekte-custom-builtin-{registration_id}-{}-{}",
             std::process::id(),
@@ -197,8 +202,8 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
                 "txt",
                 Arc::new(CustomReader {
                     parses: parses.clone(),
-                    name: if registration_id == "json" {
-                        "json"
+                    name: if registration_id == "fixture-record" {
+                        "fixture-record"
                     } else {
                         "custom-builtin-name"
                     },
@@ -395,7 +400,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
         }
     };
     let sources = || {
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register("seg", 1, "seg", Arc::new(TemporalSegmentsReader))
             .unwrap();
@@ -636,7 +641,7 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/source.outcome"), b"ok\nbad").unwrap();
-    let mut sources = SourceRegistry::builtin();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
             "outcome",
@@ -758,7 +763,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
         sort_overrides: Default::default(),
     };
     let sources = || {
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register(
                 "tiny",
@@ -831,12 +836,12 @@ fn relative_path_identity_depends_on_the_registered_reader() {
         std::process::id()
     ));
     let _ = std::fs::remove_dir_all(&root);
-    std::fs::create_dir_all(root.join("json")).unwrap();
+    std::fs::create_dir_all(root.join("fixture-record")).unwrap();
     std::fs::create_dir_all(root.join("custom")).unwrap();
     std::fs::create_dir_all(root.join("tiny")).unwrap();
     std::fs::create_dir_all(root.join("multi")).unwrap();
-    std::fs::write(root.join("json/one.json"), br#"{"title":"one"}"#).unwrap();
-    std::fs::write(root.join("custom/one.json"), br#"{"title":"one"}"#).unwrap();
+    std::fs::write(root.join("fixture-record/one.row"), br#"("title"="one")"#).unwrap();
+    std::fs::write(root.join("custom/one.row"), br#"("title"="one")"#).unwrap();
     std::fs::write(root.join("tiny/records.tiny"), b"first|ordinary\n").unwrap();
     std::fs::write(
         root.join("multi/records.tiny"),
@@ -844,19 +849,19 @@ fn relative_path_identity_depends_on_the_registered_reader() {
     )
     .unwrap();
 
-    let custom_json = {
+    let custom_record = {
         let mut sources = SourceRegistry::default();
         sources
             .register(
-                "json",
+                "fixture-record",
                 1,
-                "json",
-                Arc::new(crate::source::json::JsonDecodedScalarsReader),
+                "row",
+                Arc::new(crate::source::test_support::SCALAR_READER),
             )
             .unwrap();
         sources
     };
-    let custom_non_json = {
+    let custom_tiny = {
         let mut sources = SourceRegistry::default();
         sources
             .register(
@@ -875,7 +880,7 @@ fn relative_path_identity_depends_on_the_registered_reader() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        custom_non_json,
+        custom_tiny,
     )
     .err()
     .expect("a reader without the capability must reject relative-path identity")
@@ -885,8 +890,8 @@ fn relative_path_identity_depends_on_the_registered_reader() {
         "{error}"
     );
 
-    let custom = custom_json
-        .resolve(&SourceFormat::registered("json"))
+    let custom = custom_record
+        .resolve(&SourceFormat::registered("fixture-record"))
         .unwrap();
     assert!(custom.reader().supports_trusted_query_extraction());
     assert!(custom.reader().supports_relative_path_identity());
@@ -895,10 +900,10 @@ fn relative_path_identity_depends_on_the_registered_reader() {
         vec![CollectionDefinition::folder(
             "data",
             "custom",
-            SourceFormat::registered("json"),
+            SourceFormat::registered("fixture-record"),
         )],
         RepositoryOptions::default(),
-        custom_json,
+        custom_record,
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -922,17 +927,17 @@ fn relative_path_identity_depends_on_the_registered_reader() {
     let mut multi_sources = SourceRegistry::default();
     multi_sources
         .register(
-            "json",
+            "fixture-record",
             1,
             "tiny",
             Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
         )
         .unwrap();
-    let mut declared_json = crate::source::test_support::document_folder("data", "multi");
-    declared_json.identity = IdentityPolicy::RelativePath;
+    let mut declared_record = crate::source::test_support::document_folder("data", "multi");
+    declared_record.identity = IdentityPolicy::RelativePath;
     let error = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![declared_json],
+        vec![declared_record],
         RepositoryOptions::default(),
         multi_sources,
     )
@@ -947,7 +952,7 @@ fn relative_path_identity_depends_on_the_registered_reader() {
 }
 
 #[test]
-fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
+fn registered_delimited_reader_reaches_build_query_payload_and_restore() {
     use crate::model::LogicalType;
     use crate::query::options::ReturnMode;
     use crate::query::{FtsQuery, Query, QueryOptions};
@@ -992,7 +997,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     };
     let parses = Arc::new(AtomicUsize::new(0));
     let registrations = |version| {
-        let mut sources = SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register(
                 "tiny",
@@ -1079,7 +1084,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
             &root,
             vec![definition],
             RepositoryOptions::default(),
-            SourceRegistry::builtin()
+            crate::source::test_support::fixture_registry()
         )
         .map_err(|error| error.to_string())
         .err()
@@ -1111,8 +1116,8 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
     std::fs::write(root.join("tiny/nested/third.tiny"), b"third|three\n").unwrap();
     std::fs::write(root.join("tiny/skip/ignored.tiny"), b"ignored|four\n").unwrap();
     std::fs::write(root.join("tiny/.hidden/hidden.tiny"), b"hidden|five\n").unwrap();
-    std::fs::write(root.join("tiny/other.json"), b"{}").unwrap();
-    let mut sources = SourceRegistry::builtin();
+    std::fs::write(root.join("tiny/other.row"), b"()").unwrap();
+    let mut sources = crate::source::test_support::fixture_registry();
     sources
         .register(
             "tiny",
@@ -1276,7 +1281,7 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema: Default::default(),
@@ -1286,26 +1291,26 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
         sort_overrides: Default::default(),
     };
     for (body, expected) in [
-        (b"{}\n".as_slice(), "missing intrinsic record ID"),
-        (b"{\"id\":42}\n".as_slice(), "must be a string"),
-        (b"{\"id\":\"\"}\n".as_slice(), "invalid intrinsic record ID"),
+        (b"()\n".as_slice(), "missing intrinsic record ID"),
+        (b"(\"id\"=42)\n".as_slice(), "must be a string"),
+        (b"(\"id\"=\"\")\n".as_slice(), "invalid intrinsic record ID"),
         (
-            b"{\"id\":\"~generated:1\"}\n".as_slice(),
+            b"(\"id\"=\"~generated:1\")\n".as_slice(),
             "invalid intrinsic record ID",
         ),
     ] {
-        std::fs::write(root.join("data/one.jsonl"), body).unwrap();
+        std::fs::write(root.join("data/one.rows"), body).unwrap();
         let error = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![definition.clone()],
             RepositoryOptions::default(),
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .err()
         .unwrap();
         assert!(
-            error.contains(expected) && error.contains("one.jsonl"),
+            error.contains(expected) && error.contains("one.rows"),
             "{error}"
         );
     }
@@ -1320,21 +1325,21 @@ fn discovery_symlink_policy_confines_sources_and_avoids_cycles() {
 
     let root = std::env::temp_dir().join(format!("objekte-symlinks-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data/nested")).unwrap();
-    std::fs::write(root.join("data/nested/real.json"), b"{}").unwrap();
-    let outside = std::env::temp_dir().join(format!("objekte-outside-{}.json", std::process::id()));
-    std::fs::write(&outside, b"{}").unwrap();
+    std::fs::write(root.join("data/nested/real.row"), b"()").unwrap();
+    let outside = std::env::temp_dir().join(format!("objekte-outside-{}.row", std::process::id()));
+    std::fs::write(&outside, b"()").unwrap();
     symlink(root.join("data/nested"), root.join("data/alias")).unwrap();
     symlink(root.join("data"), root.join("data/nested/cycle")).unwrap();
-    symlink(&outside, root.join("data/outside.json")).unwrap();
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::DOCUMENTS)
+    symlink(&outside, root.join("data/outside.row")).unwrap();
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::document_format())
         .unwrap();
     let mut rules = Discovery {
         recursive: true,
         ..Discovery::default()
     };
     let skipped = discover(&root, Path::new("data"), &rules, &source).unwrap();
-    assert_eq!(skipped, [root.join("data/nested/real.json")]);
+    assert_eq!(skipped, [root.join("data/nested/real.row")]);
     rules.symlinks = SymlinkPolicy::FollowWithinRoot;
     let followed = discover(&root, Path::new("data"), &rules, &source).unwrap();
     assert_eq!(followed.len(), 1);

@@ -178,8 +178,8 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/one.json"), r#"{"a:b":"Zulu"}"#).unwrap();
-    std::fs::write(root.join("data/two.json"), r#"{"a:b":"Alpha"}"#).unwrap();
+    std::fs::write(root.join("data/one.row"), r#"("a:b"="Zulu")"#).unwrap();
+    std::fs::write(root.join("data/two.row"), r#"("a:b"="Alpha")"#).unwrap();
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
@@ -200,7 +200,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -229,7 +229,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     };
     assert_eq!(
         ids(&repo, &query_from_fixture(&case).unwrap()),
-        ["path:two.json"]
+        ["path:two.row"]
     );
 
     case.filter = None;
@@ -237,7 +237,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     case.fts_fields = vec!["[\"a:b\"]".into()];
     assert_eq!(
         ids(&repo, &query_from_fixture(&case).unwrap()),
-        ["path:two.json"]
+        ["path:two.row"]
     );
 
     case.fts = None;
@@ -245,7 +245,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     case.filter = Some("SORT BY [\"a:b\"]".into());
     assert_eq!(
         ids(&repo, &query_from_fixture(&case).unwrap()),
-        ["path:two.json", "path:one.json"]
+        ["path:two.row", "path:one.row"]
     );
     drop(repo);
     let restored = crate::lifecycle::Index::build_repository_for_test(
@@ -254,13 +254,13 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
         ids(&restored, &query_from_fixture(&case).unwrap()),
-        ["path:two.json", "path:one.json"]
+        ["path:two.row", "path:one.row"]
     );
     drop(restored);
     std::fs::remove_dir_all(root).unwrap();

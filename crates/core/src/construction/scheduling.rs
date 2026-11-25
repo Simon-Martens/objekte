@@ -74,7 +74,7 @@ pub(crate) struct BuildScheduleStats {
     /// Overlaps across batches and is not an exclusive wall interval.
     pub ready_wait_sum_ns: u64,
     pub ready_wait_max_ns: u64,
-    /// Bounded JSONL chunk read, frame, and inline fingerprint work.
+    /// Bounded source chunk read, frame, and inline fingerprint work.
     pub framing_ns: u64,
     pub framing_chunks: u64,
     pub framing_bytes: u64,

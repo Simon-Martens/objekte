@@ -93,8 +93,16 @@ fn definitions() -> Vec<CollectionDefinition> {
         })
         .unwrap();
     [
-        ("sources", sources, crate::source::test_support::DOCUMENTS),
-        ("targets", targets, crate::source::test_support::LINES),
+        (
+            "sources",
+            sources,
+            crate::source::test_support::document_format(),
+        ),
+        (
+            "targets",
+            targets,
+            crate::source::test_support::line_format(),
+        ),
     ]
     .into_iter()
     .map(|(name, schema, format)| CollectionDefinition {
@@ -122,26 +130,26 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
     std::fs::create_dir_all(root.join("sources")).unwrap();
     std::fs::create_dir_all(root.join("targets")).unwrap();
     std::fs::write(
-        root.join("targets/records.jsonl"),
-        "{\"id\":\"T0\",\"title\":\"Hymn\"}\n{\"id\":\"T1\",\"title\":\"Other\"}\n{broken}\n",
+        root.join("targets/records.rows"),
+        "(\"id\"=\"T0\",\"title\"=\"Hymn\")\n(\"id\"=\"T1\",\"title\"=\"Other\")\n(broken)\n",
     )
     .unwrap();
     for index in 0..84 {
         let links = match index {
-            80 => serde_json::json!(["T1"]),
-            81 => serde_json::json!(["missing"]),
-            82 => serde_json::json!(["T1", "T0"]),
-            83 => serde_json::json!(["T0", "T1"]),
-            _ => serde_json::json!(["T0", "T0"]),
+            80 => fixture_value!([("T1")]),
+            81 => fixture_value!([("missing")]),
+            82 => fixture_value!([("T1"), ("T0")]),
+            83 => fixture_value!([("T0"), ("T1")]),
+            _ => fixture_value!([("T0"), ("T0")]),
         };
         std::fs::write(
-            root.join(format!("sources/S{index:02}.json")),
-            serde_json::json!({"id":format!("S{index:02}"),"local_title":"Hymn","links":links})
-                .to_string(),
+            root.join(format!("sources/S{index:02}.row")),
+            fixture_value!({ "id" => (format!("S{index:02}")), "local_title" => ("Hymn"), "links" => (links) })
+                .fixture_text(),
         )
         .unwrap();
     }
-    std::fs::write(root.join("sources/broken.json"), "{broken}").unwrap();
+    std::fs::write(root.join("sources/broken.row"), "(broken)").unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions(),
@@ -151,7 +159,7 @@ fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
             query_workers: 4,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -289,13 +297,14 @@ fn high_fanout_stream_prefetch_reports_resource_limit_before_grouping() {
     let mut links = Vec::new();
     for index in 0..100 {
         let id = format!("T{index:03}");
-        targets.push_str(&format!("{{\"id\":\"{id}\",\"title\":\"Hymn\"}}\n"));
+        targets.push_str(&format!("(\"id\"=\"{id}\",\"title\"=\"Hymn\")\n"));
         links.push(id);
     }
-    std::fs::write(root.join("targets/records.jsonl"), targets).unwrap();
+    std::fs::write(root.join("targets/records.rows"), targets).unwrap();
     std::fs::write(
-        root.join("sources/one.json"),
-        serde_json::json!({"id":"S0","local_title":"Hymn","links":links}).to_string(),
+        root.join("sources/one.row"),
+        fixture_value!({ "id" => ("S0"), "local_title" => ("Hymn"), "links" => (links) })
+            .fixture_text(),
     )
     .unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -305,7 +314,7 @@ fn high_fanout_stream_prefetch_reports_resource_limit_before_grouping() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -344,18 +353,16 @@ fn segmented_stream_skips_unused_flat_prefetch_allowance() {
     std::fs::create_dir_all(root.join("sources")).unwrap();
     std::fs::create_dir_all(root.join("targets")).unwrap();
     let target = |id: &str| {
-        serde_json::json!({
-            "id": id, "title": "Hymn", "filler": "x".repeat(600)
-        })
-        .to_string()
+        fixture_value!({ "id" => (id), "title" => ("Hymn"), "filler" => ("x".repeat(600)) })
+            .fixture_text()
             + "\n"
     };
     let first = target("T0");
-    std::fs::write(root.join("targets/A.jsonl"), &first).unwrap();
-    std::fs::write(root.join("targets/B.jsonl"), target("T1")).unwrap();
+    std::fs::write(root.join("targets/A.rows"), &first).unwrap();
+    std::fs::write(root.join("targets/B.rows"), target("T1")).unwrap();
     std::fs::write(
-        root.join("sources/one.json"),
-        r#"{"id":"S0","local_title":"Hymn","links":["T0","T1"]}"#,
+        root.join("sources/one.row"),
+        r#"("id"="S0","local_title"="Hymn","links"=["T0","T1"])"#,
     )
     .unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -365,13 +372,13 @@ fn segmented_stream_skips_unused_flat_prefetch_allowance() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
     let request = query("local_title ?= links.title", true, 1);
     assert_eq!(repo.search(&request).unwrap().count, Some(1));
-    std::fs::remove_file(root.join("targets/B.jsonl")).unwrap();
+    std::fs::remove_file(root.join("targets/B.rows")).unwrap();
     let prefetch_allowance = 2 * STREAM_TARGET_SLOT_BYTES as usize + first.len() + 100;
     let result = repo.search_stream(
         &request,
@@ -395,3 +402,5 @@ fn segmented_stream_skips_unused_flat_prefetch_allowance() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

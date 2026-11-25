@@ -36,16 +36,13 @@ fn fts_exact_modes_preserve_original_and_folded_literals() {
                     path: vec!["name".into()],
                     text: text.into(),
                 }];
-                with_record(
-                    Value::from_json(serde_json::json!({"name": text})).unwrap(),
-                    |ctx| {
-                        assert_eq!(
-                            eval_bound_fts(&bound, &segments, &ctx, &mut HashSet::new()).unwrap(),
-                            expected,
-                            "{text:?} {literal:?} {case_sensitivity:?} selected={selected}"
-                        );
-                    },
-                );
+                with_record(fixture_value!({ "name" => (text) }), |ctx| {
+                    assert_eq!(
+                        eval_bound_fts(&bound, &segments, &ctx, &mut HashSet::new()).unwrap(),
+                        expected,
+                        "{text:?} {literal:?} {case_sensitivity:?} selected={selected}"
+                    );
+                });
                 if !selected {
                     assert_eq!(raw_fallback_contains(&bound, text), expected);
                 }
@@ -89,15 +86,14 @@ fn fts_membership_stops_after_first_match_but_evidence_checks_every_segment() {
             text: "hit".into(),
         })
         .collect::<Vec<_>>();
-    with_record(
-        Value::from_json(serde_json::json!({"name": "hit"})).unwrap(),
-        |ctx| {
-            assert!(eval_bound_fts_membership(&bound, &segments, &ctx).unwrap());
-            assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 1);
-            let mut evidence = HashSet::new();
-            assert!(eval_bound_fts(&bound, &segments, &ctx, &mut evidence).unwrap());
-            assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 4);
-            assert_eq!(evidence, HashSet::from(["name".to_owned()]));
-        },
-    );
+    with_record(fixture_value!({ "name" => ("hit") }), |ctx| {
+        assert!(eval_bound_fts_membership(&bound, &segments, &ctx).unwrap());
+        assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 1);
+        let mut evidence = HashSet::new();
+        assert!(eval_bound_fts(&bound, &segments, &ctx, &mut evidence).unwrap());
+        assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 4);
+        assert_eq!(evidence, HashSet::from(["name".to_owned()]));
+    });
 }
+
+use crate::source::test_support::fixture_value;

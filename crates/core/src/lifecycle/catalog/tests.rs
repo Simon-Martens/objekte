@@ -15,8 +15,8 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
-    std::fs::write(root.join("data/b.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/a.row"), b"()").unwrap();
+    std::fs::write(root.join("data/b.row"), b"()").unwrap();
     let repository = Arc::new(
         crate::lifecycle::Index::build_repository_for_test(
             &root,
@@ -24,7 +24,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -32,12 +32,12 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let original = FileCatalog::from_repository(Arc::clone(&repository)).unwrap();
     assert_eq!(original.active_files(), 2);
     assert_eq!(
-        original.id_for(std::path::Path::new("data/a.json")),
+        original.id_for(std::path::Path::new("data/a.row")),
         Some(FileId(0))
     );
 
     let mut moved = repository.files().files[0].clone();
-    moved.relative_path = "data/renamed.json".into();
+    moved.relative_path = "data/renamed.row".into();
     moved.revision.size = 77;
     moved.revision.modified_ns += 100;
     moved.created_ns = Some(777);
@@ -82,33 +82,33 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         changed.modified_ids(Operator::Eq, moved_modified, 8),
         Some(Arc::from([FileId(0)]))
     );
-    assert_eq!(changed.id_for(std::path::Path::new("data/a.json")), None);
+    assert_eq!(changed.id_for(std::path::Path::new("data/a.row")), None);
     assert_eq!(
-        changed.id_for(std::path::Path::new("data/renamed.json")),
+        changed.id_for(std::path::Path::new("data/renamed.row")),
         Some(FileId(0))
     );
     assert_eq!(changed.fingerprint(FileId(0)), Some([7; 32]));
     assert_eq!(
-        changed.relative_path_ids(Operator::Eq, "data/renamed.json"),
+        changed.relative_path_ids(Operator::Eq, "data/renamed.row"),
         Some(vec![FileId(0)])
     );
     assert_eq!(
-        changed.relative_path_ids(Operator::Eq, "data/a.json"),
+        changed.relative_path_ids(Operator::Eq, "data/a.row"),
         Some(vec![])
     );
     assert_eq!(changed.configuration(FileId(0)), Some([8; 32]));
     assert_eq!(
-        original.id_for(std::path::Path::new("data/a.json")),
+        original.id_for(std::path::Path::new("data/a.row")),
         Some(FileId(0))
     );
     assert!(Arc::ptr_eq(&changed.base_files, &original.base_files));
 
     let retired = changed.retired(FileId(1)).unwrap();
     assert_eq!(retired.active_files(), 1);
-    assert_eq!(retired.id_for(std::path::Path::new("data/b.json")), None);
+    assert_eq!(retired.id_for(std::path::Path::new("data/b.row")), None);
     let mut added = repository.files().files[1].clone();
     added.id = FileId(2);
-    added.relative_path = "data/new.json".into();
+    added.relative_path = "data/new.row".into();
     added.created_ns = None;
     let appended = retired.appended(added, None, None).unwrap();
     assert!(
@@ -131,15 +131,15 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         None
     );
     assert_eq!(
-        appended.id_for(std::path::Path::new("data/new.json")),
+        appended.id_for(std::path::Path::new("data/new.row")),
         Some(FileId(2))
     );
-    assert_eq!(retired.id_for(std::path::Path::new("data/new.json")), None);
+    assert_eq!(retired.id_for(std::path::Path::new("data/new.row")), None);
     let scan_baseline = appended.scan_stamps();
     assert_eq!(scan_baseline.len(), 2);
-    assert!(scan_baseline.contains_key(std::path::Path::new("data/renamed.json")));
-    assert!(scan_baseline.contains_key(std::path::Path::new("data/new.json")));
-    assert!(!scan_baseline.contains_key(std::path::Path::new("data/b.json")));
+    assert!(scan_baseline.contains_key(std::path::Path::new("data/renamed.row")));
+    assert!(scan_baseline.contains_key(std::path::Path::new("data/new.row")));
+    assert!(!scan_baseline.contains_key(std::path::Path::new("data/b.row")));
 
     let slots = (0..appended.allocated_files())
         .map(|number| {
@@ -154,19 +154,19 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert_eq!(restored.allocated_files(), 3);
     assert_eq!(restored.active_files(), 2);
     assert!(Arc::ptr_eq(&restored.base_files, &repository.files));
-    assert_eq!(restored.id_for(std::path::Path::new("data/a.json")), None);
-    assert_eq!(restored.id_for(std::path::Path::new("data/b.json")), None);
+    assert_eq!(restored.id_for(std::path::Path::new("data/a.row")), None);
+    assert_eq!(restored.id_for(std::path::Path::new("data/b.row")), None);
     assert_eq!(
-        restored.id_for(std::path::Path::new("data/renamed.json")),
+        restored.id_for(std::path::Path::new("data/renamed.row")),
         Some(FileId(0))
     );
     assert_eq!(
-        restored.id_for(std::path::Path::new("data/new.json")),
+        restored.id_for(std::path::Path::new("data/new.row")),
         Some(FileId(2))
     );
     assert_eq!(restored.fingerprint(FileId(0)), Some([7; 32]));
     assert_eq!(
-        restored.relative_path_ids(Operator::Eq, "data/new.json"),
+        restored.relative_path_ids(Operator::Eq, "data/new.row"),
         Some(vec![FileId(2)])
     );
     assert_eq!(restored.configuration(FileId(0)), Some([8; 32]));
@@ -183,7 +183,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     );
 
     let mut duplicate_path = slots.clone();
-    duplicate_path[2].as_mut().unwrap().0.relative_path = "data/renamed.json".into();
+    duplicate_path[2].as_mut().unwrap().0.relative_path = "data/renamed.row".into();
     assert!(FileCatalog::restored(Arc::clone(&repository), duplicate_path).is_err());
     let mut wrong_id = slots.clone();
     wrong_id[2].as_mut().unwrap().0.id = FileId(7);
@@ -213,14 +213,14 @@ fn scalar_cap_counts_live_members_after_base_and_delta_churn() {
         if base {
             for number in 0..FILES {
                 inventory
-                    .add(format!("{number}.json").into(), revision, None, collection)
+                    .add(format!("{number}.row").into(), revision, None, collection)
                     .unwrap();
             }
         }
         let mut catalog = FileCatalog::from_parts(Arc::new(inventory), Vec::new(), [0; 32]);
         let entry = |number| crate::inventory::FileEntry {
             id: FileId(number),
-            relative_path: format!("{number}.json").into(),
+            relative_path: format!("{number}.row").into(),
             revision,
             created_ns: None,
             collections: vec![collection],

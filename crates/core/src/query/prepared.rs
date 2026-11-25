@@ -161,8 +161,8 @@ mod tests {
         ));
         std::fs::create_dir_all(root.join("first")).unwrap();
         std::fs::create_dir_all(root.join("second")).unwrap();
-        std::fs::write(root.join("first/one.json"), br#"{"title":"abc"}"#).unwrap();
-        std::fs::write(root.join("second/two.json"), br#"{"title":"def"}"#).unwrap();
+        std::fs::write(root.join("first/one.row"), br#"("title"="abc")"#).unwrap();
+        std::fs::write(root.join("second/two.row"), br#"("title"="def")"#).unwrap();
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             ["first", "second"]
@@ -170,7 +170,7 @@ mod tests {
                 .map(|name| crate::source::test_support::document_folder(name, name))
                 .collect(),
             RepositoryOptions::default(),
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -217,12 +217,12 @@ mod tests {
             std::thread::current().id()
         ));
         std::fs::create_dir_all(root.join("data")).unwrap();
-        std::fs::write(root.join("data/one.json"), br#"{"title":"same","year":1}"#).unwrap();
+        std::fs::write(root.join("data/one.row"), br#"("title"="same","year"=1)"#).unwrap();
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
             vec![crate::source::test_support::document_folder("data", "data")],
             RepositoryOptions::default(),
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();

@@ -374,7 +374,7 @@ mod programmatic_tests {
             &[(CollectionId(0), "application.entries".into(), 1, 1)],
             None,
             vec![None],
-            &SourceRegistry::builtin(),
+            &crate::source::test_support::fixture_registry(),
         )
         .unwrap();
         assert!(repository.files.root().is_none());

@@ -3,7 +3,6 @@ use std::collections::BTreeMap;
 use super::{ScanChange, scan_sources_batched};
 use crate::inventory::discovery::Discovery;
 use crate::model::{CollectionId, FileId};
-use crate::source::registry::SourceRegistry;
 
 #[test]
 fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
@@ -15,14 +14,14 @@ fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("a")).unwrap();
     std::fs::create_dir_all(root.join("b")).unwrap();
-    std::fs::write(root.join("a/one.json"), b"{\"x\":1}").unwrap();
-    std::fs::write(root.join("b/two.json"), b"{\"x\":2}").unwrap();
+    std::fs::write(root.join("a/one.row"), b"(\"x\"=1)").unwrap();
+    std::fs::write(root.join("b/two.row"), b"(\"x\"=2)").unwrap();
     let root = root.canonicalize().unwrap();
     let definitions = vec![
         crate::source::test_support::document_folder("a", "a"),
         crate::source::test_support::document_folder("b", "b"),
     ];
-    let sources = SourceRegistry::builtin();
+    let sources = crate::source::test_support::fixture_registry();
     let mut current = BTreeMap::new();
     let baseline = scan_sources_batched(
         &root,
@@ -45,8 +44,8 @@ fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
     assert_eq!(baseline.examined, 2);
     assert!(baseline.issues.is_empty());
 
-    std::fs::write(root.join("a/one.json"), b"{\"x\":123}").unwrap();
-    std::fs::write(root.join("a/new.json"), b"{\"x\":3}").unwrap();
+    std::fs::write(root.join("a/one.row"), b"(\"x\"=123)").unwrap();
+    std::fs::write(root.join("a/new.row"), b"(\"x\"=3)").unwrap();
     std::fs::remove_dir_all(root.join("b")).unwrap();
     let mut changes = Vec::new();
     let scan = scan_sources_batched(
@@ -65,15 +64,15 @@ fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
     assert!(changes.iter().any(|change| matches!(
         change,
         ScanChange::Update { previous, observed }
-            if previous.path == std::path::Path::new("a/one.json")
+            if previous.path == std::path::Path::new("a/one.row")
                 && observed.path == previous.path
     )));
     assert!(changes.iter().any(|change| matches!(
         change,
         ScanChange::Add(observed)
-            if observed.path == std::path::Path::new("a/new.json")
+            if observed.path == std::path::Path::new("a/new.row")
     )));
-    let missing = current.get(std::path::Path::new("b/two.json")).unwrap();
+    let missing = current.get(std::path::Path::new("b/two.row")).unwrap();
     assert!(!scan.seen_existing.contains(missing.0.0));
     assert!(!missing.1.collections.is_subset(&scan.complete_collections));
     std::fs::remove_dir_all(root).unwrap();
@@ -89,8 +88,8 @@ fn overlapping_collections_emit_one_physical_observation_in_small_batches() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     let root = root.canonicalize().unwrap();
-    for name in ["one.json", "two.json", "three.json"] {
-        std::fs::write(root.join("data").join(name), b"{\"name\":\"a\"}").unwrap();
+    for name in ["one.row", "two.row", "three.row"] {
+        std::fs::write(root.join("data").join(name), b"(\"name\"=\"a\")").unwrap();
     }
     let definitions = vec![
         crate::source::test_support::document_folder("first", "data"),
@@ -100,7 +99,7 @@ fn overlapping_collections_emit_one_physical_observation_in_small_batches() {
     let scan = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |_| None,
         || false,
@@ -131,8 +130,8 @@ fn nested_source_roots_preserve_all_memberships_without_duplicate_observation() 
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data/nested")).unwrap();
-    std::fs::write(root.join("data/top.json"), b"{}").unwrap();
-    std::fs::write(root.join("data/nested/inner.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/top.row"), b"()").unwrap();
+    std::fs::write(root.join("data/nested/inner.row"), b"()").unwrap();
     let root = root.canonicalize().unwrap();
     let mut outer = crate::source::test_support::document_folder("outer", "data");
     outer.discovery.recursive = true;
@@ -141,7 +140,7 @@ fn nested_source_roots_preserve_all_memberships_without_duplicate_observation() 
     let scan = scan_sources_batched(
         &root,
         &[outer, inner],
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |_| None,
         || false,
@@ -153,7 +152,7 @@ fn nested_source_roots_preserve_all_memberships_without_duplicate_observation() 
     assert_eq!(scan.metadata_observations, 2);
     assert_eq!(changes.len(), 2);
     assert!(changes.iter().any(|change| matches!(change,
-        ScanChange::Add(file) if file.path == std::path::Path::new("data/nested/inner.json")
+        ScanChange::Add(file) if file.path == std::path::Path::new("data/nested/inner.row")
             && file.collections == [CollectionId(0), CollectionId(1)].into()
     )));
     std::fs::remove_dir_all(root).unwrap();
@@ -168,15 +167,15 @@ fn bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
-    std::fs::write(root.join("data/b.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/a.row"), b"()").unwrap();
+    std::fs::write(root.join("data/b.row"), b"()").unwrap();
     let root = root.canonicalize().unwrap();
     let definitions = vec![crate::source::test_support::document_folder("one", "data")];
     let mut prior = BTreeMap::new();
     let first = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |_| None,
         || false,
@@ -196,7 +195,7 @@ fn bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file() {
     let second = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |path| prior.get(path).cloned(),
         || false,
@@ -206,11 +205,11 @@ fn bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file() {
     assert!(changes.is_empty());
     assert_eq!(second.unchanged, 2);
     assert_eq!(second.seen_existing.len(), 2);
-    std::fs::write(root.join("data/b.json"), b"{\"changed\":true}").unwrap();
+    std::fs::write(root.join("data/b.row"), b"(\"changed\"=true)").unwrap();
     let third = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |path| prior.get(path).cloned(),
         || false,
@@ -221,7 +220,7 @@ fn bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file() {
     assert_eq!(third.planned_changes, 1);
     assert!(
         matches!(&changes[..], [ScanChange::Update { previous, observed }]
-        if previous.path == std::path::Path::new("data/b.json")
+        if previous.path == std::path::Path::new("data/b.row")
             && observed.revision.size > previous.revision.size)
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -237,7 +236,7 @@ fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     let root = root.canonicalize().unwrap();
-    std::fs::write(root.join("data/one.json"), b"{\"x\":1}").unwrap();
+    std::fs::write(root.join("data/one.row"), b"(\"x\"=1)").unwrap();
     let mut definitions = vec![
         crate::source::test_support::document_folder("first", "data"),
         crate::source::test_support::document_folder("second", "data"),
@@ -246,7 +245,7 @@ fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
     let baseline = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |_| None,
         || false,
@@ -258,7 +257,7 @@ fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
         panic!("expected one add")
     };
     let previous = previous.clone();
-    std::fs::write(root.join("data/one.json"), b"{\"x\":1234}").unwrap();
+    std::fs::write(root.join("data/one.row"), b"(\"x\"=1234)").unwrap();
     definitions[1].discovery = Discovery {
         include: vec!["[".into()],
         ..Discovery::default()
@@ -267,7 +266,7 @@ fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
     let scan = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |_| Some((FileId(0), previous.clone())),
         || false,
@@ -293,9 +292,9 @@ fn generated_directory_exclusion_precedes_seen_tracking_and_scan_cancels_between
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/cache.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/cache.row"), b"()").unwrap();
     for n in 0..4 {
-        std::fs::write(root.join(format!("data/item-{n}.json")), b"{}").unwrap();
+        std::fs::write(root.join(format!("data/item-{n}.row")), b"()").unwrap();
     }
     let root = root.canonicalize().unwrap();
     let definitions = vec![crate::source::test_support::document_folder("one", "data")];
@@ -304,10 +303,10 @@ fn generated_directory_exclusion_precedes_seen_tracking_and_scan_cancels_between
     let scan = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
-        |path| path == std::path::Path::new("data/cache.json"),
+        &crate::source::test_support::fixture_registry(),
+        |path| path == std::path::Path::new("data/cache.row"),
         |path| {
-            (path == std::path::Path::new("data/cache.json")).then_some((
+            (path == std::path::Path::new("data/cache.row")).then_some((
                 FileId(9),
                 super::FileStamp {
                     path: path.to_owned(),
@@ -353,8 +352,8 @@ fn scans_300000_files_with_two_overlapping_150000_file_collections() {
                 std::fs::write(
                     root.join("data")
                         .join(kind)
-                        .join(format!("{number:06}.json")),
-                    b"{}",
+                        .join(format!("{number:06}.row")),
+                    b"()",
                 )
                 .unwrap();
             }
@@ -363,9 +362,9 @@ fn scans_300000_files_with_two_overlapping_150000_file_collections() {
     }
     let root = root.canonicalize().unwrap();
     let definitions = [
-        ("first", "shared/*.json"),
-        ("second", "shared/*.json"),
-        ("third", "unique/*.json"),
+        ("first", "shared/*.row"),
+        ("second", "shared/*.row"),
+        ("third", "unique/*.row"),
     ]
     .into_iter()
     .map(|(name, pattern)| {
@@ -385,7 +384,7 @@ fn scans_300000_files_with_two_overlapping_150000_file_collections() {
     let scan = scan_sources_batched(
         &root,
         &definitions,
-        &SourceRegistry::builtin(),
+        &crate::source::test_support::fixture_registry(),
         |_| false,
         |_| None,
         || false,
@@ -432,9 +431,9 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     assert_eq!(std::fs::read(root.join("ready")).unwrap(), b"300000");
     let root = root.canonicalize().unwrap();
     let definitions = [
-        ("first", "shared/*.json"),
-        ("second", "shared/*.json"),
-        ("third", "unique/*.json"),
+        ("first", "shared/*.row"),
+        ("second", "shared/*.row"),
+        ("third", "unique/*.row"),
     ]
     .into_iter()
     .map(|(name, pattern)| {
@@ -454,7 +453,7 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -476,9 +475,9 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     );
     assert_eq!(index.status().unwrap().revision, initial.revision);
 
-    let changed_path = root.join("data/shared/000000.json");
+    let changed_path = root.join("data/shared/000000.row");
     let original = std::fs::read(&changed_path).unwrap();
-    std::fs::write(&changed_path, b"{\"changed\":true}").unwrap();
+    std::fs::write(&changed_path, b"(\"changed\"=true)").unwrap();
     let started = Instant::now();
     let updated = index.reconcile_pass(|| false);
     let updated_ms = started.elapsed().as_millis();
@@ -486,12 +485,12 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     assert!(updated.issues.is_empty(), "{:?}", updated.issues);
     assert_eq!(updated.examined, 300_000);
     assert_eq!((updated.added, updated.updated, updated.removed), (0, 1, 0));
-    assert_eq!(updated.indexed_bytes, b"{\"changed\":true}".len() as u64);
+    assert_eq!(updated.indexed_bytes, b"(\"changed\"=true)".len() as u64);
     let view = index.view().unwrap();
     let file_id = view
         .0
         .catalog
-        .id_for(std::path::Path::new("data/shared/000000.json"))
+        .id_for(std::path::Path::new("data/shared/000000.row"))
         .unwrap();
     let file = view.0.catalog.entry(file_id).unwrap();
     assert_eq!(file.collections.len(), 2);

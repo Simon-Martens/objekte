@@ -32,9 +32,9 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
     std::fs::create_dir_all(root.join("data/a")).unwrap();
     std::fs::create_dir_all(root.join("data/b")).unwrap();
     std::fs::create_dir_all(root.join(".objekte/collections")).unwrap();
-    std::fs::write(root.join(".objekte/collections/data.json"), "not a schema").unwrap();
-    std::fs::write(root.join("data/a/item.json"), r#"{"title":"Goethe"}"#).unwrap();
-    std::fs::write(root.join("data/b/item.json"), r#"{"title":"Other"}"#).unwrap();
+    std::fs::write(root.join(".objekte/collections/data.row"), "not a schema").unwrap();
+    std::fs::write(root.join("data/a/item.row"), r#"("title"="Goethe")"#).unwrap();
+    std::fs::write(root.join("data/b/item.row"), r#"("title"="Other")"#).unwrap();
     let definition = crate::source::test_support::document_folder("data", "data");
     assert!(definition.schema.fields.is_empty());
     assert!(definition.discovery.recursive);
@@ -45,7 +45,7 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -72,23 +72,23 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
     };
     let result = repo.search(&request).unwrap();
     assert_eq!(result.hits.len(), 1);
-    assert_eq!(result.hits[0].record_id, "path:a/item.json");
+    assert_eq!(result.hits[0].record_id, "path:a/item.row");
     assert_eq!(repo.collections[0].generation.records.len(), 2);
     std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
-fn jsonl_folder_uses_distinct_generated_record_ids() {
-    let root = root("jsonl");
+fn lines_folder_uses_distinct_generated_record_ids() {
+    let root = root("fixture-lines");
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/items.jsonl"),
-        "{\"name\":\"one\"}\n{\"name\":\"two\"}\n",
+        root.join("data/items.rows"),
+        "(\"name\"=\"one\")\n(\"name\"=\"two\")\n",
     )
     .unwrap();
     let definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     assert_eq!(definition.identity, IdentityPolicy::Generated);
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -96,7 +96,7 @@ fn jsonl_folder_uses_distinct_generated_record_ids() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

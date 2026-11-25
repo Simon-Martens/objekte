@@ -9,7 +9,7 @@ fn inventory_without_catalog_has_no_root_or_file_identity() {
     assert!(
         inventory
             .add(
-                "data/a.json".into(),
+                "data/a.row".into(),
                 SourceRevision {
                     modified_ns: 0,
                     size: 1,
@@ -36,26 +36,26 @@ fn restored_entries_build_lookup_once_with_add_equivalent_results() {
     };
     let mut built = FileInventory::new(root.clone());
     let first = built
-        .add("data/a.json".into(), revision, Some(5), CollectionId(0))
+        .add("data/a.row".into(), revision, Some(5), CollectionId(0))
         .unwrap();
     let second = built
-        .add("data/b.json".into(), revision, None, CollectionId(0))
+        .add("data/b.row".into(), revision, None, CollectionId(0))
         .unwrap();
     built
-        .add("data/b.json".into(), revision, None, CollectionId(1))
+        .add("data/b.row".into(), revision, None, CollectionId(1))
         .unwrap();
 
     let restored = FileInventory::from_restored_entries(root.clone(), built.files.clone()).unwrap();
     assert_eq!(restored.files, built.files);
-    assert_eq!(restored.id_for(Path::new("data/a.json")), Some(first));
-    assert_eq!(restored.id_for(Path::new("data/b.json")), Some(second));
+    assert_eq!(restored.id_for(Path::new("data/a.row")), Some(first));
+    assert_eq!(restored.id_for(Path::new("data/b.row")), Some(second));
     assert_eq!(
         restored.files[1].collections,
         [CollectionId(0), CollectionId(1)]
     );
     assert_eq!(restored.relative_paths, built.relative_paths);
     assert_eq!(
-        restored.relative_path_ids_up_to(Operator::Eq, "data/b.json", 1),
+        restored.relative_path_ids_up_to(Operator::Eq, "data/b.row", 1),
         Some(vec![second])
     );
 
@@ -66,7 +66,7 @@ fn restored_entries_build_lookup_once_with_add_equivalent_results() {
     bad_id[1].id = FileId(9);
     assert!(FileInventory::from_restored_entries(root.clone(), bad_id).is_err());
     let mut escaping = built.files.clone();
-    escaping[0].relative_path = SharedPath::from("../escape.json");
+    escaping[0].relative_path = SharedPath::from("../escape.row");
     assert!(FileInventory::from_restored_entries(root.clone(), escaping).is_err());
     let mut bad_status = built.files.clone();
     bad_status[0].status = FileStatus::Broken;
@@ -95,17 +95,17 @@ fn file_record_mapping_in_both_directions() {
         object_id: None,
     };
     let f0 = files
-        .add("empty.json".into(), revision, None, CollectionId(0))
+        .add("empty.row".into(), revision, None, CollectionId(0))
         .unwrap();
     let f1 = files
-        .add("multi.jsonl".into(), revision, None, CollectionId(0))
+        .add("multi.rows".into(), revision, None, CollectionId(0))
         .unwrap();
     assert_eq!(
-        files.relative_path_ids_up_to(Operator::Eq, "empty.json", 1),
+        files.relative_path_ids_up_to(Operator::Eq, "empty.row", 1),
         Some(vec![f0])
     );
     assert_eq!(
-        files.relative_path_ids_up_to(Operator::Ge, "empty.json", 1),
+        files.relative_path_ids_up_to(Operator::Ge, "empty.row", 1),
         None
     );
     assert!(
@@ -119,11 +119,11 @@ fn file_record_mapping_in_both_directions() {
     };
     assert!(Arc::ptr_eq(
         entry_path,
-        files.relative_paths.get_key_value("empty.json").unwrap().0
+        files.relative_paths.get_key_value("empty.row").unwrap().0
     ));
     let lookup_path = files
         .by_path
-        .get_key_value(Path::new("empty.json"))
+        .get_key_value(Path::new("empty.row"))
         .unwrap()
         .0;
     let SharedPath::Plain(lookup_path) = lookup_path else {
@@ -132,7 +132,7 @@ fn file_record_mapping_in_both_directions() {
     assert!(Arc::ptr_eq(entry_path, lookup_path));
     assert_eq!(
         files
-            .add("multi.jsonl".into(), revision, None, CollectionId(1))
+            .add("multi.rows".into(), revision, None, CollectionId(1))
             .unwrap(),
         f1
     );
@@ -179,7 +179,7 @@ fn relative_path_index_preserves_native_escaping_and_rejects_absolute_literals()
         size: 2,
         object_id: None,
     };
-    for (name, id) in [("data/a.json", FileId(0)), ("other/a.json", FileId(1))] {
+    for (name, id) in [("data/a.row", FileId(0)), ("other/a.row", FileId(1))] {
         assert_eq!(
             files
                 .add(name.into(), revision, None, CollectionId(0))
@@ -193,10 +193,10 @@ fn relative_path_index_preserves_native_escaping_and_rejects_absolute_literals()
         );
     }
     assert_eq!(
-        files.relative_path_ids_up_to(Operator::Eq, "/tmp/repo/data/a.json", 2),
+        files.relative_path_ids_up_to(Operator::Eq, "/tmp/repo/data/a.row", 2),
         Some(vec![])
     );
-    let escaped = PathBuf::from("data/percent%and\\backslash.json");
+    let escaped = PathBuf::from("data/percent%and\\backslash.row");
     let key = crate::model::path_representation::query_path(&escaped);
     let id = files
         .add(escaped.clone(), revision, None, CollectionId(0))
@@ -214,7 +214,7 @@ fn relative_path_index_preserves_native_escaping_and_rejects_absolute_literals()
     {
         use std::os::unix::ffi::OsStringExt;
         let native = PathBuf::from(std::ffi::OsString::from_vec(
-            b"data/invalid-\xff.json".to_vec(),
+            b"data/invalid-\xff.row".to_vec(),
         ));
         let key = crate::model::path_representation::query_path(&native);
         let id = files
@@ -237,16 +237,16 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
         object_id: None,
     };
     let empty = inventory
-        .add("empty.json".into(), revision, None, CollectionId(0))
+        .add("empty.row".into(), revision, None, CollectionId(0))
         .unwrap();
     let valid = inventory
-        .add("valid.json".into(), revision, None, CollectionId(0))
+        .add("valid.row".into(), revision, None, CollectionId(0))
         .unwrap();
     let broken = inventory
-        .add("broken.json".into(), revision, None, CollectionId(0))
+        .add("broken.row".into(), revision, None, CollectionId(0))
         .unwrap();
     let omitted = inventory
-        .add("omitted.json".into(), revision, None, CollectionId(0))
+        .add("omitted.row".into(), revision, None, CollectionId(0))
         .unwrap();
     let mut builder = CollectionBuilder::new(CollectionId(0), "data".into(), 1, 4);
     assert!(builder.include_file(FileId(4)).is_err());
@@ -266,9 +266,9 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
                 &inventory.files[broken.0 as usize],
                 RecordId::fallback(
                     CollectionId(0),
-                    "json",
+                    "fixture-record",
                     1,
-                    Path::new("broken.json"),
+                    Path::new("broken.row"),
                     broken,
                     7,
                     0,
@@ -313,17 +313,17 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
     let diagnostic = SourceDiagnostic {
         file: broken,
         collection: CollectionId(0),
-        source_id: "json".into(),
+        source_id: "fixture-record".into(),
         source_version: 1,
         record: None,
         range: Some(ByteRange { start: 0, end: 10 }),
         category: DiagnosticCategory::Syntax,
-        code: "json.parse".into(),
+        code: "fixture.parse".into(),
         field_path: None,
         byte_offset: Some(1),
         line: Some(1),
         column: Some(2),
-        message: "invalid JSON".into(),
+        message: "invalid fixture".into(),
     };
     let reference = inventory.record_diagnostic(broken, diagnostic).unwrap();
     let fallback_slot = builder
@@ -331,9 +331,9 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
             &inventory.files[broken.0 as usize],
             RecordId::fallback(
                 CollectionId(0),
-                "json",
+                "fixture-record",
                 1,
-                Path::new("broken.json"),
+                Path::new("broken.row"),
                 broken,
                 7,
                 0,
@@ -377,7 +377,7 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
     let files: Vec<_> = (0..4)
         .map(|i| {
             inventory
-                .add(format!("{i}.jsonl").into(), revision, None, CollectionId(0))
+                .add(format!("{i}.rows").into(), revision, None, CollectionId(0))
                 .unwrap()
         })
         .collect();
@@ -446,23 +446,20 @@ fn status_codes_and_diagnostic_bounds_are_stable() {
         (FileStatus::Unreadable, 2),
     ] {
         assert_eq!(status.code(), code);
-        assert_eq!(serde_json::to_string(&status).unwrap(), code.to_string());
-        assert_eq!(
-            serde_json::from_str::<FileStatus>(&code.to_string()).unwrap(),
-            status
-        );
+        assert_eq!(bincode::serialize(&status).unwrap(), vec![code]);
+        assert_eq!(bincode::deserialize::<FileStatus>(&[code]).unwrap(), status);
     }
-    assert!(serde_json::from_str::<FileStatus>("3").is_err());
-    assert!(serde_json::from_str::<RecordClass>("2").is_err());
+    assert!(bincode::deserialize::<FileStatus>(&[3]).is_err());
+    assert!(bincode::deserialize::<RecordClass>(&[2]).is_err());
     assert_eq!(
-        serde_json::to_string(&RecordClass::RawFallback).unwrap(),
-        "1"
+        bincode::serialize(&RecordClass::RawFallback).unwrap(),
+        vec![1]
     );
 
     let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
     let file = files
         .add(
-            "broken.jsonl".into(),
+            "broken.rows".into(),
             SourceRevision {
                 modified_ns: 5,
                 size: 50,
@@ -475,12 +472,12 @@ fn status_codes_and_diagnostic_bounds_are_stable() {
     let make = |category| SourceDiagnostic {
         file,
         collection: CollectionId(0),
-        source_id: "jsonl".into(),
+        source_id: "fixture-lines".into(),
         source_version: 1,
         record: None,
         range: Some(ByteRange { start: 0, end: 3 }),
         category,
-        code: "json.parse".into(),
+        code: "fixture.parse".into(),
         field_path: None,
         byte_offset: Some(2),
         line: Some(1),

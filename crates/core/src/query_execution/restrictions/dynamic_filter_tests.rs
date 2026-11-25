@@ -35,30 +35,30 @@ fn fixture() -> std::path::PathBuf {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (id, contents) in [
-        ("a", r#"{"title":"Goethe","items":[{"title":"Goethe"}]}"#),
-        ("b", r#"{"title":"goethe","items":[{"title":"Other"}]}"#),
-        ("c", r#"{"title":"Other","noise":[]}"#),
-        ("d", r#"{"title":[]}"#),
-        ("e", r#"{"items":[]}"#),
-        ("f", r#"{"title":42}"#),
-        ("g", r#"{"title":null}"#),
-        ("h", r#"{"other":"Goethe"}"#),
-        ("i", r#"{"title":["Goethe","Other"]}"#),
-        ("j", r#"{"title":["Goethe","Goethe"]}"#),
-        ("k", r#"{"title":["Other","Goethe"]}"#),
-        ("l", r#"{"title":""}"#),
-        ("m", r#"{"title":"Müller"}"#),
-        ("n", r#"{"title":"MÜLLER"}"#),
-        ("o", r#"{"items":[{}]}"#),
-        ("p", r#"{"title":["Goethe"],"items":[{"title":"Goethe"}]}"#),
+        ("a", r#"("title"="Goethe","items"=[("title"="Goethe")])"#),
+        ("b", r#"("title"="goethe","items"=[("title"="Other")])"#),
+        ("c", r#"("title"="Other","noise"=[])"#),
+        ("d", r#"("title"=[])"#),
+        ("e", r#"("items"=[])"#),
+        ("f", r#"("title"=42)"#),
+        ("g", r#"("title"=null)"#),
+        ("h", r#"("other"="Goethe")"#),
+        ("i", r#"("title"=["Goethe","Other"])"#),
+        ("j", r#"("title"=["Goethe","Goethe"])"#),
+        ("k", r#"("title"=["Other","Goethe"])"#),
+        ("l", r#"("title"="")"#),
+        ("m", r#"("title"="Müller")"#),
+        ("n", r#"("title"="MÜLLER")"#),
+        ("o", r#"("items"=[()])"#),
+        ("p", r#"("title"=["Goethe"],"items"=[("title"="Goethe")])"#),
         ("bad", "{"),
     ] {
-        std::fs::write(root.join(format!("data/{id}.json")), contents).unwrap();
+        std::fs::write(root.join(format!("data/{id}.row")), contents).unwrap();
     }
     for number in 0..100 {
         std::fs::write(
-            root.join(format!("data/z{number:03}.json")),
-            r#"{"title":"unrelated"}"#,
+            root.join(format!("data/z{number:03}.row")),
+            r#"("title"="unrelated")"#,
         )
         .unwrap();
     }
@@ -103,7 +103,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                 &root,
                 vec![definition()],
                 options,
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -197,7 +197,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                     verified_cache_bytes: 0,
                     ..options
                 },
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -249,9 +249,9 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for index in 0..64 {
         std::fs::write(
-            root.join(format!("data/{index:03}.json")),
+            root.join(format!("data/{index:03}.row")),
             format!(
-                "{{\"title\":\"{}\",\"unrelated\":[]}}",
+                "(\"title\"=\"{}\",\"unrelated\"=[])",
                 if index == 0 { "needle" } else { "other" }
             ),
         )
@@ -265,7 +265,7 @@ fn broad_structural_superset_makes_scanning_cheaper() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -344,7 +344,7 @@ fn undeclared_candidate_respects_reader_text_coverage() {
         .unwrap();
     }
     for complete in [false, true] {
-        let mut sources = crate::source::registry::SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register(
                 "selected-text",

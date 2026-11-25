@@ -1074,8 +1074,8 @@ fn process_custom_stream_profiled(
     Ok((stats, hash.then(|| digest.finalize().into())))
 }
 
-/// Prepare one physical file across all supplied eligible collections. JSONL
-/// uses bounded chunks; other readers retain their existing whole-buffer
+/// Prepare one physical file across all supplied eligible collections. Streaming readers
+/// use bounded chunks; other readers retain their existing whole-buffer
 /// framing. A malformed frame falls back to ordinary build extraction.
 #[cfg(test)]
 pub(crate) fn prepare_file_build(
@@ -2175,8 +2175,8 @@ pub(super) fn process_framed_file_with_budget(
 #[cfg(test)]
 mod tests;
 
-/// JSONL construction keeps only bounded line chunks and admitted worker
-/// contributions alive. A single line larger than the normal chunk size is a
+/// Streaming construction keeps only bounded chunks and admitted worker
+/// contributions alive. A single record larger than the normal chunk size is a
 /// singleton job; memory therefore scales with the largest record, not the
 /// whole file. Parsing remains parallel and admission remains file-order.
 fn open_build_framer<'a>(

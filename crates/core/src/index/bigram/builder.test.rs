@@ -600,8 +600,8 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/mixed.jsonl"),
-        b"{\"title\":\"a\\u00dfb\"}\n{\"title\":\n{\"title\":\"ab\"}\n{\"title\":null}\n",
+        root.join("data/mixed.rows"),
+        b"(\"title\"=\"a\\u00dfb\")\n(\"title\"=\n(\"title\"=\"ab\")\n(\"title\"=null)\n",
     )
     .unwrap();
     let mut schema = Schema::default();
@@ -629,7 +629,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -639,7 +639,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
         sort_overrides: Default::default(),
     };
     let raw_records = vec![vec!["aßb".into()], vec![], vec!["ab".into()], vec![]];
-    let fallback_records = vec![vec![], vec!["{\"title\":".into()], vec![], vec![]];
+    let fallback_records = vec![vec![], vec!["(\"title\"=".into()], vec![], vec![]];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
@@ -648,7 +648,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
                 bigram_alphabet: alphabet,
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -732,8 +732,7 @@ fn profile_single_worker_constructors() {
     );
     if let Some(stats) = construction {
         println!(
-            "construction_stats={} type_bytes={{\"pending_block\":{},\"gram_block\":{},\"column_span\":{},\"packed_chunk\":{},\"based_columns\":{},\"contribution\":{}}}",
-            serde_json::to_string(&stats).unwrap(),
+            "construction_stats={stats:?} type_bytes={{\"pending_block\":{},\"gram_block\":{},\"column_span\":{},\"packed_chunk\":{},\"based_columns\":{},\"contribution\":{}}}",
             std::mem::size_of::<PendingBlock>(),
             std::mem::size_of::<GramBlock>(),
             std::mem::size_of::<ColumnSpan>(),

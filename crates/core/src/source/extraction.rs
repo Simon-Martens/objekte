@@ -9,14 +9,14 @@ use sha2::{Digest, Sha256};
 
 use crate::inventory::{ByteRange, SourceRevision};
 
+#[cfg(test)]
+use super::SourceFormat;
 use super::access::check_revision;
 use super::framing::validate_reader_ranges;
 use super::{
     DiagnosticCategory, ExtractedRecord, ReaderDiagnostic, ReaderFailure, SourceOutcome,
     SourceReader,
 };
-#[cfg(test)]
-use super::{SourceFormat, registry::SourceRegistry};
 
 /// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
@@ -90,7 +90,7 @@ pub(crate) fn extract_file<F>(
 where
     F: FnMut(ByteRange, ExtractedRecord) -> Result<(), String>,
 {
-    let source = SourceRegistry::builtin().resolve(&format)?;
+    let source = crate::source::test_support::fixture_registry().resolve(&format)?;
     extract_file_with_reader(path, source.reader(), expected, consume)
 }
 

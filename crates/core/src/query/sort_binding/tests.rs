@@ -77,11 +77,11 @@ fn reference_stored_sort_uses_numeric_and_null_override() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, document) in [
-        ("ten", r#"{"id":"ten","title":"item10"}"#),
-        ("two", r#"{"id":"two","title":"item2"}"#),
-        ("null", r#"{"id":"null","title":null}"#),
+        ("ten", r#"("id"="ten","title"="item10")"#),
+        ("two", r#"("id"="two","title"="item2")"#),
+        ("null", r#"("id"="null","title"=null)"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), document).unwrap();
     }
     let defaults = SortOptions {
         numeric: false,
@@ -106,7 +106,7 @@ fn reference_stored_sort_uses_numeric_and_null_override() {
             Some(effective),
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -136,13 +136,13 @@ fn cross_collection_sort_uses_effective_override_compatibility() {
     for collection in ["a", "b"] {
         std::fs::create_dir_all(root.join(collection)).unwrap();
         std::fs::write(
-            root.join(collection).join("ten.json"),
-            format!(r#"{{"id":"{collection}10","title":"item10"}}"#),
+            root.join(collection).join("ten.row"),
+            format!(r#"("id"="{collection}10","title"="item10")"#),
         )
         .unwrap();
         std::fs::write(
-            root.join(collection).join("two.json"),
-            format!(r#"{{"id":"{collection}2","title":"item2"}}"#),
+            root.join(collection).join("two.row"),
+            format!(r#"("id"="{collection}2","title"="item2")"#),
         )
         .unwrap();
     }
@@ -174,7 +174,7 @@ fn cross_collection_sort_uses_effective_override_compatibility() {
             stored_string_sort_definition("b", defaults_b, Some(numeric.clone())),
         ],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -196,7 +196,7 @@ fn cross_collection_sort_uses_effective_override_compatibility() {
             stored_string_sort_definition("b", defaults_a, Some(nonnumeric)),
         ],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -228,7 +228,7 @@ fn optimized_binding_defers_reference_sort_preparation() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    std::fs::write(root.join("data/a.row"), r#"("title"="Alpha")"#).unwrap();
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
@@ -249,7 +249,7 @@ fn optimized_binding_defers_reference_sort_preparation() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -360,7 +360,7 @@ fn cross_collection_sort_rejects_different_binding_versions() {
     let mut definitions = Vec::new();
     for (name, version) in [("a", 1), ("b", 2)] {
         std::fs::create_dir_all(root.join(name)).unwrap();
-        std::fs::write(root.join(name).join("record.json"), r#"{"title":"Alpha"}"#).unwrap();
+        std::fs::write(root.join(name).join("record.row"), r#"("title"="Alpha")"#).unwrap();
         let mut definition = crate::source::test_support::document_folder(name, name);
         definition
             .schema
@@ -393,7 +393,7 @@ fn cross_collection_sort_rejects_different_binding_versions() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -592,9 +592,9 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
             let target_count = if high_reuse { 4 } else { 47 };
             for index in 0..target_count {
                 std::fs::write(
-                    target.join(format!("{index:03}.json")),
+                    target.join(format!("{index:03}.row")),
                     format!(
-                        "{{\"id\":\"T{index:03}\",\"title\":\"Title-{:03}\"}}",
+                        "(\"id\"=\"T{index:03}\",\"title\"=\"Title-{:03}\")",
                         (index * 13) % target_count
                     ),
                 )
@@ -607,20 +607,20 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                     } else {
                         format!("T{:03}", index % target_count)
                     };
-                    format!("{{\"id\":\"S{index:03}\",\"entry\":\"{entry}\"}}\n")
+                    format!("(\"id\"=\"S{index:03}\",\"entry\"=\"{entry}\")\n")
                 })
                 .collect::<Vec<_>>();
             if split_files {
                 for (index, row) in rows.iter().enumerate() {
-                    std::fs::write(source.join(format!("{index:03}.jsonl")), row).unwrap();
+                    std::fs::write(source.join(format!("{index:03}.rows")), row).unwrap();
                 }
             } else {
-                std::fs::write(source.join("all.jsonl"), rows.concat()).unwrap();
+                std::fs::write(source.join("all.rows"), rows.concat()).unwrap();
             }
             let mut source_definition = CollectionDefinition::folder(
                 "sources",
                 "sources",
-                crate::source::test_support::LINES,
+                crate::source::test_support::line_format(),
             );
             source_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
             q4_field(&mut source_definition.schema, "id", LogicalType::Id);
@@ -667,7 +667,7 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                         query_workers: workers,
                         ..Default::default()
                     },
-                    crate::source::registry::SourceRegistry::builtin(),
+                    crate::source::test_support::fixture_registry(),
                 )
                 .map_err(|error| error.to_string())
                 .unwrap();
@@ -696,15 +696,15 @@ fn related_stored_sort_uses_the_target_fields_effective_collation() {
     std::fs::create_dir_all(root.join("targets")).unwrap();
     for (id, title) in [("T2", "item2"), ("T10", "item10")] {
         std::fs::write(
-            root.join("targets").join(format!("{id}.json")),
-            format!(r#"{{"id":"{id}","title":"{title}"}}"#),
+            root.join("targets").join(format!("{id}.row")),
+            format!(r#"("id"="{id}","title"="{title}")"#),
         )
         .unwrap();
     }
     for (id, target) in [("S2", "T2"), ("S10", "T10")] {
         std::fs::write(
-            root.join("sources").join(format!("{id}.json")),
-            format!(r#"{{"id":"{id}","entry":"{target}"}}"#),
+            root.join("sources").join(format!("{id}.row")),
+            format!(r#"("id"="{id}","entry"="{target}")"#),
         )
         .unwrap();
     }
@@ -750,7 +750,7 @@ fn related_stored_sort_uses_the_target_fields_effective_collation() {
         &root,
         vec![source.clone(), target],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -830,7 +830,7 @@ fn related_stored_sort_uses_the_target_fields_effective_collation() {
         &root,
         vec![source, compatible],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -855,8 +855,8 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
     std::fs::create_dir_all(root.join("targets")).unwrap();
     for (id, title) in [("T1", "Alpha"), ("T2", "Zulu"), ("T3", "Beta")] {
         std::fs::write(
-            root.join("targets").join(format!("{id}.json")),
-            format!("{{\"id\":\"{id}\",\"title\":\"{title}\"}}"),
+            root.join("targets").join(format!("{id}.row")),
+            format!("(\"id\"=\"{id}\",\"title\"=\"{title}\")"),
         )
         .unwrap();
     }
@@ -869,16 +869,19 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
     ];
     for index in 0..20 {
         std::fs::write(
-            root.join("sources").join(format!("{index:03}.jsonl")),
+            root.join("sources").join(format!("{index:03}.rows")),
             format!(
-                "{{\"id\":\"S{index:03}\",\"links\":{}}}\n",
+                "(\"id\"=\"S{index:03}\",\"links\"={})\n",
                 links[index % links.len()]
             ),
         )
         .unwrap();
     }
-    let mut source_definition =
-        CollectionDefinition::folder("sources", "sources", crate::source::test_support::LINES);
+    let mut source_definition = CollectionDefinition::folder(
+        "sources",
+        "sources",
+        crate::source::test_support::line_format(),
+    );
     source_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     q4_field(&mut source_definition.schema, "id", LogicalType::Id);
     source_definition
@@ -935,7 +938,7 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
                     query_workers: workers,
                     ..Default::default()
                 },
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -1005,10 +1008,10 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
         std::fs::create_dir_all(one_hop_root.join(directory)).unwrap();
     }
     for (relative, document) in [
-        ("roots/r1.json", r#"{"id":"R1","entry":"T1"}"#),
-        ("roots/r2.json", r#"{"id":"R2","entry":"T2"}"#),
-        ("targets/t1.json", r#"{"id":"T1","title":"Alpha"}"#),
-        ("targets/t2.json", r#"{"id":"T2","title":"Zulu"}"#),
+        ("roots/r1.row", r#"("id"="R1","entry"="T1")"#),
+        ("roots/r2.row", r#"("id"="R2","entry"="T2")"#),
+        ("targets/t1.row", r#"("id"="T1","title"="Alpha")"#),
+        ("targets/t2.row", r#"("id"="T2","title"="Zulu")"#),
     ] {
         std::fs::write(one_hop_root.join(relative), document).unwrap();
     }
@@ -1019,7 +1022,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
             target_definition("targets"),
         ],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1039,10 +1042,10 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
             .is_some_and(|name| name.starts_with('t'))
     }));
     let one_hop_bytes = [
-        "roots/r1.json",
-        "roots/r2.json",
-        "targets/t1.json",
-        "targets/t2.json",
+        "roots/r1.row",
+        "roots/r2.row",
+        "targets/t1.row",
+        "targets/t2.row",
     ]
     .into_iter()
     .map(|path| std::fs::metadata(one_hop_root.join(path)).unwrap().len())
@@ -1057,10 +1060,10 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
         std::fs::create_dir_all(two_hop_root.join(directory)).unwrap();
     }
     for (relative, document) in [
-        ("roots/r1.json", r#"{"id":"R1","entry":"I"}"#),
-        ("roots/r2.json", r#"{"id":"R2","entry":"I"}"#),
-        ("intermediates/i.json", r#"{"id":"I","entry":"T"}"#),
-        ("targets/t.json", r#"{"id":"T","title":"Tie"}"#),
+        ("roots/r1.row", r#"("id"="R1","entry"="I")"#),
+        ("roots/r2.row", r#"("id"="R2","entry"="I")"#),
+        ("intermediates/i.row", r#"("id"="I","entry"="T")"#),
+        ("targets/t.row", r#"("id"="T","title"="Tie")"#),
     ] {
         std::fs::write(two_hop_root.join(relative), document).unwrap();
     }
@@ -1073,7 +1076,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
             target_definition("targets"),
         ],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1093,20 +1096,20 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
         .iter()
         .map(|(path, _, _)| path.file_name().unwrap().to_str().unwrap())
         .collect::<Vec<_>>();
-    assert_eq!(observed_names, ["i.json", "t.json"]);
+    assert_eq!(observed_names, ["i.row", "t.row"]);
     let two_hop_bytes = [
-        "roots/r1.json",
-        "roots/r2.json",
-        "intermediates/i.json",
-        "targets/t.json",
+        "roots/r1.row",
+        "roots/r2.row",
+        "intermediates/i.row",
+        "targets/t.row",
     ]
     .into_iter()
     .map(|path| std::fs::metadata(two_hop_root.join(path)).unwrap().len())
     .sum::<u64>();
     assert_eq!(result.counters.bytes_read, two_hop_bytes);
 
-    let intermediate_path = two_hop_root.join("intermediates/i.json");
-    let target_path = two_hop_root.join("targets/t.json");
+    let intermediate_path = two_hop_root.join("intermediates/i.row");
+    let target_path = two_hop_root.join("targets/t.row");
     let intermediate_bytes = std::fs::read(&intermediate_path).unwrap();
     let target_bytes = std::fs::read(&target_path).unwrap();
     std::fs::remove_file(&target_path).unwrap();
@@ -1121,7 +1124,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
             .counters
             .source_diagnostics
             .iter()
-            .any(|diagnostic| { diagnostic.file_path == std::path::Path::new("targets/t.json") })
+            .any(|diagnostic| { diagnostic.file_path == std::path::Path::new("targets/t.row") })
     );
     std::fs::write(&target_path, &target_bytes).unwrap();
 
@@ -1138,7 +1141,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
             .source_diagnostics
             .iter()
             .any(|diagnostic| {
-                diagnostic.file_path == std::path::Path::new("intermediates/i.json")
+                diagnostic.file_path == std::path::Path::new("intermediates/i.row")
             })
     );
     std::fs::write(&intermediate_path, intermediate_bytes).unwrap();

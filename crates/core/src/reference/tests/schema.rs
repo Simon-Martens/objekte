@@ -48,22 +48,22 @@ fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conv
             element_nullable: vec![false],
         })
         .unwrap();
-    for json in [
-        serde_json::json!({}),
-        serde_json::json!({"details":null}),
-        serde_json::json!({"details":{"published":"2026-01-02", "history":[{"at":"2026-01-02T03:04:05Z"}]}}),
+    for fixture in [
+        fixture_value!({}),
+        fixture_value!({ "details" => null }),
+        fixture_value!({ "details" => { "published" => ("2026-01-02"), "history" => [{ "at" => ("2026-01-02T03:04:05Z") }] } }),
     ] {
-        let mut built = Value::from_json(json.clone()).unwrap();
+        let mut built = fixture.clone();
         schema.coerce_record(&mut built).unwrap();
-        let mut scanned = Value::from_json(json).unwrap();
+        let mut scanned = fixture;
         schema.convert_indexed_record(&mut scanned, None).unwrap();
         assert_eq!(scanned, built);
     }
-    let mut projected = Value::from_json(serde_json::json!({"note":"keep"})).unwrap();
+    let mut projected = fixture_value!({ "note" => ("keep") });
     schema
         .convert_indexed_record(&mut projected, Some(&HashSet::from(["note".into()])))
         .unwrap();
-    let mut invalid = Value::from_json(serde_json::json!({"details":{}})).unwrap();
+    let mut invalid = fixture_value!({ "details" => {  } });
     assert!(
         schema
             .coerce_record(&mut invalid)
@@ -180,14 +180,8 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
             })
             .unwrap();
     }
-    let valid = serde_json::json!({
-        "count": 7, "optional": null, "tags": ["a"],
-        "days": ["2026-01-01", null],
-        "times": ["2026-01-01T12:30:00+02:00"],
-        "seconds": [0, 1767319445],
-        "nested": [[], [1, null]],
-    });
-    let mut value = Value::from_json(valid.clone()).unwrap();
+    let valid = fixture_value!({ "count" => (7), "optional" => null, "tags" => [("a")], "days" => [("2026-01-01"), null], "times" => [("2026-01-01T12:30:00+02:00")], "seconds" => [(0), (1767319445)], "nested" => [[], [(1), null]] });
+    let mut value = valid.clone();
     schema.coerce_record(&mut value).unwrap();
     let Value::Object(fields) = value else {
         panic!("object");
@@ -205,26 +199,30 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
         matches!(fields["nested"], Value::Array(ref array) if array.element_type == Some(LogicalType::Array(Box::new(LogicalType::Number))))
     );
     for (change, expected) in [
-        (serde_json::json!({"count": "7"}), "count: expected Number"),
         (
-            serde_json::json!({"count": null}),
+            fixture_value!({ "count" => ("7") }),
+            "count: expected Number",
+        ),
+        (
+            fixture_value!({ "count" => null }),
             "count: null is not allowed",
         ),
         (
-            serde_json::json!({"tags": [null]}),
+            fixture_value!({ "tags" => [null] }),
             "tags: null is not allowed",
         ),
-        (serde_json::json!({"days": ["not-a-date"]}), "days:"),
+        (fixture_value!({ "days" => [("not-a-date")] }), "days:"),
         (
-            serde_json::json!({"nested": [null]}),
+            fixture_value!({ "nested" => [null] }),
             "nested: null is not allowed",
         ),
     ] {
-        let mut json = valid.clone();
-        for (key, value) in change.as_object().unwrap() {
-            json[key] = value.clone();
-        }
-        let mut logical = Value::from_json(json).unwrap();
+        let mut fixture = valid.clone();
+        let (Value::Object(fields), Value::Object(change)) = (&mut fixture, change) else {
+            panic!("object");
+        };
+        fields.extend(change);
+        let mut logical = fixture;
         assert!(
             schema
                 .coerce_record(&mut logical)
@@ -232,24 +230,23 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
                 .contains(expected)
         );
     }
-    let mut missing = valid.as_object().unwrap().clone();
+    let Value::Object(mut missing) = valid else {
+        panic!("object")
+    };
     missing.remove("count");
-    let mut logical = Value::from_json(serde_json::Value::Object(missing)).unwrap();
+    let mut logical = Value::Object(missing);
     assert!(
         schema
             .coerce_record(&mut logical)
             .unwrap_err()
             .contains("count: required field is missing")
     );
-    let mut projected = Value::from_json(serde_json::json!({"count": 7})).unwrap();
+    let mut projected = fixture_value!({ "count" => (7) });
     schema
         .coerce_projected_record(&mut projected, Some(&HashSet::from(["count".into()])))
         .unwrap();
     assert!(schema.coerce_record(&mut projected).is_err());
-    let mut query_record = Value::from_json(serde_json::json!({
-        "days": ["2026-01-01", null], "tags": ["a"]
-    }))
-    .unwrap();
+    let mut query_record = fixture_value!({ "days" => [("2026-01-01"), null], "tags" => [("a")] });
     schema
         .convert_indexed_record(&mut query_record, Some(&HashSet::from(["days".into()])))
         .unwrap();
@@ -260,3 +257,5 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
         matches!(query_fields["days"], Value::Array(ref array) if matches!(array.values[0], Value::Date(_)))
     );
 }
+
+use crate::source::test_support::fixture_value;

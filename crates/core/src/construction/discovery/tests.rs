@@ -16,8 +16,8 @@ fn parallel_metadata_preparation_keeps_order_revisions_and_overlapping_membershi
     std::fs::create_dir(&root).unwrap();
     let paths = (0..79)
         .map(|index| {
-            let path = root.join(format!("{index:03}.json"));
-            std::fs::write(&path, b"{\"name\":\"test\"}").unwrap();
+            let path = root.join(format!("{index:03}.row"));
+            std::fs::write(&path, b"(\"name\"=\"test\")").unwrap();
             path
         })
         .collect::<Vec<_>>();
@@ -73,7 +73,7 @@ fn parallel_metadata_preparation_keeps_order_revisions_and_overlapping_membershi
     let results = prepare_discovered_window(
         &pool,
         &root,
-        vec![std::env::temp_dir(), root.join("missing.json")],
+        vec![std::env::temp_dir(), root.join("missing.row")],
         false,
         &AtomicUsize::new(0),
     );

@@ -12,18 +12,6 @@ use crate::model::Value;
 pub mod access;
 pub mod extraction;
 pub(crate) mod framing;
-#[cfg(test)]
-#[path = "../../../loader-json/src/document/mod.rs"]
-pub(crate) mod json;
-#[cfg(test)]
-#[path = "../../../loader-jsonl/src/reader.rs"]
-pub(crate) mod json_lines;
-#[cfg(test)]
-use json_lines::JsonLinesReader;
-#[cfg(test)]
-#[path = "../../../loader-jsonl/src/framing.rs"]
-mod jsonl_framing;
-
 pub(crate) mod preparation;
 pub mod registry;
 #[cfg(test)]
@@ -148,7 +136,7 @@ pub enum SourceOutcome {
 
 /// Fields required to verify a query against one source record. `None` keeps
 /// the complete record; otherwise unrelated top-level members are skipped by
-/// the source reader while JSON syntax is still checked.
+/// the reader while applying its validation policy.
 #[derive(Clone, Debug)]
 pub struct ScanProjection {
     pub top_level: Option<HashSet<String>>,

@@ -134,3 +134,28 @@ pub fn register(
 ) -> Result<(), String> {
     registry.register_file_batched("jsonl", 1, "jsonl", std::sync::Arc::new(JsonLinesReader))
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn standalone_jsonl_ranges_preserve_bytes_and_boundaries() {
+        let bytes = "ü\n{\"x\":\"ä\"}\n\n{\"x\":\"b\"}\n".as_bytes();
+        // A non-ASCII prefix is deliberately outside the valid records.
+        let start = "ü\n".len();
+        let valid = &bytes[start..];
+        let ranges = JsonLinesReader.frame(valid).unwrap();
+        assert_eq!(ranges.len(), 2);
+        assert_eq!(
+            &valid[ranges[0].start as usize..ranges[0].end as usize],
+            "{\"x\":\"ä\"}".as_bytes()
+        );
+        for range in ranges {
+            JsonLinesReader
+                .parse(&valid[range.start as usize..range.end as usize])
+                .unwrap();
+        }
+        assert!(JsonLinesReader.frame(b"").unwrap().is_empty());
+    }
+}

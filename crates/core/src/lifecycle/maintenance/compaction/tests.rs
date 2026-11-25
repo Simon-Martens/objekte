@@ -41,15 +41,15 @@ fn compacting_native_segments_preserves_text_postings() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let keep = root.join("data/keep.json");
-    let remove = root.join("data/remove.json");
-    std::fs::write(&keep, br#"{"name":"bravo needle"}"#).unwrap();
-    std::fs::write(&remove, br#"{"name":"other needle"}"#).unwrap();
+    let keep = root.join("data/keep.row");
+    let remove = root.join("data/remove.row");
+    std::fs::write(&keep, br#"("name"="bravo needle")"#).unwrap();
+    std::fs::write(&remove, br#"("name"="other needle")"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -89,20 +89,20 @@ fn compaction_reuses_unaffected_native_segment() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let first = root.join("data/first.json");
-    std::fs::write(&first, br#"{"name":"first"}"#).unwrap();
+    let first = root.join("data/first.row");
+    std::fs::write(&first, br#"("name"="first")"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let removed = root.join("data/removed.json");
-    let kept = root.join("data/kept.json");
-    std::fs::write(&removed, br#"{"name":"removed"}"#).unwrap();
-    std::fs::write(&kept, br#"{"name":"kept needle"}"#).unwrap();
+    let removed = root.join("data/removed.row");
+    let kept = root.join("data/kept.row");
+    std::fs::write(&removed, br#"("name"="removed")"#).unwrap();
+    std::fs::write(&kept, br#"("name"="kept needle")"#).unwrap();
     index.add_file(&removed).unwrap();
     index.add_file(&kept).unwrap();
     let pinned = index.view().unwrap();
@@ -150,19 +150,19 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let keep = root.join("data/keep.json");
-    std::fs::write(&keep, br#"{"name":"keep"}"#).unwrap();
+    let keep = root.join("data/keep.row");
+    std::fs::write(&keep, br#"("name"="keep")"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     for number in 0..2 {
-        let path = root.join(format!("data/remove-{number}.json"));
-        std::fs::write(&path, br#"{"name":"remove"}"#).unwrap();
+        let path = root.join(format!("data/remove-{number}.row"));
+        std::fs::write(&path, br#"("name"="remove")"#).unwrap();
         let handle = index.add_file(&path).unwrap().file;
         index.delete_file(handle).unwrap();
         std::fs::remove_file(&path).unwrap();
@@ -199,15 +199,15 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let a = root.join("data/a.json");
-    let b = root.join("data/b.json");
-    std::fs::write(&a, br#"{"name":"A"}"#).unwrap();
-    std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
+    let a = root.join("data/a.row");
+    let b = root.join("data/b.row");
+    std::fs::write(&a, br#"("name"="A")"#).unwrap();
+    std::fs::write(&b, br#"("name"="B")"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -219,7 +219,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     let a_handle = old.file_handle_for_path(&a).unwrap();
     let b_handle = old.file_handle_for_path(&b).unwrap();
     index.delete_file(a_handle).unwrap();
-    std::fs::write(&b, br#"{"name":"B2"}"#).unwrap();
+    std::fs::write(&b, br#"("name"="B2")"#).unwrap();
     index.update_file(b_handle, &b).unwrap();
     std::fs::remove_file(&a).unwrap();
     std::fs::remove_file(&b).unwrap();
@@ -260,16 +260,16 @@ fn compacted_base_contributions_preserve_native_queries() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let a = root.join("data/a.json");
-    let b = root.join("data/b.json");
-    std::fs::write(&a, br#"{"name":"A"}"#).unwrap();
-    std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
+    let a = root.join("data/a.row");
+    let b = root.join("data/b.row");
+    std::fs::write(&a, br#"("name"="A")"#).unwrap();
+    std::fs::write(&b, br#"("name"="B")"#).unwrap();
     let definitions = vec![crate::source::test_support::document_folder("data", "data")];
     let index = crate::lifecycle::Index::start_build(
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -293,13 +293,13 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let file = root.join("data/a.json");
-    std::fs::write(&file, br#"{"name":"A"}"#).unwrap();
+    let file = root.join("data/a.row");
+    std::fs::write(&file, br#"("name"="A")"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -339,8 +339,8 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     std::fs::create_dir_all(root.join("data")).unwrap();
     for name in ["a", "b", "c"] {
         std::fs::write(
-            root.join(format!("data/{name}.json")),
-            format!("{{\"name\":\"{name}\"}}"),
+            root.join(format!("data/{name}.row")),
+            format!("(\"name\"=\"{name}\")"),
         )
         .unwrap();
     }
@@ -348,25 +348,25 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let a = root.join("data/a.json");
-    let b = root.join("data/b.json");
+    let a = root.join("data/a.row");
+    let b = root.join("data/b.row");
     let initial = index.view().unwrap();
     index
         .delete_file(initial.file_handle_for_path(&a).unwrap())
         .unwrap();
     index.compact().unwrap();
     let b_handle = index.view().unwrap().file_handle_for_path(&b).unwrap();
-    std::fs::write(&b, br#"{"name":"bb"}"#).unwrap();
+    std::fs::write(&b, br#"("name"="bb")"#).unwrap();
     index.update_file(b_handle, &b).unwrap();
     let dense = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].clone();
     assert!(dense.active.len() < dense.index.records.len() as u64);
     for number in 0..70 {
-        let path = root.join(format!("data/new-{number}.json"));
-        std::fs::write(&path, format!("{{\"name\":\"new-{number}\"}}")).unwrap();
+        let path = root.join(format!("data/new-{number}.row"));
+        std::fs::write(&path, format!("(\"name\"=\"new-{number}\")")).unwrap();
         index.add_file(&path).unwrap();
     }
     let current = index.view().unwrap();
@@ -405,25 +405,25 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
             .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let many = root.join("data/many.jsonl");
-    let single = root.join("data/a-single.jsonl");
+    let many = root.join("data/many.rows");
+    let single = root.join("data/a-single.rows");
     let mut writer = std::io::BufWriter::new(std::fs::File::create(&many).unwrap());
     for number in 0..count {
-        writeln!(writer, "{{\"name\":\"item-{number}\"}}").unwrap();
+        writeln!(writer, "(\"name\"=\"item-{number}\")").unwrap();
     }
     writer.flush().unwrap();
     drop(writer);
-    std::fs::write(&single, b"{\"name\":\"retired\"}\n").unwrap();
+    std::fs::write(&single, b"(\"name\"=\"retired\")\n").unwrap();
     let started = Instant::now();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -457,7 +457,7 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
         index.view().unwrap().search(&all()).unwrap().count,
         Some(count)
     );
-    let late = root.join("data/late.jsonl");
+    let late = root.join("data/late.rows");
     let published_late = std::cell::Cell::new(false);
     let started = Instant::now();
     let report = index
@@ -465,7 +465,7 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
             || false,
             |phase, _| {
                 if phase == MaintenancePhase::Publishing && !published_late.get() {
-                    std::fs::write(&late, b"{\"name\":\"late\"}\n").unwrap();
+                    std::fs::write(&late, b"(\"name\"=\"late\")\n").unwrap();
                     index.add_file(&late).unwrap();
                     published_late.set(true);
                 }

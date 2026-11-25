@@ -103,7 +103,7 @@ fn window_hits_and_misses_keep_the_reader_at_the_actual_read_end() {
 fn bounded_stream_reads_skip_lookahead_and_cap_spaced_range_windows() {
     let root = std::env::temp_dir().join(format!("objekte-bounded-source-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("spaced.jsonl");
+    let path = root.join("spaced.rows");
     let mut bytes = vec![b' '; 100 * 2048];
     let mut ranges = Vec::new();
     for slot in 0..100u32 {
@@ -121,7 +121,7 @@ fn bounded_stream_reads_skip_lookahead_and_cap_spaced_range_windows() {
     let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
     let mut files = FileInventory::new(root.clone());
     files
-        .add("spaced.jsonl".into(), revision, None, CollectionId(0))
+        .add("spaced.rows".into(), revision, None, CollectionId(0))
         .unwrap();
     let mut session = SourceAccessSession::new(&files);
     let single = session.read_bounded(FileId(0), &ranges[..1], 8192).unwrap();

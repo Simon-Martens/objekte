@@ -17,13 +17,13 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("00", r#"{"tag":"a"}"#),
-        ("01", r#"{"tag":"a"}"#),
-        ("02", r#"{"tag":"b"}"#),
-        ("03", r#"{"tag":"c"}"#),
+        ("00", r#"("tag"="a")"#),
+        ("01", r#"("tag"="a")"#),
+        ("02", r#"("tag"="b")"#),
+        ("03", r#"("tag"="c")"#),
         ("04", "{"),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
@@ -44,7 +44,7 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -191,15 +191,15 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, content) in [
-        ("00", r#"{"code":"A1","flag":true}"#),
-        ("01", r#"{"code":"B2","flag":false}"#),
-        ("02", r#"{"code":"Long","flag":true}"#),
-        ("03", r#"{"code":null}"#),
-        ("04", r#"{"flag":false}"#),
+        ("00", r#"("code"="A1","flag"=true)"#),
+        ("01", r#"("code"="B2","flag"=false)"#),
+        ("02", r#"("code"="Long","flag"=true)"#),
+        ("03", r#"("code"=null)"#),
+        ("04", r#"("flag"=false)"#),
         ("05", "{"),
-        ("06", r#"{"code":["A1","Long"]}"#),
+        ("06", r#"("code"=["A1","Long"])"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), content).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), content).unwrap();
     }
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
@@ -288,7 +288,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -298,7 +298,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
             &root,
             vec![definition],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -313,16 +313,16 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     use crate::lifecycle::catalog::FileCatalog;
     use crate::model::{CollectionId, FileId};
     for (name, body) in [
-        ("07", r#"{"code":"A1"}"#),
-        ("08", r#"{"code":"Long2"}"#),
-        ("09", r#"{"code":123}"#),
+        ("07", r#"("code"="A1")"#),
+        ("08", r#"("code"="Long2")"#),
+        ("09", r#"("code"=123)"#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let state = &restored.collections()[0];
     let mut admission = None;
     for (index, name) in ["07", "08", "09"].into_iter().enumerate() {
-        let relative_path = format!("data/{name}.json");
+        let relative_path = format!("data/{name}.row");
         let path = root.join(&relative_path);
         let prepared = prepare_file_build(
             &root,
@@ -441,7 +441,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         request.continuation = Some(cursor);
     }
     assert_eq!(paged, page.values);
-    std::fs::remove_file(root.join("data/08.json")).unwrap();
+    std::fs::remove_file(root.join("data/08.row")).unwrap();
     assert!(
         posting_values_segmented(
             &restored,
@@ -473,7 +473,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/base.json"), r#"{"code":1}"#).unwrap();
+    std::fs::write(root.join("data/base.row"), r#"("code"=1)"#).unwrap();
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
@@ -505,18 +505,18 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
             &root,
             vec![definition.clone()],
             options.clone(),
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
     );
 
-    let second = root.join("data/second.json");
-    let third = root.join("data/third.json");
-    let retired = root.join("data/retired.json");
-    std::fs::write(&second, r#"{"code":2}"#).unwrap();
-    std::fs::write(&third, r#"{"code":"mixed"}"#).unwrap();
-    std::fs::write(&retired, r#"{"code":4}"#).unwrap();
+    let second = root.join("data/second.row");
+    let third = root.join("data/third.row");
+    let retired = root.join("data/retired.row");
+    std::fs::write(&second, r#"("code"=2)"#).unwrap();
+    std::fs::write(&third, r#"("code"="mixed")"#).unwrap();
+    std::fs::write(&retired, r#"("code"=4)"#).unwrap();
 
     let state = &repo.collections()[0];
     let mut admission = None;
@@ -598,7 +598,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
         &root,
         vec![definition],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap()
@@ -625,8 +625,8 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/00_other.json"), r#"{"other":true}"#).unwrap();
-    std::fs::write(root.join("data/01_value.json"), r#"{"x":7}"#).unwrap();
+    std::fs::write(root.join("data/00_other.row"), r#"("other"=true)"#).unwrap();
+    std::fs::write(root.join("data/01_value.row"), r#"("x"=7)"#).unwrap();
     let options = RepositoryOptions {
         inference: InferenceConfig {
             mode: InferenceMode::AutoIndex,
@@ -639,7 +639,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options.clone(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -761,7 +761,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
     ));
     let _ = std::fs::remove_dir_all(&opt_out_root);
     std::fs::create_dir_all(opt_out_root.join("data")).unwrap();
-    std::fs::write(opt_out_root.join("data/00.json"), r#"{"x":"A"}"#).unwrap();
+    std::fs::write(opt_out_root.join("data/00.row"), r#"("x"="A")"#).unwrap();
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
@@ -790,7 +790,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
         &opt_out_root,
         vec![definition.clone()],
         options.clone(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -805,10 +805,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
         let segment = Arc::make_mut(&mut published.index);
         let mut posting = PostingIndex::new(&definition.schema.fields[&vec!["x".into()]]);
         posting
-            .add(
-                RecordSlot(0),
-                &crate::model::Value::from_json(serde_json::json!({"x":"A"})).unwrap(),
-            )
+            .add(RecordSlot(0), &fixture_value!({ "x" => ("A") }))
             .unwrap();
         posting.finish_stats();
         segment
@@ -838,9 +835,9 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
     let _ = std::fs::remove_dir_all(&length_root);
     std::fs::create_dir_all(length_root.join("data")).unwrap();
     for (name, body) in [
-        ("00.json", r#"{"x":[]}"#),
-        ("01.json", r#"{"x":[1,2]}"#),
-        ("02.json", r#"{"x":[1,2]}"#),
+        ("00.row", r#"("x"=[])"#),
+        ("01.row", r#"("x"=[1,2])"#),
+        ("02.row", r#"("x"=[1,2])"#),
     ] {
         std::fs::write(length_root.join("data").join(name), body).unwrap();
     }
@@ -857,7 +854,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -881,8 +878,8 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
 fn typed_posting_values_count_distinct_records_without_source_reads() {
     let root = std::env::temp_dir().join(format!("objekte-posting-values-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let path = root.join("data/multi.jsonl");
-    std::fs::write(&path, b"{\"tags\":[\"a\",\"a\",\"b\"]}\n{\"tags\":[\"a\",\"c\"]}\n{\"tags\":null}\n{}\n{\"tags\":\n").unwrap();
+    let path = root.join("data/multi.rows");
+    std::fs::write(&path, b"(\"tags\"=[\"a\",\"a\",\"b\"])\n(\"tags\"=[\"a\",\"c\"])\n(\"tags\"=null)\n()\n(\"tags\"=\n").unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -898,7 +895,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::LINES,
+        format: crate::source::test_support::line_format(),
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -916,7 +913,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1098,7 +1095,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 .values
                 .is_empty()
         );
-        let held = root.join("held.jsonl");
+        let held = root.join("held.rows");
         std::fs::rename(&path, &held).unwrap();
         assert_eq!(repo.select_exact("data", &selected_query).unwrap().len(), 1);
         assert_eq!(
@@ -1116,7 +1113,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1142,19 +1139,19 @@ fn posting_values_keep_singleton_null_and_empty_traversal_public_counts() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/records.jsonl"),
+        root.join("data/records.rows"),
         concat!(
-            "{\"authors\":[{\"name\":null},{\"name\":\"Ada\"}]}\n",
-            "{\"authors\":[]}\n",
-            "{}\n",
-            "{\"authors\":[{\"name\":null}]}\n",
-            "{\"authors\":[{\"name\":null},{\"name\":null}]}\n",
-            "{\"authors\":[{\"name\":\"Ada\"}]}\n"
+            "(\"authors\"=[(\"name\"=null),(\"name\"=\"Ada\")])\n",
+            "(\"authors\"=[])\n",
+            "()\n",
+            "(\"authors\"=[(\"name\"=null)])\n",
+            "(\"authors\"=[(\"name\"=null),(\"name\"=null)])\n",
+            "(\"authors\"=[(\"name\"=\"Ada\")])\n"
         ),
     )
     .unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     definition
         .schema
         .register_field(FieldDefinition {
@@ -1174,7 +1171,7 @@ fn posting_values_keep_singleton_null_and_empty_traversal_public_counts() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1219,12 +1216,12 @@ fn inferred_terminal_arrays_preserve_legacy_presence_without_source_reads() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..20 {
         let body = match number {
-            0 => r#"{"values":[],"items":[]}"#.to_owned(),
-            1 => r#"{"values":[3],"items":[{"value":3}]}"#.to_owned(),
-            2 => r#"{"values":[5],"items":[{"value":5}]}"#.to_owned(),
-            _ => "{}".to_owned(),
+            0 => r#"("values"=[],"items"=[])"#.to_owned(),
+            1 => r#"("values"=[3],"items"=[("value"=3)])"#.to_owned(),
+            2 => r#"("values"=[5],"items"=[("value"=5)])"#.to_owned(),
+            _ => "()".to_owned(),
         };
-        std::fs::write(root.join(format!("data/{number:02}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{number:02}.row")), body).unwrap();
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -1242,7 +1239,7 @@ fn inferred_terminal_arrays_preserve_legacy_presence_without_source_reads() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1295,7 +1292,7 @@ fn segmented_facet_requires_data_root_before_inference_resolution() {
     let root = std::env::temp_dir().join(format!("objekte-facet-data-root-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/00.json"), r#"{"x":7}"#).unwrap();
+    std::fs::write(root.join("data/00.row"), r#"("x"=7)"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
@@ -1306,7 +1303,7 @@ fn segmented_facet_requires_data_root_before_inference_resolution() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1337,10 +1334,10 @@ fn segmented_named_default_binding_precedes_raw_inference_rejection() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (name, title) in [("a.json", "HELLO"), ("b.json", "hello")] {
+    for (name, title) in [("a.row", "HELLO"), ("b.row", "hello")] {
         std::fs::write(
             root.join("data").join(name),
-            serde_json::json!({"title":title}).to_string(),
+            fixture_value!({ "title" => (title) }).fixture_text(),
         )
         .unwrap();
     }
@@ -1386,7 +1383,7 @@ fn segmented_named_default_binding_precedes_raw_inference_rejection() {
             },
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1417,8 +1414,8 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
         std::env::temp_dir().join(format!("objekte-facet-mixed-family-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/00_number.json"), r#"{"x":7}"#).unwrap();
-    std::fs::write(root.join("data/01_string.json"), r#"{"x":"a"}"#).unwrap();
+    std::fs::write(root.join("data/00_number.row"), r#"("x"=7)"#).unwrap();
+    std::fs::write(root.join("data/01_string.row"), r#"("x"="a")"#).unwrap();
     let inference = InferenceConfig {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
@@ -1431,7 +1428,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1625,14 +1622,14 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
     let root = std::env::temp_dir().join(format!("objekte-posting-typed-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("a", r#"{"amount":1,"published":"2026-01-02"}"#),
-        ("b", r#"{"amount":1.5,"published":"2026-01-01"}"#),
+        ("a", r#"("amount"=1,"published"="2026-01-02")"#),
+        ("b", r#"("amount"=1.5,"published"="2026-01-01")"#),
         (
             "c",
-            r#"{"amount":100000000000000000000,"published":"2026-01-02"}"#,
+            r#"("amount"=100000000000000000000,"published"="2026-01-02")"#,
         ),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let mut schema = Schema::default();
     for (name, kind) in [
@@ -1656,7 +1653,7 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1668,7 +1665,7 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1776,8 +1773,8 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, title) in [("a", "HELLO"), ("b", "hello"), ("c", "World")] {
         std::fs::write(
-            root.join(format!("data/{name}.json")),
-            format!(r#"{{"title":"{title}"}}"#),
+            root.join(format!("data/{name}.row")),
+            format!(r#"("title"="{title}")"#),
         )
         .unwrap();
     }
@@ -1810,7 +1807,7 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
         let definition = CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1826,7 +1823,7 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
             &root,
             vec![definition.clone()],
             options,
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap();
@@ -1869,7 +1866,7 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
                 &root,
                 vec![definition.clone()],
                 options,
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .and_then(|task| task.wait_complete())
             .unwrap();
@@ -1904,14 +1901,14 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let mut lines = String::new();
     for number in 0..1000 {
-        lines.push_str(&format!(r#"{{"key":"k{number:04}"}}"#));
+        lines.push_str(&format!(r#"("key"="k{number:04}")"#));
         lines.push('\n');
     }
     for value in ["\u{10ffff}", "\u{10ffff}x"] {
-        lines.push_str(&serde_json::json!({"key":value}).to_string());
+        lines.push_str(&fixture_value!({ "key" => (value) }).fixture_text());
         lines.push('\n');
     }
-    std::fs::write(root.join("data/values.jsonl"), lines).unwrap();
+    std::fs::write(root.join("data/values.rows"), lines).unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -1929,7 +1926,7 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::LINES,
+            format: crate::source::test_support::line_format(),
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -1941,7 +1938,7 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2070,3 +2067,5 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
     assert!(repo.posting_values(&request).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

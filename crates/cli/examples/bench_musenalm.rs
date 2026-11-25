@@ -299,7 +299,7 @@ fn run() -> Result<(), String> {
             }));
             if registrations.is_empty() {
                 registrations = definitions.iter().map(|definition| serde_json::json!({
-                    "name":definition.name,"source_path":definition.source_path,"format":definition.format,
+                    "name":definition.name,"source_path":definition.source_path,"format":definition.format.id(),
                     "identity":format!("{:?}",definition.identity),
                     "type_hints":definition.schema.fields().len(),
                     "sort_fields":definition.sort_fields.iter().map(|path|path.display()).collect::<Vec<_>>(),
@@ -347,7 +347,7 @@ fn run() -> Result<(), String> {
                 "relation_heap_bytes": observation.relation_heap_bytes,
             }));
             if registrations.is_empty() {
-                registrations = index.collections().iter().map(|c| {let source = c.file_source().expect("Musenalm file source"); serde_json::json!({"name":c.definition.name,"source_path":source.source_path,"format":source.format,"identity":format!("{:?}",source.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })}).collect();
+                registrations = index.collections().iter().map(|c| {let source = c.file_source().expect("Musenalm file source"); serde_json::json!({"name":c.definition.name,"source_path":source.source_path,"format":source.format.id(),"identity":format!("{:?}",source.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })}).collect();
             }
             SearchBackend::Direct(index, repo)
         };

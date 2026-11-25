@@ -3,11 +3,8 @@ use super::{fixture_schema, with_record};
 use crate::query::parse_filter;
 #[test]
 fn borrowed_value_visitation_uses_original_strings_and_key_storage() {
-    let value = Value::from_json(serde_json::json!({
-        "outer": {"items": ["first", "second"]},
-        "other": "last"
-    }))
-    .unwrap();
+    let value =
+        fixture_value!({ "outer" => { "items" => [("first"), ("second")] }, "other" => ("last") });
     let Value::Object(root) = &value else {
         panic!("object")
     };
@@ -144,7 +141,7 @@ fn shared_fold_reuses_one_logical_occurrence_and_resets_at_record_boundary() {
     .unwrap();
     let before = fold_value_cache_stats();
     for _ in 0..2 {
-        let value = Value::from_json(serde_json::json!({"name":"Straße"})).unwrap();
+        let value = fixture_value!({ "name" => ("Straße") });
         with_record(value, |ctx| {
             let _guard = FoldRecordGuard::new_with_sharing(true);
             assert!(eval_filter(&bound, &ctx, &mut HashSet::new()).unwrap());
@@ -159,9 +156,11 @@ fn shared_fold_reuses_one_logical_occurrence_and_resets_at_record_boundary() {
         &fixture_schema(),
     )
     .unwrap();
-    let value = Value::from_json(serde_json::json!({"values":["Straße","Masse"]})).unwrap();
+    let value = fixture_value!({ "values" => [("Straße"), ("Masse")] });
     with_record(value, |ctx| {
         let _guard = FoldRecordGuard::new_with_sharing(true);
         assert!(eval_filter(&independent, &ctx, &mut HashSet::new()).unwrap());
     });
 }
+
+use crate::source::test_support::fixture_value;

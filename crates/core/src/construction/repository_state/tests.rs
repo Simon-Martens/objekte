@@ -11,11 +11,11 @@ fn fresh_fingerprints_require_every_shared_binding_to_agree() {
         object_id: None,
     };
     let file = inventory
-        .add("shared.json".into(), revision, None, CollectionId(0))
+        .add("shared.row".into(), revision, None, CollectionId(0))
         .unwrap();
     assert_eq!(
         inventory
-            .add("shared.json".into(), revision, None, CollectionId(1))
+            .add("shared.row".into(), revision, None, CollectionId(1))
             .unwrap(),
         file
     );

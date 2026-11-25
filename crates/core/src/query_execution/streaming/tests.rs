@@ -18,7 +18,7 @@ fn stream_test_hit(id: &str, payload_bytes: usize) -> SearchHit {
         generation: 1,
         file: Some(crate::files::RecordFileInfo {
             file_id: crate::model::FileId(1),
-            path: PathBuf::from("data/all.jsonl"),
+            path: PathBuf::from("data/all.rows"),
             revision: crate::inventory::SourceRevision {
                 size: payload_bytes as u64,
                 modified_ns: 0,
@@ -159,7 +159,7 @@ fn exact_posting_payload_obeys_source_limit_across_delivery_paths() {
 #[test]
 fn exact_posting_payload_uses_published_range_after_external_edit() {
     let fixture = fixture();
-    let path = fixture.root.join("data/000.json");
+    let path = fixture.root.join("data/000.row");
     let edited = std::fs::read_to_string(&path)
         .unwrap()
         .replace("needle", "absent");
@@ -235,7 +235,7 @@ fn invalid_sort_has_typed_invalid_query_class_in_ordinary_and_stream_search() {
 #[test]
 fn externally_changed_candidate_is_verified_without_revision_probe() {
     let fixture = fixture();
-    let path = fixture.root.join("data/000.json");
+    let path = fixture.root.join("data/000.row");
     let edited = std::fs::read_to_string(&path)
         .unwrap()
         .replace("needle", "absent");
@@ -289,9 +289,9 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for n in 0..count {
         std::fs::write(
-            root.join(format!("data/{n:03}.json")),
+            root.join(format!("data/{n:03}.row")),
             format!(
-                r#"{{"kind":"yes","body":"needle {n}","score":{}}}"#,
+                r#"("kind"="yes","body"="needle {n}","score"={})"#,
                 11 - n as isize,
             ),
         )
@@ -318,7 +318,7 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -339,7 +339,7 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
             bigram_alphabet: alphabet,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -355,9 +355,9 @@ fn residual_payload_fixture() -> Fixture {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for n in 0..4 {
         std::fs::write(
-            root.join(format!("data/record-{n:03}-{}.json", "x".repeat(80))),
+            root.join(format!("data/record-{n:03}-{}.row", "x".repeat(80))),
             format!(
-                r#"{{"body":"{}","score":{n},"padding":"{}"}}"#,
+                r#"("body"="{}","score"={n},"padding"="{}")"#,
                 if n < 2 { "match" } else { "miss" },
                 "x".repeat(1800)
             ),
@@ -385,7 +385,7 @@ fn residual_payload_fixture() -> Fixture {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -403,7 +403,7 @@ fn residual_payload_fixture() -> Fixture {
             bigram_alphabet: BigramAlphabet::Ascii,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -419,8 +419,8 @@ fn cache_closed_fixture() -> Fixture {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for n in 0..20 {
         std::fs::write(
-            root.join(format!("data/{n:03}.json")),
-            format!(r#"{{"kind":"yes","score":{n}}}"#),
+            root.join(format!("data/{n:03}.row")),
+            format!(r#"("kind"="yes","score"={n})"#),
         )
         .unwrap();
     }
@@ -452,7 +452,7 @@ fn cache_closed_fixture() -> Fixture {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -467,7 +467,7 @@ fn cache_closed_fixture() -> Fixture {
             bigram_alphabet: BigramAlphabet::Ascii,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1183,12 +1183,9 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, prefix) in [("a", "01"), ("b", "02")] {
         std::fs::write(
-            root.join(format!("data/{name}.json")),
-            serde_json::json!({
-                "flag": true,
-                "sort": format!("{prefix}-{}", "x".repeat(20_000)),
-            })
-            .to_string(),
+            root.join(format!("data/{name}.row")),
+            fixture_value!({ "flag" => (true), "sort" => (format!("{prefix}-{}", "x".repeat(20_000))) })
+            .fixture_text(),
         )
         .unwrap();
     }
@@ -1220,7 +1217,7 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::DOCUMENTS,
+            format: crate::source::test_support::document_format(),
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1233,7 +1230,7 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
             verified_cache_bytes: 4 * 1024 * 1024,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1630,7 +1627,7 @@ fn cancellation_before_work_and_late_source_error_remain_distinct() {
         &mut |event| {
             if first && matches!(event, StreamEvent::PageReplacement { .. }) {
                 first = false;
-                std::fs::remove_file(fixture.root.join("data/011.json")).unwrap();
+                std::fs::remove_file(fixture.root.join("data/011.row")).unwrap();
             }
             Ok(StreamControl::Continue)
         },
@@ -1887,8 +1884,8 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
         std::fs::create_dir_all(root.join(collection)).unwrap();
         for (n, score) in [0, 0, 1].into_iter().enumerate() {
             std::fs::write(
-                root.join(format!("{collection}/{n:03}.json")),
-                format!(r#"{{"score":{score}}}"#),
+                root.join(format!("{collection}/{n:03}.row")),
+                format!(r#"("score"={score})"#),
             )
             .unwrap();
         }
@@ -1908,7 +1905,7 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
     let definitions = ["a", "b"].map(|name| CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema: schema.clone(),
@@ -1924,7 +1921,7 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1977,3 +1974,5 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+use crate::source::test_support::{FixtureText, fixture_value};

@@ -1,9 +1,11 @@
 //! Build and query an in-memory index using core alone.
 
+use std::collections::{BTreeMap, HashMap};
+
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::model::Value;
+use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query::options::ReturnMode;
-use objekte_search_core::query::{Query, QueryOptions};
+use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::schema::Schema;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -13,15 +15,28 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let index = builder.build()?;
     let writer = index.ingestion().writer(provider)?;
     let mut batch = writer.batch();
-    batch.insert("example-1", Value::String("direct record".into()))?;
+    for (id, score) in [("example-1", 9_007_199_254_740_993), ("example-2", 2)] {
+        batch.insert(
+            id,
+            Value::Object(BTreeMap::from([
+                (
+                    "section.\"score\"".into(),
+                    Value::Number(Number::integer(score)),
+                ),
+                ("label".into(), Value::String("direct\nrecord".into())),
+            ])),
+        )?;
+    }
     writer
         .submit(batch)
         .map_err(|_| "batch admission refused")?
         .wait_published()?;
 
-    let results = index.view()?.search(&Query {
+    let request = Query {
         collections: vec!["entries".into()],
-        filter: None,
+        filter: Some(parse_filter(
+            r#"["section.\"score\""] >= $minimum && label = "direct\nrecord""#,
+        )?),
         fts: None,
         options: QueryOptions {
             sort: Vec::new(),
@@ -31,9 +46,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             return_mode: ReturnMode::Logical,
             evidence: false,
         },
-    })?;
+    };
+    let request = request.with_parameters(&HashMap::from([(
+        "minimum".into(),
+        Value::Number(Number::integer(9_007_199_254_740_993)),
+    )]))?;
+    let results = index.view()?.search(&request)?;
     assert_eq!(results.count, Some(1));
     assert!(results.hits[0].file.is_none());
+    assert_eq!(results.hits[0].record_id, "example-1");
     println!("{}", results.hits[0].record_id);
     Ok(())
 }

@@ -78,9 +78,9 @@ fn precise_numbers_and_temporal_distinctions() {
     assert!(a > Number::float(9_007_199_254_740_992.0).unwrap());
     assert_eq!(Number::float(1.0).unwrap(), Number::integer(1));
     assert!(Number::float(f64::NAN).is_err());
-    let large: serde_json::Value = serde_json::from_str("1208925819614629174706177").unwrap();
+    let large = Value::Number(Number::parse_decimal_literal("1208925819614629174706177").unwrap());
     assert_eq!(
-        Value::from_json(large).unwrap(),
+        large,
         Value::Number(Number::integer(1208925819614629174706177))
     );
     assert!(matches!(
@@ -99,7 +99,7 @@ fn precise_numbers_and_temporal_distinctions() {
 }
 
 #[test]
-fn exceptional_json_numbers_remain_numeric_and_ordered() {
+fn exceptional_decimal_literals_remain_numeric_and_ordered() {
     let huge = Number::parse_decimal_literal("1e1000000").unwrap();
     let tiny = Number::parse_decimal_literal("1e-1000000").unwrap();
     let boundary =
@@ -223,8 +223,9 @@ fn record_ids_keep_textual_identity_and_serialize_as_strings() {
     assert_ne!(padded, plain);
     assert!(padded < plain);
     assert!(std::sync::Arc::ptr_eq(&padded.0, &padded.clone().0));
-    assert_eq!(serde_json::to_string(&padded).unwrap(), "\"001\"");
-    assert_eq!(serde_json::from_str::<RecordId>("\"001\"").unwrap(), padded);
+    let encoded = bincode::serialize(&padded).unwrap();
+    assert_eq!(encoded, bincode::serialize("001").unwrap());
+    assert_eq!(bincode::deserialize::<RecordId>(&encoded).unwrap(), padded);
 }
 
 #[test]
@@ -263,22 +264,22 @@ fn schema_field_paths_reject_trailing_separators_and_render_query_syntax_safely(
 
 #[test]
 fn unhinted_arrays_keep_actual_or_unresolved_element_types() {
-    let array = Value::from_json(serde_json::json!([null, 1, 2])).unwrap();
+    let array = fixture_value!([null, (1), (2)]);
     assert_eq!(
         array.logical_type(),
         LogicalType::Array(Box::new(LogicalType::Number))
     );
-    let empty = Value::from_json(serde_json::json!([])).unwrap();
+    let empty = fixture_value!([]);
     assert_eq!(
         empty.logical_type(),
         LogicalType::Array(Box::new(LogicalType::Unknown))
     );
-    let nested = Value::from_json(serde_json::json!([[], [1, 2]])).unwrap();
+    let nested = fixture_value!([[], [(1), (2)]]);
     assert_eq!(
         nested.logical_type(),
         LogicalType::Array(Box::new(LogicalType::Array(Box::new(LogicalType::Number))))
     );
-    let objects = Value::from_json(serde_json::json!([{"a": 1}, {"b": "x"}])).unwrap();
+    let objects = fixture_value!([{ "a" => (1) }, { "b" => ("x") }]);
     assert_eq!(
         objects.logical_type(),
         LogicalType::Array(Box::new(LogicalType::Object))
@@ -286,8 +287,8 @@ fn unhinted_arrays_keep_actual_or_unresolved_element_types() {
 }
 
 #[test]
-fn parsed_json_arrays_preserve_mixed_members_and_sticky_conflicts() {
-    let parsed = Value::from_json(serde_json::json!(["a", 1, null, {}, [], true])).unwrap();
+fn heterogeneous_arrays_preserve_mixed_members_and_sticky_conflicts() {
+    let parsed = fixture_value!([("a"), (1), null, {}, [], (true)]);
     let Value::Array(array) = parsed else {
         panic!("array root")
     };
@@ -296,14 +297,14 @@ fn parsed_json_arrays_preserve_mixed_members_and_sticky_conflicts() {
     assert_eq!(array.element_type, None);
     assert!(array.nullable_elements);
 
-    let nested = Value::from_json(serde_json::json!([["a", 1], [2, 3]])).unwrap();
+    let nested = fixture_value!([[("a"), (1)], [(2), (3)]]);
     let Value::Array(array) = nested else {
         panic!("array root")
     };
     assert!(array.mixed_elements);
     assert_eq!(array.element_type, None);
 
-    let all_null = Value::from_json(serde_json::json!([null, null])).unwrap();
+    let all_null = fixture_value!([null, null]);
     let Value::Array(array) = all_null else {
         panic!("array root")
     };
@@ -311,3 +312,5 @@ fn parsed_json_arrays_preserve_mixed_members_and_sticky_conflicts() {
     assert_eq!(array.element_type, None);
     assert!(array.nullable_elements);
 }
+
+use crate::source::test_support::fixture_value;

@@ -31,10 +31,10 @@ fn index(root: &std::path::Path) -> Index {
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            crate::source::test_support::LINES,
+            crate::source::test_support::line_format(),
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap()
@@ -42,7 +42,7 @@ fn index(root: &std::path::Path) -> Index {
 
 fn intrinsic_definition(name: &str) -> CollectionDefinition {
     let mut definition =
-        CollectionDefinition::folder(name, "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder(name, "data", crate::source::test_support::line_format());
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
@@ -66,18 +66,18 @@ fn deleting_obsolete_file_incarnation_keeps_new_owner_route() {
         &root,
         vec![intrinsic_definition("items")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let a = root.join("data/a.jsonl");
-    let b = root.join("data/b.jsonl");
-    let c = root.join("data/c.jsonl");
-    std::fs::write(&a, b"{\"id\":\"K\"}\n").unwrap();
+    let a = root.join("data/a.rows");
+    let b = root.join("data/b.rows");
+    let c = root.join("data/c.rows");
+    std::fs::write(&a, b"(\"id\"=\"K\")\n").unwrap();
     let a_handle = index.add_file(&a).unwrap().file;
-    std::fs::write(&a, b"{\"id\":\"J\",\"note\":\"replacement\"}\n").unwrap();
+    std::fs::write(&a, b"(\"id\"=\"J\",\"note\"=\"replacement\")\n").unwrap();
     let a_handle = index.update_file(a_handle, &a).unwrap().file;
-    std::fs::write(&b, b"{\"id\":\"K\",\"note\":\"new owner\"}\n").unwrap();
+    std::fs::write(&b, b"(\"id\"=\"K\",\"note\"=\"new owner\")\n").unwrap();
     let b_handle = index.add_file(&b).unwrap().file;
     let pinned = index.view().unwrap();
     assert_eq!(
@@ -145,7 +145,7 @@ fn deleting_obsolete_file_incarnation_keeps_new_owner_route() {
             .record_id,
         "K"
     );
-    std::fs::write(&c, b"{\"id\":\"K\"}\n").unwrap();
+    std::fs::write(&c, b"(\"id\"=\"K\")\n").unwrap();
     assert!(index.add_file(&c).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -153,8 +153,8 @@ fn deleting_obsolete_file_incarnation_keeps_new_owner_route() {
 #[test]
 fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() {
     let root = test_root("pinned-same-file-replacement");
-    let path = root.join("data/a.jsonl");
-    std::fs::write(&path, b"{\"id\":\"a\",\"rank\":10}\n").unwrap();
+    let path = root.join("data/a.rows");
+    std::fs::write(&path, b"(\"id\"=\"a\",\"rank\"=10)\n").unwrap();
     let mut definition = intrinsic_definition("items");
     definition
         .schema
@@ -175,7 +175,7 @@ fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() 
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -198,7 +198,7 @@ fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() 
     assert_eq!(old_view.count_exact(&query("rank = 10")).unwrap(), 1);
     assert_eq!(old_view.count_exact(&query("rank = 2002")).unwrap(), 0);
 
-    std::fs::write(&path, b"{\"id\":\"a\",\"rank\":2002}\n").unwrap();
+    std::fs::write(&path, b"(\"id\"=\"a\",\"rank\"=2002)\n").unwrap();
     let updated = index.update_file(old_handle, &path).unwrap();
     let new_view = index.view().unwrap();
     assert_eq!(updated.revision, old_revision.next().unwrap());
@@ -223,10 +223,10 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
     use crate::inference::{InferenceConfig, InferenceMode};
 
     let root = test_root("inferred-current-snapshot");
-    let first = root.join("data/first.jsonl");
-    let second = root.join("data/second.jsonl");
-    std::fs::write(&first, b"{\"id\":\"a\",\"year\":20}\n").unwrap();
-    std::fs::write(&second, b"{\"id\":\"b\",\"year\":30}\n").unwrap();
+    let first = root.join("data/first.rows");
+    let second = root.join("data/second.rows");
+    std::fs::write(&first, b"(\"id\"=\"a\",\"year\"=20)\n").unwrap();
+    std::fs::write(&second, b"(\"id\"=\"b\",\"year\"=30)\n").unwrap();
     let mut definition = intrinsic_definition("items");
     definition
         .schema
@@ -255,12 +255,12 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
         &root,
         vec![definition],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let third = root.join("data/third.jsonl");
-    std::fs::write(&third, b"{\"id\":\"c\",\"year\":10}\n").unwrap();
+    let third = root.join("data/third.rows");
+    std::fs::write(&third, b"(\"id\"=\"c\",\"year\"=10)\n").unwrap();
     let added = index.add_file(&third).unwrap();
     let request = |descending: bool, offset: usize, count: bool| Query {
         collections: vec!["items".into()],
@@ -309,8 +309,8 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
 #[test]
 fn selected_null_and_presence_survive_explicit_mutations_and_compaction() {
     let root = test_root("structural-postings");
-    let first = root.join("data/first.json");
-    std::fs::write(&first, r#"{"tags":[],"text":""}"#).unwrap();
+    let first = root.join("data/first.row");
+    std::fs::write(&first, r#"("tags"=[],"text"="")"#).unwrap();
     let mut definition = crate::source::test_support::document_folder("items", "data");
     for (name, kind, multi) in [
         (
@@ -341,7 +341,7 @@ fn selected_null_and_presence_survive_explicit_mutations_and_compaction() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -378,16 +378,16 @@ fn selected_null_and_presence_survive_explicit_mutations_and_compaction() {
     };
     check(&index, [1, 0, 1], true);
     let first_handle = index.view().unwrap().file_handle_for_path(&first).unwrap();
-    std::fs::write(&first, r#"{"tags":[{},{}],"text":"filled"}"#).unwrap();
+    std::fs::write(&first, r#"("tags"=[(),()],"text"="filled")"#).unwrap();
     // Search remains bound to the published facts until the explicit update.
     check(&index, [1, 0, 1], false);
     let updated = index.update_file(first_handle, &first).unwrap();
     check(&index, [0, 1, 0], true);
-    let second = root.join("data/second.json");
-    std::fs::write(&second, r#"{"tags":[],"text":""}"#).unwrap();
+    let second = root.join("data/second.row");
+    std::fs::write(&second, r#"("tags"=[],"text"="")"#).unwrap();
     let added = index.add_file(&second).unwrap();
     check(&index, [1, 1, 1], true);
-    let moved = root.join("data/moved.json");
+    let moved = root.join("data/moved.row");
     std::fs::rename(&first, &moved).unwrap();
     index.move_file(updated.file, &moved).unwrap();
     check(&index, [1, 1, 1], true);
@@ -402,20 +402,20 @@ fn selected_null_and_presence_survive_explicit_mutations_and_compaction() {
 }
 
 #[test]
-fn search_trusts_recorded_json_validation_until_explicit_update() {
+fn search_trusts_recorded_source_validation_until_explicit_update() {
     use crate::inventory::RecordClass;
     use std::time::{Duration, UNIX_EPOCH};
 
     let root = test_root("recorded-validation");
-    let path = root.join("data/item.json");
-    std::fs::write(&path, b"{\"x\":2,\"junk\":0}").unwrap();
+    let path = root.join("data/item.row");
+    std::fs::write(&path, b"(\"x\"=2,\"junk\"=0)").unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![crate::source::test_support::decoded_scalar_folder(
             "items", "data",
         )],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -439,7 +439,7 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
 
     // The indexed field remains readable while an unrelated source value is
     // malformed. Search neither reparses that field nor updates classification.
-    std::fs::write(&path, b"{\"x\":2,\"junk\":!}").unwrap();
+    std::fs::write(&path, b"(\"x\"=2,\"junk\"=!)").unwrap();
     std::fs::File::open(&path)
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(10)))
@@ -464,7 +464,7 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
     query.filter = Some(parse_filter("x = 2").unwrap());
     assert_eq!(index.view().unwrap().search(&query).unwrap().count, Some(0));
 
-    std::fs::write(&path, b"{\"x\":2,\"junk\":0}").unwrap();
+    std::fs::write(&path, b"(\"x\"=2,\"junk\"=0)").unwrap();
     std::fs::File::open(&path)
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(11)))
@@ -478,20 +478,20 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
 #[test]
 fn final_mutated_view_matches_independent_fresh_build() {
     let root = test_root("fresh-oracle");
-    let first = root.join("data/first.jsonl");
-    let second = root.join("data/second.jsonl");
-    std::fs::write(&first, b"{\"name\":\"old-a\"}\n{\"name\":\"old-b\"}\n").unwrap();
-    std::fs::write(&second, b"{\"name\":\"second\"}\n").unwrap();
+    let first = root.join("data/first.rows");
+    let second = root.join("data/second.rows");
+    std::fs::write(&first, b"(\"name\"=\"old-a\")\n(\"name\"=\"old-b\")\n").unwrap();
+    std::fs::write(&second, b"(\"name\"=\"second\")\n").unwrap();
     let live = index(&root);
     let original = live.view().unwrap();
     let first_handle = original.file_handle_for_path(&first).unwrap();
     let second_handle = original.file_handle_for_path(&second).unwrap();
-    let third = root.join("data/third.jsonl");
-    std::fs::write(&third, b"{\"name\":\"third\"}\n").unwrap();
+    let third = root.join("data/third.rows");
+    std::fs::write(&third, b"(\"name\"=\"third\")\n").unwrap();
     let third_handle = live.add_file(&third).unwrap().file;
-    std::fs::write(&first, b"{\"name\":\"new-a\"}\n").unwrap();
+    std::fs::write(&first, b"(\"name\"=\"new-a\")\n").unwrap();
     live.update_file(first_handle, &first).unwrap();
-    let moved = root.join("data/moved.jsonl");
+    let moved = root.join("data/moved.rows");
     std::fs::rename(&second, &moved).unwrap();
     live.move_file(second_handle, &moved).unwrap();
     std::fs::remove_file(&third).unwrap();
@@ -540,8 +540,8 @@ fn final_mutated_view_matches_independent_fresh_build() {
 fn public_mutations_add_update_move_and_preserve_version_conflicts() {
     let root = test_root("path");
     let index = index(&root);
-    let path = root.join("data/first.jsonl");
-    std::fs::write(&path, b"{\"name\":\"one\"}\n").unwrap();
+    let path = root.join("data/first.rows");
+    std::fs::write(&path, b"(\"name\"=\"one\")\n").unwrap();
     let added = index.add_file(&path).unwrap();
     assert_eq!(added.kind, FileMutationKind::Added);
     assert_eq!(added.retired_records, 0);
@@ -558,7 +558,7 @@ fn public_mutations_add_update_move_and_preserve_version_conflicts() {
     assert_eq!(same.file, added.file);
     assert_eq!(same.revision, added.revision);
 
-    std::fs::write(&path, b"{\"name\":\"two\"}\n{\"name\":\"three\"}\n").unwrap();
+    std::fs::write(&path, b"(\"name\"=\"two\")\n(\"name\"=\"three\")\n").unwrap();
     let changed = index.update_file(added.file, &path).unwrap();
     assert_eq!(changed.kind, FileMutationKind::Replaced);
     assert_eq!(changed.retired_records, 1);
@@ -571,7 +571,7 @@ fn public_mutations_add_update_move_and_preserve_version_conflicts() {
         Err(IndexError::FileConflict { .. })
     ));
 
-    let destination = root.join("data/moved.jsonl");
+    let destination = root.join("data/moved.rows");
     std::fs::rename(&path, &destination).unwrap();
     let moved = index.move_file(changed.file, &destination).unwrap();
     assert_eq!(moved.kind, FileMutationKind::Moved);
@@ -593,15 +593,15 @@ fn public_mutations_add_update_move_and_preserve_version_conflicts() {
 #[test]
 fn compatible_move_keeps_index_contributions_and_advances_file_version() {
     let root = test_root("compatible-move");
-    let original = root.join("data/original.jsonl");
-    std::fs::write(&original, b"{\"name\":\"one\"}\n{\"name\":\"two\"}\n").unwrap();
+    let original = root.join("data/original.rows");
+    std::fs::write(&original, b"(\"name\"=\"one\")\n(\"name\"=\"two\")\n").unwrap();
     let index = index(&root);
     let before = index.view().unwrap();
     let handle = before.file_handle_for_path(&original).unwrap();
     let fingerprint = before.file_fingerprint(handle.file_id);
     let prior_segments = before.0.segments.clone();
     let prior_repository = std::sync::Arc::clone(&before.0.repository);
-    let destination = root.join("data/renamed.jsonl");
+    let destination = root.join("data/renamed.rows");
     std::fs::rename(&original, &destination).unwrap();
     let moved = index.move_file(handle, &destination).unwrap();
     assert_eq!(moved.kind, FileMutationKind::Moved);
@@ -633,16 +633,16 @@ fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() 
     use crate::query_results::Payload;
 
     let root = test_root("move-same-metadata");
-    let original = root.join("data/original.jsonl");
-    let old_bytes = b"{\"id\":\"same\",\"name\":\"before\"}\n";
-    let new_bytes = b"{\"id\":\"same\",\"name\":\"after!\"}\n";
+    let original = root.join("data/original.rows");
+    let old_bytes = b"(\"id\"=\"same\",\"name\"=\"before\")\n";
+    let new_bytes = b"(\"id\"=\"same\",\"name\"=\"after!\")\n";
     assert_eq!(old_bytes.len(), new_bytes.len());
     std::fs::write(&original, old_bytes).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![intrinsic_definition("items")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -656,7 +656,7 @@ fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() 
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(original_metadata.modified().unwrap()))
         .unwrap();
-    let destination = root.join("data/moved.jsonl");
+    let destination = root.join("data/moved.rows");
     std::fs::rename(&original, &destination).unwrap();
     assert_eq!(
         SourceRevision::from_metadata(&std::fs::metadata(&destination).unwrap()).unwrap(),
@@ -676,7 +676,7 @@ fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() 
         Some(Payload::Bytes(new_bytes[..new_bytes.len() - 1].to_vec()))
     );
     let revision = index.status().unwrap().revision;
-    let missing = index.move_file(moved.file, &root.join("data/missing.jsonl"));
+    let missing = index.move_file(moved.file, &root.join("data/missing.rows"));
     assert!(
         matches!(missing, Err(IndexError::IncompatibleConfiguration(_))),
         "{missing:?}"
@@ -695,8 +695,8 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
     let root = test_root("move-membership");
     std::fs::create_dir_all(root.join("data/left")).unwrap();
     std::fs::create_dir_all(root.join("data/right")).unwrap();
-    let original = root.join("data/left/item.jsonl");
-    std::fs::write(&original, b"{\"id\":\"same\"}\n").unwrap();
+    let original = root.join("data/left/item.rows");
+    std::fs::write(&original, b"(\"id\"=\"same\")\n").unwrap();
     let mut left = intrinsic_definition("left");
     left.source_path = "data/left".into();
     let mut right = intrinsic_definition("right");
@@ -705,7 +705,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         &root,
         vec![left, right],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -714,7 +714,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         .unwrap()
         .file_handle_for_path(&original)
         .unwrap();
-    let destination = root.join("data/right/item.jsonl");
+    let destination = root.join("data/right/item.rows");
     std::fs::rename(&original, &destination).unwrap();
     let moved = index.move_file(handle, &destination).unwrap();
     assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
@@ -731,21 +731,21 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
             .file
             .unwrap()
             .path,
-        std::path::Path::new("data/right/item.jsonl")
+        std::path::Path::new("data/right/item.rows")
     );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 
     let root = test_root("move-reader");
-    let original = root.join("data/item.jsonl");
-    std::fs::write(&original, b"{\"id\":\"same\"}\n").unwrap();
-    let mut json = intrinsic_definition("json");
-    json.format = crate::source::test_support::DOCUMENTS;
+    let original = root.join("data/item.rows");
+    std::fs::write(&original, b"(\"id\"=\"same\")\n").unwrap();
+    let mut fixture = intrinsic_definition("fixture-record");
+    fixture.format = crate::source::test_support::document_format();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![intrinsic_definition("jsonl"), json],
+        vec![intrinsic_definition("fixture-lines"), fixture],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -754,18 +754,18 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         .unwrap()
         .file_handle_for_path(&original)
         .unwrap();
-    let destination = root.join("data/item.json");
+    let destination = root.join("data/item.row");
     std::fs::rename(&original, &destination).unwrap();
     let moved = index.move_file(handle, &destination).unwrap();
     assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
     let view = index.view().unwrap();
     assert!(
-        view.get_record("jsonl", "same", ReturnMode::Locator)
+        view.get_record("fixture-lines", "same", ReturnMode::Locator)
             .unwrap()
             .is_none()
     );
     assert!(
-        view.get_record("json", "same", ReturnMode::Bytes)
+        view.get_record("fixture-record", "same", ReturnMode::Bytes)
             .unwrap()
             .is_some()
     );
@@ -773,15 +773,15 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
     std::fs::remove_dir_all(root).unwrap();
 
     let root = test_root("move-filename-id");
-    let original = root.join("data/old.json");
-    std::fs::write(&original, b"{\"name\":\"same\"}\n").unwrap();
+    let original = root.join("data/old.row");
+    std::fs::write(&original, b"(\"name\"=\"same\")\n").unwrap();
     let mut definition = crate::source::test_support::document_folder("items", "data");
     definition.identity = IdentityPolicy::Filename;
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -790,7 +790,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         .unwrap()
         .file_handle_for_path(&original)
         .unwrap();
-    let destination = root.join("data/new.json");
+    let destination = root.join("data/new.row");
     std::fs::rename(&original, &destination).unwrap();
     let moved = index.move_file(handle, &destination).unwrap();
     assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
@@ -814,27 +814,27 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     use crate::query_results::Payload;
 
     let root = test_root("move-persistence-routing");
-    let original = root.join("data/original.jsonl");
-    let other = root.join("data/a-other.jsonl");
+    let original = root.join("data/original.rows");
+    let other = root.join("data/a-other.rows");
     std::fs::write(
         &original,
-        b"{\"id\":\"A\",\"name\":\"alpha\"}\n{\"id\":\"B\",\"name\":\"beta\"}\n",
+        b"(\"id\"=\"A\",\"name\"=\"alpha\")\n(\"id\"=\"B\",\"name\"=\"beta\")\n",
     )
     .unwrap();
-    std::fs::write(&other, b"{\"id\":\"C\",\"name\":\"gamma\"}\n").unwrap();
+    std::fs::write(&other, b"(\"id\"=\"C\",\"name\"=\"gamma\")\n").unwrap();
     let definition = intrinsic_definition("items");
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
     let handle = pinned.file_handle_for_path(&original).unwrap();
     let original_metadata = std::fs::metadata(&original).unwrap();
-    let destination = root.join("data/z-moved.jsonl");
+    let destination = root.join("data/z-moved.rows");
     std::fs::rename(&original, &destination).unwrap();
     let moved = index.move_file(handle, &destination).unwrap();
     assert_eq!(moved.strategy, FileMutationStrategy::ContentPreservingMove);
@@ -859,7 +859,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
         .unwrap();
     assert_eq!(
         old_hit.file.as_ref().unwrap().path,
-        std::path::Path::new("data/original.jsonl")
+        std::path::Path::new("data/original.rows")
     );
     assert!(pinned.get_record("items", "A", ReturnMode::Bytes).is_err());
 
@@ -873,9 +873,9 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
                 .map(|hit| hit.file.as_ref().expect("file origin").path.as_path())
                 .collect::<Vec<_>>(),
             [
-                std::path::Path::new("data/a-other.jsonl"),
-                std::path::Path::new("data/z-moved.jsonl"),
-                std::path::Path::new("data/z-moved.jsonl"),
+                std::path::Path::new("data/a-other.rows"),
+                std::path::Path::new("data/z-moved.rows"),
+                std::path::Path::new("data/z-moved.rows"),
             ]
         );
         let filtered = view
@@ -894,7 +894,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
                 .hits
                 .iter()
                 .all(|hit| hit.file.as_ref().expect("file origin").path
-                    == std::path::Path::new("data/z-moved.jsonl"))
+                    == std::path::Path::new("data/z-moved.rows"))
         );
         let empty_range = view
             .search(&query(
@@ -908,7 +908,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
                 .hits
                 .iter()
                 .all(|hit| hit.file.as_ref().expect("file origin").path
-                    == std::path::Path::new("data/z-moved.jsonl"))
+                    == std::path::Path::new("data/z-moved.rows"))
         );
         let direct = view
             .get_record("items", "A", ReturnMode::Bytes)
@@ -916,17 +916,17 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
             .unwrap();
         assert_eq!(
             direct.file.as_ref().unwrap().path,
-            std::path::Path::new("data/z-moved.jsonl")
+            std::path::Path::new("data/z-moved.rows")
         );
         assert_eq!(
             direct.payload,
             Some(Payload::Bytes(
-                b"{\"id\":\"A\",\"name\":\"alpha\"}".to_vec()
+                b"(\"id\"=\"A\",\"name\"=\"alpha\")".to_vec()
             ))
         );
     };
     check_current(&index);
-    let unrelated = b"{\"id\":\"X\",\"name\":\"xxxxx\"}\n{\"id\":\"Y\",\"name\":\"xxxx\"}\n";
+    let unrelated = b"(\"id\"=\"X\",\"name\"=\"xxxxx\")\n(\"id\"=\"Y\",\"name\"=\"xxxx\")\n";
     assert_eq!(unrelated.len(), original_metadata.len() as usize);
     std::fs::write(&original, unrelated).unwrap();
     std::fs::File::options()
@@ -972,12 +972,12 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
         } else {
             "move-fallback"
         });
-        let original = root.join("data/original.jsonl");
+        let original = root.join("data/original.rows");
         let mut writer = std::io::BufWriter::new(std::fs::File::create(&original).unwrap());
         for number in 0..RECORDS {
             writeln!(
                 writer,
-                "{{\"id\":\"item-{number}\",\"name\":\"item-{number}\"}}"
+                "(\"id\"=\"item-{number}\",\"name\"=\"item-{number}\")"
             )
             .unwrap();
         }
@@ -987,14 +987,14 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
             &root,
             vec![intrinsic_definition("items")],
             RepositoryOptions::default(),
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap();
         let before = index.view().unwrap();
         let handle = before.file_handle_for_path(&original).unwrap();
         let old_shards = Arc::clone(&before.0.segments[0]);
-        let destination = root.join("data/moved.jsonl");
+        let destination = root.join("data/moved.rows");
         if compatible {
             std::fs::rename(&original, &destination).unwrap();
         } else {
@@ -1060,7 +1060,7 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
 fn shared_partition_verified_update_preserves_its_record_slot() {
     let root = test_root("partition-slot-replace");
     let mut definition =
-        CollectionDefinition::folder("items", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("items", "data", crate::source::test_support::line_format());
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
@@ -1087,18 +1087,18 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         })
         .unwrap();
     definition.sort_fields = vec![FieldPath::parse("name").unwrap()];
-    let first = root.join("data/first.jsonl");
-    let middle = root.join("data/middle.jsonl");
-    let last = root.join("data/last.jsonl");
-    let old = b"{\"id\":\"middle\",\"name\":\"before\"}\n";
-    std::fs::write(&first, b"{\"id\":\"first\",\"name\":\"first\"}\n").unwrap();
+    let first = root.join("data/first.rows");
+    let middle = root.join("data/middle.rows");
+    let last = root.join("data/last.rows");
+    let old = b"(\"id\"=\"middle\",\"name\"=\"before\")\n";
+    std::fs::write(&first, b"(\"id\"=\"first\",\"name\"=\"first\")\n").unwrap();
     std::fs::write(&middle, old).unwrap();
-    std::fs::write(&last, b"{\"id\":\"last\",\"name\":\"last\"}\n").unwrap();
+    std::fs::write(&last, b"(\"id\"=\"last\",\"name\"=\"last\")\n").unwrap();
     let built = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1114,7 +1114,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
     assert_eq!(old_shard.index.records.len(), 3);
     let old_slot = old_shard.index.file_records(handle.file_id).unwrap()[0];
     let old_ordinal = old_shard.id.get();
-    std::fs::write(&middle, b"{\"id\":\"middle\",\"name\":\"after!\"}\n").unwrap();
+    std::fs::write(&middle, b"(\"id\"=\"middle\",\"name\"=\"after!\")\n").unwrap();
     let result = restored
         .update_file_with_options(
             handle,
@@ -1175,11 +1175,11 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
 fn supplied_bytes_update_preserves_source_and_checks_deletion_conflict() {
     let root = test_root("bytes");
     let index = index(&root);
-    let path = root.join("data/file.jsonl");
-    std::fs::write(&path, b"{\"name\":\"old\"}\n").unwrap();
+    let path = root.join("data/file.rows");
+    std::fs::write(&path, b"(\"name\"=\"old\")\n").unwrap();
     let added = index.add_file(&path).unwrap();
 
-    let bytes = b"{\"name\":\"first\"}\n{\"name\":\"second\"}\n";
+    let bytes = b"(\"name\"=\"first\")\n(\"name\"=\"second\")\n";
     std::fs::write(&path, bytes).unwrap();
     let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
     let updated = index
@@ -1229,10 +1229,10 @@ fn supplied_bytes_update_preserves_source_and_checks_deletion_conflict() {
 fn prepared_add_rejects_same_stamp_path_replacement_before_publication() {
     let root = test_root("same-stamp-object-swap");
     let index = index(&root);
-    let path = root.join("data/file.jsonl");
-    let replacement = root.join("data/replacement.jsonl");
-    let original = b"{\"name\":\"aaa\"}\n";
-    let changed = b"{\"name\":\"bbb\"}\n";
+    let path = root.join("data/file.rows");
+    let replacement = root.join("data/replacement.rows");
+    let original = b"(\"name\"=\"aaa\")\n";
+    let changed = b"(\"name\"=\"bbb\")\n";
     std::fs::write(&path, original).unwrap();
     let metadata = std::fs::metadata(&path).unwrap();
     let prepared = index.prepare_add_file(&path).unwrap();
@@ -1274,10 +1274,10 @@ fn prepared_add_rejects_same_stamp_path_replacement_before_publication() {
 fn move_rejects_destination_owned_by_another_file() {
     let root = test_root("collision");
     let index = index(&root);
-    let first = root.join("data/one.jsonl");
-    let second = root.join("data/two.jsonl");
-    std::fs::write(&first, b"{\"name\":\"one\"}\n").unwrap();
-    std::fs::write(&second, b"{\"name\":\"two\"}\n").unwrap();
+    let first = root.join("data/one.rows");
+    let second = root.join("data/two.rows");
+    std::fs::write(&first, b"(\"name\"=\"one\")\n").unwrap();
+    std::fs::write(&second, b"(\"name\"=\"two\")\n").unwrap();
     let one = index.add_file(&first).unwrap();
     index.add_file(&second).unwrap();
     let before = index.status().unwrap();
@@ -1297,18 +1297,18 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
         &root,
         vec![intrinsic_definition("items")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let path = root.join("data/verified.jsonl");
-    let old = b"{\"id\":\"same\",\"name\":\"old\"}\n";
+    let path = root.join("data/verified.rows");
+    let old = b"(\"id\"=\"same\",\"name\"=\"old\")\n";
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
     let pinned = index.view().unwrap();
     let old_ordinal = pinned.segments(CollectionId(0)).unwrap()[0].id.get();
 
-    let new = b"{\"id\":\"same\",\"name\":\"new\"}\n";
+    let new = b"(\"id\"=\"same\",\"name\"=\"new\")\n";
     std::fs::write(&path, new).unwrap();
     let verified = index
         .update_file_with_options(
@@ -1348,7 +1348,7 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
     );
     assert_eq!(pinned.segments(CollectionId(0)).unwrap()[0].active.len(), 1);
 
-    let latest = b"{\"id\":\"same\",\"name\":\"latest\"}\n";
+    let latest = b"(\"id\"=\"same\",\"name\"=\"latest\")\n";
     std::fs::write(&path, latest).unwrap();
     let fallback = index
         .update_file_with_options(
@@ -1404,8 +1404,8 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     use sha2::{Digest, Sha256};
 
     let root = test_root("base-verified-update");
-    let path = root.join("data/base.jsonl");
-    let old = b"{\"name\":\"old\"}\n";
+    let path = root.join("data/base.rows");
+    let old = b"(\"name\"=\"old\")\n";
     std::fs::write(&path, old).unwrap();
     let index = index(&root);
     let pinned = index.view().unwrap();
@@ -1428,7 +1428,7 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     assert_eq!(unchanged.kind, FileMutationKind::Unchanged);
     assert_eq!(unchanged.revision, pinned.revision());
     assert_eq!(unchanged.file, handle);
-    std::fs::write(&path, b"{\"name\":\"new\"}\n").unwrap();
+    std::fs::write(&path, b"(\"name\"=\"new\")\n").unwrap();
     let updated = index
         .update_file_with_options(
             handle,
@@ -1460,7 +1460,7 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     assert_eq!(index.status().unwrap().live_records, 1);
     assert_eq!(
         index.view().unwrap().file_fingerprint(handle.file_id),
-        Some(Sha256::digest(b"{\"name\":\"new\"}\n").into())
+        Some(Sha256::digest(b"(\"name\"=\"new\")\n").into())
     );
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1468,8 +1468,8 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
 #[test]
 fn fresh_base_verified_delete_reclaims_base_without_reading_source() {
     let root = test_root("base-verified-delete");
-    let path = root.join("data/base.jsonl");
-    let old = b"{\"name\":\"old\"}\n";
+    let path = root.join("data/base.rows");
+    let old = b"(\"name\"=\"old\")\n";
     std::fs::write(&path, old).unwrap();
     let index = index(&root);
     let pinned = index.view().unwrap();
@@ -1503,8 +1503,8 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
     let root = test_root("shared-shard");
     let index = index(&root);
     for number in 0..65 {
-        let path = root.join(format!("data/{number}.jsonl"));
-        std::fs::write(&path, format!("{{\"name\":\"item-{number}\"}}\n")).unwrap();
+        let path = root.join(format!("data/{number}.rows"));
+        std::fs::write(&path, format!("(\"name\"=\"item-{number}\")\n")).unwrap();
         index.add_file(&path).unwrap();
     }
     let before = index.view().unwrap();
@@ -1519,7 +1519,7 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
     let handle = before.file_handle(target).unwrap();
     let path = root.join(&before.file_entry(target).unwrap().relative_path);
     let old = std::fs::read(&path).unwrap();
-    std::fs::write(&path, b"{\"name\":\"changed\"}\n").unwrap();
+    std::fs::write(&path, b"(\"name\"=\"changed\")\n").unwrap();
     let result = index
         .update_file_with_options(
             handle,
@@ -1561,8 +1561,8 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
 fn verified_many_to_zero_keeps_file_active_and_bad_delete_hint_tombstones() {
     let root = test_root("zero");
     let index = index(&root);
-    let path = root.join("data/zero.jsonl");
-    let old = b"{\"n\":1}\n{\"n\":2}\n";
+    let path = root.join("data/zero.rows");
+    let old = b"(\"n\"=1)\n(\"n\"=2)\n";
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
     std::fs::write(&path, b"").unwrap();
@@ -1613,17 +1613,25 @@ fn verified_update_removes_departed_collection_membership() {
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
-            CollectionDefinition::folder("left", "data", crate::source::test_support::LINES),
-            CollectionDefinition::folder("right", "other", crate::source::test_support::LINES),
+            CollectionDefinition::folder(
+                "left",
+                "data",
+                crate::source::test_support::line_format(),
+            ),
+            CollectionDefinition::folder(
+                "right",
+                "other",
+                crate::source::test_support::line_format(),
+            ),
         ],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let source = root.join("data/entry.jsonl");
-    let destination = root.join("other/entry.jsonl");
-    let bytes = b"{\"name\":\"entry\"}\n";
+    let source = root.join("data/entry.rows");
+    let destination = root.join("other/entry.rows");
+    let bytes = b"(\"name\"=\"entry\")\n";
     std::fs::write(&source, bytes).unwrap();
     let added = index.add_file(&source).unwrap();
     std::fs::rename(&source, &destination).unwrap();
@@ -1655,7 +1663,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
     let root = test_root("slot-routes");
     std::fs::create_dir_all(root.join("sources")).unwrap();
     std::fs::create_dir_all(root.join("targets")).unwrap();
-    std::fs::write(root.join("targets/t.json"), b"{\"id\":\"T\"}").unwrap();
+    std::fs::write(root.join("targets/t.row"), b"(\"id\"=\"T\")").unwrap();
     let mut target_schema = Schema::default();
     target_schema
         .register_field(FieldDefinition {
@@ -1698,8 +1706,11 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
             reverse_alias: Some("sources".into()),
         })
         .unwrap();
-    let mut sources =
-        CollectionDefinition::folder("sources", "sources", crate::source::test_support::LINES);
+    let mut sources = CollectionDefinition::folder(
+        "sources",
+        "sources",
+        crate::source::test_support::line_format(),
+    );
     sources.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     sources.schema = source_schema;
     sources.sort_fields = vec![FieldPath::parse("score").unwrap()];
@@ -1708,18 +1719,18 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let path = root.join("sources/s.jsonl");
-    let other_path = root.join("sources/r.jsonl");
-    let original = b"{\"id\":\"S\",\"entry\":\"T\",\"score\":1,\"title\":\"alpha\"}\n";
+    let path = root.join("sources/s.rows");
+    let other_path = root.join("sources/r.rows");
+    let original = b"(\"id\"=\"S\",\"entry\"=\"T\",\"score\"=1,\"title\"=\"alpha\")\n";
     std::fs::write(&path, original).unwrap();
     let added = index.add_file(&path).unwrap();
     std::fs::write(
         &other_path,
-        b"{\"id\":\"R\",\"entry\":\"T\",\"score\":2,\"title\":\"other\"}\n",
+        b"(\"id\"=\"R\",\"entry\"=\"T\",\"score\"=2,\"title\"=\"other\")\n",
     )
     .unwrap();
     index.add_file(&other_path).unwrap();
@@ -1754,7 +1765,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
     };
     assert_eq!(ids(&pinned), ["S", "R"]);
 
-    let same_id = b"{\"id\":\"S\",\"entry\":\"T\",\"score\":3,\"title\":\"bravo replacement\"}\n";
+    let same_id = b"(\"id\"=\"S\",\"entry\"=\"T\",\"score\"=3,\"title\"=\"bravo replacement\")\n";
     std::fs::write(&path, same_id).unwrap();
     let first = index
         .update_file_with_options(
@@ -1810,7 +1821,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
     assert!(backlink.sources.iter().any(|source| source.id == "S"));
 
     let changed_id =
-        b"{\"id\":\"S2\",\"entry\":\"T\",\"score\":0,\"title\":\"charlie replacement\"}\n";
+        b"(\"id\"=\"S2\",\"entry\"=\"T\",\"score\"=0,\"title\"=\"charlie replacement\")\n";
     std::fs::write(&path, changed_id).unwrap();
     let second = index
         .update_file_with_options(
@@ -1875,14 +1886,14 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
 fn incompatible_one_record_class_uses_verified_physical_removal() {
     let root = test_root("slot-class-fallback");
     let index = index(&root);
-    let path = root.join("data/item.jsonl");
-    let old = b"{\"name\":\"valid\"}\n";
+    let path = root.join("data/item.rows");
+    let old = b"(\"name\"=\"valid\")\n";
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
     let old_ordinal = index.view().unwrap().segments(CollectionId(0)).unwrap()[0]
         .id
         .get();
-    std::fs::write(&path, b"{broken}\n").unwrap();
+    std::fs::write(&path, b"(broken)\n").unwrap();
     let updated = index
         .update_file_with_options(
             added.file,
@@ -1914,18 +1925,18 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
         &root,
         vec![intrinsic_definition("left"), intrinsic_definition("right")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let path = root.join("data/shared.jsonl");
-    let old = b"{\"id\":\"same\",\"name\":\"old\"}\n";
+    let path = root.join("data/shared.rows");
+    let old = b"(\"id\"=\"same\",\"name\"=\"old\")\n";
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
     let pinned = index.view().unwrap();
     let ordinals = [CollectionId(0), CollectionId(1)]
         .map(|collection| pinned.segments(collection).unwrap()[0].id.get());
-    std::fs::write(&path, b"{\"id\":\"same\",\"name\":\"new value\"}\n").unwrap();
+    std::fs::write(&path, b"(\"id\"=\"same\",\"name\"=\"new value\")\n").unwrap();
     let updated = index
         .update_file_with_options(
             added.file,
@@ -1958,7 +1969,8 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
 #[test]
 fn programmatic_rebuild_rejects_source_replacement_at_handoff() {
     let root = test_root("rebuild-handoff");
-    let mut builder = Index::builder();
+    let mut builder =
+        Index::builder().with_source_registry(crate::source::test_support::fixture_registry());
     let collection = builder.collection("items", Schema::default()).unwrap();
     builder
         .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
@@ -1966,19 +1978,23 @@ fn programmatic_rebuild_rejects_source_replacement_at_handoff() {
     builder
         .register_file_source(
             collection,
-            CollectionDefinition::folder("items", "data", crate::source::test_support::LINES)
-                .file_source(),
+            CollectionDefinition::folder(
+                "items",
+                "data",
+                crate::source::test_support::line_format(),
+            )
+            .file_source(),
         )
         .unwrap();
     let index = builder.build().unwrap();
-    let path = root.join("data/file.jsonl");
-    std::fs::write(&path, b"{\"name\":\"aaa\"}\n").unwrap();
+    let path = root.join("data/file.rows");
+    std::fs::write(&path, b"(\"name\"=\"aaa\")\n").unwrap();
     let imported = index.add_file(&path).unwrap();
     let pinned = index.view().unwrap();
     let expected = std::fs::metadata(&path).unwrap();
     let result = index.rebuild_with_before_publish(|_| {
         let substitute = root.join("replacement");
-        std::fs::write(&substitute, b"{\"name\":\"bbb\"}\n").unwrap();
+        std::fs::write(&substitute, b"(\"name\"=\"bbb\")\n").unwrap();
         std::fs::File::open(&substitute)
             .unwrap()
             .set_times(std::fs::FileTimes::new().set_modified(expected.modified().unwrap()))
@@ -1991,7 +2007,7 @@ fn programmatic_rebuild_rejects_source_replacement_at_handoff() {
         index
             .view()
             .unwrap()
-            .file_handle_for_path(std::path::Path::new("data/file.jsonl")),
+            .file_handle_for_path(std::path::Path::new("data/file.rows")),
         Some(imported.file)
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -2003,13 +2019,15 @@ fn multisegment_managed_file_has_one_membership_per_collection() {
     use std::num::NonZeroUsize;
 
     let root = test_root("distinct-collection-membership");
-    let mut builder = Index::builder().with_options(RepositoryOptions {
-        segment_policy: SegmentPolicy {
-            target_records: NonZeroUsize::new(512).unwrap(),
-            max_files: NonZeroUsize::new(1).unwrap(),
-        },
-        ..Default::default()
-    });
+    let mut builder = Index::builder()
+        .with_source_registry(crate::source::test_support::fixture_registry())
+        .with_options(RepositoryOptions {
+            segment_policy: SegmentPolicy {
+                target_records: NonZeroUsize::new(512).unwrap(),
+                max_files: NonZeroUsize::new(1).unwrap(),
+            },
+            ..Default::default()
+        });
     builder
         .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
         .unwrap();
@@ -2021,9 +2039,9 @@ fn multisegment_managed_file_has_one_membership_per_collection() {
             .unwrap();
     }
     let index = builder.build().unwrap();
-    let path = root.join("data/item.jsonl");
+    let path = root.join("data/item.rows");
     let bytes = (0..768)
-        .map(|n| format!("{{\"id\":\"r{n}\"}}\n"))
+        .map(|n| format!("(\"id\"=\"r{n}\")\n"))
         .collect::<String>();
     std::fs::write(&path, bytes).unwrap();
     let added = index.add_file(&path).unwrap();
@@ -2054,7 +2072,7 @@ fn multisegment_managed_file_has_one_membership_per_collection() {
             [512, 256]
         );
     }
-    let moved_path = root.join("data/moved.jsonl");
+    let moved_path = root.join("data/moved.rows");
     std::fs::rename(&path, &moved_path).unwrap();
     let moved = index.move_file(added.file, &moved_path).unwrap();
     assert_eq!(moved.indexed_records, 1536);
@@ -2062,7 +2080,7 @@ fn multisegment_managed_file_has_one_membership_per_collection() {
         index.update_file(moved.file, &moved_path).unwrap().kind,
         FileMutationKind::Unchanged
     );
-    std::fs::write(&moved_path, b"{\"id\":\"r0\"}\n{\"id\":\"r1\"}\n").unwrap();
+    std::fs::write(&moved_path, b"(\"id\"=\"r0\")\n(\"id\"=\"r1\")\n").unwrap();
     let replacement = index.update_file(moved.file, &moved_path).unwrap();
     assert_eq!(
         (replacement.previous_records, replacement.indexed_records),
@@ -2110,7 +2128,8 @@ fn direct_publication_progresses_during_private_file_work() {
         "digest-read",
     ] {
         let root = test_root(phase);
-        let mut builder = Index::builder();
+        let mut builder =
+            Index::builder().with_source_registry(crate::source::test_support::fixture_registry());
         let mut definition = crate::source::test_support::document_folder("entries", "data");
         definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
         let collection = builder
@@ -2124,8 +2143,8 @@ fn direct_publication_progresses_during_private_file_work() {
             .register_file_source(collection, definition.file_source())
             .unwrap();
         let index = builder.build().unwrap();
-        let path = root.join("data/item.json");
-        let old = br#"{"id":"old"}"#;
+        let path = root.join("data/item.row");
+        let old = br#"("id"="old")"#;
         let updating = phase == "old-layout" || phase == "verified-compaction";
         let previous = if updating {
             std::fs::write(&path, old).unwrap();
@@ -2134,7 +2153,7 @@ fn direct_publication_progresses_during_private_file_work() {
             None
         };
         let pinned = index.view().unwrap();
-        std::fs::write(&path, br#"{"id":"new-record"}"#).unwrap();
+        std::fs::write(&path, br#"("id"="new-record")"#).unwrap();
         let session = index.ingestion();
         let writer = session.writer(registration).unwrap();
         let (entered, waiting) = mpsc::sync_channel(1);
@@ -2228,7 +2247,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
     use std::time::{Duration, Instant};
 
     struct BudgetedLines {
-        core_jsonl: bool,
+        core_lines: bool,
         gate: AtomicBool,
         entered: mpsc::SyncSender<()>,
         released: Mutex<mpsc::Receiver<()>>,
@@ -2239,10 +2258,10 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
             "budget-lines"
         }
         fn supports_streaming_build(&self) -> bool {
-            !self.core_jsonl
+            !self.core_lines
         }
         fn uses_pull_framing(&self) -> bool {
-            self.core_jsonl
+            self.core_lines
         }
 
         fn build_framer<'a>(
@@ -2250,15 +2269,15 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
             input: &'a mut dyn Read,
             limit: Option<usize>,
         ) -> Option<Box<dyn crate::source::BuildFramer + 'a>> {
-            crate::source::json_lines::JsonLinesReader.build_framer(input, limit)
+            crate::source::test_support::LINE_READER.build_framer(input, limit)
         }
 
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
-            crate::source::json_lines::JsonLinesReader.frame(bytes)
+            crate::source::test_support::LINE_READER.frame(bytes)
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-            if bytes.starts_with(b"{\"id\":\"oldest") && self.gate.swap(false, Ordering::AcqRel) {
+            if bytes.starts_with(b"(\"id\"=\"oldest") && self.gate.swap(false, Ordering::AcqRel) {
                 self.entered.send(()).map_err(|error| error.to_string())?;
                 self.released
                     .lock()
@@ -2266,7 +2285,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
                     .recv_timeout(Duration::from_secs(10))
                     .map_err(|error| error.to_string())?;
             }
-            crate::source::json_lines::JsonLinesReader.parse(bytes)
+            crate::source::test_support::LINE_READER.parse(bytes)
         }
 
         fn stream_build_chunks(
@@ -2281,7 +2300,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
                 input
                     .read_to_end(&mut bytes)
                     .map_err(|error| error.to_string())?;
-                let late_failure = bytes.starts_with(b"{\"id\":\"late");
+                let late_failure = bytes.starts_with(b"(\"id\"=\"late");
                 let ranges = self.frame(&bytes)?;
                 emit(BuildChunk {
                     bytes,
@@ -2297,7 +2316,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
         }
     }
 
-    for (workers, core_jsonl, size) in [
+    for (workers, core_lines, size) in [
         (4, false, 4096),
         (4, true, 4096),
         (1, false, 2 * 1024 * 1024),
@@ -2306,12 +2325,12 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
         let (entered, gate) = mpsc::sync_channel(1);
         let (release, released) = mpsc::channel();
         let reader = Arc::new(BudgetedLines {
-            core_jsonl,
+            core_lines,
             gate: AtomicBool::new(true),
             entered,
             released: Mutex::new(released),
         });
-        let mut sources = crate::source::registry::SourceRegistry::builtin();
+        let mut sources = crate::source::test_support::fixture_registry();
         sources
             .register("budget-lines", 1, "budget", reader)
             .unwrap();
@@ -2342,7 +2361,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
         budget.set_test_limits(allowed_framers, 1024);
         let write = |name: &str, id: &str| {
             let path = root.join(format!("data/{name}.budget"));
-            let mut data = format!("{{\"id\":\"{id}\"}}").into_bytes();
+            let mut data = format!("(\"id\"=\"{id}\")").into_bytes();
             data.resize(size, b' ');
             data.push(b'\n');
             std::fs::write(&path, data).unwrap();
@@ -2392,7 +2411,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
         });
         let peak = budget.peak();
         assert_eq!(peak.active_framers, allowed_framers as u64);
-        if core_jsonl {
+        if core_lines {
             assert_eq!(peak.active_callbacks, 0);
         } else {
             assert!((1..=allowed_framers as u64).contains(&peak.active_callbacks));
@@ -2400,7 +2419,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
         assert!(peak.completed_chunks > 0);
         assert!(peak.private_segments > 0);
         assert_eq!(budget.current(), Default::default());
-        if !core_jsonl {
+        if !core_lines {
             let bad = write("retry", "late");
             assert!(index.add_file(&bad).is_err());
             assert!(
@@ -2425,23 +2444,23 @@ fn verified_replacement_rejects_a_concurrent_replacement_of_the_same_handle() {
     use std::time::Duration;
 
     let root = test_root("concurrent-verified-replace");
-    let path = root.join("data/entry.jsonl");
-    let old = b"{\"id\":\"old\"}\n";
+    let path = root.join("data/entry.rows");
+    let old = b"(\"id\"=\"old\")\n";
     std::fs::write(&path, old).unwrap();
     let index = Index::start_build(
         &root,
         vec![intrinsic_definition("entries")],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .unwrap()
     .wait_complete()
     .unwrap();
     let pinned = index.view().unwrap();
     let handle = pinned
-        .file_handle_for_path(std::path::Path::new("data/entry.jsonl"))
+        .file_handle_for_path(std::path::Path::new("data/entry.rows"))
         .unwrap();
-    std::fs::write(&path, b"{\"id\":\"new\"}\n").unwrap();
+    std::fs::write(&path, b"(\"id\"=\"new\")\n").unwrap();
     let (entered, arrival) = mpsc::sync_channel(1);
     let (release, resumed) = mpsc::channel::<()>();
     std::thread::scope(|scope| {

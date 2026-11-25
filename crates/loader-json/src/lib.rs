@@ -6,14 +6,6 @@ pub mod schema;
 
 use schema as json_schema;
 
-// Core includes these sources in its unit tests, where private query internals
-// and their instrumentation are available.
-#[cfg(test)]
-#[macro_export]
-macro_rules! objekte_json_unit_tests {
-    ($($module:tt)*) => {};
-}
-
 mod document;
 pub use document::{JsonDecodedScalarsReader, JsonReader, register};
 

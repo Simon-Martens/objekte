@@ -91,25 +91,13 @@ thread_local! {
 }
 
 #[cfg(test)]
-crate::objekte_json_unit_tests! {
-    thread_local! {
-        static BORROWED_NODE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-    }
+thread_local! {
+    static BORROWED_NODE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
 
-    static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
-    static COMBINED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
-
-    pub(crate) fn borrowed_scan_calls() -> usize {
-        BORROWED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
-    }
-
-    pub(super) fn borrowed_node_visits() -> usize {
-        BORROWED_NODE_VISITS.with(std::cell::Cell::get)
-    }
-
-    pub(crate) fn combined_scan_calls() -> usize {
-        COMBINED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
-    }
+#[cfg(test)]
+pub(super) fn borrowed_node_visits() -> usize {
+    BORROWED_NODE_VISITS.with(std::cell::Cell::get)
 }
 
 fn path_is(path: &[Cow<'_, str>], expected: &[String]) -> bool {
@@ -158,7 +146,7 @@ impl<'a> ScalarWalker<'a> {
         filter_element: bool,
     ) -> Result<(), String> {
         #[cfg(test)]
-        crate::objekte_json_unit_tests! {
+        {
             BORROWED_NODE_VISITS.with(|count| count.set(count.get() + 1));
         }
         if depth >= 128 {
@@ -487,10 +475,6 @@ pub(crate) fn scan_borrowed_segments_worker(
     query: &BorrowedScanQuery<'_>,
 ) -> Result<BorrowedScanResult, String> {
     let _fold_record = objekte_search_core::source::verification::scalar_match_session();
-    #[cfg(test)]
-    crate::objekte_json_unit_tests! {
-        BORROWED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-    }
     BORROWED_SCAN_SCRATCH.with(|scratch| {
         let mut scratch = scratch.borrow_mut();
         let result = scan_borrowed_segments(bytes, query, &mut scratch);
@@ -509,10 +493,6 @@ pub(crate) fn extract_query_record_borrowed_fts_worker(
     retain_evidence: bool,
 ) -> Result<(objekte_search_core::model::Value, BorrowedScanResult), String> {
     let _fold_record = objekte_search_core::source::verification::scalar_match_session();
-    #[cfg(test)]
-    crate::objekte_json_unit_tests! {
-        COMBINED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-    }
     BORROWED_SCAN_SCRATCH.with(|scratch| {
         let mut scratch = scratch.borrow_mut();
         scratch.decoded_text.clear();
@@ -569,5 +549,5 @@ pub(crate) fn extract_query_record_borrowed_fts_worker(
 }
 
 #[cfg(test)]
-crate::objekte_json_unit_tests! { #[path = "scan_tests.rs"]
-mod tests; }
+#[path = "scan_tests.rs"]
+mod tests;

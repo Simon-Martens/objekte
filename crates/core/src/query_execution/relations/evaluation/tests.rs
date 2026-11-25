@@ -89,7 +89,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -123,27 +123,21 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     )
     .unwrap();
     assert!(!missing.hits.iter().any(|hit| hit.record_id == "m1"));
-    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+    std::fs::remove_file(root.join("entries/a.row")).unwrap();
 
     std::fs::write(
-        root.join("entries/new-a.json"),
-        r#"{"id":"A","title":"New Hymn"}"#,
+        root.join("entries/new-a.row"),
+        r#"("id"="A","title"="New Hymn")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/new-m.json"),
-        r#"{"id":"m8","entry":"A","title":"New source"}"#,
+        root.join("mentions/new-m.row"),
+        r#"("id"="m8","entry"="A","title"="New source")"#,
     )
     .unwrap();
     let next_file = repo.files().files.len() as u32;
-    let target = stage(&repo, &root, 0, FileId(next_file), "entries/new-a.json");
-    let source = stage(
-        &repo,
-        &root,
-        1,
-        FileId(next_file + 1),
-        "mentions/new-m.json",
-    );
+    let target = stage(&repo, &root, 0, FileId(next_file), "entries/new-a.row");
+    let source = stage(&repo, &root, 1, FileId(next_file + 1), "mentions/new-m.row");
     let catalog = catalog
         .appended(target.files[0].entry.clone(), None, None)
         .unwrap()
@@ -517,7 +511,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .find(|edge| edge.reverse_alias.as_deref() == Some("mentions"))
         .unwrap();
     assert_eq!(retired_edge.unresolved_occurrence_count, 3);
-    std::fs::remove_file(root.join("entries/new-a.json")).unwrap();
+    std::fs::remove_file(root.join("entries/new-a.row")).unwrap();
     let unavailable_target = crate::query_execution::runner::search_segmented(
         &repo,
         &query(
@@ -587,7 +581,7 @@ fn merged_relation_walker_matches_static_reference_semantics() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -769,7 +763,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,
@@ -791,7 +785,7 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -808,9 +802,9 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
         assert_eq!(actual.hits, expected.hits, "{filter}");
         assert_eq!(actual.counters.scanned_records, 0, "{filter}");
     }
-    let target = root.join("entries/a.json");
+    let target = root.join("entries/a.row");
     let metadata = std::fs::metadata(&target).unwrap();
-    std::fs::rename(&target, root.join("entries/hidden-a.json")).unwrap();
+    std::fs::rename(&target, root.join("entries/hidden-a.row")).unwrap();
     std::fs::write(&target, vec![b'x'; metadata.len() as usize]).unwrap();
     std::fs::File::open(&target)
         .unwrap()
@@ -853,7 +847,7 @@ fn lifecycle_related_sort_uses_target_stored_column() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -898,7 +892,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
             verified_cache_bytes: 0,
             ..RepositoryOptions::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1128,32 +1122,32 @@ fn backlink_sort_does_not_use_a_forward_relation_at_the_same_ordinal() {
     definitions[0]
         .sort_fields
         .push(FieldPath::parse("title").unwrap());
-    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Zulu"}"#).unwrap();
+    std::fs::write(root.join("entries/a.row"), r#"("id"="A","title"="Zulu")"#).unwrap();
     std::fs::write(
-        root.join("entries/b.json"),
-        r#"{"id":"B","title":"Bravo","related_entry":"A"}"#,
+        root.join("entries/b.row"),
+        r#"("id"="B","title"="Bravo","related_entry"="A")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/m1.json"),
-        r#"{"id":"m1","entry":"A","title":"Zulu"}"#,
+        root.join("mentions/m1.row"),
+        r#"("id"="m1","entry"="A","title"="Zulu")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/m2.json"),
-        r#"{"id":"m2","entry":"B","title":"Bravo"}"#,
+        root.join("mentions/m2.row"),
+        r#"("id"="m2","entry"="B","title"="Bravo")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/m3.json"),
-        r#"{"id":"m3","entry":"A","title":"Alpha"}"#,
+        root.join("mentions/m3.row"),
+        r#"("id"="m3","entry"="A","title"="Alpha")"#,
     )
     .unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1279,9 +1273,9 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
         .push(FieldPath::parse("title").unwrap());
     for number in 0..80 {
         std::fs::write(
-            root.join(format!("mentions/extra-{number:03}.json")),
+            root.join(format!("mentions/extra-{number:03}.row")),
             format!(
-                r#"{{"id":"extra-{number:03}","entry":"A","title":"{:03}"}}"#,
+                r#"("id"="extra-{number:03}","entry"="A","title"="{:03}")"#,
                 (number * 37) % 80,
             ),
         )
@@ -1293,7 +1287,7 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
         RepositoryOptions {
             ..RepositoryOptions::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -1332,55 +1326,51 @@ fn segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock() {
     definitions[1]
         .sort_fields
         .push(FieldPath::parse("title").unwrap());
+    std::fs::write(root.join("entries/a.row"), r#"("id"="A","title"="Target")"#).unwrap();
+    std::fs::write(root.join("entries/b.row"), r#"("id"="B","title"="Other")"#).unwrap();
     std::fs::write(
-        root.join("entries/a.json"),
-        r#"{"id":"A","title":"Target"}"#,
-    )
-    .unwrap();
-    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Other"}"#).unwrap();
-    std::fs::write(
-        root.join("mentions/m1.json"),
-        r#"{"id":"m1","entry":"A","title":"tie","local_title":"residual alpha"}"#,
+        root.join("mentions/m1.row"),
+        r#"("id"="m1","entry"="A","title"="tie","local_title"="residual alpha")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/m2.json"),
-        r#"{"id":"m2","entry":"A","title":"retired old","local_title":"not selected"}"#,
+        root.join("mentions/m2.row"),
+        r#"("id"="m2","entry"="A","title"="retired old","local_title"="not selected")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/m4.json"),
-        r#"{"id":"m4","entry":"B","title":"zzz","local_title":"residual needle"}"#,
+        root.join("mentions/m4.row"),
+        r#"("id"="m4","entry"="B","title"="zzz","local_title"="residual needle")"#,
     )
     .unwrap();
-    std::fs::remove_file(root.join("mentions/m3.json")).unwrap();
+    std::fs::remove_file(root.join("mentions/m3.row")).unwrap();
 
     let index = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     let before = index.view().unwrap();
     let m2 = before
-        .file_handle_for_path(std::path::Path::new("mentions/m2.json"))
+        .file_handle_for_path(std::path::Path::new("mentions/m2.row"))
         .unwrap();
     std::fs::write(
-        root.join("mentions/m2.json"),
-        r#"{"id":"m2","entry":"A","title":"tie","local_title":"residual beta"}"#,
+        root.join("mentions/m2.row"),
+        r#"("id"="m2","entry"="A","title"="tie","local_title"="residual beta")"#,
     )
     .unwrap();
     index
-        .update_file(m2, &root.join("mentions/m2.json"))
+        .update_file(m2, &root.join("mentions/m2.row"))
         .unwrap();
     std::fs::write(
-        root.join("mentions/m3.json"),
-        r#"{"id":"m3","entry":"A","title":"tie","local_title":"residual gamma"}"#,
+        root.join("mentions/m3.row"),
+        r#"("id"="m3","entry"="A","title"="tie","local_title"="residual gamma")"#,
     )
     .unwrap();
-    index.add_file(&root.join("mentions/m3.json")).unwrap();
+    index.add_file(&root.join("mentions/m3.row")).unwrap();
 
     let view = index.view().unwrap();
     let mut request = query(
@@ -1468,35 +1458,35 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
     use crate::schema::relations::RelationId;
 
     let (root, definitions) = fixture();
-    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Hymn"}"#).unwrap();
-    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Other"}"#).unwrap();
+    std::fs::write(root.join("entries/a.row"), r#"("id"="A","title"="Hymn")"#).unwrap();
+    std::fs::write(root.join("entries/b.row"), r#"("id"="B","title"="Other")"#).unwrap();
     std::fs::write(
-        root.join("mentions/m1.json"),
-        r#"{"id":"m1","entry":"B","title":"base"}"#,
+        root.join("mentions/m1.row"),
+        r#"("id"="m1","entry"="B","title"="base")"#,
     )
     .unwrap();
-    std::fs::remove_file(root.join("mentions/m2.json")).unwrap();
-    std::fs::remove_file(root.join("mentions/m3.json")).unwrap();
+    std::fs::remove_file(root.join("mentions/m2.row")).unwrap();
+    std::fs::remove_file(root.join("mentions/m3.row")).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     std::fs::write(
-        root.join("mentions/m2.json"),
-        r#"{"id":"m2","entry":"A","title":"segment"}"#,
+        root.join("mentions/m2.row"),
+        r#"("id"="m2","entry"="A","title"="segment")"#,
     )
     .unwrap();
-    index.add_file(&root.join("mentions/m2.json")).unwrap();
+    index.add_file(&root.join("mentions/m2.row")).unwrap();
     std::fs::write(
-        root.join("mentions/m3.json"),
-        r#"{"id":"m3","entry":"A","title":"segment"}"#,
+        root.join("mentions/m3.row"),
+        r#"("id"="m3","entry"="A","title"="segment")"#,
     )
     .unwrap();
-    index.add_file(&root.join("mentions/m3.json")).unwrap();
+    index.add_file(&root.join("mentions/m3.row")).unwrap();
 
     let pinned = index.view().unwrap();
     let repo = pinned.repository();
@@ -1639,32 +1629,32 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
     use crate::query_results::Payload;
 
     let (root, definitions) = fixture();
-    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Alpha"}"#).unwrap();
-    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Zulu"}"#).unwrap();
-    std::fs::remove_file(root.join("mentions/m2.json")).unwrap();
-    std::fs::remove_file(root.join("mentions/m3.json")).unwrap();
+    std::fs::write(root.join("entries/a.row"), r#"("id"="A","title"="Alpha")"#).unwrap();
+    std::fs::write(root.join("entries/b.row"), r#"("id"="B","title"="Zulu")"#).unwrap();
+    std::fs::remove_file(root.join("mentions/m2.row")).unwrap();
+    std::fs::remove_file(root.join("mentions/m3.row")).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     for (name, items) in [
         (
             "m2",
-            r#"[{"entry":null},{"entry":"B"},{"entry":"A"},{"entry":"A"}]"#,
+            r#"[("entry"=null),("entry"="B"),("entry"="A"),("entry"="A")]"#,
         ),
-        ("m3", r#"[{"entry":"A"},{"entry":"B"}]"#),
+        ("m3", r#"[("entry"="A"),("entry"="B")]"#),
     ] {
         std::fs::write(
-            root.join(format!("mentions/{name}.json")),
-            format!(r#"{{"id":"{name}","items":{items}}}"#),
+            root.join(format!("mentions/{name}.row")),
+            format!(r#"("id"="{name}","items"={items})"#),
         )
         .unwrap();
         index
-            .add_file(&root.join(format!("mentions/{name}.json")))
+            .add_file(&root.join(format!("mentions/{name}.row")))
             .unwrap();
     }
 
@@ -1812,7 +1802,7 @@ fn base_reference_sort_ignores_perturbed_stored_and_relation_contributions_in_ad
             .collect::<Vec<_>>(),
         ["m2", "m1"]
     );
-    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+    std::fs::remove_file(root.join("entries/a.row")).unwrap();
     let unavailable = repo.search_reference(&related).unwrap();
     assert_eq!(unavailable.count, None);
     assert!(unavailable.counters.source_unavailable_events > 0);
@@ -1842,7 +1832,7 @@ fn adopted_base_view_reference_search_uses_pinned_publication() {
     assert_eq!(expected.hits[0].matched_fields, ["id"]);
     assert_eq!(
         expected.hits[0].file.as_ref().unwrap().path,
-        std::path::Path::new("mentions/m2.json")
+        std::path::Path::new("mentions/m2.row")
     );
 
     let index = crate::lifecycle::Index::from_repository(repo).unwrap();
@@ -1859,7 +1849,7 @@ fn adopted_base_view_reference_search_uses_pinned_publication() {
     assert_eq!(locator.hits[0].generation, view.revision().0);
     assert_eq!(
         locator.hits[0].file.as_ref().unwrap().path,
-        std::path::Path::new("mentions/m2.json")
+        std::path::Path::new("mentions/m2.row")
     );
     assert!(locator.hits[0].payload.is_none());
 
@@ -1878,7 +1868,7 @@ fn adopted_base_view_reference_search_uses_pinned_publication() {
     assert_eq!(
         bytes.hits[0].payload,
         Some(Payload::Bytes(
-            std::fs::read(root.join("mentions/m2.json")).unwrap()
+            std::fs::read(root.join("mentions/m2.row")).unwrap()
         ))
     );
 
@@ -1915,11 +1905,11 @@ fn adopted_base_view_reference_search_keeps_retired_rows_on_the_old_pin() {
     );
 
     let retired = pinned
-        .file_handle_for_path(std::path::Path::new("mentions/m2.json"))
+        .file_handle_for_path(std::path::Path::new("mentions/m2.row"))
         .unwrap();
     let deletion = index.delete_file(retired).unwrap();
     assert_eq!(deletion.retired_records, 1);
-    assert!(root.join("mentions/m2.json").exists());
+    assert!(root.join("mentions/m2.row").exists());
 
     let still_old = pinned.search_reference(&request).unwrap();
     assert_eq!(still_old.count, Some(2));
@@ -1961,17 +1951,17 @@ fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     let index = crate::lifecycle::Index::from_repository(repo).unwrap();
     let pinned = index.view().unwrap();
     let handle = pinned
-        .file_handle_for_path(std::path::Path::new("entries/a.json"))
+        .file_handle_for_path(std::path::Path::new("entries/a.row"))
         .unwrap();
     let mut request = query("entries", Some("id = 'A' SORT BY title"), None, None, false);
     request.options.return_mode = ReturnMode::Locator;
     let old_lookup = pinned.search_reference(&request).unwrap();
     assert_eq!(old_lookup.count, Some(1));
     let old_path = old_lookup.hits[0].file.as_ref().unwrap().path.clone();
-    assert_eq!(old_path, std::path::Path::new("entries/a.json"));
+    assert_eq!(old_path, std::path::Path::new("entries/a.row"));
 
-    let original = root.join("entries/a.json");
-    let destination = root.join("entries/renamed-a.json");
+    let original = root.join("entries/a.row");
+    let destination = root.join("entries/renamed-a.row");
     let original_bytes = std::fs::read(&original).unwrap();
     std::fs::rename(&original, &destination).unwrap();
     let moved = index.move_file(handle, &destination).unwrap();
@@ -1983,7 +1973,7 @@ fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     assert_eq!(current.count, Some(1));
     assert_eq!(
         current.hits[0].file.as_ref().unwrap().path,
-        std::path::Path::new("entries/renamed-a.json")
+        std::path::Path::new("entries/renamed-a.row")
     );
     assert_eq!(
         current.hits[0].payload,
@@ -1994,14 +1984,14 @@ fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     let old_bytes = pinned.search_reference(&request).unwrap();
     assert_eq!(old_bytes.count, None);
     assert!(old_bytes.hits.is_empty());
-    assert_eq!(old_path, std::path::Path::new("entries/a.json"));
+    assert_eq!(old_path, std::path::Path::new("entries/a.row"));
     assert!(old_bytes.counters.source_unavailable_events > 0);
     assert!(
         old_bytes
             .counters
             .source_diagnostics
             .iter()
-            .any(|diagnostic| diagnostic.file_path == std::path::Path::new("entries/a.json"))
+            .any(|diagnostic| diagnostic.file_path == std::path::Path::new("entries/a.row"))
     );
 
     drop(pinned);
@@ -2044,15 +2034,15 @@ fn base_related_sort_declines_an_incompatible_stored_key() {
     }
     for (id, title) in [("T2", "item2"), ("T10", "item10")] {
         std::fs::write(
-            root.join("targets").join(format!("{id}.json")),
-            format!(r#"{{"id":"{id}","title":"{title}"}}"#),
+            root.join("targets").join(format!("{id}.row")),
+            format!(r#"("id"="{id}","title"="{title}")"#),
         )
         .unwrap();
     }
     for (id, target) in [("S2", "T2"), ("S10", "T10")] {
         std::fs::write(
-            root.join("sources").join(format!("{id}.json")),
-            format!(r#"{{"id":"{id}","entry":"{target}"}}"#),
+            root.join("sources").join(format!("{id}.row")),
+            format!(r#"("id"="{id}","entry"="{target}")"#),
         )
         .unwrap();
     }
@@ -2180,7 +2170,7 @@ fn base_reference_resolves_omitted_id_map_targets_and_materializes_their_bytes()
     assert!(bytes.hits.iter().all(|hit| matches!(
         &hit.payload,
         Some(Payload::Bytes(source))
-            if String::from_utf8_lossy(source).contains(&format!(r#""id":"{}""#, hit.record_id))
+            if String::from_utf8_lossy(source).contains(&format!(r#""id"="{}""#, hit.record_id))
     )));
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -2253,7 +2243,7 @@ fn base_reference_multi_target_backlinks_scan_each_relation_once() {
         ["A", "B"]
     );
 
-    std::fs::remove_file(root.join("mentions/m1.json")).unwrap();
+    std::fs::remove_file(root.join("mentions/m1.row")).unwrap();
     let incomplete =
         MergedRelationView::new(&repo, &repo.active, &repo.segments, &repo.catalog).unwrap();
     let mut first_work = RelationWork::default();
@@ -2283,23 +2273,23 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
 
     let (root, definitions) = fixture();
     std::fs::write(
-        root.join("mentions/m8.json"),
-        r#"{"id":"m8","contributors":["A"],"title":"Alpha"}"#,
+        root.join("mentions/m8.row"),
+        r#"("id"="m8","contributors"=["A"],"title"="Alpha")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/m9.json"),
-        r#"{"id":"m9","contributors":["B"],"title":"Zulu"}"#,
+        root.join("mentions/m9.row"),
+        r#"("id"="m9","contributors"=["B"],"title"="Zulu")"#,
     )
     .unwrap();
     for number in 0..LARGE_SOURCES {
-        let prefix = format!(r#"{{"id":"unlinked-{number}","entry":"Z""#);
-        let suffix = "}";
+        let prefix = format!(r#"("id"="unlinked-{number}","entry"="Z""#);
+        let suffix = ")";
         let padding = LARGE_RECORD_BYTES
             .saturating_sub(prefix.len() + suffix.len())
             .max(1);
         std::fs::write(
-            root.join(format!("mentions/unlinked-{number:02}.json")),
+            root.join(format!("mentions/unlinked-{number:02}.row")),
             format!("{prefix}{}{suffix}", " ".repeat(padding)),
         )
         .unwrap();
@@ -2308,7 +2298,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         &root,
         definitions.clone(),
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
@@ -2382,7 +2372,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
     assert!(reference.counters.relation_bytes_read > 0);
     assert_eq!(reference.counters.sort_target_reads, 3);
 
-    let unavailable_path = root.join("mentions/unlinked-00.json");
+    let unavailable_path = root.join("mentions/unlinked-00.row");
     std::fs::remove_file(&unavailable_path).unwrap();
     let unavailable = pinned.search_reference(&request).unwrap();
     assert!(
@@ -2400,7 +2390,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
             .source_diagnostics
             .iter()
             .any(|diagnostic| {
-                diagnostic.file_path == std::path::Path::new("mentions/unlinked-00.json")
+                diagnostic.file_path == std::path::Path::new("mentions/unlinked-00.row")
             })
     );
 
@@ -2465,20 +2455,20 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         std::fs::create_dir_all(reverse_root.join(directory)).unwrap();
     }
     for (relative, document) in [
-        ("entries/00-b.json", r#"{"id":"B","title":"Bravo"}"#),
-        ("entries/50-c.json", r#"{"id":"C","title":"Charlie"}"#),
-        ("entries/99-a.json", r#"{"id":"A","title":"Zulu"}"#),
+        ("entries/00-b.row", r#"("id"="B","title"="Bravo")"#),
+        ("entries/50-c.row", r#"("id"="C","title"="Charlie")"#),
+        ("entries/99-a.row", r#"("id"="A","title"="Zulu")"#),
         (
-            "mentions/m1.json",
-            r#"{"id":"m1","entry":"A","title":"Zulu"}"#,
+            "mentions/m1.row",
+            r#"("id"="m1","entry"="A","title"="Zulu")"#,
         ),
         (
-            "mentions/m2.json",
-            r#"{"id":"m2","entry":"B","title":"Bravo"}"#,
+            "mentions/m2.row",
+            r#"("id"="m2","entry"="B","title"="Bravo")"#,
         ),
         (
-            "mentions/z-unlinked.json",
-            r#"{"id":"unlinked","entry":"Z"}"#,
+            "mentions/z-unlinked.row",
+            r#"("id"="unlinked","entry"="Z")"#,
         ),
     ] {
         std::fs::write(reverse_root.join(relative), document).unwrap();
@@ -2487,12 +2477,12 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         &reverse_root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     let reverse_pin = reverse.view().unwrap();
-    std::fs::remove_file(reverse_root.join("mentions/z-unlinked.json")).unwrap();
+    std::fs::remove_file(reverse_root.join("mentions/z-unlinked.row")).unwrap();
     let observations = crate::query_execution::runner::arm_reference_row_visits();
     let reverse_request = query(
         "entries",
@@ -2516,7 +2506,7 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
             .source_diagnostics
             .iter()
             .any(|diagnostic| {
-                diagnostic.file_path == std::path::Path::new("mentions/z-unlinked.json")
+                diagnostic.file_path == std::path::Path::new("mentions/z-unlinked.row")
             })
     );
 
@@ -2538,22 +2528,18 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
     for directory in ["entries", "mentions"] {
         std::fs::create_dir_all(root.join(directory)).unwrap();
     }
-    std::fs::write(
-        root.join("entries/a.json"),
-        r#"{"id":"A","title":"Target"}"#,
-    )
-    .unwrap();
+    std::fs::write(root.join("entries/a.row"), r#"("id"="A","title"="Target")"#).unwrap();
     for number in 0..LINKED_SOURCES {
-        let prefix = format!(r#"{{"id":"s{number}","contributors":["A"],"title":"T{number}""#);
-        let suffix = "}";
+        let prefix = format!(r#"("id"="s{number}","contributors"=["A"],"title"="T{number}""#);
+        let suffix = ")";
         let padding = RECORD_BYTES - prefix.len() - suffix.len();
         let document = format!("{prefix}{}{suffix}", " ".repeat(padding));
         assert_eq!(document.len(), RECORD_BYTES);
-        std::fs::write(root.join(format!("mentions/s{number}.json")), document).unwrap();
+        std::fs::write(root.join(format!("mentions/s{number}.row")), document).unwrap();
     }
     std::fs::write(
-        root.join("mentions/ninth.json"),
-        r#"{"id":"ninth","contributors":["B"],"title":"Unlinked"}"#,
+        root.join("mentions/ninth.row"),
+        r#"("id"="ninth","contributors"=["B"],"title"="Unlinked")"#,
     )
     .unwrap();
 
@@ -2586,12 +2572,12 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
             verified_cache_bytes: 0,
             ..RepositoryOptions::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
-    std::fs::remove_file(root.join("mentions/ninth.json")).unwrap();
+    std::fs::remove_file(root.join("mentions/ninth.row")).unwrap();
     let request = query(
         "entries",
         Some("SORT BY MIN(@backlinks.contributions.title)"),
@@ -2667,7 +2653,7 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
     assert_eq!(result.counters.bytes_read, 16_777_243);
     assert!(
         result.counters.source_diagnostics.iter().any(|diagnostic| {
-            diagnostic.file_path == std::path::Path::new("mentions/ninth.json")
+            diagnostic.file_path == std::path::Path::new("mentions/ninth.row")
         })
     );
 
@@ -2691,7 +2677,7 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
                 query_workers: workers,
                 ..RepositoryOptions::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap()
@@ -2744,7 +2730,7 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
             .kind,
         ExecutionErrorKind::Cancelled,
     );
-    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+    std::fs::remove_file(root.join("entries/a.row")).unwrap();
     for request in &queries {
         let expected = one.search(request).unwrap();
         let actual = many.search(request).unwrap();
@@ -2776,8 +2762,8 @@ fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
     let (root, definitions) = fixture();
     for number in 0..24 {
         std::fs::write(
-            root.join(format!("entries/extra-{number:03}.json")),
-            format!(r#"{{"id":"E{number:03}","title":"Hymn {number}"}}"#),
+            root.join(format!("entries/extra-{number:03}.row")),
+            format!(r#"("id"="E{number:03}","title"="Hymn {number}")"#),
         )
         .unwrap();
     }
@@ -2789,7 +2775,7 @@ fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
                 query_workers: workers,
                 ..RepositoryOptions::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .and_then(|task| task.wait_complete())
         .unwrap()
@@ -2816,7 +2802,7 @@ fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
         );
         assert!(actual.counters.relation_target_reads > 1);
     }
-    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+    std::fs::remove_file(root.join("entries/a.row")).unwrap();
     for request in &queries {
         let expected = one.search(request).unwrap();
         let actual = many.search(request).unwrap();
@@ -2852,39 +2838,39 @@ fn fixture() -> (PathBuf, Vec<CollectionDefinition>) {
     }
     for (name, text) in [
         (
-            "entries/a.json",
-            r#"{"id":"A","title":"Hymn","alt_title":"Hymn","related_entry":"B"}"#,
+            "entries/a.row",
+            r#"("id"="A","title"="Hymn","alt_title"="Hymn","related_entry"="B")"#,
         ),
         (
-            "entries/b.json",
-            r#"{"id":"B","title":"Festival","alt_title":"Other","related_entry":"A"}"#,
+            "entries/b.row",
+            r#"("id"="B","title"="Festival","alt_title"="Other","related_entry"="A")"#,
         ),
         (
-            "mentions/m1.json",
-            r#"{"id":"m1","entry":"A","items":[{"entry":"A"},{"entry":"B"}],"title":"Festival","local_title":"Hymn"}"#,
+            "mentions/m1.row",
+            r#"("id"="m1","entry"="A","items"=[("entry"="A"),("entry"="B")],"title"="Festival","local_title"="Hymn")"#,
         ),
         (
-            "mentions/m2.json",
-            r#"{"id":"m2","entry":"B","items":[{"entry":"B"}],"title":"Hymn","local_title":"x"}"#,
+            "mentions/m2.row",
+            r#"("id"="m2","entry"="B","items"=[("entry"="B")],"title"="Hymn","local_title"="x")"#,
         ),
         (
-            "mentions/m3.json",
-            r#"{"id":"m3","entry":"Z","title":"Dangling"}"#,
+            "mentions/m3.row",
+            r#"("id"="m3","entry"="Z","title"="Dangling")"#,
         ),
         (
-            "mentions/m4.json",
-            r#"{"id":"m4","entry":null,"title":"Null"}"#,
+            "mentions/m4.row",
+            r#"("id"="m4","entry"=null,"title"="Null")"#,
         ),
-        ("mentions/m5.json", r#"{"id":"m5","title":"Missing"}"#),
+        ("mentions/m5.row", r#"("id"="m5","title"="Missing")"#),
         (
-            "mentions/m6.json",
-            r#"{"id":"m6","contributors":["A","B"],"title":"Both"}"#,
+            "mentions/m6.row",
+            r#"("id"="m6","contributors"=["A","B"],"title"="Both")"#,
         ),
         (
-            "mentions/m7.json",
-            r#"{"id":"m7","contributors":[],"title":"Empty"}"#,
+            "mentions/m7.row",
+            r#"("id"="m7","contributors"=[],"title"="Empty")"#,
         ),
-        ("mentions/broken.json", "{broken"),
+        ("mentions/broken.row", "(broken"),
     ] {
         std::fs::write(root.join(name), text).unwrap();
     }
@@ -2952,7 +2938,7 @@ fn base_repository(root: &std::path::Path, definitions: Vec<CollectionDefinition
         root,
         definitions,
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3079,45 +3065,8 @@ fn emit_relation_probe(
     if std::env::var_os("OBJEKTE_RELATION_PROBE").is_none() {
         return;
     }
-    let hits = |hits: &[crate::query_results::SearchHit]| {
-        hits.iter()
-            .map(|hit| {
-                serde_json::json!({
-                    "record_id": hit.record_id,
-                    "matched_fields": hit.matched_fields,
-                    "file_path": hit.file.as_ref().expect("file origin").path,
-                    "byte_start": hit.source_range().expect("file range").start,
-                    "byte_end": hit.source_range().expect("file range").end,
-                    "record_class": format!("{:?}", hit.record_class),
-                })
-            })
-            .collect::<Vec<_>>()
-    };
-    let observation = serde_json::json!({
-        "case_id": case_id,
-        "repetition": 0,
-        "revision": option_env!("OBJEKTE_BUILD_REVISION"),
-        "alphabet": "Ascii",
-        "query_workers": RepositoryOptions::default().query_workers,
-        "result": {
-            "status": "ok",
-            "error": null,
-            "count": result.count,
-            "hits": hits(&result.hits),
-            "counters": result.counters,
-        },
-        "reference": {
-            "status": "ok",
-            "error": null,
-            "count": reference.count,
-            "hits": hits(&reference.hits),
-            "counters": reference.counters,
-        },
-        "plan": trace,
-    });
     println!(
-        "RELATION_PROBE {}",
-        serde_json::to_string(&observation).unwrap()
+        "RELATION_PROBE case_id={case_id} alphabet=Ascii result={result:?} reference: {reference:?} plan={trace:?}"
     );
 }
 
@@ -3135,13 +3084,8 @@ fn emit_relation_timing(case_id: &str, repo: &Repository, request: &Query, repet
     }
     samples.sort_unstable();
     println!(
-        "RELATION_TIMING {}",
-        serde_json::json!({
-            "case_id": case_id,
-            "repetitions": repetitions,
-            "samples_ns": samples,
-            "median_ns": samples[samples.len() / 2],
-        })
+        "RELATION_TIMING case_id={case_id} repetitions={repetitions} samples_ns={samples:?} median_ns={}",
+        samples[samples.len() / 2]
     );
 }
 
@@ -3165,16 +3109,8 @@ fn emit_segment_repair_timing(
     samples.sort_unstable();
     let result = result.unwrap();
     println!(
-        "SEGMENT_REPAIR_TIMING {}",
-        serde_json::json!({
-            "case_id": case_id,
-            "repetitions": repetitions,
-            "samples_ns": samples,
-            "median_ns": samples[samples.len() / 2],
-            "count": result.count,
-            "ids": result.hits.iter().map(|hit| hit.record_id.as_str()).collect::<Vec<_>>(),
-            "counters": result.counters,
-        })
+        "SEGMENT_REPAIR_TIMING case_id={case_id} repetitions={repetitions} samples_ns={samples:?} median_ns={} result={result:?}",
+        samples[samples.len() / 2]
     );
 }
 
@@ -3195,10 +3131,8 @@ fn related_all_results_stream_in_identity_order_under_small_budget() {
     let (root, definitions) = fixture();
     for index in 0..110 {
         std::fs::write(
-            root.join(format!("mentions/bulk-{index:03}.json")),
-            format!(
-                r#"{{"id":"bulk-{index:03}","entry":"A","local_title":"Hymn","title":"bulk"}}"#
-            ),
+            root.join(format!("mentions/bulk-{index:03}.row")),
+            format!(r#"("id"="bulk-{index:03}","entry"="A","local_title"="Hymn","title"="bulk")"#),
         )
         .unwrap();
     }
@@ -3209,7 +3143,7 @@ fn related_all_results_stream_in_identity_order_under_small_budget() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3270,13 +3204,9 @@ fn related_all_results_stream_in_identity_order_under_small_budget() {
 #[test]
 fn related_reducers_preserve_source_reference_occurrences() {
     let (root, definitions) = fixture();
-    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Alpha"}"#).unwrap();
-    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Zulu"}"#).unwrap();
-    std::fs::write(
-        root.join("entries/c.json"),
-        r#"{"id":"C","title":"Middle"}"#,
-    )
-    .unwrap();
+    std::fs::write(root.join("entries/a.row"), r#"("id"="A","title"="Alpha")"#).unwrap();
+    std::fs::write(root.join("entries/b.row"), r#"("id"="B","title"="Zulu")"#).unwrap();
+    std::fs::write(root.join("entries/c.row"), r#"("id"="C","title"="Middle")"#).unwrap();
     for (name, values) in [
         ("order_bab", "[\"B\",\"A\",\"B\"]"),
         ("order_a", "[\"A\"]"),
@@ -3284,8 +3214,8 @@ fn related_reducers_preserve_source_reference_occurrences() {
         ("order_m", "[\"C\"]"),
     ] {
         std::fs::write(
-            root.join(format!("mentions/{name}.json")),
-            format!(r#"{{"id":"{name}","contributors":{values}}}"#),
+            root.join(format!("mentions/{name}.row")),
+            format!(r#"("id"="{name}","contributors"={values})"#),
         )
         .unwrap();
     }
@@ -3295,7 +3225,7 @@ fn related_reducers_preserve_source_reference_occurrences() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3333,18 +3263,18 @@ fn related_reducers_preserve_source_reference_occurrences() {
 fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
     let (root, definitions) = fixture();
     std::fs::write(
-        root.join("entries/a.json"),
-        r#"{"id":"A","title":"Hymn","alt_title":"Zulu"}"#,
+        root.join("entries/a.row"),
+        r#"("id"="A","title"="Hymn","alt_title"="Zulu")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("entries/b.json"),
-        r#"{"id":"B","title":"Festival","alt_title":"Alpha"}"#,
+        root.join("entries/b.row"),
+        r#"("id"="B","title"="Festival","alt_title"="Alpha")"#,
     )
     .unwrap();
     std::fs::write(
-        root.join("mentions/m8.json"),
-        r#"{"id":"m8","entry":"B","local_title":"Festival"}"#,
+        root.join("mentions/m8.row"),
+        r#"("id"="m8","entry"="B","local_title"="Festival")"#,
     )
     .unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -3354,7 +3284,7 @@ fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3412,9 +3342,9 @@ fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
 fn related_sort_stream_reports_target_budget_as_resource_error() {
     let (root, definitions) = fixture();
     std::fs::write(
-        root.join("entries/a.json"),
+        root.join("entries/a.row"),
         format!(
-            r#"{{"id":"A","title":"Hymn","alt_title":"{}"}}"#,
+            r#"("id"="A","title"="Hymn","alt_title"="{}")"#,
             "Z".repeat(3000)
         ),
     )
@@ -3425,7 +3355,7 @@ fn related_sort_stream_reports_target_budget_as_resource_error() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3462,7 +3392,7 @@ fn finite_relation_paths_have_independent_reference_answers() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3585,7 +3515,7 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
             RepositoryOptions {
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -3670,7 +3600,7 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
     let file = &repo.files.files[record.file.0 as usize];
     let path = repo.files.native_path(record.file).unwrap();
     let bytes = crate::source::access::read_record_range_for_search(
-        &crate::source::json::JsonReader,
+        &crate::source::test_support::DOCUMENT_READER,
         &path,
         record.revision,
         record.range,
@@ -3845,7 +3775,7 @@ fn broad_relation_or_filter_uses_filter_only_pruning() {
                 verified_cache_bytes: 0,
                 ..Default::default()
             },
-            crate::source::registry::SourceRegistry::builtin(),
+            crate::source::test_support::fixture_registry(),
         )
         .map_err(|error| error.to_string())
         .unwrap(),
@@ -3917,7 +3847,7 @@ fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -3990,7 +3920,7 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         &root,
         definitions.clone(),
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4027,7 +3957,7 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         &root,
         definitions,
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4053,7 +3983,7 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4121,7 +4051,7 @@ fn mixed_local_and_relation_fts_borrows_source_value_text() {
             query_workers: 1,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -4158,7 +4088,7 @@ fn selected_fts_rejects_disagreeing_public_field_and_query_path() {
         RepositoryOptions {
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

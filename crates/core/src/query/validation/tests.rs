@@ -14,8 +14,8 @@ fn validates_binding_without_reopening_source_records() {
         .as_nanos();
     let root = std::env::temp_dir().join(format!("objekte-query-validation-{unique}"));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let source = root.join("data/record.json");
-    std::fs::write(&source, r#"{"year":1900}"#).unwrap();
+    let source = root.join("data/record.row");
+    std::fs::write(&source, r#"("year"=1900)"#).unwrap();
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
@@ -33,7 +33,7 @@ fn validates_binding_without_reopening_source_records() {
         &root,
         vec![definition],
         RepositoryOptions::default(),
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();

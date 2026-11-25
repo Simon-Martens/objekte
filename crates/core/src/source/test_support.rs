@@ -100,25 +100,48 @@ impl SourceReader for TinyReader {
     }
 }
 
-pub(crate) const DOCUMENTS: super::SourceFormat =
-    super::SourceFormat::with_compatibility_encoding("json", "Json");
-pub(crate) const DECODED_SCALARS: super::SourceFormat =
-    super::SourceFormat::with_compatibility_encoding("json_decoded_scalars", "JsonDecodedScalars");
-pub(crate) const LINES: super::SourceFormat =
-    super::SourceFormat::with_compatibility_encoding("jsonl", "JsonLines");
+pub(crate) mod framing;
+mod records;
+
+pub(crate) use records::{
+    DOCUMENT_READER, LINE_READER, SCALAR_READER, borrowed_scan_calls, combined_scan_calls,
+};
+
+pub(crate) fn fixture_registry() -> super::registry::SourceRegistry {
+    let mut sources = super::registry::SourceRegistry::default();
+    sources
+        .register("fixture-record", 1, "row", Arc::new(DOCUMENT_READER))
+        .unwrap();
+    sources
+        .register("fixture-scalars", 1, "row", Arc::new(SCALAR_READER))
+        .unwrap();
+    sources
+        .register_file_batched("fixture-lines", 1, "rows", Arc::new(LINE_READER))
+        .unwrap();
+    sources
+}
+pub(crate) fn document_format() -> super::SourceFormat {
+    super::SourceFormat::registered("fixture-record")
+}
+pub(crate) fn scalar_format() -> super::SourceFormat {
+    super::SourceFormat::registered("fixture-scalars")
+}
+pub(crate) fn line_format() -> super::SourceFormat {
+    super::SourceFormat::registered("fixture-lines")
+}
 
 pub(crate) fn document_folder(
     name: impl Into<String>,
     path: impl Into<std::path::PathBuf>,
 ) -> crate::repository::configuration::CollectionDefinition {
-    fixture_document_folder(name, path, DOCUMENTS)
+    fixture_document_folder(name, path, document_format())
 }
 
 pub(crate) fn decoded_scalar_folder(
     name: impl Into<String>,
     path: impl Into<std::path::PathBuf>,
 ) -> crate::repository::configuration::CollectionDefinition {
-    fixture_document_folder(name, path, DECODED_SCALARS)
+    fixture_document_folder(name, path, scalar_format())
 }
 
 fn fixture_document_folder(
@@ -129,3 +152,28 @@ fn fixture_document_folder(
     use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
     CollectionDefinition::folder_with_identity(name, path, format, IdentityPolicy::RelativePath)
 }
+
+pub(crate) use records::{FixtureText, FixtureValue, fixture_value_from_text};
+
+macro_rules! fixture_value {
+    (null) => {
+        $crate::model::Value::Null
+    };
+    ({$($key:literal => $value:tt),* $(,)?}) => {
+        $crate::model::Value::Object(
+            [$((String::from($key), $crate::source::test_support::fixture_value!($value))),*]
+                .into_iter()
+                .collect(),
+        )
+    };
+    ([$($item:tt),* $(,)?]) => {
+        $crate::model::Value::Array($crate::model::ArrayValue::from_unrestricted(
+            vec![$($crate::source::test_support::fixture_value!($item)),*],
+        ))
+    };
+    (($value:expr)) => {
+        $crate::source::test_support::FixtureValue::into_fixture_value($value)
+    };
+}
+
+pub(crate) use fixture_value;

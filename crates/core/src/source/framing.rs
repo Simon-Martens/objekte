@@ -1,4 +1,4 @@
-//! Generic source range validation and bounded JSON Lines framing.
+//! Generic source range validation and bounded build chunks.
 
 use crate::inventory::ByteRange;
 
@@ -26,6 +26,3 @@ pub struct BoundedBuildChunk {
     pub file_offset: u64,
     pub preceding_lines: u64,
 }
-
-#[cfg(test)]
-pub(crate) use super::jsonl_framing::BoundedJsonLines;

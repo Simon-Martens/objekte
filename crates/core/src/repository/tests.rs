@@ -13,10 +13,10 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     let root = std::env::temp_dir().join(format!("objekte-id-lookup-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let path = root.join("data/records.jsonl");
-    std::fs::write(&path, b"{\"title\":\"healthy\"}\n{\"title\":\n").unwrap();
+    let path = root.join("data/records.rows");
+    std::fs::write(&path, b"(\"title\"=\"healthy\")\n(\"title\"=\n").unwrap();
     let definition =
-        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", "data", crate::source::test_support::line_format());
     let options = RepositoryOptions::default();
     let query = |return_mode| Query {
         collections: vec!["data".into()],
@@ -79,7 +79,7 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
         &root,
         vec![definition.clone()],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -87,7 +87,7 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     let id = repo.search(&query(ReturnMode::Locator)).unwrap().hits[0]
         .record_id
         .clone();
-    let moved = root.join("moved.jsonl");
+    let moved = root.join("moved.rows");
     std::fs::rename(&path, &moved).unwrap();
     assert!(
         repo.get_record("data", &id, ReturnMode::Locator)
@@ -100,7 +100,7 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
         &root,
         vec![definition],
         options,
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -113,8 +113,8 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
     let root = std::env::temp_dir().join(format!("objekte-exact-count-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for (name, json) in [("a", r#"{"name":"Alice"}"#), ("b", r#"{"name":"Bob"}"#)] {
-        std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
+    for (name, fixture) in [("a", r#"("name"="Alice")"#), ("b", r#"("name"="Bob")"#)] {
+        std::fs::write(root.join(format!("data/{name}.row")), fixture).unwrap();
     }
     let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
@@ -136,7 +136,7 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
-        crate::source::registry::SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -180,10 +180,10 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
         assert_eq!(result.counters.scanned_records, 0);
         assert_eq!(result.counters.sort_key_evaluations, 0);
     }
-    let moved = root.join("moved.json");
-    std::fs::rename(root.join("data/a.json"), &moved).unwrap();
+    let moved = root.join("moved.row");
+    std::fs::rename(root.join("data/a.row"), &moved).unwrap();
     assert_eq!(repo.count_exact(&bound("Alice")).unwrap(), 1);
-    std::fs::rename(&moved, root.join("data/a.json")).unwrap();
+    std::fs::rename(&moved, root.join("data/a.row")).unwrap();
 
     let macro_query = query("@file.modified >= @todayStart");
     let context = |seconds| {

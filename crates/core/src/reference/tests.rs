@@ -68,7 +68,7 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
     };
     let file = FileEntry {
         id: FileId(0),
-        relative_path: "x.json".into(),
+        relative_path: "x.row".into(),
         revision: record.revision,
         created_ns: None,
         collections: vec![],

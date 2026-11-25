@@ -37,7 +37,7 @@ fn definition() -> CollectionDefinition {
     CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: crate::source::test_support::DOCUMENTS,
+        format: crate::source::test_support::document_format(),
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -97,13 +97,13 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
         std::env::temp_dir().join(format!("objekte-foundation-truth-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, contents) in [
-        ("x", r#"{"title":"x","tags":["a","b"]}"#),
-        ("y", r#"{"title":"y","tags":["b"]}"#),
-        ("missing", r#"{}"#),
-        ("null", r#"{"title":null,"tags":null}"#),
-        ("broken", r#"{"title":"needle""#),
+        ("x", r#"("title"="x","tags"=["a","b"])"#),
+        ("y", r#"("title"="y","tags"=["b"])"#),
+        ("missing", r#"()"#),
+        ("null", r#"("title"=null,"tags"=null)"#),
+        ("broken", r#"("title"="needle""#),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), contents).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), contents).unwrap();
     }
     let answers: &[(&str, &[&str])] = &[
         ("title = 'x'", &["x"]),
@@ -131,7 +131,7 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
                 &root,
                 vec![definition()],
                 options,
-                crate::source::registry::SourceRegistry::builtin(),
+                crate::source::test_support::fixture_registry(),
             )
             .map_err(|error| error.to_string())
             .unwrap();
@@ -221,9 +221,9 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
                 .diagnostic(bad.file, bad.diagnostic_ref)
                 .expect("fallback record must resolve its own diagnostic");
             assert_eq!(issue.category, DiagnosticCategory::Syntax);
-            assert_eq!(issue.code, "json.parse");
+            assert_eq!(issue.code, "fixture.parse");
             assert_eq!(issue.record, Some(bad.slot));
-            assert_eq!(issue.source_id, "json");
+            assert_eq!(issue.source_id, "fixture-record");
             if let Some(expected) = &built_diagnostic {
                 assert_eq!(
                     issue, expected,

@@ -1,11 +1,13 @@
 use super::super::{owned_query_construction_counts, owned_segment_text_bytes};
 use super::*;
-use crate::model::{FieldPath, Value};
-use crate::query::binding::filter::{BoundExpr, bind_filter};
-use crate::query::binding::fts::bind_fts;
-use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
-use crate::schema::Schema;
-use crate::source::ScanProjection;
+use objekte_search_core::lifecycle::initial::test_hooks::{
+    bind_scan_filter as bind_filter, bind_scan_text as bind_fts, fold_candidate_transforms,
+    fold_scratch_stats,
+};
+use objekte_search_core::model::{FieldPath, Value};
+use objekte_search_core::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
+use objekte_search_core::schema::Schema;
+use objekte_search_core::source::ScanProjection;
 
 #[test]
 fn combined_borrowed_fts_and_filter_fold_each_segment_once() {
@@ -22,23 +24,18 @@ fn combined_borrowed_fts_and_filter_fold_each_segment_once() {
     )
     .unwrap();
     let filter = bind_filter(&parse_filter("name:lower ~ 'stra'").unwrap(), &schema).unwrap();
-    let BoundExpr::Term(term) = &filter else {
-        panic!("one term")
-    };
+    let term = &filter;
     let query = BorrowedScanQuery {
         fts: Some((&fts).into()),
         filter: Some(term.into()),
         decoded_scalars: false,
         retain_evidence: true,
     };
-    let before = crate::query::semantics::folding::fold_candidate_transforms();
+    let before = fold_candidate_transforms();
     let result = scan_borrowed_segments_worker(r#"{"name":"Straße"}"#.as_bytes(), &query).unwrap();
     assert!(result.fts_match);
     assert!(result.filter_match);
-    assert_eq!(
-        crate::query::semantics::folding::fold_candidate_transforms() - before,
-        1
-    );
+    assert_eq!(fold_candidate_transforms() - before, 1);
 }
 
 fn borrowed_scan(
@@ -71,12 +68,7 @@ fn borrowed_scan(
         .unwrap()
     });
     let filter = filter.map(|filter| bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap());
-    let filter = filter.as_ref().map(|bound| {
-        let BoundExpr::Term(term) = bound else {
-            panic!("one filter term")
-        };
-        term
-    });
+    let filter = filter.as_ref();
     scan_borrowed_segments(
         bytes,
         &BorrowedScanQuery {
@@ -463,9 +455,7 @@ fn borrowed_source_matching_preserves_unicode_folded_representations() {
     )
     .unwrap();
     let filter = bind_filter(&parse_filter("name:lower ~ 'str%se'").unwrap(), &schema).unwrap();
-    let BoundExpr::Term(filter) = &filter else {
-        panic!("one term")
-    };
+    let filter = &filter;
     let mut scratch = BorrowedScanScratch::default();
     let result = scan_borrowed_segments(
         "{\"name\":\"Straße\"}".as_bytes(),
@@ -569,10 +559,10 @@ fn oversized_folded_segments_reuse_capacity_within_record_then_release_it() {
     };
     let segment = format!("{}NEEDLE", "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 4096));
     let source = format!(r#"{{"a":"{segment}","b":"{segment}"}}"#);
-    let before = crate::query::semantics::folding::fold_scratch_stats().0;
+    let before = fold_scratch_stats().0;
     let matched = scan_borrowed_segments_worker(source.as_bytes(), &query).unwrap();
     assert!(matched.fts_match);
-    let (grows, retained) = crate::query::semantics::folding::fold_scratch_stats();
+    let (grows, retained) = fold_scratch_stats();
     assert_eq!(
         grows - before,
         1,
@@ -605,5 +595,5 @@ fn oversized_folded_scratch_is_released_on_scan_error() {
         "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 4096)
     );
     assert!(scan_borrowed_segments_worker(source.as_bytes(), &query).is_err());
-    assert!(crate::query::semantics::folding::fold_scratch_stats().1 <= MAX_SCAN_SCRATCH_CAPACITY);
+    assert!(fold_scratch_stats().1 <= MAX_SCAN_SCRATCH_CAPACITY);
 }

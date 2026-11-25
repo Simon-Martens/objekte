@@ -121,12 +121,3 @@ mod tests {
         );
     }
 }
-
-#[cfg(test)]
-pub(crate) use crate::source::json::{
-    document::{
-        json_reader_failure, parse_json, parse_json_for_query, parse_json_for_query_diagnosed,
-        parse_json_for_query_trusted,
-    },
-    scan_record,
-};

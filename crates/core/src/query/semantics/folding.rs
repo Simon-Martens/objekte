@@ -19,9 +19,9 @@ thread_local! {
     static FOLD_RECORD_DEPTH: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     static FOLD_SHARE_DEPTH: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     static FOLD_VALUE_CACHE: RefCell<FoldValueCache> = RefCell::new(FoldValueCache::default());
-    #[cfg(test)]
+    #[cfg(feature = "test-hooks")]
     static FOLD_GROWS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-    #[cfg(test)]
+    #[cfg(feature = "test-hooks")]
     static FOLD_CANDIDATE_TRANSFORMS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     #[cfg(test)]
     static FOLD_VALUE_TRANSFORMS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
@@ -88,7 +88,7 @@ fn trim_fold_scratch() {
     });
 }
 
-#[cfg(test)]
+#[cfg(feature = "test-hooks")]
 pub(crate) fn fold_scratch_stats() -> (usize, usize) {
     (
         FOLD_GROWS.with(std::cell::Cell::get),
@@ -100,12 +100,12 @@ pub(crate) fn fold_scratch_stats() -> (usize, usize) {
 pub(crate) fn with_folded_candidate_str<R>(text: &str, inspect: impl FnOnce(&str) -> R) -> R {
     FOLD_SCRATCH.with(|scratch| {
         let mut buffer = scratch.borrow_mut();
-        #[cfg(test)]
+        #[cfg(feature = "test-hooks")]
         let old_capacity = buffer.capacity();
         fold_into(text, &mut buffer);
-        #[cfg(test)]
+        #[cfg(feature = "test-hooks")]
         FOLD_CANDIDATE_TRANSFORMS.with(|count| count.set(count.get() + 1));
-        #[cfg(test)]
+        #[cfg(feature = "test-hooks")]
         if buffer.capacity() > old_capacity {
             FOLD_GROWS.with(|count| count.set(count.get() + 1));
         }
@@ -181,7 +181,7 @@ pub(crate) fn fold_value_cache_stats() -> (usize, usize) {
     )
 }
 
-#[cfg(test)]
+#[cfg(feature = "test-hooks")]
 pub(crate) fn fold_candidate_transforms() -> usize {
     FOLD_CANDIDATE_TRANSFORMS.with(std::cell::Cell::get)
 }

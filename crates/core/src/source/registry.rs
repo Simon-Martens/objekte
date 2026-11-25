@@ -54,14 +54,6 @@ pub struct SourceRegistry {
 }
 
 impl SourceRegistry {
-    #[cfg(test)]
-    pub(crate) fn builtin() -> Self {
-        let mut sources = Self::default();
-        super::json::register(&mut sources).unwrap();
-        super::json_lines::register(&mut sources).unwrap();
-        sources
-    }
-
     pub fn register(
         &mut self,
         id: impl Into<String>,

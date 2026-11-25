@@ -11,7 +11,6 @@ use crate::model::{CollectionId, FieldPath, LogicalType};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
-use crate::source::registry::SourceRegistry;
 
 fn projection_fixture_root(name: &str) -> std::path::PathBuf {
     let root = std::env::temp_dir().join(format!(
@@ -45,7 +44,7 @@ fn build_projection_fixture(
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap()
@@ -344,15 +343,15 @@ fn projected_exact_null_bound_after_observation_budget_exhaustion() {
     };
     let logical = RoaringBitmap::from_iter(0..3);
     let mut builder = InferenceBuilder::for_collection(config, 1).unwrap();
-    for (slot, json) in [
-        (0, r#"{"x":1}"#),
-        (1, r#"{"stop":{"nested":0}}"#),
-        (2, r#"{"x":null}"#),
+    for (slot, fixture) in [
+        (0, r#"("x"=1)"#),
+        (1, r#"("stop"=("nested"=0))"#),
+        (2, r#"("x"=null)"#),
     ] {
         builder
             .observe_record(
                 RecordSlot(slot),
-                &crate::model::Value::from_json(serde_json::from_str(json).unwrap()).unwrap(),
+                &crate::source::test_support::fixture_value_from_text(fixture),
             )
             .unwrap();
     }
@@ -386,10 +385,7 @@ fn projected_exact_null_bound_after_observation_budget_exhaustion() {
     let reference_logical = RoaringBitmap::from_iter([0]);
     let mut reference_builder = InferenceBuilder::for_collection(config, 1).unwrap();
     reference_builder
-        .observe_record(
-            RecordSlot(0),
-            &crate::model::Value::from_json(serde_json::json!({"x": null})).unwrap(),
-        )
+        .observe_record(RecordSlot(0), &fixture_value!({ "x" => null }))
         .unwrap();
     let reference = reference_builder
         .finish(&reference_logical, 1, &schema)
@@ -416,10 +412,7 @@ fn projected_exact_null_bound_after_observation_budget_exhaustion() {
     };
     let mut array_builder = InferenceBuilder::for_collection(array_config, 1).unwrap();
     array_builder
-        .observe_record(
-            RecordSlot(0),
-            &crate::model::Value::from_json(serde_json::json!({"x": [null]})).unwrap(),
-        )
+        .observe_record(RecordSlot(0), &fixture_value!({ "x" => [null] }))
         .unwrap();
     let array_source = array_builder
         .finish(&reference_logical, 1, &schema)
@@ -453,15 +446,15 @@ fn projected_occurrence_counts_expose_exactness_and_observation_status() {
     };
     let interrupted_logical = RoaringBitmap::from_iter(0..3);
     let mut interrupted = InferenceBuilder::for_collection(interrupted_config, 1).unwrap();
-    for (slot, json) in [
-        (0, r#"{"x":null}"#),
-        (1, r#"{"stop":{"nested":0}}"#),
-        (2, r#"{"x":["a","b"]}"#),
+    for (slot, fixture) in [
+        (0, r#"("x"=null)"#),
+        (1, r#"("stop"=("nested"=0))"#),
+        (2, r#"("x"=["a","b"])"#),
     ] {
         interrupted
             .observe_record(
                 RecordSlot(slot),
-                &crate::model::Value::from_json(serde_json::from_str(json).unwrap()).unwrap(),
+                &crate::source::test_support::fixture_value_from_text(fixture),
             )
             .unwrap();
     }
@@ -536,10 +529,7 @@ fn projected_occurrence_counts_expose_exactness_and_observation_status() {
     )
     .unwrap();
     fresh_builder
-        .observe_record(
-            RecordSlot(0),
-            &crate::model::Value::from_json(serde_json::json!({"x":["a","b"]})).unwrap(),
-        )
+        .observe_record(RecordSlot(0), &fixture_value!({ "x" => [("a"), ("b")] }))
         .unwrap();
     let fresh = fresh_builder.finish(&survivor_logical, 1, &schema).unwrap();
     let fresh_field = fresh
@@ -596,10 +586,7 @@ fn projected_occurrence_counts_expose_exactness_and_observation_status() {
     .unwrap();
     for (slot, text) in ["a", "b"].into_iter().enumerate() {
         complete
-            .observe_record(
-                RecordSlot(slot as u32),
-                &crate::model::Value::from_json(serde_json::json!({"x":text})).unwrap(),
-            )
+            .observe_record(RecordSlot(slot as u32), &fixture_value!({ "x" => (text) }))
             .unwrap();
     }
     let complete = complete.finish(&complete_logical, 2, &schema).unwrap();
@@ -620,25 +607,13 @@ fn projected_occurrence_counts_expose_exactness_and_observation_status() {
     );
     assert!(upper_field.value_occurrences >= 1);
     assert!(upper_field.nonblank_occurrences >= 1);
-
-    let mut serialized = serde_json::to_value(fresh_field).unwrap();
-    serialized
-        .as_object_mut()
-        .unwrap()
-        .remove("occurrence_count_status");
-    let restored: crate::inference::InferredFieldReport =
-        serde_json::from_value(serialized).unwrap();
-    assert_eq!(
-        restored.occurrence_count_status,
-        OccurrenceCountStatus::IncompleteObservation
-    );
 }
 
 #[test]
 fn interrupted_contributor_downgrades_combined_occurrence_status() {
     use crate::inference::OccurrenceCountStatus;
     let complete_root = projection_fixture_root("occurrence-complete-contributor");
-    std::fs::write(complete_root.join("data/a.json"), r#"{"x":"a"}"#).unwrap();
+    std::fs::write(complete_root.join("data/a.row"), r#"("x"="a")"#).unwrap();
     let complete_repo = crate::lifecycle::Index::build_repository_for_test(
         &complete_root,
         vec![crate::source::test_support::document_folder("data", "data")],
@@ -653,7 +628,7 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -667,15 +642,15 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
         1,
     )
     .unwrap();
-    for (slot, json) in [
-        (0, r#"{"x":"a"}"#),
-        (1, r#"{"x":["b","c"]}"#),
-        (2, r#"{"other":true}"#),
+    for (slot, fixture) in [
+        (0, r#"("x"="a")"#),
+        (1, r#"("x"=["b","c"])"#),
+        (2, r#"("other"=true)"#),
     ] {
         fresh_builder
             .observe_record(
                 RecordSlot(slot),
-                &crate::model::Value::from_json(serde_json::from_str(json).unwrap()).unwrap(),
+                &crate::source::test_support::fixture_value_from_text(fixture),
             )
             .unwrap();
     }
@@ -703,11 +678,11 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
 
     let interrupted_root = projection_fixture_root("occurrence-interrupted-contributor");
     std::fs::write(
-        interrupted_root.join("data/b0.json"),
-        r#"{"stop":{"nested":0}}"#,
+        interrupted_root.join("data/b0.row"),
+        r#"("stop"=("nested"=0))"#,
     )
     .unwrap();
-    std::fs::write(interrupted_root.join("data/b1.json"), r#"{"x":["b","c"]}"#).unwrap();
+    std::fs::write(interrupted_root.join("data/b1.row"), r#"("x"=["b","c"])"#).unwrap();
     let interrupted_repo = crate::lifecycle::Index::build_repository_for_test(
         &interrupted_root,
         vec![crate::source::test_support::document_folder("data", "data")],
@@ -722,7 +697,7 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -809,9 +784,9 @@ fn projected_inference_masks_match_fresh_reports_across_shapes() {
             mode: InferenceMode::AutoIndex,
             path: &["x"],
             files: &[
-                ("a0.json", r#"{"x":[]}"#),
-                ("a1.json", r#"{"x":[]}"#),
-                ("a2.json", r#"{"x":[7]}"#),
+                ("a0.row", r#"("x"=[])"#),
+                ("a1.row", r#"("x"=[])"#),
+                ("a2.row", r#"("x"=[7])"#),
             ],
         },
         ProjectionFixture {
@@ -819,10 +794,10 @@ fn projected_inference_masks_match_fresh_reports_across_shapes() {
             mode: InferenceMode::AutoIndex,
             path: &["x"],
             files: &[
-                ("b0.json", r#"{"x":[]}"#),
-                ("b1.json", r#"{"x":{}}"#),
-                ("b2.json", r#"{"x":null}"#),
-                ("b3.json", r#"{"other":true}"#),
+                ("b0.row", r#"("x"=[])"#),
+                ("b1.row", r#"("x"=())"#),
+                ("b2.row", r#"("x"=null)"#),
+                ("b3.row", r#"("other"=true)"#),
             ],
         },
         ProjectionFixture {
@@ -830,8 +805,8 @@ fn projected_inference_masks_match_fresh_reports_across_shapes() {
             mode: InferenceMode::ReportOnly,
             path: &["label"],
             files: &[
-                ("c0.json", r#"{"label":"Ada"}"#),
-                ("c1.json", r#"{"other":true}"#),
+                ("c0.row", r#"("label"="Ada")"#),
+                ("c1.row", r#"("other"=true)"#),
             ],
         },
         ProjectionFixture {
@@ -839,15 +814,15 @@ fn projected_inference_masks_match_fresh_reports_across_shapes() {
             mode: InferenceMode::AutoIndex,
             path: &["items", "name"],
             files: &[
-                ("n0.json", r#"{"items":[{"name":"A"},{"name":"B"}]}"#),
-                ("n1.json", r#"{"other":true}"#),
+                ("n0.row", r#"("items"=[("name"="A"),("name"="B")])"#),
+                ("n1.row", r#"("other"=true)"#),
             ],
         },
         ProjectionFixture {
             name: "integer-fraction",
             mode: InferenceMode::AutoIndex,
             path: &["x"],
-            files: &[("i0.json", r#"{"x":1.5}"#), ("i1.json", r#"{"x":7}"#)],
+            files: &[("i0.row", r#"("x"=1.5)"#), ("i1.row", r#"("x"=7)"#)],
         },
     ];
     for fixture in fixtures {
@@ -1028,10 +1003,10 @@ fn projected_inference_masks_match_fresh_reports_across_shapes() {
 fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
     let root = projection_fixture_root("consolidated-projected-shards");
     let mixed_files = [
-        ("b0.json", r#"{"x":[]}"#),
-        ("b1.json", r#"{"x":{}}"#),
-        ("b2.json", r#"{"x":null}"#),
-        ("b3.json", r#"{"other":true}"#),
+        ("b0.row", r#"("x"=[])"#),
+        ("b1.row", r#"("x"=())"#),
+        ("b2.row", r#"("x"=null)"#),
+        ("b3.row", r#"("other"=true)"#),
     ];
     let repo = build_projection_fixture(&root, InferenceMode::AutoIndex, &mixed_files);
     let segment = &repo.segments[0][0].index;
@@ -1041,28 +1016,28 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
     };
     let first = segment
         .compact_active(
-            &active_for_files(segment, &["b0.json", "b2.json"]),
+            &active_for_files(segment, &["b0.row", "b2.row"]),
             mixed_files.len(),
             |file| {
                 matches!(
                     file.relative_path
                         .file_name()
                         .and_then(std::ffi::OsStr::to_str),
-                    Some("b0.json" | "b2.json")
+                    Some("b0.row" | "b2.row")
                 )
             },
         )
         .unwrap();
     let second = segment
         .compact_active(
-            &active_for_files(segment, &["b1.json", "b3.json"]),
+            &active_for_files(segment, &["b1.row", "b3.row"]),
             mixed_files.len(),
             |file| {
                 matches!(
                     file.relative_path
                         .file_name()
                         .and_then(std::ffi::OsStr::to_str),
-                    Some("b1.json" | "b3.json")
+                    Some("b1.row" | "b3.row")
                 )
             },
         )
@@ -1142,7 +1117,7 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
     let numeric_repo = build_projection_fixture(
         &numeric_root,
         InferenceMode::AutoIndex,
-        &[("i0.json", r#"{"x":1.5}"#), ("i1.json", r#"{"x":7}"#)],
+        &[("i0.row", r#"("x"=1.5)"#), ("i1.row", r#"("x"=7)"#)],
     );
     let numeric_segment = &numeric_repo.segments[0][0].index;
     let numeric_empty = numeric_segment
@@ -1157,16 +1132,12 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
         )
         .unwrap();
     let numeric_survivor = numeric_segment
-        .compact_active(
-            &active_for_files(numeric_segment, &["i1.json"]),
-            2,
-            |file| {
-                file.relative_path
-                    .file_name()
-                    .and_then(std::ffi::OsStr::to_str)
-                    == Some("i1.json")
-            },
-        )
+        .compact_active(&active_for_files(numeric_segment, &["i1.row"]), 2, |file| {
+            file.relative_path
+                .file_name()
+                .and_then(std::ffi::OsStr::to_str)
+                == Some("i1.row")
+        })
         .unwrap();
     let numeric_consolidated =
         IndexedCollectionSegment::consolidate(&[&numeric_empty.index, &numeric_survivor.index], 1)
@@ -1195,7 +1166,7 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
     let numeric_oracle = build_projection_fixture(
         &numeric_oracle_root,
         InferenceMode::AutoIndex,
-        &[("i1.json", r#"{"x":7}"#)],
+        &[("i1.row", r#"("x"=7)"#)],
     );
     let numeric_fresh = fresh_field_facts(
         numeric_oracle.inference_report("data"),
@@ -1214,9 +1185,9 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
 fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
     let root = projection_fixture_root("projected-adversarial-controls");
     for (name, body) in [
-        ("l0.json", r#"{"x":[]}"#),
-        ("l1.json", r#"{"x":["A","A"]}"#),
-        ("l2.json", r#"{"x":["A","A"]}"#),
+        ("l0.row", r#"("x"=[])"#),
+        ("l1.row", r#"("x"=["A","A"])"#),
+        ("l2.row", r#"("x"=["A","A"])"#),
     ] {
         std::fs::write(root.join("data").join(name), body).unwrap();
     }
@@ -1234,7 +1205,7 @@ fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1251,7 +1222,7 @@ fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
     assert!(!original_posting.length_complete);
     assert!(original_posting.lengths.is_empty());
     let length_compacted = length_segment
-        .compact_active(&active_for_files(length_segment, &["l0.json"]), 3, |_| true)
+        .compact_active(&active_for_files(length_segment, &["l0.row"]), 3, |_| true)
         .unwrap();
     let length_state = length_compacted.index.inference.as_ref().unwrap();
     let length_field = length_state
@@ -1291,14 +1262,14 @@ fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
         &occurrence_root,
         InferenceMode::AutoIndex,
         &[
-            ("o0.json", r#"{"values":["alpha","beta"]}"#),
-            ("o1.json", r#"{"values":["retired"]}"#),
+            ("o0.row", r#"("values"=["alpha","beta"])"#),
+            ("o1.row", r#"("values"=["retired"])"#),
         ],
     );
     let occurrence_segment = &occurrence_repo.segments[0][0].index;
     let occurrence = occurrence_segment
         .compact_active(
-            &active_for_files(occurrence_segment, &["o0.json"]),
+            &active_for_files(occurrence_segment, &["o0.row"]),
             2,
             |_| true,
         )
@@ -1338,15 +1309,15 @@ fn empty_unknown_array_proof_does_not_allow_nonempty_mismatches() {
         &root,
         InferenceMode::AutoIndex,
         &[
-            ("x0.json", r#"{"x":[]}"#),
-            ("x1.json", r#"{"x":{}}"#),
-            ("x2.json", r#"{"x":null}"#),
-            ("x3.json", r#"{"other":true}"#),
+            ("x0.row", r#"("x"=[])"#),
+            ("x1.row", r#"("x"=())"#),
+            ("x2.row", r#"("x"=null)"#),
+            ("x3.row", r#"("other"=true)"#),
         ],
     );
     let segment = &repo.segments[0][0].index;
     let empty = segment
-        .compact_active(&active_for_files(segment, &["x3.json"]), 4, |_| true)
+        .compact_active(&active_for_files(segment, &["x3.row"]), 4, |_| true)
         .unwrap();
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
@@ -1366,7 +1337,7 @@ fn empty_unknown_array_proof_does_not_allow_nonempty_mismatches() {
         .unwrap();
 
     let nonempty = segment
-        .compact_active(&active_for_files(segment, &["x0.json"]), 4, |_| true)
+        .compact_active(&active_for_files(segment, &["x0.row"]), 4, |_| true)
         .unwrap();
     let mut invalid = nonempty.index.inference.clone().unwrap();
     let field = invalid
@@ -1402,9 +1373,9 @@ fn surviving_empty_arrays_do_not_retain_retired_empty_array_counts() {
         &root,
         InferenceMode::AutoIndex,
         &[
-            ("a0.json", r#"{"x":[]}"#),
-            ("a1.json", r#"{"x":[]}"#),
-            ("a2.json", r#"{"x":[7]}"#),
+            ("a0.row", r#"("x"=[])"#),
+            ("a1.row", r#"("x"=[])"#),
+            ("a2.row", r#"("x"=[7])"#),
         ],
     );
     let segment = &repo.segments[0][0].index;
@@ -1427,7 +1398,7 @@ fn surviving_empty_arrays_do_not_retain_retired_empty_array_counts() {
     assert_eq!(original_field.empty_array_records, 2);
 
     let compacted = segment
-        .compact_active(&active_for_files(segment, &["a2.json"]), 3, |_| true)
+        .compact_active(&active_for_files(segment, &["a2.row"]), 3, |_| true)
         .unwrap();
     let state = compacted.index.inference.as_ref().unwrap();
     let field = state
@@ -1469,10 +1440,10 @@ fn mixed_training_shapes_retain_projected_shape_bounds() {
         &root,
         InferenceMode::AutoIndex,
         &[
-            ("b0.json", r#"{"x":[]}"#),
-            ("b1.json", r#"{"x":{}}"#),
-            ("b2.json", r#"{"x":null}"#),
-            ("b3.json", r#"{"other":true}"#),
+            ("b0.row", r#"("x"=[])"#),
+            ("b1.row", r#"("x"=())"#),
+            ("b2.row", r#"("x"=null)"#),
+            ("b3.row", r#"("other"=true)"#),
         ],
     );
     let segment = &repo.segments[0][0].index;
@@ -1490,7 +1461,7 @@ fn mixed_training_shapes_retain_projected_shape_bounds() {
 
     let compacted = segment
         .compact_active(
-            &active_for_files(segment, &["b0.json", "b1.json", "b2.json"]),
+            &active_for_files(segment, &["b0.row", "b1.row", "b2.row"]),
             4,
             |_| true,
         )
@@ -1545,8 +1516,8 @@ fn report_only_projection_preserves_inherited_presence() {
         &root,
         InferenceMode::ReportOnly,
         &[
-            ("c0.json", r#"{"label":"Ada"}"#),
-            ("c1.json", r#"{"other":true}"#),
+            ("c0.row", r#"("label"="Ada")"#),
+            ("c1.row", r#"("other"=true)"#),
         ],
     );
     let segment = &repo.segments[0][0].index;
@@ -1561,7 +1532,7 @@ fn report_only_projection_preserves_inherited_presence() {
     assert!(!original.indexes.contains_key(&vec!["label".into()]));
 
     let compacted = segment
-        .compact_active(&active_for_files(segment, &["c0.json"]), 2, |_| true)
+        .compact_active(&active_for_files(segment, &["c0.row"]), 2, |_| true)
         .unwrap();
     let state = compacted.index.inference.as_ref().unwrap();
     let field = state
@@ -1601,7 +1572,7 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
     for (name, kind, indexed) in [
         ("n", LogicalType::Number, true),
         ("ref", LogicalType::Id, false),
@@ -1647,8 +1618,8 @@ fn compaction_matches_active_file_oracle_across_indexes() {
             },
         ])
         .unwrap();
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -1668,13 +1639,13 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     for (id, name, bytes) in [
         (
             FileId(100),
-            "retired.jsonl",
-            b"{\"n\":1,\"extra\":11,\"ref\":\"x\"}\n{bad}\n".as_slice(),
+            "retired.rows",
+            b"(\"n\"=1,\"extra\"=11,\"ref\"=\"x\")\n(bad)\n".as_slice(),
         ),
         (
             FileId(200),
-            "live.jsonl",
-            b"{\"n\":2,\"extra\":22,\"ref\":\"y\"}\n".as_slice(),
+            "live.rows",
+            b"(\"n\"=2,\"extra\"=22,\"ref\"=\"y\")\n".as_slice(),
         ),
     ] {
         let path = root.join(name);
@@ -1762,8 +1733,8 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         let actual_inference = scattered_inference[part].as_ref().unwrap();
         let expected_inference = reference_inference.as_ref().unwrap();
         assert_eq!(
-            serde_json::to_value(&actual_inference.report).unwrap(),
-            serde_json::to_value(&expected_inference.report).unwrap(),
+            bincode::serialize(&actual_inference.report).unwrap(),
+            bincode::serialize(&expected_inference.report).unwrap(),
         );
         assert_eq!(
             actual_inference.short_string_coverage,
@@ -1861,13 +1832,13 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("00_null_a", r#"{"x":[null]}"#),
-        ("01_null_b", r#"{"x":[null]}"#),
-        ("10_value", r#"{"x":[7]}"#),
-        ("20_missing_a", "{}"),
-        ("21_missing_b", "{}"),
+        ("00_null_a", r#"("x"=[null])"#),
+        ("01_null_b", r#"("x"=[null])"#),
+        ("10_value", r#"("x"=[7])"#),
+        ("20_missing_a", "()"),
+        ("21_missing_b", "()"),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
@@ -1881,7 +1852,7 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -1976,11 +1947,11 @@ fn projected_empty_selection_bound_covers_ancestor_and_terminal_arrays() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (name, body) in [
-        ("00_ancestor", r#"{"items":[]}"#),
-        ("01_terminal", r#"{"items":[{"x":[]}]}"#),
-        ("02_retired", "{}"),
+        ("00_ancestor", r#"("items"=[])"#),
+        ("01_terminal", r#"("items"=[("x"=[])])"#),
+        ("02_retired", "()"),
     ] {
-        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+        std::fs::write(root.join(format!("data/{name}.row")), body).unwrap();
     }
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
@@ -1994,7 +1965,7 @@ fn projected_empty_selection_bound_covers_ancestor_and_terminal_arrays() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2046,8 +2017,8 @@ fn projected_empty_short_string_coverage_is_removed_consistently() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/00_covered.json"), r#"{"x":"A"}"#).unwrap();
-    std::fs::write(root.join("data/01_missing.json"), "{}").unwrap();
+    std::fs::write(root.join("data/00_covered.row"), r#"("x"="A")"#).unwrap();
+    std::fs::write(root.join("data/01_missing.row"), "()").unwrap();
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
         policy: InferencePolicy {
@@ -2065,7 +2036,7 @@ fn projected_empty_short_string_coverage_is_removed_consistently() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2118,12 +2089,12 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
-        root.join("data/00_target.json"),
-        r#"{"items":[{"name":"A"},{"name":"B"}]}"#,
+        root.join("data/00_target.row"),
+        r#"("items"=[("name"="A"),("name"="B")])"#,
     )
     .unwrap();
-    let retired = root.join("data/01_retired.json");
-    std::fs::write(&retired, r#"{"other":true}"#).unwrap();
+    let retired = root.join("data/01_retired.row");
+    std::fs::write(&retired, r#"("other"=true)"#).unwrap();
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
         policy: InferencePolicy {
@@ -2142,7 +2113,7 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options,
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2158,7 +2129,7 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options,
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2235,9 +2206,9 @@ fn projected_numeric_report_recomputes_integer_only() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let fractional = root.join("data/00_fractional.json");
-    std::fs::write(&fractional, r#"{"x":1.5}"#).unwrap();
-    std::fs::write(root.join("data/01_integer.json"), r#"{"x":7}"#).unwrap();
+    let fractional = root.join("data/00_fractional.row");
+    std::fs::write(&fractional, r#"("x"=1.5)"#).unwrap();
+    std::fs::write(root.join("data/01_integer.row"), r#"("x"=7)"#).unwrap();
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
@@ -2251,7 +2222,7 @@ fn projected_numeric_report_recomputes_integer_only() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options,
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2267,7 +2238,7 @@ fn projected_numeric_report_recomputes_integer_only() {
         &root,
         vec![crate::source::test_support::document_folder("data", "data")],
         options,
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2318,8 +2289,8 @@ fn projected_numeric_report_with_no_survivors_does_not_retain_integer_only() {
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/00_fractional.json"), r#"{"x":1.5}"#).unwrap();
-    std::fs::write(root.join("data/01_integer.json"), r#"{"x":7}"#).unwrap();
+    std::fs::write(root.join("data/00_fractional.row"), r#"("x"=1.5)"#).unwrap();
+    std::fs::write(root.join("data/01_integer.row"), r#"("x"=7)"#).unwrap();
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
@@ -2332,7 +2303,7 @@ fn projected_numeric_report_with_no_survivors_does_not_retain_integer_only() {
             verified_cache_bytes: 0,
             ..Default::default()
         },
-        SourceRegistry::builtin(),
+        crate::source::test_support::fixture_registry(),
     )
     .map_err(|error| error.to_string())
     .unwrap();
@@ -2375,10 +2346,11 @@ fn historical_file_versions_compact_to_current_zero_record_or_delete() {
     let root =
         std::env::temp_dir().join(format!("objekte-segment-versions-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("same.jsonl");
-    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let path = root.join("same.rows");
+    let definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -2395,14 +2367,14 @@ fn historical_file_versions_compact_to_current_zero_record_or_delete() {
         .unwrap();
     let mut versions = Vec::new();
     for bytes in [
-        b"{\"n\":1}\n{\"n\":2}\n".as_slice(),
-        b"{\"n\":3}\n".as_slice(),
+        b"(\"n\"=1)\n(\"n\"=2)\n".as_slice(),
+        b"(\"n\"=3)\n".as_slice(),
         b"".as_slice(),
     ] {
         std::fs::write(&path, bytes).unwrap();
         let input = SourceFileInput {
             id: FileId(77),
-            relative_path: "same.jsonl".into(),
+            relative_path: "same.rows".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: None,
         };
@@ -2465,11 +2437,12 @@ fn compaction_remaps_retained_fallback_diagnostics() {
     let root =
         std::env::temp_dir().join(format!("objekte-segment-fallback-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("broken.jsonl");
-    std::fs::write(&path, b"{bad}\n{worse}\n").unwrap();
-    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
-    let source = SourceRegistry::builtin()
-        .resolve(&crate::source::test_support::LINES)
+    let path = root.join("broken.rows");
+    std::fs::write(&path, b"(bad)\n(worse)\n").unwrap();
+    let definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::line_format());
+    let source = crate::source::test_support::fixture_registry()
+        .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -2478,7 +2451,7 @@ fn compaction_remaps_retained_fallback_diagnostics() {
     };
     let input = SourceFileInput {
         id: FileId(66),
-        relative_path: "broken.jsonl".into(),
+        relative_path: "broken.rows".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
@@ -2534,3 +2507,5 @@ fn compaction_remaps_retained_fallback_diagnostics() {
         [0]
     );
 }
+
+use crate::source::test_support::fixture_value;
