@@ -719,6 +719,7 @@ impl IndexView {
         let cache =
             owner.as_ref().map(
                 |owner| crate::query_execution::runner::LifecycleCacheScope {
+                    file_routes: Some(&self.0.record_routes),
                     store: &owner.verified_cache,
                     instance_id: self.instance_id(),
                 },
@@ -798,6 +799,7 @@ impl IndexView {
         let cache =
             owner.as_ref().map(
                 |owner| crate::query_execution::runner::LifecycleCacheScope {
+                    file_routes: Some(&self.0.record_routes),
                     store: &owner.verified_cache,
                     instance_id: self.instance_id(),
                 },
@@ -1452,6 +1454,7 @@ impl IndexView {
         let cache =
             owner.as_ref().map(
                 |owner| crate::query_execution::runner::LifecycleCacheScope {
+                    file_routes: Some(&self.0.record_routes),
                     store: &owner.verified_cache,
                     instance_id: self.instance_id(),
                 },

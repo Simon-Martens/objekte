@@ -17,6 +17,7 @@ impl Repository {
         }
         let snapshot = self.native_snapshot();
         let cache = crate::query_execution::runner::LifecycleCacheScope {
+            file_routes: None,
             store: &self.verified,
             instance_id: self.instance_id,
         };
@@ -83,6 +84,7 @@ impl Repository {
                 .map_err(|message| context.recorded_error(message));
         }
         let cache = crate::query_execution::runner::LifecycleCacheScope {
+            file_routes: None,
             store: &self.verified,
             instance_id: self.instance_id,
         };
@@ -196,6 +198,7 @@ impl Repository {
         let cancellation = context.cancellation().cloned().unwrap_or_default();
         if active.is_none() {
             let cache = crate::query_execution::runner::LifecycleCacheScope {
+                file_routes: None,
                 store: &self.verified,
                 instance_id: self.instance_id,
             };

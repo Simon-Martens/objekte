@@ -2,6 +2,7 @@ use super::*;
 use crate::model::LogicalType;
 use crate::query::options::SortField;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, QueryOptions, parse_filter};
+use crate::query_execution::restrictions::segment_filter_bounds_with_input_catalog_and_predicates;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::SourceFormat;
@@ -2392,6 +2393,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     ];
     let lifecycle_cache = Mutex::new(VerifiedCache::new(1024 * 1024));
     let cache_scope = LifecycleCacheScope {
+        file_routes: None,
         store: &lifecycle_cache,
         instance_id: 17,
     };
@@ -2544,6 +2546,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &catalog,
         revision,
         Some(LifecycleCacheScope {
+            file_routes: None,
             store: &lifecycle_cache,
             instance_id: 18,
         }),
@@ -2552,6 +2555,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert!(!other_instance.counters.verified_result_hit);
     let no_count_cache = Mutex::new(VerifiedCache::new(1024 * 1024));
     let no_count_scope = LifecycleCacheScope {
+        file_routes: None,
         store: &no_count_cache,
         instance_id: 19,
     };
@@ -4235,6 +4239,7 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
 
     let lifecycle_cache = Mutex::new(VerifiedCache::new(1 << 20));
     let cache_scope = LifecycleCacheScope {
+        file_routes: None,
         store: &lifecycle_cache,
         instance_id: 73,
     };
@@ -4286,6 +4291,7 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
     let key = crate::query_results::verified::lifecycle_key(&paged, 91, 1).unwrap();
     let exhausted_cache = Mutex::new(VerifiedCache::new(key.len().saturating_add(129)));
     let exhausted_scope = LifecycleCacheScope {
+        file_routes: None,
         store: &exhausted_cache,
         instance_id: 91,
     };

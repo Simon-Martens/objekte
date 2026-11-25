@@ -99,10 +99,11 @@ impl<'a> FileCatalogView<'a> {
 
     fn rows_for_ids(
         &self,
-        ids: Option<Vec<FileId>>,
+        ids: Option<std::sync::Arc<[FileId]>>,
     ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
         ids.ok_or_else(|| LookupError::Query("unsupported file scalar comparison".into()))?
-            .into_iter()
+            .iter()
+            .copied()
             .map(|id| self.file(id))
             .collect()
     }
@@ -155,7 +156,8 @@ impl<'a> FileCatalogView<'a> {
             .catalog
             .unknown_created_ids(usize::MAX)
             .unwrap_or_default()
-            .into_iter()
+            .iter()
+            .copied()
             .filter_map(|id| self.view.catalogue_row(id))
             .collect()
     }

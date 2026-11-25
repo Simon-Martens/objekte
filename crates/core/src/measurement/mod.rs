@@ -29,6 +29,14 @@ pub struct SourceDiagnostic {
 /// Observed candidate, source, cache, and result work.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct WorkCounters {
+    #[serde(default)]
+    pub file_restrictions_resolved: u64,
+    #[serde(default)]
+    pub file_restriction_matching_files: u64,
+    #[serde(default)]
+    pub file_membership_lists_probed: u64,
+    #[serde(default)]
+    pub file_restrictions_broad: u64,
     pub exact_posting_matches: u64,
     pub candidates: u64,
     pub scanned_records: u64,

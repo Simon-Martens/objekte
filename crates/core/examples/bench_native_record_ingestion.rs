@@ -311,6 +311,10 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         || composed.count != Some(records_per_file + 1)
         || selected.counters.files_opened != 0
         || selected.counters.bytes_read != 0
+        || selected.counters.file_restrictions_resolved != 1
+        || selected.counters.file_restriction_matching_files != 1
+        || selected.counters.file_restrictions_broad != 0
+        || selected.counters.file_membership_lists_probed != 1
         || composed.counters.files_opened != 0
     {
         return Err(format!(
@@ -414,6 +418,9 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
             "metadata_size_candidates": selected_files.len(),
             "metadata_record_candidates": selected.counters.candidates,
             "metadata_matching_records": selected.count,
+            "metadata_resolutions": selected.counters.file_restrictions_resolved,
+            "metadata_membership_probes": selected.counters.file_membership_lists_probed,
+            "metadata_broad_fallbacks": selected.counters.file_restrictions_broad,
             "metadata_source_opens": selected.counters.files_opened,
             "metadata_source_bytes": selected.counters.bytes_read,
             "mixed_or_count": composed.count,

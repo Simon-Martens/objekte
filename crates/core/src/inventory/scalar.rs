@@ -1,5 +1,6 @@
 //! One scalar membership per physical file, independent of record cardinality.
 
+use roaring::RoaringBitmap;
 use std::cmp::Ordering;
 
 use crate::model::{FileId, Number};
@@ -34,8 +35,11 @@ fn collect<K: Ord>(
     literal: &K,
     output: &mut Vec<FileId>,
     limit: usize,
+    live: Option<&RoaringBitmap>,
 ) -> bool {
-    collect_by(rows, operator, output, limit, |value| value.cmp(literal))
+    collect_by(rows, operator, output, limit, live, |value| {
+        value.cmp(literal)
+    })
 }
 
 fn collect_by<K>(
@@ -43,6 +47,7 @@ fn collect_by<K>(
     operator: Operator,
     output: &mut Vec<FileId>,
     limit: usize,
+    live: Option<&RoaringBitmap>,
     compare: impl Fn(&K) -> Ordering,
 ) -> bool {
     let lower = rows.partition_point(|(value, _)| compare(value).is_lt());
@@ -57,10 +62,37 @@ fn collect_by<K>(
         _ => return false,
     };
     for slice in slices {
-        if slice.len() > limit.saturating_sub(output.len()) {
-            return false;
+        if let Some(live) = live {
+            if operator == Operator::Eq && slice.len() >= 64 {
+                let first = slice.first().expect("nonempty tie").1.0;
+                let last = slice.last().expect("nonempty tie").1.0;
+                let range = first..=last;
+                if live.range_cardinality(range.clone()) < (slice.len() / 4) as u64 {
+                    for id in live.range(range).map(FileId) {
+                        if slice.binary_search_by_key(&id, |(_, file)| *file).is_ok() {
+                            if output.len() == limit {
+                                return false;
+                            }
+                            output.push(id);
+                        }
+                    }
+                    continue;
+                }
+            }
+            for (_, id) in slice {
+                if live.contains(id.0) {
+                    if output.len() == limit {
+                        return false;
+                    }
+                    output.push(*id);
+                }
+            }
+        } else {
+            if slice.len() > limit.saturating_sub(output.len()) {
+                return false;
+            }
+            output.extend(slice.iter().map(|(_, id)| *id));
         }
-        output.extend(slice.iter().map(|(_, id)| *id));
     }
     true
 }
@@ -124,8 +156,9 @@ impl FileScalarIndex {
         literal: &Number,
         output: &mut Vec<FileId>,
         limit: usize,
+        live: Option<&RoaringBitmap>,
     ) -> bool {
-        collect_by(&self.sizes, operator, output, limit, |size| {
+        collect_by(&self.sizes, operator, output, limit, live, |size| {
             Number::integer(*size as i128).cmp(literal)
         })
     }
@@ -136,8 +169,9 @@ impl FileScalarIndex {
         literal: i128,
         output: &mut Vec<FileId>,
         limit: usize,
+        live: Option<&RoaringBitmap>,
     ) -> bool {
-        collect(&self.modified, operator, &literal, output, limit)
+        collect(&self.modified, operator, &literal, output, limit, live)
     }
 
     pub(crate) fn created_ids(
@@ -146,15 +180,47 @@ impl FileScalarIndex {
         literal: i128,
         output: &mut Vec<FileId>,
         limit: usize,
+        live: Option<&RoaringBitmap>,
     ) -> bool {
-        collect(&self.created, operator, &literal, output, limit)
+        collect(&self.created, operator, &literal, output, limit, live)
     }
 
-    pub(crate) fn unknown_created_ids(&self, output: &mut Vec<FileId>, limit: usize) -> bool {
-        if self.unknown_created.len() > limit.saturating_sub(output.len()) {
-            return false;
+    pub(crate) fn unknown_created_ids(
+        &self,
+        output: &mut Vec<FileId>,
+        limit: usize,
+        live: Option<&RoaringBitmap>,
+    ) -> bool {
+        if let Some(live) = live {
+            if let (Some(first), Some(last)) =
+                (self.unknown_created.first(), self.unknown_created.last())
+                && live.range_cardinality(first.0..=last.0)
+                    < (self.unknown_created.len() / 4) as u64
+            {
+                for id in live.range(first.0..=last.0).map(FileId) {
+                    if self.unknown_created.binary_search(&id).is_ok() {
+                        if output.len() == limit {
+                            return false;
+                        }
+                        output.push(id);
+                    }
+                }
+            } else {
+                for id in &self.unknown_created {
+                    if live.contains(id.0) {
+                        if output.len() == limit {
+                            return false;
+                        }
+                        output.push(*id);
+                    }
+                }
+            }
+        } else {
+            if self.unknown_created.len() > limit.saturating_sub(output.len()) {
+                return false;
+            }
+            output.extend(self.unknown_created.iter().copied());
         }
-        output.extend(self.unknown_created.iter().copied());
         true
     }
 }

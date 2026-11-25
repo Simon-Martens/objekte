@@ -52,40 +52,40 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         .unwrap();
     assert_eq!(
         original.size_ids(Operator::Eq, &Number::integer(2), 8),
-        Some(vec![FileId(0), FileId(1)])
+        Some(Arc::from([FileId(0), FileId(1)]))
     );
     assert_eq!(
         changed.size_ids(Operator::Eq, &Number::integer(2), 8),
-        Some(vec![FileId(1)])
+        Some(Arc::from([FileId(1)]))
     );
     assert_eq!(
         changed.size_ids(Operator::Eq, &Number::integer(77), 8),
-        Some(vec![FileId(0)])
+        Some(Arc::from([FileId(0)]))
     );
     assert_eq!(
         changed.size_ids(Operator::Gt, &Number::integer(2), 8),
-        Some(vec![FileId(0)])
+        Some(Arc::from([FileId(0)]))
     );
     assert_eq!(
         changed.size_ids(Operator::Lt, &Number::float(2.5).unwrap(), 8),
-        Some(vec![FileId(1)])
+        Some(Arc::from([FileId(1)]))
     );
     assert_eq!(
         changed.size_ids(Operator::Ge, &Number::float(2.5).unwrap(), 8),
-        Some(vec![FileId(0)])
+        Some(Arc::from([FileId(0)]))
     );
     assert_eq!(
         changed.size_ids(Operator::Ne, &Number::integer(77), 8),
-        Some(vec![FileId(1)])
+        Some(Arc::from([FileId(1)]))
     );
     assert_eq!(changed.size_ids(Operator::Ge, &Number::integer(0), 1), None);
     assert_eq!(
         changed.created_ids(Operator::Eq, 777, 8),
-        Some(vec![FileId(0)])
+        Some(Arc::from([FileId(0)]))
     );
     assert_eq!(
         changed.modified_ids(Operator::Eq, moved_modified, 8),
-        Some(vec![FileId(0)])
+        Some(Arc::from([FileId(0)]))
     );
     assert_eq!(changed.id_for(std::path::Path::new("data/a.json")), None);
     assert_eq!(
@@ -124,7 +124,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     );
     assert_eq!(
         appended.size_ids(Operator::Eq, &Number::integer(77), 8),
-        Some(vec![FileId(0)])
+        Some(Arc::from([FileId(0)]))
     );
     assert_eq!(appended.allocated_files(), 3);
     assert_eq!(appended.active_files(), 2);
@@ -198,4 +198,70 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert!(FileCatalog::restored(Arc::clone(&repository), invalid_membership).is_err());
     assert!(FileCatalog::restored(Arc::clone(&repository), vec![None]).is_err());
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn scalar_cap_counts_live_members_after_base_and_delta_churn() {
+    use crate::inventory::{FileInventory, SourceRevision};
+    use std::path::PathBuf;
+
+    const FILES: u32 = 4097;
+    let revision = SourceRevision {
+        size: 73,
+        modified_ns: 100,
+        object_id: None,
+    };
+    let collection = CollectionId(0);
+    let root = PathBuf::from("catalog");
+    for base in [false, true] {
+        let mut inventory = FileInventory::new(root.clone());
+        if base {
+            for number in 0..FILES {
+                inventory
+                    .add(format!("{number}.json").into(), revision, None, collection)
+                    .unwrap();
+            }
+        }
+        let mut catalog = FileCatalog::from_parts(Arc::new(inventory), Vec::new(), [0; 32]);
+        let entry = |number| crate::inventory::FileEntry {
+            id: FileId(number),
+            relative_path: format!("{number}.json").into(),
+            revision,
+            created_ns: None,
+            collections: vec![collection],
+            status: crate::inventory::FileStatus::Valid,
+            diagnostics: Vec::new(),
+            omitted_diagnostics: 0,
+        };
+        if !base {
+            for number in 0..FILES {
+                catalog = catalog.appended(entry(number), None, None).unwrap();
+            }
+        }
+        let pinned = catalog.clone();
+        let equal =
+            |catalog: &FileCatalog| catalog.size_ids(Operator::Eq, &Number::integer(73), 4096);
+        assert!(equal(&pinned).is_none());
+        for number in 0..FILES - 1 {
+            catalog = catalog.retired(FileId(number)).unwrap();
+        }
+        assert_eq!(
+            equal(&catalog).as_deref(),
+            Some([FileId(FILES - 1)].as_slice())
+        );
+        assert_eq!(
+            catalog.unknown_created_ids(4096).as_deref(),
+            Some([FileId(FILES - 1)].as_slice())
+        );
+        assert_eq!(
+            catalog.modified_ids(Operator::Eq, 100, 4096).as_deref(),
+            Some([FileId(FILES - 1)].as_slice())
+        );
+        catalog = catalog.retired(FileId(FILES - 1)).unwrap();
+        catalog = catalog.appended(entry(FILES), None, None).unwrap();
+        let ids = equal(&catalog).unwrap();
+        assert_eq!(&*ids, &[FileId(FILES)]);
+        assert!(Arc::ptr_eq(&ids, &equal(&catalog).unwrap()));
+        assert!(equal(&pinned).is_none());
+    }
 }

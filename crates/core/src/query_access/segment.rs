@@ -55,7 +55,7 @@ struct PreparedSegmentOperation {
 pub(crate) struct NativeSegmentProvider<'a> {
     pub(crate) segment: &'a IndexedCollectionSegment,
     pub(crate) collection: &'a CollectionState,
-    file_catalog: Option<&'a FileCatalog>,
+    pub(crate) file_catalog: Option<&'a FileCatalog>,
     pub(crate) domain: DomainId,
     pub(crate) instance_id: u64,
     operations: Mutex<Vec<PreparedSegmentOperation>>,

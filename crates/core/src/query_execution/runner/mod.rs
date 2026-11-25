@@ -41,11 +41,10 @@ pub(crate) use crate::query_diagnostics::trace::{
     regex_prefilter_reason,
 };
 use crate::query_execution::restrictions::{
-    Plan, PlanningCounters, estimate_expr, estimate_fts_candidates, estimate_plan_expr,
-    fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
-    segment_filter_bounds_with_catalog, segment_filter_bounds_with_input_catalog_and_predicates,
-    segment_filter_estimate, segment_fts_bounds_with_term, segment_fts_candidates,
-    segment_fts_estimate_with_term,
+    Plan, PlanningCounters, RoutedFileRestrictions, estimate_expr, estimate_fts_candidates,
+    estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
+    segment_filter_bounds_with_catalog, segment_filter_bounds_with_routes, segment_filter_estimate,
+    segment_fts_bounds_with_term, segment_fts_candidates, segment_fts_estimate_with_term,
 };
 use crate::query_execution::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
@@ -298,6 +297,7 @@ const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 #[derive(Clone, Copy)]
 pub(crate) struct LifecycleCacheScope<'a> {
     pub(crate) store: &'a Mutex<VerifiedCache>,
+    pub(crate) file_routes: Option<&'a [crate::lifecycle::publication::RecordRoutes]>,
     pub(crate) instance_id: u64,
 }
 
@@ -1277,16 +1277,37 @@ struct CachedSegmentRestriction {
 }
 
 struct SegmentRestrictionCache {
+    routed: Option<RoutedFileRestrictions>,
     segments: Vec<Vec<Option<CachedSegmentRestriction>>>,
 }
 
 impl SegmentRestrictionCache {
     fn new(segments: &[Arc<Vec<Arc<PublishedSegment>>>]) -> Self {
         Self {
+            routed: None,
             segments: segments
                 .iter()
                 .map(|group| (0..group.len()).map(|_| None).collect())
                 .collect(),
+        }
+    }
+
+    fn route_file_restrictions(
+        &mut self,
+        prepared: &crate::query::prepared::PreparedQuery,
+        catalog: &FileCatalog,
+        cache: Option<LifecycleCacheScope<'_>>,
+        segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    ) {
+        if self.routed.is_none()
+            && let Some(routes) = cache.and_then(|scope| scope.file_routes)
+        {
+            self.routed = Some(RoutedFileRestrictions::prepare(
+                &prepared.predicates,
+                catalog,
+                routes,
+                segments,
+            ));
         }
     }
 
@@ -1703,6 +1724,7 @@ fn exact_or_branch_evidence_fields(
     catalog: &FileCatalog,
     predicates: &crate::query_predicate::PreparedPredicates,
     context: Option<&ExecutionContext>,
+    routed: Option<&RoutedFileRestrictions>,
 ) -> Result<Option<OrRestrictionProbe>, String> {
     let BoundExpr::Or(parts) = filter else {
         return Ok(None);
@@ -1720,7 +1742,7 @@ fn exact_or_branch_evidence_fields(
     let mut must = RoaringBitmap::new();
     let mut all_exact = true;
     for (part, fields) in parts.iter().zip(child_fields) {
-        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+        let bounds = segment_filter_bounds_with_routes(
             segment,
             active,
             part,
@@ -1729,6 +1751,7 @@ fn exact_or_branch_evidence_fields(
             &input,
             Some(predicates),
             context,
+            routed,
         )?;
         let logical = &input & &segment.logical_records;
         let exact = bounds.may == bounds.must
@@ -2061,6 +2084,9 @@ fn try_exact_segment_ordered_page(
     }
     let mut selected = Vec::with_capacity(segments[collection_index].len());
     let mut counters = counters.clone();
+    if let Some(routed) = restriction_cache.routed.as_ref() {
+        routed.count_work(&mut counters);
+    }
     for (segment_index, published) in segments[collection_index].iter().enumerate() {
         if lifecycle_segment_order(&published.index, sort, query, collection_index).is_none() {
             return Ok(None);
@@ -2074,7 +2100,7 @@ fn try_exact_segment_ordered_page(
         } else {
             filter
                 .map(|filter| {
-                    segment_filter_bounds_with_input_catalog_and_predicates(
+                    segment_filter_bounds_with_routes(
                         &published.index,
                         &published.active,
                         filter,
@@ -2083,6 +2109,7 @@ fn try_exact_segment_ordered_page(
                         &published.active.bitmap(),
                         Some(&prepared.predicates),
                         context,
+                        restriction_cache.routed.as_ref(),
                     )
                 })
                 .transpose()?
@@ -2476,6 +2503,7 @@ fn search_segmented_impl(
             })?;
         (&owned_sort, &owned_prepared)
     };
+    restriction_cache.route_file_restrictions(prepared, catalog, cache, segments);
     let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
         matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
     });
@@ -2600,6 +2628,9 @@ fn search_segmented_impl(
         .and_then(|(_, _, budget)| (*budget > 0).then(|| LifecycleCacheBuilder::new(*budget)));
     let mut total = 0u64;
     let mut counters = WorkCounters::default();
+    if let Some(routed) = restriction_cache.routed.as_ref() {
+        routed.count_work(&mut counters);
+    }
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let winner_budget = retained_budget.zip(context);
@@ -2709,7 +2740,7 @@ fn search_segmented_impl(
                 filter
                     .as_ref()
                     .map(|filter| {
-                        segment_filter_bounds_with_input_catalog_and_predicates(
+                        segment_filter_bounds_with_routes(
                             segment,
                             &published.active,
                             filter,
@@ -2718,6 +2749,7 @@ fn search_segmented_impl(
                             filter_input.as_ref(),
                             Some(&predicates),
                             context,
+                            restriction_cache.routed.as_ref(),
                         )
                     })
                     .transpose()?
@@ -2878,6 +2910,7 @@ fn search_segmented_impl(
                     catalog,
                     &predicates,
                     context,
+                    restriction_cache.routed.as_ref(),
                 )?
                 .and_then(|probe| probe.evidence)
             } else {
@@ -3887,6 +3920,7 @@ pub(crate) fn search_analyze_segmented(
     )
     .with_observation_collector(Arc::clone(&collector));
     let cache = LifecycleCacheScope {
+        file_routes: None,
         store: &repo.verified,
         instance_id: repo.instance_id,
     };
@@ -4339,6 +4373,7 @@ fn try_lifecycle_ordered_stream(
     {
         return Ok(None);
     }
+    restriction_cache.route_file_restrictions(prepared, catalog, cache, segments);
     let predicates = Arc::clone(&prepared.predicates);
     if prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)
@@ -4407,6 +4442,7 @@ fn try_lifecycle_ordered_stream(
                     catalog,
                     &predicates,
                     Some(context),
+                    restriction_cache.routed.as_ref(),
                 )?
                 else {
                     return Ok(None);
@@ -4443,7 +4479,7 @@ fn try_lifecycle_ordered_stream(
                     .as_ref()
                     .map(|filter| {
                         let active = segment.active.bitmap();
-                        let bounds = segment_filter_bounds_with_input_catalog_and_predicates(
+                        let bounds = segment_filter_bounds_with_routes(
                             &segment.index,
                             &segment.active,
                             filter,
@@ -4452,6 +4488,7 @@ fn try_lifecycle_ordered_stream(
                             &active,
                             Some(&predicates),
                             Some(context),
+                            restriction_cache.routed.as_ref(),
                         )?;
                         let logical = &segment.active.bitmap() & &segment.index.logical_records;
                         filter_exact[collection_index][segment_index] = bounds.may == bounds.must
@@ -4691,6 +4728,9 @@ fn try_lifecycle_ordered_stream(
         match_count_complete: true,
         ..WorkCounters::default()
     };
+    if let Some(routed) = restriction_cache.routed.as_ref() {
+        routed.count_work(&mut counters);
+    }
     let mut cache_builder = cache_entry
         .as_ref()
         .map(|(_, budget, _)| LifecycleCacheBuilder::new(*budget));
@@ -5471,6 +5511,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         deferred_cache
             .as_ref()
             .map(|(scope, store)| LifecycleCacheScope {
+                file_routes: None,
                 store,
                 instance_id: scope.instance_id,
             })

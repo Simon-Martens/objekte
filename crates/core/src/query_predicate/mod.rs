@@ -97,6 +97,15 @@ pub(crate) struct PreparedLeaf {
     source: PreparedLeafSource,
 }
 
+impl PreparedLeaf {
+    pub(crate) fn bound_term(&self) -> Option<&BoundTerm> {
+        match &self.source {
+            PreparedLeafSource::Structured(term) => Some(term),
+            PreparedLeafSource::Text(_) => None,
+        }
+    }
+}
+
 #[derive(Clone, Debug)]
 enum PreparedLeafSource {
     Structured(BoundTerm),
