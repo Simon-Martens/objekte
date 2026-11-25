@@ -14,6 +14,10 @@ use sha2::{Digest, Sha256};
 use crate::index::bigram::BigramAlphabet;
 use crate::index::segment::admission::SegmentAdmission;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::{
+    StorageFactory,
+    worker::{FileWorkerBatch, FileWorkerInput},
+};
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
@@ -22,12 +26,11 @@ use crate::repository::configuration::CollectionDefinition;
 use crate::repository::statistics::StreamMemoryStats;
 use crate::schema::Schema;
 use crate::source::{
-    BuildFramer, ReaderDiagnostic, ReaderFailure, SourceOutcome,
-    extraction::extract_framed_build_outcomes, framing::BoundedBuildChunk,
+    BuildFramer, ReaderDiagnostic, ReaderFailure, SourceOutcome, framing::BoundedBuildChunk,
     framing::validate_reader_ranges, registry::PreparedSource,
 };
 
-use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput};
+use super::batch::{BatchContribution, SourceFileInput};
 use super::scheduling::{BuildScheduleStats, JobCounters, fits_allowance};
 
 pub(crate) fn finish_build_record(
@@ -43,6 +46,7 @@ pub(crate) fn finish_build_record(
 /// Preparation performs no publication and never changes source files.
 #[derive(Clone, Copy)]
 pub(crate) struct FilePreparationBinding<'a> {
+    pub factory: &'a Arc<dyn StorageFactory>,
     pub collection: CollectionId,
     pub definition: &'a CollectionDefinition,
     pub source: &'a PreparedSource,
@@ -282,39 +286,26 @@ fn prepare_unreadable_file(
     code: &str,
     error: &std::io::Error,
 ) -> Result<Vec<BatchContribution>, String> {
-    let mut builder = BatchBuilder::new(
+    let contribution = binding.factory.prepare_file_records(FileWorkerBatch {
         root,
-        binding.definition,
-        binding.collection,
-        binding.source,
+        definition: binding.definition,
+        collection: binding.collection,
+        source: binding.source,
         alphabet,
         inference,
         inference_jobs,
-    )?;
-    let path = root.join(&input.relative_path);
-    let mut file = input.for_collection(binding.collection);
-    builder.outcome(
-        &mut file,
-        &path,
-        SourceOutcome::Unreadable {
-            diagnostic: ReaderDiagnostic::new(
-                crate::source::DiagnosticCategory::Io,
-                code,
-                error.to_string(),
-            ),
+        input: FileWorkerInput::Outcome {
+            input,
+            outcome: SourceOutcome::Unreadable {
+                diagnostic: ReaderDiagnostic::new(
+                    crate::source::DiagnosticCategory::Io,
+                    code,
+                    error.to_string(),
+                ),
+            },
         },
-        None,
-    )?;
-    let count = builder.records.len();
-    Ok(vec![builder.finish(
-        vec![BatchFile {
-            entry: file,
-            records: 0..count,
-            first_range: true,
-        }],
-        0,
-        0,
-    )?])
+    })?;
+    Ok(vec![contribution])
 }
 
 fn prepare_pull_framed_file(
@@ -760,6 +751,7 @@ fn per_stream_allowance(
 /// chunks. The callback contributes to private segment admission as it runs.
 fn process_custom_stream_profiled(
     pool: &ThreadPool,
+    factory: &Arc<dyn StorageFactory>,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
     collection: CollectionId,
@@ -900,6 +892,7 @@ fn process_custom_stream_profiled(
         if remaining == 0 {
             remaining = record_target - (chunk.ranges.len() - split);
         }
+        let worker_factory = Arc::clone(factory);
         let execute = move || {
             let active = worker_budget
                 .as_ref()
@@ -907,6 +900,7 @@ fn process_custom_stream_profiled(
             let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                 counters.run(|| {
                     let binding = FilePreparationBinding {
+                        factory: &worker_factory,
                         collection,
                         definition: &definition,
                         source: &source,
@@ -1358,6 +1352,7 @@ fn prepare_managed_stream(
     let digest = if binding.source.reader().supports_streaming_build() {
         let (_, digest) = process_custom_stream_profiled(
             pool,
+            binding.factory,
             root,
             definition,
             binding.collection,
@@ -1391,6 +1386,7 @@ fn prepare_managed_stream(
         let framer = open_build_framer(binding.source.reader(), &mut reader, true)?;
         process_pull_framed_input(
             pool,
+            binding.factory,
             root,
             definition,
             binding.collection,
@@ -1697,17 +1693,6 @@ fn prepare_malformed_supplied_file(
     inference: InferenceConfig,
     inference_jobs: usize,
 ) -> Result<BatchContribution, BytesPreparationError> {
-    let path = root.join(&input.relative_path);
-    let mut file = input.for_collection(binding.collection);
-    let mut builder = BatchBuilder::new(
-        root,
-        binding.definition,
-        binding.collection,
-        binding.source,
-        alphabet,
-        inference,
-        inference_jobs,
-    )?;
     let range = ByteRange::checked(0, input.revision.size, input.revision.size)?;
     crate::source::extraction::file_coordinates(
         bytes,
@@ -1715,26 +1700,26 @@ fn prepare_malformed_supplied_file(
         &mut diagnostic,
         &mut crate::source::extraction::FileCoordinateCursor::default(),
     );
-    builder.outcome(
-        &mut file,
-        &path,
-        SourceOutcome::Malformed {
-            range,
-            diagnostic,
-            bytes: bytes.to_vec(),
-        },
-        None,
-    )?;
-    let count = builder.records.len();
-    Ok(builder.finish(
-        vec![BatchFile {
-            entry: file,
-            records: 0..count,
-            first_range: true,
-        }],
-        0,
-        0,
-    )?)
+    binding
+        .factory
+        .prepare_file_records(FileWorkerBatch {
+            root,
+            definition: binding.definition,
+            collection: binding.collection,
+            source: binding.source,
+            alphabet,
+            inference,
+            inference_jobs,
+            input: FileWorkerInput::Outcome {
+                input,
+                outcome: SourceOutcome::Malformed {
+                    range,
+                    diagnostic,
+                    bytes: bytes.to_vec(),
+                },
+            },
+        })
+        .map_err(|error| String::from(error).into())
 }
 
 fn process_framed_batch(
@@ -1750,78 +1735,26 @@ fn process_framed_batch(
     inference: InferenceConfig,
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
-    let path = root.join(&original.relative_path);
-    let mut file = original.for_collection(binding.collection);
-    let mut builder = BatchBuilder::new(
-        root,
-        binding.definition,
-        binding.collection,
-        binding.source,
-        alphabet,
-        inference,
-        inference_jobs,
-    )?;
-    let stats =
-        extract_framed_build_outcomes(&path, binding.source.reader(), bytes, ranges, |outcome| {
-            let revision_size = file.revision.size;
-            let absolute = |range: ByteRange| -> Result<ByteRange, String> {
-                let start = file_offset
-                    .checked_add(range.start)
-                    .ok_or("record range offset overflow")?;
-                let end = file_offset
-                    .checked_add(range.end)
-                    .ok_or("record range offset overflow")?;
-                ByteRange::checked(start, end, revision_size)
-            };
-            match outcome {
-                SourceOutcome::Logical { range, record } => {
-                    let source_part = &bytes[range.start as usize..range.end as usize];
-                    let range = absolute(range)?;
-                    builder.outcome(
-                        &mut file,
-                        &path,
-                        SourceOutcome::Logical { range, record },
-                        Some(source_part),
-                    )
-                }
-                SourceOutcome::Malformed {
-                    range,
-                    mut diagnostic,
-                    bytes,
-                } => {
-                    diagnostic.line = diagnostic
-                        .line
-                        .and_then(|line| line.checked_add(preceding_lines));
-                    let range = absolute(range)?;
-                    builder.outcome(
-                        &mut file,
-                        &path,
-                        SourceOutcome::Malformed {
-                            range,
-                            diagnostic,
-                            bytes,
-                        },
-                        None,
-                    )
-                }
-                SourceOutcome::Unreadable { diagnostic } => builder.outcome(
-                    &mut file,
-                    &path,
-                    SourceOutcome::Unreadable { diagnostic },
-                    None,
-                ),
-            }
-        })?;
-    let count = builder.records.len();
-    builder.finish(
-        vec![BatchFile {
-            entry: file,
-            records: 0..count,
-            first_range,
-        }],
-        stats.record_parses,
-        stats.failed_parses,
-    )
+    binding
+        .factory
+        .prepare_file_records(FileWorkerBatch {
+            root,
+            definition: binding.definition,
+            collection: binding.collection,
+            source: binding.source,
+            alphabet,
+            inference,
+            inference_jobs,
+            input: FileWorkerInput::Framed {
+                input: original,
+                bytes,
+                ranges,
+                file_offset,
+                preceding_lines,
+                first_range,
+            },
+        })
+        .map_err(String::from)
 }
 
 fn admit_large_unreadable(
@@ -1896,6 +1829,7 @@ pub(crate) fn process_framed_file_profiled(
 ) -> Result<BuildScheduleStats, String> {
     process_framed_file_with_budget(
         pool,
+        crate::index::storage::test_factory(),
         root,
         definition,
         collection,
@@ -1915,6 +1849,7 @@ pub(crate) fn process_framed_file_profiled(
 
 pub(super) fn process_framed_file_with_budget(
     pool: &ThreadPool,
+    factory: &Arc<dyn StorageFactory>,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
     collection: CollectionId,
@@ -1943,6 +1878,7 @@ pub(super) fn process_framed_file_with_budget(
         }
         let (mut stats, digest) = process_custom_stream_profiled(
             pool,
+            factory,
             root,
             definition,
             collection,
@@ -1967,6 +1903,7 @@ pub(super) fn process_framed_file_with_budget(
     if source.reader().uses_pull_framing() {
         return process_pull_framed_file(
             pool,
+            factory,
             root,
             definition,
             collection,
@@ -1993,6 +1930,7 @@ pub(super) fn process_framed_file_with_budget(
     let input = &source_files[file_id.0 as usize];
     let path = root.join(&input.relative_path);
     let binding = FilePreparationBinding {
+        factory,
         collection,
         definition: &definition,
         source: &source,
@@ -2097,6 +2035,7 @@ pub(super) fn process_framed_file_with_budget(
             let bytes = Arc::clone(&bytes);
             let ranges = Arc::clone(&ranges);
             let counters = Arc::clone(&counters);
+            let worker_factory = Arc::clone(factory);
             let execute = move || {
                 let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                     counters.run(|| {
@@ -2104,6 +2043,7 @@ pub(super) fn process_framed_file_with_budget(
                             &root,
                             &source_files[file_id.0 as usize],
                             &FilePreparationBinding {
+                                factory: &worker_factory,
                                 collection,
                                 definition: &definition,
                                 source: &source,
@@ -2211,6 +2151,7 @@ impl PulledChunk {
 
 pub(super) fn process_pull_framed_file(
     pool: &ThreadPool,
+    factory: &Arc<dyn StorageFactory>,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
     collection: CollectionId,
@@ -2246,6 +2187,7 @@ pub(super) fn process_pull_framed_file(
                     &root,
                     &input,
                     &FilePreparationBinding {
+                        factory,
                         collection: id,
                         definition,
                         source: &source,
@@ -2283,6 +2225,7 @@ pub(super) fn process_pull_framed_file(
     let framer = open_build_framer(source.reader(), &mut reader, shared_budget.is_some())?;
     let mut stats = process_pull_framed_input(
         pool,
+        factory,
         root,
         definition,
         collection,
@@ -2349,6 +2292,7 @@ pub(crate) fn process_pull_framed_reader(
     let input = Arc::new(source_files[file_id.0 as usize].clone());
     process_pull_framed_input(
         pool,
+        crate::index::storage::test_factory(),
         root,
         definition,
         collection,
@@ -2370,6 +2314,7 @@ pub(crate) fn process_pull_framed_reader(
 
 fn process_pull_framed_input(
     pool: &ThreadPool,
+    factory: &Arc<dyn StorageFactory>,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
     collection: CollectionId,
@@ -2525,6 +2470,7 @@ fn process_pull_framed_input(
             let counters = Arc::clone(&counters);
             let additional = additional_bindings.clone();
             let worker_budget = shared_budget.cloned();
+            let worker_factory = Arc::clone(factory);
             let execute = move || {
                 let active = worker_budget
                     .as_ref()
@@ -2536,6 +2482,7 @@ fn process_pull_framed_input(
                                 &root,
                                 &input,
                                 &FilePreparationBinding {
+                                    factory: &worker_factory,
                                     collection,
                                     definition,
                                     source: &source,
@@ -2656,6 +2603,7 @@ fn process_pull_framed_input(
                     &root,
                     &input,
                     &FilePreparationBinding {
+                        factory,
                         collection: id,
                         definition,
                         source: &source,

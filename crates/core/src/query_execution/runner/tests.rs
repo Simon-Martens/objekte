@@ -2326,6 +2326,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
                 .map(|duration| duration.as_nanos() as i128),
         },
         &[FilePreparationBinding {
+            factory: crate::index::storage::test_factory(),
             collection: CollectionId(0),
             definition: collection.required_file_definition(),
             source: &collection.required_file_reader(),
@@ -3405,6 +3406,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         &root,
         input,
         &[FilePreparationBinding {
+            factory: crate::index::storage::test_factory(),
             collection: CollectionId(0),
             definition: collection.required_file_definition(),
             source: &collection.required_file_reader(),

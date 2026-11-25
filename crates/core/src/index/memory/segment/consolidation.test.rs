@@ -73,6 +73,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -238,6 +239,7 @@ fn seventy_small_shards_consolidate_after_sources_are_removed() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -321,6 +323,7 @@ fn consolidation_translates_independent_local_zero_slots() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,

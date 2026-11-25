@@ -9,6 +9,7 @@ pub(crate) mod relation;
 pub(crate) mod segment;
 pub(crate) mod text;
 pub(crate) mod transfer;
+pub(crate) mod worker;
 
 pub(crate) mod segment_catalog;
 
@@ -19,6 +20,16 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn prepare_file_records(
+        &self,
+        batch: worker::FileWorkerBatch<'_>,
+    ) -> StorageResult<crate::construction::batch::BatchContribution>;
+
+    fn prepare_direct_records(
+        &self,
+        batch: worker::DirectRecordBatch<'_>,
+    ) -> StorageResult<worker::PreparedDirectBatch>;
+
     fn file_catalog(
         &self,
         base: &dyn FileCatalogBase,
@@ -37,4 +48,10 @@ pub(crate) trait StorageFactory: Send + Sync {
 
 pub(crate) fn default_factory() -> Arc<dyn StorageFactory> {
     Arc::new(super::memory::MemoryStorageFactory)
+}
+
+#[cfg(test)]
+pub(crate) fn test_factory() -> &'static Arc<dyn StorageFactory> {
+    static FACTORY: std::sync::OnceLock<Arc<dyn StorageFactory>> = std::sync::OnceLock::new();
+    FACTORY.get_or_init(default_factory)
 }

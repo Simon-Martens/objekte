@@ -12,9 +12,7 @@ use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 mod builder;
 
-pub(crate) use builder::{
-    BigramBuilder, BigramConstructionStats, BigramContribution, storage_diagnostic_enabled,
-};
+pub(crate) use builder::{BigramBuilder, BigramContribution, storage_diagnostic_enabled};
 
 pub use crate::index::storage::text::{BIGRAM_VERSION, BigramAlphabet, FOLDED_REPRESENTATION};
 

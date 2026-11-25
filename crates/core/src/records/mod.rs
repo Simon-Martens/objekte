@@ -30,6 +30,13 @@ impl RecordIdSlot for crate::inventory::RecordEntry {
     }
 }
 
+/// Owned body for a retained logical record.
+#[derive(Clone, Debug)]
+pub(crate) struct RetainedBody {
+    pub value: crate::model::Value,
+    pub text: Vec<crate::source::TextSegment>,
+}
+
 /// Common segment-local record header. Source coordinates belong to the
 /// segment backing and are addressed by this header's slot.
 #[derive(Clone, Debug)]

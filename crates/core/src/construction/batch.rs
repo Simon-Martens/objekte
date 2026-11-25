@@ -1,35 +1,37 @@
 //! Owned record-batch construction and admission contributions.
 
-use std::collections::HashMap;
 use std::ops::Range;
 use std::path::Path;
 
-use roaring::RoaringBitmap;
 use serde::Serialize;
 
 use crate::construction::file_preparation::finish_build_record;
-use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramAlphabet;
-use crate::index::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution};
-use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use crate::index::relation::RelationContribution;
-use crate::index::sorting::{SortBuilder, SortKey};
+use crate::index::storage::StorageFactory;
+use crate::index::storage::transfer::{StorageError, StorageResult};
+#[cfg(test)]
+use crate::index::storage::worker::DirectRecordInput;
+use crate::index::storage::worker::{
+    DirectRecordBatch, FileWorkerBatch, FileWorkerInput, PreparedDirectBatch, PreparedIndexes,
+    WorkerWriter,
+};
 use crate::inference::InferenceConfig;
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SharedPath,
     SourceDiagnostic, SourceRevision,
 };
-use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
-use crate::query::semantics::record::data_values;
+use crate::model::{ArrayValue, CollectionId, FileId, RecordId, RecordSlot, Value};
+use crate::query_access::membership::MembershipView;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
+use crate::repository::statistics::BigramConstructionStats;
 use crate::schema::{Schema, operation::BindingOperation};
 use crate::source::access::read_record_range_for_build;
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, ReaderDiagnostic, SourceOutcome, TextDerivation,
     extraction::SourceBufferProfile, extraction::SourceBuildSample,
     extraction::extract_file_build_outcomes_hashed_with_buffer,
-    extraction::trim_oversized_build_buffer, registry::PreparedSource,
-    text::visit_logical_strings_and_empty,
+    extraction::extract_framed_build_outcomes, extraction::trim_oversized_build_buffer,
+    registry::PreparedSource,
 };
 
 pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<Value> {
@@ -168,16 +170,7 @@ pub(crate) struct BatchContribution {
     /// Framed chunks only report a digest once, after the whole read succeeds.
     pub(crate) file_fingerprints: Vec<(FileId, [u8; 32])>,
     pub(crate) records: Vec<RecordEntry>,
-    pub(crate) postings: PostingCollection,
-    pub(crate) inference: Option<InferenceBuilder>,
-    pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub(crate) raw: BigramContribution,
-    pub(crate) fallback_text: BigramContribution,
-    pub(crate) custom_text: HashMap<(Vec<String>, String), BigramContribution>,
-    pub(crate) logical_records: RoaringBitmap,
-    pub(crate) empty_array_records: RoaringBitmap,
-    pub(crate) sort_keys: HashMap<FieldPath, Vec<SortKey>>,
-    pub(crate) relations: Vec<RelationContribution>,
+    pub(crate) indexes: Box<dyn PreparedIndexes>,
     pub record_parses: u64,
     pub failed_parses: u64,
     pub(crate) source_reads: u64,
@@ -253,20 +246,15 @@ impl BuildWorkProfile {
 
 impl BatchContribution {
     pub(crate) fn bigram_storage_stats(&self) -> BigramConstructionStats {
-        let mut stats = self.raw.storage_stats();
-        stats.absorb(self.fallback_text.storage_stats());
-        for contribution in self.custom_text.values() {
-            stats.absorb(contribution.storage_stats());
-        }
-        stats
+        self.indexes.bigram_storage_stats()
     }
 
     pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
         &self.file_fingerprints
     }
 
-    pub(crate) fn logical_records(&self) -> &RoaringBitmap {
-        &self.logical_records
+    pub(crate) fn logical_slots(&self) -> MembershipView<'_> {
+        self.indexes.logical_slots()
     }
 
     pub(crate) fn new_file_count(&self) -> usize {
@@ -278,22 +266,13 @@ impl BatchContribution {
     }
 }
 
-pub(crate) struct BatchBuilder<'a> {
+struct BatchBuilder<'a, W: WorkerWriter> {
     root: &'a Path,
     definition: &'a CollectionDefinition,
     collection: CollectionId,
     source: &'a PreparedSource,
-    pub(super) records: Vec<RecordEntry>,
-    postings: PostingCollection,
-    inference: Option<InferenceBuilder>,
-    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    raw: BigramBuilder,
-    fallback_text: BigramBuilder,
-    custom_text: HashMap<(Vec<String>, String), BigramBuilder>,
-    logical_records: RoaringBitmap,
-    empty_array_records: RoaringBitmap,
-    sorting: SortBuilder,
-    relations: Vec<RelationContribution>,
+    records: Vec<RecordEntry>,
+    worker: W,
     #[cfg(feature = "detailed-profiling")]
     profile_current_file: bool,
     #[cfg(feature = "detailed-profiling")]
@@ -301,117 +280,21 @@ pub(crate) struct BatchBuilder<'a> {
     profile: BuildWorkProfile,
 }
 
-/// Borrowed logical admission state shared by file and direct producers.
-/// Source-specific identity, fallback, and storage ownership stay with the
-/// respective producer.
-struct LogicalIndexContext<'a> {
-    schema: &'a Schema,
-    collection_name: &'a str,
-    postings: &'a mut PostingCollection,
-    inference: &'a mut Option<InferenceBuilder>,
-    custom_postings: &'a mut HashMap<(Vec<String>, String), CustomPostingIndex>,
-    raw: &'a mut BigramBuilder,
-    fallback_text: &'a mut BigramBuilder,
-    custom_text: &'a mut HashMap<(Vec<String>, String), BigramBuilder>,
-    logical_records: &'a mut RoaringBitmap,
-    empty_array_records: &'a mut RoaringBitmap,
-    sorting: &'a mut SortBuilder,
-    relations: &'a mut Vec<RelationContribution>,
-    profile: &'a mut BuildWorkProfile,
-}
-
-impl<'a> LogicalIndexContext<'a> {
-    fn from_file_batch(batch: &'a mut BatchBuilder<'_>) -> Self {
+impl<'a, W: WorkerWriter> BatchBuilder<'a, W> {
+    fn new(batch: &FileWorkerBatch<'a>, worker: W) -> Self {
         Self {
-            schema: &batch.definition.schema,
-            collection_name: &batch.definition.name,
-            postings: &mut batch.postings,
-            inference: &mut batch.inference,
-            custom_postings: &mut batch.custom_postings,
-            raw: &mut batch.raw,
-            fallback_text: &mut batch.fallback_text,
-            custom_text: &mut batch.custom_text,
-            logical_records: &mut batch.logical_records,
-            empty_array_records: &mut batch.empty_array_records,
-            sorting: &mut batch.sorting,
-            relations: &mut batch.relations,
-            profile: &mut batch.profile,
-        }
-    }
-}
-
-impl<'a> BatchBuilder<'a> {
-    pub(super) fn new(
-        root: &'a Path,
-        definition: &'a CollectionDefinition,
-        collection: CollectionId,
-        source: &'a PreparedSource,
-        alphabet: BigramAlphabet,
-        inference: InferenceConfig,
-        inference_jobs: usize,
-    ) -> Result<Self, String> {
-        let schema = &definition.schema;
-        let custom_postings = schema
-            .operations
-            .iter()
-            .filter(|(_, binding)| binding.operation.posting())
-            .map(|(key, binding)| {
-                (
-                    key.clone(),
-                    CustomPostingIndex {
-                        index: PostingIndex::new(&schema.fields[&key.0]),
-                        complete: binding.operation.complete_coverage(),
-                    },
-                )
-            })
-            .collect();
-        let custom_text = schema
-            .custom
-            .keys()
-            .chain(
-                schema
-                    .operations
-                    .iter()
-                    .filter(|(_, binding)| {
-                        binding.operation.bigram() && binding.operation.complete_coverage()
-                    })
-                    .map(|(key, _)| key),
-            )
-            .map(|key| {
-                (
-                    canonical_custom_text_key(schema, &key.0, &key.1),
-                    BigramBuilder::new(alphabet),
-                )
-            })
-            .collect();
-        Ok(Self {
-            root,
-            definition,
-            collection,
-            source,
+            root: batch.root,
+            definition: batch.definition,
+            collection: batch.collection,
+            source: batch.source,
             records: Vec::new(),
-            postings: PostingCollection::new(schema),
-            inference: InferenceBuilder::with_job_count(inference, true, inference_jobs),
-            custom_postings,
-            raw: BigramBuilder::new(alphabet),
-            fallback_text: BigramBuilder::new(alphabet),
-            custom_text,
-            logical_records: RoaringBitmap::new(),
-            empty_array_records: RoaringBitmap::new(),
-            sorting: SortBuilder::new(
-                &definition.sort_fields,
-                schema,
-                &definition.sort_locale,
-                definition.sort_options,
-                &definition.sort_overrides,
-            )?,
-            relations: RelationContribution::for_schema(schema),
+            worker,
             #[cfg(feature = "detailed-profiling")]
             profile_current_file: false,
             #[cfg(feature = "detailed-profiling")]
             profile_record_index: 0,
             profile: BuildWorkProfile::default(),
-        })
+        }
     }
 
     fn next_slot(&self) -> Result<RecordSlot, String> {
@@ -451,25 +334,13 @@ impl<'a> BatchBuilder<'a> {
         if let Some(index) = reference.stored_index() {
             file.diagnostics[index].record = Some(slot);
         }
-        self.raw.add_empty(slot)?;
-        for relation in &mut self.relations {
-            relation.add_unavailable(slot)?;
-        }
-        let text = String::from_utf8_lossy(bytes);
-        self.fallback_text
-            .add_record(slot, std::iter::once(text.as_ref()))?;
-        for index in self.custom_text.values_mut() {
-            index.add_empty(slot)?;
-        }
-        let empty = Value::Object(Default::default());
-        self.sorting.add(
+        self.worker.add_fallback(
             slot,
-            &empty,
             &self.records.last().unwrap().id,
-            RecordClass::RawFallback,
-            Some((file, Some(range))),
-            Some(self.root),
-            &self.definition.name,
+            bytes,
+            file,
+            range,
+            self.root,
         )?;
         if std::str::from_utf8(bytes).is_err() {
             file.record_diagnostic(SourceDiagnostic::from_reader(
@@ -538,7 +409,7 @@ impl<'a> BatchBuilder<'a> {
         )?;
         let slot = self.next_slot()?;
         let text_derivation = self.source.reader().text_derivation();
-        self.add_logical_indexes(
+        self.worker.add_logical_indexes(
             slot,
             &id,
             &extracted,
@@ -546,6 +417,7 @@ impl<'a> BatchBuilder<'a> {
             Some(self.root),
             text_derivation,
             sample,
+            &mut self.profile,
         )?;
         self.records.push(RecordEntry {
             slot,
@@ -558,173 +430,13 @@ impl<'a> BatchBuilder<'a> {
         });
         Ok(())
     }
-
-    fn add_logical_indexes(
-        &mut self,
-        slot: RecordSlot,
-        id: &RecordId,
-        extracted: &ExtractedRecord,
-        file: Option<(&FileEntry, Option<ByteRange>)>,
-        root: Option<&Path>,
-        text_derivation: TextDerivation,
-        sample: bool,
-    ) -> Result<(), String> {
-        LogicalIndexContext::from_file_batch(self).add_logical_indexes(
-            slot,
-            id,
-            extracted,
-            file,
-            root,
-            text_derivation,
-            sample,
-        )
-    }
 }
-
-impl LogicalIndexContext<'_> {
-    /// Index one validated logical value after its registrar has resolved the
-    /// record identity. Source-specific fallback and identity remain outside.
-    fn add_logical_indexes(
-        &mut self,
-        slot: RecordSlot,
-        id: &RecordId,
-        extracted: &ExtractedRecord,
-        file: Option<(&FileEntry, Option<ByteRange>)>,
-        root: Option<&Path>,
-        text_derivation: TextDerivation,
-        sample: bool,
-    ) -> Result<(), String> {
-        let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        self.postings.add(slot, &extracted.value)?;
-        if let Some(started) = stage_started {
-            self.profile.postings_ns += started.elapsed().as_nanos() as u64;
-        }
-        let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        if let Some(inference) = &mut self.inference {
-            inference.observe_record_with_schema(slot, &extracted.value, Some(self.schema))?;
-        }
-        if let Some(started) = stage_started {
-            self.profile.inference_ns += started.elapsed().as_nanos() as u64;
-        }
-        let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        for relation in self.relations.iter_mut() {
-            relation.add_logical(slot, &extracted.value)?;
-        }
-        if let Some(started) = stage_started {
-            self.profile.relations_ns += started.elapsed().as_nanos() as u64;
-        }
-        let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        for (key, custom) in self.custom_postings.iter_mut() {
-            let binding = &self.schema.operations[key];
-            let selected = data_values(&extracted.value, &key.0);
-            let mapped = selected.as_ref().map(|values| {
-                values
-                    .iter()
-                    .map(|value| map_binding_value(binding.operation.as_ref(), value))
-                    .collect::<Option<Vec<_>>>()
-            });
-            let mapped = match mapped {
-                Some(Some(values)) => Some(values),
-                Some(None) => {
-                    custom.complete = false;
-                    None
-                }
-                None => None,
-            };
-            let refs = mapped
-                .as_ref()
-                .map(|values| values.iter().collect::<Vec<_>>());
-            custom.index.add_values(slot, refs.as_deref())?;
-        }
-        if let Some(started) = stage_started {
-            self.profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
-        }
-        let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        let has_empty_array;
-        if text_derivation == TextDerivation::LogicalStringsAfterConversion {
-            if let Some(binding) = &self.schema.raw {
-                let mut observed_empty = false;
-                self.raw.add_record_with(slot, |emit| {
-                    observed_empty =
-                        visit_logical_strings_and_empty(&extracted.value, &mut |text| {
-                            emit(&binding.operation.map_text(text));
-                        });
-                })?;
-                has_empty_array = observed_empty;
-            } else {
-                let mut observed_empty = false;
-                self.raw.add_record_with(slot, |emit| {
-                    observed_empty = visit_logical_strings_and_empty(&extracted.value, emit);
-                })?;
-                has_empty_array = observed_empty;
-            }
-        } else {
-            has_empty_array = crate::model::structure::contains_empty_array(&extracted.value);
-            if let Some(binding) = &self.schema.raw {
-                self.raw.add_record(
-                    slot,
-                    extracted
-                        .text
-                        .iter()
-                        .map(|segment| binding.operation.map_text(&segment.text)),
-                )?;
-            } else {
-                self.raw.add_record(
-                    slot,
-                    extracted.text.iter().map(|segment| segment.text.as_str()),
-                )?;
-            }
-        }
-        self.fallback_text.add_empty(slot)?;
-        self.logical_records.insert(slot.0);
-        if has_empty_array {
-            self.empty_array_records.insert(slot.0);
-        }
-        if let Some(started) = stage_started {
-            self.profile.text_bigram_ns += started.elapsed().as_nanos() as u64;
-        }
-        let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        self.sorting.add(
-            slot,
-            &extracted.value,
-            id,
-            RecordClass::Logical,
-            file,
-            root,
-            self.collection_name,
-        )?;
-        if let Some(started) = stage_started {
-            self.profile.sorting_ns += started.elapsed().as_nanos() as u64;
-        }
-        let stage_started = crate::measurement::timer::start_if_enabled(sample);
-        for (key, index) in self.custom_text.iter_mut() {
-            let values = data_values(&extracted.value, &key.0).unwrap_or_default();
-            if let Some(binding) = self.schema.operations.get(key) {
-                index.add_record(
-                    slot,
-                    values
-                        .into_iter()
-                        .flat_map(string_values)
-                        .map(|text| binding.operation.map_text(text)),
-                )?;
-            } else {
-                index.add_record(slot, values.into_iter().flat_map(string_values))?;
-            }
-        }
-        if let Some(started) = stage_started {
-            self.profile.custom_text_ns += started.elapsed().as_nanos() as u64;
-        }
-        Ok(())
-    }
-}
-
-pub(crate) type NativeRecordInput = (RecordId, Value, Vec<crate::source::TextSegment>);
 
 /// Prepare typed records through the same logical index admission as file
 /// records. The returned bodies move into immutable segment storage.
 #[cfg(test)]
 pub(crate) fn build_retained_contribution(
-    mut inputs: Vec<NativeRecordInput>,
+    mut inputs: Vec<DirectRecordInput>,
     declaration: &crate::repository::configuration::CollectionDeclaration,
     options: &crate::repository::configuration::RepositoryOptions,
 ) -> Result<
@@ -735,76 +447,37 @@ pub(crate) fn build_retained_contribution(
     ),
     String,
 > {
-    build_native_contribution(&mut inputs, declaration, options, true, &mut 0)
+    let batch =
+        crate::index::storage::default_factory().prepare_direct_records(DirectRecordBatch {
+            inputs: &mut inputs,
+            declaration,
+            options: *options,
+            retain_bodies: true,
+            completed_records: &mut 0,
+        })?;
+    Ok((batch.headers, batch.bodies, batch.contribution))
 }
 
-pub(crate) fn build_native_contribution(
-    inputs: &mut [NativeRecordInput],
-    declaration: &crate::repository::configuration::CollectionDeclaration,
-    options: &crate::repository::configuration::RepositoryOptions,
-    retain_bodies: bool,
-    completed_records: &mut usize,
-) -> Result<
-    (
-        Vec<crate::records::RecordHeader>,
-        Vec<crate::index::segment::RetainedBody>,
-        BatchContribution,
-    ),
-    String,
-> {
+pub(crate) fn prepare_direct_records(
+    batch: DirectRecordBatch<'_>,
+    mut worker: impl WorkerWriter,
+) -> StorageResult<PreparedDirectBatch> {
+    let DirectRecordBatch {
+        inputs,
+        declaration,
+        retain_bodies,
+        completed_records,
+        ..
+    } = batch;
     let schema = &declaration.schema;
-    let mut postings = PostingCollection::new(schema);
-    let mut inference = InferenceBuilder::with_job_count(options.inference, true, 1);
-    let mut custom_postings = schema
-        .operations
-        .iter()
-        .filter(|(_, binding)| binding.operation.posting())
-        .map(|(key, binding)| {
-            (
-                key.clone(),
-                CustomPostingIndex {
-                    index: PostingIndex::new(&schema.fields[&key.0]),
-                    complete: binding.operation.complete_coverage(),
-                },
-            )
-        })
-        .collect::<HashMap<_, _>>();
-    let mut raw = BigramBuilder::new(options.bigram_alphabet);
-    let mut fallback_text = BigramBuilder::new(options.bigram_alphabet);
-    let mut custom_text = schema
-        .custom
-        .keys()
-        .chain(
-            schema
-                .operations
-                .iter()
-                .filter(|(_, binding)| {
-                    binding.operation.bigram() && binding.operation.complete_coverage()
-                })
-                .map(|(key, _)| key),
-        )
-        .map(|key| {
-            (
-                canonical_custom_text_key(schema, &key.0, &key.1),
-                BigramBuilder::new(options.bigram_alphabet),
-            )
-        })
-        .collect::<HashMap<_, _>>();
-    let mut logical_records = RoaringBitmap::new();
-    let mut empty_array_records = RoaringBitmap::new();
-    let mut sorting = SortBuilder::new(
-        &declaration.sort_fields,
-        schema,
-        &declaration.sort_locale,
-        declaration.sort_options,
-        &declaration.sort_overrides,
-    )?;
-    let mut relations = RelationContribution::for_schema(schema);
     let mut profile = BuildWorkProfile::default();
     let mut headers = Vec::with_capacity(inputs.len());
     *completed_records = 0;
     for (id, value, text) in inputs.iter_mut() {
-        let slot = RecordSlot(u32::try_from(headers.len()).map_err(|_| "too many batch records")?);
+        let slot = RecordSlot(
+            u32::try_from(headers.len())
+                .map_err(|_| StorageError::ResourceLimit("too many batch records".into()))?,
+        );
         let text_derivation = if text.is_empty() {
             TextDerivation::LogicalStringsAfterConversion
         } else {
@@ -814,32 +487,20 @@ pub(crate) fn build_native_contribution(
             value: std::mem::replace(value, Value::Null),
             text: std::mem::take(text),
         };
-        let result = finish_build_record(schema, &mut extracted).and_then(|()| {
-            LogicalIndexContext {
-                schema,
-                collection_name: &declaration.name,
-                postings: &mut postings,
-                inference: &mut inference,
-                custom_postings: &mut custom_postings,
-                raw: &mut raw,
-                fallback_text: &mut fallback_text,
-                custom_text: &mut custom_text,
-                logical_records: &mut logical_records,
-                empty_array_records: &mut empty_array_records,
-                sorting: &mut sorting,
-                relations: &mut relations,
-                profile: &mut profile,
-            }
-            .add_logical_indexes(
-                slot,
-                id,
-                &extracted,
-                None,
-                None,
-                text_derivation,
-                false,
-            )
-        });
+        let result = finish_build_record(schema, &mut extracted)
+            .map_err(|error| StorageError::invalid("validate direct record", error))
+            .and_then(|()| {
+                worker.add_logical_indexes(
+                    slot,
+                    id,
+                    &extracted,
+                    None,
+                    None,
+                    text_derivation,
+                    false,
+                    &mut profile,
+                )
+            });
         // Preserve earlier member input if this attempt has to publish a
         // valid prefix. Restoring ownership does not copy the payload.
         *value = extracted.value;
@@ -853,24 +514,11 @@ pub(crate) fn build_native_contribution(
         });
         *completed_records += 1;
     }
-    let custom_text = custom_text
-        .into_iter()
-        .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
-        .collect::<Result<HashMap<_, _>, _>>()?;
     let contribution = BatchContribution {
         files: Vec::new(),
         file_fingerprints: Vec::new(),
         records: Vec::new(),
-        postings,
-        inference,
-        custom_postings,
-        raw: raw.finish_blocks()?,
-        fallback_text: fallback_text.finish_blocks()?,
-        custom_text,
-        logical_records,
-        empty_array_records,
-        sort_keys: sorting.into_keys(),
-        relations,
+        indexes: worker.finish()?,
         record_parses: 0,
         failed_parses: 0,
         source_reads: 0,
@@ -880,7 +528,7 @@ pub(crate) fn build_native_contribution(
     let bodies = if retain_bodies {
         inputs
             .iter_mut()
-            .map(|(_, value, text)| crate::index::segment::RetainedBody {
+            .map(|(_, value, text)| crate::records::RetainedBody {
                 value: std::mem::replace(value, Value::Null),
                 text: std::mem::take(text),
             })
@@ -888,7 +536,11 @@ pub(crate) fn build_native_contribution(
     } else {
         Vec::new()
     };
-    Ok((headers, bodies, contribution))
+    Ok(PreparedDirectBatch {
+        headers,
+        bodies,
+        contribution,
+    })
 }
 
 #[cfg(test)]
@@ -1029,8 +681,8 @@ pub(super) fn build_record_id(
     .map_err(|error| format!("{}:{}..{}: {error}", path.display(), range.start, range.end))
 }
 
-impl BatchBuilder<'_> {
-    pub(super) fn outcome(
+impl<W: WorkerWriter> BatchBuilder<'_, W> {
+    fn outcome(
         &mut self,
         file: &mut FileEntry,
         path: &Path,
@@ -1067,31 +719,17 @@ impl BatchBuilder<'_> {
         }
     }
 
-    pub(super) fn finish(
+    fn finish(
         self,
         files: Vec<BatchFile>,
         record_parses: u64,
         failed_parses: u64,
     ) -> Result<BatchContribution, String> {
-        let custom_text = self
-            .custom_text
-            .into_iter()
-            .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
-            .collect::<Result<HashMap<_, _>, _>>()?;
         Ok(BatchContribution {
             files,
             file_fingerprints: Vec::new(),
             records: self.records,
-            postings: self.postings,
-            inference: self.inference,
-            custom_postings: self.custom_postings,
-            raw: self.raw.finish_blocks()?,
-            fallback_text: self.fallback_text.finish_blocks()?,
-            custom_text,
-            logical_records: self.logical_records,
-            empty_array_records: self.empty_array_records,
-            sort_keys: self.sorting.into_keys(),
-            relations: self.relations,
+            indexes: self.worker.finish()?,
             record_parses,
             failed_parses,
             source_reads: 0,
@@ -1114,6 +752,7 @@ pub(crate) fn process_batch(
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
     process_batch_profiled(
+        crate::index::storage::default_factory().as_ref(),
         root,
         definition,
         collection,
@@ -1128,6 +767,7 @@ pub(crate) fn process_batch(
 }
 
 pub(crate) fn process_batch_profiled(
+    factory: &dyn StorageFactory,
     root: &Path,
     definition: &CollectionDefinition,
     collection: CollectionId,
@@ -1139,15 +779,81 @@ pub(crate) fn process_batch_profiled(
     inference_jobs: usize,
     profile_build: bool,
 ) -> Result<BatchContribution, String> {
-    let mut builder = BatchBuilder::new(
-        root,
-        definition,
-        collection,
-        source,
-        alphabet,
-        inference,
-        inference_jobs,
-    )?;
+    factory
+        .prepare_file_records(FileWorkerBatch {
+            root,
+            definition,
+            collection,
+            source,
+            alphabet,
+            inference,
+            inference_jobs,
+            input: FileWorkerInput::WholeFiles {
+                ids: file_ids,
+                descriptors: source_files,
+                profile: profile_build,
+            },
+        })
+        .map_err(String::from)
+}
+
+pub(crate) fn prepare_file_records(
+    batch: FileWorkerBatch<'_>,
+    worker: impl WorkerWriter,
+) -> StorageResult<BatchContribution> {
+    let mut builder = BatchBuilder::new(&batch, worker);
+    let result = match batch.input {
+        FileWorkerInput::WholeFiles {
+            ids,
+            descriptors,
+            profile,
+        } => prepare_whole_files(builder, ids, descriptors, profile),
+        FileWorkerInput::Framed {
+            input,
+            bytes,
+            ranges,
+            file_offset,
+            preceding_lines,
+            first_range,
+        } => prepare_framed_records(
+            builder,
+            input,
+            bytes,
+            ranges,
+            file_offset,
+            preceding_lines,
+            first_range,
+        ),
+        FileWorkerInput::Outcome { input, outcome } => {
+            let path = batch.root.join(&input.relative_path);
+            let mut file = input.for_collection(batch.collection);
+            builder
+                .outcome(&mut file, &path, outcome, None)
+                .map_err(|message| StorageError::invalid("prepare file outcome", message))?;
+            let count = builder.records.len();
+            builder.finish(
+                vec![BatchFile {
+                    entry: file,
+                    records: 0..count,
+                    first_range: true,
+                }],
+                0,
+                0,
+            )
+        }
+    };
+    result.map_err(|message| StorageError::invalid("prepare file records", message))
+}
+
+fn prepare_whole_files(
+    mut builder: BatchBuilder<'_, impl WorkerWriter>,
+    file_ids: &[FileId],
+    source_files: &[SourceFileInput],
+    profile_build: bool,
+) -> Result<BatchContribution, String> {
+    let root = builder.root;
+    let source = builder.source;
+    let collection = builder.collection;
     let mut files = Vec::with_capacity(file_ids.len());
     let (mut record_parses, mut failed_parses) = (0, 0);
     let mut file_fingerprints = Vec::with_capacity(file_ids.len());
@@ -1226,4 +932,78 @@ pub(crate) fn process_batch_profiled(
     batch.source_reads = input_buffer_profile.files_read;
     batch.source_bytes_read = input_buffer_profile.bytes_read;
     Ok(batch)
+}
+
+fn prepare_framed_records(
+    mut builder: BatchBuilder<'_, impl WorkerWriter>,
+    original: &SourceFileInput,
+    bytes: &[u8],
+    ranges: &[ByteRange],
+    file_offset: u64,
+    preceding_lines: u64,
+    first_range: bool,
+) -> Result<BatchContribution, String> {
+    let path = builder.root.join(&original.relative_path);
+    let mut file = original.for_collection(builder.collection);
+    let stats =
+        extract_framed_build_outcomes(&path, builder.source.reader(), bytes, ranges, |outcome| {
+            let revision_size = file.revision.size;
+            let absolute = |range: ByteRange| -> Result<ByteRange, String> {
+                let start = file_offset
+                    .checked_add(range.start)
+                    .ok_or("record range offset overflow")?;
+                let end = file_offset
+                    .checked_add(range.end)
+                    .ok_or("record range offset overflow")?;
+                ByteRange::checked(start, end, revision_size)
+            };
+            match outcome {
+                SourceOutcome::Logical { range, record } => {
+                    let source_part = &bytes[range.start as usize..range.end as usize];
+                    let range = absolute(range)?;
+                    builder.outcome(
+                        &mut file,
+                        &path,
+                        SourceOutcome::Logical { range, record },
+                        Some(source_part),
+                    )
+                }
+                SourceOutcome::Malformed {
+                    range,
+                    mut diagnostic,
+                    bytes,
+                } => {
+                    diagnostic.line = diagnostic
+                        .line
+                        .and_then(|line| line.checked_add(preceding_lines));
+                    let range = absolute(range)?;
+                    builder.outcome(
+                        &mut file,
+                        &path,
+                        SourceOutcome::Malformed {
+                            range,
+                            diagnostic,
+                            bytes,
+                        },
+                        None,
+                    )
+                }
+                SourceOutcome::Unreadable { diagnostic } => builder.outcome(
+                    &mut file,
+                    &path,
+                    SourceOutcome::Unreadable { diagnostic },
+                    None,
+                ),
+            }
+        })?;
+    let count = builder.records.len();
+    builder.finish(
+        vec![BatchFile {
+            entry: file,
+            records: 0..count,
+            first_range,
+        }],
+        stats.record_parses,
+        stats.failed_parses,
+    )
 }

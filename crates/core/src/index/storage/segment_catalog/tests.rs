@@ -12,11 +12,37 @@ use crate::schema::Schema;
 #[derive(Default)]
 struct TableFactory {
     installs: AtomicUsize,
+    worker_calls: AtomicUsize,
+    file_worker_calls: AtomicUsize,
+    fail_file_worker: AtomicBool,
     fail_seal: AtomicBool,
     fail_lookup: AtomicBool,
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn prepare_file_records(
+        &self,
+        batch: crate::index::storage::worker::FileWorkerBatch<'_>,
+    ) -> StorageResult<crate::construction::batch::BatchContribution> {
+        self.file_worker_calls.fetch_add(1, Ordering::Relaxed);
+        let contribution = crate::index::storage::default_factory().prepare_file_records(batch)?;
+        if self.fail_file_worker.swap(false, Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "test worker",
+                "injected prepared file failure",
+            ));
+        }
+        Ok(contribution)
+    }
+
+    fn prepare_direct_records(
+        &self,
+        batch: crate::index::storage::worker::DirectRecordBatch<'_>,
+    ) -> StorageResult<crate::index::storage::worker::PreparedDirectBatch> {
+        self.worker_calls.fetch_add(1, Ordering::Relaxed);
+        crate::index::storage::default_factory().prepare_direct_records(batch)
+    }
+
     fn file_catalog(
         &self,
         base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
@@ -183,6 +209,7 @@ fn alternate_directory_is_used_for_live_ingestion_and_preserves_pinned_routes() 
     factory.fail_seal.store(true, Ordering::Relaxed);
     assert!(writer.submit(rejected).unwrap().wait_published().is_err());
     assert_eq!(factory.installs.load(Ordering::Relaxed), 1);
+    assert_eq!(factory.worker_calls.load(Ordering::Relaxed), 1);
     let unchanged = index.view().unwrap();
     assert_eq!(unchanged.revision(), empty.revision());
     assert!(
@@ -199,6 +226,7 @@ fn alternate_directory_is_used_for_live_ingestion_and_preserves_pinned_routes() 
         .insert("one", Value::String("original".into()))
         .unwrap();
     writer.submit(retry).unwrap().wait_published().unwrap();
+    assert_eq!(factory.worker_calls.load(Ordering::Relaxed), 2);
     let pinned = index.view().unwrap();
     assert!(
         pinned
@@ -288,6 +316,13 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
 
     let relative = std::path::Path::new("data/second.rows");
     std::fs::write(root.join(relative), b"third\nfourth\n").unwrap();
+    let file_workers = factory.file_worker_calls.load(Ordering::Relaxed);
+    assert!(file_workers > 0);
+    factory.fail_file_worker.store(true, Ordering::Relaxed);
+    let error = index.add_file(relative).unwrap_err();
+    assert!(error.to_string().contains("injected prepared file failure"));
+    assert!(factory.file_worker_calls.load(Ordering::Relaxed) > file_workers);
+    assert_eq!(index.view().unwrap().revision(), pinned.revision());
     let installs = factory.installs.load(Ordering::Relaxed);
     factory.fail_seal.store(true, Ordering::Relaxed);
     let error = index.add_file(relative).unwrap_err();

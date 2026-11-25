@@ -29,9 +29,10 @@ use crate::index::storage::transfer::StorageResult;
 use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry, SourceRevision};
 use crate::lifecycle::IndexRevision;
-use crate::model::{CollectionId, FileId, Number, RecordSlot, Value};
+#[cfg(test)]
+use crate::model::Value;
+use crate::model::{CollectionId, FileId, Number, RecordSlot};
 use crate::records::RecordVersion;
-use crate::source::TextSegment;
 
 const ACCOUNTING_OVERHEAD: usize = 48;
 
@@ -164,14 +165,7 @@ pub(crate) struct FileRangeLocator {
     pub revision: SourceRevision,
 }
 
-/// A retained body belongs to an immutable block shared by segments and old
-/// views. Compaction moves block coordinates without copying `Value` trees.
-#[derive(Clone, Debug)]
-#[allow(dead_code)] // Retained construction and reads are wired with direct ingestion.
-pub(crate) struct RetainedBody {
-    pub value: Value,
-    pub text: Vec<TextSegment>,
-}
+pub(crate) use crate::records::RetainedBody;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct RetainedAddress {

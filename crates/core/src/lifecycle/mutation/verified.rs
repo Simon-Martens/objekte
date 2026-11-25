@@ -105,6 +105,7 @@ pub(super) fn verify_old_content_with_layout(
             return Err(VerifiedFallbackReason::UnsupportedReader.into());
         }
         bindings.push(FilePreparationBinding {
+            factory: &view.repository().storage_factory,
             collection: *collection_id,
             definition: collection.required_file_definition(),
             source: &collection.required_file_reader(),

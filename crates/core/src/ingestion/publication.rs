@@ -4,9 +4,9 @@ use std::collections::HashSet;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 
-use crate::construction::batch::{NativeRecordInput, build_native_contribution};
 use crate::index::segment::admission::CollectionSegment;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::worker::{DirectRecordBatch, DirectRecordInput, PreparedDirectBatch};
 use crate::lifecycle::publication::{RecordMutation, RecordMutationKind};
 use crate::lifecycle::{Index, IndexError, IndexRevision, IndexView, RecordRegistration};
 use crate::records::RecordVersion;
@@ -127,7 +127,7 @@ pub(super) fn install_batch(
 fn build_segment(
     view: &IndexView,
     registration: &crate::lifecycle::builder::RegisteredRecordSource,
-    mut inputs: Vec<NativeRecordInput>,
+    mut inputs: Vec<DirectRecordInput>,
     versions: Option<Vec<RecordVersion>>,
 ) -> Result<IndexedCollectionSegment, IngestionError> {
     build_segment_inputs(view, registration, &mut inputs, versions.as_deref(), &mut 0)
@@ -136,7 +136,7 @@ fn build_segment(
 fn build_segment_inputs(
     view: &IndexView,
     registration: &crate::lifecycle::builder::RegisteredRecordSource,
-    inputs: &mut [NativeRecordInput],
+    inputs: &mut [DirectRecordInput],
     versions: Option<&[RecordVersion]>,
     completed: &mut usize,
 ) -> Result<IndexedCollectionSegment, IngestionError> {
@@ -144,9 +144,21 @@ fn build_segment_inputs(
     let declaration = &view.repository().collections[collection.0 as usize].definition;
     let options = view.repository().options();
     let raw_covers_logical_fields = inputs.iter().all(|(_, _, text)| text.is_empty());
-    let (headers, bodies, contribution) =
-        build_native_contribution(inputs, declaration, &options, versions.is_none(), completed)
-            .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+    let PreparedDirectBatch {
+        headers,
+        bodies,
+        contribution,
+    } = view
+        .repository()
+        .storage_factory
+        .prepare_direct_records(DirectRecordBatch {
+            inputs,
+            declaration,
+            options,
+            retain_bodies: versions.is_none(),
+            completed_records: completed,
+        })
+        .map_err(|error| IngestionError::Index(IndexError::Build(error.to_string())))?;
     let draft = if let Some(versions) = versions {
         CollectionSegment::from_provider(
             SegmentId::new(2),

@@ -10,10 +10,44 @@ pub mod relation;
 pub mod segment;
 pub(crate) mod segment_catalog;
 pub mod sorting;
+mod worker;
 
 pub(crate) struct MemoryStorageFactory;
 
 impl super::storage::StorageFactory for MemoryStorageFactory {
+    fn prepare_file_records(
+        &self,
+        batch: super::storage::worker::FileWorkerBatch<'_>,
+    ) -> super::storage::transfer::StorageResult<crate::construction::batch::BatchContribution>
+    {
+        let worker = worker::MemoryWorker::new(
+            batch.definition,
+            batch.alphabet,
+            batch.inference,
+            batch.inference_jobs,
+        )
+        .map_err(|error| {
+            super::storage::transfer::StorageError::invalid("start file worker", error)
+        })?;
+        crate::construction::batch::prepare_file_records(batch, worker)
+    }
+
+    fn prepare_direct_records(
+        &self,
+        batch: super::storage::worker::DirectRecordBatch<'_>,
+    ) -> super::storage::transfer::StorageResult<super::storage::worker::PreparedDirectBatch> {
+        let worker = worker::MemoryWorker::new(
+            batch.declaration,
+            batch.options.bigram_alphabet,
+            batch.options.inference,
+            1,
+        )
+        .map_err(|error| {
+            super::storage::transfer::StorageError::invalid("start worker indexes", error)
+        })?;
+        crate::construction::batch::prepare_direct_records(batch, worker)
+    }
+
     fn file_catalog(
         &self,
         base: &dyn super::storage::file_catalog::FileCatalogBase,

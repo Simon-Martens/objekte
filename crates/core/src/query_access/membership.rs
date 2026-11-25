@@ -89,6 +89,14 @@ impl<'a> MembershipView<'a> {
         }
     }
 
+    pub(crate) fn last(self) -> Option<u32> {
+        match self {
+            Self::Empty => None,
+            Self::Sorted(slots) => slots.last().copied(),
+            Self::AllSlots(bitmap) | Self::Borrowed(bitmap) => bitmap.max(),
+        }
+    }
+
     pub(crate) fn iter(self) -> MembershipIter<'a> {
         match self {
             Self::Empty => MembershipIter::Empty,

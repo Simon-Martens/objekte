@@ -10,6 +10,7 @@ use crate::construction::batch::canonical_custom_text_key;
 use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramContribution;
+use crate::index::memory::worker::NativeIndexBatch;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
 use crate::index::segment::{
@@ -69,6 +70,7 @@ impl CollectionAdmission<'_> {
         let base = self.builder.next_slot()?.0;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count).ok_or("record slot overflow")?;
+        let batch_indexes = NativeIndexBatch::take(batch.indexes)?;
         let mut records = batch.records.into_iter();
         for batch_file in batch.files {
             let file_id = batch_file.entry.id;
@@ -140,12 +142,12 @@ impl CollectionAdmission<'_> {
             profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
         }
         let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        self.postings.merge_shifted(batch.postings, base)?;
+        self.postings.merge_shifted(batch_indexes.postings, base)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.postings_ns += started.elapsed().as_nanos() as u64;
         }
         let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        match (self.inference.as_mut(), batch.inference) {
+        match (self.inference.as_mut(), batch_indexes.inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
             _ => return Err("inference batch mode mismatch".into()),
@@ -154,20 +156,20 @@ impl CollectionAdmission<'_> {
             profile.inference_ns += started.elapsed().as_nanos() as u64;
         }
         let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        if self.relations.len() != batch.relations.len() {
+        if self.relations.len() != batch_indexes.relations.len() {
             return Err("relation batch coverage mismatch".into());
         }
-        for (global, local) in self.relations.iter_mut().zip(batch.relations) {
+        for (global, local) in self.relations.iter_mut().zip(batch_indexes.relations) {
             global.merge_shifted(local, base, count)?;
         }
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.relations_ns += started.elapsed().as_nanos() as u64;
         }
         let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        if self.custom_postings.len() != batch.custom_postings.len() {
+        if self.custom_postings.len() != batch_indexes.custom_postings.len() {
             return Err("custom posting batch coverage mismatch".into());
         }
-        for (key, local) in batch.custom_postings {
+        for (key, local) in batch_indexes.custom_postings {
             let global = self
                 .custom_postings
                 .get_mut(&key)
@@ -179,13 +181,13 @@ impl CollectionAdmission<'_> {
             profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
         }
         let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        self.raw.merge_shifted(batch.raw, base)?;
+        self.raw.merge_shifted(batch_indexes.raw, base)?;
         self.fallback_text
-            .merge_shifted(batch.fallback_text, base)?;
-        if self.custom_text.len() != batch.custom_text.len() {
+            .merge_shifted(batch_indexes.fallback_text, base)?;
+        if self.custom_text.len() != batch_indexes.custom_text.len() {
             return Err("custom bigram batch coverage mismatch".into());
         }
-        for (key, index) in batch.custom_text {
+        for (key, index) in batch_indexes.custom_text {
             self.custom_text
                 .get_mut(&key)
                 .ok_or("custom bigram batch missing")?
@@ -195,13 +197,18 @@ impl CollectionAdmission<'_> {
             profile.bigrams_ns += started.elapsed().as_nanos() as u64;
         }
         let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
-        append_shifted_bitmap(self.empty_array_records, &batch.empty_array_records, base)?;
+        append_shifted_bitmap(self.logical_records, &batch_indexes.logical_records, base)?;
+        append_shifted_bitmap(
+            self.empty_array_records,
+            &batch_indexes.empty_array_records,
+            base,
+        )?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
         }
         let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        self.sorting.append_keys(batch.sort_keys, base, count)?;
+        self.sorting
+            .append_keys(batch_indexes.sort_keys, base, count)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.sorting_ns += started.elapsed().as_nanos() as u64;
         }
@@ -349,7 +356,7 @@ impl SegmentAggregate {
             sorting,
             relations,
         } = self;
-        let BatchContribution {
+        let NativeIndexBatch {
             postings: batch_postings,
             inference: batch_inference,
             custom_postings: batch_custom_postings,
@@ -360,8 +367,7 @@ impl SegmentAggregate {
             empty_array_records: batch_empty_array_records,
             sort_keys: batch_sort_keys,
             relations: batch_relations,
-            ..
-        } = batch;
+        } = *NativeIndexBatch::take(batch.indexes)?;
         let transfer_postings = base == 0 && *postings_pristine;
         if count != 0 {
             *postings_pristine = false;

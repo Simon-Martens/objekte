@@ -60,6 +60,7 @@ pub struct FileSourceConfig {
 
 /// Borrowed collection policy consumed by the shared segment builder.
 pub(crate) trait CollectionPolicy {
+    fn name(&self) -> &str;
     fn schema(&self) -> &Schema;
     fn sort_fields(&self) -> &[FieldPath];
     fn sort_locale(&self) -> &str;
@@ -68,6 +69,10 @@ pub(crate) trait CollectionPolicy {
 }
 
 impl CollectionPolicy for CollectionDeclaration {
+    fn name(&self) -> &str {
+        &self.name
+    }
+
     fn schema(&self) -> &Schema {
         &self.schema
     }
@@ -90,6 +95,10 @@ impl CollectionPolicy for CollectionDeclaration {
 }
 
 impl CollectionPolicy for CollectionDefinition {
+    fn name(&self) -> &str {
+        &self.name
+    }
+
     fn schema(&self) -> &Schema {
         &self.schema
     }

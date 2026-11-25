@@ -138,6 +138,7 @@ impl StagedStreamBinding {
 
 fn stage_stream_file(
     pool: &rayon::ThreadPool,
+    factory: &Arc<dyn crate::index::storage::StorageFactory>,
     root: Arc<PathBuf>,
     bindings: &[StreamBinding],
     file: FileId,
@@ -168,6 +169,7 @@ fn stage_stream_file(
             .collect();
         let stats = super::file_preparation::process_pull_framed_file(
             pool,
+            factory,
             root,
             Arc::clone(&first.definition),
             first.id,
@@ -194,6 +196,7 @@ fn stage_stream_file(
         for (binding, output) in bindings.iter().zip(&mut staged) {
             output.stats = super::file_preparation::process_framed_file_with_budget(
                 pool,
+                factory,
                 Arc::clone(&root),
                 Arc::clone(&binding.definition),
                 binding.id,
@@ -286,6 +289,7 @@ fn group_stream_files(
 fn run_stream_groups(
     groups: Vec<StreamGroup>,
     pool: &Arc<rayon::ThreadPool>,
+    factory: &Arc<dyn crate::index::storage::StorageFactory>,
     root: Arc<PathBuf>,
     source_files: &Arc<Vec<SourceFileInput>>,
     options: RepositoryOptions,
@@ -317,6 +321,7 @@ fn run_stream_groups(
         let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
             stage_stream_file(
                 pool,
+                factory,
                 Arc::clone(&root),
                 &bindings,
                 file,
@@ -485,7 +490,13 @@ impl IncrementalCollection {
             .checked_add(1)
             .ok_or("inference batch count overflow")?;
         let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
-        append_shifted_bitmap(&mut self.logical_records, batch.logical_records(), base)?;
+        let logical = batch.logical_slots();
+        if logical.last().is_some_and(|slot| slot >= count) {
+            return Err("worker logical slot exceeds its batch".into());
+        }
+        self.logical_records
+            .append(logical.iter().map(|slot| base + slot))
+            .map_err(|_| "observed logical slots overlap or are out of order")?;
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
         }
@@ -1098,7 +1109,7 @@ impl Repository {
             options,
             &sources,
             Some(&pool),
-            storage_factory,
+            Arc::clone(&storage_factory),
         )
         .map_err(IndexError::Build)?;
         repository.files = Arc::clone(&discovered);
@@ -1377,6 +1388,7 @@ impl Repository {
                     if !normal.is_empty() {
                         let result = crate::construction::scheduling::process_repository_file_batches_profiled(
                             &pool,
+                            &storage_factory,
                             Arc::new(root.clone()),
                             &normal,
                             Arc::clone(&source_files),
@@ -1445,6 +1457,7 @@ impl Repository {
                     let process_result =
                         crate::construction::file_preparation::process_framed_file_with_budget(
                             &pool,
+                            &storage_factory,
                             Arc::new(root.clone()),
                             definition,
                             collection,
@@ -1615,6 +1628,7 @@ impl Repository {
         if !normal.is_empty() {
             let result = crate::construction::scheduling::process_repository_file_batches_profiled(
                 &pool,
+                &storage_factory,
                 Arc::new(root.clone()),
                 &normal,
                 Arc::clone(&source_files),
@@ -1685,6 +1699,7 @@ impl Repository {
         run_stream_groups(
             stream_groups,
             &pool,
+            &storage_factory,
             Arc::new(root.clone()),
             &source_files,
             options,
@@ -1876,6 +1891,7 @@ impl Repository {
                         let stats =
                             crate::construction::file_preparation::process_framed_file_with_budget(
                                 &pool,
+                                &storage_factory,
                                 Arc::new(root.clone()),
                                 Arc::clone(&definition),
                                 *id,
@@ -1906,6 +1922,7 @@ impl Repository {
                         let batch = pool
                             .install(|| {
                                 crate::construction::batch::process_batch_profiled(
+                                    storage_factory.as_ref(),
                                     &root,
                                     &definition,
                                     *id,

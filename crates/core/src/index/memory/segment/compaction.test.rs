@@ -1622,6 +1622,7 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -2353,6 +2354,7 @@ fn historical_file_versions_compact_to_current_zero_record_or_delete() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -2445,6 +2447,7 @@ fn compaction_remaps_retained_fallback_diagnostics() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,

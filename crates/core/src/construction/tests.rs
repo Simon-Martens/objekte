@@ -176,6 +176,7 @@ fn registered_streaming_reader_matches_whole_framing_and_aborts_atomically() {
         created_ns: super::file_preparation::created_ns(&std::fs::metadata(&path).unwrap()),
     };
     let binding = |source| FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source,
@@ -234,6 +235,7 @@ fn registered_streaming_reader_matches_whole_framing_and_aborts_atomically() {
                 &root,
                 input.clone(),
                 &[FilePreparationBinding {
+                    factory: crate::index::storage::test_factory(),
                     collection: CollectionId(0),
                     definition: &definition,
                     source: &bad,
@@ -298,6 +300,7 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     assert_eq!(batch.file_fingerprints(), &[expected.unwrap()]);
     #[cfg(feature = "detailed-profiling")]
     let profiled = process_batch_profiled(
+        crate::index::storage::test_factory().as_ref(),
         &root,
         &definition,
         CollectionId(0),
@@ -456,6 +459,7 @@ fn supplied_bytes_match_shared_lines_and_never_touch_source_path() {
         .iter()
         .enumerate()
         .map(|(index, definition)| FilePreparationBinding {
+            factory: crate::index::storage::test_factory(),
             collection: CollectionId(index as u32),
             definition,
             source: &source,
@@ -568,6 +572,7 @@ fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
         .resolve(&SourceFormat::registered("shifted"))
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -711,6 +716,7 @@ fn supplied_bytes_match_fixture_and_broken_fallback_without_file() {
         .resolve(&crate::source::test_support::document_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -775,11 +781,13 @@ fn single_file_preparation_handles_lines_cardinality_and_shared_membership() {
         .unwrap();
     let bindings = [
         FilePreparationBinding {
+            factory: crate::index::storage::test_factory(),
             collection: CollectionId(0),
             definition: &definitions[0],
             source: &source,
         },
         FilePreparationBinding {
+            factory: crate::index::storage::test_factory(),
             collection: CollectionId(1),
             definition: &definitions[1],
             source: &source,
@@ -853,6 +861,7 @@ fn single_file_preparation_preserves_broken_fallback_and_bounded_chunks() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -932,6 +941,7 @@ fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
         .resolve(&crate::source::test_support::document_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -1004,6 +1014,7 @@ fn measure_single_file_preparation_cost() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
+        factory: crate::index::storage::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -2582,6 +2593,7 @@ fn observed_handle_supplies_whole_document_while_path_is_replaced() {
         &root,
         input,
         &[FilePreparationBinding {
+            factory: crate::index::storage::test_factory(),
             collection: CollectionId(0),
             definition: &definition,
             source: &source,

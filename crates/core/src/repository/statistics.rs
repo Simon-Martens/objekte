@@ -2,12 +2,118 @@
 
 use std::collections::BTreeMap;
 
-use crate::index::bigram::BigramConstructionStats;
 use crate::inference::InferenceBuildStats;
 use serde::Serialize;
 
 /// Simultaneous use of the shared streaming budget. Byte values describe
 /// owned Rust buffer capacity, charged work or an explicit index estimate.
+#[derive(Clone, Debug, Default, Serialize)]
+pub(crate) struct BigramConstructionStats {
+    pub chunk_element_size: usize,
+    pub span_element_size: usize,
+    pub block_element_size: usize,
+    pub pending_element_size: usize,
+    pub chunk_len: usize,
+    pub chunk_capacity: usize,
+    pub normal_span_len: usize,
+    pub normal_span_capacity: usize,
+    pub normal_block_len: usize,
+    pub normal_block_capacity: usize,
+    pub skip_span_len: usize,
+    pub skip_span_capacity: usize,
+    pub skip_block_len: usize,
+    pub skip_block_capacity: usize,
+    pub pending_normal_capacity: usize,
+    pub pending_skip_capacity: usize,
+    pub retained_capacity_bytes: usize,
+    pub live_payload_bytes: usize,
+    pub diagnostic_counter_bytes: usize,
+    pub copied_block_bytes: u64,
+    pub admitted_chunks: u64,
+    /// Lower bound for HashMap-backed scratch: excludes control bytes and
+    /// allocator rounding. Maxima are per contribution, not summed peaks.
+    pub worker_scratch_peak_capacity_bytes: usize,
+    pub worker_scratch_after_flush_capacity_bytes: usize,
+    pub pending_peak_capacity_bytes: usize,
+    pub gram_set_lookups: u64,
+    pub duplicate_bit_ors: u64,
+    pub sorted_entries: u64,
+    pub add_segment_ns: u64,
+    pub scratch_drain_ns: u64,
+    pub sort_ns: u64,
+    pub pack_ns: u64,
+    pub validation_ns: u64,
+    pub admission_merge_ns: u64,
+}
+
+impl BigramConstructionStats {
+    pub fn absorb(&mut self, other: Self) {
+        self.chunk_element_size = self.chunk_element_size.max(other.chunk_element_size);
+        self.span_element_size = self.span_element_size.max(other.span_element_size);
+        self.block_element_size = self.block_element_size.max(other.block_element_size);
+        self.pending_element_size = self.pending_element_size.max(other.pending_element_size);
+        self.chunk_len = self.chunk_len.saturating_add(other.chunk_len);
+        self.chunk_capacity = self.chunk_capacity.saturating_add(other.chunk_capacity);
+        self.normal_span_len = self.normal_span_len.saturating_add(other.normal_span_len);
+        self.normal_span_capacity = self
+            .normal_span_capacity
+            .saturating_add(other.normal_span_capacity);
+        self.normal_block_len = self.normal_block_len.saturating_add(other.normal_block_len);
+        self.normal_block_capacity = self
+            .normal_block_capacity
+            .saturating_add(other.normal_block_capacity);
+        self.skip_span_len = self.skip_span_len.saturating_add(other.skip_span_len);
+        self.skip_span_capacity = self
+            .skip_span_capacity
+            .saturating_add(other.skip_span_capacity);
+        self.skip_block_len = self.skip_block_len.saturating_add(other.skip_block_len);
+        self.skip_block_capacity = self
+            .skip_block_capacity
+            .saturating_add(other.skip_block_capacity);
+        self.pending_normal_capacity = self
+            .pending_normal_capacity
+            .saturating_add(other.pending_normal_capacity);
+        self.pending_skip_capacity = self
+            .pending_skip_capacity
+            .saturating_add(other.pending_skip_capacity);
+        self.retained_capacity_bytes = self
+            .retained_capacity_bytes
+            .saturating_add(other.retained_capacity_bytes);
+        self.live_payload_bytes = self
+            .live_payload_bytes
+            .saturating_add(other.live_payload_bytes);
+        self.diagnostic_counter_bytes = self
+            .diagnostic_counter_bytes
+            .saturating_add(other.diagnostic_counter_bytes);
+        self.copied_block_bytes = self
+            .copied_block_bytes
+            .saturating_add(other.copied_block_bytes);
+        self.admitted_chunks = self.admitted_chunks.saturating_add(other.admitted_chunks);
+        self.worker_scratch_peak_capacity_bytes = self
+            .worker_scratch_peak_capacity_bytes
+            .max(other.worker_scratch_peak_capacity_bytes);
+        self.worker_scratch_after_flush_capacity_bytes = self
+            .worker_scratch_after_flush_capacity_bytes
+            .max(other.worker_scratch_after_flush_capacity_bytes);
+        self.pending_peak_capacity_bytes = self
+            .pending_peak_capacity_bytes
+            .max(other.pending_peak_capacity_bytes);
+        self.gram_set_lookups = self.gram_set_lookups.saturating_add(other.gram_set_lookups);
+        self.duplicate_bit_ors = self
+            .duplicate_bit_ors
+            .saturating_add(other.duplicate_bit_ors);
+        self.sorted_entries = self.sorted_entries.saturating_add(other.sorted_entries);
+        self.add_segment_ns = self.add_segment_ns.saturating_add(other.add_segment_ns);
+        self.scratch_drain_ns = self.scratch_drain_ns.saturating_add(other.scratch_drain_ns);
+        self.sort_ns = self.sort_ns.saturating_add(other.sort_ns);
+        self.pack_ns = self.pack_ns.saturating_add(other.pack_ns);
+        self.validation_ns = self.validation_ns.saturating_add(other.validation_ns);
+        self.admission_merge_ns = self
+            .admission_merge_ns
+            .saturating_add(other.admission_merge_ns);
+    }
+}
+
 /// Optional aggregate timing of the ordered merge. Values from separate
 /// batches are summed; `remainder_ns` includes timer and drop boundaries.
 #[derive(Clone, Copy, Debug, Default, Serialize)]

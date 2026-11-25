@@ -14,6 +14,7 @@ use serde::Serialize;
 
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::storage_diagnostic_enabled;
+use crate::index::storage::StorageFactory;
 use crate::inference::InferenceConfig;
 use crate::model::{CollectionId, FileId};
 use crate::repository::configuration::CollectionDefinition;
@@ -203,6 +204,7 @@ pub(crate) fn process_repository_file_batches(
 ) -> Result<BuildScheduleStats, String> {
     process_repository_file_batches_profiled(
         pool,
+        crate::index::storage::test_factory(),
         root,
         jobs,
         source_files,
@@ -215,6 +217,7 @@ pub(crate) fn process_repository_file_batches(
 
 pub(crate) fn process_repository_file_batches_profiled(
     pool: &ThreadPool,
+    factory: &Arc<dyn StorageFactory>,
     root: Arc<PathBuf>,
     jobs: &[RepositoryFileJob],
     source_files: Arc<Vec<SourceFileInput>>,
@@ -311,11 +314,13 @@ pub(crate) fn process_repository_file_batches_profiled(
             let collection = jobs[index].collection;
             let source_files = Arc::clone(&source_files);
             let counters = Arc::clone(&counters);
+            let factory = Arc::clone(factory);
             let dispatched_at = crate::measurement::timer::start_if_enabled(profile_build);
             pool.spawn(move || {
                 let started_at = crate::measurement::timer::start_if_enabled(profile_build);
                 let result = counters.run(|| {
                     process_batch_profiled(
+                        factory.as_ref(),
                         &root,
                         &definition,
                         collection,

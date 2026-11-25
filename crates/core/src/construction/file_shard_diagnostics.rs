@@ -82,6 +82,7 @@ pub fn measure_direct_shard_build(
     let started = std::time::Instant::now();
     let stats = process_repository_file_batches_profiled(
         &pool,
+        &repository.storage_factory,
         Arc::new(root.clone()),
         &jobs,
         source_files,

@@ -46,6 +46,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
                     .map(|duration| duration.as_nanos() as i128),
             },
             &[FilePreparationBinding {
+                factory: crate::index::storage::test_factory(),
                 collection: CollectionId(collection_index as u32),
                 definition: collection.required_file_definition(),
                 source: &collection.required_file_reader(),

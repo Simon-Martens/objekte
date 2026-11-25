@@ -351,6 +351,20 @@ struct OrderedFileFactory {
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
+    fn prepare_file_records(
+        &self,
+        batch: crate::index::storage::worker::FileWorkerBatch<'_>,
+    ) -> StorageResult<crate::construction::batch::BatchContribution> {
+        crate::index::storage::default_factory().prepare_file_records(batch)
+    }
+
+    fn prepare_direct_records(
+        &self,
+        batch: crate::index::storage::worker::DirectRecordBatch<'_>,
+    ) -> StorageResult<crate::index::storage::worker::PreparedDirectBatch> {
+        crate::index::storage::default_factory().prepare_direct_records(batch)
+    }
+
     fn file_catalog(
         &self,
         base: &dyn FileCatalogBase,

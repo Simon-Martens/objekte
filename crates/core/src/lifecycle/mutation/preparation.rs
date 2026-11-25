@@ -261,6 +261,7 @@ pub(crate) fn prepare_file_at(
         .map_err(IndexError::Build)?
         {
             bindings.push(FilePreparationBinding {
+                factory: &repository.storage_factory,
                 collection: collection.generation.collection,
                 definition: collection.required_file_definition(),
                 source: &collection.required_file_reader(),
@@ -362,6 +363,7 @@ pub(super) fn prepare_replacement_bytes(
         .map_err(IndexError::Build)?
         {
             bindings.push(FilePreparationBinding {
+                factory: &repository.storage_factory,
                 collection: collection.generation.collection,
                 definition: collection.required_file_definition(),
                 source: &collection.required_file_reader(),
