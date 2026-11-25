@@ -16,6 +16,7 @@ pub struct StreamMemoryStats {
     pub admitted_decoder_bytes: u64,
     pub active_decoders: u64,
     pub completed_chunks: u64,
+    pub unsealed_contributions: u64,
     pub private_segments: u64,
     pub private_index_family_bytes: u64,
     pub pending_and_admitted_bytes: u64,
@@ -31,6 +32,9 @@ impl StreamMemoryStats {
             .max(other.admitted_decoder_bytes);
         self.active_decoders = self.active_decoders.max(other.active_decoders);
         self.completed_chunks = self.completed_chunks.max(other.completed_chunks);
+        self.unsealed_contributions = self
+            .unsealed_contributions
+            .max(other.unsealed_contributions);
         self.private_segments = self.private_segments.max(other.private_segments);
         self.private_index_family_bytes = self
             .private_index_family_bytes

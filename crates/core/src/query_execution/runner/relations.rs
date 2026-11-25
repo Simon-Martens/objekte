@@ -198,8 +198,7 @@ fn collect_relation_target_ids(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     hop: &crate::query::binding::relation::BoundRelationHop,
     mut target_candidates: impl FnMut(
-        &IndexedCollectionSegment,
-        &ActiveRecords,
+        &PublishedSegment,
         &CollectionState,
     ) -> Result<Option<RoaringBitmap>, String>,
 ) -> Result<Option<RelationTargetPrune>, String> {
@@ -212,7 +211,7 @@ fn collect_relation_target_ids(
     let mut candidate_count = 0u64;
     let mut active_count = 0u64;
     for published in segments[target_index].iter() {
-        let Some(mut may) = target_candidates(&published.index, &published.active, target)? else {
+        let Some(mut may) = target_candidates(published, target)? else {
             return Ok(None);
         };
         may &= published.active.bitmap();
@@ -277,6 +276,7 @@ fn exact_relation_source_plan(
     let mut target_ids = HashSet::new();
     for published in segments[hop.to.0 as usize].iter() {
         let bounds = segment_filter_bounds_with_catalog(
+            published.id,
             &published.index,
             &published.active,
             &BoundExpr::Term(terminal.clone()),
@@ -326,10 +326,11 @@ fn relation_target_prune(
             base_active,
             segments,
             hop,
-            |segment, active, collection| {
+            |published, collection| {
                 segment_filter_bounds(
-                    segment,
-                    active,
+                    published.id,
+                    &published.index,
+                    &published.active,
                     &BoundExpr::Term(terminal.clone()),
                     collection,
                 )
@@ -352,7 +353,9 @@ fn relation_target_prune(
             base_active,
             segments,
             hop,
-            |segment, _active, collection| segment_fts_candidates(segment, collection, &local),
+            |published, collection| {
+                segment_fts_candidates(published.id, &published.index, collection, &local)
+            },
         );
     }
     Ok(None)
@@ -396,6 +399,7 @@ fn prune_relation_candidates(
     let filter_may = filter
         .map(|filter| {
             segment_filter_bounds_with_catalog(
+                published.id,
                 &published.index,
                 &published.active,
                 filter,
@@ -406,7 +410,7 @@ fn prune_relation_candidates(
         })
         .transpose()?;
     let fts_may = fts
-        .map(|fts| segment_fts_candidates(&published.index, collection, fts))
+        .map(|fts| segment_fts_candidates(published.id, &published.index, collection, fts))
         .transpose()?
         .flatten();
     let local_candidates = match (filter_may, fts_may) {
@@ -694,6 +698,7 @@ fn try_direct_relation_page(
     if let Some(local_filter) = local_filter {
         for published in segments[*source_index].iter() {
             let bounds = segment_filter_bounds_with_catalog(
+                published.id,
                 &published.index,
                 &published.active,
                 local_filter,
@@ -785,6 +790,7 @@ fn try_direct_relation_page(
         let (may, must) = match &predicate {
             DirectRelationPredicate::Term(term) => {
                 let bounds = segment_filter_bounds_with_catalog(
+                    published.id,
                     segment,
                     &published.active,
                     &BoundExpr::Term((*term).clone()),
@@ -797,7 +803,7 @@ fn try_direct_relation_page(
                 )
             }
             DirectRelationPredicate::Fts(local) => (
-                segment_fts_candidates(segment, target_collection, local)?
+                segment_fts_candidates(published.id, segment, target_collection, local)?
                     .unwrap_or_else(|| published.active.bitmap()),
                 None,
             ),
@@ -1381,6 +1387,7 @@ fn try_semijoin_relation_page(
     for published in segments[*collection_index].iter() {
         let may = if let Some(filter) = filter {
             let bounds = segment_filter_bounds_with_catalog(
+                published.id,
                 &published.index,
                 &published.active,
                 filter,
@@ -2318,6 +2325,7 @@ fn native_multi_hop_truth(
     let mut matched = HashSet::new();
     for published in segments[terminal_collection].iter() {
         let bounds = segment_filter_bounds_with_catalog(
+            published.id,
             &published.index,
             &published.active,
             &BoundExpr::Term((*related.terminal).clone()),
@@ -2540,6 +2548,7 @@ fn native_boolean_truth(
             let collection_index = prepared.collection_index;
             for (segment_index, published) in segments[collection_index].iter().enumerate() {
                 let bounds = segment_filter_bounds_with_catalog(
+                    published.id,
                     &published.index,
                     &published.active,
                     expression,

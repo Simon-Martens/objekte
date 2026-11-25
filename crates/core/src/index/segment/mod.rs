@@ -761,7 +761,10 @@ impl IndexedCollectionSegment {
         }
     }
 
-    pub fn component_descriptors(&self) -> Vec<NativeComponentDescriptor<'_>> {
+    pub fn component_descriptors(
+        &self,
+        published_id: SegmentId,
+    ) -> Vec<NativeComponentDescriptor<'_>> {
         let mut descriptors = Vec::with_capacity(
             self.postings.fields.len()
                 + self
@@ -775,7 +778,7 @@ impl IndexedCollectionSegment {
         descriptors.extend(self.postings.fields.iter().map(|(path, _)| {
             NativeComponentDescriptor {
                 collection: self.collection,
-                segment: self.id,
+                segment: published_id,
                 kind: NativeComponentKind::DeclaredPosting,
                 path: Some(path),
                 binding: None,
@@ -788,7 +791,7 @@ impl IndexedCollectionSegment {
                     .keys()
                     .map(|path| NativeComponentDescriptor {
                         collection: self.collection,
-                        segment: self.id,
+                        segment: published_id,
                         kind: NativeComponentKind::InferredPosting,
                         path: Some(path),
                         binding: None,
@@ -798,7 +801,7 @@ impl IndexedCollectionSegment {
         descriptors.extend(self.custom_postings.keys().map(|(path, binding)| {
             NativeComponentDescriptor {
                 collection: self.collection,
-                segment: self.id,
+                segment: published_id,
                 kind: NativeComponentKind::CustomPosting,
                 path: Some(path),
                 binding: Some(binding),
@@ -806,14 +809,14 @@ impl IndexedCollectionSegment {
         }));
         descriptors.push(NativeComponentDescriptor {
             collection: self.collection,
-            segment: self.id,
+            segment: published_id,
             kind: NativeComponentKind::RawText,
             path: None,
             binding: None,
         });
         descriptors.push(NativeComponentDescriptor {
             collection: self.collection,
-            segment: self.id,
+            segment: published_id,
             kind: NativeComponentKind::FallbackText,
             path: None,
             binding: None,
@@ -821,7 +824,7 @@ impl IndexedCollectionSegment {
         descriptors.extend(self.custom_text.keys().map(|(path, binding)| {
             NativeComponentDescriptor {
                 collection: self.collection,
-                segment: self.id,
+                segment: published_id,
                 kind: NativeComponentKind::FieldText,
                 path: Some(path),
                 binding: Some(binding),
@@ -829,14 +832,14 @@ impl IndexedCollectionSegment {
         }));
         descriptors.push(NativeComponentDescriptor {
             collection: self.collection,
-            segment: self.id,
+            segment: published_id,
             kind: NativeComponentKind::Sorting,
             path: None,
             binding: None,
         });
         descriptors.push(NativeComponentDescriptor {
             collection: self.collection,
-            segment: self.id,
+            segment: published_id,
             kind: NativeComponentKind::Relations,
             path: None,
             binding: None,

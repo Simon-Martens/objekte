@@ -63,6 +63,7 @@ pub(crate) struct NativeSegmentProvider<'a> {
 
 impl<'a> NativeSegmentProvider<'a> {
     pub(crate) fn new(
+        published_id: crate::index::segment::SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
         file_catalog: Option<&'a FileCatalog>,
@@ -75,7 +76,7 @@ impl<'a> NativeSegmentProvider<'a> {
                 collection.repository_instance,
                 collection.generation.collection.0,
                 collection.generation.generation,
-                Some(segment.id.get()),
+                Some(published_id.get()),
             ),
             instance_id: collection.repository_instance,
             operations: Mutex::new(Vec::new()),
@@ -453,8 +454,12 @@ mod tests {
         else {
             unreachable!()
         };
-        let provider =
-            NativeSegmentProvider::new(&published.index, collection, Some(&view.0.catalog));
+        let provider = NativeSegmentProvider::new(
+            published.id,
+            &published.index,
+            collection,
+            Some(&view.0.catalog),
+        );
         let domain = provider.domain();
         let term_id = TermId::new(7);
         let mut offers = OfferList::new();
@@ -529,4 +534,216 @@ fn source_kind_cost(kind: AccessPathKind) -> f64 {
         AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted => 4.0,
         AccessPathKind::Scanner => 8.0,
     }
+}
+
+#[cfg(test)]
+#[test]
+fn managed_queries_and_components_use_distinct_published_domains() {
+    use crate::lifecycle::{Index, IndexView};
+    use crate::query::binding::{filter::BoundExpr, fts::bind_fts};
+    use crate::query::options::ReturnMode;
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
+    use crate::query_access::text::NativeSegmentTextProvider;
+    use crate::query_diagnostics::trace::ObservationStatus;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::source::{SourceFormat, registry::SourceRegistry};
+    use std::collections::BTreeSet;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-review-query-domains-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(crate::schema::FieldDefinition {
+            path: vec!["year".into()],
+            kind: crate::model::LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let schema = definition.schema.clone();
+    let index = Index::start_build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let path = root.join("data/first.json");
+    std::fs::write(
+        &path,
+        br#"{"id":"first","year":2000,"title":"domainneedle"}"#,
+    )
+    .unwrap();
+    let first = index.add_file(&path).unwrap();
+    let second = root.join("data/second.json");
+    std::fs::write(
+        &second,
+        br#"{"id":"second","year":2000,"title":"domainneedle"}"#,
+    )
+    .unwrap();
+    index.add_file(&second).unwrap();
+    let pinned = index.view().unwrap();
+    let filter = parse_filter("year = 2000").unwrap();
+    let fts = FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "domainneedle".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    };
+    let assert_view = |view: &IndexView, ids: [&str; 2]| {
+        let repo = view.repository();
+        let collection = &repo.collections()[0];
+        let expected = view
+            .segment_summaries()
+            .into_iter()
+            .filter(|summary| summary.active)
+            .map(|summary| {
+                format!(
+                    "{:?}",
+                    domain_id(
+                        collection.repository_instance,
+                        summary.collection.0,
+                        collection.generation.generation,
+                        Some(summary.id.get())
+                    )
+                )
+            })
+            .collect::<BTreeSet<_>>();
+        assert_eq!(expected.len(), 2);
+        for query in [(Some(filter.clone()), None), (None, Some(fts.clone()))] {
+            let (result, trace) = view
+                .explain_analyze(&Query {
+                    collections: vec!["entries".into()],
+                    filter: query.0,
+                    fts: query.1,
+                    options: QueryOptions {
+                        sort: Vec::new(),
+                        limit: 10,
+                        offset: 0,
+                        count: true,
+                        return_mode: ReturnMode::Locator,
+                        evidence: false,
+                    },
+                })
+                .unwrap();
+            let hits: BTreeSet<_> = result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect();
+            assert_eq!(hits, ids.into_iter().collect());
+            let actual = trace
+                .iter()
+                .flat_map(|trace| &trace.observations)
+                .filter(|event| {
+                    event.status == ObservationStatus::Executed && event.input_records > 0
+                })
+                .map(|event| event.domain.clone())
+                .collect::<BTreeSet<_>>();
+            assert_eq!(actual, expected);
+        }
+        let segments = view.segments(crate::model::CollectionId(0)).unwrap();
+        for segment in segments {
+            assert!(
+                segment
+                    .index
+                    .component_descriptors(segment.id)
+                    .iter()
+                    .all(|desc| desc.segment == segment.id)
+            );
+        }
+    };
+    assert_view(&pinned, ["first", "second"]);
+    let collection = &pinned.repository().collections()[0];
+    let segments = pinned.segments(crate::model::CollectionId(0)).unwrap();
+    let [left, right] = segments else {
+        panic!("two independent placements")
+    };
+    let left_structured =
+        NativeSegmentProvider::new(left.id, &left.index, collection, Some(&pinned.0.catalog));
+    let right_structured =
+        NativeSegmentProvider::new(right.id, &right.index, collection, Some(&pinned.0.catalog));
+    let left_text = NativeSegmentTextProvider::new(left.id, &left.index, collection);
+    let right_text = NativeSegmentTextProvider::new(right.id, &right.index, collection);
+    let mask = left.active.bitmap();
+    let BoundExpr::Term(term) =
+        crate::query::binding::filter::bind_filter(&filter, &schema).unwrap()
+    else {
+        panic!("expected structured term");
+    };
+    let bound_fts = bind_fts(&fts, &schema).unwrap();
+    let term_id = TermId::new(0);
+    for (provider, domain, request, foreign) in [
+        (
+            &right_structured as &dyn IndexAccessProvider,
+            right_structured.domain(),
+            AccessRequest::Structured(&term),
+            SlotInput::new(
+                left_structured.domain(),
+                &mask,
+                SlotSet::from_owned(mask.clone()),
+            ),
+        ),
+        (
+            &right_text as &dyn IndexAccessProvider,
+            right_text.domain(),
+            AccessRequest::Text(&bound_fts),
+            left_text.input_for(&mask),
+        ),
+    ] {
+        let mut offers = OfferList::new();
+        provider
+            .propose(
+                term_id,
+                request,
+                InputEstimate {
+                    domain,
+                    domain_len: 1,
+                    input_len: 1,
+                    mean_record_bytes: 40.0,
+                    mean_records_per_file: 1.0,
+                    file_count: 1,
+                },
+                &mut offers,
+            )
+            .unwrap();
+        let offer = offers.iter().next().expect("native offer");
+        assert!(
+            provider
+                .apply(
+                    term_id,
+                    request,
+                    offer.id(),
+                    foreign,
+                    &AccessExecution { context: None }
+                )
+                .is_err()
+        );
+    }
+    let replacement = root.join("data/replacement.json");
+    std::fs::write(
+        &replacement,
+        br#"{"id":"updated","year":2000,"title":"domainneedle"}"#,
+    )
+    .unwrap();
+    index.update_file(first.file, &replacement).unwrap();
+    assert_view(&index.view().unwrap(), ["updated", "second"]);
+    assert_view(&pinned, ["first", "second"]);
+    std::fs::remove_dir_all(root).unwrap();
 }

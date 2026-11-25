@@ -2500,3 +2500,485 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
     assert_eq!(index.view().unwrap().search(&query).unwrap().count, Some(9));
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn registered_cancellation_keeps_prior_group_and_drains_active_callback() {
+    let root = std::env::temp_dir().join(format!("objekte-review-cancel-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/held.pack"), b"{\"id\":\"held0\"}\n").unwrap();
+    std::fs::write(root.join("data/peer.pack"), b"{\"id\":\"peer\"}\n").unwrap();
+    let (entered, arrivals) = mpsc::sync_channel(1);
+    let (release, exits) = mpsc::channel();
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "packing",
+            1,
+            "pack",
+            Arc::new(RegisteredPackingReader {
+                gate: Some(Arc::new(RegisteredPackingGate {
+                    entered,
+                    released: std::sync::Mutex::new(exits),
+                    fail: false,
+                })),
+                gate_only_this_binding: false,
+            }),
+        )
+        .unwrap();
+    let task = Index::start_build(
+        &root,
+        vec![registered_packing_definition("entries", "packing")],
+        review_stream_options(),
+        sources,
+    )
+    .unwrap();
+    let index = task.wait_catalogue().unwrap();
+    let arrival = arrivals.recv_timeout(std::time::Duration::from_secs(5));
+    let mut query = all_query();
+    query.collections = vec!["entries".into()];
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    let pinned = loop {
+        let view = index.view().unwrap();
+        if view
+            .search_available(&query)
+            .unwrap()
+            .result
+            .hits
+            .iter()
+            .any(|hit| hit.record_id == "peer")
+        {
+            break Some(view);
+        }
+        if std::time::Instant::now() >= deadline {
+            break None;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(2));
+    };
+    task.cancel();
+    let _ = release.send(());
+    let terminal = task.wait_complete();
+    arrival.unwrap();
+    assert!(matches!(terminal, Err(IndexError::Cancelled)));
+    assert_eq!(task.status().unwrap().phase, InitialBuildPhase::Cancelled);
+    let pinned = pinned.expect("peer was visible before cancelling");
+    let final_view = index.view().unwrap();
+    assert_eq!(final_view.revision(), pinned.revision());
+    for view in [&pinned, &final_view] {
+        let result = view.search_available(&query).unwrap().result;
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["peer"]
+        );
+    }
+    assert_eq!(
+        final_view.repository().stream_budget.current(),
+        Default::default()
+    );
+    eprintln!("cancelled: prior group retained, two views agree, zero outstanding work");
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+fn review_stream_options() -> RepositoryOptions {
+    RepositoryOptions {
+        build_workers: Some(NonZeroUsize::new(4).unwrap()),
+        segment_policy: crate::index::segment::SegmentPolicy {
+            target_records: NonZeroUsize::new(16).unwrap(),
+            max_files: NonZeroUsize::MIN,
+        },
+        ..Default::default()
+    }
+}
+
+#[test]
+fn registered_fatal_completion_waits_for_held_sibling() {
+    use std::io::Read;
+    use std::sync::Mutex;
+    use std::time::Duration;
+
+    struct FatalAndHeld {
+        entered: mpsc::SyncSender<u8>,
+        fatal: Mutex<mpsc::Receiver<()>>,
+        held: Mutex<mpsc::Receiver<()>>,
+        exited: Arc<AtomicUsize>,
+    }
+
+    impl SourceReader for FatalAndHeld {
+        fn name(&self) -> &'static str {
+            "review-fatal-and-held"
+        }
+        fn supports_streaming_build(&self) -> bool {
+            true
+        }
+        fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> {
+            unreachable!()
+        }
+        fn parse(&self, _: &[u8]) -> Result<ExtractedRecord, String> {
+            unreachable!()
+        }
+        fn stream_build_chunks(
+            &self,
+            input: &mut dyn Read,
+            _: usize,
+            _: usize,
+            _: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+        ) -> Option<Result<(), String>> {
+            Some((|| {
+                let mut kind = [0];
+                input.read_exact(&mut kind).map_err(|e| e.to_string())?;
+                self.entered.send(kind[0]).map_err(|e| e.to_string())?;
+                let gate = if kind[0] == b'F' {
+                    &self.fatal
+                } else {
+                    &self.held
+                };
+                let _ = gate.lock().unwrap().recv_timeout(Duration::from_secs(10));
+                self.exited.fetch_add(1, Ordering::Release);
+                if kind[0] == b'F' {
+                    Err("first meaningful fatal error".into())
+                } else {
+                    Ok(())
+                }
+            })())
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!("objekte-review-fatal-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/fatal.pack"), b"F").unwrap();
+    std::fs::write(root.join("data/held.pack"), b"H").unwrap();
+    let (entered, arrivals) = mpsc::sync_channel(2);
+    let (fatal, fatal_gate) = mpsc::channel();
+    let (held, held_gate) = mpsc::channel();
+    let exited = Arc::new(AtomicUsize::new(0));
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "packing",
+            1,
+            "pack",
+            Arc::new(FatalAndHeld {
+                entered,
+                fatal: Mutex::new(fatal_gate),
+                held: Mutex::new(held_gate),
+                exited: Arc::clone(&exited),
+            }),
+        )
+        .unwrap();
+    let task = Index::start_build(
+        &root,
+        vec![registered_packing_definition("entries", "packing")],
+        review_stream_options(),
+        sources,
+    )
+    .unwrap();
+    let index = task.wait_catalogue().unwrap();
+    let before = index.view().unwrap().revision();
+    let first = arrivals.recv_timeout(Duration::from_secs(5));
+    let second = arrivals.recv_timeout(Duration::from_secs(5));
+    let (done, terminal) = mpsc::sync_channel(1);
+    std::thread::scope(|scope| {
+        scope.spawn(|| {
+            let _ = done.send(task.wait_complete());
+        });
+        let _ = fatal.send(());
+        let deadline = std::time::Instant::now() + Duration::from_secs(5);
+        while exited.load(Ordering::Acquire) == 0 && std::time::Instant::now() < deadline {
+            std::thread::sleep(Duration::from_millis(2));
+        }
+        let prior = terminal.recv_timeout(Duration::from_millis(150));
+        let active = index
+            .view()
+            .unwrap()
+            .repository()
+            .stream_budget
+            .current()
+            .active_callbacks;
+        let _ = held.send(());
+        assert!(
+            matches!(prior, Err(mpsc::RecvTimeoutError::Timeout)),
+            "terminal before sibling exit"
+        );
+        assert_eq!(active, 1);
+        let outcome = terminal.recv_timeout(Duration::from_secs(5)).unwrap();
+        assert!(
+            matches!(outcome, Err(IndexError::Build(reason)) if reason.contains("first meaningful fatal error"))
+        );
+    });
+    let mut entered = [first.unwrap(), second.unwrap()];
+    entered.sort();
+    assert_eq!(entered, *b"FH");
+    assert_eq!(exited.load(Ordering::Acquire), 2);
+    assert_eq!(task.status().unwrap().phase, InitialBuildPhase::Failed);
+    let view = index.view().unwrap();
+    assert_eq!(view.revision(), before);
+    assert_eq!(
+        view.repository().stream_budget.current(),
+        Default::default()
+    );
+    eprintln!("failed: terminal delayed until two callbacks exited, zero outstanding work");
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn registered_empty_frames_keep_constant_unsealed_work() {
+    use std::io::Read;
+    struct HeaderReader;
+    impl SourceReader for HeaderReader {
+        fn name(&self) -> &'static str {
+            "review-header"
+        }
+        fn supports_streaming_build(&self) -> bool {
+            true
+        }
+        fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> {
+            unreachable!()
+        }
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonLinesReader.parse(bytes)
+        }
+        fn stream_build_chunks(
+            &self,
+            input: &mut dyn Read,
+            _: usize,
+            _: usize,
+            emit: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+        ) -> Option<Result<(), String>> {
+            Some((|| {
+                let mut offset = 0;
+                let mut tag = [0];
+                while input.read(&mut tag).map_err(|e| e.to_string())? != 0 {
+                    if tag[0] == b'!' {
+                        return Err("late header-reader failure".into());
+                    }
+                    let (bytes, ranges) = if tag[0] == b'#' {
+                        (tag.to_vec(), Vec::new())
+                    } else {
+                        let mut bytes = tag.to_vec();
+                        input.read_to_end(&mut bytes).map_err(|e| e.to_string())?;
+                        let end = bytes.len() as u64;
+                        (bytes, vec![ByteRange { start: 0, end }])
+                    };
+                    let next = offset + bytes.len() as u64;
+                    emit(crate::source::BuildChunk {
+                        bytes,
+                        ranges,
+                        file_offset: offset,
+                        preceding_lines: 0,
+                    })?;
+                    offset = next;
+                }
+                Ok(())
+            })())
+        }
+    }
+
+    for (headers, trailer) in [
+        (64, &b""[..]),
+        (30_000, &b""[..]),
+        (30_000, &br#"{"id":"tail"}"#[..]),
+        (30_000, &b"!"[..]),
+    ] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-review-headers-{}-{headers}-{}",
+            std::process::id(),
+            trailer.len()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        let mut input = vec![b'#'; headers];
+        input.extend_from_slice(trailer);
+        std::fs::write(root.join("data/headers.pack"), input).unwrap();
+        std::fs::write(root.join("data/other.pack"), br#"{"id":"peer"}"#).unwrap();
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register("packing", 1, "pack", Arc::new(HeaderReader))
+            .unwrap();
+        let task = Index::start_build(
+            &root,
+            vec![registered_packing_definition("entries", "packing")],
+            review_stream_options(),
+            sources,
+        )
+        .unwrap();
+        let index = task.wait_catalogue().unwrap();
+        let catalogue_view = index.view().unwrap();
+        let terminal = task.wait_complete();
+        let peak = catalogue_view.repository().stream_budget.peak();
+        assert!(
+            peak.unsealed_contributions <= 2,
+            "{headers} frames: {peak:?}"
+        );
+        assert!(peak.private_segments <= 1, "{peak:?}");
+        eprintln!(
+            "zero_ranges={headers} trailer_bytes={} unsealed_peak={} private_segment_peak={}",
+            trailer.len(),
+            peak.unsealed_contributions,
+            peak.private_segments
+        );
+        assert_eq!(
+            catalogue_view.repository().stream_budget.current(),
+            Default::default()
+        );
+        let view = index.view().unwrap();
+        let catalog = view.file_catalog().unwrap();
+        let file = catalog
+            .file_by_path(std::path::Path::new("data/headers.pack"))
+            .unwrap();
+        if trailer == b"!" {
+            assert!(
+                matches!(terminal, Err(IndexError::Build(error)) if error.contains("late header-reader failure"))
+            );
+            assert!(catalog.records_for_file(file.id).unwrap().is_empty());
+            assert!(
+                view.segments(crate::model::CollectionId(0))
+                    .unwrap()
+                    .iter()
+                    .all(|segment| !segment.index.file_index.contains_key(&file.id))
+            );
+        } else {
+            terminal.unwrap();
+            assert_eq!(task.status().unwrap().processed_files, 2);
+            assert_eq!(file.collections, &[crate::model::CollectionId(0)]);
+            assert_eq!(
+                catalog.records_for_file(file.id).unwrap().len(),
+                usize::from(!trailer.is_empty())
+            );
+            if !trailer.is_empty() {
+                let result = view
+                    .get_record("entries", "tail", ReturnMode::Locator)
+                    .unwrap()
+                    .unwrap();
+                assert_eq!(
+                    result.source_range(),
+                    Some(ByteRange {
+                        start: headers as u64,
+                        end: (headers + trailer.len()) as u64
+                    })
+                );
+            }
+            assert_eq!(
+                view.startup_stats().build_framing_chunks,
+                (headers + usize::from(!trailer.is_empty()) + 1) as u64
+            );
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn large_registered_file_decodes_concurrently_beside_a_small_file() {
+    struct OverlappingParser {
+        arrival: mpsc::SyncSender<()>,
+        release: Arc<(std::sync::Mutex<bool>, std::sync::Condvar)>,
+    }
+
+    impl SourceReader for OverlappingParser {
+        fn name(&self) -> &'static str {
+            "mixed-decoder-gate"
+        }
+        fn supports_streaming_build(&self) -> bool {
+            true
+        }
+        fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> {
+            unreachable!()
+        }
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            if bytes.starts_with(b"{\"id\":\"large") {
+                self.arrival.send(()).map_err(|e| e.to_string())?;
+                let (mutex, changed) = self.release.as_ref();
+                let (guard, timed) = changed
+                    .wait_timeout_while(
+                        mutex.lock().unwrap(),
+                        std::time::Duration::from_secs(10),
+                        |released| !*released,
+                    )
+                    .unwrap();
+                if timed.timed_out() && !*guard {
+                    return Err("timed out waiting for large decoder release".into());
+                }
+            }
+            JsonLinesReader.parse(bytes)
+        }
+        fn stream_build_chunks(
+            &self,
+            input: &mut dyn std::io::Read,
+            max_bytes: usize,
+            _: usize,
+            emit: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+        ) -> Option<Result<(), String>> {
+            let reader = RegisteredPackingReader {
+                gate: None,
+                gate_only_this_binding: false,
+            };
+            reader.stream_build_chunks(input, max_bytes, 1, emit)
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-review-mixed-decoders-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/small.pack"), b"{\"id\":\"small\"}\n").unwrap();
+    let mut bytes = Vec::new();
+    for id in 0..9 {
+        bytes.extend_from_slice(format!("{{\"id\":\"large{id}\"}}").as_bytes());
+        bytes.resize((id + 1) * (1024 * 1024) - 1, b' ');
+        bytes.push(b'\n');
+    }
+    std::fs::write(root.join("data/large.pack"), bytes).unwrap();
+    let (arrival, entered) = mpsc::sync_channel(9);
+    let release = Arc::new((std::sync::Mutex::new(false), std::sync::Condvar::new()));
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "packing",
+            1,
+            "pack",
+            Arc::new(OverlappingParser {
+                arrival,
+                release: Arc::clone(&release),
+            }),
+        )
+        .unwrap();
+    let task = Index::start_build(
+        &root,
+        vec![registered_packing_definition("entries", "packing")],
+        review_stream_options(),
+        sources,
+    )
+    .unwrap();
+    let index = task.wait_catalogue().unwrap();
+    let both = entered
+        .recv_timeout(std::time::Duration::from_secs(5))
+        .and_then(|()| entered.recv_timeout(std::time::Duration::from_secs(5)));
+    let mut query = all_query();
+    query.collections = vec!["entries".into()];
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    let small_only = loop {
+        let view = index.view().unwrap();
+        let hits = view.search_available(&query).unwrap().result.hits;
+        if hits.len() == 1 && hits[0].record_id == "small" {
+            break true;
+        }
+        if both.is_err() || std::time::Instant::now() >= deadline {
+            break false;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(2));
+    };
+    *release.0.lock().unwrap() = true;
+    release.1.notify_all();
+    both.expect("two decoder calls for the large file must overlap");
+    assert!(
+        small_only,
+        "small group must be visible while the large file is private"
+    );
+    let index = task.wait_complete().unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(view.search(&query).unwrap().count, Some(10));
+    assert_eq!(view.startup_stats().build_source_reads, 2);
+    std::fs::remove_dir_all(root).unwrap();
+}

@@ -250,6 +250,7 @@ fn segment_target_candidates(
         }
         let domain = published.active.bitmap();
         let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+            published.id,
             &published.index,
             &published.active,
             expr,
@@ -310,6 +311,7 @@ fn segment_fts_target_candidates(
         }
         advance_slots(work, execution, input.len())?;
         let candidates = crate::query_execution::restrictions::segment_fts_candidates(
+            published.id,
             &published.index,
             collection,
             fts,
@@ -358,6 +360,7 @@ fn segment_expr_estimate(
     let mut candidates = 0u64;
     for published in segments[target_index].iter() {
         let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+            published.id,
             &published.index,
             &published.active,
             expr,
@@ -382,6 +385,7 @@ fn segment_fts_estimate(
     let mut candidates = 0u64;
     for published in segments[target_index].iter() {
         let may = crate::query_execution::restrictions::segment_fts_candidates(
+            published.id,
             &published.index,
             collection,
             fts,
@@ -791,6 +795,7 @@ fn qualified_expression_candidates(
             continue;
         }
         let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+            segment.id,
             &segment.index,
             &segment.active,
             expr,
@@ -839,6 +844,7 @@ fn qualified_fts_candidates(
         }
         advance_slots(work, execution, input.len())?;
         let may = crate::query_execution::restrictions::segment_fts_candidates(
+            segment.id,
             &segment.index,
             collection,
             fts,

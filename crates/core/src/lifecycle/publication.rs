@@ -1388,6 +1388,7 @@ impl Index {
             Option<Arc<crate::construction::inference::InferenceObservation>>,
         )>,
         profile_phases: bool,
+        cancelled: &impl Fn() -> bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
         if segments.is_empty() {
             return Err(IndexError::InvalidPublication(
@@ -1423,7 +1424,7 @@ impl Index {
             .map(|started| started.elapsed().as_nanos() as u64)
             .unwrap_or(0);
         let install_started = crate::measurement::timer::start_if_enabled(profile_phases);
-        let revision = self.publish_prepared_inner(expected, next)?;
+        let revision = self.publish_prepared_inner_if(expected, next, cancelled)?;
         let install_ns = install_started
             .map(|started| started.elapsed().as_nanos() as u64)
             .unwrap_or(0);
@@ -1632,6 +1633,15 @@ impl Index {
         expected: IndexRevision,
         next: PublishedIndex,
     ) -> Result<IndexRevision, IndexError> {
+        self.publish_prepared_inner_if(expected, next, &|| false)
+    }
+
+    fn publish_prepared_inner_if(
+        &self,
+        expected: IndexRevision,
+        next: PublishedIndex,
+        cancelled: &impl Fn() -> bool,
+    ) -> Result<IndexRevision, IndexError> {
         if next.instance_id != self.0.instance_id {
             return Err(IndexError::ForeignInstance);
         }
@@ -1658,6 +1668,12 @@ impl Index {
                     expected,
                     actual: guard.revision,
                 });
+            }
+            // This is the cancellation decision point. A cancellation
+            // observed here wins; after this decision the held lock orders
+            // the completed swap before other publications.
+            if cancelled() {
+                return Err(IndexError::Cancelled);
             }
             std::mem::replace(&mut *guard, next)
         };

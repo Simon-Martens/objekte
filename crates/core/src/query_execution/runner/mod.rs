@@ -1717,6 +1717,7 @@ struct OrRestrictionProbe {
 }
 
 fn exact_or_branch_evidence_fields(
+    published_id: crate::index::segment::SegmentId,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
     filter: &BoundExpr,
@@ -1743,6 +1744,7 @@ fn exact_or_branch_evidence_fields(
     let mut all_exact = true;
     for (part, fields) in parts.iter().zip(child_fields) {
         let bounds = segment_filter_bounds_with_routes(
+            published_id,
             segment,
             active,
             part,
@@ -2101,6 +2103,7 @@ fn try_exact_segment_ordered_page(
             filter
                 .map(|filter| {
                     segment_filter_bounds_with_routes(
+                        published.id,
                         &published.index,
                         &published.active,
                         filter,
@@ -2687,7 +2690,14 @@ fn search_segmented_impl(
                 .as_ref()
                 .zip(text_term)
                 .map(|(fts, term)| {
-                    segment_fts_estimate_with_term(segment, collection, fts, term, domain.len())
+                    segment_fts_estimate_with_term(
+                        published.id,
+                        segment,
+                        collection,
+                        fts,
+                        term,
+                        domain.len(),
+                    )
                 })
                 .transpose()?
                 .flatten();
@@ -2695,6 +2705,7 @@ fn search_segmented_impl(
                 .as_ref()
                 .map(|filter| {
                     segment_filter_estimate(
+                        published.id,
                         segment,
                         collection,
                         Some(catalog),
@@ -2711,7 +2722,13 @@ fn search_segmented_impl(
                     .zip(text_term)
                     .map(|(fts, term)| {
                         segment_fts_bounds_with_term(
-                            segment, collection, fts, term, &domain, context,
+                            published.id,
+                            segment,
+                            collection,
+                            fts,
+                            term,
+                            &domain,
+                            context,
                         )
                     })
                     .transpose()?
@@ -2744,6 +2761,7 @@ fn search_segmented_impl(
                     .as_ref()
                     .map(|filter| {
                         segment_filter_bounds_with_routes(
+                            published.id,
                             segment,
                             &published.active,
                             filter,
@@ -2789,6 +2807,7 @@ fn search_segmented_impl(
                     .zip(text_term)
                     .map(|(fts, term)| {
                         segment_fts_bounds_with_term(
+                            published.id,
                             segment,
                             collection,
                             fts,
@@ -2909,6 +2928,7 @@ fn search_segmented_impl(
                 && metadata_only_filter(filter)
             {
                 exact_or_branch_evidence_fields(
+                    published.id,
                     segment,
                     &published.active,
                     filter,
@@ -4444,6 +4464,7 @@ fn try_lifecycle_ordered_stream(
                 && segment_static_evidence_fields(filter).is_none()
             {
                 let Some(probe) = exact_or_branch_evidence_fields(
+                    segment.id,
                     &segment.index,
                     &segment.active,
                     filter,
@@ -4492,6 +4513,7 @@ fn try_lifecycle_ordered_stream(
                     .map(|filter| {
                         let active = segment.active.bitmap();
                         let bounds = segment_filter_bounds_with_routes(
+                            segment.id,
                             &segment.index,
                             &segment.active,
                             filter,
@@ -4533,6 +4555,7 @@ fn try_lifecycle_ordered_stream(
                         .as_ref()
                         .map_or(&active, |filter| filter.as_ref());
                     segment_fts_bounds_with_term(
+                        segment.id,
                         &segment.index,
                         collection,
                         fts,

@@ -113,7 +113,8 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         &definition.schema,
     )
     .unwrap();
-    let bounds = segment_filter_bounds(&segment, &active, &positive, collection).unwrap();
+    let bounds =
+        segment_filter_bounds(segment.id, &segment, &active, &positive, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [0, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [0]);
     let negative = crate::query::binding::filter::bind_filter(
@@ -121,7 +122,8 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         &definition.schema,
     )
     .unwrap();
-    let bounds = segment_filter_bounds(&segment, &active, &negative, collection).unwrap();
+    let bounds =
+        segment_filter_bounds(segment.id, &segment, &active, &negative, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1]);
     let impossible = crate::query::binding::filter::bind_filter(
@@ -129,7 +131,8 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         &definition.schema,
     )
     .unwrap();
-    let bounds = segment_filter_bounds(&segment, &active, &impossible, collection).unwrap();
+    let bounds =
+        segment_filter_bounds(segment.id, &segment, &active, &impossible, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [2]);
     assert!(bounds.must.is_empty());
     let nonzero_start = crate::query::binding::filter::bind_filter(
@@ -137,7 +140,8 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         &definition.schema,
     )
     .unwrap();
-    let bounds = segment_filter_bounds(&segment, &active, &nonzero_start, collection).unwrap();
+    let bounds =
+        segment_filter_bounds(segment.id, &segment, &active, &nonzero_start, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1, 2]);
 

@@ -5,6 +5,7 @@ use std::io::{BufRead, BufReader, BufWriter, Read, Write};
 use std::num::NonZeroUsize;
 use std::path::PathBuf;
 use std::sync::Arc;
+use std::sync::atomic::{AtomicUsize, Ordering};
 use std::time::Instant;
 
 use objekte_search_core::index::segment::SegmentPolicy;
@@ -32,7 +33,16 @@ fn rss_kib(field: &str) -> Option<u64> {
         .ok()
 }
 
-struct PipeReader;
+#[derive(Default)]
+struct DecoderActivity {
+    large: AtomicUsize,
+    peak_large: AtomicUsize,
+    neighbor: AtomicUsize,
+    peak_neighbor: AtomicUsize,
+}
+
+#[derive(Default)]
+struct PipeReader(Option<Arc<DecoderActivity>>);
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -59,7 +69,17 @@ impl SourceReader for PipeReader {
         let line = std::str::from_utf8(bytes).map_err(|error| error.to_string())?;
         let (id, fields) = line.split_once('|').ok_or("invalid pipe row")?;
         let (title, pad) = fields.split_once('|').ok_or("invalid pipe row")?;
-        Ok(ExtractedRecord {
+        let active = self.0.as_ref().map(|stats| {
+            let (active, peak) = if id == "neighbor" {
+                (&stats.neighbor, &stats.peak_neighbor)
+            } else {
+                (&stats.large, &stats.peak_large)
+            };
+            let running = active.fetch_add(1, Ordering::Relaxed) + 1;
+            peak.fetch_max(running, Ordering::Relaxed);
+            active
+        });
+        let record = ExtractedRecord {
             value: Value::Object(
                 [
                     ("id".into(), Value::String(id.into())),
@@ -70,7 +90,11 @@ impl SourceReader for PipeReader {
                 .collect(),
             ),
             text: Vec::new(),
-        })
+        };
+        if let Some(active) = active {
+            active.fetch_sub(1, Ordering::Relaxed);
+        }
+        Ok(record)
     }
 
     fn stream_build_chunks(
@@ -129,13 +153,13 @@ impl SourceReader for PipeReader {
 fn main() -> Result<(), Box<dyn Error>> {
     let mut args = std::env::args().skip(1);
     let root = PathBuf::from(args.next().ok_or(
-        "usage: bench_managed_file_scale ROOT [jsonl|registered|registered-many] [WORKERS]",
+        "usage: bench_managed_file_scale ROOT [jsonl|registered|registered-many|registered-mixed] [WORKERS]",
     )?);
     let mode = args.next().unwrap_or_else(|| "jsonl".into());
     let registered = match mode.as_str() {
         "jsonl" => false,
-        "registered" | "registered-many" => true,
-        _ => return Err("expected jsonl, registered, or registered-many".into()),
+        "registered" | "registered-many" | "registered-mixed" => true,
+        _ => return Err("expected jsonl, registered, registered-many, or registered-mixed".into()),
     };
     let workers = args
         .next()
@@ -144,6 +168,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     if mode == "registered-many" {
         return many_registered_files(root, workers);
     }
+    let mixed = mode == "registered-mixed";
+    let neighbor_bytes = b"neighbor|Leipzig|small\n";
     let relative = if registered {
         "data/large.pipe"
     } else {
@@ -169,9 +195,18 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
     output.flush()?;
     drop(output);
+    if mixed {
+        std::fs::write(root.join("data/neighbor.pipe"), neighbor_bytes)?;
+    }
+    let decoder_activity = Arc::new(DecoderActivity::default());
     let mut registry = SourceRegistry::builtin();
     let format = if registered {
-        registry.register("scale-pipe", 1, "pipe", Arc::new(PipeReader))?;
+        registry.register(
+            "scale-pipe",
+            1,
+            "pipe",
+            Arc::new(PipeReader(Some(Arc::clone(&decoder_activity)))),
+        )?;
         SourceFormat::registered("scale-pipe")
     } else {
         SourceFormat::JsonLines
@@ -208,18 +243,47 @@ fn main() -> Result<(), Box<dyn Error>> {
         .range
         .ok_or("last range missing")?;
     let segments = view.segment_summaries();
-    let segment_counts = segments
+    let mut segment_counts = segments
         .iter()
         .map(|segment| segment.active_records)
         .collect::<Vec<_>>();
-    let expected_segments = [vec![4096; 24], vec![1696]].concat();
+    segment_counts.sort_unstable();
+    let mut expected_segments = if mixed { vec![1] } else { Vec::new() };
+    expected_segments.push(1696);
+    expected_segments.extend([4096; 24]);
+    let file_count = if mixed { 2 } else { 1 };
+    let total_bytes = offset
+        + if mixed {
+            neighbor_bytes.len() as u64
+        } else {
+            0
+        };
+    let publications = view.revision().0 - IndexRevision::INITIAL.0 - 1;
+    if mixed {
+        let tiny = view
+            .get_record("entries", "neighbor", ReturnMode::Locator)?
+            .ok_or("neighbor missing")?;
+        if tiny.source_range()
+            != Some(ByteRange {
+                start: 0,
+                end: neighbor_bytes.len() as u64 - 1,
+            })
+        {
+            return Err("incorrect small neighbor locator".into());
+        }
+    }
+    let large_peak = decoder_activity.peak_large.load(Ordering::Relaxed);
+    if mixed && view.startup_stats().build_workers > 1 && large_peak < 2 {
+        return Err("large registered file did not overlap its own decoders".into());
+    }
     if segment_counts != expected_segments
-        || status.indexed_files != 1
-        || status.live_records != count as u64
+        || status.indexed_files != file_count
+        || status.live_records != (count + file_count - 1) as u64
+        || publications != file_count as u64
         || members.len() != count
         || (observed.start, observed.end) != last_range
-        || status.build_source_reads != 1
-        || status.build_source_bytes_read != offset
+        || status.build_source_reads != file_count as u64
+        || status.build_source_bytes_read != total_bytes
     {
         return Err(format!(
             "large-file invariant failed: {status:?}, range {observed:?}, members {}",
@@ -238,7 +302,9 @@ fn main() -> Result<(), Box<dyn Error>> {
             "peak_completed_contributions": view.startup_stats().build_peak_ready_batches,
             "stream_peak": view.startup_stats().build_stream_peak,
             "segment_populations": segment_counts,
-            "file_publications": view.revision().0 - IndexRevision::INITIAL.0 - 1,
+            "file_publications": publications,
+            "large_file_active_decoders": large_peak,
+            "neighbor_active_decoders": decoder_activity.peak_neighbor.load(Ordering::Relaxed),
             "private_index_family_bytes": view.estimated_index_bytes(),
             "file_bytes": offset,
             "elapsed_ns": elapsed_ns,
@@ -274,7 +340,7 @@ fn many_registered_files(
         std::fs::write(root.join(format!("data/{number:06}.pipe")), line)?;
     }
     let mut registry = SourceRegistry::builtin();
-    registry.register("scale-pipe", 1, "pipe", Arc::new(PipeReader))?;
+    registry.register("scale-pipe", 1, "pipe", Arc::new(PipeReader::default()))?;
     let mut definition =
         CollectionDefinition::folder("entries", "data", SourceFormat::registered("scale-pipe"));
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);

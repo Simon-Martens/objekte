@@ -60,6 +60,7 @@ pub(crate) struct NativeSegmentTextProvider<'a> {
 
 impl<'a> NativeSegmentTextProvider<'a> {
     pub(crate) fn new(
+        published_id: crate::index::segment::SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
     ) -> Self {
@@ -70,7 +71,7 @@ impl<'a> NativeSegmentTextProvider<'a> {
                 collection.repository_instance,
                 collection.generation.collection.0,
                 collection.generation.generation,
-                Some(segment.id.get()),
+                Some(published_id.get()),
             ),
             instance_id: collection.repository_instance,
             operations: Mutex::new(TextProviderState::default()),

@@ -238,7 +238,7 @@ impl Repository {
             .get(collection.0 as usize)?
             .iter()
             .find(|candidate| candidate.id == segment)
-            .map(|candidate| candidate.index.component_descriptors())
+            .map(|candidate| candidate.index.component_descriptors(candidate.id))
     }
 
     /// Canonical logical-content digest for the adopted native segments.

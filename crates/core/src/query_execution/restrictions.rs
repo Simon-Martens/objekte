@@ -353,6 +353,7 @@ fn routed_file_ids(catalog: &FileCatalog, term: &BoundTerm) -> Option<Option<Arc
 }
 
 struct SegmentPlanContext<'a> {
+    published_id: SegmentId,
     provider: NativeSegmentProvider<'a>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
     predicates: Option<&'a PreparedPredicates>,
@@ -365,14 +366,16 @@ struct SegmentPlanContext<'a> {
 
 impl<'a> SegmentPlanContext<'a> {
     fn new(
+        published_id: SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
         file_catalog: Option<&'a FileCatalog>,
     ) -> Self {
-        Self::new_with_predicates(segment, collection, file_catalog, None, None)
+        Self::new_with_predicates(published_id, segment, collection, file_catalog, None, None)
     }
 
     fn new_with_predicates(
+        published_id: SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
         file_catalog: Option<&'a FileCatalog>,
@@ -390,7 +393,8 @@ impl<'a> SegmentPlanContext<'a> {
             }
         };
         Self {
-            provider: NativeSegmentProvider::new(segment, collection, file_catalog),
+            published_id,
+            provider: NativeSegmentProvider::new(published_id, segment, collection, file_catalog),
             test_providers,
             predicates,
             routed: None,
@@ -554,7 +558,7 @@ impl<'a> SegmentPlanContext<'a> {
                     field: term.path.display(),
                     operator: term.operator,
                     value: format!("{:?}", term.literal),
-                    segment: self.provider.segment.id.get(),
+                    segment: self.published_id.get(),
                     input: input.iter().collect(),
                 };
                 PREDICATE_APPLICATION_OBSERVATIONS
@@ -641,22 +645,24 @@ impl SegmentCandidateBounds {
 }
 
 pub(crate) fn segment_filter_bounds(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
 ) -> Result<SegmentCandidateBounds, String> {
-    segment_filter_bounds_with_catalog(segment, active, expr, collection, None)
+    segment_filter_bounds_with_catalog(published_id, segment, active, expr, collection, None)
 }
 
 pub(crate) fn segment_filter_estimate_with_term(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     catalog: Option<&FileCatalog>,
     term: &BoundTerm,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
-    let mut context = SegmentPlanContext::new(segment, collection, catalog);
+    let mut context = SegmentPlanContext::new(published_id, segment, collection, catalog);
     let term_id = context.term_id(term);
     let estimate = InputEstimate {
         domain: context.provider.domain,
@@ -678,6 +684,7 @@ pub(crate) fn segment_filter_estimate_with_term(
 }
 
 pub(crate) fn segment_filter_estimate(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     catalog: Option<&FileCatalog>,
@@ -685,15 +692,25 @@ pub(crate) fn segment_filter_estimate(
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
     match expr {
-        BoundExpr::Term(term) => {
-            segment_filter_estimate_with_term(segment, collection, catalog, term, input_len)
-        }
+        BoundExpr::Term(term) => segment_filter_estimate_with_term(
+            published_id,
+            segment,
+            collection,
+            catalog,
+            term,
+            input_len,
+        ),
         BoundExpr::And(parts) => {
             let mut best = None;
             for part in parts {
-                if let Some(estimate) =
-                    segment_filter_estimate(segment, collection, catalog, part, input_len)?
-                {
+                if let Some(estimate) = segment_filter_estimate(
+                    published_id,
+                    segment,
+                    collection,
+                    catalog,
+                    part,
+                    input_len,
+                )? {
                     best = Some(best.map_or(estimate, |current: (u64, f64)| {
                         if estimate.1 < current.1 {
                             estimate
@@ -710,6 +727,7 @@ pub(crate) fn segment_filter_estimate(
 }
 
 pub(crate) fn segment_filter_bounds_with_catalog(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
     expr: &BoundExpr,
@@ -717,10 +735,19 @@ pub(crate) fn segment_filter_bounds_with_catalog(
     catalog: Option<&FileCatalog>,
 ) -> Result<SegmentCandidateBounds, String> {
     let domain = active.bitmap();
-    segment_filter_bounds_with_input_catalog(segment, active, expr, collection, catalog, &domain)
+    segment_filter_bounds_with_input_catalog(
+        published_id,
+        segment,
+        active,
+        expr,
+        collection,
+        catalog,
+        &domain,
+    )
 }
 
 pub(crate) fn segment_filter_bounds_with_input_catalog(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
     expr: &BoundExpr,
@@ -729,11 +756,20 @@ pub(crate) fn segment_filter_bounds_with_input_catalog(
     input: &RoaringBitmap,
 ) -> Result<SegmentCandidateBounds, String> {
     segment_filter_bounds_with_input_catalog_and_predicates(
-        segment, active, expr, collection, catalog, input, None, None,
+        published_id,
+        segment,
+        active,
+        expr,
+        collection,
+        catalog,
+        input,
+        None,
+        None,
     )
 }
 
 pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
     expr: &BoundExpr,
@@ -744,11 +780,21 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     execution: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
     segment_filter_bounds_with_routes(
-        segment, active, expr, collection, catalog, input, predicates, execution, None,
+        published_id,
+        segment,
+        active,
+        expr,
+        collection,
+        catalog,
+        input,
+        predicates,
+        execution,
+        None,
     )
 }
 
 pub(crate) fn segment_filter_bounds_with_routes(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
     expr: &BoundExpr,
@@ -771,7 +817,12 @@ pub(crate) fn segment_filter_bounds_with_routes(
     let logical_active = input & &segment.logical_records;
     let fallback_active = input - &segment.logical_records;
     let mut context = SegmentPlanContext::new_with_predicates(
-        segment, collection, catalog, predicates, execution,
+        published_id,
+        segment,
+        collection,
+        catalog,
+        predicates,
+        execution,
     );
     context.routed = routed;
     segment_expr_bounds_with_context(
@@ -947,17 +998,26 @@ pub(crate) fn native_segment_estimate_fts_candidates(
 }
 
 pub(crate) fn segment_fts_candidates(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Result<Option<RoaringBitmap>, String> {
     let input = (0..segment.record_count() as u32).collect::<RoaringBitmap>();
-    let bounds =
-        segment_fts_bounds_with_term(segment, collection, fts, TermId::new(0), &input, None)?;
+    let bounds = segment_fts_bounds_with_term(
+        published_id,
+        segment,
+        collection,
+        fts,
+        TermId::new(0),
+        &input,
+        None,
+    )?;
     Ok(Some(bounds.may.as_ref().clone()))
 }
 
 pub(crate) fn segment_fts_bounds_with_term(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     fts: &BoundFts,
@@ -966,6 +1026,7 @@ pub(crate) fn segment_fts_bounds_with_term(
     context: Option<&crate::query_execution::streaming::ExecutionContext>,
 ) -> Result<SegmentCandidateBounds, String> {
     with_segment_text_offer(
+        published_id,
         segment,
         collection,
         fts,
@@ -997,18 +1058,28 @@ pub(crate) fn segment_fts_bounds_with_term(
 }
 
 pub(crate) fn segment_fts_estimate_with_term(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     fts: &BoundFts,
     term: TermId,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
-    with_segment_text_offer(segment, collection, fts, term, input_len, |_, _, chosen| {
-        Ok(chosen.map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))))
-    })
+    with_segment_text_offer(
+        published_id,
+        segment,
+        collection,
+        fts,
+        term,
+        input_len,
+        |_, _, chosen| {
+            Ok(chosen.map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))))
+        },
+    )
 }
 
 fn with_segment_text_offer<T>(
+    published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     fts: &BoundFts,
@@ -1022,7 +1093,7 @@ fn with_segment_text_offer<T>(
 ) -> Result<T, String> {
     use crate::query_access::text::NativeSegmentTextProvider;
 
-    let provider = NativeSegmentTextProvider::new(segment, collection);
+    let provider = NativeSegmentTextProvider::new(published_id, segment, collection);
     #[cfg(test)]
     let test_providers = crate::query_execution::request::all_test_access_providers();
     let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
@@ -1727,6 +1798,7 @@ fn segment_expr_bounds_with_context(
                 flattened.sort_by(|left, right| {
                     let cost = |part: &BoundExpr| match part {
                         BoundExpr::Term(term) => segment_filter_estimate_with_term(
+                            context.published_id,
                             segment,
                             collection,
                             catalog,

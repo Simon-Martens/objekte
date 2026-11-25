@@ -5,7 +5,7 @@
 use std::collections::{BTreeMap, VecDeque};
 use std::path::PathBuf;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicUsize, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use std::time::Instant;
 
 use roaring::RoaringBitmap;
@@ -50,6 +50,7 @@ struct StagedStreamBinding {
     segments: Vec<InitialSegment>,
     tail: Vec<BatchContribution>,
     private: StreamUse,
+    _unsealed: StreamUse,
     stats: super::scheduling::BuildScheduleStats,
     parses: u64,
     failed: u64,
@@ -76,7 +77,11 @@ fn stage_stream_binding(
     options: RepositoryOptions,
     collection_count: usize,
     budget: &super::file_preparation::StreamBudget,
+    cancelled: &(dyn Fn() -> bool + Sync),
 ) -> Result<StagedStreamBinding, String> {
+    if cancelled() {
+        return Err("initial construction cancelled".into());
+    }
     let StreamBinding {
         definition,
         reader,
@@ -92,6 +97,7 @@ fn stage_stream_binding(
     );
     let mut segments = Vec::new();
     let mut private = budget.activity(StreamActivity::PrivateSegments, 0, 0);
+    let mut unsealed = budget.activity(StreamActivity::Unsealed, 0, 0);
     let mut tail = Vec::new();
     let mut tail_records = 0;
     let mut parses = 0;
@@ -109,16 +115,23 @@ fn stage_stream_binding(
         options.detailed_profiling_enabled(),
         options.segment_policy.target_records.get(),
         Some(budget),
+        cancelled,
+        true,
         |batch| {
+            if cancelled() {
+                return Err("initial construction cancelled".into());
+            }
             parses += batch.record_parses;
             failed += batch.failed_parses;
             collection.observe(&batch, None)?;
             tail_records += batch.record_count();
             tail.push(batch);
+            unsealed.set(tail.len() as u64, 0);
             if tail_records == options.segment_policy.target_records.get() {
                 for batch in tail.drain(..) {
                     collection.admission.admit_batch(batch)?;
                 }
+                unsealed.set(0, 0);
                 let built = finish_stream_draft(
                     collection
                         .take_segment()
@@ -140,6 +153,7 @@ fn stage_stream_binding(
         segments,
         tail,
         private,
+        _unsealed: unsealed,
         stats,
         parses,
         failed,
@@ -222,75 +236,120 @@ fn run_stream_groups(
     options: RepositoryOptions,
     collection_count: usize,
     budget: &Arc<super::file_preparation::StreamBudget>,
-    cancelled: &impl Fn() -> bool,
+    cancelled: &(impl Fn() -> bool + Sync),
     mut publish: impl FnMut(Vec<Vec<StagedStreamBinding>>) -> Result<(), IndexError>,
 ) -> Result<(), IndexError> {
-    use std::sync::mpsc;
+    use std::sync::{Mutex, mpsc};
 
-    let (sender, receiver) = mpsc::channel();
-    let window = pool.current_num_threads().min(4);
-    let mut work = VecDeque::from(groups);
-    let mut next_group = 0;
-    let mut dispatch = VecDeque::new();
-    let mut outstanding = 0;
-    let mut waiting = BTreeMap::<usize, (usize, BTreeMap<FileId, Vec<StagedStreamBinding>>)>::new();
-    while outstanding != 0 || !work.is_empty() || !dispatch.is_empty() {
-        while outstanding < window && !cancelled() {
-            if dispatch.is_empty() {
-                let Some(group) = work.pop_front() else { break };
-                waiting.insert(next_group, (group.files.len(), BTreeMap::new()));
-                dispatch.extend(
-                    group
-                        .files
-                        .into_iter()
-                        .map(|file| (next_group, file, Arc::clone(&group.bindings))),
-                );
-                next_group += 1;
-            }
-            let (group, file, bindings) = dispatch.pop_front().expect("stream job");
-            let task_pool = Arc::clone(pool);
-            let root = Arc::clone(&root);
-            let inputs = Arc::clone(source_files);
-            let budget = Arc::clone(budget);
-            let sender = sender.clone();
-            pool.spawn(move || {
-                let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                    bindings
-                        .iter()
-                        .map(|binding| {
-                            stage_stream_binding(
-                                &task_pool,
-                                Arc::clone(&root),
-                                binding,
-                                file,
-                                Arc::clone(&inputs),
-                                options,
-                                collection_count,
-                                &budget,
-                            )
-                        })
-                        .collect::<Result<Vec<_>, _>>()
-                }))
-                .unwrap_or_else(|_| Err("registered file build worker panicked".into()));
-                let _ = sender.send((group, file, result));
-            });
-            outstanding += 1;
-        }
-        if cancelled() {
-            return Err(IndexError::Cancelled);
-        }
-        let (group, file, result) = receiver
-            .recv()
-            .map_err(|error| IndexError::Build(error.to_string()))?;
-        outstanding -= 1;
-        let (count, staged) = waiting.get_mut(&group).expect("active stream group");
-        staged.insert(file, result.map_err(IndexError::Build)?);
-        if staged.len() == *count {
-            let (_, staged) = waiting.remove(&group).expect("complete stream group");
-            publish(staged.into_values().collect())?;
-        }
+    if groups.is_empty() {
+        return Ok(());
     }
-    Ok(())
+    let window = pool.current_num_threads().min(4);
+    let stop = AtomicBool::new(false);
+    let should_stop = || stop.load(Ordering::Acquire) || cancelled();
+    let (jobs, pending) = mpsc::channel::<(usize, FileId, Arc<[StreamBinding]>)>();
+    let pending = Mutex::new(pending);
+    let (sender, receiver) = mpsc::channel();
+    // Framing callbacks may wait in application code. Keep a bounded set of
+    // coordinators outside the pool so decoder jobs can use all its workers.
+    std::thread::scope(|scope| {
+        for _ in 0..window {
+            let pending = &pending;
+            let root = &root;
+            let sender = sender.clone();
+            let should_stop = &should_stop;
+            scope.spawn(move || {
+                loop {
+                    let job = pending
+                        .lock()
+                        .expect("registered job queue poisoned")
+                        .recv();
+                    let Ok((group, file, bindings)) = job else {
+                        break;
+                    };
+                    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                        bindings
+                            .iter()
+                            .map(|binding| {
+                                stage_stream_binding(
+                                    pool,
+                                    Arc::clone(root),
+                                    binding,
+                                    file,
+                                    Arc::clone(source_files),
+                                    options,
+                                    collection_count,
+                                    budget,
+                                    should_stop,
+                                )
+                            })
+                            .collect::<Result<Vec<_>, _>>()
+                    }))
+                    .unwrap_or_else(|_| Err("registered file build worker panicked".into()));
+                    if sender.send((group, file, result)).is_err() {
+                        break;
+                    }
+                }
+            });
+        }
+        drop(sender);
+        let mut work = VecDeque::from(groups);
+        let mut next_group = 0;
+        let mut dispatch = VecDeque::new();
+        let mut outstanding = 0;
+        let mut waiting =
+            BTreeMap::<usize, (usize, BTreeMap<FileId, Vec<StagedStreamBinding>>)>::new();
+        let result = (|| {
+            while outstanding != 0 || !work.is_empty() || !dispatch.is_empty() {
+                while outstanding < window && !cancelled() {
+                    if dispatch.is_empty() {
+                        let Some(group) = work.pop_front() else { break };
+                        waiting.insert(next_group, (group.files.len(), BTreeMap::new()));
+                        dispatch.extend(
+                            group
+                                .files
+                                .into_iter()
+                                .map(|file| (next_group, file, Arc::clone(&group.bindings))),
+                        );
+                        next_group += 1;
+                    }
+                    jobs.send(dispatch.pop_front().expect("stream job"))
+                        .map_err(|_| {
+                            IndexError::Build("registered job queue disconnected".into())
+                        })?;
+                    outstanding += 1;
+                }
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
+                let (group, file, result) = receiver
+                    .recv()
+                    .map_err(|error| IndexError::Build(error.to_string()))?;
+                outstanding -= 1;
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
+                let (count, staged) = waiting.get_mut(&group).expect("active stream group");
+                staged.insert(file, result.map_err(IndexError::Build)?);
+                if staged.len() == *count {
+                    let (_, staged) = waiting.remove(&group).expect("complete stream group");
+                    publish(staged.into_values().collect())?;
+                }
+            }
+            Ok(())
+        })();
+        stop.store(true, Ordering::Release);
+        drop(jobs);
+        drop(waiting);
+        // Keep receiving until every dispatched file returns. The scope also
+        // joins the coordinators before the terminal outcome becomes visible.
+        for _ in 0..outstanding {
+            if receiver.recv().is_err() {
+                break;
+            }
+        }
+        result
+    })
 }
 
 struct IncrementalCollection {
@@ -587,6 +646,7 @@ fn publish_private_segment_group(
             .map(|build| (build.index, build.observation))
             .collect::<Vec<_>>(),
         profile.is_some(),
+        cancelled,
     )?;
     *expected = revision;
     if let (Some(profile), phases) = (profile.as_mut(), phases) {
@@ -762,7 +822,7 @@ impl Repository {
         sources: SourceRegistry,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
-        cancelled: impl Fn() -> bool,
+        cancelled: impl Fn() -> bool + Sync,
     ) -> Result<Index, IndexError> {
         Self::build_incremental_with_sources_inner(
             root,
@@ -785,7 +845,7 @@ impl Repository {
         sources: SourceRegistry,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
-        cancelled: impl Fn() -> bool,
+        cancelled: impl Fn() -> bool + Sync,
         gate: Arc<SegmentJobGate>,
     ) -> Result<Index, IndexError> {
         Self::build_incremental_with_sources_inner(
@@ -808,7 +868,7 @@ impl Repository {
         sources: SourceRegistry,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         mut on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
-        cancelled: impl Fn() -> bool,
+        cancelled: impl Fn() -> bool + Sync,
         gate: Option<Arc<SegmentJobGate>>,
     ) -> Result<Index, IndexError> {
         let started = Instant::now();
@@ -1224,6 +1284,8 @@ impl Repository {
                             options.detailed_profiling_enabled(),
                             options.segment_policy.target_records.get(),
                             Some(&streaming_budget),
+                            &cancelled,
+                            false,
                             |batch| {
                                 if cancelled() {
                                     return Err("initial construction cancelled".into());
@@ -1537,8 +1599,12 @@ impl Repository {
                     })?;
                 }
                 let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-                let (revision, phases) =
-                    index.publish_initial_segments(expected, segments, profile.is_some())?;
+                let (revision, phases) = index.publish_initial_segments(
+                    expected,
+                    segments,
+                    profile.is_some(),
+                    &cancelled,
+                )?;
                 expected = revision;
                 drop(private_work);
                 drop(sealed_tails);
@@ -1652,6 +1718,8 @@ impl Repository {
                                 options.detailed_profiling_enabled(),
                                 options.segment_policy.target_records.get(),
                                 Some(&streaming_budget),
+                                &cancelled,
+                                false,
                                 &mut admit,
                             )
                             .map_err(|error| {
@@ -1698,8 +1766,12 @@ impl Repository {
                     return Err(IndexError::Cancelled);
                 }
                 let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-                let (revision, phases) =
-                    index.publish_initial_segments(expected, builds, profile.is_some())?;
+                let (revision, phases) = index.publish_initial_segments(
+                    expected,
+                    builds,
+                    profile.is_some(),
+                    &cancelled,
+                )?;
                 expected = revision;
                 if let Some(profile) = profile.as_mut() {
                     profile.publication_prepare_ns += phases.preparation_ns;

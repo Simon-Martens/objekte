@@ -242,6 +242,20 @@ impl<R: Read> Read for HashingReader<'_, R> {
     }
 }
 
+struct CancellableRead<'a, R> {
+    inner: R,
+    cancelled: &'a (dyn Fn() -> bool + Sync),
+}
+
+impl<R: Read> Read for CancellableRead<'_, R> {
+    fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
+        if (self.cancelled)() {
+            return Err(std::io::Error::other("initial construction cancelled"));
+        }
+        self.inner.read(bytes)
+    }
+}
+
 fn source_revision_at(path: &Path) -> Result<SourceRevision, String> {
     SourceRevision::from_metadata(
         &std::fs::metadata(path).map_err(|error| format!("{}: {error}", path.display()))?,
@@ -498,6 +512,7 @@ pub(super) enum StreamActivity {
     PendingInput,
     Decoder,
     Completed,
+    Unsealed,
     PrivateSegments,
 }
 
@@ -668,6 +683,7 @@ impl StreamUse {
                 }
                 StreamActivity::Decoder => apply(&mut current.active_decoders),
                 StreamActivity::Completed => apply(&mut current.completed_chunks),
+                StreamActivity::Unsealed => apply(&mut current.unsealed_contributions),
                 StreamActivity::PrivateSegments => {
                     apply(&mut current.private_segments);
                     current.private_index_family_bytes =
@@ -723,21 +739,33 @@ fn process_custom_stream_profiled(
     limits: BoundedBuildLimits,
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
+    cancelled: &(dyn Fn() -> bool + Sync),
+    peer_files: bool,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<(BuildScheduleStats, Option<[u8; 32]>), String> {
     file.seek(SeekFrom::Start(0))
         .map_err(|error| error.to_string())?;
     let mut digest = Sha256::new();
     let bytes_read = AtomicU64::new(0);
-    let mut reader = HashingReader {
+    let reader = HashingReader {
         inner: file,
         digest: hash.then_some(&mut digest),
         bytes_read: &bytes_read,
         expected_bytes,
     };
+    let mut reader = CancellableRead {
+        inner: reader,
+        cancelled,
+    };
     let input = Arc::new(input);
     let inline = pool.current_num_threads() == 1 || pool.current_thread_index().is_some();
-    let window = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    let shared_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    // A single large file must leave a decoder available for a ready peer.
+    let window = if peer_files && input.revision.size > 8 * 1024 * 1024 {
+        shared_jobs.min(pool.current_num_threads().saturating_sub(1).max(1))
+    } else {
+        shared_jobs
+    };
     let counters = Arc::new(JobCounters::default());
     type ChunkResult = (
         Result<(BatchContribution, Option<BatchContribution>), String>,
@@ -753,7 +781,8 @@ fn process_custom_stream_profiled(
     let mut buffered = 0u64;
     let mut next_offset = 0u64;
     let mut previous_lines = 0;
-    let mut emitted = 0usize;
+    let mut emitted = 0u64;
+    let mut has_ranges = false;
     let mut ordinal = 0usize;
     let mut remaining = record_target;
 
@@ -769,6 +798,9 @@ fn process_custom_stream_profiled(
         let wait = started.elapsed().as_nanos() as u64;
         let (result, _completed) = result;
         let (part, continuation) = result?;
+        if cancelled() {
+            return Err("initial construction cancelled".into());
+        }
         admit(part)?;
         if let Some(continuation) = continuation {
             admit(continuation)?;
@@ -790,9 +822,12 @@ fn process_custom_stream_profiled(
         }
         let credit = if let Some(shared) = shared_budget {
             Some(loop {
-                if let Some(credit) =
-                    shared.try_reserve(weight, window, limits.admitted_bytes, &mut pending_input)
-                {
+                if let Some(credit) = shared.try_reserve(
+                    weight,
+                    shared_jobs,
+                    limits.admitted_bytes,
+                    &mut pending_input,
+                ) {
                     break credit;
                 }
                 if let Some(pending) = waiting.pop_front() {
@@ -801,7 +836,7 @@ fn process_custom_stream_profiled(
                 } else {
                     break shared.reserve(
                         weight,
-                        window,
+                        shared_jobs,
                         limits.admitted_bytes,
                         pool,
                         &mut pending_input,
@@ -830,37 +865,40 @@ fn process_custom_stream_profiled(
             let active = worker_budget
                 .as_ref()
                 .map(|budget| budget.activity(StreamActivity::Decoder, 1, 0));
-            let result = counters.run(|| {
-                let binding = FilePreparationBinding {
-                    collection,
-                    definition: &definition,
-                    source: &source,
-                };
-                let process = |ranges, first| {
-                    process_framed_batch(
-                        &root,
-                        &input,
-                        &binding,
-                        &chunk.bytes,
-                        ranges,
-                        chunk.file_offset,
-                        chunk.preceding_lines,
-                        first,
-                        alphabet,
-                        inference,
-                        window,
-                    )
-                };
-                // A reader chunk can straddle a segment boundary. Both
-                // parts borrow the same buffer and decode disjoint ranges.
-                let part = process(&chunk.ranges[..split], index == 0)?;
-                let continuation = if split < chunk.ranges.len() {
-                    Some(process(&chunk.ranges[split..], false)?)
-                } else {
-                    None
-                };
-                Ok((part, continuation))
-            });
+            let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                counters.run(|| {
+                    let binding = FilePreparationBinding {
+                        collection,
+                        definition: &definition,
+                        source: &source,
+                    };
+                    let process = |ranges, first| {
+                        process_framed_batch(
+                            &root,
+                            &input,
+                            &binding,
+                            &chunk.bytes,
+                            ranges,
+                            chunk.file_offset,
+                            chunk.preceding_lines,
+                            first,
+                            alphabet,
+                            inference,
+                            window,
+                        )
+                    };
+                    // A reader chunk can straddle a segment boundary. Both
+                    // parts borrow the same buffer and decode disjoint ranges.
+                    let part = process(&chunk.ranges[..split], index == 0)?;
+                    let continuation = if split < chunk.ranges.len() {
+                        Some(process(&chunk.ranges[split..], false)?)
+                    } else {
+                        None
+                    };
+                    Ok((part, continuation))
+                })
+            }))
+            .unwrap_or_else(|_| Err("registered decoder panicked".into()));
             drop(chunk);
             drop(active);
             let completed = worker_budget
@@ -899,6 +937,9 @@ fn process_custom_stream_profiled(
     };
 
     let mut emit = |chunk: BoundedBuildChunk| -> Result<(), String> {
+        if cancelled() {
+            return Err("initial construction cancelled".into());
+        }
         if chunk.file_offset != next_offset || chunk.preceding_lines < previous_lines {
             return Err("reader contract: streamed chunks are not consecutive".into());
         }
@@ -916,27 +957,47 @@ fn process_custom_stream_profiled(
         }
         previous_lines = chunk.preceding_lines;
         emitted += 1;
+        if chunk.ranges.is_empty() {
+            if chunk_capacity(&chunk) > 128 * 1024 * 1024 {
+                return Err(
+                    "registered build chunk exceeds 128 MiB of owned input capacity".into(),
+                );
+            }
+            // Empty chunks advance the framing proof and digest but have no
+            // decoded work or diagnostics to retain in a collection draft.
+            return Ok(());
+        }
+        has_ranges = true;
         schedule(chunk)
     };
     let _framing = shared_budget.map(|budget| budget.enter_framing(pool));
     let result = {
         let _callback = shared_budget.map(|budget| budget.activity(StreamActivity::Callback, 1, 0));
-        source
-            .reader()
-            .stream_build_chunks(&mut reader, limits.chunk_bytes, limits.ranges, &mut emit)
-            .unwrap_or_else(|| {
-                Err("reader advertised streaming but did not provide a stream".into())
-            })
+        std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            if cancelled() {
+                return Err("initial construction cancelled".into());
+            }
+            source
+                .reader()
+                .stream_build_chunks(&mut reader, limits.chunk_bytes, limits.ranges, &mut emit)
+                .unwrap_or_else(|| {
+                    Err("reader advertised streaming but did not provide a stream".into())
+                })
+        }))
+        .unwrap_or_else(|_| Err("registered framing callback panicked".into()))
     };
     drop(emit);
     drop(reader);
     let result = result.and_then(|()| {
+        if cancelled() {
+            return Err("initial construction cancelled".into());
+        }
         if next_offset != input.revision.size
             || bytes_read.load(Ordering::Relaxed) != input.revision.size
         {
             return Err("reader contract: streamed chunks do not cover observed source".into());
         }
-        if emitted == 0 {
+        if !has_ranges {
             schedule(BoundedBuildChunk {
                 bytes: Vec::new(),
                 ranges: Vec::new(),
@@ -959,7 +1020,7 @@ fn process_custom_stream_profiled(
         }
     }
     outcome?;
-    stats.framing_chunks = ordinal as u64;
+    stats.framing_chunks = emitted;
     stats.framing_bytes = next_offset;
     stats.source_bytes_read = bytes_read.load(Ordering::Relaxed);
     counters.add_to(&mut stats);
@@ -1263,6 +1324,8 @@ fn prepare_managed_stream(
             limits,
             policy.target_records.get(),
             Some(&repository.stream_budget),
+            &|| false,
+            false,
             &mut consume,
         )?;
         digest
@@ -1792,6 +1855,8 @@ pub(crate) fn process_framed_file_profiled(
         profile_build,
         record_target,
         None,
+        &|| false,
+        false,
         admit,
     )
 }
@@ -1809,6 +1874,8 @@ pub(super) fn process_framed_file_with_budget(
     profile_build: bool,
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
+    cancelled: &(dyn Fn() -> bool + Sync),
+    peer_files: bool,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let mut limits = BoundedBuildLimits::default();
@@ -1837,6 +1904,8 @@ pub(super) fn process_framed_file_with_budget(
             limits,
             record_target,
             shared_budget,
+            cancelled,
+            peer_files,
             admit,
         )?;
         crate::source::access::check_revision(&path, &file, input.revision)?;
@@ -1974,25 +2043,28 @@ pub(super) fn process_framed_file_with_budget(
             let ranges = Arc::clone(&ranges);
             let counters = Arc::clone(&counters);
             let execute = move || {
-                let result = counters.run(|| {
-                    process_framed_batch(
-                        &root,
-                        &source_files[file_id.0 as usize],
-                        &FilePreparationBinding {
-                            collection,
-                            definition: &definition,
-                            source: &source,
-                        },
-                        &bytes,
-                        &ranges[chunk],
-                        0,
-                        0,
-                        index == 0,
-                        alphabet,
-                        inference,
-                        max_jobs,
-                    )
-                });
+                let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    counters.run(|| {
+                        process_framed_batch(
+                            &root,
+                            &source_files[file_id.0 as usize],
+                            &FilePreparationBinding {
+                                collection,
+                                definition: &definition,
+                                source: &source,
+                            },
+                            &bytes,
+                            &ranges[chunk],
+                            0,
+                            0,
+                            index == 0,
+                            alphabet,
+                            inference,
+                            max_jobs,
+                        )
+                    })
+                }))
+                .unwrap_or_else(|_| Err("file decoder panicked".into()));
                 let _ = sender.send((index, result));
             };
             if pool.current_thread_index().is_some() {
@@ -2325,25 +2397,28 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
                 let active = worker_budget
                     .as_ref()
                     .map(|budget| budget.activity(StreamActivity::Decoder, 1, 0));
-                let result = counters.run(|| {
-                    process_framed_batch(
-                        &root,
-                        &input,
-                        &FilePreparationBinding {
-                            collection,
-                            definition: &definition,
-                            source: &source,
-                        },
-                        &chunk.bytes,
-                        &chunk.ranges,
-                        chunk.file_offset,
-                        chunk.preceding_lines,
-                        index == 0,
-                        alphabet,
-                        inference,
-                        max_jobs,
-                    )
-                });
+                let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    counters.run(|| {
+                        process_framed_batch(
+                            &root,
+                            &input,
+                            &FilePreparationBinding {
+                                collection,
+                                definition: &definition,
+                                source: &source,
+                            },
+                            &chunk.bytes,
+                            &chunk.ranges,
+                            chunk.file_offset,
+                            chunk.preceding_lines,
+                            index == 0,
+                            alphabet,
+                            inference,
+                            max_jobs,
+                        )
+                    })
+                }))
+                .unwrap_or_else(|_| Err("file decoder panicked".into()));
                 drop(chunk);
                 drop(active);
                 let completed = worker_budget

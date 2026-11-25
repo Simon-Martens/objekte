@@ -330,6 +330,7 @@ pub(super) fn posting_order_eligible(
         saw_segment = true;
         let logical = &segment.active.bitmap() & &segment.index.logical_records;
         let Ok(bounds) = segment_filter_bounds_with_catalog(
+            segment.id,
             &segment.index,
             &segment.active,
             filter,
@@ -564,6 +565,7 @@ pub(super) fn try_inferred_segment_order_page(
                 return Ok(None);
             }
             let bounds = segment_filter_bounds_with_catalog(
+                segment.id,
                 &segment.index,
                 &segment.active,
                 filter,

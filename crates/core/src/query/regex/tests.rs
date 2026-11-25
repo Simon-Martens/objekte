@@ -228,6 +228,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                 .iter()
                 .map(|segment| {
                     crate::query_execution::restrictions::segment_fts_candidates(
+                        segment.id,
                         &segment.index,
                         &repo.collections()[0],
                         &bound,
@@ -293,6 +294,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         let bound = bind_fts(fallback.fts.as_ref().unwrap(), &definition.schema).unwrap();
         assert!(repo.segments[0].iter().any(|segment| {
             let candidates = crate::query_execution::restrictions::segment_fts_candidates(
+                segment.id,
                 &segment.index,
                 &repo.collections()[0],
                 &bound,
@@ -624,6 +626,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
                 .iter()
                 .map(|segment| {
                     let candidates = crate::query_execution::restrictions::segment_fts_candidates(
+                        segment.id,
                         &segment.index,
                         collection,
                         &bound,
