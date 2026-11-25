@@ -1308,6 +1308,109 @@ impl RecordReader for VersionedFixture {
 }
 
 #[test]
+fn relation_cache_rechecks_provider_target_outside_result_members() {
+    let mut places_schema = Schema::default();
+    places_schema
+        .register_field(FieldDefinition {
+            path: vec!["name".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut entries_schema = Schema::default();
+    entries_schema
+        .register_field(FieldDefinition {
+            path: vec!["place".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    entries_schema
+        .register_relation(RelationDefinition {
+            path: vec!["place".into()],
+            target_collection: "places".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: None,
+        })
+        .unwrap();
+    let mut builder = Index::builder();
+    let places = builder.collection("places", places_schema).unwrap();
+    let entries = builder.collection("entries", entries_schema).unwrap();
+    let place_registration = builder.register_records(places, "places", 1).unwrap();
+    let entry_registration = builder.register_records(entries, "entries", 1).unwrap();
+    let provider = Arc::new(VersionedFixture(
+        Mutex::new((
+            RecordVersion::new(1),
+            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+        )),
+        Mutex::new(Vec::new()),
+    ));
+    builder
+        .register_reader(place_registration, provider.clone())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let place_writer = session.writer(place_registration).unwrap();
+    let mut place_batch = place_writer.batch();
+    place_batch
+        .insert_from_reader(
+            "p",
+            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+            RecordVersion::new(1),
+        )
+        .unwrap();
+    place_writer
+        .submit(place_batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let entry_writer = session.writer(entry_registration).unwrap();
+    let mut entry_batch = entry_writer.batch();
+    entry_batch
+        .insert(
+            "e",
+            Value::from_json(serde_json::json!({"place":"p"})).unwrap(),
+        )
+        .unwrap();
+    entry_writer
+        .submit(entry_batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    index.configure_verified_cache(1 << 20).unwrap();
+    let query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("place.name = 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            offset: 0,
+            limit: 10,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let view = index.view().unwrap();
+    assert_eq!(view.search(&query).unwrap().count, Some(1));
+    assert!(!view.search(&query).unwrap().counters.verified_result_hit);
+    *provider.0.lock().unwrap() = (
+        RecordVersion::new(2),
+        Value::from_json(serde_json::json!({"name":"Wien"})).unwrap(),
+    );
+    assert!(view.search(&query).is_err());
+    session.finish().unwrap();
+}
+
+#[test]
 fn versioned_provider_disposes_input_and_checks_rereads() {
     let root = std::env::temp_dir().join(format!("objekte-provider-links-{}", std::process::id()));
     std::fs::create_dir(&root).unwrap();

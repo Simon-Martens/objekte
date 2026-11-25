@@ -1209,6 +1209,67 @@ pub(crate) fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
     }
 }
 
+fn bound_expr_provider_relation(expr: &BoundExpr, provider_collections: &[bool]) -> bool {
+    match expr {
+        BoundExpr::Term(term) => term.related.as_ref().is_some_and(|related| {
+            related
+                .hops
+                .iter()
+                .any(|hop| provider_collections[hop.to.0 as usize])
+        }),
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts
+            .iter()
+            .any(|part| bound_expr_provider_relation(part, provider_collections)),
+        BoundExpr::Not(inner) => bound_expr_provider_relation(inner, provider_collections),
+    }
+}
+
+/// A related provider target can change without a root revision or a cached
+/// member changing. Such queries must read that target again on every request.
+fn has_provider_relation_dependency(
+    repo: &Repository,
+    query: &Query,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+) -> Result<bool, String> {
+    let provider_collections = segments
+        .iter()
+        .map(|group| {
+            group.iter().any(|segment| {
+                matches!(
+                    segment.index.backing,
+                    crate::index::segment::SegmentBacking::Provider { .. }
+                )
+            })
+        })
+        .collect::<Vec<_>>();
+    if !provider_collections.iter().any(|provider| *provider) {
+        return Ok(false);
+    }
+    let prepared = crate::query::prepared::prepare(repo, query)?;
+    if prepared.collections.iter().any(|entry| {
+        entry
+            .filter
+            .as_ref()
+            .is_some_and(|filter| bound_expr_provider_relation(filter, &provider_collections))
+            || entry.fts.as_ref().is_some_and(|fts| {
+                fts.fields.iter().any(|field| {
+                    field.related.as_ref().is_some_and(|hops| {
+                        hops.iter()
+                            .any(|hop| provider_collections[hop.to.0 as usize])
+                    })
+                })
+            })
+    }) {
+        return Ok(true);
+    }
+    let sort = ResolvedSort::new(repo, query)?;
+    Ok(sort.bound.terms.iter().flatten().flatten().any(|term| {
+        matches!(&term.source, BoundSortSource::Computed(computed)
+            if computed.related.as_ref().is_some_and(|(hops, _)|
+                hops.iter().any(|hop| provider_collections[hop.to.0 as usize])))
+    }))
+}
+
 #[derive(Clone)]
 struct CachedSegmentRestriction {
     bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
@@ -2350,23 +2411,34 @@ fn search_segmented_impl(
     {
         let key =
             crate::query_results::verified::lifecycle_key(query, scope.instance_id, revision.0)?;
-        let mut store = scope.store.lock().map_err(|error| error.to_string())?;
+        let store = scope.store.lock().map_err(|error| error.to_string())?;
         if store.enabled() {
-            if let Some(cached) = store.get(&key) {
-                drop(store);
-                return materialize_lifecycle_cached(
-                    repo,
-                    query,
-                    &cached,
-                    base_active,
-                    segments,
-                    catalog,
-                    revision,
-                    context,
-                );
+            drop(store);
+            let provider_relation = has_provider_relation_dependency(repo, query, segments)
+                .map_err(|message| match context {
+                    Some(context) => context.fail(ExecutionErrorKind::InvalidQuery, message),
+                    None => message,
+                })?;
+            let mut store = scope.store.lock().map_err(|error| error.to_string())?;
+            if provider_relation {
+                None
+            } else {
+                if let Some(cached) = store.get(&key) {
+                    drop(store);
+                    return materialize_lifecycle_cached(
+                        repo,
+                        query,
+                        &cached,
+                        base_active,
+                        segments,
+                        catalog,
+                        revision,
+                        context,
+                    );
+                }
+                let budget = store.budget().saturating_sub(key.len().saturating_add(128));
+                Some((scope, key, budget))
             }
-            let budget = store.budget().saturating_sub(key.len().saturating_add(128));
-            Some((scope, key, budget))
         } else {
             None
         }
