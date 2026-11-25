@@ -759,7 +759,7 @@ impl CollectionSegment {
         registration: u32,
         raw_covers_logical_fields: bool,
         records: Vec<crate::records::RecordHeader>,
-        bodies: Vec<crate::index::segment::RetainedBody>,
+        bodies: crate::index::storage::segment::RetainedBlock,
         contribution: BatchContribution,
     ) -> Result<Self, String> {
         if records.is_empty() || records.len() != bodies.len() {
@@ -767,7 +767,7 @@ impl CollectionSegment {
         }
         let count = u32::try_from(records.len()).map_err(|_| "too many retained records")?;
         let backing = crate::index::segment::SegmentBacking::Retained {
-            blocks: vec![std::sync::Arc::from(bodies)],
+            blocks: vec![bodies],
             addresses: (0..count)
                 .map(|offset| crate::index::segment::RetainedAddress { block: 0, offset })
                 .collect(),

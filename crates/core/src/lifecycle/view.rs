@@ -391,24 +391,9 @@ impl IndexView {
             estimate.backing_column_bytes = estimate
                 .backing_column_bytes
                 .saturating_add(backing.estimated_column_bytes());
-            if let crate::index::segment::SegmentBacking::Retained { blocks, .. } = backing {
-                for block in blocks {
-                    if retained_blocks.insert(block.as_ptr() as usize) {
-                        estimate.retained_body_bytes =
-                            estimate
-                                .retained_body_bytes
-                                .saturating_add(block.iter().fold(0usize, |bytes, body| {
-                                    bytes
-                                        .saturating_add(crate::ingestion::estimated_value_bytes(
-                                            &body.value,
-                                        ))
-                                        .saturating_add(crate::ingestion::estimated_text_bytes(
-                                            &body.text,
-                                        ))
-                                }));
-                    }
-                }
-            }
+            estimate.retained_body_bytes = estimate
+                .retained_body_bytes
+                .saturating_add(backing.new_retained_body_bytes(&mut retained_blocks));
         }
         estimate.route_directory_bytes = self
             .0

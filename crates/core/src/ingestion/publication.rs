@@ -172,6 +172,12 @@ fn build_segment_inputs(
             contribution,
         )
     } else {
+        let bodies = view
+            .repository()
+            .storage_factory
+            .retain_record_bodies(bodies)
+            .map_err(IndexError::from)
+            .map_err(IngestionError::Index)?;
         CollectionSegment::from_retained(
             SegmentId::new(2),
             collection,

@@ -26,9 +26,10 @@ use crate::index::storage::file_catalog::FileCatalogHandle;
 use crate::index::storage::order::SortKey;
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::segment::{
-    RecordBacking, RecordOrigin, SegmentDescriptor, SegmentReader,
+    RecordBacking, RecordOrigin, RetainedBlock, RetainedBlockReader, SegmentDescriptor,
+    SegmentReader,
 };
-use crate::index::storage::transfer::StorageResult;
+use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
 use crate::lifecycle::IndexRevision;
 #[cfg(test)]
@@ -166,6 +167,29 @@ pub(crate) struct RetainedAddress {
     pub offset: u32,
 }
 
+pub(super) struct MemoryRetainedBlock(pub(super) Vec<RetainedBody>);
+
+impl RetainedBlockReader for MemoryRetainedBlock {
+    fn len(&self) -> usize {
+        self.0.len()
+    }
+
+    fn body(&self, offset: u32) -> StorageResult<Cow<'_, RetainedBody>> {
+        self.0
+            .get(offset as usize)
+            .map(Cow::Borrowed)
+            .ok_or_else(|| StorageError::invalid("read retained body", "offset outside block"))
+    }
+
+    fn estimated_body_bytes(&self) -> usize {
+        self.0.iter().fold(0usize, |total, body| {
+            total
+                .saturating_add(crate::ingestion::estimated_value_bytes(&body.value))
+                .saturating_add(crate::ingestion::estimated_text_bytes(&body.text))
+        })
+    }
+}
+
 /// One backing is selected before a segment scan. Per-record coordinates live
 /// in compact slot-indexed columns; registrations are segment-scoped.
 #[derive(Clone)]
@@ -175,7 +199,7 @@ pub(crate) enum SegmentBacking {
         locators: Vec<FileRangeLocator>,
     },
     Retained {
-        blocks: Vec<Arc<[RetainedBody]>>,
+        blocks: Vec<RetainedBlock>,
         addresses: Vec<RetainedAddress>,
         links: Vec<Option<FileRangeLocator>>,
         registration: u32,
@@ -209,7 +233,7 @@ impl SegmentBacking {
                 ..
             } => blocks
                 .capacity()
-                .saturating_mul(std::mem::size_of::<Arc<[RetainedBody]>>())
+                .saturating_mul(std::mem::size_of::<RetainedBlock>())
                 .saturating_add(
                     addresses
                         .capacity()
@@ -238,12 +262,23 @@ impl SegmentBacking {
             return 0;
         };
         blocks.iter().fold(0usize, |total, block| {
-            block.iter().fold(total, |total, body| {
-                total
-                    .saturating_add(crate::ingestion::estimated_value_bytes(&body.value))
-                    .saturating_add(crate::ingestion::estimated_text_bytes(&body.text))
-            })
+            total.saturating_add(block.estimated_body_bytes())
         })
+    }
+
+    pub(crate) fn new_retained_body_bytes(
+        &self,
+        seen: &mut std::collections::HashSet<*const ()>,
+    ) -> usize {
+        let Self::Retained { blocks, .. } = self else {
+            return 0;
+        };
+        blocks
+            .iter()
+            .filter(|block| seen.insert(Arc::as_ptr(block).cast::<()>()))
+            .fold(0usize, |total, block| {
+                total.saturating_add(block.estimated_body_bytes())
+            })
     }
 
     pub(crate) fn compatible_with(&self, other: &Self) -> bool {
@@ -393,17 +428,23 @@ impl SegmentBacking {
         }
     }
 
-    pub(crate) fn retained_body(&self, slot: RecordSlot) -> Option<&RetainedBody> {
+    pub(crate) fn retained_body(
+        &self,
+        slot: RecordSlot,
+    ) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
         let Self::Retained {
             blocks, addresses, ..
         } = self
         else {
-            return None;
+            return Ok(None);
         };
-        let address = addresses.get(slot.0 as usize)?;
-        blocks
-            .get(address.block as usize)?
-            .get(address.offset as usize)
+        let Some(address) = addresses.get(slot.0 as usize) else {
+            return Ok(None);
+        };
+        let block = blocks
+            .get(address.block as usize)
+            .ok_or_else(|| StorageError::invalid("read retained body", "retained block missing"))?;
+        block.body(address.offset).map(Some)
     }
 
     pub(crate) fn provider_version(&self, slot: RecordSlot) -> Option<RecordVersion> {
@@ -421,13 +462,10 @@ mod backing_tests {
     #[test]
     fn native_backing_accounting_includes_owned_columns_and_retained_bodies() {
         let short = SegmentBacking::Retained {
-            blocks: vec![
-                vec![RetainedBody {
-                    value: Value::String(String::from("a")),
-                    text: Vec::new(),
-                }]
-                .into(),
-            ],
+            blocks: vec![Arc::new(MemoryRetainedBlock(vec![RetainedBody {
+                value: Value::String(String::from("a")),
+                text: Vec::new(),
+            }]))],
             addresses: vec![RetainedAddress {
                 block: 0,
                 offset: 0,
@@ -436,13 +474,10 @@ mod backing_tests {
             registration: 0,
         };
         let long = SegmentBacking::Retained {
-            blocks: vec![
-                vec![RetainedBody {
-                    value: Value::String("a".repeat(4096)),
-                    text: Vec::new(),
-                }]
-                .into(),
-            ],
+            blocks: vec![Arc::new(MemoryRetainedBlock(vec![RetainedBody {
+                value: Value::String("a".repeat(4096)),
+                text: Vec::new(),
+            }]))],
             addresses: vec![RetainedAddress {
                 block: 0,
                 offset: 0,
@@ -461,16 +496,14 @@ mod backing_tests {
 
     #[test]
     fn retained_consolidation_shares_blocks_and_remaps_addresses() {
-        let first_block: Arc<[RetainedBody]> = vec![RetainedBody {
+        let first_block: RetainedBlock = Arc::new(MemoryRetainedBlock(vec![RetainedBody {
             value: Value::Object(Default::default()),
             text: Vec::new(),
-        }]
-        .into();
-        let second_block: Arc<[RetainedBody]> = vec![RetainedBody {
+        }]));
+        let second_block: RetainedBlock = Arc::new(MemoryRetainedBlock(vec![RetainedBody {
             value: Value::String("second".into()),
             text: Vec::new(),
-        }]
-        .into();
+        }]));
         let first = SegmentBacking::Retained {
             blocks: vec![Arc::clone(&first_block)],
             addresses: vec![RetainedAddress {
@@ -500,7 +533,7 @@ mod backing_tests {
         assert!(Arc::ptr_eq(&blocks[1], &second_block));
         assert_eq!(addresses[1].block, 1);
         assert!(
-            matches!(combined.retained_body(RecordSlot(1)).unwrap().value, Value::String(ref value) if value == "second")
+            matches!(combined.retained_body(RecordSlot(1)).unwrap().unwrap().value, Value::String(ref value) if value == "second")
         );
     }
 }
@@ -687,7 +720,7 @@ impl SegmentReader for IndexedCollectionSegment {
     }
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
-        Ok(self.backing.retained_body(slot).map(Cow::Borrowed))
+        self.backing.retained_body(slot)
     }
 
     fn file_metadata(

@@ -351,6 +351,13 @@ struct OrderedFileFactory {
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
+    fn retain_record_bodies(
+        &self,
+        bodies: Vec<crate::records::RetainedBody>,
+    ) -> StorageResult<crate::index::storage::segment::RetainedBlock> {
+        crate::index::storage::default_factory().retain_record_bodies(bodies)
+    }
+
     fn inferred_order(
         &self,
         rows: crate::index::storage::order::InferredOrderRows,

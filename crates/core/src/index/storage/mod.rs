@@ -21,6 +21,11 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn retain_record_bodies(
+        &self,
+        bodies: Vec<crate::records::RetainedBody>,
+    ) -> StorageResult<segment::RetainedBlock>;
+
     fn inferred_order(
         &self,
         rows: order::InferredOrderRows,

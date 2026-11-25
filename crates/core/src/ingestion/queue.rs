@@ -1929,6 +1929,7 @@ mod tests {
         let body = segment
             .backing
             .retained_body(crate::model::RecordSlot(0))
+            .unwrap()
             .unwrap();
         let Value::String(retained) = &body.value else {
             panic!("expected retained string")

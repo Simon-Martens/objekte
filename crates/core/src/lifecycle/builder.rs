@@ -435,7 +435,9 @@ mod tests {
             registration.ordinal,
             true,
             headers,
-            bodies,
+            crate::index::storage::test_factory()
+                .retain_record_bodies(bodies)
+                .unwrap(),
             contribution,
         )
         .unwrap();

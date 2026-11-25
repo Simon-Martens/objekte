@@ -16,6 +16,13 @@ mod worker;
 pub(crate) struct MemoryStorageFactory;
 
 impl super::storage::StorageFactory for MemoryStorageFactory {
+    fn retain_record_bodies(
+        &self,
+        bodies: Vec<crate::records::RetainedBody>,
+    ) -> super::storage::transfer::StorageResult<super::storage::segment::RetainedBlock> {
+        Ok(std::sync::Arc::new(segment::MemoryRetainedBlock(bodies)))
+    }
+
     fn inferred_order(
         &self,
         rows: super::storage::order::InferredOrderRows,

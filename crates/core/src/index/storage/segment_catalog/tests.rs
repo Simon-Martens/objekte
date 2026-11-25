@@ -18,6 +18,9 @@ use crate::schema::Schema;
 #[derive(Default)]
 struct TableFactory {
     installs: AtomicUsize,
+    retained_builds: AtomicUsize,
+    retained_reads: Arc<AtomicUsize>,
+    fail_retained_read: Arc<AtomicBool>,
     order_builds: AtomicUsize,
     order_rows: Arc<AtomicUsize>,
     fail_order_refill: Arc<AtomicBool>,
@@ -30,6 +33,20 @@ struct TableFactory {
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn retain_record_bodies(
+        &self,
+        bodies: Vec<crate::records::RetainedBody>,
+    ) -> StorageResult<crate::index::storage::segment::RetainedBlock> {
+        self.retained_builds.fetch_add(1, Ordering::Relaxed);
+        let count = bodies.len();
+        Ok(Arc::new(TableBodies {
+            count,
+            bodies: bodies.into_iter().enumerate().collect(),
+            reads: Arc::clone(&self.retained_reads),
+            fail_read: Arc::clone(&self.fail_retained_read),
+        }))
+    }
+
     fn inferred_order(&self, rows: InferredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>> {
         self.order_builds.fetch_add(1, Ordering::Relaxed);
         let keys = rows.keys.into_iter().enumerate().collect();
@@ -112,6 +129,116 @@ impl StorageFactory for Arc<TableFactory> {
             control: Arc::clone(self),
         }))
     }
+}
+
+struct TableBodies {
+    count: usize,
+    bodies: BTreeMap<usize, crate::records::RetainedBody>,
+    reads: Arc<AtomicUsize>,
+    fail_read: Arc<AtomicBool>,
+}
+
+impl crate::index::storage::segment::RetainedBlockReader for TableBodies {
+    fn len(&self) -> usize {
+        self.count
+    }
+
+    fn body(&self, offset: u32) -> StorageResult<Cow<'_, crate::records::RetainedBody>> {
+        self.reads.fetch_add(1, Ordering::Relaxed);
+        if self.fail_read.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "read test body",
+                "injected retained block failure",
+            ));
+        }
+        self.bodies
+            .get(&(offset as usize))
+            .cloned()
+            .map(Cow::Owned)
+            .ok_or_else(|| StorageError::invalid("read test body", "offset unavailable"))
+    }
+
+    fn estimated_body_bytes(&self) -> usize {
+        self.bodies.values().fold(0, |total, body| {
+            total
+                .saturating_add(crate::ingestion::estimated_value_bytes(&body.value))
+                .saturating_add(crate::ingestion::estimated_text_bytes(&body.text))
+        })
+    }
+}
+
+#[test]
+fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
+    use crate::query_results::Payload;
+
+    let factory = Arc::new(TableFactory::default());
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "fixture-bodies", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut insert = writer.batch();
+    insert
+        .insert("removed", Value::String("old".into()))
+        .unwrap();
+    let kept = Value::String("kept".into());
+    insert.insert("kept", kept.clone()).unwrap();
+    writer.submit(insert).unwrap().wait_published().unwrap();
+    let pinned = index.view().unwrap();
+    let before = pinned.0.record_routes[0].route("kept").unwrap().unwrap();
+    assert_eq!(before.slot, RecordSlot(1));
+    assert_eq!(factory.retained_builds.load(Ordering::Relaxed), 1);
+    assert_eq!(factory.retained_reads.load(Ordering::Relaxed), 0);
+
+    factory.fail_retained_read.store(true, Ordering::Relaxed);
+    assert!(
+        pinned
+            .get_record("entries", "kept", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert_eq!(factory.retained_reads.load(Ordering::Relaxed), 0);
+    assert!(
+        pinned
+            .get_record("entries", "kept", ReturnMode::Logical)
+            .unwrap_err()
+            .contains("injected retained block failure")
+    );
+
+    let mut delete = writer.batch();
+    delete.delete("removed").unwrap();
+    writer.submit(delete).unwrap().wait_published().unwrap();
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    assert_eq!(factory.retained_builds.load(Ordering::Relaxed), 1);
+    assert_eq!(factory.retained_reads.load(Ordering::Relaxed), 1);
+    let compacted = index.view().unwrap();
+    let after = compacted.0.record_routes[0].route("kept").unwrap().unwrap();
+    assert_ne!(after.segment, before.segment);
+    assert_eq!(after.slot, RecordSlot(0));
+
+    factory.fail_retained_read.store(false, Ordering::Relaxed);
+    for view in [&pinned, &compacted] {
+        assert!(matches!(
+            view.get_record("entries", "kept", ReturnMode::Logical).unwrap().unwrap().payload,
+            Some(Payload::Logical(value)) if value == kept
+        ));
+    }
+    assert!(
+        compacted
+            .get_record("entries", "removed", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        pinned
+            .get_record("entries", "removed", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
 }
 
 struct TableOrder {

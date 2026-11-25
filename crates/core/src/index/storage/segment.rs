@@ -148,6 +148,16 @@ impl RecordOrigin {
     }
 }
 
+/// An immutable batch of retained bodies. Segments can share blocks when
+/// projected or consolidated, and only requested bodies need to be decoded.
+pub(crate) trait RetainedBlockReader: Send + Sync {
+    fn len(&self) -> usize;
+    fn body(&self, offset: u32) -> StorageResult<Cow<'_, RetainedBody>>;
+    fn estimated_body_bytes(&self) -> usize;
+}
+
+pub(crate) type RetainedBlock = std::sync::Arc<dyn RetainedBlockReader>;
+
 /// Reads from a pinned segment. Returned keys and headers can borrow the
 /// pinned representation or hold an owned value decoded by the reader.
 pub(crate) trait SegmentReader: Send + Sync {

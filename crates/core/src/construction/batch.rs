@@ -586,7 +586,9 @@ mod retained_contribution_tests {
             0,
             true,
             headers,
-            bodies,
+            crate::index::storage::test_factory()
+                .retain_record_bodies(bodies)
+                .unwrap(),
             contribution,
         )
         .unwrap();
@@ -607,7 +609,12 @@ mod retained_contribution_tests {
         assert_eq!(indexed.file_count(), 0);
         assert_eq!(indexed.record(RecordSlot(0)).unwrap().id, id);
         assert_eq!(
-            indexed.backing.retained_body(RecordSlot(0)).unwrap().value,
+            indexed
+                .backing
+                .retained_body(RecordSlot(0))
+                .unwrap()
+                .unwrap()
+                .value,
             value
         );
         assert_eq!(indexed.logical_records.len(), 1);
