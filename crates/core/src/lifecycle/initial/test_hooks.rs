@@ -155,10 +155,12 @@ pub fn bind_scan_filter(
     }
 }
 
+#[cfg(feature = "test-scan-instrumentation")]
 pub fn fold_candidate_transforms() -> usize {
     crate::query::semantics::folding::fold_candidate_transforms()
 }
 
+#[cfg(feature = "test-scan-instrumentation")]
 pub fn fold_scratch_stats() -> (usize, usize) {
     crate::query::semantics::folding::fold_scratch_stats()
 }
