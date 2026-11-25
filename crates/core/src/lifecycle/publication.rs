@@ -1034,6 +1034,42 @@ fn prepare_initial_segment(
     Ok(())
 }
 
+fn verify_initial_files<'a>(
+    view: &IndexView,
+    segments: impl IntoIterator<Item = &'a IndexedCollectionSegment>,
+) -> Result<(), IndexError> {
+    use crate::construction::file_preparation::created_ns;
+    use crate::inventory::SourceRevision;
+
+    let mut checked = std::collections::HashSet::new();
+    let root = view.repository().files().required_root();
+    for file in segments.into_iter().flat_map(|segment| &segment.files) {
+        let entry = &file.entry;
+        if !checked.insert(entry.id) {
+            continue;
+        }
+        let path = root.join(&entry.relative_path);
+        let metadata = std::fs::metadata(&path).map_err(|error| {
+            IndexError::SourceUnavailable(format!("{}: {error}", path.display()))
+        })?;
+        let revision =
+            SourceRevision::from_metadata(&metadata).map_err(IndexError::SourceUnavailable)?;
+        if revision != entry.revision || created_ns(&metadata) != entry.created_ns {
+            return Err(IndexError::SourceUnavailable(format!(
+                "source changed before initial publication: {}",
+                path.display()
+            )));
+        }
+        if revision.object_id.is_none() {
+            return Err(IndexError::SourceUnavailable(format!(
+                "source identity cannot be verified: {}",
+                path.display()
+            )));
+        }
+    }
+    Ok(())
+}
+
 impl Index {
     /// Apply one accepted registrar batch atomically. Retirement and any new
     /// native segment are staged in a private root before the revision CAS.
@@ -1208,6 +1244,7 @@ impl Index {
                 "initial construction already completed".into(),
             ));
         }
+        verify_initial_files(&view, std::iter::once(&segment))?;
         let mut next = (*view.0).clone();
         prepare_initial_segment(&mut next, (segment, observation))?;
         next.revision = expected.next()?;
@@ -1256,6 +1293,7 @@ impl Index {
                 "initial construction already completed".into(),
             ));
         }
+        verify_initial_files(&view, segments.iter().map(|(segment, _)| segment))?;
         let mut next = (*view.0).clone();
         for segment in segments {
             prepare_initial_segment(&mut next, segment)?;

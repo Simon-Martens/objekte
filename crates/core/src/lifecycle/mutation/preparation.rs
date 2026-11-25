@@ -4,7 +4,7 @@ use std::time::SystemTime;
 use super::relative_path;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
-    FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_file_build,
+    FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_observed_file_build,
 };
 use crate::construction::segment_admission::SegmentAdmission;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
@@ -255,8 +255,13 @@ pub(crate) fn prepare_file_at(
             "no configured collection selects this file".into(),
         ));
     }
-    let metadata = std::fs::metadata(root.join(relative))
-        .map_err(|error| IndexError::Io(error.to_string()))?;
+    let path = root.join(relative);
+    let opened = std::fs::File::open(&path);
+    let metadata = match &opened {
+        Ok(file) => file.metadata(),
+        Err(_) => std::fs::metadata(&path),
+    }
+    .map_err(|error| IndexError::Io(error.to_string()))?;
     let revision =
         crate::inventory::SourceRevision::from_metadata(&metadata).map_err(IndexError::Io)?;
     let created_ns = metadata
@@ -271,13 +276,15 @@ pub(crate) fn prepare_file_at(
         created_ns,
     };
     let options = repository.options();
-    prepare_file_build(
+    prepare_observed_file_build(
         root,
         source,
         &bindings,
         options.bigram_alphabet,
         options.inference,
         1,
+        opened,
+        None,
     )
     .map_err(IndexError::Build)
 }
@@ -349,10 +356,9 @@ pub(super) fn prepare_replacement_bytes(
         ));
     }
     // The byte form is a conditional update, never an alternative source of
-    // indexed file content. Compare against the file opened by core before
-    // preparing the managed path below.
+    // indexed file content. Compare during the managed read below.
     let source_path = root.join(&relative);
-    let mut opened = std::fs::File::open(&source_path)
+    let opened = std::fs::File::open(&source_path)
         .map_err(|error| IndexError::SourceUnavailable(error.to_string()))?;
     let metadata = opened
         .metadata()
@@ -364,37 +370,6 @@ pub(super) fn prepare_replacement_bytes(
             "declared source revision differs from core observation".into(),
         ));
     }
-    let mut chunk = [0u8; 64 * 1024];
-    let mut offset = 0usize;
-    loop {
-        let count = std::io::Read::read(&mut opened, &mut chunk)
-            .map_err(|error| IndexError::SourceUnavailable(error.to_string()))?;
-        if count == 0 {
-            break;
-        }
-        let end = offset
-            .checked_add(count)
-            .ok_or_else(|| IndexError::SourceUnavailable("source size overflow".into()))?;
-        if bytes.get(offset..end) != Some(&chunk[..count]) {
-            return Err(IndexError::SourceUnavailable(
-                "supplied bytes differ from core-observed file".into(),
-            ));
-        }
-        offset = end;
-    }
-    if offset != bytes.len()
-        || SourceRevision::from_metadata(
-            &opened
-                .metadata()
-                .map_err(|error| IndexError::SourceUnavailable(error.to_string()))?,
-        )
-        .map_err(IndexError::SourceUnavailable)?
-            != observed
-    {
-        return Err(IndexError::SourceUnavailable(
-            "source changed during byte comparison".into(),
-        ));
-    }
     let input = SourceFileInput {
         id: handle.file_id,
         relative_path: relative.into(),
@@ -402,15 +377,26 @@ pub(super) fn prepare_replacement_bytes(
         created_ns: created_ns(&metadata),
     };
     let options = repository.options();
-    let file = prepare_file_build(
+    let file = prepare_observed_file_build(
         root,
         input,
         &bindings,
         options.bigram_alphabet,
         options.inference,
         1,
+        Ok(opened),
+        Some(bytes),
     )
-    .map_err(IndexError::Build)?;
+    .map_err(|error| {
+        if error.contains("supplied bytes differ")
+            || error.contains("supplied byte comparison")
+            || error.contains("stale source")
+        {
+            IndexError::SourceUnavailable(error)
+        } else {
+            IndexError::Build(error)
+        }
+    })?;
     Ok(PreparedReplacement {
         expected_revision: view.revision(),
         expected_handle: handle,

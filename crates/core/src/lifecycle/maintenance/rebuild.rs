@@ -130,25 +130,6 @@ impl Index {
                                         }
                                         continue;
                                     }
-                                    let current = current.expect("current incarnation checked");
-                                    let path = repository
-                                        .files()
-                                        .required_root()
-                                        .join(&current.relative_path);
-                                    let metadata = std::fs::metadata(&path).map_err(|error| {
-                                        IndexError::SourceUnavailable(error.to_string())
-                                    })?;
-                                    let revision =
-                                        crate::inventory::SourceRevision::from_metadata(&metadata)
-                                            .map_err(IndexError::SourceUnavailable)?;
-                                    if current.revision != revision
-                                        || file.entry.revision != revision
-                                    {
-                                        return Err(IndexError::SourceUnavailable(format!(
-                                            "file changed during rebuild: {}",
-                                            path.display()
-                                        )));
-                                    }
                                 }
                             }
                         }
@@ -164,6 +145,7 @@ impl Index {
                     .map(|(entry, _, _)| entry)
                     .filter(|entry| !view.0.imported_collections(entry).is_empty())
                     .collect::<Vec<_>>();
+                let mut observed = Vec::with_capacity(imported_files.len());
                 for old in imported_files {
                     if cancelled() {
                         return Err(IndexError::Cancelled);
@@ -204,6 +186,7 @@ impl Index {
                         .advanced(old.id)
                         .map_err(IndexError::ResourceLimit)?
                         .0;
+                    observed.push((prepared.source, prepared.identity, prepared.fingerprint));
                     for segment in indexed {
                         next = next.with_segment(segment)?;
                     }
@@ -216,6 +199,15 @@ impl Index {
                 before_publish(attempt);
                 if cancelled() {
                     return Err(IndexError::Cancelled);
+                }
+                for (source, identity, fingerprint) in observed {
+                    crate::construction::file_preparation::verify_current_source(
+                        repository.files().required_root(),
+                        &source,
+                        identity,
+                        fingerprint,
+                    )
+                    .map_err(IndexError::SourceUnavailable)?;
                 }
                 match self.publish_prepared(view.revision(), next) {
                     Ok(revision) => {

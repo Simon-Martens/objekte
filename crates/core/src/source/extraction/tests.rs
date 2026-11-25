@@ -308,3 +308,42 @@ fn build_reads_use_actual_bytes_without_revision_probes() {
     .unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[cfg(unix)]
+#[test]
+fn fresh_build_rejects_same_stamp_replacement_after_discovery() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-discovery-replacement-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir(&root).unwrap();
+    let path = root.join("source.json");
+    let substitute = root.join("replacement");
+    std::fs::write(&path, br#"{"id":"A"}"#).unwrap();
+    let discovery = std::fs::metadata(&path).unwrap();
+    let expected = SourceRevision::from_metadata(&discovery).unwrap();
+    std::fs::write(&substitute, br#"{"id":"B"}"#).unwrap();
+    std::fs::File::open(&substitute)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(discovery.modified().unwrap()))
+        .unwrap();
+    std::fs::rename(&substitute, &path).unwrap();
+    let current = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    assert_eq!(
+        (expected.size, expected.modified_ns),
+        (current.size, current.modified_ns)
+    );
+    assert_ne!(expected.object_id, current.object_id);
+    let result = extract_file_build_outcomes_hashed_with_buffer(
+        &path,
+        &JsonReader,
+        expected,
+        &mut Vec::new(),
+        None,
+        None,
+        |_| panic!("replacement bytes must not reach a discovery-owned contribution"),
+    );
+    assert!(result.unwrap_err().contains("stale source revision"));
+    std::fs::remove_dir_all(root).unwrap();
+}

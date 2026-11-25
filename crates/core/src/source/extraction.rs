@@ -2,6 +2,7 @@
 
 use std::io::Read;
 use std::path::Path;
+#[cfg(test)]
 use std::sync::Arc;
 
 use sha2::{Digest, Sha256};
@@ -116,6 +117,7 @@ where
     })
 }
 
+#[cfg(test)]
 pub(crate) fn frame_file_for_build(
     path: &Path,
     source: &dyn SourceReader,
@@ -273,6 +275,7 @@ where
     )
 }
 
+#[cfg(test)]
 pub(crate) fn extract_file_build_outcomes<F>(
     path: &Path,
     source: &dyn SourceReader,
@@ -349,6 +352,13 @@ where
     if let (Some(started), Some(sample)) = (open_started, profile.as_deref_mut()) {
         sample.open_ns = started.elapsed().as_nanos() as u64;
     }
+    let observe_build = fingerprint.is_some();
+    if observe_build
+        && SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
+            != expected
+    {
+        return Err("stale source revision before build extraction".into());
+    }
     if check_freshness {
         check_revision(path, &file, expected)?;
     }
@@ -394,6 +404,9 @@ where
         })?;
         return Ok(ExtractionCounters::default());
     }
+    if observe_build && bytes.len() as u64 != expected.size {
+        return Err("stale source length during build extraction".into());
+    }
     let hash_started = crate::measurement::timer::start_if_enabled(profile.is_some());
     if let Some(fingerprint) = fingerprint {
         if bytes.len() as u64 == expected.size {
@@ -426,7 +439,7 @@ where
                 diagnostic,
                 bytes: std::mem::take(bytes),
             })?;
-            if check_freshness {
+            if check_freshness || observe_build {
                 check_revision(path, &file, expected)?;
             }
             return Ok(ExtractionCounters {
@@ -449,7 +462,7 @@ where
     if let (Some(started), Some(sample)) = (extraction_started, profile.as_deref_mut()) {
         sample.extraction_ns = started.elapsed().as_nanos() as u64;
     }
-    if check_freshness {
+    if check_freshness || observe_build {
         check_revision(path, &file, expected)?;
     }
     Ok(counters)

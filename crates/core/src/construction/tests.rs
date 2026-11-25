@@ -462,6 +462,10 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     .unwrap();
     assert!(missing.file_fingerprints().is_empty());
     std::fs::write(&path, bytes).unwrap();
+    let input = SourceFileInput {
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        ..input
+    };
 
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(1)
@@ -1988,7 +1992,7 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
 }
 
 #[test]
-fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() {
+fn bounded_jsonl_read_failure_never_reopens_the_source() {
     use std::io::{BufReader, Read};
 
     use crate::inference::{InferenceMode, InferencePolicy};
@@ -2063,7 +2067,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
         ))
     };
     let mut before = Vec::new();
-    process_bounded_json_lines_reader(
+    let error = process_bounded_json_lines_reader(
         &pool,
         Arc::new(root.clone()),
         Arc::clone(&definition),
@@ -2081,8 +2085,9 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
             Ok(())
         },
     )
-    .unwrap();
-    assert_eq!(before, [(0, FileStatus::Unreadable)]);
+    .unwrap_err();
+    assert!(error.contains("injected read failure"));
+    assert!(before.is_empty());
 
     let mut blank_lines = vec![b' '; 40 * 1024];
     blank_lines.push(b'\n');
@@ -2559,6 +2564,97 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
     assert!(
         error.contains("duplicate record ID") && error.contains("0512.jsonl"),
         "{error}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[cfg(unix)]
+#[test]
+fn observed_handle_supplies_whole_document_while_path_is_replaced() {
+    use crate::construction::file_preparation::{created_ns, prepare_observed_file_build};
+    use crate::source::{SourceReader, json::JsonReader, registry::SourceRegistry};
+
+    struct RestoreAtFrame {
+        original: std::path::PathBuf,
+        path: std::path::PathBuf,
+    }
+    impl SourceReader for RestoreAtFrame {
+        fn name(&self) -> &'static str {
+            "restore-at-frame"
+        }
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            std::fs::rename(&self.original, &self.path).map_err(|error| error.to_string())?;
+            JsonReader.frame(bytes)
+        }
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonReader.parse(bytes)
+        }
+    }
+    let root = std::env::temp_dir().join(format!(
+        "objekte-observed-handle-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.swap");
+    let saved = root.join("saved");
+    let a = br#"{"id":"A"}"#;
+    let b = br#"{"id":"B"}"#;
+    std::fs::write(&path, a).unwrap();
+    let opened = std::fs::File::open(&path).unwrap();
+    let metadata = opened.metadata().unwrap();
+    let input = SourceFileInput {
+        id: FileId(0),
+        relative_path: "source.swap".into(),
+        revision: SourceRevision::from_metadata(&metadata).unwrap(),
+        created_ns: created_ns(&metadata),
+    };
+    std::fs::rename(&path, &saved).unwrap();
+    std::fs::write(&path, b).unwrap();
+    std::fs::File::open(&path)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
+        .unwrap();
+    let mut registry = SourceRegistry::builtin();
+    registry
+        .register(
+            "swap",
+            1,
+            "swap",
+            Arc::new(RestoreAtFrame {
+                original: saved,
+                path,
+            }),
+        )
+        .unwrap();
+    let format = SourceFormat::registered("swap");
+    let source = registry.resolve(&format).unwrap();
+    let mut definition = CollectionDefinition::folder("entries", ".", format);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    let prepared = prepare_observed_file_build(
+        &root,
+        input,
+        &[FilePreparationBinding {
+            collection: CollectionId(0),
+            definition: &definition,
+            source: &source,
+        }],
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        1,
+        Ok(opened),
+        Some(a),
+    )
+    .unwrap();
+    assert_eq!(prepared.fingerprint, Some(Sha256::digest(a).into()));
+    let layout = prepared.record_layout();
+    assert_eq!(layout[0].1.0.as_ref(), "A");
+    assert_eq!(
+        layout[0].2,
+        ByteRange {
+            start: 0,
+            end: a.len() as u64
+        }
     );
     std::fs::remove_dir_all(root).unwrap();
 }

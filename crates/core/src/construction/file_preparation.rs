@@ -18,13 +18,12 @@ use crate::model::{CollectionId, FileId, RecordId};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::Schema;
 use crate::source::{
-    ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_file_build_outcomes,
-    extraction::extract_framed_build_outcomes, extraction::frame_file_for_build,
+    ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_framed_build_outcomes,
     framing::BoundedBuildChunk, framing::BoundedJsonLines, framing::validate_reader_ranges,
     registry::PreparedSource,
 };
 
-use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput, process_batch};
+use super::batch::{BatchBuilder, BatchContribution, BatchFile, SourceFileInput};
 use super::scheduling::{BuildScheduleStats, JobCounters, fits_allowance};
 
 pub(crate) fn finish_build_record(
@@ -191,11 +190,21 @@ struct HashingReader<'a, R> {
     inner: R,
     digest: Option<&'a mut Sha256>,
     bytes_read: &'a mut u64,
+    expected_bytes: Option<&'a [u8]>,
 }
 
 impl<R: Read> Read for HashingReader<'_, R> {
     fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
         let count = self.inner.read(bytes)?;
+        if let Some(expected) = self.expected_bytes {
+            let start = usize::try_from(*self.bytes_read).map_err(std::io::Error::other)?;
+            if expected.get(start..start.saturating_add(count)) != Some(&bytes[..count]) {
+                return Err(std::io::Error::new(
+                    std::io::ErrorKind::InvalidData,
+                    "supplied bytes differ from core-observed file",
+                ));
+            }
+        }
         if let Some(digest) = self.digest.as_mut() {
             digest.update(&bytes[..count]);
         }
@@ -210,13 +219,15 @@ fn source_revision_at(path: &Path) -> Result<SourceRevision, String> {
     )
 }
 
-fn prepare_unframed_file(
+fn prepare_unreadable_file(
     root: &Path,
     input: &SourceFileInput,
     binding: &FilePreparationBinding<'_>,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     inference_jobs: usize,
+    code: &str,
+    error: &std::io::Error,
 ) -> Result<Vec<BatchContribution>, String> {
     let mut builder = BatchBuilder::new(
         root,
@@ -229,10 +240,18 @@ fn prepare_unframed_file(
     )?;
     let path = root.join(&input.relative_path);
     let mut file = input.for_collection(binding.collection);
-    let stats =
-        extract_file_build_outcomes(&path, binding.source.reader(), input.revision, |outcome| {
-            builder.outcome(&mut file, &path, outcome, None)
-        })?;
+    builder.outcome(
+        &mut file,
+        &path,
+        SourceOutcome::Unreadable {
+            diagnostic: ReaderDiagnostic::new(
+                crate::source::DiagnosticCategory::Io,
+                code,
+                error.to_string(),
+            ),
+        },
+        None,
+    )?;
     let count = builder.records.len();
     Ok(vec![builder.finish(
         vec![BatchFile {
@@ -240,8 +259,8 @@ fn prepare_unframed_file(
             records: 0..count,
             first_range: true,
         }],
-        stats.record_parses,
-        stats.failed_parses,
+        0,
+        0,
     )?])
 }
 
@@ -254,6 +273,7 @@ fn prepare_bounded_json_lines(
     inference_jobs: usize,
     hash_bytes: bool,
     file: &mut std::fs::File,
+    expected_bytes: Option<&[u8]>,
 ) -> Result<(Vec<BatchContribution>, Option<[u8; 32]>), String> {
     let path = root.join(&input.relative_path);
     file.seek(SeekFrom::Start(0))
@@ -269,6 +289,7 @@ fn prepare_bounded_json_lines(
         inner: &mut *file,
         digest: hash_bytes.then_some(&mut digest),
         bytes_read: &mut bytes_read,
+        expected_bytes,
     };
     let mut reader = BoundedJsonLines::from_reader(BufReader::new(reader));
     let limits = BoundedBuildLimits::default();
@@ -324,6 +345,7 @@ fn prepare_custom_stream(
     inference_jobs: usize,
     hash_bytes: bool,
     file: &mut std::fs::File,
+    expected_bytes: Option<&[u8]>,
 ) -> Option<Result<(Vec<BatchContribution>, Option<[u8; 32]>), String>> {
     if let Err(error) = file.seek(SeekFrom::Start(0)) {
         return Some(Err(error.to_string()));
@@ -334,6 +356,7 @@ fn prepare_custom_stream(
         inner: &mut *file,
         digest: hash_bytes.then_some(&mut digest),
         bytes_read: &mut bytes_read,
+        expected_bytes,
     };
     let limits = BoundedBuildLimits::default();
     let mut contributions = Vec::new();
@@ -411,23 +434,48 @@ pub(crate) fn prepare_file_build(
     inference: InferenceConfig,
     inference_jobs: usize,
 ) -> Result<PreparedFileBuild, String> {
+    let opened = std::fs::File::open(root.join(&input.relative_path));
+    prepare_observed_file_build(
+        root,
+        input,
+        bindings,
+        alphabet,
+        inference,
+        inference_jobs,
+        opened,
+        None,
+    )
+}
+
+/// Use exactly the handle whose observation selected this candidate. A
+/// whole-document buffer is shared by all compatible whole-document bindings.
+pub(crate) fn prepare_observed_file_build(
+    root: &Path,
+    input: SourceFileInput,
+    bindings: &[FilePreparationBinding<'_>],
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    opened: std::io::Result<std::fs::File>,
+    expected_bytes: Option<&[u8]>,
+) -> Result<PreparedFileBuild, String> {
     let path = root.join(&input.relative_path);
-    let mut opened = std::fs::File::open(&path).ok();
-    let identity = if let Some(file) = opened.as_ref() {
-        let metadata = file.metadata().map_err(|error| error.to_string())?;
-        if SourceRevision::from_metadata(&metadata)? != input.revision {
+    if expected_bytes.is_some_and(|bytes| bytes.len() as u64 != input.revision.size) {
+        return Err("supplied bytes differ from core-observed file".into());
+    }
+    let (mut opened, open_error) = match opened {
+        Ok(file) => (Some(file), None),
+        Err(error) => (None, Some(error)),
+    };
+    let observed_metadata = match &opened {
+        Some(file) => Some(file.metadata().map_err(|error| error.to_string())?),
+        None => std::fs::metadata(&path).ok(),
+    };
+    let identity = if let Some(metadata) = observed_metadata {
+        if SourceRevision::from_metadata(&metadata)? != input.revision
+            || (input.created_ns.is_some() && created_ns(&metadata) != input.created_ns)
+        {
             return Err("stale source revision during preparation".into());
-        }
-        if input.created_ns.is_some() && created_ns(&metadata) != input.created_ns {
-            return Err("source creation time changed during preparation".into());
-        }
-        FileObjectIdentity::from_metadata(&metadata)
-    } else if let Ok(metadata) = std::fs::metadata(&path) {
-        if SourceRevision::from_metadata(&metadata)? != input.revision {
-            return Err("stale source revision during preparation".into());
-        }
-        if input.created_ns.is_some() && created_ns(&metadata) != input.created_ns {
-            return Err("source creation time changed during preparation".into());
         }
         FileObjectIdentity::from_metadata(&metadata)
     } else {
@@ -435,96 +483,113 @@ pub(crate) fn prepare_file_build(
     };
     let mut fingerprint = None;
     let mut collections = Vec::with_capacity(bindings.len());
+    let mut whole = None;
     for binding in bindings {
-        if let Ok(revision) = source_revision_at(&path) {
-            if revision != input.revision {
-                return Err("stale source revision during preparation".into());
-            }
-        }
-        let contributions = if let Some(result) = opened.as_mut().and_then(|file| {
-            prepare_custom_stream(
+        let reader = binding.source.reader();
+        let compare = expected_bytes.filter(|_| fingerprint.is_none());
+        let contributions = match &mut opened {
+            None => prepare_unreadable_file(
                 root,
                 &input,
                 binding,
                 alphabet,
                 inference,
                 inference_jobs,
-                fingerprint.is_none(),
-                file,
-            )
-        }) {
-            let (contributions, digest) = result?;
-            fingerprint = fingerprint.or(digest);
-            contributions
-        } else if binding.source.reader().supports_bounded_json_lines_build() && opened.is_some() {
-            let (contributions, digest) = prepare_bounded_json_lines(
-                root,
-                &input,
-                binding,
-                alphabet,
-                inference,
-                inference_jobs,
-                fingerprint.is_none(),
-                opened.as_mut().expect("checked above"),
-            )?;
-            fingerprint = fingerprint.or(digest);
-            contributions
-        } else if let Some((bytes, ranges)) = frame_file_for_build(&path, binding.source.reader())?
-        {
-            if source_revision_at(&path)? != input.revision
-                || bytes.len() as u64 != input.revision.size
-            {
-                return Err("stale source revision during preparation".into());
-            }
-            if fingerprint.is_none() {
-                fingerprint = Some(Sha256::digest(&*bytes).into());
-            }
-            let mut contributions = Vec::new();
-            let mut start = 0;
-            while start < ranges.len() {
-                let mut end = start;
-                let mut weight = 0u64;
-                while end < ranges.len() && end - start < 256 {
-                    let size = ranges[end].end - ranges[end].start;
-                    if end > start && weight.saturating_add(size) > 1024 * 1024 {
-                        break;
+                "source.open",
+                open_error.as_ref().expect("unopened source"),
+            )?,
+            Some(file) => {
+                if let Some(result) = reader
+                    .supports_streaming_build()
+                    .then(|| {
+                        prepare_custom_stream(
+                            root,
+                            &input,
+                            binding,
+                            alphabet,
+                            inference,
+                            inference_jobs,
+                            fingerprint.is_none(),
+                            file,
+                            compare,
+                        )
+                    })
+                    .flatten()
+                {
+                    let (contributions, digest) = result?;
+                    fingerprint = fingerprint.or(digest);
+                    contributions
+                } else if reader.supports_bounded_json_lines_build() {
+                    let (contributions, digest) = prepare_bounded_json_lines(
+                        root,
+                        &input,
+                        binding,
+                        alphabet,
+                        inference,
+                        inference_jobs,
+                        fingerprint.is_none(),
+                        file,
+                        compare,
+                    )?;
+                    fingerprint = fingerprint.or(digest);
+                    contributions
+                } else {
+                    let bytes = whole.get_or_insert_with(|| {
+                        file.seek(SeekFrom::Start(0))?;
+                        let mut bytes = Vec::new();
+                        file.read_to_end(&mut bytes)?;
+                        Ok::<_, std::io::Error>(bytes)
+                    });
+                    match bytes {
+                        Ok(bytes) => {
+                            if bytes.len() as u64 != input.revision.size {
+                                return Err("stale source length during preparation".into());
+                            }
+                            if compare.is_some_and(|expected| expected != bytes.as_slice()) {
+                                return Err("supplied bytes differ from core-observed file".into());
+                            }
+                            if fingerprint.is_none() {
+                                fingerprint = Some(Sha256::digest(&*bytes).into());
+                            }
+                            let mut prepared = prepare_file_build_with_fingerprint(
+                                root,
+                                input.clone(),
+                                bytes,
+                                std::slice::from_ref(binding),
+                                alphabet,
+                                inference,
+                                inference_jobs,
+                                fingerprint,
+                            )
+                            .map_err(|error| match error {
+                                BytesPreparationError::Build(message) => message,
+                                BytesPreparationError::UnsupportedReader { reason, .. } => {
+                                    format!("{}: reader fatal: {reason}", path.display())
+                                }
+                                error => format!("{error:?}"),
+                            })?;
+                            prepared
+                                .collections
+                                .pop()
+                                .expect("one binding")
+                                .contributions
+                        }
+                        Err(error) if compare.is_none() => prepare_unreadable_file(
+                            root,
+                            &input,
+                            binding,
+                            alphabet,
+                            inference,
+                            inference_jobs,
+                            "source.read",
+                            error,
+                        )?,
+                        Err(error) => {
+                            return Err(format!("supplied byte comparison failed: {error}"));
+                        }
                     }
-                    weight = weight.saturating_add(size);
-                    end += 1;
                 }
-                contributions.push(process_framed_batch(
-                    root,
-                    &input,
-                    binding,
-                    &bytes,
-                    &ranges[start..end],
-                    0,
-                    0,
-                    contributions.is_empty(),
-                    alphabet,
-                    inference,
-                    inference_jobs,
-                )?);
-                start = end;
             }
-            if contributions.is_empty() {
-                contributions.push(process_framed_batch(
-                    root,
-                    &input,
-                    binding,
-                    &bytes,
-                    &[],
-                    0,
-                    0,
-                    true,
-                    alphabet,
-                    inference,
-                    inference_jobs,
-                )?);
-            }
-            contributions
-        } else {
-            prepare_unframed_file(root, &input, binding, alphabet, inference, inference_jobs)?
         };
         collections.push(PreparedCollectionBuild {
             collection: binding.collection,
@@ -567,6 +632,28 @@ pub(crate) fn prepare_file_build_from_bytes(
     inference: InferenceConfig,
     inference_jobs: usize,
 ) -> Result<PreparedFileBuild, BytesPreparationError> {
+    prepare_file_build_with_fingerprint(
+        root,
+        input,
+        bytes,
+        bindings,
+        alphabet,
+        inference,
+        inference_jobs,
+        Some(Sha256::digest(bytes).into()),
+    )
+}
+
+fn prepare_file_build_with_fingerprint(
+    root: &Path,
+    input: SourceFileInput,
+    bytes: &[u8],
+    bindings: &[FilePreparationBinding<'_>],
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    fingerprint: Option<[u8; 32]>,
+) -> Result<PreparedFileBuild, BytesPreparationError> {
     let actual = u64::try_from(bytes.len())
         .map_err(|_| BytesPreparationError::Build("source size overflow".into()))?;
     if input.revision.size != actual {
@@ -575,7 +662,6 @@ pub(crate) fn prepare_file_build_from_bytes(
             actual,
         });
     }
-    let fingerprint = Some(Sha256::digest(bytes).into());
     let mut collections = Vec::with_capacity(bindings.len());
     for binding in bindings {
         let mut contributions = Vec::new();
@@ -842,52 +928,32 @@ fn process_framed_batch(
     )
 }
 
-fn process_unframed_large_file(
+fn admit_large_unreadable(
     root: &Path,
-    definition: &CollectionDefinition,
-    collection: CollectionId,
-    source: &PreparedSource,
-    file_id: FileId,
-    source_files: &[SourceFileInput],
+    input: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     inference_jobs: usize,
+    code: &str,
+    error: &std::io::Error,
     admit: &mut impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
-    let batch = process_batch(
+    for batch in prepare_unreadable_file(
         root,
-        definition,
-        collection,
-        source,
-        &[file_id],
-        source_files,
+        input,
+        binding,
         alphabet,
         inference,
         inference_jobs,
-    )?;
-    let source_reads = batch.source_reads;
-    let source_bytes_read = batch.source_bytes_read;
-    let file_fingerprint = batch
-        .file_fingerprints()
-        .first()
-        .map(|(_, digest)| (file_id, *digest));
-    let started = crate::measurement::timer::DetailedInstant::now();
-    admit(batch)?;
-    Ok(BuildScheduleStats {
-        file_fingerprint,
-        source_reads,
-        source_bytes_read,
-        weight_limit_bytes: 64 * 1024 * 1024,
-        peak_weight_bytes: source_files[file_id.0 as usize].revision.size,
-        admission_ns: started.elapsed().as_nanos() as u64,
-        ..Default::default()
-    })
+        code,
+        error,
+    )? {
+        admit(batch)?;
+    }
+    Ok(BuildScheduleStats::default())
 }
 
-/// Built-in JSONL uses bounded build chunks. Other readers retain the
-/// whole-buffer framing route, sharing one source buffer across range jobs.
-/// Caller schedules oversized files one at a time.
-#[cfg(test)]
 pub(crate) fn process_framed_file(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -986,20 +1052,76 @@ pub(crate) fn process_framed_file_profiled(
     };
     let input = &source_files[file_id.0 as usize];
     let path = root.join(&input.relative_path);
-    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader())? else {
-        return process_unframed_large_file(
+    let binding = FilePreparationBinding {
+        collection,
+        definition: &definition,
+        source: &source,
+    };
+    let mut file = match std::fs::File::open(&path) {
+        Ok(file) => file,
+        Err(error) => {
+            return admit_large_unreadable(
+                &root,
+                input,
+                &binding,
+                alphabet,
+                inference,
+                max_jobs,
+                "source.open",
+                &error,
+                &mut admit,
+            );
+        }
+    };
+    if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
+        != input.revision
+    {
+        return Err("stale source revision before large-file extraction".into());
+    }
+    let mut bytes = Vec::new();
+    if let Err(error) = file.read_to_end(&mut bytes) {
+        let read_bytes = bytes.len() as u64;
+        let mut stats = admit_large_unreadable(
             &root,
-            &definition,
-            collection,
-            &source,
-            file_id,
-            &source_files,
+            input,
+            &binding,
             alphabet,
             inference,
             max_jobs,
+            "source.read",
+            &error,
             &mut admit,
-        );
+        )?;
+        stats.source_reads = 1;
+        stats.source_bytes_read = read_bytes;
+        return Ok(stats);
+    }
+    if bytes.len() as u64 != input.revision.size {
+        return Err("stale source length during large-file extraction".into());
+    }
+    let bytes = Arc::new(bytes);
+    let ranges = match source.reader().frame_outcome(&bytes) {
+        Ok(ranges) => ranges,
+        Err(ReaderFailure::Malformed(diagnostic)) => {
+            let fingerprint = Sha256::digest(&**bytes).into();
+            let batch = prepare_malformed_supplied_file(
+                &root, input, &binding, &bytes, diagnostic, alphabet, inference, max_jobs,
+            )
+            .map_err(|error| format!("{error:?}"))?;
+            crate::source::access::check_revision(&path, &file, input.revision)?;
+            admit(batch)?;
+            return Ok(BuildScheduleStats {
+                source_reads: 1,
+                source_bytes_read: bytes.len() as u64,
+                file_fingerprint: Some((file_id, fingerprint)),
+                ..Default::default()
+            });
+        }
+        Err(ReaderFailure::Fatal(error)) => {
+            return Err(format!("{}: reader fatal: {error}", path.display()));
+        }
     };
+    validate_reader_ranges(&ranges, bytes.len())?;
     let file_fingerprint = (bytes.len() as u64 == input.revision.size)
         .then(|| (file_id, Sha256::digest(&*bytes).into()));
     let source_bytes = bytes.len() as u64;
@@ -1110,6 +1232,7 @@ pub(crate) fn process_framed_file_profiled(
     if let Some(error) = failure {
         return Err(error);
     }
+    crate::source::access::check_revision(&path, &file, input.revision)?;
     stats.peak_weight_bytes = source_bytes.saturating_add(peak_bytes);
     stats.file_fingerprint = file_fingerprint;
     counters.add_to(&mut stats);
@@ -1138,23 +1261,33 @@ fn process_bounded_json_lines_file(
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let path = root.join(&source_files[file_id.0 as usize].relative_path);
+    let input = source_files[file_id.0 as usize].clone();
+    let binding = FilePreparationBinding {
+        collection,
+        definition: &definition,
+        source: &source,
+    };
     let file = match std::fs::File::open(&path) {
         Ok(file) => file,
-        Err(_) => {
-            return process_unframed_large_file(
+        Err(error) => {
+            return admit_large_unreadable(
                 &root,
-                &definition,
-                collection,
-                &source,
-                file_id,
-                &source_files,
+                &input,
+                &binding,
                 alphabet,
                 inference,
                 max_jobs,
+                "source.open",
+                &error,
                 &mut admit,
             );
         }
     };
+    if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
+        != input.revision
+    {
+        return Err("stale source revision before bounded extraction".into());
+    }
     let mut digest = Sha256::new();
     let mut bytes_read = 0u64;
     let expected_size = source_files[file_id.0 as usize].revision.size;
@@ -1162,6 +1295,7 @@ fn process_bounded_json_lines_file(
         inner: &file,
         digest: Some(&mut digest),
         bytes_read: &mut bytes_read,
+        expected_bytes: None,
     }));
     let mut stats = process_bounded_json_lines_reader(
         pool,
@@ -1178,11 +1312,11 @@ fn process_bounded_json_lines_file(
         BoundedBuildLimits::default(),
         admit,
     )?;
-    // A fallback can already provide the complete normal-extraction digest.
-    // Otherwise only a complete bounded read may identify the indexed bytes.
-    if stats.file_fingerprint.is_none() && bytes_read == expected_size {
-        stats.file_fingerprint = Some((file_id, digest.finalize().into()));
+    crate::source::access::check_revision(&path, &file, input.revision)?;
+    if bytes_read != expected_size {
+        return Err("stale source length during bounded extraction".into());
     }
+    stats.file_fingerprint = Some((file_id, digest.finalize().into()));
     stats.source_reads = stats.source_reads.saturating_add(1);
     stats.source_bytes_read = stats.source_bytes_read.saturating_add(bytes_read);
     Ok(stats)
@@ -1222,9 +1356,8 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let path = root.join(&source_files[file_id.0 as usize].relative_path);
-    // A failure before any contribution can still use the ordinary unreadable
-    // outcome. Once a chunk is admitted, an I/O failure aborts this private
-    // generation instead of publishing a partially indexed file.
+    // Failed input aborts private work. Reopening the pathname here could
+    // read a different file from the one being observed.
     let first_started = crate::measurement::timer::start_if_enabled(profile_build);
     let first = match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
         Ok(Some(chunk)) => chunk,
@@ -1234,20 +1367,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
             file_offset: 0,
             preceding_lines: 0,
         },
-        Err(_) => {
-            return process_unframed_large_file(
-                &root,
-                &definition,
-                collection,
-                &source,
-                file_id,
-                &source_files,
-                alphabet,
-                inference,
-                max_jobs,
-                &mut admit,
-            );
-        }
+        Err(error) => return Err(error),
     };
     let mut pending = Some(first);
     let mut eof = false;
@@ -1267,7 +1387,6 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     let (mut dispatched, mut completed, mut next) = (0usize, 0usize, 0usize);
     let (mut admitted_bytes, mut peak_bytes) = (0u64, 0u64);
     let mut failure = None;
-    let mut read_failure = false;
     while failure.is_none() {
         while dispatched - next < max_jobs {
             if pending.is_none() && !eof {
@@ -1285,7 +1404,6 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
                     Err(error) => {
                         failure =
                             Some(format!("{}: bounded framing read: {error}", path.display()));
-                        read_failure = true;
                         break;
                     }
                 }
@@ -1375,20 +1493,6 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     while completed < dispatched {
         let _ = receiver.recv().map_err(|error| error.to_string())?;
         completed += 1;
-    }
-    if read_failure && next == 0 {
-        return process_unframed_large_file(
-            &root,
-            &definition,
-            collection,
-            &source,
-            file_id,
-            &source_files,
-            alphabet,
-            inference,
-            max_jobs,
-            &mut admit,
-        );
     }
     if let Some(error) = failure {
         return Err(error);

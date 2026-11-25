@@ -1951,3 +1951,45 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
     assert_eq!(index.status().unwrap().live_records, 2);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[cfg(unix)]
+#[test]
+fn programmatic_rebuild_rejects_source_replacement_at_handoff() {
+    let root = test_root("rebuild-handoff");
+    let mut builder = Index::builder();
+    let collection = builder.collection("items", Schema::default()).unwrap();
+    builder
+        .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
+        .unwrap();
+    builder
+        .register_file_source(
+            collection,
+            CollectionDefinition::folder("items", "data", SourceFormat::JsonLines).file_source(),
+        )
+        .unwrap();
+    let index = builder.build().unwrap();
+    let path = root.join("data/file.jsonl");
+    std::fs::write(&path, b"{\"name\":\"aaa\"}\n").unwrap();
+    let imported = index.add_file(&path).unwrap();
+    let pinned = index.view().unwrap();
+    let expected = std::fs::metadata(&path).unwrap();
+    let result = index.rebuild_with_before_publish(|_| {
+        let substitute = root.join("replacement");
+        std::fs::write(&substitute, b"{\"name\":\"bbb\"}\n").unwrap();
+        std::fs::File::open(&substitute)
+            .unwrap()
+            .set_times(std::fs::FileTimes::new().set_modified(expected.modified().unwrap()))
+            .unwrap();
+        std::fs::rename(&substitute, &path).unwrap();
+    });
+    assert!(matches!(result, Err(IndexError::SourceUnavailable(_))));
+    assert_eq!(index.view().unwrap().revision(), pinned.revision());
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .file_handle_for_path(std::path::Path::new("data/file.jsonl")),
+        Some(imported.file)
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
