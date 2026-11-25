@@ -851,32 +851,25 @@ impl Repository {
             let record_target = options.segment_policy.target_records.get() as u64;
             let needs_chunks = |file: FileId| {
                 let size = discovered.files[file.0 as usize].revision.size;
-                streams || size > 8 * 1024 * 1024
+                state.source.is_extension()
+                    || size > 8 * 1024 * 1024
                     // Even one-byte records need a separator, except at EOF.
                     || (bounded_lines && size.div_ceil(2) > record_target)
             };
-            let batches = if streams {
-                members.chunks(1).collect::<Vec<_>>()
-            } else if bounded_lines {
-                crate::construction::batch::file_batches(members, &discovered)
-                    .into_iter()
-                    .flat_map(|batch| {
-                        if batch.iter().copied().any(needs_chunks) {
-                            batch.chunks(1).collect::<Vec<_>>()
-                        } else {
-                            vec![batch]
-                        }
-                    })
-                    .collect()
-            } else {
-                crate::construction::batch::file_batches(members, &discovered)
-            };
+            let files_per_draft = options
+                .segment_policy
+                .max_files
+                .get()
+                .min(options.segment_policy.target_records.get());
+            let batches = crate::construction::batch::file_batches(members, &discovered);
             let mut small_streams = Vec::new();
-            let max_files = options.segment_policy.max_files.get();
-            for batch in batches
-                .into_iter()
-                .flat_map(|batch| batch.chunks(max_files))
-            {
+            for batch in batches.into_iter().flat_map(|batch| {
+                if batch.iter().copied().any(needs_chunks) {
+                    batch.chunks(1)
+                } else {
+                    batch.chunks(files_per_draft)
+                }
+            }) {
                 if streams
                     && build_workers > 1
                     && members.len() > 1
@@ -1322,12 +1315,9 @@ impl Repository {
         // Ordinary partitions can publish independently. A shared group
         // stays private until the last binding has finished each of its files.
         for (bindings, files) in shared {
-            let streaming = bindings.iter().any(|id| {
-                pending[id.0 as usize]
-                    .source
-                    .reader()
-                    .supports_streaming_build()
-            });
+            let registered = bindings
+                .iter()
+                .any(|id| pending[id.0 as usize].source.is_extension());
             let bounded_lines = bindings.iter().any(|id| {
                 pending[id.0 as usize]
                     .source
@@ -1336,7 +1326,7 @@ impl Repository {
             });
             let needs_chunks = |file: FileId| {
                 let size = discovered.files[file.0 as usize].revision.size;
-                streaming
+                registered
                     || size > 8 * 1024 * 1024
                     || (bounded_lines
                         && size.div_ceil(2) > options.segment_policy.target_records.get() as u64)
@@ -1347,7 +1337,11 @@ impl Repository {
                     let limit = if batch.iter().copied().any(needs_chunks) {
                         1
                     } else {
-                        options.segment_policy.max_files.get()
+                        options
+                            .segment_policy
+                            .max_files
+                            .get()
+                            .min(options.segment_policy.target_records.get())
                     };
                     batch.chunks(limit)
                 })

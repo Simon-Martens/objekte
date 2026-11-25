@@ -904,6 +904,9 @@ pub(crate) fn prepare_observed_file_build(
                                 alphabet,
                                 inference,
                                 inference_jobs,
+                                streaming_repository.map_or(usize::MAX, |repository| {
+                                    repository.options().segment_policy.target_records.get()
+                                }),
                                 fingerprint,
                             )
                             .map_err(|error| match error {
@@ -1090,6 +1093,7 @@ pub(crate) fn prepare_file_build_from_bytes(
         alphabet,
         inference,
         inference_jobs,
+        usize::MAX,
         Some(Sha256::digest(bytes).into()),
     )
 }
@@ -1102,6 +1106,7 @@ fn prepare_file_build_with_fingerprint(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     inference_jobs: usize,
+    record_target: usize,
     fingerprint: Option<[u8; 32]>,
 ) -> Result<PreparedFileBuild, BytesPreparationError> {
     let actual = u64::try_from(bytes.len())
@@ -1155,24 +1160,13 @@ fn prepare_file_build_with_fingerprint(
             match binding.source.reader().frame_outcome(bytes) {
                 Ok(ranges) => {
                     validate_supplied_ranges(&ranges, actual)?;
-                    let mut start = 0;
-                    while start < ranges.len() {
-                        let mut end = start;
-                        let mut weight = 0u64;
-                        while end < ranges.len() && end - start < 256 {
-                            let size = ranges[end].end - ranges[end].start;
-                            if end > start && weight.saturating_add(size) > 1024 * 1024 {
-                                break;
-                            }
-                            weight = weight.saturating_add(size);
-                            end += 1;
-                        }
+                    for (chunk, _) in whole_document_chunks(&ranges, record_target) {
                         contributions.push(process_framed_batch(
                             root,
                             &input,
                             binding,
                             bytes,
-                            &ranges[start..end],
+                            &ranges[chunk],
                             0,
                             0,
                             contributions.is_empty(),
@@ -1180,7 +1174,6 @@ fn prepare_file_build_with_fingerprint(
                             inference,
                             inference_jobs,
                         )?);
-                        start = end;
                     }
                     if contributions.is_empty() {
                         contributions.push(process_framed_batch(
@@ -1232,6 +1225,35 @@ fn prepare_file_build_with_fingerprint(
         identity: None,
         collections,
     })
+}
+
+fn whole_document_chunks(
+    ranges: &[ByteRange],
+    record_target: usize,
+) -> Vec<(std::ops::Range<usize>, u64)> {
+    const MAX_RANGE_BYTES: u64 = 1024 * 1024;
+    const MAX_RANGES: usize = 256;
+    let mut chunks = Vec::new();
+    let mut start = 0;
+    while start < ranges.len() {
+        let remaining = record_target - start % record_target;
+        let end_limit = ranges
+            .len()
+            .min(start.saturating_add(remaining.min(MAX_RANGES)));
+        let mut end = start;
+        let mut weight = 0u64;
+        while end < end_limit {
+            let size = ranges[end].len();
+            if end > start && weight.saturating_add(size) > MAX_RANGE_BYTES {
+                break;
+            }
+            weight = weight.saturating_add(size);
+            end += 1;
+        }
+        chunks.push((start..end, weight.max(64 * 1024)));
+        start = end;
+    }
+    chunks
 }
 
 fn validate_supplied_ranges(ranges: &[ByteRange], size: u64) -> Result<(), BytesPreparationError> {
@@ -1536,8 +1558,6 @@ pub(super) fn process_framed_file_with_budget(
             admit,
         );
     }
-    const MAX_RANGE_BYTES: u64 = 1024 * 1024;
-    const MAX_RANGES: usize = 256;
     const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let mut stats = BuildScheduleStats {
@@ -1621,22 +1641,7 @@ pub(super) fn process_framed_file_with_budget(
     let source_bytes = bytes.len() as u64;
     stats.source_reads = 1;
     stats.source_bytes_read = source_bytes;
-    let mut chunks = Vec::new();
-    let mut start = 0;
-    while start < ranges.len() {
-        let mut end = start;
-        let mut weight = 0u64;
-        while end < ranges.len() && end - start < MAX_RANGES {
-            let size = ranges[end].end - ranges[end].start;
-            if end > start && weight.saturating_add(size) > MAX_RANGE_BYTES {
-                break;
-            }
-            weight = weight.saturating_add(size);
-            end += 1;
-        }
-        chunks.push((start..end, weight.max(64 * 1024)));
-        start = end;
-    }
+    let mut chunks = whole_document_chunks(&ranges, record_target);
     if chunks.is_empty() {
         chunks.push((0..0, 64 * 1024));
     }

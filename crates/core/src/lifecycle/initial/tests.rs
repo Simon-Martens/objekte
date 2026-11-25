@@ -2014,3 +2014,142 @@ fn initial_publication_rechecks_symlink_eligibility_after_framing() {
         assert_eq!(records, usize::from(selected));
     }
 }
+
+#[test]
+fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
+    struct WholeLines;
+    impl SourceReader for WholeLines {
+        fn name(&self) -> &'static str {
+            "whole-lines-test"
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            JsonLinesReader.frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonLinesReader.parse(bytes)
+        }
+    }
+
+    for (count, target, populations) in
+        [(10, 4, vec![4, 4, 2]), (310, 100, vec![100, 100, 100, 10])]
+    {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-whole-document-packing-{}-{count}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        let initial = root.join("data/initial.whole");
+        let managed = root.join("data/managed.whole");
+        let document = |prefix: &str| {
+            (0..count)
+                .map(|id| format!("{{\"id\":\"{prefix}{id:04}\"}}\n"))
+                .collect::<String>()
+        };
+        std::fs::write(&initial, document("a")).unwrap();
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register("whole-lines", 1, "whole", Arc::new(WholeLines))
+            .unwrap();
+        let mut definition = CollectionDefinition::folder(
+            "entries",
+            "data",
+            SourceFormat::registered("whole-lines"),
+        );
+        definition.identity =
+            crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
+        let index = Index::start_build(
+            &root,
+            vec![definition],
+            RepositoryOptions {
+                segment_policy: crate::index::segment::SegmentPolicy {
+                    target_records: NonZeroUsize::new(target).unwrap(),
+                    max_files: NonZeroUsize::MIN,
+                },
+                ..RepositoryOptions::default()
+            },
+            sources,
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap();
+
+        let check = |view: &crate::lifecycle::IndexView, path: &str, prefix: &str| {
+            let catalogue = view.file_catalog().unwrap();
+            let file = catalogue.file_by_path(std::path::Path::new(path)).unwrap();
+            let records = catalogue.records_for_file(file.id).unwrap();
+            assert_eq!(file.collections.len(), 1);
+            assert_eq!(records.len(), count);
+            let segment_records = view
+                .segments(crate::model::CollectionId(0))
+                .unwrap()
+                .iter()
+                .filter_map(|segment| {
+                    let slot = *segment.index.file_index.get(&file.id)?;
+                    let live = &segment.active;
+                    let count = segment.index.files[slot]
+                        .records
+                        .iter()
+                        .filter(|slot| live.contains(**slot))
+                        .count();
+                    (count != 0).then_some(count)
+                })
+                .collect::<Vec<_>>();
+            assert_eq!(segment_records, populations, "{path}, target {target}");
+            let query = Query {
+                collections: vec!["entries".into()],
+                fts: None,
+                filter: None,
+                options: QueryOptions {
+                    limit: count * 2,
+                    return_mode: ReturnMode::Locator,
+                    sort: Vec::new(),
+                    offset: 0,
+                    count: true,
+                    evidence: false,
+                },
+            };
+            let mut ranges = view
+                .search(&query)
+                .unwrap()
+                .hits
+                .into_iter()
+                .filter_map(|hit| {
+                    let id = hit.record_id.to_string();
+                    id.starts_with(prefix)
+                        .then(|| (id, hit.source_range().unwrap()))
+                })
+                .collect::<Vec<_>>();
+            ranges.sort_by(|a, b| a.0.cmp(&b.0));
+            assert_eq!(ranges.len(), count);
+            for (i, (id, range)) in ranges.into_iter().enumerate() {
+                let width = format!("{{\"id\":\"{prefix}{i:04}\"}}\n").len() as u64;
+                assert_eq!(id, format!("{prefix}{i:04}"));
+                assert_eq!(
+                    range,
+                    ByteRange {
+                        start: i as u64 * width,
+                        end: (i as u64 + 1) * width - 1
+                    }
+                );
+            }
+        };
+        check(&index.view().unwrap(), "data/initial.whole", "a");
+        std::fs::write(&managed, document("b")).unwrap();
+        let added = index.add_file(&managed).unwrap();
+        let pinned = index.view().unwrap();
+        check(&pinned, "data/managed.whole", "b");
+        let replacement = document("c");
+        std::fs::write(&managed, &replacement).unwrap();
+        let revision =
+            crate::inventory::SourceRevision::from_metadata(&std::fs::metadata(&managed).unwrap())
+                .unwrap();
+        index
+            .update_file_from_bytes(added.file, &managed, replacement.as_bytes(), revision)
+            .unwrap();
+        check(&index.view().unwrap(), "data/managed.whole", "c");
+        check(&pinned, "data/managed.whole", "b");
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
