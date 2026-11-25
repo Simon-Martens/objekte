@@ -130,9 +130,10 @@ fn bytes_hex(bytes: &[u8]) -> String {
 }
 
 fn canonical(root: &Path, alphabet: BigramAlphabet, extended: bool) -> Result<(), Box<dyn Error>> {
-    let historical = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
-    let additional =
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json");
+    let historical =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
+    let additional = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("../core/benches/musenalm_queries_extended.json");
     let cases = if extended {
         load_extended_manifest(&historical, &additional)?
     } else {

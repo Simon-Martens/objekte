@@ -43,6 +43,9 @@ impl SourceReader for JsonReader {
     fn supports_relative_path_identity(&self) -> bool {
         true
     }
+    fn uses_extension_query_limits(&self) -> bool {
+        false
+    }
     fn supports_verified_layout(&self) -> bool {
         true
     }
@@ -129,6 +132,9 @@ impl SourceReader for JsonDecodedScalarsReader {
 
     fn supports_relative_path_identity(&self) -> bool {
         true
+    }
+    fn uses_extension_query_limits(&self) -> bool {
+        false
     }
     fn supports_verified_layout(&self) -> bool {
         true

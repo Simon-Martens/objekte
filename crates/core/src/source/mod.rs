@@ -224,15 +224,26 @@ pub trait SourceReader: Send + Sync {
         fingerprint_input(input)
     }
 
-    /// Identity and build capabilities supplied by the registration.
+    /// True when one file represents at most one record and the reader
+    /// supports using the file's relative path as that record's identity.
     fn supports_relative_path_identity(&self) -> bool {
         false
     }
+    /// True when record layout depends only on the input bytes, so verified
+    /// replacement and path-independent moves can reuse the indexed layout.
     fn supports_verified_layout(&self) -> bool {
         false
     }
+    /// Whether ordinary files can be packed into build batches. A batched
+    /// reader must return a conservative bound from `maximum_records`.
     fn prefers_file_batches(&self) -> bool {
         false
+    }
+
+    /// Whether core must apply the additional generic-reader logical value
+    /// allowances. Backends with bounded query projection can opt out.
+    fn uses_extension_query_limits(&self) -> bool {
+        true
     }
 
     fn scalar_verification(&self) -> Option<verification::ScalarVerification> {

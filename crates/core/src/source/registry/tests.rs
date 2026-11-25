@@ -168,7 +168,7 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
         ),
     ] {
         let source = builtins.resolve(&format).unwrap();
-        assert!(!source.is_extension());
+        assert!(!source.reader().uses_extension_query_limits());
         assert_eq!(source.scalar_verification(), expected);
     }
 
@@ -208,7 +208,7 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
         let resolved = sources
             .resolve(&SourceFormat::registered(registration_id))
             .unwrap();
-        assert!(resolved.is_extension());
+        assert!(resolved.reader().uses_extension_query_limits());
         assert_eq!(resolved.scalar_verification(), None);
         let definition = CollectionDefinition {
             name: "data".into(),

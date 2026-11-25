@@ -1,6 +1,6 @@
 //! Search folder-defined collections without loading .objekte schemas.
 //!
-//! cargo run --release -p objekte-search-core --example musenalm_without_schema -- \
+//! cargo run --release -p objekte-cli --example musenalm_without_schema -- \
 //!   --root examples/musenalm --query Goethe
 //! Add --folder NAME=RELATIVE_PATH to define collections explicitly.
 

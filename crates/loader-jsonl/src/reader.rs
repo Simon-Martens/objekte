@@ -31,6 +31,9 @@ impl SourceReader for JsonLinesReader {
             objekte_search_core::source::verification::ScalarVerification::ResolvedStrings,
         )
     }
+    fn uses_extension_query_limits(&self) -> bool {
+        false
+    }
     fn supports_verified_layout(&self) -> bool {
         true
     }

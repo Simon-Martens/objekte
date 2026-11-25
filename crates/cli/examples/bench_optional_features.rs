@@ -3,7 +3,7 @@
 //! deliberately kept in their own benchmark.
 //!
 //! Build before measuring:
-//! cargo build --release -p objekte-search-core --example bench_optional_features
+//! cargo build --release -p objekte-cli --example bench_optional_features
 //! target/release/examples/bench_optional_features --root examples/musenalm \
 //!   --inference disabled > optional-disabled.json
 //!

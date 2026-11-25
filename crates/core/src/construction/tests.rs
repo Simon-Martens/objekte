@@ -3,8 +3,8 @@ use crate::construction::batch::process_batch_profiled;
 use crate::construction::batch::{SourceFileInput, file_batches, process_batch};
 use crate::construction::file_preparation::{
     BoundedBuildLimits, BytesPreparationError, FilePreparationBinding, PreparedFileBuild,
-    prepare_file_build, prepare_file_build_from_bytes, process_bounded_json_lines_reader,
-    process_framed_file,
+    prepare_file_build, prepare_file_build_from_bytes, process_framed_file,
+    process_pull_framed_reader,
 };
 use crate::construction::scheduling::{
     RepositoryFileJob, fits_allowance, normal_batch_allowance, process_file_batches,
@@ -2067,7 +2067,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
         ))
     };
     let mut before = Vec::new();
-    let error = process_bounded_json_lines_reader(
+    let error = process_pull_framed_reader(
         &pool,
         Arc::new(root.clone()),
         Arc::clone(&definition),
@@ -2095,7 +2095,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
     blank_lines.extend(std::iter::repeat_n(b' ', 40 * 1024));
     blank_lines.push(b'\n');
     let mut admitted_chunks = 0;
-    let stats = process_bounded_json_lines_reader(
+    let stats = process_pull_framed_reader(
         &pool,
         Arc::new(root.clone()),
         Arc::clone(&definition),
@@ -2128,7 +2128,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
     assert_eq!(stats.peak_active_jobs, 0);
 
     let mut admitted_records = 0;
-    let error = process_bounded_json_lines_reader(
+    let error = process_pull_framed_reader(
         &pool,
         Arc::new(root.clone()),
         Arc::clone(&definition),
@@ -2157,7 +2157,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
                       admit: &mut dyn FnMut(
         crate::construction::batch::BatchContribution,
     ) -> Result<(), String>| {
-        process_bounded_json_lines_reader(
+        process_pull_framed_reader(
             &pool,
             Arc::new(root.clone()),
             Arc::clone(&definition),

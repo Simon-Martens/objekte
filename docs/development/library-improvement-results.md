@@ -9,7 +9,7 @@ Baseline validation: `cargo test --workspace` passed; `cargo clippy --workspace 
 The release examples were compiled before timing:
 
 ```sh
-cargo build --release -p objekte-search-core --example bench_build_musenalm --example bench_musenalm
+cargo build --release -p objekte-cli --example bench_build_musenalm --example bench_musenalm
 ./target/release/examples/bench_build_musenalm --root examples/musenalm --alphabet ascii --snapshot-mode disabled --build-workers auto --schema-manifest-path .task-results/baseline/build-schema.json
 ./target/release/examples/bench_musenalm --root examples/musenalm --extended --cases Q035,Q045,Q084,Q127,Q189,Q190,Q194 --profiles ascii-off --repetitions 6 --result-dir .task-results/baseline/queries
 ```

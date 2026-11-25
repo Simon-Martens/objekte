@@ -99,7 +99,7 @@ pub(crate) fn prepare_query_record_with_execution(
             _logical_output,
         );
     };
-    let extension = source.is_extension();
+    let extension = source.reader().uses_extension_query_limits();
     execution.check_string()?;
     if extension
         && source

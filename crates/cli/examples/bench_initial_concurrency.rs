@@ -140,8 +140,8 @@ fn run() -> Result<(), String> {
 fn workload_queries() -> Result<Vec<Query>, String> {
     let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
     let cases = load_extended_manifest(
-        &core.join("benches/musenalm_queries.json"),
-        &core.join("benches/musenalm_queries_extended.json"),
+        &core.join("../core/benches/musenalm_queries.json"),
+        &core.join("../core/benches/musenalm_queries_extended.json"),
     )?;
     ["Q108", "Q116", "Q120"]
         .iter()

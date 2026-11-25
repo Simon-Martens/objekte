@@ -17,7 +17,7 @@ fn main() -> Result<(), String> {
             .map(str::to_owned)
             .collect();
     }
-    let base = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches");
+    let base = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../core/benches");
     let cases = load_extended_manifest(
         &base.join("musenalm_queries.json"),
         &base.join("musenalm_queries_extended.json"),

@@ -13,9 +13,10 @@ fn fixture_schemas_bind_every_fixed_request() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let definitions = load_definitions(&root).unwrap();
     assert_eq!(definitions.len(), 7);
-    let cases =
-        load_manifest(&Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json"))
-            .unwrap();
+    let cases = load_manifest(
+        &Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json"),
+    )
+    .unwrap();
     for case in cases {
         let query = Query::from_workload(&case).unwrap();
         for definition in definitions

@@ -167,9 +167,10 @@ fn run() -> Result<(), String> {
         };
         profiles.push((name.clone(), profile));
     }
-    let baseline_path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let baseline_path =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
     let manifest_path = if extended {
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json")
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries_extended.json")
     } else {
         baseline_path.clone()
     };

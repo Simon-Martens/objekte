@@ -42,8 +42,8 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
     let retire_path = std::env::var("LIFECYCLE_RETIRE_PATH").ok();
     let core = Path::new(env!("CARGO_MANIFEST_DIR")).to_path_buf();
     let mut cases = load_extended_manifest(
-        &core.join("benches/musenalm_queries.json"),
-        &core.join("benches/musenalm_queries_extended.json"),
+        &core.join("../core/benches/musenalm_queries.json"),
+        &core.join("../core/benches/musenalm_queries_extended.json"),
     )?;
     if let Ok(selected) = std::env::var("LIFECYCLE_CASES") {
         let ids: Vec<_> = selected.split(',').collect();

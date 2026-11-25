@@ -368,7 +368,7 @@ fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
             let source = registry
                 .resolve(&SourceFormat::registered("tracking"))
                 .unwrap();
-            assert!(source.is_extension());
+            assert!(source.reader().uses_extension_query_limits());
             let mut built = source.reader().parse_for_build_outcome(bytes).unwrap();
             finish_build_record(&schema, &mut built).unwrap();
             let projection = ScanProjection {
@@ -555,7 +555,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
                 )
                 .unwrap();
             let source = registry.resolve(&SourceFormat::registered("json")).unwrap();
-            assert!(source.is_extension());
+            assert!(source.reader().uses_extension_query_limits());
             let execution = context();
             let error = prepare_query_record_with_execution(
                 crate::inventory::RecordClass::Logical,

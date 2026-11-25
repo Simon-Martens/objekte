@@ -38,7 +38,7 @@ impl PreparedSource {
         Arc::clone(&self.0.reader)
     }
 
-    pub(crate) fn is_extension(&self) -> bool {
+    pub(crate) fn schedules_separate_file_jobs(&self) -> bool {
         !self.0.file_batches
     }
 
@@ -47,7 +47,7 @@ impl PreparedSource {
     }
 }
 
-/// Repository-local source registrations. The built-ins use this same table.
+/// Repository-local source registrations. A new registry is empty.
 #[derive(Clone, Default)]
 pub struct SourceRegistry {
     entries: HashMap<String, Arc<SourceRegistration>>,
@@ -73,7 +73,8 @@ impl SourceRegistry {
         self.register_source(id.into(), version, extension.into(), reader, file_batches)
     }
 
-    /// Opt a reader with a conservative record bound into ordinary small-file batches.
+    /// Opt a reader into ordinary small-file batches. Its `maximum_records`
+    /// implementation must bound expansion for all inputs.
     pub fn register_file_batched(
         &mut self,
         id: impl Into<String>,

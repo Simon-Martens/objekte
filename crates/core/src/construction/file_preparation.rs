@@ -317,7 +317,7 @@ fn prepare_unreadable_file(
     )?])
 }
 
-fn prepare_bounded_json_lines(
+fn prepare_pull_framed_file(
     root: &Path,
     input: &SourceFileInput,
     binding: &FilePreparationBinding<'_>,
@@ -1168,7 +1168,7 @@ pub(crate) fn prepare_observed_file_build(
                     fingerprint = fingerprint.or(digest);
                     contributions
                 } else if reader.uses_pull_framing() {
-                    let (contributions, digest) = prepare_bounded_json_lines(
+                    let (contributions, digest) = prepare_pull_framed_file(
                         root,
                         &input,
                         binding,
@@ -1355,7 +1355,7 @@ fn prepare_managed_stream(
             expected_bytes,
         };
         let framer = open_build_framer(binding.source.reader(), &mut reader, true)?;
-        process_bounded_json_lines_input(
+        process_pull_framed_input(
             pool,
             root,
             definition,
@@ -1929,7 +1929,7 @@ pub(super) fn process_framed_file_with_budget(
         return Ok(stats);
     }
     if source.reader().uses_pull_framing() {
-        return process_bounded_json_lines_file(
+        return process_pull_framed_file(
             pool,
             root,
             definition,
@@ -2151,7 +2151,7 @@ fn open_build_framer<'a>(
         .ok_or_else(|| "reader advertised pull framing but did not provide a framer".into())
 }
 
-fn process_bounded_json_lines_file(
+fn process_pull_framed_file(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
@@ -2207,7 +2207,7 @@ fn process_bounded_json_lines_file(
         expected_bytes: None,
     };
     let framer = open_build_framer(source.reader(), &mut reader, shared_budget.is_some())?;
-    let mut stats = process_bounded_json_lines_input(
+    let mut stats = process_pull_framed_input(
         pool,
         root,
         definition,
@@ -2254,7 +2254,7 @@ impl Default for BoundedBuildLimits {
 }
 
 #[cfg(test)]
-pub(crate) fn process_bounded_json_lines_reader(
+pub(crate) fn process_pull_framed_reader(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
@@ -2271,7 +2271,7 @@ pub(crate) fn process_bounded_json_lines_reader(
     admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let input = Arc::new(source_files[file_id.0 as usize].clone());
-    process_bounded_json_lines_input(
+    process_pull_framed_input(
         pool,
         root,
         definition,
@@ -2290,7 +2290,7 @@ pub(crate) fn process_bounded_json_lines_reader(
     )
 }
 
-fn process_bounded_json_lines_input(
+fn process_pull_framed_input(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,

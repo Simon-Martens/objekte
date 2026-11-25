@@ -200,7 +200,8 @@ fn run() -> Result<(), String> {
     }
     let definitions = musenalm::load_definitions(&root)?;
     let mut case = if let Some(id) = case_id {
-        let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+        let path =
+            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
         load_manifest(&path)?
             .into_iter()
             .find(|c| c.id == id)

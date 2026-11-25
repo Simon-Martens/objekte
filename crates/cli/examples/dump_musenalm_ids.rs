@@ -40,12 +40,12 @@ fn run() -> Result<(), String> {
     }
     let selected = selected.ok_or("--cases is required")?;
     let baseline_path =
-        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
     let manifest = if extended {
         load_extended_manifest(
             &baseline_path,
             &PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-                .join("benches/musenalm_queries_extended.json"),
+                .join("../core/benches/musenalm_queries_extended.json"),
         )?
     } else {
         load_manifest(&baseline_path)?

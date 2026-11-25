@@ -1092,7 +1092,7 @@ impl Repository {
             .filter(|file| {
                 file.collections
                     .iter()
-                    .any(|id| pending[id.0 as usize].source.is_extension())
+                    .any(|id| pending[id.0 as usize].source.schedules_separate_file_jobs())
             })
             .take(2)
             .count();
@@ -1112,7 +1112,7 @@ impl Repository {
                     .collect::<Vec<_>>();
                 &ordinary
             };
-            if parallel_registered_files && state.source.is_extension() {
+            if parallel_registered_files && state.source.schedules_separate_file_jobs() {
                 group_stream_files(
                     members,
                     &discovered,
@@ -1136,7 +1136,7 @@ impl Repository {
             let record_target = options.segment_policy.target_records.get() as u64;
             let needs_chunks = |file: FileId| {
                 let size = discovered.files[file.0 as usize].revision.size;
-                state.source.is_extension()
+                state.source.schedules_separate_file_jobs()
                     || size > 8 * 1024 * 1024
                     || record_bound(file) > record_target
             };
@@ -1173,7 +1173,7 @@ impl Repository {
             shared.retain(|bindings, files| {
                 let streams = bindings
                     .iter()
-                    .any(|id| pending[id.0 as usize].source.is_extension());
+                    .any(|id| pending[id.0 as usize].source.schedules_separate_file_jobs());
                 if streams {
                     let bindings = bindings
                         .iter()
@@ -1640,7 +1640,7 @@ impl Repository {
         for (bindings, files) in shared {
             let registered = bindings
                 .iter()
-                .any(|id| pending[id.0 as usize].source.is_extension());
+                .any(|id| pending[id.0 as usize].source.schedules_separate_file_jobs());
             let readers: Vec<_> = bindings
                 .iter()
                 .map(|id| pending[id.0 as usize].source.clone())
