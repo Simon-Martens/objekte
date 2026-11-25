@@ -62,6 +62,13 @@ def signed(before, after):
     return after - before, None if before == 0 else (after / before - 1) * 100
 
 
+def material(before, after, unit):
+    tenth_ms = 100_000 if unit == "ns" else 0.1
+    one_ms = 1_000_000 if unit == "ns" else 1.0
+    return after > before * 1.1 and after - before >= (
+        tenth_ms if before >= one_ms else one_ms)
+
+
 def main():
     global BEFORE, AFTER, CONFIRM, OUTPUT
     parser = argparse.ArgumentParser()
@@ -183,10 +190,11 @@ def main():
             first_new = first_samples(phase, "after")
             for qid in old:
                 previous, current = int(old[qid]["median_ns"]), int(new[qid]["median_ns"])
-                breach = previous >= 1_000_000 and current > 1.1 * previous and current - previous >= 100_000
+                breach = material(previous, current, "ns")
                 row("query_median", f"{phase}/{qid}", previous, current, "ns",
-                    "confirm" if breach else ("informational" if previous < 1_000_000 or
-                    abs(current - previous) < 100_000 else "pass"), "seven samples per process")
+                    "confirm" if breach else ("informational" if abs(current - previous) <
+                    (100_000 if previous >= 1_000_000 else 1_000_000) else "pass"),
+                    "seven samples per process")
                 row("query_first", f"{phase}/{qid}", first_old[qid],
                     first_new[qid], "ns", "informational", "first measured sample")
             if phase.startswith("focused"):
@@ -198,18 +206,13 @@ def main():
     lookup_before = statistics.median(probe_before["lookup_samples_ns"]) / 10000
     lookup_after = statistics.median(probe_after["lookup_samples_ns"]) / 10000
     row("id_lookup_per_operation", "16384 files", lookup_before, lookup_after, "ns",
-        "informational" if lookup_before < 1_000_000 or
-        abs(lookup_after - lookup_before) < 100_000 else
-        ("confirm" if lookup_after > 1.1 * lookup_before else "pass"),
+        "confirm" if material(lookup_before, lookup_after, "ns") else "informational",
         "seven 10000-operation samples")
     row("residual_query_median", "year = 1808 && note ~ Leipzig",
         statistics.median(probe_before["residual_samples_ns"]),
         statistics.median(probe_after["residual_samples_ns"]), "ns",
-        ("confirm" if statistics.median(probe_before["residual_samples_ns"]) >= 1_000_000
-         and statistics.median(probe_after["residual_samples_ns"]) >
-         1.1 * statistics.median(probe_before["residual_samples_ns"])
-         and statistics.median(probe_after["residual_samples_ns"]) -
-         statistics.median(probe_before["residual_samples_ns"]) >= 100_000
+        ("confirm" if material(statistics.median(probe_before["residual_samples_ns"]),
+                               statistics.median(probe_after["residual_samples_ns"]), "ns")
          else "informational"), "seven samples")
 
     lifecycle = {}
@@ -219,10 +222,10 @@ def main():
                            for phase in sample_rows[0]}
     for phase, previous in lifecycle["before"].items():
         current = lifecycle["after"][phase]
-        breach = previous >= 1.0 and current > 1.1 * previous and current - previous >= 0.1
+        breach = material(previous, current, "ms")
         row("lifecycle_phase", phase, previous, current, "ms",
-            "confirm" if breach else ("informational" if previous < 1.0 or
-            abs(current - previous) < 0.1 else "pass"), "three process medians")
+            "confirm" if breach else ("informational" if abs(current - previous) <
+            (0.1 if previous >= 1.0 else 1.0) else "pass"), "three process medians")
 
     confirmed = {}
     for phase, selected in confirmation["selected"].items():
@@ -261,7 +264,7 @@ def main():
                 if case == "lookup":
                     previous /= paired["before"][0]["lookup_operations_per_sample"]
                     current /= paired["after"][0]["lookup_operations_per_sample"]
-                breach = previous >= 1_000_000 and current > 1.1 * previous and current - previous >= 100_000
+                breach = material(previous, current, "ns")
                 row("confirmed_probe", case, previous, current, "ns",
                     "breach" if breach else "pass", "three interleaved process medians")
                 confirmed[f"{phase}/{case}"] = "breach" if breach else "pass"
@@ -280,9 +283,7 @@ def main():
             previous = statistics.median(converter(obs[key][field]) for obs in paired["before"])
             current = statistics.median(converter(obs[key][field]) for obs in paired["after"])
             unit = "ns" if query_phase else "ms"
-            floor = 100_000 if unit == "ns" else 0.1
-            base_floor = 1_000_000 if unit == "ns" else 1.0
-            breach = previous >= base_floor and current > 1.1 * previous and current - previous >= floor
+            breach = material(previous, current, unit)
             row("confirmed_query" if query_phase else "confirmed_lifecycle",
                 f"{phase}/{key}", previous, current,
                 unit,
