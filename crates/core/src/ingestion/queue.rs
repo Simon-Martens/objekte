@@ -135,16 +135,6 @@ struct Queued {
     group: Option<GroupInfo>,
 }
 
-/// Spool overflow keeps only sequence and frame coordinates outside the
-/// resident descriptor window. The shared receipt ledger owns completion.
-struct OverflowQueued {
-    sequence: u64,
-    weight: usize,
-    encoded_bytes: u64,
-    frame: spool::SpoolFrame,
-    group: Option<GroupInfo>,
-}
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SessionMetrics {
     pub accepted_batches: u64,
@@ -154,6 +144,7 @@ pub struct SessionMetrics {
     pub pending_spool_bytes: u64,
     pub high_water_ram_bytes: usize,
     pub high_water_spool_bytes: u64,
+    pub high_water_waiting_descriptors: usize,
     pub spool_written_bytes: u64,
     pub spool_read_bytes: u64,
     pub in_flight_estimated_bytes: usize,
@@ -164,7 +155,7 @@ pub struct SessionMetrics {
 
 struct State {
     items: VecDeque<Queued>,
-    overflow: VecDeque<OverflowQueued>,
+    overflow: u64,
     next_sequence: u64,
     completed: u64,
     last_revision: IndexRevision,
@@ -224,7 +215,7 @@ impl SessionCore {
         let queue = Arc::new(Queue {
             state: Mutex::new(State {
                 items: VecDeque::new(),
-                overflow: VecDeque::new(),
+                overflow: 0,
                 next_sequence: 1,
                 completed: 0,
                 last_revision: revision,
@@ -282,7 +273,7 @@ impl SessionCore {
         let state = self.queue.state.lock().expect("queue mutex poisoned");
         state.completed == state.next_sequence - 1
             && state.items.is_empty()
-            && state.overflow.is_empty()
+            && state.overflow == 0
             && state.metrics.in_flight_estimated_bytes == 0
     }
 
@@ -290,7 +281,7 @@ impl SessionCore {
         let mut state = self.queue.state.lock().expect("queue mutex poisoned");
         while state.completed != state.next_sequence - 1
             || !state.items.is_empty()
-            || !state.overflow.is_empty()
+            || state.overflow != 0
             || state.metrics.in_flight_estimated_bytes != 0
         {
             state = self
@@ -499,7 +490,7 @@ impl RecordWriter {
             return Err(SubmitError::Closed(batch));
         }
         if state.items.len() < MAX_PENDING_DESCRIPTORS
-            && state.overflow.is_empty()
+            && state.overflow == 0
             && state.metrics.pending_ram_bytes.saturating_add(weight)
                 <= queue.options.pending_ram_bytes
         {
@@ -527,6 +518,9 @@ impl RecordWriter {
             return Err(SubmitError::Capacity(batch));
         }
         drop(state);
+        // Encoders serialize reservation and write. The state lock may enter
+        // spool bookkeeping, but spool I/O releases its lock before taking state.
+        let _encoding = queue.encoding.lock().expect("encoding mutex poisoned");
         let bytes = match spool::encoded_len(&batch) {
             Ok(bytes) => bytes,
             Err(message) => return Err(SubmitError::SpoolIo(batch, message)),
@@ -544,7 +538,6 @@ impl RecordWriter {
             .high_water_spool_bytes
             .max(state.metrics.pending_spool_bytes);
         drop(state);
-        let _encoding = queue.encoding.lock().expect("encoding mutex poisoned");
         let encoded = match spool::encode(&batch) {
             Ok(encoded) => encoded,
             Err(message) => {
@@ -574,7 +567,7 @@ impl RecordWriter {
                 .spool
                 .lock()
                 .expect("spool mutex poisoned")
-                .release(&frame);
+                .discard_uncommitted_tail(&frame);
             let mut state = queue.state.lock().expect("queue mutex poisoned");
             state.metrics.pending_spool_bytes -= reclaimed;
             return Err(SubmitError::Closed(batch));
@@ -619,17 +612,16 @@ fn enqueue(
     let sequence = state.next_sequence;
     state.next_sequence += 1;
     state.metrics.accepted_batches += 1;
-    if state.items.len() >= MAX_PENDING_DESCRIPTORS || !state.overflow.is_empty() {
+    if state.items.len() >= MAX_PENDING_DESCRIPTORS || state.overflow != 0 {
         let Storage::Spool(frame) = storage else {
             unreachable!("memory admission checks descriptor capacity")
         };
-        state.overflow.push_back(OverflowQueued {
-            sequence,
-            weight,
-            encoded_bytes,
-            frame,
-            group,
-        });
+        queue
+            .spool
+            .lock()
+            .expect("spool mutex poisoned")
+            .queue_waiting(&frame);
+        state.overflow += 1;
     } else {
         state.items.push_back(Queued {
             sequence,
@@ -638,13 +630,17 @@ fn enqueue(
             storage,
             group,
         });
+        state.metrics.high_water_waiting_descriptors = state
+            .metrics
+            .high_water_waiting_descriptors
+            .max(state.items.len());
     }
     let receipt = queue.receipts.accept(sequence);
     queue.changed.notify_all();
     receipt
 }
 
-fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
+pub(super) fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
     let Operation::Insert { version, text, .. } = batch.operations.first()? else {
         return None;
     };
@@ -659,16 +655,72 @@ fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
         .then_some(shape)
 }
 
-fn pop_queued(state: &mut State) -> Option<Queued> {
-    state.items.pop_front().or_else(|| {
-        state.overflow.pop_front().map(|overflow| Queued {
-            sequence: overflow.sequence,
-            weight: overflow.weight,
-            encoded_bytes: overflow.encoded_bytes,
-            storage: Storage::Spool(overflow.frame),
-            group: overflow.group,
-        })
-    })
+/// Only the worker reads or advances a waiting cursor. It keeps the suffix
+/// present in admission state until the frame becomes active.
+fn take_next(
+    queue: &Queue,
+    wait: bool,
+    eligible: impl FnOnce(Option<GroupInfo>, usize) -> bool,
+) -> Option<Queued> {
+    let mut state = queue.state.lock().expect("queue mutex poisoned");
+    if wait {
+        while (state.items.is_empty() && state.overflow == 0 || state.paused) && !state.closed {
+            state = queue.changed.wait(state).expect("queue mutex poisoned");
+        }
+    }
+    let item = if let Some(front) = state.items.front() {
+        if !eligible(front.group, front.weight) {
+            return None;
+        }
+        state.items.pop_front().expect("checked resident prefix")
+    } else if state.overflow > 0 {
+        let sequence = state.next_sequence - state.overflow;
+        drop(state);
+        let mut spool = queue.spool.lock().expect("spool mutex poisoned");
+        let item = match spool.peek_waiting(queue.options.max_batch_bytes) {
+            Ok(waiting) => {
+                let group = waiting.shape.map(|shape| GroupInfo {
+                    registration: waiting.registration,
+                    shape,
+                    records: waiting.records,
+                });
+                if !eligible(group, waiting.weight) {
+                    return None;
+                }
+                spool.consume_waiting(&waiting.frame);
+                Queued {
+                    sequence,
+                    weight: waiting.weight,
+                    encoded_bytes: waiting.frame.length,
+                    storage: Storage::Spool(waiting.frame),
+                    group,
+                }
+            }
+            Err(error) if wait => Queued {
+                sequence,
+                weight: 0,
+                encoded_bytes: 0,
+                storage: Storage::Failed(IngestionError::Spool(error)),
+                group: None,
+            },
+            Err(_) => return None,
+        };
+        drop(spool);
+        state = queue.state.lock().expect("queue mutex poisoned");
+        state.overflow -= 1;
+        item
+    } else {
+        return None;
+    };
+    if matches!(item.storage, Storage::Memory(_)) {
+        state.metrics.pending_ram_bytes -= item.weight;
+    }
+    state.metrics.in_flight_estimated_bytes += item.weight;
+    state.metrics.high_water_in_flight_estimated_bytes = state
+        .metrics
+        .high_water_in_flight_estimated_bytes
+        .max(state.metrics.in_flight_estimated_bytes);
+    Some(item)
 }
 
 fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
@@ -680,23 +732,9 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         let (mut item, from_retry) = if let Some(item) = retry.pop_front() {
             (item, true)
         } else {
-            let mut state = queue.state.lock().expect("queue mutex poisoned");
-            while (state.items.is_empty() && state.overflow.is_empty() || state.paused)
-                && !state.closed
-            {
-                state = queue.changed.wait(state).expect("queue mutex poisoned");
-            }
-            let Some(item) = pop_queued(&mut state) else {
+            let Some(item) = take_next(&queue, true, |_, _| true) else {
                 break;
             };
-            if matches!(item.storage, Storage::Memory(_)) {
-                state.metrics.pending_ram_bytes -= item.weight;
-            }
-            state.metrics.in_flight_estimated_bytes = item.weight;
-            state.metrics.high_water_in_flight_estimated_bytes = state
-                .metrics
-                .high_water_in_flight_estimated_bytes
-                .max(item.weight);
             (item, false)
         };
         let group_enabled = {
@@ -729,45 +767,17 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             let mut records = info.records;
             let mut bytes = item.weight;
             let mut group = vec![item];
-            {
-                let mut state = queue.state.lock().expect("queue mutex poisoned");
-                loop {
-                    let front = state
-                        .items
-                        .front()
-                        .map(|queued| (queued.group, queued.weight))
-                        .or_else(|| {
-                            state
-                                .overflow
-                                .front()
-                                .map(|queued| (queued.group, queued.weight))
-                        });
-                    let Some((Some(next_info), next_weight)) = front else {
-                        break;
-                    };
-                    if next_info.registration != info.registration
-                        || next_info.shape != info.shape
-                        || records.saturating_add(next_info.records) > group_record_limit
-                        || bytes.saturating_add(next_weight) > 4 * 1024 * 1024
-                    {
-                        break;
-                    }
-                    let next = pop_queued(&mut state).expect("front batch exists");
-                    if matches!(next.storage, Storage::Memory(_)) {
-                        state.metrics.pending_ram_bytes -= next.weight;
-                    }
-                    state.metrics.in_flight_estimated_bytes = state
-                        .metrics
-                        .in_flight_estimated_bytes
-                        .saturating_add(next.weight);
-                    state.metrics.high_water_in_flight_estimated_bytes = state
-                        .metrics
-                        .high_water_in_flight_estimated_bytes
-                        .max(state.metrics.in_flight_estimated_bytes);
-                    records += next_info.records;
-                    bytes += next.weight;
-                    group.push(next);
-                }
+            while let Some(next) = take_next(&queue, false, |next_info, next_weight| {
+                next_info.is_some_and(|next_info| {
+                    next_info.registration == info.registration
+                        && next_info.shape == info.shape
+                        && records.saturating_add(next_info.records) <= group_record_limit
+                        && bytes.saturating_add(next_weight) <= 4 * 1024 * 1024
+                })
+            }) {
+                records += next.group.expect("compatible group member").records;
+                bytes += next.weight;
+                group.push(next);
             }
             if group.len() > 1 {
                 let mut reclaimed = 0u64;
@@ -934,28 +944,12 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 state.closed = true;
                 state.failure = Some((item.sequence, error));
                 state.metrics.failure_sequence = Some(item.sequence);
-                let mut abandoned_frames = Vec::new();
-                while let Some(pending) = retry.pop_front() {
-                    state.metrics.in_flight_estimated_bytes -= pending.weight;
-                    if let Storage::Spool(frame) = pending.storage {
-                        abandoned_frames.push(frame);
-                    }
-                    state.completed = pending.sequence;
-                }
-                while let Some(pending) = state.items.pop_front() {
-                    if matches!(pending.storage, Storage::Memory(_)) {
-                        state.metrics.pending_ram_bytes -= pending.weight;
-                    } else {
-                        if let Storage::Spool(frame) = pending.storage {
-                            abandoned_frames.push(frame);
-                        }
-                    }
-                    state.completed = pending.sequence;
-                }
-                while let Some(pending) = state.overflow.pop_front() {
-                    abandoned_frames.push(pending.frame);
-                    state.completed = pending.sequence;
-                }
+                retry.clear();
+                state.items.clear();
+                state.overflow = 0;
+                state.metrics.pending_ram_bytes = 0;
+                state.metrics.in_flight_estimated_bytes = 0;
+                state.completed = state.next_sequence - 1;
                 if state.completed > item.sequence {
                     queue.receipts.complete_through(
                         state.completed,
@@ -965,14 +959,10 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                     );
                 }
                 drop(state);
-                let mut spool = queue.spool.lock().expect("spool mutex poisoned");
-                let mut reclaimed = 0u64;
-                for frame in abandoned_frames {
-                    reclaimed = reclaimed.saturating_add(spool.release(&frame));
-                }
-                drop(spool);
+                let _encoding = queue.encoding.lock().expect("encoding mutex poisoned");
+                queue.spool.lock().expect("spool mutex poisoned").cleanup();
                 let mut state = queue.state.lock().expect("queue mutex poisoned");
-                state.metrics.pending_spool_bytes -= reclaimed;
+                state.metrics.pending_spool_bytes = 0;
                 queue.changed.notify_all();
                 continue;
             }
@@ -980,6 +970,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         queue.changed.notify_all();
     }
     queue.receipts.close();
+    let _encoding = queue.encoding.lock().expect("encoding mutex poisoned");
     queue.spool.lock().expect("spool mutex poisoned").cleanup();
 }
 
@@ -1039,7 +1030,7 @@ mod tests {
         session.pause_worker_for_measurement().unwrap();
         let writer = session.writer(registration).unwrap();
         let mut receipts = Vec::new();
-        for number in 0..MAX_PENDING_DESCRIPTORS + 4 {
+        for number in 0..120_000 {
             receipts.push(
                 writer
                     .submit(batch(
@@ -1054,24 +1045,32 @@ mod tests {
             session.core.queue.state.lock().unwrap().items.len(),
             MAX_PENDING_DESCRIPTORS
         );
-        assert_eq!(session.core.queue.state.lock().unwrap().overflow.len(), 4);
+        assert_eq!(session.metrics().accepted_batches, 120_000);
+        assert_eq!(
+            session.metrics().high_water_waiting_descriptors,
+            MAX_PENDING_DESCRIPTORS
+        );
+        assert_eq!(
+            session.core.queue.state.lock().unwrap().overflow,
+            120_000 - MAX_PENDING_DESCRIPTORS as u64
+        );
         assert!(matches!(
             writer.try_submit(batch(session.core.id, registration, "later")),
             Err(SubmitError::WouldBlock(_))
         ));
-        receipts.remove(100);
-        session.cancel();
-        for receipt in receipts {
-            assert!(matches!(
-                receipt.wait_published(),
-                Err(IngestionError::Cancelled {
-                    originating_sequence: 1
-                })
-            ));
+        let paused = session.metrics();
+        assert!(paused.pending_spool_bytes > 0);
+        session.resume_worker_for_measurement();
+        for (number, receipt) in receipts.into_iter().enumerate() {
+            assert_eq!(receipt.sequence(), number as u64 + 1);
+            receipt.wait_published().unwrap();
         }
-        assert!(session.finish().is_err());
-        assert_eq!(session.metrics().pending_spool_bytes, 0);
-        assert_eq!(index.status().unwrap().live_records, 0);
+        session.finish().unwrap();
+        let finished = session.metrics();
+        assert_eq!(finished.pending_spool_bytes, 0);
+        assert_eq!(finished.spool_read_bytes, paused.pending_spool_bytes);
+        assert_eq!(index.status().unwrap().live_records, 120_000);
+        eprintln!("paused={paused:?} finished={finished:?}");
         assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
         std::fs::remove_dir(root).unwrap();
     }
