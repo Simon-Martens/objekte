@@ -12,6 +12,7 @@ path = "src/lib.rs"
 [features]
 default = []
 detailed-profiling = []
+test-hooks = []
 
 [dependencies]
 serde = { version = "1.0", features = ["derive", "rc"] }

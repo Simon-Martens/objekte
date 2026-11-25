@@ -49,8 +49,9 @@ struct StagedStreamBinding {
     collection: IncrementalCollection,
     segments: Vec<InitialSegment>,
     tail: Vec<BatchContribution>,
+    tail_records: usize,
     private: StreamUse,
-    _unsealed: StreamUse,
+    unsealed: StreamUse,
     stats: super::scheduling::BuildScheduleStats,
     parses: u64,
     failed: u64,
@@ -68,96 +69,148 @@ struct StreamGroup {
     files: Vec<FileId>,
 }
 
-fn stage_stream_binding(
+impl StagedStreamBinding {
+    fn new(
+        binding: &StreamBinding,
+        options: RepositoryOptions,
+        collection_count: usize,
+        budget: &super::file_preparation::StreamBudget,
+    ) -> Self {
+        Self {
+            collection: IncrementalCollection::new(
+                (*binding.definition).clone(),
+                binding.reader.clone(),
+                binding.id,
+                Vec::new(),
+                options,
+                collection_count,
+            ),
+            segments: Vec::new(),
+            tail: Vec::new(),
+            tail_records: 0,
+            private: budget.activity(StreamActivity::PrivateSegments, 0, 0),
+            unsealed: budget.activity(StreamActivity::Unsealed, 0, 0),
+            stats: Default::default(),
+            parses: 0,
+            failed: 0,
+        }
+    }
+
+    fn admit(
+        &mut self,
+        batch: BatchContribution,
+        options: RepositoryOptions,
+        collection_count: usize,
+        pool: &rayon::ThreadPool,
+        cancelled: &dyn Fn() -> bool,
+    ) -> Result<(), String> {
+        if cancelled() {
+            return Err("initial construction cancelled".into());
+        }
+        self.parses += batch.record_parses;
+        self.failed += batch.failed_parses;
+        self.collection.observe(&batch, None)?;
+        self.tail_records += batch.record_count();
+        self.tail.push(batch);
+        self.unsealed.set(self.tail.len() as u64, 0);
+        if self.tail_records == options.segment_policy.target_records.get() {
+            for batch in self.tail.drain(..) {
+                self.collection.admission.admit_batch(batch)?;
+            }
+            self.unsealed.set(0, 0);
+            let built = finish_stream_draft(
+                self.collection
+                    .take_segment()
+                    .expect("full private stream draft"),
+                &self.collection.definition,
+                options,
+                collection_count,
+                pool,
+            )?;
+            self.private.add_private_segment(&built.0);
+            self.segments.push(built);
+            self.tail_records = 0;
+        }
+        Ok(())
+    }
+}
+
+fn stage_stream_file(
     pool: &rayon::ThreadPool,
     root: Arc<PathBuf>,
-    binding: &StreamBinding,
+    bindings: &[StreamBinding],
     file: FileId,
     source_files: Arc<Vec<SourceFileInput>>,
     options: RepositoryOptions,
     collection_count: usize,
     budget: &super::file_preparation::StreamBudget,
+    file_window: usize,
     cancelled: &(dyn Fn() -> bool + Sync),
-) -> Result<StagedStreamBinding, String> {
+) -> Result<Vec<StagedStreamBinding>, String> {
     if cancelled() {
         return Err("initial construction cancelled".into());
     }
-    let StreamBinding {
-        definition,
-        reader,
-        id,
-    } = binding;
-    let mut collection = IncrementalCollection::new(
-        (**definition).clone(),
-        reader.clone(),
-        *id,
-        Vec::new(),
-        options,
-        collection_count,
-    );
-    let mut segments = Vec::new();
-    let mut private = budget.activity(StreamActivity::PrivateSegments, 0, 0);
-    let mut unsealed = budget.activity(StreamActivity::Unsealed, 0, 0);
-    let mut tail = Vec::new();
-    let mut tail_records = 0;
-    let mut parses = 0;
-    let mut failed = 0;
-    let stats = super::file_preparation::process_framed_file_with_budget(
-        pool,
-        root,
-        Arc::clone(definition),
-        *id,
-        reader.clone(),
-        file,
-        source_files,
-        options.bigram_alphabet,
-        options.inference,
-        options.detailed_profiling_enabled(),
-        options.segment_policy.target_records.get(),
-        Some(budget),
-        cancelled,
-        true,
-        |batch| {
-            if cancelled() {
-                return Err("initial construction cancelled".into());
-            }
-            parses += batch.record_parses;
-            failed += batch.failed_parses;
-            collection.observe(&batch, None)?;
-            tail_records += batch.record_count();
-            tail.push(batch);
-            unsealed.set(tail.len() as u64, 0);
-            if tail_records == options.segment_policy.target_records.get() {
-                for batch in tail.drain(..) {
-                    collection.admission.admit_batch(batch)?;
-                }
-                unsealed.set(0, 0);
-                let built = finish_stream_draft(
-                    collection
-                        .take_segment()
-                        .expect("full private stream draft"),
-                    definition,
-                    options,
-                    collection_count,
-                    pool,
-                )?;
-                private.add_private_segment(&built.0);
-                segments.push(built);
-                tail_records = 0;
-            }
-            Ok(())
-        },
-    )?;
-    Ok(StagedStreamBinding {
-        collection,
-        segments,
-        tail,
-        private,
-        _unsealed: unsealed,
-        stats,
-        parses,
-        failed,
-    })
+    let mut staged = bindings
+        .iter()
+        .map(|binding| StagedStreamBinding::new(binding, options, collection_count, budget))
+        .collect::<Vec<_>>();
+    let first = &bindings[0];
+    if bindings.len() > 1
+        && first.reader.reader().uses_pull_framing()
+        && bindings
+            .iter()
+            .all(|binding| binding.reader.id() == first.reader.id())
+    {
+        let extra = bindings[1..]
+            .iter()
+            .map(|binding| (binding.id, Arc::clone(&binding.definition)))
+            .collect();
+        let stats = super::file_preparation::process_pull_framed_file(
+            pool,
+            root,
+            Arc::clone(&first.definition),
+            first.id,
+            first.reader.clone(),
+            file,
+            source_files,
+            options.bigram_alphabet,
+            options.inference,
+            options.detailed_profiling_enabled(),
+            options.segment_policy.target_records.get(),
+            Some(budget),
+            cancelled,
+            file_window,
+            extra,
+            |binding, batch| {
+                staged[binding].admit(batch, options, collection_count, pool, cancelled)
+            },
+        )?;
+        for binding in &mut staged {
+            binding.stats.file_fingerprint = stats.file_fingerprint;
+        }
+        staged[0].stats = stats;
+    } else {
+        for (binding, output) in bindings.iter().zip(&mut staged) {
+            output.stats = super::file_preparation::process_framed_file_with_budget(
+                pool,
+                Arc::clone(&root),
+                Arc::clone(&binding.definition),
+                binding.id,
+                binding.reader.clone(),
+                file,
+                Arc::clone(&source_files),
+                options.bigram_alphabet,
+                options.inference,
+                options.detailed_profiling_enabled(),
+                options.segment_policy.target_records.get(),
+                Some(budget),
+                cancelled,
+                file_window,
+                |batch| output.admit(batch, options, collection_count, pool, cancelled),
+            )?;
+        }
+    }
+    Ok(staged)
 }
 
 fn finish_stream_draft(
@@ -244,7 +297,10 @@ fn run_stream_groups(
     if groups.is_empty() {
         return Ok(());
     }
-    let window = pool.current_num_threads().min(4);
+    let window = pool
+        .current_num_threads()
+        .min(4)
+        .min(groups.iter().map(|group| group.files.len()).sum());
     let stop = AtomicBool::new(false);
     let should_stop = || stop.load(Ordering::Acquire) || cancelled();
     type Job = (usize, FileId, Arc<[StreamBinding]>);
@@ -257,24 +313,20 @@ fn run_stream_groups(
         mpsc::channel::<(usize, FileId, Result<Vec<StagedStreamBinding>, String>)>();
     let run_file = |(group, file, bindings): Job| {
         let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-            bindings
-                .iter()
-                .map(|binding| {
-                    stage_stream_binding(
-                        pool,
-                        Arc::clone(&root),
-                        binding,
-                        file,
-                        Arc::clone(source_files),
-                        options,
-                        collection_count,
-                        budget,
-                        &should_stop,
-                    )
-                })
-                .collect::<Result<Vec<_>, _>>()
+            stage_stream_file(
+                pool,
+                Arc::clone(&root),
+                &bindings,
+                file,
+                Arc::clone(source_files),
+                options,
+                collection_count,
+                budget,
+                window,
+                &should_stop,
+            )
         }))
-        .unwrap_or_else(|_| Err("registered file build worker panicked".into()));
+        .unwrap_or_else(|_| Err("streamed file build worker panicked".into()));
         (group, file, result)
     };
     let drive = |dispatch_file: &mut dyn FnMut(Job) -> Result<(), IndexError>| {
@@ -1191,6 +1243,85 @@ impl Repository {
                 !streams
             });
         }
+        let shared_pull_file = |bindings: &[CollectionId], file: FileId| {
+            let size = discovered.files[file.0 as usize].revision.size;
+            bindings.iter().any(|id| {
+                let reader = pending[id.0 as usize].source.reader();
+                reader.uses_pull_framing()
+                    && (size > 8 * 1024 * 1024
+                        || reader.maximum_records(size)
+                            > options.segment_policy.target_records.get() as u64)
+            })
+        };
+        let grouped_files = stream_groups
+            .iter()
+            .map(|group| group.files.len())
+            .sum::<usize>();
+        let independently_framed_files = large_jobs.iter().filter(|job| {
+            matches!(job, ScheduledBuildJob::Large { source, .. } if source.reader().uses_pull_framing())
+        }).take(2).count() + shared.iter().flat_map(|(bindings, files)| {
+            files.iter().filter(|&&file| shared_pull_file(bindings, file))
+        }).take(2).count();
+        let parallel_pull =
+            pool.current_num_threads() > 1 && grouped_files + independently_framed_files > 1;
+        if parallel_pull {
+            large_jobs.retain(|job| {
+                if let ScheduledBuildJob::Large {
+                    collection,
+                    definition,
+                    source,
+                    file,
+                    ..
+                } = job
+                    && source.reader().uses_pull_framing()
+                {
+                    stream_groups.push(StreamGroup {
+                        bindings: Arc::from([StreamBinding {
+                            definition: Arc::clone(definition),
+                            reader: source.clone(),
+                            id: *collection,
+                        }]),
+                        files: vec![*file],
+                    });
+                    return false;
+                }
+                true
+            });
+        }
+        shared.retain(|ids, files| {
+            let first = &pending[ids[0].0 as usize].source;
+            let shared_reader = first.reader().uses_pull_framing()
+                && ids
+                    .iter()
+                    .all(|id| pending[id.0 as usize].source.id() == first.id());
+            if !parallel_pull && !shared_reader {
+                return true;
+            }
+            let mut bindings: Option<Arc<[StreamBinding]>> = None;
+            files.retain(|&file| {
+                if !shared_pull_file(ids, file) {
+                    return true;
+                }
+                let bindings = bindings.get_or_insert_with(|| {
+                    ids.iter()
+                        .map(|id| {
+                            let state = &pending[id.0 as usize];
+                            StreamBinding {
+                                definition: Arc::clone(&state.definition),
+                                reader: state.source.clone(),
+                                id: *id,
+                            }
+                        })
+                        .collect()
+                });
+                stream_groups.push(StreamGroup {
+                    bindings: Arc::clone(bindings),
+                    files: vec![file],
+                });
+                false
+            });
+            !files.is_empty()
+        });
         // Publish bounded ordinary partitions before holding a large stream.
         // File positions and generated IDs come from discovery and framing.
         jobs.extend(large_jobs);
@@ -1303,7 +1434,7 @@ impl Repository {
                             options.segment_policy.target_records.get(),
                             Some(&streaming_budget),
                             &cancelled,
-                            false,
+                            1,
                             |batch| {
                                 if cancelled() {
                                     return Err("initial construction cancelled".into());
@@ -1733,7 +1864,7 @@ impl Repository {
                                 options.segment_policy.target_records.get(),
                                 Some(&streaming_budget),
                                 &cancelled,
-                                false,
+                                1,
                                 &mut admit,
                             )
                             .map_err(|error| {

@@ -652,10 +652,14 @@ impl StreamBudget {
         limit: u64,
         pool: &ThreadPool,
         pending: &mut Option<StreamUse>,
-    ) -> StreamCredit {
+        cancelled: &dyn Fn() -> bool,
+    ) -> Result<StreamCredit, String> {
         loop {
+            if cancelled() {
+                return Err("initial construction cancelled".into());
+            }
             if let Some(credit) = self.try_reserve(bytes, jobs, limit, pending) {
-                return credit;
+                return Ok(credit);
             }
             if pool.current_thread_index().is_some() {
                 pool.yield_now();
@@ -735,6 +739,23 @@ fn chunk_capacity(chunk: &BoundedBuildChunk) -> u64 {
         + (chunk.ranges.capacity() * std::mem::size_of::<ByteRange>()) as u64
 }
 
+// Leave room in the shared budget for peer files even if a reader pauses
+// while holding reservations for decoded chunks.
+fn per_stream_allowance(
+    pool: &ThreadPool,
+    shared_jobs: usize,
+    bytes: u64,
+    file_window: usize,
+) -> (usize, u64) {
+    if file_window == 1 {
+        return (shared_jobs, bytes);
+    }
+    let jobs = (shared_jobs / file_window)
+        .max(1)
+        .min(pool.current_num_threads() - 1);
+    (jobs, bytes / file_window as u64)
+}
+
 /// Process a registered stream through an ordered, bounded window of owned
 /// chunks. The callback contributes to private segment admission as it runs.
 fn process_custom_stream_profiled(
@@ -753,7 +774,7 @@ fn process_custom_stream_profiled(
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
     cancelled: &(dyn Fn() -> bool + Sync),
-    peer_files: bool,
+    file_window: usize,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<(BuildScheduleStats, Option<[u8; 32]>), String> {
     file.seek(SeekFrom::Start(0))
@@ -773,12 +794,8 @@ fn process_custom_stream_profiled(
     let input = Arc::new(input);
     let inline = pool.current_num_threads() == 1 || pool.current_thread_index().is_some();
     let shared_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
-    // A single large file must leave a decoder available for a ready peer.
-    let window = if peer_files && input.revision.size > 8 * 1024 * 1024 {
-        shared_jobs.min(pool.current_num_threads().saturating_sub(1).max(1))
-    } else {
-        shared_jobs
-    };
+    let (window, local_bytes) =
+        per_stream_allowance(pool, shared_jobs, limits.admitted_bytes, file_window);
     let counters = Arc::new(JobCounters::default());
     type ChunkResult = (
         Result<(BatchContribution, Option<BatchContribution>), String>,
@@ -828,7 +845,7 @@ fn process_custom_stream_profiled(
         if weight > 128 * 1024 * 1024 {
             return Err("registered build chunk exceeds 128 MiB of owned input capacity".into());
         }
-        while waiting.len() >= window || !fits_allowance(buffered, weight, limits.admitted_bytes) {
+        while waiting.len() >= window || !fits_allowance(buffered, weight, local_bytes) {
             let pending = waiting.pop_front().expect("a pending job owns credit");
             buffered -= pending.0;
             stats.receive_wait_ns += drain(pending, None)?;
@@ -853,7 +870,8 @@ fn process_custom_stream_profiled(
                         limits.admitted_bytes,
                         pool,
                         &mut pending_input,
-                    );
+                        cancelled,
+                    )?;
                 }
             })
         } else {
@@ -944,6 +962,13 @@ fn process_custom_stream_profiled(
                         return Err("stream decoder stopped".into());
                     }
                 }
+            }
+            if file_window > 1
+                && (buffered >= local_bytes || (shared_jobs < file_window && !waiting.is_empty()))
+            {
+                let pending = waiting.pop_front().expect("a pending job owns credit");
+                buffered -= pending.0;
+                stats.receive_wait_ns += drain(pending, None)?;
             }
         }
         Ok(())
@@ -1338,7 +1363,7 @@ fn prepare_managed_stream(
             policy.target_records.get(),
             Some(&repository.stream_budget),
             &|| false,
-            false,
+            1,
             &mut consume,
         )?;
         digest
@@ -1370,7 +1395,9 @@ fn prepare_managed_stream(
             policy.target_records.get(),
             Some(&repository.stream_budget),
             &|| false,
-            &mut consume,
+            1,
+            Vec::new(),
+            |_, batch| consume(batch),
         )?;
         if bytes_read.load(Ordering::Relaxed) != input.revision.size {
             return Err("stale source length during managed streaming".into());
@@ -1872,7 +1899,7 @@ pub(crate) fn process_framed_file_profiled(
         record_target,
         None,
         &|| false,
-        false,
+        1,
         admit,
     )
 }
@@ -1891,7 +1918,7 @@ pub(super) fn process_framed_file_with_budget(
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
     cancelled: &(dyn Fn() -> bool + Sync),
-    peer_files: bool,
+    file_window: usize,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let mut limits = BoundedBuildLimits::default();
@@ -1921,7 +1948,7 @@ pub(super) fn process_framed_file_with_budget(
             record_target,
             shared_budget,
             cancelled,
-            peer_files,
+            file_window,
             admit,
         )?;
         crate::source::access::check_revision(&path, &file, input.revision)?;
@@ -1943,7 +1970,9 @@ pub(super) fn process_framed_file_with_budget(
             record_target,
             shared_budget,
             cancelled,
-            admit,
+            file_window,
+            Vec::new(),
+            |_, batch| admit(batch),
         );
     }
     const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
@@ -2151,7 +2180,27 @@ fn open_build_framer<'a>(
         .ok_or_else(|| "reader advertised pull framing but did not provide a framer".into())
 }
 
-fn process_pull_framed_file(
+type PullBinding = (CollectionId, Arc<CollectionDefinition>);
+
+struct PulledChunk {
+    first: BatchContribution,
+    additional: Vec<BatchContribution>,
+}
+
+impl PulledChunk {
+    fn admit(
+        self,
+        admit: &mut impl FnMut(usize, BatchContribution) -> Result<(), String>,
+    ) -> Result<(), String> {
+        admit(0, self.first)?;
+        for (index, batch) in self.additional.into_iter().enumerate() {
+            admit(index + 1, batch)?;
+        }
+        Ok(())
+    }
+}
+
+pub(super) fn process_pull_framed_file(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
     definition: Arc<CollectionDefinition>,
@@ -2164,31 +2213,43 @@ fn process_pull_framed_file(
     profile_build: bool,
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
-    cancelled: &dyn Fn() -> bool,
-    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+    cancelled: &(dyn Fn() -> bool + Sync),
+    file_window: usize,
+    additional_bindings: Vec<PullBinding>,
+    mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let path = root.join(&source_files[file_id.0 as usize].relative_path);
     let input = source_files[file_id.0 as usize].clone();
-    let binding = FilePreparationBinding {
-        collection,
-        definition: &definition,
-        source: &source,
-    };
     let file = match std::fs::File::open(&path) {
         Ok(file) => file,
         Err(error) => {
-            return admit_large_unreadable(
-                &root,
-                &input,
-                &binding,
-                alphabet,
-                inference,
-                max_jobs,
-                "source.open",
-                &error,
-                &mut admit,
-            );
+            let mut stats = BuildScheduleStats::default();
+            for (index, (id, definition)) in std::iter::once((collection, &definition))
+                .chain(
+                    additional_bindings
+                        .iter()
+                        .map(|(id, definition)| (*id, definition)),
+                )
+                .enumerate()
+            {
+                stats.absorb(admit_large_unreadable(
+                    &root,
+                    &input,
+                    &FilePreparationBinding {
+                        collection: id,
+                        definition,
+                        source: &source,
+                    },
+                    alphabet,
+                    inference,
+                    max_jobs,
+                    "source.open",
+                    &error,
+                    &mut |batch| admit(index, batch),
+                )?);
+            }
+            return Ok(stats);
         }
     };
     if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
@@ -2206,6 +2267,10 @@ fn process_pull_framed_file(
         bytes_read: &bytes_read,
         expected_bytes: None,
     };
+    let mut reader = CancellableRead {
+        inner: &mut reader,
+        cancelled,
+    };
     let framer = open_build_framer(source.reader(), &mut reader, shared_budget.is_some())?;
     let mut stats = process_pull_framed_input(
         pool,
@@ -2222,6 +2287,8 @@ fn process_pull_framed_file(
         record_target,
         shared_budget,
         cancelled,
+        file_window,
+        additional_bindings,
         admit,
     )?;
     crate::source::access::check_revision(&path, &file, input.revision)?;
@@ -2268,7 +2335,7 @@ pub(crate) fn process_pull_framed_reader(
     reader: impl BuildFramer,
     limits: BoundedBuildLimits,
     cancelled: &dyn Fn() -> bool,
-    admit: impl FnMut(BatchContribution) -> Result<(), String>,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let input = Arc::new(source_files[file_id.0 as usize].clone());
     process_pull_framed_input(
@@ -2286,7 +2353,9 @@ pub(crate) fn process_pull_framed_reader(
         usize::MAX,
         None,
         cancelled,
-        admit,
+        1,
+        Vec::new(),
+        |_, batch| admit(batch),
     )
 }
 
@@ -2305,10 +2374,16 @@ fn process_pull_framed_input(
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
     cancelled: &dyn Fn() -> bool,
-    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+    file_window: usize,
+    additional_bindings: Vec<PullBinding>,
+    mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let path = root.join(&input.relative_path);
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    let (window, local_bytes) =
+        per_stream_allowance(pool, max_jobs, limits.admitted_bytes, file_window);
+    let additional_bindings =
+        (!additional_bindings.is_empty()).then(|| Arc::new(additional_bindings));
     let mut scratch = shared_budget.map(|budget| {
         budget.activity(
             StreamActivity::PendingInput,
@@ -2320,11 +2395,20 @@ fn process_pull_framed_input(
     // read a different file from the one being observed.
     let mut remaining = record_target;
     let mut next_chunk = || {
-        let chunk = reader.next_chunk(limits.chunk_bytes, limits.ranges.min(remaining))?;
+        let max_ranges = limits.ranges.min(remaining);
+        let chunk = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            #[cfg(feature = "test-hooks")]
+            crate::lifecycle::initial::test_hooks::before_pull_frame(&path);
+            reader.next_chunk(limits.chunk_bytes, max_ranges)
+        }))
+        .unwrap_or_else(|_| Err("pull framing reader panicked".into()))?;
         if let Some(scratch) = scratch.as_mut() {
             scratch.set(0, reader.retained_input_capacity() as u64);
         }
         if let Some(chunk) = &chunk {
+            if chunk.ranges.len() > max_ranges {
+                return Err("reader contract: pulled chunk exceeds its range budget".into());
+            }
             remaining -= chunk.ranges.len();
             if remaining == 0 {
                 remaining = record_target;
@@ -2348,7 +2432,7 @@ fn process_pull_framed_input(
     let (mut admitted_bytes, mut peak_bytes) = (0u64, 0u64);
     let mut failure = None;
     while failure.is_none() {
-        while dispatched - next < max_jobs {
+        while dispatched - next < window && (file_window == 1 || admitted_bytes < local_bytes) {
             if cancelled() {
                 failure = Some("initial construction cancelled".into());
                 break;
@@ -2387,7 +2471,7 @@ fn process_pull_framed_input(
                 break;
             };
             let weight = chunk_capacity(chunk).max(64 * 1024);
-            if !fits_allowance(admitted_bytes, weight, limits.admitted_bytes) {
+            if !fits_allowance(admitted_bytes, weight, local_bytes) {
                 break;
             }
             let credit = if let Some(shared) = shared_budget {
@@ -2399,13 +2483,20 @@ fn process_pull_framed_input(
                 ) {
                     Some(credit) => Some(credit),
                     None if next < dispatched => break,
-                    None => Some(shared.reserve(
+                    None => match shared.reserve(
                         weight,
                         max_jobs,
                         limits.admitted_bytes,
                         pool,
                         &mut pending_input,
-                    )),
+                        cancelled,
+                    ) {
+                        Ok(credit) => Some(credit),
+                        Err(error) => {
+                            failure = Some(error);
+                            break;
+                        }
+                    },
                 }
             } else {
                 None
@@ -2418,6 +2509,7 @@ fn process_pull_framed_input(
             let source = source.clone();
             let input = Arc::clone(&input);
             let counters = Arc::clone(&counters);
+            let additional = additional_bindings.clone();
             let worker_budget = shared_budget.cloned();
             let execute = move || {
                 let active = worker_budget
@@ -2425,23 +2517,34 @@ fn process_pull_framed_input(
                     .map(|budget| budget.activity(StreamActivity::Decoder, 1, 0));
                 let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                     counters.run(|| {
-                        process_framed_batch(
-                            &root,
-                            &input,
-                            &FilePreparationBinding {
-                                collection,
-                                definition: &definition,
-                                source: &source,
-                            },
-                            &chunk.bytes,
-                            &chunk.ranges,
-                            chunk.file_offset,
-                            chunk.preceding_lines,
-                            index == 0,
-                            alphabet,
-                            inference,
-                            max_jobs,
-                        )
+                        let decode = |collection, definition| {
+                            process_framed_batch(
+                                &root,
+                                &input,
+                                &FilePreparationBinding {
+                                    collection,
+                                    definition,
+                                    source: &source,
+                                },
+                                &chunk.bytes,
+                                &chunk.ranges,
+                                chunk.file_offset,
+                                chunk.preceding_lines,
+                                index == 0,
+                                alphabet,
+                                inference,
+                                max_jobs,
+                            )
+                        };
+                        let first = decode(collection, &definition)?;
+                        let additional = match additional {
+                            Some(bindings) => bindings
+                                .iter()
+                                .map(|(id, definition)| decode(*id, definition))
+                                .collect::<Result<_, _>>()?,
+                            None => Vec::new(),
+                        };
+                        Ok(PulledChunk { first, additional })
                     })
                 }))
                 .unwrap_or_else(|_| Err("file decoder panicked".into()));
@@ -2480,7 +2583,13 @@ fn process_pull_framed_input(
             .receive_wait_ns
             .saturating_add(wait_started.elapsed().as_nanos() as u64);
         completed += 1;
-        ready.insert(index, (result, completed_ticket));
+        match result {
+            Ok(result) => ready.insert(index, (result, completed_ticket)),
+            Err(error) => {
+                failure = Some(error);
+                break;
+            }
+        };
         while let Some((result, _completed)) = ready.remove(&next) {
             let (weight, _credit) = reservations
                 .pop_front()
@@ -2489,7 +2598,7 @@ fn process_pull_framed_input(
                 .checked_sub(weight)
                 .ok_or("chunk reservation underflow")?;
             let started = crate::measurement::timer::DetailedInstant::now();
-            let outcome = result.and_then(&mut admit);
+            let outcome = result.admit(&mut admit);
             stats.admission_ns = stats
                 .admission_ns
                 .saturating_add(started.elapsed().as_nanos() as u64);
@@ -2518,23 +2627,35 @@ fn process_pull_framed_input(
     if dispatched == 0 {
         // Successful empty input still owns one file membership. Build it
         // once at EOF without reserving a decoder job or an input chunk.
-        admit(process_framed_batch(
-            &root,
-            &input,
-            &FilePreparationBinding {
-                collection,
-                definition: &definition,
-                source: &source,
-            },
-            &[],
-            &[],
-            0,
-            0,
-            true,
-            alphabet,
-            inference,
-            max_jobs,
-        )?)?;
+        for (index, (id, definition)) in std::iter::once((collection, &definition))
+            .chain(
+                additional_bindings
+                    .iter()
+                    .flat_map(|bindings| bindings.iter().map(|(id, definition)| (*id, definition))),
+            )
+            .enumerate()
+        {
+            admit(
+                index,
+                process_framed_batch(
+                    &root,
+                    &input,
+                    &FilePreparationBinding {
+                        collection: id,
+                        definition,
+                        source: &source,
+                    },
+                    &[],
+                    &[],
+                    0,
+                    0,
+                    true,
+                    alphabet,
+                    inference,
+                    max_jobs,
+                )?,
+            )?;
+        }
     }
     stats.peak_weight_bytes = peak_bytes;
     counters.add_to(&mut stats);

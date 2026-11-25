@@ -294,83 +294,8 @@ fn opened_inputs_reach_the_registered_reader_and_exact_counts_skip_content() {
     assert_eq!(backend.ranges.load(Ordering::Relaxed), 1);
 }
 
-#[test]
-fn several_large_jsonl_files_preserve_one_pass_locators_and_publication() {
-    use objekte_search_core::index::segment::SegmentPolicy;
-    use objekte_search_core::lifecycle::IndexRevision;
-    use objekte_search_core::repository::configuration::IdentityPolicy;
-    use std::io::{BufWriter, Write};
-    use std::num::NonZeroUsize;
-
-    let root = tempfile::tempdir().unwrap();
-    let mut expected = Vec::new();
-    let mut total_bytes = 0;
-    let count = 9_000;
-    let files = 5;
-    let padding = "x".repeat(1024);
-    for file in 0..files {
-        let path = root.path().join(format!("{file}.jsonl"));
-        let mut output = BufWriter::new(std::fs::File::create(&path).unwrap());
-        let mut offset = 0u64;
-        for number in 0..count {
-            let id = format!("r{file}-{number:05}");
-            let line = format!(r#"{{"id":"{id}","title":"{padding}"}}"#);
-            let end = offset + line.len() as u64;
-            if number == 0 || number == count / 2 || number == count - 1 {
-                expected.push((id, path.clone(), ByteRange { start: offset, end }));
-            }
-            writeln!(output, "{line}").unwrap();
-            offset = end + 1;
-        }
-        output.flush().unwrap();
-        total_bytes += offset;
-    }
-    let mut sources = SourceRegistry::default();
-    objekte_loader_jsonl::register(&mut sources).unwrap();
-    let mut collection = CollectionDefinition::folder("lines", "", SourceFormat::JsonLines);
-    collection.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
-    for workers in [1, 4] {
-        let options = RepositoryOptions {
-            build_workers: NonZeroUsize::new(workers),
-            segment_policy: SegmentPolicy {
-                target_records: NonZeroUsize::new(1024).unwrap(),
-                max_files: NonZeroUsize::new(1).unwrap(),
-            },
-            ..Default::default()
-        };
-        let index = Index::start_build(
-            root.path(),
-            vec![collection.clone()],
-            options,
-            sources.clone(),
-        )
-        .and_then(|task| task.wait_complete())
-        .unwrap();
-        let view = index.view().unwrap();
-        let status = index.status().unwrap();
-        assert_eq!(status.live_records, (files * count) as u64);
-        assert_eq!(status.build_source_reads, files as u64);
-        assert_eq!(status.build_source_bytes_read, total_bytes);
-        assert_eq!(
-            view.revision().0 - IndexRevision::INITIAL.0 - 1,
-            files as u64
-        );
-        for (id, path, range) in &expected {
-            let hit = view
-                .get_record("lines", id, ReturnMode::Locator)
-                .unwrap()
-                .unwrap();
-            assert_eq!(hit.source_range(), Some(*range));
-            let file = view
-                .file_catalog()
-                .unwrap()
-                .file_by_path(path.strip_prefix(root.path()).unwrap())
-                .unwrap()
-                .id;
-            assert_eq!(hit.file.unwrap().file_id, file);
-        }
-    }
-}
+#[path = "external_loaders/concurrent_jsonl.rs"]
+mod concurrent_jsonl;
 
 #[test]
 fn exact_schema_bytes_change_configuration_with_two_collections_using_one_loader() {

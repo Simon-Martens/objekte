@@ -28,6 +28,7 @@ unicode-width = { version = "0.2", optional = true }
 unicode-casefold = { version = "0.2", optional = true }
 
 [dev-dependencies]
+objekte-search-core = { path = "../core", features = ["test-hooks"] }
 bincode = "1.3"
 sha2 = "0.10"
 smallvec = "1.15"

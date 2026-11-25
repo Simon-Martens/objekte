@@ -338,6 +338,8 @@ fn extract_file_outcomes_impl<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
+    #[cfg(feature = "test-hooks")]
+    let _active_file = crate::lifecycle::initial::test_hooks::enter_file(path);
     let open_started = crate::measurement::timer::start_if_enabled(profile.is_some());
     let mut file = match std::fs::File::open(path) {
         Ok(file) => file,

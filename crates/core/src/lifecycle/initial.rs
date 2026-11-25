@@ -11,6 +11,10 @@ use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::registry::SourceRegistry;
 
+#[cfg(feature = "test-hooks")]
+#[doc(hidden)]
+pub mod test_hooks;
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum InitialBuildPhase {
     Discovering,
