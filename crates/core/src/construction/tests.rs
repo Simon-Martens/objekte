@@ -2080,6 +2080,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
         false,
         make(0),
         BoundedBuildLimits::default(),
+        &|| false,
         |batch| {
             before.push((batch.records.len(), batch.files[0].entry.status));
             Ok(())
@@ -2111,30 +2112,36 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
             ranges: 256,
             admitted_bytes: 64 * 1024,
         },
+        &|| false,
         |batch| {
             assert!(batch.records.is_empty());
+            assert!(batch.files[0].first_range);
             admitted_chunks += 1;
             Ok(())
         },
     )
     .unwrap();
-    assert_eq!(admitted_chunks, 2);
-    assert_eq!(stats.peak_weight_bytes, 64 * 1024);
+    assert_eq!(admitted_chunks, 1);
+    assert_eq!(stats.framing_chunks, 2);
+    assert_eq!(stats.framing_bytes, 80 * 1024 + 2);
+    assert_eq!(stats.peak_weight_bytes, 0);
+    assert_eq!(stats.peak_active_jobs, 0);
 
     let mut admitted_records = 0;
     let error = process_bounded_json_lines_reader(
         &pool,
-        Arc::new(root),
-        definition,
+        Arc::new(root.clone()),
+        Arc::clone(&definition),
         CollectionId(0),
-        source,
+        source.clone(),
         FileId(0),
-        source_files,
+        Arc::clone(&source_files),
         BigramAlphabet::Ascii,
         inference,
         false,
         make(512 * 3),
         BoundedBuildLimits::default(),
+        &|| false,
         |batch| {
             admitted_records += batch.records.len();
             Ok(())
@@ -2144,6 +2151,73 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
     .unwrap();
     assert!(error.contains("bounded framing read"), "{error}");
     assert_eq!(admitted_records, 256);
+
+    let run_spaced = |bytes: &[u8],
+                      cancelled: &dyn Fn() -> bool,
+                      admit: &mut dyn FnMut(
+        crate::construction::batch::BatchContribution,
+    ) -> Result<(), String>| {
+        process_bounded_json_lines_reader(
+            &pool,
+            Arc::new(root.clone()),
+            Arc::clone(&definition),
+            CollectionId(0),
+            source.clone(),
+            FileId(0),
+            Arc::clone(&source_files),
+            BigramAlphabet::Ascii,
+            inference,
+            false,
+            BoundedJsonLines::from_reader(std::io::Cursor::new(bytes)),
+            BoundedBuildLimits {
+                chunk_bytes: 8,
+                ranges: 1,
+                ..BoundedBuildLimits::default()
+            },
+            cancelled,
+            admit,
+        )
+    };
+    let mut batches = Vec::new();
+    let stats = run_spaced(
+        b"       \n{}\n       \n{bad}\n       \n",
+        &|| false,
+        &mut |batch| {
+            let diagnostic_line = batch.files[0]
+                .entry
+                .diagnostics
+                .first()
+                .and_then(|diag| diag.line);
+            batches.push((
+                batch.files[0].first_range,
+                batch.records[0].range,
+                diagnostic_line,
+            ));
+            Ok(())
+        },
+    )
+    .unwrap();
+    assert_eq!(stats.framing_chunks, 5);
+    assert_eq!(
+        batches,
+        [
+            (true, ByteRange { start: 8, end: 10 }, None),
+            (false, ByteRange { start: 19, end: 24 }, Some(4)),
+        ]
+    );
+
+    let checks = std::cell::Cell::new(0);
+    let error = run_spaced(
+        &b"       \n".repeat(16),
+        &|| {
+            checks.set(checks.get() + 1);
+            checks.get() >= 3
+        },
+        &mut |_| panic!("cancelled blanks must never reach admission"),
+    )
+    .unwrap_err();
+    assert!(error.contains("cancelled"));
+    assert_eq!(checks.get(), 3);
 }
 
 #[test]

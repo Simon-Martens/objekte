@@ -1355,6 +1355,7 @@ fn prepare_managed_stream(
             limits,
             policy.target_records.get(),
             Some(&repository.stream_budget),
+            &|| false,
             &mut consume,
         )?;
         if bytes_read.load(Ordering::Relaxed) != input.revision.size {
@@ -1926,6 +1927,7 @@ pub(super) fn process_framed_file_with_budget(
             profile_build,
             record_target,
             shared_budget,
+            cancelled,
             admit,
         );
     }
@@ -2137,6 +2139,7 @@ fn process_bounded_json_lines_file(
     profile_build: bool,
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
+    cancelled: &dyn Fn() -> bool,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
@@ -2192,6 +2195,7 @@ fn process_bounded_json_lines_file(
         BoundedBuildLimits::default(),
         record_target,
         shared_budget,
+        cancelled,
         admit,
     )?;
     crate::source::access::check_revision(&path, &file, input.revision)?;
@@ -2237,6 +2241,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     profile_build: bool,
     reader: BoundedJsonLines<R>,
     limits: BoundedBuildLimits,
+    cancelled: &dyn Fn() -> bool,
     admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let input = Arc::new(source_files[file_id.0 as usize].clone());
@@ -2254,6 +2259,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
         limits,
         usize::MAX,
         None,
+        cancelled,
         admit,
     )
 }
@@ -2272,6 +2278,7 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     limits: BoundedBuildLimits,
     record_target: usize,
     shared_budget: Option<&StreamBudget>,
+    cancelled: &dyn Fn() -> bool,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let path = root.join(&input.relative_path);
@@ -2302,30 +2309,14 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
         }
         Ok::<_, String>(chunk)
     };
-    let first_started = crate::measurement::timer::start_if_enabled(profile_build);
-    let first = match next_chunk() {
-        Ok(Some(chunk)) => chunk,
-        Ok(None) => BoundedBuildChunk {
-            bytes: Vec::new(),
-            ranges: Vec::new(),
-            file_offset: 0,
-            preceding_lines: 0,
-        },
-        Err(error) => return Err(error),
-    };
-    let mut pending_input = shared_budget
-        .map(|budget| budget.activity(StreamActivity::PendingInput, 0, chunk_capacity(&first)));
-    let mut pending = Some(first);
+    let mut pending_input =
+        shared_budget.map(|budget| budget.activity(StreamActivity::PendingInput, 0, 0));
+    let mut pending = None;
     let mut eof = false;
     let mut stats = BuildScheduleStats {
         weight_limit_bytes: limits.admitted_bytes,
         ..Default::default()
     };
-    if let Some(started) = first_started {
-        stats.framing_ns += started.elapsed().as_nanos() as u64;
-        stats.framing_chunks += 1;
-        stats.framing_bytes += pending.as_ref().map_or(0, |chunk| chunk.bytes.len()) as u64;
-    }
     let (sender, receiver) = mpsc::channel();
     let counters = Arc::new(JobCounters::default());
     let mut ready = BTreeMap::new();
@@ -2335,17 +2326,29 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     let mut failure = None;
     while failure.is_none() {
         while dispatched - next < max_jobs {
+            if cancelled() {
+                failure = Some("initial construction cancelled".into());
+                break;
+            }
             if pending.is_none() && !eof {
                 let started = crate::measurement::timer::start_if_enabled(profile_build);
-                match next_chunk() {
+                let frame = next_chunk();
+                if let Some(started) = started {
+                    stats.framing_ns += started.elapsed().as_nanos() as u64;
+                }
+                match frame {
                     Ok(Some(chunk)) => {
-                        if let Some(started) = started {
-                            stats.framing_ns += started.elapsed().as_nanos() as u64;
-                            stats.framing_chunks += 1;
-                            stats.framing_bytes += chunk.bytes.len() as u64;
+                        stats.framing_chunks += 1;
+                        stats.framing_bytes += chunk.bytes.len() as u64;
+                        if let Some(ticket) = pending_input.as_mut() {
+                            ticket.set(0, chunk_capacity(&chunk));
                         }
-                        if let Some(pending_input) = pending_input.as_mut() {
-                            pending_input.set(0, chunk_capacity(&chunk));
+                        if chunk.ranges.is_empty() {
+                            drop(chunk);
+                            if let Some(ticket) = pending_input.as_mut() {
+                                ticket.set(0, 0);
+                            }
+                            continue;
                         }
                         pending = Some(chunk);
                     }
@@ -2485,6 +2488,30 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     }
     if let Some(error) = failure {
         return Err(error);
+    }
+    if cancelled() {
+        return Err("initial construction cancelled".into());
+    }
+    if dispatched == 0 {
+        // Successful empty input still owns one file membership. Build it
+        // once at EOF without reserving a decoder job or an input chunk.
+        admit(process_framed_batch(
+            &root,
+            &input,
+            &FilePreparationBinding {
+                collection,
+                definition: &definition,
+                source: &source,
+            },
+            &[],
+            &[],
+            0,
+            0,
+            true,
+            alphabet,
+            inference,
+            max_jobs,
+        )?)?;
     }
     stats.peak_weight_bytes = peak_bytes;
     counters.add_to(&mut stats);

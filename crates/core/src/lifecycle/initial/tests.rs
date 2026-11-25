@@ -2982,3 +2982,127 @@ fn large_registered_file_decodes_concurrently_beside_a_small_file() {
     assert_eq!(view.startup_stats().build_source_reads, 2);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn registered_bounded_jsonl_blank_frames_keep_constant_unsealed_work() {
+    use sha2::{Digest, Sha256};
+    use std::io::{BufWriter, Write};
+
+    let line_size = 1024 * 1024;
+    let mut blank = vec![b' '; line_size];
+    blank[line_size - 1] = b'\n';
+    let record = b"{\"id\":\"tail\"}\n";
+    let peer_record = b"{\"id\":\"peer\"}\n";
+    let mut observations = Vec::new();
+
+    for frames in [16, 64] {
+        for append_record in [false, true] {
+            let root = std::env::temp_dir().join(format!(
+                "objekte-bounded-blank-{}-{frames}-{append_record}",
+                std::process::id()
+            ));
+            std::fs::create_dir_all(root.join("data")).unwrap();
+            let mut main =
+                BufWriter::new(std::fs::File::create(root.join("data/main.blank-lines")).unwrap());
+            let mut digest = Sha256::new();
+            for _ in 0..frames {
+                main.write_all(&blank).unwrap();
+                digest.update(&blank);
+            }
+            if append_record {
+                main.write_all(record).unwrap();
+                digest.update(record);
+            }
+            main.flush().unwrap();
+            drop(main);
+            std::fs::write(root.join("data/peer.blank-lines"), peer_record).unwrap();
+
+            let mut sources = SourceRegistry::builtin();
+            sources
+                .register(
+                    "bounded-blank-lines",
+                    1,
+                    "blank-lines",
+                    Arc::new(JsonLinesReader),
+                )
+                .unwrap();
+            let task = Index::start_build(
+                &root,
+                vec![registered_packing_definition(
+                    "entries",
+                    "bounded-blank-lines",
+                )],
+                RepositoryOptions {
+                    profile_build: true,
+                    ..review_stream_options()
+                },
+                sources,
+            )
+            .unwrap();
+            let view = task.wait_complete().unwrap().view().unwrap();
+            let stats = view.startup_stats();
+            let peak = stats.build_stream_peak;
+            eprintln!(
+                "blank_frames={frames} tail={append_record} unsealed_peak={} framing_chunks={} framing_bytes={}",
+                peak.unsealed_contributions, stats.build_framing_chunks, stats.build_framing_bytes,
+            );
+            observations.push((
+                frames,
+                append_record,
+                peak.unsealed_contributions,
+                stats.build_framing_chunks,
+                stats.build_framing_bytes,
+            ));
+
+            let catalog = view.file_catalog().unwrap();
+            let main = catalog
+                .file_by_path(std::path::Path::new("data/main.blank-lines"))
+                .unwrap();
+            assert_eq!(main.collections, &[crate::model::CollectionId(0)]);
+            assert_eq!(
+                catalog.records_for_file(main.id).unwrap().len(),
+                usize::from(append_record)
+            );
+            assert_eq!(
+                view.file_fingerprint(main.id),
+                Some(digest.finalize().into())
+            );
+            assert_eq!(task.status().unwrap().processed_files, 2);
+            assert!(
+                view.get_record("entries", "peer", ReturnMode::Locator)
+                    .unwrap()
+                    .is_some()
+            );
+            if append_record {
+                let tail = view
+                    .get_record("entries", "tail", ReturnMode::Locator)
+                    .unwrap()
+                    .unwrap();
+                let start = (frames * line_size) as u64;
+                assert_eq!(
+                    tail.source_range(),
+                    Some(ByteRange {
+                        start,
+                        end: start + record.len() as u64 - 1
+                    })
+                );
+            }
+            std::fs::remove_dir_all(root).unwrap();
+        }
+    }
+    assert!(
+        observations.iter().all(|entry| entry.2 <= 2),
+        "{observations:?}"
+    );
+    for (frames, append_record, _, framing_chunks, framing_bytes) in observations {
+        assert_eq!(
+            framing_chunks,
+            (frames + usize::from(append_record) + 1) as u64
+        );
+        assert_eq!(
+            framing_bytes,
+            (frames * line_size + usize::from(append_record) * record.len() + peer_record.len())
+                as u64
+        );
+    }
+}
