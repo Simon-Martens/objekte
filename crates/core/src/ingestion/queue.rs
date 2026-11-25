@@ -65,6 +65,24 @@ impl Receipt {
 enum Storage {
     Memory(Batch),
     Spool(spool::SpoolFrame),
+    Failed(IngestionError),
+}
+
+#[derive(Clone, Copy, Eq, PartialEq)]
+struct GroupInfo {
+    registration: RecordRegistration,
+    shape: (bool, bool),
+    records: usize,
+}
+
+impl GroupInfo {
+    fn for_batch(batch: &Batch) -> Option<Self> {
+        Some(Self {
+            registration: batch.registration,
+            shape: group_shape(batch)?,
+            records: batch.operations.len(),
+        })
+    }
 }
 
 struct Queued {
@@ -72,6 +90,7 @@ struct Queued {
     weight: usize,
     encoded_bytes: u64,
     storage: Storage,
+    group: Option<GroupInfo>,
 }
 
 /// Spool overflow keeps only sequence and frame coordinates outside the
@@ -81,6 +100,7 @@ struct OverflowQueued {
     weight: usize,
     encoded_bytes: u64,
     frame: spool::SpoolFrame,
+    group: Option<GroupInfo>,
 }
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -424,6 +444,7 @@ impl RecordWriter {
             return Err(SubmitError::BatchTooLarge(batch));
         }
         let weight = batch.estimated_bytes;
+        let group = GroupInfo::for_batch(&batch);
         let lock = if memory_only {
             queue.state.try_lock().ok()
         } else {
@@ -451,6 +472,7 @@ impl RecordWriter {
                 Storage::Memory(batch),
                 weight,
                 0,
+                group,
             ));
         }
         if memory_only {
@@ -518,6 +540,7 @@ impl RecordWriter {
             Storage::Spool(frame),
             weight,
             bytes,
+            group,
         ))
     }
 }
@@ -546,6 +569,7 @@ fn enqueue(
     storage: Storage,
     weight: usize,
     encoded_bytes: u64,
+    group: Option<GroupInfo>,
 ) -> Receipt {
     let sequence = state.next_sequence;
     state.next_sequence += 1;
@@ -559,6 +583,7 @@ fn enqueue(
             weight,
             encoded_bytes,
             frame,
+            group,
         });
     } else {
         state.items.push_back(Queued {
@@ -566,6 +591,7 @@ fn enqueue(
             weight,
             encoded_bytes,
             storage,
+            group,
         });
     }
     queue.changed.notify_all();
@@ -599,24 +625,34 @@ fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
         .then_some(shape)
 }
 
+fn pop_queued(state: &mut State) -> Option<Queued> {
+    state.items.pop_front().or_else(|| {
+        state.overflow.pop_front().map(|overflow| Queued {
+            sequence: overflow.sequence,
+            weight: overflow.weight,
+            encoded_bytes: overflow.encoded_bytes,
+            storage: Storage::Spool(overflow.frame),
+            group: overflow.group,
+        })
+    })
+}
+
 fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
+    // A failed coalesced attempt is replayed in ordinal order from this
+    // bounded in-flight prefix. No decoded spool batch is put back into the
+    // resident admission window or charged against its configured RAM cap.
+    let mut retry = VecDeque::<Queued>::new();
     loop {
-        let mut item = {
+        let (mut item, from_retry) = if let Some(item) = retry.pop_front() {
+            (item, true)
+        } else {
             let mut state = queue.state.lock().expect("queue mutex poisoned");
             while (state.items.is_empty() && state.overflow.is_empty() || state.paused)
                 && !state.closed
             {
                 state = queue.changed.wait(state).expect("queue mutex poisoned");
             }
-            let next = state.items.pop_front().or_else(|| {
-                state.overflow.pop_front().map(|overflow| Queued {
-                    sequence: overflow.sequence,
-                    weight: overflow.weight,
-                    encoded_bytes: overflow.encoded_bytes,
-                    storage: Storage::Spool(overflow.frame),
-                })
-            });
-            let Some(item) = next else {
+            let Some(item) = pop_queued(&mut state) else {
                 break;
             };
             if matches!(item.storage, Storage::Memory(_)) {
@@ -627,7 +663,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 .metrics
                 .high_water_in_flight_estimated_bytes
                 .max(item.weight);
-            item
+            (item, false)
         };
         let group_enabled = {
             #[cfg(test)]
@@ -644,31 +680,40 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             }
         };
         if group_enabled
-            && let Storage::Memory(first) = &item.storage
-            && let Some(shape) = group_shape(first)
-            && first.operations.len() < queue.group_target_records
+            && !from_retry
+            && let Some(info) = item.group
+            && info.records < queue.group_target_records
         {
-            let registration = first.registration;
-            let mut records = first.operations.len();
-            let mut bytes = first.estimated_bytes;
+            let mut records = info.records;
+            let mut bytes = item.weight;
             let mut group = vec![item];
             {
                 let mut state = queue.state.lock().expect("queue mutex poisoned");
-                while let Some(front) = state.items.front() {
-                    let Storage::Memory(batch) = &front.storage else {
+                loop {
+                    let front = state
+                        .items
+                        .front()
+                        .map(|queued| (queued.group, queued.weight))
+                        .or_else(|| {
+                            state
+                                .overflow
+                                .front()
+                                .map(|queued| (queued.group, queued.weight))
+                        });
+                    let Some((Some(next_info), next_weight)) = front else {
                         break;
                     };
-                    if batch.registration != registration
-                        || group_shape(batch) != Some(shape)
-                        || records.saturating_add(batch.operations.len())
-                            > queue.group_target_records
-                        || bytes.saturating_add(front.weight) > 4 * 1024 * 1024
+                    if next_info.registration != info.registration
+                        || next_info.shape != info.shape
+                        || records.saturating_add(next_info.records) > queue.group_target_records
+                        || bytes.saturating_add(next_weight) > 4 * 1024 * 1024
                     {
                         break;
                     }
-                    let batch_records = batch.operations.len();
-                    let next = state.items.pop_front().expect("front batch exists");
-                    state.metrics.pending_ram_bytes -= next.weight;
+                    let next = pop_queued(&mut state).expect("front batch exists");
+                    if matches!(next.storage, Storage::Memory(_)) {
+                        state.metrics.pending_ram_bytes -= next.weight;
+                    }
                     state.metrics.in_flight_estimated_bytes = state
                         .metrics
                         .in_flight_estimated_bytes
@@ -677,25 +722,65 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                         .metrics
                         .high_water_in_flight_estimated_bytes
                         .max(state.metrics.in_flight_estimated_bytes);
-                    records += batch_records;
+                    records += next_info.records;
                     bytes += next.weight;
                     group.push(next);
                 }
             }
             if group.len() > 1 {
-                let mut combined = Batch::new(session_id, registration);
-                combined.operations.reserve(records);
-                for member in &group {
-                    if let Storage::Memory(batch) = &member.storage {
-                        combined.operations.extend(batch.operations.iter().cloned());
+                let mut reclaimed = 0u64;
+                let mut read_bytes = 0u64;
+                for member in &mut group {
+                    if matches!(member.storage, Storage::Spool(_)) {
+                        let mut old = Storage::Failed(IngestionError::Cancelled {
+                            originating_sequence: 0,
+                        });
+                        std::mem::swap(&mut member.storage, &mut old);
+                        let Storage::Spool(frame) = old else {
+                            unreachable!("spool member was selected")
+                        };
+                        let decoded = spool::read(&frame, queue.options.spool_bytes, session_id)
+                            .map_err(IngestionError::Spool);
+                        reclaimed = reclaimed.saturating_add(
+                            queue
+                                .spool
+                                .lock()
+                                .expect("spool mutex poisoned")
+                                .release(&frame),
+                        );
+                        read_bytes = read_bytes.saturating_add(member.encoded_bytes);
+                        member.storage = match decoded {
+                            Ok(batch) => Storage::Memory(batch),
+                            Err(error) => Storage::Failed(error),
+                        };
                     }
                 }
+                let mut state = queue.state.lock().expect("queue mutex poisoned");
+                state.metrics.pending_spool_bytes -= reclaimed;
+                state.metrics.spool_read_bytes =
+                    state.metrics.spool_read_bytes.saturating_add(read_bytes);
+                drop(state);
                 let first_sequence = group[0].sequence;
-                let grouped = if queue.cancelled.load(Ordering::Acquire) {
+                let grouped = if group
+                    .iter()
+                    .any(|member| matches!(member.storage, Storage::Failed(_)))
+                {
+                    Err(IngestionError::Spool(
+                        "group contains an unreadable frame".into(),
+                    ))
+                } else if queue.cancelled.load(Ordering::Acquire) {
                     Err(IngestionError::Cancelled {
                         originating_sequence: first_sequence,
                     })
                 } else {
+                    let mut combined = Batch::new(session_id, info.registration);
+                    combined.operations.reserve(records);
+                    for member in &group {
+                        let Storage::Memory(batch) = &member.storage else {
+                            unreachable!("group member decoded")
+                        };
+                        combined.operations.extend(batch.operations.iter().cloned());
+                    }
                     std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                         super::publication::install_batch(
                             &index,
@@ -722,13 +807,8 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                     queue.changed.notify_all();
                     continue;
                 }
-                let mut state = queue.state.lock().expect("queue mutex poisoned");
-                for pending in group.drain(1..).rev() {
-                    state.metrics.pending_ram_bytes += pending.weight;
-                    state.items.push_front(pending);
-                }
-                item = group.pop().expect("first group member remains");
-                state.metrics.in_flight_estimated_bytes = item.weight;
+                retry = group.into();
+                continue;
             } else {
                 item = group.pop().expect("single group member remains");
             }
@@ -746,6 +826,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         }
         let batch = match item.storage {
             Storage::Memory(batch) => Ok(batch),
+            Storage::Failed(error) => Err(error),
             Storage::Spool(frame) => {
                 let result = spool::read(&frame, queue.options.spool_bytes, session_id)
                     .map_err(IngestionError::Spool);
@@ -785,7 +866,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             .receipts
             .complete_through(item.sequence, result.clone());
         let mut state = queue.state.lock().expect("queue mutex poisoned");
-        state.metrics.in_flight_estimated_bytes = 0;
+        state.metrics.in_flight_estimated_bytes -= item.weight;
         state.completed = item.sequence;
         match result {
             Ok(revision) => {
@@ -798,6 +879,13 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 state.failure = Some((item.sequence, error));
                 state.metrics.failure_sequence = Some(item.sequence);
                 let mut abandoned_frames = Vec::new();
+                while let Some(pending) = retry.pop_front() {
+                    state.metrics.in_flight_estimated_bytes -= pending.weight;
+                    if let Storage::Spool(frame) = pending.storage {
+                        abandoned_frames.push(frame);
+                    }
+                    state.completed = pending.sequence;
+                }
                 while let Some(pending) = state.items.pop_front() {
                     if matches!(pending.storage, Storage::Memory(_)) {
                         state.metrics.pending_ram_bytes -= pending.weight;
@@ -908,6 +996,55 @@ mod tests {
         assert!(session.finish().is_err());
         assert_eq!(session.metrics().pending_spool_bytes, 0);
         assert_eq!(index.status().unwrap().live_records, 0);
+        assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
+        std::fs::remove_dir(root).unwrap();
+    }
+
+    #[test]
+    fn paused_spooled_singletons_publish_as_one_initial_segment() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-queue-spool-group-{}-{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "spool-group", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024,
+                spool_bytes: 1024 * 1024,
+                spool_directory: Some(root.clone()),
+            })
+            .unwrap();
+        session.pause_worker_for_measurement().unwrap();
+        let writer = session.writer(registration).unwrap();
+        let receipts = (0..128)
+            .map(|number| {
+                writer
+                    .submit(batch(
+                        session.core.id,
+                        registration,
+                        &format!("r{number:03}"),
+                    ))
+                    .unwrap()
+            })
+            .collect::<Vec<_>>();
+        session.resume_worker_for_measurement();
+        let revision = receipts[0].wait_published().unwrap();
+        for receipt in receipts.iter().skip(1) {
+            assert_eq!(receipt.wait_published(), Ok(revision));
+        }
+        session.finish().unwrap();
+        assert_eq!(session.metrics().root_installations, 1);
+        assert_eq!(session.metrics().pending_spool_bytes, 0);
+        assert_eq!(index.view().unwrap().segment_summaries().len(), 1);
+        assert_eq!(index.status().unwrap().live_records, 128);
         assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
         std::fs::remove_dir(root).unwrap();
     }
@@ -1420,6 +1557,54 @@ mod tests {
         );
         assert_eq!(session.metrics().root_installations, 1);
         assert_eq!(index.status().unwrap().live_records, 1);
+    }
+
+    #[test]
+    fn failed_middle_spooled_group_member_publishes_valid_prefix_only() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-spooled-group-failure-{}-{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "spooled-failure", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index
+            .ingestion_with_options(IngestionOptions {
+                pending_ram_bytes: 0,
+                max_batch_bytes: 1024,
+                spool_bytes: 1024 * 1024,
+                spool_directory: Some(root.clone()),
+            })
+            .unwrap();
+        session.pause_worker_for_measurement().unwrap();
+        let writer = session.writer(registration).unwrap();
+        let first = writer
+            .submit(batch(session.core.id, registration, "first"))
+            .unwrap();
+        let duplicate = writer
+            .submit(batch(session.core.id, registration, "first"))
+            .unwrap();
+        let suffix = writer
+            .submit(batch(session.core.id, registration, "suffix"))
+            .unwrap();
+        session.resume_worker_for_measurement();
+        first.wait_published().unwrap();
+        assert!(duplicate.wait_published().is_err());
+        assert!(matches!(
+            suffix.wait_published(),
+            Err(IngestionError::Cancelled { originating_sequence }) if originating_sequence == duplicate.sequence()
+        ));
+        assert!(session.finish().is_err());
+        assert_eq!(session.metrics().pending_spool_bytes, 0);
+        assert_eq!(session.metrics().root_installations, 1);
+        assert_eq!(index.status().unwrap().live_records, 1);
+        assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
+        std::fs::remove_dir(root).unwrap();
     }
 
     #[test]
