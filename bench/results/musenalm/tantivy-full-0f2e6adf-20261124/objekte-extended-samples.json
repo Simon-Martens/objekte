@@ -1,0 +1,191 @@
+{
+  "build": {
+    "engine": "objekte",
+    "elapsed_ns": 3650889295,
+    "documents": 148486,
+    "collection_counts": {
+      "agents": 4010,
+      "contents": 133948,
+      "entries": 4928,
+      "items": 4180,
+      "pages": 8,
+      "places": 210,
+      "series": 1202
+    },
+    "peak_rss_kb": 515584,
+    "resident_ready_kb": 471696,
+    "index_bytes": null,
+    "segments": 15,
+    "writer_memory_bytes": null
+  },
+  "samples": [
+    {
+      "id": "Q152",
+      "contract": "predicate_count",
+      "repetition": 0,
+      "elapsed_ns": 171053,
+      "count": 3821,
+      "page_len": 0
+    },
+    {
+      "id": "Q153",
+      "contract": "predicate_count",
+      "repetition": 0,
+      "elapsed_ns": 19997596,
+      "count": 1316,
+      "page_len": 0
+    },
+    {
+      "id": "Q151",
+      "contract": "predicate_count",
+      "repetition": 0,
+      "elapsed_ns": 2396,
+      "count": 4928,
+      "page_len": 0
+    },
+    {
+      "id": "Q153",
+      "contract": "predicate_count",
+      "repetition": 1,
+      "elapsed_ns": 18930123,
+      "count": 1316,
+      "page_len": 0
+    },
+    {
+      "id": "Q151",
+      "contract": "predicate_count",
+      "repetition": 1,
+      "elapsed_ns": 2204,
+      "count": 4928,
+      "page_len": 0
+    },
+    {
+      "id": "Q152",
+      "contract": "predicate_count",
+      "repetition": 1,
+      "elapsed_ns": 152081,
+      "count": 3821,
+      "page_len": 0
+    },
+    {
+      "id": "Q151",
+      "contract": "predicate_count",
+      "repetition": 2,
+      "elapsed_ns": 1400,
+      "count": 4928,
+      "page_len": 0
+    },
+    {
+      "id": "Q152",
+      "contract": "predicate_count",
+      "repetition": 2,
+      "elapsed_ns": 141105,
+      "count": 3821,
+      "page_len": 0
+    },
+    {
+      "id": "Q153",
+      "contract": "predicate_count",
+      "repetition": 2,
+      "elapsed_ns": 18835422,
+      "count": 1316,
+      "page_len": 0
+    },
+    {
+      "id": "Q152",
+      "contract": "predicate_count",
+      "repetition": 3,
+      "elapsed_ns": 152501,
+      "count": 3821,
+      "page_len": 0
+    },
+    {
+      "id": "Q153",
+      "contract": "predicate_count",
+      "repetition": 3,
+      "elapsed_ns": 18975882,
+      "count": 1316,
+      "page_len": 0
+    },
+    {
+      "id": "Q151",
+      "contract": "predicate_count",
+      "repetition": 3,
+      "elapsed_ns": 2071,
+      "count": 4928,
+      "page_len": 0
+    },
+    {
+      "id": "Q153",
+      "contract": "predicate_count",
+      "repetition": 4,
+      "elapsed_ns": 18624490,
+      "count": 1316,
+      "page_len": 0
+    },
+    {
+      "id": "Q151",
+      "contract": "predicate_count",
+      "repetition": 4,
+      "elapsed_ns": 2061,
+      "count": 4928,
+      "page_len": 0
+    },
+    {
+      "id": "Q152",
+      "contract": "predicate_count",
+      "repetition": 4,
+      "elapsed_ns": 150711,
+      "count": 3821,
+      "page_len": 0
+    },
+    {
+      "id": "Q151",
+      "contract": "predicate_count",
+      "repetition": 5,
+      "elapsed_ns": 1388,
+      "count": 4928,
+      "page_len": 0
+    },
+    {
+      "id": "Q152",
+      "contract": "predicate_count",
+      "repetition": 5,
+      "elapsed_ns": 142390,
+      "count": 3821,
+      "page_len": 0
+    },
+    {
+      "id": "Q153",
+      "contract": "predicate_count",
+      "repetition": 5,
+      "elapsed_ns": 18899800,
+      "count": 1316,
+      "page_len": 0
+    },
+    {
+      "id": "Q152",
+      "contract": "predicate_count",
+      "repetition": 6,
+      "elapsed_ns": 152957,
+      "count": 3821,
+      "page_len": 0
+    },
+    {
+      "id": "Q153",
+      "contract": "predicate_count",
+      "repetition": 6,
+      "elapsed_ns": 19025289,
+      "count": 1316,
+      "page_len": 0
+    },
+    {
+      "id": "Q151",
+      "contract": "predicate_count",
+      "repetition": 6,
+      "elapsed_ns": 2148,
+      "count": 4928,
+      "page_len": 0
+    }
+  ]
+}

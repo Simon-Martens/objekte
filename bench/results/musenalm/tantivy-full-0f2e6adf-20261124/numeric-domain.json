@@ -1,0 +1,33 @@
+{
+  "numeric_paths": 10,
+  "numeric_values": 424708,
+  "distinct_values": 149500,
+  "float_collisions": [],
+  "large_integers": [],
+  "selected_paths": {
+    "places.musenalm_id": {
+      "count": 210,
+      "distinct": 210,
+      "min": "11",
+      "max": "228"
+    },
+    "entries.year": {
+      "count": 4928,
+      "distinct": 166,
+      "min": "0",
+      "max": "1902"
+    },
+    "contents.year": {
+      "count": 133948,
+      "distinct": 122,
+      "min": "0",
+      "max": "1894"
+    },
+    "contents.numbering": {
+      "count": 133948,
+      "distinct": 1037,
+      "min": "0",
+      "max": "33333333333333"
+    }
+  }
+}
