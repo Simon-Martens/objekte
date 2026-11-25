@@ -7,7 +7,7 @@ use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
     FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_observed_file_build,
 };
-use crate::construction::segment_admission::SegmentAdmission;
+use crate::index::segment::admission::SegmentAdmission;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
 use crate::inventory::discovery::selects_file;
 use crate::inventory::{FileEntry, FileStatus, SourceRevision};

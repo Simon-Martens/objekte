@@ -163,21 +163,21 @@ pub(crate) fn file_batches<'a>(
 /// All expensive per-record projection is complete before this crosses the
 /// worker/coordinator boundary. Slots remain local until ordered admission.
 pub(crate) struct BatchContribution {
-    pub(super) files: Vec<BatchFile>,
+    pub(crate) files: Vec<BatchFile>,
     /// Complete physical-file digests captured during this batch's own reads.
     /// Framed chunks only report a digest once, after the whole read succeeds.
-    pub(super) file_fingerprints: Vec<(FileId, [u8; 32])>,
-    pub(super) records: Vec<RecordEntry>,
-    pub(super) postings: PostingCollection,
-    pub(super) inference: Option<InferenceBuilder>,
-    pub(super) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub(super) raw: BigramContribution,
-    pub(super) fallback_text: BigramContribution,
-    pub(super) custom_text: HashMap<(Vec<String>, String), BigramContribution>,
-    pub(super) logical_records: RoaringBitmap,
-    pub(super) empty_array_records: RoaringBitmap,
-    pub(super) sort_keys: HashMap<FieldPath, Vec<SortKey>>,
-    pub(super) relations: Vec<RelationContribution>,
+    pub(crate) file_fingerprints: Vec<(FileId, [u8; 32])>,
+    pub(crate) records: Vec<RecordEntry>,
+    pub(crate) postings: PostingCollection,
+    pub(crate) inference: Option<InferenceBuilder>,
+    pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    pub(crate) raw: BigramContribution,
+    pub(crate) fallback_text: BigramContribution,
+    pub(crate) custom_text: HashMap<(Vec<String>, String), BigramContribution>,
+    pub(crate) logical_records: RoaringBitmap,
+    pub(crate) empty_array_records: RoaringBitmap,
+    pub(crate) sort_keys: HashMap<FieldPath, Vec<SortKey>>,
+    pub(crate) relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
     pub(crate) source_reads: u64,
@@ -926,7 +926,7 @@ mod retained_contribution_tests {
             &options,
         )
         .unwrap();
-        let segment = crate::construction::segment_admission::CollectionSegment::from_retained(
+        let segment = crate::index::segment::admission::CollectionSegment::from_retained(
             crate::index::segment::SegmentId::new(2),
             CollectionId(0),
             "application.entries".into(),

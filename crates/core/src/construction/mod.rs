@@ -7,7 +7,6 @@ pub(crate) mod inference;
 pub(crate) mod initial;
 pub(crate) mod repository_state;
 pub(crate) mod scheduling;
-pub(crate) mod segment_admission;
 pub(crate) mod segment_jobs;
 
 #[cfg(test)]

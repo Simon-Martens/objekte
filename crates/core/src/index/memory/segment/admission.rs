@@ -4,7 +4,6 @@ use std::collections::HashMap;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
-use serde::Serialize;
 
 use crate::construction::batch::BatchContribution;
 use crate::construction::batch::canonical_custom_text_key;
@@ -24,13 +23,13 @@ use crate::inventory::{
 };
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::repository::configuration::CollectionPolicy;
-use crate::repository::statistics::IncrementalSegmentProfile;
+use crate::repository::statistics::{AdmissionBreakdown, IncrementalSegmentProfile};
 use crate::source::registry::PreparedSource;
 
 #[cfg(test)]
-use super::batch::SourceFileInput;
+use crate::construction::batch::SourceFileInput;
 #[cfg(test)]
-use super::file_preparation::PreparedCollectionBuild;
+use crate::construction::file_preparation::PreparedCollectionBuild;
 
 #[allow(
     dead_code,
@@ -49,74 +48,6 @@ pub(crate) struct CollectionAdmission<'a> {
     pub empty_array_records: &'a mut RoaringBitmap,
     pub sorting: &'a mut SortBuilder,
     pub relations: &'a mut Vec<RelationContribution>,
-}
-
-/// Optional aggregate timing of the ordered merge. Values from separate
-/// batches are summed; `remainder_ns` includes timer and drop boundaries.
-#[derive(Clone, Copy, Debug, Default, Serialize)]
-pub struct AdmissionBreakdown {
-    pub batches: u64,
-    pub files: u64,
-    pub records: u64,
-    pub callback_ns: u64,
-    pub total_ns: u64,
-    /// Incremental coordinator accounting and capacity checks.
-    pub coordinator_ns: u64,
-    /// Collection-wide inference copy and merge outside segment admission.
-    pub inference_observation_ns: u64,
-    pub record_inventory_ns: u64,
-    pub postings_ns: u64,
-    pub inference_ns: u64,
-    pub relations_ns: u64,
-    pub custom_postings_ns: u64,
-    pub bigrams_ns: u64,
-    /// Incremental bigram merges; `bigrams_ns` is their nonadditive parent.
-    pub raw_bigrams_ns: u64,
-    pub fallback_bigrams_ns: u64,
-    pub custom_bigrams_ns: u64,
-    pub structural_facts_ns: u64,
-    pub sorting_ns: u64,
-    pub remainder_ns: u64,
-}
-
-impl AdmissionBreakdown {
-    pub(crate) fn absorb(&mut self, other: Self) {
-        self.batches += other.batches;
-        self.files += other.files;
-        self.records += other.records;
-        self.callback_ns += other.callback_ns;
-        self.total_ns += other.total_ns;
-        self.coordinator_ns += other.coordinator_ns;
-        self.inference_observation_ns += other.inference_observation_ns;
-        self.record_inventory_ns += other.record_inventory_ns;
-        self.postings_ns += other.postings_ns;
-        self.inference_ns += other.inference_ns;
-        self.relations_ns += other.relations_ns;
-        self.custom_postings_ns += other.custom_postings_ns;
-        self.bigrams_ns += other.bigrams_ns;
-        self.raw_bigrams_ns += other.raw_bigrams_ns;
-        self.fallback_bigrams_ns += other.fallback_bigrams_ns;
-        self.custom_bigrams_ns += other.custom_bigrams_ns;
-        self.structural_facts_ns += other.structural_facts_ns;
-        self.sorting_ns += other.sorting_ns;
-        self.remainder_ns += other.remainder_ns;
-    }
-
-    /// Exclusive incremental phases; omit the aggregate `bigrams_ns` parent.
-    pub(crate) fn incremental_component_ns(&self) -> u64 {
-        self.coordinator_ns
-            + self.inference_observation_ns
-            + self.record_inventory_ns
-            + self.postings_ns
-            + self.inference_ns
-            + self.relations_ns
-            + self.custom_postings_ns
-            + self.raw_bigrams_ns
-            + self.fallback_bigrams_ns
-            + self.custom_bigrams_ns
-            + self.structural_facts_ns
-            + self.sorting_ns
-    }
 }
 
 #[allow(

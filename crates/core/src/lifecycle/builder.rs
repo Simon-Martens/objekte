@@ -427,7 +427,7 @@ mod tests {
                 &options,
             )
             .unwrap();
-        let draft = crate::construction::segment_admission::CollectionSegment::from_retained(
+        let draft = crate::index::segment::admission::CollectionSegment::from_retained(
             crate::index::segment::SegmentId::new(2),
             entries,
             "test.entries".into(),

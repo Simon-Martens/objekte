@@ -15,9 +15,9 @@ use crate::schema::{FieldDefinition, Schema};
 fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-    use crate::construction::segment_admission::SegmentAdmission;
     use crate::index::segment::IndexedCollectionSegment;
     use crate::index::segment::PublishedSegment;
+    use crate::index::segment::admission::SegmentAdmission;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;

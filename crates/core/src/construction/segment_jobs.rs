@@ -358,7 +358,7 @@ impl SegmentBuildScheduler {
     fn submit(
         &mut self,
         collection_index: usize,
-        mut segment: crate::construction::segment_admission::CollectionSegment,
+        mut segment: crate::index::segment::admission::CollectionSegment,
         definition: Arc<CollectionDefinition>,
         options: RepositoryOptions,
         collection_count: usize,
@@ -658,7 +658,7 @@ impl PrivateSegmentGroup {
 pub(super) fn schedule_segment(
     scheduler: &mut SegmentBuildScheduler,
     collection_index: usize,
-    segment: crate::construction::segment_admission::CollectionSegment,
+    segment: crate::index::segment::admission::CollectionSegment,
     definition: Arc<CollectionDefinition>,
     options: RepositoryOptions,
     collection_count: usize,
@@ -693,7 +693,7 @@ pub(super) fn schedule_private_segment(
     scheduler: &mut SegmentBuildScheduler,
     private_group: &mut PrivateSegmentGroup,
     collection_index: usize,
-    segment: crate::construction::segment_admission::CollectionSegment,
+    segment: crate::index::segment::admission::CollectionSegment,
     definition: Arc<CollectionDefinition>,
     options: RepositoryOptions,
     collection_count: usize,

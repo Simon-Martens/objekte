@@ -306,8 +306,8 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     check(&restored);
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-    use crate::construction::segment_admission::SegmentAdmission;
     use crate::index::segment::PublishedSegment;
+    use crate::index::segment::admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -460,8 +460,8 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
 fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-    use crate::construction::segment_admission::SegmentAdmission;
     use crate::index::segment::PublishedSegment;
+    use crate::index::segment::admission::SegmentAdmission;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -675,7 +675,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
             1,
         )
         .unwrap();
-        let mut admission = crate::construction::segment_admission::SegmentAdmission::new(
+        let mut admission = crate::index::segment::admission::SegmentAdmission::new(
             crate::model::CollectionId(0),
             &state.required_file_reader(),
         );
@@ -1463,7 +1463,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
             1,
         )
         .unwrap();
-        let mut admission = crate::construction::segment_admission::SegmentAdmission::new(
+        let mut admission = crate::index::segment::admission::SegmentAdmission::new(
             crate::model::CollectionId(0),
             &state.required_file_reader(),
         );

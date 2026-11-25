@@ -1,5 +1,6 @@
 //! Native segment policy, identity, ownership, and borrowed inspection.
 
+pub(crate) mod admission;
 mod compaction;
 mod consolidation;
 mod projection;

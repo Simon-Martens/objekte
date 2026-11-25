@@ -5,7 +5,7 @@ use crate::construction::batch::{SourceFileInput, file_batches};
 use crate::construction::scheduling::{
     RepositoryFileJob, process_repository_file_batches_profiled,
 };
-use crate::construction::segment_admission::SegmentAdmission;
+use crate::index::segment::admission::SegmentAdmission;
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::registry::SourceRegistry;
 

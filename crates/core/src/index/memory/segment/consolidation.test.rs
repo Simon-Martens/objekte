@@ -1,8 +1,8 @@
 use super::*;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-use crate::construction::segment_admission::SegmentAdmission;
 use crate::index::bigram::BigramAlphabet;
+use crate::index::segment::admission::SegmentAdmission;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FieldPath, LogicalType};

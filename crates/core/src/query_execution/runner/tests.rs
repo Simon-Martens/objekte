@@ -2256,7 +2256,7 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
 fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-    use crate::construction::segment_admission::SegmentAdmission;
+    use crate::index::segment::admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId};
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
@@ -3360,7 +3360,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
 fn segment_direct_lookup_uses_local_slot_and_published_file() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-    use crate::construction::segment_admission::SegmentAdmission;
+    use crate::index::segment::admission::SegmentAdmission;
     use crate::inventory::SourceRevision;
     use crate::model::{CollectionId, FileId, RecordSlot};
     use crate::repository::configuration::RepositoryOptions;

@@ -11,8 +11,8 @@ use std::sync::{Arc, Condvar, Mutex};
 use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
 
-use super::segment_admission::SegmentAdmission;
 use crate::index::bigram::BigramAlphabet;
+use crate::index::segment::admission::SegmentAdmission;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};

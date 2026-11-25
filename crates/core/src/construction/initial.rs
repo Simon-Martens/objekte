@@ -18,13 +18,14 @@ use super::segment_jobs::{
 use crate::construction::batch::{BatchContribution, SourceFileInput};
 use crate::construction::discovery::{prepare_discovered_file, prepare_discovered_window};
 use crate::construction::scheduling::RepositoryFileJob;
-use crate::construction::segment_admission::{AdmissionBreakdown, SegmentAdmission};
 use crate::index::segment::SegmentId;
+use crate::index::segment::admission::SegmentAdmission;
 use crate::inventory::discovery::discover;
 use crate::inventory::{CollectionBuilder, FileInventory, append_shifted_bitmap};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{CollectionId, FileId};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use crate::repository::statistics::AdmissionBreakdown;
 use crate::repository::statistics::{BuildProfileStats, build_profile_rss_bytes};
 use crate::repository::{Repository, next_repository_instance};
 use crate::source::{registry::PreparedSource, registry::SourceRegistry};
@@ -214,7 +215,7 @@ fn stage_stream_file(
 }
 
 fn finish_stream_draft(
-    draft: super::segment_admission::CollectionSegment,
+    draft: crate::index::segment::admission::CollectionSegment,
     definition: &CollectionDefinition,
     options: RepositoryOptions,
     collection_count: usize,
@@ -497,7 +498,7 @@ impl IncrementalCollection {
         &mut self,
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<Option<crate::construction::segment_admission::CollectionSegment>, String> {
+    ) -> Result<Option<crate::index::segment::admission::CollectionSegment>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
         let sealed = if !self.admission.can_admit_batch(&batch) {
@@ -518,7 +519,7 @@ impl IncrementalCollection {
         &mut self,
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<Option<crate::construction::segment_admission::CollectionSegment>, String> {
+    ) -> Result<Option<crate::index::segment::admission::CollectionSegment>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
         let sealed = if self.admission.file_count() != 0 && !self.admission.can_admit_batch(&batch)
@@ -539,9 +540,7 @@ impl IncrementalCollection {
         }))
     }
 
-    fn take_segment(
-        &mut self,
-    ) -> Option<crate::construction::segment_admission::CollectionSegment> {
+    fn take_segment(&mut self) -> Option<crate::index::segment::admission::CollectionSegment> {
         if self.admission.file_count() == 0 {
             return None;
         }
@@ -773,7 +772,7 @@ fn schedule_public_segment(
     expected: &mut IndexRevision,
     pending: &[IncrementalCollection],
     collection_index: usize,
-    segment: crate::construction::segment_admission::CollectionSegment,
+    segment: crate::index::segment::admission::CollectionSegment,
     options: RepositoryOptions,
     pool: &Arc<rayon::ThreadPool>,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
@@ -1838,7 +1837,7 @@ impl Repository {
                     let state = &mut pending[id.0 as usize];
                     let source = state.source.clone();
                     let definition = Arc::clone(&state.definition);
-                    let mut seal = |mut draft: crate::construction::segment_admission::CollectionSegment| -> Result<(), String> {
+                    let mut seal = |mut draft: crate::index::segment::admission::CollectionSegment| -> Result<(), String> {
                         draft.id = SegmentId::new(ordinal);
                         ordinal = ordinal.checked_add(1).ok_or("segment identity overflow")?;
                         let (index, observation) = draft.into_indexed_observation_profiled(

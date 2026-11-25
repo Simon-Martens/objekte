@@ -5,7 +5,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 
 use crate::construction::batch::{NativeRecordInput, build_native_contribution};
-use crate::construction::segment_admission::CollectionSegment;
+use crate::index::segment::admission::CollectionSegment;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
 use crate::lifecycle::publication::{RecordMutation, RecordMutationKind};
 use crate::lifecycle::{Index, IndexError, IndexRevision, IndexView, RecordRegistration};
