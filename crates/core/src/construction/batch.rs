@@ -1077,6 +1077,7 @@ impl BatchBuilder<'_> {
     }
 }
 
+#[cfg(test)]
 pub(crate) fn process_batch(
     root: &Path,
     definition: &CollectionDefinition,

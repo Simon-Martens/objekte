@@ -761,9 +761,16 @@ impl Repository {
                     .collect::<Vec<_>>();
                 &ordinary
             };
-            for batch in crate::construction::batch::file_batches(members, &discovered) {
+            let streams = state.source.reader().supports_streaming_build();
+            let batches = if streams {
+                members.chunks(1).collect::<Vec<_>>()
+            } else {
+                crate::construction::batch::file_batches(members, &discovered)
+            };
+            for batch in batches {
                 if batch.len() == 1
-                    && discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                    && (streams
+                        || discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024)
                 {
                     jobs.push(ScheduledBuildJob::Large {
                         collection_index,

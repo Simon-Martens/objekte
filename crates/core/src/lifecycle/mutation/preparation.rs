@@ -113,6 +113,17 @@ pub(crate) fn index_prepared_file(
                 "prepared collection binding changed".into(),
             ));
         }
+        if !collection.indexed.is_empty() {
+            debug_assert!(collection.contributions.is_empty());
+            for mut segment in collection.indexed {
+                segment.id = SegmentId::new(next_segment_id);
+                next_segment_id = next_segment_id
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+                indexed.push(segment);
+            }
+            continue;
+        }
         let mut admission = SegmentAdmission::with_limits_and_id(
             collection.collection,
             &state.required_file_reader(),
@@ -288,6 +299,7 @@ pub(crate) fn prepare_file_at(
         1,
         opened,
         None,
+        Some(repository),
     )
     .map_err(IndexError::Build)
 }
@@ -389,6 +401,7 @@ pub(super) fn prepare_replacement_bytes(
         1,
         Ok(opened),
         Some(bytes),
+        Some(repository),
     )
     .map_err(|error| {
         if error.contains("supplied bytes differ")

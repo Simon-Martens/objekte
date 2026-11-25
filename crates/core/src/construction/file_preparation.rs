@@ -5,16 +5,19 @@ use std::io::{BufRead, BufReader, Cursor, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::Arc;
-use std::sync::atomic::Ordering;
+use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::mpsc;
 
 use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
 
+use super::segment_admission::SegmentAdmission;
 use crate::index::bigram::BigramAlphabet;
+use crate::index::segment::{IndexedCollectionSegment, SegmentId};
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
+use crate::repository::Repository;
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::Schema;
 use crate::source::{
@@ -49,6 +52,7 @@ pub(crate) struct PreparedCollectionBuild {
     pub source_id: String,
     pub source_version: u32,
     pub contributions: Vec<BatchContribution>,
+    pub indexed: Vec<IndexedCollectionSegment>,
 }
 
 /// Private, complete per-file work. The coordinator must still validate the
@@ -101,8 +105,18 @@ impl PreparedFileBuild {
     pub(crate) fn record_count(&self) -> u64 {
         self.collections
             .iter()
-            .flat_map(|collection| &collection.contributions)
-            .map(|contribution| contribution.records.len() as u64)
+            .map(|collection| {
+                collection
+                    .contributions
+                    .iter()
+                    .map(|batch| batch.record_count() as u64)
+                    .sum::<u64>()
+                    + collection
+                        .indexed
+                        .iter()
+                        .map(|index| index.record_count() as u64)
+                        .sum::<u64>()
+            })
             .sum()
     }
 
@@ -113,16 +127,25 @@ impl PreparedFileBuild {
         self.collections
             .iter()
             .flat_map(|collection| {
-                collection.contributions.iter().flat_map(|contribution| {
-                    contribution.records.iter().map(|record| {
-                        (
-                            collection.collection,
-                            record.id.clone(),
-                            record.range,
-                            record.class,
-                        )
+                collection
+                    .contributions
+                    .iter()
+                    .flat_map(|contribution| {
+                        contribution.records.iter().map(|record| {
+                            (
+                                collection.collection,
+                                record.id.clone(),
+                                record.range,
+                                record.class,
+                            )
+                        })
                     })
-                })
+                    .chain(collection.indexed.iter().flat_map(|index| {
+                        index.records.iter().filter_map(|header| {
+                            let record = index.file_record(header.slot)?;
+                            Some((collection.collection, record.id, record.range, record.class))
+                        })
+                    }))
             })
             .collect()
     }
@@ -189,7 +212,7 @@ impl From<String> for BytesPreparationError {
 struct HashingReader<'a, R> {
     inner: R,
     digest: Option<&'a mut Sha256>,
-    bytes_read: &'a mut u64,
+    bytes_read: &'a AtomicU64,
     expected_bytes: Option<&'a [u8]>,
 }
 
@@ -197,7 +220,8 @@ impl<R: Read> Read for HashingReader<'_, R> {
     fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
         let count = self.inner.read(bytes)?;
         if let Some(expected) = self.expected_bytes {
-            let start = usize::try_from(*self.bytes_read).map_err(std::io::Error::other)?;
+            let start = usize::try_from(self.bytes_read.load(Ordering::Relaxed))
+                .map_err(std::io::Error::other)?;
             if expected.get(start..start.saturating_add(count)) != Some(&bytes[..count]) {
                 return Err(std::io::Error::new(
                     std::io::ErrorKind::InvalidData,
@@ -208,7 +232,7 @@ impl<R: Read> Read for HashingReader<'_, R> {
         if let Some(digest) = self.digest.as_mut() {
             digest.update(&bytes[..count]);
         }
-        *self.bytes_read += count as u64;
+        self.bytes_read.fetch_add(count as u64, Ordering::Relaxed);
         Ok(count)
     }
 }
@@ -284,11 +308,11 @@ fn prepare_bounded_json_lines(
         return Err("stale source revision during preparation".into());
     }
     let mut digest = Sha256::new();
-    let mut bytes_read = 0u64;
+    let bytes_read = AtomicU64::new(0);
     let reader = HashingReader {
         inner: &mut *file,
         digest: hash_bytes.then_some(&mut digest),
-        bytes_read: &mut bytes_read,
+        bytes_read: &bytes_read,
         expected_bytes,
     };
     let mut reader = BoundedJsonLines::from_reader(BufReader::new(reader));
@@ -313,7 +337,7 @@ fn prepare_bounded_json_lines(
     if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
         != input.revision
         || source_revision_at(&path)? != input.revision
-        || bytes_read != input.revision.size
+        || bytes_read.load(Ordering::Relaxed) != input.revision.size
     {
         return Err("stale source revision during preparation".into());
     }
@@ -351,11 +375,11 @@ fn prepare_custom_stream(
         return Some(Err(error.to_string()));
     }
     let mut digest = Sha256::new();
-    let mut bytes_read = 0u64;
+    let bytes_read = AtomicU64::new(0);
     let mut input_reader = HashingReader {
         inner: &mut *file,
         digest: hash_bytes.then_some(&mut digest),
-        bytes_read: &mut bytes_read,
+        bytes_read: &bytes_read,
         expected_bytes,
     };
     let limits = BoundedBuildLimits::default();
@@ -373,7 +397,10 @@ fn prepare_custom_stream(
         next_offset = next_offset
             .checked_add(chunk.bytes.len() as u64)
             .ok_or("source offset overflow")?;
-        if next_offset > input.revision.size {
+        if chunk.ranges.len() > limits.ranges {
+            return Err("reader contract: too many ranges in a streamed chunk".into());
+        }
+        if next_offset > bytes_read.load(Ordering::Relaxed) || next_offset > input.revision.size {
             return Err("reader contract: chunk exceeds observed source".into());
         }
         preceding_lines = chunk.preceding_lines;
@@ -401,7 +428,9 @@ fn prepare_custom_stream(
     drop(emit);
     drop(input_reader);
     Some(result.and_then(|()| {
-        if bytes_read != input.revision.size || next_offset != bytes_read {
+        if bytes_read.load(Ordering::Relaxed) != input.revision.size
+            || next_offset != input.revision.size
+        {
             return Err("reader contract: streamed chunks do not cover observed source".into());
         }
         if contributions.is_empty() {
@@ -423,9 +452,192 @@ fn prepare_custom_stream(
     }))
 }
 
+/// Process a registered stream through an ordered, bounded window of owned
+/// chunks. The callback contributes to private segment admission as it runs.
+fn process_custom_stream_profiled(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    input: SourceFileInput,
+    file: &mut std::fs::File,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    expected_bytes: Option<&[u8]>,
+    limits: BoundedBuildLimits,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<(BuildScheduleStats, [u8; 32]), String> {
+    file.seek(SeekFrom::Start(0))
+        .map_err(|error| error.to_string())?;
+    let mut digest = Sha256::new();
+    let bytes_read = AtomicU64::new(0);
+    let mut reader = HashingReader {
+        inner: file,
+        digest: Some(&mut digest),
+        bytes_read: &bytes_read,
+        expected_bytes,
+    };
+    let input = Arc::new(input);
+    let inline = pool.current_num_threads() == 1 || pool.current_thread_index().is_some();
+    let window = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    let counters = Arc::new(JobCounters::default());
+    let mut waiting = VecDeque::<(u64, mpsc::Receiver<Result<BatchContribution, String>>)>::new();
+    let mut stats = BuildScheduleStats {
+        weight_limit_bytes: limits.admitted_bytes,
+        source_reads: 1,
+        ..Default::default()
+    };
+    let mut buffered = 0u64;
+    let mut next_offset = 0u64;
+    let mut previous_lines = 0;
+    let mut emitted = 0usize;
+    let mut ordinal = 0usize;
+
+    let mut drain = |pending: (u64, mpsc::Receiver<Result<BatchContribution, String>>)| {
+        let started = crate::measurement::timer::DetailedInstant::now();
+        let result = pending
+            .1
+            .recv()
+            .map_err(|error| format!("stream decoder stopped: {error}"))?;
+        let wait = started.elapsed().as_nanos() as u64;
+        result.and_then(&mut admit)?;
+        counters.admitted.fetch_add(1, Ordering::Relaxed);
+        Ok::<_, String>(wait)
+    };
+    let mut schedule = |chunk: BoundedBuildChunk| -> Result<(), String> {
+        let weight = chunk.bytes.capacity() as u64
+            + (chunk.ranges.capacity() * std::mem::size_of::<ByteRange>()) as u64;
+        stats.peak_weight_bytes = stats.peak_weight_bytes.max(buffered.saturating_add(weight));
+        while waiting.len() >= window || !fits_allowance(buffered, weight, limits.admitted_bytes) {
+            let pending = waiting.pop_front().expect("a pending job owns credit");
+            buffered -= pending.0;
+            stats.receive_wait_ns += drain(pending)?;
+        }
+        let (send, receive) = mpsc::sync_channel(1);
+        let root = Arc::clone(&root);
+        let definition = Arc::clone(&definition);
+        let input = Arc::clone(&input);
+        let source = source.clone();
+        let counters = Arc::clone(&counters);
+        let index = ordinal;
+        ordinal += 1;
+        let execute = move || {
+            let result = counters.run(|| {
+                process_framed_batch(
+                    &root,
+                    &input,
+                    &FilePreparationBinding {
+                        collection,
+                        definition: &definition,
+                        source: &source,
+                    },
+                    &chunk.bytes,
+                    &chunk.ranges,
+                    chunk.file_offset,
+                    chunk.preceding_lines,
+                    index == 0,
+                    alphabet,
+                    inference,
+                    window,
+                )
+            });
+            let _ = send.send(result);
+        };
+        if inline {
+            execute();
+            stats.receive_wait_ns += drain((weight, receive))?;
+        } else {
+            buffered += weight;
+            waiting.push_back((weight, receive));
+            pool.spawn(execute);
+            // Feed completed contributions before allowing the reader to
+            // advance, without waiting for a younger ordinal.
+            while let Some((_, first)) = waiting.front() {
+                match first.try_recv() {
+                    Ok(result) => {
+                        let (weight, _) = waiting.pop_front().expect("front is ready");
+                        buffered -= weight;
+                        let (send, receive) = mpsc::sync_channel(1);
+                        let _ = send.send(result);
+                        stats.receive_wait_ns += drain((weight, receive))?;
+                    }
+                    Err(mpsc::TryRecvError::Empty) => break,
+                    Err(mpsc::TryRecvError::Disconnected) => {
+                        return Err("stream decoder stopped".into());
+                    }
+                }
+            }
+        }
+        Ok(())
+    };
+
+    let mut emit = |chunk: BoundedBuildChunk| -> Result<(), String> {
+        if chunk.file_offset != next_offset || chunk.preceding_lines < previous_lines {
+            return Err("reader contract: streamed chunks are not consecutive".into());
+        }
+        if chunk.ranges.len() > limits.ranges
+            || (chunk.bytes.len() > limits.chunk_bytes && chunk.ranges.len() != 1)
+        {
+            return Err("reader contract: streamed chunk exceeds its range or byte budget".into());
+        }
+        validate_reader_ranges(&chunk.ranges, chunk.bytes.len())?;
+        next_offset = next_offset
+            .checked_add(chunk.bytes.len() as u64)
+            .ok_or("source offset overflow")?;
+        if next_offset > input.revision.size || next_offset > bytes_read.load(Ordering::Relaxed) {
+            return Err("reader contract: chunk exceeds observed input".into());
+        }
+        previous_lines = chunk.preceding_lines;
+        emitted += 1;
+        schedule(chunk)
+    };
+    let result = source
+        .reader()
+        .stream_build_chunks(&mut reader, limits.chunk_bytes, limits.ranges, &mut emit)
+        .unwrap_or_else(|| Err("reader advertised streaming but did not provide a stream".into()));
+    drop(emit);
+    drop(reader);
+    let result = result.and_then(|()| {
+        if next_offset != input.revision.size
+            || bytes_read.load(Ordering::Relaxed) != input.revision.size
+        {
+            return Err("reader contract: streamed chunks do not cover observed source".into());
+        }
+        if emitted == 0 {
+            schedule(BoundedBuildChunk {
+                bytes: Vec::new(),
+                ranges: Vec::new(),
+                file_offset: 0,
+                preceding_lines: 0,
+            })?;
+        }
+        Ok(())
+    });
+    drop(schedule);
+    let mut outcome = result;
+    for pending in waiting {
+        if outcome.is_ok() {
+            match drain(pending) {
+                Ok(wait) => stats.receive_wait_ns += wait,
+                Err(error) => outcome = Err(error),
+            }
+        } else {
+            let _ = pending.1.recv();
+        }
+    }
+    outcome?;
+    stats.framing_chunks = ordinal as u64;
+    stats.framing_bytes = next_offset;
+    stats.source_bytes_read = bytes_read.load(Ordering::Relaxed);
+    counters.add_to(&mut stats);
+    Ok((stats, digest.finalize().into()))
+}
+
 /// Prepare one physical file across all supplied eligible collections. JSONL
 /// uses bounded chunks; other readers retain their existing whole-buffer
 /// framing. A malformed frame falls back to ordinary build extraction.
+#[cfg(test)]
 pub(crate) fn prepare_file_build(
     root: &Path,
     input: SourceFileInput,
@@ -444,6 +656,7 @@ pub(crate) fn prepare_file_build(
         inference_jobs,
         opened,
         None,
+        None,
     )
 }
 
@@ -458,6 +671,7 @@ pub(crate) fn prepare_observed_file_build(
     inference_jobs: usize,
     opened: std::io::Result<std::fs::File>,
     expected_bytes: Option<&[u8]>,
+    streaming_repository: Option<&Repository>,
 ) -> Result<PreparedFileBuild, String> {
     let path = root.join(&input.relative_path);
     if expected_bytes.is_some_and(|bytes| bytes.len() as u64 != input.revision.size) {
@@ -487,6 +701,28 @@ pub(crate) fn prepare_observed_file_build(
     for binding in bindings {
         let reader = binding.source.reader();
         let compare = expected_bytes.filter(|_| fingerprint.is_none());
+        if let (Some(repository), Some(file)) = (streaming_repository, opened.as_mut())
+            && (reader.supports_streaming_build() || reader.supports_bounded_json_lines_build())
+        {
+            let (indexed, digest) = prepare_managed_stream(
+                repository,
+                root,
+                &input,
+                binding,
+                file,
+                compare,
+                fingerprint.is_none(),
+            )?;
+            fingerprint = fingerprint.or(digest);
+            collections.push(PreparedCollectionBuild {
+                collection: binding.collection,
+                source_id: binding.source.id().into(),
+                source_version: binding.source.version(),
+                contributions: Vec::new(),
+                indexed,
+            });
+            continue;
+        }
         let contributions = match &mut opened {
             None => prepare_unreadable_file(
                 root,
@@ -596,6 +832,7 @@ pub(crate) fn prepare_observed_file_build(
             source_id: binding.source.id().into(),
             source_version: binding.source.version(),
             contributions,
+            indexed: Vec::new(),
         });
     }
     if let Some(file) = opened.as_ref() {
@@ -617,6 +854,105 @@ pub(crate) fn prepare_observed_file_build(
         identity,
         collections,
     })
+}
+
+fn prepare_managed_stream(
+    repository: &Repository,
+    root: &Path,
+    input: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
+    file: &mut std::fs::File,
+    expected_bytes: Option<&[u8]>,
+    hash: bool,
+) -> Result<(Vec<IndexedCollectionSegment>, Option<[u8; 32]>), String> {
+    let options = repository.options();
+    let pool = &repository.workers;
+    let policy = options.segment_policy;
+    let fresh = || {
+        SegmentAdmission::with_limits_and_id(
+            binding.collection,
+            binding.source,
+            policy,
+            SegmentId::new(2),
+        )
+    };
+    let mut admission = fresh();
+    let mut indexed = Vec::new();
+    let mut seal = |draft: SegmentAdmission| -> Result<(), String> {
+        indexed.push(draft.finish().into_indexed(
+            binding.definition,
+            options.bigram_alphabet,
+            options.inference,
+            repository.collections().len(),
+            pool,
+        )?);
+        Ok(())
+    };
+    let mut consume = |batch: BatchContribution| -> Result<(), String> {
+        if !admission.can_admit_batch(&batch) {
+            seal(std::mem::replace(&mut admission, fresh()))?;
+        }
+        admission.admit_batch(batch)?;
+        if admission.at_capacity() {
+            seal(std::mem::replace(&mut admission, fresh()))?;
+        }
+        Ok(())
+    };
+    let root = Arc::new(root.to_path_buf());
+    let definition = Arc::new(binding.definition.clone());
+    let mut limits = BoundedBuildLimits::default();
+    limits.ranges = limits.ranges.min(policy.target_records.get());
+    let digest = if binding.source.reader().supports_streaming_build() {
+        let (_, digest) = process_custom_stream_profiled(
+            pool,
+            root,
+            definition,
+            binding.collection,
+            binding.source.clone(),
+            input.clone(),
+            file,
+            options.bigram_alphabet,
+            options.inference,
+            expected_bytes,
+            limits,
+            &mut consume,
+        )?;
+        Some(digest)
+    } else {
+        file.seek(SeekFrom::Start(0))
+            .map_err(|error| error.to_string())?;
+        let bytes_read = AtomicU64::new(0);
+        let mut digest = Sha256::new();
+        let reader = BoundedJsonLines::from_reader(BufReader::new(HashingReader {
+            inner: file,
+            digest: hash.then_some(&mut digest),
+            bytes_read: &bytes_read,
+            expected_bytes,
+        }));
+        process_bounded_json_lines_input(
+            pool,
+            root,
+            definition,
+            binding.collection,
+            binding.source.clone(),
+            Arc::new(input.clone()),
+            options.bigram_alphabet,
+            options.inference,
+            options.detailed_profiling_enabled(),
+            reader,
+            limits,
+            &mut consume,
+        )?;
+        if bytes_read.load(Ordering::Relaxed) != input.revision.size {
+            return Err("stale source length during managed streaming".into());
+        }
+        hash.then(|| digest.finalize().into())
+    };
+    drop(consume);
+    if admission.file_count() != 0 {
+        seal(admission)?;
+    }
+    Ok((indexed, digest))
 }
 
 /// Prepare a complete replacement without opening or writing its source path.
@@ -773,6 +1109,7 @@ fn prepare_file_build_with_fingerprint(
             source_id: binding.source.id().into(),
             source_version: binding.source.version(),
             contributions,
+            indexed: Vec::new(),
         });
     }
     Ok(PreparedFileBuild {
@@ -954,6 +1291,7 @@ fn admit_large_unreadable(
     Ok(BuildScheduleStats::default())
 }
 
+#[cfg(test)]
 pub(crate) fn process_framed_file(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -996,35 +1334,29 @@ pub(crate) fn process_framed_file_profiled(
 ) -> Result<BuildScheduleStats, String> {
     if source.reader().supports_streaming_build() {
         let input = source_files[file_id.0 as usize].clone();
-        let prepared = prepare_file_build(
-            &root,
+        let path = root.join(&input.relative_path);
+        let mut file = std::fs::File::open(&path).map_err(|error| error.to_string())?;
+        if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
+            != input.revision
+        {
+            return Err("stale source revision before registered streaming".into());
+        }
+        let (mut stats, digest) = process_custom_stream_profiled(
+            pool,
+            root,
+            definition,
+            collection,
+            source,
             input.clone(),
-            &[FilePreparationBinding {
-                collection,
-                definition: &definition,
-                source: &source,
-            }],
+            &mut file,
             alphabet,
             inference,
-            1,
+            None,
+            BoundedBuildLimits::default(),
+            admit,
         )?;
-        let count = prepared.collections[0].contributions.len();
-        let mut stats = BuildScheduleStats {
-            source_reads: u64::from(prepared.fingerprint.is_some()),
-            source_bytes_read: input.revision.size,
-            file_fingerprint: prepared.fingerprint.map(|digest| (file_id, digest)),
-            framing_chunks: count as u64,
-            framing_bytes: input.revision.size,
-            weight_limit_bytes: BoundedBuildLimits::default().admitted_bytes,
-            peak_weight_bytes: BoundedBuildLimits::default().chunk_bytes as u64,
-            ..Default::default()
-        };
-        for collection_build in prepared.collections {
-            for contribution in collection_build.contributions {
-                admit(contribution)?;
-            }
-        }
-        stats.peak_active_jobs = 1;
+        crate::source::access::check_revision(&path, &file, input.revision)?;
+        stats.file_fingerprint = Some((file_id, digest));
         return Ok(stats);
     }
     if source.reader().supports_bounded_json_lines_build() {
@@ -1289,12 +1621,12 @@ fn process_bounded_json_lines_file(
         return Err("stale source revision before bounded extraction".into());
     }
     let mut digest = Sha256::new();
-    let mut bytes_read = 0u64;
+    let bytes_read = AtomicU64::new(0);
     let expected_size = source_files[file_id.0 as usize].revision.size;
     let reader = BoundedJsonLines::from_reader(BufReader::new(HashingReader {
         inner: &file,
         digest: Some(&mut digest),
-        bytes_read: &mut bytes_read,
+        bytes_read: &bytes_read,
         expected_bytes: None,
     }));
     let mut stats = process_bounded_json_lines_reader(
@@ -1313,12 +1645,14 @@ fn process_bounded_json_lines_file(
         admit,
     )?;
     crate::source::access::check_revision(&path, &file, input.revision)?;
-    if bytes_read != expected_size {
+    if bytes_read.load(Ordering::Relaxed) != expected_size {
         return Err("stale source length during bounded extraction".into());
     }
     stats.file_fingerprint = Some((file_id, digest.finalize().into()));
     stats.source_reads = stats.source_reads.saturating_add(1);
-    stats.source_bytes_read = stats.source_bytes_read.saturating_add(bytes_read);
+    stats.source_bytes_read = stats
+        .source_bytes_read
+        .saturating_add(bytes_read.load(Ordering::Relaxed));
     Ok(stats)
 }
 
@@ -1350,12 +1684,43 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     profile_build: bool,
+    reader: BoundedJsonLines<R>,
+    limits: BoundedBuildLimits,
+    admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
+    let input = Arc::new(source_files[file_id.0 as usize].clone());
+    process_bounded_json_lines_input(
+        pool,
+        root,
+        definition,
+        collection,
+        source,
+        input,
+        alphabet,
+        inference,
+        profile_build,
+        reader,
+        limits,
+        admit,
+    )
+}
+
+fn process_bounded_json_lines_input<R: BufRead + Send>(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    input: Arc<SourceFileInput>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    profile_build: bool,
     mut reader: BoundedJsonLines<R>,
     limits: BoundedBuildLimits,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
+    let path = root.join(&input.relative_path);
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
-    let path = root.join(&source_files[file_id.0 as usize].relative_path);
     // Failed input aborts private work. Reopening the pathname here could
     // read a different file from the one being observed.
     let first_started = crate::measurement::timer::start_if_enabled(profile_build);
@@ -1411,7 +1776,9 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
             let Some(chunk) = pending.as_ref() else {
                 break;
             };
-            let weight = (chunk.bytes.capacity() as u64).max(64 * 1024);
+            let weight = (chunk.bytes.capacity() as u64
+                + (chunk.ranges.capacity() * std::mem::size_of::<ByteRange>()) as u64)
+                .max(64 * 1024);
             if !fits_allowance(admitted_bytes, weight, limits.admitted_bytes) {
                 break;
             }
@@ -1421,13 +1788,13 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
             let root = Arc::clone(&root);
             let definition = Arc::clone(&definition);
             let source = source.clone();
-            let source_files = Arc::clone(&source_files);
+            let input = Arc::clone(&input);
             let counters = Arc::clone(&counters);
-            pool.spawn(move || {
+            let execute = move || {
                 let result = counters.run(|| {
                     process_framed_batch(
                         &root,
-                        &source_files[file_id.0 as usize],
+                        &input,
                         &FilePreparationBinding {
                             collection,
                             definition: &definition,
@@ -1444,7 +1811,12 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
                     )
                 });
                 let _ = sender.send((index, result));
-            });
+            };
+            if pool.current_num_threads() == 1 || pool.current_thread_index().is_some() {
+                execute();
+            } else {
+                pool.spawn(execute);
+            }
             reservations.push_back(weight);
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);

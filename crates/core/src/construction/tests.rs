@@ -2644,6 +2644,7 @@ fn observed_handle_supplies_whole_document_while_path_is_replaced() {
         1,
         Ok(opened),
         Some(a),
+        None,
     )
     .unwrap();
     assert_eq!(prepared.fingerprint, Some(Sha256::digest(a).into()));
@@ -2657,4 +2658,136 @@ fn observed_handle_supplies_whole_document_while_path_is_replaced() {
         }
     );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn registered_streaming_reader_initial_build_dispatches_small_files_and_decodes_in_order() {
+    use crate::source::{SourceReader, registry::SourceRegistry};
+    use std::sync::atomic::{AtomicUsize, Ordering};
+    use std::sync::{Condvar, Mutex};
+    use std::time::Duration;
+
+    struct Probe {
+        parallel: bool,
+        streams: AtomicUsize,
+        frames: AtomicUsize,
+        completion_order: Mutex<Vec<&'static str>>,
+        progress: Condvar,
+    }
+
+    impl SourceReader for Probe {
+        fn name(&self) -> &'static str {
+            "streaming-probe"
+        }
+        fn supports_streaming_build(&self) -> bool {
+            true
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            self.frames.fetch_add(1, Ordering::Relaxed);
+            PipeLineReader {
+                streaming: false,
+                failure: None,
+            }
+            .frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            let is_first = bytes.starts_with(b"one|");
+            let mut completed = self.completion_order.lock().unwrap();
+            if self.parallel && is_first {
+                let (observed, barrier) = self
+                    .progress
+                    .wait_timeout_while(completed, Duration::from_secs(5), |rows| rows.is_empty())
+                    .unwrap();
+                if barrier.timed_out() {
+                    return Err("second chunk did not finish during first chunk decode".into());
+                }
+                completed = observed;
+            }
+            completed.push(if is_first { "one" } else { "two" });
+            self.progress.notify_all();
+            drop(completed);
+            PipeLineReader {
+                streaming: false,
+                failure: None,
+            }
+            .parse(bytes)
+        }
+
+        fn stream_build_chunks(
+            &self,
+            input: &mut dyn std::io::Read,
+            bytes: usize,
+            ranges: usize,
+            emit: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+        ) -> Option<Result<(), String>> {
+            self.streams.fetch_add(1, Ordering::Relaxed);
+            PipeLineReader {
+                streaming: true,
+                failure: None,
+            }
+            .stream_build_chunks(input, bytes, ranges, emit)
+        }
+    }
+
+    for workers in [1, 2] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-streaming-probe-{}-{workers}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(root.join("data/records.probe"), "one|München\ntwo|Leipzig").unwrap();
+        let probe = Arc::new(Probe {
+            parallel: workers > 1,
+            streams: AtomicUsize::new(0),
+            frames: AtomicUsize::new(0),
+            completion_order: Mutex::new(Vec::new()),
+            progress: Condvar::new(),
+        });
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register("streaming-probe", 1, "probe", probe.clone())
+            .unwrap();
+        let index = crate::lifecycle::Index::start_build(
+            &root,
+            vec![CollectionDefinition::folder(
+                "records",
+                "data",
+                SourceFormat::registered("streaming-probe"),
+            )],
+            RepositoryOptions {
+                build_workers: NonZeroUsize::new(workers),
+                ..Default::default()
+            },
+            sources,
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap();
+        assert_eq!(probe.streams.load(Ordering::Relaxed), 1);
+        assert_eq!(probe.frames.load(Ordering::Relaxed), 0);
+        let order = probe.completion_order.lock().unwrap();
+        assert_eq!(
+            order.as_slice(),
+            if workers > 1 {
+                &["two", "one"]
+            } else {
+                &["one", "two"]
+            }
+        );
+        let pinned = index.view().unwrap();
+        let segment = &pinned.0.segments[0][0].index;
+        assert_eq!(
+            segment.file_record(RecordSlot(0)).unwrap().range,
+            ByteRange { start: 0, end: 12 }
+        );
+        assert_eq!(
+            segment.file_record(RecordSlot(1)).unwrap().range,
+            ByteRange { start: 13, end: 24 }
+        );
+        assert_eq!(index.status().unwrap().build_source_reads, 1);
+        assert_eq!(index.status().unwrap().build_source_bytes_read, 24);
+        std::fs::remove_dir_all(root).unwrap();
+    }
 }

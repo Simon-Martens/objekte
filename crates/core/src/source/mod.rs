@@ -186,9 +186,12 @@ pub trait SourceReader: Send + Sync {
     /// Optional format-neutral bounded build framing. Consume the supplied
     /// input once and emit consecutive chunks covering its original bytes.
     /// Ranges address each chunk; `file_offset` maps them to absolute offsets.
-    /// Core validates offsets and feeds each chunk to the ordinary reader
-    /// parser and segment builder. An error after any emission aborts the
-    /// complete file candidate. `None` selects the default `frame` adapter.
+    /// Core validates offsets and owns each chunk after the callback. Its
+    /// records must be independently decodable by `parse_for_build_outcome`,
+    /// which may run concurrently for different chunks. Framing itself can
+    /// retain state across emissions. An error after any emission aborts the
+    /// file candidate. Return `None` and leave streaming support disabled to
+    /// use the ordinary `frame` adapter.
     fn stream_build_chunks(
         &self,
         _input: &mut dyn Read,
