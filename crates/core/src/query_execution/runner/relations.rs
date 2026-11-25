@@ -2955,6 +2955,8 @@ fn try_native_relation_scan(
                         .collect::<Vec<_>>();
                     if let Some(context) = context {
                         context.check_string()?;
+                        context
+                            .check_slots(counters.candidates.saturating_add(chunk.len() as u64))?;
                         context.charge_reads(readable.len() as u64)?;
                     }
                     Some(std::collections::VecDeque::from(
@@ -3124,17 +3126,20 @@ fn try_native_relation_scan(
                     )?
                     .ok_or("native relation sort key unavailable")?;
                     counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
+                    let fields = if query.options.evidence {
+                        let mut fields = evidence.into_iter().collect::<Vec<_>>();
+                        fields.sort();
+                        fields
+                    } else {
+                        Vec::new()
+                    };
                     let hit = retained_locator_hit(
                         collection,
                         &published.index,
                         catalog,
                         record,
                         revision,
-                        if query.options.evidence {
-                            evidence.into_iter().collect()
-                        } else {
-                            Vec::new()
-                        },
+                        fields,
                     );
                     offer_merged(
                         &mut winners,
