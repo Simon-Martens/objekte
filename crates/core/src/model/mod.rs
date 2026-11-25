@@ -8,6 +8,7 @@ use serde::{Deserialize, Deserializer, Serialize, de};
 use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
 pub(crate) mod decimal;
+#[cfg(test)]
 mod json;
 pub mod path_representation;
 pub(crate) mod structure;
@@ -515,9 +516,7 @@ impl FieldPath {
                             .any(|ch| ch.is_whitespace() || ".[]\"'\\:,()!<>=~?&|".contains(ch));
                     if quoted {
                         output.push('[');
-                        output.push_str(
-                            &serde_json::to_string(segment).expect("string serialization"),
-                        );
+                        crate::query::json_string::write_json_string_literal(&mut output, segment);
                         output.push(']');
                     } else {
                         if index != 0 {
@@ -584,7 +583,7 @@ impl FieldPath {
                     return Err("missing closing bracket".into());
                 }
                 let name = if quote == '"' {
-                    serde_json::from_str::<String>(&rest[1..=end])
+                    crate::query::json_string::unescape_json_string(&rest[1..=end])
                         .map_err(|e| format!("invalid quoted path: {e}"))?
                 } else {
                     let mut name = String::new();

@@ -6,6 +6,7 @@ use crate::index::bigram::BigramAlphabet;
 use crate::model::{LogicalType, Value};
 use crate::query::binding::filter::BoundExpr;
 use crate::query::options::ReturnMode;
+use crate::query::test_support::{QueryFixture, query_from_fixture};
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
@@ -16,7 +17,6 @@ use crate::source::{
     ExtractedRecord, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
     SourceReader, TextDerivation, registry::SourceRegistry,
 };
-use crate::workload::WorkloadCase;
 
 use super::{Strategy, candidates_with_strategy};
 
@@ -568,8 +568,7 @@ fn selected_fts_fields(
     regex: bool,
     fields: Vec<String>,
 ) -> Query {
-    Query::from_workload(&WorkloadCase {
-        id: "relation-fts-semijoin".into(),
+    query_from_fixture(&QueryFixture {
         collection: "sources".into(),
         fts: Some(literal.into()),
         fts_case_sensitivity: CaseSensitivity::Sensitive,

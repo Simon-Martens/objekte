@@ -10,13 +10,13 @@ use std::path::PathBuf;
 use std::thread;
 use std::time::{Duration, Instant};
 
+use objekte_cli::workload::load_extended_manifest;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::initial::{InitialBuildPhase, InitialBuildTask};
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::workload::load_extended_manifest;
 use serde_json::json;
 
 fn main() {
@@ -140,8 +140,8 @@ fn run() -> Result<(), String> {
 fn workload_queries() -> Result<Vec<Query>, String> {
     let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
     let cases = load_extended_manifest(
-        &core.join("../core/benches/musenalm_queries.json"),
-        &core.join("../core/benches/musenalm_queries_extended.json"),
+        &core.join("benches/musenalm_queries.json"),
+        &core.join("benches/musenalm_queries_extended.json"),
     )?;
     ["Q108", "Q116", "Q120"]
         .iter()

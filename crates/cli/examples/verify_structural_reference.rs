@@ -1,9 +1,9 @@
 #[path = "support/musenalm.rs"]
 mod musenalm;
 
+use objekte_cli::workload::load_extended_manifest;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::workload::load_extended_manifest;
 use sha2::{Digest, Sha256};
 use std::path::PathBuf;
 
@@ -17,7 +17,7 @@ fn main() -> Result<(), String> {
             .map(str::to_owned)
             .collect();
     }
-    let base = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../core/benches");
+    let base = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches");
     let cases = load_extended_manifest(
         &base.join("musenalm_queries.json"),
         &base.join("musenalm_queries_extended.json"),

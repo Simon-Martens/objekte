@@ -164,9 +164,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
                 assert_eq!(result.count, Some(1));
             }
         }
-        let tagged =
-            crate::query::parameters::parse_parameter_json(r#"{"type":"id","value":"TargetA"}"#)
-                .unwrap();
+        let tagged = Value::Id("TargetA".into());
         assert_eq!(tagged, Value::Id("TargetA".into()));
         let incompatible = std::collections::HashMap::from([("value".into(), tagged)]);
         assert!(

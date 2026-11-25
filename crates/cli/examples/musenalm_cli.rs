@@ -5,17 +5,17 @@ use std::collections::HashMap;
 use std::io::Write;
 use std::path::PathBuf;
 
+use objekte_cli::workload::{WorkloadCase, load_manifest};
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::options::ReturnMode;
-use objekte_search_core::query::{FtsMode, Query, RegexOptions};
+use objekte_search_core::query::{FtsMode, RegexOptions};
 use objekte_search_core::query_execution::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
     StreamProgress,
 };
 use objekte_search_core::query_results::{Payload, SearchHit};
 use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::workload::{WorkloadCase, load_manifest};
 
 fn main() {
     if let Err(error) = run() {
@@ -136,7 +136,7 @@ fn run() -> Result<(), String> {
                 }
                 parameters.insert(
                     name.to_owned(),
-                    objekte_search_core::query::parameters::parse_parameter_json(json)?,
+                    objekte_loader_json::parameters::parse_parameter_json(json)?,
                 );
             }
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,
@@ -200,8 +200,7 @@ fn run() -> Result<(), String> {
     }
     let definitions = musenalm::load_definitions(&root)?;
     let mut case = if let Some(id) = case_id {
-        let path =
-            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
+        let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
         load_manifest(&path)?
             .into_iter()
             .find(|c| c.id == id)
@@ -232,7 +231,7 @@ fn run() -> Result<(), String> {
     if let Some(offset) = offset_override {
         case.offset = offset;
     }
-    let query = Query::from_workload(&case)?.with_parameters(&parameters)?;
+    let query = objekte_cli::workload::query_from_workload(&case)?.with_parameters(&parameters)?;
     let selected = if case.collection == "*" {
         definitions
     } else {

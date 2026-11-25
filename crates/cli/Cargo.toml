@@ -14,6 +14,7 @@ tui = ["dep:ratatui", "dep:regex", "dep:unicode-width", "dep:unicode-casefold"]
 detailed-profiling = ["objekte-search-core/detailed-profiling"]
 
 [dependencies]
+time = { version = "0.3", features = ["parsing", "formatting"] }
 objekte-loader-json = { path = "../loader-json" }
 objekte-loader-jsonl = { path = "../loader-jsonl" }
 objekte-search-core = { path = "../core" }
@@ -32,6 +33,5 @@ objekte-search-core = { path = "../core", features = ["test-hooks"] }
 bincode = "1.3"
 sha2 = "0.10"
 smallvec = "1.15"
-time = { version = "0.3", features = ["parsing", "formatting"] }
 tempfile = "3"
 libc = "0.2"

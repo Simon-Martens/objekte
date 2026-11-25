@@ -1,16 +1,23 @@
 //! Checked CLI/JSON transport for typed execution parameters.
 
-use crate::model::{LogicalType, Number, Value};
+use objekte_search_core::model::{LogicalType, Value};
+
+use crate::{number_from_json, value_from_json};
 
 /// Decode one parameter value. A tagged object disambiguates IDs and temporal types;
 /// ordinary JSON scalars keep their JSON logical type.
 pub fn parse_parameter_json(input: &str) -> Result<Value, String> {
     let json: serde_json::Value = serde_json::from_str(input).map_err(|error| error.to_string())?;
+    decode_parameter_json_value(json)
+}
+
+/// Decode one parsed transport value without serializing it again.
+pub fn decode_parameter_json_value(json: serde_json::Value) -> Result<Value, String> {
     let serde_json::Value::Object(object) = &json else {
-        return Value::from_json(json);
+        return value_from_json(json);
     };
     let (Some(kind), Some(value)) = (object.get("type"), object.get("value")) else {
-        return Value::from_json(json);
+        return value_from_json(json);
     };
     if object.len() != 2 {
         return Err("typed parameter accepts only type and value".into());
@@ -29,7 +36,7 @@ pub fn parse_parameter_json(input: &str) -> Result<Value, String> {
             let number = value
                 .as_number()
                 .ok_or("number parameter needs a JSON number")?;
-            Value::Number(Number::from_json(number)?)
+            Value::Number(number_from_json(number)?)
         }
         "bool" => Value::Bool(
             value

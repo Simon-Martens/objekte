@@ -9,3 +9,5 @@ pub mod query_input;
 pub mod tui;
 
 extern crate self as objekte_cli;
+
+pub mod workload;

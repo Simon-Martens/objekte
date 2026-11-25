@@ -1,3 +1,4 @@
+use super::test_support::{QueryFixture, query_from_fixture};
 use super::*;
 
 #[test]
@@ -80,10 +81,9 @@ fn precedence_quantifiers_and_separate_fts() {
     assert!(parse_filter("a => 1").is_err());
     assert!(parse_filter("a =< 1").is_err());
     assert!(parse_filter("a ?=! 1").is_err());
-    let case = WorkloadCase {
+    let case = QueryFixture {
         fts_mode: FtsMode::Literal,
         fts_case_sensitivity: crate::query::CaseSensitivity::Sensitive,
-        id: "Q000".into(),
         collection: "*".into(),
         fts: Some("a && b".into()),
         filter: Some("a = 1".into()),
@@ -95,33 +95,21 @@ fn precedence_quantifiers_and_separate_fts() {
         return_mode: ReturnMode::Locator,
         evidence: false,
     };
-    let query = Query::from_workload(&case).unwrap();
+    let query = query_from_fixture(&case).unwrap();
     assert_eq!(query.fts.unwrap().literal, "a && b");
-    assert!(
-        serde_json::to_value(&case)
-            .unwrap()
-            .get("fts_mode")
-            .is_none()
-    );
     let mut regex_case = case.clone();
     regex_case.fts_mode = FtsMode::Regex(RegexOptions {
         multi_line: true,
         dot_matches_new_line: false,
     });
     assert_eq!(
-        Query::from_workload(&regex_case).unwrap().fts.unwrap().mode,
+        query_from_fixture(&regex_case).unwrap().fts.unwrap().mode,
         regex_case.fts_mode
-    );
-    assert!(
-        serde_json::to_value(&case)
-            .unwrap()
-            .get("fts_case_sensitivity")
-            .is_none()
     );
     let mut insensitive = case.clone();
     insensitive.fts_case_sensitivity = CaseSensitivity::Insensitive;
     assert_eq!(
-        Query::from_workload(&insensitive)
+        query_from_fixture(&insensitive)
             .unwrap()
             .fts
             .unwrap()
@@ -132,8 +120,7 @@ fn precedence_quantifiers_and_separate_fts() {
 
 #[test]
 fn workload_fts_binding_colon_stays_outside_quoted_path_properties() {
-    let case = WorkloadCase {
-        id: "quoted-fts-fields".into(),
+    let case = QueryFixture {
         collection: "data".into(),
         fts: Some("needle".into()),
         fts_case_sensitivity: CaseSensitivity::Sensitive,
@@ -157,7 +144,7 @@ fn workload_fts_binding_colon_stays_outside_quoted_path_properties() {
         return_mode: ReturnMode::Locator,
         evidence: false,
     };
-    let fields = Query::from_workload(&case).unwrap().fts.unwrap().fields;
+    let fields = query_from_fixture(&case).unwrap().fts.unwrap().fields;
     assert_eq!(fields[0].path.segments, ["a:b"]);
     assert_eq!(fields[0].binding, None);
     assert_eq!(fields[1].path.segments, ["a:b"]);
@@ -217,8 +204,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let mut case = WorkloadCase {
-        id: "colon-path".into(),
+    let mut case = QueryFixture {
         collection: "data".into(),
         fts: None,
         fts_case_sensitivity: CaseSensitivity::Sensitive,
@@ -242,7 +228,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
             .collect::<Vec<_>>()
     };
     assert_eq!(
-        ids(&repo, &Query::from_workload(&case).unwrap()),
+        ids(&repo, &query_from_fixture(&case).unwrap()),
         ["path:two.json"]
     );
 
@@ -250,7 +236,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     case.fts = Some("Alpha".into());
     case.fts_fields = vec!["[\"a:b\"]".into()];
     assert_eq!(
-        ids(&repo, &Query::from_workload(&case).unwrap()),
+        ids(&repo, &query_from_fixture(&case).unwrap()),
         ["path:two.json"]
     );
 
@@ -258,7 +244,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     case.fts_fields.clear();
     case.filter = Some("SORT BY [\"a:b\"]".into());
     assert_eq!(
-        ids(&repo, &Query::from_workload(&case).unwrap()),
+        ids(&repo, &query_from_fixture(&case).unwrap()),
         ["path:two.json", "path:one.json"]
     );
     drop(repo);
@@ -273,20 +259,11 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     .map_err(|error| error.to_string())
     .unwrap();
     assert_eq!(
-        ids(&restored, &Query::from_workload(&case).unwrap()),
+        ids(&restored, &query_from_fixture(&case).unwrap()),
         ["path:two.json", "path:one.json"]
     );
     drop(restored);
     std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
-fn every_fixed_filter_parses() {
-    let path =
-        std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
-    for case in crate::workload::load_manifest(&path).unwrap() {
-        Query::from_workload(&case).unwrap_or_else(|e| panic!("{}: {e}", case.id));
-    }
 }
 
 #[test]
@@ -403,10 +380,9 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
     ] {
         assert!(parse_structured_filter(input).is_ok(), "{input}");
     }
-    let mut case = WorkloadCase {
+    let mut case = QueryFixture {
         fts_case_sensitivity: CaseSensitivity::Sensitive,
         fts_mode: FtsMode::Literal,
-        id: "inline-sort".into(),
         collection: "*".into(),
         fts: Some("Hymn".into()),
         filter: Some("SORT BY year DESC".into()),
@@ -418,7 +394,7 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
         return_mode: ReturnMode::Logical,
         evidence: true,
     };
-    let query = Query::from_workload(&case).unwrap();
+    let query = query_from_fixture(&case).unwrap();
     assert!(query.filter.is_none());
     assert!(query.fts.is_some());
     assert_eq!(
@@ -436,17 +412,12 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
         descending: true,
         expression: None,
     });
-    assert!(
-        Query::from_workload(&case)
-            .unwrap_err()
-            .contains("conflicts")
-    );
+    assert!(query_from_fixture(&case).unwrap_err().contains("conflicts"));
 }
 
 #[test]
 fn complete_regex_pattern_parameter_binds_once_without_interpolation() {
-    let mut case = WorkloadCase {
-        id: "regex-pattern-parameter".into(),
+    let mut case = QueryFixture {
         collection: "data".into(),
         fts: Some("$pattern".into()),
         fts_case_sensitivity: CaseSensitivity::Sensitive,
@@ -460,7 +431,7 @@ fn complete_regex_pattern_parameter_binds_once_without_interpolation() {
         return_mode: ReturnMode::Locator,
         evidence: false,
     };
-    let template = Query::from_workload(&case).unwrap();
+    let template = query_from_fixture(&case).unwrap();
     assert_eq!(
         template.fts.as_ref().unwrap().pattern_parameter.as_deref(),
         Some("pattern")
@@ -480,7 +451,7 @@ fn complete_regex_pattern_parameter_binds_once_without_interpolation() {
     assert!(bound.fts.as_ref().unwrap().pattern_parameter.is_none());
     case.fts_mode = FtsMode::Literal;
     assert!(
-        Query::from_workload(&case)
+        query_from_fixture(&case)
             .unwrap()
             .fts
             .unwrap()
@@ -490,7 +461,7 @@ fn complete_regex_pattern_parameter_binds_once_without_interpolation() {
     case.fts_mode = FtsMode::Regex(RegexOptions::default());
     case.fts = Some("prefix$pattern".into());
     assert!(
-        Query::from_workload(&case)
+        query_from_fixture(&case)
             .unwrap()
             .fts
             .unwrap()

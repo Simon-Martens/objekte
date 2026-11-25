@@ -10,6 +10,7 @@ use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::time::Instant;
 
+use objekte_cli::workload::WorkloadCase;
 use objekte_loader_json::JsonDecodedScalarsReader;
 use objekte_search_core::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SourceRevision,
@@ -27,7 +28,6 @@ use objekte_search_core::reference::fts::eval_bound_fts;
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::schema::Schema;
 use objekte_search_core::source::{ScanProjection, SourceReader};
-use objekte_search_core::workload::WorkloadCase;
 use serde_json::json;
 use sha2::{Digest, Sha256};
 
@@ -85,7 +85,7 @@ struct Case {
 
 impl Case {
     fn query(&self, limit: usize) -> Result<Query, String> {
-        Query::from_workload(&WorkloadCase {
+        objekte_cli::workload::query_from_workload(&WorkloadCase {
             id: self.id.into(),
             collection: "records".into(),
             fts: self.fts.map(str::to_owned),

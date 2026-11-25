@@ -257,9 +257,9 @@ fn run() -> Result<(), String> {
     let source_bytes = observation.source_bytes;
     let query_digests = if check_queries {
         let core = Path::new(env!("CARGO_MANIFEST_DIR"));
-        let cases = objekte_search_core::workload::load_extended_manifest(
-            &core.join("../core/benches/musenalm_queries.json"),
-            &core.join("../core/benches/musenalm_queries_extended.json"),
+        let cases = objekte_cli::workload::load_extended_manifest(
+            &core.join("benches/musenalm_queries.json"),
+            &core.join("benches/musenalm_queries_extended.json"),
         )?;
         let mut digests = BTreeMap::new();
         for case in cases
@@ -449,9 +449,9 @@ fn run_incremental(
     let corpus_fingerprint = format!("{:x}", hash.finalize());
     let query_digests = if check_queries {
         let core = Path::new(env!("CARGO_MANIFEST_DIR"));
-        let cases = objekte_search_core::workload::load_extended_manifest(
-            &core.join("../core/benches/musenalm_queries.json"),
-            &core.join("../core/benches/musenalm_queries_extended.json"),
+        let cases = objekte_cli::workload::load_extended_manifest(
+            &core.join("benches/musenalm_queries.json"),
+            &core.join("benches/musenalm_queries_extended.json"),
         )?;
         let mut digests = BTreeMap::new();
         for case in cases

@@ -26,7 +26,7 @@ runs the independent scanner. `--alphabet` chooses `ascii` or `unicode`;
 `--return` chooses `locator`, `bytes`, or `logical`; `--limit` and `--offset`
 override the page. `--quiet-hits` prints counts and work without every locator.
 The fixed cases and their options are in
-[`musenalm_queries.json`](../crates/core/benches/musenalm_queries.json).
+[`musenalm_queries.json`](../crates/cli/benches/musenalm_queries.json).
 
 `CollectionDefinition::folder(name, relative_directory, format)` is a small
 schema-free constructor. It enables recursive discovery, starts with an empty

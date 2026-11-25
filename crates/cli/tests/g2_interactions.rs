@@ -1,15 +1,15 @@
 use std::collections::HashMap;
 
+use objekte_cli::workload::WorkloadCase;
+use objekte_loader_json::parameters::parse_parameter_json;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::query::options::ReturnMode;
-use objekte_search_core::query::parameters::parse_parameter_json;
-use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
+use objekte_search_core::query::{CaseSensitivity, FtsMode, RegexOptions};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::workload::WorkloadCase;
 
 fn collection() -> CollectionDefinition {
     let mut schema = Schema::default();
@@ -73,7 +73,7 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
         return_mode: ReturnMode::Logical,
         evidence: true,
     };
-    let template = Query::from_workload(&case).unwrap();
+    let template = objekte_cli::workload::query_from_workload(&case).unwrap();
     assert!(template.options.sort.len() == 1);
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {

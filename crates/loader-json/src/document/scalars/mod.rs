@@ -3,7 +3,7 @@
 use std::collections::{BTreeMap, HashSet};
 use std::ops::Range;
 
-use objekte_search_core::model::{ArrayValue, Number, Value};
+use objekte_search_core::model::{ArrayValue, Value};
 use objekte_search_core::source::{ScanProjection, TextSegment};
 
 pub(crate) mod json_string;
@@ -373,7 +373,7 @@ impl ScalarWalker<'_> {
                                 .parse::<serde_json::Number>()
                                 .map_err(|error| error.to_string())?;
                             if retain {
-                                Some(Value::Number(Number::from_json(&number)?))
+                                Some(Value::Number(super::value::number_from_json(&number)?))
                             } else {
                                 None
                             }

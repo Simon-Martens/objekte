@@ -1,16 +1,16 @@
 use std::collections::HashMap;
 
+use objekte_cli::workload::WorkloadCase;
+use objekte_loader_json::parameters::parse_parameter_json;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::options::ReturnMode;
-use objekte_search_core::query::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::workload::WorkloadCase;
 use serde_json::Value as JsonValue;
 
 fn add_field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
@@ -184,7 +184,7 @@ fn oracle_relation(
 }
 
 fn query(collection: &str, filter: &str, return_mode: ReturnMode) -> Query {
-    Query::from_workload(&WorkloadCase {
+    objekte_cli::workload::query_from_workload(&WorkloadCase {
         id: "oracle".into(),
         collection: collection.into(),
         fts: None,
@@ -343,7 +343,7 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                     ("Hymn", FtsMode::Literal),
                     ("^Hy.*n$", FtsMode::Regex(RegexOptions::default())),
                 ] {
-                    let selected = Query::from_workload(&WorkloadCase {
+                    let selected = objekte_cli::workload::query_from_workload(&WorkloadCase {
                         id: "selected-position".into(),
                         collection: collection.into(),
                         fts: Some(literal.into()),

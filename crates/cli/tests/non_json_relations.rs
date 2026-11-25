@@ -1,6 +1,7 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
+use objekte_cli::workload::WorkloadCase;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::inventory::ByteRange;
 use objekte_search_core::model::{LogicalType, Value};
@@ -12,7 +13,6 @@ use objekte_search_core::repository::configuration::{
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
 use objekte_search_core::source::{ExtractedRecord, SourceFormat, SourceReader, TextSegment};
-use objekte_search_core::workload::WorkloadCase;
 
 struct PipeReader;
 
@@ -104,7 +104,7 @@ fn definitions() -> Vec<CollectionDefinition> {
 }
 
 fn request() -> Query {
-    Query::from_workload(&WorkloadCase {
+    objekte_cli::workload::query_from_workload(&WorkloadCase {
         id: "non-json-relations".into(),
         collection: "mentions".into(),
         fts: Some("^Hy.*n$".into()),

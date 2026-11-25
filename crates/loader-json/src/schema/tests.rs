@@ -36,16 +36,17 @@ fn local_references_nullable_arrays_and_root_values_are_explicit() {
         compiled.schema.fields()[&vec!["ids".into()]].element_nullable,
         [true]
     );
-    let mut valid = LogicalValue::from_json(serde_json::json!({"ids":["x",null]})).unwrap();
+    let mut valid =
+        objekte_loader_json::value_from_json(serde_json::json!({"ids":["x",null]})).unwrap();
     compiled.schema.coerce_record(&mut valid).unwrap();
-    let mut invalid = LogicalValue::from_json(serde_json::json!({"ids":[3]})).unwrap();
+    let mut invalid = objekte_loader_json::value_from_json(serde_json::json!({"ids":[3]})).unwrap();
     assert!(compiled.schema.coerce_record(&mut invalid).is_err());
 
     let scalar =
         compile_schema(&serde_json::json!({"type":"string","index":true}), "files").unwrap();
     let mut text = LogicalValue::String("x".into());
     scalar.schema.coerce_record(&mut text).unwrap();
-    let mut number = LogicalValue::from_json(serde_json::json!(3)).unwrap();
+    let mut number = objekte_loader_json::value_from_json(serde_json::json!(3)).unwrap();
     assert!(scalar.schema.coerce_record(&mut number).is_err());
     assert!(scalar.schema.fields()[&Vec::<String>::new()].indexed);
 
@@ -86,9 +87,12 @@ fn root_and_nested_arrays_register_item_properties() {
     assert!(compiled.schema.fields()[&vec!["code".into()]].indexed);
     assert!(compiled.schema.fields()[&vec!["count".into()]].indexed);
     assert!(compiled.schema.fields()[&vec!["code".into()]].multi);
-    let mut valid = LogicalValue::from_json(serde_json::json!([[{"code":"A","count":1}]])).unwrap();
+    let mut valid =
+        objekte_loader_json::value_from_json(serde_json::json!([[{"code":"A","count":1}]]))
+            .unwrap();
     compiled.schema.coerce_record(&mut valid).unwrap();
-    let mut invalid = LogicalValue::from_json(serde_json::json!([[{"code":7,"count":1}]])).unwrap();
+    let mut invalid =
+        objekte_loader_json::value_from_json(serde_json::json!([[{"code":7,"count":1}]])).unwrap();
     assert!(compiled.schema.coerce_record(&mut invalid).is_err());
 }
 

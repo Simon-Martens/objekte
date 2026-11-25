@@ -35,16 +35,12 @@ pub mod reference;
 pub mod repository;
 pub mod schema;
 pub mod source;
-pub mod workload;
 
 #[cfg(test)]
 mod tests;
 
 #[cfg(test)]
 extern crate self as objekte_search_core;
-
-#[cfg(test)]
-use schema::json as json_schema;
 
 #[cfg(test)]
 #[macro_export]
@@ -56,6 +52,4 @@ macro_rules! objekte_json_unit_tests {
 extern crate self as objekte_loader_json;
 
 #[cfg(test)]
-pub(crate) use crate::source::test_support::{
-    DECODED_SCALARS as JSON_DECODED_SCALARS, DOCUMENTS as JSON_DOCUMENTS,
-};
+pub(crate) use source::json::value::value_from_json;

@@ -1,4 +1,5 @@
 use super::*;
+use objekte_search_core::model::Number;
 
 #[test]
 fn decoded_scalar_text_uses_values_not_names_or_container_syntax() {
@@ -50,7 +51,8 @@ fn fresh_build_decodes_value_and_scalar_text_in_one_walk() {
     ];
     for bytes in documents {
         let (value, text) = build_record(bytes).unwrap();
-        let expected = Value::from_json(serde_json::from_slice(bytes).unwrap()).unwrap();
+        let expected =
+            objekte_loader_json::value_from_json(serde_json::from_slice(bytes).unwrap()).unwrap();
         assert_eq!(value, expected, "{}", String::from_utf8_lossy(bytes));
         assert_eq!(
             text.iter()
@@ -129,7 +131,8 @@ fn query_extraction_matches_resolved_values_and_source_scalar_text() {
                     {
                         object.retain(|name, _| selected.contains(name));
                     }
-                    let expected_value = Value::from_json(expected_json).unwrap();
+                    let expected_value =
+                        objekte_loader_json::value_from_json(expected_json).unwrap();
                     assert_eq!(actual_value, expected_value, "{bytes:?}");
                     let expected_text = if collect_text {
                         scalar_segments(bytes, resolved_text_only, true).unwrap()

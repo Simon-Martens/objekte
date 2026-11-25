@@ -86,3 +86,5 @@ pub(crate) fn enter_file(path: &Path) -> Option<ActiveFile> {
     activity.peak.fetch_max(active, Ordering::Relaxed);
     Some(ActiveFile(Arc::clone(activity)))
 }
+
+pub use crate::construction::file_shard_diagnostics::measure_direct_shard_build;

@@ -730,11 +730,11 @@ fn merged_relation_walker_matches_static_reference_semantics() {
     std::fs::remove_dir_all(root).unwrap();
 }
 use crate::query::options::ReturnMode;
+use crate::query::test_support::{QueryFixture, query_from_fixture};
 use crate::query_execution::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamError, StreamEvent, StreamOptions,
     StreamOutcome,
 };
-use crate::workload::WorkloadCase;
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
     schema
@@ -3046,8 +3046,7 @@ fn query(
     field: Option<&str>,
     regex: bool,
 ) -> Query {
-    Query::from_workload(&WorkloadCase {
-        id: "relation".into(),
+    query_from_fixture(&QueryFixture {
         collection: collection.into(),
         fts: fts.map(str::to_owned),
         fts_case_sensitivity: CaseSensitivity::Sensitive,

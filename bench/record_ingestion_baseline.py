@@ -70,13 +70,16 @@ def main():
     workers = min(32, len(affinity))
     governors = sorted({p.read_text().strip() for p in
                         Path("/sys/devices/system/cpu").glob("cpu[0-9]*/cpufreq/scaling_governor")})
+    workload = source / "crates/cli/benches"
+    if not workload.is_dir():
+        workload = source / "crates/core/benches"
     manifest = {
         "base_commit": command_output("git", "-C", str(source), "rev-parse", "HEAD"),
         "worktree": str(source), "fixture": str(fixture),
         "fixture_fingerprint": fingerprint(fixture, files),
         "cargo_lock_sha256": sha256(source / "Cargo.lock"),
-        "historical_manifest_sha256": sha256(source / "crates/core/benches/musenalm_queries.json"),
-        "extended_manifest_sha256": sha256(source / "crates/core/benches/musenalm_queries_extended.json"),
+        "historical_manifest_sha256": sha256(workload / "musenalm_queries.json"),
+        "extended_manifest_sha256": sha256(workload / "musenalm_queries_extended.json"),
         "rustc": command_output("rustc", "--version"),
         "cargo": command_output("cargo", "--version"),
         "affinity": affinity, "governors": governors,

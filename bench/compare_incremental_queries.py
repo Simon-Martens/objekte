@@ -9,10 +9,9 @@ manifest digest, then uses the existing per-query comparison implementation.
 
 import argparse
 import json
-import subprocess
 from pathlib import Path
 
-from compare_query_extensions import compare, load_run, write_results
+from compare_query_extensions import compare, load_run, workload_blob, write_results
 
 
 STATIC_FIELDS = {
@@ -29,12 +28,8 @@ def require_compatible(before, after, before_queries, after_queries):
     if before_queries != after_queries:
         raise ValueError("resolved workload queries differ")
     if before.get("workload_fingerprint") != after.get("workload_fingerprint"):
-        path = "crates/core/benches/musenalm_queries.json"
         blobs = [
-            subprocess.check_output(
-                ["git", "rev-parse", f"{run['code_revision']}:{path}"], text=True
-            ).strip()
-            for run in (before, after)
+            workload_blob(run["code_revision"], "musenalm_queries.json") for run in (before, after)
         ]
         if blobs[0] != blobs[1]:
             raise ValueError("tracked workload manifest changed")
@@ -92,14 +87,7 @@ def main():
                 "common_registration_fields": sorted(STATIC_FIELDS),
                 "schema_manifest_digest": after["schema_manifest_digest"],
                 "corpus_fingerprint": after["corpus_fingerprint"],
-                "workload_git_blob": subprocess.check_output(
-                    [
-                        "git",
-                        "rev-parse",
-                        f"{after['code_revision']}:crates/core/benches/musenalm_queries.json",
-                    ],
-                    text=True,
-                ).strip(),
+                "workload_git_blob": workload_blob(after["code_revision"]),
             },
             indent=2,
         )

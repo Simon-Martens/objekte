@@ -3,8 +3,8 @@
 pub mod binding;
 pub mod clock;
 pub mod completion;
+pub mod json_string;
 pub mod options;
-pub mod parameters;
 pub mod path;
 pub(crate) mod prepared;
 pub mod regex;
@@ -20,7 +20,6 @@ use crate::query::options::{ReturnMode, SortExpression, SortField, SortReducer};
 use crate::query::path::{QueryPath, split_path_binding};
 use crate::query::size_literal::parse_size_literal;
 use crate::query::temporal::{PeriodLiteral, looks_like_temporal};
-use crate::workload::WorkloadCase;
 use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
 use time::OffsetDateTime;
@@ -180,6 +179,40 @@ pub struct FtsQuery {
     pub fields: Vec<FtsField>,
 }
 
+impl FtsQuery {
+    /// Interpret field selectors and an optional regex pattern parameter.
+    pub fn from_syntax(
+        literal: &str,
+        case_sensitivity: CaseSensitivity,
+        mode: FtsMode,
+        fields: &[String],
+    ) -> Result<Self, String> {
+        let fields = fields
+            .iter()
+            .map(|name| {
+                let (path, binding) = split_path_binding(name);
+                let parsed = QueryPath::parse(path)?;
+                Ok(FtsField {
+                    path: parsed.field,
+                    binding: binding.map(str::to_owned),
+                    query_path: parsed.has_explicit_array_step.then(|| path.to_owned()),
+                })
+            })
+            .collect::<Result<Vec<_>, String>>()?;
+        Ok(Self {
+            case_sensitivity,
+            mode,
+            literal: literal.to_owned(),
+            pattern_parameter: if matches!(mode, FtsMode::Regex(_)) {
+                regex_pattern_parameter(literal).map(str::to_owned)
+            } else {
+                None
+            },
+            fields,
+        })
+    }
+}
+
 /// Count, sort, page, return, and evidence choices for a search.
 #[derive(Clone, Debug)]
 pub struct QueryOptions {
@@ -245,62 +278,30 @@ impl Query {
         }
     }
 
-    pub fn from_workload(case: &WorkloadCase) -> Result<Self, String> {
-        let structured = case
-            .filter
-            .as_deref()
-            .map(parse_structured_filter)
-            .transpose()?;
-        let inline_sort = structured.as_ref().and_then(|parsed| parsed.sort.as_ref());
-        if inline_sort.is_some() && !case.sort.is_empty() {
-            return Err("inline SORT BY conflicts with independent sort options".into());
-        }
-        let fts = case
-            .fts
-            .as_ref()
-            .map(|literal| {
-                let fields = case
-                    .fts_fields
-                    .iter()
-                    .map(|name| {
-                        let (path, binding) = split_path_binding(name);
-                        let parsed = QueryPath::parse(path)?;
-                        Ok(FtsField {
-                            path: parsed.field,
-                            binding: binding.map(str::to_owned),
-                            query_path: parsed.has_explicit_array_step.then(|| path.to_owned()),
-                        })
-                    })
-                    .collect::<Result<Vec<_>, String>>()?;
-                Ok::<_, String>(FtsQuery {
-                    case_sensitivity: case.fts_case_sensitivity,
-                    mode: case.fts_mode,
-                    literal: literal.clone(),
-                    pattern_parameter: if matches!(case.fts_mode, FtsMode::Regex(_)) {
-                        regex_pattern_parameter(literal).map(str::to_owned)
-                    } else {
-                        None
-                    },
-                    fields,
-                })
-            })
-            .transpose()?;
+    /// Construct a query from independently supplied syntax and typed options.
+    pub fn from_syntax(
+        collections: Vec<String>,
+        fts: Option<FtsQuery>,
+        filter: Option<&str>,
+        mut options: QueryOptions,
+    ) -> Result<Self, String> {
+        let structured = filter.map(parse_structured_filter).transpose()?;
+        let filter = if let Some(parsed) = structured {
+            if let Some(sort) = parsed.sort {
+                if !options.sort.is_empty() {
+                    return Err("inline SORT BY conflicts with independent sort options".into());
+                }
+                options.sort = sort;
+            }
+            parsed.filter
+        } else {
+            None
+        };
         Ok(Self {
-            collections: if case.collection == "*" {
-                Vec::new()
-            } else {
-                vec![case.collection.clone()]
-            },
+            collections,
             fts,
-            filter: structured.as_ref().and_then(|parsed| parsed.filter.clone()),
-            options: QueryOptions {
-                sort: inline_sort.cloned().unwrap_or_else(|| case.sort.clone()),
-                limit: case.limit,
-                offset: case.offset,
-                count: case.count,
-                return_mode: case.return_mode.clone(),
-                evidence: case.evidence,
-            },
+            filter,
+            options,
         })
     }
 
@@ -727,7 +728,7 @@ impl Parser {
                     && s.bytes()
                         .all(|byte| matches!(byte, b'0'..=b'9' | b'-' | b'+' | b'.' | b'e' | b'E'))
                 {
-                    Operand::Literal(Literal::Number(Number::parse_json_literal(&s)?))
+                    Operand::Literal(Literal::Number(Number::parse_decimal_literal(&s)?))
                 } else {
                     let path = QueryPath::parse(&s).map_err(|error| {
                         format!("invalid field operand at byte {}: {error}", value.start)
@@ -966,3 +967,6 @@ pub fn parse_filter(input: &str) -> Result<FilterExpr, String> {
 #[cfg(test)]
 #[path = "tests.rs"]
 mod tests;
+
+#[cfg(test)]
+pub(crate) mod test_support;

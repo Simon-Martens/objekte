@@ -1,16 +1,15 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 
+use objekte_cli::workload::WorkloadCase;
 use objekte_search_core::lifecycle::{Index, IndexView};
 use objekte_search_core::model::{FieldPath, LogicalType};
-use objekte_search_core::query::Query;
 use objekte_search_core::query::options::{ReturnMode, SortExpression, SortField};
 use objekte_search_core::query_results::{Payload, SearchHit, SearchResult};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::workload::WorkloadCase;
 
 fn fixture() -> (PathBuf, Index, IndexView) {
     let root = std::env::temp_dir().join(format!(
@@ -102,8 +101,10 @@ fn case(filter: Option<&str>, sort: Vec<SortField>) -> WorkloadCase {
 #[test]
 fn inline_sort_matches_registered_options_and_reference() {
     let (root, index, repo) = fixture();
-    let inline = Query::from_workload(&case(Some("SORT BY year DESC, title"), vec![])).unwrap();
-    let external = Query::from_workload(&case(
+    let inline =
+        objekte_cli::workload::query_from_workload(&case(Some("SORT BY year DESC, title"), vec![]))
+            .unwrap();
+    let external = objekte_cli::workload::query_from_workload(&case(
         None,
         vec![
             SortField {
@@ -136,7 +137,7 @@ fn inline_sort_matches_registered_options_and_reference() {
     assert_eq!(repo.search(&inline).unwrap().hits, actual.hits);
     assert_eq!(repo.search(&external).unwrap().hits, actual.hits);
 
-    let filtered = Query::from_workload(&case(
+    let filtered = objekte_cli::workload::query_from_workload(&case(
         Some("year >= 2 SORT BY title ASC, year DESC"),
         vec![],
     ))
@@ -156,7 +157,7 @@ fn inline_sort_matches_registered_options_and_reference() {
 
     let mut fts_case = case(Some("SORT BY year DESC, title"), vec![]);
     fts_case.fts = Some("Alpha".into());
-    let fts_query = Query::from_workload(&fts_case).unwrap();
+    let fts_query = objekte_cli::workload::query_from_workload(&fts_case).unwrap();
     let fts_ids: Vec<_> = repo
         .search(&fts_query)
         .unwrap()
@@ -170,7 +171,9 @@ fn inline_sort_matches_registered_options_and_reference() {
         repo.search_reference(&fts_query).unwrap().hits
     );
 
-    let metadata = Query::from_workload(&case(Some("SORT BY @file.size DESC"), vec![])).unwrap();
+    let metadata =
+        objekte_cli::workload::query_from_workload(&case(Some("SORT BY @file.size DESC"), vec![]))
+            .unwrap();
     assert_eq!(
         repo.search(&metadata).unwrap().hits,
         repo.search_reference(&metadata).unwrap().hits
@@ -195,7 +198,9 @@ fn inline_sort_matches_registered_options_and_reference() {
     );
     assert_eq!(page_result.hits, repo.search_reference(&page).unwrap().hits);
 
-    let mut first_page = Query::from_workload(&case(Some("SORT BY year DESC"), vec![])).unwrap();
+    let mut first_page =
+        objekte_cli::workload::query_from_workload(&case(Some("SORT BY year DESC"), vec![]))
+            .unwrap();
     first_page.options.count = false;
     first_page.options.limit = 1;
     assert_eq!(
@@ -203,7 +208,8 @@ fn inline_sort_matches_registered_options_and_reference() {
         "stored_order_page"
     );
 
-    let missing = Query::from_workload(&case(Some("SORT BY absent"), vec![])).unwrap();
+    let missing =
+        objekte_cli::workload::query_from_workload(&case(Some("SORT BY absent"), vec![])).unwrap();
     assert_eq!(
         repo.search(&missing)
             .unwrap()
@@ -220,8 +226,11 @@ fn inline_sort_matches_registered_options_and_reference() {
 #[test]
 fn defining_public_modules_configure_build_query_pin_and_inspect_results() {
     let (root, index, view) = fixture();
-    let mut query =
-        Query::from_workload(&case(Some("year = 3 SORT BY title ASC"), vec![])).unwrap();
+    let mut query = objekte_cli::workload::query_from_workload(&case(
+        Some("year = 3 SORT BY title ASC"),
+        vec![],
+    ))
+    .unwrap();
     query.options.limit = 2;
 
     for reference in [false, true] {
@@ -382,7 +391,9 @@ fn explicit_composite_order_streams_and_matches_reference() {
     .and_then(|task| task.wait_complete())
     .unwrap();
     repo = index.view().unwrap();
-    let mut query = Query::from_workload(&case(Some("SORT BY year DESC, title"), vec![])).unwrap();
+    let mut query =
+        objekte_cli::workload::query_from_workload(&case(Some("SORT BY year DESC, title"), vec![]))
+            .unwrap();
     query.options.count = false;
     query.options.limit = 1;
     assert_eq!(
@@ -525,7 +536,8 @@ fn schema_free_sort_reductions_positions_and_late_error() {
             vec!["path:b.json", "path:a.json", "path:c.json"],
         ),
     ] {
-        let query = Query::from_workload(&case(Some(expression), vec![])).unwrap();
+        let query =
+            objekte_cli::workload::query_from_workload(&case(Some(expression), vec![])).unwrap();
         let result = repo.search(&query).unwrap();
         assert_eq!(
             result
@@ -543,7 +555,9 @@ fn schema_free_sort_reductions_positions_and_late_error() {
         );
         assert_eq!(result.counters.sort_key_evaluations, 3, "{expression}");
     }
-    let mut invalid = Query::from_workload(&case(Some("SORT BY contributors"), vec![])).unwrap();
+    let mut invalid =
+        objekte_cli::workload::query_from_workload(&case(Some("SORT BY contributors"), vec![]))
+            .unwrap();
     invalid.options.count = false;
     invalid.options.limit = 1;
     assert!(
@@ -565,7 +579,8 @@ fn schema_free_sort_reductions_positions_and_late_error() {
     .and_then(|index| index.view())
     .map_err(|error| error.to_string())
     .unwrap();
-    let mut invalid = Query::from_workload(&case(Some("SORT BY title"), vec![])).unwrap();
+    let mut invalid =
+        objekte_cli::workload::query_from_workload(&case(Some("SORT BY title"), vec![])).unwrap();
     invalid.options.count = false;
     invalid.options.limit = 1;
     assert!(
@@ -610,7 +625,9 @@ fn computed_top_k_matches_an_independent_seeded_numeric_order() {
     let mut expected: Vec<_> = (0..113usize).collect();
     expected.sort_by_key(|index| std::cmp::Reverse((index * 37) % 113));
     for (offset, limit) in [(0, 1), (2, 5), (37, 7), (108, 10), (0, 0)] {
-        let mut request = Query::from_workload(&case(Some("SORT BY score DESC"), vec![])).unwrap();
+        let mut request =
+            objekte_cli::workload::query_from_workload(&case(Some("SORT BY score DESC"), vec![]))
+                .unwrap();
         request.options.count = false;
         request.options.offset = offset;
         request.options.limit = limit;

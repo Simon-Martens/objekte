@@ -1,4 +1,5 @@
 use super::*;
+use objekte_cli::workload::load_manifest;
 use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query::Query;
 use objekte_search_core::query::binding::filter::bind_filter;
@@ -6,19 +7,17 @@ use objekte_search_core::repository::Repository;
 use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::schema::relations::RelationCardinality;
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::load_manifest;
 
 #[test]
 fn fixture_schemas_bind_every_fixed_request() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let definitions = load_definitions(&root).unwrap();
     assert_eq!(definitions.len(), 7);
-    let cases = load_manifest(
-        &Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json"),
-    )
-    .unwrap();
+    let cases =
+        load_manifest(&Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json"))
+            .unwrap();
     for case in cases {
-        let query = Query::from_workload(&case).unwrap();
+        let query = objekte_cli::workload::query_from_workload(&case).unwrap();
         for definition in definitions
             .iter()
             .filter(|d| case.collection == "*" || case.collection == d.name)

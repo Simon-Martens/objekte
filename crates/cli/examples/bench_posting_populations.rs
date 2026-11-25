@@ -42,7 +42,7 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
             ]),
             (0_i64..50_000)
                 .map(|number| {
-                    Value::from_json(serde_json::json!({
+                    objekte_loader_json::value_from_json(serde_json::json!({
                         "number": number,
                         "text": if number % 2 == 0 { "A" } else { "B" },
                         "flag": number % 2 == 0
@@ -60,7 +60,7 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
             )]),
             (0_i64..25_000)
                 .map(|number| {
-                    Value::from_json(serde_json::json!({
+                    objekte_loader_json::value_from_json(serde_json::json!({
                         "values": [number, number + 1, number + 2]
                     }))
                     .unwrap()
@@ -90,7 +90,8 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
                             })
                         })
                         .collect::<Vec<_>>();
-                    Value::from_json(serde_json::json!({ "items": items })).unwrap()
+                    objekte_loader_json::value_from_json(serde_json::json!({ "items": items }))
+                        .unwrap()
                 })
                 .collect(),
         ),
@@ -103,7 +104,7 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
             )]),
             (0..10_000)
                 .map(|number| {
-                    Value::from_json(serde_json::json!({
+                    objekte_loader_json::value_from_json(serde_json::json!({
                         "values": vec![if number % 2 == 0 { "A" } else { "B" }; 32]
                     }))
                     .unwrap()

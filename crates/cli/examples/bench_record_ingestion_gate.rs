@@ -9,6 +9,7 @@ use std::hint::black_box;
 use std::path::Path;
 use std::time::Instant;
 
+use objekte_cli::workload::{WorkloadCase, load_extended_manifest, load_manifest};
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::LogicalType;
@@ -17,12 +18,11 @@ use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::query_results::Payload;
 use objekte_search_core::repository::configuration::{IdentityPolicy, RepositoryOptions};
 use objekte_search_core::schema::FieldDefinition;
-use objekte_search_core::workload::{WorkloadCase, load_extended_manifest, load_manifest};
 use serde_json::json;
 use sha2::{Digest, Sha256};
 
 fn query(filter: &str) -> Result<Query, String> {
-    Query::from_workload(&WorkloadCase {
+    objekte_cli::workload::query_from_workload(&WorkloadCase {
         id: "probe".into(),
         collection: "records".into(),
         fts: None,
@@ -127,16 +127,15 @@ fn bytes_hex(bytes: &[u8]) -> String {
 }
 
 fn canonical(root: &Path, alphabet: BigramAlphabet, extended: bool) -> Result<(), Box<dyn Error>> {
-    let historical =
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
-    let additional = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../core/benches/musenalm_queries_extended.json");
+    let historical = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let additional =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json");
     let cases = if extended {
         load_extended_manifest(&historical, &additional)?
     } else {
         load_manifest(&historical)?
             .into_iter()
-            .map(|request| objekte_search_core::workload::BenchmarkCase {
+            .map(|request| objekte_cli::workload::BenchmarkCase {
                 request,
                 parameters: BTreeMap::new(),
                 clock_unix_seconds: None,

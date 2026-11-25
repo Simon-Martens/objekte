@@ -120,9 +120,3 @@ fn normalized_selection(path: &Path) -> Result<PathBuf, String> {
 
 #[cfg(test)]
 mod tests;
-
-#[cfg(test)]
-#[path = "../../../../loader-json/src/configuration.rs"]
-mod json_configuration;
-#[cfg(test)]
-pub(crate) use json_configuration::load_repository_configuration;

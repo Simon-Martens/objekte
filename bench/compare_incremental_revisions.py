@@ -3,10 +3,9 @@
 
 import argparse
 import json
-import subprocess
 from pathlib import Path
 
-from compare_query_extensions import compare, load_run, write_results
+from compare_query_extensions import compare, load_run, workload_blob, write_results
 
 
 def require_compatible(before, after, before_queries, after_queries):
@@ -24,12 +23,8 @@ def require_compatible(before, after, before_queries, after_queries):
     if before["registrations"] != after["registrations"]:
         raise ValueError("static collection registrations differ")
     if before.get("workload_fingerprint") != after.get("workload_fingerprint"):
-        path = "crates/core/benches/musenalm_queries_extended.json"
         blobs = [
-            subprocess.check_output(
-                ["git", "rev-parse", f"{run['code_revision']}:{path}"], text=True
-            ).strip()
-            for run in (before, after)
+            workload_blob(run["code_revision"], "musenalm_queries_extended.json") for run in (before, after)
         ]
         if blobs[0] != blobs[1]:
             raise ValueError("tracked extended workload changed")

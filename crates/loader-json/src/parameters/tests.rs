@@ -1,4 +1,5 @@
 use super::*;
+use objekte_search_core::model::Number;
 
 #[test]
 fn typed_json_transport_keeps_scalar_types_distinct() {

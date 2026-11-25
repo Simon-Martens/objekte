@@ -55,3 +55,20 @@ fn extended_manifest_preserves_the_fixed_150_and_binds_parameters() {
     assert!(load_extended_manifest(&fixed, &scratch).is_err());
     std::fs::remove_file(scratch).unwrap();
 }
+
+#[test]
+fn every_fixed_filter_parses() {
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    for case in load_manifest(&path).unwrap() {
+        query_from_workload(&case).unwrap_or_else(|error| panic!("{}: {error}", case.id));
+    }
+}
+
+#[test]
+fn historical_workload_omits_default_fts_options() {
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let cases = load_manifest(&path).unwrap();
+    let encoded = serde_json::to_value(&cases[0]).unwrap();
+    assert!(encoded.get("fts_mode").is_none());
+    assert!(encoded.get("fts_case_sensitivity").is_none());
+}

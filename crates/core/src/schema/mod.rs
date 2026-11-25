@@ -5,9 +5,6 @@ use crate::query::Operator;
 use crate::query::options::SortField;
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-#[cfg(test)]
-#[path = "../../../loader-json/src/schema/mod.rs"]
-pub(crate) mod json;
 pub mod operation;
 pub mod relations;
 pub mod validation;

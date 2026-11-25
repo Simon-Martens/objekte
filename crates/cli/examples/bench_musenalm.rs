@@ -7,6 +7,9 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
+use objekte_cli::workload::{
+    BenchmarkCase, Profile, TimingSample, load_extended_manifest, load_manifest,
+};
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::lifecycle::session::IndexedRepository;
@@ -14,9 +17,6 @@ use objekte_search_core::measurement::WorkCounters;
 use objekte_search_core::query::Query;
 use objekte_search_core::query_results::{SearchHit, SearchResult};
 use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::workload::{
-    BenchmarkCase, Profile, TimingSample, load_extended_manifest, load_manifest,
-};
 use sha2::{Digest, Sha256};
 
 enum SearchBackend {
@@ -167,10 +167,9 @@ fn run() -> Result<(), String> {
         };
         profiles.push((name.clone(), profile));
     }
-    let baseline_path =
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
+    let baseline_path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
     let manifest_path = if extended {
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries_extended.json")
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json")
     } else {
         baseline_path.clone()
     };

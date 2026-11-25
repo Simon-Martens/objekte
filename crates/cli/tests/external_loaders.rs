@@ -365,3 +365,20 @@ fn exact_schema_bytes_change_configuration_with_two_collections_using_one_loader
         assert_eq!(old.hits[0].payload, new.hits[0].payload);
     }
 }
+
+#[test]
+#[ignore = "manual real-fixture direct-build feasibility measurement"]
+fn measure_direct_shard_build_from_real_worker_batches() {
+    let root = std::path::PathBuf::from(
+        std::env::var_os("OBJEKTE_DIRECT_SHARD_FIXTURE")
+            .expect("set OBJEKTE_DIRECT_SHARD_FIXTURE to a Musenalm root"),
+    );
+    let configuration =
+        objekte_loader_json::configuration::load_repository_configuration(&root).unwrap();
+    objekte_search_core::lifecycle::initial::test_hooks::measure_direct_shard_build(
+        root,
+        configuration.definitions,
+        objekte_cli::loader::installed_sources(),
+        "contents",
+    );
+}

@@ -1,0 +1,131 @@
+use std::path::PathBuf;
+use std::sync::Arc;
+
+use crate::construction::batch::{SourceFileInput, file_batches};
+use crate::construction::scheduling::{
+    RepositoryFileJob, process_repository_file_batches_profiled,
+};
+use crate::construction::segment_admission::SegmentAdmission;
+use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use crate::source::registry::SourceRegistry;
+
+/// Measure direct batch-to-shard construction using caller-supplied readers.
+pub fn measure_direct_shard_build(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+    sources: SourceRegistry,
+    collection_name: &str,
+) {
+    let options = RepositoryOptions {
+        ..Default::default()
+    };
+    let baseline_started = std::time::Instant::now();
+    let index = crate::lifecycle::Index::start_build(&root, definitions, options, sources)
+        .and_then(|task| task.wait_complete())
+        .unwrap();
+    let view = index.view().unwrap();
+    let repository = view.repository();
+    eprintln!(
+        "direct shard prototype static_build={:?}",
+        baseline_started.elapsed()
+    );
+    let collection = repository
+        .collections()
+        .iter()
+        .find(|collection| collection.definition.name == collection_name)
+        .unwrap();
+    let id = collection.generation.collection;
+    let definition = Arc::new(collection.required_file_definition().clone());
+    let source = collection.required_file_reader().clone();
+    let source_files = Arc::new(
+        repository
+            .files()
+            .files
+            .iter()
+            .map(SourceFileInput::from_entry)
+            .collect::<Vec<_>>(),
+    );
+    let jobs = file_batches(&collection.generation.files, repository.files())
+        .into_iter()
+        .map(|files| RepositoryFileJob {
+            collection_index: id.0 as usize,
+            collection: id,
+            definition: Arc::clone(&definition),
+            source: source.clone(),
+            files: files.to_vec(),
+        })
+        .collect::<Vec<_>>();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(repository.startup().build_workers)
+        .build()
+        .unwrap();
+    let new_admission = || {
+        SegmentAdmission::with_limits_and_id(
+            id,
+            &source,
+            crate::index::segment::SegmentPolicy {
+                target_records: std::num::NonZeroUsize::new(2_048).unwrap(),
+                max_files: std::num::NonZeroUsize::new(2_048).unwrap(),
+            },
+            crate::index::segment::SegmentId::new(1),
+        )
+    };
+    let mut admission = new_admission();
+    let mut chunks = Vec::new();
+    let mut admitted_records = 0;
+    let started = std::time::Instant::now();
+    let stats = process_repository_file_batches_profiled(
+        &pool,
+        Arc::new(root.clone()),
+        &jobs,
+        source_files,
+        options.bigram_alphabet,
+        options.inference,
+        false,
+        |_, batch| {
+            if admitted_records > 0
+                && (admitted_records + batch.records.len() > 2_048
+                    || admission.file_count() + batch.files.len() > 2_048)
+            {
+                chunks.push(std::mem::replace(&mut admission, new_admission()).finish());
+                admitted_records = 0;
+            }
+            admitted_records += batch.records.len();
+            admission.admit_batch(batch)
+        },
+    )
+    .unwrap();
+    if admission.file_count() > 0 {
+        chunks.push(admission.finish());
+    }
+    let extracted = started.elapsed();
+    let started = std::time::Instant::now();
+    let shards = chunks
+        .into_iter()
+        .map(|chunk| {
+            chunk.into_indexed(
+                definition.as_ref(),
+                options.bigram_alphabet,
+                options.inference,
+                repository.collections().len(),
+                &pool,
+            )
+        })
+        .collect::<Result<Vec<_>, _>>()
+        .unwrap();
+    let finalized = started.elapsed();
+    let records = shards
+        .iter()
+        .map(|shard| shard.records.len())
+        .sum::<usize>();
+    assert_eq!(records, collection.generation.records.len());
+    assert!(shards.iter().all(|shard| shard.records.len() <= 2_048));
+    eprintln!(
+        "direct shard prototype files={} records={} shards={} extract_admit={extracted:?} finalize={finalized:?} jobs={} peak_active={}",
+        collection.generation.files.len(),
+        records,
+        shards.len(),
+        jobs.len(),
+        stats.peak_active_jobs,
+    );
+}

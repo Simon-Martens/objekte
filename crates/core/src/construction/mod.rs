@@ -12,3 +12,6 @@ pub(crate) mod segment_jobs;
 
 #[cfg(test)]
 mod tests;
+
+#[cfg(feature = "test-hooks")]
+pub(crate) mod file_shard_diagnostics;

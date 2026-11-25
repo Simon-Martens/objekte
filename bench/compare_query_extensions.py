@@ -20,19 +20,25 @@ def load_run(directory: Path):
     return manifest, queries, by_key
 
 
+def workload_blob(revision, filename="musenalm_queries.json"):
+    for package in ("cli", "core"):
+        result = subprocess.run(
+            ["git", "rev-parse", "--verify", f"{revision}:crates/{package}/benches/{filename}"],
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+    raise ValueError(f"missing tracked workload {filename} at {revision}")
+
+
 def require_compatible(before, after, before_queries, after_queries):
     if before_queries != after_queries:
         raise ValueError("resolved workload queries differ")
     if before.get("workload_fingerprint") != after.get("workload_fingerprint"):
         # The example hashes the absolute manifest path together with its bytes.
         # Worktrees change that path even when the tracked manifest is identical.
-        path = "crates/core/benches/musenalm_queries.json"
-        blobs = [
-            subprocess.check_output(
-                ["git", "rev-parse", f"{run['code_revision']}:{path}"], text=True
-            ).strip()
-            for run in (before, after)
-        ]
+        blobs = [workload_blob(run["code_revision"]) for run in (before, after)]
         if blobs[0] != blobs[1]:
             raise ValueError("tracked workload manifest changed")
     for key in (

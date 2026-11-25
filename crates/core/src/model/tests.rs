@@ -100,9 +100,10 @@ fn precise_numbers_and_temporal_distinctions() {
 
 #[test]
 fn exceptional_json_numbers_remain_numeric_and_ordered() {
-    let huge = Number::parse_json_literal("1e1000000").unwrap();
-    let tiny = Number::parse_json_literal("1e-1000000").unwrap();
-    let boundary = Number::parse_json_literal("170141183460469231731687303715884105728").unwrap();
+    let huge = Number::parse_decimal_literal("1e1000000").unwrap();
+    let tiny = Number::parse_decimal_literal("1e-1000000").unwrap();
+    let boundary =
+        Number::parse_decimal_literal("170141183460469231731687303715884105728").unwrap();
     assert!(matches!(huge, Number::ExactDecimal(_)));
     assert!(matches!(tiny, Number::ExactDecimal(_)));
     assert!(matches!(boundary, Number::ExactDecimal(_)));
@@ -111,7 +112,7 @@ fn exceptional_json_numbers_remain_numeric_and_ordered() {
     assert!(tiny > Number::integer(0));
     assert!(tiny < Number::float(0.1).unwrap());
     assert_eq!(
-        Number::parse_json_literal("-0").unwrap(),
+        Number::parse_decimal_literal("-0").unwrap(),
         Number::integer(0)
     );
     assert_eq!(Number::Float(-0.0), Number::Float(0.0));
@@ -137,11 +138,11 @@ fn exceptional_json_numbers_remain_numeric_and_ordered() {
     keys.insert(boundary.clone());
     assert!(keys.contains(&Number::float(2f64.powi(127)).unwrap()));
     assert_eq!(
-        Number::parse_json_literal("1.0").unwrap(),
+        Number::parse_decimal_literal("1.0").unwrap(),
         Number::integer(1)
     );
     assert!(
-        Number::parse_json_literal("1e99999999999999999999")
+        Number::parse_decimal_literal("1e99999999999999999999")
             .unwrap_err()
             .contains("resource limit")
     );

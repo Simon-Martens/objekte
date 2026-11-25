@@ -5,10 +5,10 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::ops::Deref;
 use std::path::Path;
 
-use crate::index::bigram::BigramAlphabet;
-use crate::measurement::WorkCounters;
-use crate::model::Value;
-use crate::query::options::{ReturnMode, SortField};
+use objekte_search_core::index::bigram::BigramAlphabet;
+use objekte_search_core::measurement::WorkCounters;
+use objekte_search_core::model::Value;
+use objekte_search_core::query::options::{ReturnMode, SortField};
 
 /// Fixed benchmark query and expected execution options.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -18,11 +18,14 @@ pub struct WorkloadCase {
     pub fts: Option<String>,
     #[serde(
         default,
-        skip_serializing_if = "crate::query::CaseSensitivity::is_sensitive"
+        skip_serializing_if = "objekte_search_core::query::CaseSensitivity::is_sensitive"
     )]
-    pub fts_case_sensitivity: crate::query::CaseSensitivity,
-    #[serde(default, skip_serializing_if = "crate::query::FtsMode::is_literal")]
-    pub fts_mode: crate::query::FtsMode,
+    pub fts_case_sensitivity: objekte_search_core::query::CaseSensitivity,
+    #[serde(
+        default,
+        skip_serializing_if = "objekte_search_core::query::FtsMode::is_literal"
+    )]
+    pub fts_mode: objekte_search_core::query::FtsMode,
     pub filter: Option<String>,
     #[serde(default)]
     pub fts_fields: Vec<String>,
@@ -33,6 +36,43 @@ pub struct WorkloadCase {
     pub count: bool,
     pub return_mode: ReturnMode,
     pub evidence: bool,
+}
+
+/// Build the typed query described by a benchmark request.
+pub fn query_from_workload(
+    case: &WorkloadCase,
+) -> Result<objekte_search_core::query::Query, String> {
+    use objekte_search_core::query::{FtsQuery, Query, QueryOptions};
+    let fts = case
+        .fts
+        .as_deref()
+        .map(|literal| {
+            FtsQuery::from_syntax(
+                literal,
+                case.fts_case_sensitivity,
+                case.fts_mode,
+                &case.fts_fields,
+            )
+        })
+        .transpose()?;
+    let collections = if case.collection == "*" {
+        Vec::new()
+    } else {
+        vec![case.collection.clone()]
+    };
+    Query::from_syntax(
+        collections,
+        fts,
+        case.filter.as_deref(),
+        QueryOptions {
+            sort: case.sort.clone(),
+            limit: case.limit,
+            offset: case.offset,
+            count: case.count,
+            return_mode: case.return_mode.clone(),
+            evidence: case.evidence,
+        },
+    )
 }
 
 /// A benchmark request with separately typed data parameters. The historical
@@ -57,15 +97,15 @@ impl Deref for BenchmarkCase {
 
 impl BenchmarkCase {
     /// Bind values once, before the timed search call.
-    pub fn query(&self) -> Result<crate::query::Query, String> {
+    pub fn query(&self) -> Result<objekte_search_core::query::Query, String> {
         let mut values = HashMap::<String, Value>::new();
         for (name, encoded) in &self.parameters {
             values.insert(
                 name.clone(),
-                crate::query::parameters::parse_parameter_json(&encoded.to_string())?,
+                objekte_loader_json::parameters::decode_parameter_json_value(encoded.clone())?,
             );
         }
-        let query = crate::query::Query::from_workload(&self.request)?.with_parameters(&values)?;
+        let query = query_from_workload(&self.request)?.with_parameters(&values)?;
         if let Some(seconds) = self.clock_unix_seconds {
             query.with_clock(
                 time::OffsetDateTime::from_unix_timestamp(seconds)

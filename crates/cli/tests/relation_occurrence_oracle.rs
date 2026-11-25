@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+use objekte_cli::workload::WorkloadCase;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::options::ReturnMode;
@@ -9,7 +10,6 @@ use objekte_search_core::repository::configuration::{
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::workload::WorkloadCase;
 use serde_json::Value as JsonValue;
 
 fn field(schema: &mut Schema, path: &[&str], kind: LogicalType, multi: bool) {
@@ -217,7 +217,7 @@ fn oracle_item_pairs(
 }
 
 fn query(filter: &str, mode: ReturnMode) -> Query {
-    Query::from_workload(&WorkloadCase {
+    objekte_cli::workload::query_from_workload(&WorkloadCase {
         id: "occurrence".into(),
         collection: "mentions".into(),
         fts: None,

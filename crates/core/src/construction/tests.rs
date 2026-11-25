@@ -7,10 +7,8 @@ use crate::construction::file_preparation::{
     process_pull_framed_reader,
 };
 use crate::construction::scheduling::{
-    RepositoryFileJob, fits_allowance, normal_batch_allowance, process_file_batches,
-    process_repository_file_batches, resolve_build_workers,
+    fits_allowance, normal_batch_allowance, process_file_batches, resolve_build_workers,
 };
-use crate::construction::segment_admission::SegmentAdmission;
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramIndex;
 use crate::inference::InferenceConfig;
@@ -256,130 +254,6 @@ fn registered_streaming_reader_matches_whole_framing_and_aborts_atomically() {
     .unwrap();
     assert_eq!(built.collections()[0].generation.records.len(), 2);
     std::fs::remove_dir_all(root).unwrap();
-}
-
-/// Diagnostic prototype for a direct batch-to-shard fresh build. This only
-/// measures the dominant `contents` collection and does not publish an index.
-#[test]
-#[ignore = "manual real-fixture direct-build feasibility measurement"]
-fn measure_direct_shard_build_from_real_worker_batches() {
-    let root = std::path::PathBuf::from(
-        std::env::var_os("OBJEKTE_DIRECT_SHARD_FIXTURE")
-            .expect("set OBJEKTE_DIRECT_SHARD_FIXTURE to a Musenalm root"),
-    );
-    let configuration =
-        crate::repository::configuration::loader::load_repository_configuration(&root).unwrap();
-    let definitions = configuration.definitions;
-    let options = RepositoryOptions {
-        ..Default::default()
-    };
-    let baseline_started = std::time::Instant::now();
-    let repository = crate::lifecycle::Index::build_repository_for_test(
-        &root,
-        definitions,
-        options,
-        crate::source::registry::SourceRegistry::builtin(),
-    )
-    .map_err(|error| error.to_string())
-    .unwrap();
-    eprintln!(
-        "direct shard prototype static_build={:?}",
-        baseline_started.elapsed()
-    );
-    let collection = repository
-        .collections()
-        .iter()
-        .find(|collection| collection.definition.name == "contents")
-        .unwrap();
-    let id = collection.generation.collection;
-    let definition = Arc::new(collection.required_file_definition().clone());
-    let source = collection.required_file_reader().clone();
-    let source_files = Arc::new(
-        repository
-            .files()
-            .files
-            .iter()
-            .map(SourceFileInput::from_entry)
-            .collect::<Vec<_>>(),
-    );
-    let jobs = file_batches(&collection.generation.files, repository.files())
-        .into_iter()
-        .map(|files| RepositoryFileJob {
-            collection_index: id.0 as usize,
-            collection: id,
-            definition: Arc::clone(&definition),
-            source: source.clone(),
-            files: files.to_vec(),
-        })
-        .collect::<Vec<_>>();
-    let pool = rayon::ThreadPoolBuilder::new()
-        .num_threads(repository.startup().build_workers)
-        .build()
-        .unwrap();
-    let new_admission = || {
-        SegmentAdmission::with_limits(
-            id,
-            &source,
-            crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(2_048).unwrap(),
-                max_files: std::num::NonZeroUsize::new(2_048).unwrap(),
-            },
-        )
-    };
-    let mut admission = new_admission();
-    let mut chunks = Vec::new();
-    let started = std::time::Instant::now();
-    let stats = process_repository_file_batches(
-        &pool,
-        Arc::new(root.clone()),
-        &jobs,
-        source_files,
-        options.bigram_alphabet,
-        options.inference,
-        |_, batch| {
-            if admission.record_count() > 0
-                && (admission.record_count() + batch.records.len() > 2_048
-                    || admission.file_count() + batch.files.len() > 2_048)
-            {
-                chunks.push(std::mem::replace(&mut admission, new_admission()).finish());
-            }
-            admission.admit_batch(batch)
-        },
-    )
-    .unwrap();
-    if admission.file_count() > 0 {
-        chunks.push(admission.finish());
-    }
-    let extracted = started.elapsed();
-    let started = std::time::Instant::now();
-    let shards = chunks
-        .into_iter()
-        .map(|chunk| {
-            chunk.into_indexed(
-                definition.as_ref(),
-                options.bigram_alphabet,
-                options.inference,
-                repository.collections().len(),
-                &pool,
-            )
-        })
-        .collect::<Result<Vec<_>, _>>()
-        .unwrap();
-    let finalized = started.elapsed();
-    let records = shards
-        .iter()
-        .map(|shard| shard.records.len())
-        .sum::<usize>();
-    assert_eq!(records, collection.generation.records.len());
-    assert!(shards.iter().all(|shard| shard.records.len() <= 2_048));
-    eprintln!(
-        "direct shard prototype files={} records={} shards={} extract_admit={extracted:?} finalize={finalized:?} jobs={} peak_active={}",
-        collection.generation.files.len(),
-        records,
-        shards.len(),
-        jobs.len(),
-        stats.peak_active_jobs,
-    );
 }
 
 #[test]

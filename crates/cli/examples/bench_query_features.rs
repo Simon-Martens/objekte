@@ -5,6 +5,7 @@ use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
+use objekte_cli::workload::WorkloadCase;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::query::options::ReturnMode;
@@ -14,7 +15,6 @@ use objekte_search_core::repository::configuration::{
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::workload::WorkloadCase;
 use serde_json::json;
 
 struct FeatureCase {
@@ -34,7 +34,7 @@ struct FeatureCase {
 
 impl FeatureCase {
     fn query(&self) -> Result<Query, String> {
-        Query::from_workload(&WorkloadCase {
+        objekte_cli::workload::query_from_workload(&WorkloadCase {
             id: self.id.into(),
             collection: self.collection.into(),
             fts: self.fts.map(str::to_owned),

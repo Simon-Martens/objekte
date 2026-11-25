@@ -1,6 +1,7 @@
 //! JSON document sources and JSON Schema configuration for Objekte.
 
 pub mod configuration;
+pub mod parameters;
 pub mod schema;
 
 use schema as json_schema;
@@ -62,3 +63,8 @@ pub fn decoded_scalar_folder(
         IdentityPolicy::RelativePath,
     )
 }
+
+pub use document::value::{number_from_json, value_from_json};
+
+#[cfg(test)]
+extern crate self as objekte_loader_json;

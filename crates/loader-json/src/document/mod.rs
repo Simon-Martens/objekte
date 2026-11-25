@@ -9,6 +9,7 @@ use objekte_search_core::source::{
 
 pub(crate) mod document;
 pub(crate) mod scalars;
+pub(crate) mod value;
 
 use objekte_search_core::source::verification::{
     BorrowedScanResult, ScalarQuery, ScalarText, ScalarVerification,

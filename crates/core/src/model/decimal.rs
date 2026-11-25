@@ -45,6 +45,29 @@ impl<'de> Deserialize<'de> for ExactDecimal {
     }
 }
 
+impl super::Number {
+    /// Parse a decimal query token, retaining exact values outside native range.
+    pub fn parse_decimal_literal(text: &str) -> Result<Self, String> {
+        let token = text.trim_matches([' ', '\t', '\n', '\r']);
+        if !token.contains(['.', 'e', 'E']) {
+            if !valid_json_number_token(token.as_bytes()) {
+                return Err("invalid numeric literal".into());
+            }
+            return match token.parse::<i128>() {
+                Ok(integer) => Ok(Self::Integer(integer)),
+                Err(_) => ExactDecimal::parse(token).map(Self::ExactDecimal),
+            };
+        }
+
+        let exact = ExactDecimal::parse(token)?;
+        match token.parse::<f64>() {
+            Ok(float) if float.is_finite() && float != 0.0 => Self::float(float),
+            _ if exact.digits == "0" => Ok(Self::Integer(0)),
+            _ => Ok(Self::ExactDecimal(exact)),
+        }
+    }
+}
+
 impl ExactDecimal {
     pub fn parse(token: &str) -> Result<Self, String> {
         const MAX_SIGNIFICAND_DIGITS: usize = 4096;

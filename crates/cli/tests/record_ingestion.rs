@@ -70,7 +70,7 @@ impl SourceReader for PausingLinesReader {
         }
         let json = serde_json::from_slice(bytes).map_err(|error| error.to_string())?;
         Ok(ExtractedRecord {
-            value: Value::from_json(json)?,
+            value: objekte_loader_json::value_from_json(json)?,
             text: Vec::new(),
         })
     }
@@ -456,7 +456,7 @@ fn explicit_native_text_does_not_claim_logical_field_coverage() {
     batch
         .insert_with_text(
             "target",
-            Value::from_json(serde_json::json!({"note":"Leipzig"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"note":"Leipzig"})).unwrap(),
             vec![TextSegment {
                 path: vec!["note".into()],
                 text: "Dresden".into(),
@@ -467,7 +467,8 @@ fn explicit_native_text_does_not_claim_logical_field_coverage() {
         batch
             .insert(
                 format!("decoy-{number}"),
-                Value::from_json(serde_json::json!({"note":"Hamburg"})).unwrap(),
+                objekte_loader_json::value_from_json(serde_json::json!({"note":"Hamburg"}))
+                    .unwrap(),
             )
             .unwrap();
     }
@@ -585,7 +586,7 @@ fn relation_cache_rechecks_provider_target_outside_result_members() {
     let provider = Arc::new(VersionedFixture(
         Mutex::new((
             RecordVersion::new(1),
-            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
         )),
         Mutex::new(Vec::new()),
     ));
@@ -599,7 +600,7 @@ fn relation_cache_rechecks_provider_target_outside_result_members() {
     place_batch
         .insert_from_reader(
             "p",
-            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
             RecordVersion::new(1),
         )
         .unwrap();
@@ -613,7 +614,7 @@ fn relation_cache_rechecks_provider_target_outside_result_members() {
     entry_batch
         .insert(
             "e",
-            Value::from_json(serde_json::json!({"place":"p"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"place":"p"})).unwrap(),
         )
         .unwrap();
     entry_writer
@@ -640,7 +641,7 @@ fn relation_cache_rechecks_provider_target_outside_result_members() {
     assert!(!view.search(&query).unwrap().counters.verified_result_hit);
     *provider.0.lock().unwrap() = (
         RecordVersion::new(2),
-        Value::from_json(serde_json::json!({"name":"Wien"})).unwrap(),
+        objekte_loader_json::value_from_json(serde_json::json!({"name":"Wien"})).unwrap(),
     );
     assert!(view.search(&query).is_err());
     session.finish().unwrap();
@@ -1454,7 +1455,10 @@ fn relation_scan_batches_projected_provider_sources_for_deep_page() {
             let note = if number % 2 == 0 { "Leipzig" } else { "Wien" };
             (
                 format!("e{number:03}"),
-                Value::from_json(serde_json::json!({"place":place,"note":note})).unwrap(),
+                objekte_loader_json::value_from_json(
+                    serde_json::json!({"place":place,"note":note}),
+                )
+                .unwrap(),
             )
         })
         .collect();
@@ -1473,7 +1477,7 @@ fn relation_scan_batches_projected_provider_sources_for_deep_page() {
     batch
         .insert(
             "p",
-            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
         )
         .unwrap();
     place_writer
@@ -1489,7 +1493,10 @@ fn relation_scan_batches_projected_provider_sources_for_deep_page() {
         batch
             .insert_from_reader(
                 format!("e{number:03}"),
-                Value::from_json(serde_json::json!({"place":place,"note":note})).unwrap(),
+                objekte_loader_json::value_from_json(
+                    serde_json::json!({"place":place,"note":note}),
+                )
+                .unwrap(),
                 RecordVersion::new(1),
             )
             .unwrap();
@@ -1578,7 +1585,7 @@ fn selective_native_relation_count_and_deep_page_use_exact_bitmaps() {
         places_batch
             .insert(
                 id,
-                Value::from_json(serde_json::json!({"name": name})).unwrap(),
+                objekte_loader_json::value_from_json(serde_json::json!({"name": name})).unwrap(),
             )
             .unwrap();
     }
@@ -1594,7 +1601,7 @@ fn selective_native_relation_count_and_deep_page_use_exact_bitmaps() {
         batch
             .insert(
                 format!("e{number:05}"),
-                Value::from_json(serde_json::json!({
+                objekte_loader_json::value_from_json(serde_json::json!({
                     "place": if selected { "p" } else { "q" },
                     "year": if selected { 1808 } else { 1807 }
                 }))
@@ -1709,7 +1716,7 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
         batch
             .insert(
                 format!("r{}", number + 1),
-                Value::from_json(document.clone()).unwrap(),
+                objekte_loader_json::value_from_json(document.clone()).unwrap(),
             )
             .unwrap();
     }
@@ -1752,7 +1759,7 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
         batch
             .insert_from_reader(
                 format!("r{}", number + 1),
-                Value::from_json(document.clone()).unwrap(),
+                objekte_loader_json::value_from_json(document.clone()).unwrap(),
                 RecordVersion::new(1),
             )
             .unwrap();
@@ -1922,13 +1929,15 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
     batch
         .insert(
             "a",
-            Value::from_json(serde_json::json!({"id":"a","title":"Leipzig"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"id":"a","title":"Leipzig"}))
+                .unwrap(),
         )
         .unwrap();
     batch
         .insert(
             "b",
-            Value::from_json(serde_json::json!({"id":"b","title":"Wien"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"id":"b","title":"Wien"}))
+                .unwrap(),
         )
         .unwrap();
     entries_writer
@@ -1941,13 +1950,15 @@ fn fileless_relations_resolve_target_fields_and_backlinks() {
     batch
         .insert(
             "m",
-            Value::from_json(serde_json::json!({"id":"m","entry":"a"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"id":"m","entry":"a"}))
+                .unwrap(),
         )
         .unwrap();
     batch
         .insert(
             "n",
-            Value::from_json(serde_json::json!({"id":"n","entry":"b"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"id":"n","entry":"b"}))
+                .unwrap(),
         )
         .unwrap();
     mentions_writer
@@ -2130,11 +2141,12 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
         Mutex::new(HashMap::from([
             (
                 "p".to_string(),
-                Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+                objekte_loader_json::value_from_json(serde_json::json!({"name":"Leipzig"}))
+                    .unwrap(),
             ),
             (
                 "q".to_string(),
-                Value::from_json(serde_json::json!({"name":"Wien"})).unwrap(),
+                objekte_loader_json::value_from_json(serde_json::json!({"name":"Wien"})).unwrap(),
             ),
         ])),
         Mutex::new(Vec::new()),
@@ -2169,10 +2181,16 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
         let mut batch = writer.batch();
         if registration == places_registration {
             batch
-                .insert_from_reader(id, Value::from_json(value).unwrap(), RecordVersion::new(1))
+                .insert_from_reader(
+                    id,
+                    objekte_loader_json::value_from_json(value).unwrap(),
+                    RecordVersion::new(1),
+                )
                 .unwrap();
         } else {
-            batch.insert(id, Value::from_json(value).unwrap()).unwrap();
+            batch
+                .insert(id, objekte_loader_json::value_from_json(value).unwrap())
+                .unwrap();
         }
         writer.submit(batch).unwrap().wait_published().unwrap();
     }
@@ -2355,7 +2373,7 @@ fn public_builder_mixes_file_ranges_and_typed_records_in_one_collection() {
     place_batch
         .insert(
             "p",
-            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+            objekte_loader_json::value_from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
         )
         .unwrap();
     place_writer
@@ -2368,8 +2386,10 @@ fn public_builder_mixes_file_ranges_and_typed_records_in_one_collection() {
     entry_batch
         .insert(
             "native",
-            Value::from_json(serde_json::json!({"id":"native","note":"native","place":"p"}))
-                .unwrap(),
+            objekte_loader_json::value_from_json(
+                serde_json::json!({"id":"native","note":"native","place":"p"}),
+            )
+            .unwrap(),
         )
         .unwrap();
     entry_writer
@@ -2513,7 +2533,10 @@ fn one_collection_interleaves_managed_files_retained_and_versioned_records() {
         let provider = Arc::new(VersionedFixture(
             Mutex::new((
                 RecordVersion::new(7),
-                Value::from_json(serde_json::json!({"id":"manual-2","title":"shared"})).unwrap(),
+                objekte_loader_json::value_from_json(
+                    serde_json::json!({"id":"manual-2","title":"shared"}),
+                )
+                .unwrap(),
             )),
             Mutex::new(Vec::new()),
         ));
@@ -2535,9 +2558,10 @@ fn one_collection_interleaves_managed_files_retained_and_versioned_records() {
         let insert_direct = |id: &str, provider_backed: bool| {
             let mut batch = writer.batch();
             let value = if provider_backed {
-                Value::from_json(serde_json::json!({"id":id,"title":"shared"})).unwrap()
+                objekte_loader_json::value_from_json(serde_json::json!({"id":id,"title":"shared"}))
+                    .unwrap()
             } else {
-                Value::from_json(serde_json::json!({
+                objekte_loader_json::value_from_json(serde_json::json!({
                     "id":id,
                     "title":"shared",
                     "path":"data/source.jsonl",
@@ -2836,7 +2860,8 @@ fn file_and_direct_routes_reject_cross_owner_identity_changes() {
             .unwrap();
         let index = builder.build().unwrap();
         let direct_value =
-            Value::from_json(serde_json::json!({"id":"same","title":"direct"})).unwrap();
+            objekte_loader_json::value_from_json(serde_json::json!({"id":"same","title":"direct"}))
+                .unwrap();
         let submit = |mutation: &str| {
             let session = index.ingestion();
             let writer = session.writer(registration).unwrap();
@@ -2971,7 +2996,8 @@ fn direct_batch_publishes_while_multisegment_file_update_is_paused() {
         batch
             .insert(
                 "manual-1",
-                Value::from_json(serde_json::json!({"title":"shared"})).unwrap(),
+                objekte_loader_json::value_from_json(serde_json::json!({"title":"shared"}))
+                    .unwrap(),
             )
             .unwrap();
         writer.submit(batch).unwrap().wait_published().unwrap();

@@ -668,7 +668,7 @@ fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
         let selected = source.reader().parse_for_query(bytes, &projection).unwrap();
         assert_eq!(
             selected.value,
-            Value::from_json(serde_json::json!({"needed":{"name":"found"}})).unwrap()
+            objekte_loader_json::value_from_json(serde_json::json!({"needed":{"name":"found"}})).unwrap()
         );
         assert_eq!(selected.text.len(), 1);
         assert_eq!(selected.text[0].path, ["needed", "name"]);

@@ -4,10 +4,10 @@ mod musenalm;
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 
+use objekte_cli::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 
 fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
@@ -40,12 +40,12 @@ fn run() -> Result<(), String> {
     }
     let selected = selected.ok_or("--cases is required")?;
     let baseline_path =
-        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
     let manifest = if extended {
         load_extended_manifest(
             &baseline_path,
             &PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-                .join("../core/benches/musenalm_queries_extended.json"),
+                .join("benches/musenalm_queries_extended.json"),
         )?
     } else {
         load_manifest(&baseline_path)?

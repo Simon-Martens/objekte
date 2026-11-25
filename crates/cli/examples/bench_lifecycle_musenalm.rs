@@ -7,9 +7,9 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
+use objekte_cli::workload::load_extended_manifest;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::workload::load_extended_manifest;
 
 fn memory_kb(label: &str) -> u64 {
     fs::read_to_string("/proc/self/status")
@@ -42,8 +42,8 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
     let retire_path = std::env::var("LIFECYCLE_RETIRE_PATH").ok();
     let core = Path::new(env!("CARGO_MANIFEST_DIR")).to_path_buf();
     let mut cases = load_extended_manifest(
-        &core.join("../core/benches/musenalm_queries.json"),
-        &core.join("../core/benches/musenalm_queries_extended.json"),
+        &core.join("benches/musenalm_queries.json"),
+        &core.join("benches/musenalm_queries_extended.json"),
     )?;
     if let Ok(selected) = std::env::var("LIFECYCLE_CASES") {
         let ids: Vec<_> = selected.split(',').collect();

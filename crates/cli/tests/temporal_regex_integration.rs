@@ -1,15 +1,15 @@
 use std::collections::HashMap;
 
+use objekte_cli::workload::WorkloadCase;
+use objekte_loader_json::parameters::parse_parameter_json;
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::query::options::ReturnMode;
-use objekte_search_core::query::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::workload::WorkloadCase;
 
 fn definition() -> CollectionDefinition {
     let mut schema = Schema::default();
@@ -46,7 +46,7 @@ fn definition() -> CollectionDefinition {
 }
 
 fn request(size: &str) -> Query {
-    Query::from_workload(&WorkloadCase {
+    objekte_cli::workload::query_from_workload(&WorkloadCase {
         id: "temporal-regex-parameter".into(),
         collection: "data".into(),
         fts: Some("^Foo.*Bar$".into()),

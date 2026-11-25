@@ -129,7 +129,7 @@ impl<'de> Deserialize<'de> for LogicalBuildValue {
                 let number = serde_json::Number::from_f64(value)
                     .ok_or_else(|| E::custom("non-finite number"))?;
                 Ok(LogicalBuildValue(Value::Number(
-                    Number::from_json(&number).map_err(E::custom)?,
+                    super::value::number_from_json(&number).map_err(E::custom)?,
                 )))
             }
 
@@ -167,7 +167,8 @@ impl<'de> Deserialize<'de> for LogicalBuildValue {
                     let number = serde_json::from_str::<serde_json::Number>(&token)
                         .map_err(serde::de::Error::custom)?;
                     return Ok(LogicalBuildValue(Value::Number(
-                        Number::from_json(&number).map_err(serde::de::Error::custom)?,
+                        super::value::number_from_json(&number)
+                            .map_err(serde::de::Error::custom)?,
                     )));
                 }
                 let mut values = BTreeMap::new();
@@ -214,7 +215,7 @@ pub fn parse_json_for_query_diagnosed(
     } else {
         serde_json::from_slice(bytes).map_err(|e| json_issue(bytes, e))?
     };
-    let value = Value::from_json(json).map_err(|error| {
+    let value = super::value::value_from_json(json).map_err(|error| {
         let category = if error.contains("resource limit") {
             DiagnosticCategory::ResourceLimit
         } else {

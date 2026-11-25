@@ -4,10 +4,10 @@ mod musenalm;
 use std::collections::BTreeMap;
 use std::path::PathBuf;
 
+use objekte_cli::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::query_results::SearchHit;
 use objekte_search_core::repository::configuration::RepositoryOptions;
-use objekte_search_core::workload::{BenchmarkCase, load_extended_manifest, load_manifest};
 
 fn main() {
     if let Err(error) = run() {
@@ -87,12 +87,12 @@ fn run() -> Result<(), String> {
     .and_then(|index| index.view())
     .map_err(|error| error.to_string())?;
     let baseline_path =
-        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../core/benches/musenalm_queries.json");
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
     let cases = if extended {
         load_extended_manifest(
             &baseline_path,
             &PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-                .join("../core/benches/musenalm_queries_extended.json"),
+                .join("benches/musenalm_queries_extended.json"),
         )?
     } else {
         load_manifest(&baseline_path)?
