@@ -575,19 +575,28 @@ fn enqueue(
     }
 }
 
-fn groupable(batch: &Batch) -> bool {
-    batch.files.is_empty()
-        && !batch.operations.is_empty()
-        && batch.operations.iter().all(|operation| {
-            matches!(
-                operation,
-                Operation::Insert {
-                    file: None,
-                    version: None,
-                    ..
-                }
-            )
+fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
+    if !batch.files.is_empty() {
+        return None;
+    }
+    let Operation::Insert {
+        file: None,
+        version,
+        text,
+        ..
+    } = batch.operations.first()?
+    else {
+        return None;
+    };
+    let shape = (version.is_some(), text.is_empty());
+    batch
+        .operations
+        .iter()
+        .all(|operation| {
+            matches!(operation, Operation::Insert { file: None, version, text, .. }
+            if (version.is_some(), text.is_empty()) == shape)
         })
+        .then_some(shape)
 }
 
 fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
@@ -636,7 +645,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         };
         if group_enabled
             && let Storage::Memory(first) = &item.storage
-            && groupable(first)
+            && let Some(shape) = group_shape(first)
             && first.operations.len() < queue.group_target_records
         {
             let registration = first.registration;
@@ -650,7 +659,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                         break;
                     };
                     if batch.registration != registration
-                        || !groupable(batch)
+                        || group_shape(batch) != Some(shape)
                         || records.saturating_add(batch.operations.len())
                             > queue.group_target_records
                         || bytes.saturating_add(front.weight) > 4 * 1024 * 1024

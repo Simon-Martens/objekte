@@ -1958,6 +1958,49 @@ impl RecordReader for CorpusReader {
 }
 
 #[test]
+fn queued_provider_singletons_share_one_initial_segment_and_publication() {
+    let values = (0..32)
+        .map(|number| (format!("r{number}"), Value::String("Leipzig".into())))
+        .collect();
+    let reader = Arc::new(CorpusReader(Mutex::new(values), Mutex::new(Vec::new())));
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "grouped-provider", 1)
+        .unwrap();
+    builder.register_reader(registration, reader).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    session.pause_worker_for_measurement().unwrap();
+    let writer = session.writer(registration).unwrap();
+    let mut receipts = Vec::new();
+    for number in 0..32 {
+        let mut batch = writer.batch();
+        batch
+            .insert_from_reader(
+                format!("r{number}"),
+                Value::String("Leipzig".into()),
+                RecordVersion::new(1),
+            )
+            .unwrap();
+        receipts.push(writer.submit(batch).unwrap());
+    }
+    session.resume_worker_for_measurement();
+    let revision = receipts[0].wait_published().unwrap();
+    assert!(
+        receipts
+            .into_iter()
+            .skip(1)
+            .all(|receipt| receipt.wait_published() == Ok(revision))
+    );
+    session.finish().unwrap();
+    assert_eq!(session.metrics().root_installations, 1);
+    let view = index.view().unwrap();
+    assert_eq!(view.segment_summaries().len(), 1);
+    assert_eq!(index.status().unwrap().live_records, 32);
+}
+
+#[test]
 fn logical_corpus_agrees_across_json_retained_and_provider() {
     let root = std::env::temp_dir().join(format!(
         "objekte-cross-backing-{}-{:?}",
