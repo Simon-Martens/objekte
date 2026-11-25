@@ -1,0 +1,22 @@
+{
+  "reviewed_revision": "02cf0a1b2bedf5893e05204c90ade0d55f30c9c5",
+  "followup_revision": "b2feb41c01398dc2cfb57d3ec93726e7b3943917",
+  "platform": "Linux-7.3.3-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "available_cpus": 32,
+  "cpu0_governor": "performance",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "cargo_flags": [
+    "--locked",
+    "--release",
+    "--features",
+    "detailed-profiling"
+  ],
+  "musenalm_fixture": "/home/simon/source/objekte/examples/musenalm",
+  "pairs_per_workload": 3,
+  "reviewed_probe_adjustments": [
+    "Omit aggregate stream fields that the reviewed code does not expose",
+    "Observe the reviewed registered-many geometry without enforcing the new assertion"
+  ],
+  "samples": 36
+}

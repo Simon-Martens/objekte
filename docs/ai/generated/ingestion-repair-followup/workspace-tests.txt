@@ -1,0 +1,47 @@
+     Running unittests src/lib.rs (target/debug/deps/objekte_cli-0cc393467852bbe3)
+test result: ok. 82 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+     Running unittests src/main.rs (target/debug/deps/obj-a780a51543ac842d)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/obj_process.rs (target/debug/deps/obj_process-886f7809b513c990)
+test result: ok. 33 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.30s
+     Running tests/obj_removed_flags.rs (target/debug/deps/obj_removed_flags-aea28750b4dd5cb3)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running unittests src/lib.rs (target/debug/deps/objekte_desktop-017696b94fb14904)
+test result: ok. 160 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.34s
+     Running unittests src/main.rs (target/debug/deps/objekte_desktop-dcf2e45a468125fa)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-b7346021aabb687c)
+test result: ok. 726 passed; 0 failed; 17 ignored; 0 measured; 0 filtered out; finished in 13.32s
+     Running tests/array_positions.rs (target/debug/deps/array_positions-c6b64734db9e4eaa)
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+     Running tests/discovery_exclusions.rs (target/debug/deps/discovery_exclusions-12ec5d639a8c7a3a)
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/g2_interactions.rs (target/debug/deps/g2_interactions-1b9ec576e7ca323b)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+     Running tests/inline_sort.rs (target/debug/deps/inline_sort-2d63daca6b447ddf)
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+     Running tests/non_json_relations.rs (target/debug/deps/non_json_relations-0cbb237d19d53565)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+     Running tests/optional_feature_interactions.rs (target/debug/deps/optional_feature_interactions-5529dcecd173bde7)
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+     Running tests/parameters.rs (target/debug/deps/parameters-f9982392437bdcfd)
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/record_ingestion.rs (target/debug/deps/record_ingestion-d0e3d06becd44aca)
+test result: ok. 26 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.16s
+     Running tests/regex_record_id.rs (target/debug/deps/regex_record_id-3f6c33d382a58e40)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+     Running tests/relation_occurrence_oracle.rs (target/debug/deps/relation_occurrence_oracle-3b90506c96c48acf)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+     Running tests/relation_oracle.rs (target/debug/deps/relation_oracle-4ac6bda299345d29)
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+     Running tests/temporal_periods.rs (target/debug/deps/temporal_periods-dc36ca6870a6c020)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/temporal_regex_integration.rs (target/debug/deps/temporal_regex_integration-937448a6b0470ad2)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+   Doc-tests objekte_cli
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests objekte_desktop
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+   Doc-tests objekte_search_core
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
