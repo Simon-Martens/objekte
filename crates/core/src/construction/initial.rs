@@ -247,52 +247,37 @@ fn run_stream_groups(
     let window = pool.current_num_threads().min(4);
     let stop = AtomicBool::new(false);
     let should_stop = || stop.load(Ordering::Acquire) || cancelled();
-    let (jobs, pending) = mpsc::channel::<(usize, FileId, Arc<[StreamBinding]>)>();
-    let pending = Mutex::new(pending);
-    let (sender, receiver) = mpsc::channel();
-    // Framing callbacks may wait in application code. Keep a bounded set of
-    // coordinators outside the pool so decoder jobs can use all its workers.
-    std::thread::scope(|scope| {
-        for _ in 0..window {
-            let pending = &pending;
-            let root = &root;
-            let sender = sender.clone();
-            let should_stop = &should_stop;
-            scope.spawn(move || {
-                loop {
-                    let job = pending
-                        .lock()
-                        .expect("registered job queue poisoned")
-                        .recv();
-                    let Ok((group, file, bindings)) = job else {
-                        break;
-                    };
-                    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                        bindings
-                            .iter()
-                            .map(|binding| {
-                                stage_stream_binding(
-                                    pool,
-                                    Arc::clone(root),
-                                    binding,
-                                    file,
-                                    Arc::clone(source_files),
-                                    options,
-                                    collection_count,
-                                    budget,
-                                    should_stop,
-                                )
-                            })
-                            .collect::<Result<Vec<_>, _>>()
-                    }))
-                    .unwrap_or_else(|_| Err("registered file build worker panicked".into()));
-                    if sender.send((group, file, result)).is_err() {
-                        break;
-                    }
-                }
-            });
-        }
-        drop(sender);
+    type Job = (usize, FileId, Arc<[StreamBinding]>);
+    let use_external_framers = pool.current_num_threads() > 1
+        && groups
+            .iter()
+            .flat_map(|group| &group.files)
+            .any(|file| source_files[file.0 as usize].revision.size > 8 * 1024 * 1024);
+    let (sender, receiver) =
+        mpsc::channel::<(usize, FileId, Result<Vec<StagedStreamBinding>, String>)>();
+    let run_file = |(group, file, bindings): Job| {
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            bindings
+                .iter()
+                .map(|binding| {
+                    stage_stream_binding(
+                        pool,
+                        Arc::clone(&root),
+                        binding,
+                        file,
+                        Arc::clone(source_files),
+                        options,
+                        collection_count,
+                        budget,
+                        &should_stop,
+                    )
+                })
+                .collect::<Result<Vec<_>, _>>()
+        }))
+        .unwrap_or_else(|_| Err("registered file build worker panicked".into()));
+        (group, file, result)
+    };
+    let drive = |dispatch_file: &mut dyn FnMut(Job) -> Result<(), IndexError>| {
         let mut work = VecDeque::from(groups);
         let mut next_group = 0;
         let mut dispatch = VecDeque::new();
@@ -313,10 +298,7 @@ fn run_stream_groups(
                         );
                         next_group += 1;
                     }
-                    jobs.send(dispatch.pop_front().expect("stream job"))
-                        .map_err(|_| {
-                            IndexError::Build("registered job queue disconnected".into())
-                        })?;
+                    dispatch_file(dispatch.pop_front().expect("stream job"))?;
                     outstanding += 1;
                 }
                 if cancelled() {
@@ -339,7 +321,6 @@ fn run_stream_groups(
             Ok(())
         })();
         stop.store(true, Ordering::Release);
-        drop(jobs);
         drop(waiting);
         // Keep receiving until every dispatched file returns. The scope also
         // joins the coordinators before the terminal outcome becomes visible.
@@ -349,7 +330,49 @@ fn run_stream_groups(
             }
         }
         result
-    })
+    };
+    if use_external_framers {
+        // Large registered inputs need spare workers for their decoder jobs.
+        // Only these builds take a bounded set of external framing threads.
+        let (jobs, pending) = mpsc::channel::<Job>();
+        let pending = Mutex::new(pending);
+        std::thread::scope(|scope| {
+            for _ in 0..window {
+                let pending = &pending;
+                let sender = &sender;
+                let run_file = &run_file;
+                scope.spawn(move || {
+                    loop {
+                        let job = pending
+                            .lock()
+                            .expect("registered job queue poisoned")
+                            .recv();
+                        let Ok(job) = job else { break };
+                        if sender.send(run_file(job)).is_err() {
+                            break;
+                        }
+                    }
+                });
+            }
+            let outcome = drive(&mut |job| {
+                jobs.send(job)
+                    .map_err(|_| IndexError::Build("registered job queue disconnected".into()))
+            });
+            drop(jobs);
+            outcome
+        })
+    } else {
+        pool.in_place_scope(|scope| {
+            drive(&mut |job| {
+                let sender = &sender;
+                let run_file = &run_file;
+                scope.spawn(move |_| {
+                    let _ = sender.send(run_file(job));
+                });
+                Ok(())
+            })
+        })
+    }
 }
 
 struct IncrementalCollection {
