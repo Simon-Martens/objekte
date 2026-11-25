@@ -872,7 +872,11 @@ impl Repository {
                 crate::construction::batch::file_batches(members, &discovered)
             };
             let mut small_streams = Vec::new();
-            for batch in batches {
+            let max_files = options.segment_policy.max_files.get();
+            for batch in batches
+                .into_iter()
+                .flat_map(|batch| batch.chunks(max_files))
+            {
                 if streams
                     && build_workers > 1
                     && members.len() > 1

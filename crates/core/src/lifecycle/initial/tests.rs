@@ -1906,3 +1906,43 @@ fn small_jsonl_partitions_follow_the_record_target_across_file_continuations() {
     assert_eq!(pinned.file_record_count(FileId(0)), Some(10));
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn ordinary_file_batches_respect_distinct_file_limit_before_decoding() {
+    let root =
+        std::env::temp_dir().join(format!("objekte-small-file-limit-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for file in ["a", "b", "c"] {
+        std::fs::write(root.join(format!("data/{file}.json")), b"{}").unwrap();
+    }
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "entries",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: NonZeroUsize::new(8).unwrap(),
+                max_files: NonZeroUsize::new(2).unwrap(),
+            },
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .segment_summaries()
+            .iter()
+            .map(|segment| segment.files)
+            .collect::<Vec<_>>(),
+        [2, 1]
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
