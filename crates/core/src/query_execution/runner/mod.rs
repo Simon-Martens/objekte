@@ -18,6 +18,7 @@ use crate::index::sorting::simple_composite_part;
 use crate::index::sorting::{InferredOrderKey, SortColumn};
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
+use crate::index::storage::ordered_slots::OrderedSlotCursor;
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
@@ -1860,25 +1861,19 @@ fn order_segment_file_groups(
 /// Keep only one cursor per shard and the requested page; fall back to the
 /// general planner if their measured retained bytes exceed this route's cap.
 #[allow(clippy::too_many_arguments)]
-fn push_exact_order_cursor(
+fn push_exact_order_cursor<'a>(
     repo: &Repository,
-    query: &Query,
     sort: &ResolvedSort<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     collection_index: usize,
     segment_index: usize,
     selected: &[(RoaringBitmap, Vec<String>)],
-    mut position: usize,
-    heap: &mut BinaryHeap<Reverse<LifecycleOrderCursor>>,
+    mut order: OrderedSlotCursor<'a>,
+    heap: &mut BinaryHeap<Reverse<LifecycleOrderCursor<'a>>>,
     retained_bytes: &mut usize,
 ) -> Result<bool, String> {
     let published = &segments[collection_index][segment_index];
-    let Some(order) = lifecycle_segment_order(&published.index, sort, query, collection_index)
-    else {
-        return Ok(false);
-    };
-    while let Some(slot) = order.get(position).copied() {
-        position += 1;
+    while let Some(slot) = order.next_slot().map_err(|error| error.to_string())? {
         if !selected[segment_index].0.contains(slot.0) {
             continue;
         }
@@ -1888,8 +1883,9 @@ fn push_exact_order_cursor(
             .ok_or("exact ordered slot missing")?;
         let predicted_key_bytes =
             segment_rank_key_owned_bytes(repo, sort, collection_index, &published.index, record)?;
-        let Some(bytes) =
-            predicted_key_bytes.checked_add(std::mem::size_of::<LifecycleOrderCursor>())
+        let Some(bytes) = predicted_key_bytes
+            .checked_add(std::mem::size_of::<LifecycleOrderCursor>())
+            .and_then(|bytes| bytes.checked_add(order.owned_batch_bytes()))
         else {
             return Ok(false);
         };
@@ -1911,7 +1907,7 @@ fn push_exact_order_cursor(
             bytes,
             collection_index,
             segment_index,
-            position,
+            order,
             slot,
         }));
         break;
@@ -1971,15 +1967,18 @@ fn exact_ordered_page(
     }
     let mut heap = BinaryHeap::new();
     for segment_index in 0..selected.len() {
+        let segment = &segments[collection_index][segment_index].index;
+        let Some(order) = lifecycle_segment_order(segment, sort, query, collection_index) else {
+            return Ok(None);
+        };
         if !push_exact_order_cursor(
             repo,
-            query,
             sort,
             segments,
             collection_index,
             segment_index,
             selected,
-            0,
+            order,
             &mut heap,
             &mut retained_bytes,
         )? {
@@ -2032,13 +2031,12 @@ fn exact_ordered_page(
         if seen < cap
             && !push_exact_order_cursor(
                 repo,
-                query,
                 sort,
                 segments,
                 collection_index,
                 cursor.segment_index,
                 selected,
-                cursor.position,
+                cursor.order,
                 &mut heap,
                 &mut retained_bytes,
             )?
@@ -3010,21 +3008,22 @@ fn search_segmented_impl(
                     && cache_builder.is_none()
                     && context.is_none()
                     && cap < candidates.len() as usize
-                    && let Some(order) =
+                    && let Some(mut order) =
                         lifecycle_segment_order(segment, &sort, query, collection_index)
                 {
                     total += candidates.len();
                     counters.exact_posting_matches += candidates.len();
                     let mut selected = 0usize;
-                    for slot in order {
-                        if selected == cap {
+                    while selected < cap {
+                        let Some(slot) = order.next_slot().map_err(|error| error.to_string())?
+                        else {
                             break;
-                        }
+                        };
                         if !candidates.contains(slot.0) {
                             continue;
                         }
                         let resolved =
-                            segment_record_ref(segment, &published.active, catalog, *slot)?
+                            segment_record_ref(segment, &published.active, catalog, slot)?
                                 .ok_or("active segment ordered candidate missing")?;
                         let key = segment_rank_key(
                             repo,
@@ -4278,47 +4277,37 @@ fn lifecycle_segment_order<'a>(
     sort: &ResolvedSort<'_>,
     query: &Query,
     collection_index: usize,
-) -> Option<&'a [RecordSlot]> {
-    if query.options.sort.len() > 1 {
-        return segment
-            .sorting
-            .composite(&query.options.sort)
-            .map(|order| order.order.as_slice());
-    }
-    if query.options.sort.is_empty() {
-        return Some(&segment.identity_order);
-    }
-    let term = sort.bound.terms[collection_index].as_ref()?.first()?;
-    let BoundSortSource::Stored(base_column) = &term.source else {
-        return None;
-    };
-    let column = segment.sorting.columns.get(&base_column.path)?;
-    Some(if term.descending {
-        &column.descending
-    } else {
-        &column.ascending
-    })
+) -> Option<OrderedSlotCursor<'a>> {
+    let scalar = sort
+        .bound
+        .terms
+        .get(collection_index)
+        .and_then(Option::as_ref)
+        .and_then(|terms| terms.first())
+        .and_then(|term| match &term.source {
+            BoundSortSource::Stored(column) => Some((&column.path, term.descending)),
+            BoundSortSource::Computed(_) => None,
+        });
+    segment
+        .ordered_slots(&query.options.sort, scalar)
+        .map(OrderedSlotCursor::new)
 }
 
-fn push_lifecycle_order_cursor(
+fn push_lifecycle_order_cursor<'a>(
     repo: &Repository,
-    query: &Query,
     sort: &ResolvedSort<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     candidates: &[Vec<Option<RoaringBitmap>>],
     collection_index: usize,
     segment_index: usize,
-    mut position: usize,
-    heap: &mut BinaryHeap<Reverse<LifecycleOrderCursor>>,
+    mut order: OrderedSlotCursor<'a>,
+    heap: &mut BinaryHeap<Reverse<LifecycleOrderCursor<'a>>>,
     heap_bytes: &mut usize,
     budget: usize,
     context: &ExecutionContext,
 ) -> Result<(), String> {
     let published = &segments[collection_index][segment_index];
-    let order = lifecycle_segment_order(&published.index, sort, query, collection_index)
-        .ok_or("lifecycle stored order unavailable")?;
-    while let Some(slot) = order.get(position).copied() {
-        position += 1;
+    while let Some(slot) = order.next_slot().map_err(|error| error.to_string())? {
         if !published.active.contains(slot)
             || candidates[collection_index][segment_index]
                 .as_ref()
@@ -4330,8 +4319,9 @@ fn push_lifecycle_order_cursor(
             .index
             .record(slot)
             .ok_or("lifecycle ordered slot missing")?;
-        let bytes =
+        let key_bytes =
             segment_rank_key_owned_bytes(repo, sort, collection_index, &published.index, record)?;
+        let bytes = key_bytes.saturating_add(order.owned_batch_bytes());
         let next = heap_bytes.checked_add(bytes).ok_or_else(|| {
             context.fail(
                 ExecutionErrorKind::Resource,
@@ -4346,14 +4336,14 @@ fn push_lifecycle_order_cursor(
         }
         let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
         #[cfg(test)]
-        assert_eq!(rank_key_bytes(&key), bytes as u64);
+        assert_eq!(rank_key_bytes(&key), key_bytes as u64);
         *heap_bytes = next;
         heap.push(Reverse(LifecycleOrderCursor {
             key,
             bytes,
             collection_index,
             segment_index,
-            position,
+            order,
             slot,
         }));
         break;
@@ -4756,16 +4746,17 @@ fn try_lifecycle_ordered_stream(
         if selected.is_none() {
             continue;
         }
-        for segment_index in 0..segments[collection_index].len() {
+        for (segment_index, published) in segments[collection_index].iter().enumerate() {
+            let order = lifecycle_segment_order(&published.index, sort, request, collection_index)
+                .ok_or("lifecycle stored order unavailable")?;
             push_lifecycle_order_cursor(
                 repo,
-                request,
                 &sort,
                 segments,
                 &candidates,
                 collection_index,
                 segment_index,
-                0,
+                order,
                 &mut heap,
                 &mut heap_bytes,
                 max_buffered_bytes,
@@ -4815,13 +4806,12 @@ fn try_lifecycle_ordered_stream(
             .map_or(0, |delivery| delivery.retained_identity_bytes());
         push_lifecycle_order_cursor(
             repo,
-            request,
             &sort,
             segments,
             &candidates,
             cursor.collection_index,
             cursor.segment_index,
-            cursor.position,
+            cursor.order,
             &mut heap,
             &mut heap_bytes,
             max_buffered_bytes

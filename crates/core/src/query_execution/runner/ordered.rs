@@ -3,30 +3,30 @@
 use super::*;
 use crate::query_results::ranking::RankKey;
 
-pub(super) struct LifecycleOrderCursor {
+pub(super) struct LifecycleOrderCursor<'a> {
     pub(super) key: RankKey,
     pub(super) bytes: usize,
     pub(super) collection_index: usize,
     pub(super) segment_index: usize,
-    pub(super) position: usize,
+    pub(super) order: OrderedSlotCursor<'a>,
     pub(super) slot: RecordSlot,
 }
 
-impl PartialEq for LifecycleOrderCursor {
+impl PartialEq for LifecycleOrderCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-impl Eq for LifecycleOrderCursor {}
+impl Eq for LifecycleOrderCursor<'_> {}
 
-impl PartialOrd for LifecycleOrderCursor {
+impl PartialOrd for LifecycleOrderCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
 
-impl Ord for LifecycleOrderCursor {
+impl Ord for LifecycleOrderCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
@@ -58,12 +58,11 @@ pub(super) fn read_lifecycle_ordered_record(
 
 pub(super) struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
-    order: &'a [crate::model::RecordSlot],
+    order: OrderedSlotCursor<'a>,
     record: &'a RecordEntry,
     collection_name: &'a str,
     collection_index: usize,
     plan_index: usize,
-    position: usize,
 }
 
 impl PartialEq for StoredCursor<'_> {
@@ -102,22 +101,26 @@ impl Ord for StoredCursor<'_> {
 pub(super) fn stored_cursor<'a>(
     repo: &'a Repository,
     columns: &'a [(&'a SortColumn, bool)],
-    order: &'a [crate::model::RecordSlot],
+    mut order: OrderedSlotCursor<'a>,
     collection_index: usize,
     plan_index: usize,
-    position: usize,
-) -> Option<StoredCursor<'a>> {
-    let slot = order.get(position)?;
+) -> Result<Option<StoredCursor<'a>>, String> {
+    let Some(slot) = order.next_slot().map_err(|error| error.to_string())? else {
+        return Ok(None);
+    };
     let collection = &repo.collections[collection_index];
-    Some(StoredCursor {
+    Ok(Some(StoredCursor {
         columns,
         order,
-        record: &collection.generation.records[slot.0 as usize],
+        record: collection
+            .generation
+            .records
+            .get(slot.0 as usize)
+            .ok_or("base ordered slot missing")?,
         collection_name: &collection.definition.name,
         collection_index,
         plan_index,
-        position,
-    })
+    }))
 }
 
 struct OrderedPlan<'a> {
@@ -1068,11 +1071,10 @@ pub(super) fn try_stored_order_page(
         if let Some(cursor) = stored_cursor(
             repo,
             columns,
-            order.as_slice(),
+            OrderedSlotCursor::new(order),
             entry.collection_index,
             plan_index,
-            0,
-        ) {
+        )? {
             heap.push(Reverse(cursor));
         }
     }
@@ -1280,8 +1282,7 @@ pub(super) fn try_stored_order_page(
                 cursor.order,
                 cursor.collection_index,
                 cursor.plan_index,
-                cursor.position + 1,
-            ) {
+            )? {
                 heap.push(Reverse(next));
             }
         }

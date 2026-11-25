@@ -1152,25 +1152,29 @@ fn try_direct_relation_page(
         } else {
             None
         };
-        if stored_order.is_some() {
+        let ordered = stored_order.is_some();
+        if ordered {
             // A global top `cap` cannot include a row ranked below its own
             // shard's top `cap`. Count the full exact bitmap without building
             // rank keys and hit locators for every matching source.
             total += may.len();
             counters.exact_posting_matches += may.len();
         }
-        let slots: Box<dyn Iterator<Item = u32> + '_> = if let Some(order) = stored_order {
-            Box::new(
-                order
-                    .iter()
-                    .filter(|slot| may.contains(slot.0))
-                    .take(cap)
-                    .map(|slot| slot.0),
-            )
-        } else {
-            Box::new(may.iter())
-        };
+        let slots: Box<dyn Iterator<Item = Result<u32, String>> + '_> =
+            if let Some(mut order) = stored_order {
+                Box::new(
+                    std::iter::from_fn(move || order.next_slot().transpose())
+                        .filter_map(|slot| match slot {
+                            Ok(slot) => may.contains(slot.0).then_some(Ok(slot.0)),
+                            Err(error) => Some(Err(error.to_string())),
+                        })
+                        .take(cap),
+                )
+            } else {
+                Box::new(may.iter().map(Ok))
+            };
         for slot in slots {
+            let slot = slot?;
             if let Some(context) = context {
                 context.check_string()?;
             }
@@ -1205,7 +1209,7 @@ fn try_direct_relation_page(
             } else {
                 segment_rank_key(repo, sort, *source_index, &published.index, record, None)?
             };
-            if stored_order.is_none() {
+            if !ordered {
                 total += 1;
                 counters.exact_posting_matches += 1;
             }

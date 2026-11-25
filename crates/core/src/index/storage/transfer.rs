@@ -58,6 +58,15 @@ impl BatchLimit {
         Self { items, bytes }
     }
 
+    pub(crate) fn fixed_batch_len(
+        self,
+        operation: &'static str,
+        item_bytes: usize,
+    ) -> StorageResult<usize> {
+        self.accepts(operation, 0, 0, item_bytes)?;
+        Ok(self.items.get().min(self.bytes.get() / item_bytes.max(1)))
+    }
+
     /// Check before consuming the next item. A single oversized item fails
     /// explicitly instead of exceeding the limit or making no progress.
     pub(crate) fn accepts(

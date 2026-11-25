@@ -1,5 +1,6 @@
 //! Stored ICU string keys and typed sort columns.
 
+use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::collections::HashMap;
 
@@ -10,6 +11,8 @@ use icu_collator::{
 };
 use icu_locale_core::Locale;
 
+use crate::index::storage::ordered_slots::OrderedSlots;
+use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::inventory::{ByteRange, CollectionGeneration, FileEntry, FileInventory, RecordClass};
 use crate::model::{
     FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
@@ -31,6 +34,32 @@ pub use crate::index::storage::order::{
 };
 
 pub(crate) const INFERRED_ORDER_CACHE_BYTES: usize = 128 * 1024 * 1024;
+
+impl OrderedSlots for Vec<RecordSlot> {
+    fn len(&self) -> usize {
+        Vec::len(self)
+    }
+
+    fn read_batch(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [RecordSlot]>, BatchStatus)> {
+        const OP: &str = "read native order";
+        let remaining = self
+            .get(start..)
+            .ok_or_else(|| StorageError::invalid(OP, "slot cursor outside order"))?;
+        let len = remaining
+            .len()
+            .min(limit.fixed_batch_len(OP, std::mem::size_of::<RecordSlot>())?);
+        let status = if len == remaining.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Borrowed(&remaining[..len]), status))
+    }
+}
 
 /// Precomputed sort keys for one configured field.
 #[derive(Clone, Debug)]

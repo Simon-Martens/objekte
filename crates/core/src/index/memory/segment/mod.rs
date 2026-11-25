@@ -635,6 +635,28 @@ pub struct NativeComponentDescriptor<'a> {
 }
 
 impl IndexedCollectionSegment {
+    pub(crate) fn ordered_slots(
+        &self,
+        sort: &[crate::query::options::SortField],
+        scalar: Option<(&crate::model::FieldPath, bool)>,
+    ) -> Option<&dyn crate::index::storage::ordered_slots::OrderedSlots> {
+        if sort.is_empty() {
+            return Some(&self.identity_order);
+        }
+        if sort.len() > 1 {
+            return self.sorting.composite(sort).map(|column| {
+                &column.order as &dyn crate::index::storage::ordered_slots::OrderedSlots
+            });
+        }
+        let (path, descending) = scalar?;
+        let column = self.sorting.columns.get(path)?;
+        Some(if descending {
+            &column.descending
+        } else {
+            &column.ascending
+        })
+    }
+
     pub(crate) fn refresh_metadata_sort_slots(
         &mut self,
         slots: impl IntoIterator<Item = RecordSlot>,

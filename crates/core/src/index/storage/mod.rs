@@ -2,6 +2,7 @@
 
 pub(crate) mod file_catalog;
 pub(crate) mod order;
+pub(crate) mod ordered_slots;
 pub(crate) mod posting;
 pub(crate) mod relation;
 pub(crate) mod segment;
