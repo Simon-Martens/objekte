@@ -38,6 +38,48 @@ impl ReceiptState {
     }
 }
 
+const RECEIPTS_PER_BLOCK: u64 = 256;
+
+/// Holds unfinished blocks and at most one partially filled tail. Completed
+/// blocks remain alive only while callers hold receipts for them.
+#[derive(Default)]
+struct ReceiptLedger {
+    blocks: Mutex<VecDeque<(u64, Arc<ReceiptState>)>>,
+}
+
+impl ReceiptLedger {
+    fn accept(&self, sequence: u64) -> Receipt {
+        let end = ((sequence - 1) / RECEIPTS_PER_BLOCK + 1) * RECEIPTS_PER_BLOCK;
+        let mut blocks = self.blocks.lock().expect("receipt ledger poisoned");
+        if blocks.back().is_none_or(|(last, _)| *last != end) {
+            blocks.push_back((end, Arc::new(ReceiptState::new())));
+        }
+        Receipt {
+            sequence,
+            state: Arc::clone(&blocks.back().expect("open receipt block").1),
+        }
+    }
+
+    fn complete_through(&self, sequence: u64, result: PublishedRevision) {
+        let mut blocks = self.blocks.lock().expect("receipt ledger poisoned");
+        while let Some((end, state)) = blocks.front() {
+            state.complete_through(sequence.min(*end), result.clone());
+            if *end > sequence {
+                break;
+            }
+            let reached_end = *end == sequence;
+            blocks.pop_front();
+            if reached_end {
+                break;
+            }
+        }
+    }
+
+    fn close(&self) {
+        self.blocks.lock().expect("receipt ledger poisoned").clear();
+    }
+}
+
 /// One accepted batch. Dropping this handle never cancels installation.
 pub struct Receipt {
     sequence: u64,
@@ -134,7 +176,7 @@ struct State {
 
 struct Queue {
     state: Mutex<State>,
-    receipts: Arc<ReceiptState>,
+    receipts: ReceiptLedger,
     changed: Condvar,
     spool: Mutex<SpoolManager>,
     encoding: Mutex<()>,
@@ -192,7 +234,7 @@ impl SessionCore {
                 metrics: SessionMetrics::default(),
             }),
             changed: Condvar::new(),
-            receipts: Arc::new(ReceiptState::new()),
+            receipts: ReceiptLedger::default(),
             spool: Mutex::new(SpoolManager::new(id, &options)),
             encoding: Mutex::new(()),
             options,
@@ -597,11 +639,9 @@ fn enqueue(
             group,
         });
     }
+    let receipt = queue.receipts.accept(sequence);
     queue.changed.notify_all();
-    Receipt {
-        sequence,
-        state: Arc::clone(&queue.receipts),
-    }
+    receipt
 }
 
 fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
@@ -939,6 +979,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
         }
         queue.changed.notify_all();
     }
+    queue.receipts.close();
     queue.spool.lock().expect("spool mutex poisoned").cleanup();
 }
 
@@ -954,6 +995,25 @@ mod tests {
         let mut batch = Batch::new(session_id, registration);
         batch.insert(id, Value::String("Leipzig".into())).unwrap();
         batch
+    }
+
+    #[test]
+    fn receipt_ledger_releases_old_completed_blocks() {
+        let ledger = ReceiptLedger::default();
+        let early = ledger.accept(1);
+        let revision = crate::lifecycle::IndexRevision::INITIAL;
+        ledger.complete_through(1, Ok(revision));
+        for sequence in 2..=4 * RECEIPTS_PER_BLOCK {
+            drop(ledger.accept(sequence));
+            ledger.complete_through(sequence, Ok(revision));
+        }
+        assert!(ledger.blocks.lock().unwrap().is_empty());
+        assert_eq!(
+            early.state.results.lock().unwrap().len(),
+            RECEIPTS_PER_BLOCK as usize
+        );
+        assert_eq!(early.wait_published().unwrap(), revision);
+        assert_eq!(early.wait_published().unwrap(), revision);
     }
 
     #[test]
