@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Q068",
+    "collection": "agents",
+    "fts": null,
+    "filter": "name ~ \"%Goethe%\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

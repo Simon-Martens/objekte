@@ -1,0 +1,24 @@
+{
+  "source_commit": "7ce3f6e525fee77f46c71ad7c02a94c7d06a21b7",
+  "all_required_invocations_passed": true,
+  "matching_frozen_conditions": true,
+  "query_rows": {
+    "historical-ascii": 150,
+    "historical-unicode": 150,
+    "focused-ascii": 9,
+    "focused-unicode": 9,
+    "extended-unicode": 6
+  },
+  "canonical_sha256": {
+    "ascii": "b06b294ee77503794be1ed1fb97e5f67480d864e7deea689a8ad1a36aea8aee5",
+    "unicode": "b06b294ee77503794be1ed1fb97e5f67480d864e7deea689a8ad1a36aea8aee5",
+    "extended-unicode": "79d3f1a6e964520e6cb3878a6256009ca8c373cfa46caf2a2801438b97bff3c6"
+  },
+  "probe_binary_sha256": "fb5209a41a35570f0b408da5649964991094e95ef0831ecc05013b431fcdd9ca",
+  "probe_fixture": "/home/simon/source/objekte-record-ingestion-probe-fixture",
+  "probe_exact_count_zero_source_reads": true,
+  "native_runs": 27,
+  "confirmed_gates": {
+    "historical-ascii/Q119": "pass"
+  }
+}

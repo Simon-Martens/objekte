@@ -1,0 +1,9 @@
+phase	ms	rss_kb	hwm_kb	revision	files	records	detail
+build	5.574	10644	10644	3	1	3	collection_count=3
+add	1.426	10640	10628	4	2	5	strategy=AppendReplacement;records=2
+update_append	0.146	10492	10492	5	2	5	strategy=AppendReplacement;fallback=None
+update_verified	0.122	10564	10564	6	2	5	strategy=VerifiedPhysicalRemoval;fallback=None
+move	0.043	10672	10672	7	2	5	strategy=ContentPreservingMove;records=2
+delete_verified	0.023	10672	10672	8	1	3	strategy=VerifiedPhysicalRemoval;fallback=None
+compact	0.001	10672	10672	8	1	3	retired_slots_removed=0;remaining=0;records_examined=0;input_bytes_budgeted=0;temporary_bytes_estimated=0;slots_after=3;
+reconcile_no_change	0.134	10676	10676	8	1	3	examined=1;unchanged=1;issues=0

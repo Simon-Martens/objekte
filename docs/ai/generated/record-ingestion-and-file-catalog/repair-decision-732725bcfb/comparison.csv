@@ -1,0 +1,144 @@
+metric,configuration_or_qid,before,after,delta,delta_pct,unit,verdict,source
+build_wall_ns,ascii,627615878,679384766,51768888,8.248,ns,pass,three process medians
+build_peak_resident_bytes,ascii,599928832,648179712,48250880,8.043,bytes,pass,three process medians
+build_resident_bytes,ascii,556912640,606314496,49401856,8.871,bytes,pass,three process medians
+build_index_family_bytes,ascii,103830944,103830944,0,0.0,bytes,pass,three process medians
+build_wall_ns,unicode,706673064,730188693,23515629,3.328,ns,pass,three process medians
+build_peak_resident_bytes,unicode,652345344,675700736,23355392,3.58,bytes,pass,three process medians
+build_resident_bytes,unicode,609325056,632803328,23478272,3.853,bytes,pass,three process medians
+build_index_family_bytes,unicode,107999678,107999678,0,0.0,bytes,pass,three process medians
+query_median,focused-ascii/Q001,37796561,36819157,-977404,-2.586,ns,informational,seven samples per process
+query_first,focused-ascii/Q001,42830223,41236957,-1593266,-3.72,ns,informational,first measured sample
+query_median,focused-ascii/Q030,8591492,8123917,-467575,-5.442,ns,informational,seven samples per process
+query_first,focused-ascii/Q030,9588798,9536618,-52180,-0.544,ns,informational,first measured sample
+query_median,focused-ascii/Q034,3974,4024,50,1.258,ns,informational,seven samples per process
+query_first,focused-ascii/Q034,26464,27109,645,2.437,ns,informational,first measured sample
+query_median,focused-ascii/Q035,21383,23287,1904,8.904,ns,informational,seven samples per process
+query_first,focused-ascii/Q035,43877,43513,-364,-0.83,ns,informational,first measured sample
+query_median,focused-ascii/Q054,1513192,1533608,20416,1.349,ns,informational,seven samples per process
+query_first,focused-ascii/Q054,1676272,1698071,21799,1.3,ns,informational,first measured sample
+query_median,focused-ascii/Q081,3254556,3171800,-82756,-2.543,ns,informational,seven samples per process
+query_first,focused-ascii/Q081,3655012,3496421,-158591,-4.339,ns,informational,first measured sample
+query_median,focused-ascii/Q116,188966,195370,6404,3.389,ns,informational,seven samples per process
+query_first,focused-ascii/Q116,237797,244561,6764,2.844,ns,informational,first measured sample
+query_median,focused-ascii/Q136,3206729,2808668,-398061,-12.413,ns,informational,seven samples per process
+query_first,focused-ascii/Q136,5308040,4802334,-505706,-9.527,ns,informational,first measured sample
+query_median,focused-ascii/Q144,63590812,62883124,-707688,-1.113,ns,informational,seven samples per process
+query_first,focused-ascii/Q144,64119223,64476633,357410,0.557,ns,informational,first measured sample
+focused_median_sum,focused-ascii,118167665,115562955,-2604710,-2.204,ns,pass,nine query medians
+query_median,focused-unicode/Q001,37329729,36378575,-951154,-2.548,ns,informational,seven samples per process
+query_first,focused-unicode/Q001,41060326,42450084,1389758,3.385,ns,informational,first measured sample
+query_median,focused-unicode/Q030,8754809,8262062,-492747,-5.628,ns,informational,seven samples per process
+query_first,focused-unicode/Q030,9720307,9615693,-104614,-1.076,ns,informational,first measured sample
+query_median,focused-unicode/Q034,3877,3938,61,1.573,ns,informational,seven samples per process
+query_first,focused-unicode/Q034,25533,30358,4825,18.897,ns,informational,first measured sample
+query_median,focused-unicode/Q035,21790,22606,816,3.745,ns,informational,seven samples per process
+query_first,focused-unicode/Q035,41958,45490,3532,8.418,ns,informational,first measured sample
+query_median,focused-unicode/Q054,1514742,1535407,20665,1.364,ns,informational,seven samples per process
+query_first,focused-unicode/Q054,1670515,1698145,27630,1.654,ns,informational,first measured sample
+query_median,focused-unicode/Q081,3310653,3198379,-112274,-3.391,ns,informational,seven samples per process
+query_first,focused-unicode/Q081,3722447,3472023,-250424,-6.727,ns,informational,first measured sample
+query_median,focused-unicode/Q116,187594,195663,8069,4.301,ns,informational,seven samples per process
+query_first,focused-unicode/Q116,240508,245549,5041,2.096,ns,informational,first measured sample
+query_median,focused-unicode/Q136,3206849,2817755,-389094,-12.133,ns,informational,seven samples per process
+query_first,focused-unicode/Q136,5338513,4721778,-616735,-11.553,ns,informational,first measured sample
+query_median,focused-unicode/Q144,63750968,64120739,369771,0.58,ns,informational,seven samples per process
+query_first,focused-unicode/Q144,65472480,64901171,-571309,-0.873,ns,informational,first measured sample
+focused_median_sum,focused-unicode,118081011,116535124,-1545887,-1.309,ns,pass,nine query medians
+query_median,extended-unicode/Q155,152463,244085,91622,60.095,ns,informational,seven samples per process
+query_first,extended-unicode/Q155,249786,340155,90369,36.179,ns,informational,first measured sample
+query_median,extended-unicode/Q163,6082012,5874363,-207649,-3.414,ns,informational,seven samples per process
+query_first,extended-unicode/Q163,7313198,8262779,949581,12.984,ns,informational,first measured sample
+query_median,extended-unicode/Q166,32022378,30794402,-1227976,-3.835,ns,pass,seven samples per process
+query_first,extended-unicode/Q166,34083050,33712840,-370210,-1.086,ns,informational,first measured sample
+query_median,extended-unicode/Q170,49056,48354,-702,-1.431,ns,informational,seven samples per process
+query_first,extended-unicode/Q170,143069,126211,-16858,-11.783,ns,informational,first measured sample
+query_median,extended-unicode/Q195,28388,28459,71,0.25,ns,informational,seven samples per process
+query_first,extended-unicode/Q195,45213,41018,-4195,-9.278,ns,informational,first measured sample
+query_median,extended-unicode/Q219,158098,160361,2263,1.431,ns,informational,seven samples per process
+query_first,extended-unicode/Q219,196496,198507,2011,1.023,ns,informational,first measured sample
+id_lookup_per_operation,16384 files,149.3506,182.3307,32.98010000000002,22.082,ns,informational,seven 10000-operation samples
+residual_query_median,year = 1808 && note ~ Leipzig,485862,478697,-7165,-1.475,ns,informational,seven samples
+lifecycle_phase,build,4.503,4.985,0.4820000000000002,10.704,ms,informational,three process medians
+lifecycle_phase,add,0.426,0.524,0.09800000000000003,23.005,ms,informational,three process medians
+lifecycle_phase,update_append,0.166,0.233,0.067,40.361,ms,informational,three process medians
+lifecycle_phase,update_verified,0.247,0.214,-0.033,-13.36,ms,informational,three process medians
+lifecycle_phase,move,0.061,0.057,-0.003999999999999997,-6.557,ms,informational,three process medians
+lifecycle_phase,delete_verified,0.041,0.034,-0.006999999999999999,-17.073,ms,informational,three process medians
+lifecycle_phase,compact,0.0,0.0,0.0,,ms,informational,three process medians
+lifecycle_phase,reconcile_no_change,0.748,0.775,0.027000000000000024,3.61,ms,informational,three process medians
+native_producer_accept_ns,ingest-1-1-normal,N/A — API absent,16142328,,,ns,pass,three fresh after-only processes
+native_publish_drain_ns,ingest-1-1-normal,N/A — API absent,88957219,,,ns,pass,three fresh after-only processes
+native_high_water_ram_bytes,ingest-1-1-normal,N/A — API absent,66207456,,,count/bytes,pass,three fresh after-only processes
+native_high_water_spool_bytes,ingest-1-1-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_written_bytes,ingest-1-1-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_read_bytes,ingest-1-1-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,ingest-1-1-normal,N/A — API absent,237108,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,ingest-1-1-normal,N/A — API absent,1205248,,,count/bytes,pass,three fresh after-only processes
+native_segments,ingest-1-1-normal,N/A — API absent,20,,,count/bytes,pass,three fresh after-only processes
+native_producer_accept_ns,ingest-1-4-normal,N/A — API absent,32116203,,,ns,pass,three fresh after-only processes
+native_publish_drain_ns,ingest-1-4-normal,N/A — API absent,92552476,,,ns,pass,three fresh after-only processes
+native_high_water_ram_bytes,ingest-1-4-normal,N/A — API absent,58937847,,,count/bytes,pass,three fresh after-only processes
+native_high_water_spool_bytes,ingest-1-4-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_written_bytes,ingest-1-4-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_read_bytes,ingest-1-4-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,ingest-1-4-normal,N/A — API absent,237084,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,ingest-1-4-normal,N/A — API absent,1203712,,,count/bytes,pass,three fresh after-only processes
+native_segments,ingest-1-4-normal,N/A — API absent,20,,,count/bytes,pass,three fresh after-only processes
+native_producer_accept_ns,ingest-256-1-normal,N/A — API absent,327153,,,ns,pass,three fresh after-only processes
+native_publish_drain_ns,ingest-256-1-normal,N/A — API absent,188044283,,,ns,pass,three fresh after-only processes
+native_high_water_ram_bytes,ingest-256-1-normal,N/A — API absent,35917824,,,count/bytes,pass,three fresh after-only processes
+native_high_water_spool_bytes,ingest-256-1-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_written_bytes,ingest-256-1-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_read_bytes,ingest-256-1-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,ingest-256-1-normal,N/A — API absent,122236,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,ingest-256-1-normal,N/A — API absent,1261568,,,count/bytes,pass,three fresh after-only processes
+native_segments,ingest-256-1-normal,N/A — API absent,64,,,count/bytes,pass,three fresh after-only processes
+native_producer_accept_ns,ingest-256-1-overflow,N/A — API absent,16403561,,,ns,pass,three fresh after-only processes
+native_publish_drain_ns,ingest-256-1-overflow,N/A — API absent,110108090,,,ns,pass,three fresh after-only processes
+native_high_water_ram_bytes,ingest-256-1-overflow,N/A — API absent,982128,,,count/bytes,pass,three fresh after-only processes
+native_high_water_spool_bytes,ingest-256-1-overflow,N/A — API absent,6744912,,,count/bytes,pass,three fresh after-only processes
+native_spool_written_bytes,ingest-256-1-overflow,N/A — API absent,6744912,,,count/bytes,pass,three fresh after-only processes
+native_spool_read_bytes,ingest-256-1-overflow,N/A — API absent,6744912,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,ingest-256-1-overflow,N/A — API absent,189688,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,ingest-256-1-overflow,N/A — API absent,1261568,,,count/bytes,pass,three fresh after-only processes
+native_segments,ingest-256-1-overflow,N/A — API absent,64,,,count/bytes,pass,three fresh after-only processes
+native_producer_accept_ns,ingest-256-4-normal,N/A — API absent,369274,,,ns,pass,three fresh after-only processes
+native_publish_drain_ns,ingest-256-4-normal,N/A — API absent,194032885,,,ns,pass,three fresh after-only processes
+native_high_water_ram_bytes,ingest-256-4-normal,N/A — API absent,35777520,,,count/bytes,pass,three fresh after-only processes
+native_high_water_spool_bytes,ingest-256-4-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_written_bytes,ingest-256-4-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_spool_read_bytes,ingest-256-4-normal,N/A — API absent,0,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,ingest-256-4-normal,N/A — API absent,122252,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,ingest-256-4-normal,N/A — API absent,1261568,,,count/bytes,pass,three fresh after-only processes
+native_segments,ingest-256-4-normal,N/A — API absent,64,,,count/bytes,pass,three fresh after-only processes
+native_producer_accept_ns,ingest-256-4-overflow,N/A — API absent,30062030,,,ns,pass,three fresh after-only processes
+native_publish_drain_ns,ingest-256-4-overflow,N/A — API absent,106975670,,,ns,pass,three fresh after-only processes
+native_high_water_ram_bytes,ingest-256-4-overflow,N/A — API absent,982128,,,count/bytes,pass,three fresh after-only processes
+native_high_water_spool_bytes,ingest-256-4-overflow,N/A — API absent,6744912,,,count/bytes,pass,three fresh after-only processes
+native_spool_written_bytes,ingest-256-4-overflow,N/A — API absent,6744912,,,count/bytes,pass,three fresh after-only processes
+native_spool_read_bytes,ingest-256-4-overflow,N/A — API absent,6744912,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,ingest-256-4-overflow,N/A — API absent,189820,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,ingest-256-4-overflow,N/A — API absent,1261568,,,count/bytes,pass,three fresh after-only processes
+native_segments,ingest-256-4-overflow,N/A — API absent,64,,,count/bytes,pass,three fresh after-only processes
+native_lookup_ns,routing-1,N/A — API absent,1618791,,,ns,pass,three fresh after-only processes
+native_reverse_ns,routing-1,N/A — API absent,5769424,,,ns,pass,three fresh after-only processes
+native_route_segment_visits,routing-1,N/A — API absent,5000,,,count/bytes,pass,three fresh after-only processes
+native_reverse_members,routing-1,N/A — API absent,65536,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,routing-1,N/A — API absent,112232,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,routing-1,N/A — API absent,263424,,,count/bytes,pass,three fresh after-only processes
+native_segments,routing-1,N/A — API absent,1,,,count/bytes,pass,three fresh after-only processes
+native_lookup_ns,routing-64,N/A — API absent,1573516,,,ns,pass,three fresh after-only processes
+native_reverse_ns,routing-64,N/A — API absent,6097570,,,ns,pass,three fresh after-only processes
+native_route_segment_visits,routing-64,N/A — API absent,5000,,,count/bytes,pass,three fresh after-only processes
+native_reverse_members,routing-64,N/A — API absent,65536,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,routing-64,N/A — API absent,114776,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,routing-64,N/A — API absent,1261568,,,count/bytes,pass,three fresh after-only processes
+native_segments,routing-64,N/A — API absent,64,,,count/bytes,pass,three fresh after-only processes
+native_lookup_ns,routing-8,N/A — API absent,1720197,,,ns,pass,three fresh after-only processes
+native_reverse_ns,routing-8,N/A — API absent,5744445,,,ns,pass,three fresh after-only processes
+native_route_segment_visits,routing-8,N/A — API absent,5000,,,count/bytes,pass,three fresh after-only processes
+native_reverse_members,routing-8,N/A — API absent,65536,,,count/bytes,pass,three fresh after-only processes
+native_peak_rss_kib,routing-8,N/A — API absent,113696,,,count/bytes,pass,three fresh after-only processes
+native_index_family_bytes,routing-8,N/A — API absent,1189888,,,count/bytes,pass,three fresh after-only processes
+native_segments,routing-8,N/A — API absent,8,,,count/bytes,pass,three fresh after-only processes

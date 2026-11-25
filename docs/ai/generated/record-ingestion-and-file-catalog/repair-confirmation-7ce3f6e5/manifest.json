@@ -1,0 +1,2524 @@
+{
+  "fixture": "/home/simon/source/objekte/examples/musenalm",
+  "fixture_fingerprint": {
+    "json_files": 148498,
+    "content_sha256": "79acbab9155aa95bc869afde56dc1b402e5a09f9c6a80a5106fc665e2c3f20c5",
+    "metadata_sha256": "b0a47239de14ad78c0aa059c3c1a6e48f3d988ae234d6c904fc78c3a96429106"
+  },
+  "pairs": 3,
+  "first_side": [
+    "before",
+    "after",
+    "before"
+  ],
+  "screening": [
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q001",
+      "before_ns": 41424522,
+      "after_ns": 40624267,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q002",
+      "before_ns": 57084164,
+      "after_ns": 51335868,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q003",
+      "before_ns": 24843070,
+      "after_ns": 23790735,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q004",
+      "before_ns": 57224270,
+      "after_ns": 57252929,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q005",
+      "before_ns": 22475205,
+      "after_ns": 22778494,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q006",
+      "before_ns": 835729802,
+      "after_ns": 820965433,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q007",
+      "before_ns": 814847284,
+      "after_ns": 810267948,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q008",
+      "before_ns": 145478,
+      "after_ns": 147442,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q009",
+      "before_ns": 20621,
+      "after_ns": 20442,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q010",
+      "before_ns": 9655,
+      "after_ns": 10390,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q011",
+      "before_ns": 17766067,
+      "after_ns": 17246266,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q012",
+      "before_ns": 34669119,
+      "after_ns": 34091712,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q013",
+      "before_ns": 47879182,
+      "after_ns": 46711857,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q014",
+      "before_ns": 57579031,
+      "after_ns": 54361596,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q015",
+      "before_ns": 55436061,
+      "after_ns": 54926114,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q016",
+      "before_ns": 1571238,
+      "after_ns": 1491228,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q017",
+      "before_ns": 1357836,
+      "after_ns": 1355867,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q018",
+      "before_ns": 3899239,
+      "after_ns": 3790607,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q019",
+      "before_ns": 14306644,
+      "after_ns": 13748151,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q020",
+      "before_ns": 2902140,
+      "after_ns": 2914266,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q021",
+      "before_ns": 8014422,
+      "after_ns": 7535708,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q022",
+      "before_ns": 13319950,
+      "after_ns": 13058080,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q023",
+      "before_ns": 69772660,
+      "after_ns": 68955689,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q024",
+      "before_ns": 27961060,
+      "after_ns": 26191800,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q025",
+      "before_ns": 336659005,
+      "after_ns": 356979550,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q026",
+      "before_ns": 420245563,
+      "after_ns": 401229286,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q027",
+      "before_ns": 3834677,
+      "after_ns": 3839526,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q028",
+      "before_ns": 11729330,
+      "after_ns": 11206381,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q029",
+      "before_ns": 48777,
+      "after_ns": 48749,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q030",
+      "before_ns": 9911347,
+      "after_ns": 9792539,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q031",
+      "before_ns": 40179,
+      "after_ns": 47395,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q032",
+      "before_ns": 8505,
+      "after_ns": 8607,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q033",
+      "before_ns": 17358,
+      "after_ns": 18295,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q034",
+      "before_ns": 8152,
+      "after_ns": 8049,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q035",
+      "before_ns": 33048,
+      "after_ns": 33525,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q036",
+      "before_ns": 23480,
+      "after_ns": 23305,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q037",
+      "before_ns": 63446,
+      "after_ns": 65796,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q038",
+      "before_ns": 52557,
+      "after_ns": 54858,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q039",
+      "before_ns": 33146,
+      "after_ns": 30721,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q040",
+      "before_ns": 36674,
+      "after_ns": 37311,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q041",
+      "before_ns": 57218,
+      "after_ns": 58234,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q042",
+      "before_ns": 48940,
+      "after_ns": 51387,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q043",
+      "before_ns": 2290113,
+      "after_ns": 2203464,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q044",
+      "before_ns": 50993,
+      "after_ns": 51246,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q045",
+      "before_ns": 60068,
+      "after_ns": 60043,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q046",
+      "before_ns": 350005,
+      "after_ns": 352079,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q047",
+      "before_ns": 17279,
+      "after_ns": 16535,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q048",
+      "before_ns": 28442,
+      "after_ns": 28496,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q049",
+      "before_ns": 22941,
+      "after_ns": 27185,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q050",
+      "before_ns": 324036,
+      "after_ns": 337179,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q051",
+      "before_ns": 145583,
+      "after_ns": 145999,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q052",
+      "before_ns": 2092013,
+      "after_ns": 1999698,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q053",
+      "before_ns": 134285,
+      "after_ns": 137841,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q054",
+      "before_ns": 1650189,
+      "after_ns": 1653784,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q055",
+      "before_ns": 1526867,
+      "after_ns": 1551107,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q056",
+      "before_ns": 134722,
+      "after_ns": 143771,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q057",
+      "before_ns": 31849,
+      "after_ns": 37851,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q058",
+      "before_ns": 11514,
+      "after_ns": 12142,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q059",
+      "before_ns": 27382,
+      "after_ns": 25022,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q060",
+      "before_ns": 36855,
+      "after_ns": 36704,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q061",
+      "before_ns": 48163,
+      "after_ns": 52696,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q062",
+      "before_ns": 25930,
+      "after_ns": 25657,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q063",
+      "before_ns": 13958,
+      "after_ns": 14330,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q064",
+      "before_ns": 398590,
+      "after_ns": 394066,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q065",
+      "before_ns": 367464,
+      "after_ns": 320078,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q066",
+      "before_ns": 96048,
+      "after_ns": 93228,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q067",
+      "before_ns": 74309,
+      "after_ns": 71304,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q068",
+      "before_ns": 20521297,
+      "after_ns": 19933043,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q069",
+      "before_ns": 20310520,
+      "after_ns": 19268340,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q070",
+      "before_ns": 96905,
+      "after_ns": 91715,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q071",
+      "before_ns": 5581736,
+      "after_ns": 5473923,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q072",
+      "before_ns": 8123292,
+      "after_ns": 8054620,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q073",
+      "before_ns": 2699392,
+      "after_ns": 2620857,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q074",
+      "before_ns": 13891813,
+      "after_ns": 13422114,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q075",
+      "before_ns": 2503250,
+      "after_ns": 2411355,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q076",
+      "before_ns": 37572990,
+      "after_ns": 37954359,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q077",
+      "before_ns": 16050570,
+      "after_ns": 16867071,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q078",
+      "before_ns": 215299623,
+      "after_ns": 216014473,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q079",
+      "before_ns": 1083638,
+      "after_ns": 1077754,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q080",
+      "before_ns": 16292,
+      "after_ns": 19101,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q081",
+      "before_ns": 4149956,
+      "after_ns": 4057258,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q082",
+      "before_ns": 18852533,
+      "after_ns": 18458873,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q083",
+      "before_ns": 18291162,
+      "after_ns": 17117463,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q084",
+      "before_ns": 35888,
+      "after_ns": 39277,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q085",
+      "before_ns": 18134010,
+      "after_ns": 16835566,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q086",
+      "before_ns": 31406,
+      "after_ns": 32006,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q087",
+      "before_ns": 22117,
+      "after_ns": 22958,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q088",
+      "before_ns": 79076,
+      "after_ns": 74954,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q089",
+      "before_ns": 27970,
+      "after_ns": 29220,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q090",
+      "before_ns": 11820,
+      "after_ns": 11708,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q091",
+      "before_ns": 28324,
+      "after_ns": 30138,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q092",
+      "before_ns": 10122,
+      "after_ns": 10199,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q093",
+      "before_ns": 26409,
+      "after_ns": 27646,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q094",
+      "before_ns": 28977,
+      "after_ns": 31280,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q095",
+      "before_ns": 137097,
+      "after_ns": 138682,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q096",
+      "before_ns": 115903,
+      "after_ns": 121602,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q097",
+      "before_ns": 75221,
+      "after_ns": 82245,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q098",
+      "before_ns": 62074,
+      "after_ns": 62731,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q099",
+      "before_ns": 240406,
+      "after_ns": 238265,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q100",
+      "before_ns": 77277471,
+      "after_ns": 77510347,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q101",
+      "before_ns": 58016,
+      "after_ns": 52874,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q102",
+      "before_ns": 24484,
+      "after_ns": 24195,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q103",
+      "before_ns": 36858,
+      "after_ns": 37123,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q104",
+      "before_ns": 79815,
+      "after_ns": 85612,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q105",
+      "before_ns": 75352,
+      "after_ns": 77599,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q106",
+      "before_ns": 57843,
+      "after_ns": 61825,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q107",
+      "before_ns": 102260,
+      "after_ns": 101119,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q108",
+      "before_ns": 46684,
+      "after_ns": 49862,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q109",
+      "before_ns": 98871,
+      "after_ns": 129776,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q110",
+      "before_ns": 51811,
+      "after_ns": 41780,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q111",
+      "before_ns": 138072,
+      "after_ns": 107255,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q112",
+      "before_ns": 33168,
+      "after_ns": 33157,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q113",
+      "before_ns": 25161,
+      "after_ns": 27217,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q114",
+      "before_ns": 31351,
+      "after_ns": 34797,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q115",
+      "before_ns": 29396,
+      "after_ns": 44378,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q116",
+      "before_ns": 240113,
+      "after_ns": 237073,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q117",
+      "before_ns": 216135,
+      "after_ns": 241035,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q118",
+      "before_ns": 200511,
+      "after_ns": 220208,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q119",
+      "before_ns": 1632070,
+      "after_ns": 2699848,
+      "classification": "confirm"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q120",
+      "before_ns": 123119,
+      "after_ns": 130987,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q121",
+      "before_ns": 73192,
+      "after_ns": 77245,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q122",
+      "before_ns": 37793,
+      "after_ns": 39688,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q123",
+      "before_ns": 38897,
+      "after_ns": 40059,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q124",
+      "before_ns": 159068,
+      "after_ns": 187334,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q125",
+      "before_ns": 11449,
+      "after_ns": 11027,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q126",
+      "before_ns": 47992,
+      "after_ns": 48538,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q127",
+      "before_ns": 75460,
+      "after_ns": 74356,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q128",
+      "before_ns": 83850,
+      "after_ns": 91068,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q129",
+      "before_ns": 72421,
+      "after_ns": 77275,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q130",
+      "before_ns": 185523,
+      "after_ns": 183184,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q131",
+      "before_ns": 671858,
+      "after_ns": 662772,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q132",
+      "before_ns": 635448,
+      "after_ns": 628099,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q133",
+      "before_ns": 225853,
+      "after_ns": 211728,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q134",
+      "before_ns": 387388,
+      "after_ns": 386351,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q135",
+      "before_ns": 808391,
+      "after_ns": 751371,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q136",
+      "before_ns": 4031447,
+      "after_ns": 3468278,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q137",
+      "before_ns": 300267,
+      "after_ns": 302273,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q138",
+      "before_ns": 426857,
+      "after_ns": 414806,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q139",
+      "before_ns": 303415,
+      "after_ns": 305527,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q140",
+      "before_ns": 84603,
+      "after_ns": 90690,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q141",
+      "before_ns": 12608845,
+      "after_ns": 12610464,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q142",
+      "before_ns": 195839,
+      "after_ns": 191323,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q143",
+      "before_ns": 27517726,
+      "after_ns": 27957765,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q144",
+      "before_ns": 64596496,
+      "after_ns": 66405604,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q145",
+      "before_ns": 329994873,
+      "after_ns": 316610174,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q146",
+      "before_ns": 33993182,
+      "after_ns": 32235513,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q147",
+      "before_ns": 96200972,
+      "after_ns": 93385966,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q148",
+      "before_ns": 14432120,
+      "after_ns": 14677473,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q149",
+      "before_ns": 935418,
+      "after_ns": 873889,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-ascii",
+      "case_id": "Q150",
+      "before_ns": 6972459,
+      "after_ns": 6884771,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q001",
+      "before_ns": 41062612,
+      "after_ns": 40949334,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q002",
+      "before_ns": 55836861,
+      "after_ns": 52837067,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q003",
+      "before_ns": 24917868,
+      "after_ns": 23599712,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q004",
+      "before_ns": 55896174,
+      "after_ns": 55808168,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q005",
+      "before_ns": 22256523,
+      "after_ns": 22990213,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q006",
+      "before_ns": 817109932,
+      "after_ns": 786407237,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q007",
+      "before_ns": 818839559,
+      "after_ns": 792745004,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q008",
+      "before_ns": 150027,
+      "after_ns": 144776,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q009",
+      "before_ns": 21286,
+      "after_ns": 22458,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q010",
+      "before_ns": 10334,
+      "after_ns": 10578,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q011",
+      "before_ns": 17616302,
+      "after_ns": 17210001,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q012",
+      "before_ns": 34970170,
+      "after_ns": 34028718,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q013",
+      "before_ns": 2667182,
+      "after_ns": 2559458,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q014",
+      "before_ns": 55157458,
+      "after_ns": 54951033,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q015",
+      "before_ns": 56347868,
+      "after_ns": 55370826,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q016",
+      "before_ns": 1492668,
+      "after_ns": 1482155,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q017",
+      "before_ns": 1413600,
+      "after_ns": 1347169,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q018",
+      "before_ns": 2800443,
+      "after_ns": 2655851,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q019",
+      "before_ns": 14513888,
+      "after_ns": 14548003,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q020",
+      "before_ns": 3108482,
+      "after_ns": 2973749,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q021",
+      "before_ns": 8253766,
+      "after_ns": 7751153,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q022",
+      "before_ns": 13520616,
+      "after_ns": 13465881,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q023",
+      "before_ns": 69152614,
+      "after_ns": 70003229,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q024",
+      "before_ns": 11827505,
+      "after_ns": 11389273,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q025",
+      "before_ns": 372370934,
+      "after_ns": 348121653,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q026",
+      "before_ns": 424702605,
+      "after_ns": 418307418,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q027",
+      "before_ns": 4104712,
+      "after_ns": 3721747,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q028",
+      "before_ns": 11927514,
+      "after_ns": 11299500,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q029",
+      "before_ns": 50582,
+      "after_ns": 48723,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q030",
+      "before_ns": 10023684,
+      "after_ns": 9925472,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q031",
+      "before_ns": 48340,
+      "after_ns": 42812,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q032",
+      "before_ns": 8639,
+      "after_ns": 8731,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q033",
+      "before_ns": 17755,
+      "after_ns": 18767,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q034",
+      "before_ns": 8091,
+      "after_ns": 7635,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q035",
+      "before_ns": 36764,
+      "after_ns": 35178,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q036",
+      "before_ns": 23463,
+      "after_ns": 24437,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q037",
+      "before_ns": 63007,
+      "after_ns": 65780,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q038",
+      "before_ns": 54975,
+      "after_ns": 55192,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q039",
+      "before_ns": 29315,
+      "after_ns": 34429,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q040",
+      "before_ns": 38408,
+      "after_ns": 38041,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q041",
+      "before_ns": 57643,
+      "after_ns": 59644,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q042",
+      "before_ns": 51928,
+      "after_ns": 51730,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q043",
+      "before_ns": 2292952,
+      "after_ns": 2165842,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q044",
+      "before_ns": 52281,
+      "after_ns": 54232,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q045",
+      "before_ns": 59128,
+      "after_ns": 60684,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q046",
+      "before_ns": 342769,
+      "after_ns": 356244,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q047",
+      "before_ns": 15894,
+      "after_ns": 16545,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q048",
+      "before_ns": 26796,
+      "after_ns": 32684,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q049",
+      "before_ns": 23382,
+      "after_ns": 24171,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q050",
+      "before_ns": 326221,
+      "after_ns": 334871,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q051",
+      "before_ns": 144925,
+      "after_ns": 147610,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q052",
+      "before_ns": 2054312,
+      "after_ns": 2006150,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q053",
+      "before_ns": 134840,
+      "after_ns": 139512,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q054",
+      "before_ns": 1633961,
+      "after_ns": 1655737,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q055",
+      "before_ns": 1603572,
+      "after_ns": 1543158,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q056",
+      "before_ns": 127180,
+      "after_ns": 135899,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q057",
+      "before_ns": 36117,
+      "after_ns": 32453,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q058",
+      "before_ns": 10704,
+      "after_ns": 13056,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q059",
+      "before_ns": 25223,
+      "after_ns": 27321,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q060",
+      "before_ns": 35537,
+      "after_ns": 38968,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q061",
+      "before_ns": 48174,
+      "after_ns": 53198,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q062",
+      "before_ns": 25834,
+      "after_ns": 24955,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q063",
+      "before_ns": 15871,
+      "after_ns": 19136,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q064",
+      "before_ns": 400745,
+      "after_ns": 397138,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q065",
+      "before_ns": 333726,
+      "after_ns": 324720,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q066",
+      "before_ns": 100407,
+      "after_ns": 91899,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q067",
+      "before_ns": 71921,
+      "after_ns": 75279,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q068",
+      "before_ns": 20587503,
+      "after_ns": 20048336,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q069",
+      "before_ns": 20182704,
+      "after_ns": 19419508,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q070",
+      "before_ns": 95970,
+      "after_ns": 91651,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q071",
+      "before_ns": 5565792,
+      "after_ns": 5519815,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q072",
+      "before_ns": 8172067,
+      "after_ns": 8087851,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q073",
+      "before_ns": 2817855,
+      "after_ns": 2614301,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q074",
+      "before_ns": 13769038,
+      "after_ns": 13265236,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q075",
+      "before_ns": 2547550,
+      "after_ns": 2409176,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q076",
+      "before_ns": 37157049,
+      "after_ns": 37213358,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q077",
+      "before_ns": 6983235,
+      "after_ns": 7102263,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q078",
+      "before_ns": 218442872,
+      "after_ns": 214284911,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q079",
+      "before_ns": 1073214,
+      "after_ns": 1067648,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q080",
+      "before_ns": 17051,
+      "after_ns": 18705,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q081",
+      "before_ns": 4165952,
+      "after_ns": 4081966,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q082",
+      "before_ns": 18563645,
+      "after_ns": 18284775,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q083",
+      "before_ns": 17817845,
+      "after_ns": 17312393,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q084",
+      "before_ns": 41830,
+      "after_ns": 38600,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q085",
+      "before_ns": 17658252,
+      "after_ns": 17049099,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q086",
+      "before_ns": 31099,
+      "after_ns": 31621,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q087",
+      "before_ns": 22154,
+      "after_ns": 22692,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q088",
+      "before_ns": 80866,
+      "after_ns": 77458,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q089",
+      "before_ns": 26715,
+      "after_ns": 28523,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q090",
+      "before_ns": 11212,
+      "after_ns": 11211,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q091",
+      "before_ns": 27608,
+      "after_ns": 29136,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q092",
+      "before_ns": 9972,
+      "after_ns": 10574,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q093",
+      "before_ns": 25371,
+      "after_ns": 27260,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q094",
+      "before_ns": 28723,
+      "after_ns": 30767,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q095",
+      "before_ns": 134043,
+      "after_ns": 139666,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q096",
+      "before_ns": 116617,
+      "after_ns": 118374,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q097",
+      "before_ns": 73031,
+      "after_ns": 77281,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q098",
+      "before_ns": 62236,
+      "after_ns": 61723,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q099",
+      "before_ns": 231909,
+      "after_ns": 237387,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q100",
+      "before_ns": 78589596,
+      "after_ns": 78424242,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q101",
+      "before_ns": 59965,
+      "after_ns": 55860,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q102",
+      "before_ns": 27331,
+      "after_ns": 23643,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q103",
+      "before_ns": 39667,
+      "after_ns": 36407,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q104",
+      "before_ns": 107146,
+      "after_ns": 85716,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q105",
+      "before_ns": 78537,
+      "after_ns": 76176,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q106",
+      "before_ns": 59391,
+      "after_ns": 63916,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q107",
+      "before_ns": 100736,
+      "after_ns": 104991,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q108",
+      "before_ns": 47555,
+      "after_ns": 49585,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q109",
+      "before_ns": 99062,
+      "after_ns": 103398,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q110",
+      "before_ns": 41387,
+      "after_ns": 40919,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q111",
+      "before_ns": 134131,
+      "after_ns": 101836,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q112",
+      "before_ns": 32359,
+      "after_ns": 34674,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q113",
+      "before_ns": 25024,
+      "after_ns": 26720,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q114",
+      "before_ns": 30517,
+      "after_ns": 34496,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q115",
+      "before_ns": 29586,
+      "after_ns": 49604,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q116",
+      "before_ns": 233802,
+      "after_ns": 240094,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q117",
+      "before_ns": 220770,
+      "after_ns": 231373,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q118",
+      "before_ns": 210801,
+      "after_ns": 214226,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q119",
+      "before_ns": 1743622,
+      "after_ns": 1673858,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q120",
+      "before_ns": 119271,
+      "after_ns": 122688,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q121",
+      "before_ns": 65751,
+      "after_ns": 76070,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q122",
+      "before_ns": 33537,
+      "after_ns": 40667,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q123",
+      "before_ns": 38816,
+      "after_ns": 40374,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q124",
+      "before_ns": 159183,
+      "after_ns": 156622,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q125",
+      "before_ns": 11550,
+      "after_ns": 12018,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q126",
+      "before_ns": 49280,
+      "after_ns": 49863,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q127",
+      "before_ns": 73793,
+      "after_ns": 73899,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q128",
+      "before_ns": 99895,
+      "after_ns": 89340,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q129",
+      "before_ns": 70917,
+      "after_ns": 74277,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q130",
+      "before_ns": 218184,
+      "after_ns": 178844,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q131",
+      "before_ns": 709429,
+      "after_ns": 663706,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q132",
+      "before_ns": 638999,
+      "after_ns": 630014,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q133",
+      "before_ns": 210114,
+      "after_ns": 205286,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q134",
+      "before_ns": 373443,
+      "after_ns": 393286,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q135",
+      "before_ns": 820155,
+      "after_ns": 759665,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q136",
+      "before_ns": 4019176,
+      "after_ns": 3495283,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q137",
+      "before_ns": 311716,
+      "after_ns": 318224,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q138",
+      "before_ns": 412162,
+      "after_ns": 411537,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q139",
+      "before_ns": 300270,
+      "after_ns": 310142,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q140",
+      "before_ns": 84352,
+      "after_ns": 87543,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q141",
+      "before_ns": 12815454,
+      "after_ns": 12410738,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q142",
+      "before_ns": 191206,
+      "after_ns": 191579,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q143",
+      "before_ns": 28084608,
+      "after_ns": 27555846,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q144",
+      "before_ns": 65915082,
+      "after_ns": 63880260,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q145",
+      "before_ns": 328484775,
+      "after_ns": 317535740,
+      "classification": "pass"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q146",
+      "before_ns": 33232098,
+      "after_ns": 32668922,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q147",
+      "before_ns": 3489922,
+      "after_ns": 3445191,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q148",
+      "before_ns": 14708651,
+      "after_ns": 14573144,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q149",
+      "before_ns": 874686,
+      "after_ns": 865542,
+      "classification": "informational"
+    },
+    {
+      "phase": "historical-unicode",
+      "case_id": "Q150",
+      "before_ns": 6971636,
+      "after_ns": 6826914,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q001",
+      "before_ns": 37796561,
+      "after_ns": 37580916,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q030",
+      "before_ns": 8591492,
+      "after_ns": 8190688,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q034",
+      "before_ns": 3974,
+      "after_ns": 3860,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q035",
+      "before_ns": 21383,
+      "after_ns": 21820,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q054",
+      "before_ns": 1513192,
+      "after_ns": 1530357,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q081",
+      "before_ns": 3254556,
+      "after_ns": 3197652,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q116",
+      "before_ns": 188966,
+      "after_ns": 196044,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q136",
+      "before_ns": 3206729,
+      "after_ns": 2678811,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-ascii",
+      "case_id": "Q144",
+      "before_ns": 63590812,
+      "after_ns": 64144248,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q001",
+      "before_ns": 37329729,
+      "after_ns": 35983230,
+      "classification": "pass"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q030",
+      "before_ns": 8754809,
+      "after_ns": 8155685,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q034",
+      "before_ns": 3877,
+      "after_ns": 3923,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q035",
+      "before_ns": 21790,
+      "after_ns": 22750,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q054",
+      "before_ns": 1514742,
+      "after_ns": 1536506,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q081",
+      "before_ns": 3310653,
+      "after_ns": 3188968,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q116",
+      "before_ns": 187594,
+      "after_ns": 196177,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q136",
+      "before_ns": 3206849,
+      "after_ns": 2857956,
+      "classification": "informational"
+    },
+    {
+      "phase": "focused-unicode",
+      "case_id": "Q144",
+      "before_ns": 63750968,
+      "after_ns": 63311990,
+      "classification": "informational"
+    },
+    {
+      "phase": "extended-unicode",
+      "case_id": "Q155",
+      "before_ns": 152463,
+      "after_ns": 150584,
+      "classification": "informational"
+    },
+    {
+      "phase": "extended-unicode",
+      "case_id": "Q163",
+      "before_ns": 6082012,
+      "after_ns": 5883019,
+      "classification": "informational"
+    },
+    {
+      "phase": "extended-unicode",
+      "case_id": "Q166",
+      "before_ns": 32022378,
+      "after_ns": 30963504,
+      "classification": "pass"
+    },
+    {
+      "phase": "extended-unicode",
+      "case_id": "Q170",
+      "before_ns": 49056,
+      "after_ns": 47197,
+      "classification": "informational"
+    },
+    {
+      "phase": "extended-unicode",
+      "case_id": "Q195",
+      "before_ns": 28388,
+      "after_ns": 28545,
+      "classification": "informational"
+    },
+    {
+      "phase": "extended-unicode",
+      "case_id": "Q219",
+      "before_ns": 158098,
+      "after_ns": 163790,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "add",
+      "before_ms": 0.426,
+      "after_ms": 1.252,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "build",
+      "before_ms": 4.503,
+      "after_ms": 4.775,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "compact",
+      "before_ms": 0.0,
+      "after_ms": 0.0,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "delete_verified",
+      "before_ms": 0.041,
+      "after_ms": 0.031,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "move",
+      "before_ms": 0.061,
+      "after_ms": 0.053,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "reconcile_no_change",
+      "before_ms": 0.748,
+      "after_ms": 0.4,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "update_append",
+      "before_ms": 0.166,
+      "after_ms": 0.173,
+      "classification": "informational"
+    },
+    {
+      "phase": "lifecycle-small",
+      "case_id": "update_verified",
+      "before_ms": 0.247,
+      "after_ms": 0.172,
+      "classification": "informational"
+    },
+    {
+      "phase": "direct-probe",
+      "case_id": "residual",
+      "before_ns": 485862,
+      "after_ns": 505287,
+      "classification": "informational"
+    },
+    {
+      "phase": "direct-probe",
+      "case_id": "lookup",
+      "before_ns": 149.3506,
+      "after_ns": 281.9594,
+      "classification": "informational"
+    }
+  ],
+  "selected": {
+    "historical-ascii": [
+      "Q119"
+    ]
+  },
+  "probe_fixture": null,
+  "probe_binaries": {
+    "before": null,
+    "after": null
+  },
+  "sides": {
+    "before": {
+      "sha": "d8d703dbd24e1ef72f9a37cf7a235a7a559e0598",
+      "build_binary_sha256": "41ad3f75a3da7ecce900e9c63e6cef9e35d26a2c6dea4ed8a30ed9047ca9713b",
+      "query_binary_sha256": "90a5b8398b8da5eca9ce5d61dcdee5a3cf92402ea417e31f06c93c681940a66a",
+      "lifecycle_binary_sha256": "f9db2f3a46a54e6370226f521b9bb4fcf5d7e22e0b0fe243f26da9552a8156af"
+    },
+    "after": {
+      "sha": "7ce3f6e525fee77f46c71ad7c02a94c7d06a21b7",
+      "build_binary_sha256": "5d824988bb88216586af3d627941cea9b7bf22875f545ccc0df81d6d3f52f473",
+      "query_binary_sha256": "f52408f69d98bf5b74513b1a279a95c66f0819d2de41e539ff534103a5bcab6a",
+      "lifecycle_binary_sha256": "6d648a0b576536d19a85245abe8132d135b48109f79d5e034274aac4291e9c3d"
+    }
+  },
+  "invocations": [
+    {
+      "label": "historical-ascii-pair-1-before",
+      "side": "before",
+      "command": [
+        "/home/simon/source/objekte-baseline-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--cases",
+        "Q119",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/repair-confirmation-7ce3f6e5/historical-ascii-pair-1-before/results"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "779eb581443a4b0a19780b35ec3c10372e9bc4aee72c71c25c5e6ca57dae5246",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "historical-ascii-pair-1-after",
+      "side": "after",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--cases",
+        "Q119",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/repair-confirmation-7ce3f6e5/historical-ascii-pair-1-after/results"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "d28c169f4e2f737c1d719deef5522298060531dbe75af5059d2540ce1a04baf1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "historical-ascii-pair-2-after",
+      "side": "after",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--cases",
+        "Q119",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/repair-confirmation-7ce3f6e5/historical-ascii-pair-2-after/results"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "b7f0b4f6ebf7d754ab8b1e1a562c7027bd7b8d7d68e4f69d4e1a885c15b3098c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "historical-ascii-pair-2-before",
+      "side": "before",
+      "command": [
+        "/home/simon/source/objekte-baseline-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--cases",
+        "Q119",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/repair-confirmation-7ce3f6e5/historical-ascii-pair-2-before/results"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "41a6312a21eeae48c2e5f4cf2537239331f1bd6028710c5188e4a5621042d0df",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "historical-ascii-pair-3-before",
+      "side": "before",
+      "command": [
+        "/home/simon/source/objekte-baseline-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--cases",
+        "Q119",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/repair-confirmation-7ce3f6e5/historical-ascii-pair-3-before/results"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "a81b8e0633b13a942e7e737b64eb32beac3cd33b362183a41901acbe2a812a35",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "historical-ascii-pair-3-after",
+      "side": "after",
+      "command": [
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/target/release/examples/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--profiles",
+        "ascii-off",
+        "--verified-cache-bytes",
+        "0",
+        "--query-workers",
+        "1",
+        "--cases",
+        "Q119",
+        "--repetitions",
+        "7",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-record-ingestion-and-file-catalog/docs/ai/generated/record-ingestion-and-file-catalog/repair-confirmation-7ce3f6e5/historical-ascii-pair-3-after/results"
+      ],
+      "exit_status": 0,
+      "stdout_sha256": "983b030f253904f0e61c137d400728b9ba67887334eac1ac4aeafe2204bbccf1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
