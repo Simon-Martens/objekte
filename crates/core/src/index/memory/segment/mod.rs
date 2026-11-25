@@ -585,20 +585,48 @@ pub(crate) struct PublishedSegment {
 }
 
 impl PublishedSegment {
+    pub(crate) fn summary(&self) -> NativeSegmentSummary {
+        let index = &self.index;
+        let bigrams = || {
+            std::iter::once(&*index.raw)
+                .chain(std::iter::once(&*index.fallback_text))
+                .chain(index.custom_text.values())
+        };
+        NativeSegmentSummary {
+            id: self.id,
+            collection: index.collection,
+            records: index.record_count(),
+            active_records: self.active.len() as usize,
+            files: index.file_count(),
+            source_bytes: index.accounting.source_bytes_estimated,
+            posting_fields: index.postings.fields.len(),
+            sort_columns: index.sorting.columns.len(),
+            relation_count: index.relations.len(),
+            relation_edges: index
+                .relations
+                .iter()
+                .map(|relation| relation.edge_count())
+                .sum(),
+            relation_heap_bytes: index
+                .relations
+                .iter()
+                .map(|relation| relation.estimated_bytes())
+                .sum(),
+            bigram_stores: 2 + index.custom_text.len(),
+            distinct_gram_keys: bigrams()
+                .map(|index| index.normal.len() + index.skip.len())
+                .sum(),
+            bigram_heap_bytes: bigrams().map(BigramIndex::estimated_heap_bytes).sum(),
+            index_family_bytes: index.accounting.index_family_bytes,
+            active: self.active.len() != 0,
+        }
+    }
+
     pub(crate) fn construction_observation_bytes(&self) -> usize {
         self.observation
             .as_ref()
             .map_or(0, |observation| observation.estimated_bytes())
     }
-}
-
-/// One payload and liveness pair at its native segment boundary.
-#[derive(Clone, Copy)]
-pub(crate) struct SegmentReadView<'a> {
-    pub id: SegmentId,
-    pub collection: CollectionId,
-    pub index: &'a IndexedCollectionSegment,
-    pub active: &'a ActiveRecords,
 }
 
 /// Borrowed view of the metadata, liveness, and segment payloads that belong
@@ -611,28 +639,9 @@ pub(crate) struct NativeSnapshotRef<'a> {
     pub revision: IndexRevision,
 }
 
-/// Component kind exposed by borrowed inspection and future persistence
-/// boundaries. The payload remains a concrete native field.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum NativeComponentKind {
-    DeclaredPosting,
-    InferredPosting,
-    CustomPosting,
-    RawText,
-    FallbackText,
-    FieldText,
-    Sorting,
-    Relations,
-}
-
-/// A small borrowed descriptor. It does not clone a posting or bitmap.
-pub struct NativeComponentDescriptor<'a> {
-    pub collection: CollectionId,
-    pub segment: SegmentId,
-    pub kind: NativeComponentKind,
-    pub path: Option<&'a [String]>,
-    pub binding: Option<&'a str>,
-}
+pub use crate::index::storage::component::{
+    ComponentDescriptor as NativeComponentDescriptor, ComponentKind as NativeComponentKind,
+};
 
 impl IndexedCollectionSegment {
     pub(crate) fn ordered_slots(
@@ -686,15 +695,6 @@ impl IndexedCollectionSegment {
             collection_name,
         )
     }
-    pub(crate) fn read_view<'a>(published: &'a PublishedSegment) -> SegmentReadView<'a> {
-        SegmentReadView {
-            id: published.id,
-            collection: published.index.collection,
-            index: &published.index,
-            active: &published.active,
-        }
-    }
-
     pub fn component_descriptors(
         &self,
         published_id: SegmentId,

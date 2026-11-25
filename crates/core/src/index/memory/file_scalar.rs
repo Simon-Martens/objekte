@@ -6,7 +6,7 @@ use std::cmp::Ordering;
 use crate::model::{FileId, Number};
 use crate::query::Operator;
 
-use super::FileEntry;
+use crate::inventory::FileEntry;
 
 #[derive(Clone, Debug, Default)]
 pub(crate) struct FileScalarIndex {

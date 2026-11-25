@@ -10,11 +10,11 @@ use smallvec::SmallVec;
 
 use crate::index::segment::{IndexedCollectionSegment, PublishedSegment, SegmentId};
 use crate::index::sorting::SortKey;
+use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
 use crate::inventory::{
     ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceRevision, relative_path_bounds,
 };
-use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{
     FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
@@ -244,7 +244,7 @@ pub(crate) struct RoutedFileRestrictions {
 impl RoutedFileRestrictions {
     pub(crate) fn prepare(
         predicates: &PreparedPredicates,
-        catalog: &FileCatalog,
+        catalog: &dyn FileCatalogReader,
         routes: &[crate::index::storage::segment_catalog::SegmentCatalogHandle],
         segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     ) -> Result<Self, String> {
@@ -253,7 +253,7 @@ impl RoutedFileRestrictions {
             let Some(term) = leaf.bound_term() else {
                 continue;
             };
-            let Some(files) = routed_file_ids(catalog, term) else {
+            let Some(files) = routed_file_ids(catalog, term)? else {
                 continue;
             };
             prepared.resolved += 1;
@@ -304,13 +304,17 @@ impl RoutedFileRestrictions {
     }
 }
 
-fn routed_file_ids(catalog: &FileCatalog, term: &BoundTerm) -> Option<Option<Arc<[FileId]>>> {
+fn routed_file_ids(
+    catalog: &dyn FileCatalogReader,
+    term: &BoundTerm,
+) -> Result<Option<Option<Arc<[FileId]>>>, String> {
     if let Some((operator, literal)) = indexed_file_path_term(term) {
-        return Some(
-            catalog
-                .relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN)
-                .map(Arc::from),
-        );
+        let bounds =
+            relative_path_bounds(operator, literal).ok_or("invalid indexed path comparison")?;
+        let files = catalog
+            .path_candidates(bounds, MAX_INDEXED_PATH_SCAN)
+            .map_err(|error| error.to_string())?;
+        return Ok(Some(files.map(Arc::from)));
     }
     if term.transform != Transform::Identity
         || term.period.is_some()
@@ -326,35 +330,35 @@ fn routed_file_ids(catalog: &FileCatalog, term: &BoundTerm) -> Option<Option<Arc
             Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
         )
     {
-        return None;
+        return Ok(None);
     }
     const LIMIT: usize = 4096;
-    Some(
-        match (&term.path.root, term.derived.clone(), &term.literal) {
-            (PathRoot::Metadata(MetadataField::FileSize), Derived::None, Value::Number(value)) => {
-                catalog.size_ids(term.operator, value, LIMIT)
-            }
-            (
-                PathRoot::Metadata(MetadataField::FileModified),
-                Derived::None,
-                Value::Datetime(value),
-            ) => catalog.modified_ids(term.operator, value.unix_timestamp_nanos(), LIMIT),
-            (
-                PathRoot::Metadata(MetadataField::FileCreated),
-                Derived::None,
-                Value::Datetime(value),
-            ) => catalog.created_ids(term.operator, value.unix_timestamp_nanos(), LIMIT),
-            (PathRoot::Metadata(MetadataField::FileCreated), Derived::Null, Value::Bool(value))
-                if matches!(
-                    (term.operator, value),
-                    (Operator::Eq, true) | (Operator::Ne, false)
-                ) =>
-            {
-                catalog.unknown_created_ids(LIMIT)
-            }
-            _ => return None,
-        },
-    )
+    let predicate = match (&term.path.root, term.derived.clone(), &term.literal) {
+        (PathRoot::Metadata(MetadataField::FileSize), Derived::None, Value::Number(value)) => {
+            FileScalarPredicate::Size(term.operator, value)
+        }
+        (
+            PathRoot::Metadata(MetadataField::FileModified),
+            Derived::None,
+            Value::Datetime(value),
+        ) => FileScalarPredicate::Modified(term.operator, value.unix_timestamp_nanos()),
+        (PathRoot::Metadata(MetadataField::FileCreated), Derived::None, Value::Datetime(value)) => {
+            FileScalarPredicate::Created(term.operator, value.unix_timestamp_nanos())
+        }
+        (PathRoot::Metadata(MetadataField::FileCreated), Derived::Null, Value::Bool(value))
+            if matches!(
+                (term.operator, value),
+                (Operator::Eq, true) | (Operator::Ne, false)
+            ) =>
+        {
+            FileScalarPredicate::UnknownCreated
+        }
+        _ => return Ok(None),
+    };
+    let candidates = catalog
+        .scalar_candidates(predicate, LIMIT)
+        .map_err(|error| error.to_string())?;
+    Ok(Some(candidates))
 }
 
 struct SegmentPlanContext<'a> {
@@ -374,7 +378,7 @@ impl<'a> SegmentPlanContext<'a> {
         published_id: SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
-        file_catalog: Option<&'a FileCatalog>,
+        file_catalog: Option<&'a dyn FileCatalogReader>,
     ) -> Self {
         Self::new_with_predicates(published_id, segment, collection, file_catalog, None, None)
     }
@@ -383,7 +387,7 @@ impl<'a> SegmentPlanContext<'a> {
         published_id: SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
-        file_catalog: Option<&'a FileCatalog>,
+        file_catalog: Option<&'a dyn FileCatalogReader>,
         predicates: Option<&'a PreparedPredicates>,
         execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
     ) -> Self {
@@ -491,7 +495,10 @@ impl<'a> SegmentPlanContext<'a> {
                         // The only remaining routed shape is a creation-time comparison or null test.
                         let mut matches = RoaringBitmap::new();
                         for file in &segment.files {
-                            let Some(entry) = catalog.entry(file.entry.id) else {
+                            let Some(entry) = catalog
+                                .file(file.entry.id)
+                                .map_err(|error| error.to_string())?
+                            else {
                                 continue;
                             };
                             let selected = match (&term.derived, &term.literal) {
@@ -660,7 +667,7 @@ pub(crate) fn segment_filter_estimate_with_term(
     published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
     term: &BoundTerm,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
@@ -689,7 +696,7 @@ pub(crate) fn segment_filter_estimate(
     published_id: SegmentId,
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
     expr: &BoundExpr,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
@@ -734,7 +741,7 @@ pub(crate) fn segment_filter_bounds_with_catalog(
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
 ) -> Result<SegmentCandidateBounds, String> {
     let domain = active.bitmap();
     segment_filter_bounds_with_input_catalog(
@@ -754,7 +761,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog(
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
     input: &RoaringBitmap,
 ) -> Result<SegmentCandidateBounds, String> {
     segment_filter_bounds_with_input_catalog_and_predicates(
@@ -776,7 +783,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
     input: &RoaringBitmap,
     predicates: Option<&PreparedPredicates>,
     execution: Option<&crate::query_execution::streaming::ExecutionContext>,
@@ -801,7 +808,7 @@ pub(crate) fn segment_filter_bounds_with_routes(
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
     input: &RoaringBitmap,
     predicates: Option<&PreparedPredicates>,
     execution: Option<&crate::query_execution::streaming::ExecutionContext>,
@@ -1250,7 +1257,7 @@ fn segment_file_size_matches(
     segment: &IndexedCollectionSegment,
     domain: &RoaringBitmap,
     term: &BoundTerm,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
 ) -> Result<Option<RoaringBitmap>, String> {
     if term.path.root != PathRoot::Metadata(MetadataField::FileSize)
         || term.transform != Transform::Identity
@@ -1263,7 +1270,10 @@ fn segment_file_size_matches(
     let Value::Number(literal) = &term.literal else {
         return Ok(None);
     };
-    if let Some(files) = catalog.and_then(|catalog| catalog.size_ids(term.operator, literal, 4096))
+    if let Some(catalog) = catalog
+        && let Some(files) = catalog
+            .scalar_candidates(FileScalarPredicate::Size(term.operator, literal), 4096)
+            .map_err(|error| error.to_string())?
     {
         let mut matches = RoaringBitmap::new();
         for file in files.iter().copied() {
@@ -1293,7 +1303,7 @@ fn segment_file_size_matches(
 fn segment_file_path_matches(
     segment: &IndexedCollectionSegment,
     domain: &RoaringBitmap,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     operator: Operator,
     literal: &str,
 ) -> Result<RoaringBitmap, String> {
@@ -1304,7 +1314,7 @@ fn segment_file_path_matches(
             .get(index)
             .map(|file| file.entry.id)
             .ok_or("segment file row missing")?;
-        let Some(entry) = catalog.entry(id) else {
+        let Some(entry) = catalog.file(id).map_err(|error| error.to_string())? else {
             continue;
         };
         let path = crate::model::path_representation::query_path(&entry.relative_path);
@@ -1320,7 +1330,7 @@ fn segment_file_modified_matches(
     collection: &CollectionState,
     domain: &RoaringBitmap,
     term: &BoundTerm,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
 ) -> Result<Option<RoaringBitmap>, String> {
     if term.path.root != PathRoot::Metadata(MetadataField::FileModified)
         || term.rhs.is_some()
@@ -1349,9 +1359,11 @@ fn segment_file_modified_matches(
     } else {
         None
     };
-    if let Some(files) = direct_literal.and_then(|literal| {
-        catalog.and_then(|catalog| catalog.modified_ids(term.operator, literal, 4096))
-    }) {
+    if let (Some(catalog), Some(literal)) = (catalog, direct_literal)
+        && let Some(files) = catalog
+            .scalar_candidates(FileScalarPredicate::Modified(term.operator, literal), 4096)
+            .map_err(|error| error.to_string())?
+    {
         let mut matches = RoaringBitmap::new();
         for file in files.iter().copied() {
             if let Some(slots) = segment.file_records(file) {
@@ -1406,8 +1418,8 @@ fn segment_file_created_matches(
     segment: &IndexedCollectionSegment,
     domain: &RoaringBitmap,
     term: &BoundTerm,
-    catalog: Option<&FileCatalog>,
-) -> Option<RoaringBitmap> {
+    catalog: Option<&dyn FileCatalogReader>,
+) -> Result<Option<RoaringBitmap>, String> {
     if term.path.root != PathRoot::Metadata(MetadataField::FileCreated)
         || term.transform != Transform::Identity
         || term.period.is_some()
@@ -1416,29 +1428,38 @@ fn segment_file_created_matches(
         || term.matcher.is_some()
         || term.operation.is_some()
     {
-        return None;
+        return Ok(None);
     }
-    let files = if term.derived == Derived::Null {
+    let Some(catalog) = catalog else {
+        return Ok(None);
+    };
+    let predicate = if term.derived == Derived::Null {
         let Value::Bool(literal) = &term.literal else {
-            return None;
+            return Ok(None);
         };
         let want_null = match term.operator {
             Operator::Eq => *literal,
             Operator::Ne => !*literal,
-            _ => return None,
+            _ => return Ok(None),
         };
         if !want_null {
-            return None;
+            return Ok(None);
         }
-        catalog?.unknown_created_ids(4096)?
+        FileScalarPredicate::UnknownCreated
     } else {
         if term.derived != Derived::None {
-            return None;
+            return Ok(None);
         }
         let Value::Datetime(literal) = &term.literal else {
-            return None;
+            return Ok(None);
         };
-        catalog?.created_ids(term.operator, literal.unix_timestamp_nanos(), 4096)?
+        FileScalarPredicate::Created(term.operator, literal.unix_timestamp_nanos())
+    };
+    let Some(files) = catalog
+        .scalar_candidates(predicate, 4096)
+        .map_err(|error| error.to_string())?
+    else {
+        return Ok(None);
     };
     let mut matches = RoaringBitmap::new();
     for file in files.iter().copied() {
@@ -1447,7 +1468,7 @@ fn segment_file_created_matches(
         }
     }
     matches &= domain;
-    Some(matches)
+    Ok(Some(matches))
 }
 
 fn segment_record_range_matches(
@@ -1672,7 +1693,7 @@ fn segment_metadata_matches(
     collection: &CollectionState,
     domain: &RoaringBitmap,
     term: &BoundTerm,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
 ) -> Result<Option<RoaringBitmap>, String> {
     let PathRoot::Metadata(_) = term.path.root else {
         return Ok(None);
@@ -1707,7 +1728,10 @@ fn segment_metadata_matches(
         let Some(file) = segment
             .backing
             .file_locator(crate::model::RecordSlot(slot))
-            .and_then(|locator| catalog.entry(locator.file))
+            .map(|locator| catalog.file(locator.file))
+            .transpose()
+            .map_err(|error| error.to_string())?
+            .flatten()
         else {
             return Ok(None);
         };
@@ -1719,9 +1743,9 @@ fn segment_metadata_matches(
                 .backing
                 .file_locator(record.slot)
                 .and_then(|locator| locator.range),
-            file: Some(file),
+            file: Some(file.as_ref()),
             collection_name: &collection.definition.name,
-            repository_root: Some(catalog.repository_root()),
+            repository_root: catalog.repository_root(),
         };
         return Ok(Some(if eval_term(term, &ctx)? {
             domain.clone()
@@ -1737,7 +1761,10 @@ fn segment_metadata_matches(
         let Some(file) = segment
             .backing
             .file_locator(crate::model::RecordSlot(slot))
-            .and_then(|locator| catalog.entry(locator.file))
+            .map(|locator| catalog.file(locator.file))
+            .transpose()
+            .map_err(|error| error.to_string())?
+            .flatten()
         else {
             return Ok(None);
         };
@@ -1749,9 +1776,9 @@ fn segment_metadata_matches(
                 .backing
                 .file_locator(record.slot)
                 .and_then(|locator| locator.range),
-            file: Some(file),
+            file: Some(file.as_ref()),
             collection_name: &collection.definition.name,
-            repository_root: Some(catalog.repository_root()),
+            repository_root: catalog.repository_root(),
         };
         if eval_term(term, &ctx)? {
             matches.insert(slot);
@@ -1768,7 +1795,7 @@ fn segment_expr_bounds_with_context(
     domain: &RoaringBitmap,
     logical_active: &RoaringBitmap,
     fallback_active: &RoaringBitmap,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
     context: &mut SegmentPlanContext<'_>,
 ) -> Result<SegmentCandidateBounds, String> {
     let effective_input = logical_active | fallback_active;
@@ -1819,11 +1846,16 @@ fn segment_expr_bounds_with_context(
             let mut must = effective_input;
             if let (Some(catalog), Some((bounds, indices))) = (catalog, &path_range) {
                 let mut matches = RoaringBitmap::new();
-                for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
-                    if let Some(slots) = segment.file_records(file) {
-                        matches.extend(slots.iter().map(|slot| slot.0));
-                    }
-                }
+                catalog
+                    .visit_paths(bounds.clone(), &mut |files| {
+                        for &file in files {
+                            if let Some(slots) = segment.file_records(file) {
+                                matches.extend(slots.iter().map(|slot| slot.0));
+                            }
+                        }
+                        Ok(())
+                    })
+                    .map_err(|error| error.to_string())?;
                 matches &= &may;
                 may &= &matches;
                 must &= matches;
@@ -1927,7 +1959,7 @@ pub(crate) fn segment_expr_bounds(
     domain: &RoaringBitmap,
     logical_active: &RoaringBitmap,
     fallback_active: &RoaringBitmap,
-    catalog: Option<&FileCatalog>,
+    catalog: Option<&dyn FileCatalogReader>,
 ) -> Result<SegmentCandidateBounds, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
@@ -1973,8 +2005,11 @@ pub(crate) fn segment_expr_bounds(
             if let Some((operator, literal)) = indexed_file_path_term(term)
                 && let Some(catalog) = catalog
             {
-                let mut matches = if let Some(files) =
-                    catalog.relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN)
+                let bounds = relative_path_bounds(operator, literal)
+                    .ok_or("invalid indexed path comparison")?;
+                let mut matches = if let Some(files) = catalog
+                    .path_candidates(bounds, MAX_INDEXED_PATH_SCAN)
+                    .map_err(|error| error.to_string())?
                 {
                     let mut matches = RoaringBitmap::new();
                     for file in files {
@@ -1994,7 +2029,7 @@ pub(crate) fn segment_expr_bounds(
             {
                 return Ok(SegmentCandidateBounds::exact(matches));
             }
-            if let Some(matches) = segment_file_created_matches(segment, domain, term, catalog) {
+            if let Some(matches) = segment_file_created_matches(segment, domain, term, catalog)? {
                 return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)?
@@ -2086,11 +2121,16 @@ pub(crate) fn segment_expr_bounds(
             let mut must = domain.clone();
             if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
                 let mut matches = RoaringBitmap::new();
-                for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
-                    if let Some(slots) = segment.file_records(file) {
-                        matches.extend(slots.iter().map(|slot| slot.0));
-                    }
-                }
+                catalog
+                    .visit_paths(bounds.clone(), &mut |files| {
+                        for &file in files {
+                            if let Some(slots) = segment.file_records(file) {
+                                matches.extend(slots.iter().map(|slot| slot.0));
+                            }
+                        }
+                        Ok(())
+                    })
+                    .map_err(|error| error.to_string())?;
                 matches &= domain;
                 may &= &matches;
                 must &= matches;

@@ -2,9 +2,13 @@
 
 use std::borrow::Cow;
 use std::num::NonZeroUsize;
+use std::ops::Bound;
+use std::path::Path;
+use std::sync::Arc;
 
 use crate::inventory::{FileEntry, SourceDiagnostic};
-use crate::model::{CollectionId, FileId};
+use crate::model::{CollectionId, FileId, Number};
+use crate::query::Operator;
 
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
@@ -114,4 +118,40 @@ pub(crate) fn transfer_files<E: From<StorageError>>(
             return Ok(());
         }
     }
+}
+
+pub(crate) type FilePathBounds = (Bound<Arc<str>>, Bound<Arc<str>>);
+
+pub(crate) enum FileScalarPredicate<'a> {
+    Size(Operator, &'a Number),
+    Modified(Operator, i128),
+    Created(Operator, i128),
+    UnknownCreated,
+}
+
+/// Metadata access from one published file catalog. Bounded selections
+/// return absence when the operation would exceed its row allowance.
+pub(crate) trait FileCatalogReader: FileCatalogSource {
+    fn repository_root(&self) -> Option<&Path>;
+
+    fn file(&self, id: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>>;
+
+    fn path_candidates(
+        &self,
+        bounds: FilePathBounds,
+        limit: usize,
+    ) -> StorageResult<Option<Vec<FileId>>>;
+
+    /// Visit an exact path range in bounded batches.
+    fn visit_paths(
+        &self,
+        bounds: FilePathBounds,
+        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
+    ) -> StorageResult<()>;
+
+    fn scalar_candidates(
+        &self,
+        predicate: FileScalarPredicate<'_>,
+        limit: usize,
+    ) -> StorageResult<Option<Arc<[FileId]>>>;
 }

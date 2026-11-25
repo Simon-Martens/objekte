@@ -17,16 +17,19 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use crate::index::storage::file_catalog::{
-    FILE_TRANSFER_LIMIT, FileCatalogSource, FileTransferRow, transfer_files,
+    FILE_TRANSFER_LIMIT, FileCatalogReader, FileCatalogSource, FilePathBounds, FileScalarPredicate,
+    FileTransferRow, transfer_files,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
-use crate::inventory::{
-    FileEntry, FileScalarIndex, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
-};
+#[cfg(test)]
+use crate::inventory::relative_path_bounds;
+use crate::inventory::{FileEntry, FileStatus, SharedPath, empty_path_bounds};
 use crate::lifecycle::reconciliation::scan::FileStamp;
 use crate::model::{FileId, Number};
 use crate::query::Operator;
 use crate::repository::Repository;
+
+use super::file_scalar::FileScalarIndex;
 
 const SHARDS: usize = 256;
 const SCALAR_SHARDS: usize = 32;
@@ -278,10 +281,6 @@ impl FileCatalog {
         self.construction_complete
     }
 
-    pub(crate) fn repository_root(&self) -> &Path {
-        &self.base_files.required_root()
-    }
-
     pub(crate) fn set_construction_complete(&mut self, complete: bool) {
         self.construction_complete = complete;
     }
@@ -488,6 +487,7 @@ impl FileCatalog {
         Some(self.relative_path_ids_in_bounds(bounds))
     }
 
+    #[cfg(test)]
     pub(crate) fn relative_path_ids_in_bounds(
         &self,
         bounds: (std::ops::Bound<Arc<str>>, std::ops::Bound<Arc<str>>),
@@ -496,6 +496,7 @@ impl FileCatalog {
             .expect("an index cannot contain usize::MAX paths")
     }
 
+    #[cfg(test)]
     pub(crate) fn relative_path_ids_up_to(
         &self,
         operator: Operator,
@@ -508,16 +509,26 @@ impl FileCatalog {
 
     fn relative_path_ids_in_bounds_up_to(
         &self,
-        bounds: (std::ops::Bound<Arc<str>>, std::ops::Bound<Arc<str>>),
+        bounds: FilePathBounds,
         limit: usize,
     ) -> Option<Vec<FileId>> {
         if empty_path_bounds(&bounds) {
             return Some(Vec::new());
         }
-        let mut ids = Vec::new();
-        {
-            for (_, id) in self.base_files.relative_paths.range(bounds.clone()) {
-                if self.is_active(*id)
+        let ids = self
+            .live_path_ids(bounds)
+            .take(limit.saturating_add(1))
+            .collect::<Vec<_>>();
+        (ids.len() <= limit).then_some(ids)
+    }
+
+    fn live_path_ids(&self, bounds: FilePathBounds) -> impl Iterator<Item = FileId> + '_ {
+        let original = self
+            .base_files
+            .relative_paths
+            .range(bounds.clone())
+            .filter_map(|(_, id)| {
+                (self.is_active(*id)
                     && self.changed[shard(id)].get(id).is_none_or(|changed| {
                         self.base_files
                             .files
@@ -525,31 +536,20 @@ impl FileCatalog {
                             .is_some_and(|baseline| {
                                 changed.entry.relative_path == baseline.relative_path
                             })
-                    })
-                {
-                    if ids.len() == limit {
-                        return None;
-                    }
-                    ids.push(*id);
-                }
-            }
-        }
-        for ((key, id), _) in self
+                    }))
+                .then_some(*id)
+            });
+        let changed = self
             .changed_relative_paths
             .range(path_bounds_with_ids(&bounds))
-        {
-            if self.is_active(*id)
-                && self.changed[shard(id)]
-                    .get(id)
-                    .is_some_and(|changed| changed.entry.relative_path.query_key() == *key)
-            {
-                if ids.len() == limit {
-                    return None;
-                }
-                ids.push(*id);
-            }
-        }
-        Some(ids)
+            .filter_map(|((key, id), _)| {
+                (self.is_active(*id)
+                    && self.changed[shard(id)]
+                        .get(id)
+                        .is_some_and(|changed| changed.entry.relative_path.query_key() == *key))
+                .then_some(*id)
+            });
+        original.chain(changed)
     }
 
     /// Materialize the active metadata baseline only for a full filesystem
@@ -712,6 +712,63 @@ impl FileCatalog {
             ordered.insert((new_path.query_key(), id), ());
         }
         Ok(next)
+    }
+}
+
+impl FileCatalogReader for FileCatalog {
+    fn repository_root(&self) -> Option<&Path> {
+        self.base_files.root()
+    }
+
+    fn file(&self, id: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>> {
+        Ok(self.entry(id).map(Cow::Borrowed))
+    }
+
+    fn path_candidates(
+        &self,
+        bounds: FilePathBounds,
+        limit: usize,
+    ) -> StorageResult<Option<Vec<FileId>>> {
+        Ok(self.relative_path_ids_in_bounds_up_to(bounds, limit))
+    }
+
+    fn visit_paths(
+        &self,
+        bounds: FilePathBounds,
+        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        if empty_path_bounds(&bounds) {
+            return Ok(());
+        }
+        let mut batch = smallvec::SmallVec::<[_; 256]>::new();
+        for id in self.live_path_ids(bounds) {
+            batch.push(id);
+            if batch.len() == batch.inline_size() {
+                visit(&batch)?;
+                batch.clear();
+            }
+        }
+        if !batch.is_empty() {
+            visit(&batch)?;
+        }
+        Ok(())
+    }
+
+    fn scalar_candidates(
+        &self,
+        predicate: FileScalarPredicate<'_>,
+        limit: usize,
+    ) -> StorageResult<Option<Arc<[FileId]>>> {
+        Ok(match predicate {
+            FileScalarPredicate::Size(operator, literal) => self.size_ids(operator, literal, limit),
+            FileScalarPredicate::Modified(operator, literal) => {
+                self.modified_ids(operator, literal, limit)
+            }
+            FileScalarPredicate::Created(operator, literal) => {
+                self.created_ids(operator, literal, limit)
+            }
+            FileScalarPredicate::UnknownCreated => self.unknown_created_ids(limit),
+        })
     }
 }
 

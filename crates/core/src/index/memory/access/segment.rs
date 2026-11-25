@@ -3,7 +3,7 @@
 use std::sync::{Arc, Mutex};
 
 use crate::index::segment::IndexedCollectionSegment;
-use crate::lifecycle::catalog::FileCatalog;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::query::binding::filter::BoundTerm;
 use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::query_execution::domain::domain_id;
@@ -55,7 +55,7 @@ struct PreparedSegmentOperation {
 pub(crate) struct NativeSegmentProvider<'a> {
     pub(crate) segment: &'a IndexedCollectionSegment,
     pub(crate) collection: &'a CollectionState,
-    pub(crate) file_catalog: Option<&'a FileCatalog>,
+    pub(crate) file_catalog: Option<&'a dyn FileCatalogReader>,
     pub(crate) domain: DomainId,
     pub(crate) instance_id: u64,
     operations: Mutex<Vec<PreparedSegmentOperation>>,
@@ -66,7 +66,7 @@ impl<'a> NativeSegmentProvider<'a> {
         published_id: crate::index::segment::SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
-        file_catalog: Option<&'a FileCatalog>,
+        file_catalog: Option<&'a dyn FileCatalogReader>,
     ) -> Self {
         Self {
             segment,

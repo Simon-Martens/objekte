@@ -5,11 +5,14 @@
 
 use std::time::Instant;
 
-use objekte_search_core::index::posting::PostingCollection;
-use objekte_search_core::model::{LogicalType, RecordSlot, Value};
-use objekte_search_core::schema::{FieldDefinition, Schema};
+use super::PostingCollection;
 
-fn main() -> Result<(), String> {
+use crate::model::{ArrayValue, LogicalType, Number, RecordSlot, Value};
+use crate::schema::{FieldDefinition, Schema};
+
+#[test]
+#[ignore = "release posting construction microbenchmark"]
+fn bench_posting_populations() -> Result<(), String> {
     for (name, schema, records) in populations() {
         let mut samples = Vec::new();
         for _ in 0..5 {
@@ -42,12 +45,11 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
             ]),
             (0_i64..50_000)
                 .map(|number| {
-                    objekte_loader_json::value_from_json(serde_json::json!({
-                        "number": number,
-                        "text": if number % 2 == 0 { "A" } else { "B" },
-                        "flag": number % 2 == 0
-                    }))
-                    .unwrap()
+                    object([
+                        ("number", integer(number)),
+                        ("text", text(number % 2 == 0)),
+                        ("flag", Value::Bool(number % 2 == 0)),
+                    ])
                 })
                 .collect(),
         ),
@@ -60,10 +62,10 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
             )]),
             (0_i64..25_000)
                 .map(|number| {
-                    objekte_loader_json::value_from_json(serde_json::json!({
-                        "values": [number, number + 1, number + 2]
-                    }))
-                    .unwrap()
+                    object([(
+                        "values",
+                        array([number, number + 1, number + 2].map(integer)),
+                    )])
                 })
                 .collect(),
         ),
@@ -81,17 +83,14 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
             ]),
             (0_i64..5_000)
                 .map(|number| {
-                    let items = (0_i64..12)
-                        .map(|offset| {
-                            serde_json::json!({
-                                "number": number + offset,
-                                "text": if offset % 2 == 0 { "A" } else { "B" },
-                                "flag": offset % 2 == 0
-                            })
-                        })
-                        .collect::<Vec<_>>();
-                    objekte_loader_json::value_from_json(serde_json::json!({ "items": items }))
-                        .unwrap()
+                    let items = (0_i64..12).map(|offset| {
+                        object([
+                            ("number", integer(number + offset)),
+                            ("text", text(offset % 2 == 0)),
+                            ("flag", Value::Bool(offset % 2 == 0)),
+                        ])
+                    });
+                    object([("items", array(items))])
                 })
                 .collect(),
         ),
@@ -104,14 +103,35 @@ fn populations() -> Vec<(&'static str, Schema, Vec<Value>)> {
             )]),
             (0..10_000)
                 .map(|number| {
-                    objekte_loader_json::value_from_json(serde_json::json!({
-                        "values": vec![if number % 2 == 0 { "A" } else { "B" }; 32]
-                    }))
-                    .unwrap()
+                    object([(
+                        "values",
+                        array(std::iter::repeat_n(text(number % 2 == 0), 32)),
+                    )])
                 })
                 .collect(),
         ),
     ]
+}
+
+fn object<'a>(fields: impl IntoIterator<Item = (&'a str, Value)>) -> Value {
+    Value::Object(
+        fields
+            .into_iter()
+            .map(|(key, value)| (key.to_owned(), value))
+            .collect(),
+    )
+}
+
+fn array(values: impl IntoIterator<Item = Value>) -> Value {
+    Value::Array(ArrayValue::from_unrestricted(values.into_iter().collect()))
+}
+
+fn integer(value: i64) -> Value {
+    Value::Number(Number::integer(value as i128))
+}
+
+fn text(even: bool) -> Value {
+    Value::String(if even { "A" } else { "B" }.to_owned())
 }
 
 fn schema(fields: &[(&str, LogicalType, bool)]) -> Schema {

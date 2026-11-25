@@ -21,8 +21,13 @@ fn hash_field(hash: &mut Sha256, value: &[u8]) {
 }
 
 impl Repository {
-    pub fn files(&self) -> &FileInventory {
+    pub(crate) fn files(&self) -> &FileInventory {
         &self.files
+    }
+
+    /// Registered source root, when the repository has a file service.
+    pub fn repository_root(&self) -> Option<&std::path::Path> {
+        self.files.root()
     }
 
     pub fn collections(&self) -> &[CollectionState] {
@@ -30,7 +35,7 @@ impl Repository {
     }
 
     /// Read one declared source relation without decoding source records.
-    pub fn relation_index(
+    pub(crate) fn relation_index(
         &self,
         source_collection: &str,
         path: &[String],
@@ -46,7 +51,7 @@ impl Repository {
     }
 
     /// Resolve a reverse alias in its target collection's namespace.
-    pub fn backlink_relation(
+    pub(crate) fn backlink_relation(
         &self,
         target_collection: &str,
         alias: &str,
@@ -65,7 +70,7 @@ impl Repository {
     }
 
     /// Borrow the existing typed posting for sources referencing this ID.
-    pub fn relation_reverse_sources(
+    pub(crate) fn relation_reverse_sources(
         &self,
         relation: &RelationIndex,
         target_id: &str,
@@ -158,21 +163,6 @@ impl Repository {
         }
     }
 
-    #[allow(
-        dead_code,
-        reason = "retained as the collection-scoped segment read-view adapter"
-    )]
-    pub(crate) fn segment_read_views(
-        &self,
-        collection: CollectionId,
-    ) -> impl Iterator<Item = crate::index::segment::SegmentReadView<'_>> {
-        self.segments
-            .get(collection.0 as usize)
-            .into_iter()
-            .flat_map(|segments| segments.iter())
-            .map(|segment| crate::index::segment::IndexedCollectionSegment::read_view(segment))
-    }
-
     /// Compact native segment inventory for benchmarks and diagnostics.
     pub fn segment_summaries(&self) -> Vec<crate::index::segment::NativeSegmentSummary> {
         self.segment_summaries_for(&self.segments).collect()
@@ -184,47 +174,7 @@ impl Repository {
     ) -> impl Iterator<Item = crate::index::segment::NativeSegmentSummary> + 'a {
         segments
             .iter()
-            .flat_map(|segments| {
-                segments.iter().map(|segment| {
-                    crate::index::segment::IndexedCollectionSegment::read_view(segment)
-                })
-            })
-            .map(|view| crate::index::segment::NativeSegmentSummary {
-                id: view.id,
-                collection: view.collection,
-                records: view.index.record_count(),
-                active_records: view.active.len() as usize,
-                files: view.index.file_count(),
-                source_bytes: view.index.accounting.source_bytes_estimated,
-                posting_fields: view.index.postings.fields.len(),
-                sort_columns: view.index.sorting.columns.len(),
-                relation_count: view.index.relations.len(),
-                relation_edges: view
-                    .index
-                    .relations
-                    .iter()
-                    .map(|relation| relation.edge_count())
-                    .sum(),
-                relation_heap_bytes: view
-                    .index
-                    .relations
-                    .iter()
-                    .map(|relation| relation.estimated_bytes())
-                    .sum(),
-                bigram_stores: 2 + view.index.custom_text.len(),
-                distinct_gram_keys: std::iter::once(&*view.index.raw)
-                    .chain(std::iter::once(&*view.index.fallback_text))
-                    .chain(view.index.custom_text.values())
-                    .map(|index| index.normal.len() + index.skip.len())
-                    .sum(),
-                bigram_heap_bytes: std::iter::once(&*view.index.raw)
-                    .chain(std::iter::once(&*view.index.fallback_text))
-                    .chain(view.index.custom_text.values())
-                    .map(crate::index::bigram::BigramIndex::estimated_heap_bytes)
-                    .sum(),
-                index_family_bytes: view.index.accounting.index_family_bytes,
-                active: view.active.len() != 0,
-            })
+            .flat_map(|group| group.iter().map(|segment| segment.summary()))
     }
 
     /// Borrowed descriptors for one segment's independently owned native

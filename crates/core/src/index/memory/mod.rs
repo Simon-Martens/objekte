@@ -3,6 +3,8 @@
 pub(crate) mod access;
 pub mod bigram;
 pub(crate) mod file_catalog;
+mod file_scalar;
+pub(crate) mod inventory;
 pub mod posting;
 pub mod relation;
 pub mod segment;

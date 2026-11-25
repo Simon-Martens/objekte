@@ -72,16 +72,15 @@ fn run() -> Result<(), String> {
     let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let open_ns = started.elapsed().as_nanos() as u64;
     let collection = &index.collections()[0];
+    let view = index.index().view().map_err(|error| error.to_string())?;
     let report = index.inference_report("records");
-    let indexes = collection.inference.as_ref().map(|state| {
-        let mut summaries = state
-            .indexes
-            .iter()
-            .map(|(path, index)| {
+    let indexes = collection.base_inferred_postings().map(|postings| {
+        let mut summaries = postings
+            .map(|index| {
                 json!({
-                    "path": path,
-                    "keys": index.values.len(),
-                    "memberships": index.values.values().map(|slots| slots.len()).sum::<u64>(),
+                    "path": index.path,
+                    "keys": index.keys,
+                    "memberships": index.memberships,
                     "covered_records": index.covered_records,
                 })
             })
@@ -94,8 +93,8 @@ fn run() -> Result<(), String> {
         json!({
             "mode": mode,
             "root": root.canonicalize().map_err(|error| error.to_string())?,
-            "files": index.files().files.len(),
-            "records": collection.generation.records.len(),
+            "files": view.file_metadata_count(),
+            "records": collection.base_record_count(),
             "build_parses": index.build_parses(),
             "open_ns": open_ns,
             "build_ns": index.startup().build_ns,

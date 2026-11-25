@@ -4,7 +4,9 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 use super::FileCatalog;
-use crate::index::storage::file_catalog::{FileCatalogSource, FileTransferRow, transfer_files};
+use crate::index::storage::file_catalog::{
+    FileCatalogReader, FileCatalogSource, FileTransferRow, transfer_files,
+};
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 /// An independent catalog used in transfer tests. Store only ordered live
@@ -319,6 +321,29 @@ fn scalar_cap_counts_live_members_after_base_and_delta_churn() {
         let equal =
             |catalog: &FileCatalog| catalog.size_ids(Operator::Eq, &Number::integer(73), 4096);
         assert!(equal(&pinned).is_none());
+        let bounds = (std::ops::Bound::Unbounded, std::ops::Bound::Unbounded);
+        assert!(
+            catalog
+                .path_candidates(bounds.clone(), 256)
+                .unwrap()
+                .is_none()
+        );
+        let mut count = 0usize;
+        catalog
+            .visit_paths(bounds.clone(), &mut |batch| {
+                assert!(!batch.is_empty() && batch.len() <= 256);
+                count += batch.len();
+                Ok(())
+            })
+            .unwrap();
+        assert_eq!(count, FILES as usize);
+        let mut batches = 0;
+        let result = catalog.visit_paths(bounds, &mut |_| {
+            batches += 1;
+            Err(StorageError::Cancelled)
+        });
+        assert_eq!(result, Err(StorageError::Cancelled));
+        assert_eq!(batches, 1);
         for number in 0..FILES - 1 {
             catalog = catalog.retired(FileId(number)).unwrap();
         }

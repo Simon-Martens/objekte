@@ -761,6 +761,7 @@ impl PostingIndex {
             && term.matcher.is_none()
             && matches!(&term.literal, Value::String(value) if value.is_empty())
     }
+    #[cfg(test)]
     pub fn estimate_exact(&self, term: &BoundTerm, domain_len: u64) -> Option<(f64, u64)> {
         self.estimate_exact_with_visits(term, domain_len, &mut 0)
     }

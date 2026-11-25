@@ -466,7 +466,15 @@ fn run() -> Result<(), String> {
     let readiness_ns = started.elapsed().as_nanos();
     let collection = &index.collections()[0];
     let mut hash = Sha256::new();
-    hash.update(bincode::serialize(&index.files().files).map_err(|error| error.to_string())?);
+    hash.update(repo.file_metadata_count().to_le_bytes());
+    repo.visit_file_metadata(|file| {
+        let bytes = bincode::serialize(file).map_err(|error| {
+            objekte_search_core::lifecycle::IndexError::Extension(error.to_string())
+        })?;
+        hash.update(bytes);
+        Ok(())
+    })
+    .map_err(|error| error.to_string())?;
     let corpus_sha256 = format!("{:x}", hash.finalize());
     let inference_report = repo.inference_report(collection_name);
     let rss_after_open = resident_bytes("VmRSS:");
@@ -500,10 +508,10 @@ fn run() -> Result<(), String> {
             "finalization_ns": repo.startup_stats().build_finalization_ns,
             "build_parses": repo.build_parses(),
             "failed_build_parses": repo.build_failed_parses(),
-            "file_count": collection.generation.files.len(),
-            "record_count": collection.generation.records.len(),
+            "file_count": collection.base_file_count(),
+            "record_count": collection.base_record_count(),
             "inference_report": inference_report,
-            "structural_bitmap_bytes": collection.empty_array_records.serialized_size(),
+            "structural_bitmap_bytes": collection.base_empty_array_membership_bytes(),
             "rss_after_open_bytes": rss_after_open,
             "peak_rss_after_open_bytes": peak_after_open,
             "peak_rss_after_queries_bytes": resident_bytes("VmHWM:"),

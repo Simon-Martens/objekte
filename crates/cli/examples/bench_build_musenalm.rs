@@ -13,22 +13,30 @@ use objekte_search_core::repository::configuration::RepositoryOptions;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 
-fn hash_value<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> {
-    let bytes = bincode::serialize(value).map_err(|error| error.to_string())?;
+fn hash_value<T: Serialize>(
+    hash: &mut Sha256,
+    value: &T,
+) -> Result<(), objekte_search_core::lifecycle::IndexError> {
+    let bytes = bincode::serialize(value).map_err(|error| {
+        objekte_search_core::lifecycle::IndexError::Extension(error.to_string())
+    })?;
     hash.update((bytes.len() as u64).to_le_bytes());
     hash.update(bytes);
     Ok(())
 }
 
-fn index_signature(index: &IndexedRepository, view: &IndexView) -> Result<String, String> {
+fn index_signature(
+    index: &IndexedRepository,
+    view: &IndexView,
+) -> Result<String, objekte_search_core::lifecycle::IndexError> {
     let mut hash = Sha256::new();
-    for file in &index.files().files {
+    view.visit_file_metadata(|file| {
         hash_value(&mut hash, &file.id)?;
         hash_value(&mut hash, &file.relative_path.to_path_buf())?;
         hash_value(&mut hash, &file.revision)?;
         hash_value(&mut hash, &file.collections)?;
-        hash_value(&mut hash, &file.status)?;
-    }
+        hash_value(&mut hash, &file.status)
+    })?;
     for collection in index.collections() {
         hash_value(&mut hash, &collection.definition.name)?;
     }
@@ -164,7 +172,8 @@ fn run() -> Result<(), String> {
     let bigram_heap_bytes = observation.bigram_heap_bytes;
     let resident_bytes = memory_bytes("VmRSS:");
     let peak_resident_bytes = memory_bytes("VmHWM:");
-    let index_signature_sha256 = index_signature(&index, &repo)?;
+    let index_signature_sha256 =
+        index_signature(&index, &repo).map_err(|error| error.to_string())?;
     println!(
         "{}",
         serde_json::json!({

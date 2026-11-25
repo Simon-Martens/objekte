@@ -3,10 +3,12 @@
 use std::path::PathBuf;
 use std::time::Instant;
 
-use objekte_search_core::inventory::{CollectionBuilder, FileInventory, SourceRevision};
-use objekte_search_core::model::{CollectionId, RecordId};
+use super::{CollectionBuilder, FileInventory, SourceRevision};
+use crate::model::{CollectionId, RecordId};
 
-fn main() -> Result<(), String> {
+#[test]
+#[ignore = "release inventory admission microbenchmark"]
+fn bench_inventory_membership() -> Result<(), String> {
     for count in [1_000usize, 2_000, 4_000, 8_000, 16_000] {
         let mut inventory = FileInventory::new(PathBuf::from("/synthetic"));
         let revision = SourceRevision {
@@ -36,10 +38,7 @@ fn main() -> Result<(), String> {
             let generation = builder.finish(&inventory)?;
             assert_eq!(generation.records.len(), count);
         }
-        println!(
-            "{}",
-            serde_json::json!({"files": count, "samples_ns": samples_ns})
-        );
+        println!("{{\"files\":{count},\"samples_ns\":{samples_ns:?}}}");
     }
     Ok(())
 }

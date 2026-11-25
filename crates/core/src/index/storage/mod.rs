@@ -1,5 +1,6 @@
 //! Backend-independent index semantics and storage contracts.
 
+pub(crate) mod component;
 pub(crate) mod file_catalog;
 pub(crate) mod order;
 pub(crate) mod ordered_slots;

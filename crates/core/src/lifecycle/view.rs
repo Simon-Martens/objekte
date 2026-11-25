@@ -325,6 +325,29 @@ impl IndexView {
             .native_index_signature_for(&self.0.segments)
     }
 
+    /// Visit live source metadata in file-ID order through bounded reads.
+    pub fn visit_file_metadata(
+        &self,
+        mut visit: impl FnMut(&FileEntry) -> Result<(), IndexError>,
+    ) -> Result<(), IndexError> {
+        use crate::index::storage::file_catalog::{
+            FILE_TRANSFER_LIMIT, FileCatalogSource, transfer_files,
+        };
+        let catalog = &self.0.catalog;
+        transfer_files(
+            catalog,
+            catalog.high_water_mark(),
+            FILE_TRANSFER_LIMIT,
+            &|| false,
+            |row| visit(row.entry.as_ref()),
+        )
+    }
+
+    /// Number of visible file metadata entries in this revision.
+    pub fn file_metadata_count(&self) -> u64 {
+        self.0.catalog.active_files()
+    }
+
     /// Borrow a row from this pinned publication without copying the corpus
     /// path catalogue or implying that the file has been parsed.
     pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow<'_>> {

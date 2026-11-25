@@ -274,7 +274,7 @@ pub struct InferencePathDiagnostic {
 #[derive(Clone, Debug)]
 pub struct InferenceState {
     pub report: InferenceReport,
-    pub indexes: HashMap<Vec<String>, PostingIndex>,
+    pub(crate) indexes: HashMap<Vec<String>, PostingIndex>,
     /// Records whose entire selected value stream is represented by the
     /// corresponding short-string posting dictionary.
     pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,

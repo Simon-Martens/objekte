@@ -7,7 +7,6 @@ use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
 use objekte_search_core::inference::InferenceIndexStatus;
-use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::lifecycle::{IndexRevision, IndexView};
 use objekte_search_core::model::path_representation;
@@ -585,9 +584,8 @@ fn complete_run<W: Write>(
     let base_fallback: usize = repo
         .collections()
         .iter()
-        .flat_map(|item| &item.generation.records)
-        .filter(|record| record.class == RecordClass::RawFallback)
-        .count();
+        .map(|collection| collection.base_fallback_record_count())
+        .sum();
     let automatic_index_paths = if args.diagnostic {
         repo.inference_index_diagnostics("files")
     } else {

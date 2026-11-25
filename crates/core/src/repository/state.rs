@@ -31,27 +31,73 @@ pub struct CollectionState {
     /// Compatibility boundary for the existing file preparation pipeline.
     pub(crate) file_definition: Option<CollectionDefinition>,
     pub(crate) source: Option<PreparedSource>,
-    pub generation: CollectionGeneration,
-    pub postings: PostingCollection,
-    pub inference: Option<InferenceState>,
+    pub(crate) generation: CollectionGeneration,
+    pub(crate) postings: PostingCollection,
+    pub(crate) inference: Option<InferenceState>,
     pub(crate) global_inference: Option<GlobalInferenceSummary>,
-    pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub raw: BigramIndex,
-    pub fallback_text: BigramIndex,
-    pub logical_records: RoaringBitmap,
-    pub empty_array_records: RoaringBitmap,
-    pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    pub(crate) raw: BigramIndex,
+    pub(crate) fallback_text: BigramIndex,
+    pub(crate) logical_records: RoaringBitmap,
+    pub(crate) empty_array_records: RoaringBitmap,
+    pub(crate) custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub(crate) text_bindings: crate::query_access::catalog::TextBindingCatalog,
-    pub sorting: SortCollection,
+    pub(crate) sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
-    pub id_lookup: HashMap<RecordId, RecordSlot>,
-    pub identity_order: Vec<RecordSlot>,
+    pub(crate) id_lookup: HashMap<RecordId, RecordSlot>,
+    pub(crate) identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
-    pub relations: Vec<RelationIndex>,
+    pub(crate) relations: Vec<RelationIndex>,
 }
 
 impl CollectionState {
+    /// Counts for the base collection before segment overlays.
+    pub fn base_file_count(&self) -> usize {
+        self.generation.files.len()
+    }
+
+    pub fn base_record_count(&self) -> usize {
+        self.generation.records.len()
+    }
+
+    pub fn base_fallback_record_count(&self) -> usize {
+        self.generation
+            .records
+            .iter()
+            .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
+            .count()
+    }
+
+    #[doc(hidden)]
+    pub fn base_empty_array_membership_bytes(&self) -> usize {
+        self.empty_array_records.serialized_size()
+    }
+
+    /// Field paths registered in the base collection's declared postings.
+    pub fn declared_posting_paths(&self) -> impl Iterator<Item = &[String]> + '_ {
+        self.postings.fields.keys().map(Vec::as_slice)
+    }
+
+    /// Summaries of inferred dictionaries in the base collection.
+    pub fn base_inferred_postings(
+        &self,
+    ) -> Option<impl Iterator<Item = InferredPostingSummary<'_>> + '_> {
+        self.inference.as_ref().map(|state| {
+            state
+                .indexes
+                .iter()
+                .map(|(path, index)| InferredPostingSummary {
+                    path,
+                    keys: index.values.len(),
+                    memberships: index.values.values().map(|slots| slots.len()).sum(),
+                    covered_records: index.covered_records,
+                    min_key: index.stats.min_key.as_ref(),
+                    max_key: index.stats.max_key.as_ref(),
+                })
+        })
+    }
+
     /// File importer configuration, when this collection has one.
     pub fn file_source(&self) -> Option<&FileSourceConfig> {
         self.file_source.as_ref()
@@ -76,6 +122,16 @@ impl CollectionState {
             .as_ref()
             .expect("file reader required by file adapter")
     }
+}
+
+/// Cardinalities for one inferred value dictionary.
+pub struct InferredPostingSummary<'a> {
+    pub path: &'a [String],
+    pub keys: usize,
+    pub memberships: u64,
+    pub covered_records: u32,
+    pub min_key: Option<&'a crate::index::posting::ScalarKey>,
+    pub max_key: Option<&'a crate::index::posting::ScalarKey>,
 }
 
 /// Collection size summary used by query planning.

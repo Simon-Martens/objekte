@@ -9,6 +9,8 @@ use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::record::data_values_small;
 use crate::schema::{FieldDefinition, Schema};
 
+#[cfg(test)]
+mod benchmark;
 mod lookup;
 
 const DIRECT_MULTIVALUE_LIMIT: usize = 8;
@@ -17,7 +19,7 @@ pub use crate::index::storage::posting::{ScalarKey, SelectionSummary};
 
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug)]
-pub struct PostingIndex {
+pub(crate) struct PostingIndex {
     pub path: Vec<String>,
     pub kind: LogicalType,
     // eg. {"items": [{"price": 23}]}. Then the path items.price can match many different
@@ -44,14 +46,14 @@ pub struct PostingIndex {
 
 /// Optional named-binding posting and its exact coverage guarantee.
 #[derive(Clone, Debug)]
-pub struct CustomPostingIndex {
+pub(crate) struct CustomPostingIndex {
     pub index: PostingIndex,
     pub complete: bool,
 }
 
 /// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug)]
-pub struct PostingStats {
+pub(crate) struct PostingStats {
     pub present_count: u64,
     pub null_count: u64,
     pub distinct_count: usize,
@@ -307,6 +309,7 @@ impl PostingIndex {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn validate(&self, record_count: usize) -> Result<(), String> {
         self.validate_eligible(record_count, record_count)
     }
@@ -361,7 +364,7 @@ impl PostingIndex {
 
 /// Posting indexes registered for one collection.
 #[derive(Clone, Debug)]
-pub struct PostingCollection {
+pub(crate) struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }
 
@@ -466,10 +469,6 @@ impl PostingCollection {
         for index in self.fields.values_mut() {
             index.finish_stats();
         }
-    }
-
-    pub fn validate(&self, record_count: usize) -> Result<(), String> {
-        self.validate_eligible(record_count, record_count)
     }
 
     pub fn validate_eligible(
