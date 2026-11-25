@@ -198,28 +198,39 @@ const ACTIVE_SLOT_CHUNK: u32 = 1 << 16;
 /// Published liveness for one collection. Slot numbers are never reused by
 /// ordinary mutations. Only touched chunks are copied on retirement.
 #[derive(Clone, Debug)]
-pub(crate) struct ActiveRecords {
+pub(crate) struct MemoryLiveSlots {
     chunks: Arc<Vec<Arc<RoaringBitmap>>>,
     slot_count: u32,
     live_count: u64,
 }
 
-impl ActiveRecords {
+impl MemoryLiveSlots {
     /// Restore a sparse active domain, including fully retired chunks.
+    #[cfg(test)]
     pub(crate) fn from_bitmap(slot_count: usize, bitmap: RoaringBitmap) -> Result<Self, String> {
+        Self::from_membership(
+            slot_count,
+            crate::query_access::membership::MembershipView::Borrowed(&bitmap),
+        )
+    }
+
+    pub(super) fn from_membership(
+        slot_count: usize,
+        slots: crate::query_access::membership::MembershipView<'_>,
+    ) -> Result<Self, String> {
         let slot_count = u32::try_from(slot_count).map_err(|_| "too many records")?;
-        if bitmap.max().is_some_and(|slot| slot >= slot_count) {
+        if slots.last().is_some_and(|slot| slot >= slot_count) {
             return Err("active record slot out of bounds".into());
         }
         let chunk_count = (slot_count as usize).div_ceil(ACTIVE_SLOT_CHUNK as usize);
         let mut chunks = vec![RoaringBitmap::new(); chunk_count];
-        for slot in bitmap.iter() {
+        for slot in slots.iter() {
             chunks[(slot / ACTIVE_SLOT_CHUNK) as usize].insert(slot % ACTIVE_SLOT_CHUNK);
         }
         Ok(Self {
             chunks: Arc::new(chunks.into_iter().map(Arc::new).collect()),
             slot_count,
-            live_count: bitmap.len(),
+            live_count: slots.len() as u64,
         })
     }
 
@@ -302,6 +313,7 @@ impl ActiveRecords {
         })
     }
 
+    #[cfg(test)]
     pub(crate) fn bitmap(&self) -> RoaringBitmap {
         if self.live_count == self.slot_count as u64 {
             let mut full = RoaringBitmap::new();
@@ -316,6 +328,45 @@ impl ActiveRecords {
                 chunk.iter().map(move |slot| base + slot)
             })
             .collect()
+    }
+}
+
+impl crate::index::storage::liveness::LiveSlotReader for MemoryLiveSlots {
+    fn slot_count(&self) -> u32 {
+        self.slot_count()
+    }
+
+    fn live_count(&self) -> u64 {
+        self.len()
+    }
+
+    fn contains(&self, slot: RecordSlot) -> bool {
+        self.contains(slot)
+    }
+
+    fn visit_blocks(
+        &self,
+        visit: &mut dyn FnMut(u32, crate::query_access::membership::MembershipView<'_>),
+    ) {
+        for (group, chunk) in self.chunks.iter().enumerate() {
+            visit(
+                group as u32 * ACTIVE_SLOT_CHUNK,
+                crate::query_access::membership::MembershipView::Borrowed(chunk),
+            );
+        }
+    }
+
+    fn retired(
+        &self,
+        slots: &[RecordSlot],
+    ) -> crate::index::storage::transfer::StorageResult<
+        crate::index::storage::liveness::ActiveRecords,
+    > {
+        self.retired(slots)
+            .map(crate::index::storage::liveness::ActiveRecords::new)
+            .map_err(|error| {
+                crate::index::storage::transfer::StorageError::invalid("retire native slots", error)
+            })
     }
 }
 

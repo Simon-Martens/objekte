@@ -2,6 +2,7 @@
 
 pub(crate) mod component;
 pub(crate) mod file_catalog;
+pub(crate) mod liveness;
 pub(crate) mod order;
 pub(crate) mod ordered_slots;
 pub(crate) mod posting;
@@ -20,6 +21,12 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn live_records(
+        &self,
+        slots: usize,
+        initial: liveness::InitialLiveness<'_>,
+    ) -> StorageResult<liveness::ActiveRecords>;
+
     fn prepare_file_records(
         &self,
         batch: worker::FileWorkerBatch<'_>,

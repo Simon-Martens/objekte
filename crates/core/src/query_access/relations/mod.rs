@@ -145,8 +145,8 @@ impl<'a> NativeRelationProvider<'a> {
             return Err("relation provider source domain mismatch".into());
         }
         let empty_active = (0..self.repo.collections.len())
-            .map(|_| ActiveRecords::all(0))
-            .collect::<Result<Vec<_>, _>>()?;
+            .map(|_| ActiveRecords::empty())
+            .collect::<Vec<_>>();
         let view =
             MergedRelationView::new(self.repo, &empty_active, self.segments, &self.repo.catalog)?;
         let mut native_input = crate::index::segment::SegmentRecordSet::default();

@@ -539,7 +539,7 @@ fn restored_file_versions_keep_tokens_across_chunks() {
 
 #[test]
 fn published_active_records_keep_old_view_and_cross_chunk_boundaries() {
-    let first = ActiveRecords::all(65_538).unwrap();
+    let first = MemoryLiveSlots::all(65_538).unwrap();
     assert_eq!(first.bitmap().len(), 65_538);
     assert_eq!(first.bitmap().max(), Some(65_537));
     let second = first
@@ -565,7 +565,7 @@ fn published_active_records_keep_old_view_and_cross_chunk_boundaries() {
 #[test]
 fn restored_active_records_keep_sparse_domains_and_append_boundary() {
     let bitmap = RoaringBitmap::from_iter([0, 65_535, 65_537]);
-    let restored = ActiveRecords::from_bitmap(65_538, bitmap.clone()).unwrap();
+    let restored = MemoryLiveSlots::from_bitmap(65_538, bitmap.clone()).unwrap();
     assert_eq!(restored.slot_count(), 65_538);
     assert_eq!(restored.len(), 3);
     assert_eq!(restored.bitmap(), bitmap);
@@ -574,10 +574,10 @@ fn restored_active_records_keep_sparse_domains_and_append_boundary() {
     assert!(appended.contains(RecordSlot(65_538)));
     assert!(appended.contains(RecordSlot(65_539)));
     assert_eq!(restored.len(), 3);
-    assert!(ActiveRecords::from_bitmap(65_537, bitmap).is_err());
-    assert!(ActiveRecords::from_bitmap(0, RoaringBitmap::from_iter([0])).is_err());
+    assert!(MemoryLiveSlots::from_bitmap(65_537, bitmap).is_err());
+    assert!(MemoryLiveSlots::from_bitmap(0, RoaringBitmap::from_iter([0])).is_err());
     assert_eq!(
-        ActiveRecords::from_bitmap(0, RoaringBitmap::new())
+        MemoryLiveSlots::from_bitmap(0, RoaringBitmap::new())
             .unwrap()
             .len(),
         0

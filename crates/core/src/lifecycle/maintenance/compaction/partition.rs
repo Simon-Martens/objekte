@@ -273,8 +273,10 @@ fn partition_base_with_limits_inner(
             root.next_segment_ordinal = ordinal
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-            let active =
-                ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
+            let active = empty.storage_factory.live_records(
+                part.records.len(),
+                crate::index::storage::liveness::InitialLiveness::All,
+            )?;
             group.push(Arc::new(PublishedSegment {
                 id: crate::index::segment::SegmentId::new(ordinal),
                 index: Arc::new(part),
@@ -289,8 +291,8 @@ fn partition_base_with_limits_inner(
     root.active = root
         .active
         .iter()
-        .map(|_| ActiveRecords::all(0).map_err(IndexError::ResourceLimit))
-        .collect::<Result<Vec<_>, _>>()?;
+        .map(|_| ActiveRecords::empty())
+        .collect::<Vec<_>>();
     root.segments = groups;
     root.rebuild_all_record_routes()?;
     Ok(root)

@@ -351,6 +351,14 @@ struct OrderedFileFactory {
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
+    fn live_records(
+        &self,
+        slots: usize,
+        initial: crate::index::storage::liveness::InitialLiveness<'_>,
+    ) -> StorageResult<crate::index::storage::liveness::ActiveRecords> {
+        crate::index::storage::test_factory().live_records(slots, initial)
+    }
+
     fn prepare_file_records(
         &self,
         batch: crate::index::storage::worker::FileWorkerBatch<'_>,

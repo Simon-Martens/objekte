@@ -240,8 +240,10 @@ fn compact_published_with_budget(
                     next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
-                    let active = ActiveRecords::all(part.records.len())
-                        .map_err(IndexError::ResourceLimit)?;
+                    let active = next.repository.storage_factory.live_records(
+                        part.records.len(),
+                        crate::index::storage::liveness::InitialLiveness::All,
+                    )?;
                     compacted.push(Arc::new(PublishedSegment {
                         id: crate::index::segment::SegmentId::new(ordinal),
                         index: Arc::new(part),
@@ -297,8 +299,10 @@ fn compact_published_with_budget(
                 next.next_segment_ordinal = ordinal
                     .checked_add(1)
                     .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-                let active =
-                    ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
+                let active = next.repository.storage_factory.live_records(
+                    part.records.len(),
+                    crate::index::storage::liveness::InitialLiveness::All,
+                )?;
                 replacements.push(Arc::new(PublishedSegment {
                     id: crate::index::segment::SegmentId::new(ordinal),
                     index: Arc::new(part),

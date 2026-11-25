@@ -158,7 +158,10 @@ fn consolidation_matches_direct_admission_without_source_files() {
         .unwrap();
     let empty_active = crate::inventory::ActiveRecords::all(0).unwrap();
     let active = merged
-        .translate_active(&[&first_active, &second_active, &empty_active])
+        .translate_active(
+            crate::index::storage::test_factory().as_ref(),
+            &[&first_active, &second_active, &empty_active],
+        )
         .unwrap();
     assert_eq!(active.len(), 3);
     assert!(!active.contains(RecordSlot(3)));
@@ -387,7 +390,10 @@ fn consolidation_translates_independent_local_zero_slots() {
         .retired(&[RecordSlot(0)])
         .unwrap();
     let active = consolidated
-        .translate_active(&[&first_active, &second_active])
+        .translate_active(
+            crate::index::storage::test_factory().as_ref(),
+            &[&first_active, &second_active],
+        )
         .unwrap();
     assert_eq!(consolidated.offsets, [0, 2]);
     assert_eq!(active.len(), 3);

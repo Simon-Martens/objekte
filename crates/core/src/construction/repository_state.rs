@@ -327,8 +327,8 @@ fn initialize_empty_configured(
         crate::inventory::FileVersion::INITIAL,
     )?;
     let active = (0..collections.len())
-        .map(|_| ActiveRecords::all(0))
-        .collect::<Result<Vec<_>, _>>()?;
+        .map(|_| ActiveRecords::empty())
+        .collect::<Vec<_>>();
     let segments = vec![Arc::new(Vec::new()); collections.len()];
     let instance_id = next_repository_instance();
     for collection in &mut collections {

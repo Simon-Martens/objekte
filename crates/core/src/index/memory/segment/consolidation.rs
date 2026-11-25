@@ -20,7 +20,11 @@ pub(crate) struct ConsolidatedSegment {
 impl ConsolidatedSegment {
     /// Preserve retired local slots exactly when publishing the consolidated
     /// shard. Call before replacing old shards in one immutable root.
-    pub fn translate_active(&self, masks: &[&ActiveRecords]) -> Result<ActiveRecords, String> {
+    pub(crate) fn translate_active(
+        &self,
+        factory: &dyn crate::index::storage::StorageFactory,
+        masks: &[&ActiveRecords],
+    ) -> Result<ActiveRecords, String> {
         if masks.len() != self.offsets.len() {
             return Err("consolidation active-mask count mismatch".into());
         }
@@ -45,7 +49,22 @@ impl ConsolidatedSegment {
                 }
             }
         }
-        ActiveRecords::all(self.index.records.len())?.retired(&retired)
+        use crate::index::storage::liveness::InitialLiveness;
+        use crate::query_access::membership::MembershipView;
+
+        let count = self.index.records.len();
+        if retired.is_empty() {
+            return Ok(factory.live_records(count, InitialLiveness::All)?);
+        }
+        let mut live = RoaringBitmap::new();
+        live.insert_range(0..u32::try_from(count).map_err(|_| "too many consolidated slots")?);
+        for slot in retired {
+            live.remove(slot.0);
+        }
+        Ok(factory.live_records(
+            count,
+            InitialLiveness::Selected(MembershipView::Borrowed(&live)),
+        )?)
     }
 }
 

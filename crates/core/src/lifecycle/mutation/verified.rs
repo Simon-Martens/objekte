@@ -421,7 +421,13 @@ pub(crate) fn preserve_partition_record_slots(
             {
                 return None;
             }
-            let active_without_old = old.active.retired(&[old_slot]).ok()?;
+            let active_without_old = match old.active.retired(&[old_slot]) {
+                Ok(active) => active,
+                Err(error) => {
+                    read_error = Some(error.into());
+                    return None;
+                }
+            };
             let compacted = old
                 .index
                 .compact_active(&active_without_old, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
@@ -464,7 +470,16 @@ pub(crate) fn preserve_partition_record_slots(
             let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
             group[old_position] = Arc::new(PublishedSegment {
                 id: crate::index::segment::SegmentId::new(old_ordinal),
-                active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
+                active: match candidate.repository.storage_factory.live_records(
+                    replacement.record_count(),
+                    crate::index::storage::liveness::InitialLiveness::All,
+                ) {
+                    Ok(active) => active,
+                    Err(error) => {
+                        read_error = Some(error.into());
+                        return None;
+                    }
+                },
                 index: Arc::new(replacement),
                 observation: None,
             });
@@ -557,10 +572,14 @@ pub(crate) fn remove_verified_old_shards(
                     .next_segment_ordinal
                     .checked_add(1)
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
+                let active = candidate.repository.storage_factory.live_records(
+                    compacted.index.record_count(),
+                    crate::index::storage::liveness::InitialLiveness::All,
+                )?;
                 group[position] = Arc::new(PublishedSegment {
                     id: crate::index::segment::SegmentId::new(candidate.next_segment_ordinal),
                     index: Arc::new(compacted.index),
-                    active: compacted.active,
+                    active,
                     observation: None,
                 });
                 candidate.next_segment_ordinal = ordinal;

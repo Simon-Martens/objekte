@@ -3,15 +3,18 @@ use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::*;
 use crate::index::storage::StorageFactory;
+use crate::index::storage::liveness::{ActiveRecords, InitialLiveness, LiveSlotReader};
 use crate::index::storage::transfer::StorageError;
 use crate::lifecycle::Index;
 use crate::model::Value;
 use crate::query::options::ReturnMode;
+use crate::query_access::membership::MembershipView;
 use crate::schema::Schema;
 
 #[derive(Default)]
 struct TableFactory {
     installs: AtomicUsize,
+    liveness_visits: Arc<AtomicUsize>,
     worker_calls: AtomicUsize,
     file_worker_calls: AtomicUsize,
     fail_file_worker: AtomicBool,
@@ -20,6 +23,24 @@ struct TableFactory {
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn live_records(
+        &self,
+        slots: usize,
+        initial: InitialLiveness<'_>,
+    ) -> StorageResult<ActiveRecords> {
+        let count = u32::try_from(slots)
+            .map_err(|_| StorageError::ResourceLimit("too many test slots".into()))?;
+        let live = match initial {
+            InitialLiveness::All => (0..count).collect(),
+            InitialLiveness::Selected(members) => members.iter().collect(),
+        };
+        Ok(ActiveRecords::new(SortedLiveSlots {
+            count,
+            live,
+            visits: Arc::clone(&self.liveness_visits),
+        }))
+    }
+
     fn prepare_file_records(
         &self,
         batch: crate::index::storage::worker::FileWorkerBatch<'_>,
@@ -68,6 +89,100 @@ impl StorageFactory for Arc<TableFactory> {
             control: Arc::clone(self),
         }))
     }
+}
+
+#[derive(Clone, Debug)]
+struct SortedLiveSlots {
+    count: u32,
+    live: Vec<u32>,
+    visits: Arc<AtomicUsize>,
+}
+
+impl LiveSlotReader for SortedLiveSlots {
+    fn slot_count(&self) -> u32 {
+        self.count
+    }
+
+    fn live_count(&self) -> u64 {
+        self.live.len() as u64
+    }
+
+    fn contains(&self, slot: RecordSlot) -> bool {
+        self.live.binary_search(&slot.0).is_ok()
+    }
+
+    fn visit_blocks(&self, visit: &mut dyn FnMut(u32, MembershipView<'_>)) {
+        self.visits.fetch_add(1, Ordering::Relaxed);
+        for rows in self.live.chunks(2) {
+            visit(0, MembershipView::Sorted(rows));
+        }
+    }
+
+    fn retired(&self, slots: &[RecordSlot]) -> StorageResult<ActiveRecords> {
+        let mut next = self.clone();
+        for slot in slots {
+            if slot.0 >= self.count {
+                return Err(StorageError::invalid(
+                    "retire test slots",
+                    "slot out of range",
+                ));
+            }
+            if let Ok(position) = next.live.binary_search(&slot.0) {
+                next.live.remove(position);
+            }
+        }
+        Ok(ActiveRecords::new(next))
+    }
+}
+
+#[test]
+fn selected_slot_membership_keeps_sparse_revisions_queryable() {
+    let factory = Arc::new(TableFactory::default());
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "fixture-liveness", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut input = writer.batch();
+    for id in ["one", "two", "three"] {
+        input.insert(id, Value::String(id.into())).unwrap();
+    }
+    writer.submit(input).unwrap().wait_published().unwrap();
+    let pinned = index.view().unwrap();
+    let mut deletion = writer.batch();
+    deletion.delete("two").unwrap();
+    writer.submit(deletion).unwrap().wait_published().unwrap();
+    let current = index.view().unwrap();
+    let query = crate::query::Query {
+        collections: vec!["entries".into()],
+        filter: None,
+        fts: None,
+        options: crate::query::QueryOptions {
+            count: true,
+            limit: 10,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+            sort: Vec::new(),
+            offset: 0,
+        },
+    };
+    let old = pinned.search(&query).unwrap();
+    assert_eq!(old.count, Some(3));
+    let live = current.search(&query).unwrap();
+    assert_eq!(live.count, Some(2));
+    assert_eq!(
+        live.hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["one", "three"]
+    );
+    assert!(factory.liveness_visits.load(Ordering::Relaxed) > 0);
+    assert_eq!(pinned.search(&query).unwrap().count, Some(3));
 }
 
 /// An independent route directory that uses ordered rows and stores no

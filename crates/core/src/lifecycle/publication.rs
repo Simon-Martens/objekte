@@ -9,6 +9,7 @@ use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::index::storage::file_catalog::{
     FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource, edit_file_catalog,
 };
+use crate::index::storage::liveness::InitialLiveness;
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
     install_segment,
@@ -372,7 +373,10 @@ impl PublishedIndex {
                 }
             }
         }
-        let active = ActiveRecords::all(index.records.len()).map_err(IndexError::ResourceLimit)?;
+        let active = self
+            .repository
+            .storage_factory
+            .live_records(index.records.len(), InitialLiveness::All)?;
         let mut segment_id = index.id;
         if allocate_id
             || segment_id.get() == 1
@@ -504,8 +508,10 @@ impl PublishedIndex {
                     self.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
-                    let active = ActiveRecords::all(part.records.len())
-                        .map_err(IndexError::ResourceLimit)?;
+                    let active = self
+                        .repository
+                        .storage_factory
+                        .live_records(part.records.len(), InitialLiveness::All)?;
                     group.insert(
                         index + offset,
                         Arc::new(PublishedSegment {
@@ -549,7 +555,10 @@ impl PublishedIndex {
         )
         .map_err(IndexError::Build)?;
         let active = merged
-            .translate_active(&[&group[left].active, &group[right].active])
+            .translate_active(
+                self.repository.storage_factory.as_ref(),
+                &[&group[left].active, &group[right].active],
+            )
             .map_err(IndexError::Build)?;
         let ordinal = self.next_segment_ordinal;
         self.next_segment_ordinal = self
@@ -645,9 +654,7 @@ impl PublishedIndex {
             {
                 retired_records +=
                     slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
-                *active = active
-                    .retired(slots)
-                    .map_err(IndexError::InvalidPublication)?;
+                *active = active.retired(slots)?;
             }
             let number = collection_id.0 as usize;
             let routes = self
@@ -717,10 +724,7 @@ impl PublishedIndex {
                     })
                     .collect::<Result<Vec<_>, _>>()?;
                 let segment = Arc::make_mut(segment);
-                segment.active = segment
-                    .active
-                    .retired(&active_slots)
-                    .map_err(IndexError::InvalidPublication)?;
+                segment.active = segment.active.retired(&active_slots)?;
                 retired_records += active_slots.len() as u64;
                 *routes = edited_catalog(
                     routes,
@@ -1152,10 +1156,7 @@ impl Index {
                     }
                     let group = Arc::make_mut(&mut next.segments[number]);
                     let published = Arc::make_mut(&mut group[index]);
-                    published.active = published
-                        .active
-                        .retired(&[slot])
-                        .map_err(IndexError::InvalidPublication)?;
+                    published.active = published.active.retired(&[slot])?;
                     if route_editor.is_none() {
                         route_editor = Some(next.record_routes[number].edit()?);
                     }

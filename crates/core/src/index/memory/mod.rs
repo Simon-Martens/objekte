@@ -16,6 +16,22 @@ mod worker;
 pub(crate) struct MemoryStorageFactory;
 
 impl super::storage::StorageFactory for MemoryStorageFactory {
+    fn live_records(
+        &self,
+        slots: usize,
+        initial: super::storage::liveness::InitialLiveness<'_>,
+    ) -> super::storage::transfer::StorageResult<super::storage::liveness::ActiveRecords> {
+        use super::storage::liveness::{ActiveRecords, InitialLiveness};
+        match initial {
+            InitialLiveness::All => inventory::MemoryLiveSlots::all(slots),
+            InitialLiveness::Selected(members) => {
+                inventory::MemoryLiveSlots::from_membership(slots, members)
+            }
+        }
+        .map(ActiveRecords::new)
+        .map_err(super::storage::transfer::StorageError::ResourceLimit)
+    }
+
     fn prepare_file_records(
         &self,
         batch: super::storage::worker::FileWorkerBatch<'_>,

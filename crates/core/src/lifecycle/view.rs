@@ -3,8 +3,6 @@ use std::num::NonZeroUsize;
 use std::path::Path;
 use std::sync::{Arc, Weak};
 
-use roaring::RoaringBitmap;
-
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
 use crate::inventory::{ActiveRecords, FileEntry};
@@ -1075,10 +1073,7 @@ impl IndexView {
             .0
             .active
             .iter()
-            .map(|_| {
-                ActiveRecords::from_bitmap(0, RoaringBitmap::new())
-                    .expect("empty active bitmap is valid")
-            })
+            .map(|_| ActiveRecords::empty())
             .collect::<Vec<_>>();
         let mut result = crate::query_execution::runner::search_segmented_with_context_lifecycle(
             self.repository(),

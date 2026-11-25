@@ -18,6 +18,7 @@ use crate::model::{FileId, RecordSlot};
 /// retained an old local slot. Retired slots map to `None`.
 pub(crate) struct CompactedSegment {
     pub index: IndexedCollectionSegment,
+    #[cfg(test)]
     pub active: ActiveRecords,
     pub old_to_new: Vec<Option<RecordSlot>>,
 }
@@ -38,7 +39,7 @@ impl IndexedCollectionSegment {
         if new_slots.len() != self.record_count() {
             return Err("slot remap coverage mismatch".into());
         }
-        let active = ActiveRecords::all(self.record_count())?;
+        let active = ActiveRecords::full_selection(self.record_count())?;
         Ok(self
             .compact_active_mapped(
                 &active,
@@ -109,7 +110,8 @@ impl IndexedCollectionSegment {
             None,
         )?;
         Ok(CompactedSegment {
-            active: ActiveRecords::all(index.record_count())?,
+            #[cfg(test)]
+            active: ActiveRecords::full_selection(index.record_count())?,
             index,
             old_to_new,
         })
