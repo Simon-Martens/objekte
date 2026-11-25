@@ -1923,6 +1923,7 @@ mod tests {
             .unwrap();
         session.resume_worker_for_measurement();
         assert_eq!(a.wait_published().unwrap(), b.wait_published().unwrap());
+        session.finish().unwrap();
         let view = index.view().unwrap();
         let segment = &view.0.segments[0][0].index;
         let body = segment
@@ -1935,7 +1936,6 @@ mod tests {
         assert_eq!(retained.as_ptr(), original_allocation);
         assert_eq!(session.metrics().root_installations, 1);
         assert_eq!(view.0.segments[0].len(), 1);
-        session.finish().unwrap();
     }
 
     #[test]

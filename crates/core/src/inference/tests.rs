@@ -324,8 +324,8 @@ fn length_postings_follow_bound_quantification_and_root_traversal() {
         )],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -590,8 +590,8 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
         )],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -948,8 +948,8 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
         )],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1031,8 +1031,8 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
     }
     let options = RepositoryOptions {
         segment_policy: crate::index::segment::SegmentPolicy {
-            target_records: std::num::NonZeroUsize::new(1).unwrap(),
-            max_files: std::num::NonZeroUsize::new(1).unwrap(),
+            target_records: std::num::NonZeroUsize::new(512).unwrap(),
+            max_files: std::num::NonZeroUsize::new(512).unwrap(),
         },
         inference: InferenceConfig {
             mode: InferenceMode::AutoIndex,

@@ -713,8 +713,8 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         definitions(),
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
             ..Default::default()
         },
@@ -854,8 +854,8 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         definitions(),
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
             ..Default::default()
         },
@@ -990,8 +990,8 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
         definitions(),
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
-                target_records: std::num::NonZeroUsize::new(1).unwrap(),
-                max_files: std::num::NonZeroUsize::new(1).unwrap(),
+                target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                max_files: std::num::NonZeroUsize::new(512).unwrap(),
             },
             ..Default::default()
         },

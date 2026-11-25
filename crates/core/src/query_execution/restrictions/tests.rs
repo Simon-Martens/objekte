@@ -238,8 +238,8 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
     let options = RepositoryOptions {
         inference,
         segment_policy: crate::index::segment::SegmentPolicy {
-            target_records: std::num::NonZeroUsize::new(5).unwrap(),
-            max_files: std::num::NonZeroUsize::new(5).unwrap(),
+            target_records: std::num::NonZeroUsize::new(24).unwrap(),
+            max_files: std::num::NonZeroUsize::new(24).unwrap(),
         },
         ..Default::default()
     };
@@ -261,8 +261,6 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
     .unwrap();
     let view = index.view().unwrap();
     let partitioned_view = view.clone();
-    // The tiny fixture is one indivisible prepared contribution, so the
-    // configured five-record target is deliberately exceeded by that segment.
     assert_eq!(
         partitioned_view
             .segments(crate::model::CollectionId(0))

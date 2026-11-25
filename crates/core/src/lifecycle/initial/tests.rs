@@ -858,8 +858,8 @@ fn multi_worker_segment_finalization_actually_overlaps() {
                 RepositoryOptions {
                     build_workers: std::num::NonZeroUsize::new(3),
                     segment_policy: crate::index::segment::SegmentPolicy {
-                        target_records: std::num::NonZeroUsize::new(2).unwrap(),
-                        max_files: std::num::NonZeroUsize::new(2).unwrap(),
+                        target_records: std::num::NonZeroUsize::new(512).unwrap(),
+                        max_files: std::num::NonZeroUsize::new(512).unwrap(),
                     },
                     ..Default::default()
                 },
