@@ -146,47 +146,51 @@ impl RecordRoutes {
         self.positions.get(&segment).copied()
     }
 
+    fn add_native_segment(&mut self, source: &PublishedSegment, position: usize) {
+        let segment = source.id;
+        Arc::make_mut(&mut self.positions).insert(segment, position);
+        let shards = Arc::make_mut(&mut self.shards);
+        for (id, &slot) in &source.index.id_lookup {
+            if source.active.contains(slot) {
+                Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
+                    .insert(id.clone(), RoutedRecord { segment, slot });
+            }
+        }
+        let file_shards = Arc::make_mut(&mut self.file_shards);
+        for entry in &source.index.files {
+            let file = entry.entry.id;
+            Arc::make_mut(&mut file_shards[file.0 as usize % RECORD_ROUTE_SHARDS])
+                .entry(file)
+                .or_default()
+                .push(segment);
+        }
+    }
+
     fn add_segment(
         &mut self,
         source: &dyn SegmentRouteSource,
         position: usize,
     ) -> StorageResult<()> {
+        if self.try_adopt(source, position) {
+            return Ok(());
+        }
         let segment = source.segment_id();
         Arc::make_mut(&mut self.positions).insert(segment, position);
         let shards = Arc::make_mut(&mut self.shards);
-        let file_shards = Arc::make_mut(&mut self.file_shards);
-        let mut record = |id: &RecordId, slot| {
-            Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
-                .insert(id.clone(), RoutedRecord { segment, slot });
-        };
-        let mut file = |file: FileId| {
-            Arc::make_mut(&mut file_shards[file.0 as usize % RECORD_ROUTE_SHARDS])
-                .entry(file)
-                .or_default()
-                .push(segment);
-        };
-        if let Some(native) = (source as &dyn Any).downcast_ref::<PublishedSegment>() {
-            // Both sides are native. Adopt routes directly from the sealed
-            // columns and leave logical batch transfer for mixed placement.
-            for (id, &slot) in &native.index.id_lookup {
-                if native.active.contains(slot) {
-                    record(id, slot);
-                }
-            }
-            for entry in &native.index.files {
-                file(entry.entry.id);
-            }
-            return Ok(());
-        }
         source.visit_live_records(&mut |rows| {
             for &(id, slot) in rows {
-                record(id, slot);
+                Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
+                    .insert(id.clone(), RoutedRecord { segment, slot });
             }
             Ok(())
         })?;
+        let file_shards = Arc::make_mut(&mut self.file_shards);
         source.visit_files(&mut |files| {
-            for &id in files {
-                file(id);
+            for &file in files {
+                Arc::make_mut(&mut file_shards[file.0 as usize % RECORD_ROUTE_SHARDS])
+                    .entry(file)
+                    .or_default()
+                    .push(segment);
             }
             Ok(())
         })
@@ -252,6 +256,14 @@ impl SegmentCatalogReader for RecordRoutes {
 
     fn edit(&self) -> StorageResult<Box<dyn SegmentCatalogEditor>> {
         Ok(Box::new(self.clone()))
+    }
+
+    fn try_adopt(&mut self, source: &dyn SegmentRouteSource, position: usize) -> bool {
+        let Some(source) = (source as &dyn Any).downcast_ref::<PublishedSegment>() else {
+            return false;
+        };
+        self.add_native_segment(source, position);
+        true
     }
 }
 

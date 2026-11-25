@@ -1,6 +1,7 @@
 //! Segment relation planning and page execution.
 
 use super::*;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::records::RecordIdSlot;
 
 #[cfg(test)]
@@ -64,7 +65,7 @@ fn materialize_merged_address(
         return Ok(None);
     };
     let record = resolved.record;
-    let file = resolved.file;
+    let file = &resolved.file;
     let payload = match return_mode {
         ReturnMode::Locator => None,
         ReturnMode::Logical if record.class == RecordClass::RawFallback => {
@@ -390,7 +391,7 @@ fn prune_relation_candidates(
     repo: &Repository,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     published: &PublishedSegment,
     collection: &CollectionState,
     filter: Option<&BoundExpr>,
@@ -476,7 +477,7 @@ fn scan_direct_target_parallel(
     repo: &Repository,
     target_collection: &CollectionState,
     published: &PublishedSegment,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     predicate: &DirectRelationPredicate<'_>,
     must: Option<&RoaringBitmap>,
     slot: u32,
@@ -578,7 +579,7 @@ fn try_direct_relation_page(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &[PreparedCollectionQuery],
@@ -823,18 +824,26 @@ fn try_direct_relation_page(
             && direct_sort_column.is_none()
             && (2..=32).contains(&repo.options.query_workers)
             && may.len() > 1
-            && may.iter().all(|slot| {
-                segment.record(RecordSlot(slot)).is_some_and(|record| {
-                    let Some(locator) = segment.backing.file_locator(RecordSlot(slot)) else {
-                        return false;
-                    };
-                    locator.range.is_some_and(|range| range.len() <= 64 * 1024)
-                        && record.id.0.len() <= 1024
-                        && catalog
-                            .entry(locator.file)
-                            .is_some_and(|file| file.relative_path.to_string_lossy().len() <= 4096)
+            && may
+                .iter()
+                .map(|slot| {
+                    let slot = RecordSlot(slot);
+                    Ok::<_, String>(
+                        segment
+                            .record(slot)
+                            .is_some_and(|record| record.id.0.len() <= 1024)
+                            && if let Some(locator) = segment.backing.file_locator(slot) {
+                                locator.range.is_some_and(|range| range.len() <= 64 * 1024)
+                                    && catalog.file(locator.file)?.is_some_and(|file| {
+                                        file.relative_path.to_string_lossy().len() <= 4096
+                                    })
+                            } else {
+                                false
+                            },
+                    )
                 })
-            });
+                .find(|result| !matches!(result, Ok(true)))
+                .unwrap_or(Ok(true))?;
         if parallel_targets {
             let slots = may.iter().collect::<Vec<_>>();
             for chunk in slots.chunks(256) {
@@ -936,12 +945,16 @@ fn try_direct_relation_page(
                     .or_else(|| retained_body.map(|body| body.text.as_slice()))
                     .ok_or("direct relation target text missing")?;
                 let locator = segment.backing.file_locator(address);
+                let file = locator
+                    .map(|link| catalog.file(link.file))
+                    .transpose()?
+                    .flatten();
                 let ctx = RecordContext {
                     value,
                     source_bytes: None,
                     record,
                     range: locator.and_then(|link| link.range),
-                    file: locator.and_then(|link| catalog.entry(link.file)),
+                    file: file.as_deref(),
                     collection_name: &target_collection.definition.name,
                     repository_root: repo.files.root(),
                 };
@@ -1245,7 +1258,7 @@ fn try_direct_relation_page(
                     record,
                     revision,
                     evidence.clone(),
-                )
+                )?
             };
             if let Some(builder) = cache_builder.as_mut() {
                 builder.push(
@@ -1351,7 +1364,7 @@ fn try_semijoin_relation_page(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &[PreparedCollectionQuery],
@@ -1510,7 +1523,7 @@ fn scan_relation_file_parallel(
     query: &Query,
     sort: &ResolvedSort<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    _catalog: &FileCatalog,
+    _catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     collection_index: usize,
     filter: Option<&BoundExpr>,
@@ -1644,7 +1657,7 @@ fn scan_relation_file_parallel(
         source_bytes: Some(&bytes),
         record: &record,
         range: (record).record_range(),
-        file: Some(resolved.file),
+        file: Some(&resolved.file),
         collection_name: &resolved.collection.definition.name,
         repository_root: Some(repo.files.required_root()),
     };
@@ -1741,7 +1754,7 @@ fn scan_relation_file_parallel(
             resolved.collection,
             SegmentRecordRef {
                 record: record.clone(),
-                file: std::borrow::Cow::Borrowed(resolved.file),
+                file: resolved.file,
             },
             revision,
             if query.options.evidence {
@@ -1861,7 +1874,7 @@ fn try_parallel_relation_page(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &[PreparedCollectionQuery],
@@ -2284,7 +2297,7 @@ fn native_multi_hop_truth(
     repo: &Repository,
     query: &Query,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     term: &BoundTerm,
     counters: &mut WorkCounters,
 ) -> Result<Option<NativeIdTruth>, String> {
@@ -2458,7 +2471,7 @@ fn native_boolean_truth(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &PreparedCollectionQuery,
@@ -2669,7 +2682,7 @@ fn try_exact_native_boolean_page(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &[PreparedCollectionQuery],
@@ -2838,7 +2851,7 @@ fn try_exact_native_boolean_page(
                     record,
                     revision,
                     evidence,
-                )
+                )?
             };
             total += 1;
             if cap > 0 {
@@ -2901,7 +2914,7 @@ fn try_native_relation_scan(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &[PreparedCollectionQuery],
@@ -3081,7 +3094,7 @@ fn try_native_relation_scan(
                         source_bytes: source_bytes.as_deref(),
                         record,
                         range,
-                        file,
+                        file: file.as_deref(),
                         collection_name: &collection.definition.name,
                         repository_root: repo.files.root(),
                     };
@@ -3171,7 +3184,7 @@ fn try_native_relation_scan(
                         record,
                         revision,
                         fields,
-                    );
+                    )?;
                     offer_merged(
                         &mut winners,
                         cap,
@@ -3236,7 +3249,7 @@ pub(super) fn search_segmented_relations(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &[PreparedCollectionQuery],
@@ -3592,7 +3605,7 @@ pub(super) fn search_segmented_relations(
                 source_bytes: Some(&bytes),
                 record: &record,
                 range: (record).record_range(),
-                file: Some(resolved.file),
+                file: Some(&resolved.file),
                 collection_name: &resolved.collection.definition.name,
                 repository_root: Some(repo.files.required_root()),
             };
@@ -3725,7 +3738,7 @@ pub(super) fn search_segmented_relations(
                 resolved.collection,
                 SegmentRecordRef {
                     record: record.clone(),
-                    file: std::borrow::Cow::Borrowed(resolved.file),
+                    file: resolved.file,
                 },
                 revision,
                 if query.options.evidence {
@@ -3810,7 +3823,7 @@ pub(super) fn search_segmented_relations(
                 .join(&resolved.file.relative_path);
             read_relation_source_file(
                 &resolved.collection.required_file_reader(),
-                resolved.file,
+                &resolved.file,
                 &path,
                 &ranges,
                 first,
@@ -3947,7 +3960,7 @@ pub(super) fn search_segmented_relations(
                     .join(&resolved.file.relative_path);
                 read_relation_source_file(
                     &resolved.collection.required_file_reader(),
-                    resolved.file,
+                    &resolved.file,
                     &path,
                     &ranges,
                     first,
@@ -4055,7 +4068,7 @@ pub(crate) fn search_segmented_reference(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
     crate::reference::relations::search_segmented(
@@ -4073,7 +4086,7 @@ pub(crate) fn search_segmented_reference_records(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     collections: &mut [crate::reference::relations::ReferenceCollectionQuery],
 ) -> Result<SearchResult, String> {

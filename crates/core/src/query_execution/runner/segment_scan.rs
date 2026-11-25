@@ -1,6 +1,7 @@
 //! Segment source verification and scanning.
 
 use super::*;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::records::RecordIdSlot;
 
 /// Verify one local segment candidate with the narrow source or value consumer.
@@ -202,7 +203,7 @@ pub(super) fn scan_segment_file_parallel(
     sort: &ResolvedSort<'_>,
     collection_index: usize,
     published: &PublishedSegment,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     filter: Option<&BoundExpr>,
     fts: Option<&BoundFts>,
     direct_plan: Option<&DirectSourcePlan<'_>>,

@@ -1,5 +1,7 @@
 //! Pinned relation lookup over one immutable base-plus-delta publication.
 
+use crate::index::storage::file_catalog::FileCatalogReader;
+use std::borrow::Cow;
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
@@ -8,7 +10,6 @@ use crate::index::posting::ScalarKey;
 use crate::index::segment::PublishedSegment;
 use crate::index::segment::{SegmentId, SegmentRecordAddress};
 use crate::inventory::{ActiveRecords, RecordClass};
-use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
 use crate::model::{CollectionId, RecordSlot, Value};
 use crate::repository::Repository;
@@ -33,7 +34,7 @@ pub(crate) struct MergedRecordSlot {
 
 pub(crate) struct MergedRecord<'a> {
     pub record: crate::inventory::RecordEntry,
-    pub file: &'a crate::inventory::FileEntry,
+    pub file: Cow<'a, crate::inventory::FileEntry>,
     pub collection: &'a CollectionState,
 }
 
@@ -43,7 +44,7 @@ pub(crate) struct MergedRelationView<'a> {
     repo: &'a Repository,
     base_active: &'a [ActiveRecords],
     segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &'a FileCatalog,
+    catalog: &'a dyn FileCatalogReader,
     segment_positions: Arc<HashMap<(CollectionId, SegmentId), usize>>,
     source_errors: RefCell<SourceAvailabilityLog>,
     reference_identity: RefCell<HashMap<CollectionId, Arc<HashMap<String, MergedRecordSlot>>>>,
@@ -155,7 +156,7 @@ impl<'a> MergedRelationView<'a> {
         self.repo
     }
 
-    pub(crate) fn catalog(&self) -> &'a FileCatalog {
+    pub(crate) fn catalog(&self) -> &'a dyn FileCatalogReader {
         self.catalog
     }
 
@@ -191,7 +192,7 @@ impl<'a> MergedRelationView<'a> {
         repo: &'a Repository,
         base_active: &'a [ActiveRecords],
         segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
-        catalog: &'a FileCatalog,
+        catalog: &'a dyn FileCatalogReader,
     ) -> Result<Self, String> {
         if base_active.len() != repo.collections.len() || segments.len() != repo.collections.len() {
             return Err("merged relation collection count mismatch".into());
@@ -514,7 +515,7 @@ impl<'a> MergedRelationView<'a> {
         address: MergedRecordSlot,
     ) -> Result<
         (
-            Option<&'a crate::inventory::FileEntry>,
+            Option<Cow<'a, crate::inventory::FileEntry>>,
             Option<crate::inventory::ByteRange>,
         ),
         String,
@@ -528,7 +529,7 @@ impl<'a> MergedRelationView<'a> {
         };
         let file = self
             .catalog
-            .entry(locator.file)
+            .file(locator.file)?
             .ok_or("native link file retired")?;
         if file.revision != locator.revision || !file.collections.contains(&address.collection) {
             return Err("native link file changed without retirement".into());
@@ -587,7 +588,7 @@ impl<'a> MergedRelationView<'a> {
         };
         let file = self
             .catalog
-            .entry(record.file)
+            .file(record.file)?
             .ok_or("active merged record file is retired")?;
         if file.revision != original_revision || !file.collections.contains(&address.collection) {
             return Err("active merged record file changed without retirement".into());
@@ -812,7 +813,7 @@ impl<'a> MergedRelationView<'a> {
         ) {
             Ok(bytes) => bytes,
             Err(message) => {
-                self.record_source_failure(resolved.file, resolved.record.range, message);
+                self.record_source_failure(&resolved.file, resolved.record.range, message);
                 return Ok(None);
             }
         };
@@ -993,7 +994,7 @@ impl<'a> MergedRelationView<'a> {
         ) {
             Ok(bytes) => bytes,
             Err(message) => {
-                self.record_source_failure(resolved.file, resolved.record.range, message);
+                self.record_source_failure(&resolved.file, resolved.record.range, message);
                 return Ok(ReferenceValueVisit::Unavailable);
             }
         };

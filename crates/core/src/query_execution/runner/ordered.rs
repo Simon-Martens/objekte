@@ -1,6 +1,7 @@
 //! Stored and inferred ordered traversal policies.
 
 use super::*;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::query_results::ranking::RankKey;
 
 pub(super) struct LifecycleOrderCursor<'a> {
@@ -299,7 +300,7 @@ pub(super) fn posting_order_eligible(
     query: &Query,
     bound: Option<&crate::query::prepared::PreparedQuery>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
 ) -> bool {
     let Some((collection_index, _, _)) = inferred_order_index(repo, query, segments) else {
         return false;
@@ -520,7 +521,7 @@ pub(super) fn try_inferred_segment_order_page(
     prepared: &crate::query::prepared::PreparedQuery,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     traces: Option<&mut Vec<QueryPlanTrace>>,
     execution: Option<&ExecutionContext>,

@@ -607,7 +607,7 @@ pub(crate) fn cached_filter_target_sort_key(
         source_bytes: None,
         record: &record,
         range,
-        file,
+        file: file.as_deref(),
         collection_name: &view.collection_state(target.collection)?.definition.name,
         repository_root: Some(view.repository_root()),
     };

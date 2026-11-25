@@ -946,7 +946,7 @@ fn verify_qualified_targets(
                     source_bytes: Some(&bytes),
                     record: &resolved.record,
                     range: (resolved.record).record_range(),
-                    file: Some(resolved.file),
+                    file: Some(&resolved.file),
                     collection_name: &resolved.collection.definition.name,
                     repository_root: Some(&view.repository().files.required_root()),
                 };

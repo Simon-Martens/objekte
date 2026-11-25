@@ -23,7 +23,6 @@ use crate::index::storage::ordered_slots::OrderedSlotCursor;
 use crate::index::storage::segment::SegmentReader;
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 use crate::query::binding::fts::BoundFts;
@@ -484,7 +483,7 @@ fn segment_metadata_fts_evidence(
     collection: &CollectionState,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     fts: &BoundFts,
     input: &RoaringBitmap,
     retain_evidence: bool,
@@ -856,7 +855,7 @@ pub(crate) fn direct_lookup_segmented(
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     routes: Option<&[crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
 ) -> Result<DirectLookupResult, String> {
     direct_lookup_segmented_counted(
@@ -888,7 +887,7 @@ pub(crate) fn direct_lookup_segmented_counted(
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     routes: Option<&[crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     mut counters: Option<&mut DirectRouteCounters>,
 ) -> Result<DirectLookupResult, String> {
@@ -940,7 +939,7 @@ pub(crate) fn direct_lookup_segmented_counted(
             .get(slot.0 as usize)
             .ok_or("base direct-lookup slot missing")?;
         let file = catalog
-            .entry(record.file)
+            .file(record.file)?
             .ok_or("active base direct-lookup file retired")?;
         if !file.collections.contains(&collection.generation.collection) {
             return Err("active base direct-lookup file lost collection membership".into());
@@ -973,7 +972,7 @@ pub(crate) fn direct_lookup_segmented_counted(
                 record_id: record.id.0.to_string(),
                 generation: revision.0,
                 file: Some(crate::files::RecordFileInfo::from_entry(
-                    file,
+                    &file,
                     Some(record.range),
                 )),
                 matched_fields: Vec::new(),
@@ -982,7 +981,7 @@ pub(crate) fn direct_lookup_segmented_counted(
                 payload,
             })
         });
-        (record.clone(), std::borrow::Cow::Borrowed(file), result)
+        (record.clone(), file, result)
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
         if matches!(
@@ -1141,21 +1140,20 @@ pub(crate) fn segment_locator_hit(
 fn retained_locator_hit(
     collection: &CollectionState,
     segment: &IndexedCollectionSegment,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     record: &crate::records::RecordHeader,
     revision: IndexRevision,
     mut matched_fields: Vec<String>,
-) -> SearchHit {
+) -> Result<SearchHit, String> {
     matched_fields.sort();
-    let file = segment
-        .backing
-        .file_locator(record.slot)
-        .and_then(|locator| {
-            catalog
-                .entry(locator.file)
-                .map(|entry| crate::files::RecordFileInfo::from_entry(entry, locator.range))
-        });
-    SearchHit {
+    let file = if let Some(locator) = segment.backing.file_locator(record.slot) {
+        catalog
+            .file(locator.file)?
+            .map(|entry| crate::files::RecordFileInfo::from_entry(&entry, locator.range))
+    } else {
+        None
+    };
+    Ok(SearchHit {
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: revision.0,
@@ -1164,7 +1162,7 @@ fn retained_locator_hit(
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload: None,
-    }
+    })
 }
 
 #[derive(Clone, Copy)]
@@ -1188,14 +1186,14 @@ impl SourceHitLocator {
 
 pub(crate) fn record_unavailable_hit(
     repo: &Repository,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     hit: Option<SourceHitLocator>,
     message: String,
     counters: &mut WorkCounters,
 ) -> Result<bool, String> {
     let Some(hit) = hit else { return Ok(false) };
     let file = catalog
-        .entry(crate::model::FileId(hit.file_id))
+        .file(crate::model::FileId(hit.file_id))?
         .ok_or("materialized hit file missing from pinned catalog")?;
     let path = repo.files.required_root().join(&file.relative_path);
     let range = ByteRange {
@@ -1315,7 +1313,7 @@ impl SegmentRestrictionCache {
     fn route_file_restrictions(
         &mut self,
         prepared: &crate::query::prepared::PreparedQuery,
-        catalog: &FileCatalog,
+        catalog: &dyn FileCatalogReader,
         cache: Option<LifecycleCacheScope<'_>>,
         segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     ) -> Result<(), String> {
@@ -1379,7 +1377,7 @@ pub(crate) fn search_segmented(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
     search_segmented_lifecycle(repo, query, base_active, segments, catalog, revision, None)
@@ -1390,7 +1388,7 @@ pub(crate) fn search_segmented_lifecycle(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
@@ -1412,7 +1410,7 @@ pub(crate) fn search_segmented_lifecycle(
         &mut restriction_cache,
         false,
     ) {
-        Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
+        Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog)? => {
             search_segmented_reference(repo, query, base_active, segments, catalog, revision)
         }
         result => result,
@@ -1441,7 +1439,7 @@ pub(crate) fn search_segmented_with_context(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: &ExecutionContext,
 ) -> Result<SearchResult, crate::query_execution::streaming::ExecutionError> {
@@ -1462,7 +1460,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
@@ -1490,7 +1488,7 @@ fn search_segmented_with_context_lifecycle_budget(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
@@ -1525,6 +1523,7 @@ fn search_segmented_with_context_lifecycle_budget(
                 error.kind,
                 ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
             ) && has_unavailable_active_source(repo, base_active, segments, catalog)
+                .map_err(|message| context.recorded_error(message))?
             {
                 context.clear_recovered_source_changed();
                 let owned_sort;
@@ -1569,7 +1568,7 @@ pub(crate) fn search_active_available(
     repo: &Repository,
     query: &Query,
     base_active: &[ActiveRecords],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
     search_active_available_lifecycle(repo, query, base_active, catalog, revision, None)
@@ -1580,13 +1579,13 @@ pub(crate) fn search_active_available_lifecycle(
     repo: &Repository,
     query: &Query,
     base_active: &[ActiveRecords],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     _cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
     match search_active(repo, query, base_active) {
-        Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
+        Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog)? => {
             search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
         }
         result => result,
@@ -1599,8 +1598,8 @@ fn has_unavailable_active_source(
     repo: &Repository,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
-) -> bool {
+    catalog: &dyn FileCatalogReader,
+) -> Result<bool, String> {
     let unavailable = |file: &FileEntry| {
         let path = repo.files.required_root().join(&file.relative_path);
         probe_source_unavailable_for_search(&path, file.revision, None).is_some()
@@ -1609,9 +1608,9 @@ fn has_unavailable_active_source(
         for file_id in &collection.generation.files {
             if let Some(slots) = collection.generation.file_records.records_for(*file_id)
                 && slots.iter().any(|slot| base_active[index].contains(*slot))
-                && let Some(file) = catalog.entry(*file_id)
+                && let Some(file) = catalog.file(*file_id)?
             {
-                if unavailable(file)
+                if unavailable(&file)
                     || slots
                         .iter()
                         .filter(|slot| base_active[index].contains(**slot))
@@ -1620,22 +1619,22 @@ fn has_unavailable_active_source(
                             range.start > range.end || range.end > file.revision.size
                         })
                 {
-                    return true;
+                    return Ok(true);
                 }
             }
         }
         for segment in segments[index].iter() {
             for file_index in 0..segment.index.file_count() {
                 let Some(file) = segment.index.files.get(file_index) else {
-                    return true;
+                    return Ok(true);
                 };
                 if file
                     .records
                     .iter()
                     .any(|slot| segment.active.contains(*slot))
-                    && let Some(current) = catalog.entry(file.entry.id)
+                    && let Some(current) = catalog.file(file.entry.id)?
                 {
-                    if unavailable(current)
+                    if unavailable(&current)
                         || file
                             .records
                             .iter()
@@ -1651,13 +1650,13 @@ fn has_unavailable_active_source(
                                     })
                             })
                     {
-                        return true;
+                        return Ok(true);
                     }
                 }
             }
         }
     }
-    false
+    Ok(false)
 }
 
 /// Evidence shared by every possible true branch. Branches with different
@@ -1743,7 +1742,7 @@ fn exact_or_branch_evidence_fields(
     active: &ActiveRecords,
     filter: &BoundExpr,
     collection: &CollectionState,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     predicates: &crate::query_predicate::PreparedPredicates,
     context: Option<&ExecutionContext>,
     routed: Option<(&RoutedFileRestrictions, crate::index::segment::SegmentId)>,
@@ -1938,7 +1937,7 @@ fn exact_ordered_page(
     query: &Query,
     sort: &ResolvedSort<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     collection_index: usize,
     selected: &[(RoaringBitmap, Vec<String>)],
@@ -2083,7 +2082,7 @@ fn try_exact_segment_ordered_page(
     sort: &ResolvedSort<'_>,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     prepared: &crate::query::prepared::PreparedQuery,
     context: Option<&ExecutionContext>,
@@ -2224,7 +2223,7 @@ fn try_lifecycle_ordered_page(
     prepared: &crate::query::prepared::PreparedQuery,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
@@ -2334,7 +2333,7 @@ fn offer_admitted_segment_slot(
     collection: &CollectionState,
     segment: &IndexedCollectionSegment,
     published: &PublishedSegment,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     collection_index: usize,
     segment_index: usize,
     revision: IndexRevision,
@@ -2421,7 +2420,7 @@ fn offer_admitted_segment_slot(
                 .ok_or("active retained candidate missing")?,
             revision,
             hit_fields,
-        )
+        )?
     };
     offer_merged(
         winners,
@@ -2443,7 +2442,7 @@ fn search_segmented_impl(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
@@ -3177,12 +3176,15 @@ fn search_segmented_impl(
                         .or_else(|| retained_body.map(|body| body.text.as_slice()))
                         .ok_or("record text missing")?;
                     let locator = segment.backing.file_locator(slot);
-                    let origin = locator.and_then(|locator| catalog.entry(locator.file));
+                    let origin = locator
+                        .map(|locator| catalog.file(locator.file))
+                        .transpose()?
+                        .flatten();
                     let ctx = RecordContext {
                         value,
                         source_bytes: None,
                         record,
-                        file: origin,
+                        file: origin.as_deref(),
                         range: locator.and_then(|locator| locator.range),
                         collection_name: &collection.definition.name,
                         repository_root: repo.files().root(),
@@ -3250,7 +3252,7 @@ fn search_segmented_impl(
                         record,
                         revision,
                         matched_fields,
-                    );
+                    )?;
                     offer_merged(
                         &mut winners,
                         cap,
@@ -3342,17 +3344,25 @@ fn search_segmented_impl(
                         })
                         .is_some_and(|bytes| bytes <= 1024)
                 })
-                && files.iter().all(|(file_id, ranges)| {
-                    catalog
-                        .entry(crate::model::FileId(*file_id))
-                        .is_some_and(|file| file.relative_path.to_string_lossy().len() <= 4096)
-                        && ranges.iter().all(|(slot, range)| {
-                            range.len() <= 1024 * 1024
-                                && segment
-                                    .record(RecordSlot(*slot))
-                                    .is_some_and(|record| record.id.0.len() <= 1024)
-                        })
-                });
+                && files
+                    .iter()
+                    .map(|(file_id, ranges)| {
+                        Ok::<_, String>(
+                            catalog
+                                .file(crate::model::FileId(*file_id))?
+                                .is_some_and(|file| {
+                                    file.relative_path.to_string_lossy().len() <= 4096
+                                })
+                                && ranges.iter().all(|(slot, range)| {
+                                    range.len() <= 1024 * 1024
+                                        && segment
+                                            .record(RecordSlot(*slot))
+                                            .is_some_and(|record| record.id.0.len() <= 1024)
+                                }),
+                        )
+                    })
+                    .find(|result| !matches!(result, Ok(true)))
+                    .unwrap_or(Ok(true))?;
             if parallel_scan {
                 let jobs = files;
                 // One-record files retain at most one compact winner per job.
@@ -3971,7 +3981,7 @@ pub(crate) fn search_analyze_segmented(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     // Build the explanation from planning metadata before execution. It is
@@ -4222,7 +4232,7 @@ fn materialize_segmented_stream_hit(
     mode: ReturnMode,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: &ExecutionContext,
 ) -> Result<(SearchHit, StreamBacking), String> {
@@ -4404,7 +4414,7 @@ fn try_lifecycle_ordered_stream(
     scope: ResultScope,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
@@ -5368,7 +5378,7 @@ pub(crate) fn search_stream_segmented_with_context(
     context: &ExecutionContext,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
 ) -> Result<StreamOutcome, StreamError> {
@@ -5395,7 +5405,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     context: &ExecutionContext,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
     cache: Option<LifecycleCacheScope<'_>>,

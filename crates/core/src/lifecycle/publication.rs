@@ -8,6 +8,7 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
+    install_segment,
 };
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle::catalog::FileCatalog;
@@ -400,12 +401,10 @@ impl PublishedIndex {
             observation,
         }));
         let group = &self.segments[number];
-        self.record_routes[number] = edited_catalog(
-            &self.record_routes[number],
-            SegmentDirectoryDelta::Install {
-                source: group.last().expect("new segment").as_ref(),
-                position: group.len() - 1,
-            },
+        install_segment(
+            &mut self.record_routes[number],
+            group.last().expect("new segment").as_ref(),
+            group.len() - 1,
         )?;
         if self.next_segment_ordinal == 0 {
             self.next_segment_ordinal = 1;

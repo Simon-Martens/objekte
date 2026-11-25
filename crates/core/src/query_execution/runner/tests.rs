@@ -1,4 +1,5 @@
 use super::*;
+use crate::lifecycle::catalog::FileCatalog;
 use crate::model::LogicalType;
 use crate::query::options::SortField;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, QueryOptions, parse_filter};

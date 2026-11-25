@@ -4,9 +4,9 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use crate::index::segment::PublishedSegment;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::query::Query;
 use crate::query::binding::filter::BoundExpr;
 use crate::query::binding::fts::BoundFts;
@@ -70,7 +70,7 @@ pub(crate) fn search_segmented(
     query: &Query,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
     let mut collections = bind(repo, query)?;

@@ -1,5 +1,6 @@
 //! Verified result-cache admission accounting.
 
+use crate::index::storage::file_catalog::FileCatalogReader;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
@@ -8,7 +9,6 @@ use super::{Payload, SearchHit, SearchResult};
 use crate::index::segment::PublishedSegment;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::measurement::WorkCounters;
 use crate::model::RecordSlot;
 use crate::query::Query;
@@ -193,7 +193,7 @@ pub(crate) fn materialize_lifecycle_cached(
     cached: &CachedResult,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
@@ -429,7 +429,7 @@ pub(crate) fn materialize_lifecycle_cached(
                 return Err("cached lifecycle base slot retired".into());
             }
             let file = catalog
-                .entry(record.file)
+                .file(record.file)?
                 .ok_or("cached lifecycle base file missing")?;
             charge_lifecycle_cached_payload(context, query, record)?;
             let payload = if query.options.return_mode == ReturnMode::Locator {
@@ -459,7 +459,7 @@ pub(crate) fn materialize_lifecycle_cached(
             collection,
             SegmentRecordRef {
                 record: record.clone(),
-                file: std::borrow::Cow::Borrowed(file),
+                file: std::borrow::Cow::Borrowed(&file),
             },
             revision,
             member.matched_fields.to_vec(),

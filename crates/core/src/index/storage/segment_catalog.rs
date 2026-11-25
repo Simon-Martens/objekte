@@ -17,6 +17,12 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>>;
     fn estimated_directory_bytes(&self) -> usize;
     fn edit(&self) -> StorageResult<Box<dyn SegmentCatalogEditor>>;
+
+    /// Attempt an infallible install when the candidate has unique ownership.
+    /// A backend that cannot adopt the contribution leaves this handle intact.
+    fn try_adopt(&mut self, _source: &dyn SegmentRouteSource, _position: usize) -> bool {
+        false
+    }
 }
 
 /// A sealed segment supplies route inputs without exposing its containers.
@@ -55,6 +61,18 @@ pub(crate) enum SegmentDirectoryDelta<'a> {
 pub(crate) trait SegmentCatalogEditor: Send {
     fn apply(&mut self, delta: SegmentDirectoryDelta<'_>) -> StorageResult<()>;
     fn seal(self: Box<Self>) -> StorageResult<SegmentCatalogHandle>;
+}
+
+pub(crate) fn install_segment(
+    handle: &mut SegmentCatalogHandle,
+    source: &dyn SegmentRouteSource,
+    position: usize,
+) -> StorageResult<()> {
+    if Arc::get_mut(handle).is_some_and(|candidate| candidate.try_adopt(source, position)) {
+        return Ok(());
+    }
+    *handle = edited_catalog(handle, SegmentDirectoryDelta::Install { source, position })?;
+    Ok(())
 }
 
 pub(crate) fn edited_catalog(

@@ -1055,7 +1055,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
         source_bytes: None,
         record: &resolved.record,
         range: (resolved.record).record_range(),
-        file: Some(resolved.file),
+        file: Some(&resolved.file),
         collection_name: &resolved.collection.definition.name,
         repository_root: Some(merged.repository_root()),
     };
@@ -2606,7 +2606,7 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
         source_bytes: None,
         record: &owner_record.record,
         range: (owner_record.record).record_range(),
-        file: Some(owner_record.file),
+        file: Some(&owner_record.file),
         collection_name: &owner_record.collection.definition.name,
         repository_root: Some(owner_view.repository_root()),
     };
@@ -3655,7 +3655,7 @@ fn bound_filter_leaf_evidence_has_fixed_expected_fields() {
         source_bytes: None,
         record: &resolved.record,
         range: (resolved.record).record_range(),
-        file: Some(resolved.file),
+        file: Some(&resolved.file),
         collection_name: &resolved.collection.definition.name,
         repository_root: Some(merged.repository_root()),
     };

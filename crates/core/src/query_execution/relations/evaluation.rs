@@ -468,7 +468,7 @@ fn visit_merged_hop(
                 source_bytes: None,
                 record: &header,
                 range,
-                file,
+                file: file.as_deref(),
                 collection_name: &view.repository().collections[address.collection.0 as usize]
                     .definition
                     .name,
@@ -501,7 +501,7 @@ fn visit_merged_hop(
                 source_bytes: None,
                 record: &current.record,
                 range: (current.record).record_range(),
-                file: Some(current.file),
+                file: Some(&current.file),
                 collection_name: &current.collection.definition.name,
                 repository_root: Some(view.repository_root()),
             };
@@ -526,7 +526,7 @@ fn visit_merged_hop(
         ) {
             Ok(bytes) => bytes,
             Err(message) => {
-                view.record_source_failure(current.file, current.record.range, message);
+                view.record_source_failure(&current.file, current.record.range, message);
                 merge_truth(truth, None, quantifier);
                 return Ok(());
             }
@@ -556,7 +556,7 @@ fn visit_merged_hop(
                 source_bytes: None,
                 record: &current.record,
                 range: (current.record).record_range(),
-                file: Some(current.file),
+                file: Some(&current.file),
                 collection_name: &current.collection.definition.name,
                 repository_root: Some(view.repository_root()),
             };
@@ -571,7 +571,7 @@ fn visit_merged_hop(
                 source_bytes: Some(&bytes),
                 record: &current.record,
                 range: (current.record).record_range(),
-                file: Some(current.file),
+                file: Some(&current.file),
                 collection_name: &current.collection.definition.name,
                 repository_root: Some(view.repository_root()),
             };

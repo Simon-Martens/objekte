@@ -47,6 +47,12 @@ impl fmt::Display for StorageError {
 
 impl std::error::Error for StorageError {}
 
+impl From<StorageError> for String {
+    fn from(error: StorageError) -> Self {
+        error.to_string()
+    }
+}
+
 #[derive(Clone, Copy)]
 pub(crate) struct BatchLimit {
     items: NonZeroUsize,
