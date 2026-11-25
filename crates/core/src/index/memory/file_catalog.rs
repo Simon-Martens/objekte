@@ -724,6 +724,10 @@ impl FileCatalogReader for FileCatalog {
         Ok(self.entry(id).map(Cow::Borrowed))
     }
 
+    fn id_for_path(&self, path: &Path) -> StorageResult<Option<FileId>> {
+        Ok(self.id_for(path))
+    }
+
     fn path_candidates(
         &self,
         bounds: FilePathBounds,

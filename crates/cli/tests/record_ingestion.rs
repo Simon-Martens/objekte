@@ -349,6 +349,7 @@ fn importer_only_move_outside_selection_retires_empty_catalog_membership() {
             .file_catalog()
             .unwrap()
             .file_by_path(std::path::Path::new("attachments/one.json"))
+            .unwrap()
             .is_none()
     );
     assert_eq!(
@@ -3097,6 +3098,7 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
     let initial_catalog = initial_view.file_catalog().unwrap();
     let sample = initial_catalog
         .file_by_path(std::path::Path::new("data/a.json"))
+        .unwrap()
         .unwrap();
     assert_eq!(
         initial_catalog
@@ -3124,6 +3126,7 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
         assert!(
             initial_catalog
                 .files_without_creation_time()
+                .unwrap()
                 .iter()
                 .any(|row| row.id == sample.id)
         );

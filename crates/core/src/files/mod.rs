@@ -1,7 +1,11 @@
 //! Optional file registration, provenance, and pinned catalog reads.
 
+use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 
+use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
+use crate::index::storage::segment::SegmentReader;
+use crate::index::storage::transfer::{BatchLimit, StorageError};
 use crate::inventory::{ByteRange, FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::{FileCatalogueRow, IndexView};
 use crate::model::FileId;
@@ -82,30 +86,42 @@ impl std::fmt::Display for LookupError {
 
 impl std::error::Error for LookupError {}
 
+impl From<StorageError> for LookupError {
+    fn from(error: StorageError) -> Self {
+        Self::Query(error.to_string())
+    }
+}
+
 /// File service pinned to the same publication as its enclosing index view.
 pub struct FileCatalogView<'a> {
     pub(crate) view: &'a IndexView,
+    pub(crate) reader: &'a dyn FileCatalogReader,
 }
 
 impl<'a> FileCatalogView<'a> {
     pub fn file(&self, id: FileId) -> Result<FileCatalogueRow<'a>, LookupError> {
-        self.view.catalogue_row(id).ok_or(LookupError::FileNotFound)
+        self.reader
+            .file(id)?
+            .map(FileCatalogueRow::from_entry)
+            .ok_or(LookupError::FileNotFound)
     }
 
-    pub fn file_by_path(&self, path: &Path) -> Option<FileCatalogueRow<'a>> {
-        let id = self.view.0.catalog.id_for(path)?;
-        self.view.catalogue_row(id)
+    pub fn file_by_path(&self, path: &Path) -> Result<Option<FileCatalogueRow<'a>>, LookupError> {
+        let Some(id) = self.reader.id_for_path(path)? else {
+            return Ok(None);
+        };
+        self.file(id).map(Some)
     }
 
-    fn rows_for_ids(
+    fn files_matching(
         &self,
-        ids: Option<std::sync::Arc<[FileId]>>,
+        predicate: FileScalarPredicate<'_>,
     ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
-        ids.ok_or_else(|| LookupError::Query("unsupported file scalar comparison".into()))?
-            .iter()
-            .copied()
-            .map(|id| self.file(id))
-            .collect()
+        let ids = self
+            .reader
+            .scalar_candidates(predicate, usize::MAX)?
+            .ok_or_else(|| LookupError::Query("unsupported file scalar comparison".into()))?;
+        ids.iter().map(|&id| self.file(id)).collect()
     }
 
     /// Ordered file-level size lookup in the pinned catalog.
@@ -114,10 +130,9 @@ impl<'a> FileCatalogView<'a> {
         operator: Operator,
         size: u64,
     ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
-        self.rows_for_ids(self.view.0.catalog.size_ids(
+        self.files_matching(FileScalarPredicate::Size(
             operator,
             &crate::model::Number::integer(size as i128),
-            usize::MAX,
         ))
     }
 
@@ -127,12 +142,7 @@ impl<'a> FileCatalogView<'a> {
         operator: Operator,
         modified_ns: i128,
     ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
-        self.rows_for_ids(
-            self.view
-                .0
-                .catalog
-                .modified_ids(operator, modified_ns, usize::MAX),
-        )
+        self.files_matching(FileScalarPredicate::Modified(operator, modified_ns))
     }
 
     /// Ordered file-level creation-time lookup, in Unix nanoseconds.
@@ -141,25 +151,12 @@ impl<'a> FileCatalogView<'a> {
         operator: Operator,
         created_ns: i128,
     ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
-        self.rows_for_ids(
-            self.view
-                .0
-                .catalog
-                .created_ids(operator, created_ns, usize::MAX),
-        )
+        self.files_matching(FileScalarPredicate::Created(operator, created_ns))
     }
 
     /// Files whose creation time could not be observed.
-    pub fn files_without_creation_time(&self) -> Vec<FileCatalogueRow<'a>> {
-        self.view
-            .0
-            .catalog
-            .unknown_created_ids(usize::MAX)
-            .unwrap_or_default()
-            .iter()
-            .copied()
-            .filter_map(|id| self.view.catalogue_row(id))
-            .collect()
+    pub fn files_without_creation_time(&self) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
+        self.files_matching(FileScalarPredicate::UnknownCreated)
     }
 
     pub fn file_for_record(
@@ -178,12 +175,11 @@ impl<'a> FileCatalogView<'a> {
     /// Return live keys for a known file, using the base file-slot table and
     /// each participating segment's local file slot list.
     pub fn records_for_file(&self, id: FileId) -> Result<Vec<RecordKey>, LookupError> {
-        let file = self
-            .view
-            .0
-            .catalog
-            .entry(id)
-            .ok_or(LookupError::FileNotFound)?;
+        let file = self.reader.file(id)?.ok_or(LookupError::FileNotFound)?;
+        const FILE_SLOT_LIMIT: BatchLimit = BatchLimit::new(
+            NonZeroUsize::new(256).unwrap(),
+            NonZeroUsize::new(1024).unwrap(),
+        );
         let mut keys = Vec::new();
         for collection_id in &file.collections {
             let number = collection_id.0 as usize;
@@ -207,17 +203,25 @@ impl<'a> FileCatalogView<'a> {
                     .position(*segment_id)
                     .map_err(|error| LookupError::Query(error.to_string()))?
                     .ok_or(LookupError::Query("file segment route is stale".into()))?;
-                let segment = &self.view.0.segments[number][position];
-                if let Some(&file_index) = segment.index.file_index.get(&id) {
-                    for &slot in &segment.index.files[file_index].records {
-                        if segment.active.contains(slot) {
-                            keys.push(RecordKey::new(
-                                *collection_id,
-                                segment.index.records[slot.0 as usize].id.clone(),
-                            ));
+                let segment = self.view.0.segments[number]
+                    .get(position)
+                    .ok_or_else(|| LookupError::Query("file segment route is stale".into()))?;
+                segment
+                    .index
+                    .visit_file_slots(id, FILE_SLOT_LIMIT, &mut |slots| {
+                        for &slot in slots {
+                            if segment.active.contains(slot) {
+                                let record = segment.index.header(slot)?.ok_or_else(|| {
+                                    StorageError::invalid(
+                                        "read file records",
+                                        "routed slot is missing",
+                                    )
+                                })?;
+                                keys.push(RecordKey::new(*collection_id, record.id.clone()));
+                            }
                         }
-                    }
-                }
+                        Ok(())
+                    })?;
             }
         }
         keys.sort();
@@ -239,12 +243,7 @@ impl<'a> FileCatalogView<'a> {
             .enumerate()
             .find(|(_, state)| state.definition.name == collection)
             .map(|(index, _)| crate::model::CollectionId(index as u32));
-        let file = self
-            .view
-            .0
-            .catalog
-            .entry(id)
-            .ok_or(LookupError::FileNotFound)?;
+        let file = self.reader.file(id)?.ok_or(LookupError::FileNotFound)?;
         let Some(collection_id) = collection_id else {
             return Ok(Vec::new());
         };

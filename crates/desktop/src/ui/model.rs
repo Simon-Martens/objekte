@@ -627,7 +627,7 @@ impl FileCatalogue {
                 .filter(|id| {
                     self.view.catalogue_row(*id).is_some_and(|row| {
                         objekte_search_core::model::path_representation::query_path(
-                            row.relative_path,
+                            row.relative_path.as_ref(),
                         )
                         .starts_with(&prefix)
                     })

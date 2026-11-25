@@ -4084,7 +4084,7 @@ fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalo
         .collect::<std::collections::BTreeMap<_, _>>();
     for row in view.catalogue_rows() {
         ids.push(row.id);
-        for collection in row.collections {
+        for collection in row.collections.iter() {
             if let Some(name) = collections.get(collection.0 as usize) {
                 if let Some(files) = by_collection.get_mut(name) {
                     files.push(row.id);

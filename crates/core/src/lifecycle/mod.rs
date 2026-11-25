@@ -4,14 +4,14 @@
 //! scheduling and shutdown. Each operation has a focused child module while
 //! `IndexInner` remains the sole owner of the published root and lifecycle locks.
 
-use std::fmt;
 use std::path::Path;
 use std::sync::atomic::AtomicBool;
 use std::sync::{Arc, Mutex, RwLock};
+use std::{borrow::Cow, fmt};
 
 use serde::{Deserialize, Serialize};
 
-use crate::inventory::FileVersion;
+use crate::inventory::{FileEntry, FileVersion};
 use crate::model::{CollectionId, FileId};
 use crate::query_results::SearchResult;
 
@@ -186,14 +186,41 @@ pub struct IndexStatus {
 
 /// Discovery-only facts for one physical file. Record identity, validity,
 /// byte ranges and record counts require construction and are omitted here.
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Debug)]
 pub struct FileCatalogueRow<'a> {
     pub id: FileId,
-    pub relative_path: &'a Path,
-    pub collections: &'a [CollectionId],
+    pub relative_path: Cow<'a, Path>,
+    pub collections: Cow<'a, [CollectionId]>,
     pub size: u64,
     pub modified_ns: i128,
     pub created_ns: Option<i128>,
+}
+
+impl<'a> FileCatalogueRow<'a> {
+    pub(crate) fn from_entry(entry: Cow<'a, FileEntry>) -> Self {
+        let id = entry.id;
+        let size = entry.revision.size;
+        let modified_ns = entry.revision.modified_ns;
+        let created_ns = entry.created_ns;
+        let (relative_path, collections) = match entry {
+            Cow::Borrowed(entry) => (
+                Cow::Borrowed(entry.relative_path.as_path()),
+                Cow::Borrowed(entry.collections.as_slice()),
+            ),
+            Cow::Owned(entry) => (
+                Cow::Owned(entry.relative_path.to_path_buf()),
+                Cow::Owned(entry.collections),
+            ),
+        };
+        Self {
+            id,
+            relative_path,
+            collections,
+            size,
+            modified_ns,
+            created_ns,
+        }
+    }
 }
 
 /// Narrow native index-family display for benchmarks and diagnostics. It

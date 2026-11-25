@@ -2054,7 +2054,7 @@ fn multisegment_managed_file_has_one_membership_per_collection() {
     let catalog = pinned.file_catalog().unwrap();
     let id = added.file.file_id;
     assert_eq!(
-        catalog.file(id).unwrap().collections,
+        catalog.file(id).unwrap().collections.as_ref(),
         &[CollectionId(0), CollectionId(1)]
     );
     assert_eq!(catalog.records_for_file(id).unwrap().len(), 1536);

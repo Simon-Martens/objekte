@@ -230,7 +230,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let view = index.view()?;
     let catalog = view.file_catalog().ok_or("catalog missing")?;
     let file = catalog
-        .file_by_path(std::path::Path::new(relative))
+        .file_by_path(std::path::Path::new(relative))?
         .ok_or("file missing")?;
     let members = catalog.records_for_file(file.id)?;
     let last = view
@@ -368,7 +368,7 @@ fn many_registered_files(
     let catalogue = view.file_catalog().ok_or("catalogue missing")?;
     let sampled_path = format!("data/{:06}.pipe", count - 1);
     let file = catalogue
-        .file_by_path(sampled_path.as_ref())
+        .file_by_path(sampled_path.as_ref())?
         .ok_or("sampled file missing")?;
     let file_records = catalogue.records_for_file(file.id)?;
     let publications = view.revision().0 - IndexRevision::INITIAL.0 - 1;

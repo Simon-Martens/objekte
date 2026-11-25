@@ -106,7 +106,7 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
         task.as_ref().map(|task| task.status().unwrap()),
         view.file_paths().collect::<Vec<_>>()
     );
-    let row = rows[0];
+    let row = &rows[0];
     assert_eq!(row.relative_path.as_os_str().as_bytes(), b"raw-\xff.json");
     if let Some(task) = task {
         task.wait_complete().unwrap();

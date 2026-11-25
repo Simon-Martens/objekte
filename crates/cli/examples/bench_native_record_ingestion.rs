@@ -363,7 +363,7 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
             let group = number / records_per_file;
             let offset = number % records_per_file;
             let expected_file = catalog
-                .file_by_path(std::path::Path::new(&files[group].0))
+                .file_by_path(std::path::Path::new(&files[group].0))?
                 .ok_or("file missing")?;
             let hit = observed.ok_or("route lost record")?;
             let origin = hit.file.ok_or("route lost file")?;
@@ -381,7 +381,7 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
     let mut members = 0usize;
     for (group, (name, _)) in files.iter().enumerate() {
         let file = catalog
-            .file_by_path(std::path::Path::new(name))
+            .file_by_path(std::path::Path::new(name))?
             .ok_or("file missing")?;
         let actual = catalog.records_for_file(file.id)?;
         let mut expected = (0..records_per_file)
@@ -400,7 +400,7 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
     }
     let reverse_ns = started.elapsed().as_nanos();
     let empty = catalog
-        .file_by_path(std::path::Path::new("data/empty.jsonl"))
+        .file_by_path(std::path::Path::new("data/empty.jsonl"))?
         .ok_or("empty file missing")?;
     if !catalog.records_for_file(empty.id)?.is_empty()
         || catalog.records_for_file(FileId(u32::MAX)).is_ok()

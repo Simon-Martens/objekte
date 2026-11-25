@@ -1,11 +1,15 @@
 use std::borrow::Cow;
+use std::collections::BTreeMap;
 use std::num::NonZeroUsize;
+use std::ops::RangeBounds;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 use super::FileCatalog;
 use crate::index::storage::file_catalog::{
-    FileCatalogReader, FileCatalogSource, FileTransferRow, transfer_files,
+    FileCatalogReader, FileCatalogSource, FilePathBounds, FileScalarPredicate, FileTransferRow,
+    transfer_files,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
@@ -14,8 +18,10 @@ use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, Sto
 struct OrderedFiles {
     allocated: u32,
     rows: Vec<FileTransferRow<'static>>,
+    paths: BTreeMap<Arc<str>, FileId>,
     reads: AtomicUsize,
     fail_after_first_batch: bool,
+    fail_path_lookup: bool,
 }
 
 impl OrderedFiles {
@@ -23,11 +29,16 @@ impl OrderedFiles {
         let mut result = Self {
             allocated: source.high_water_mark(),
             rows: Vec::new(),
+            paths: BTreeMap::new(),
             reads: AtomicUsize::new(0),
             fail_after_first_batch: false,
+            fail_path_lookup: false,
         };
         let limit = BatchLimit::new(NonZeroUsize::new(1).unwrap(), NonZeroUsize::MAX);
         transfer_files(source, result.allocated, limit, &|| false, |row| {
+            result
+                .paths
+                .insert(row.entry.relative_path.query_key(), row.entry.id);
             result.rows.push(FileTransferRow {
                 entry: Cow::Owned(row.entry.into_owned()),
                 fingerprint: row.fingerprint,
@@ -80,6 +91,81 @@ impl FileCatalogSource for OrderedFiles {
         })
     }
 }
+impl FileCatalogReader for OrderedFiles {
+    fn repository_root(&self) -> Option<&Path> {
+        None
+    }
+
+    fn file(&self, id: FileId) -> StorageResult<Option<Cow<'_, crate::inventory::FileEntry>>> {
+        Ok(self
+            .rows
+            .binary_search_by_key(&id.0, |row| row.entry.id.0)
+            .ok()
+            .map(|position| Cow::Owned(self.rows[position].entry.as_ref().clone())))
+    }
+
+    fn id_for_path(&self, path: &Path) -> StorageResult<Option<FileId>> {
+        if self.fail_path_lookup {
+            return Err(StorageError::invalid(
+                "test file catalog",
+                "injected path lookup failure",
+            ));
+        }
+        let key = crate::inventory::SharedPath::from(PathBuf::from(path)).query_key();
+        Ok(self.paths.get(&key).copied())
+    }
+
+    fn path_candidates(
+        &self,
+        bounds: FilePathBounds,
+        limit: usize,
+    ) -> StorageResult<Option<Vec<FileId>>> {
+        let mut ids = Vec::new();
+        for (path, &id) in &self.paths {
+            if bounds.contains(path) {
+                if ids.len() == limit {
+                    return Ok(None);
+                }
+                ids.push(id);
+            }
+        }
+        Ok(Some(ids))
+    }
+
+    fn visit_paths(
+        &self,
+        bounds: FilePathBounds,
+        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        for (path, &id) in &self.paths {
+            if bounds.contains(path) {
+                visit(&[id])?;
+            }
+        }
+        Ok(())
+    }
+
+    fn scalar_candidates(
+        &self,
+        predicate: FileScalarPredicate<'_>,
+        limit: usize,
+    ) -> StorageResult<Option<Arc<[FileId]>>> {
+        if !matches!(predicate, FileScalarPredicate::UnknownCreated) {
+            return Ok(None);
+        }
+        let mut ids = Vec::new();
+        for row in &self.rows {
+            if row.entry.created_ns.is_none() {
+                if ids.len() == limit {
+                    return Ok(None);
+                }
+                ids.push(row.entry.id);
+            }
+        }
+        Ok(Some(ids.into()))
+    }
+}
+
 use crate::model::Number;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
@@ -223,6 +309,45 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     // Transfer still works after the original files become unavailable.
     std::fs::remove_dir_all(&root).unwrap();
     let mut intermediate = OrderedFiles::copy_from(&appended);
+    let mut builder = crate::lifecycle::Index::builder();
+    builder
+        .collection("entries", crate::schema::Schema::default())
+        .unwrap();
+    let empty_view = builder.build().unwrap().view().unwrap();
+    let path = Path::new("data/new.row");
+    {
+        let service = crate::files::FileCatalogView {
+            view: &empty_view,
+            reader: &intermediate,
+        };
+        let row = service.file_by_path(path).unwrap().unwrap();
+        assert!(matches!(row.relative_path, Cow::Owned(_)));
+        assert_eq!(row.relative_path.as_ref(), path);
+        assert_eq!(row.id, FileId(2));
+        assert!(
+            service
+                .file_by_path(Path::new("data/b.row"))
+                .unwrap()
+                .is_none()
+        );
+        assert!(
+            service
+                .files_without_creation_time()
+                .unwrap()
+                .iter()
+                .any(|row| row.id == FileId(2))
+        );
+    }
+    intermediate.fail_path_lookup = true;
+    let service = crate::files::FileCatalogView {
+        view: &empty_view,
+        reader: &intermediate,
+    };
+    assert!(matches!(
+        service.file_by_path(path),
+        Err(crate::files::LookupError::Query(message)) if message.contains("injected path lookup failure")
+    ));
+    intermediate.fail_path_lookup = false;
     intermediate.allocated += 1; // preserve a trailing retired file ID
     let restored = FileCatalog::restore_from(&repository, &intermediate, &|| false).unwrap();
     assert_eq!(intermediate.reads.load(Ordering::Relaxed), 2);

@@ -257,6 +257,7 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
         .file_catalog()
         .unwrap()
         .file_by_path(std::path::Path::new("data/first.rows"))
+        .unwrap()
         .unwrap();
     assert_eq!(
         pinned
@@ -282,6 +283,7 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
             .file_catalog()
             .unwrap()
             .file_by_path(relative)
+            .unwrap()
             .is_none()
     );
 
@@ -289,7 +291,7 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
     let current = index.view().unwrap();
     let catalog = current.file_catalog().unwrap();
     assert_eq!(
-        catalog.file_by_path(relative).unwrap().id,
+        catalog.file_by_path(relative).unwrap().unwrap().id,
         added.file.file_id
     );
     let records = catalog.records_for_file(added.file.file_id).unwrap();
@@ -299,6 +301,7 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
             .file_catalog()
             .unwrap()
             .file_by_path(relative)
+            .unwrap()
             .is_none()
     );
     index.delete_file(added.file).unwrap();
@@ -310,6 +313,7 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
             .file_catalog()
             .unwrap()
             .file_by_path(relative)
+            .unwrap()
             .is_none()
     );
     assert_eq!(

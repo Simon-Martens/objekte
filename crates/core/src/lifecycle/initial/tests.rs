@@ -1666,9 +1666,11 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
         let shared = catalog
             .file_by_path(std::path::Path::new("shared/two.bindings"))
             .unwrap()
+            .unwrap()
             .id;
         let solo = catalog
             .file_by_path(std::path::Path::new("independent/solo.row"))
+            .unwrap()
             .unwrap()
             .id;
         assert_eq!(catalog.records_for_file(solo).unwrap().len(), 1);
@@ -2027,7 +2029,7 @@ fn initial_publication_rechecks_symlink_eligibility_after_framing() {
         let selected = fresh_paths.contains(&root.join(relative));
         let view = index.view().unwrap();
         let catalog = view.file_catalog().unwrap();
-        let file = catalog.file_by_path(relative).unwrap();
+        let file = catalog.file_by_path(relative).unwrap().unwrap();
         let records = catalog.records_for_file(file.id).unwrap().len();
         std::fs::remove_dir_all(root).unwrap();
         assert_eq!(result.is_ok(), selected, "policy {policy:?}");
@@ -2097,7 +2099,10 @@ fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
 
         let check = |view: &crate::lifecycle::IndexView, path: &str, prefix: &str| {
             let catalogue = view.file_catalog().unwrap();
-            let file = catalogue.file_by_path(std::path::Path::new(path)).unwrap();
+            let file = catalogue
+                .file_by_path(std::path::Path::new(path))
+                .unwrap()
+                .unwrap();
             let records = catalogue.records_for_file(file.id).unwrap();
             assert_eq!(file.collections.len(), 1);
             assert_eq!(records.len(), count);
@@ -2304,7 +2309,10 @@ fn registered_small_files_pack_into_shared_segments_and_publications() {
         let catalogue = view.file_catalog().unwrap();
         for n in 0..64 {
             let path = format!("data/{n:02}.pack");
-            let file = catalogue.file_by_path(std::path::Path::new(&path)).unwrap();
+            let file = catalogue
+                .file_by_path(std::path::Path::new(&path))
+                .unwrap()
+                .unwrap();
             assert_eq!(file.collections.len(), 1);
             assert_eq!(catalogue.records_for_file(file.id).unwrap().len(), 1);
             let id = format!("r{n:02}");
@@ -2426,6 +2434,7 @@ fn independent_registered_groups_publish_while_a_binding_waits() {
             let catalogue = view.file_catalog().unwrap();
             let held = catalogue
                 .file_by_path(std::path::Path::new("data/held.pack"))
+                .unwrap()
                 .unwrap();
             assert!(catalogue.records_for_file(held.id).unwrap().is_empty());
         }
@@ -2435,6 +2444,7 @@ fn independent_registered_groups_publish_while_a_binding_waits() {
         let catalogue = final_view.file_catalog().unwrap();
         let held = catalogue
             .file_by_path(std::path::Path::new("data/held.pack"))
+            .unwrap()
             .unwrap();
         assert_eq!(
             catalogue.records_for_file(held.id).unwrap().len(),
@@ -2504,7 +2514,10 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
     let catalogue = view.file_catalog().unwrap();
     for number in 0..10 {
         let path = format!("data/item-{number}.row");
-        let file = catalogue.file_by_path(std::path::Path::new(&path)).unwrap();
+        let file = catalogue
+            .file_by_path(std::path::Path::new(&path))
+            .unwrap()
+            .unwrap();
         assert_eq!(catalogue.records_for_file(file.id).unwrap().len(), 1);
     }
     let file = view
@@ -2841,6 +2854,7 @@ fn registered_empty_frames_keep_constant_unsealed_work() {
         let catalog = view.file_catalog().unwrap();
         let file = catalog
             .file_by_path(std::path::Path::new("data/headers.pack"))
+            .unwrap()
             .unwrap();
         if trailer == b"!" {
             assert!(
@@ -2856,7 +2870,7 @@ fn registered_empty_frames_keep_constant_unsealed_work() {
         } else {
             terminal.unwrap();
             assert_eq!(task.status().unwrap().processed_files, 2);
-            assert_eq!(file.collections, &[crate::model::CollectionId(0)]);
+            assert_eq!(file.collections.as_ref(), &[crate::model::CollectionId(0)]);
             assert_eq!(
                 catalog.records_for_file(file.id).unwrap().len(),
                 usize::from(!trailer.is_empty())
@@ -3072,8 +3086,9 @@ fn registered_bounded_lines_blank_frames_keep_constant_unsealed_work() {
             let catalog = view.file_catalog().unwrap();
             let main = catalog
                 .file_by_path(std::path::Path::new("data/main.blank-lines"))
+                .unwrap()
                 .unwrap();
-            assert_eq!(main.collections, &[crate::model::CollectionId(0)]);
+            assert_eq!(main.collections.as_ref(), &[crate::model::CollectionId(0)]);
             assert_eq!(
                 catalog.records_for_file(main.id).unwrap().len(),
                 usize::from(append_record)

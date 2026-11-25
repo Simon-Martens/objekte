@@ -136,6 +136,8 @@ pub(crate) trait FileCatalogReader: FileCatalogSource {
 
     fn file(&self, id: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>>;
 
+    fn id_for_path(&self, path: &Path) -> StorageResult<Option<FileId>>;
+
     fn path_candidates(
         &self,
         bounds: FilePathBounds,

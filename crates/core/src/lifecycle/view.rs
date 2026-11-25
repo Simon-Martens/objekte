@@ -112,7 +112,10 @@ impl IndexView {
     pub fn file_catalog(&self) -> Option<crate::files::FileCatalogView<'_>> {
         self.repository()
             .catalog_registered
-            .then_some(crate::files::FileCatalogView { view: self })
+            .then_some(crate::files::FileCatalogView {
+                view: self,
+                reader: &self.0.catalog,
+            })
     }
     /// Startup observations belonging to this immutable publication.
     pub fn startup_stats(&self) -> &crate::repository::statistics::StartupStats {
@@ -190,7 +193,7 @@ impl IndexView {
         for file in self.catalogue_rows() {
             files += 1;
             source_bytes = source_bytes.saturating_add(file.size);
-            for collection in file.collections {
+            for collection in file.collections.iter() {
                 if let Some(part) = collection_parts.get_mut(collection.0 as usize) {
                     part.files += 1;
                     part.source_bytes = part.source_bytes.saturating_add(file.size);
@@ -355,14 +358,9 @@ impl IndexView {
             return None;
         }
         let file = self.0.catalog.entry(id)?;
-        Some(FileCatalogueRow {
-            id,
-            relative_path: file.relative_path.as_path(),
-            collections: &file.collections,
-            size: file.revision.size,
-            modified_ns: file.revision.modified_ns,
-            created_ns: file.created_ns,
-        })
+        Some(FileCatalogueRow::from_entry(std::borrow::Cow::Borrowed(
+            file,
+        )))
     }
 
     pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow<'_>> + '_ {

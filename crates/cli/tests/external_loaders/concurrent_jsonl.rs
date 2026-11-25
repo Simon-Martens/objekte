@@ -94,7 +94,7 @@ impl LargeFixture {
         );
         let catalog = view.file_catalog().unwrap();
         for (id, path, range) in &self.locators {
-            let file = catalog.file_by_path(path).unwrap().id;
+            let file = catalog.file_by_path(path).unwrap().unwrap().id;
             for name in names {
                 let hit = view
                     .get_record(name, id, ReturnMode::Locator)
@@ -142,6 +142,7 @@ fn check_independent_publication(
     let catalog = view.file_catalog().ok_or("missing catalog")?;
     let row = catalog
         .file_by_path(Path::new(&format!("{held}.jsonl")))
+        .map_err(|error| error.to_string())?
         .ok_or("held file missing from catalog")?;
     let count = catalog
         .records_for_file(row.id)

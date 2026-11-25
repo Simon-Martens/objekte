@@ -668,6 +668,22 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(self.record(slot).map(Cow::Borrowed))
     }
 
+    fn visit_file_slots(
+        &self,
+        file: FileId,
+        limit: crate::index::storage::transfer::BatchLimit,
+        visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        if let Some(file) = self.file(file) {
+            let batch_len =
+                limit.fixed_batch_len("read segment file slots", size_of::<RecordSlot>())?;
+            for slots in file.records.chunks(batch_len) {
+                visit(slots)?;
+            }
+        }
+        Ok(())
+    }
+
     fn stored_key(
         &self,
         path: &crate::model::FieldPath,

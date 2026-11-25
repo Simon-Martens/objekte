@@ -4,13 +4,13 @@ use std::{borrow::Cow, fmt, num::NonZeroUsize};
 
 use serde::{Deserialize, Serialize};
 
-use crate::model::{CollectionId, FieldPath, RecordSlot};
+use crate::model::{CollectionId, FieldPath, FileId, RecordSlot};
 use crate::query::options::SortField;
 use crate::records::RecordHeader;
 
 use super::order::SortKey;
 use super::ordered_slots::OrderedSlots;
-use super::transfer::StorageResult;
+use super::transfer::{BatchLimit, StorageResult};
 
 /// Deterministic soft target used by every ordinary segment-producing path.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -119,6 +119,13 @@ pub(crate) trait SegmentReader: Send + Sync {
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>>;
 
     fn header(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RecordHeader>>>;
+
+    fn visit_file_slots(
+        &self,
+        file: FileId,
+        limit: BatchLimit,
+        visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
+    ) -> StorageResult<()>;
 
     fn stored_key(
         &self,
