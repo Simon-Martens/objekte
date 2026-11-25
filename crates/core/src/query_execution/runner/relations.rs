@@ -2161,7 +2161,102 @@ fn record_source_candidates(
     );
 }
 
-type NativeTruth = HashMap<String, Vec<String>>;
+const MAX_NATIVE_RELATION_LEAF_MEMBERS: usize = 4096;
+
+type NativeIdTruth = HashMap<String, Vec<String>>;
+
+/// Exact truth over local segment slots. Only matched evidence is retained;
+/// an unfiltered domain costs one bitmap per segment, not a string-keyed row
+/// and address map for every live record.
+#[derive(Clone)]
+struct NativeTruth {
+    bits: Vec<RoaringBitmap>,
+    evidence: HashMap<(usize, u32), Vec<String>>,
+}
+
+impl NativeTruth {
+    fn empty(segments: usize) -> Self {
+        Self {
+            bits: vec![RoaringBitmap::new(); segments],
+            evidence: HashMap::new(),
+        }
+    }
+
+    fn contains(&self, segment: usize, slot: u32) -> bool {
+        self.bits[segment].contains(slot)
+    }
+
+    fn insert(&mut self, segment: usize, slot: u32, fields: &[String]) {
+        self.bits[segment].insert(slot);
+        if !fields.is_empty() {
+            self.evidence.insert((segment, slot), fields.to_vec());
+        }
+    }
+
+    fn len(&self) -> usize {
+        self.bits.iter().map(RoaringBitmap::len).sum::<u64>() as usize
+    }
+
+    fn and(&mut self, other: Self) {
+        for (left, right) in self.bits.iter_mut().zip(&other.bits) {
+            *left &= right;
+        }
+        self.evidence
+            .retain(|(segment, slot), _| self.bits[*segment].contains(*slot));
+        for (address, fields) in other.evidence {
+            if self.bits[address.0].contains(address.1) {
+                let evidence = self.evidence.entry(address).or_default();
+                evidence.extend(fields);
+                evidence.sort();
+                evidence.dedup();
+            }
+        }
+    }
+
+    fn or(&mut self, other: Self) {
+        for (left, right) in self.bits.iter_mut().zip(&other.bits) {
+            *left |= right;
+        }
+        for (address, fields) in other.evidence {
+            let evidence = self.evidence.entry(address).or_default();
+            evidence.extend(fields);
+            evidence.sort();
+            evidence.dedup();
+        }
+    }
+
+    fn without(mut self, other: Self) -> Self {
+        for (left, right) in self.bits.iter_mut().zip(&other.bits) {
+            *left -= right;
+        }
+        self.evidence.clear();
+        self
+    }
+}
+
+fn native_truth_from_ids(
+    segments: &[Arc<PublishedSegment>],
+    ids: NativeIdTruth,
+) -> Result<NativeTruth, String> {
+    let mut truth = NativeTruth::empty(segments.len());
+    for (id, evidence) in ids {
+        let mut found = None;
+        for (segment_index, published) in segments.iter().enumerate() {
+            if let Some(slot) = published.index.id_lookup.get(id.as_str())
+                && published.active.contains(*slot)
+            {
+                if found.is_some() {
+                    return Err("duplicate native relation source ID".into());
+                }
+                found = Some((segment_index, slot.0));
+            }
+        }
+        if let Some((segment, slot)) = found {
+            truth.insert(segment, slot, &evidence);
+        }
+    }
+    Ok(truth)
+}
 
 fn native_multi_hop_truth(
     repo: &Repository,
@@ -2170,7 +2265,7 @@ fn native_multi_hop_truth(
     catalog: &FileCatalog,
     term: &BoundTerm,
     counters: &mut WorkCounters,
-) -> Result<Option<NativeTruth>, String> {
+) -> Result<Option<NativeIdTruth>, String> {
     let Some(related) = term.related.as_ref() else {
         return Ok(None);
     };
@@ -2211,6 +2306,15 @@ fn native_multi_hop_truth(
         }
     }
     let terminal_collection = related.hops.last().expect("nonempty path").to.0 as usize;
+    if segments
+        .iter()
+        .flat_map(|group| group.iter())
+        .map(|published| published.active.len() as usize)
+        .sum::<usize>()
+        > MAX_NATIVE_RELATION_LEAF_MEMBERS
+    {
+        return Ok(None);
+    }
     let mut matched = HashSet::new();
     for published in segments[terminal_collection].iter() {
         let bounds = segment_filter_bounds_with_catalog(
@@ -2343,7 +2447,15 @@ fn native_boolean_truth(
     match expression {
         BoundExpr::Term(term) if term.related.is_some() => {
             let Some((hop, _)) = eligible_direct_relation_term(repo, term) else {
-                return native_multi_hop_truth(repo, query, segments, catalog, term, counters);
+                let Some(ids) =
+                    native_multi_hop_truth(repo, query, segments, catalog, term, counters)?
+                else {
+                    return Ok(None);
+                };
+                return Ok(Some(native_truth_from_ids(
+                    &segments[prepared.collection_index],
+                    ids,
+                )?));
             };
             if hop.direction == crate::query::binding::relation::HopDirection::Forward {
                 let target_ids = segments[hop.to.0 as usize]
@@ -2376,7 +2488,7 @@ fn native_boolean_truth(
             }
             let mut leaf_query = query.clone();
             leaf_query.options.offset = 0;
-            leaf_query.options.limit = universe.len();
+            leaf_query.options.limit = MAX_NATIVE_RELATION_LEAF_MEMBERS;
             leaf_query.options.return_mode = ReturnMode::Locator;
             leaf_query.options.count = true;
             let mut leaf = prepared.clone();
@@ -2414,18 +2526,19 @@ fn native_boolean_truth(
             counters.files_opened += result.counters.files_opened;
             counters.bytes_read += result.counters.bytes_read;
             counters.record_parses += result.counters.record_parses;
-            Ok(Some(
+            Ok(Some(native_truth_from_ids(
+                &segments[prepared.collection_index],
                 result
                     .hits
                     .into_iter()
                     .map(|hit| (hit.record_id, hit.matched_fields))
                     .collect(),
-            ))
+            )?))
         }
         BoundExpr::Term(term) => {
-            let mut truth = NativeTruth::new();
+            let mut truth = NativeTruth::empty(segments[prepared.collection_index].len());
             let collection_index = prepared.collection_index;
-            for published in segments[collection_index].iter() {
+            for (segment_index, published) in segments[collection_index].iter().enumerate() {
                 let bounds = segment_filter_bounds_with_catalog(
                     &published.index,
                     &published.active,
@@ -2445,12 +2558,8 @@ fn native_boolean_truth(
                     Vec::new()
                 };
                 for slot in bounds.must.iter() {
-                    let record = published
-                        .index
-                        .record(RecordSlot(slot))
-                        .ok_or("native local proof slot missing")?;
-                    if universe.contains_key(record.id.0.as_ref()) {
-                        truth.insert(record.id.0.to_string(), evidence.clone());
+                    if universe.contains(segment_index, slot) {
+                        truth.insert(segment_index, slot, &evidence);
                     }
                 }
             }
@@ -2476,21 +2585,12 @@ fn native_boolean_truth(
                 else {
                     return Ok(None);
                 };
-                remaining.retain(|id, evidence| {
-                    if let Some(fields) = truth.get(id) {
-                        evidence.extend(fields.iter().cloned());
-                        evidence.sort();
-                        evidence.dedup();
-                        true
-                    } else {
-                        false
-                    }
-                });
+                remaining.and(truth);
             }
             Ok(Some(remaining))
         }
         BoundExpr::Or(parts) => {
-            let mut combined = NativeTruth::new();
+            let mut combined = NativeTruth::empty(universe.bits.len());
             for part in parts {
                 let Some(truth) = native_boolean_truth(
                     repo,
@@ -2509,12 +2609,7 @@ fn native_boolean_truth(
                 else {
                     return Ok(None);
                 };
-                for (id, fields) in truth {
-                    let evidence = combined.entry(id).or_default();
-                    evidence.extend(fields);
-                    evidence.sort();
-                    evidence.dedup();
-                }
+                combined.or(truth);
             }
             Ok(Some(combined))
         }
@@ -2539,13 +2634,7 @@ fn native_boolean_truth(
             else {
                 return Ok(None);
             };
-            Ok(Some(
-                universe
-                    .keys()
-                    .filter(|id| !excluded.contains_key(*id))
-                    .map(|id| (id.clone(), Vec::new()))
-                    .collect(),
-            ))
+            Ok(Some(universe.clone().without(excluded)))
         }
     }
 }
@@ -2571,8 +2660,14 @@ fn try_exact_native_boolean_page(
         return Ok(None);
     }
     let collection_index = entry.collection_index;
-    let mut universe = NativeTruth::new();
-    let mut addresses = HashMap::new();
+    let active_count = segments[collection_index]
+        .iter()
+        .map(|published| published.active.len() as usize)
+        .sum::<usize>();
+    if query.options.evidence && active_count > MAX_NATIVE_RELATION_LEAF_MEMBERS {
+        return Ok(None);
+    }
+    let mut universe = NativeTruth::empty(segments[collection_index].len());
     for (segment_index, published) in segments[collection_index].iter().enumerate() {
         for slot in published.active.bitmap().iter() {
             if let Some(context) = context {
@@ -2583,9 +2678,7 @@ fn try_exact_native_boolean_page(
                 .record(RecordSlot(slot))
                 .ok_or("native Boolean source slot missing")?;
             if record.class == RecordClass::Logical {
-                let id = record.id.0.to_string();
-                universe.insert(id.clone(), Vec::new());
-                addresses.insert(id, (segment_index, RecordSlot(slot)));
+                universe.insert(segment_index, slot, &[]);
             }
         }
     }
@@ -2630,7 +2723,7 @@ fn try_exact_native_boolean_page(
         }
         let mut leaf_query = query.clone();
         leaf_query.options.offset = 0;
-        leaf_query.options.limit = universe.len();
+        leaf_query.options.limit = MAX_NATIVE_RELATION_LEAF_MEMBERS;
         leaf_query.options.return_mode = ReturnMode::Locator;
         leaf_query.options.count = true;
         let mut leaf = entry.clone();
@@ -2661,21 +2754,15 @@ fn try_exact_native_boolean_page(
         counters.relation_bytes_read += fts_result.counters.relation_bytes_read;
         counters.bytes_read += fts_result.counters.bytes_read;
         counters.files_opened += fts_result.counters.files_opened;
-        let fts_truth = fts_result
-            .hits
-            .into_iter()
-            .map(|hit| (hit.record_id, hit.matched_fields))
-            .collect::<NativeTruth>();
-        truth.retain(|id, evidence| {
-            if let Some(fields) = fts_truth.get(id) {
-                evidence.extend(fields.iter().cloned());
-                evidence.sort();
-                evidence.dedup();
-                true
-            } else {
-                false
-            }
-        });
+        let fts_truth = native_truth_from_ids(
+            &segments[collection_index],
+            fts_result
+                .hits
+                .into_iter()
+                .map(|hit| (hit.record_id, hit.matched_fields))
+                .collect(),
+        )?;
+        truth.and(fts_truth);
     }
     let cap = query
         .options
@@ -2685,53 +2772,60 @@ fn try_exact_native_boolean_page(
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let mut total = 0u64;
-    for (id, evidence) in truth {
-        let (segment_index, slot) = *addresses
-            .get(&id)
-            .ok_or("native Boolean proof outside source domain")?;
-        let published = &segments[collection_index][segment_index];
-        let record = published
-            .index
-            .record(slot)
-            .ok_or("native Boolean ranked slot missing")?;
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
-        let hit = if matches!(
-            published.index.backing,
-            crate::index::segment::SegmentBacking::FileRange { .. }
-        ) {
-            let resolved = segment_record_ref(&published.index, &published.active, catalog, slot)?
-                .ok_or("native Boolean file record retired")?;
-            segment_locator_hit(
-                &repo.collections[collection_index],
-                resolved,
-                revision,
-                evidence,
-            )
-        } else {
-            retained_locator_hit(
-                &repo.collections[collection_index],
-                &published.index,
-                catalog,
-                record,
-                revision,
-                evidence,
-            )
-        };
-        total += 1;
-        if cap > 0 {
-            offer_merged(
-                &mut winners,
-                cap,
-                MergedPageHit {
-                    key,
-                    hit,
-                    segment: Some((collection_index, segment_index)),
-                    record_address: None,
-                    retained_bytes: 0,
-                },
-                retained_budget.zip(context),
-                &mut winner_bytes,
-            )?;
+    for (segment_index, bitmap) in truth.bits.iter().enumerate() {
+        for number in bitmap.iter() {
+            let slot = RecordSlot(number);
+            let evidence = truth
+                .evidence
+                .get(&(segment_index, number))
+                .cloned()
+                .unwrap_or_default();
+            let published = &segments[collection_index][segment_index];
+            let record = published
+                .index
+                .record(slot)
+                .ok_or("native Boolean ranked slot missing")?;
+            let key =
+                segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+            let hit = if matches!(
+                published.index.backing,
+                crate::index::segment::SegmentBacking::FileRange { .. }
+            ) {
+                let resolved =
+                    segment_record_ref(&published.index, &published.active, catalog, slot)?
+                        .ok_or("native Boolean file record retired")?;
+                segment_locator_hit(
+                    &repo.collections[collection_index],
+                    resolved,
+                    revision,
+                    evidence,
+                )
+            } else {
+                retained_locator_hit(
+                    &repo.collections[collection_index],
+                    &published.index,
+                    catalog,
+                    record,
+                    revision,
+                    evidence,
+                )
+            };
+            total += 1;
+            if cap > 0 {
+                offer_merged(
+                    &mut winners,
+                    cap,
+                    MergedPageHit {
+                        key,
+                        hit,
+                        segment: Some((collection_index, segment_index)),
+                        record_address: None,
+                        retained_bytes: 0,
+                    },
+                    retained_budget.zip(context),
+                    &mut winner_bytes,
+                )?;
+            }
         }
     }
     let page = winners
@@ -2808,103 +2902,175 @@ fn try_native_relation_scan(
     for entry in prepared {
         let collection_index = entry.collection_index;
         let collection = &repo.collections[collection_index];
+        let source_projection = if entry.fts.is_none() && query.options.sort.is_empty() {
+            entry
+                .filter
+                .as_ref()
+                .and_then(crate::query_predicate::segment_filter_source_fields)
+                .filter(|fields| !fields.is_empty())
+                .map(|fields| {
+                    let mut fields = fields
+                        .into_iter()
+                        .map(|field| vec![field])
+                        .collect::<Vec<_>>();
+                    fields.sort();
+                    crate::records::reader::RecordProjection {
+                        fields,
+                        ..Default::default()
+                    }
+                })
+        } else {
+            None
+        };
+        let full_projection = crate::records::reader::RecordProjection {
+            text: entry.fts.is_some(),
+            ..Default::default()
+        };
+        let projection = source_projection.as_ref().unwrap_or(&full_projection);
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
-            for slot in published.active.bitmap().iter() {
-                if let Some(context) = context {
-                    context.check_string()?;
-                    context.check_slots(counters.candidates + 1)?;
+            let active_bitmap = published.active.bitmap();
+            let mut active_slots = active_bitmap.iter();
+            loop {
+                let chunk = active_slots
+                    .by_ref()
+                    .take(64)
+                    .map(RecordSlot)
+                    .collect::<Vec<_>>();
+                if chunk.is_empty() {
+                    break;
                 }
-                let slot = RecordSlot(slot);
-                let address = crate::query_execution::relations::view::MergedRecordSlot {
-                    collection: published.index.collection,
-                    segment: Some(segment_index),
-                    slot,
-                };
-                let record = published
-                    .index
-                    .record(slot)
-                    .ok_or("native relation source slot missing")?;
-                if record.class == RecordClass::RawFallback {
-                    continue;
-                }
-                let (value, text, file, range, source_bytes) = if view.is_native(address) {
-                    if view.is_native_provider(address)
-                        && let Some(context) = context
-                    {
-                        context.charge_reads(1)?;
-                    }
-                    let Some((value, text)) = view.native_value(address, entry.fts.is_some())?
-                    else {
-                        return Err("native relation source body missing".into());
-                    };
-                    let (file, range) = view.native_origin(address)?;
-                    (value, text, file, range, None)
-                } else {
-                    let Some(resolved) = view.record(address)? else {
-                        return Err("file relation source missing".into());
-                    };
-                    let path = repo
-                        .files
-                        .required_root()
-                        .join(&resolved.file.relative_path);
+                let mut provider_values = if matches!(
+                    published.index.backing,
+                    crate::index::segment::SegmentBacking::Provider { .. }
+                ) {
+                    let readable = chunk
+                        .iter()
+                        .copied()
+                        .filter(|slot| {
+                            published
+                                .index
+                                .record(*slot)
+                                .is_some_and(|record| record.class != RecordClass::RawFallback)
+                        })
+                        .collect::<Vec<_>>();
                     if let Some(context) = context {
-                        context.charge_reads(1)?;
-                        context.charge_bytes(resolved.record.range.len())?;
+                        context.check_string()?;
+                        context.charge_reads(readable.len() as u64)?;
                     }
-                    let bytes = read_record_range_for_search(
-                        &path,
-                        resolved.file.revision,
-                        resolved.record.range,
-                        context,
-                    )?;
-                    let extracted = prepare_query_record_with_execution(
-                        record.class,
-                        &collection.required_file_reader(),
-                        &collection.definition.schema,
-                        &bytes,
-                        &ScanProjection::full(entry.fts.is_some()),
-                        false,
-                        context,
-                    )?;
-                    counters.files_opened += 1;
-                    counters.bytes_read += bytes.len() as u64;
-                    counters.record_parses += 1;
-                    (
-                        std::borrow::Cow::Owned(extracted.value),
-                        std::borrow::Cow::Owned(extracted.text),
-                        Some(resolved.file),
-                        Some(resolved.record.range),
-                        Some(bytes),
-                    )
-                };
-                let ctx = RecordContext {
-                    value: value.as_ref(),
-                    source_bytes: source_bytes.as_deref(),
-                    record,
-                    range,
-                    file,
-                    collection_name: &collection.definition.name,
-                    repository_root: repo.files.root(),
-                };
-                let mut relation_work =
-                    crate::query_execution::relations::work::RelationWork::default();
-                relation_work.attach(context);
-                let mut evidence = HashSet::new();
-                let filter_matches = if let Some(filter) = entry.filter.as_ref() {
-                    crate::query_execution::relations::evaluation::eval_filter_truth_merged(
-                        &view,
-                        filter,
-                        address,
-                        &ctx,
-                        &mut evidence,
-                        &mut relation_work,
-                        reference,
-                    )? == Some(true)
+                    Some(std::collections::VecDeque::from(
+                        view.native_provider_batch(
+                            crate::query_execution::relations::view::MergedRecordSlot {
+                                collection: published.index.collection,
+                                segment: Some(segment_index),
+                                slot: chunk[0],
+                            },
+                            &readable,
+                            projection,
+                        )?,
+                    ))
                 } else {
-                    true
+                    None
                 };
-                let fts_matches = if filter_matches {
-                    entry.fts.as_ref().map_or(Ok(true), |fts| {
+                for slot in chunk {
+                    if let Some(context) = context {
+                        context.check_string()?;
+                        context.check_slots(counters.candidates + 1)?;
+                    }
+                    let address = crate::query_execution::relations::view::MergedRecordSlot {
+                        collection: published.index.collection,
+                        segment: Some(segment_index),
+                        slot,
+                    };
+                    let record = published
+                        .index
+                        .record(slot)
+                        .ok_or("native relation source slot missing")?;
+                    if record.class == RecordClass::RawFallback {
+                        continue;
+                    }
+                    let provider_read = provider_values
+                        .as_mut()
+                        .and_then(|values| values.pop_front());
+                    let (value, text, file, range, source_bytes) = if view.is_native(address) {
+                        let Some((value, text)) = (if let Some(read) = provider_read.as_ref() {
+                            Ok(Some((
+                                std::borrow::Cow::Borrowed(&read.value),
+                                std::borrow::Cow::Borrowed(read.text.as_slice()),
+                            )))
+                        } else {
+                            view.native_value_projected(address, projection)
+                        })?
+                        else {
+                            return Err("native relation source body missing".into());
+                        };
+                        let (file, range) = view.native_origin(address)?;
+                        (value, text, file, range, None)
+                    } else {
+                        let Some(resolved) = view.record(address)? else {
+                            return Err("file relation source missing".into());
+                        };
+                        let path = repo
+                            .files
+                            .required_root()
+                            .join(&resolved.file.relative_path);
+                        if let Some(context) = context {
+                            context.charge_reads(1)?;
+                            context.charge_bytes(resolved.record.range.len())?;
+                        }
+                        let bytes = read_record_range_for_search(
+                            &path,
+                            resolved.file.revision,
+                            resolved.record.range,
+                            context,
+                        )?;
+                        let extracted = prepare_query_record_with_execution(
+                            record.class,
+                            &collection.required_file_reader(),
+                            &collection.definition.schema,
+                            &bytes,
+                            &ScanProjection::full(entry.fts.is_some()),
+                            false,
+                            context,
+                        )?;
+                        counters.files_opened += 1;
+                        counters.bytes_read += bytes.len() as u64;
+                        counters.record_parses += 1;
+                        (
+                            std::borrow::Cow::Owned(extracted.value),
+                            std::borrow::Cow::Owned(extracted.text),
+                            Some(resolved.file),
+                            Some(resolved.record.range),
+                            Some(bytes),
+                        )
+                    };
+                    let ctx = RecordContext {
+                        value: value.as_ref(),
+                        source_bytes: source_bytes.as_deref(),
+                        record,
+                        range,
+                        file,
+                        collection_name: &collection.definition.name,
+                        repository_root: repo.files.root(),
+                    };
+                    let mut relation_work =
+                        crate::query_execution::relations::work::RelationWork::default();
+                    relation_work.attach(context);
+                    let mut evidence = HashSet::new();
+                    let filter_matches = if let Some(filter) = entry.filter.as_ref() {
+                        crate::query_execution::relations::evaluation::eval_filter_truth_merged(
+                            &view,
+                            filter,
+                            address,
+                            &ctx,
+                            &mut evidence,
+                            &mut relation_work,
+                            reference,
+                        )? == Some(true)
+                    } else {
+                        true
+                    };
+                    let fts_matches = if filter_matches {
+                        entry.fts.as_ref().map_or(Ok(true), |fts| {
                         if text.is_empty()
                             && fts.fields.iter().all(|field| field.related.is_none())
                         {
@@ -2926,63 +3092,64 @@ fn try_native_relation_scan(
                             )
                         }
                     })?
-                } else {
-                    false
-                };
-                counters.candidates += 1;
-                counters.add_scan(
-                    ScanWork {
-                        scanned_records: 1,
-                        residual_evaluations: u64::from(entry.filter.is_some()),
-                        ..ScanWork::default()
-                    },
-                    &relation_work,
-                )?;
-                if !(filter_matches && fts_matches) {
-                    continue;
-                }
-                total += 1;
-                if cap == 0 {
-                    continue;
-                }
-                let key = relation_rank_key_merged(
-                    repo,
-                    sort,
-                    &view,
-                    segments,
-                    address,
-                    &ctx,
-                    &mut sort_cache,
-                    entry.filter.as_ref(),
-                    reference,
-                )?
-                .ok_or("native relation sort key unavailable")?;
-                counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
-                let hit = retained_locator_hit(
-                    collection,
-                    &published.index,
-                    catalog,
-                    record,
-                    revision,
-                    if query.options.evidence {
-                        evidence.into_iter().collect()
                     } else {
-                        Vec::new()
-                    },
-                );
-                offer_merged(
-                    &mut winners,
-                    cap,
-                    MergedPageHit {
-                        key,
-                        hit,
-                        segment: Some((collection_index, segment_index)),
-                        record_address: None,
-                        retained_bytes: 0,
-                    },
-                    retained_budget.zip(context),
-                    &mut winner_bytes,
-                )?;
+                        false
+                    };
+                    counters.candidates += 1;
+                    counters.add_scan(
+                        ScanWork {
+                            scanned_records: 1,
+                            residual_evaluations: u64::from(entry.filter.is_some()),
+                            ..ScanWork::default()
+                        },
+                        &relation_work,
+                    )?;
+                    if !(filter_matches && fts_matches) {
+                        continue;
+                    }
+                    total += 1;
+                    if cap == 0 {
+                        continue;
+                    }
+                    let key = relation_rank_key_merged(
+                        repo,
+                        sort,
+                        &view,
+                        segments,
+                        address,
+                        &ctx,
+                        &mut sort_cache,
+                        entry.filter.as_ref(),
+                        reference,
+                    )?
+                    .ok_or("native relation sort key unavailable")?;
+                    counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
+                    let hit = retained_locator_hit(
+                        collection,
+                        &published.index,
+                        catalog,
+                        record,
+                        revision,
+                        if query.options.evidence {
+                            evidence.into_iter().collect()
+                        } else {
+                            Vec::new()
+                        },
+                    );
+                    offer_merged(
+                        &mut winners,
+                        cap,
+                        MergedPageHit {
+                            key,
+                            hit,
+                            segment: Some((collection_index, segment_index)),
+                            record_address: None,
+                            retained_bytes: 0,
+                        },
+                        retained_budget.zip(context),
+                        &mut winner_bytes,
+                    )?;
+                }
             }
         }
     }
@@ -4420,6 +4587,30 @@ pub(crate) fn explain_segmented(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn native_boolean_truth_keeps_large_domain_in_segment_bitmaps() {
+        let mut universe = NativeTruth::empty(64);
+        for segment in 0..64 {
+            for slot in 0..1024 {
+                universe.insert(segment, slot, &[]);
+            }
+        }
+        assert_eq!(universe.len(), 65_536);
+        assert!(universe.evidence.is_empty());
+        let mut left = NativeTruth::empty(64);
+        left.insert(3, 10, &["left".into()]);
+        left.insert(3, 11, &[]);
+        let mut right = NativeTruth::empty(64);
+        right.insert(3, 10, &["right".into()]);
+        right.insert(4, 12, &[]);
+        left.and(right);
+        assert_eq!(left.len(), 1);
+        assert_eq!(left.evidence[&(3, 10)], ["left", "right"]);
+        let inverse = universe.without(left);
+        assert_eq!(inverse.len(), 65_535);
+        assert!(!inverse.contains(3, 10));
+    }
 
     #[test]
     fn relation_candidate_composition_preserves_ownership_and_membership() {

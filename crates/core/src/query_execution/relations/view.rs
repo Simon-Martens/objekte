@@ -372,6 +372,26 @@ impl<'a> MergedRelationView<'a> {
         )>,
         String,
     > {
+        self.native_value_projected(
+            address,
+            &crate::records::reader::RecordProjection {
+                text: collect_text,
+                ..Default::default()
+            },
+        )
+    }
+
+    pub(crate) fn native_value_projected(
+        &self,
+        address: MergedRecordSlot,
+        projection: &crate::records::reader::RecordProjection,
+    ) -> Result<
+        Option<(
+            std::borrow::Cow<'_, Value>,
+            std::borrow::Cow<'_, [crate::source::TextSegment]>,
+        )>,
+        String,
+    > {
         let Some(position) = address.segment else {
             return Ok(None);
         };
@@ -413,14 +433,7 @@ impl<'a> MergedRelationView<'a> {
             .ok_or("native provider slot missing")?;
         let key = crate::records::RecordKey::new(segment.collection, record.id.clone());
         let result = reader
-            .read_projected(
-                &key,
-                expected,
-                &crate::records::reader::RecordProjection {
-                    text: collect_text,
-                    ..Default::default()
-                },
-            )
+            .read_projected(&key, expected, projection)
             .map_err(|error| error.to_string())?;
         if result.version != expected {
             return Err("native provider returned another version".into());
@@ -429,6 +442,71 @@ impl<'a> MergedRelationView<'a> {
             std::borrow::Cow::Owned(result.value),
             std::borrow::Cow::Owned(result.text),
         )))
+    }
+
+    /// One registration and segment share a projection and reader call. The
+    /// caller bounds `slots` and keeps the returned values only for its chunk.
+    pub(crate) fn native_provider_batch(
+        &self,
+        address: MergedRecordSlot,
+        slots: &[RecordSlot],
+        projection: &crate::records::reader::RecordProjection,
+    ) -> Result<Vec<crate::records::reader::RecordRead>, String> {
+        let position = address.segment.ok_or("native provider segment missing")?;
+        let published = self.segments[address.collection.0 as usize]
+            .get(position)
+            .ok_or("native provider segment missing")?;
+        let segment = &published.index;
+        let crate::index::segment::SegmentBacking::Provider {
+            registration,
+            versions,
+            ..
+        } = &segment.backing
+        else {
+            return Err("native provider backing missing".into());
+        };
+        let source = self
+            .repo
+            .record_registrations
+            .get(*registration as usize)
+            .ok_or("native provider registration missing")?;
+        let reader = source
+            .reader
+            .as_ref()
+            .ok_or("native provider reader missing")?;
+        let requests = slots
+            .iter()
+            .map(|slot| {
+                if !published.active.contains(*slot) {
+                    return Err("native provider slot retired".to_string());
+                }
+                let record = segment
+                    .record(*slot)
+                    .ok_or("native provider slot missing")?;
+                let version = *versions
+                    .get(slot.0 as usize)
+                    .ok_or("native provider version missing")?;
+                Ok(crate::records::reader::RecordReadRequest {
+                    key: crate::records::RecordKey::new(segment.collection, record.id.clone()),
+                    expected_version: version,
+                })
+            })
+            .collect::<Result<Vec<_>, String>>()?;
+        let results = reader.read_batch(&requests, projection);
+        if results.len() != requests.len() {
+            return Err("native provider batch returned another result count".into());
+        }
+        results
+            .into_iter()
+            .zip(requests)
+            .map(|(result, request)| {
+                let result = result.map_err(|error| error.to_string())?;
+                if result.version != request.expected_version {
+                    return Err("native provider returned another version".into());
+                }
+                Ok(result)
+            })
+            .collect()
     }
 
     pub(crate) fn native_origin(

@@ -1914,15 +1914,20 @@ fn fileless_residual_text_sort_and_stream_agree() {
     session.finish().unwrap();
 }
 
-struct CorpusReader(Mutex<HashMap<String, Value>>, Mutex<Vec<usize>>);
+struct CorpusReader(
+    Mutex<HashMap<String, Value>>,
+    Mutex<Vec<usize>>,
+    Mutex<Vec<RecordProjection>>,
+);
 
 impl RecordReader for CorpusReader {
     fn read_projected(
         &self,
         key: &RecordKey,
         expected_version: RecordVersion,
-        _: &RecordProjection,
+        projection: &RecordProjection,
     ) -> Result<RecordRead, RecordReadError> {
+        self.2.lock().unwrap().push(projection.clone());
         if expected_version != RecordVersion::new(1) {
             return Err(RecordReadError::ChangedVersion {
                 expected: expected_version,
@@ -1962,7 +1967,11 @@ fn queued_provider_singletons_share_one_initial_segment_and_publication() {
     let values = (0..32)
         .map(|number| (format!("r{number}"), Value::String("Leipzig".into())))
         .collect();
-    let reader = Arc::new(CorpusReader(Mutex::new(values), Mutex::new(Vec::new())));
+    let reader = Arc::new(CorpusReader(
+        Mutex::new(values),
+        Mutex::new(Vec::new()),
+        Mutex::new(Vec::new()),
+    ));
     let mut builder = Index::builder();
     let collection = builder.collection("entries", Schema::default()).unwrap();
     let registration = builder
@@ -1998,6 +2007,245 @@ fn queued_provider_singletons_share_one_initial_segment_and_publication() {
     let view = index.view().unwrap();
     assert_eq!(view.segment_summaries().len(), 1);
     assert_eq!(index.status().unwrap().live_records, 32);
+}
+
+#[test]
+fn relation_scan_batches_projected_provider_sources_for_deep_page() {
+    let mut places_schema = Schema::default();
+    places_schema
+        .register_field(FieldDefinition {
+            path: vec!["name".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut entries_schema = Schema::default();
+    for (name, kind, indexed) in [
+        ("place", LogicalType::Id, true),
+        ("note", LogicalType::String, false),
+    ] {
+        entries_schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    entries_schema
+        .register_relation(RelationDefinition {
+            path: vec!["place".into()],
+            target_collection: "places".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: None,
+        })
+        .unwrap();
+    let mut builder = Index::builder();
+    let places = builder.collection("places", places_schema).unwrap();
+    let entries = builder.collection("entries", entries_schema).unwrap();
+    let places_registration = builder.register_records(places, "places", 1).unwrap();
+    let entries_registration = builder.register_records(entries, "entries", 1).unwrap();
+    let values = (0..131)
+        .map(|number| {
+            let place = if number == 130 { "missing" } else { "p" };
+            let note = if number % 2 == 0 { "Leipzig" } else { "Wien" };
+            (
+                format!("e{number:03}"),
+                Value::from_json(serde_json::json!({"place":place,"note":note})).unwrap(),
+            )
+        })
+        .collect();
+    let reader = Arc::new(CorpusReader(
+        Mutex::new(values),
+        Mutex::new(Vec::new()),
+        Mutex::new(Vec::new()),
+    ));
+    builder
+        .register_reader(entries_registration, reader.clone())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let place_writer = session.writer(places_registration).unwrap();
+    let mut batch = place_writer.batch();
+    batch
+        .insert(
+            "p",
+            Value::from_json(serde_json::json!({"name":"Leipzig"})).unwrap(),
+        )
+        .unwrap();
+    place_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let writer = session.writer(entries_registration).unwrap();
+    let mut batch = writer.batch();
+    for number in 0..131 {
+        let place = if number == 130 { "missing" } else { "p" };
+        let note = if number % 2 == 0 { "Leipzig" } else { "Wien" };
+        batch
+            .insert_from_reader(
+                format!("e{number:03}"),
+                Value::from_json(serde_json::json!({"place":place,"note":note})).unwrap(),
+                RecordVersion::new(1),
+            )
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("note ~ 'Leipzig' && place.name = 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            offset: 60,
+            limit: 5,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = index.view().unwrap().search(&query).unwrap();
+    assert_eq!(result.count, Some(65));
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["e120", "e122", "e124", "e126", "e128"]
+    );
+    assert!(reader.1.lock().unwrap().iter().any(|size| *size > 1));
+    assert!(reader.2.lock().unwrap().iter().any(|projection| {
+        projection
+            .fields
+            .iter()
+            .any(|field| field == &["note".to_string()])
+    }));
+    session.finish().unwrap();
+}
+
+#[test]
+fn selective_native_relation_count_and_deep_page_use_exact_bitmaps() {
+    let mut places_schema = Schema::default();
+    places_schema
+        .register_field(FieldDefinition {
+            path: vec!["name".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut entries_schema = Schema::default();
+    for (name, kind) in [("place", LogicalType::Id), ("year", LogicalType::Number)] {
+        entries_schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    entries_schema
+        .register_relation(RelationDefinition {
+            path: vec!["place".into()],
+            target_collection: "places".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: None,
+        })
+        .unwrap();
+    let mut builder = Index::builder();
+    let places = builder.collection("places", places_schema).unwrap();
+    let entries = builder.collection("entries", entries_schema).unwrap();
+    let places_registration = builder.register_records(places, "places", 1).unwrap();
+    let entries_registration = builder.register_records(entries, "entries", 1).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let places_writer = session.writer(places_registration).unwrap();
+    let mut places_batch = places_writer.batch();
+    for (id, name) in [("p", "Leipzig"), ("q", "Wien")] {
+        places_batch
+            .insert(
+                id,
+                Value::from_json(serde_json::json!({"name": name})).unwrap(),
+            )
+            .unwrap();
+    }
+    places_writer
+        .submit(places_batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let writer = session.writer(entries_registration).unwrap();
+    let mut batch = writer.batch();
+    for number in 0..8192 {
+        let selected = number % 16 == 8;
+        batch
+            .insert(
+                format!("e{number:05}"),
+                Value::from_json(serde_json::json!({
+                    "place": if selected { "p" } else { "q" },
+                    "year": if selected { 1808 } else { 1807 }
+                }))
+                .unwrap(),
+            )
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let query = Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter("year = 1808 && place.name = 'Leipzig'").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            offset: 0,
+            limit: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let view = index.view().unwrap();
+    let count = view.search(&query).unwrap();
+    assert_eq!(count.count, Some(512));
+    assert_eq!(count.counters.exact_posting_matches, 512);
+    assert_eq!(count.counters.files_opened, 0);
+    assert_eq!(count.counters.record_parses, 0);
+    let page = view
+        .search(&Query {
+            options: QueryOptions {
+                offset: 500,
+                limit: 5,
+                ..query.options.clone()
+            },
+            ..query
+        })
+        .unwrap();
+    assert_eq!(page.count, Some(512));
+    assert_eq!(page.counters.exact_posting_matches, 512);
+    assert_eq!(
+        page.hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["e08008", "e08024", "e08040", "e08056", "e08072"]
+    );
+    session.finish().unwrap();
 }
 
 #[test]
@@ -2086,7 +2334,11 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
             (id.to_owned(), value)
         })
         .collect();
-    let reader = Arc::new(CorpusReader(Mutex::new(values), Mutex::new(Vec::new())));
+    let reader = Arc::new(CorpusReader(
+        Mutex::new(values),
+        Mutex::new(Vec::new()),
+        Mutex::new(Vec::new()),
+    ));
     let mut provider_builder = Index::builder();
     let collection = provider_builder.collection("entries", schema).unwrap();
     let registration = provider_builder
@@ -2486,9 +2738,10 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
             ),
         ])),
         Mutex::new(Vec::new()),
+        Mutex::new(Vec::new()),
     ));
     builder
-        .register_reader(places_registration, reader)
+        .register_reader(places_registration, reader.clone())
         .unwrap();
     let index = builder.build().unwrap();
     let session = index.ingestion();
@@ -2618,6 +2871,14 @@ fn fileless_two_hop_relation_joins_indexed_targets() {
             .map(|hit| hit.record_id.as_str())
             .collect::<Vec<_>>(),
         ["m", "n"]
+    );
+    assert!(
+        reader
+            .2
+            .lock()
+            .unwrap()
+            .iter()
+            .any(|projection| projection.fields == [vec!["name".to_string()]])
     );
     session.finish().unwrap();
 }

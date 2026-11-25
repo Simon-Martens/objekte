@@ -16,6 +16,7 @@ use crate::query::semantics::comparison::eval_cross_record_field_term;
 use crate::query::semantics::filter::emit_bound_filter_evidence;
 use crate::query::semantics::record::RecordContext;
 use crate::query_execution::relations::target_cache::TargetValueCache;
+use crate::records::reader::RecordProjection;
 use crate::reference::filter::eval_term;
 use crate::reference::{
     eval_bound_fts, eval_bound_fts_field, eval_bound_fts_membership,
@@ -432,6 +433,7 @@ fn visit_merged_hop(
     address: MergedRecordSlot,
     quantifier: Quantifier,
     collect_text: bool,
+    projection: &RecordProjection,
     cache_values: bool,
     truth: &mut Option<bool>,
     work: &mut RelationWork,
@@ -453,7 +455,7 @@ fn visit_merged_hop(
         }
         if view.is_native(address) {
             work.before_read(0, true)?;
-            let Some((value, text)) = view.native_value(address, collect_text)? else {
+            let Some((value, text)) = view.native_value_projected(address, projection)? else {
                 merge_truth(truth, None, quantifier);
                 return Ok(());
             };
@@ -609,6 +611,7 @@ fn visit_merged_hop(
                             target,
                             quantifier,
                             collect_text,
+                            projection,
                             cache_values,
                             truth,
                             work,
@@ -657,6 +660,7 @@ fn visit_merged_hop(
                         target,
                         quantifier,
                         collect_text,
+                        projection,
                         cache_values,
                         truth,
                         work,
@@ -703,6 +707,7 @@ fn visit_merged_hop(
                     source,
                     quantifier,
                     collect_text,
+                    projection,
                     cache_values,
                     truth,
                     work,
@@ -722,6 +727,49 @@ fn visit_merged_hop(
     Ok(())
 }
 
+fn terminal_term_projection(term: &BoundTerm) -> RecordProjection {
+    if term.operation.is_some() || term.matcher.is_some() {
+        return RecordProjection::full();
+    }
+    let mut fields = Vec::new();
+    for path in std::iter::once(&term.path).chain(term.rhs.iter().map(|rhs| &rhs.path)) {
+        if path.root == PathRoot::Data {
+            if path.segments.is_empty() {
+                return RecordProjection::full();
+            }
+            fields.push(path.segments.clone());
+        }
+    }
+    if fields.is_empty() {
+        return RecordProjection::full();
+    }
+    fields.sort();
+    fields.dedup();
+    RecordProjection {
+        fields,
+        text: false,
+        original_bytes: false,
+    }
+}
+
+fn terminal_fts_projection(field: &BoundFtsField, collect_text: bool) -> RecordProjection {
+    if field.path.root != PathRoot::Data
+        || field.path.segments.is_empty()
+        || field.operation.is_some()
+        || field.matcher.is_some()
+    {
+        return RecordProjection {
+            text: collect_text,
+            ..Default::default()
+        };
+    }
+    RecordProjection {
+        fields: vec![field.path.segments.clone()],
+        text: collect_text,
+        original_bytes: false,
+    }
+}
+
 fn eval_related_term_merged(
     view: &MergedRelationView<'_>,
     term: &BoundTerm,
@@ -735,6 +783,7 @@ fn eval_related_term_merged(
         .as_ref()
         .ok_or("merged relation term is not bound")?;
     let mut truth = Some(term.quantifier != Quantifier::Any);
+    let projection = terminal_term_projection(&related.terminal);
     visit_merged_hop(
         view,
         &related.hops,
@@ -742,6 +791,7 @@ fn eval_related_term_merged(
         source_slot,
         term.quantifier,
         false,
+        &projection,
         related.source_operand.is_some() && related.terminal.path.root == PathRoot::Data,
         &mut truth,
         work,
@@ -826,6 +876,7 @@ pub(crate) fn eval_fts_with_relations_merged(
             let target_collection = &view.repository().collections
                 [hops.last().ok_or("empty FTS relation path")?.to.0 as usize];
             let borrowed_text = relation_target_uses_value_text(target_collection);
+            let projection = terminal_fts_projection(field, !borrowed_text);
             let mut truth = Some(false);
             visit_merged_hop(
                 view,
@@ -834,6 +885,7 @@ pub(crate) fn eval_fts_with_relations_merged(
                 source_slot,
                 Quantifier::Any,
                 !borrowed_text,
+                &projection,
                 false,
                 &mut truth,
                 work,
