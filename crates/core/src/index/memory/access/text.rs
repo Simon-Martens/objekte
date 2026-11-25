@@ -1,7 +1,6 @@
 //! Native FTS provider adapter.
 
 use std::sync::Mutex;
-use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
@@ -15,13 +14,13 @@ use crate::query_predicate::PreparedPredicates;
 use crate::query_predicate::TermId;
 use crate::repository::state::CollectionState;
 
-use super::contract::{
+use crate::query_access::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
     ProviderId, Restriction,
 };
-use super::membership::{DomainId, SlotInput, SlotSet};
-use super::registry::ProviderCatalog;
+use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
+use crate::query_access::registry::ProviderCatalog;
 
 pub(crate) const NATIVE_TEXT_PROVIDER: ProviderId = ProviderId(2);
 
@@ -40,8 +39,6 @@ pub(crate) struct NativeTextProvider<'a> {
     domain: DomainId,
     instance_id: u64,
     operations: Mutex<TextProviderState>,
-    proposals: AtomicU64,
-    applications: AtomicU64,
 }
 
 #[derive(Default)]
@@ -107,8 +104,6 @@ impl<'a> NativeTextProvider<'a> {
             ),
             instance_id,
             operations: Mutex::new(TextProviderState::default()),
-            proposals: AtomicU64::new(0),
-            applications: AtomicU64::new(0),
         }
     }
 
@@ -118,13 +113,6 @@ impl<'a> NativeTextProvider<'a> {
 
     pub(crate) fn input_for<'b>(&self, input: &'b RoaringBitmap) -> SlotInput<'b> {
         SlotInput::unrestricted(self.domain, input)
-    }
-
-    pub(crate) fn counter_snapshot(&self) -> (u64, u64) {
-        (
-            self.proposals.load(Ordering::Relaxed),
-            self.applications.load(Ordering::Relaxed),
-        )
     }
 }
 
@@ -140,7 +128,6 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
-        self.proposals.fetch_add(1, Ordering::Relaxed);
         if input.domain != self.domain {
             return Ok(());
         }
@@ -215,12 +202,9 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         let slots = {
             let result = native_fts_candidates(self.collection, fts)
                 .ok_or(AccessError::CapabilityUnavailable)?;
-            let input_ref = input
-                .effective_bitmap()
-                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
-            SlotSet::from_owned(result & input_ref)
+            let input_ref = input.bitmap_for_native();
+            SlotSet::from_owned(result & input_ref.as_ref())
         };
-        self.applications.fetch_add(1, Ordering::Relaxed);
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
         let result = input.replace_slots(slots);
@@ -321,15 +305,17 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         let AccessRequest::Text(fts) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
-        let input_ref = input
-            .effective_bitmap()
-            .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+        let input_ref = input.bitmap_for_native();
         #[cfg(test)]
-        LAST_TEXT_INPUT.with(|value| value.set(input_ref as *const _ as usize));
-        let slots =
-            native_segment_fts_candidates_restricted(self.segment, self.collection, fts, input_ref)
-                .map_err(AccessError::Internal)?
-                .map_or(SlotSet::Unrestricted, SlotSet::from_owned);
+        LAST_TEXT_INPUT.with(|value| value.set(input_ref.as_ref() as *const _ as usize));
+        let slots = native_segment_fts_candidates_restricted(
+            self.segment,
+            self.collection,
+            fts,
+            input_ref.as_ref(),
+        )
+        .map_err(AccessError::Internal)?
+        .map_or(SlotSet::Unrestricted, SlotSet::from_owned);
         let input_count = input.len() as u64;
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
@@ -404,12 +390,10 @@ pub(crate) fn prepared_text_candidates(
         )
         .map_err(|error| error.to_string())?
         .possible;
-    match applied.into_slots() {
-        SlotSet::Owned(bitmap) => Ok(Some(bitmap)),
-        SlotSet::Unrestricted => Ok(None),
-        SlotSet::Empty => Ok(Some(RoaringBitmap::new())),
-        _ => Err("text predicate facade returned a non-owned bitmap".into()),
+    if matches!(applied.slots(), SlotSet::Unrestricted) {
+        return Ok(None);
     }
+    Ok(Some(applied.into_owned_members()))
 }
 
 pub(crate) fn prepared_text_estimate(

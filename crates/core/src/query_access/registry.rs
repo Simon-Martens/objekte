@@ -138,10 +138,8 @@ mod tests {
                 return Err(AccessError::Corrupt("injected failure".into()));
             }
             let slots = {
-                let input_ref = input
-                    .effective_bitmap()
-                    .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
-                &self.output & input_ref
+                let input_ref = input.bitmap_for_native();
+                &self.output & input_ref.as_ref()
             };
             Ok(Restriction::exact(
                 input.replace_slots(SlotSet::from_owned(slots)),

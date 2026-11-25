@@ -1,6 +1,6 @@
 //! Independent sorted-table backing used by conformance tests.
 
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 
 use roaring::RoaringBitmap;
 
@@ -362,15 +362,12 @@ impl IndexAccessProvider for SortedBackingProvider {
             .expect("backing state poisoned")
             .applications += 1;
         let observation_input = input.iter().collect::<Vec<_>>();
-        let input_ref = input
-            .effective_bitmap()
-            .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
-        let mut bitmap = RoaringBitmap::new();
-        for slot in slots {
-            if input_ref.contains(slot) {
-                bitmap.insert(slot);
-            }
-        }
+        let output: Vec<_> = slots
+            .into_iter()
+            .filter(|&slot| input.contains(slot))
+            .collect();
+        let output_len = output.len() as u64;
+        let result = SlotSet::from_sorted(Arc::from(output.as_slice()))?;
         let observation_input_len = observation_input.len() as u64;
         self.state
             .lock()
@@ -379,7 +376,7 @@ impl IndexAccessProvider for SortedBackingProvider {
             .push(BackingObservation {
                 kind: operation,
                 input: observation_input,
-                output: bitmap.iter().collect(),
+                output,
             });
         crate::query_execution::request::record_observation_for_execution(
             execution,
@@ -389,15 +386,15 @@ impl IndexAccessProvider for SortedBackingProvider {
             choice,
             0,
             observation_input_len,
-            bitmap.len(),
+            output_len,
             if matches!(operation, 0) {
-                bitmap.len()
+                output_len
             } else {
                 0
             },
             None,
         );
-        let possible = input.replace_slots(SlotSet::from_owned(bitmap));
+        let possible = input.replace_slots(result);
         Ok(if operation == 0 {
             Restriction::exact(possible)
         } else {

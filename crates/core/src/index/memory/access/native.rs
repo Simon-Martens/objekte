@@ -11,12 +11,12 @@ use crate::query_predicate::TermId;
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
 
-use super::contract::{
+use crate::query_access::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
     ProviderId, Restriction,
 };
-use super::membership::{DomainId, SlotInput, SlotSet};
+use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
 
 pub(crate) const NATIVE_COLLECTION_PROVIDER: ProviderId = ProviderId(1);
 
@@ -83,6 +83,7 @@ impl<'a> NativeCollectionProvider<'a> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn counter_snapshot(&self) -> (u64, u64) {
         (
             self.counters.proposals.load(Ordering::Relaxed),
@@ -114,14 +115,6 @@ impl<'a> NativeCollectionProvider<'a> {
             return None;
         }
         prepared.paths.get(id.operation.0 as usize).cloned()
-    }
-
-    pub(crate) fn prepared_paths(&self) -> Vec<AccessPathEstimate> {
-        self.prepared
-            .lock()
-            .expect("native provider state poisoned")
-            .paths
-            .clone()
     }
 
     pub(crate) fn dictionary_keys_visited(&self) -> u64 {
@@ -240,15 +233,13 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
         let slots = {
-            let input_ref = input
-                .effective_bitmap()
-                .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+            let input_ref = input.bitmap_for_native();
             let result = execute_path(
                 self.repo.ok_or(AccessError::CapabilityUnavailable)?,
                 self.collection,
                 bound,
                 &self.collection.logical_records,
-                input_ref,
+                input_ref.as_ref(),
                 &path,
             )
             .map_err(AccessError::Internal)?;

@@ -11,12 +11,12 @@ use crate::query_execution::restrictions::{AccessPathKind, segment_access_path_k
 use crate::query_predicate::TermId;
 use crate::repository::state::CollectionState;
 
-use super::contract::{
+use crate::query_access::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
     ProviderId, Restriction,
 };
-use super::membership::{DomainId, SlotInput, SlotSet};
+use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
 
 pub(crate) const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
 
@@ -83,12 +83,9 @@ impl<'a> NativeSegmentProvider<'a> {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn domain(&self) -> DomainId {
         self.domain
-    }
-
-    pub(crate) fn instance_id(&self) -> u64 {
-        self.instance_id
     }
 
     fn operation_id(
@@ -284,16 +281,14 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         }
         let restriction = match physical {
             SegmentPhysicalOperation::NativeFallback => {
-                let effective = input
-                    .effective_bitmap()
-                    .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
-                let logical = effective & &self.segment.logical_records;
-                let fallback = effective - &self.segment.logical_records;
+                let effective = input.bitmap_for_native();
+                let logical = effective.as_ref() & &self.segment.logical_records;
+                let fallback = effective.as_ref() - &self.segment.logical_records;
                 let bounds = crate::query_execution::restrictions::segment_expr_bounds(
                     self.segment,
                     &crate::query::binding::filter::BoundExpr::Term(bound.clone()),
                     self.collection,
-                    effective,
+                    effective.as_ref(),
                     &logical,
                     &fallback,
                     self.file_catalog,
@@ -305,16 +300,14 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     possible.operation_input(),
                     SlotSet::from_shared(bounds.must),
                 );
-                super::contract::Restriction::bounds(possible, proven)
+                crate::query_access::contract::Restriction::bounds(possible, proven)
             }
             SegmentPhysicalOperation::Posting {
                 access,
                 operation,
                 exact,
             } => {
-                let effective = input
-                    .effective_bitmap()
-                    .ok_or_else(|| AccessError::Internal("effective input missing".into()))?;
+                let effective = input.bitmap_for_native();
                 let index = IndexCatalog::segment(self.segment, self.collection);
                 let access = index
                     .posting(
@@ -324,7 +317,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                         access,
                     )
                     .ok_or(AccessError::StaleHandle)?;
-                let effective_logical = effective & &self.segment.logical_records;
+                let effective_logical = effective.as_ref() & &self.segment.logical_records;
                 let matches = access
                     .execute(
                         bound,
@@ -334,16 +327,16 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     )
                     .map_err(AccessError::Internal)?
                     .ok_or(AccessError::CapabilityUnavailable)?;
-                let fallback = effective - &self.segment.logical_records;
+                let fallback = effective.as_ref() - &self.segment.logical_records;
                 if fallback.is_empty() {
                     let matches = Arc::new(matches);
                     let possible = input.replace_slots(SlotSet::from_shared(Arc::clone(&matches)));
                     Restriction {
                         possible,
                         proven: if exact && !matches.is_empty() {
-                            super::contract::Proven::All
+                            crate::query_access::contract::Proven::All
                         } else {
-                            super::contract::Proven::None
+                            crate::query_access::contract::Proven::None
                         },
                     }
                 } else {
@@ -353,13 +346,13 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     Restriction {
                         possible,
                         proven: if exact && !matches.is_empty() {
-                            super::contract::Proven::Subset(SlotInput::new(
+                            crate::query_access::contract::Proven::Subset(SlotInput::new(
                                 self.domain,
                                 operation_input,
                                 SlotSet::from_shared(proven),
                             ))
                         } else {
-                            super::contract::Proven::None
+                            crate::query_access::contract::Proven::None
                         },
                     }
                 }
@@ -375,9 +368,9 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             input_len,
             restriction.possible.len() as u64,
             match &restriction.proven {
-                super::contract::Proven::None => 0,
-                super::contract::Proven::All => restriction.possible.len() as u64,
-                super::contract::Proven::Subset(proven) => proven.len() as u64,
+                crate::query_access::contract::Proven::None => 0,
+                crate::query_access::contract::Proven::All => restriction.possible.len() as u64,
+                crate::query_access::contract::Proven::Subset(proven) => proven.len() as u64,
             },
             Some(crate::query_execution::restrictions::access_path_kind_name(
                 access_kind,

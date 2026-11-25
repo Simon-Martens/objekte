@@ -34,6 +34,11 @@ fn represented<'a>(
             input,
             SlotSet::from_shared(Arc::new(shared & input)),
         ),
+        5 => SlotInput::new(
+            domain,
+            input,
+            SlotSet::from_sorted(Arc::from(members.iter().collect::<Vec<_>>())).unwrap(),
+        ),
         _ => unreachable!(),
     }
 }
@@ -42,7 +47,7 @@ fn oracle(representation: usize, input: &RoaringBitmap, members: &RoaringBitmap)
     match representation {
         0 => BTreeSet::new(),
         1 => values(input),
-        2..=4 => values(&(members & input)),
+        2..=5 => values(&(members & input)),
         _ => unreachable!(),
     }
 }
@@ -85,8 +90,8 @@ fn all_subset_representations_match_integer_set_oracle() {
             } else {
                 &narrow_backing[right_mask]
             };
-            for left_rep in 0..5 {
-                for right_rep in 0..5 {
+            for left_rep in 0..6 {
+                for right_rep in 0..6 {
                     let expected_left = oracle(left_rep, left_input, &backing[left_mask]);
                     let expected_right = oracle(right_rep, right_input, &backing[right_mask]);
                     let left = represented(
@@ -231,7 +236,7 @@ fn unrestricted_empty_backing_is_canonical_empty_for_every_representation() {
     let input = RoaringBitmap::new();
     let members = RoaringBitmap::new();
     let shared = RoaringBitmap::new();
-    for left_rep in 0..5 {
+    for left_rep in 0..6 {
         assert!(represented(left_rep, domain, &input, &members, &shared).is_empty());
         assert_eq!(
             represented(left_rep, domain, &input, &members, &shared).len(),
@@ -243,7 +248,7 @@ fn unrestricted_empty_backing_is_canonical_empty_for_every_representation() {
                 .collect::<Vec<_>>(),
             Vec::<u32>::new()
         );
-        for right_rep in 0..5 {
+        for right_rep in 0..6 {
             assert!(
                 represented(left_rep, domain, &input, &members, &shared)
                     .same_members(&represented(right_rep, domain, &input, &members, &shared))
@@ -326,4 +331,22 @@ fn shared_owner_survives_borrowed_input_and_can_outlive_it() {
     };
     assert_eq!(Arc::as_ptr(&shared), pointer);
     assert_eq!(owner.len(), 2);
+}
+
+#[test]
+fn sorted_membership_preserves_effective_input_and_rejects_invalid_slots() {
+    use crate::query_access::contract::AccessError;
+
+    let domain = DomainId::from_parts(9, 2, 17, None);
+    let input = bitmap(&[1, 2, 3, 4]);
+    let slots = SlotSet::from_sorted(Arc::from([1, 4])).unwrap();
+    let narrowed = SlotInput::new(domain, &input, slots).replace_slots(SlotSet::Unrestricted);
+    assert!(matches!(narrowed.slots(), SlotSet::Sorted(_)));
+    assert_eq!(narrowed.bitmap_for_native().as_ref(), &bitmap(&[1, 4]));
+    for slots in [[4, 1], [1, 1]] {
+        assert!(matches!(
+            SlotSet::from_sorted(Arc::from(slots)),
+            Err(AccessError::Corrupt(_))
+        ));
+    }
 }

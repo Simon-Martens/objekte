@@ -271,15 +271,13 @@ impl IndexAccessProvider for NativeRelationProvider<'_> {
         let AccessRequest::Structured(bound) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
-        let current = input
-            .effective_bitmap()
-            .ok_or_else(|| AccessError::Internal("relation input membership missing".into()))?;
+        let current = input.bitmap_for_native();
         let current_len = current.len() as u64;
         if current.is_empty() {
             return Ok(Restriction::exact(input));
         }
         let (matches, work) = match self
-            .apply_qualified(bound, current, strategy, execution)
+            .apply_qualified(bound, current.as_ref(), strategy, execution)
             .map_err(AccessError::Internal)?
         {
             Some(result) => result,
@@ -287,7 +285,7 @@ impl IndexAccessProvider for NativeRelationProvider<'_> {
                 self.repo,
                 self.segments,
                 bound,
-                current,
+                current.as_ref(),
                 strategy,
                 execution.context,
             )

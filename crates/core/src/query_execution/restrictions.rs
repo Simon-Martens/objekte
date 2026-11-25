@@ -566,11 +566,11 @@ impl<'a> SegmentPlanContext<'a> {
             }
         }
         let possible = restriction.possible;
-        let may = shared_bitmap_from_slot_input(possible)?;
+        let may = shared_bitmap_from_slot_input(possible);
         let must = match restriction.proven {
             Proven::None => Arc::new(RoaringBitmap::new()),
             Proven::All => Arc::clone(&may),
-            Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
+            Proven::Subset(proven) => shared_bitmap_from_slot_input(proven),
         };
         Ok(SegmentCandidateBounds { may, must })
     }
@@ -597,18 +597,15 @@ impl<'a> SegmentPlanContext<'a> {
     }
 }
 
-fn shared_bitmap_from_slot_input(input: SlotInput<'_>) -> Result<Arc<RoaringBitmap>, String> {
-    let unrestricted = input
-        .effective_bitmap()
-        .map(|slots| Arc::new(slots.clone()));
+fn shared_bitmap_from_slot_input(input: SlotInput<'_>) -> Arc<RoaringBitmap> {
+    let source = input.operation_input();
     match input.into_slots() {
-        SlotSet::Unrestricted => {
-            unrestricted.ok_or_else(|| "unrestricted membership lost its input".into())
-        }
-        SlotSet::Empty => Ok(Arc::new(RoaringBitmap::new())),
-        SlotSet::Borrowed(slots) => Ok(Arc::new((*slots).clone())),
-        SlotSet::Owned(slots) => Ok(Arc::new(slots)),
-        SlotSet::Shared(slots) => Ok(slots),
+        SlotSet::Unrestricted => Arc::new(source.clone()),
+        SlotSet::Empty => Arc::new(RoaringBitmap::new()),
+        SlotSet::Borrowed(slots) => Arc::new(slots.clone()),
+        SlotSet::Owned(slots) => Arc::new(slots),
+        SlotSet::Shared(slots) => slots,
+        SlotSet::Sorted(slots) => Arc::new(slots.iter().copied().collect()),
     }
 }
 
@@ -1046,11 +1043,11 @@ pub(crate) fn segment_fts_bounds_with_term(
                 )
                 .map_err(|error| error.to_string())?;
             let possible = applied.possible;
-            let may = shared_bitmap_from_slot_input(possible)?;
+            let may = shared_bitmap_from_slot_input(possible);
             let must = match applied.proven {
                 Proven::None => Arc::new(RoaringBitmap::new()),
                 Proven::All => Arc::clone(&may),
-                Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
+                Proven::Subset(proven) => shared_bitmap_from_slot_input(proven),
             };
             Ok(SegmentCandidateBounds { may, must })
         },
@@ -2435,6 +2432,13 @@ impl<'a> PlanContext<'a> {
             crate::query_access::membership::SlotSet::Shared(bitmap) => {
                 Some(bitmap.as_ref() & input)
             }
+            crate::query_access::membership::SlotSet::Sorted(slots) => Some(
+                slots
+                    .iter()
+                    .copied()
+                    .filter(|&slot| input.contains(slot))
+                    .collect(),
+            ),
         };
         Ok((slots, Some(chosen), alternatives))
     }
