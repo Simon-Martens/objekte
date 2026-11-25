@@ -533,7 +533,6 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-array-null-{}", std::process::id()));
     let path = root.join("data");
@@ -567,7 +566,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
             vec![CollectionDefinition {
                 name: "data".into(),
                 source_path: "data".into(),
-                format: SourceFormat::Json,
+                format: crate::source::test_support::DOCUMENTS,
                 identity: IdentityPolicy::Filename,
                 discovery: Default::default(),
                 schema,
@@ -667,7 +666,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
-    use crate::source::SourceFormat;
+
     let root = std::env::temp_dir().join(format!("objekte-nested-length-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (id, json) in [
@@ -705,7 +704,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
             vec![CollectionDefinition {
                 name: "data".into(),
                 source_path: "data".into(),
-                format: SourceFormat::Json,
+                format: crate::source::test_support::DOCUMENTS,
                 identity: IdentityPolicy::Filename,
                 discovery: Default::default(),
                 schema,
@@ -1017,7 +1016,6 @@ fn declared_terminal_summary_is_exact_without_a_value_dictionary() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-structural-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -1106,7 +1104,7 @@ fn declared_terminal_summary_is_exact_without_a_value_dictionary() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1194,7 +1192,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::{SourceFormat, registry::SourceRegistry};
+    use crate::source::registry::SourceRegistry;
 
     let root = std::env::temp_dir().join(format!("objekte-state-posting-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -1236,7 +1234,7 @@ fn indexed_field_state_matches_independent_source_oracle_without_verification() 
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -1460,7 +1458,6 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-state-sparse-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -1489,7 +1486,7 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1545,7 +1542,6 @@ fn covered_terminal_presence_and_homogeneous_types_answer_without_source_reads()
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-terminal-query-proofs-{}",
@@ -1594,7 +1590,7 @@ fn covered_terminal_presence_and_homogeneous_types_answer_without_source_reads()
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -1659,7 +1655,6 @@ fn trailing_wildcard_never_reuses_the_container_posting() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::SourceFormat;
 
     let root =
         std::env::temp_dir().join(format!("objekte-terminal-wildcard-{}", std::process::id()));
@@ -1690,7 +1685,7 @@ fn trailing_wildcard_never_reuses_the_container_posting() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1765,7 +1760,6 @@ fn trailing_wildcard_fallback_holds_for_initial_and_delta_segments() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-terminal-wildcard-delta-{}",
@@ -1794,7 +1788,7 @@ fn trailing_wildcard_fallback_holds_for_initial_and_delta_segments() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -1884,7 +1878,6 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-state-mutation-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -1923,7 +1916,7 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -2008,7 +2001,6 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::Schema;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-state-mixed-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -2060,7 +2052,7 @@ fn bounded_mixed_values_match_source_oracle_for_state_composition() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,

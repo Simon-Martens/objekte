@@ -6,7 +6,6 @@ use crate::lifecycle::{Index, IndexRevision, PublishedIndex};
 use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use crate::source::SourceFormat;
 
 #[test]
 fn index_from_repository_adopts_native_segments_without_repartitioning() {
@@ -22,10 +21,8 @@ fn index_from_repository_adopts_native_segments_without_repartitioning() {
     std::fs::write(root.join("data/a.json"), r#"{"name":"a"}"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "items",
-            "data",
-            SourceFormat::Json,
+        vec![crate::source::test_support::document_folder(
+            "items", "data",
         )],
         crate::repository::configuration::RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -71,7 +68,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -127,7 +124,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -215,7 +212,7 @@ fn compacts_one_large_file_in_source_free_parts() {
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -281,7 +278,7 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
     let definitions = vec![CollectionDefinition::folder(
         "items",
         "data",
-        SourceFormat::JsonLines,
+        crate::source::test_support::LINES,
     )];
     let options = RepositoryOptions {
         inference: InferenceConfig {

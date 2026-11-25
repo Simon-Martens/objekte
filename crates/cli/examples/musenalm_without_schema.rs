@@ -9,8 +9,7 @@ use std::path::PathBuf;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
-use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 
 fn main() {
     if let Err(error) = run() {
@@ -77,7 +76,7 @@ fn run() -> Result<(), String> {
     let names = folders.iter().map(|(name, _)| name.clone()).collect();
     let definitions = folders
         .into_iter()
-        .map(|(name, path)| CollectionDefinition::folder(name, path, SourceFormat::Json))
+        .map(|(name, path)| objekte_loader_json::folder(name, path))
         .collect();
     let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,

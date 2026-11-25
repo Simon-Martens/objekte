@@ -9,7 +9,6 @@ use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::SourceFormat;
 
 fn fixture() -> (PathBuf, Index, IndexView) {
     let root = std::env::temp_dir().join(format!(
@@ -94,7 +93,7 @@ fn fixture() -> (PathBuf, Index, IndexView) {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: objekte_loader_json::JSON_DOCUMENTS,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,

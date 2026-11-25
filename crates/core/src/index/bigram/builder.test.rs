@@ -596,7 +596,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::{FieldDefinition, Schema, operation::CustomBinding, operation::Transform};
-    use crate::source::SourceFormat;
+
     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
@@ -629,7 +629,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,

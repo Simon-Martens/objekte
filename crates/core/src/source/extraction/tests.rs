@@ -7,7 +7,7 @@ use crate::source::json::JsonReader;
 use crate::source::json_lines::JsonLinesReader;
 use crate::source::test_support::OutcomeReader;
 use crate::source::{
-    ByteRange, DiagnosticCategory, ReaderDiagnostic, SourceFormat, SourceOutcome, SourceReader,
+    ByteRange, DiagnosticCategory, ReaderDiagnostic, SourceOutcome, SourceReader,
     extraction::extract_file, extraction::extract_file_build_outcomes_hashed_with_buffer,
     extraction::trim_oversized_build_buffer,
 };
@@ -225,10 +225,15 @@ fn fused_extraction_parses_once_and_reports_bad_record() {
     std::fs::write(&path, b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n").unwrap();
     let mut seen = Vec::new();
     let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
-    let stats = extract_file(&path, SourceFormat::JsonLines, revision, |range, record| {
-        seen.push((range, record.text[0].text.clone()));
-        Ok(())
-    })
+    let stats = extract_file(
+        &path,
+        crate::source::test_support::LINES,
+        revision,
+        |range, record| {
+            seen.push((range, record.text[0].text.clone()));
+            Ok(())
+        },
+    )
     .unwrap();
     assert_eq!(stats.record_parses, 2);
     assert_eq!(seen.len(), 2);
@@ -236,7 +241,7 @@ fn fused_extraction_parses_once_and_reports_bad_record() {
     assert!(
         extract_file(
             &path,
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
             SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             |_, _| Ok(())
         )

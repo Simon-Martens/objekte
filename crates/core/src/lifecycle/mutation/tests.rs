@@ -31,7 +31,7 @@ fn index(root: &std::path::Path) -> Index {
         vec![CollectionDefinition::folder(
             "items",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -41,7 +41,8 @@ fn index(root: &std::path::Path) -> Index {
 }
 
 fn intrinsic_definition(name: &str) -> CollectionDefinition {
-    let mut definition = CollectionDefinition::folder(name, "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder(name, "data", crate::source::test_support::LINES);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
@@ -310,7 +311,7 @@ fn selected_null_and_presence_survive_explicit_mutations_and_compaction() {
     let root = test_root("structural-postings");
     let first = root.join("data/first.json");
     std::fs::write(&first, r#"{"tags":[],"text":""}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("items", "data");
     for (name, kind, multi) in [
         (
             "tags",
@@ -410,10 +411,8 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
     std::fs::write(&path, b"{\"x\":2,\"junk\":0}").unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "items",
-            "data",
-            SourceFormat::JsonDecodedScalars,
+        vec![crate::source::test_support::decoded_scalar_folder(
+            "items", "data",
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -741,7 +740,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
     let original = root.join("data/item.jsonl");
     std::fs::write(&original, b"{\"id\":\"same\"}\n").unwrap();
     let mut json = intrinsic_definition("json");
-    json.format = SourceFormat::Json;
+    json.format = crate::source::test_support::DOCUMENTS;
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![intrinsic_definition("jsonl"), json],
@@ -776,7 +775,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
     let root = test_root("move-filename-id");
     let original = root.join("data/old.json");
     std::fs::write(&original, b"{\"name\":\"same\"}\n").unwrap();
-    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("items", "data");
     definition.identity = IdentityPolicy::Filename;
     let index = crate::lifecycle::Index::start_build(
         &root,
@@ -1060,7 +1059,8 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
 #[test]
 fn shared_partition_verified_update_preserves_its_record_slot() {
     let root = test_root("partition-slot-replace");
-    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("items", "data", crate::source::test_support::LINES);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
@@ -1613,8 +1613,8 @@ fn verified_update_removes_departed_collection_membership() {
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
-            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
-            CollectionDefinition::folder("right", "other", SourceFormat::JsonLines),
+            CollectionDefinition::folder("left", "data", crate::source::test_support::LINES),
+            CollectionDefinition::folder("right", "other", crate::source::test_support::LINES),
         ],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -1668,7 +1668,7 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
             element_nullable: vec![],
         })
         .unwrap();
-    let mut targets = CollectionDefinition::folder("targets", "targets", SourceFormat::Json);
+    let mut targets = crate::source::test_support::document_folder("targets", "targets");
     targets.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     targets.schema = target_schema;
     let mut source_schema = Schema::default();
@@ -1698,7 +1698,8 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
             reverse_alias: Some("sources".into()),
         })
         .unwrap();
-    let mut sources = CollectionDefinition::folder("sources", "sources", SourceFormat::JsonLines);
+    let mut sources =
+        CollectionDefinition::folder("sources", "sources", crate::source::test_support::LINES);
     sources.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     sources.schema = source_schema;
     sources.sort_fields = vec![FieldPath::parse("score").unwrap()];
@@ -1965,7 +1966,8 @@ fn programmatic_rebuild_rejects_source_replacement_at_handoff() {
     builder
         .register_file_source(
             collection,
-            CollectionDefinition::folder("items", "data", SourceFormat::JsonLines).file_source(),
+            CollectionDefinition::folder("items", "data", crate::source::test_support::LINES)
+                .file_source(),
         )
         .unwrap();
     let index = builder.build().unwrap();
@@ -2109,7 +2111,7 @@ fn direct_publication_progresses_during_private_file_work() {
     ] {
         let root = test_root(phase);
         let mut builder = Index::builder();
-        let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder("entries", "data");
         definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
         let collection = builder
             .collection("entries", definition.schema.clone())

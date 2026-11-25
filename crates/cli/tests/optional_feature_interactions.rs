@@ -13,7 +13,6 @@ use objekte_search_core::query_execution::streaming::{
 use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
-use objekte_search_core::source::SourceFormat;
 
 static NEXT_ROOT: AtomicUsize = AtomicUsize::new(0);
 
@@ -59,7 +58,7 @@ impl Fixture {
     }
 
     fn definition(&self) -> CollectionDefinition {
-        let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+        let mut definition = objekte_loader_json::folder("data", "data");
         definition.identity = IdentityPolicy::Filename;
         definition
     }

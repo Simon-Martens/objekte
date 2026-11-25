@@ -46,11 +46,14 @@ fn repository_layout_loads_sorted_definitions_and_protected_schema_targets() {
     assert_eq!(config.definitions.len(), 2);
     assert_eq!(config.definitions[0].name, "authors");
     assert_eq!(config.definitions[0].source_path, Path::new("authors"));
-    assert_eq!(config.definitions[0].format, SourceFormat::JsonLines);
+    assert_eq!(
+        config.definitions[0].format,
+        SourceFormat::with_compatibility_encoding("jsonl", "JsonLines")
+    );
     assert_eq!(config.definitions[0].identity, IdentityPolicy::Generated);
     assert_eq!(config.definitions[1].name, "books");
     assert_eq!(config.definitions[1].source_path, Path::new("books"));
-    assert_eq!(config.definitions[1].format, SourceFormat::Json);
+    assert_eq!(config.definitions[1].format, crate::JSON_DOCUMENTS);
     assert_eq!(config.definitions[1].identity, IdentityPolicy::Filename);
     assert_eq!(config.definitions[1].sort_locale, "de");
     assert_eq!(config.definitions[1].schema.relations().len(), 1);

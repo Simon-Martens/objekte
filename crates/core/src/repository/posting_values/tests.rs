@@ -6,7 +6,6 @@ use crate::model::LogicalType;
 use crate::model::RecordSlot;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::SourceFormat;
 
 #[test]
 fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
@@ -26,7 +25,7 @@ fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -202,7 +201,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), content).unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -475,7 +474,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/base.json"), r#"{"code":1}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -638,11 +637,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options.clone(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -767,7 +762,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
     let _ = std::fs::remove_dir_all(&opt_out_root);
     std::fs::create_dir_all(opt_out_root.join("data")).unwrap();
     std::fs::write(opt_out_root.join("data/00.json"), r#"{"x":"A"}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -851,11 +846,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
     }
     let length = crate::lifecycle::Index::build_repository_for_test(
         &length_root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -907,7 +898,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -1162,7 +1153,8 @@ fn posting_values_keep_singleton_null_and_empty_traversal_public_counts() {
         ),
     )
     .unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     definition
         .schema
         .register_field(FieldDefinition {
@@ -1236,11 +1228,7 @@ fn inferred_terminal_arrays_preserve_legacy_presence_without_source_reads() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1310,11 +1298,7 @@ fn segmented_facet_requires_data_root_before_inference_resolution() {
     std::fs::write(root.join("data/00.json"), r#"{"x":7}"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1360,7 +1344,7 @@ fn segmented_named_default_binding_precedes_raw_inference_rejection() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -1445,11 +1429,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
     };
     let mut repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options,
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -1676,7 +1656,7 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1830,7 +1810,7 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
         let definition = CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1949,7 +1929,7 @@ fn bounded_prefix_ranges_and_continuations_visit_only_relevant_keys() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,

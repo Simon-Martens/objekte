@@ -16,7 +16,6 @@ use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::SourceFormat;
 
 #[test]
 fn pinned_catalogue_metadata_tracks_each_publication_independently() {
@@ -33,11 +32,7 @@ fn pinned_catalogue_metadata_tracks_each_publication_independently() {
     std::fs::write(&initial_path, br#"{"name":"initial"}"#).unwrap();
     let index = Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -112,11 +107,7 @@ fn index_observation_counts_only_each_pinned_publications_live_records() {
     std::fs::write(&initial_path, br#"{"name":"initial"}"#).unwrap();
     let index = Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -205,8 +196,8 @@ fn index_observation_counts_shared_files_once_globally_and_per_membership() {
     let index = Index::start_build(
         &root,
         vec![
-            CollectionDefinition::folder("left", "data", SourceFormat::Json),
-            CollectionDefinition::folder("right", "data", SourceFormat::Json),
+            crate::source::test_support::document_folder("left", "data"),
+            crate::source::test_support::document_folder("right", "data"),
         ],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -261,8 +252,8 @@ fn segment_observation_visits_match_pinned_collection_aggregates() {
     let index = Index::start_build(
         &root,
         vec![
-            CollectionDefinition::folder("left", "left", SourceFormat::JsonLines),
-            CollectionDefinition::folder("right", "right", SourceFormat::JsonLines),
+            CollectionDefinition::folder("left", "left", crate::source::test_support::LINES),
+            CollectionDefinition::folder("right", "right", crate::source::test_support::LINES),
         ],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
@@ -404,11 +395,7 @@ fn benchmark_locator_sample_follows_live_records_after_source_deletion() {
     std::fs::write(root.join("data/b.json"), br#"{"name":"B"}"#).unwrap();
     let index = Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -470,11 +457,7 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     std::fs::write(root.join("data/initial.json"), br#"{"name":"initial"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -520,11 +503,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     }
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -563,11 +542,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
 fn fixture_repository(root: &std::path::Path) -> Repository {
     crate::lifecycle::Index::build_repository_for_test(
         root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             ..Default::default()
         },
@@ -628,11 +603,7 @@ fn empty_public_view_validates_queries_and_returns_an_empty_count() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let index = Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -810,7 +781,7 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
     let destination = root.join("data/renamed.json");
     let bytes = br#"{"id":"A","name":"alpha"}"#;
     std::fs::write(&original, bytes).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
@@ -1088,8 +1059,8 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
-            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
-            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("left", "data", crate::source::test_support::LINES),
+            CollectionDefinition::folder("right", "data", crate::source::test_support::LINES),
         ],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -1185,8 +1156,8 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
-            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
-            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("left", "data", crate::source::test_support::LINES),
+            CollectionDefinition::folder("right", "data", crate::source::test_support::LINES),
         ],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -1244,8 +1215,8 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![
-            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
-            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("left", "data", crate::source::test_support::LINES),
+            CollectionDefinition::folder("right", "data", crate::source::test_support::LINES),
         ],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -1333,7 +1304,7 @@ fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -1392,7 +1363,7 @@ fn background_reconciliation_reports_completion_and_joins() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -1432,7 +1403,7 @@ fn many_small_additions_and_replacements_stay_within_segment_budget() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
@@ -1519,7 +1490,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -1731,7 +1702,7 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
                 })
                 .unwrap();
         }
-        let mut definition = CollectionDefinition::folder(name, name, SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder(name, name);
         definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
         definition.schema = schema;
         definitions.push(definition);
@@ -1884,11 +1855,7 @@ fn status_estimate_reuses_cached_native_accounting() {
     std::fs::write(root.join("data/a.json"), br#"{"title":"Alpha"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -1935,11 +1902,7 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
     std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -2028,7 +1991,7 @@ fn generated_namespaces_are_rejected_by_mutation_and_reconciliation() {
         br#"{"title":"Poison"}"#,
     )
     .unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.discovery.recursive = true;
     definition.discovery.hidden = true;
     let index = crate::lifecycle::Index::start_build(
@@ -2088,11 +2051,7 @@ fn metadata_fast_paths_and_fallbacks_match_the_reference_evaluator() {
     std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -2153,7 +2112,7 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
 
     for target in [65_536usize, 65_537] {
         let root = fixture(&target.to_string(), target);
-        let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+        let definition = crate::source::test_support::document_folder("data", "data");
         let mut indexes = Vec::new();
         for workers in [1usize, 4] {
             let index = crate::lifecycle::Index::start_build(
@@ -2238,7 +2197,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let path = root.join("data/item.json");
     std::fs::write(&path, br#"{"id":"item","title":"old"}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity =
         crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition

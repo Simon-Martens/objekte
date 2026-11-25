@@ -7,7 +7,6 @@ use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::SourceFormat;
 
 fn query(filter: &str) -> Query {
     Query {
@@ -82,7 +81,7 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: objekte_loader_json::JSON_DOCUMENTS,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,

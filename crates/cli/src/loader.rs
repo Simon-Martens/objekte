@@ -9,7 +9,6 @@ use objekte_search_core::index::bigram::BigramAlphabet;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::inventory::discovery::SymlinkPolicy;
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::SourceFormat;
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
 
@@ -106,11 +105,7 @@ fn make_definition(
     source_root: &Path,
     schema: Option<CompiledSchema>,
 ) -> CollectionDefinition {
-    let mut definition = CollectionDefinition::folder(
-        name,
-        source_path.to_owned(),
-        SourceFormat::JsonDecodedScalars,
-    );
+    let mut definition = objekte_loader_json::decoded_scalar_folder(name, source_path.to_owned());
     if let Some(compiled) = schema {
         definition.schema = compiled.schema;
         definition.sort_fields = compiled.sort_fields;

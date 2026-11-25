@@ -230,11 +230,7 @@ fn completed_generation_releases_provisional_inference_observation() {
     let mut provisional = None;
     let index = Repository::build_incremental_with_sources(
         root.clone(),
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -288,7 +284,7 @@ fn repository_conversion_rejects_retained_owner_and_view_promptly() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", "data");
     let build = || {
         let repository = Index::build_repository_for_test(
             &root,
@@ -376,7 +372,8 @@ fn one_large_jsonl_file_can_produce_more_than_the_segment_job_window() {
             .as_nanos()
     ));
     let records = write_large_jsonl(&root, "large framed record");
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     let task = crate::lifecycle::Index::start_build(
         &root,
         vec![definition],
@@ -419,7 +416,8 @@ fn large_file_finalizes_private_segments_before_eof() {
             .as_nanos()
     ));
     let records = write_large_jsonl(&root, "private segment");
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
     let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
     let thread_gate = std::sync::Arc::clone(&gate);
@@ -477,7 +475,8 @@ fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
             .as_nanos()
     ));
     let records = write_large_jsonl(&root, "bounded private segment");
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     for workers in [1usize, 3] {
         let publications = std::sync::Arc::new(AtomicUsize::new(0));
         let callback_publications = std::sync::Arc::clone(&publications);
@@ -528,8 +527,11 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
         ));
         let _ = std::fs::remove_dir_all(&root);
         write_large_jsonl(&root, "private failure");
-        let definition =
-            CollectionDefinition::folder(collection_name, "data", SourceFormat::JsonLines);
+        let definition = CollectionDefinition::folder(
+            collection_name,
+            "data",
+            crate::source::test_support::LINES,
+        );
         let (catalogue_tx, catalogue_rx) = mpsc::channel();
         let result = Repository::build_incremental_with_sources(
             root.clone(),
@@ -615,7 +617,8 @@ fn private_final_drain_consumes_worker_error_before_returning() {
     ));
     let records = write_large_relation_jsonl(&root);
     assert!(records > 2);
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     definition
         .schema
         .register_field(FieldDefinition {
@@ -767,8 +770,11 @@ fn private_work_cancels_while_outstanding_and_after_validation() {
         } else {
             "__test_cancel_while_outstanding__"
         };
-        let definition =
-            CollectionDefinition::folder(collection_name, "data", SourceFormat::JsonLines);
+        let definition = CollectionDefinition::folder(
+            collection_name,
+            "data",
+            crate::source::test_support::LINES,
+        );
         let cancelled = std::sync::Arc::new(AtomicBool::new(false));
         let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
         let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
@@ -846,7 +852,7 @@ fn multi_worker_segment_finalization_actually_overlaps() {
         )
         .unwrap();
     }
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", "data");
     let gate = std::sync::Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
     let worker = std::thread::spawn({
         let root = root.clone();
@@ -903,7 +909,7 @@ fn discovery_and_segments_publish_without_losing_records() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -1195,8 +1201,8 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/broken.json"), b"{ broken").unwrap();
     let definitions = vec![
-        CollectionDefinition::folder("first", "data", SourceFormat::Json),
-        CollectionDefinition::folder("second", "data", SourceFormat::Json),
+        crate::source::test_support::document_folder("first", "data"),
+        crate::source::test_support::document_folder("second", "data"),
     ];
     let index = crate::lifecycle::Index::start_build(
         &root,
@@ -1248,7 +1254,8 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
         b"{\"name\":\"first\"}\n{broken}\n{\"name\":\"third\"}\n",
     )
     .unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     let index = crate::lifecycle::Index::start_build(
         &root,
         vec![definition.clone()],
@@ -1343,7 +1350,7 @@ fn large_framed_file_admission_has_component_accounting() {
     let definitions = vec![CollectionDefinition::folder(
         "data",
         "data",
-        SourceFormat::JsonLines,
+        crate::source::test_support::LINES,
     )];
     let options = RepositoryOptions {
         build_workers: std::num::NonZeroUsize::new(2),
@@ -1402,7 +1409,7 @@ fn incremental_admission_totals_match_each_collection() {
     std::fs::write(root.join("data/two.json"), br#"{"title":"two"}"#).unwrap();
     let definitions = ["first", "second"]
         .into_iter()
-        .map(|name| CollectionDefinition::folder(name, "data", SourceFormat::Json))
+        .map(|name| crate::source::test_support::document_folder(name, "data"))
         .collect();
     let task = crate::lifecycle::Index::start_build(
         &root,
@@ -1456,7 +1463,7 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
     std::fs::write(root.join("data/c.json"), b"{broken").unwrap();
     let definitions = ["one", "two"]
         .into_iter()
-        .map(|name| CollectionDefinition::folder(name, "data", SourceFormat::Json))
+        .map(|name| crate::source::test_support::document_folder(name, "data"))
         .collect::<Vec<_>>();
     let mut inference = InferenceConfig {
         mode: InferenceMode::AutoIndex,
@@ -1640,7 +1647,7 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
             vec![
                 CollectionDefinition::folder("entries", "shared", format.clone()),
                 CollectionDefinition::folder("references", "shared", format),
-                CollectionDefinition::folder("solo", "independent", SourceFormat::Json),
+                crate::source::test_support::document_folder("solo", "independent"),
             ],
             RepositoryOptions::default(),
             sources,
@@ -1856,7 +1863,8 @@ fn small_jsonl_partitions_follow_the_record_target_across_file_continuations() {
             .collect::<String>()
     };
     std::fs::write(root.join("data/initial.jsonl"), bytes(0)).unwrap();
-    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("entries", "data", crate::source::test_support::LINES);
     definition.identity =
         crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
     let index = Index::start_build(
@@ -1917,10 +1925,8 @@ fn ordinary_file_batches_respect_distinct_file_limit_before_decoding() {
     }
     let index = Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "entries",
-            "data",
-            SourceFormat::Json,
+        vec![crate::source::test_support::document_folder(
+            "entries", "data",
         )],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
@@ -2456,10 +2462,8 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
     }
     let index = Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "items",
-            "data",
-            SourceFormat::Json,
+        vec![crate::source::test_support::document_folder(
+            "items", "data",
         )],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {

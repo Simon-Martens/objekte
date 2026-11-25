@@ -9,7 +9,7 @@ use crate::model::{CollectionId, FieldPath, LogicalType};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
-use crate::source::{SourceFormat, registry::SourceRegistry};
+use crate::source::registry::SourceRegistry;
 use std::time::Instant;
 
 #[test]
@@ -23,7 +23,8 @@ fn consolidation_matches_direct_admission_without_source_files() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     for (path, kind, indexed) in [
         ("n", LogicalType::Number, true),
         ("ref", LogicalType::Id, false),
@@ -70,7 +71,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
         ])
         .unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -232,9 +233,9 @@ fn consolidation_matches_direct_admission_without_source_files() {
 fn seventy_small_shards_consolidate_after_sources_are_removed() {
     let root = std::env::temp_dir().join(format!("objekte-segment-seventy-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -314,9 +315,9 @@ fn consolidation_translates_independent_local_zero_slots() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),

@@ -12,10 +12,10 @@ fn built_and_trusted_logical(
 ) -> (Value, Value) {
     use crate::inventory::RecordClass;
     use crate::query_results::Payload;
-    use crate::source::{SourceFormat, registry::SourceRegistry};
+    use crate::source::registry::SourceRegistry;
 
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let mut built = source.reader().parse_for_build_outcome(bytes).unwrap();
     finish_build_record(schema, &mut built).unwrap();
@@ -106,7 +106,7 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
     use crate::schema::FieldDefinition;
-    use crate::source::{SourceFormat, registry::SourceRegistry};
+    use crate::source::registry::SourceRegistry;
     use std::collections::HashSet;
 
     let mut schema = Schema::default();
@@ -192,7 +192,7 @@ fn trusted_logical_object_arrays_match_build_and_respect_projection() {
     assert_eq!(projected, Value::Object(expected));
 
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     for stale in [
         br#"{"values":["wrong"]}"#.as_slice(),
@@ -226,7 +226,7 @@ fn recorded_validation_selects_trusted_or_validating_extraction() {
     use std::sync::Arc;
 
     let builtin = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonDecodedScalars)
+        .resolve(&crate::source::test_support::DECODED_SCALARS)
         .unwrap();
     let mut registry = SourceRegistry::default();
     registry

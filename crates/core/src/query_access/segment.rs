@@ -404,7 +404,6 @@ mod tests {
         AccessExecution, AccessKind, AccessRequest, InputEstimate, OfferList, ProofStrength, Proven,
     };
     use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-    use crate::source::SourceFormat;
 
     #[test]
     fn numeric_range_posting_excludes_retired_logical_slots_before_fallback() {
@@ -419,7 +418,8 @@ mod tests {
             b"{\"id\":\"0\",\"value\":10}\n{\"id\":\"1\",\"value\":20}\n{bad}\n",
         )
         .unwrap();
-        let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+        let mut definition =
+            CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
         definition.identity =
             crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
         definition
@@ -545,10 +545,8 @@ fn managed_queries_and_components_use_distinct_published_domains() {
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::query_access::text::NativeSegmentTextProvider;
     use crate::query_diagnostics::trace::ObservationStatus;
-    use crate::repository::configuration::{
-        CollectionDefinition, IdentityPolicy, RepositoryOptions,
-    };
-    use crate::source::{SourceFormat, registry::SourceRegistry};
+    use crate::repository::configuration::{IdentityPolicy, RepositoryOptions};
+    use crate::source::registry::SourceRegistry;
     use std::collections::BTreeSet;
 
     let root = std::env::temp_dir().join(format!(
@@ -556,7 +554,7 @@ fn managed_queries_and_components_use_distinct_published_domains() {
         std::process::id()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("entries", "data");
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema

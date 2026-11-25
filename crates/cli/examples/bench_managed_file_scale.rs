@@ -208,7 +208,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         )?;
         SourceFormat::registered("scale-pipe")
     } else {
-        SourceFormat::JsonLines
+        objekte_loader_jsonl::JSON_LINES
     };
     let mut definition = CollectionDefinition::folder("entries", "data", format);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);

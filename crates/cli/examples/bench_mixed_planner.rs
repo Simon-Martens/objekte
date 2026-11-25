@@ -10,7 +10,6 @@ use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::SourceFormat;
 
 fn main() {
     if let Err(error) = run() {
@@ -45,7 +44,7 @@ fn run() -> Result<(), String> {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: objekte_loader_jsonl::JSON_LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,

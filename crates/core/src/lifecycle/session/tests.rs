@@ -2,7 +2,6 @@ use super::*;
 use crate::model::Value;
 use crate::query::{QueryOptions, parse_filter};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use crate::source::SourceFormat;
 
 #[test]
 fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
@@ -17,11 +16,7 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
     std::fs::write(&source, br#"{"name":"A"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -96,11 +91,7 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
     std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -146,11 +137,7 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
     );
     let other = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -188,7 +175,7 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),

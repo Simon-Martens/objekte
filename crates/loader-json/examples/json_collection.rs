@@ -4,8 +4,8 @@ use std::path::PathBuf;
 
 use objekte_loader_json::configuration::load_optional_schema;
 use objekte_search_core::lifecycle::Index;
-use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
+use objekte_search_core::repository::configuration::RepositoryOptions;
+use objekte_search_core::source::registry::SourceRegistry;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut args = std::env::args_os().skip(1);
@@ -16,7 +16,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut sources = SourceRegistry::default();
     objekte_loader_json::register(&mut sources)?;
-    let mut collection = CollectionDefinition::folder("documents", "", SourceFormat::Json);
+    let mut collection = objekte_loader_json::folder("documents", "");
     if let Some(explicit) = load_optional_schema(schema.as_deref(), &collection.name)? {
         collection.schema = explicit.compiled.schema;
         collection.sort_fields = explicit.compiled.sort_fields;

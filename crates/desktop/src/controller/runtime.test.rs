@@ -3,11 +3,10 @@ use super::*;
 fn large_delta_fixture(records: usize) -> (tempfile::TempDir, OpenedSession, IndexView, IndexView) {
     use objekte_search_core::lifecycle::session::IndexedRepository;
     use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-    use objekte_search_core::source::SourceFormat;
 
     let root = tempfile::tempdir().unwrap();
     std::fs::create_dir(root.path().join("data")).unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition = CollectionDefinition::folder("data", "data", objekte_loader_jsonl::JSON_LINES);
     let repository = objekte_search_core::lifecycle::Index::start_build(
         root.path(),
         vec![definition],
@@ -40,9 +39,8 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
     use objekte_search_core::inference::{InferenceConfig, InferenceMode};
     use objekte_search_core::lifecycle::session::IndexedRepository;
     use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
-    use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use objekte_search_core::repository::configuration::RepositoryOptions;
     use objekte_search_core::schema::FieldDefinition;
-    use objekte_search_core::source::SourceFormat;
 
     let root = tempfile::tempdir().unwrap();
     std::fs::create_dir(root.path().join("data")).unwrap();
@@ -56,7 +54,7 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
         std::fs::write(root.path().join(format!("data/f{number:04}.json")), body).unwrap();
     }
     std::fs::write(root.path().join("other/a.json"), r#"{"only_other":"yes"}"#).unwrap();
-    let mut data = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut data = objekte_loader_json::folder("data", "data");
     data.schema
         .register_field(FieldDefinition {
             path: vec!["declared".into()],
@@ -68,7 +66,7 @@ fn completed_inference_refreshes_fields_without_rows_or_edits() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let other = CollectionDefinition::folder("other", "other", SourceFormat::Json);
+    let other = objekte_loader_json::folder("other", "other");
     let index = objekte_search_core::lifecycle::Index::start_build(
         root.path(),
         vec![data, other],
@@ -569,16 +567,15 @@ fn presentation_refresh_keeps_selection_after_preview_is_closed() {
 #[test]
 fn completion_uses_bounded_postings_and_keeps_typed_literals() {
     use objekte_search_core::model::LogicalType;
-    use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use objekte_search_core::repository::configuration::RepositoryOptions;
     use objekte_search_core::schema::FieldDefinition;
-    use objekte_search_core::source::SourceFormat;
 
     let fixture = crate::backend::test_support::fixture();
     let root = tempfile::tempdir().unwrap();
     std::fs::create_dir(root.path().join("items")).unwrap();
     std::fs::write(root.path().join("items/a.json"), r#"{"name":"Alpha"}"#).unwrap();
     std::fs::write(root.path().join("items/b.json"), r#"{"name":"Beta"}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("files", "items", SourceFormat::Json);
+    let mut definition = objekte_loader_json::folder("files", "items");
     definition
         .schema
         .register_field(FieldDefinition {

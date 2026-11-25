@@ -17,7 +17,6 @@ use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::SourceFormat;
 use sha2::{Digest, Sha256};
 
 fn main() {
@@ -106,9 +105,9 @@ fn run() -> Result<(), String> {
             if jsonl { "jsonl" } else { "plain" },
             "data",
             if jsonl {
-                SourceFormat::JsonLines
+                objekte_loader_jsonl::JSON_LINES
             } else {
-                SourceFormat::Json
+                objekte_loader_json::JSON_DOCUMENTS
             },
         )]
     } else {

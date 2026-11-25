@@ -7,7 +7,6 @@ use crate::query_execution::streaming::{ExecutionContext, ExecutionLimits};
 use crate::query_results::Payload;
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::schema::FieldDefinition;
-use crate::source::SourceFormat;
 
 #[test]
 fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
@@ -16,7 +15,8 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let path = root.join("data/records.jsonl");
     std::fs::write(&path, b"{\"title\":\"healthy\"}\n{\"title\":\n").unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     let options = RepositoryOptions::default();
     let query = |return_mode| Query {
         collections: vec!["data".into()],
@@ -116,7 +116,7 @@ fn exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time() {
     for (name, json) in [("a", r#"{"name":"Alice"}"#), ("b", r#"{"name":"Bob"}"#)] {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {

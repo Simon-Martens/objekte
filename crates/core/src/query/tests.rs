@@ -179,9 +179,8 @@ fn workload_fts_binding_colon_stays_outside_quoted_path_properties() {
 fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     use crate::model::{FieldPath, LogicalType};
     use crate::repository::Repository;
-    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::FieldDefinition;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-colon-path-{}-{}",
@@ -194,7 +193,7 @@ fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/one.json"), r#"{"a:b":"Zulu"}"#).unwrap();
     std::fs::write(root.join("data/two.json"), r#"{"a:b":"Alpha"}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {

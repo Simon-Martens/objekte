@@ -21,5 +21,7 @@ default = []
 detailed-profiling = ["objekte-cli/detailed-profiling", "objekte-search-core/detailed-profiling"]
 
 [dev-dependencies]
+objekte-loader-json = { path = "../loader-json" }
+objekte-loader-jsonl = { path = "../loader-jsonl" }
 gpui-kit = { version = "=0.9.0", features = ["test-support"] }
 tempfile = "3"

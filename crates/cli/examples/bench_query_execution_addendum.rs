@@ -21,7 +21,6 @@ use objekte_search_core::repository::configuration::{
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::SourceFormat;
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType) {
     schema
@@ -41,7 +40,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: objekte_loader_json::JSON_DOCUMENTS,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,
@@ -303,7 +302,7 @@ fn residual_order_cases() -> Result<Vec<serde_json::Value>, String> {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: objekte_loader_jsonl::JSON_LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -426,7 +425,7 @@ fn indexed_or_case() -> Result<serde_json::Value, String> {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: objekte_loader_jsonl::JSON_LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -556,7 +555,7 @@ fn indexed_or_layout_case(files: usize) -> Result<serde_json::Value, String> {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: objekte_loader_jsonl::JSON_LINES,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,

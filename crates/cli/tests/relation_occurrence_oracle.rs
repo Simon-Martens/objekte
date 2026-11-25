@@ -9,7 +9,6 @@ use objekte_search_core::repository::configuration::{
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::WorkloadCase;
 use serde_json::Value as JsonValue;
 
@@ -31,7 +30,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: objekte_loader_json::JSON_DOCUMENTS,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,

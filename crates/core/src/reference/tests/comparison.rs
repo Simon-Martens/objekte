@@ -299,7 +299,6 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-type-index-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -324,7 +323,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -430,7 +429,6 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-dynamic-fields-{}", std::process::id()));
     for (collection, id, json) in [
@@ -466,7 +464,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         CollectionDefinition {
             name: "alpha".into(),
             source_path: "alpha".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema: declared,
@@ -478,7 +476,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         CollectionDefinition {
             name: "beta".into(),
             source_path: "beta".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema: Schema::default(),

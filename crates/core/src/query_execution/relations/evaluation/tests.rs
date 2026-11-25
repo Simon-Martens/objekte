@@ -10,7 +10,6 @@ use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::SourceFormat;
 
 #[test]
 fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
@@ -770,7 +769,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,

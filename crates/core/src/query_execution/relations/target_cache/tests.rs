@@ -10,7 +10,6 @@ use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::SourceFormat;
 
 #[test]
 fn prefetch_limits_keep_stream_resource_classification() {
@@ -94,8 +93,8 @@ fn definitions() -> Vec<CollectionDefinition> {
         })
         .unwrap();
     [
-        ("sources", sources, SourceFormat::Json),
-        ("targets", targets, SourceFormat::JsonLines),
+        ("sources", sources, crate::source::test_support::DOCUMENTS),
+        ("targets", targets, crate::source::test_support::LINES),
     ]
     .into_iter()
     .map(|(name, schema, format)| CollectionDefinition {

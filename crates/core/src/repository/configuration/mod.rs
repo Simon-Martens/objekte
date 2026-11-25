@@ -164,18 +164,22 @@ impl CollectionDefinition {
     }
 
     /// Define a recursive folder collection with no declared fields or typed indexes.
-    /// JSONL and registered readers use per-record generated identities because a file
-    /// can contain several records. Callers may override any of these defaults.
+    /// Generic folder collections use per-record generated identities.
     pub fn folder(
         name: impl Into<String>,
         source_path: impl Into<PathBuf>,
         format: SourceFormat,
     ) -> Self {
-        let identity = if format.supports_relative_path_identity() {
-            IdentityPolicy::RelativePath
-        } else {
-            IdentityPolicy::Generated
-        };
+        Self::folder_with_identity(name, source_path, format, IdentityPolicy::Generated)
+    }
+
+    /// Define a recursive folder collection with an identity selected by the caller.
+    pub fn folder_with_identity(
+        name: impl Into<String>,
+        source_path: impl Into<PathBuf>,
+        format: SourceFormat,
+        identity: IdentityPolicy,
+    ) -> Self {
         Self {
             name: name.into(),
             source_path: source_path.into(),

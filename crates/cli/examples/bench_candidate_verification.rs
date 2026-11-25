@@ -26,7 +26,7 @@ use objekte_search_core::reference::filter::eval_filter;
 use objekte_search_core::reference::fts::eval_bound_fts;
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::schema::Schema;
-use objekte_search_core::source::{ScanProjection, SourceFormat, SourceReader};
+use objekte_search_core::source::{ScanProjection, SourceReader};
 use objekte_search_core::workload::WorkloadCase;
 use serde_json::json;
 use sha2::{Digest, Sha256};
@@ -572,7 +572,7 @@ fn run() -> Result<(), String> {
     let mut workers = 4usize;
     let mut oracle_output = None;
     let mut borrowed_focused = false;
-    let mut source_format = SourceFormat::JsonDecodedScalars;
+    let mut source_format = objekte_loader_json::JSON_DECODED_SCALARS;
     while let Some(argument) = args.next() {
         match argument.as_str() {
             "--root" => root = Some(PathBuf::from(args.next().ok_or("--root needs path")?)),
@@ -598,8 +598,8 @@ fn run() -> Result<(), String> {
             "--borrowed-focused" => borrowed_focused = true,
             "--format" => {
                 source_format = match args.next().as_deref() {
-                    Some("json") => SourceFormat::Json,
-                    Some("decoded") => SourceFormat::JsonDecodedScalars,
+                    Some("json") => objekte_loader_json::JSON_DOCUMENTS,
+                    Some("decoded") => objekte_loader_json::JSON_DECODED_SCALARS,
                     _ => return Err("--format requires json or decoded".into()),
                 }
             }

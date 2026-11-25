@@ -103,9 +103,9 @@ pub fn load_repository_configuration(root: &Path) -> Result<RepositoryConfigurat
         let metadata = document.get("x-objekte").unwrap();
         let source_path = PathBuf::from(repository_metadata(metadata, "path", &path)?);
         let format = match repository_metadata(metadata, "format", &path)? {
-            "json" => SourceFormat::Json,
-            "jsonl" => SourceFormat::JsonLines,
-            "json_decoded_scalars" => SourceFormat::JsonDecodedScalars,
+            "json" => crate::JSON_DOCUMENTS,
+            "jsonl" => SourceFormat::with_compatibility_encoding("jsonl", "JsonLines"),
+            "json_decoded_scalars" => crate::JSON_DECODED_SCALARS,
             other => {
                 return Err(format!(
                     "{}: unsupported source format {other}",

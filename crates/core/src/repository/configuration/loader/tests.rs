@@ -1,6 +1,5 @@
 use super::*;
 use crate::repository::configuration::RepositoryOptions;
-use crate::source::SourceFormat;
 use crate::source::registry::SourceRegistry;
 use std::fs;
 
@@ -17,7 +16,7 @@ fn test_root(label: &str) -> PathBuf {
 fn source_preparation_preserves_live_identity_and_generated_exclusions() {
     let root = test_root("source-prepare");
     fs::create_dir_all(root.join("data")).unwrap();
-    let definition = CollectionDefinition::folder("files", "", SourceFormat::JsonDecodedScalars);
+    let definition = crate::source::test_support::decoded_scalar_folder("files", "");
     let first = prepare_source_definitions(&root, std::slice::from_ref(&definition)).unwrap();
     assert_eq!(
         first[0].discovery.exclude_directories,
@@ -44,8 +43,7 @@ fn source_preparation_preserves_live_identity_and_generated_exclusions() {
         "d025ae2e90ad25b5c5fb46e60f4247bbce8bf9338613cfd17f43185db7016a93"
     );
     fs::create_dir_all(root.join(".objekte/.indexes")).unwrap();
-    let reserved =
-        CollectionDefinition::folder("bad", ".objekte/.indexes", SourceFormat::JsonDecodedScalars);
+    let reserved = crate::source::test_support::decoded_scalar_folder("bad", ".objekte/.indexes");
     assert!(
         prepare_source_definitions(&root, &[reserved])
             .unwrap_err()
@@ -67,8 +65,7 @@ fn source_selection_rejects_generated_namespaces_and_aliases() {
         "data/nested/objekte-indexes",
         "cache/objekte-indexes",
     ] {
-        let definition =
-            CollectionDefinition::folder("files", source, SourceFormat::JsonDecodedScalars);
+        let definition = crate::source::test_support::decoded_scalar_folder("files", source);
         assert!(
             prepare_source_definitions(&root, &[definition])
                 .unwrap_err()
@@ -80,19 +77,15 @@ fn source_selection_rejects_generated_namespaces_and_aliases() {
     {
         std::os::unix::fs::symlink(root.join(".objekte/indexes"), root.join("generated-alias"))
             .unwrap();
-        let definition = CollectionDefinition::folder(
-            "files",
-            "generated-alias",
-            SourceFormat::JsonDecodedScalars,
-        );
+        let definition =
+            crate::source::test_support::decoded_scalar_folder("files", "generated-alias");
         assert!(
             prepare_source_definitions(&root, &[definition])
                 .unwrap_err()
                 .contains("generated index namespace")
         );
     }
-    let legitimate =
-        CollectionDefinition::folder("files", "data", SourceFormat::JsonDecodedScalars);
+    let legitimate = crate::source::test_support::decoded_scalar_folder("files", "data");
     let prepared = prepare_source_definitions(&root, &[legitimate]).unwrap();
     assert_eq!(prepared[0].source_path, PathBuf::from("data"));
     fs::remove_dir_all(root).unwrap();

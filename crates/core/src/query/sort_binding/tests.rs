@@ -6,14 +6,13 @@ use crate::query::options::ReturnMode;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
 use crate::schema::{FieldDefinition, operation::RegisteredBinding};
-use crate::source::SourceFormat;
 
 fn stored_string_sort_definition(
     name: &str,
     defaults: SortOptions,
     effective: Option<SortConfig>,
 ) -> CollectionDefinition {
-    let mut definition = CollectionDefinition::folder(name, name, SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder(name, name);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition.sort_locale = "en".into();
     definition.sort_options = defaults;
@@ -230,7 +229,7 @@ fn optimized_binding_defers_reference_sort_preparation() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), r#"{"title":"Alpha"}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -362,7 +361,7 @@ fn cross_collection_sort_rejects_different_binding_versions() {
     for (name, version) in [("a", 1), ("b", 2)] {
         std::fs::create_dir_all(root.join(name)).unwrap();
         std::fs::write(root.join(name).join("record.json"), r#"{"title":"Alpha"}"#).unwrap();
-        let mut definition = CollectionDefinition::folder(name, name, SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder(name, name);
         definition
             .schema
             .register_field(FieldDefinition {
@@ -618,8 +617,11 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
             } else {
                 std::fs::write(source.join("all.jsonl"), rows.concat()).unwrap();
             }
-            let mut source_definition =
-                CollectionDefinition::folder("sources", "sources", SourceFormat::JsonLines);
+            let mut source_definition = CollectionDefinition::folder(
+                "sources",
+                "sources",
+                crate::source::test_support::LINES,
+            );
             source_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
             q4_field(&mut source_definition.schema, "id", LogicalType::Id);
             q4_field(&mut source_definition.schema, "entry", LogicalType::Id);
@@ -633,7 +635,7 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                 })
                 .unwrap();
             let mut target_definition =
-                CollectionDefinition::folder("targets", "targets", SourceFormat::Json);
+                crate::source::test_support::document_folder("targets", "targets");
             target_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
             q4_field(&mut target_definition.schema, "id", LogicalType::Id);
             q4_field(&mut target_definition.schema, "title", LogicalType::String);
@@ -719,7 +721,7 @@ fn related_stored_sort_uses_the_target_fields_effective_collation() {
         },
     };
     let target = stored_string_sort_definition("targets", nonnumeric, Some(numeric.clone()));
-    let mut source = CollectionDefinition::folder("sources", "sources", SourceFormat::Json);
+    let mut source = crate::source::test_support::document_folder("sources", "sources");
     source.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (path, kind) in [("id", LogicalType::Id), ("entry", LogicalType::Id)] {
         source
@@ -876,7 +878,7 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
         .unwrap();
     }
     let mut source_definition =
-        CollectionDefinition::folder("sources", "sources", SourceFormat::JsonLines);
+        CollectionDefinition::folder("sources", "sources", crate::source::test_support::LINES);
     source_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     q4_field(&mut source_definition.schema, "id", LogicalType::Id);
     source_definition
@@ -900,8 +902,7 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
             reverse_alias: None,
         })
         .unwrap();
-    let mut target_definition =
-        CollectionDefinition::folder("targets", "targets", SourceFormat::Json);
+    let mut target_definition = crate::source::test_support::document_folder("targets", "targets");
     target_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     q4_field(&mut target_definition.schema, "id", LogicalType::Id);
     q4_field(&mut target_definition.schema, "title", LogicalType::String);
@@ -949,7 +950,7 @@ fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
 #[test]
 fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
     fn source_definition(path: &str, relation: Option<&str>) -> CollectionDefinition {
-        let mut definition = CollectionDefinition::folder(path, path, SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder(path, path);
         definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
         q4_field(&mut definition.schema, "id", LogicalType::Id);
         if let Some(target) = relation {
@@ -968,7 +969,7 @@ fn reference_forward_sort_reuses_sources_and_accounts_actual_reads() {
     }
 
     fn target_definition(path: &str) -> CollectionDefinition {
-        let mut definition = CollectionDefinition::folder(path, path, SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder(path, path);
         definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
         q4_field(&mut definition.schema, "id", LogicalType::Id);
         q4_field(&mut definition.schema, "title", LogicalType::String);

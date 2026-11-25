@@ -219,7 +219,6 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::{FieldDefinition, Schema};
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-collation-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -251,7 +250,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -415,7 +414,6 @@ fn cross_collection_sort_rejects_different_collation() {
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
     use crate::schema::{FieldDefinition, Schema};
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!("objekte-cross-sort-{}", std::process::id()));
     for name in ["a", "b"] {
@@ -437,7 +435,7 @@ fn cross_collection_sort_rejects_different_collation() {
     let definitions = ["a", "b"].map(|name| CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema: schema.clone(),
@@ -489,9 +487,8 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
     use crate::inventory::FileStatus;
     use crate::query::options::{ReturnMode, SortField};
     use crate::query::{Query, QueryOptions};
-    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::FieldDefinition;
-    use crate::source::SourceFormat;
 
     let root = std::env::temp_dir().join(format!(
         "objekte-shared-status-sort-{}-{}",
@@ -512,7 +509,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
         .unwrap();
     }
 
-    let mut lenient = CollectionDefinition::folder("lenient", "data", SourceFormat::Json);
+    let mut lenient = crate::source::test_support::document_folder("lenient", "data");
     lenient
         .schema
         .register_field(FieldDefinition {
@@ -538,7 +535,7 @@ fn shared_file_status_refreshes_composite_orders_before_publication() {
             ])
             .unwrap();
     }
-    let mut strict = CollectionDefinition::folder("strict", "data", SourceFormat::Json);
+    let mut strict = crate::source::test_support::document_folder("strict", "data");
     strict
         .schema
         .register_field(FieldDefinition {

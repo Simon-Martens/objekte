@@ -21,7 +21,6 @@ use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::SourceFormat;
 use serde_json::json;
 
 fn schema() -> Result<Schema, String> {
@@ -262,7 +261,8 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
     let collection = builder.collection("records", schema()?)?;
     let registration = builder.register_records(collection, "benchmark.direct", 1)?;
     builder.register_file_catalog(FileCatalog::new(&root)?)?;
-    let mut definition = CollectionDefinition::folder("records", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("records", "data", objekte_loader_jsonl::JSON_LINES);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     builder.register_file_source(collection, definition.file_source())?;
     let index = builder.build()?;

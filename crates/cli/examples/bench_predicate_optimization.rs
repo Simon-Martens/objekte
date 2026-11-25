@@ -6,9 +6,8 @@ use std::time::Instant;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
-use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::schema::FieldDefinition;
-use objekte_search_core::source::SourceFormat;
 
 fn main() {
     if let Err(error) = run() {
@@ -28,7 +27,7 @@ fn run() -> Result<(), String> {
     if repetitions < 7 || args.next().is_some() {
         return Err("expected fixture root and at least seven repetitions".into());
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = objekte_loader_json::folder("data", "data");
     for (name, indexed) in [
         ("kind", true),
         ("body", false),

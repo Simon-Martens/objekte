@@ -17,7 +17,6 @@ use objekte_search_core::records::reader::{
 use objekte_search_core::records::{RecordKey, RecordVersion};
 use objekte_search_core::repository::configuration::CollectionDefinition;
 use objekte_search_core::schema::Schema;
-use objekte_search_core::source::SourceFormat;
 
 fn direct_records() -> Result<(), Box<dyn Error>> {
     let mut builder =
@@ -60,7 +59,8 @@ fn managed_file_and_direct_records() -> Result<(), Box<dyn Error>> {
     builder.register_file_catalog(FileCatalog::new(&root)?)?;
     builder.register_file_source(
         entries,
-        CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines).file_source(),
+        CollectionDefinition::folder("entries", "data", objekte_loader_jsonl::JSON_LINES)
+            .file_source(),
     )?;
     let index = builder.build()?;
     let session = index.ingestion();

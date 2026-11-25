@@ -54,3 +54,8 @@ macro_rules! objekte_json_unit_tests {
 
 #[cfg(test)]
 extern crate self as objekte_loader_json;
+
+#[cfg(test)]
+pub(crate) use crate::source::test_support::{
+    DECODED_SCALARS as JSON_DECODED_SCALARS, DOCUMENTS as JSON_DOCUMENTS,
+};

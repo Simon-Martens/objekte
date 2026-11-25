@@ -41,7 +41,7 @@ fn fractional_numbering_remains_numeric() {
     let path = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("../../examples/musenalm/data/contents/00mc7w4nobyg3xt.json");
     let extracted = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap()
         .reader()
         .parse(&std::fs::read(path).unwrap())

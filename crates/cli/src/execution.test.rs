@@ -1,6 +1,5 @@
 use super::*;
-use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 
 #[test]
 fn source_open_ignores_existing_index_artifacts() {
@@ -49,11 +48,7 @@ fn unavailable_source_is_a_partial_query_error_not_a_success() {
     std::fs::write(&first, r#"{"year":2024}"#).unwrap();
     let index = objekte_search_core::lifecycle::Index::start_build(
         root.path(),
-        vec![CollectionDefinition::folder(
-            "files",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![objekte_loader_json::folder("files", "data")],
         RepositoryOptions::default(),
         objekte_cli::loader::installed_sources(),
     )

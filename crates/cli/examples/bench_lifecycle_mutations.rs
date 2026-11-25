@@ -18,7 +18,6 @@ use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::FieldDefinition;
-use objekte_search_core::source::SourceFormat;
 
 struct QueryProbe {
     times_ns: Vec<u64>,
@@ -228,7 +227,8 @@ fn setup_small(root: &Path) -> Result<(), Box<dyn Error>> {
 /// with stable intrinsic IDs before invoking this mode.
 fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
     let root = root.canonicalize()?;
-    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("items", "data", objekte_loader_jsonl::JSON_LINES);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (name, kind) in [("id", LogicalType::Id), ("name", LogicalType::String)] {
         definition.schema.register_field(FieldDefinition {

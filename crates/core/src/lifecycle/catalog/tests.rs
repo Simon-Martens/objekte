@@ -4,8 +4,7 @@ use super::FileCatalog;
 use crate::model::Number;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
-use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use crate::source::SourceFormat;
+use crate::repository::configuration::RepositoryOptions;
 
 #[test]
 fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
@@ -21,11 +20,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let repository = Arc::new(
         crate::lifecycle::Index::build_repository_for_test(
             &root,
-            vec![CollectionDefinition::folder(
-                "data",
-                "data",
-                SourceFormat::Json,
-            )],
+            vec![crate::source::test_support::document_folder("data", "data")],
             RepositoryOptions {
                 ..Default::default()
             },

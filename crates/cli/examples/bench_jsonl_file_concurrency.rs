@@ -8,7 +8,7 @@ use std::time::Instant;
 use objekte_search_core::index::segment::SegmentPolicy;
 use objekte_search_core::lifecycle::{Index, initial::test_hooks::track_file_activity};
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
+use objekte_search_core::source::registry::SourceRegistry;
 
 fn write_fixture(
     root: &Path,
@@ -68,7 +68,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .sum();
     let mut sources = SourceRegistry::default();
     objekte_loader_jsonl::register(&mut sources)?;
-    let collection = CollectionDefinition::folder("lines", "", SourceFormat::JsonLines);
+    let collection = CollectionDefinition::folder("lines", "", objekte_loader_jsonl::JSON_LINES);
     let options = RepositoryOptions {
         build_workers: Some(workers),
         segment_policy: SegmentPolicy {

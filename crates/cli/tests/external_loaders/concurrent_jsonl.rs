@@ -63,7 +63,7 @@ impl LargeFixture {
             .iter()
             .map(|name| {
                 let mut collection =
-                    CollectionDefinition::folder(*name, "", SourceFormat::JsonLines);
+                    CollectionDefinition::folder(*name, "", objekte_loader_jsonl::JSON_LINES);
                 collection.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
                 collection
             })

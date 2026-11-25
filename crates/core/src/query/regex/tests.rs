@@ -10,7 +10,7 @@ use crate::schema::{
     FieldDefinition, Schema, operation::BindingOperation, operation::CustomBinding,
     operation::RegisteredBinding, operation::Transform,
 };
-use crate::source::{SourceFormat, TextSegment};
+use crate::source::TextSegment;
 
 #[test]
 fn compilation_limits_and_flags() {
@@ -98,7 +98,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -560,7 +560,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,

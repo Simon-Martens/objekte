@@ -1,5 +1,6 @@
 //! Format-independent source contracts, framing, extraction, and access.
 
+use std::borrow::Cow;
 use std::collections::HashSet;
 use std::io::Read;
 
@@ -26,37 +27,46 @@ mod jsonl_framing;
 pub(crate) mod preparation;
 pub mod registry;
 #[cfg(test)]
-mod test_support;
+pub(crate) mod test_support;
 pub mod text;
 
 pub use framing::BoundedBuildChunk as BuildChunk;
 pub mod verification;
 
+/// An opaque reader registration and optional historical configuration encoding.
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum SourceFormat {
-    Json,
-    JsonDecodedScalars,
-    JsonLines,
-    Registered(String),
+pub struct SourceFormat {
+    id: Cow<'static, str>,
+    compatibility_encoding: Option<Cow<'static, str>>,
 }
 
 impl SourceFormat {
+    /// Select a registration using its generic configuration identity.
     pub fn registered(id: impl Into<String>) -> Self {
-        Self::Registered(id.into())
-    }
-
-    pub fn id(&self) -> &str {
-        match self {
-            Self::Json => "json",
-            Self::JsonDecodedScalars => "json_decoded_scalars",
-            Self::JsonLines => "jsonl",
-            Self::Registered(id) => id,
+        Self {
+            id: Cow::Owned(id.into()),
+            compatibility_encoding: None,
         }
     }
 
-    pub(crate) fn supports_relative_path_identity(&self) -> bool {
-        matches!(self, Self::Json | Self::JsonDecodedScalars)
+    /// Preserve an existing selector's configuration identity without changing
+    /// registry lookup or granting reader capabilities.
+    pub const fn with_compatibility_encoding(id: &'static str, encoding: &'static str) -> Self {
+        Self {
+            id: Cow::Borrowed(id),
+            compatibility_encoding: Some(Cow::Borrowed(encoding)),
+        }
+    }
+
+    pub fn id(&self) -> &str {
+        &self.id
+    }
+
+    pub(crate) fn configuration_encoding(&self) -> Cow<'_, str> {
+        self.compatibility_encoding
+            .as_deref()
+            .map(Cow::Borrowed)
+            .unwrap_or_else(|| Cow::Owned(format!("Registered({:?})", self.id())))
     }
 }
 

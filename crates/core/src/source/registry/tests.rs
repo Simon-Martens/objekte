@@ -155,15 +155,15 @@ fn custom_readers_under_builtin_names_never_use_builtin_scalar_verification() {
     let builtins = SourceRegistry::builtin();
     for (format, expected) in [
         (
-            SourceFormat::Json,
+            crate::source::test_support::DOCUMENTS,
             Some(ScalarVerification::ResolvedStrings),
         ),
         (
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
             Some(ScalarVerification::ResolvedStrings),
         ),
         (
-            SourceFormat::JsonDecodedScalars,
+            crate::source::test_support::DECODED_SCALARS,
             Some(ScalarVerification::DecodedScalars),
         ),
     ] {
@@ -928,7 +928,7 @@ fn relative_path_identity_depends_on_the_registered_reader() {
             Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
         )
         .unwrap();
-    let mut declared_json = CollectionDefinition::folder("data", "multi", SourceFormat::Json);
+    let mut declared_json = crate::source::test_support::document_folder("data", "multi");
     declared_json.identity = IdentityPolicy::RelativePath;
     let error = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -1276,7 +1276,7 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema: Default::default(),
@@ -1327,7 +1327,7 @@ fn discovery_symlink_policy_confines_sources_and_avoids_cycles() {
     symlink(root.join("data"), root.join("data/nested/cycle")).unwrap();
     symlink(&outside, root.join("data/outside.json")).unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let mut rules = Discovery {
         recursive: true,

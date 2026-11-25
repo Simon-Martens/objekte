@@ -1734,8 +1734,7 @@ mod tests {
     fn prepared_direct_batches_survive_unrelated_file_publication() {
         use crate::files::FileCatalog;
         use crate::query::options::ReturnMode;
-        use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
-        use crate::source::SourceFormat;
+        use crate::repository::configuration::IdentityPolicy;
 
         for (grouped, collision) in [(false, false), (true, false), (false, true), (true, true)] {
             let root = std::env::temp_dir().join(format!(
@@ -1751,8 +1750,7 @@ mod tests {
             builder
                 .register_file_catalog(FileCatalog::new(&root).unwrap())
                 .unwrap();
-            let mut definition =
-                CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+            let mut definition = crate::source::test_support::document_folder("entries", "data");
             definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
             builder
                 .register_file_source(collection, definition.file_source())

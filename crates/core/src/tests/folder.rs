@@ -8,35 +8,20 @@ fn root(name: &str) -> std::path::PathBuf {
 }
 
 #[test]
-fn folder_identity_defaults_and_relative_path_eligibility_follow_format() {
-    for (format, supports_relative_path, expected_identity) in [
-        (SourceFormat::Json, true, IdentityPolicy::RelativePath),
-        (
-            SourceFormat::JsonDecodedScalars,
-            true,
-            IdentityPolicy::RelativePath,
-        ),
-        (SourceFormat::JsonLines, false, IdentityPolicy::Generated),
-        (
-            SourceFormat::registered("json"),
-            false,
-            IdentityPolicy::Generated,
-        ),
-        (
-            SourceFormat::registered("custom"),
-            false,
-            IdentityPolicy::Generated,
-        ),
+fn folder_identity_is_supplied_by_the_caller() {
+    for format in [
+        SourceFormat::registered("plain"),
+        SourceFormat::with_compatibility_encoding("plain", "OldSelector"),
     ] {
-        assert_eq!(
-            format.supports_relative_path_identity(),
-            supports_relative_path,
-            "{format:?}"
+        let definition = CollectionDefinition::folder("data", "data", format.clone());
+        assert_eq!(definition.identity, IdentityPolicy::Generated);
+        let definition = CollectionDefinition::folder_with_identity(
+            "data",
+            "data",
+            format,
+            IdentityPolicy::RelativePath,
         );
-        assert_eq!(
-            CollectionDefinition::folder("data", "data", format).identity,
-            expected_identity
-        );
+        assert_eq!(definition.identity, IdentityPolicy::RelativePath);
     }
 }
 
@@ -50,7 +35,7 @@ fn recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields(
     std::fs::write(root.join(".objekte/collections/data.json"), "not a schema").unwrap();
     std::fs::write(root.join("data/a/item.json"), r#"{"title":"Goethe"}"#).unwrap();
     std::fs::write(root.join("data/b/item.json"), r#"{"title":"Other"}"#).unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", "data");
     assert!(definition.schema.fields.is_empty());
     assert!(definition.discovery.recursive);
     assert_eq!(definition.identity, IdentityPolicy::RelativePath);
@@ -102,7 +87,8 @@ fn jsonl_folder_uses_distinct_generated_record_ids() {
         "{\"name\":\"one\"}\n{\"name\":\"two\"}\n",
     )
     .unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     assert_eq!(definition.identity, IdentityPolicy::Generated);
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,

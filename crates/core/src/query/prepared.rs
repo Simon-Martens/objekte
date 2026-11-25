@@ -150,8 +150,7 @@ mod tests {
     use super::*;
     use crate::query::options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, RegexOptions};
-    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-    use crate::source::SourceFormat;
+    use crate::repository::configuration::RepositoryOptions;
 
     #[test]
     fn each_request_binds_new_regex_and_independent_collections() {
@@ -168,7 +167,7 @@ mod tests {
             &root,
             ["first", "second"]
                 .into_iter()
-                .map(|name| CollectionDefinition::folder(name, name, SourceFormat::Json))
+                .map(|name| crate::source::test_support::document_folder(name, name))
                 .collect(),
             RepositoryOptions::default(),
             crate::source::registry::SourceRegistry::builtin(),
@@ -221,11 +220,7 @@ mod tests {
         std::fs::write(root.join("data/one.json"), br#"{"title":"same","year":1}"#).unwrap();
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
-            vec![CollectionDefinition::folder(
-                "data",
-                "data",
-                SourceFormat::Json,
-            )],
+            vec![crate::source::test_support::document_folder("data", "data")],
             RepositoryOptions::default(),
             crate::source::registry::SourceRegistry::builtin(),
         )

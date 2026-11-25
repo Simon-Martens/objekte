@@ -13,7 +13,7 @@ use crate::model::{CollectionId, FileId};
 use crate::model::{FieldPath, LogicalType, Number};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
-use crate::source::{SourceFormat, registry::SourceRegistry};
+use crate::source::registry::SourceRegistry;
 use std::time::Instant;
 
 #[test]
@@ -27,7 +27,8 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
             .as_nanos()
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     definition
         .schema
         .register_field(FieldDefinition {
@@ -41,7 +42,7 @@ fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
         })
         .unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let mut inputs = Vec::new();
     for (number, bytes) in [b"{\"n\":1}\n".as_slice(), b"{bad}\n".as_slice()]
@@ -108,9 +109,9 @@ fn disabled_inference_does_not_create_compact_observation() {
             .as_nanos()
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     std::fs::write(root.join("0.jsonl"), "{\"x\":1}\n").unwrap();
     let input = SourceFileInput {
@@ -165,7 +166,8 @@ fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
             .as_nanos()
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     for (name, kind, indexed) in [
         ("n", LogicalType::Number, true),
         ("s", LogicalType::String, false),
@@ -193,7 +195,7 @@ fn transfers_pristine_declared_postings_across_first_and_zero_record_batches() {
         .prohibit_auto_index(vec!["blocked".into()])
         .unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     for (name, body) in [
         ("0.jsonl", ""),
@@ -330,7 +332,8 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     definition
         .schema
         .register_field(FieldDefinition {
@@ -345,7 +348,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
         .unwrap();
     definition.sort_fields.push(FieldPath::parse("n").unwrap());
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -515,11 +518,11 @@ fn same_physical_file_can_enter_two_collection_segments() {
     let path = root.join("shared.jsonl");
     std::fs::write(&path, b"{\"n\":1}\n").unwrap();
     let definitions = [
-        CollectionDefinition::folder("left", ".", SourceFormat::JsonLines),
-        CollectionDefinition::folder("right", ".", SourceFormat::JsonLines),
+        CollectionDefinition::folder("left", ".", crate::source::test_support::LINES),
+        CollectionDefinition::folder("right", ".", crate::source::test_support::LINES),
     ];
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let bindings = [
         FilePreparationBinding {
@@ -593,9 +596,10 @@ fn measure_single_file_segment_cost() {
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
-    let definition = CollectionDefinition::folder("sample", ".", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("sample", ".", crate::source::test_support::LINES);
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),

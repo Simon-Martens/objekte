@@ -11,7 +11,6 @@ use objekte_search_core::schema::relations::{RelationCardinality, RelationDefini
 use objekte_search_core::schema::{
     FieldDefinition, Schema, operation::CustomBinding, operation::Transform,
 };
-use objekte_search_core::source::SourceFormat;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 
@@ -94,8 +93,8 @@ fn load_definitions_with_mode(
         });
         let source_path = string("path")?.into();
         let format = match string("format")? {
-            "json" => SourceFormat::Json,
-            "jsonl" => SourceFormat::JsonLines,
+            "json" => objekte_loader_json::JSON_DOCUMENTS,
+            "jsonl" => objekte_loader_jsonl::JSON_LINES,
             other => return Err(format!("unsupported source format {other}")),
         };
         let identity = match string("id")? {

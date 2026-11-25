@@ -10,7 +10,6 @@ use objekte_search_core::repository::configuration::{
     CollectionDefinition, IdentityPolicy, RepositoryOptions,
 };
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::WorkloadCase;
 
 fn fixture() -> (PathBuf, Index, IndexView) {
@@ -59,7 +58,7 @@ fn fixture() -> (PathBuf, Index, IndexView) {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: objekte_loader_json::JSON_DOCUMENTS,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
@@ -319,7 +318,7 @@ fn explicit_composite_order_streams_and_matches_reference() {
     // The fixture constructor is reused below with a separate explicit schema.
     drop(repo);
     drop(fixture_index);
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = objekte_loader_json::folder("data", "data");
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (name, kind) in [
         ("id", LogicalType::String),
@@ -482,11 +481,7 @@ fn schema_free_sort_reductions_positions_and_late_error() {
     }
     let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![objekte_loader_json::folder("data", "data")],
         RepositoryOptions {
             ..Default::default()
         },
@@ -560,11 +555,7 @@ fn schema_free_sort_reductions_positions_and_late_error() {
     drop(repo);
     let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![objekte_loader_json::folder("data", "data")],
         RepositoryOptions {
             ..Default::default()
         },
@@ -606,11 +597,7 @@ fn computed_top_k_matches_an_independent_seeded_numeric_order() {
     }
     let repo = objekte_search_core::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![objekte_loader_json::folder("data", "data")],
         RepositoryOptions {
             ..Default::default()
         },

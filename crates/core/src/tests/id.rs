@@ -6,7 +6,6 @@ use crate::query_results::Payload;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::repository::posting_values::PostingValuesRequest;
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::SourceFormat;
 
 fn definition() -> CollectionDefinition {
     let mut schema = Schema::default();
@@ -31,7 +30,7 @@ fn definition() -> CollectionDefinition {
     CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,

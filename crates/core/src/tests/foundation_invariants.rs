@@ -11,7 +11,6 @@ use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
 use crate::source::DiagnosticCategory;
-use crate::source::SourceFormat;
 
 fn definition() -> CollectionDefinition {
     let mut schema = Schema::default();
@@ -38,7 +37,7 @@ fn definition() -> CollectionDefinition {
     CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,

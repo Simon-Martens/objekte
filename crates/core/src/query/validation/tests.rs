@@ -3,9 +3,8 @@ use std::time::{SystemTime, UNIX_EPOCH};
 use crate::model::LogicalType;
 use crate::query::options::ReturnMode;
 use crate::query::{Query, QueryOptions, parse_filter};
-use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+use crate::repository::configuration::RepositoryOptions;
 use crate::schema::FieldDefinition;
-use crate::source::SourceFormat;
 
 #[test]
 fn validates_binding_without_reopening_source_records() {
@@ -17,7 +16,7 @@ fn validates_binding_without_reopening_source_records() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     let source = root.join("data/record.json");
     std::fs::write(&source, r#"{"year":1900}"#).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {

@@ -69,7 +69,7 @@ fn fixture() -> std::path::PathBuf {
 fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
     let root = fixture();
     let definition = || {
-        let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder("data", "data");
         definition.identity = IdentityPolicy::Filename;
         definition
     };
@@ -257,7 +257,7 @@ fn broad_structural_superset_makes_scanning_cheaper() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Filename;
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,

@@ -5,7 +5,6 @@ use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, operation::CustomBinding, operation::Transform};
-use crate::source::SourceFormat;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
@@ -41,7 +40,8 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         b"{\"kind\":\"a\"}\n{\"kind\":\"b\"}\n{bad}\n{\"kind\":\"a\"}\n",
     )
     .unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     definition
         .schema
         .register_field(FieldDefinition {
@@ -55,7 +55,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         })
         .unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let inference = crate::inference::InferenceConfig::default();
     let alphabet = crate::index::bigram::BigramAlphabet::Ascii;
@@ -179,7 +179,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Filename;
     definition
         .schema
@@ -415,7 +415,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -1126,7 +1126,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
         CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1241,7 +1241,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -1432,7 +1432,7 @@ fn registered_binding_has_identical_filter_and_fts_semantics() {
         CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1670,7 +1670,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Filename;
     definition
         .schema
@@ -1879,7 +1879,7 @@ fn record_id_lookup_respects_case_fold_binding() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema: Default::default(),
@@ -1978,7 +1978,7 @@ fn indexed_restriction_precedes_written_first_scan() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -2122,7 +2122,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,

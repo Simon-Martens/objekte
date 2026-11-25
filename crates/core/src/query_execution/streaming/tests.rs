@@ -6,7 +6,6 @@ use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, pars
 use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::SourceFormat;
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
@@ -319,7 +318,7 @@ fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -386,7 +385,7 @@ fn residual_payload_fixture() -> Fixture {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -453,7 +452,7 @@ fn cache_closed_fixture() -> Fixture {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1221,7 +1220,7 @@ fn ordered_successor_accounts_for_the_live_popped_key() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -1909,7 +1908,7 @@ fn stored_order_cursor_merges_collection_ties_before_delivery() {
     let definitions = ["a", "b"].map(|name| CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema: schema.clone(),

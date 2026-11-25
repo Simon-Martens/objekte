@@ -159,7 +159,12 @@ pub fn configuration_hash(
         feed(&mut hash, source.extension().as_bytes());
         feed(
             &mut hash,
-            format!("{:?}/{:?}", definition.format, definition.identity).as_bytes(),
+            format!(
+                "{}/{:?}",
+                definition.format.configuration_encoding(),
+                definition.identity
+            )
+            .as_bytes(),
         );
         feed_policy(&mut hash, definition);
     }
@@ -202,7 +207,12 @@ pub(crate) fn programmatic_configuration_hash(
             feed(&mut hash, reader.extension().as_bytes());
             feed(
                 &mut hash,
-                format!("{:?}/{:?}", file_source.format, file_source.identity).as_bytes(),
+                format!(
+                    "{}/{:?}",
+                    file_source.format.configuration_encoding(),
+                    file_source.identity
+                )
+                .as_bytes(),
             );
         }
     }
@@ -235,14 +245,12 @@ mod tests {
         // with the same definitions/options. They prove the live identity did
         // not change while disk format versions were removed.
         let sources = SourceRegistry::builtin();
-        let folder = vec![CollectionDefinition::folder(
-            "files",
-            "",
-            SourceFormat::JsonDecodedScalars,
+        let folder = vec![crate::source::test_support::decoded_scalar_folder(
+            "files", "",
         )];
         let configured = vec![
-            CollectionDefinition::folder("authors", "data/authors", SourceFormat::Json),
-            CollectionDefinition::folder("books", "data/books", SourceFormat::JsonLines),
+            crate::source::test_support::document_folder("authors", "data/authors"),
+            CollectionDefinition::folder("books", "data/books", crate::source::test_support::LINES),
         ];
         let cases = [
             (
@@ -286,7 +294,7 @@ mod tests {
     fn configuration_identity_tracks_content_inputs_and_ignores_runtime_budgets() {
         let sources = SourceRegistry::builtin();
         let options = RepositoryOptions::default();
-        let definition = CollectionDefinition::folder("items", "items", SourceFormat::Json);
+        let definition = crate::source::test_support::document_folder("items", "items");
         let base =
             configuration_hash(std::slice::from_ref(&definition), options, &sources).unwrap();
         let mut changed_options = options;
@@ -382,6 +390,53 @@ mod tests {
         assert_ne!(
             configuration_hash(std::slice::from_ref(&registered), options, &reader_one).unwrap(),
             configuration_hash(&[registered], options, &reader_two).unwrap()
+        );
+    }
+}
+
+#[cfg(test)]
+#[test]
+fn configuration_hashes_preserve_legacy_and_generic_selectors() {
+    use crate::source::SourceFormat;
+    let sources = SourceRegistry::builtin();
+    let opts = RepositoryOptions::default();
+    let cases = [
+        (
+            SourceFormat::with_compatibility_encoding("json", "Json"),
+            "89c6e93f51b1209faebe7fe5986cdf81854b72d0e7e16ae27e07d411dbb6f5cb",
+            "6dd8c8c302360ab03d2f6f80351577d319ab6e54f5e748b811653f1acf1793e2",
+        ),
+        (
+            SourceFormat::registered("json"),
+            "0701cb2a88a98e231401e22c77a2f9c3633231e1563413dbb4b420b3d2d315fb",
+            "42cf0614adbbbb0e1e8b58995e3c4d52e9d114720a19b7c7072c8f94e599571d",
+        ),
+    ];
+    for (format, expected_file, expected_programmatic) in cases {
+        let definition = CollectionDefinition::folder_with_identity(
+            "items",
+            "data",
+            format,
+            crate::repository::configuration::IdentityPolicy::RelativePath,
+        );
+        let file_hash =
+            configuration_hash(std::slice::from_ref(&definition), opts, &sources).unwrap();
+        let programmatic_hash = programmatic_configuration_hash(
+            &[definition.declaration()],
+            opts,
+            &[],
+            true,
+            &[Some(definition.file_source())],
+            &sources,
+        )
+        .unwrap();
+        assert_eq!(
+            format!("{file_hash:02x?}").replace(['[', ']', ',', ' '], ""),
+            expected_file
+        );
+        assert_eq!(
+            format!("{programmatic_hash:02x?}").replace(['[', ']', ',', ' '], ""),
+            expected_programmatic
         );
     }
 }

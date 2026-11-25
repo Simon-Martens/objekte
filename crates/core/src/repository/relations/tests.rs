@@ -3,7 +3,6 @@ use crate::model::LogicalType;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::relations::RelationDefinition;
 use crate::schema::{FieldDefinition, Schema};
-use crate::source::SourceFormat;
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
     schema
@@ -23,7 +22,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,

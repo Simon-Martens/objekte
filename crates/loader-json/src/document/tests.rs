@@ -4,7 +4,7 @@ use crate::model::{Number, Value};
 use crate::source::json_lines::JsonLinesReader;
 use crate::source::registry::SourceRegistry;
 use crate::source::{
-    DiagnosticCategory, ReaderFailure, ScanProjection, SourceFormat, SourceReader,
+    DiagnosticCategory, ReaderFailure, ScanProjection, SourceReader,
     text::visit_logical_strings,
 };
 
@@ -100,7 +100,7 @@ fn direct_build_json_matches_existing_logical_reader_and_diagnostics() {
 fn root_queries_match_reference_over_mixed_json_documents() {
     use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::RepositoryOptions;
 
     let root = std::env::temp_dir().join(format!("objekte-json-roots-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
@@ -117,11 +117,8 @@ fn root_queries_match_reference_over_mixed_json_documents() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data",
+            "data")],
         RepositoryOptions {
             ..Default::default()
         },
@@ -181,14 +178,14 @@ fn root_queries_match_reference_over_mixed_json_documents() {
 fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
     use crate::inventory::RecordClass;
     use crate::model::LogicalType;
-    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::RepositoryOptions;
     use crate::schema::FieldDefinition;
 
     let root = std::env::temp_dir().join(format!("objekte-declared-root-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/root.json"), br#"["first", 2]"#).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -229,7 +226,7 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::configuration::{
-        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+        IdentityPolicy, RepositoryOptions,
     };
 
     let root =
@@ -243,7 +240,7 @@ fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
     .unwrap();
     std::fs::write(root.join("data/object.json"), br#"{"n":-1e-1000000}"#).unwrap();
     let mut definition =
-        CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
+        crate::source::test_support::decoded_scalar_folder("data", "data");
     definition.identity = IdentityPolicy::RelativePath;
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
@@ -492,7 +489,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::query::options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
     use crate::repository::configuration::{
-        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+        IdentityPolicy, RepositoryOptions,
     };
 
     let root = std::env::temp_dir().join(format!("objekte-scalar-fts-{}", std::process::id()));
@@ -523,7 +520,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     ];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let mut definition =
-            CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
+            crate::source::test_support::decoded_scalar_folder("data", "data");
         definition.identity = IdentityPolicy::RelativePath;
         let repo = crate::lifecycle::Index::build_repository_for_test(
             &root,
@@ -598,7 +595,7 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     use crate::schema::{FieldDefinition, Schema};
 
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let bytes =
         r#"{"date":"2026-01-02","title":"aßb","nested":{"names":["ab","cd",""]}}"#.as_bytes();
@@ -666,7 +663,7 @@ fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
         collect_text: true,
         resolved_text_only: false,
     };
-    for format in [SourceFormat::Json, SourceFormat::JsonLines] {
+    for format in [crate::source::test_support::DOCUMENTS, crate::source::test_support::LINES] {
         let source = SourceRegistry::builtin().resolve(&format).unwrap();
         let selected = source.reader().parse_for_query(bytes, &projection).unwrap();
         assert_eq!(

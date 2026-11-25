@@ -40,12 +40,16 @@ fn loader_registration_is_independent_and_preserves_bytes() {
     let lines = [b" \t\r\n".as_slice(), document, b"\r\n", document].concat();
     std::fs::write(root.path().join("one.json"), document).unwrap();
     std::fs::write(root.path().join("two.jsonl"), &lines).unwrap();
-    let json = CollectionDefinition::folder("documents", "", SourceFormat::JsonDecodedScalars);
-    let lines = CollectionDefinition::folder("lines", "", SourceFormat::JsonLines);
+    let json = objekte_loader_json::decoded_scalar_folder("documents", "");
+    let lines = CollectionDefinition::folder("lines", "", objekte_loader_jsonl::JSON_LINES);
 
     let mut only_lines = SourceRegistry::default();
     objekte_loader_jsonl::register(&mut only_lines).unwrap();
-    assert!(only_lines.resolve(&SourceFormat::Json).is_err());
+    assert!(
+        only_lines
+            .resolve(&objekte_loader_json::JSON_DOCUMENTS)
+            .is_err()
+    );
     assert!(
         Index::start_build(
             root.path(),
@@ -123,7 +127,7 @@ fn optional_schema_matches_programmatic_declarations_and_is_prepared_once() {
     )
     .unwrap();
     assert!(load_optional_schema(None, "documents").unwrap().is_none());
-    let base = CollectionDefinition::folder("documents", "", SourceFormat::Json);
+    let base = objekte_loader_json::folder("documents", "");
     let mut plain = base.clone();
     plain.discovery.exclude_files.push("schema.json".into());
     let mut explicit = plain.clone();
@@ -160,7 +164,7 @@ fn optional_schema_matches_programmatic_declarations_and_is_prepared_once() {
         .unwrap();
     let mut sources = SourceRegistry::default();
     objekte_loader_json::register(&mut sources).unwrap();
-    assert!(sources.resolve(&SourceFormat::JsonLines).is_err());
+    assert!(sources.resolve(&objekte_loader_jsonl::JSON_LINES).is_err());
     let mut request = query(&["documents"], ReturnMode::Logical);
     request.filter = Some(parse_filter("year = 1808").unwrap());
     let mut expected = None;
@@ -241,7 +245,7 @@ fn opened_inputs_reach_the_registered_reader_and_exact_counts_skip_content() {
         .unwrap();
     assert!(
         registry
-            .resolve(&SourceFormat::Json)
+            .resolve(&objekte_loader_json::JSON_DOCUMENTS)
             .unwrap()
             .reader()
             .scalar_verification()
@@ -320,13 +324,13 @@ fn exact_schema_bytes_change_configuration_with_two_collections_using_one_loader
     objekte_loader_json::register(&mut sources).unwrap();
 
     let build = || {
-        let mut one_definition = CollectionDefinition::folder("first", "one", SourceFormat::Json);
+        let mut one_definition = objekte_loader_json::folder("first", "one");
         one_definition.schema = load_optional_schema(Some(&one), "first")
             .unwrap()
             .unwrap()
             .compiled
             .schema;
-        let mut two_definition = CollectionDefinition::folder("second", "two", SourceFormat::Json);
+        let mut two_definition = objekte_loader_json::folder("second", "two");
         two_definition.schema = load_optional_schema(Some(&two), "second")
             .unwrap()
             .unwrap()

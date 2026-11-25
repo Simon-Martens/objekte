@@ -5217,6 +5217,8 @@ version = "0.1.0"
 dependencies = [
  "gpui-kit",
  "objekte-cli",
+ "objekte-loader-json",
+ "objekte-loader-jsonl",
  "objekte-search-core",
  "serde",
  "serde_json",

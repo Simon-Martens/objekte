@@ -329,7 +329,7 @@ fn importer_only_move_outside_selection_retires_empty_catalog_membership() {
     builder
         .register_file_catalog(FileCatalog::new(&root).unwrap())
         .unwrap();
-    let importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    let importer = objekte_loader_json::folder("entries", "data");
     builder
         .register_file_source(collection, importer.file_source())
         .unwrap();
@@ -447,7 +447,7 @@ fn explicit_native_text_does_not_claim_logical_field_coverage() {
     builder
         .register_file_source(
             collection,
-            CollectionDefinition::folder("entries", "data", SourceFormat::Json).file_source(),
+            objekte_loader_json::folder("entries", "data").file_source(),
         )
         .unwrap();
     let index = builder.build().unwrap();
@@ -1682,8 +1682,7 @@ fn logical_corpus_agrees_across_json_retained_and_provider() {
             })
             .unwrap();
     }
-    let mut file_definition =
-        CollectionDefinition::folder("entries", "entries", SourceFormat::Json);
+    let mut file_definition = objekte_loader_json::folder("entries", "entries");
     file_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     file_definition.schema = schema.clone();
     let files = Index::start_build(
@@ -2343,7 +2342,7 @@ fn public_builder_mixes_file_ranges_and_typed_records_in_one_collection() {
     builder
         .register_file_catalog(FileCatalog::new(&root).unwrap())
         .unwrap();
-    let mut importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    let mut importer = objekte_loader_json::folder("entries", "data");
     importer.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     builder
         .register_file_source(entries, importer.file_source())
@@ -2525,7 +2524,7 @@ fn one_collection_interleaves_managed_files_retained_and_versioned_records() {
             .register_file_catalog(FileCatalog::new(&root).unwrap())
             .unwrap();
         let mut definition =
-            CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+            CollectionDefinition::folder("entries", "data", objekte_loader_jsonl::JSON_LINES);
         definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
         builder
             .register_file_source(collection, definition.file_source())
@@ -2757,7 +2756,8 @@ fn pinned_file_bytes_reject_same_stamp_replacement() {
     builder
         .register_file_catalog(FileCatalog::new(&root).unwrap())
         .unwrap();
-    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("entries", "data", objekte_loader_jsonl::JSON_LINES);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     builder
         .register_file_source(collection, definition.file_source())
@@ -2829,7 +2829,7 @@ fn file_and_direct_routes_reject_cross_owner_identity_changes() {
             .register_file_catalog(FileCatalog::new(&root).unwrap())
             .unwrap();
         let mut definition =
-            CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+            CollectionDefinition::folder("entries", "data", objekte_loader_jsonl::JSON_LINES);
         definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
         builder
             .register_file_source(collection, definition.file_source())
@@ -3051,7 +3051,7 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
     builder
         .register_file_catalog(FileCatalog::new(&root).unwrap())
         .unwrap();
-    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    let mut definition = objekte_loader_json::folder("entries", "data");
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     builder
         .register_file_source(collection, definition.file_source())
@@ -3203,7 +3203,8 @@ fn routed_size_filter_stays_selective_after_managed_catalog_churn() {
     builder
         .register_file_catalog(FileCatalog::new(&root).unwrap())
         .unwrap();
-    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("entries", "data", objekte_loader_jsonl::JSON_LINES);
     definition.identity = IdentityPolicy::Filename;
     builder
         .register_file_source(collection, definition.file_source())

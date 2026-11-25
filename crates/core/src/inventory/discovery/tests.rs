@@ -5,7 +5,7 @@ use super::{
     Discovery, PreparedScanSelection, SymlinkPolicy, discover, discover_bounded, discover_stream,
     selects_file,
 };
-use crate::source::{SourceFormat, registry::SourceRegistry};
+use crate::source::registry::SourceRegistry;
 
 #[test]
 fn direct_selection_matches_full_discovery_without_enumerating_siblings() {
@@ -31,7 +31,7 @@ fn direct_selection_matches_full_discovery_without_enumerating_siblings() {
     }
     let root = root.canonicalize().unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -97,7 +97,7 @@ fn streaming_discovery_preserves_selection_and_symlink_alias_policy() {
     std::os::unix::fs::symlink("a.json", root.join("data/alias.json")).unwrap();
     let root = root.canonicalize().unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     for policy in [SymlinkPolicy::Skip, SymlinkPolicy::FollowWithinRoot] {
         let rules = Discovery {
@@ -145,7 +145,7 @@ fn prepared_scan_selection_matches_generated_namespace_eligibility() {
     )
     .unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -196,7 +196,7 @@ fn stream_discovery_ignores_reserved_dangling_and_looping_links() {
     std::os::unix::fs::symlink("objekte-indexes", root.join("data/nested/objekte-indexes"))
         .unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,

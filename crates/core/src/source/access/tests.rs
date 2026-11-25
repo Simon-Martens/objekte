@@ -183,10 +183,15 @@ fn changed_source_rejects_old_ranges_and_incomplete_extraction() {
     let ranges = JsonLinesReader
         .frame(&std::fs::read(&path).unwrap())
         .unwrap();
-    let changed = extract_file(&path, SourceFormat::JsonLines, revision, |_, _| {
-        std::fs::write(&path, b"{\"x\":1}\n{\"x\":22}\n").map_err(|e| e.to_string())?;
-        Ok(())
-    });
+    let changed = extract_file(
+        &path,
+        crate::source::test_support::LINES,
+        revision,
+        |_, _| {
+            std::fs::write(&path, b"{\"x\":1}\n{\"x\":22}\n").map_err(|e| e.to_string())?;
+            Ok(())
+        },
+    );
     assert!(changed.unwrap_err().contains("stale source revision"));
     assert!(
         read_record_range(&path, revision, ranges[1])
@@ -334,5 +339,5 @@ fn checked_range_reads_reject_replaced_path_with_spoofed_revision() {
 }
 use super::*;
 use crate::source::json_lines::JsonLinesReader;
-use crate::source::{SourceFormat, SourceReader, extraction::extract_file};
+use crate::source::{SourceReader, extraction::extract_file};
 use sha2::{Digest, Sha256};

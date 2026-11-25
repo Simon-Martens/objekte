@@ -23,7 +23,7 @@ fn source_scan_matches_reference_search_before_an_index_exists() {
     .unwrap();
     std::fs::write(root.join("data/b.json"), br#"{"title":"Beta"}"#).unwrap();
     std::fs::write(root.join("data/c.json"), br#"{"title":"broken""#).unwrap();
-    let mut definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("files", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -185,7 +185,10 @@ fn relative_path_identity_checks_whole_file_ranges_and_fallback_ids() {
     #[cfg(unix)]
     std::fs::write(root.join("data/nested/back\\slash.json"), backslash).unwrap();
 
-    for format in [SourceFormat::Json, SourceFormat::JsonDecodedScalars] {
+    for format in [
+        crate::source::test_support::DOCUMENTS,
+        crate::source::test_support::DECODED_SCALARS,
+    ] {
         let mut definition = CollectionDefinition::folder("files", "data", format.clone());
         definition.identity = IdentityPolicy::RelativePath;
         let indexed = crate::lifecycle::Index::build_repository_for_test(
@@ -333,7 +336,8 @@ fn jsonl_identity_checks_exact_ranges_classes_and_fallback_identity() {
     let bytes = [first.as_slice(), b"\n", second, b"\n", broken].concat();
     assert_eq!(bytes.len(), 54);
     std::fs::write(root.join("data/items.jsonl"), &bytes).unwrap();
-    let definition = CollectionDefinition::folder("files", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("files", "data", crate::source::test_support::LINES);
     let indexed = crate::lifecycle::Index::build_repository_for_test(
         &root,
         vec![definition.clone()],
@@ -459,9 +463,12 @@ fn relative_path_errors_name_one_valid_file_and_exact_range() {
     ));
     std::fs::create_dir_all(root.join("jsonl")).unwrap();
     std::fs::write(root.join("jsonl/valid.jsonl"), b"{\"title\":\"valid\"}\n").unwrap();
-    for (format, source_path, file_name, end) in
-        [(SourceFormat::JsonLines, "jsonl", "valid.jsonl", 17)]
-    {
+    for (format, source_path, file_name, end) in [(
+        crate::source::test_support::LINES,
+        "jsonl",
+        "valid.jsonl",
+        17,
+    )] {
         let mut definition = CollectionDefinition::folder("files", source_path, format.clone());
         definition.identity = IdentityPolicy::RelativePath;
         let error = crate::lifecycle::Index::build_repository_for_test(

@@ -402,9 +402,10 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
-    let definition = CollectionDefinition::folder("shared", ".", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("shared", ".", crate::source::test_support::LINES);
     let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let expected = Some((input.id, Sha256::digest(bytes).into()));
     let batch = process_batch(
@@ -503,16 +504,12 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
         created_ns: None,
     };
     let json_source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let generic = process_framed_file(
         &pool,
         Arc::new(root.clone()),
-        Arc::new(CollectionDefinition::folder(
-            "single",
-            ".",
-            SourceFormat::Json,
-        )),
+        Arc::new(crate::source::test_support::document_folder("single", ".")),
         CollectionId(0),
         json_source,
         json_input.id,
@@ -575,11 +572,11 @@ fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("shared.jsonl");
     let definitions = [
-        CollectionDefinition::folder("first", ".", SourceFormat::JsonLines),
-        CollectionDefinition::folder("second", ".", SourceFormat::JsonLines),
+        CollectionDefinition::folder("first", ".", crate::source::test_support::LINES),
+        CollectionDefinition::folder("second", ".", crate::source::test_support::LINES),
     ];
     let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let bindings = definitions
         .iter()
@@ -837,9 +834,9 @@ fn supplied_bytes_match_json_and_broken_fallback_without_file() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("data.json");
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", ".");
     let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -898,11 +895,11 @@ fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
     ));
     std::fs::create_dir_all(&root).unwrap();
     let definitions = [
-        CollectionDefinition::folder("first", ".", SourceFormat::JsonLines),
-        CollectionDefinition::folder("second", ".", SourceFormat::JsonLines),
+        CollectionDefinition::folder("first", ".", crate::source::test_support::LINES),
+        CollectionDefinition::folder("second", ".", crate::source::test_support::LINES),
     ];
     let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let bindings = [
         FilePreparationBinding {
@@ -978,9 +975,9 @@ fn single_file_preparation_preserves_broken_fallback_and_bounded_chunks() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -1057,9 +1054,9 @@ fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("data.json");
     std::fs::write(&path, b"{broken}").unwrap();
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", ".");
     let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::Json)
+        .resolve(&crate::source::test_support::DOCUMENTS)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -1128,9 +1125,10 @@ fn measure_single_file_preparation_cost() {
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
     };
-    let definition = CollectionDefinition::folder("sample", ".", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("sample", ".", crate::source::test_support::LINES);
     let source = crate::source::registry::SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -1762,7 +1760,7 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -1953,7 +1951,7 @@ fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema: Schema::default(),
@@ -2027,7 +2025,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
     let definition = Arc::new(CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema: Schema::default(),
@@ -2047,7 +2045,7 @@ fn bounded_jsonl_read_failure_never_reopens_the_source() {
         created_ns: None,
     }]);
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(1)
@@ -2321,7 +2319,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -2505,7 +2503,7 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         .map(|name| CollectionDefinition {
             name: name.into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema: schema.clone(),
@@ -2618,7 +2616,7 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,

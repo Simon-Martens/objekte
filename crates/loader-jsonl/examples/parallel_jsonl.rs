@@ -5,7 +5,7 @@ use std::path::PathBuf;
 
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
+use objekte_search_core::source::registry::SourceRegistry;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut args = std::env::args_os().skip(1);
@@ -16,9 +16,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .transpose()?;
     let mut sources = SourceRegistry::default();
     objekte_loader_jsonl::register(&mut sources)?;
-    assert!(sources.resolve(&SourceFormat::Json).is_err());
+    assert!(
+        sources
+            .resolve(&objekte_loader_json::JSON_DOCUMENTS)
+            .is_err()
+    );
 
-    let collection = CollectionDefinition::folder("entries", "", SourceFormat::JsonLines);
+    let collection = CollectionDefinition::folder("entries", "", objekte_loader_jsonl::JSON_LINES);
     let options = RepositoryOptions {
         build_workers: workers,
         ..Default::default()

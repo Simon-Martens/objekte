@@ -99,3 +99,33 @@ impl SourceReader for TinyReader {
         })
     }
 }
+
+pub(crate) const DOCUMENTS: super::SourceFormat =
+    super::SourceFormat::with_compatibility_encoding("json", "Json");
+pub(crate) const DECODED_SCALARS: super::SourceFormat =
+    super::SourceFormat::with_compatibility_encoding("json_decoded_scalars", "JsonDecodedScalars");
+pub(crate) const LINES: super::SourceFormat =
+    super::SourceFormat::with_compatibility_encoding("jsonl", "JsonLines");
+
+pub(crate) fn document_folder(
+    name: impl Into<String>,
+    path: impl Into<std::path::PathBuf>,
+) -> crate::repository::configuration::CollectionDefinition {
+    fixture_document_folder(name, path, DOCUMENTS)
+}
+
+pub(crate) fn decoded_scalar_folder(
+    name: impl Into<String>,
+    path: impl Into<std::path::PathBuf>,
+) -> crate::repository::configuration::CollectionDefinition {
+    fixture_document_folder(name, path, DECODED_SCALARS)
+}
+
+fn fixture_document_folder(
+    name: impl Into<String>,
+    path: impl Into<std::path::PathBuf>,
+    format: super::SourceFormat,
+) -> crate::repository::configuration::CollectionDefinition {
+    use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
+    CollectionDefinition::folder_with_identity(name, path, format, IdentityPolicy::RelativePath)
+}

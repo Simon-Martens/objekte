@@ -23,8 +23,7 @@ use objekte_search_core::query::{
 use objekte_search_core::query_execution::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
-use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
 
@@ -433,8 +432,7 @@ fn run() -> Result<(), String> {
         .rsplit('/')
         .next()
         .ok_or("source path has no collection component")?;
-    let mut definition =
-        CollectionDefinition::folder(collection_name, &config.source_path, SourceFormat::Json);
+    let mut definition = objekte_loader_json::folder(collection_name, &config.source_path);
     definition.sort_fields = ["@file.size", "@file.modified"]
         .into_iter()
         .map(FieldPath::parse)

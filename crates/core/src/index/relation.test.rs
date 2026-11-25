@@ -4,7 +4,6 @@ use crate::repository::Repository;
 use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::schema::FieldDefinition;
 use crate::schema::relations::RelationCardinality;
-use crate::source::SourceFormat;
 
 fn field(schema: &mut Schema, path: &[&str], kind: LogicalType, multi: bool, nullable: bool) {
     schema
@@ -38,7 +37,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,
@@ -634,7 +633,7 @@ fn profile_large_fanout_relation_publication() {
     let input_bytes = jsonl.len();
     std::fs::write(root.join("mentions/fanout.jsonl"), jsonl).unwrap();
     let mut definitions = definitions("entries");
-    definitions[2].format = SourceFormat::JsonLines;
+    definitions[2].format = crate::source::test_support::LINES;
     REVERSE_RECONSTRUCTIONS.store(0, std::sync::atomic::Ordering::Relaxed);
     let started = std::time::Instant::now();
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -866,8 +865,8 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
     )
     .unwrap();
     let mut defs = definitions("entries");
-    defs[0].format = SourceFormat::JsonLines;
-    defs[2].format = SourceFormat::JsonLines;
+    defs[0].format = crate::source::test_support::LINES;
+    defs[2].format = crate::source::test_support::LINES;
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         defs,

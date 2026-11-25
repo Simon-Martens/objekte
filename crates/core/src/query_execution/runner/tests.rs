@@ -70,7 +70,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Filename;
     definition
         .schema
@@ -405,7 +405,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     let mut split_definition = definition;
     split_definition.name = "split".into();
     split_definition.source_path = "data".into();
-    split_definition.format = SourceFormat::JsonLines;
+    split_definition.format = crate::source::test_support::LINES;
     split_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     let mut split_options = options;
     split_options.segment_policy = crate::index::segment::SegmentPolicy::with_target_records(
@@ -516,7 +516,7 @@ fn same_span_occurrences_keep_distinct_plans_and_exact_semantics() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Filename;
     for (field, indexed) in [("year", true), ("note", false)] {
         definition
@@ -704,7 +704,8 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
         .collect::<Vec<_>>()
         .join("\n");
     std::fs::write(root.join("data/records.jsonl"), format!("{source}\n")).unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (field, kind, indexed) in [
         ("title", LogicalType::String, true),
@@ -950,7 +951,7 @@ fn alternate_exact_predicate_implementation_matches_reference_in_boolean_queries
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Filename;
     for (path, kind) in [
         ("alt_title", LogicalType::String),
@@ -1060,7 +1061,7 @@ fn metadata_collection_name_compares_per_record_when_rhs_is_record_dependent() {
     std::fs::write(root.join("items/matching.json"), r#"{"id":"items"}"#).unwrap();
     std::fs::write(root.join("items/other.json"), r#"{"id":"other"}"#).unwrap();
 
-    let mut definition = CollectionDefinition::folder("items", "items", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("items", "items");
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
@@ -1257,7 +1258,7 @@ fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     definition
         .schema
@@ -1386,9 +1387,9 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
         r#"{"text":"before\u2139after","name":"Ada","name":"Bob"}"#,
     ];
     for format in [
-        SourceFormat::Json,
-        SourceFormat::JsonDecodedScalars,
-        SourceFormat::JsonLines,
+        crate::source::test_support::DOCUMENTS,
+        crate::source::test_support::DECODED_SCALARS,
+        crate::source::test_support::LINES,
     ] {
         let root = std::env::temp_dir().join(format!(
             "objekte-borrowed-source-{}-{}-{}",
@@ -1400,7 +1401,7 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
                 .as_nanos(),
         ));
         std::fs::create_dir_all(root.join("data")).unwrap();
-        if format == SourceFormat::JsonLines {
+        if format == crate::source::test_support::LINES {
             std::fs::write(root.join("data/all.jsonl"), records.join("\n")).unwrap();
         } else {
             for (index, record) in records.iter().enumerate() {
@@ -1469,7 +1470,9 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
         query.options.evidence = true;
         let collector_bytes_before = crate::source::text::owned_collector_copied_bytes();
         let value_owned = view.search(&query).unwrap();
-        if format == SourceFormat::Json || format == SourceFormat::JsonLines {
+        if format == crate::source::test_support::DOCUMENTS
+            || format == crate::source::test_support::LINES
+        {
             assert_eq!(
                 crate::source::text::owned_collector_copied_bytes(),
                 collector_bytes_before,
@@ -1487,7 +1490,9 @@ fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
         let unscoped = view.search(&query).unwrap();
         assert_eq!(
             unscoped.count,
-            Some(usize::from(format == SourceFormat::JsonDecodedScalars)),
+            Some(usize::from(
+                format == crate::source::test_support::DECODED_SCALARS
+            )),
             "{}",
             format.id()
         );
@@ -1522,9 +1527,9 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
         r#"{"title":"needle","title":"needle"}"#,
     ];
     for format in [
-        SourceFormat::Json,
-        SourceFormat::JsonLines,
-        SourceFormat::JsonDecodedScalars,
+        crate::source::test_support::DOCUMENTS,
+        crate::source::test_support::LINES,
+        crate::source::test_support::DECODED_SCALARS,
     ] {
         let root = std::env::temp_dir().join(format!(
             "objekte-root-fts-{}-{}",
@@ -1532,7 +1537,7 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
             std::process::id()
         ));
         std::fs::create_dir_all(root.join("data")).unwrap();
-        if format == SourceFormat::JsonLines {
+        if format == crate::source::test_support::LINES {
             std::fs::write(root.join("data/all.jsonl"), records.join("\n")).unwrap();
         } else {
             for (index, record) in records.iter().enumerate() {
@@ -1567,7 +1572,7 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
             (
                 "needle",
                 Vec::new(),
-                if format == SourceFormat::JsonDecodedScalars {
+                if format == crate::source::test_support::DECODED_SCALARS {
                     8
                 } else {
                     5
@@ -1576,7 +1581,7 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
             (
                 "123",
                 vec![root_field],
-                if format == SourceFormat::JsonDecodedScalars {
+                if format == crate::source::test_support::DECODED_SCALARS {
                     1
                 } else {
                     0
@@ -1652,10 +1657,8 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
     }
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::JsonDecodedScalars,
+        vec![crate::source::test_support::decoded_scalar_folder(
+            "data", "data",
         )],
         RepositoryOptions {
             query_workers: 1,
@@ -1721,7 +1724,7 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
         )
         .unwrap();
     }
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", "data");
     let query = Query {
         collections: vec!["data".into()],
         filter: None,
@@ -1808,7 +1811,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -1944,7 +1947,8 @@ fn segmented_array_step_state_predicates_use_terminal_selection_postings() {
         ),
     )
     .unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     for (path, kind, indexed) in [
         (
             vec!["contributors".into()],
@@ -2181,7 +2185,7 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -2288,7 +2292,8 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         b"{\"kind\":\"b\",\"title\":\"beta\"}\n{\"kind\":\"a\",\"title\":\"alpha\"}\n",
     )
     .unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     for field in ["kind", "title"] {
         definition
             .schema
@@ -3386,7 +3391,8 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/base.jsonl"), b"{\"name\":\"base\"}\n").unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     let repo = Arc::new(
         crate::lifecycle::Index::build_repository_for_test(
             &root,
@@ -3635,7 +3641,7 @@ fn active_inspection_traces_use_live_domain_and_match_search() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -3815,11 +3821,7 @@ fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
     let root = write_inferred_order_fixture("inferred-order-limit", 32);
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -3886,11 +3888,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     let root = write_inferred_order_fixture("inferred-order-cancel", 32);
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -3944,7 +3942,7 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
     use crate::repository::configuration::RepositoryOptions;
 
     let root = write_inferred_order_fixture("inferred-order-cache", 150);
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", "data");
     let options = RepositoryOptions {
         verified_cache_bytes: 0,
         inference: InferenceConfig {
@@ -4050,7 +4048,7 @@ fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
             element_nullable: Vec::new(),
         })
         .unwrap();
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.schema = schema;
     definition.sort_fields = vec![FieldPath::parse("rank").unwrap()];
     let repo = crate::lifecycle::Index::build_repository_for_test(
@@ -4122,7 +4120,7 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
     let mut definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -4377,7 +4375,7 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
         .map(|name| CollectionDefinition {
             name: name.into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema: schema.clone(),
@@ -4462,7 +4460,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -4681,7 +4679,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -4890,7 +4888,7 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
     let definitions = vec![CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::JsonLines,
+        format: crate::source::test_support::LINES,
         identity: IdentityPolicy::Generated,
         discovery: Default::default(),
         schema,
@@ -5003,7 +5001,7 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema: Schema::default(),
@@ -5180,7 +5178,7 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -5340,7 +5338,7 @@ fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     for (name, indexed) in [("kind", true), ("body", false)] {
         definition
             .schema
@@ -5452,7 +5450,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     let definitions = ["a", "b"].map(|name| CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema: schema.clone(),
@@ -5793,7 +5791,7 @@ fn exact_collection_handles_relation_membership_without_ranking() {
         definitions.push(CollectionDefinition {
             name: name.into(),
             source_path: name.into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
@@ -5939,7 +5937,7 @@ fn segmented_explicit_array_index_does_not_claim_whole_field_proof() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (path, kind, multi) in [
         (vec!["id".into()], LogicalType::Id, false),
@@ -6028,7 +6026,8 @@ fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
     }
     writer.flush().unwrap();
     drop(writer);
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", "data", crate::source::test_support::LINES);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     for (name, kind) in [("id", LogicalType::Id), ("n", LogicalType::Number)] {
         definition
@@ -6166,7 +6165,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -6295,7 +6294,7 @@ fn interleaved_stored_order_records_keep_bounded_file_handles() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -6371,7 +6370,7 @@ fn large_multi_record_scans_bound_payloads_and_reuse_file_handles() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema: Default::default(),
@@ -6529,7 +6528,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -6643,7 +6642,7 @@ fn exact_membership_materializes_only_page_payload() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -6775,7 +6774,7 @@ fn multi_record_scan_opens_file_once_and_parses_each_range_once() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,
@@ -6852,7 +6851,7 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -6942,7 +6941,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -7263,7 +7262,7 @@ fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: crate::source::test_support::LINES,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
@@ -7869,7 +7868,7 @@ fn exact_stored_page_calculates_identical_segment_restrictions_once() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -7996,7 +7995,7 @@ fn typed_temporal_fields_survive_postings_payload_and_reopen() {
     let definitions = vec![CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Filename,
         discovery: Default::default(),
         schema,
@@ -8114,7 +8113,7 @@ fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
         CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -8218,7 +8217,7 @@ fn selected_folded_and_metadata_fts_match_reference() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -8309,7 +8308,7 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -8408,7 +8407,7 @@ fn quoted_data_name_does_not_shadow_metadata() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: crate::source::test_support::DOCUMENTS,
             identity: IdentityPolicy::Filename,
             discovery: Default::default(),
             schema,
@@ -8513,10 +8512,8 @@ fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "items",
-            "items",
-            SourceFormat::Json,
+        vec![crate::source::test_support::document_folder(
+            "items", "items",
         )],
         crate::repository::configuration::RepositoryOptions {
             query_workers: 4,
@@ -8832,7 +8829,7 @@ fn computed_sort_pages_match_reference_across_workers_and_file_layouts() {
                 vec![CollectionDefinition::folder(
                     "items",
                     "items",
-                    SourceFormat::JsonLines,
+                    crate::source::test_support::LINES,
                 )],
                 crate::repository::configuration::RepositoryOptions {
                     query_workers: workers,
@@ -8896,10 +8893,8 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "items",
-            "items",
-            SourceFormat::Json,
+        vec![crate::source::test_support::document_folder(
+            "items", "items",
         )],
         crate::repository::configuration::RepositoryOptions {
             query_workers: 8,
@@ -8957,7 +8952,7 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {

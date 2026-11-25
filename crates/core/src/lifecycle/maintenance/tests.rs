@@ -7,7 +7,6 @@ use crate::lifecycle::maintenance::{
 };
 use crate::lifecycle::{Index, IndexError};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use crate::source::SourceFormat;
 use crate::source::registry::SourceRegistry;
 
 const HOOK_TIMEOUT: Duration = Duration::from_secs(10);
@@ -77,7 +76,7 @@ fn maintenance_admission_shares_only_the_real_worker() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         SourceRegistry::builtin(),
@@ -179,7 +178,7 @@ fn concurrent_quiesce_and_shutdown_wait_for_the_same_worker() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         SourceRegistry::builtin(),

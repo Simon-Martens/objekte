@@ -8,7 +8,6 @@ use objekte_search_core::lifecycle::session::IndexedRepository;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::schema::FieldDefinition;
-use objekte_search_core::source::SourceFormat;
 use serde_json::json;
 
 fn resident_kib(label: &str) -> Option<u64> {
@@ -41,7 +40,8 @@ fn run() -> Result<(), String> {
         }
     }
     let root = root.ok_or("--root is required")?;
-    let mut definition = CollectionDefinition::folder("records", "data", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("records", "data", objekte_loader_jsonl::JSON_LINES);
     definition.schema.register_field(FieldDefinition {
         path: vec!["manual".into()],
         kind: LogicalType::String,

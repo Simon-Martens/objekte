@@ -12,7 +12,6 @@ use objekte_search_core::repository::configuration::{
 use objekte_search_core::schema::{
     FieldDefinition, Schema, operation::BindingOperation, operation::RegisteredBinding,
 };
-use objekte_search_core::source::SourceFormat;
 
 #[derive(Debug)]
 struct LiteralOnlyOperation;
@@ -131,7 +130,7 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::Json,
+            format: objekte_loader_json::JSON_DOCUMENTS,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
@@ -316,7 +315,7 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: SourceFormat::JsonLines,
+            format: objekte_loader_jsonl::JSON_LINES,
             identity: IdentityPolicy::Generated,
             discovery: Default::default(),
             schema,

@@ -1,7 +1,6 @@
 use std::path::{Path, PathBuf};
 
 use objekte_search_core::inventory::discovery::{Discovery, SymlinkPolicy, discover, selects_file};
-use objekte_search_core::source::SourceFormat;
 
 /// Builds a private fixture tree for traversal-policy assertions.
 struct Fixture(PathBuf);
@@ -45,7 +44,7 @@ fn excluded_directories_are_pruned_instead_of_only_filtering_files() {
     fixture.file("nested/cache[1]/snapshot.json");
     fixture.file("nested/ignore.jsonl");
     let source = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -84,7 +83,7 @@ fn exact_directory_exclusion_preserves_non_utf8_path_identity() {
     std::fs::create_dir(fixture.0.join(&name)).unwrap();
     std::fs::write(fixture.0.join(&name).join("inside.json"), b"{}\n").unwrap();
     let source = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -107,7 +106,7 @@ fn generated_index_namespaces_are_pruned_without_reading_their_contents() {
     fixture.file(".objekte/indexes/poison.json");
     fixture.file("nested/objekte-indexes/poison.json");
     let source = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -151,7 +150,7 @@ fn generated_namespaces_are_rejected_by_direct_selection_and_aliases() {
     fixture.file("cache/objekte-indexes/poison.json");
     fixture.file("cache/source.json");
     let source = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -233,7 +232,7 @@ fn followed_aliases_into_generated_namespaces_are_not_sources() {
     std::os::unix::fs::symlink(fixture.0.join(".objekte/indexes"), fixture.0.join("alias"))
         .unwrap();
     let source = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -276,7 +275,7 @@ fn followed_discovery_ignores_reserved_dangling_and_looping_links() {
     )
     .unwrap();
     let source = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap();
     let rules = Discovery {
         recursive: true,
@@ -303,7 +302,7 @@ fn canonical_alias_source_roots_are_rejected_for_direct_selection() {
     std::os::unix::fs::symlink(fixture.0.join(".objekte/indexes"), fixture.0.join("alias"))
         .unwrap();
     let source = objekte_cli::loader::installed_sources()
-        .resolve(&SourceFormat::Json)
+        .resolve(&objekte_loader_json::JSON_DOCUMENTS)
         .unwrap();
     for symlinks in [SymlinkPolicy::Skip, SymlinkPolicy::FollowWithinRoot] {
         let rules = Discovery {

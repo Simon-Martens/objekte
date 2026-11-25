@@ -263,7 +263,7 @@ fn second_target_in_batch_is_checked_before_source_read() {
     )
     .unwrap();
     let mut definitions = definitions();
-    definitions[1].format = SourceFormat::JsonLines;
+    definitions[1].format = crate::source::test_support::LINES;
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
         definitions,
@@ -446,7 +446,7 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     CollectionDefinition {
         name: name.into(),
         source_path: name.into(),
-        format: SourceFormat::Json,
+        format: crate::source::test_support::DOCUMENTS,
         identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
         discovery: Default::default(),
         schema,

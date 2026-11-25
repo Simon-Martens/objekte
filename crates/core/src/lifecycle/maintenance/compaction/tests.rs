@@ -3,7 +3,6 @@ use crate::model::CollectionId;
 use crate::query::options::ReturnMode;
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
-use crate::source::SourceFormat;
 
 fn all() -> Query {
     Query {
@@ -48,11 +47,7 @@ fn compacting_native_segments_preserves_text_postings() {
     std::fs::write(&remove, br#"{"name":"other needle"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -98,11 +93,7 @@ fn compaction_reuses_unaffected_native_segment() {
     std::fs::write(&first, br#"{"name":"first"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -163,11 +154,7 @@ fn bounded_compaction_can_resume_remaining_retired_shards() {
     std::fs::write(&keep, br#"{"name":"keep"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -218,11 +205,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -281,11 +264,7 @@ fn compacted_base_contributions_preserve_native_queries() {
     let b = root.join("data/b.json");
     std::fs::write(&a, br#"{"name":"A"}"#).unwrap();
     std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
-    let definitions = vec![CollectionDefinition::folder(
-        "data",
-        "data",
-        SourceFormat::Json,
-    )];
+    let definitions = vec![crate::source::test_support::document_folder("data", "data")];
     let index = crate::lifecycle::Index::start_build(
         &root,
         definitions.clone(),
@@ -318,11 +297,7 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
     std::fs::write(&file, br#"{"name":"A"}"#).unwrap();
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -371,11 +346,7 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     }
     let index = crate::lifecycle::Index::start_build(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -449,7 +420,7 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions::default(),
         crate::source::registry::SourceRegistry::builtin(),

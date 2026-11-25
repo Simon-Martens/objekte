@@ -210,7 +210,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
     };
     schema.register_operation(vec!["title".into()], binding.clone())?;
     schema.set_raw_binding(binding)?;
-    let custom_definition = definition("data", SourceFormat::JsonLines, schema, false);
+    let custom_definition = definition("data", objekte_loader_jsonl::JSON_LINES, schema, false);
     let custom_options = RepositoryOptions {
         query_workers: 4,
         ..Default::default()
@@ -295,7 +295,12 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
             data.push('\n');
         }
         fs::write(source_root.join("data/all.jsonl"), data).map_err(|e| e.to_string())?;
-        let definition = definition("data", SourceFormat::JsonLines, Schema::default(), false);
+        let definition = definition(
+            "data",
+            objekte_loader_jsonl::JSON_LINES,
+            Schema::default(),
+            false,
+        );
         let build_options = RepositoryOptions {
             query_workers: 4,
             ..Default::default()
@@ -506,9 +511,19 @@ fn run() -> Result<(), String> {
     let index = objekte_search_core::lifecycle::Index::start_build(
         &root,
         vec![
-            definition("range", SourceFormat::JsonLines, schema, true),
-            definition("left", SourceFormat::JsonLines, Schema::default(), false),
-            definition("right", SourceFormat::JsonLines, Schema::default(), false),
+            definition("range", objekte_loader_jsonl::JSON_LINES, schema, true),
+            definition(
+                "left",
+                objekte_loader_jsonl::JSON_LINES,
+                Schema::default(),
+                false,
+            ),
+            definition(
+                "right",
+                objekte_loader_jsonl::JSON_LINES,
+                Schema::default(),
+                false,
+            ),
         ],
         RepositoryOptions {
             query_workers: 4,

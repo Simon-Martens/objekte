@@ -40,11 +40,7 @@ fn write_json_documents(
 fn open_category_repository(root: &std::path::Path, min_nonblank_occurrences: u64) -> Repository {
     crate::lifecycle::Index::build_repository_for_test(
         root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
@@ -106,11 +102,7 @@ fn write_named_json(root: &std::path::Path, records: &[(&str, serde_json::Value)
 fn build_default_auto_repository(root: &std::path::Path) -> Repository {
     crate::lifecycle::Index::build_repository_for_test(
         root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -317,11 +309,7 @@ fn length_postings_follow_bound_quantification_and_root_traversal() {
     write_json_documents(&split, documents);
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &split,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
@@ -583,11 +571,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
@@ -711,11 +695,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
 
     let report_only = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
@@ -762,11 +742,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     }));
     let rejected = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(1).unwrap(),
@@ -818,11 +794,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
@@ -871,11 +843,7 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
 
     let accepted = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
@@ -941,11 +909,7 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             segment_policy: crate::index::segment::SegmentPolicy {
                 target_records: std::num::NonZeroUsize::new(512).unwrap(),
@@ -1050,11 +1014,7 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
     request.options.evidence = false;
     let single = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options.clone(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -1076,11 +1036,7 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
     }
     let partitioned = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options.clone(),
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -1107,11 +1063,7 @@ fn collection_length_admission_deduplicates_keys_across_segments() {
     std::fs::write(root.join("data/512.json"), r#"{"x":[1,2]}"#).unwrap();
     let over_budget = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options,
         crate::source::registry::SourceRegistry::builtin(),
     )
@@ -1149,11 +1101,7 @@ fn repeated_percent_boundary_is_inclusive_and_exact() {
     let open = |minimum_repeated_percent| {
         crate::lifecycle::Index::build_repository_for_test(
             &root,
-            vec![CollectionDefinition::folder(
-                "data",
-                "data",
-                SourceFormat::Json,
-            )],
+            vec![crate::source::test_support::document_folder("data", "data")],
             RepositoryOptions {
                 inference: InferenceConfig {
                     mode: InferenceMode::AutoIndex,
@@ -1222,11 +1170,7 @@ fn segmented_observation_overflow_uses_residual_scanning() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1283,7 +1227,7 @@ fn mutation_keeps_query_parity_with_construction_generation_observations() {
         vec![CollectionDefinition::folder(
             "data",
             "data",
-            SourceFormat::JsonLines,
+            crate::source::test_support::LINES,
         )],
         RepositoryOptions {
             inference: InferenceConfig {
@@ -1357,11 +1301,7 @@ fn auto_index_retains_selected_null_after_value_admission_fails() {
     let make = |max_keys| {
         crate::lifecycle::Index::build_repository_for_test(
             &root,
-            vec![CollectionDefinition::folder(
-                "data",
-                "data",
-                SourceFormat::Json,
-            )],
+            vec![crate::source::test_support::document_folder("data", "data")],
             RepositoryOptions {
                 verified_cache_bytes: 0,
                 inference: InferenceConfig {
@@ -1429,7 +1369,7 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
     }
-    let mut declared_definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut declared_definition = crate::source::test_support::document_folder("data", "data");
     declared_definition
         .schema
         .register_field(FieldDefinition {
@@ -1456,11 +1396,7 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
     .unwrap();
     let observed = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1536,11 +1472,7 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1793,11 +1725,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             verified_cache_bytes: 0,
             inference: InferenceConfig {
@@ -1877,7 +1805,7 @@ fn mixed_short_strings_match_reference_across_static_and_native_publication() {
         std::fs::write(root.join(format!("data/{slot:02}.json")), value.to_string()).unwrap();
     }
     std::fs::write(root.join("data/bad.json"), "{").unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", "data");
     let filters = [
         "code ?= 'A'",
         "code = 'A'",
@@ -2229,8 +2157,8 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
     config.policy.max_repository_bytes = 4096;
     assert_eq!(config.max_build_jobs(128), 2);
     let definitions = vec![
-        CollectionDefinition::folder("one", "one", SourceFormat::Json),
-        CollectionDefinition::folder("many", "many", SourceFormat::Json),
+        crate::source::test_support::document_folder("one", "one"),
+        crate::source::test_support::document_folder("many", "many"),
     ];
     let mut observed = Vec::new();
     let available = std::thread::available_parallelism().map_or(1, |count| count.get());
@@ -2284,7 +2212,7 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
         )
         .unwrap();
     }
-    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = crate::source::test_support::document_folder("data", "data");
     definition
         .schema
         .register_field(FieldDefinition {
@@ -2383,7 +2311,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
         .unwrap();
     }
     std::fs::write(root.join("data/bad.json"), "{").unwrap();
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let definition = crate::source::test_support::document_folder("data", "data");
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let mut answers = Vec::new();
         let mut scans = Vec::new();
@@ -2807,11 +2735,7 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -2871,11 +2795,7 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             verified_cache_bytes: 0,
             inference: InferenceConfig {
@@ -2974,11 +2894,7 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             verified_cache_bytes: 0,
             inference: InferenceConfig {
@@ -3041,11 +2957,7 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
     std::fs::write(root.join("data/empty.json"), r#"{"items":[]}"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -3077,11 +2989,7 @@ fn paired_comparison_keeps_missing_and_successful_empty_traversal_distinct() {
     std::fs::write(root.join("data/value.json"), r#"{"items":[{"flag":"A"}]}"#).unwrap();
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             verified_cache_bytes: 0,
             ..Default::default()
@@ -3129,11 +3037,7 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             verified_cache_bytes: 0,
             inference: InferenceConfig {
@@ -3224,11 +3128,7 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             verified_cache_bytes: 0,
             inference: InferenceConfig {
@@ -3300,11 +3200,7 @@ fn partial_short_string_posting_does_not_claim_complete_sort_order() {
     }
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,

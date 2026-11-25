@@ -11,7 +11,7 @@ use crate::model::{CollectionId, FieldPath, LogicalType};
 use crate::repository::configuration::CollectionDefinition;
 use crate::schema::FieldDefinition;
 use crate::schema::relations::{RelationCardinality, RelationDefinition};
-use crate::source::{SourceFormat, registry::SourceRegistry};
+use crate::source::registry::SourceRegistry;
 
 fn projection_fixture_root(name: &str) -> std::path::PathBuf {
     let root = std::env::temp_dir().join(format!(
@@ -36,11 +36,7 @@ fn build_projection_fixture(
     }
     crate::lifecycle::Index::build_repository_for_test(
         root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: InferenceConfig {
                 mode,
@@ -645,11 +641,7 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
     std::fs::write(complete_root.join("data/a.json"), r#"{"x":"a"}"#).unwrap();
     let complete_repo = crate::lifecycle::Index::build_repository_for_test(
         &complete_root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::ReportOnly,
@@ -718,11 +710,7 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
     std::fs::write(interrupted_root.join("data/b1.json"), r#"{"x":["b","c"]}"#).unwrap();
     let interrupted_repo = crate::lifecycle::Index::build_repository_for_test(
         &interrupted_root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::ReportOnly,
@@ -1234,11 +1222,7 @@ fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
     }
     let length_repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: InferenceConfig {
                 mode: InferenceMode::AutoIndex,
@@ -1616,7 +1600,8 @@ fn compaction_matches_active_file_oracle_across_indexes() {
             .as_nanos(),
     ));
     std::fs::create_dir_all(&root).unwrap();
-    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let mut definition =
+        CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     for (name, kind, indexed) in [
         ("n", LogicalType::Number, true),
         ("ref", LogicalType::Id, false),
@@ -1663,7 +1648,7 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         ])
         .unwrap();
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -1890,11 +1875,7 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: config,
             verified_cache_bytes: 0,
@@ -2007,11 +1988,7 @@ fn projected_empty_selection_bound_covers_ancestor_and_terminal_arrays() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: config,
             verified_cache_bytes: 0,
@@ -2082,11 +2059,7 @@ fn projected_empty_short_string_coverage_is_removed_consistently() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: config,
             verified_cache_bytes: 0,
@@ -2167,11 +2140,7 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options,
         SourceRegistry::builtin(),
     )
@@ -2187,11 +2156,7 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
     std::fs::remove_file(retired).unwrap();
     let fresh = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options,
         SourceRegistry::builtin(),
     )
@@ -2284,11 +2249,7 @@ fn projected_numeric_report_recomputes_integer_only() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options,
         SourceRegistry::builtin(),
     )
@@ -2304,11 +2265,7 @@ fn projected_numeric_report_recomputes_integer_only() {
     std::fs::remove_file(fractional).unwrap();
     let fresh = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         options,
         SourceRegistry::builtin(),
     )
@@ -2369,11 +2326,7 @@ fn projected_numeric_report_with_no_survivors_does_not_retain_integer_only() {
     };
     let repo = crate::lifecycle::Index::build_repository_for_test(
         &root,
-        vec![CollectionDefinition::folder(
-            "data",
-            "data",
-            SourceFormat::Json,
-        )],
+        vec![crate::source::test_support::document_folder("data", "data")],
         crate::repository::configuration::RepositoryOptions {
             inference: config,
             verified_cache_bytes: 0,
@@ -2423,9 +2376,9 @@ fn historical_file_versions_compact_to_current_zero_record_or_delete() {
         std::env::temp_dir().join(format!("objekte-segment-versions-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("same.jsonl");
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),
@@ -2514,9 +2467,9 @@ fn compaction_remaps_retained_fallback_diagnostics() {
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("broken.jsonl");
     std::fs::write(&path, b"{bad}\n{worse}\n").unwrap();
-    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let definition = CollectionDefinition::folder("data", ".", crate::source::test_support::LINES);
     let source = SourceRegistry::builtin()
-        .resolve(&SourceFormat::JsonLines)
+        .resolve(&crate::source::test_support::LINES)
         .unwrap();
     let binding = FilePreparationBinding {
         collection: CollectionId(0),

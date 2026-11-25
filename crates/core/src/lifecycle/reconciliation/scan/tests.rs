@@ -3,8 +3,7 @@ use std::collections::BTreeMap;
 use super::{ScanChange, scan_sources_batched};
 use crate::inventory::discovery::Discovery;
 use crate::model::{CollectionId, FileId};
-use crate::repository::configuration::CollectionDefinition;
-use crate::source::{SourceFormat, registry::SourceRegistry};
+use crate::source::registry::SourceRegistry;
 
 #[test]
 fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
@@ -20,8 +19,8 @@ fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
     std::fs::write(root.join("b/two.json"), b"{\"x\":2}").unwrap();
     let root = root.canonicalize().unwrap();
     let definitions = vec![
-        CollectionDefinition::folder("a", "a", SourceFormat::Json),
-        CollectionDefinition::folder("b", "b", SourceFormat::Json),
+        crate::source::test_support::document_folder("a", "a"),
+        crate::source::test_support::document_folder("b", "b"),
     ];
     let sources = SourceRegistry::builtin();
     let mut current = BTreeMap::new();
@@ -94,8 +93,8 @@ fn overlapping_collections_emit_one_physical_observation_in_small_batches() {
         std::fs::write(root.join("data").join(name), b"{\"name\":\"a\"}").unwrap();
     }
     let definitions = vec![
-        CollectionDefinition::folder("first", "data", SourceFormat::Json),
-        CollectionDefinition::folder("second", "data", SourceFormat::Json),
+        crate::source::test_support::document_folder("first", "data"),
+        crate::source::test_support::document_folder("second", "data"),
     ];
     let mut batches = Vec::new();
     let scan = scan_sources_batched(
@@ -135,9 +134,9 @@ fn nested_source_roots_preserve_all_memberships_without_duplicate_observation() 
     std::fs::write(root.join("data/top.json"), b"{}").unwrap();
     std::fs::write(root.join("data/nested/inner.json"), b"{}").unwrap();
     let root = root.canonicalize().unwrap();
-    let mut outer = CollectionDefinition::folder("outer", "data", SourceFormat::Json);
+    let mut outer = crate::source::test_support::document_folder("outer", "data");
     outer.discovery.recursive = true;
-    let inner = CollectionDefinition::folder("inner", "data/nested", SourceFormat::Json);
+    let inner = crate::source::test_support::document_folder("inner", "data/nested");
     let mut changes = Vec::new();
     let scan = scan_sources_batched(
         &root,
@@ -172,11 +171,7 @@ fn bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file() {
     std::fs::write(root.join("data/a.json"), b"{}").unwrap();
     std::fs::write(root.join("data/b.json"), b"{}").unwrap();
     let root = root.canonicalize().unwrap();
-    let definitions = vec![CollectionDefinition::folder(
-        "one",
-        "data",
-        SourceFormat::Json,
-    )];
+    let definitions = vec![crate::source::test_support::document_folder("one", "data")];
     let mut prior = BTreeMap::new();
     let first = scan_sources_batched(
         &root,
@@ -244,8 +239,8 @@ fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
     let root = root.canonicalize().unwrap();
     std::fs::write(root.join("data/one.json"), b"{\"x\":1}").unwrap();
     let mut definitions = vec![
-        CollectionDefinition::folder("first", "data", SourceFormat::Json),
-        CollectionDefinition::folder("second", "data", SourceFormat::Json),
+        crate::source::test_support::document_folder("first", "data"),
+        crate::source::test_support::document_folder("second", "data"),
     ];
     let mut original = Vec::new();
     let baseline = scan_sources_batched(
@@ -303,11 +298,7 @@ fn generated_directory_exclusion_precedes_seen_tracking_and_scan_cancels_between
         std::fs::write(root.join(format!("data/item-{n}.json")), b"{}").unwrap();
     }
     let root = root.canonicalize().unwrap();
-    let definitions = vec![CollectionDefinition::folder(
-        "one",
-        "data",
-        SourceFormat::Json,
-    )];
+    let definitions = vec![crate::source::test_support::document_folder("one", "data")];
     let cancelled = AtomicBool::new(false);
     let mut batches = Vec::new();
     let scan = scan_sources_batched(
@@ -378,7 +369,7 @@ fn scans_300000_files_with_two_overlapping_150000_file_collections() {
     ]
     .into_iter()
     .map(|(name, pattern)| {
-        let mut definition = CollectionDefinition::folder(name, "data", SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder(name, "data");
         definition.discovery = Discovery {
             recursive: true,
             include: vec![pattern.into()],
@@ -447,7 +438,7 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     ]
     .into_iter()
     .map(|(name, pattern)| {
-        let mut definition = CollectionDefinition::folder(name, "data", SourceFormat::Json);
+        let mut definition = crate::source::test_support::document_folder(name, "data");
         definition.discovery = Discovery {
             recursive: true,
             include: vec![pattern.into()],

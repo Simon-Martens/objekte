@@ -15,11 +15,8 @@ use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::query_results::Payload;
-use objekte_search_core::repository::configuration::{
-    CollectionDefinition, IdentityPolicy, RepositoryOptions,
-};
+use objekte_search_core::repository::configuration::{IdentityPolicy, RepositoryOptions};
 use objekte_search_core::schema::FieldDefinition;
-use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::{WorkloadCase, load_extended_manifest, load_manifest};
 use serde_json::json;
 use sha2::{Digest, Sha256};
@@ -43,7 +40,7 @@ fn query(filter: &str) -> Result<Query, String> {
 }
 
 fn direct_probe(root: &Path) -> Result<(), Box<dyn Error>> {
-    let mut definition = CollectionDefinition::folder("records", "data", SourceFormat::Json);
+    let mut definition = objekte_loader_json::folder("records", "data");
     definition.identity = IdentityPolicy::Filename;
     for (name, kind, indexed) in [
         ("year", LogicalType::Number, true),
