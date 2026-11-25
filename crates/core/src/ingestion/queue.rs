@@ -913,9 +913,6 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 .unwrap_or_else(|_| Err(IngestionError::Spool("ingestion worker panicked".into())))
             })
         };
-        queue
-            .receipts
-            .complete_through(item.sequence, result.clone());
         let mut state = queue.state.lock().expect("queue mutex poisoned");
         state.metrics.in_flight_estimated_bytes = 0;
         state.metrics.in_flight_batches = 0;
@@ -925,16 +922,20 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 state.last_revision = revision;
                 state.metrics.published_batches += 1;
                 state.metrics.root_installations += 1;
+                queue.receipts.complete_through(item.sequence, Ok(revision));
             }
             Err(error) => {
                 state.closed = true;
-                state.failure = Some((item.sequence, error));
+                state.failure = Some((item.sequence, error.clone()));
                 state.metrics.failure_sequence = Some(item.sequence);
                 state.items.clear();
                 state.overflow = 0;
                 state.metrics.pending_ram_bytes = 0;
                 state.metrics.in_flight_estimated_bytes = 0;
                 state.completed = state.next_sequence - 1;
+                // Publish the terminal session state before waking a caller
+                // that may immediately open a replacement session.
+                queue.receipts.complete_through(item.sequence, Err(error));
                 if state.completed > item.sequence {
                     queue.receipts.complete_through(
                         state.completed,
