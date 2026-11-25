@@ -1,5 +1,7 @@
 //! One scalar membership per physical file, independent of record cardinality.
 
+use std::cmp::Ordering;
+
 use crate::model::{FileId, Number};
 use crate::query::Operator;
 
@@ -7,7 +9,7 @@ use super::FileEntry;
 
 #[derive(Clone, Debug, Default)]
 pub(crate) struct FileScalarIndex {
-    sizes: Vec<(Number, FileId)>,
+    sizes: Vec<(u64, FileId)>,
     modified: Vec<(i128, FileId)>,
     created: Vec<(i128, FileId)>,
     unknown_created: Vec<FileId>,
@@ -33,8 +35,18 @@ fn collect<K: Ord>(
     output: &mut Vec<FileId>,
     limit: usize,
 ) -> bool {
-    let lower = rows.partition_point(|(value, _)| value < literal);
-    let upper = rows.partition_point(|(value, _)| value <= literal);
+    collect_by(rows, operator, output, limit, |value| value.cmp(literal))
+}
+
+fn collect_by<K>(
+    rows: &[(K, FileId)],
+    operator: Operator,
+    output: &mut Vec<FileId>,
+    limit: usize,
+    compare: impl Fn(&K) -> Ordering,
+) -> bool {
+    let lower = rows.partition_point(|(value, _)| compare(value).is_lt());
+    let upper = rows.partition_point(|(value, _)| !compare(value).is_gt());
     let slices: [&[(K, FileId)]; 2] = match operator {
         Operator::Eq => [&rows[lower..upper], &[]],
         Operator::Ne => [&rows[..lower], &rows[upper..]],
@@ -55,7 +67,7 @@ fn collect<K: Ord>(
 
 impl FileScalarIndex {
     pub(crate) fn estimated_heap_bytes(&self) -> usize {
-        self.sizes.capacity() * std::mem::size_of::<(Number, FileId)>()
+        self.sizes.capacity() * std::mem::size_of::<(u64, FileId)>()
             + self.modified.capacity() * std::mem::size_of::<(i128, FileId)>()
             + self.created.capacity() * std::mem::size_of::<(i128, FileId)>()
             + self.unknown_created.capacity() * std::mem::size_of::<FileId>()
@@ -67,9 +79,7 @@ impl FileScalarIndex {
         index.modified.reserve(files.len());
         index.created.reserve(files.len());
         for file in files {
-            index
-                .sizes
-                .push((Number::integer(file.revision.size as i128), file.id));
+            index.sizes.push((file.revision.size, file.id));
             index.modified.push((file.revision.modified_ns, file.id));
             if let Some(created) = file.created_ns {
                 index.created.push((created, file.id));
@@ -85,11 +95,7 @@ impl FileScalarIndex {
     }
 
     pub(crate) fn insert(&mut self, file: &FileEntry) {
-        insert_sorted(
-            &mut self.sizes,
-            Number::integer(file.revision.size as i128),
-            file.id,
-        );
+        insert_sorted(&mut self.sizes, file.revision.size, file.id);
         insert_sorted(&mut self.modified, file.revision.modified_ns, file.id);
         if let Some(created) = file.created_ns {
             insert_sorted(&mut self.created, created, file.id);
@@ -103,11 +109,7 @@ impl FileScalarIndex {
     }
 
     pub(crate) fn remove(&mut self, file: &FileEntry) {
-        remove_sorted(
-            &mut self.sizes,
-            Number::integer(file.revision.size as i128),
-            file.id,
-        );
+        remove_sorted(&mut self.sizes, file.revision.size, file.id);
         remove_sorted(&mut self.modified, file.revision.modified_ns, file.id);
         if let Some(created) = file.created_ns {
             remove_sorted(&mut self.created, created, file.id);
@@ -123,7 +125,9 @@ impl FileScalarIndex {
         output: &mut Vec<FileId>,
         limit: usize,
     ) -> bool {
-        collect(&self.sizes, operator, literal, output, limit)
+        collect_by(&self.sizes, operator, output, limit, |size| {
+            Number::integer(*size as i128).cmp(literal)
+        })
     }
 
     pub(crate) fn modified_ids(

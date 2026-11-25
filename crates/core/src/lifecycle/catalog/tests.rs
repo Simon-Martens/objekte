@@ -67,6 +67,14 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         Some(vec![FileId(0)])
     );
     assert_eq!(
+        changed.size_ids(Operator::Lt, &Number::float(2.5).unwrap(), 8),
+        Some(vec![FileId(1)])
+    );
+    assert_eq!(
+        changed.size_ids(Operator::Ge, &Number::float(2.5).unwrap(), 8),
+        Some(vec![FileId(0)])
+    );
+    assert_eq!(
         changed.size_ids(Operator::Ne, &Number::integer(77), 8),
         Some(vec![FileId(1)])
     );
