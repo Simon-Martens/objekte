@@ -5,10 +5,11 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
+use super::InferenceState;
 use crate::index::posting::{PostingIndex, PostingStats, ScalarKey, SelectionSummary};
 use crate::inference::{
     InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode,
-    InferencePathDiagnostic, InferencePolicy, InferenceReport, InferenceState, InferredFieldReport,
+    InferencePathDiagnostic, InferencePolicy, InferenceReport, InferredFieldReport,
     OccurrenceCountStatus,
 };
 use crate::inventory::append_shifted_bitmap;
@@ -2146,4 +2147,5 @@ impl InferenceBuilder {
 }
 
 #[cfg(test)]
+#[path = "tests.rs"]
 mod tests;

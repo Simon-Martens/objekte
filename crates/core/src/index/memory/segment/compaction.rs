@@ -7,10 +7,10 @@ use super::projection::{
 use super::{
     IndexedCollectionSegment, RetainedAddress, SegmentAccounting, SegmentBacking, SegmentFile,
 };
+use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
-use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileEntry, FileStatus, RecordClass};
 use crate::model::{FileId, RecordSlot};
 

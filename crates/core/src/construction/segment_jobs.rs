@@ -296,7 +296,7 @@ impl SegmentJobGate {
 }
 pub(super) struct IndexedSegmentBuild {
     pub index: IndexedCollectionSegment,
-    pub observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+    pub observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
     pub profile: Option<IncrementalSegmentProfile>,
     pub build_ns: u64,
 }

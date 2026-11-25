@@ -5,8 +5,9 @@ use sha2::{Digest, Sha256};
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
+use crate::index::memory::inference::InferenceState;
 use crate::index::relation::RelationIndex;
-use crate::inference::{InferencePathDiagnostic, InferenceReport, InferenceState};
+use crate::inference::{InferencePathDiagnostic, InferenceReport};
 use crate::inventory::FileInventory;
 use crate::model::{CollectionId, RecordSlot};
 

@@ -9,7 +9,7 @@ use roaring::RoaringBitmap;
 use crate::construction::batch::{
     BuildWorkProfile, canonical_custom_text_key, map_binding_value, string_values,
 };
-use crate::construction::inference::InferenceBuilder;
+use crate::index::memory::inference::InferenceBuilder;
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::index::storage::worker::{PreparedIndexes, WorkerWriter};
 use crate::inference::InferenceConfig;

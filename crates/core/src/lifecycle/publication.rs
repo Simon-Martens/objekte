@@ -270,7 +270,7 @@ impl PublishedIndex {
     fn stage_segment(
         &mut self,
         payload: &mut Arc<IndexedCollectionSegment>,
-        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+        observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
     ) -> Result<(), IndexError> {
         self.stage_segment_payload(payload, observation, false)
     }
@@ -285,7 +285,7 @@ impl PublishedIndex {
     fn stage_segment_payload(
         &mut self,
         payload: &mut Arc<IndexedCollectionSegment>,
-        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+        observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
         allocate_id: bool,
     ) -> Result<(), IndexError> {
         let index = &**payload;
@@ -851,7 +851,7 @@ fn prepare_initial_segment(
     next: &mut PublishedIndex,
     segment: (
         IndexedCollectionSegment,
-        Option<Arc<crate::construction::inference::InferenceObservation>>,
+        Option<Arc<crate::index::memory::inference::InferenceObservation>>,
     ),
 ) -> Result<(), IndexError> {
     let (segment, observation) = segment;
@@ -1185,7 +1185,7 @@ impl Index {
         &self,
         expected: IndexRevision,
         segment: IndexedCollectionSegment,
-        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+        observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
         profile_phases: bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
         let prepare_started = crate::measurement::timer::start_if_enabled(profile_phases);
@@ -1228,7 +1228,7 @@ impl Index {
         expected: IndexRevision,
         segments: Vec<(
             IndexedCollectionSegment,
-            Option<Arc<crate::construction::inference::InferenceObservation>>,
+            Option<Arc<crate::index::memory::inference::InferenceObservation>>,
         )>,
         profile_phases: bool,
         cancelled: &impl Fn() -> bool,

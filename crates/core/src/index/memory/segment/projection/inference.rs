@@ -8,7 +8,8 @@ use super::postings::{project_posting, scatter_posting_partitions};
 use super::routing::{
     PartitionRouting, SlotMap, project_bitmap_in_range, scatter_bitmap_partitions,
 };
-use crate::inference::{InferenceIndexStatus, InferenceState, OccurrenceCountStatus};
+use crate::index::memory::inference::InferenceState;
+use crate::inference::{InferenceIndexStatus, OccurrenceCountStatus};
 
 impl IndexedCollectionSegment {
     pub(crate) fn project_inference_for_partitions(

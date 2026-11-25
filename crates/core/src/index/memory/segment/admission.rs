@@ -7,9 +7,9 @@ use roaring::RoaringBitmap;
 
 use crate::construction::batch::BatchContribution;
 use crate::construction::batch::canonical_custom_text_key;
-use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramContribution;
+use crate::index::memory::inference::InferenceBuilder;
 use crate::index::memory::worker::NativeIndexBatch;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
@@ -911,7 +911,7 @@ impl CollectionSegment {
     ) -> Result<
         (
             IndexedCollectionSegment,
-            Option<crate::construction::inference::InferenceObservation>,
+            Option<crate::index::memory::inference::InferenceObservation>,
         ),
         String,
     > {
@@ -938,7 +938,7 @@ impl CollectionSegment {
     ) -> Result<
         (
             IndexedCollectionSegment,
-            Option<crate::construction::inference::InferenceObservation>,
+            Option<crate::index::memory::inference::InferenceObservation>,
         ),
         String,
     > {

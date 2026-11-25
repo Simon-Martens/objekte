@@ -5,10 +5,11 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 use crate::index::bigram::BigramIndex;
+use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
 use crate::index::sorting::SortCollection;
-use crate::inference::{InferencePathDiagnostic, InferenceReport, InferenceState};
+use crate::inference::{InferencePathDiagnostic, InferenceReport};
 use crate::inventory::CollectionGeneration;
 use crate::model::{RecordId, RecordSlot};
 use crate::source::registry::PreparedSource;

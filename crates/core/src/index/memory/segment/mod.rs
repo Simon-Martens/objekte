@@ -18,6 +18,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 
 use crate::index::bigram::BigramIndex;
+use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
@@ -26,7 +27,6 @@ use crate::index::storage::order::SortKey;
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::segment::{SegmentDescriptor, SegmentReader};
 use crate::index::storage::transfer::StorageResult;
-use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry, SourceRevision};
 use crate::lifecycle::IndexRevision;
 #[cfg(test)]
@@ -581,7 +581,7 @@ pub(crate) struct PublishedSegment {
     pub id: SegmentId,
     pub index: Arc<IndexedCollectionSegment>,
     pub active: ActiveRecords,
-    pub(crate) observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+    pub(crate) observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
 }
 
 impl PublishedSegment {

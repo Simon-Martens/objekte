@@ -1,8 +1,8 @@
 use roaring::RoaringBitmap;
 
 use super::{InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy};
-use crate::construction::inference::{InferenceBuilder, ObservedStep};
 use crate::index::bigram::BigramAlphabet;
+use crate::index::memory::inference::{InferenceBuilder, ObservedStep};
 use crate::inventory::ByteRange;
 use crate::model::LogicalType;
 use crate::model::{RecordSlot, Value};

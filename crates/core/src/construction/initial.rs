@@ -43,7 +43,7 @@ enum ScheduledBuildJob {
 
 type InitialSegment = (
     crate::index::segment::IndexedCollectionSegment,
-    Option<Arc<crate::construction::inference::InferenceObservation>>,
+    Option<Arc<crate::index::memory::inference::InferenceObservation>>,
 );
 
 struct StagedStreamBinding {

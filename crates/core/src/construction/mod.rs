@@ -3,7 +3,6 @@
 pub(crate) mod batch;
 pub(crate) mod discovery;
 pub(crate) mod file_preparation;
-pub(crate) mod inference;
 pub(crate) mod initial;
 pub(crate) mod repository_state;
 pub(crate) mod scheduling;

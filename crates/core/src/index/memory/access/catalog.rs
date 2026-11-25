@@ -6,10 +6,10 @@ use std::collections::HashMap;
 use roaring::RoaringBitmap;
 
 use crate::index::bigram::BigramIndex;
+use crate::index::memory::inference::InferenceState;
 use crate::index::posting::ScalarKey;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::segment::IndexedCollectionSegment;
-use crate::inference::InferenceState;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
 use crate::query::{Operator, Quantifier};

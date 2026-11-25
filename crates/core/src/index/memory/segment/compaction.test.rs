@@ -2,8 +2,8 @@ use super::projection::{SlotMap, project_bitmap, project_inference, project_sort
 use super::*;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-use crate::construction::inference::InferenceBuilder;
 use crate::index::bigram::BigramAlphabet;
+use crate::index::memory::inference::InferenceBuilder;
 use crate::index::segment::admission::SegmentAdmission;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::{DiagnosticRef, FileStatus, SourceRevision};

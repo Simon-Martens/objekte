@@ -4,10 +4,9 @@ use roaring::RoaringBitmap;
 
 use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
 use crate::index::bigram::BigramIndex;
+use crate::index::memory::inference::InferenceState;
 use crate::index::sorting::compare_composite;
-use crate::inference::{
-    InferenceIndexStatus, InferenceState, InferredFieldReport, OccurrenceCountStatus,
-};
+use crate::inference::{InferenceIndexStatus, InferredFieldReport, OccurrenceCountStatus};
 use crate::inventory::{ActiveRecords, RecordClass, append_shifted_bitmap};
 use crate::model::RecordSlot;
 
