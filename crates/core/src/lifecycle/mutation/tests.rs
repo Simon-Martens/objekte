@@ -1536,8 +1536,8 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
         FileMutationStrategy::VerifiedPhysicalRemoval
     );
     let current = index.view().unwrap();
-    assert_eq!(current.file_record_count(sibling), Some(1));
-    assert_eq!(current.file_record_count(target), Some(1));
+    assert_eq!(current.file_record_count(sibling).unwrap(), Some(1));
+    assert_eq!(current.file_record_count(target).unwrap(), Some(1));
     assert_eq!(index.status().unwrap().live_records, 65);
     let query = Query {
         collections: vec!["items".into()],
@@ -1553,7 +1553,7 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
         },
     };
     assert_eq!(current.count_exact(&query).unwrap(), 65);
-    assert_eq!(before.file_record_count(target), Some(1));
+    assert_eq!(before.file_record_count(target).unwrap(), Some(1));
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1588,7 +1588,8 @@ fn verified_many_to_zero_keeps_file_active_and_bad_delete_hint_tombstones() {
         index
             .view()
             .unwrap()
-            .file_record_count(updated.file.file_id),
+            .file_record_count(updated.file.file_id)
+            .unwrap(),
         Some(0)
     );
 
@@ -1652,7 +1653,10 @@ fn verified_update_removes_departed_collection_membership() {
     assert_eq!(changed.affected_collections, ["left", "right"]);
     let view = index.view().unwrap();
     assert!(view.segments(CollectionId(0)).unwrap().is_empty());
-    assert_eq!(view.file_record_count(changed.file.file_id), Some(1));
+    assert_eq!(
+        view.file_record_count(changed.file.file_id).unwrap(),
+        Some(1)
+    );
     assert_eq!(view.segments(CollectionId(1)).unwrap().len(), 1);
     assert!(!source.exists() && destination.exists());
     std::fs::remove_dir_all(root).unwrap();

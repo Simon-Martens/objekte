@@ -110,14 +110,16 @@ impl Index {
                                         return Err(IndexError::Cancelled);
                                     }
                                     let current = view.file_entry(file.entry.id);
-                                    let current_incarnation = current.is_some_and(|entry| {
+                                    let current_incarnation = if let Some(entry) = current {
                                         entry.revision == file.entry.revision
                                             && entry.created_ns == file.entry.created_ns
                                             && view
                                                 .0
-                                                .imported_collections(entry)
+                                                .imported_collections(entry)?
                                                 .contains(&segment.index.collection)
-                                    });
+                                    } else {
+                                        false
+                                    };
                                     if !current_incarnation {
                                         if file
                                             .records
@@ -149,7 +151,7 @@ impl Index {
                             return Err(IndexError::Cancelled);
                         }
                         let old = row.entry.as_ref();
-                        if view.0.imported_collections(old).is_empty() {
+                        if view.0.imported_collections(old)?.is_empty() {
                             return Ok(());
                         }
                         let relative = old.relative_path.as_path();
@@ -243,11 +245,12 @@ impl Index {
                 .iter()
                 .map(|collection| collection.required_file_definition().clone())
                 .collect::<Vec<_>>();
-            let task = Self::start_build(
+            let task = Self::start_build_with_factory(
                 repository.files().required_root().to_path_buf(),
                 definitions,
                 repository.options(),
                 repository.sources.clone(),
+                std::sync::Arc::clone(&repository.storage_factory),
             )?;
             let fresh = loop {
                 if cancelled() {

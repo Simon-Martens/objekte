@@ -9,6 +9,7 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::index::segment::PublishedSegment;
+use crate::index::storage::StorageFactory;
 use crate::inventory::{ActiveRecords, FileInventory};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
@@ -46,6 +47,7 @@ pub mod statistics;
 /// }
 /// ```
 pub struct Repository {
+    pub(crate) storage_factory: Arc<dyn StorageFactory>,
     pub(crate) files: Arc<FileInventory>,
     /// Whole-file SHA-256 captured during the fresh builder's indexed reads.
     /// A missing digest means at least one eligible binding could not read
@@ -107,6 +109,7 @@ impl Repository {
                 self.options,
                 &self.sources,
                 None,
+                Arc::clone(&self.storage_factory),
             )?
         } else {
             // The same frozen registration identity is carried across maintenance.
@@ -123,6 +126,7 @@ impl Repository {
                     .map(|state| state.file_source.clone())
                     .collect(),
                 &self.sources,
+                Arc::clone(&self.storage_factory),
             )?;
             empty.configuration_identity = self.configuration_identity;
             empty.catalog = FileCatalog::from_parts(

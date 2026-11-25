@@ -307,6 +307,7 @@ impl Index {
             definitions,
             options,
             sources,
+            crate::index::storage::default_factory(),
             |_| Ok(()),
             |_| Ok(()),
             || false,
@@ -322,6 +323,22 @@ impl Index {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
+    ) -> Result<InitialBuildTask, IndexError> {
+        Self::start_build_with_factory(
+            root,
+            definitions,
+            options,
+            sources,
+            crate::index::storage::default_factory(),
+        )
+    }
+
+    pub(crate) fn start_build_with_factory(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+        storage_factory: std::sync::Arc<dyn crate::index::storage::StorageFactory>,
     ) -> Result<InitialBuildTask, IndexError> {
         let root = root.into();
         let definitions = crate::repository::configuration::loader::prepare_source_definitions(
@@ -345,6 +362,7 @@ impl Index {
                     definitions,
                     options,
                     sources,
+                    storage_factory,
                     |index| worker_task.publish(index.clone(), false),
                     |index| worker_task.publish(index.clone(), false),
                     || worker_task.0.cancelled.load(Ordering::Acquire),

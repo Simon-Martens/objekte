@@ -10,8 +10,9 @@ use crate::inventory::discovery::selects_file;
 use crate::lifecycle::maintenance::compaction::compact_published;
 use crate::lifecycle::mutation::preparation::PreparedReplacement;
 use crate::lifecycle::mutation::verified::{
-    preserve_partition_record_slots, preserve_single_record_slots, remove_verified_old_shards,
-    verify_old_content, verify_old_content_with_layout,
+    VerificationError, VerificationResult, preserve_partition_record_slots,
+    preserve_single_record_slots, remove_verified_old_shards, verify_old_content,
+    verify_old_content_with_layout,
 };
 use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView, PublishedIndex};
 use crate::model::{CollectionId, FileId, MetadataField, PathRoot};
@@ -42,10 +43,11 @@ fn verify_file_source(view: &IndexView, file: &PreparedFileBuild) -> Result<(), 
     .map_err(IndexError::SourceUnavailable)
 }
 
-fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, VerifiedFallbackReason> {
+fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, VerificationError> {
     compact_published(next, next.revision).map_err(|error| match error {
-        IndexError::ResourceLimit(_) => VerifiedFallbackReason::CompactionBudget,
-        _ => VerifiedFallbackReason::CompactionUnavailable,
+        IndexError::ResourceLimit(_) => VerifiedFallbackReason::CompactionBudget.into(),
+        IndexError::Storage(_) => error.into(),
+        _ => VerifiedFallbackReason::CompactionUnavailable.into(),
     })
 }
 
@@ -444,7 +446,7 @@ impl Index {
         let file = view
             .file_entry(handle.file_id)
             .ok_or(IndexError::UnknownFile)?;
-        Ok(view.0.imported_collections(file).is_empty())
+        Ok(view.0.imported_collections(file)?.is_empty())
     }
 
     /// Refresh metadata for a registrar-declared file with no file importer.
@@ -524,7 +526,7 @@ impl Index {
         entry.revision = revision;
         entry.created_ns = creation;
         let imported = if retire_imported {
-            view.0.imported_collections(previous)
+            view.0.imported_collections(previous)?
         } else {
             std::collections::BTreeSet::new()
         };
@@ -621,7 +623,7 @@ impl Index {
         let old = view
             .file_entry(handle.file_id)
             .ok_or(IndexError::UnknownFile)?;
-        let imported = !view.0.imported_collections(old).is_empty();
+        let imported = !view.0.imported_collections(old)?.is_empty();
         let selected = destination_has_importer(&view, destination)?;
         if !selected {
             if imported {
@@ -745,7 +747,7 @@ impl Index {
                 })?,
             };
             let indexed_records = view
-                .file_record_count(handle.file_id)
+                .file_record_count(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?;
             let affected_collections = old
                 .collections
@@ -844,7 +846,7 @@ impl Index {
                 .file_entry(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;
             let retired_records = view
-                .file_record_count(handle.file_id)
+                .file_record_count(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?;
             let prepared_collections;
             let memberships = if let Some(placement) = &placement {
@@ -900,6 +902,7 @@ impl Index {
                 UpdateStrategy::PreferVerified => Some(match options.old_content {
                     Some(bytes) => {
                         verify_old_content_with_layout(&view, handle, bytes, &mut old_layout)
+                            .into_fallback()?
                     }
                     None => Err(VerifiedFallbackReason::MissingOldContent),
                 }),
@@ -918,7 +921,7 @@ impl Index {
                     #[cfg(test)]
                     tests::reach_file_preparation_checkpoint("verified-compaction");
                     if plan.requires_base_compaction() {
-                        match compact_verified_base(&next) {
+                        match compact_verified_base(&next).into_fallback()? {
                             Ok(compacted) => (
                                 compacted,
                                 FileMutationStrategy::VerifiedPhysicalRemoval,
@@ -928,18 +931,21 @@ impl Index {
                                 (next, FileMutationStrategy::AppendReplacement, Some(reason))
                             }
                         }
-                    } else if let Some(preserved) =
+                    } else if let Some(mut preserved) =
                         preserve_single_record_slots(&view, &next, &plan, handle.file_id).or_else(
                             || preserve_partition_record_slots(&view, &next, &plan, handle.file_id),
                         )
                     {
+                        preserved.rebuild_all_record_routes()?;
                         (
                             preserved,
                             FileMutationStrategy::VerifiedSlotPreserving,
                             None,
                         )
                     } else {
-                        match remove_verified_old_shards(&next, &plan, handle.file_id) {
+                        match remove_verified_old_shards(&next, &plan, handle.file_id)
+                            .into_fallback()?
+                        {
                             Ok(compacted) => (
                                 compacted,
                                 FileMutationStrategy::VerifiedPhysicalRemoval,
@@ -1010,7 +1016,7 @@ impl Index {
             if view.file_entry(handle.file_id).is_none() {
                 return Err(IndexError::UnknownFile);
             }
-            let verified = verify_old_content(&view, handle, old_content);
+            let verified = verify_old_content(&view, handle, old_content).into_fallback()?;
             let (expected, next, retired_records, affected_collections) =
                 self.stage_prepared_delete(handle)?;
             if expected != view.revision() {
@@ -1021,11 +1027,15 @@ impl Index {
                 continue;
             }
             let (next, strategy, fallback_reason) = match verified {
-                Ok(plan) if plan.requires_base_compaction() => match compact_verified_base(&next) {
-                    Ok(compacted) => (compacted, DeleteStrategy::VerifiedPhysicalRemoval, None),
-                    Err(reason) => (next, DeleteStrategy::Tombstone, Some(reason)),
-                },
-                Ok(plan) => match remove_verified_old_shards(&next, &plan, handle.file_id) {
+                Ok(plan) if plan.requires_base_compaction() => {
+                    match compact_verified_base(&next).into_fallback()? {
+                        Ok(compacted) => (compacted, DeleteStrategy::VerifiedPhysicalRemoval, None),
+                        Err(reason) => (next, DeleteStrategy::Tombstone, Some(reason)),
+                    }
+                }
+                Ok(plan) => match remove_verified_old_shards(&next, &plan, handle.file_id)
+                    .into_fallback()?
+                {
                     Ok(compacted) => (compacted, DeleteStrategy::VerifiedPhysicalRemoval, None),
                     Err(reason) => (next, DeleteStrategy::Tombstone, Some(reason)),
                 },

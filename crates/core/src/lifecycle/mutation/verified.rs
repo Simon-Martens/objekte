@@ -11,7 +11,7 @@ use crate::construction::file_preparation::{
 };
 use crate::index::segment::PublishedSegment;
 use crate::lifecycle::mutation::VerifiedFallbackReason;
-use crate::lifecycle::{FileHandle, IndexView, PublishedIndex};
+use crate::lifecycle::{FileHandle, IndexError, IndexView, PublishedIndex};
 use crate::model::{CollectionId, FileId, RecordSlot};
 
 const MAX_VERIFIED_SCANNED_RECORDS: usize = 16_384;
@@ -29,11 +29,48 @@ impl VerifiedPlan {
     }
 }
 
+pub(super) enum VerificationError {
+    Fallback(VerifiedFallbackReason),
+    Storage(IndexError),
+}
+
+impl From<VerifiedFallbackReason> for VerificationError {
+    fn from(reason: VerifiedFallbackReason) -> Self {
+        Self::Fallback(reason)
+    }
+}
+
+impl From<IndexError> for VerificationError {
+    fn from(error: IndexError) -> Self {
+        Self::Storage(error)
+    }
+}
+
+impl From<crate::index::storage::transfer::StorageError> for VerificationError {
+    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
+        Self::Storage(error.into())
+    }
+}
+
+pub(super) trait VerificationResult<T> {
+    fn into_fallback(self) -> Result<Result<T, VerifiedFallbackReason>, IndexError>;
+}
+
+impl<T> VerificationResult<T> for Result<T, VerificationError> {
+    fn into_fallback(self) -> Result<Result<T, VerifiedFallbackReason>, IndexError> {
+        match self {
+            Ok(value) => Ok(Ok(value)),
+            Err(VerificationError::Fallback(reason)) => Ok(Err(reason)),
+            Err(VerificationError::Storage(error)) => Err(error),
+        }
+    }
+}
+
 pub(crate) fn verify_old_content(
     view: &IndexView,
     handle: FileHandle,
     old_bytes: &[u8],
-) -> Result<VerifiedPlan, VerifiedFallbackReason> {
+) -> Result<VerifiedPlan, VerificationError> {
     verify_old_content_with_layout(view, handle, old_bytes, &mut None)
 }
 
@@ -42,7 +79,7 @@ pub(super) fn verify_old_content_with_layout(
     handle: FileHandle,
     old_bytes: &[u8],
     old_layout: &mut Option<FileRecordLayout>,
-) -> Result<VerifiedPlan, VerifiedFallbackReason> {
+) -> Result<VerifiedPlan, VerificationError> {
     let old = view
         .file_entry(handle.file_id)
         .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
@@ -50,7 +87,7 @@ pub(super) fn verify_old_content_with_layout(
         .file_fingerprint(handle.file_id)
         .ok_or(VerifiedFallbackReason::MissingFingerprint)?;
     if view.file_configuration(handle.file_id) != Some(view.configuration_identity()) {
-        return Err(VerifiedFallbackReason::ConfigurationChanged);
+        return Err(VerifiedFallbackReason::ConfigurationChanged.into());
     }
     let repository = view.repository();
     let mut bindings = Vec::with_capacity(old.collections.len());
@@ -64,7 +101,7 @@ pub(super) fn verify_old_content_with_layout(
             .reader()
             .supports_verified_layout()
         {
-            return Err(VerifiedFallbackReason::UnsupportedReader);
+            return Err(VerifiedFallbackReason::UnsupportedReader.into());
         }
         bindings.push(FilePreparationBinding {
             collection: *collection_id,
@@ -122,14 +159,14 @@ pub(super) fn verify_old_content_with_layout(
         let shards = view
             .segments(*collection_id)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        for id in routes.segments_for_file(handle.file_id) {
+        for id in routes.segments_for_file(handle.file_id)?.iter() {
             let shard = routes
-                .position(*id)
+                .position(*id)?
                 .and_then(|position| shards.get(position))
                 .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
             scanned = scanned.saturating_add(shard.index.record_count());
             if scanned > MAX_VERIFIED_SCANNED_RECORDS {
-                return Err(VerifiedFallbackReason::CompactionBudget);
+                return Err(VerifiedFallbackReason::CompactionBudget.into());
             }
             let Some(slots) = shard.index.file_records(handle.file_id) else {
                 continue;
@@ -162,17 +199,17 @@ pub(super) fn verify_old_content_with_layout(
         has_active_base = true;
     }
     if old_shards.is_empty() && !has_active_base {
-        return Err(VerifiedFallbackReason::BaseIndexUnsupported);
+        return Err(VerifiedFallbackReason::BaseIndexUnsupported.into());
     }
     if current.len() as u64
         != view
-            .file_record_count(handle.file_id)
+            .file_record_count(handle.file_id)?
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?
     {
-        return Err(VerifiedFallbackReason::IndexedLayoutChanged);
+        return Err(VerifiedFallbackReason::IndexedLayoutChanged.into());
     }
     if current.len() > MAX_VERIFIED_SCANNED_RECORDS {
-        return Err(VerifiedFallbackReason::CompactionBudget);
+        return Err(VerifiedFallbackReason::CompactionBudget.into());
     }
     let sort_layout = |layout: &mut FileRecordLayout| {
         layout.sort_unstable_by(|left, right| {
@@ -189,7 +226,7 @@ pub(super) fn verify_old_content_with_layout(
         None => {
             let supplied_fingerprint: [u8; 32] = Sha256::digest(old_bytes).into();
             if supplied_fingerprint != fingerprint {
-                return Err(VerifiedFallbackReason::ContentMismatch);
+                return Err(VerifiedFallbackReason::ContentMismatch.into());
             }
             #[cfg(test)]
             super::tests::reach_file_preparation_checkpoint("old-layout");
@@ -206,7 +243,7 @@ pub(super) fn verify_old_content_with_layout(
     };
     sort_layout(&mut current);
     if &current != reconstructed {
-        return Err(VerifiedFallbackReason::IndexedLayoutChanged);
+        return Err(VerifiedFallbackReason::IndexedLayoutChanged.into());
     }
     Ok(VerifiedPlan {
         old_shards,
@@ -298,7 +335,6 @@ pub(crate) fn preserve_single_record_slots(
         });
         group.remove(new_position);
     }
-    candidate.rebuild_all_record_routes();
     Some(candidate)
 }
 
@@ -417,7 +453,6 @@ pub(crate) fn preserve_partition_record_slots(
         });
         group.remove(new_position);
     }
-    candidate.rebuild_all_record_routes();
     Some(candidate)
 }
 
@@ -427,9 +462,9 @@ pub(crate) fn remove_verified_old_shards(
     next: &PublishedIndex,
     plan: &VerifiedPlan,
     replaced_file: crate::model::FileId,
-) -> Result<PublishedIndex, VerifiedFallbackReason> {
+) -> Result<PublishedIndex, VerificationError> {
     if plan.has_active_base {
-        return Err(VerifiedFallbackReason::BaseIndexUnsupported);
+        return Err(VerifiedFallbackReason::BaseIndexUnsupported.into());
     }
     let mut candidate = next.clone();
     let catalog = candidate.catalog.clone();
@@ -467,7 +502,7 @@ pub(crate) fn remove_verified_old_shards(
                 continue;
             }
             if shard.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS {
-                return Err(VerifiedFallbackReason::CompactionBudget);
+                return Err(VerifiedFallbackReason::CompactionBudget.into());
             }
             if shard.active.len() == 0 {
                 group.remove(position);
@@ -501,7 +536,7 @@ pub(crate) fn remove_verified_old_shards(
                 position += 1;
             }
         }
-        candidate.rebuild_record_routes(collection.0 as usize);
+        candidate.rebuild_record_routes(collection.0 as usize)?;
     }
     Ok(candidate)
 }

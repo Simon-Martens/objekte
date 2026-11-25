@@ -297,7 +297,8 @@ const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 #[derive(Clone, Copy)]
 pub(crate) struct LifecycleCacheScope<'a> {
     pub(crate) store: &'a Mutex<VerifiedCache>,
-    pub(crate) file_routes: Option<&'a [crate::lifecycle::publication::RecordRoutes]>,
+    pub(crate) file_routes:
+        Option<&'a [crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
     pub(crate) instance_id: u64,
 }
 
@@ -848,7 +849,7 @@ pub(crate) fn direct_lookup_segmented(
     return_mode: ReturnMode,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    routes: Option<&[crate::lifecycle::publication::RecordRoutes]>,
+    routes: Option<&[crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<DirectLookupResult, String> {
@@ -880,7 +881,7 @@ pub(crate) fn direct_lookup_segmented_counted(
     return_mode: ReturnMode,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    routes: Option<&[crate::lifecycle::publication::RecordRoutes]>,
+    routes: Option<&[crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
     catalog: &FileCatalog,
     revision: IndexRevision,
     mut counters: Option<&mut DirectRouteCounters>,
@@ -902,6 +903,7 @@ pub(crate) fn direct_lookup_segmented_counted(
         }
         routes[collection_index]
             .get(record_id)
+            .map_err(|error| error.to_string())?
             .filter(|(index, slot)| segments[collection_index][*index].active.contains(*slot))
     } else {
         let mut selected = None;
@@ -1310,7 +1312,7 @@ impl SegmentRestrictionCache {
         catalog: &FileCatalog,
         cache: Option<LifecycleCacheScope<'_>>,
         segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    ) {
+    ) -> Result<(), String> {
         if self.routed.is_none()
             && let Some(routes) = cache.and_then(|scope| scope.file_routes)
         {
@@ -1319,8 +1321,9 @@ impl SegmentRestrictionCache {
                 catalog,
                 routes,
                 segments,
-            ));
+            )?);
         }
+        Ok(())
     }
 
     fn get(
@@ -2521,7 +2524,7 @@ fn search_segmented_impl(
             })?;
         (&owned_sort, &owned_prepared)
     };
-    restriction_cache.route_file_restrictions(prepared, catalog, cache, segments);
+    restriction_cache.route_file_restrictions(prepared, catalog, cache, segments)?;
     let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
         matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
     });
@@ -4415,7 +4418,7 @@ fn try_lifecycle_ordered_stream(
     {
         return Ok(None);
     }
-    restriction_cache.route_file_restrictions(prepared, catalog, cache, segments);
+    restriction_cache.route_file_restrictions(prepared, catalog, cache, segments)?;
     let predicates = Arc::clone(&prepared.predicates);
     if prepared.collections.iter().any(|entry| {
         entry.filter.as_ref().is_some_and(bound_expr_has_relations)

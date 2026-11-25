@@ -239,6 +239,7 @@ fn completed_generation_releases_provisional_inference_observation() {
             ..Default::default()
         },
         crate::source::test_support::fixture_registry(),
+        crate::index::storage::default_factory(),
         |_| Ok(()),
         |index| {
             let view = index.view()?;
@@ -492,6 +493,7 @@ fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
                 ..Default::default()
             },
             crate::source::test_support::fixture_registry(),
+            crate::index::storage::default_factory(),
             |_| Ok(()),
             move |_| {
                 callback_publications.fetch_add(1, Ordering::Relaxed);
@@ -549,6 +551,7 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
                 ..Default::default()
             },
             crate::source::test_support::fixture_registry(),
+            crate::index::storage::default_factory(),
             |index| {
                 catalogue_tx.send(index.clone()).unwrap();
                 Ok(())
@@ -944,6 +947,7 @@ fn discovery_and_segments_publish_without_losing_records() {
                     ..RepositoryOptions::default()
                 },
                 crate::source::test_support::fixture_registry(),
+                crate::index::storage::default_factory(),
                 |index| {
                     catalogue_tx.send(index.clone()).unwrap();
                     resume_rx.recv().unwrap();
@@ -978,7 +982,7 @@ fn discovery_and_segments_publish_without_losing_records() {
     }));
     assert_eq!(catalogue.catalogue_rows().count(), 2_050);
     assert_eq!(catalogue.catalogue_row(FileId(0)).unwrap().size > 0, true);
-    assert_eq!(catalogue.file_record_count(FileId(0)), None);
+    assert_eq!(catalogue.file_record_count(FileId(0)).unwrap(), None);
     assert!(catalogue.search(&all_query()).is_err());
     assert!(
         catalogue
@@ -1836,7 +1840,7 @@ fn registered_stream_seals_private_work_before_eof_and_discards_late_failure() {
             finalized,
             "private segment must finish before the reader reaches EOF"
         );
-        assert_eq!(pinned.file_record_count(FileId(0)), None);
+        assert_eq!(pinned.file_record_count(FileId(0)).unwrap(), None);
         if fail {
             assert!(worker.join().unwrap().is_err());
             assert_eq!(index.view().unwrap().revision(), pinned.revision());
@@ -1845,7 +1849,7 @@ fn registered_stream_seals_private_work_before_eof_and_discards_late_failure() {
             assert_eq!(finished.status().unwrap().live_records, 3);
             assert_eq!(finished.view().unwrap().segment_summaries().len(), 2);
         }
-        assert_eq!(pinned.file_record_count(FileId(0)), None);
+        assert_eq!(pinned.file_record_count(FileId(0)).unwrap(), None);
         std::fs::remove_dir_all(root).unwrap();
     }
 }
@@ -1899,7 +1903,10 @@ fn small_lines_partitions_follow_the_record_target_across_file_continuations() {
     let added = index.add_file(&next).unwrap();
     assert_eq!(added.indexed_records, 10);
     let after = index.view().unwrap();
-    assert_eq!(after.file_record_count(added.file.file_id), Some(10));
+    assert_eq!(
+        after.file_record_count(added.file.file_id).unwrap(),
+        Some(10)
+    );
     assert!(
         after
             .segment_summaries()
@@ -1914,7 +1921,7 @@ fn small_lines_partitions_follow_the_record_target_across_file_continuations() {
             .sum::<usize>(),
         20
     );
-    assert_eq!(pinned.file_record_count(FileId(0)), Some(10));
+    assert_eq!(pinned.file_record_count(FileId(0)).unwrap(), Some(10));
     std::fs::remove_dir_all(root).unwrap();
 }
 

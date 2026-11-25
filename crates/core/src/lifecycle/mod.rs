@@ -85,6 +85,7 @@ pub enum IndexError {
     },
     IncompatibleConfiguration(String),
     InvalidPublication(String),
+    Storage(String),
     StaleLocator,
     SourceUnavailable(String),
     ResourceLimit(String),
@@ -103,7 +104,7 @@ impl From<crate::index::storage::transfer::StorageError> for IndexError {
         match error {
             StorageError::Cancelled => Self::Cancelled,
             StorageError::OversizedItem { .. } => Self::ResourceLimit(error.to_string()),
-            StorageError::InvalidTransfer { .. } => Self::InvalidPublication(error.to_string()),
+            StorageError::InvalidTransfer { .. } => Self::Storage(error.to_string()),
         }
     }
 }
@@ -143,6 +144,7 @@ impl fmt::Display for IndexError {
             Self::InvalidPublication(message) => {
                 write!(formatter, "invalid index publication: {message}")
             }
+            Self::Storage(message) => write!(formatter, "index storage: {message}"),
             Self::StaleLocator => {
                 formatter.write_str("record locator belongs to an old index view")
             }

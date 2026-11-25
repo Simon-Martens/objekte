@@ -13,6 +13,7 @@ use crate::index::bigram::BigramContribution;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortBuilder;
+use crate::index::storage::StorageFactory;
 use crate::inference::InferenceBuildStats;
 use crate::inventory::{
     ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
@@ -80,6 +81,7 @@ pub(crate) fn initialize_empty(
     options: RepositoryOptions,
     sources: &SourceRegistry,
     pool: Option<&rayon::ThreadPool>,
+    storage_factory: Arc<dyn StorageFactory>,
 ) -> Result<Repository, String> {
     let configuration_identity = crate::repository::configuration::identity::configuration_hash(
         &definitions,
@@ -106,6 +108,7 @@ pub(crate) fn initialize_empty(
         configuration_identity,
         false,
         pool,
+        storage_factory,
     )
 }
 
@@ -116,6 +119,7 @@ pub(crate) fn initialize_empty_programmatic(
     catalog_root: Option<PathBuf>,
     file_sources: Vec<Option<FileSourceConfig>>,
     sources: &SourceRegistry,
+    storage_factory: Arc<dyn StorageFactory>,
 ) -> Result<Repository, String> {
     if declarations.len() != file_sources.len() {
         return Err("programmatic file-source count mismatch".into());
@@ -156,6 +160,7 @@ pub(crate) fn initialize_empty_programmatic(
         configuration_identity,
         true,
         None,
+        storage_factory,
     )
 }
 
@@ -167,6 +172,7 @@ fn initialize_empty_configured(
     configuration_identity: [u8; 32],
     programmatic: bool,
     pool: Option<&rayon::ThreadPool>,
+    storage_factory: Arc<dyn StorageFactory>,
 ) -> Result<Repository, String> {
     let build_workers = crate::construction::scheduling::resolve_build_workers(
         options.build_workers,
@@ -328,6 +334,7 @@ fn initialize_empty_configured(
     }
     let catalog_registered = !programmatic || files.root().is_some();
     Ok(Repository {
+        storage_factory,
         files,
         base_fingerprints: Vec::new(),
         collections,
@@ -375,6 +382,7 @@ mod programmatic_tests {
             None,
             vec![None],
             &crate::source::test_support::fixture_registry(),
+            crate::index::storage::default_factory(),
         )
         .unwrap();
         assert!(repository.files.root().is_none());
@@ -604,12 +612,14 @@ pub(crate) fn assemble_final_repository(
         profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
     }
     let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
+    let storage_factory = Arc::clone(&index.view()?.repository().storage_factory);
     let mut final_repository = crate::construction::repository_state::initialize_empty(
         root,
         definitions,
         options,
         &sources,
         Some(pool),
+        storage_factory,
     )
     .map_err(IndexError::Build)?;
     final_repository.base_fingerprints = base_fingerprints;

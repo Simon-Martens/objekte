@@ -1,11 +1,17 @@
 //! Copy-on-write record and file routes for the native segment directory.
 
 use smallvec::SmallVec;
+use std::borrow::Cow;
 use std::collections::HashMap;
 use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 
 use super::segment::{PublishedSegment, SegmentId};
+use crate::index::storage::segment_catalog::{
+    SegmentCatalogEditor, SegmentCatalogHandle, SegmentCatalogReader, SegmentDirectoryDelta,
+    SegmentRouteSource,
+};
+use crate::index::storage::transfer::StorageResult;
 use crate::model::{FileId, RecordId, RecordSlot};
 
 const RECORD_ROUTE_SHARDS: usize = 64;
@@ -18,7 +24,7 @@ struct RoutedRecord {
 
 /// Delta ID routes share all untouched shards with older pinned roots.
 #[derive(Clone)]
-pub(crate) struct RecordRoutes {
+pub(super) struct RecordRoutes {
     shards: Arc<Vec<Arc<HashMap<RecordId, RoutedRecord>>>>,
     file_shards: Arc<Vec<Arc<HashMap<FileId, SmallVec<[SegmentId; 1]>>>>>,
     positions: Arc<HashMap<SegmentId, usize>>,
@@ -27,7 +33,7 @@ pub(crate) struct RecordRoutes {
 impl RecordRoutes {
     /// Resident directory capacity for one published root. Record IDs share
     /// payload allocations with headers and are therefore excluded here.
-    pub(crate) fn estimated_directory_bytes(&self) -> usize {
+    fn estimated_bytes(&self) -> usize {
         let id_routes = self.shards.iter().fold(0usize, |bytes, shard| {
             bytes.saturating_add(
                 shard
@@ -66,7 +72,7 @@ impl RecordRoutes {
             )
     }
 
-    pub(crate) fn empty() -> Self {
+    pub(super) fn empty() -> Self {
         Self {
             shards: Arc::new(
                 (0..RECORD_ROUTE_SHARDS)
@@ -88,17 +94,17 @@ impl RecordRoutes {
         (hasher.finish() as usize) % RECORD_ROUTE_SHARDS
     }
 
-    pub(crate) fn get(&self, id: &str) -> Option<(usize, RecordSlot)> {
+    fn get(&self, id: &str) -> Option<(usize, RecordSlot)> {
         let address = self.shards[Self::shard(id)].get(id)?;
         Some((*self.positions.get(&address.segment)?, address.slot))
     }
 
-    pub(crate) fn remove(&mut self, id: &str) {
+    fn remove(&mut self, id: &str) {
         let shards = Arc::make_mut(&mut self.shards);
         Arc::make_mut(&mut shards[Self::shard(id)]).remove(id);
     }
 
-    pub(crate) fn remove_if_matches(&mut self, id: &str, segment: SegmentId, slot: RecordSlot) {
+    fn remove_if_matches(&mut self, id: &str, segment: SegmentId, slot: RecordSlot) {
         let shard_number = Self::shard(id);
         if !self.shards[shard_number]
             .get(id)
@@ -110,14 +116,14 @@ impl RecordRoutes {
         Arc::make_mut(&mut shards[shard_number]).remove(id);
     }
 
-    pub(crate) fn segments_for_file(&self, file: FileId) -> &[SegmentId] {
+    fn segments_for_file(&self, file: FileId) -> &[SegmentId] {
         self.file_shards[file.0 as usize % RECORD_ROUTE_SHARDS]
             .get(&file)
             .map(SmallVec::as_slice)
             .unwrap_or(&[])
     }
 
-    pub(crate) fn remove_file_segment(&mut self, file: FileId, segment: SegmentId) {
+    fn remove_file_segment(&mut self, file: FileId, segment: SegmentId) {
         let shard_number = file.0 as usize % RECORD_ROUTE_SHARDS;
         if !self.file_shards[shard_number]
             .get(&file)
@@ -135,84 +141,169 @@ impl RecordRoutes {
         }
     }
 
-    pub(crate) fn position(&self, segment: SegmentId) -> Option<usize> {
+    fn position(&self, segment: SegmentId) -> Option<usize> {
         self.positions.get(&segment).copied()
     }
 
-    pub(crate) fn add_segment(&mut self, segment: &PublishedSegment, position: usize) {
-        Arc::make_mut(&mut self.positions).insert(segment.id, position);
-        let shards = Arc::make_mut(&mut self.shards);
-        for (id, &slot) in &segment.index.id_lookup {
-            if segment.active.contains(slot) {
-                Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())]).insert(
-                    id.clone(),
-                    RoutedRecord {
-                        segment: segment.id,
-                        slot,
-                    },
-                );
-            }
-        }
-        let file_shards = Arc::make_mut(&mut self.file_shards);
-        for file in &segment.index.files {
-            Arc::make_mut(&mut file_shards[file.entry.id.0 as usize % RECORD_ROUTE_SHARDS])
-                .entry(file.entry.id)
-                .or_default()
-                .push(segment.id);
-        }
-    }
-
-    /// Replace only routes owned by changed segments. Rebuilding every ID
-    /// route after each sparse consolidation makes single-record admission
-    /// quadratic in the size of the collection.
-    pub(crate) fn replace_segments(
+    fn add_segment(
         &mut self,
-        removed: &[Arc<PublishedSegment>],
-        added: &PublishedSegment,
-        group: &[Arc<PublishedSegment>],
-    ) {
-        let positions = Arc::make_mut(&mut self.positions);
-        for segment in removed {
-            positions.remove(&segment.id);
-        }
-        for (position, segment) in group.iter().enumerate() {
-            positions.insert(segment.id, position);
-        }
+        source: &dyn SegmentRouteSource,
+        position: usize,
+    ) -> StorageResult<()> {
+        let segment = source.segment_id();
+        Arc::make_mut(&mut self.positions).insert(segment, position);
         let shards = Arc::make_mut(&mut self.shards);
-        for segment in removed {
-            for (id, &slot) in &segment.index.id_lookup {
-                if segment.active.contains(slot) {
-                    let shard = Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())]);
-                    if shard
-                        .get(id)
-                        .is_some_and(|route| route.segment == segment.id)
-                    {
-                        shard.remove(id);
-                    }
-                }
+        source.visit_live_records(&mut |rows| {
+            for &(id, slot) in rows {
+                Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
+                    .insert(id.clone(), RoutedRecord { segment, slot });
             }
-        }
+            Ok(())
+        })?;
         let file_shards = Arc::make_mut(&mut self.file_shards);
-        for segment in removed {
-            for file in &segment.index.files {
-                let shard =
-                    Arc::make_mut(&mut file_shards[file.entry.id.0 as usize % RECORD_ROUTE_SHARDS]);
-                if let Some(routes) = shard.get_mut(&file.entry.id) {
-                    routes.retain(|id| *id != segment.id);
-                    if routes.is_empty() {
-                        shard.remove(&file.entry.id);
-                    }
-                }
+        source.visit_files(&mut |files| {
+            for &file in files {
+                Arc::make_mut(&mut file_shards[file.0 as usize % RECORD_ROUTE_SHARDS])
+                    .entry(file)
+                    .or_default()
+                    .push(segment);
             }
-        }
-        self.add_segment(added, group.len() - 1);
+            Ok(())
+        })
     }
 
-    pub(crate) fn from_group(group: &[Arc<PublishedSegment>]) -> Self {
-        let mut routes = Self::empty();
-        for (position, segment) in group.iter().enumerate() {
-            routes.add_segment(segment, position);
+    /// Reuse untouched route shards when the coordinator consolidates
+    /// several source segments into one replacement segment.
+    fn replace_segments(
+        &mut self,
+        removed: &[&dyn SegmentRouteSource],
+        replacement: &dyn SegmentRouteSource,
+        positions: &[SegmentId],
+    ) -> StorageResult<()> {
+        let segment = replacement.segment_id();
+        let Some(position) = positions.iter().position(|&id| id == segment) else {
+            return Err(crate::index::storage::transfer::StorageError::invalid(
+                "replace segment routes",
+                "replacement segment has no directory position",
+            ));
+        };
+        let directory = Arc::make_mut(&mut self.positions);
+        for source in removed {
+            directory.remove(&source.segment_id());
         }
-        routes
+        for (position, &segment) in positions.iter().enumerate() {
+            directory.insert(segment, position);
+        }
+        for source in removed {
+            let segment = source.segment_id();
+            source.visit_live_records(&mut |rows| {
+                for &(id, slot) in rows {
+                    self.remove_if_matches(id.0.as_ref(), segment, slot);
+                }
+                Ok(())
+            })?;
+            source.visit_files(&mut |files| {
+                for &file in files {
+                    self.remove_file_segment(file, segment);
+                }
+                Ok(())
+            })?;
+        }
+        self.add_segment(replacement, position)
+    }
+}
+
+impl SegmentCatalogReader for RecordRoutes {
+    fn get(&self, id: &str) -> StorageResult<Option<(usize, RecordSlot)>> {
+        Ok(RecordRoutes::get(self, id))
+    }
+
+    fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>> {
+        Ok(RecordRoutes::position(self, segment))
+    }
+
+    fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>> {
+        Ok(Cow::Borrowed(RecordRoutes::segments_for_file(self, file)))
+    }
+
+    fn estimated_directory_bytes(&self) -> usize {
+        self.estimated_bytes()
+    }
+
+    fn edit(&self) -> StorageResult<Box<dyn SegmentCatalogEditor>> {
+        Ok(Box::new(self.clone()))
+    }
+}
+
+impl SegmentCatalogEditor for RecordRoutes {
+    fn apply(&mut self, delta: SegmentDirectoryDelta<'_>) -> StorageResult<()> {
+        match delta {
+            SegmentDirectoryDelta::Install { source, position } => {
+                self.add_segment(source, position)?
+            }
+            SegmentDirectoryDelta::Replace {
+                removed,
+                replacement,
+                positions,
+            } => {
+                self.replace_segments(removed, replacement, positions)?;
+            }
+            SegmentDirectoryDelta::RetireFile {
+                file,
+                segment,
+                records,
+            } => {
+                for (record, slot) in records {
+                    self.remove_if_matches(record.0.as_ref(), segment, *slot);
+                }
+                self.remove_file_segment(file, segment);
+            }
+            SegmentDirectoryDelta::RetireRecord(id) => self.remove(id),
+        }
+        Ok(())
+    }
+
+    fn seal(self: Box<Self>) -> StorageResult<SegmentCatalogHandle> {
+        Ok(Arc::from(self as Box<dyn SegmentCatalogReader>))
+    }
+}
+
+impl SegmentRouteSource for PublishedSegment {
+    fn segment_id(&self) -> SegmentId {
+        self.id
+    }
+
+    fn visit_live_records(
+        &self,
+        visit: &mut dyn FnMut(&[(&RecordId, RecordSlot)]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        let mut batch = SmallVec::<[_; 64]>::new();
+        for (id, &slot) in &self.index.id_lookup {
+            if self.active.contains(slot) {
+                batch.push((id, slot));
+                if batch.len() == batch.inline_size() {
+                    visit(&batch)?;
+                    batch.clear();
+                }
+            }
+        }
+        if !batch.is_empty() {
+            visit(&batch)?;
+        }
+        Ok(())
+    }
+
+    fn visit_files(
+        &self,
+        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        for files in self.index.files.chunks(64) {
+            let batch = files
+                .iter()
+                .map(|file| file.entry.id)
+                .collect::<SmallVec<[_; 64]>>();
+            visit(&batch)?;
+        }
+        Ok(())
     }
 }

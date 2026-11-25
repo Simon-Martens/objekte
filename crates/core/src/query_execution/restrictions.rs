@@ -245,9 +245,9 @@ impl RoutedFileRestrictions {
     pub(crate) fn prepare(
         predicates: &PreparedPredicates,
         catalog: &FileCatalog,
-        routes: &[crate::lifecycle::publication::RecordRoutes],
+        routes: &[crate::index::storage::segment_catalog::SegmentCatalogHandle],
         segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    ) -> Self {
+    ) -> Result<Self, String> {
         let mut prepared = Self::default();
         for leaf in predicates.leaves() {
             let Some(term) = leaf.bound_term() else {
@@ -270,8 +270,13 @@ impl RoutedFileRestrictions {
                 .get_or_insert_with(HashMap::new);
             let routes = &routes[leaf.collection_index];
             for file in files.iter().copied() {
-                for &id in routes.segments_for_file(file) {
-                    let Some(position) = routes.position(id) else {
+                for &id in routes
+                    .segments_for_file(file)
+                    .map_err(|error| error.to_string())?
+                    .iter()
+                {
+                    let Some(position) = routes.position(id).map_err(|error| error.to_string())?
+                    else {
                         continue;
                     };
                     let segment = &segments[leaf.collection_index][position];
@@ -288,7 +293,7 @@ impl RoutedFileRestrictions {
                 }
             }
         }
-        prepared
+        Ok(prepared)
     }
 
     pub(crate) fn count_work(&self, counters: &mut crate::measurement::WorkCounters) {

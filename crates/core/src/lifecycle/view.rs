@@ -660,8 +660,10 @@ impl IndexView {
         self.0.catalog.configuration(file)
     }
 
-    pub(crate) fn file_record_count(&self, file: FileId) -> Option<u64> {
-        let entry = self.file_entry(file)?;
+    pub(crate) fn file_record_count(&self, file: FileId) -> Result<Option<u64>, IndexError> {
+        let Some(entry) = self.file_entry(file) else {
+            return Ok(None);
+        };
         if !self.initial_construction_complete()
             && !entry.collections.iter().all(|collection| {
                 self.0
@@ -670,22 +672,33 @@ impl IndexView {
                     .is_some_and(|covered| covered.contains(file.0))
             })
         {
-            return None;
+            return Ok(None);
         }
         let mut count = 0;
         for collection_id in &entry.collections {
             let number = collection_id.0 as usize;
-            let collection = self.repository().collections().get(number)?;
+            let collection = self.repository().collections().get(number).ok_or_else(|| {
+                IndexError::InvalidPublication("file points to missing collection".into())
+            })?;
             if let Some(slots) = collection.generation.file_records.records_for(file) {
                 count += slots
                     .iter()
                     .filter(|slot| self.0.active[number].contains(**slot))
                     .count() as u64;
             }
-            let routes = self.0.record_routes.get(number)?;
-            let segments = self.0.segments.get(number)?;
-            for segment_id in routes.segments_for_file(file) {
-                let segment = segments.get(routes.position(*segment_id)?)?;
+            let routes = self.0.record_routes.get(number).ok_or_else(|| {
+                IndexError::InvalidPublication("file points to missing collection".into())
+            })?;
+            let segments = self.0.segments.get(number).ok_or_else(|| {
+                IndexError::InvalidPublication("file points to missing collection".into())
+            })?;
+            for segment_id in routes.segments_for_file(file)?.iter() {
+                let segment = routes
+                    .position(*segment_id)?
+                    .and_then(|position| segments.get(position))
+                    .ok_or_else(|| {
+                        IndexError::InvalidPublication("file points to missing segment".into())
+                    })?;
                 if let Some(slots) = segment.index.file_records(file) {
                     count += slots
                         .iter()
@@ -694,7 +707,7 @@ impl IndexView {
                 }
             }
         }
-        Some(count)
+        Ok(Some(count))
     }
 
     pub(crate) fn segments(&self, collection: CollectionId) -> Option<&[Arc<PublishedSegment>]> {

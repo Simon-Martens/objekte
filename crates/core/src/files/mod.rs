@@ -198,9 +198,14 @@ impl<'a> FileCatalogView<'a> {
                     }
                 }
             }
-            for segment_id in self.view.0.record_routes[number].segments_for_file(id) {
+            for segment_id in self.view.0.record_routes[number]
+                .segments_for_file(id)
+                .map_err(|error| LookupError::Query(error.to_string()))?
+                .iter()
+            {
                 let position = self.view.0.record_routes[number]
                     .position(*segment_id)
+                    .map_err(|error| LookupError::Query(error.to_string()))?
                     .ok_or(LookupError::Query("file segment route is stale".into()))?;
                 let segment = &self.view.0.segments[number][position];
                 if let Some(&file_index) = segment.index.file_index.get(&id) {
@@ -256,9 +261,14 @@ impl<'a> FileCatalogView<'a> {
                 }
             }
         }
-        for segment_id in self.view.0.record_routes[number].segments_for_file(id) {
+        for segment_id in self.view.0.record_routes[number]
+            .segments_for_file(id)
+            .map_err(|error| LookupError::Query(error.to_string()))?
+            .iter()
+        {
             let position = self.view.0.record_routes[number]
                 .position(*segment_id)
+                .map_err(|error| LookupError::Query(error.to_string()))?
                 .ok_or(LookupError::Query("file segment route is stale".into()))?;
             let segment = &self.view.0.segments[number][position];
             if let Some(&file_index) = segment.index.file_index.get(&id) {

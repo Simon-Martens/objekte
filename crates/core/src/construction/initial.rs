@@ -895,6 +895,7 @@ impl Repository {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
+        storage_factory: Arc<dyn crate::index::storage::StorageFactory>,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
         cancelled: impl Fn() -> bool + Sync,
@@ -904,6 +905,7 @@ impl Repository {
             definitions,
             options,
             sources,
+            storage_factory,
             on_catalogue,
             on_publication,
             cancelled,
@@ -928,6 +930,7 @@ impl Repository {
             definitions,
             options,
             sources,
+            crate::index::storage::default_factory(),
             on_catalogue,
             on_publication,
             cancelled,
@@ -941,6 +944,7 @@ impl Repository {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
+        storage_factory: Arc<dyn crate::index::storage::StorageFactory>,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         mut on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
         cancelled: impl Fn() -> bool + Sync,
@@ -1088,6 +1092,7 @@ impl Repository {
             options,
             &sources,
             Some(&pool),
+            storage_factory,
         )
         .map_err(IndexError::Build)?;
         repository.files = Arc::clone(&discovered);

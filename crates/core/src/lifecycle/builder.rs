@@ -54,6 +54,7 @@ pub struct IndexBuilder {
     catalog_root: Option<PathBuf>,
     sources: SourceRegistry,
     options: RepositoryOptions,
+    storage_factory: std::sync::Arc<dyn crate::index::storage::StorageFactory>,
 }
 
 impl Default for IndexBuilder {
@@ -66,6 +67,7 @@ impl Default for IndexBuilder {
             catalog_root: None,
             sources: SourceRegistry::default(),
             options: RepositoryOptions::default(),
+            storage_factory: crate::index::storage::default_factory(),
         }
     }
 }
@@ -144,6 +146,14 @@ impl Index {
 }
 
 impl IndexBuilder {
+    #[cfg(test)]
+    pub(crate) fn use_storage_factory(
+        &mut self,
+        storage_factory: std::sync::Arc<dyn crate::index::storage::StorageFactory>,
+    ) {
+        self.storage_factory = storage_factory;
+    }
+
     /// Install the readers used by any file importers declared before build.
     pub fn with_source_registry(mut self, sources: SourceRegistry) -> Self {
         self.sources = sources;
@@ -367,6 +377,7 @@ impl IndexBuilder {
             self.catalog_root,
             self.file_sources,
             &self.sources,
+            self.storage_factory,
         )
         .map_err(IndexError::Build)?;
         repository.record_registrations = std::sync::Arc::new(self.registrations);

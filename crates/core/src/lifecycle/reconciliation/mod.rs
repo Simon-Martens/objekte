@@ -149,8 +149,9 @@ impl Index {
             .into_iter()
             .map(|(_, definition)| definition)
             .collect::<Vec<_>>();
+        let storage_error = std::cell::RefCell::new(None);
         let mut apply = |change: ScanChange| {
-            if cancelled() {
+            if cancelled() || storage_error.borrow().is_some() {
                 report.cancelled = true;
                 return;
             }
@@ -196,16 +197,20 @@ impl Index {
             &repository.sources,
             |_| false,
             |path| {
-                snapshot.0.catalog.id_for(path).and_then(|id| {
-                    snapshot.0.catalog.scan_stamp(id).map(|mut stamp| {
-                        if let Some(entry) = snapshot.file_entry(id) {
-                            stamp.collections = snapshot.0.imported_collections(entry);
+                let id = snapshot.0.catalog.id_for(path)?;
+                let mut stamp = snapshot.0.catalog.scan_stamp(id)?;
+                if let Some(entry) = snapshot.file_entry(id) {
+                    match snapshot.0.imported_collections(entry) {
+                        Ok(collections) => stamp.collections = collections,
+                        Err(error) => {
+                            storage_error.replace(Some(error));
+                            return None;
                         }
-                        (id, stamp)
-                    })
-                })
+                    }
+                }
+                Some((id, stamp))
             },
-            &cancelled,
+            &|| cancelled() || storage_error.borrow().is_some(),
             256,
             |batch| {
                 for change in batch {
@@ -213,7 +218,7 @@ impl Index {
                 }
             },
         );
-        if !scan.cancelled {
+        if !scan.cancelled && storage_error.borrow().is_none() {
             for id in snapshot.0.catalog.active_ids() {
                 if cancelled() {
                     break;
@@ -224,7 +229,13 @@ impl Index {
                 let Some(entry) = snapshot.file_entry(id) else {
                     continue;
                 };
-                let imported = snapshot.0.imported_collections(entry);
+                let imported = match snapshot.0.imported_collections(entry) {
+                    Ok(imported) => imported,
+                    Err(error) => {
+                        storage_error.replace(Some(error));
+                        break;
+                    }
+                };
                 if imported.is_empty() {
                     continue;
                 }
@@ -239,6 +250,9 @@ impl Index {
             }
         }
         drop(apply);
+        if let Some(error) = storage_error.into_inner() {
+            report.record_issue(error.to_string());
+        }
         report.examined = scan.examined;
         report.unchanged = scan.unchanged;
         report.skipped = report.skipped.saturating_add(scan.skipped);
