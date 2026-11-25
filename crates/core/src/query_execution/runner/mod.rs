@@ -621,21 +621,52 @@ pub(crate) fn get_segment_record_by_id<S: SegmentReader + ?Sized>(
         .collections
         .get(collection_index)
         .ok_or("segment collection missing")?;
-    let descriptor = segment.descriptor();
-    if descriptor.collection != collection.generation.collection
-        || active.slot_count() as usize != descriptor.slots
-    {
-        return Err("segment collection or slot domain mismatch".into());
-    }
     let Some(slot) = segment.slot_for_record(record_id)? else {
         return Ok(None);
     };
     if !active.contains(slot) {
         return Ok(None);
     }
+    match read_direct_segment_slot(
+        repo,
+        collection,
+        segment,
+        active,
+        catalog,
+        revision,
+        slot,
+        record_id,
+        return_mode,
+        false,
+    )? {
+        DirectLookupResult::Found(hit) => Ok(Some(hit)),
+        DirectLookupResult::NotFound => Ok(None),
+        DirectLookupResult::SourceUnavailable(diagnostic) => Err(diagnostic.message),
+    }
+}
+
+fn read_direct_segment_slot<S: SegmentReader + ?Sized>(
+    repo: &Repository,
+    collection: &crate::repository::state::CollectionState,
+    segment: &S,
+    active: &ActiveRecords,
+    catalog: &dyn FileCatalogReader,
+    revision: IndexRevision,
+    slot: RecordSlot,
+    record_id: &str,
+    return_mode: ReturnMode,
+    classify_source_failure: bool,
+) -> Result<DirectLookupResult, String> {
+    let descriptor = segment.descriptor();
+    if descriptor.collection != collection.generation.collection
+        || active.slot_count() as usize != descriptor.slots
+    {
+        return Err("segment collection or slot domain mismatch".into());
+    }
     let record = segment
         .header(slot)?
-        .ok_or("direct lookup record slot missing")?;
+        .filter(|header| header.slot == slot && header.id.0.as_ref() == record_id)
+        .ok_or("direct lookup route points to a different or missing record")?;
     let origin = segment
         .origin(slot)?
         .ok_or("direct lookup record origin missing")?;
@@ -659,14 +690,23 @@ pub(crate) fn get_segment_record_by_id<S: SegmentReader + ?Sized>(
                         .repository_root()
                         .ok_or("file-backed segment has no catalog root")?;
                     let path = root.join(&entry.relative_path);
-                    let bytes = read_record_range_for_search(
+                    let decoded = read_record_range_for_search(
                         collection.required_file_reader().reader(),
                         &path,
                         entry.revision,
                         range,
                         None,
-                    )?;
-                    payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
+                    )
+                    .and_then(|bytes| {
+                        payload_from_bytes(record.class, Some(collection), &return_mode, bytes)
+                    });
+                    match decoded {
+                        Ok((payload, _)) => payload,
+                        Err(message) if classify_source_failure => {
+                            return direct_source_failure(&path, &entry, range, message);
+                        }
+                        Err(message) => return Err(message),
+                    }
                 }
             };
             file = Some(crate::files::RecordFileInfo::from_entry(
@@ -718,7 +758,7 @@ pub(crate) fn get_segment_record_by_id<S: SegmentReader + ?Sized>(
             file = optional_record_file(catalog, origin)?;
         }
     }
-    Ok(Some(SearchHit {
+    Ok(DirectLookupResult::Found(SearchHit {
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: revision.0,
@@ -915,6 +955,9 @@ pub(crate) fn direct_lookup_segmented_counted(
                 .get(found.position)
                 .filter(|segment| segment.id == found.route.segment)
                 .ok_or("record route points to a different segment")?;
+            if found.route.slot.0 >= segment.active.slot_count() {
+                return Err("record route points outside the segment".into());
+            }
             segment
                 .active
                 .contains(found.route.slot)
@@ -964,7 +1007,10 @@ pub(crate) fn direct_lookup_segmented_counted(
                 }))
             }
             ReturnMode::Bytes | ReturnMode::Logical => {
-                let path = repo.files.required_root().join(&file.relative_path);
+                let root = catalog
+                    .repository_root()
+                    .ok_or("base direct-lookup catalog has no root")?;
+                let path = root.join(&file.relative_path);
                 read_record_range_for_search(
                     collection.required_file_reader().reader(),
                     &path,
@@ -996,40 +1042,22 @@ pub(crate) fn direct_lookup_segmented_counted(
         (record.clone(), file, result)
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
-        if matches!(
-            segment.index.backing_kind(),
-            RecordBacking::Retained | RecordBacking::Provider
-        ) {
-            let mut hit = get_segment_record_by_id(
-                repo,
-                collection_index,
-                &segment.index,
-                &segment.active,
-                catalog,
-                revision,
-                record_id,
-                return_mode,
-            )?
-            .ok_or("active retained direct-lookup record disappeared")?;
-            repo.stamp_native_hit_at(&mut hit, revision)?;
-            return Ok(DirectLookupResult::Found(hit));
+        let mut result = read_direct_segment_slot(
+            repo,
+            collection,
+            &segment.index,
+            &segment.active,
+            catalog,
+            revision,
+            slot,
+            record_id,
+            return_mode,
+            true,
+        )?;
+        if let DirectLookupResult::Found(hit) = &mut result {
+            repo.stamp_native_hit_at(hit, revision)?;
         }
-        let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
-            .ok_or("active segment direct-lookup slot retired")?;
-        (
-            resolved.record,
-            resolved.file,
-            get_segment_record_by_id(
-                repo,
-                collection_index,
-                &segment.index,
-                &segment.active,
-                catalog,
-                revision,
-                record_id,
-                return_mode,
-            ),
-        )
+        return Ok(result);
     } else {
         return Ok(DirectLookupResult::NotFound);
     };
@@ -1040,20 +1068,30 @@ pub(crate) fn direct_lookup_segmented_counted(
         }
         Ok(None) => Err("active direct-lookup record disappeared".into()),
         Err(message) => {
-            let path = repo.files.required_root().join(&file.relative_path);
-            if let Some(kind) =
-                probe_source_unavailable_for_search(&path, file.revision, Some(record.range))
-            {
-                Ok(DirectLookupResult::SourceUnavailable(SourceDiagnostic {
-                    file_id: file.id.0,
-                    file_path: file.relative_path.to_path_buf(),
-                    kind,
-                    message,
-                }))
-            } else {
-                Err(message)
-            }
+            let root = catalog
+                .repository_root()
+                .ok_or("base direct-lookup catalog has no root")?;
+            let path = root.join(&file.relative_path);
+            direct_source_failure(&path, &file, record.range, message)
         }
+    }
+}
+
+fn direct_source_failure(
+    path: &std::path::Path,
+    file: &FileEntry,
+    range: ByteRange,
+    message: String,
+) -> Result<DirectLookupResult, String> {
+    if let Some(kind) = probe_source_unavailable_for_search(path, file.revision, Some(range)) {
+        Ok(DirectLookupResult::SourceUnavailable(SourceDiagnostic {
+            file_id: file.id.0,
+            file_path: file.relative_path.to_path_buf(),
+            kind,
+            message,
+        }))
+    } else {
+        Err(message)
     }
 }
 

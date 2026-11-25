@@ -39,6 +39,7 @@ struct TableFactory {
     fail_file_worker: AtomicBool,
     fail_seal: AtomicBool,
     fail_lookup: AtomicBool,
+    wrong_slot: AtomicBool,
 }
 
 impl StorageFactory for Arc<TableFactory> {
@@ -279,6 +280,15 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
     assert_eq!(factory.retained_builds.load(Ordering::Relaxed), 1);
     assert_eq!(factory.direct_seals.load(Ordering::Relaxed), 1);
     assert_eq!(factory.retained_reads.load(Ordering::Relaxed), 0);
+
+    factory.wrong_slot.store(true, Ordering::Relaxed);
+    assert!(
+        pinned
+            .get_record("entries", "kept", ReturnMode::Locator)
+            .unwrap_err()
+            .contains("points to a different or missing record")
+    );
+    factory.wrong_slot.store(false, Ordering::Relaxed);
 
     factory.fail_retained_read.store(true, Ordering::Relaxed);
     assert!(
@@ -609,10 +619,14 @@ impl SegmentCatalogReader for TableDirectory {
                 "injected lookup failure",
             ));
         }
-        Ok(self
-            .records
-            .get(id)
-            .map(|&(segment, slot)| RoutedSlot { segment, slot }))
+        Ok(self.records.get(id).map(|&(segment, slot)| RoutedSlot {
+            segment,
+            slot: if self.control.wrong_slot.load(Ordering::Relaxed) {
+                RecordSlot(0)
+            } else {
+                slot
+            },
+        }))
     }
 
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>> {
