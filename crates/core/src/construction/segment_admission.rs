@@ -589,7 +589,6 @@ impl SegmentAdmission {
 
     pub(crate) fn at_capacity(&self) -> bool {
         self.records.len() >= self.policy.target_records.get()
-            || self.files.len() >= self.policy.max_files.get()
     }
 
     /// False means seal this segment and begin another. A single oversized
@@ -616,11 +615,18 @@ impl SegmentAdmission {
         if self.files.is_empty() {
             return true;
         }
+        // A file's initial source range and its first range in this draft
+        // differ when one file spans more than one segment.
+        let new_files = batch
+            .files
+            .iter()
+            .filter(|file| !self.file_index.contains_key(&file.entry.id))
+            .count();
         self.policy.can_grow(
             self.records.len(),
             self.files.len(),
             batch.record_count(),
-            batch.new_file_count(),
+            new_files,
         )
     }
 

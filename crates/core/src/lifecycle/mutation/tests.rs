@@ -1993,3 +1993,89 @@ fn programmatic_rebuild_rejects_source_replacement_at_handoff() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn multisegment_managed_file_has_one_membership_per_collection() {
+    use crate::index::segment::SegmentPolicy;
+    use std::num::NonZeroUsize;
+
+    let root = test_root("distinct-collection-membership");
+    let mut builder = Index::builder().with_options(RepositoryOptions {
+        segment_policy: SegmentPolicy {
+            target_records: NonZeroUsize::new(512).unwrap(),
+            max_files: NonZeroUsize::new(1).unwrap(),
+        },
+        ..Default::default()
+    });
+    builder
+        .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
+        .unwrap();
+    for name in ["entries", "references"] {
+        let definition = intrinsic_definition(name);
+        let collection = builder.collection(name, definition.schema.clone()).unwrap();
+        builder
+            .register_file_source(collection, definition.file_source())
+            .unwrap();
+    }
+    let index = builder.build().unwrap();
+    let path = root.join("data/item.jsonl");
+    let bytes = (0..768)
+        .map(|n| format!("{{\"id\":\"r{n}\"}}\n"))
+        .collect::<String>();
+    std::fs::write(&path, bytes).unwrap();
+    let added = index.add_file(&path).unwrap();
+    assert_eq!(added.indexed_records, 1536);
+    let pinned = index.view().unwrap();
+    let catalog = pinned.file_catalog().unwrap();
+    let id = added.file.file_id;
+    assert_eq!(
+        catalog.file(id).unwrap().collections,
+        &[CollectionId(0), CollectionId(1)]
+    );
+    assert_eq!(catalog.records_for_file(id).unwrap().len(), 1536);
+    for collection in ["entries", "references"] {
+        assert_eq!(
+            catalog
+                .records_for_file_in_collection(id, collection)
+                .unwrap()
+                .len(),
+            768
+        );
+    }
+    for collection in &pinned.0.segments {
+        assert_eq!(
+            collection
+                .iter()
+                .map(|segment| segment.active.len())
+                .collect::<Vec<_>>(),
+            [512, 256]
+        );
+    }
+    let moved_path = root.join("data/moved.jsonl");
+    std::fs::rename(&path, &moved_path).unwrap();
+    let moved = index.move_file(added.file, &moved_path).unwrap();
+    assert_eq!(moved.indexed_records, 1536);
+    assert_eq!(
+        index.update_file(moved.file, &moved_path).unwrap().kind,
+        FileMutationKind::Unchanged
+    );
+    std::fs::write(&moved_path, b"{\"id\":\"r0\"}\n{\"id\":\"r1\"}\n").unwrap();
+    let replacement = index.update_file(moved.file, &moved_path).unwrap();
+    assert_eq!(
+        (replacement.previous_records, replacement.indexed_records),
+        (1536, 4)
+    );
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .file_catalog()
+            .unwrap()
+            .records_for_file(id)
+            .unwrap()
+            .len(),
+        4
+    );
+    assert_eq!(catalog.records_for_file(id).unwrap().len(), 1536);
+    std::fs::remove_dir_all(root).unwrap();
+}

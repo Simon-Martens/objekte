@@ -92,8 +92,15 @@ pub(crate) fn index_prepared_file(
 ) -> Result<(FileEntry, Vec<IndexedCollectionSegment>), IndexError> {
     let options = repository.options();
     let mut indexed = Vec::with_capacity(collections.len());
+    let mut memberships = Vec::with_capacity(collections.len());
     let mut next_segment_id = first_segment_id;
     for collection in collections {
+        if memberships.contains(&collection.collection) {
+            return Err(IndexError::InvalidPublication(
+                "repeated prepared file binding".into(),
+            ));
+        }
+        memberships.push(collection.collection);
         let state = repository
             .collections()
             .get(collection.collection.0 as usize)
@@ -131,10 +138,7 @@ pub(crate) fn index_prepared_file(
             Ok(())
         };
         for batch in collection.contributions {
-            if batch.record_count() != 0
-                && admission.file_count() != 0
-                && !admission.can_admit_batch(&batch)
-            {
+            if !admission.can_admit_batch(&batch) {
                 finish(std::mem::replace(
                     &mut admission,
                     SegmentAdmission::with_limits_and_id(
@@ -168,7 +172,6 @@ pub(crate) fn index_prepared_file(
             finish(admission)?;
         }
     }
-    let memberships = indexed.iter().map(|segment| segment.collection).collect();
     let mut entry = FileEntry {
         id: source.id,
         relative_path: source.relative_path.clone().into(),
