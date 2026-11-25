@@ -1003,20 +1003,17 @@ impl Repository {
             }
         }
         let mut stream_groups = Vec::new();
-        let registered_stream_files = discovered
+        let registered_files = discovered
             .files
             .iter()
             .filter(|file| {
-                file.collections.iter().any(|id| {
-                    pending[id.0 as usize]
-                        .source
-                        .reader()
-                        .supports_streaming_build()
-                })
+                file.collections
+                    .iter()
+                    .any(|id| pending[id.0 as usize].source.is_extension())
             })
             .take(2)
             .count();
-        let parallel_file_streams = registered_stream_files > 1;
+        let parallel_registered_files = registered_files > 1;
         let mut jobs = Vec::new();
         let mut large_jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
@@ -1032,7 +1029,7 @@ impl Repository {
                     .collect::<Vec<_>>();
                 &ordinary
             };
-            if parallel_file_streams && state.source.reader().supports_streaming_build() {
+            if parallel_registered_files && state.source.is_extension() {
                 group_stream_files(
                     members,
                     &discovered,
@@ -1094,14 +1091,11 @@ impl Repository {
                 }
             }
         }
-        if parallel_file_streams {
+        if parallel_registered_files {
             shared.retain(|bindings, files| {
-                let streams = bindings.iter().any(|id| {
-                    pending[id.0 as usize]
-                        .source
-                        .reader()
-                        .supports_streaming_build()
-                });
+                let streams = bindings
+                    .iter()
+                    .any(|id| pending[id.0 as usize].source.is_extension());
                 if streams {
                     let bindings = bindings
                         .iter()

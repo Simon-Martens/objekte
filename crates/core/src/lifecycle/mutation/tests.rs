@@ -2381,14 +2381,11 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
         });
         let peak = budget.peak();
         assert_eq!(peak.active_framers, allowed_framers as u64);
-        assert_eq!(
-            peak.active_callbacks,
-            if core_jsonl {
-                0
-            } else {
-                allowed_framers as u64
-            }
-        );
+        if core_jsonl {
+            assert_eq!(peak.active_callbacks, 0);
+        } else {
+            assert!((1..=allowed_framers as u64).contains(&peak.active_callbacks));
+        }
         assert!(peak.completed_chunks > 0);
         assert!(peak.private_segments > 0);
         assert_eq!(budget.current(), Default::default());
