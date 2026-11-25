@@ -119,6 +119,11 @@ impl IndexView {
         self.repository().startup()
     }
 
+    /// Simultaneous high-water usage of the repository's managed streams.
+    pub fn managed_stream_peak(&self) -> crate::repository::statistics::StreamMemoryStats {
+        self.repository().stream_budget.peak()
+    }
+
     pub fn build_parses(&self) -> u64 {
         self.repository().build_parses()
     }

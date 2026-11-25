@@ -1053,7 +1053,10 @@ fn verify_initial_files(
     segments: &[&IndexedCollectionSegment],
 ) -> Result<(), IndexError> {
     use crate::construction::file_preparation::created_ns;
-    use crate::inventory::{SourceRevision, discovery::PreparedScanSelection};
+    use crate::inventory::{
+        SourceRevision,
+        discovery::{PreparedScanSelection, SymlinkPolicy, discover},
+    };
     use rayon::prelude::*;
 
     let repository = view.repository();
@@ -1072,7 +1075,7 @@ fn verify_initial_files(
         let reader = collection.required_file_reader();
         let position = match selections
             .iter()
-            .position(|(source_path, rules, extension, _)| {
+            .position(|(source_path, rules, extension, _, _)| {
                 *source_path == &config.source_path
                     && *rules == &config.discovery
                     && *extension == reader.extension()
@@ -1080,6 +1083,15 @@ fn verify_initial_files(
             Some(position) => position,
             None => {
                 let position = selections.len();
+                let chosen_aliases = if config.discovery.symlinks == SymlinkPolicy::FollowWithinRoot
+                {
+                    Some(
+                        discover(root, &config.source_path, &config.discovery, reader)
+                            .map_err(IndexError::SourceUnavailable)?,
+                    )
+                } else {
+                    None
+                };
                 selections.push((
                     &config.source_path,
                     &config.discovery,
@@ -1091,22 +1103,32 @@ fn verify_initial_files(
                         reader,
                     )
                     .map_err(IndexError::SourceUnavailable)?,
+                    chosen_aliases,
                 ));
                 position
             }
         };
         by_collection.insert(segment.collection, position);
     }
-    let verify = |entry: &FileEntry, selection: &PreparedScanSelection| {
+    let verify = |entry: &FileEntry, position: usize| {
+        let (_, _, _, selection, chosen_aliases) = &selections[position];
+        let ineligible = || {
+            IndexError::SourceUnavailable(format!(
+                "source is ineligible before initial publication: {}",
+                root.join(&entry.relative_path).display()
+            ))
+        };
+        if chosen_aliases.as_ref().is_some_and(|paths| {
+            paths
+                .binary_search(&root.join(&entry.relative_path))
+                .is_err()
+        }) {
+            return Err(ineligible());
+        }
         let metadata = selection
             .selected_metadata(root, &entry.relative_path)
             .map_err(IndexError::SourceUnavailable)?
-            .ok_or_else(|| {
-                IndexError::SourceUnavailable(format!(
-                    "source is ineligible before initial publication: {}",
-                    root.join(&entry.relative_path).display()
-                ))
-            })?;
+            .ok_or_else(ineligible)?;
         let revision =
             SourceRevision::from_metadata(&metadata).map_err(IndexError::SourceUnavailable)?;
         if revision != entry.revision || created_ns(&metadata) != entry.created_ns {
@@ -1125,7 +1147,7 @@ fn verify_initial_files(
     };
     let workers = &repository.workers;
     if let [segment] = segments {
-        let selection = &selections[by_collection[&segment.collection]].3;
+        let selection = by_collection[&segment.collection];
         if segment.files.len() >= 256 && workers.current_num_threads() > 1 {
             return workers.install(|| {
                 segment
@@ -1151,8 +1173,7 @@ fn verify_initial_files(
         })
         .filter(|(entry, selection)| checked.insert((entry.id, *selection)))
         .collect::<Vec<_>>();
-    let verify_entry =
-        |(entry, selection): (&FileEntry, usize)| verify(entry, &selections[selection].3);
+    let verify_entry = |(entry, selection): (&FileEntry, usize)| verify(entry, selection);
     if entries.len() >= 256 && workers.current_num_threads() > 1 {
         workers.install(|| entries.into_par_iter().try_for_each(verify_entry))
     } else {

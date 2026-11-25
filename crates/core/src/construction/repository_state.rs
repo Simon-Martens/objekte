@@ -746,6 +746,7 @@ pub(crate) fn assemble_final_repository(
         build_framing_ns: schedule_stats.framing_ns,
         build_framing_chunks: schedule_stats.framing_chunks,
         build_framing_bytes: schedule_stats.framing_bytes,
+        build_stream_peak: schedule_stats.stream_peak,
         inference_build,
         build_profile: profile,
         ..StartupStats::default()

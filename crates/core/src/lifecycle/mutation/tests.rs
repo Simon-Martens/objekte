@@ -2211,3 +2211,277 @@ fn direct_publication_progresses_during_private_file_work() {
         std::fs::remove_dir_all(root).unwrap();
     }
 }
+
+#[test]
+fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
+    use crate::inventory::ByteRange;
+    use crate::source::{BuildChunk, ExtractedRecord, SourceReader};
+    use std::io::Read;
+    use std::sync::{
+        Arc, Mutex,
+        atomic::{AtomicBool, Ordering},
+        mpsc,
+    };
+    use std::time::{Duration, Instant};
+
+    struct BudgetedLines {
+        core_jsonl: bool,
+        gate: AtomicBool,
+        entered: mpsc::SyncSender<()>,
+        released: Mutex<mpsc::Receiver<()>>,
+    }
+
+    impl SourceReader for BudgetedLines {
+        fn name(&self) -> &'static str {
+            "budget-lines"
+        }
+        fn supports_streaming_build(&self) -> bool {
+            !self.core_jsonl
+        }
+        fn supports_bounded_json_lines_build(&self) -> bool {
+            self.core_jsonl
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            crate::source::json_lines::JsonLinesReader.frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            if bytes.starts_with(b"{\"id\":\"oldest") && self.gate.swap(false, Ordering::AcqRel) {
+                self.entered.send(()).map_err(|error| error.to_string())?;
+                self.released
+                    .lock()
+                    .unwrap()
+                    .recv_timeout(Duration::from_secs(10))
+                    .map_err(|error| error.to_string())?;
+            }
+            crate::source::json_lines::JsonLinesReader.parse(bytes)
+        }
+
+        fn stream_build_chunks(
+            &self,
+            input: &mut dyn Read,
+            _: usize,
+            _: usize,
+            emit: &mut dyn FnMut(BuildChunk) -> Result<(), String>,
+        ) -> Option<Result<(), String>> {
+            Some((|| {
+                let mut bytes = Vec::new();
+                input
+                    .read_to_end(&mut bytes)
+                    .map_err(|error| error.to_string())?;
+                let late_failure = bytes.starts_with(b"{\"id\":\"late");
+                let ranges = self.frame(&bytes)?;
+                emit(BuildChunk {
+                    bytes,
+                    ranges,
+                    file_offset: 0,
+                    preceding_lines: 0,
+                })?;
+                if late_failure {
+                    return Err("deliberate late stream failure".into());
+                }
+                Ok(())
+            })())
+        }
+    }
+
+    for (workers, core_jsonl, size) in [
+        (4, false, 4096),
+        (4, true, 4096),
+        (1, false, 2 * 1024 * 1024),
+    ] {
+        let root = test_root("stream-budget");
+        let (entered, gate) = mpsc::sync_channel(1);
+        let (release, released) = mpsc::channel();
+        let reader = Arc::new(BudgetedLines {
+            core_jsonl,
+            gate: AtomicBool::new(true),
+            entered,
+            released: Mutex::new(released),
+        });
+        let mut sources = crate::source::registry::SourceRegistry::builtin();
+        sources
+            .register("budget-lines", 1, "budget", reader)
+            .unwrap();
+        let mut builder =
+            Index::builder()
+                .with_source_registry(sources)
+                .with_options(RepositoryOptions {
+                    build_workers: std::num::NonZeroUsize::new(workers),
+                    ..Default::default()
+                });
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let mut definition = CollectionDefinition::folder(
+            "entries",
+            "data",
+            SourceFormat::registered("budget-lines"),
+        );
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        builder
+            .register_file_source(collection, definition.file_source())
+            .unwrap();
+        builder
+            .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
+            .unwrap();
+        let index = builder.build().unwrap();
+        let view = index.view().unwrap();
+        let budget = &view.repository().stream_budget;
+        let allowed_framers = workers.min(2);
+        budget.set_test_limits(allowed_framers, 1024);
+        let write = |name: &str, id: &str| {
+            let path = root.join(format!("data/{name}.budget"));
+            let mut data = format!("{{\"id\":\"{id}\"}}").into_bytes();
+            data.resize(size, b' ');
+            data.push(b'\n');
+            std::fs::write(&path, data).unwrap();
+            path
+        };
+        let first = write("first", "oldest");
+        let others = (0..5)
+            .map(|n| write(&format!("n{n}"), &format!("id{n}")))
+            .collect::<Vec<_>>();
+        std::thread::scope(|scope| {
+            let oldest = scope.spawn(|| index.add_file(&first));
+            let entered = gate.recv_timeout(Duration::from_secs(5));
+            let imports = others
+                .iter()
+                .map(|path| scope.spawn(|| index.add_file(path)))
+                .collect::<Vec<_>>();
+            let mut current = budget.current();
+            let deadline = Instant::now() + Duration::from_secs(5);
+            while entered.is_ok()
+                && workers > 1
+                && (current.active_framers < 2 || current.pending_input_bytes < size as u64)
+                && Instant::now() < deadline
+            {
+                std::thread::sleep(Duration::from_millis(2));
+                current = budget.current();
+            }
+            let live_during_hold = index
+                .view()
+                .unwrap()
+                .get_record("entries", "oldest", ReturnMode::Locator)
+                .unwrap()
+                .is_some();
+            let _ = release.send(());
+            entered.expect("oldest decoder did not reach its gate");
+            assert_eq!(current.active_framers, allowed_framers as u64);
+            assert_eq!(current.active_decoders, 1);
+            assert!(current.admitted_decoder_bytes >= size as u64);
+            if workers > 1 {
+                assert!(current.pending_input_bytes >= size as u64);
+                assert!(current.pending_and_admitted_bytes >= 2 * size as u64);
+            }
+            assert!(!live_during_hold);
+            oldest.join().unwrap().unwrap();
+            for import in imports {
+                import.join().unwrap().unwrap();
+            }
+        });
+        let peak = budget.peak();
+        assert_eq!(peak.active_framers, allowed_framers as u64);
+        assert_eq!(
+            peak.active_callbacks,
+            if core_jsonl {
+                0
+            } else {
+                allowed_framers as u64
+            }
+        );
+        assert!(peak.completed_chunks > 0);
+        assert!(peak.private_segments > 0);
+        assert_eq!(budget.current(), Default::default());
+        if !core_jsonl {
+            let bad = write("retry", "late");
+            assert!(index.add_file(&bad).is_err());
+            assert!(
+                index
+                    .view()
+                    .unwrap()
+                    .file_handle_for_path(std::path::Path::new("data/retry.budget"))
+                    .is_none()
+            );
+            assert_eq!(budget.current(), Default::default());
+            assert_eq!(write("retry", "retried"), bad);
+            index.add_file(&bad).unwrap();
+            assert_eq!(budget.current(), Default::default());
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn verified_replacement_rejects_a_concurrent_replacement_of_the_same_handle() {
+    use std::sync::mpsc;
+    use std::time::Duration;
+
+    let root = test_root("concurrent-verified-replace");
+    let path = root.join("data/entry.jsonl");
+    let old = b"{\"id\":\"old\"}\n";
+    std::fs::write(&path, old).unwrap();
+    let index = Index::start_build(
+        &root,
+        vec![intrinsic_definition("entries")],
+        RepositoryOptions::default(),
+        crate::source::registry::SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let pinned = index.view().unwrap();
+    let handle = pinned
+        .file_handle_for_path(std::path::Path::new("data/entry.jsonl"))
+        .unwrap();
+    std::fs::write(&path, b"{\"id\":\"new\"}\n").unwrap();
+    let (entered, arrival) = mpsc::sync_channel(1);
+    let (release, resumed) = mpsc::channel::<()>();
+    std::thread::scope(|scope| {
+        let index_ref = &index;
+        let path_ref = &path;
+        let paused = scope.spawn(move || {
+            FILE_PREPARATION_PROBE.with_borrow_mut(|probe| {
+                *probe = Some(Box::new(move |phase| {
+                    if phase == "old-layout" {
+                        let _ = entered.send(());
+                        let _ = resumed.recv_timeout(Duration::from_secs(10));
+                    }
+                    false
+                }));
+            });
+            index_ref.update_file_with_options(
+                handle,
+                path_ref,
+                UpdateOptions {
+                    strategy: UpdateStrategy::PreferVerified,
+                    old_content: Some(old),
+                },
+            )
+        });
+        let arrived = arrival.recv_timeout(Duration::from_secs(5));
+        let current = index.update_file(handle, &path);
+        let _ = release.send(());
+        arrived.expect("verified reconstruction checkpoint");
+        let current = current.unwrap();
+        assert!(matches!(
+            paused.join().unwrap(),
+            Err(IndexError::FileConflict { .. })
+        ));
+        assert_eq!(index.view().unwrap().revision(), current.revision);
+    });
+    assert!(
+        pinned
+            .get_record("entries", "old", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .get_record("entries", "new", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}

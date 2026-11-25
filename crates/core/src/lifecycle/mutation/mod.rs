@@ -335,16 +335,25 @@ impl Index {
         let mut conflict = None;
         let mut ready = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
-            let view = self.view()?;
             let (mut prepared, placement, indexed_records) = match ready.take() {
                 Some(ready) => ready,
                 None => {
                     let mut prepared = self.prepare_add_file(path)?;
                     let indexed_records = prepared.file.record_count();
-                    let placement = IndexedFilePlacement::prepare(&view, &mut prepared.file)?;
+                    let prepared_view = self.view()?;
+                    if prepared_view.configuration_identity() != prepared.configuration_identity {
+                        conflict = Some(IndexError::RevisionConflict {
+                            expected: prepared.expected_revision,
+                            actual: prepared_view.revision(),
+                        });
+                        continue;
+                    }
+                    let placement =
+                        IndexedFilePlacement::prepare(&prepared_view, &mut prepared.file)?;
                     (prepared, placement, indexed_records)
                 }
             };
+            let view = self.view()?;
             if view.revision() != prepared.expected_revision {
                 if view.configuration_identity() == prepared.configuration_identity
                     && view.0.catalog.allocated_files() == prepared.file.source.id.0 as usize

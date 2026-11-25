@@ -19,6 +19,7 @@ use crate::inventory::{ByteRange, RecordClass, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId};
 use crate::repository::Repository;
 use crate::repository::configuration::CollectionDefinition;
+use crate::repository::statistics::StreamMemoryStats;
 use crate::schema::Schema;
 use crate::source::{
     ReaderDiagnostic, ReaderFailure, SourceOutcome, extraction::extract_framed_build_outcomes,
@@ -65,6 +66,7 @@ pub(crate) struct PreparedFileBuild {
     /// parsing and before a mutation hands its candidate to publication.
     pub identity: Option<FileObjectIdentity>,
     pub collections: Vec<PreparedCollectionBuild>,
+    _stream_memory: Option<StreamUse>,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -455,45 +457,189 @@ fn prepare_custom_stream(
     }))
 }
 
-/// Credits cover input and completed work until ordered admission.
+/// Shared admission across every stream in a repository or initial build.
+/// One framer may hold scratch and one pending input in addition to its
+/// decoder reservations. An extension still controls its callback allocation.
+#[derive(Clone, Default)]
+pub(crate) struct StreamBudget(Arc<StreamBudgetInner>);
+
 #[derive(Default)]
-pub(crate) struct StreamBudget {
-    usage: Mutex<(usize, u64)>,
+struct StreamBudgetInner {
+    usage: Mutex<StreamUsage>,
     available: Condvar,
 }
 
-struct StreamCredit<'a> {
-    budget: &'a StreamBudget,
+#[derive(Default)]
+struct StreamUsage {
+    jobs: usize,
+    current: StreamMemoryStats,
+    peak: StreamMemoryStats,
+    frame_limit: Option<usize>,
+    byte_limit: Option<u64>,
+}
+
+impl StreamUsage {
+    fn observe(&mut self) {
+        self.current.pending_and_admitted_bytes =
+            self.current.pending_input_bytes + self.current.admitted_decoder_bytes;
+        self.peak.absorb(self.current);
+    }
+}
+
+struct StreamCredit {
+    budget: StreamBudget,
+    bytes: u64,
+}
+
+#[derive(Clone, Copy)]
+pub(super) enum StreamActivity {
+    Framer,
+    Callback,
+    PendingInput,
+    Decoder,
+    Completed,
+    PrivateSegments,
+}
+
+pub(super) struct StreamUse {
+    budget: StreamBudget,
+    activity: StreamActivity,
+    count: u64,
     bytes: u64,
 }
 
 impl StreamBudget {
-    fn try_reserve(&self, bytes: u64, jobs: usize, limit: u64) -> Option<StreamCredit<'_>> {
-        let mut usage = self.usage.lock().expect("stream budget mutex poisoned");
-        if usage.0 >= jobs || (usage.0 != 0 && !fits_allowance(usage.1, bytes, limit)) {
+    pub(crate) fn peak(&self) -> StreamMemoryStats {
+        self.0
+            .usage
+            .lock()
+            .expect("stream budget mutex poisoned")
+            .peak
+    }
+
+    #[cfg(test)]
+    pub(crate) fn current(&self) -> StreamMemoryStats {
+        self.0
+            .usage
+            .lock()
+            .expect("stream budget mutex poisoned")
+            .current
+    }
+
+    #[cfg(test)]
+    pub(crate) fn set_test_limits(&self, framers: usize, bytes: u64) {
+        self.update(|usage| {
+            assert!(framers > 0 && bytes > 0);
+            usage.frame_limit = Some(framers);
+            usage.byte_limit = Some(bytes);
+        });
+    }
+
+    fn update(&self, operation: impl FnOnce(&mut StreamUsage)) {
+        let mut usage = self.0.usage.lock().expect("stream budget mutex poisoned");
+        operation(&mut usage);
+        usage.observe();
+    }
+
+    fn enter_framing(&self, pool: &ThreadPool) -> StreamUse {
+        loop {
+            let mut usage = self.0.usage.lock().expect("stream budget mutex poisoned");
+            let limit = usage
+                .frame_limit
+                .unwrap_or_else(|| pool.current_num_threads().min(4));
+            if usage.current.active_framers < limit as u64 {
+                usage.current.active_framers += 1;
+                usage.observe();
+                return StreamUse {
+                    budget: self.clone(),
+                    activity: StreamActivity::Framer,
+                    count: 1,
+                    bytes: 0,
+                };
+            }
+            if pool.current_thread_index().is_some() {
+                drop(usage);
+                pool.yield_now();
+                let usage = self.0.usage.lock().expect("stream budget mutex poisoned");
+                if usage.current.active_framers >= limit as u64 {
+                    drop(
+                        self.0
+                            .available
+                            .wait_timeout(usage, std::time::Duration::from_millis(2))
+                            .expect("stream budget mutex poisoned"),
+                    );
+                }
+            } else {
+                drop(
+                    self.0
+                        .available
+                        .wait(usage)
+                        .expect("stream budget mutex poisoned"),
+                );
+            }
+        }
+    }
+
+    pub(super) fn activity(&self, activity: StreamActivity, count: u64, bytes: u64) -> StreamUse {
+        let mut ticket = StreamUse {
+            budget: self.clone(),
+            activity,
+            count: 0,
+            bytes: 0,
+        };
+        ticket.set(count, bytes);
+        ticket
+    }
+
+    fn try_reserve(
+        &self,
+        bytes: u64,
+        jobs: usize,
+        limit: u64,
+        pending: &mut Option<StreamUse>,
+    ) -> Option<StreamCredit> {
+        let mut usage = self.0.usage.lock().expect("stream budget mutex poisoned");
+        let limit = limit.min(usage.byte_limit.unwrap_or(limit));
+        if usage.jobs >= jobs || !fits_allowance(usage.current.admitted_decoder_bytes, bytes, limit)
+        {
             return None;
         }
-        usage.0 += 1;
-        usage.1 += bytes;
+        if let Some(pending) = pending.as_mut() {
+            usage.current.pending_input_bytes -= pending.bytes;
+            pending.bytes = 0;
+        }
+        usage.jobs += 1;
+        usage.current.admitted_decoder_bytes += bytes;
+        usage.observe();
         Some(StreamCredit {
-            budget: self,
+            budget: self.clone(),
             bytes,
         })
     }
 
-    fn reserve(&self, bytes: u64, jobs: usize, limit: u64, pool: &ThreadPool) -> StreamCredit<'_> {
+    fn reserve(
+        &self,
+        bytes: u64,
+        jobs: usize,
+        limit: u64,
+        pool: &ThreadPool,
+        pending: &mut Option<StreamUse>,
+    ) -> StreamCredit {
         loop {
-            if let Some(credit) = self.try_reserve(bytes, jobs, limit) {
+            if let Some(credit) = self.try_reserve(bytes, jobs, limit, pending) {
                 return credit;
             }
             if pool.current_thread_index().is_some() {
-                // Allow queued jobs to finish if the caller is on the pool.
                 pool.yield_now();
             }
-            let usage = self.usage.lock().expect("stream budget mutex poisoned");
-            if usage.0 >= jobs || (usage.0 != 0 && !fits_allowance(usage.1, bytes, limit)) {
+            let usage = self.0.usage.lock().expect("stream budget mutex poisoned");
+            let limit = limit.min(usage.byte_limit.unwrap_or(limit));
+            if usage.jobs >= jobs
+                || !fits_allowance(usage.current.admitted_decoder_bytes, bytes, limit)
+            {
                 drop(
-                    self.available
+                    self.0
+                        .available
                         .wait_timeout(usage, std::time::Duration::from_millis(2))
                         .expect("stream budget mutex poisoned"),
                 );
@@ -502,17 +648,62 @@ impl StreamBudget {
     }
 }
 
-impl Drop for StreamCredit<'_> {
-    fn drop(&mut self) {
-        let mut usage = self
-            .budget
-            .usage
-            .lock()
-            .expect("stream budget mutex poisoned");
-        usage.0 -= 1;
-        usage.1 -= self.bytes;
-        self.budget.available.notify_all();
+impl StreamUse {
+    pub(super) fn add_private_segment(&mut self, segment: &IndexedCollectionSegment) {
+        self.set(
+            self.count + 1,
+            self.bytes + segment.accounting.index_family_bytes as u64,
+        );
     }
+
+    pub(super) fn set(&mut self, count: u64, bytes: u64) {
+        self.budget.update(|usage| {
+            let current = &mut usage.current;
+            let apply = |value: &mut u64| *value = *value - self.count + count;
+            match self.activity {
+                StreamActivity::Framer => apply(&mut current.active_framers),
+                StreamActivity::Callback => apply(&mut current.active_callbacks),
+                StreamActivity::PendingInput => {
+                    current.pending_input_bytes = current.pending_input_bytes - self.bytes + bytes
+                }
+                StreamActivity::Decoder => apply(&mut current.active_decoders),
+                StreamActivity::Completed => apply(&mut current.completed_chunks),
+                StreamActivity::PrivateSegments => {
+                    apply(&mut current.private_segments);
+                    current.private_index_family_bytes =
+                        current.private_index_family_bytes - self.bytes + bytes;
+                }
+            }
+        });
+        if matches!(self.activity, StreamActivity::Framer) && count < self.count {
+            self.budget.0.available.notify_all();
+        }
+        self.count = count;
+        self.bytes = bytes;
+    }
+}
+
+impl Drop for StreamUse {
+    fn drop(&mut self) {
+        if self.count != 0 || self.bytes != 0 {
+            self.set(0, 0);
+        }
+    }
+}
+
+impl Drop for StreamCredit {
+    fn drop(&mut self) {
+        self.budget.update(|usage| {
+            usage.jobs -= 1;
+            usage.current.admitted_decoder_bytes -= self.bytes;
+        });
+        self.budget.0.available.notify_all();
+    }
+}
+
+fn chunk_capacity(chunk: &BoundedBuildChunk) -> u64 {
+    chunk.bytes.capacity() as u64
+        + (chunk.ranges.capacity() * std::mem::size_of::<ByteRange>()) as u64
 }
 
 /// Process a registered stream through an ordered, bounded window of owned
@@ -548,9 +739,12 @@ fn process_custom_stream_profiled(
     let inline = pool.current_num_threads() == 1 || pool.current_thread_index().is_some();
     let window = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let counters = Arc::new(JobCounters::default());
-    type ChunkResult = Result<(BatchContribution, Option<BatchContribution>), String>;
-    type Waiting<'a> = (u64, mpsc::Receiver<ChunkResult>, Option<StreamCredit<'a>>);
-    let mut waiting = VecDeque::<Waiting<'_>>::new();
+    type ChunkResult = (
+        Result<(BatchContribution, Option<BatchContribution>), String>,
+        Option<StreamUse>,
+    );
+    type Waiting = (u64, mpsc::Receiver<ChunkResult>, Option<StreamCredit>);
+    let mut waiting = VecDeque::<Waiting>::new();
     let mut stats = BuildScheduleStats {
         weight_limit_bytes: limits.admitted_bytes,
         source_reads: 1,
@@ -563,7 +757,7 @@ fn process_custom_stream_profiled(
     let mut ordinal = 0usize;
     let mut remaining = record_target;
 
-    let mut drain = |pending: Waiting<'_>, ready: Option<ChunkResult>| {
+    let mut drain = |pending: Waiting, ready: Option<ChunkResult>| {
         let started = crate::measurement::timer::DetailedInstant::now();
         let result = match ready {
             Some(result) => result,
@@ -573,6 +767,7 @@ fn process_custom_stream_profiled(
                 .map_err(|error| format!("stream decoder stopped: {error}"))?,
         };
         let wait = started.elapsed().as_nanos() as u64;
+        let (result, _completed) = result;
         let (part, continuation) = result?;
         admit(part)?;
         if let Some(continuation) = continuation {
@@ -582,9 +777,12 @@ fn process_custom_stream_profiled(
         Ok::<_, String>(wait)
     };
     let mut schedule = |chunk: BoundedBuildChunk| -> Result<(), String> {
-        let weight = chunk.bytes.capacity() as u64
-            + (chunk.ranges.capacity() * std::mem::size_of::<ByteRange>()) as u64;
-        stats.peak_weight_bytes = stats.peak_weight_bytes.max(buffered.saturating_add(weight));
+        let weight = chunk_capacity(&chunk);
+        let mut pending_input =
+            shared_budget.map(|budget| budget.activity(StreamActivity::PendingInput, 0, weight));
+        if weight > 128 * 1024 * 1024 {
+            return Err("registered build chunk exceeds 128 MiB of owned input capacity".into());
+        }
         while waiting.len() >= window || !fits_allowance(buffered, weight, limits.admitted_bytes) {
             let pending = waiting.pop_front().expect("a pending job owns credit");
             buffered -= pending.0;
@@ -592,19 +790,29 @@ fn process_custom_stream_profiled(
         }
         let credit = if let Some(shared) = shared_budget {
             Some(loop {
-                if let Some(credit) = shared.try_reserve(weight, window, limits.admitted_bytes) {
+                if let Some(credit) =
+                    shared.try_reserve(weight, window, limits.admitted_bytes, &mut pending_input)
+                {
                     break credit;
                 }
                 if let Some(pending) = waiting.pop_front() {
                     buffered -= pending.0;
                     stats.receive_wait_ns += drain(pending, None)?;
                 } else {
-                    break shared.reserve(weight, window, limits.admitted_bytes, pool);
+                    break shared.reserve(
+                        weight,
+                        window,
+                        limits.admitted_bytes,
+                        pool,
+                        &mut pending_input,
+                    );
                 }
             })
         } else {
             None
         };
+        stats.peak_weight_bytes = stats.peak_weight_bytes.max(buffered.saturating_add(weight));
+        let worker_budget = shared_budget.cloned();
         let (send, receive) = mpsc::sync_channel(1);
         let root = Arc::clone(&root);
         let definition = Arc::clone(&definition);
@@ -619,6 +827,9 @@ fn process_custom_stream_profiled(
             remaining = record_target - (chunk.ranges.len() - split);
         }
         let execute = move || {
+            let active = worker_budget
+                .as_ref()
+                .map(|budget| budget.activity(StreamActivity::Decoder, 1, 0));
             let result = counters.run(|| {
                 let binding = FilePreparationBinding {
                     collection,
@@ -650,7 +861,12 @@ fn process_custom_stream_profiled(
                 };
                 Ok((part, continuation))
             });
-            let _ = send.send(result);
+            drop(chunk);
+            drop(active);
+            let completed = worker_budget
+                .as_ref()
+                .map(|budget| budget.activity(StreamActivity::Completed, 1, 0));
+            let _ = send.send((result, completed));
         };
         if inline {
             if pool.current_thread_index().is_some() {
@@ -702,10 +918,16 @@ fn process_custom_stream_profiled(
         emitted += 1;
         schedule(chunk)
     };
-    let result = source
-        .reader()
-        .stream_build_chunks(&mut reader, limits.chunk_bytes, limits.ranges, &mut emit)
-        .unwrap_or_else(|| Err("reader advertised streaming but did not provide a stream".into()));
+    let _framing = shared_budget.map(|budget| budget.enter_framing(pool));
+    let result = {
+        let _callback = shared_budget.map(|budget| budget.activity(StreamActivity::Callback, 1, 0));
+        source
+            .reader()
+            .stream_build_chunks(&mut reader, limits.chunk_bytes, limits.ranges, &mut emit)
+            .unwrap_or_else(|| {
+                Err("reader advertised streaming but did not provide a stream".into())
+            })
+    };
     drop(emit);
     drop(reader);
     let result = result.and_then(|()| {
@@ -806,6 +1028,11 @@ pub(crate) fn prepare_observed_file_build(
         None
     };
     let mut fingerprint = None;
+    let mut private = streaming_repository.map(|repository| {
+        repository
+            .stream_budget
+            .activity(StreamActivity::PrivateSegments, 0, 0)
+    });
     let mut collections = Vec::with_capacity(bindings.len());
     let mut whole = None;
     for binding in bindings {
@@ -822,6 +1049,7 @@ pub(crate) fn prepare_observed_file_build(
                 file,
                 compare,
                 fingerprint.is_none(),
+                private.as_mut().expect("managed stream ticket"),
             )?;
             fingerprint = fingerprint.or(digest);
             collections.push(PreparedCollectionBuild {
@@ -966,6 +1194,7 @@ pub(crate) fn prepare_observed_file_build(
         fingerprint,
         identity,
         collections,
+        _stream_memory: private,
     })
 }
 
@@ -977,6 +1206,7 @@ fn prepare_managed_stream(
     file: &mut std::fs::File,
     expected_bytes: Option<&[u8]>,
     hash: bool,
+    private: &mut StreamUse,
 ) -> Result<(Vec<IndexedCollectionSegment>, Option<[u8; 32]>), String> {
     let options = repository.options();
     let pool = &repository.workers;
@@ -992,13 +1222,15 @@ fn prepare_managed_stream(
     let mut admission = fresh();
     let mut indexed = Vec::new();
     let mut seal = |draft: SegmentAdmission| -> Result<(), String> {
-        indexed.push(draft.finish().into_indexed(
+        let segment = draft.finish().into_indexed(
             binding.definition,
             options.bigram_alphabet,
             options.inference,
             repository.collections().len(),
             pool,
-        )?);
+        )?;
+        private.add_private_segment(&segment);
+        indexed.push(segment);
         Ok(())
     };
     let mut consume = |batch: BatchContribution| -> Result<(), String> {
@@ -1035,11 +1267,12 @@ fn prepare_managed_stream(
         )?;
         digest
     } else {
+        let _framing = repository.stream_budget.enter_framing(pool);
         file.seek(SeekFrom::Start(0))
             .map_err(|error| error.to_string())?;
         let bytes_read = AtomicU64::new(0);
         let mut digest = Sha256::new();
-        let reader = BoundedJsonLines::from_reader(BufReader::new(HashingReader {
+        let reader = BoundedJsonLines::with_buffered_reader(BufReader::new(HashingReader {
             inner: file,
             digest: hash.then_some(&mut digest),
             bytes_read: &bytes_read,
@@ -1226,6 +1459,7 @@ fn prepare_file_build_with_fingerprint(
         fingerprint,
         identity: None,
         collections,
+        _stream_memory: None,
     })
 }
 
@@ -1530,6 +1764,7 @@ pub(crate) fn process_framed_file(
     )
 }
 
+#[cfg(test)]
 pub(crate) fn process_framed_file_profiled(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -1864,7 +2099,8 @@ fn process_bounded_json_lines_file(
     let mut digest = Sha256::new();
     let bytes_read = AtomicU64::new(0);
     let expected_size = source_files[file_id.0 as usize].revision.size;
-    let reader = BoundedJsonLines::from_reader(BufReader::new(HashingReader {
+    let _framing = shared_budget.map(|budget| budget.enter_framing(pool));
+    let reader = BoundedJsonLines::with_buffered_reader(BufReader::new(HashingReader {
         inner: &file,
         digest: Some(&mut digest),
         bytes_read: &bytes_read,
@@ -1968,11 +2204,24 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
 ) -> Result<BuildScheduleStats, String> {
     let path = root.join(&input.relative_path);
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    if shared_budget.is_some() {
+        reader.limit_record_bytes(128 * 1024 * 1024);
+    }
+    let mut scratch = shared_budget.map(|budget| {
+        budget.activity(
+            StreamActivity::PendingInput,
+            0,
+            reader.retained_line_capacity() as u64,
+        )
+    });
     // Failed input aborts private work. Reopening the pathname here could
     // read a different file from the one being observed.
     let mut remaining = record_target;
     let mut next_chunk = || {
         let chunk = reader.next_chunk(limits.chunk_bytes, limits.ranges.min(remaining))?;
+        if let Some(scratch) = scratch.as_mut() {
+            scratch.set(0, reader.retained_line_capacity() as u64);
+        }
         if let Some(chunk) = &chunk {
             remaining -= chunk.ranges.len();
             if remaining == 0 {
@@ -1992,6 +2241,8 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
         },
         Err(error) => return Err(error),
     };
+    let mut pending_input = shared_budget
+        .map(|budget| budget.activity(StreamActivity::PendingInput, 0, chunk_capacity(&first)));
     let mut pending = Some(first);
     let mut eof = false;
     let mut stats = BuildScheduleStats {
@@ -2021,6 +2272,9 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
                             stats.framing_chunks += 1;
                             stats.framing_bytes += chunk.bytes.len() as u64;
                         }
+                        if let Some(pending_input) = pending_input.as_mut() {
+                            pending_input.set(0, chunk_capacity(&chunk));
+                        }
                         pending = Some(chunk);
                     }
                     Ok(None) => eof = true,
@@ -2034,17 +2288,26 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
             let Some(chunk) = pending.as_ref() else {
                 break;
             };
-            let weight = (chunk.bytes.capacity() as u64
-                + (chunk.ranges.capacity() * std::mem::size_of::<ByteRange>()) as u64)
-                .max(64 * 1024);
+            let weight = chunk_capacity(chunk).max(64 * 1024);
             if !fits_allowance(admitted_bytes, weight, limits.admitted_bytes) {
                 break;
             }
             let credit = if let Some(shared) = shared_budget {
-                match shared.try_reserve(weight, max_jobs, limits.admitted_bytes) {
+                match shared.try_reserve(
+                    weight,
+                    max_jobs,
+                    limits.admitted_bytes,
+                    &mut pending_input,
+                ) {
                     Some(credit) => Some(credit),
                     None if next < dispatched => break,
-                    None => Some(shared.reserve(weight, max_jobs, limits.admitted_bytes, pool)),
+                    None => Some(shared.reserve(
+                        weight,
+                        max_jobs,
+                        limits.admitted_bytes,
+                        pool,
+                        &mut pending_input,
+                    )),
                 }
             } else {
                 None
@@ -2057,7 +2320,11 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
             let source = source.clone();
             let input = Arc::clone(&input);
             let counters = Arc::clone(&counters);
+            let worker_budget = shared_budget.cloned();
             let execute = move || {
+                let active = worker_budget
+                    .as_ref()
+                    .map(|budget| budget.activity(StreamActivity::Decoder, 1, 0));
                 let result = counters.run(|| {
                     process_framed_batch(
                         &root,
@@ -2077,7 +2344,12 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
                         max_jobs,
                     )
                 });
-                let _ = sender.send((index, result));
+                drop(chunk);
+                drop(active);
+                let completed = worker_budget
+                    .as_ref()
+                    .map(|budget| budget.activity(StreamActivity::Completed, 1, 0));
+                let _ = sender.send((index, result, completed));
             };
             if pool.current_thread_index().is_some() {
                 execute();
@@ -2101,13 +2373,14 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
             continue;
         }
         let wait_started = crate::measurement::timer::DetailedInstant::now();
-        let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
+        let (index, result, completed_ticket) =
+            receiver.recv().map_err(|error| error.to_string())?;
         stats.receive_wait_ns = stats
             .receive_wait_ns
             .saturating_add(wait_started.elapsed().as_nanos() as u64);
         completed += 1;
-        ready.insert(index, result);
-        while let Some(result) = ready.remove(&next) {
+        ready.insert(index, (result, completed_ticket));
+        while let Some((result, _completed)) = ready.remove(&next) {
             let (weight, _credit) = reservations
                 .pop_front()
                 .ok_or("missing chunk reservation")?;

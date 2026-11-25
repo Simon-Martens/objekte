@@ -6,6 +6,41 @@ use crate::index::bigram::BigramConstructionStats;
 use crate::inference::InferenceBuildStats;
 use serde::Serialize;
 
+/// Simultaneous use of the shared streaming budget. Byte values describe
+/// owned Rust buffer capacity, charged work or an explicit index estimate.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize)]
+pub struct StreamMemoryStats {
+    pub active_framers: u64,
+    pub active_callbacks: u64,
+    pub pending_input_bytes: u64,
+    pub admitted_decoder_bytes: u64,
+    pub active_decoders: u64,
+    pub completed_chunks: u64,
+    pub private_segments: u64,
+    pub private_index_family_bytes: u64,
+    pub pending_and_admitted_bytes: u64,
+}
+
+impl StreamMemoryStats {
+    pub(crate) fn absorb(&mut self, other: Self) {
+        self.active_framers = self.active_framers.max(other.active_framers);
+        self.active_callbacks = self.active_callbacks.max(other.active_callbacks);
+        self.pending_input_bytes = self.pending_input_bytes.max(other.pending_input_bytes);
+        self.admitted_decoder_bytes = self
+            .admitted_decoder_bytes
+            .max(other.admitted_decoder_bytes);
+        self.active_decoders = self.active_decoders.max(other.active_decoders);
+        self.completed_chunks = self.completed_chunks.max(other.completed_chunks);
+        self.private_segments = self.private_segments.max(other.private_segments);
+        self.private_index_family_bytes = self
+            .private_index_family_bytes
+            .max(other.private_index_family_bytes);
+        self.pending_and_admitted_bytes = self
+            .pending_and_admitted_bytes
+            .max(other.pending_and_admitted_bytes);
+    }
+}
+
 /// Time spent restoring, reconciling, building, and writing state.
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
@@ -35,6 +70,7 @@ pub struct StartupStats {
     pub build_framing_ns: u64,
     pub build_framing_chunks: u64,
     pub build_framing_bytes: u64,
+    pub build_stream_peak: StreamMemoryStats,
     /// Fresh-build inference counters and retained-state estimates.
     pub inference_build: InferenceBuildStats,
     /// Opt-in fresh-build timeline and sampled worker attribution.

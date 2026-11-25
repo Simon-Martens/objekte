@@ -1952,7 +1952,7 @@ fn ordinary_file_batches_respect_distinct_file_limit_before_decoding() {
 fn initial_publication_rechecks_symlink_eligibility_after_framing() {
     use crate::inventory::discovery::{SymlinkPolicy, discover};
 
-    struct RelinkDuringFraming(std::path::PathBuf);
+    struct RelinkDuringFraming(std::path::PathBuf, &'static str);
     impl SourceReader for RelinkDuringFraming {
         fn name(&self) -> &'static str {
             "relink-test"
@@ -1960,8 +1960,8 @@ fn initial_publication_rechecks_symlink_eligibility_after_framing() {
 
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
             use std::os::unix::fs::symlink;
-            std::fs::rename(self.0.join("selected"), self.0.join(".relocated")).unwrap();
-            symlink(".relocated", self.0.join("selected")).unwrap();
+            std::fs::rename(self.0.join("selected"), self.0.join(self.1)).unwrap();
+            symlink(self.1, self.0.join("selected")).unwrap();
             JsonLinesReader.frame(bytes)
         }
 
@@ -1970,9 +1970,13 @@ fn initial_publication_rechecks_symlink_eligibility_after_framing() {
         }
     }
 
-    for policy in [SymlinkPolicy::Skip, SymlinkPolicy::FollowWithinRoot] {
+    for (policy, renamed) in [
+        (SymlinkPolicy::Skip, ".relocated"),
+        (SymlinkPolicy::FollowWithinRoot, ".relocated"),
+        (SymlinkPolicy::FollowWithinRoot, "earlier-name"),
+    ] {
         let root = std::env::temp_dir().join(format!(
-            "objekte-relink-initial-{}-{policy:?}",
+            "objekte-relink-initial-{}-{policy:?}-{renamed}",
             std::process::id()
         ));
         std::fs::create_dir_all(root.join("data/selected")).unwrap();
@@ -1984,7 +1988,7 @@ fn initial_publication_rechecks_symlink_eligibility_after_framing() {
                 "relink-test",
                 1,
                 "relink",
-                Arc::new(RelinkDuringFraming(root.join("data"))),
+                Arc::new(RelinkDuringFraming(root.join("data"), renamed)),
             )
             .unwrap();
         let format = SourceFormat::registered("relink-test");
@@ -2438,4 +2442,61 @@ fn independent_registered_groups_publish_while_a_binding_waits() {
         }
         std::fs::remove_dir_all(root).unwrap();
     }
+}
+
+#[test]
+fn ordinary_many_file_job_respects_record_target_below_file_limit() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordinary-record-target-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..10 {
+        std::fs::write(root.join(format!("data/item-{number}.json")), b"{}").unwrap();
+    }
+    let index = Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            segment_policy: crate::index::segment::SegmentPolicy {
+                target_records: NonZeroUsize::new(4).unwrap(),
+                max_files: NonZeroUsize::new(16).unwrap(),
+            },
+            ..Default::default()
+        },
+        SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(
+        view.segments(crate::model::CollectionId(0))
+            .unwrap()
+            .iter()
+            .map(|segment| segment.index.record_count())
+            .collect::<Vec<_>>(),
+        [4, 4, 2]
+    );
+    let mut query = all_query();
+    query.collections = vec!["items".into()];
+    let result = view.search(&query).unwrap();
+    assert_eq!(result.count, Some(10));
+    let catalogue = view.file_catalog().unwrap();
+    for number in 0..10 {
+        let path = format!("data/item-{number}.json");
+        let file = catalogue.file_by_path(std::path::Path::new(&path)).unwrap();
+        assert_eq!(catalogue.records_for_file(file.id).unwrap().len(), 1);
+    }
+    let file = view
+        .file_handle_for_path(std::path::Path::new("data/item-0.json"))
+        .unwrap();
+    index.delete_file(file).unwrap();
+    assert_eq!(view.search(&query).unwrap().count, Some(10));
+    assert_eq!(index.view().unwrap().search(&query).unwrap().count, Some(9));
+    std::fs::remove_dir_all(root).unwrap();
 }

@@ -1,4 +1,4 @@
-//! One large managed JSON Lines file through the public initial-build API.
+//! Large single-source and many small registered-source initial builds.
 
 use std::error::Error;
 use std::io::{BufRead, BufReader, BufWriter, Read, Write};
@@ -128,20 +128,22 @@ impl SourceReader for PipeReader {
 
 fn main() -> Result<(), Box<dyn Error>> {
     let mut args = std::env::args().skip(1);
-    let root = PathBuf::from(
-        args.next()
-            .ok_or("usage: bench_managed_file_scale ROOT [jsonl|registered] [WORKERS]")?,
-    );
+    let root = PathBuf::from(args.next().ok_or(
+        "usage: bench_managed_file_scale ROOT [jsonl|registered|registered-many] [WORKERS]",
+    )?);
     let mode = args.next().unwrap_or_else(|| "jsonl".into());
     let registered = match mode.as_str() {
         "jsonl" => false,
-        "registered" => true,
-        _ => return Err("expected jsonl or registered".into()),
+        "registered" | "registered-many" => true,
+        _ => return Err("expected jsonl, registered, or registered-many".into()),
     };
     let workers = args
         .next()
         .map(|value| value.parse::<NonZeroUsize>())
         .transpose()?;
+    if mode == "registered-many" {
+        return many_registered_files(root, workers);
+    }
     let relative = if registered {
         "data/large.pipe"
     } else {
@@ -234,6 +236,8 @@ fn main() -> Result<(), Box<dyn Error>> {
             "build_workers": view.startup_stats().build_workers,
             "peak_active_decoders": view.startup_stats().build_peak_active_jobs,
             "peak_completed_contributions": view.startup_stats().build_peak_ready_batches,
+            "stream_peak": view.startup_stats().build_stream_peak,
+            "segment_populations": segment_counts,
             "file_publications": view.revision().0 - IndexRevision::INITIAL.0 - 1,
             "private_index_family_bytes": view.estimated_index_bytes(),
             "file_bytes": offset,
@@ -251,6 +255,82 @@ fn main() -> Result<(), Box<dyn Error>> {
             "searchable_batches": task.status()?.searchable_batches,
             "last_byte_start": observed.start,
             "last_byte_end": observed.end,
+            "peak_rss_kib": rss_kib("VmHWM:"),
+        })
+    );
+    std::fs::remove_dir_all(root)?;
+    Ok(())
+}
+
+fn many_registered_files(
+    root: PathBuf,
+    workers: Option<NonZeroUsize>,
+) -> Result<(), Box<dyn Error>> {
+    let count = 8_192usize;
+    let target = 64;
+    std::fs::create_dir_all(root.join("data"))?;
+    for number in 0..count {
+        let line = format!("r{number:06}|Leipzig|sample\n");
+        std::fs::write(root.join(format!("data/{number:06}.pipe")), line)?;
+    }
+    let mut registry = SourceRegistry::builtin();
+    registry.register("scale-pipe", 1, "pipe", Arc::new(PipeReader))?;
+    let mut definition =
+        CollectionDefinition::folder("entries", "data", SourceFormat::registered("scale-pipe"));
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    let target = NonZeroUsize::new(target).expect("nonzero policy");
+    let options = RepositoryOptions {
+        query_workers: 1,
+        build_workers: workers,
+        profile_build: true,
+        segment_policy: SegmentPolicy {
+            target_records: target,
+            max_files: target,
+        },
+        ..RepositoryOptions::default()
+    };
+    let started = Instant::now();
+    let task = Index::start_build(&root, vec![definition], options, registry)?;
+    let index = task.wait_complete()?;
+    let elapsed_ns = started.elapsed().as_nanos();
+    let status = index.status()?;
+    let view = index.view()?;
+    let segments = view.segment_summaries();
+    let mut populations = std::collections::BTreeMap::new();
+    for segment in &segments {
+        *populations.entry(segment.active_records).or_insert(0) += 1;
+    }
+    let catalogue = view.file_catalog().ok_or("catalogue missing")?;
+    let sampled_path = format!("data/{:06}.pipe", count - 1);
+    let file = catalogue
+        .file_by_path(sampled_path.as_ref())
+        .ok_or("sampled file missing")?;
+    let file_records = catalogue.records_for_file(file.id)?;
+    let publications = view.revision().0 - IndexRevision::INITIAL.0 - 1;
+    if status.indexed_files != count
+        || status.live_records != count as u64
+        || file_records.len() != 1
+        || status.build_source_reads != count as u64
+        || populations != [(target.get(), count / target.get())].into()
+        || publications != (count / target.get()) as u64
+    {
+        return Err(format!("invalid many-file result: {status:?}, populations {populations:?}, publications {publications}").into());
+    }
+    println!(
+        "{}",
+        json!({
+            "mode": "registered-many",
+            "records": count,
+            "indexed_files": status.indexed_files,
+            "build_workers": view.startup_stats().build_workers,
+            "elapsed_ns": elapsed_ns,
+            "records_per_second": count as f64 * 1e9 / elapsed_ns as f64,
+            "file_publications": publications,
+            "source_content_opens": status.build_source_reads,
+            "source_bytes_read": status.build_source_bytes_read,
+            "completed_segments": segments.len(),
+            "segment_population_histogram": populations,
+            "stream_peak": view.startup_stats().build_stream_peak,
             "peak_rss_kib": rss_kib("VmHWM:"),
         })
     );

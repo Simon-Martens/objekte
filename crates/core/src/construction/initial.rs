@@ -10,6 +10,7 @@ use std::time::Instant;
 
 use roaring::RoaringBitmap;
 
+use super::file_preparation::{StreamActivity, StreamUse};
 use super::segment_jobs::{
     IndexedSegmentBuild, PrivateSegmentGroup, SegmentBuildScheduler, SegmentJobGate,
     schedule_private_segment, schedule_segment,
@@ -48,6 +49,7 @@ struct StagedStreamBinding {
     collection: IncrementalCollection,
     segments: Vec<InitialSegment>,
     tail: Vec<BatchContribution>,
+    private: StreamUse,
     stats: super::scheduling::BuildScheduleStats,
     parses: u64,
     failed: u64,
@@ -89,6 +91,7 @@ fn stage_stream_binding(
         collection_count,
     );
     let mut segments = Vec::new();
+    let mut private = budget.activity(StreamActivity::PrivateSegments, 0, 0);
     let mut tail = Vec::new();
     let mut tail_records = 0;
     let mut parses = 0;
@@ -116,7 +119,7 @@ fn stage_stream_binding(
                 for batch in tail.drain(..) {
                     collection.admission.admit_batch(batch)?;
                 }
-                segments.push(finish_stream_draft(
+                let built = finish_stream_draft(
                     collection
                         .take_segment()
                         .expect("full private stream draft"),
@@ -124,7 +127,9 @@ fn stage_stream_binding(
                     options,
                     collection_count,
                     pool,
-                )?);
+                )?;
+                private.add_private_segment(&built.0);
+                segments.push(built);
                 tail_records = 0;
             }
             Ok(())
@@ -134,6 +139,7 @@ fn stage_stream_binding(
         collection,
         segments,
         tail,
+        private,
         stats,
         parses,
         failed,
@@ -156,6 +162,34 @@ fn finish_stream_draft(
         None,
     )?;
     Ok((index, observation.map(Arc::new)))
+}
+
+fn partition_file_jobs<'a>(
+    batch: &'a [FileId],
+    max_files: usize,
+    record_target: usize,
+    needs_chunks: impl Fn(FileId) -> bool,
+    records_upper_bound: impl Fn(FileId) -> usize,
+) -> Vec<&'a [FileId]> {
+    let mut jobs = Vec::new();
+    let mut start = 0;
+    while start < batch.len() {
+        let mut end = start + 1;
+        if !needs_chunks(batch[start]) {
+            let mut records = records_upper_bound(batch[start]);
+            while end < batch.len() && end - start < max_files && !needs_chunks(batch[end]) {
+                let next = records.saturating_add(records_upper_bound(batch[end]));
+                if next > record_target {
+                    break;
+                }
+                records = next;
+                end += 1;
+            }
+        }
+        jobs.push(&batch[start..end]);
+        start = end;
+    }
+    jobs
 }
 
 fn group_stream_files(
@@ -1021,18 +1055,25 @@ impl Repository {
                     // Even one-byte records need a separator, except at EOF.
                     || (bounded_lines && size.div_ceil(2) > record_target)
             };
-            let files_per_draft = options
-                .segment_policy
-                .max_files
-                .get()
-                .min(options.segment_policy.target_records.get());
-            let batches = crate::construction::batch::file_batches(members, &discovered);
+            let batches = super::batch::file_batches(members, &discovered);
             for batch in batches.into_iter().flat_map(|batch| {
-                if batch.iter().copied().any(needs_chunks) {
-                    batch.chunks(1)
-                } else {
-                    batch.chunks(files_per_draft)
-                }
+                partition_file_jobs(
+                    batch,
+                    options.segment_policy.max_files.get(),
+                    options.segment_policy.target_records.get(),
+                    needs_chunks,
+                    |file| {
+                        if bounded_lines {
+                            discovered.files[file.0 as usize]
+                                .revision
+                                .size
+                                .div_ceil(2)
+                                .max(1) as usize
+                        } else {
+                            1
+                        }
+                    },
+                )
             }) {
                 if batch.len() == 1 && needs_chunks(batch[0]) {
                     large_jobs.push(ScheduledBuildJob::Large {
@@ -1092,6 +1133,7 @@ impl Repository {
         let mut source_bytes_read = 0u64;
         let mut schedule_stats = crate::construction::scheduling::BuildScheduleStats::default();
         let mut publication_ns = 0u64;
+        let streaming_budget = Arc::new(index.view()?.repository().stream_budget.clone());
         let mut normal = Vec::new();
         for job in jobs {
             if cancelled() {
@@ -1170,11 +1212,12 @@ impl Repository {
                         &mut publication_ns,
                         &mut profile,
                     )?;
-                    let mut private_group = PrivateSegmentGroup::new(collection_index);
+                    let mut private_group =
+                        PrivateSegmentGroup::new(collection_index, &streaming_budget);
                     let definition_for_private = Arc::clone(&definition);
                     let collection_count = pending.len();
                     let process_result =
-                        crate::construction::file_preparation::process_framed_file_profiled(
+                        crate::construction::file_preparation::process_framed_file_with_budget(
                             &pool,
                             Arc::new(root.clone()),
                             definition,
@@ -1186,6 +1229,7 @@ impl Repository {
                             options.inference,
                             options.detailed_profiling_enabled(),
                             options.segment_policy.target_records.get(),
+                            Some(&streaming_budget),
                             |batch| {
                                 if cancelled() {
                                     return Err("initial construction cancelled".into());
@@ -1409,7 +1453,6 @@ impl Repository {
             &mut publication_ns,
             &mut profile,
         )?;
-        let streaming_budget = Arc::new(super::file_preparation::StreamBudget::default());
         let collection_count = pending.len();
         run_stream_groups(
             stream_groups,
@@ -1422,6 +1465,9 @@ impl Repository {
             &cancelled,
             |files| {
                 let mut segments = Vec::new();
+                let mut private_work = Vec::new();
+                let mut sealed_tails =
+                    streaming_budget.activity(StreamActivity::PrivateSegments, 0, 0);
                 let mut tails = BTreeMap::<CollectionId, SegmentAdmission>::new();
                 for bindings in files {
                     for binding in bindings {
@@ -1447,6 +1493,7 @@ impl Repository {
                         }
                         schedule_stats.absorb(binding.stats);
                         segments.extend(binding.segments);
+                        private_work.push(binding.private);
                         let new_tail = || {
                             SegmentAdmission::with_limits_and_id(
                                 id,
@@ -1459,16 +1506,16 @@ impl Repository {
                         for batch in binding.tail {
                             if !tail.can_admit_batch(&batch) {
                                 let draft = std::mem::replace(tail, new_tail()).finish();
-                                segments.push(
-                                    finish_stream_draft(
-                                        draft,
-                                        &state.definition,
-                                        options,
-                                        collection_count,
-                                        &pool,
-                                    )
-                                    .map_err(IndexError::Build)?,
-                                );
+                                let built = finish_stream_draft(
+                                    draft,
+                                    &state.definition,
+                                    options,
+                                    collection_count,
+                                    &pool,
+                                )
+                                .map_err(IndexError::Build)?;
+                                sealed_tails.add_private_segment(&built.0);
+                                segments.push(built);
                             }
                             tail.admit_batch(batch).map_err(IndexError::Build)?;
                         }
@@ -1476,16 +1523,16 @@ impl Repository {
                 }
                 for (id, tail) in tails {
                     if tail.file_count() != 0 {
-                        segments.push(
-                            finish_stream_draft(
-                                tail.finish(),
-                                &pending[id.0 as usize].definition,
-                                options,
-                                collection_count,
-                                &pool,
-                            )
-                            .map_err(IndexError::Build)?,
-                        );
+                        let built = finish_stream_draft(
+                            tail.finish(),
+                            &pending[id.0 as usize].definition,
+                            options,
+                            collection_count,
+                            &pool,
+                        )
+                        .map_err(IndexError::Build)?;
+                        sealed_tails.add_private_segment(&built.0);
+                        segments.push(built);
                     }
                 }
                 let mut ordinal = index.view()?.0.next_segment_ordinal;
@@ -1499,6 +1546,8 @@ impl Repository {
                 let (revision, phases) =
                     index.publish_initial_segments(expected, segments, profile.is_some())?;
                 expected = revision;
+                drop(private_work);
+                drop(sealed_tails);
                 if let Some(profile) = profile.as_mut() {
                     profile.publication_prepare_ns += phases.preparation_ns;
                     profile.publication_install_ns += phases.install_ns;
@@ -1527,23 +1576,32 @@ impl Repository {
                     || (bounded_lines
                         && size.div_ceil(2) > options.segment_policy.target_records.get() as u64)
             };
-            let batches = crate::construction::batch::file_batches(&files, &discovered)
+            let batches = super::batch::file_batches(&files, &discovered)
                 .into_iter()
                 .flat_map(|batch| {
-                    let limit = if batch.iter().copied().any(needs_chunks) {
-                        1
-                    } else {
-                        options
-                            .segment_policy
-                            .max_files
-                            .get()
-                            .min(options.segment_policy.target_records.get())
-                    };
-                    batch.chunks(limit)
+                    partition_file_jobs(
+                        batch,
+                        options.segment_policy.max_files.get(),
+                        options.segment_policy.target_records.get(),
+                        needs_chunks,
+                        |file| {
+                            if bounded_lines {
+                                discovered.files[file.0 as usize]
+                                    .revision
+                                    .size
+                                    .div_ceil(2)
+                                    .max(1) as usize
+                            } else {
+                                1
+                            }
+                        },
+                    )
                 })
                 .collect::<Vec<_>>();
             for files in batches {
                 let mut builds = Vec::new();
+                let mut private_work =
+                    streaming_budget.activity(StreamActivity::PrivateSegments, 0, 0);
                 let collection_count = pending.len();
                 let mut ordinal = index.view()?.0.next_segment_ordinal;
                 for id in &bindings {
@@ -1557,6 +1615,7 @@ impl Repository {
                             &*definition, options.bigram_alphabet, options.inference,
                             collection_count, &pool, None,
                         )?;
+                        private_work.add_private_segment(&index);
                         builds.push((index, observation.map(Arc::new)));
                         Ok(())
                     };
@@ -1586,7 +1645,7 @@ impl Repository {
                     };
                     if files.len() == 1 && needs_chunks(files[0]) {
                         let stats =
-                            crate::construction::file_preparation::process_framed_file_profiled(
+                            crate::construction::file_preparation::process_framed_file_with_budget(
                                 &pool,
                                 Arc::new(root.clone()),
                                 Arc::clone(&definition),
@@ -1598,6 +1657,7 @@ impl Repository {
                                 options.inference,
                                 options.detailed_profiling_enabled(),
                                 options.segment_policy.target_records.get(),
+                                Some(&streaming_budget),
                                 &mut admit,
                             )
                             .map_err(|error| {
@@ -1655,6 +1715,7 @@ impl Repository {
                 publication_ns += phase.map_or(0, |started| started.elapsed().as_nanos() as u64);
             }
         }
+        schedule_stats.stream_peak = streaming_budget.peak();
         let extraction_index_ns = extraction_started.elapsed().as_nanos() as u64;
         if let Some(profile) = profile.as_mut() {
             profile.source_work_ns = extraction_index_ns;

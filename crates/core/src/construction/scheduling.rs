@@ -78,6 +78,7 @@ pub(crate) struct BuildScheduleStats {
     pub framing_ns: u64,
     pub framing_chunks: u64,
     pub framing_bytes: u64,
+    pub stream_peak: crate::repository::statistics::StreamMemoryStats,
     pub admission_schedule: AdmissionScheduleProfile,
 }
 
@@ -130,6 +131,7 @@ impl BuildScheduleStats {
         self.framing_ns = self.framing_ns.saturating_add(other.framing_ns);
         self.framing_chunks += other.framing_chunks;
         self.framing_bytes += other.framing_bytes;
+        self.stream_peak.absorb(other.stream_peak);
         self.source_reads = self.source_reads.saturating_add(other.source_reads);
         self.source_bytes_read = self
             .source_bytes_read

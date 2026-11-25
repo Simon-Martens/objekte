@@ -47,6 +47,8 @@ pub(crate) struct BoundedJsonLines<R: BufRead = BufReader<std::fs::File>> {
     scratch: Vec<u8>,
     pending: Option<PendingBuildLine>,
     eof: bool,
+    record_limit: Option<usize>,
+    reader_capacity: usize,
 }
 
 #[cfg(test)]
@@ -54,6 +56,16 @@ impl BoundedJsonLines<BufReader<std::fs::File>> {
     pub fn open(path: &Path) -> Result<Self, String> {
         let file = std::fs::File::open(path).map_err(|error| error.to_string())?;
         Ok(Self::from_reader(BufReader::new(file)))
+    }
+}
+
+impl<R: std::io::Read> BoundedJsonLines<BufReader<R>> {
+    pub(crate) fn with_buffered_reader(reader: BufReader<R>) -> Self {
+        let reader_capacity = reader.capacity();
+        Self {
+            reader_capacity,
+            ..Self::from_reader(reader)
+        }
     }
 }
 
@@ -66,6 +78,47 @@ impl<R: BufRead> BoundedJsonLines<R> {
             scratch: Vec::new(),
             pending: None,
             eof: false,
+            record_limit: None,
+            reader_capacity: 0,
+        }
+    }
+
+    pub(crate) fn limit_record_bytes(&mut self, max: usize) {
+        self.record_limit = Some(max);
+    }
+
+    pub(crate) fn retained_line_capacity(&self) -> usize {
+        self.reader_capacity
+            + self.scratch.capacity()
+            + self
+                .pending
+                .as_ref()
+                .map_or(0, |line| line.bytes.capacity())
+    }
+
+    fn read_line(&mut self) -> Result<usize, String> {
+        self.scratch.clear();
+        let Some(limit) = self.record_limit else {
+            return self
+                .reader
+                .read_until(b'\n', &mut self.scratch)
+                .map_err(|error| error.to_string());
+        };
+        loop {
+            let buffer = self.reader.fill_buf().map_err(|error| error.to_string())?;
+            if buffer.is_empty() {
+                return Ok(self.scratch.len());
+            }
+            let newline = memchr::memchr(b'\n', buffer);
+            let len = newline.map_or(buffer.len(), |at| at + 1);
+            if self.scratch.len().saturating_add(len) > limit {
+                return Err(format!("JSONL source record exceeds {limit} bytes"));
+            }
+            self.scratch.extend_from_slice(&buffer[..len]);
+            self.reader.consume(len);
+            if newline.is_some() {
+                return Ok(self.scratch.len());
+            }
         }
     }
 
@@ -84,11 +137,7 @@ impl<R: BufRead> BoundedJsonLines<R> {
             } else if self.eof {
                 break;
             } else {
-                self.scratch.clear();
-                let size = self
-                    .reader
-                    .read_until(b'\n', &mut self.scratch)
-                    .map_err(|error| error.to_string())?;
+                let size = self.read_line()?;
                 if size == 0 {
                     self.eof = true;
                     break;

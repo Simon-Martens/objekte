@@ -514,13 +514,22 @@ fn injected_private_finalization_failure(
 
 pub(super) struct PrivateSegmentGroup {
     collection_index: usize,
+    memory: super::file_preparation::StreamUse,
     pub(super) indexed: std::collections::BTreeMap<u64, IndexedSegmentBuild>,
 }
 
 impl PrivateSegmentGroup {
-    pub(super) fn new(collection_index: usize) -> Self {
+    pub(super) fn new(
+        collection_index: usize,
+        budget: &super::file_preparation::StreamBudget,
+    ) -> Self {
         Self {
             collection_index,
+            memory: budget.activity(
+                super::file_preparation::StreamActivity::PrivateSegments,
+                0,
+                0,
+            ),
             indexed: std::collections::BTreeMap::new(),
         }
     }
@@ -572,6 +581,7 @@ impl PrivateSegmentGroup {
                 first_error
                     .get_or_insert_with(|| "private segment completion changed collection".into());
                 self.indexed.clear();
+                self.memory.set(0, 0);
                 continue;
             }
             let built = match result {
@@ -579,6 +589,7 @@ impl PrivateSegmentGroup {
                 Err(error) => {
                     first_error.get_or_insert(error);
                     self.indexed.clear();
+                    self.memory.set(0, 0);
                     continue;
                 }
             };
@@ -586,6 +597,7 @@ impl PrivateSegmentGroup {
                 first_error
                     .get_or_insert_with(|| "private segment completion identity mismatch".into());
                 self.indexed.clear();
+                self.memory.set(0, 0);
                 continue;
             }
             if !retain_successes || first_error.is_some() {
@@ -593,12 +605,14 @@ impl PrivateSegmentGroup {
             }
             match self.indexed.entry(segment_id) {
                 std::collections::btree_map::Entry::Vacant(entry) => {
+                    self.memory.add_private_segment(&built.index);
                     entry.insert(built);
                 }
                 std::collections::btree_map::Entry::Occupied(_) => {
                     first_error
                         .get_or_insert_with(|| "duplicate private segment completion".into());
                     self.indexed.clear();
+                    self.memory.set(0, 0);
                 }
             }
         }
