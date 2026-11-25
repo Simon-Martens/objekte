@@ -97,6 +97,17 @@ pub enum IndexError {
     LockPoisoned,
 }
 
+impl From<crate::index::storage::transfer::StorageError> for IndexError {
+    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
+        use crate::index::storage::transfer::StorageError;
+        match error {
+            StorageError::Cancelled => Self::Cancelled,
+            StorageError::OversizedItem { .. } => Self::ResourceLimit(error.to_string()),
+            StorageError::InvalidTransfer { .. } => Self::InvalidPublication(error.to_string()),
+        }
+    }
+}
+
 impl fmt::Display for IndexError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {

@@ -249,9 +249,7 @@ fn partition_base_with_limits_inner(
         return Ok(root);
     }
     let empty = Arc::new(root.repository.empty_like().map_err(IndexError::Build)?);
-    let slots = root.catalog.snapshot_slots();
-    let catalog =
-        FileCatalog::restored(Arc::clone(&empty), slots).map_err(IndexError::InvalidPublication)?;
+    let catalog = FileCatalog::restore_from(&empty, &root.catalog, &|| false)?;
     let mut groups = root.segments.clone();
     for (number, collection) in root.repository.collections().iter().enumerate() {
         if collection.generation.files.is_empty() {

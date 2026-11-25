@@ -248,17 +248,11 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn with_segment(self, index: IndexedCollectionSegment) -> Result<Self, IndexError> {
-        self.with_segment_observation(index, None)
-    }
-
-    fn with_segment_observation(
-        mut self,
+    pub(crate) fn stage_owned_segment(
+        &mut self,
         index: IndexedCollectionSegment,
-        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
-    ) -> Result<Self, IndexError> {
-        self.stage_segment(&mut Arc::new(index), observation)?;
-        Ok(self)
+    ) -> Result<(), IndexError> {
+        self.stage_segment(&mut Arc::new(index), None)
     }
 
     fn stage_segment(

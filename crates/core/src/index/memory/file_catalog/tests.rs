@@ -1,6 +1,83 @@
+use std::borrow::Cow;
+use std::num::NonZeroUsize;
 use std::sync::Arc;
+use std::sync::atomic::{AtomicUsize, Ordering};
 
 use super::FileCatalog;
+use crate::index::storage::file_catalog::{FileCatalogSource, FileTransferRow, transfer_files};
+use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
+
+/// An independent catalog used in transfer tests. Store only ordered live
+/// rows, with no native inventory, index, masks, or lookup tables.
+struct OrderedFiles {
+    allocated: u32,
+    rows: Vec<FileTransferRow<'static>>,
+    reads: AtomicUsize,
+    fail_after_first_batch: bool,
+}
+
+impl OrderedFiles {
+    fn copy_from(source: &dyn FileCatalogSource) -> Self {
+        let mut result = Self {
+            allocated: source.high_water_mark(),
+            rows: Vec::new(),
+            reads: AtomicUsize::new(0),
+            fail_after_first_batch: false,
+        };
+        let limit = BatchLimit::new(NonZeroUsize::new(1).unwrap(), NonZeroUsize::MAX);
+        transfer_files(source, result.allocated, limit, &|| false, |row| {
+            result.rows.push(FileTransferRow {
+                entry: Cow::Owned(row.entry.into_owned()),
+                fingerprint: row.fingerprint,
+                configuration: row.configuration,
+            });
+            Ok::<_, StorageError>(())
+        })
+        .unwrap();
+        result
+    }
+}
+
+impl FileCatalogSource for OrderedFiles {
+    fn high_water_mark(&self) -> u32 {
+        self.allocated
+    }
+
+    fn live_count(&self) -> u64 {
+        self.rows.len() as u64
+    }
+
+    fn read_batch<'a>(
+        &'a self,
+        after: Option<FileId>,
+        limit: BatchLimit,
+        output: &mut Vec<FileTransferRow<'a>>,
+    ) -> StorageResult<BatchStatus> {
+        self.reads.fetch_add(1, Ordering::Relaxed);
+        if self.fail_after_first_batch && after.is_some() {
+            return Err(StorageError::invalid(
+                "test file catalog",
+                "injected read failure",
+            ));
+        }
+        let position = self
+            .rows
+            .partition_point(|row| after.is_some_and(|id| row.entry.id.0 <= id.0));
+        if let Some(row) = self.rows.get(position) {
+            assert!(limit.accepts("test file catalog", 0, 0, row.bytes())?);
+            output.push(FileTransferRow {
+                entry: Cow::Borrowed(row.entry.as_ref()),
+                fingerprint: row.fingerprint,
+                configuration: row.configuration,
+            });
+        }
+        Ok(if position + 1 < self.rows.len() {
+            BatchStatus::More
+        } else {
+            BatchStatus::Done
+        })
+    }
+}
 use crate::model::Number;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
@@ -141,17 +218,13 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert!(scan_baseline.contains_key(std::path::Path::new("data/new.row")));
     assert!(!scan_baseline.contains_key(std::path::Path::new("data/b.row")));
 
-    let slots = (0..appended.allocated_files())
-        .map(|number| {
-            let id = FileId(number as u32);
-            appended
-                .entry(id)
-                .cloned()
-                .map(|entry| (entry, appended.fingerprint(id), appended.configuration(id)))
-        })
-        .collect::<Vec<_>>();
-    let restored = FileCatalog::restored(Arc::clone(&repository), slots.clone()).unwrap();
-    assert_eq!(restored.allocated_files(), 3);
+    // Transfer still works after the original files become unavailable.
+    std::fs::remove_dir_all(&root).unwrap();
+    let mut intermediate = OrderedFiles::copy_from(&appended);
+    intermediate.allocated += 1; // preserve a trailing retired file ID
+    let restored = FileCatalog::restore_from(&repository, &intermediate, &|| false).unwrap();
+    assert_eq!(intermediate.reads.load(Ordering::Relaxed), 2);
+    assert_eq!(restored.allocated_files(), 4);
     assert_eq!(restored.active_files(), 2);
     assert!(Arc::ptr_eq(&restored.base_files, &repository.files));
     assert_eq!(restored.id_for(std::path::Path::new("data/a.row")), None);
@@ -172,8 +245,8 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert_eq!(restored.configuration(FileId(0)), Some([8; 32]));
     assert!(restored.entry(FileId(1)).is_none());
 
-    let unchanged = original.snapshot_slots();
-    let baseline = FileCatalog::restored(Arc::clone(&repository), unchanged).unwrap();
+    assert!(restored.entry(FileId(3)).is_none());
+    let baseline = FileCatalog::restore_from(&repository, &original, &|| false).unwrap();
     assert!(baseline.changed.iter().all(|bucket| bucket.is_empty()));
     assert!(
         baseline
@@ -182,17 +255,26 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
             .all(|bucket| bucket.is_empty())
     );
 
-    let mut duplicate_path = slots.clone();
-    duplicate_path[2].as_mut().unwrap().0.relative_path = "data/renamed.row".into();
-    assert!(FileCatalog::restored(Arc::clone(&repository), duplicate_path).is_err());
-    let mut wrong_id = slots.clone();
-    wrong_id[2].as_mut().unwrap().0.id = FileId(7);
-    assert!(FileCatalog::restored(Arc::clone(&repository), wrong_id).is_err());
-    let mut invalid_membership = slots;
-    invalid_membership[2].as_mut().unwrap().0.collections = vec![CollectionId(9)];
-    assert!(FileCatalog::restored(Arc::clone(&repository), invalid_membership).is_err());
-    assert!(FileCatalog::restored(Arc::clone(&repository), vec![None]).is_err());
-    std::fs::remove_dir_all(root).unwrap();
+    intermediate.fail_after_first_batch = true;
+    assert!(FileCatalog::restore_from(&repository, &intermediate, &|| false).is_err());
+    intermediate.fail_after_first_batch = false;
+    assert_eq!(
+        FileCatalog::restore_from(&repository, &intermediate, &|| true).err(),
+        Some(StorageError::Cancelled)
+    );
+    assert!(FileCatalog::restore_from(&repository, &intermediate, &|| false).is_ok());
+
+    let original_entry = intermediate.rows[1].entry.clone();
+    intermediate.rows[1].entry.to_mut().relative_path = "data/renamed.row".into();
+    assert!(FileCatalog::restore_from(&repository, &intermediate, &|| false).is_err());
+    intermediate.rows[1].entry = original_entry.clone();
+    intermediate.rows[1].entry.to_mut().id = FileId(7);
+    assert!(FileCatalog::restore_from(&repository, &intermediate, &|| false).is_err());
+    intermediate.rows[1].entry = original_entry;
+    intermediate.rows[1].entry.to_mut().collections = vec![CollectionId(9)];
+    assert!(FileCatalog::restore_from(&repository, &intermediate, &|| false).is_err());
+    intermediate.allocated = 1;
+    assert!(FileCatalog::restore_from(&repository, &intermediate, &|| false).is_err());
 }
 
 #[test]

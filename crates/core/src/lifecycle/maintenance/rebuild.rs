@@ -1,6 +1,7 @@
 use std::time::{Duration, Instant};
 
 use crate::index::segment::SegmentBacking;
+use crate::index::storage::file_catalog::{FILE_TRANSFER_LIMIT, FileCatalogSource, transfer_files};
 use crate::inventory::{FileVersion, FileVersions};
 use crate::lifecycle::initial::InitialBuildPhase;
 use crate::lifecycle::maintenance::MaintenancePhase;
@@ -136,67 +137,70 @@ impl Index {
                     }
                 }
                 let mut next = (*view.0).clone();
-                let imported_files = view
-                    .0
-                    .catalog
-                    .snapshot_slots()
-                    .into_iter()
-                    .flatten()
-                    .map(|(entry, _, _)| entry)
-                    .filter(|entry| !view.0.imported_collections(entry).is_empty())
-                    .collect::<Vec<_>>();
-                let mut observed = Vec::with_capacity(imported_files.len());
-                for old in imported_files {
-                    if cancelled() {
-                        return Err(IndexError::Cancelled);
-                    }
-                    let relative = old.relative_path.as_path();
-                    let prepared = prepare_file_at(&view, relative, old.id)?;
-                    if prepared.source.revision != old.revision
-                        || prepared.source.created_ns != old.created_ns
-                    {
-                        return Err(IndexError::SourceUnavailable(format!(
-                            "file changed during rebuild: {}",
-                            relative.display()
-                        )));
-                    }
-                    let backend = prepared.reader(repository);
-                    let (mut entry, indexed) = index_prepared_file(
-                        repository,
-                        &prepared.source,
-                        prepared.collections,
-                        next.next_segment_ordinal,
-                        repository.options().segment_policy,
-                    )?;
-                    next.retire_file_records(&old)?;
-                    for collection in next.refresh_record_links(old.id, Some(&entry))? {
-                        if !entry.collections.contains(&collection) {
-                            entry.collections.push(collection);
+                let mut observed = Vec::new();
+                let catalog = &view.0.catalog;
+                transfer_files(
+                    catalog,
+                    catalog.high_water_mark(),
+                    FILE_TRANSFER_LIMIT,
+                    &cancelled,
+                    |row| -> Result<(), IndexError> {
+                        if cancelled() {
+                            return Err(IndexError::Cancelled);
                         }
-                    }
-                    next.catalog = next
-                        .catalog
-                        .replaced(
-                            entry,
+                        let old = row.entry.as_ref();
+                        if view.0.imported_collections(old).is_empty() {
+                            return Ok(());
+                        }
+                        let relative = old.relative_path.as_path();
+                        let prepared = prepare_file_at(&view, relative, old.id)?;
+                        if prepared.source.revision != old.revision
+                            || prepared.source.created_ns != old.created_ns
+                        {
+                            return Err(IndexError::SourceUnavailable(format!(
+                                "file changed during rebuild: {}",
+                                relative.display()
+                            )));
+                        }
+                        let backend = prepared.reader(repository);
+                        let (mut entry, indexed) = index_prepared_file(
+                            repository,
+                            &prepared.source,
+                            prepared.collections,
+                            next.next_segment_ordinal,
+                            repository.options().segment_policy,
+                        )?;
+                        next.retire_file_records(old)?;
+                        for collection in next.refresh_record_links(old.id, Some(&entry))? {
+                            if !entry.collections.contains(&collection) {
+                                entry.collections.push(collection);
+                            }
+                        }
+                        next.catalog = next
+                            .catalog
+                            .replaced(
+                                entry,
+                                prepared.fingerprint,
+                                Some(view.configuration_identity()),
+                            )
+                            .map_err(IndexError::InvalidPublication)?;
+                        next.file_versions = next
+                            .file_versions
+                            .advanced(old.id)
+                            .map_err(IndexError::ResourceLimit)?
+                            .0;
+                        observed.push((
+                            prepared.source,
+                            prepared.identity,
                             prepared.fingerprint,
-                            Some(view.configuration_identity()),
-                        )
-                        .map_err(IndexError::InvalidPublication)?;
-                    next.file_versions = next
-                        .file_versions
-                        .advanced(old.id)
-                        .map_err(IndexError::ResourceLimit)?
-                        .0;
-                    observed.push((
-                        prepared.source,
-                        prepared.identity,
-                        prepared.fingerprint,
-                        backend,
-                    ));
-                    for segment in indexed {
-                        next = next.with_segment(segment)?;
-                    }
-                }
+                            backend,
+                        ));
+                        for segment in indexed {
+                            next.stage_owned_segment(segment)?;
+                        }
+                        Ok(())
+                    },
+                )?;
                 next.revision = view.revision().next()?;
                 if cancelled() {
                     return Err(IndexError::Cancelled);

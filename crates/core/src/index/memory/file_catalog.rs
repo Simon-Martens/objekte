@@ -3,6 +3,7 @@
 //! The static repository remains the base. A mutation copies only one small
 //! path shard and one file-metadata shard, never the base inventory.
 
+use std::borrow::Cow;
 #[cfg(test)]
 use std::collections::BTreeSet;
 use std::collections::{BTreeMap, HashMap, HashSet};
@@ -15,6 +16,10 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
+use crate::index::storage::file_catalog::{
+    FILE_TRANSFER_LIMIT, FileCatalogSource, FileTransferRow, transfer_files,
+};
+use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::inventory::{
     FileEntry, FileScalarIndex, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
 };
@@ -119,31 +124,21 @@ impl FileCatalog {
         Ok(base.configuration_identity)
     }
 
-    /// Materialize stable file-ID slots for an explicit maintenance rebase.
-    /// Ordinary mutations continue to use the shared sharded representation.
-    pub(crate) fn snapshot_slots(
-        &self,
-    ) -> Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>> {
-        (0..self.len)
-            .map(|number| {
-                let id = FileId(number);
-                self.entry(id)
-                    .map(|entry| (entry.clone(), self.fingerprint(id), self.configuration(id)))
-            })
-            .collect()
-    }
-
-    /// Rebuild a published catalog from checked cache slots. `None` preserves
-    /// a retired file ID, including holes after appended files. Unchanged base
-    /// entries continue to borrow their metadata from `base`.
-    pub(crate) fn restored(
-        base: Arc<Repository>,
-        slots: Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
-    ) -> Result<Self, String> {
-        let base_configuration = Self::configuration_for(&base)?;
-        let len = u32::try_from(slots.len()).map_err(|_| "too many indexed files")?;
-        if slots.len() < base.files().files.len() {
-            return Err("restored catalog is shorter than base inventory".into());
+    /// Build a private catalog from ordered live rows and an allocation bound.
+    /// Missing IDs stay retired, including trailing holes.
+    pub(crate) fn restore_from(
+        base: &Repository,
+        source: &dyn FileCatalogSource,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<Self> {
+        const OP: &str = "restore file catalog";
+        let base_configuration = base.configuration_identity;
+        let len = source.high_water_mark();
+        if (len as usize) < base.files().files.len() {
+            return Err(StorageError::invalid(
+                OP,
+                "source is shorter than base inventory",
+            ));
         }
         let mut changed = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
         let mut changed_paths = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
@@ -152,13 +147,16 @@ impl FileCatalog {
         let mut active = RoaringBitmap::new();
         let mut scalar_base_live = RoaringBitmap::new();
         let mut paths = HashSet::new();
-        for (number, slot) in slots.into_iter().enumerate() {
-            let Some((entry, fingerprint, configuration)) = slot else {
-                continue;
-            };
-            let id = FileId(number as u32);
-            if entry.id != id
-                || !valid_relative_path(&entry.relative_path)
+        transfer_files(source, len, FILE_TRANSFER_LIMIT, cancelled, |row| {
+            let entry = row.entry.as_ref();
+            let id = entry.id;
+            let number = id.0 as usize;
+            let FileTransferRow {
+                fingerprint,
+                configuration,
+                ..
+            } = row;
+            if !valid_relative_path(&entry.relative_path)
                 || entry.collections.is_empty()
                 || entry
                     .collections
@@ -176,7 +174,10 @@ impl FileCatalog {
                 })
                 || !paths.insert(entry.relative_path.clone())
             {
-                return Err("invalid restored file catalog entry".into());
+                return Err(StorageError::invalid(
+                    OP,
+                    format!("invalid entry for file ID {}", id.0),
+                ));
             }
             let baseline = base.files().files.get(number);
             let new_path =
@@ -196,10 +197,10 @@ impl FileCatalog {
             }
             let base_fingerprint = base.base_fingerprints.get(number).copied().flatten();
             let base_configuration_for_file = base_fingerprint.map(|_| base_configuration);
-            if baseline.is_some_and(|base| same_scalars(base, &entry)) {
+            if baseline.is_some_and(|base| same_scalars(base, entry)) {
                 scalar_base_live.insert(id.0);
             } else {
-                changed_scalar[id.0 as usize % SCALAR_SHARDS].insert(&entry);
+                changed_scalar[id.0 as usize % SCALAR_SHARDS].insert(entry);
             }
             if new_path
                 || changed_metadata
@@ -209,14 +210,15 @@ impl FileCatalog {
                 changed[shard(&id)].insert(
                     id,
                     ChangedFile {
-                        entry: Arc::new(entry),
+                        entry: Arc::new(row.entry.into_owned()),
                         fingerprint,
                         configuration,
                     },
                 );
             }
             active.insert(id.0);
-        }
+            Ok(())
+        })?;
         Ok(Self {
             base_files: Arc::clone(&base.files),
             base_fingerprints: Arc::new(base.base_fingerprints.clone()),
@@ -710,6 +712,48 @@ impl FileCatalog {
             ordered.insert((new_path.query_key(), id), ());
         }
         Ok(next)
+    }
+}
+
+impl FileCatalogSource for FileCatalog {
+    fn high_water_mark(&self) -> u32 {
+        self.len
+    }
+
+    fn live_count(&self) -> u64 {
+        self.active_files()
+    }
+
+    fn read_batch<'a>(
+        &'a self,
+        after: Option<FileId>,
+        limit: BatchLimit,
+        output: &mut Vec<FileTransferRow<'a>>,
+    ) -> StorageResult<BatchStatus> {
+        const OP: &str = "read file catalog";
+        let start = after.map_or(0, |file| file.0.saturating_add(1));
+        let mut bytes = 0usize;
+        for number in self.active.range(start..) {
+            let id = FileId(number);
+            let Some(entry) = self.entry(id) else {
+                return Err(StorageError::invalid(
+                    OP,
+                    format!("missing active file ID {number}"),
+                ));
+            };
+            let row = FileTransferRow {
+                entry: Cow::Borrowed(entry),
+                fingerprint: self.fingerprint(id),
+                configuration: self.configuration(id),
+            };
+            let row_bytes = row.bytes();
+            if !limit.accepts(OP, output.len(), bytes, row_bytes)? {
+                return Ok(BatchStatus::More);
+            }
+            bytes += row_bytes;
+            output.push(row);
+        }
+        Ok(BatchStatus::Done)
     }
 }
 

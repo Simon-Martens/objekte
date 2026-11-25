@@ -264,8 +264,7 @@ fn compact_published_with_budget(
             "compaction configuration changed".into(),
         ));
     }
-    next.catalog = FileCatalog::restored(Arc::clone(&empty), old.catalog.snapshot_slots())
-        .map_err(IndexError::InvalidPublication)?;
+    next.catalog = FileCatalog::restore_from(&empty, &old.catalog, &cancelled)?;
     next.file_versions = old.file_versions.clone();
     next.next_segment_ordinal = old.next_segment_ordinal;
     next.last_size_maintenance_revision = old.last_size_maintenance_revision;
