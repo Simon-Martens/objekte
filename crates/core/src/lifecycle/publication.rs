@@ -14,9 +14,9 @@ use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::repository::Repository;
 
 use super::{
-    FileVersion, Index, IndexError, IndexRevision, IndexStatus, InitialPublicationPhases,
-    MAX_SEGMENTS_PER_COLLECTION, MAX_SPARSE_SEGMENT_BYTES, MIN_RETIREMENT_SLOTS,
-    ReconciliationState, SIZE_MAINTENANCE_REVISIONS,
+    FileVersion, Index, IndexError, IndexRevision, IndexStatus, IndexView,
+    InitialPublicationPhases, MAX_SEGMENTS_PER_COLLECTION, MAX_SPARSE_SEGMENT_BYTES,
+    MIN_RETIREMENT_SLOTS, ReconciliationState, SIZE_MAINTENANCE_REVISIONS,
 };
 
 /// One immutable root: shared base, bounded indexed segments, liveness, file
@@ -464,9 +464,19 @@ impl PublishedIndex {
 
     fn with_segment_observation(
         mut self,
-        mut index: IndexedCollectionSegment,
+        index: IndexedCollectionSegment,
         observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
     ) -> Result<Self, IndexError> {
+        self.stage_segment(&mut Arc::new(index), observation)?;
+        Ok(self)
+    }
+
+    fn stage_segment(
+        &mut self,
+        payload: &mut Arc<IndexedCollectionSegment>,
+        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+    ) -> Result<(), IndexError> {
+        let index = &**payload;
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
             return Err(IndexError::InvalidPublication(
@@ -565,10 +575,14 @@ impl PublishedIndex {
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
-        index.id = segment_id;
+        if index.id != segment_id {
+            Arc::get_mut(payload)
+                .expect("unpublished payload is uniquely owned before placement")
+                .id = segment_id;
+        }
         Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
             id: segment_id,
-            index: Arc::new(index),
+            index: Arc::clone(payload),
             active,
             observation,
         }));
@@ -577,7 +591,7 @@ impl PublishedIndex {
         if self.next_segment_ordinal == 0 {
             self.next_segment_ordinal = 1;
         }
-        Ok(self)
+        Ok(())
     }
 
     /// Coalesce small delta shards without enlarging a partition beyond the
@@ -1023,20 +1037,53 @@ fn prepare_initial_segment(
 impl Index {
     /// Apply one accepted registrar batch atomically. Retirement and any new
     /// native segment are staged in a private root before the revision CAS.
-    pub(crate) fn publish_record_batch(
+    pub(crate) fn publish_record_batch<G>(
         &self,
-        expected: IndexRevision,
-        collection: CollectionId,
-        registration: u32,
+        prepared_from: &IndexView,
+        registration: crate::lifecycle::builder::RecordRegistration,
         changes: &[RecordMutation],
         segments: impl IntoIterator<Item = IndexedCollectionSegment>,
+        publication_guard: impl Fn() -> Result<G, IndexError>,
     ) -> Result<IndexRevision, IndexError> {
-        let view = self.view()?;
-        if view.revision() != expected {
-            return Err(IndexError::RevisionConflict {
-                expected,
-                actual: view.revision(),
-            });
+        let mut segments: Vec<_> = segments.into_iter().map(Arc::new).collect();
+        loop {
+            let view = self.view()?;
+            match self.stage_record_batch(
+                prepared_from,
+                &view,
+                registration,
+                changes,
+                &mut segments,
+            ) {
+                Ok(next) => {
+                    let _guard = publication_guard()?;
+                    match self.publish_prepared(view.revision(), next) {
+                        Err(IndexError::RevisionConflict { .. }) => continue,
+                        result => return result,
+                    }
+                }
+                Err(error) => return Err(error),
+            }
+        }
+    }
+
+    fn stage_record_batch(
+        &self,
+        prepared_from: &IndexView,
+        view: &IndexView,
+        registration: crate::lifecycle::builder::RecordRegistration,
+        changes: &[RecordMutation],
+        segments: &mut [Arc<IndexedCollectionSegment>],
+    ) -> Result<PublishedIndex, IndexError> {
+        let expected = view.revision();
+        let collection = registration.collection;
+        if view
+            .repository()
+            .record_registrations
+            .get(registration.ordinal as usize)
+            .is_none_or(|source| source.handle != registration)
+        {
+            return Err(IndexError::ForeignInstance);
         }
         if !view.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
@@ -1082,11 +1129,31 @@ impl Index {
                         } => *registration,
                         crate::index::segment::SegmentBacking::FileRange { .. } => u32::MAX,
                     };
-                    if owner != registration {
+                    if owner != registration.ordinal {
                         return Err(IndexError::Build(format!(
                             "record {} belongs to another registrar",
                             change.id.0
                         )));
+                    }
+                    if expected != prepared_from.revision() {
+                        // Compaction relocates headers but shares the immutable ID
+                        // allocation. A new direct write creates a new allocation.
+                        let current = &published.index.records[slot.0 as usize].id.0;
+                        let original = prepared_from.0.record_routes[number]
+                            .get(change.id.0.as_ref())
+                            .and_then(|(position, slot)| {
+                                let segment = &prepared_from.0.segments[number][position];
+                                segment
+                                    .active
+                                    .contains(slot)
+                                    .then(|| &segment.index.records[slot.0 as usize].id.0)
+                            });
+                        if !original.is_some_and(|original| Arc::ptr_eq(current, original)) {
+                            return Err(IndexError::Build(format!(
+                                "record {} changed during preparation",
+                                change.id.0
+                            )));
+                        }
                     }
                     let group = Arc::make_mut(&mut next.segments[number]);
                     let published = Arc::make_mut(&mut group[index]);
@@ -1102,10 +1169,10 @@ impl Index {
             if segment.collection != collection {
                 return Err(IndexError::ForeignInstance);
             }
-            next = next.with_segment_observation(segment, None)?;
+            next.stage_segment(segment, None)?;
         }
         next.revision = expected.next()?;
-        self.publish_prepared(expected, next)
+        Ok(next)
     }
 
     /// Publish one complete initial work unit. A concurrent lifecycle

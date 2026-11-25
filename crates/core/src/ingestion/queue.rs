@@ -144,6 +144,8 @@ struct Queue {
     publication_decision: Mutex<()>,
     #[cfg(test)]
     worker_entry: Mutex<Option<WorkerEntryHook>>,
+    #[cfg(test)]
+    prepared: Mutex<Option<WorkerEntryHook>>,
 }
 
 #[cfg(test)]
@@ -199,6 +201,8 @@ impl SessionCore {
             publication_decision: Mutex::new(()),
             #[cfg(test)]
             worker_entry: Mutex::new(None),
+            #[cfg(test)]
+            prepared: Mutex::new(None),
         });
         let core = Arc::new(Self {
             id,
@@ -786,6 +790,13 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                             &queue.publication_decision,
                             combined,
                             first_sequence,
+                            #[cfg(test)]
+                            || {
+                                if let Some(hook) = queue.prepared.lock().unwrap().take() {
+                                    hook.reached.send(first_sequence).unwrap();
+                                    hook.release.recv().unwrap();
+                                }
+                            },
                         )
                     }))
                     .unwrap_or_else(|_| {
@@ -855,6 +866,13 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                         &queue.publication_decision,
                         batch,
                         item.sequence,
+                        #[cfg(test)]
+                        || {
+                            if let Some(hook) = queue.prepared.lock().unwrap().take() {
+                                hook.reached.send(item.sequence).unwrap();
+                                hook.release.recv().unwrap();
+                            }
+                        },
                     )
                 }))
                 .unwrap_or_else(|_| Err(IngestionError::Spool("ingestion worker panicked".into())))
@@ -1632,6 +1650,126 @@ mod tests {
             .unwrap()
             .is_some()
         );
+    }
+
+    #[test]
+    fn prepared_direct_batches_survive_unrelated_file_publication() {
+        use crate::files::FileCatalog;
+        use crate::query::options::ReturnMode;
+        use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
+        use crate::source::SourceFormat;
+
+        for (grouped, collision) in [(false, false), (true, false), (false, true), (true, true)] {
+            let root = std::env::temp_dir().join(format!(
+                "objekte-prepared-direct-{}-{grouped}-{collision}",
+                std::process::id()
+            ));
+            std::fs::create_dir_all(root.join("data")).unwrap();
+            let mut builder = Index::builder();
+            let collection = builder.collection("entries", Schema::default()).unwrap();
+            let registration = builder
+                .register_records(collection, "prepared-test", 1)
+                .unwrap();
+            builder
+                .register_file_catalog(FileCatalog::new(&root).unwrap())
+                .unwrap();
+            let mut definition =
+                CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+            definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+            builder
+                .register_file_source(collection, definition.file_source())
+                .unwrap();
+            let index = builder.build().unwrap();
+            let session = index.ingestion();
+            let writer = session.writer(registration).unwrap();
+            writer
+                .submit(batch(session.core.id, registration, "prefix"))
+                .unwrap()
+                .wait_published()
+                .unwrap();
+            let (reached, arrivals) = mpsc::channel();
+            let (release, exits) = mpsc::channel();
+            *session.core.queue.prepared.lock().unwrap() = Some(WorkerEntryHook {
+                reached,
+                release: exits,
+            });
+            if grouped {
+                session.core.queue.state.lock().unwrap().paused = true;
+            }
+            let first = writer
+                .submit(batch(session.core.id, registration, "manual-a"))
+                .unwrap();
+            if !grouped {
+                assert_eq!(
+                    arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+                    first.sequence()
+                );
+            }
+            let second = writer
+                .submit(batch(session.core.id, registration, "manual-b"))
+                .unwrap();
+            if grouped {
+                session.resume_worker_for_measurement();
+                assert_eq!(
+                    arrivals.recv_timeout(Duration::from_secs(5)).unwrap(),
+                    first.sequence()
+                );
+            }
+            let file_id = if collision { "manual-a" } else { "file-a" };
+            let path = root.join("data/item.json");
+            std::fs::write(&path, format!(r#"{{"id":"{file_id}"}}"#)).unwrap();
+            index.add_file(&path).unwrap();
+            let pinned = index.view().unwrap();
+            assert!(
+                pinned
+                    .get_record("entries", file_id, ReturnMode::Locator)
+                    .unwrap()
+                    .unwrap()
+                    .file
+                    .is_some()
+            );
+            assert!(
+                pinned
+                    .get_record("entries", "manual-b", ReturnMode::Locator)
+                    .unwrap()
+                    .is_none()
+            );
+            release.send(()).unwrap();
+            if collision {
+                assert!(matches!(
+                    first.wait_published(),
+                    Err(IngestionError::Index(
+                        crate::lifecycle::IndexError::DuplicateRecordId { .. }
+                    ))
+                ));
+                assert!(
+                    matches!(second.wait_published(), Err(IngestionError::Cancelled {
+                    originating_sequence
+                }) if originating_sequence == first.sequence())
+                );
+                assert_eq!(index.status().unwrap().live_records, 2);
+            } else {
+                let first_revision = first.wait_published().unwrap();
+                let second_revision = second.wait_published().unwrap();
+                assert!(first_revision > pinned.revision());
+                assert_eq!(first_revision == second_revision, grouped);
+                assert_eq!(index.status().unwrap().live_records, 4);
+            }
+            let view = index.view().unwrap();
+            assert!(
+                view.get_record("entries", "prefix", ReturnMode::Locator)
+                    .unwrap()
+                    .is_some()
+            );
+            assert!(
+                pinned
+                    .get_record("entries", "manual-b", ReturnMode::Locator)
+                    .unwrap()
+                    .is_none()
+            );
+            let _ = session.finish();
+            std::fs::remove_dir_all(root).unwrap();
+        }
     }
 
     #[test]

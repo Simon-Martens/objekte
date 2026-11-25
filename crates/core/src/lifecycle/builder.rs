@@ -439,14 +439,14 @@ mod tests {
             .unwrap();
         let published = index
             .publish_record_batch(
-                before.revision(),
-                entries,
-                registration.ordinal,
+                &before,
+                registration,
                 &[crate::lifecycle::publication::RecordMutation {
                     id,
                     kind: crate::lifecycle::publication::RecordMutationKind::Insert,
                 }],
                 Some(segment),
+                || Ok(()),
             )
             .unwrap();
         let after = index.view().unwrap();

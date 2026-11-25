@@ -17,6 +17,7 @@ pub(super) fn install_batch(
     publication_decision: &Mutex<()>,
     batch: Batch,
     sequence: u64,
+    #[cfg(test)] prepared: impl FnOnce(),
 ) -> PublishedRevision {
     let view = index.view().map_err(IngestionError::Index)?;
     let registration = view
@@ -25,7 +26,6 @@ pub(super) fn install_batch(
         .get(batch.registration.ordinal as usize)
         .filter(|source| source.handle == batch.registration)
         .ok_or_else(|| IngestionError::Index(crate::lifecycle::IndexError::ForeignInstance))?;
-    let collection = batch.registration.collection;
     let options = view.repository().options();
     let mut changes = Vec::with_capacity(batch.operations.len());
     let mut inputs = Vec::new();
@@ -102,23 +102,24 @@ pub(super) fn install_batch(
         let (inputs, versions): (Vec<_>, Vec<_>) = part.into_iter().unzip();
         segments.push(build_segment(&view, registration, inputs, Some(versions))?);
     }
-    let _decision = publication_decision
-        .lock()
-        .map_err(|_| IngestionError::Index(IndexError::LockPoisoned))?;
-    if cancelled.load(Ordering::Acquire) {
-        return Err(IngestionError::Cancelled {
-            originating_sequence: sequence,
-        });
-    }
+    #[cfg(test)]
+    prepared();
     index
-        .publish_record_batch(
-            view.revision(),
-            collection,
-            batch.registration.ordinal,
-            &changes,
-            segments,
-        )
-        .map_err(IngestionError::Index)
+        .publish_record_batch(&view, batch.registration, &changes, segments, || {
+            let guard = publication_decision
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            if cancelled.load(Ordering::Acquire) {
+                return Err(IndexError::Cancelled);
+            }
+            Ok(guard)
+        })
+        .map_err(|error| match error {
+            IndexError::Cancelled => IngestionError::Cancelled {
+                originating_sequence: sequence,
+            },
+            error => IngestionError::Index(error),
+        })
 }
 
 fn build_segment(
