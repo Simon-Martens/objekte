@@ -952,6 +952,7 @@ fn metadata_probe_file() -> FileEntry {
         revision: SourceRevision {
             modified_ns: 0,
             size: 0,
+            object_id: None,
         },
         created_ns: None,
         collections: Vec::new(),
@@ -970,6 +971,7 @@ fn metadata_probe_record() -> RecordEntry {
         revision: SourceRevision {
             modified_ns: 0,
             size: 0,
+            object_id: None,
         },
         class: RecordClass::Logical,
         diagnostic_ref: DiagnosticRef(0),

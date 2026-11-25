@@ -9,11 +9,11 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use bincode::Options;
 use sha2::{Digest, Sha256};
 
-use super::{Batch, IngestionOptions, Operation, StagedFile};
+use super::{Batch, IngestionOptions, Operation};
 use crate::lifecycle::RecordRegistration;
 
 const MAGIC: &[u8; 4] = b"OBRQ";
-const FORMAT_VERSION: u32 = 2;
+const FORMAT_VERSION: u32 = 3;
 const HEADER_BYTES: usize = 4 + 4 + 8 + 32;
 const CHUNK_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 static NEXT_CHUNK: AtomicU64 = AtomicU64::new(1);
@@ -38,10 +38,7 @@ pub(super) fn encode(batch: &Batch) -> Result<EncodedFrame, String> {
     let mut frame = Vec::with_capacity(expected as usize);
     frame.resize(HEADER_BYTES, 0);
     encoding()
-        .serialize_into(
-            &mut frame,
-            &(batch.registration, &batch.files, &batch.operations),
-        )
+        .serialize_into(&mut frame, &(batch.registration, &batch.operations))
         .map_err(|error| error.to_string())?;
     if frame.len() as u64 != expected {
         return Err("spool serialized size changed during encoding".into());
@@ -57,7 +54,7 @@ pub(super) fn encode(batch: &Batch) -> Result<EncodedFrame, String> {
 
 pub(super) fn encoded_len(batch: &Batch) -> Result<u64, String> {
     let payload = encoding()
-        .serialized_size(&(batch.registration, &batch.files, &batch.operations))
+        .serialized_size(&(batch.registration, &batch.operations))
         .map_err(|error| error.to_string())?;
     let total = payload
         .checked_add(HEADER_BYTES as u64)
@@ -252,13 +249,11 @@ pub(super) fn read(
     if Sha256::digest(&payload).as_slice() != &header[16..48] {
         return Err("spool frame checksum mismatch".into());
     }
-    let (registration, files, operations): (RecordRegistration, Vec<StagedFile>, Vec<Operation>) =
-        encoding()
-            .with_limit(max_frame_bytes)
-            .deserialize(&payload)
-            .map_err(|error| error.to_string())?;
+    let (registration, operations): (RecordRegistration, Vec<Operation>) = encoding()
+        .with_limit(max_frame_bytes)
+        .deserialize(&payload)
+        .map_err(|error| error.to_string())?;
     let mut batch = Batch::new(session_id, registration);
-    batch.files = files;
     batch.operations = operations;
     Ok(batch)
 }

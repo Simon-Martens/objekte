@@ -112,6 +112,7 @@ mod metadata_tests {
             revision: SourceRevision {
                 size: 100,
                 modified_ns: 0,
+                object_id: None,
             },
             created_ns: None,
             collections: Vec::new(),

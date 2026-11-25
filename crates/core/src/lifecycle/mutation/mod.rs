@@ -320,15 +320,27 @@ impl Index {
     /// destination is a collision; no source bytes are written by this call.
     pub fn add_file(&self, path: &Path) -> Result<FileMutationResult, IndexError> {
         let mut conflict = None;
+        let mut ready = Some(self.prepare_add_file(path)?);
         for _ in 0..MAX_PUBLICATION_RETRIES {
-            let prepared = self.prepare_add_file(path)?;
+            let mut prepared = match ready.take() {
+                Some(prepared) => prepared,
+                None => self.prepare_add_file(path)?,
+            };
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
-                conflict = Some(IndexError::RevisionConflict {
-                    expected: prepared.expected_revision,
-                    actual: view.revision(),
-                });
-                continue;
+                // A direct batch changes the publication revision but cannot
+                // claim a catalog slot. Keep the completed file preparation.
+                if view.configuration_identity() == prepared.configuration_identity
+                    && view.0.catalog.allocated_files() == prepared.file.source.id.0 as usize
+                {
+                    prepared.expected_revision = view.revision();
+                } else {
+                    conflict = Some(IndexError::RevisionConflict {
+                        expected: prepared.expected_revision,
+                        actual: view.revision(),
+                    });
+                    continue;
+                }
             }
             let file_id = prepared.file.source.id;
             let indexed_records = prepared.file.record_count();
@@ -741,9 +753,9 @@ impl Index {
         Err(conflict.expect("publication retry always captures a conflict"))
     }
 
-    /// Index complete caller-supplied replacement bytes with their declared
-    /// source revision. The caller remains responsible for source-file state;
-    /// later materialization reads the file and checks that revision.
+    /// Conditionally update a managed file when core's opened source has the
+    /// supplied revision and bytes. The supplied bytes are never published as
+    /// file content; core prepares the update from its own opened source.
     pub fn update_file_from_bytes(
         &self,
         handle: FileHandle,
@@ -781,15 +793,28 @@ impl Index {
         mut prepare: impl FnMut(&Self) -> Result<PreparedReplacement, IndexError>,
     ) -> Result<FileMutationResult, IndexError> {
         let mut conflict = None;
+        let mut ready = Some(prepare(self)?);
         for _ in 0..MAX_PUBLICATION_RETRIES {
-            let prepared = prepare(self)?;
+            let mut prepared = match ready.take() {
+                Some(prepared) => prepared,
+                None => prepare(self)?,
+            };
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
-                conflict = Some(IndexError::RevisionConflict {
-                    expected: prepared.expected_revision,
-                    actual: view.revision(),
-                });
-                continue;
+                // Rebase completed source work over unrelated direct batches;
+                // staging still checks the file incarnation and ID owners.
+                if view.configuration_identity() == prepared.configuration_identity
+                    && view.file_version_including_inactive(handle.file_id) == Some(handle.version)
+                    && view.file_entry(handle.file_id).is_some()
+                {
+                    prepared.expected_revision = view.revision();
+                } else {
+                    conflict = Some(IndexError::RevisionConflict {
+                        expected: prepared.expected_revision,
+                        actual: view.revision(),
+                    });
+                    continue;
+                }
             }
             let previous = view
                 .file_entry(handle.file_id)

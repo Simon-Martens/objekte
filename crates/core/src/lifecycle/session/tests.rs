@@ -218,25 +218,23 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(original_metadata.modified().unwrap()))
         .unwrap();
-    assert_eq!(
+    let replaced_revision =
         crate::inventory::SourceRevision::from_metadata(&std::fs::metadata(&original).unwrap())
-            .unwrap(),
-        crate::inventory::SourceRevision::from_metadata(&original_metadata).unwrap(),
-    );
+            .unwrap();
+    let original_revision =
+        crate::inventory::SourceRevision::from_metadata(&original_metadata).unwrap();
+    assert_eq!(replaced_revision.size, original_revision.size);
+    assert_eq!(replaced_revision.modified_ns, original_revision.modified_ns);
+    assert_ne!(replaced_revision.object_id, original_revision.object_id);
 
-    assert!(matches!(
-        pinned.get_record_available("data", &id, ReturnMode::Bytes).unwrap(),
-        DirectLookupResult::Found(hit)
+    assert!(!matches!(
+        pinned.get_record_available("data", &id, ReturnMode::Bytes),
+        Ok(DirectLookupResult::Found(hit))
             if hit.payload == Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec())),
     ));
     query.options.return_mode = ReturnMode::Bytes;
-    let result = pinned.search(&query).unwrap();
-    assert_eq!(result.count, Some(1));
-    assert_eq!(result.counters.source_unavailable_events, 0);
-    assert_eq!(
-        result.hits[0].payload,
-        Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec()))
-    );
+    assert!(!matches!(pinned.search(&query), Ok(result)
+        if result.hits.iter().any(|hit| hit.payload == Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec())))));
 
     let mut rows = Vec::new();
     let outcome = pinned.search_stream_scoped(
@@ -251,15 +249,14 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
             Ok(StreamControl::Continue)
         },
     );
-    assert_eq!(rows.len(), 1);
-    assert_eq!(
-        rows[0].payload,
-        Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec()))
+    assert!(
+        !rows
+            .iter()
+            .any(|hit| hit.payload == Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec())))
     );
-    assert!(matches!(
-        outcome,
-        Ok(StreamOutcome::Complete(summary)) if summary.counters.match_count_complete && summary.count == Some(1)
-    ));
+    assert!(
+        !matches!(outcome, Ok(StreamOutcome::Complete(summary)) if summary.counters.match_count_complete && rows.len() == 1)
+    );
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

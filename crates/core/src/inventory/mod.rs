@@ -187,11 +187,20 @@ fn truncate_message(message: &str) -> String {
     message[..end].into()
 }
 
-/// Size and modification time recorded for a source file.
+/// Filesystem object observed together with a source file's revision.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct SourceObjectId {
+    pub device: u64,
+    pub inode: u64,
+}
+
+/// Size, modification time and available object identity of a source file.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SourceRevision {
     pub modified_ns: i128,
     pub size: u64,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub object_id: Option<SourceObjectId>,
 }
 
 impl SourceRevision {
@@ -203,6 +212,20 @@ impl SourceRevision {
         Ok(Self {
             modified_ns: duration.as_nanos() as i128,
             size: metadata.len(),
+            object_id: {
+                #[cfg(unix)]
+                {
+                    use std::os::unix::fs::MetadataExt;
+                    Some(SourceObjectId {
+                        device: metadata.dev(),
+                        inode: metadata.ino(),
+                    })
+                }
+                #[cfg(not(unix))]
+                {
+                    None
+                }
+            },
         })
     }
 }

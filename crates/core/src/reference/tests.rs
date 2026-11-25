@@ -61,6 +61,7 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
         revision: SourceRevision {
             modified_ns: 0,
             size: 4,
+            object_id: None,
         },
         class: crate::inventory::RecordClass::Logical,
         diagnostic_ref: crate::inventory::DiagnosticRef(0),

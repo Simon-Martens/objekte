@@ -13,6 +13,7 @@ fn inventory_without_catalog_has_no_root_or_file_identity() {
                 SourceRevision {
                     modified_ns: 0,
                     size: 1,
+                    object_id: None,
                 },
                 None,
                 CollectionId(0),
@@ -31,6 +32,7 @@ fn restored_entries_build_lookup_once_with_add_equivalent_results() {
     let revision = SourceRevision {
         modified_ns: 7,
         size: 12,
+        object_id: None,
     };
     let mut built = FileInventory::new(root.clone());
     let first = built
@@ -90,6 +92,7 @@ fn file_record_mapping_in_both_directions() {
     let revision = SourceRevision {
         modified_ns: 5,
         size: 10,
+        object_id: None,
     };
     let f0 = files
         .add("empty.json".into(), revision, None, CollectionId(0))
@@ -174,6 +177,7 @@ fn relative_path_index_preserves_native_escaping_and_rejects_absolute_literals()
     let revision = SourceRevision {
         modified_ns: 1,
         size: 2,
+        object_id: None,
     };
     for (name, id) in [("data/a.json", FileId(0)), ("other/a.json", FileId(1))] {
         assert_eq!(
@@ -230,6 +234,7 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
     let revision = SourceRevision {
         modified_ns: 7,
         size: 10,
+        object_id: None,
     };
     let empty = inventory
         .add("empty.json".into(), revision, None, CollectionId(0))
@@ -367,6 +372,7 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
     let revision = SourceRevision {
         modified_ns: 9,
         size: 20,
+        object_id: None,
     };
     let files: Vec<_> = (0..4)
         .map(|i| {
@@ -460,6 +466,7 @@ fn status_codes_and_diagnostic_bounds_are_stable() {
             SourceRevision {
                 modified_ns: 5,
                 size: 50,
+                object_id: None,
             },
             None,
             CollectionId(0),

@@ -23,6 +23,7 @@ fn stream_test_hit(id: &str, payload_bytes: usize) -> SearchHit {
             revision: crate::inventory::SourceRevision {
                 size: payload_bytes as u64,
                 modified_ns: 0,
+                object_id: None,
             },
             created_ns: None,
             status: crate::inventory::FileStatus::Valid,
@@ -165,14 +166,12 @@ fn exact_posting_payload_uses_published_range_after_external_edit() {
         .replace("needle", "absent");
     std::fs::write(&path, edited.as_bytes()).unwrap();
     let request = query("kind = 'yes'", false, false, ReturnMode::Bytes);
-    let result = fixture
-        .repo
-        .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
-        .unwrap();
-    assert!(result.hits.iter().any(|hit| {
-        hit.record_id == "000"
-            && matches!(&hit.payload, Some(crate::query_results::Payload::Bytes(bytes)) if bytes == edited.as_bytes())
-    }));
+    assert!(
+        fixture
+            .repo
+            .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
+            .is_err()
+    );
 }
 
 #[test]
@@ -243,25 +242,23 @@ fn externally_changed_candidate_is_verified_without_revision_probe() {
         .replace("needle", "absent");
     std::fs::write(&path, edited).unwrap();
     let request = query("body ~ 'needle'", true, false, ReturnMode::Locator);
-    let ordinary = fixture
-        .repo
-        .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
-        .unwrap();
-    assert!(ordinary.hits.iter().all(|hit| hit.record_id != "000"));
-    let stream = fixture
-        .repo
-        .search_stream_scoped_with_context(
-            &request,
-            ResultScope::Page {
-                offset: 0,
-                limit: request.options.limit,
-            },
-            StreamOptions::default(),
-            &limited_context(ExecutionLimits::default(), Some(CancellationToken::new())),
-            &mut |_| Ok(StreamControl::Continue),
-        )
-        .unwrap();
-    assert!(matches!(stream, StreamOutcome::Complete(_)), "{stream:?}");
+    assert!(
+        fixture
+            .repo
+            .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
+            .is_err()
+    );
+    let stream = fixture.repo.search_stream_scoped_with_context(
+        &request,
+        ResultScope::Page {
+            offset: 0,
+            limit: request.options.limit,
+        },
+        StreamOptions::default(),
+        &limited_context(ExecutionLimits::default(), Some(CancellationToken::new())),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(stream.is_err(), "{stream:?}");
 }
 
 /// Temporary repository whose source files are removed after each test.

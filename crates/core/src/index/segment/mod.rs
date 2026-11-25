@@ -54,13 +54,6 @@ impl<T: Clone> DerefMut for SharedColumn<T> {
     }
 }
 
-#[cfg(test)]
-impl<T: Clone> SharedColumn<T> {
-    pub(crate) fn shares_with(&self, other: &Self) -> bool {
-        Arc::ptr_eq(&self.0, &other.0)
-    }
-}
-
 /// Deterministic soft target used by every ordinary segment-producing path.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SegmentPolicy {

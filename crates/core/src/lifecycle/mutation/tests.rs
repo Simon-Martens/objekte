@@ -59,103 +59,6 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
-fn native_link_refresh_touches_only_routed_segments_and_skips_unchanged_file() {
-    let root = test_root("native-link-locality");
-    let attachment = root.join("data/attachment.txt");
-    std::fs::write(&attachment, b"independent bytes").unwrap();
-    let revision = SourceRevision::from_metadata(&std::fs::metadata(&attachment).unwrap()).unwrap();
-    let mut builder = Index::builder().with_options(RepositoryOptions {
-        segment_policy: crate::index::segment::SegmentPolicy {
-            target_records: std::num::NonZeroUsize::new(1).unwrap(),
-            max_files: std::num::NonZeroUsize::new(1).unwrap(),
-        },
-        ..RepositoryOptions::default()
-    });
-    let collection = builder.collection("entries", Schema::default()).unwrap();
-    let registration = builder.register_records(collection, "locality", 1).unwrap();
-    let catalog = builder
-        .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder.enable_file_links(registration, catalog).unwrap();
-    let index = builder.build().unwrap();
-    let session = index.ingestion();
-    let writer = session.writer(registration).unwrap();
-    let mut linked = writer.batch();
-    let token = linked
-        .declare_file("data/attachment.txt", revision)
-        .unwrap();
-    linked
-        .insert_with_file(
-            "linked",
-            crate::model::Value::String("value".into()),
-            token,
-            None,
-        )
-        .unwrap();
-    writer.submit(linked).unwrap().wait_published().unwrap();
-    for number in 0..31 {
-        let mut batch = writer.batch();
-        batch
-            .insert(
-                format!("unrelated-{number}"),
-                crate::model::Value::String("value".into()),
-            )
-            .unwrap();
-        writer.submit(batch).unwrap().wait_published().unwrap();
-    }
-    let before = index.view().unwrap();
-    let entry = before
-        .0
-        .catalog
-        .entry(crate::model::FileId(0))
-        .unwrap()
-        .clone();
-    let mut unchanged = (*before.0).clone();
-    assert_eq!(
-        unchanged
-            .refresh_record_links(entry.id, Some(&entry))
-            .unwrap(),
-        vec![collection]
-    );
-    for (left, right) in before.0.segments[0]
-        .iter()
-        .zip(unchanged.segments[0].iter())
-    {
-        assert!(std::sync::Arc::ptr_eq(left, right));
-    }
-    let mut removed = (*before.0).clone();
-    assert!(
-        removed
-            .refresh_record_links(entry.id, None)
-            .unwrap()
-            .is_empty()
-    );
-    assert!(
-        removed.record_routes[0]
-            .segments_for_file(entry.id)
-            .is_empty()
-    );
-    assert_eq!(removed.segments[0].len(), before.0.segments[0].len());
-    for (left, right) in before.0.segments[0].iter().zip(removed.segments[0].iter()) {
-        if left.index.file_index.contains_key(&entry.id) {
-            assert!(!std::sync::Arc::ptr_eq(left, right));
-            assert!(left.index.postings.shares_with(&right.index.postings));
-            assert!(left.index.raw.shares_with(&right.index.raw));
-            assert!(
-                left.index
-                    .fallback_text
-                    .shares_with(&right.index.fallback_text)
-            );
-            assert!(left.index.sorting.shares_with(&right.index.sorting));
-        } else {
-            assert!(std::sync::Arc::ptr_eq(left, right));
-        }
-    }
-    assert!(removed.record_routes[0].get("linked").is_some());
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
 fn deleting_obsolete_file_incarnation_keeps_new_owner_route() {
     let root = test_root("obsolete-file-incarnation");
     let index = crate::lifecycle::Index::start_build(
@@ -542,19 +445,15 @@ fn search_trusts_recorded_json_validation_until_explicit_update() {
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(10)))
         .unwrap();
-    // The stored classification remains valid even if the trusted extractor
-    // encounters malformed bytes while walking the requested value.
+    // The pinned revision cannot supply bytes after an external edit.
     assert!(index.view().unwrap().search(&query).is_err());
     query.filter = None;
-    assert_eq!(
+    assert!(
         index
             .view()
             .unwrap()
             .get_record("items", &record_id, ReturnMode::Bytes)
-            .unwrap()
-            .unwrap()
-            .record_class,
-        RecordClass::Logical,
+            .is_err()
     );
 
     let changed = index.update_file(handle, &path).unwrap();
@@ -1037,31 +936,18 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(original_metadata.modified().unwrap()))
         .unwrap();
-    assert_eq!(
-        SourceRevision::from_metadata(&std::fs::metadata(&original).unwrap()).unwrap(),
-        SourceRevision::from_metadata(&original_metadata).unwrap()
-    );
+    let replaced_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(&original).unwrap()).unwrap();
+    let original_revision = SourceRevision::from_metadata(&original_metadata).unwrap();
+    assert_eq!(replaced_revision.size, original_revision.size);
+    assert_eq!(replaced_revision.modified_ns, original_revision.modified_ns);
+    assert_ne!(replaced_revision.object_id, original_revision.object_id);
     assert_ne!(
         std::fs::metadata(&original).unwrap().created().ok(),
         original_metadata.created().ok()
     );
-    let old_read = pinned
-        .get_record("items", "A", ReturnMode::Bytes)
-        .unwrap()
-        .unwrap();
-    assert_eq!(
-        old_read.payload,
-        Some(Payload::Bytes(
-            b"{\"id\":\"X\",\"name\":\"xxxxx\"}".to_vec()
-        ))
-    );
-    let old_page = pinned.search(&query(None, ReturnMode::Bytes)).unwrap();
-    assert!(
-        old_page
-            .hits
-            .iter()
-            .any(|hit| hit.payload == old_read.payload)
-    );
+    assert!(pinned.get_record("items", "A", ReturnMode::Bytes).is_err());
+    assert!(pinned.search(&query(None, ReturnMode::Bytes)).is_err());
     std::fs::remove_file(&original).unwrap();
 
     check_current(&index);
@@ -1362,10 +1248,11 @@ fn prepared_add_rejects_same_stamp_path_replacement_before_publication() {
         .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
         .unwrap();
     std::fs::rename(&replacement, &path).unwrap();
-    assert_eq!(
-        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-        source.revision
-    );
+    let replaced_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    assert_eq!(replaced_revision.size, source.revision.size);
+    assert_eq!(replaced_revision.modified_ns, source.revision.modified_ns);
+    assert_ne!(replaced_revision.object_id, source.revision.object_id);
     assert!(
         crate::construction::file_preparation::verify_current_source(
             &root,

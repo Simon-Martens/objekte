@@ -243,6 +243,7 @@ fn in_memory(
         revision: SourceRevision {
             modified_ns: 0,
             size: 0,
+            object_id: None,
         },
         created_ns: None,
         collections: vec![CollectionId(0)],

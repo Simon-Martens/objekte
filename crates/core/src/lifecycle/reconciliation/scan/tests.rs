@@ -323,6 +323,7 @@ fn generated_directory_exclusion_precedes_seen_tracking_and_scan_cancels_between
                     revision: crate::inventory::SourceRevision {
                         modified_ns: 0,
                         size: 0,
+                        object_id: None,
                     },
                     created_ns: None,
                     collections: [CollectionId(0)].into(),

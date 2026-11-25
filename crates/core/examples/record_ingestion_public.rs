@@ -1,4 +1,4 @@
-//! Public record ingestion, optional file links, and a versioned reader.
+//! Public direct and managed-file ingestion with a versioned reader.
 
 use std::collections::BTreeMap;
 use std::error::Error;
@@ -6,7 +6,6 @@ use std::sync::{Arc, Mutex};
 
 use objekte_search_core::adapter::helpers::json_string::with_quoted_text;
 use objekte_search_core::files::FileCatalog;
-use objekte_search_core::inventory::{ByteRange, SourceRevision};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::Value;
 use objekte_search_core::query::options::ReturnMode;
@@ -16,7 +15,9 @@ use objekte_search_core::records::reader::{
     RecordProjection, RecordRead, RecordReadError, RecordReader,
 };
 use objekte_search_core::records::{RecordKey, RecordVersion};
+use objekte_search_core::repository::configuration::CollectionDefinition;
 use objekte_search_core::schema::Schema;
+use objekte_search_core::source::SourceFormat;
 
 fn direct_records() -> Result<(), Box<dyn Error>> {
     let mut builder = Index::builder();
@@ -46,42 +47,34 @@ fn direct_records() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-fn file_linked_records() -> Result<(), Box<dyn Error>> {
+fn managed_file_and_direct_records() -> Result<(), Box<dyn Error>> {
     let root = std::env::temp_dir().join(format!("objekte-public-example-{}", std::process::id()));
-    std::fs::create_dir(&root)?;
-    let source = root.join("source.txt");
-    std::fs::write(&source, b"alpha beta")?;
-    let revision = SourceRevision::from_metadata(&std::fs::metadata(&source)?)?;
+    std::fs::create_dir_all(root.join("data"))?;
+    let source = root.join("data/source.jsonl");
+    std::fs::write(&source, b"{\"note\":\"alpha\"}\n{\"note\":\"beta\"}\n")?;
     let mut builder = Index::builder();
     let entries = builder.collection("entries", Schema::default())?;
-    let registration = builder.register_records(entries, "example.linked", 1)?;
-    let catalog = builder.register_file_catalog(FileCatalog::new(&root)?)?;
-    builder.enable_file_links(registration, catalog)?;
+    let registration = builder.register_records(entries, "example.direct", 1)?;
+    builder.register_file_catalog(FileCatalog::new(&root)?)?;
+    builder.register_file_source(
+        entries,
+        CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines).file_source(),
+    )?;
     let index = builder.build()?;
     let session = index.ingestion();
     let writer = session.writer(registration)?;
-    let mut batch = writer.batch();
-    let file = batch.declare_file("source.txt", revision)?;
-    batch.insert_with_file(
-        "alpha",
-        Value::String("alpha".into()),
-        file,
-        Some(ByteRange::checked(0, 5, revision.size)?),
-    )?;
-    batch.insert_with_file(
-        "beta",
-        Value::String("beta".into()),
-        file,
-        Some(ByteRange::checked(6, 10, revision.size)?),
-    )?;
-    writer.submit(batch).unwrap().wait_published()?;
+    let mut first = writer.batch();
+    first.insert("manual-1", Value::String("manual".into()))?;
+    writer.submit(first).unwrap().wait_published()?;
+    let imported = index.add_file(&source)?;
+    let mut second = writer.batch();
+    second.insert("manual-2", Value::String("later".into()))?;
+    writer.submit(second).unwrap().wait_published()?;
     let view = index.view()?;
     let catalog = view.file_catalog().ok_or("catalog missing")?;
-    let link = catalog
-        .file_for_record("entries", "alpha")?
-        .ok_or("link missing")?;
-    let members = catalog.records_for_file(link.file_id)?;
-    assert_eq!(members.len(), 2);
+    assert_eq!(catalog.records_for_file(imported.file.file_id)?.len(), 2);
+    assert!(catalog.file_for_record("entries", "manual-1")?.is_none());
+    assert!(catalog.file_for_record("entries", "manual-2")?.is_none());
     session.finish()?;
     std::fs::remove_dir_all(root)?;
     Ok(())
@@ -167,7 +160,7 @@ fn versioned_reader() -> Result<(), Box<dyn Error>> {
 
 fn main() -> Result<(), Box<dyn Error>> {
     direct_records()?;
-    file_linked_records()?;
+    managed_file_and_direct_records()?;
     versioned_reader()?;
     Ok(())
 }

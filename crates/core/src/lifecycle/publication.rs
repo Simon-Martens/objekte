@@ -1023,33 +1023,13 @@ fn prepare_initial_segment(
 impl Index {
     /// Apply one accepted registrar batch atomically. Retirement and any new
     /// native segment are staged in a private root before the revision CAS.
-    #[cfg(test)]
     pub(crate) fn publish_record_batch(
         &self,
         expected: IndexRevision,
         collection: CollectionId,
         registration: u32,
         changes: &[RecordMutation],
-        segment: Option<IndexedCollectionSegment>,
-    ) -> Result<IndexRevision, IndexError> {
-        self.publish_record_batch_with_files(
-            expected,
-            collection,
-            registration,
-            changes,
-            segment.into_iter().collect(),
-            &[],
-        )
-    }
-
-    pub(crate) fn publish_record_batch_with_files(
-        &self,
-        expected: IndexRevision,
-        collection: CollectionId,
-        registration: u32,
-        changes: &[RecordMutation],
-        segments: Vec<IndexedCollectionSegment>,
-        files: &[crate::inventory::FileEntry],
+        segments: impl IntoIterator<Item = IndexedCollectionSegment>,
     ) -> Result<IndexRevision, IndexError> {
         let view = self.view()?;
         if view.revision() != expected {
@@ -1067,60 +1047,6 @@ impl Index {
                 IndexError::InvalidPublication("record collection missing".into())
             })?;
         let mut next = (*view.0).clone();
-        for file in files {
-            let root = next.repository.files().root().ok_or_else(|| {
-                IndexError::InvalidPublication("file catalog is not registered".into())
-            })?;
-            let path = root.join(&file.relative_path);
-            let canonical = path
-                .canonicalize()
-                .map_err(|error| IndexError::Build(error.to_string()))?;
-            if !canonical.starts_with(root) {
-                return Err(IndexError::InvalidPublication(
-                    "file path escapes catalog root".into(),
-                ));
-            }
-            let metadata = std::fs::metadata(canonical)
-                .map_err(|error| IndexError::Build(error.to_string()))?;
-            if !metadata.is_file()
-                || crate::inventory::SourceRevision::from_metadata(&metadata)
-                    .map_err(IndexError::Build)?
-                    != file.revision
-            {
-                return Err(IndexError::InvalidPublication(
-                    "declared file revision changed".into(),
-                ));
-            }
-            if !file.collections.contains(&collection) {
-                return Err(IndexError::InvalidPublication(
-                    "declared file is not in collection".into(),
-                ));
-            }
-            if let Some(existing) = next.catalog.entry(file.id) {
-                if existing.relative_path != file.relative_path
-                    || existing.revision != file.revision
-                {
-                    return Err(IndexError::InvalidPublication(
-                        "file catalog identity changed".into(),
-                    ));
-                }
-                let fingerprint = next.catalog.fingerprint(file.id);
-                let configuration = next.catalog.configuration(file.id);
-                next.catalog = next
-                    .catalog
-                    .replaced(file.clone(), fingerprint, configuration)
-                    .map_err(IndexError::InvalidPublication)?;
-            } else {
-                next.catalog = next
-                    .catalog
-                    .appended(file.clone(), None, None)
-                    .map_err(IndexError::InvalidPublication)?;
-                next.file_versions = next
-                    .file_versions
-                    .appended()
-                    .map_err(IndexError::InvalidPublication)?;
-            }
-        }
         for change in changes {
             let base = collection_state
                 .id_lookup

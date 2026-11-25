@@ -112,6 +112,7 @@ fn unavailable_source_read_is_classified_without_fabricating_records() {
         SourceRevision {
             modified_ns: 0,
             size: 0,
+            object_id: None,
         },
         |outcome| {
             match outcome {
@@ -255,6 +256,7 @@ fn build_reads_use_actual_bytes_without_revision_probes() {
     let wrong_revision = SourceRevision {
         modified_ns: 0,
         size: 1,
+        object_id: None,
     };
     let mut ranges = Vec::new();
     let counters =

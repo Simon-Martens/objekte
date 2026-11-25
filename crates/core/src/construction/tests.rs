@@ -766,6 +766,7 @@ fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
         revision: SourceRevision {
             modified_ns: 77,
             size: unsupported.len() as u64,
+            object_id: None,
         },
         ..input.clone()
     };
@@ -2037,6 +2038,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
         revision: SourceRevision {
             modified_ns: 0,
             size: bytes.len() as u64,
+            object_id: None,
         },
         created_ns: None,
     }]);
@@ -2151,6 +2153,7 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
                     SourceRevision {
                         modified_ns: 1,
                         size: 0,
+                        object_id: None,
                     },
                     None,
                     CollectionId(0),
@@ -2175,6 +2178,7 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
                     SourceRevision {
                         modified_ns: 1,
                         size: size * 1024 * 1024,
+                        object_id: None,
                     },
                     None,
                     CollectionId(0),

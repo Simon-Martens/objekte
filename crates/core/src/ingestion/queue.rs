@@ -308,7 +308,6 @@ impl IngestionSession {
             core: Arc::clone(&self.core),
             registration,
             reader_available: source.reader.is_some(),
-            file_links_available: source.file_links,
         })
     }
 
@@ -414,13 +413,11 @@ pub struct RecordWriter {
     core: Arc<SessionCore>,
     registration: RecordRegistration,
     reader_available: bool,
-    file_links_available: bool,
 }
 
 impl RecordWriter {
     pub fn batch(&self) -> Batch {
-        Batch::new(self.core.id, self.registration)
-            .with_capabilities(self.reader_available, self.file_links_available)
+        Batch::new(self.core.id, self.registration).with_reader_capability(self.reader_available)
     }
 
     pub fn submit(&self, batch: Batch) -> Result<Receipt, SubmitError<Batch>> {
@@ -555,7 +552,6 @@ impl Clone for RecordWriter {
             core: Arc::clone(&self.core),
             registration: self.registration,
             reader_available: self.reader_available,
-            file_links_available: self.file_links_available,
         }
     }
 }
@@ -605,16 +601,7 @@ fn enqueue(
 }
 
 fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
-    if !batch.files.is_empty() {
-        return None;
-    }
-    let Operation::Insert {
-        file: None,
-        version,
-        text,
-        ..
-    } = batch.operations.first()?
-    else {
+    let Operation::Insert { version, text, .. } = batch.operations.first()? else {
         return None;
     };
     let shape = (version.is_some(), text.is_empty());
@@ -622,7 +609,7 @@ fn group_shape(batch: &Batch) -> Option<(bool, bool)> {
         .operations
         .iter()
         .all(|operation| {
-            matches!(operation, Operation::Insert { file: None, version, text, .. }
+            matches!(operation, Operation::Insert { version, text, .. }
             if (version.is_some(), text.is_empty()) == shape)
         })
         .then_some(shape)

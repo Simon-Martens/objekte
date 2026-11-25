@@ -1,9 +1,9 @@
 use std::collections::{BTreeMap, HashMap};
-use std::sync::{Arc, Mutex};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+use std::sync::{Arc, Barrier, Mutex};
 
 use objekte_search_core::files::FileCatalog;
 use objekte_search_core::ingestion::{IngestionOptions, RecordInput, SubmitError};
-use objekte_search_core::inventory::{ByteRange, SourceRevision};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::clock::ClockContext;
@@ -25,8 +25,56 @@ use objekte_search_core::repository::configuration::{
 };
 use objekte_search_core::schema::relations::{RelationCardinality, RelationDefinition};
 use objekte_search_core::schema::{FieldDefinition, Schema};
-use objekte_search_core::source::TextSegment;
+use objekte_search_core::source::{ExtractedRecord, SourceReader, TextSegment};
 use objekte_search_core::source::{SourceFormat, registry::SourceRegistry};
+
+struct PausingLinesReader {
+    pause_next: AtomicBool,
+    parses: AtomicUsize,
+    entered: Arc<Barrier>,
+    release: Arc<Barrier>,
+}
+
+impl SourceReader for PausingLinesReader {
+    fn name(&self) -> &'static str {
+        "pausing-lines"
+    }
+
+    fn logical_text_coverage(&self) -> objekte_search_core::source::LogicalTextCoverage {
+        objekte_search_core::source::LogicalTextCoverage::AllStringFields
+    }
+
+    fn frame(&self, file: &[u8]) -> Result<Vec<objekte_search_core::inventory::ByteRange>, String> {
+        let mut ranges = Vec::new();
+        let mut start = 0usize;
+        for (index, byte) in file.iter().enumerate() {
+            if *byte == b'\n' {
+                if start < index {
+                    ranges.push(objekte_search_core::inventory::ByteRange::checked(
+                        start as u64,
+                        index as u64,
+                        file.len() as u64,
+                    )?);
+                }
+                start = index + 1;
+            }
+        }
+        Ok(ranges)
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        self.parses.fetch_add(1, Ordering::SeqCst);
+        if self.pause_next.swap(false, Ordering::SeqCst) {
+            self.entered.wait();
+            self.release.wait();
+        }
+        let json = serde_json::from_slice(bytes).map_err(|error| error.to_string())?;
+        Ok(ExtractedRecord {
+            value: Value::from_json(json)?,
+            text: Vec::new(),
+        })
+    }
+}
 
 fn record(year: i128, note: &str) -> Value {
     Value::Object(BTreeMap::from([
@@ -77,18 +125,6 @@ fn public_batches_publish_typed_records_and_preserve_old_views() {
             .insert_from_reader("invalid", record(1807, "invalid"), RecordVersion::new(1))
             .unwrap_err(),
         "provider input needs a registered reader"
-    );
-    assert_eq!(
-        batch
-            .declare_file(
-                "unavailable.txt",
-                SourceRevision {
-                    modified_ns: 0,
-                    size: 0,
-                },
-            )
-            .unwrap_err(),
-        "registration does not support file links"
     );
     batch.insert("entry-47", record(1808, "Leipzig")).unwrap();
     let first = writer.submit(batch).unwrap().wait_published().unwrap();
@@ -273,582 +309,6 @@ fn empty_strings_with_reserved_capacity_count_toward_batch_limit() {
 }
 
 #[test]
-fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-file-links-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    std::fs::create_dir(&root).unwrap();
-    std::fs::write(root.join("source.txt"), b"alpha beta").unwrap();
-    std::fs::write(root.join("empty.txt"), b"").unwrap();
-    let revision =
-        SourceRevision::from_metadata(&std::fs::metadata(root.join("source.txt")).unwrap())
-            .unwrap();
-    let empty_revision =
-        SourceRevision::from_metadata(&std::fs::metadata(root.join("empty.txt")).unwrap()).unwrap();
-    let mut builder = Index::builder();
-    let first = builder.collection("first", Schema::default()).unwrap();
-    let second = builder.collection("second", Schema::default()).unwrap();
-    let first_registration = builder.register_records(first, "test.first", 1).unwrap();
-    let second_registration = builder.register_records(second, "test.second", 1).unwrap();
-    let catalog = builder
-        .register_file_catalog(FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder
-        .enable_file_links(first_registration, catalog)
-        .unwrap();
-    builder
-        .enable_file_links(second_registration, catalog)
-        .unwrap();
-    let index = builder.build().unwrap();
-    let before = index.view().unwrap();
-    let session = index.ingestion();
-    let first_writer = session.writer(first_registration).unwrap();
-    let mut batch = first_writer.batch();
-    let file = batch.declare_file("source.txt", revision).unwrap();
-    batch
-        .insert_with_file(
-            "same",
-            record(1808, "alpha"),
-            file,
-            Some(ByteRange::checked(0, 5, revision.size).unwrap()),
-        )
-        .unwrap();
-    batch
-        .insert_with_file("path-only", record(1809, "beta"), file, None)
-        .unwrap();
-    batch.insert("unlinked", record(1810, "none")).unwrap();
-    batch
-        .insert("unlinked-survivor", record(1812, "kept"))
-        .unwrap();
-    batch.declare_file("empty.txt", empty_revision).unwrap();
-    first_writer
-        .submit(batch)
-        .unwrap()
-        .wait_published()
-        .unwrap();
-    let second_writer = session.writer(second_registration).unwrap();
-    let mut batch = second_writer.batch();
-    let shared = batch.declare_file("source.txt", revision).unwrap();
-    batch
-        .insert_with_file(
-            "same",
-            record(1811, "alpha"),
-            shared,
-            Some(ByteRange::checked(6, 10, revision.size).unwrap()),
-        )
-        .unwrap();
-    second_writer
-        .submit(batch)
-        .unwrap()
-        .wait_published()
-        .unwrap();
-    let view = index.view().unwrap();
-    let linked_query = Query {
-        collections: vec!["first".into()],
-        fts: None,
-        filter: Some(parse_filter("year = 1808").unwrap()),
-        options: QueryOptions {
-            sort: Vec::new(),
-            limit: 1,
-            offset: 0,
-            count: false,
-            return_mode: ReturnMode::Logical,
-            evidence: false,
-        },
-    };
-    let linked = view
-        .search_with_context(&linked_query, &no_source_reads())
-        .unwrap();
-    assert_eq!(linked.hits[0].record_id, "same");
-    assert_eq!(linked.counters.selected_payload_reads, 0);
-    assert_eq!(linked.counters.files_opened, 0);
-    assert_eq!(linked.counters.record_parses, 0);
-    let mut streamed = Vec::new();
-    let outcome = view
-        .search_stream_scoped_with_context(
-            &linked_query,
-            ResultScope::All { offset: 0 },
-            StreamOptions::default(),
-            &no_source_reads(),
-            &mut |event| {
-                if let StreamEvent::OrderedRows { rows, .. } = event {
-                    streamed.extend(rows.iter().map(|hit| hit.record_id.clone()));
-                }
-                Ok(StreamControl::Continue)
-            },
-        )
-        .unwrap();
-    assert_eq!(streamed, ["same"]);
-    let StreamOutcome::Complete(summary) = outcome else {
-        panic!("linked retained stream did not complete")
-    };
-    assert_eq!(summary.counters.files_opened, 0);
-    assert_eq!(summary.counters.bytes_read, 0);
-    for (predicate, expected) in [
-        ("@record.byte_start = 0", vec!["same"]),
-        ("@record.byte_start != 0", vec![]),
-    ] {
-        let query = Query {
-            collections: vec!["first".into()],
-            filter: Some(parse_filter(predicate).unwrap()),
-            fts: None,
-            options: QueryOptions {
-                sort: Vec::new(),
-                offset: 0,
-                count: true,
-                limit: 10,
-                return_mode: ReturnMode::Locator,
-                evidence: false,
-            },
-        };
-        let result = view.search(&query).unwrap();
-        assert_eq!(
-            result
-                .hits
-                .iter()
-                .map(|hit| hit.record_id.as_str())
-                .collect::<Vec<_>>(),
-            expected,
-            "{predicate}"
-        );
-        assert_eq!(result.hits, view.search_reference(&query).unwrap().hits);
-    }
-    assert!(
-        before
-            .file_catalog()
-            .unwrap()
-            .file_by_path(std::path::Path::new("source.txt"))
-            .is_none()
-    );
-    let files = view.file_catalog().unwrap();
-    let row = files
-        .file_by_path(std::path::Path::new("source.txt"))
-        .unwrap();
-    assert_eq!(row.collections.len(), 2);
-    assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
-    assert_eq!(
-        files
-            .records_for_file_in_collection(row.id, "first")
-            .unwrap()
-            .len(),
-        2
-    );
-    assert_eq!(
-        files
-            .file_for_record("first", "path-only")
-            .unwrap()
-            .unwrap()
-            .range,
-        None
-    );
-    assert_eq!(files.file_for_record("first", "unlinked").unwrap(), None);
-    assert_eq!(
-        view.get_record("first", "same", ReturnMode::Locator)
-            .unwrap()
-            .unwrap()
-            .file
-            .unwrap()
-            .range
-            .unwrap()
-            .end,
-        5
-    );
-    assert_eq!(
-        files
-            .records_for_file(
-                files
-                    .file_by_path(std::path::Path::new("empty.txt"))
-                    .unwrap()
-                    .id
-            )
-            .unwrap()
-            .len(),
-        0
-    );
-    let handle = view.file_handle(row.id).unwrap();
-    let mut deletion = first_writer.batch();
-    deletion.delete("unlinked").unwrap();
-    first_writer
-        .submit(deletion)
-        .unwrap()
-        .wait_published()
-        .unwrap();
-    index.compact().unwrap();
-    let compacted = index.view().unwrap();
-    for id in ["same", "path-only", "unlinked-survivor"] {
-        assert!(
-            compacted
-                .get_record("first", id, ReturnMode::Logical)
-                .unwrap()
-                .is_some()
-        );
-    }
-    assert!(
-        compacted
-            .get_record("first", "unlinked", ReturnMode::Locator)
-            .unwrap()
-            .is_none()
-    );
-    assert!(
-        view.get_record("first", "unlinked", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    assert_eq!(
-        compacted
-            .file_catalog()
-            .unwrap()
-            .records_for_file(row.id)
-            .unwrap()
-            .len(),
-        3
-    );
-    assert_eq!(
-        compacted
-            .get_record("first", "same", ReturnMode::Bytes)
-            .unwrap()
-            .unwrap()
-            .payload,
-        Some(Payload::OriginalBytesUnavailable)
-    );
-    std::fs::rename(root.join("source.txt"), root.join("moved.txt")).unwrap();
-    let moved = index.move_file(handle, &root.join("moved.txt")).unwrap();
-    let after_move = index.view().unwrap();
-    assert_eq!(
-        after_move
-            .get_record("first", "same", ReturnMode::Locator)
-            .unwrap()
-            .unwrap()
-            .file
-            .unwrap()
-            .path,
-        std::path::PathBuf::from("moved.txt")
-    );
-    assert_eq!(
-        view.get_record("first", "same", ReturnMode::Locator)
-            .unwrap()
-            .unwrap()
-            .file
-            .unwrap()
-            .path,
-        std::path::PathBuf::from("source.txt")
-    );
-    std::fs::write(root.join("moved.txt"), b"alpha gamma expanded").unwrap();
-    let updated = index
-        .update_file(moved.file, &root.join("moved.txt"))
-        .unwrap();
-    let after_update = index.view().unwrap();
-    assert!(
-        after_update
-            .get_record("first", "same", ReturnMode::Locator)
-            .unwrap()
-            .unwrap()
-            .file
-            .is_none()
-    );
-    assert!(
-        after_update
-            .get_record("first", "path-only", ReturnMode::Locator)
-            .unwrap()
-            .unwrap()
-            .file
-            .is_some()
-    );
-    assert_eq!(
-        after_update
-            .file_catalog()
-            .unwrap()
-            .records_for_file(row.id)
-            .unwrap()
-            .len(),
-        1
-    );
-    index.delete_file(updated.file).unwrap();
-    let after_delete = index.view().unwrap();
-    assert!(
-        after_delete
-            .file_catalog()
-            .unwrap()
-            .file_by_path(std::path::Path::new("moved.txt"))
-            .is_none()
-    );
-    assert!(
-        after_delete
-            .get_record("first", "same", ReturnMode::Locator)
-            .unwrap()
-            .unwrap()
-            .file
-            .is_none()
-    );
-    assert!(
-        after_delete
-            .get_record("second", "same", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    assert_eq!(files.records_for_file(row.id).unwrap().len(), 3);
-    session.finish().unwrap();
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
-fn file_tokens_are_bound_to_the_declaration_batch() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-batch-token-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    std::fs::create_dir(&root).unwrap();
-    std::fs::write(root.join("first.txt"), b"first").unwrap();
-    std::fs::write(root.join("second.txt"), b"second").unwrap();
-    let first_revision =
-        SourceRevision::from_metadata(&std::fs::metadata(root.join("first.txt")).unwrap()).unwrap();
-    let second_revision =
-        SourceRevision::from_metadata(&std::fs::metadata(root.join("second.txt")).unwrap())
-            .unwrap();
-    let mut builder = Index::builder();
-    let collection = builder.collection("entries", Schema::default()).unwrap();
-    let registration = builder
-        .register_records(collection, "test.entries", 1)
-        .unwrap();
-    let catalog = builder
-        .register_file_catalog(FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder.enable_file_links(registration, catalog).unwrap();
-    let index = builder.build().unwrap();
-    let session = index.ingestion();
-    let writer = session.writer(registration).unwrap();
-    let mut first = writer.batch();
-    let first_token = first.declare_file("first.txt", first_revision).unwrap();
-    let mut second = writer.batch();
-    let second_token = second.declare_file("second.txt", second_revision).unwrap();
-    assert_eq!(
-        second
-            .insert_with_file("wrong", record(1, "wrong"), first_token, None)
-            .unwrap_err(),
-        "foreign batch file token"
-    );
-    second
-        .insert_input(
-            "second",
-            RecordInput::new(record(2, "second"))
-                .with_text(vec![TextSegment {
-                    path: vec!["note".into()],
-                    text: "second".into(),
-                }])
-                .with_file(second_token, None),
-        )
-        .unwrap();
-    writer.submit(second).unwrap().wait_published().unwrap();
-    writer.submit(first).unwrap().wait_published().unwrap();
-    session.finish().unwrap();
-
-    let next = index.ingestion();
-    let next_writer = next.writer(registration).unwrap();
-    let mut third = next_writer.batch();
-    let third_token = third.declare_file("first.txt", first_revision).unwrap();
-    assert_eq!(
-        third
-            .insert_with_file("wrong", record(3, "wrong"), first_token, None)
-            .unwrap_err(),
-        "foreign batch file token"
-    );
-    third
-        .insert_with_file("third", record(3, "third"), third_token, None)
-        .unwrap();
-    next_writer.submit(third).unwrap().wait_published().unwrap();
-    let view = index.view().unwrap();
-    assert!(
-        view.get_record("entries", "wrong", ReturnMode::Locator)
-            .unwrap()
-            .is_none()
-    );
-    assert_eq!(
-        view.file_catalog()
-            .unwrap()
-            .file_for_record("entries", "third")
-            .unwrap()
-            .unwrap()
-            .path,
-        std::path::PathBuf::from("first.txt")
-    );
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
-fn declared_attachment_outside_importer_selection_uses_catalog_only_lifecycle() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-declared-attachment-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::create_dir_all(root.join("attachments")).unwrap();
-    let imported = root.join("data/imported.json");
-    let attachment = root.join("attachments/cover.bin");
-    let moved_path = root.join("attachments/moved.bin");
-    std::fs::write(&imported, b"{\"title\":\"imported\"}").unwrap();
-    std::fs::write(&attachment, b"cover-old").unwrap();
-    let revision = SourceRevision::from_metadata(&std::fs::metadata(&attachment).unwrap()).unwrap();
-
-    let mut builder = Index::builder();
-    let collection = builder.collection("entries", Schema::default()).unwrap();
-    let registration = builder
-        .register_records(collection, "attachments", 1)
-        .unwrap();
-    let catalog = builder
-        .register_file_catalog(FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder.enable_file_links(registration, catalog).unwrap();
-    let importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
-    builder
-        .register_file_source(collection, importer.file_source())
-        .unwrap();
-    let index = builder.build().unwrap();
-    index.add_file(&imported).unwrap();
-    let writer = index.ingestion().writer(registration).unwrap();
-    let mut batch = writer.batch();
-    let file = batch
-        .declare_file("attachments/cover.bin", revision)
-        .unwrap();
-    batch
-        .insert_with_file("linked", Value::String("independent".into()), file, None)
-        .unwrap();
-    writer.submit(batch).unwrap().wait_published().unwrap();
-    let pinned = index.view().unwrap();
-    let handle = pinned.file_handle_for_path(&attachment).unwrap();
-    std::fs::write(&attachment, b"cover-new-content").unwrap();
-    let updated = index.update_file(handle, &attachment).unwrap();
-    assert_eq!(updated.indexed_records, 0);
-    assert!(
-        index
-            .view()
-            .unwrap()
-            .get_record("entries", "linked", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    std::fs::rename(&attachment, &moved_path).unwrap();
-    let moved = index.move_file(updated.file, &moved_path).unwrap();
-    assert_eq!(moved.indexed_records, 0);
-    let view = index.view().unwrap();
-    assert_eq!(
-        view.file_catalog()
-            .unwrap()
-            .file_for_record("entries", "linked")
-            .unwrap()
-            .unwrap()
-            .path,
-        std::path::PathBuf::from("attachments/moved.bin")
-    );
-    assert_eq!(
-        pinned
-            .file_catalog()
-            .unwrap()
-            .file_for_record("entries", "linked")
-            .unwrap()
-            .unwrap()
-            .path,
-        std::path::PathBuf::from("attachments/cover.bin")
-    );
-    index.delete_file(moved.file).unwrap();
-    assert!(
-        index
-            .view()
-            .unwrap()
-            .get_record("entries", "linked", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
-fn move_across_importer_selection_indexes_and_retires_only_imported_records() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-importer-transition-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::create_dir_all(root.join("attachments")).unwrap();
-    let outside = root.join("attachments/one.json");
-    let inside = root.join("data/one.json");
-    std::fs::write(&outside, br#"{"title":"imported"}"#).unwrap();
-    let observed = SourceRevision::from_metadata(&std::fs::metadata(&outside).unwrap()).unwrap();
-    let mut builder = Index::builder();
-    let collection = builder.collection("entries", Schema::default()).unwrap();
-    let registration = builder
-        .register_records(collection, "independent", 1)
-        .unwrap();
-    let catalog = builder
-        .register_file_catalog(FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder.enable_file_links(registration, catalog).unwrap();
-    let importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
-    builder
-        .register_file_source(collection, importer.file_source())
-        .unwrap();
-    let index = builder.build().unwrap();
-    let writer = index.ingestion().writer(registration).unwrap();
-    let mut batch = writer.batch();
-    let file = batch
-        .declare_file("attachments/one.json", observed)
-        .unwrap();
-    batch
-        .insert_with_file("linked", Value::String("kept".into()), file, None)
-        .unwrap();
-    writer.submit(batch).unwrap().wait_published().unwrap();
-    let before = index.view().unwrap();
-    assert_eq!(index.status().unwrap().live_records, 1);
-    let handle = before.file_handle_for_path(&outside).unwrap();
-    std::fs::rename(&outside, &inside).unwrap();
-    let imported = index.move_file(handle, &inside).unwrap();
-    assert_eq!(imported.indexed_records, 1);
-    assert_eq!(index.status().unwrap().live_records, 2);
-    let with_import = index.view().unwrap();
-    assert_eq!(
-        with_import
-            .file_catalog()
-            .unwrap()
-            .records_for_file(handle.file_id)
-            .unwrap()
-            .len(),
-        2
-    );
-    std::fs::rename(&inside, &outside).unwrap();
-    let removed = index.move_file(imported.file, &outside).unwrap();
-    assert_eq!(removed.retired_records, 1);
-    assert_eq!(removed.indexed_records, 0);
-    assert_eq!(index.status().unwrap().live_records, 1);
-    let after = index.view().unwrap();
-    assert_eq!(
-        after
-            .file_catalog()
-            .unwrap()
-            .records_for_file(handle.file_id)
-            .unwrap()
-            .len(),
-        1
-    );
-    assert_eq!(
-        after
-            .file_catalog()
-            .unwrap()
-            .file_for_record("entries", "linked")
-            .unwrap()
-            .unwrap()
-            .path,
-        std::path::PathBuf::from("attachments/one.json")
-    );
-    assert_eq!(with_import.index_observation().records, 2);
-    assert_eq!(before.index_observation().records, 1);
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
 fn importer_only_move_outside_selection_retires_empty_catalog_membership() {
     let root = std::env::temp_dir().join(format!(
         "objekte-importer-only-transition-{}-{:?}",
@@ -962,138 +422,6 @@ fn rootless_file_operations_and_reconciliation_return_without_panicking() {
 }
 
 #[test]
-fn mixed_reconciliation_preserves_original_collection_ids_and_independent_files() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-mixed-reconcile-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::create_dir_all(root.join("attachments")).unwrap();
-    let imported = root.join("data/item.json");
-    let attached = root.join("attachments/cover.bin");
-    std::fs::write(&imported, b"{\"name\":\"first\"}").unwrap();
-    std::fs::write(&attached, b"cover").unwrap();
-    let revision = SourceRevision::from_metadata(&std::fs::metadata(&attached).unwrap()).unwrap();
-    let mut builder = Index::builder();
-    let direct = builder.collection("direct", Schema::default()).unwrap();
-    let files = builder.collection("files", Schema::default()).unwrap();
-    let direct_registration = builder.register_records(direct, "direct", 1).unwrap();
-    let linked_registration = builder.register_records(files, "linked", 1).unwrap();
-    let catalog = builder
-        .register_file_catalog(FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder
-        .enable_file_links(linked_registration, catalog)
-        .unwrap();
-    builder
-        .register_file_source(
-            files,
-            CollectionDefinition::folder("files", "data", SourceFormat::Json).file_source(),
-        )
-        .unwrap();
-    let index = builder.build().unwrap();
-    let writer = index.ingestion().writer(direct_registration).unwrap();
-    let mut batch = writer.batch();
-    batch
-        .insert("direct-1", Value::String("kept".into()))
-        .unwrap();
-    writer.submit(batch).unwrap().wait_published().unwrap();
-    let linked_writer = index.ingestion().writer(linked_registration).unwrap();
-    let mut batch = linked_writer.batch();
-    let file = batch
-        .declare_file("attachments/cover.bin", revision)
-        .unwrap();
-    batch
-        .insert_with_file("linked-1", Value::String("kept".into()), file, None)
-        .unwrap();
-    linked_writer
-        .submit(batch)
-        .unwrap()
-        .wait_published()
-        .unwrap();
-
-    let first = index.start_reconcile().unwrap().wait().unwrap();
-    assert!(first.issues.is_empty(), "{:?}", first.issues);
-    assert_eq!(first.added, 1);
-    let pinned = index.view().unwrap();
-    assert!(pinned.file_handle_for_path(&imported).is_some());
-    assert!(pinned.file_handle_for_path(&attached).is_some());
-    assert_eq!(
-        pinned
-            .file_catalog()
-            .unwrap()
-            .file_by_path(std::path::Path::new("data/item.json"))
-            .unwrap()
-            .collections,
-        vec![files]
-    );
-    let unchanged = index.start_reconcile().unwrap().wait().unwrap();
-    assert!(unchanged.issues.is_empty(), "{:?}", unchanged.issues);
-    assert_eq!(unchanged.unchanged, 1);
-    assert_eq!(unchanged.removed, 0);
-    std::fs::write(&imported, b"{\"name\":\"updated-longer\"}").unwrap();
-    let updated = index.start_reconcile().unwrap().wait().unwrap();
-    assert!(updated.issues.is_empty(), "{:?}", updated.issues);
-    assert_eq!(updated.updated, 1);
-    let current = index.view().unwrap();
-    assert!(
-        current
-            .get_record("direct", "direct-1", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    assert!(
-        current
-            .get_record("files", "linked-1", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    assert!(current.file_handle_for_path(&attached).is_some());
-    assert!(pinned.file_handle_for_path(&imported).is_some());
-    let previous_segment_ids = current
-        .segment_summaries()
-        .into_iter()
-        .filter(|segment| segment.active)
-        .map(|segment| segment.id)
-        .collect::<Vec<_>>();
-    index.rebuild().unwrap();
-    assert!(
-        index
-            .view()
-            .unwrap()
-            .segment_summaries()
-            .iter()
-            .any(|segment| segment.active && !previous_segment_ids.contains(&segment.id)),
-        "rebuild must construct a new file-source segment"
-    );
-    let imported_handle = index
-        .view()
-        .unwrap()
-        .file_handle_for_path(&imported)
-        .unwrap();
-    index.delete_file(imported_handle).unwrap();
-    index.rebuild().unwrap();
-    let after_delete = index.view().unwrap();
-    assert!(
-        after_delete
-            .get_record("direct", "direct-1", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    assert!(
-        after_delete
-            .get_record("files", "linked-1", ReturnMode::Logical)
-            .unwrap()
-            .is_some()
-    );
-    assert!(after_delete.file_handle_for_path(&imported).is_none());
-    assert!(after_delete.file_handle_for_path(&attached).is_some());
-    assert!(pinned.file_handle_for_path(&imported).is_some());
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
 fn explicit_native_text_does_not_claim_logical_field_coverage() {
     let root = std::env::temp_dir().join(format!(
         "objekte-text-coverage-{}-{:?}",
@@ -1167,114 +495,6 @@ fn explicit_native_text_does_not_claim_logical_field_coverage() {
     let result = index.view().unwrap().search(&fts).unwrap();
     assert_eq!(result.count, Some(1));
     assert_eq!(result.hits[0].record_id, "target");
-    std::fs::remove_dir_all(root).unwrap();
-}
-
-#[test]
-fn linked_native_metadata_sort_tracks_catalog_changes() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-metadata-sort-{}-{:?}",
-        std::process::id(),
-        std::thread::current().id()
-    ));
-    std::fs::create_dir_all(&root).unwrap();
-    for name in ["a.txt", "m.txt", "z.txt"] {
-        std::fs::write(root.join(name), name.as_bytes()).unwrap();
-    }
-    let mut declaration = CollectionDeclaration::new("entries", Schema::default());
-    declaration
-        .sort_fields
-        .push(objekte_search_core::model::FieldPath::parse("@file.path").unwrap());
-    let mut builder = Index::builder();
-    let collection = builder.declare_collection(declaration).unwrap();
-    let registration = builder.register_records(collection, "sort", 1).unwrap();
-    let catalog = builder
-        .register_file_catalog(FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder.enable_file_links(registration, catalog).unwrap();
-    let index = builder.build().unwrap();
-    let writer = index.ingestion().writer(registration).unwrap();
-    let mut batch = writer.batch();
-    for (id, path) in [("z", "a.txt"), ("b", "m.txt"), ("a", "z.txt")] {
-        let revision =
-            SourceRevision::from_metadata(&std::fs::metadata(root.join(path)).unwrap()).unwrap();
-        let file = batch.declare_file(path, revision).unwrap();
-        let range = (path == "a.txt").then(|| ByteRange::checked(0, 5, revision.size).unwrap());
-        batch
-            .insert_with_file(id, Value::String(id.into()), file, range)
-            .unwrap();
-    }
-    batch
-        .insert("unlinked", Value::String("none".into()))
-        .unwrap();
-    writer.submit(batch).unwrap().wait_published().unwrap();
-    let query = |descending, offset| Query {
-        collections: vec!["entries".into()],
-        fts: None,
-        filter: None,
-        options: QueryOptions {
-            sort: vec![SortField::simple("@file.path", descending)],
-            limit: 4,
-            offset,
-            count: true,
-            return_mode: ReturnMode::Locator,
-            evidence: false,
-        },
-    };
-    let ids = |query: Query| {
-        index
-            .view()
-            .unwrap()
-            .search(&query)
-            .unwrap()
-            .hits
-            .into_iter()
-            .map(|hit| hit.record_id)
-            .collect::<Vec<_>>()
-    };
-    assert_eq!(ids(query(false, 0)), ["z", "b", "a", "unlinked"]);
-    assert_eq!(ids(query(true, 0)), ["a", "b", "z", "unlinked"]);
-    assert_eq!(ids(query(false, 1)), ["b", "a", "unlinked"]);
-    let old = index.view().unwrap();
-    let handle = old
-        .file_handle_for_path(std::path::Path::new("a.txt"))
-        .unwrap();
-    std::fs::rename(root.join("a.txt"), root.join("y.txt")).unwrap();
-    index.move_file(handle, &root.join("y.txt")).unwrap();
-    assert_eq!(ids(query(false, 0)), ["b", "z", "a", "unlinked"]);
-    assert_eq!(
-        old.search(&query(false, 0))
-            .unwrap()
-            .hits
-            .into_iter()
-            .map(|hit| hit.record_id)
-            .collect::<Vec<_>>(),
-        ["z", "b", "a", "unlinked"]
-    );
-    let moved = index.view().unwrap();
-    let y_handle = moved
-        .file_handle_for_path(std::path::Path::new("y.txt"))
-        .unwrap();
-    std::fs::write(root.join("y.txt"), b"a different longer content").unwrap();
-    index.update_file(y_handle, &root.join("y.txt")).unwrap();
-    assert_eq!(ids(query(false, 0)), ["b", "a", "unlinked", "z"]);
-    assert_eq!(
-        moved
-            .search(&query(false, 0))
-            .unwrap()
-            .hits
-            .into_iter()
-            .map(|hit| hit.record_id)
-            .collect::<Vec<_>>(),
-        ["b", "z", "a", "unlinked"]
-    );
-    let m_handle = index
-        .view()
-        .unwrap()
-        .file_handle_for_path(std::path::Path::new("m.txt"))
-        .unwrap();
-    index.delete_file(m_handle).unwrap();
-    assert_eq!(ids(query(false, 0)), ["a", "b", "unlinked", "z"]);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1420,12 +640,6 @@ fn relation_cache_rechecks_provider_target_outside_result_members() {
 
 #[test]
 fn versioned_provider_disposes_input_and_checks_rereads() {
-    let root = std::env::temp_dir().join(format!("objekte-provider-links-{}", std::process::id()));
-    std::fs::create_dir(&root).unwrap();
-    std::fs::write(root.join("source.txt"), b"alpha beta").unwrap();
-    let file_revision =
-        SourceRevision::from_metadata(&std::fs::metadata(root.join("source.txt")).unwrap())
-            .unwrap();
     let mut schema = Schema::default();
     schema
         .register_field(FieldDefinition {
@@ -1450,15 +664,10 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
     builder
         .register_reader(registration, reader.clone())
         .unwrap();
-    let catalog = builder
-        .register_file_catalog(FileCatalog::new(&root).unwrap())
-        .unwrap();
-    builder.enable_file_links(registration, catalog).unwrap();
     let index = builder.build().unwrap();
     let session = index.ingestion();
     let writer = session.writer(registration).unwrap();
     let mut batch = writer.batch();
-    let file = batch.declare_file("source.txt", file_revision).unwrap();
     batch
         .insert_input(
             "entry-47",
@@ -1467,11 +676,7 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
                     path: vec!["note".into()],
                     text: "Leipzig".into(),
                 }])
-                .from_reader(RecordVersion::new(7))
-                .with_file(
-                    file,
-                    Some(ByteRange::checked(0, 5, file_revision.size).unwrap()),
-                ),
+                .from_reader(RecordVersion::new(7)),
         )
         .unwrap();
     batch
@@ -1479,9 +684,6 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
         .unwrap();
     writer.submit(batch).unwrap().wait_published().unwrap();
     let mut replacement = writer.batch();
-    let file = replacement
-        .declare_file("source.txt", file_revision)
-        .unwrap();
     replacement
         .replace_input(
             "entry-47",
@@ -1490,11 +692,7 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
                     path: vec!["note".into()],
                     text: "Leipzig".into(),
                 }])
-                .from_reader(RecordVersion::new(7))
-                .with_file(
-                    file,
-                    Some(ByteRange::checked(0, 5, file_revision.size).unwrap()),
-                ),
+                .from_reader(RecordVersion::new(7)),
         )
         .unwrap();
     writer
@@ -1544,16 +742,12 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
             .unwrap()
             .is_none()
     );
-    assert_eq!(
-        view.file_catalog()
-            .unwrap()
-            .file_for_record("entries", "entry-47")
+    assert!(
+        view.get_record("entries", "entry-47", ReturnMode::Locator)
             .unwrap()
             .unwrap()
-            .range
-            .unwrap()
-            .end,
-        5
+            .file
+            .is_none()
     );
     assert_eq!(
         view.get_record("entries", "entry-47", ReturnMode::Logical)
@@ -1600,7 +794,7 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
         },
         ..query.clone()
     };
-    assert_eq!(view.search(&by_file).unwrap().count, Some(1));
+    assert_eq!(view.search(&by_file).unwrap().count, Some(0));
     let residual = Query {
         filter: Some(parse_filter("note ~ 'Leipzig'").unwrap()),
         options: QueryOptions {
@@ -1675,22 +869,7 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
             .is_err()
     );
     assert!(view.search(&residual).is_err());
-    let handle = view
-        .file_handle_for_path(std::path::Path::new("source.txt"))
-        .unwrap();
-    index.delete_file(handle).unwrap();
-    assert!(
-        index
-            .view()
-            .unwrap()
-            .get_record("entries", "entry-47", ReturnMode::Locator)
-            .unwrap()
-            .unwrap()
-            .file
-            .is_none()
-    );
     session.finish().unwrap();
-    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
@@ -3271,5 +2450,637 @@ fn public_builder_mixes_file_ranges_and_typed_records_in_one_collection() {
     assert_eq!(rebuilt.hits[1].record_id, "native");
     std::fs::write(&path, br#"{"id":"file","note":"changed","place":"p"}"#).unwrap();
     assert!(index.rebuild().is_err());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn one_collection_interleaves_managed_files_retained_and_versioned_records() {
+    for file_first in [false, true] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-core-managed-mixed-{}-{file_first}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        let path = root.join("data/source.jsonl");
+        std::fs::write(
+            &path,
+            b"{\"id\":\"file-1\",\"title\":\"shared\"}\n{\"id\":\"file-2\",\"title\":\"shared\"}\n",
+        )
+        .unwrap();
+        let mut schema = Schema::default();
+        for (name, kind) in [("id", LogicalType::Id), ("title", LogicalType::String)] {
+            schema
+                .register_field(FieldDefinition {
+                    path: vec![name.into()],
+                    kind,
+                    required: true,
+                    nullable: false,
+                    indexed: true,
+                    multi: false,
+                    element_nullable: Vec::new(),
+                })
+                .unwrap();
+        }
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", schema).unwrap();
+        let registration = builder
+            .register_records(collection, "application", 1)
+            .unwrap();
+        let provider = Arc::new(VersionedFixture(
+            Mutex::new((
+                RecordVersion::new(7),
+                Value::from_json(serde_json::json!({"id":"manual-2","title":"shared"})).unwrap(),
+            )),
+            Mutex::new(Vec::new()),
+        ));
+        builder
+            .register_reader(registration, provider.clone())
+            .unwrap();
+        builder
+            .register_file_catalog(FileCatalog::new(&root).unwrap())
+            .unwrap();
+        let mut definition =
+            CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        builder
+            .register_file_source(collection, definition.file_source())
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        let writer = session.writer(registration).unwrap();
+        let insert_direct = |id: &str, provider_backed: bool| {
+            let mut batch = writer.batch();
+            let value = if provider_backed {
+                Value::from_json(serde_json::json!({"id":id,"title":"shared"})).unwrap()
+            } else {
+                Value::from_json(serde_json::json!({
+                    "id":id,
+                    "title":"shared",
+                    "path":"data/source.jsonl",
+                    "@file":{"path":"data/source.jsonl"}
+                }))
+                .unwrap()
+            };
+            if provider_backed {
+                batch
+                    .insert_from_reader(id, value, RecordVersion::new(7))
+                    .unwrap();
+            } else {
+                batch.insert(id, value).unwrap();
+            }
+            writer.submit(batch).unwrap().wait_published().unwrap();
+        };
+        let file = if file_first {
+            let file = index.add_file(&path).unwrap();
+            insert_direct("manual-1", false);
+            insert_direct("manual-2", true);
+            file
+        } else {
+            insert_direct("manual-1", false);
+            let file = index.add_file(&path).unwrap();
+            insert_direct("manual-2", true);
+            file
+        };
+        let view = index.view().unwrap();
+        let catalog = view.file_catalog().unwrap();
+        let mut members = catalog.records_for_file(file.file.file_id).unwrap();
+        members.sort();
+        assert_eq!(
+            members
+                .iter()
+                .map(|key| key.record.0.as_ref())
+                .collect::<Vec<_>>(),
+            ["file-1", "file-2"]
+        );
+        for id in ["manual-1", "manual-2"] {
+            assert!(catalog.file_for_record("entries", id).unwrap().is_none());
+            assert!(
+                view.get_record("entries", id, ReturnMode::Locator)
+                    .unwrap()
+                    .unwrap()
+                    .file
+                    .is_none()
+            );
+        }
+        for id in ["file-1", "file-2"] {
+            assert_eq!(
+                catalog
+                    .file_for_record("entries", id)
+                    .unwrap()
+                    .unwrap()
+                    .file_id,
+                file.file.file_id
+            );
+        }
+        let query = |filter: &str| Query {
+            collections: vec!["entries".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![SortField::simple("title", false)],
+                offset: 0,
+                limit: 10,
+                count: true,
+                return_mode: ReturnMode::Logical,
+                evidence: true,
+            },
+        };
+        let all = view.search(&query("title = 'shared'")).unwrap();
+        assert_eq!(all.count, Some(4));
+        assert_eq!(
+            all.hits,
+            view.search_reference(&query("title = 'shared'"))
+                .unwrap()
+                .hits
+        );
+        let fts = Query {
+            fts: Some(FtsQuery {
+                case_sensitivity: CaseSensitivity::Sensitive,
+                mode: FtsMode::Literal,
+                literal: "shared".into(),
+                pattern_parameter: None,
+                fields: vec![FtsField {
+                    path: objekte_search_core::model::FieldPath::parse("title").unwrap(),
+                    binding: None,
+                    query_path: None,
+                }],
+            }),
+            filter: None,
+            ..query("title = 'shared'")
+        };
+        assert_eq!(view.search(&fts).unwrap().count, Some(4));
+        let composed = view
+            .search(&query("@file.size > 0 || @record.id = 'manual-1'"))
+            .unwrap();
+        assert_eq!(composed.count, Some(3));
+        assert_eq!(
+            composed.hits,
+            view.search_reference(&query("@file.size > 0 || @record.id = 'manual-1'"))
+                .unwrap()
+                .hits
+        );
+        let file_only = view
+            .search(&query("@file.path = 'data/source.jsonl'"))
+            .unwrap();
+        assert_eq!(file_only.count, Some(2));
+        assert_eq!(
+            view.search(&query("path = 'data/source.jsonl'"))
+                .unwrap()
+                .count,
+            Some(1)
+        );
+        assert!(!provider.1.lock().unwrap().is_empty());
+        std::fs::write(&path, b"{\"id\":\"file-2\",\"title\":\"shared\"}\n").unwrap();
+        let replaced = index.update_file(file.file, &path).unwrap();
+        let changed = index.view().unwrap();
+        assert!(
+            changed
+                .get_record("entries", "file-1", ReturnMode::Locator)
+                .unwrap()
+                .is_none()
+        );
+        assert_eq!(
+            changed
+                .file_catalog()
+                .unwrap()
+                .records_for_file(replaced.file.file_id)
+                .unwrap()
+                .len(),
+            1
+        );
+        for id in ["manual-1", "manual-2"] {
+            assert!(
+                changed
+                    .get_record("entries", id, ReturnMode::Locator)
+                    .unwrap()
+                    .is_some()
+            );
+        }
+        assert!(
+            view.get_record("entries", "file-1", ReturnMode::Locator)
+                .unwrap()
+                .is_some()
+        );
+        index.compact().unwrap();
+        index.rebuild().unwrap();
+        let current_file = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(std::path::Path::new("data/source.jsonl"))
+            .unwrap();
+        let moved_path = root.join("data/moved.jsonl");
+        std::fs::rename(&path, &moved_path).unwrap();
+        let moved = index.move_file(current_file, &moved_path).unwrap();
+        let moved_view = index.view().unwrap();
+        assert_eq!(
+            moved_view
+                .file_catalog()
+                .unwrap()
+                .records_for_file(moved.file.file_id)
+                .unwrap()
+                .len(),
+            1
+        );
+        assert_eq!(
+            moved_view
+                .search(&query("@file.path = 'data/moved.jsonl'"))
+                .unwrap()
+                .count,
+            Some(1)
+        );
+        index.delete_file(moved.file).unwrap();
+        std::fs::remove_file(&moved_path).unwrap();
+        let report = index.start_reconcile().unwrap().wait().unwrap();
+        assert!(report.issues.is_empty());
+        let final_view = index.view().unwrap();
+        for id in ["manual-1", "manual-2"] {
+            assert!(
+                final_view
+                    .get_record("entries", id, ReturnMode::Locator)
+                    .unwrap()
+                    .is_some()
+            );
+        }
+        assert!(
+            final_view
+                .get_record("entries", "file-2", ReturnMode::Locator)
+                .unwrap()
+                .is_none()
+        );
+        session.finish().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[cfg(unix)]
+#[test]
+fn pinned_file_bytes_reject_same_stamp_replacement() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-pinned-swap-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/source.jsonl");
+    let replacement = root.join("data/replacement.jsonl");
+    let a = b"{\"id\":\"file-1\",\"title\":\"aaaa\"}\n";
+    let b = b"{\"id\":\"file-1\",\"title\":\"bbbb\"}\n";
+    assert_eq!(a.len(), b.len());
+    std::fs::write(&path, a).unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    builder
+        .register_file_source(collection, definition.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let first = index.add_file(&path).unwrap();
+    let pinned = index.view().unwrap();
+    let old = pinned
+        .get_record("entries", "file-1", ReturnMode::Bytes)
+        .unwrap()
+        .unwrap();
+    assert_eq!(old.payload, Some(Payload::Bytes(a[..a.len() - 1].to_vec())));
+
+    let old_metadata = std::fs::metadata(&path).unwrap();
+    std::fs::write(&replacement, b).unwrap();
+    std::fs::File::open(&replacement)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(old_metadata.modified().unwrap()))
+        .unwrap();
+    std::fs::rename(&replacement, &path).unwrap();
+    let new_metadata = std::fs::metadata(&path).unwrap();
+    assert_eq!(new_metadata.len(), old_metadata.len());
+    assert_eq!(
+        new_metadata.modified().unwrap(),
+        old_metadata.modified().unwrap()
+    );
+    let old_bytes = pinned.get_record("entries", "file-1", ReturnMode::Bytes);
+    assert!(
+        !matches!(old_bytes, Ok(Some(ref hit)) if hit.payload == Some(Payload::Bytes(b[..b.len() - 1].to_vec())))
+    );
+    let updated = index.update_file(first.file, &path).unwrap();
+    assert_eq!(updated.indexed_records, 1);
+    let current = index.view().unwrap();
+    assert_eq!(
+        current
+            .get_record("entries", "file-1", ReturnMode::Bytes)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Bytes(b[..b.len() - 1].to_vec()))
+    );
+    assert_eq!(
+        current
+            .file_catalog()
+            .unwrap()
+            .records_for_file(first.file.file_id)
+            .unwrap()
+            .len(),
+        1
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn file_and_direct_routes_reject_cross_owner_identity_changes() {
+    for file_first in [false, true] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-managed-owner-{}-{file_first}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        let path = root.join("data/source.jsonl");
+        std::fs::write(&path, b"{\"id\":\"same\",\"title\":\"file\"}\n").unwrap();
+        let mut builder = Index::builder();
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder.register_records(collection, "direct", 1).unwrap();
+        builder
+            .register_file_catalog(FileCatalog::new(&root).unwrap())
+            .unwrap();
+        let mut definition =
+            CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        builder
+            .register_file_source(collection, definition.file_source())
+            .unwrap();
+        let index = builder.build().unwrap();
+        let direct_value =
+            Value::from_json(serde_json::json!({"id":"same","title":"direct"})).unwrap();
+        let submit = |mutation: &str| {
+            let session = index.ingestion();
+            let writer = session.writer(registration).unwrap();
+            let mut batch = writer.batch();
+            match mutation {
+                "insert" => batch.insert("same", direct_value.clone()).unwrap(),
+                "replace" => batch.replace("same", direct_value.clone()).unwrap(),
+                "delete" => batch.delete("same").unwrap(),
+                _ => unreachable!(),
+            }
+            let result = writer.submit(batch).unwrap().wait_published();
+            let _ = session.finish();
+            result
+        };
+        if file_first {
+            let file = index.add_file(&path).unwrap();
+            assert!(submit("insert").is_err());
+            for mutation in ["replace", "delete"] {
+                assert!(submit(mutation).is_err());
+            }
+            let view = index.view().unwrap();
+            assert_eq!(
+                view.file_catalog()
+                    .unwrap()
+                    .records_for_file(file.file.file_id)
+                    .unwrap()
+                    .len(),
+                1
+            );
+            assert!(
+                view.get_record("entries", "same", ReturnMode::Locator)
+                    .unwrap()
+                    .unwrap()
+                    .file
+                    .is_some()
+            );
+        } else {
+            submit("insert").unwrap();
+            assert!(index.add_file(&path).is_err());
+            let view = index.view().unwrap();
+            assert!(
+                view.get_record("entries", "same", ReturnMode::Locator)
+                    .unwrap()
+                    .unwrap()
+                    .file
+                    .is_none()
+            );
+            submit("delete").unwrap();
+            let file = index.add_file(&path).unwrap();
+            assert_eq!(
+                index
+                    .view()
+                    .unwrap()
+                    .file_catalog()
+                    .unwrap()
+                    .records_for_file(file.file.file_id)
+                    .unwrap()
+                    .len(),
+                1
+            );
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn direct_batch_publishes_while_multisegment_file_update_is_paused() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-paused-update-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/source.bar");
+    let lines = |count: usize| {
+        (0..count)
+            .map(|number| format!("{{\"id\":\"f{number}\",\"title\":\"shared\"}}\n"))
+            .collect::<String>()
+    };
+    std::fs::write(&path, lines(4)).unwrap();
+    let entered = Arc::new(Barrier::new(2));
+    let release = Arc::new(Barrier::new(2));
+    let reader = Arc::new(PausingLinesReader {
+        pause_next: AtomicBool::new(false),
+        parses: AtomicUsize::new(0),
+        entered: entered.clone(),
+        release: release.clone(),
+    });
+    let mut sources = SourceRegistry::default();
+    sources.register("bar", 1, "bar", reader.clone()).unwrap();
+    let mut builder =
+        Index::builder()
+            .with_source_registry(sources)
+            .with_options(RepositoryOptions {
+                segment_policy:
+                    objekte_search_core::index::segment::SegmentPolicy::with_target_records(
+                        std::num::NonZeroUsize::new(2).unwrap(),
+                    )
+                    .unwrap(),
+                ..RepositoryOptions::default()
+            });
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder.register_records(collection, "direct", 1).unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    let mut definition =
+        CollectionDefinition::folder("entries", "data", SourceFormat::registered("bar"));
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    builder
+        .register_file_source(collection, definition.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let initial = index.add_file(&path).unwrap();
+    let before = index.view().unwrap();
+    assert_eq!(
+        before
+            .file_catalog()
+            .unwrap()
+            .records_for_file(initial.file.file_id)
+            .unwrap()
+            .len(),
+        4
+    );
+    std::fs::write(&path, lines(6)).unwrap();
+    reader.pause_next.store(true, Ordering::SeqCst);
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    std::thread::scope(|scope| {
+        let file_update = scope.spawn(|| index.update_file(initial.file, &path));
+        entered.wait();
+        let mut batch = writer.batch();
+        batch
+            .insert(
+                "manual-1",
+                Value::from_json(serde_json::json!({"title":"shared"})).unwrap(),
+            )
+            .unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+        let intermediate = index.view().unwrap();
+        assert!(
+            intermediate
+                .get_record("entries", "manual-1", ReturnMode::Locator)
+                .unwrap()
+                .is_some()
+        );
+        assert_eq!(
+            intermediate
+                .file_catalog()
+                .unwrap()
+                .records_for_file(initial.file.file_id)
+                .unwrap()
+                .len(),
+            4
+        );
+        release.wait();
+        file_update.join().unwrap().unwrap();
+    });
+    let after = index.view().unwrap();
+    assert_eq!(
+        after
+            .file_catalog()
+            .unwrap()
+            .records_for_file(initial.file.file_id)
+            .unwrap()
+            .len(),
+        6
+    );
+    assert!(
+        after
+            .get_record("entries", "manual-1", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        before
+            .get_record("entries", "manual-1", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        before
+            .get_record("entries", "f5", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        after
+            .get_record("entries", "f5", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert_eq!(reader.parses.load(Ordering::SeqCst), 10);
+    session.finish().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
+    let root = std::env::temp_dir().join(format!("objekte-managed-sort-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, id) in [("a.json", "z"), ("m.json", "b"), ("z.json", "a")] {
+        std::fs::write(root.join("data").join(name), format!("{{\"id\":\"{id}\"}}")).unwrap();
+    }
+    let mut declaration = CollectionDeclaration::new("entries", Schema::default());
+    declaration
+        .sort_fields
+        .push(objekte_search_core::model::FieldPath::parse("@file.path").unwrap());
+    let mut builder = Index::builder();
+    let collection = builder.declare_collection(declaration).unwrap();
+    let registration = builder.register_records(collection, "direct", 1).unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    builder
+        .register_file_source(collection, definition.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    batch
+        .insert("unlinked", Value::String("ordinary".into()))
+        .unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    for name in ["a.json", "m.json", "z.json"] {
+        index.add_file(&root.join("data").join(name)).unwrap();
+    }
+    let query = |descending, offset| Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("@file.path", descending)],
+            limit: 4,
+            offset,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let ids = |q: Query| {
+        let view = index.view().unwrap();
+        let optimized = view.search(&q).unwrap();
+        optimized
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(ids(query(false, 0)), ["z", "b", "a", "unlinked"]);
+    assert_eq!(ids(query(true, 0)), ["a", "b", "z", "unlinked"]);
+    assert_eq!(ids(query(false, 1)), ["b", "a", "unlinked"]);
+    let pinned = index.view().unwrap();
+    let handle = pinned
+        .file_handle_for_path(std::path::Path::new("data/a.json"))
+        .unwrap();
+    std::fs::rename(root.join("data/a.json"), root.join("data/y.json")).unwrap();
+    index.move_file(handle, &root.join("data/y.json")).unwrap();
+    assert_eq!(ids(query(false, 0)), ["b", "z", "a", "unlinked"]);
+    assert_eq!(
+        pinned
+            .search(&query(false, 0))
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>(),
+        ["z", "b", "a", "unlinked"]
+    );
+    session.finish().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

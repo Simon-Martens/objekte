@@ -42,7 +42,6 @@ pub(crate) struct RegisteredRecordSource {
     pub(crate) adapter_id: String,
     pub(crate) version: u32,
     pub(crate) representation_version: u32,
-    pub(crate) file_links: bool,
     pub(crate) reader: Option<std::sync::Arc<dyn crate::records::reader::RecordReader>>,
 }
 
@@ -264,7 +263,6 @@ impl IndexBuilder {
             adapter_id,
             version,
             representation_version,
-            file_links: false,
             reader: None,
         });
         Ok(handle)
@@ -341,64 +339,6 @@ impl IndexBuilder {
         Ok(FileCatalogRegistration {
             builder_id: self.builder_id,
         })
-    }
-
-    /// Allow this registration to attach optional file and range provenance.
-    ///
-    /// # Example: two records in one file
-    ///
-    /// ```
-    /// use objekte_search_core::files::FileCatalog;
-    /// use objekte_search_core::inventory::{ByteRange, SourceRevision};
-    /// use objekte_search_core::lifecycle::Index;
-    /// use objekte_search_core::model::Value;
-    /// use objekte_search_core::schema::Schema;
-    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
-    /// let root = std::env::temp_dir().join(format!("objekte-doc-links-{}", std::process::id()));
-    /// std::fs::create_dir(&root)?;
-    /// std::fs::write(root.join("source.txt"), b"alpha beta")?;
-    /// let revision = SourceRevision::from_metadata(&std::fs::metadata(root.join("source.txt"))?)?;
-    /// let mut builder = Index::builder();
-    /// let collection = builder.collection("entries", Schema::default())?;
-    /// let registration = builder.register_records(collection, "my.linked", 1)?;
-    /// let catalog = builder.register_file_catalog(FileCatalog::new(&root)?)?;
-    /// builder.enable_file_links(registration, catalog)?;
-    /// let index = builder.build()?;
-    /// let session = index.ingestion();
-    /// let writer = session.writer(registration)?;
-    /// let mut batch = writer.batch();
-    /// let file = batch.declare_file("source.txt", revision)?;
-    /// batch.insert_with_file("a", Value::String("alpha".into()), file,
-    ///     Some(ByteRange::checked(0, 5, revision.size)?))?;
-    /// batch.insert_with_file("b", Value::String("beta".into()), file,
-    ///     Some(ByteRange::checked(6, 10, revision.size)?))?;
-    /// writer.submit(batch).unwrap().wait_published()?;
-    /// let view = index.view()?;
-    /// let catalog = view.file_catalog().unwrap();
-    /// let link = catalog.file_for_record("entries", "a")?.unwrap();
-    /// assert_eq!(catalog.records_for_file(link.file_id)?.len(), 2);
-    /// session.finish()?;
-    /// std::fs::remove_dir_all(root)?;
-    /// # Ok(()) }
-    /// ```
-    pub fn enable_file_links(
-        &mut self,
-        registration: RecordRegistration,
-        catalog: FileCatalogRegistration,
-    ) -> Result<(), IndexError> {
-        if catalog.builder_id != self.builder_id || self.catalog_root.is_none() {
-            return Err(IndexError::ForeignInstance);
-        }
-        if registration.builder_id != self.builder_id {
-            return Err(IndexError::ForeignInstance);
-        }
-        let source = self
-            .registrations
-            .get_mut(registration.ordinal as usize)
-            .filter(|source| source.handle == registration)
-            .ok_or(IndexError::ForeignInstance)?;
-        source.file_links = true;
-        Ok(())
     }
 
     /// Publish a usable empty index with no file discovery or source reads.
@@ -607,13 +547,12 @@ mod tests {
             .configuration_identity();
         let mut builder = Index::builder();
         let entries = builder.collection("entries", Schema::default()).unwrap();
-        let registration = builder
+        builder
             .register_records(entries, "application.entries", 1)
             .unwrap();
-        let catalog = builder
+        builder
             .register_file_catalog(FileCatalog::new(std::env::temp_dir()).unwrap())
             .unwrap();
-        builder.enable_file_links(registration, catalog).unwrap();
         let view = builder.build().unwrap().view().unwrap();
         let files = view.file_catalog().unwrap();
         assert_ne!(view.configuration_identity(), without_identity);

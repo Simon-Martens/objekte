@@ -817,10 +817,12 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
         .unwrap();
-    assert_eq!(
-        SourceRevision::from_metadata(&std::fs::metadata(&target).unwrap()).unwrap(),
-        SourceRevision::from_metadata(&metadata).unwrap(),
-    );
+    let replaced_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(&target).unwrap()).unwrap();
+    let original_revision = SourceRevision::from_metadata(&metadata).unwrap();
+    assert_eq!(replaced_revision.size, original_revision.size);
+    assert_eq!(replaced_revision.modified_ns, original_revision.modified_ns);
+    assert_ne!(replaced_revision.object_id, original_revision.object_id);
     let mut bytes = query(
         "mentions",
         Some("entry.title = 'Hymn' && @record.id = 'm1'"),
@@ -829,10 +831,11 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
         false,
     );
     bytes.options.return_mode = ReturnMode::Bytes;
-    // Trusted search may fail while extracting externally corrupted bytes;
-    // it must not turn that edit into an implicit index refresh.
-    let stale = view.search(&bytes).unwrap_err();
-    assert!(!stale.contains("stale source"));
+    // The pinned source revision must reject externally replaced bytes.
+    let stale = view.search(&bytes).unwrap();
+    assert_eq!(stale.count, None);
+    assert!(stale.counters.source_unavailable_events > 0);
+    assert!(stale.hits.is_empty());
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

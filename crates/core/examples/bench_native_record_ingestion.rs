@@ -10,14 +10,17 @@ use std::time::Instant;
 use objekte_search_core::files::FileCatalog;
 use objekte_search_core::index::segment::SegmentPolicy;
 use objekte_search_core::ingestion::{Batch, IngestionOptions, Receipt, RecordWriter};
-use objekte_search_core::inventory::{ByteRange, SourceRevision};
+use objekte_search_core::inventory::ByteRange;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FileId, LogicalType, Number, RecordId, Value};
 use objekte_search_core::query::options::ReturnMode;
 use objekte_search_core::query_execution::runner::DirectRouteCounters;
 use objekte_search_core::records::RecordKey;
-use objekte_search_core::repository::configuration::RepositoryOptions;
+use objekte_search_core::repository::configuration::{
+    CollectionDefinition, IdentityPolicy, RepositoryOptions,
+};
 use objekte_search_core::schema::{FieldDefinition, Schema};
+use objekte_search_core::source::SourceFormat;
 use serde_json::json;
 
 fn schema() -> Result<Schema, String> {
@@ -202,64 +205,56 @@ fn ingest(
 }
 
 fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<dyn Error>> {
-    if count == 0
-        || count % 64 != 0
-        || ![1, 8, 64].contains(&segment_count)
-        || count % segment_count != 0
-    {
-        return Err("routing expects a multiple of 64 records and 1, 8 or 64 segments".into());
+    if count == 0 || count % 64 != 0 || ![1, 8, 64].contains(&segment_count) {
+        return Err("routing expects 64 file groups and 1, 8 or 64 target segments".into());
     }
-    std::fs::create_dir(&root)?;
+    std::fs::create_dir_all(root.join("data"))?;
+    let records_per_file = count / 64;
     let mut files = Vec::new();
-    for group in 0..count / 64 {
-        let name = format!("group-{group:04}.bin");
-        std::fs::write(root.join(&name), [b'x'; 64])?;
-        let revision = SourceRevision::from_metadata(&std::fs::metadata(root.join(&name))?)?;
-        files.push((name, revision));
+    for group in 0..64 {
+        let name = format!("data/group-{group:02}.jsonl");
+        let mut bytes = Vec::new();
+        let mut ranges = Vec::new();
+        for offset in 0..records_per_file {
+            let number = group * records_per_file + offset;
+            let start = bytes.len() as u64;
+            bytes.extend_from_slice(
+                format!(
+                    "{{\"id\":\"r{number:05}\",\"year\":{},\"note\":\"{}\"}}\n",
+                    1800 + number % 16,
+                    if number % 2 == 0 { "Leipzig" } else { "Wien" }
+                )
+                .as_bytes(),
+            );
+            ranges.push(ByteRange {
+                start,
+                end: bytes.len() as u64 - 1,
+            });
+        }
+        std::fs::write(root.join(&name), bytes)?;
+        files.push((name, ranges));
     }
-    let empty = root.join("empty.bin");
-    std::fs::write(&empty, [])?;
-    let empty_revision = SourceRevision::from_metadata(&std::fs::metadata(&empty)?)?;
+    std::fs::write(root.join("data/empty.jsonl"), [])?;
     let mut builder = Index::builder().with_options(RepositoryOptions {
         segment_policy: SegmentPolicy {
             target_records: NonZeroUsize::new(count / segment_count).unwrap(),
-            max_files: NonZeroUsize::new(count).unwrap(),
+            max_files: NonZeroUsize::new(64).unwrap(),
         },
         query_workers: 1,
         ..Default::default()
     });
     let collection = builder.collection("records", schema()?)?;
-    let registration = builder.register_records(collection, "benchmark.linked", 1)?;
-    let catalog = builder.register_file_catalog(FileCatalog::new(&root)?)?;
-    builder.enable_file_links(registration, catalog)?;
+    builder.register_file_catalog(FileCatalog::new(&root)?)?;
+    let mut definition = CollectionDefinition::folder("records", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    builder.register_file_source(collection, definition.file_source())?;
     let index = builder.build()?;
-    let session = index.ingestion();
-    let writer = session.writer(registration)?;
-    let mut batch = writer.batch();
-    for (group, (name, revision)) in files.iter().enumerate() {
-        let file = batch.declare_file(name, *revision)?;
-        for offset in 0..64 {
-            let number = group * 64 + offset;
-            batch.insert_with_file(
-                format!("r{number:05}"),
-                value(number),
-                file,
-                Some(ByteRange::checked(
-                    offset as u64,
-                    offset as u64 + 1,
-                    revision.size,
-                )?),
-            )?;
-        }
+    for (name, _) in &files {
+        index.add_file(&root.join(name))?;
     }
-    batch.declare_file("empty.bin", empty_revision)?;
-    writer.submit(batch).unwrap().wait_published()?;
-    session.finish()?;
+    index.add_file(&root.join("data/empty.jsonl"))?;
     let view = index.view()?;
     let observed_segments = view.segment_summaries().len();
-    if observed_segments != segment_count {
-        return Err(format!("wanted {segment_count} segments, found {observed_segments}").into());
-    }
     let started = Instant::now();
     let mut hits = 0usize;
     for operation in 0..10_000 {
@@ -275,6 +270,7 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
     }
     black_box(hits);
     let lookup_ns = started.elapsed().as_nanos();
+    let catalog = view.file_catalog().ok_or("catalog missing")?;
     let mut route_counts = DirectRouteCounters::default();
     for operation in 0..10_000 {
         let id = if operation % 2 == 0 {
@@ -290,76 +286,47 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         )?;
         if operation % 2 == 0 {
             let number = (operation / 2) % count;
-            let group = number / 64;
-            let name = format!("group-{group:04}.bin");
-            let expected_file = view
-                .file_catalog()
-                .ok_or("catalog missing")?
-                .file_by_path(std::path::Path::new(&name))
-                .ok_or("expected file missing")?;
-            let hit = observed.ok_or("direct route lost expected record")?;
-            let origin = hit.file.ok_or("direct route lost file")?;
+            let group = number / records_per_file;
+            let offset = number % records_per_file;
+            let expected_file = catalog
+                .file_by_path(std::path::Path::new(&files[group].0))
+                .ok_or("file missing")?;
+            let hit = observed.ok_or("route lost record")?;
+            let origin = hit.file.ok_or("route lost file")?;
             if hit.record_id != id
                 || origin.file_id != expected_file.id
-                || origin.range
-                    != Some(ByteRange::checked(
-                        (number % 64) as u64,
-                        (number % 64 + 1) as u64,
-                        64,
-                    )?)
+                || origin.range != Some(files[group].1[offset])
             {
-                return Err(format!("direct route returned wrong origin for {id}").into());
+                return Err(format!("wrong managed-file origin for {id}").into());
             }
         } else if observed.is_some() {
-            return Err(format!("direct route unexpectedly found {id}").into());
+            return Err(format!("unexpected record {id}").into());
         }
     }
-    let mut coverage_counts = DirectRouteCounters::default();
-    for segment in 0..segment_count {
-        let number = segment * (count / segment_count);
-        let id = format!("r{number:05}");
-        if view
-            .get_record_with_route_counts_for_measurement(
-                "records",
-                &id,
-                ReturnMode::Locator,
-                &mut coverage_counts,
-            )?
-            .is_none()
-        {
-            return Err(format!("segment coverage lost {id}").into());
-        }
-    }
-    let catalog = view.file_catalog().ok_or("catalog missing")?;
     let started = Instant::now();
     let mut members = 0usize;
-    for (name, _) in &files {
+    for (group, (name, _)) in files.iter().enumerate() {
         let file = catalog
             .file_by_path(std::path::Path::new(name))
             .ok_or("file missing")?;
         let actual = catalog.records_for_file(file.id)?;
-        let group = name
-            .strip_prefix("group-")
-            .and_then(|number| number.strip_suffix(".bin"))
-            .ok_or("invalid fixture file")?
-            .parse::<usize>()?;
-        let mut expected = (0..64)
+        let mut expected = (0..records_per_file)
             .map(|offset| {
                 RecordKey::new(
                     collection,
-                    RecordId(format!("r{:05}", group * 64 + offset).into()),
+                    RecordId(format!("r{:05}", group * records_per_file + offset).into()),
                 )
             })
             .collect::<Vec<_>>();
         expected.sort();
         if actual != expected {
-            return Err(format!("reverse route returned wrong members for {name}").into());
+            return Err(format!("wrong reverse members for {name}").into());
         }
         members += actual.len();
     }
     let reverse_ns = started.elapsed().as_nanos();
     let empty = catalog
-        .file_by_path(std::path::Path::new("empty.bin"))
+        .file_by_path(std::path::Path::new("data/empty.jsonl"))
         .ok_or("empty file missing")?;
     if !catalog.records_for_file(empty.id)?.is_empty()
         || catalog.records_for_file(FileId(u32::MAX)).is_ok()
@@ -367,24 +334,22 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         || hits != 5_000
         || route_counts.route_key_probes != 10_000
         || route_counts.route_segment_visits != 5_000
-        || coverage_counts.route_segment_visits != segment_count as u64
     {
-        return Err("routing membership mismatch".into());
+        return Err("managed-file routing mismatch".into());
     }
     println!(
         "{}",
         json!({
-            "mode": "routing", "records": count, "segments": observed_segments,
+            "mode": "routing", "workload": "managed_file", "records": count,
+            "requested_segments": segment_count, "segments": observed_segments,
             "lookup_operations": 10000, "lookup_hits": hits, "lookup_ns": lookup_ns,
             "route_key_probes": route_counts.route_key_probes,
             "route_segment_visits": route_counts.route_segment_visits,
-            "coverage_segment_visits": coverage_counts.route_segment_visits,
             "unrelated_segment_visits": route_counts.route_segment_visits.saturating_sub(hits as u64),
             "reverse_members": members, "reverse_ns": reverse_ns,
             "index_family_bytes": view.estimated_index_bytes(),
             "native_storage": view.native_storage_estimate(),
-            "ready_rss_kib": rss_kib("VmRSS:"),
-            "peak_rss_kib": rss_kib("VmHWM:")
+            "ready_rss_kib": rss_kib("VmRSS:"), "peak_rss_kib": rss_kib("VmHWM:")
         })
     );
     std::fs::remove_dir_all(root)?;

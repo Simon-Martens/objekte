@@ -12,6 +12,7 @@ fn main() -> Result<(), String> {
         let revision = SourceRevision {
             modified_ns: 1,
             size: 1,
+            object_id: None,
         };
         let mut ids = Vec::with_capacity(count);
         for index in 0..count {

@@ -3213,10 +3213,9 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         IndexRevision(3),
     )
     .unwrap();
-    assert_eq!(changed.count, Some(3));
-    assert!(changed.counters.match_count_complete);
-    assert_eq!(changed.counters.source_unavailable_events, 0);
-    assert!(changed.hits.iter().any(|hit| {
+    assert_eq!(changed.count, None);
+    assert!(changed.counters.source_unavailable_events > 0);
+    assert!(!changed.hits.iter().any(|hit| {
         matches!(&hit.payload, Some(Payload::Bytes(bytes)) if bytes.windows(7).any(|part| part == b"changed"))
     }));
     let optimized = search_segmented(
@@ -3226,11 +3225,8 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &retired_segments,
         &catalog,
         IndexRevision(3),
-    )
-    .unwrap();
-    assert_eq!(optimized.count, Some(3));
-    assert_eq!(optimized.hits, changed.hits);
-    assert_eq!(optimized.counters.source_unavailable_events, 0);
+    );
+    assert!(optimized.is_err());
     std::fs::remove_file(&path).unwrap();
     let missing = search_segmented_reference(
         &repo,
@@ -6743,9 +6739,7 @@ fn exact_membership_materializes_only_page_payload() {
         b"{\"kind\":\"no\",\"id\":\"b\",\"extra\":true}",
     )
     .unwrap();
-    let stale = repo.search(&query).unwrap();
-    assert_eq!(stale.count, Some(3));
-    assert!(stale.counters.verified_result_hit);
+    assert!(repo.search(&query).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
 

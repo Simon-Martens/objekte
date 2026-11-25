@@ -190,14 +190,21 @@ pub fn read_record_range(
     read_record_range_from_opened(&mut file, range)
 }
 
-/// Query read of a range published by an index. The index lifecycle owns
-/// source validation; search only checks the stored range and performs I/O.
+/// Query read of a range published by an index. Verify the source object
+/// recorded in the pinned view before returning its bytes.
 pub(crate) fn read_record_range_for_search(
     path: &Path,
     revision: SourceRevision,
     range: ByteRange,
     execution: Option<&ExecutionContext>,
 ) -> Result<Vec<u8>, String> {
+    #[cfg(not(unix))]
+    if revision.object_id.is_none() {
+        return Err(source_changed(
+            execution,
+            "unverifiable source identity".into(),
+        ));
+    }
     #[cfg(test)]
     record_search_read(path, range);
     if let Some(execution) = execution {
@@ -206,7 +213,10 @@ pub(crate) fn read_record_range_for_search(
     ByteRange::checked(range.start, range.end, revision.size)?;
     let mut file =
         std::fs::File::open(path).map_err(|error| format!("{}: {error}", path.display()))?;
-    read_record_range_from_opened(&mut file, range)
+    check_opened_revision(&file, revision)?;
+    let bytes = read_record_range_from_opened(&mut file, range)?;
+    check_opened_revision(&file, revision)?;
+    Ok(bytes)
 }
 
 /// Lifecycle read tied to a pinned file incarnation. When birth time is not
@@ -334,31 +344,20 @@ impl RecordRangeReader {
         Self::open_with_identity(path, revision, None, execution)
     }
 
-    /// Open a published source for search without checking its current
-    /// metadata or content against the index's recorded revision.
+    /// Open a published source for search against its pinned revision.
     pub(crate) fn open_for_search(
         path: &Path,
         revision: SourceRevision,
         execution: Option<&ExecutionContext>,
     ) -> Result<Self, String> {
-        if let Some(execution) = execution {
-            execution.check_string()?;
+        #[cfg(not(unix))]
+        if revision.object_id.is_none() {
+            return Err(source_changed(
+                execution,
+                "unverifiable source identity".into(),
+            ));
         }
-        let file =
-            std::fs::File::open(path).map_err(|error| format!("{}: {error}", path.display()))?;
-        Ok(Self {
-            file,
-            revision,
-            check_freshness: false,
-            first_read: true,
-            position: Some(0),
-            execution: execution.cloned(),
-            identity: None,
-            #[cfg(test)]
-            seeks: 0,
-            #[cfg(test)]
-            max_window_read: 0,
-        })
+        Self::open_with_execution(path, revision, execution)
     }
 
     #[cfg(test)]

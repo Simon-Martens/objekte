@@ -8,6 +8,7 @@ fn fresh_fingerprints_require_every_shared_binding_to_agree() {
     let revision = SourceRevision {
         modified_ns: 1,
         size: 3,
+        object_id: None,
     };
     let file = inventory
         .add("shared.json".into(), revision, None, CollectionId(0))

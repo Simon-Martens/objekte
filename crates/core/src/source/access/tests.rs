@@ -233,10 +233,11 @@ fn same_size_edit_with_restored_mtime_is_outside_revision_detection() {
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
         .unwrap();
-    assert_eq!(
-        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-        revision
-    );
+    let replaced_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    assert_eq!(replaced_revision.size, revision.size);
+    assert_eq!(replaced_revision.modified_ns, revision.modified_ns);
+    assert_eq!(replaced_revision.object_id, revision.object_id);
     assert_eq!(
         reader
             .read(&[(0, ByteRange { start: 0, end: 8 })])
@@ -277,10 +278,11 @@ fn checked_range_reads_reject_replaced_path_with_spoofed_revision() {
         .unwrap()
         .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
         .unwrap();
-    assert_eq!(
-        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-        revision
-    );
+    let replaced_revision =
+        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    assert_eq!(replaced_revision.size, revision.size);
+    assert_eq!(replaced_revision.modified_ns, revision.modified_ns);
+    assert_ne!(replaced_revision.object_id, revision.object_id);
     if created_ns.is_some() {
         assert!(
             read_record_range_checked(&path, revision, created_ns, Some(fingerprint), range)

@@ -742,6 +742,9 @@ pub(crate) fn assemble_final_repository(
         build_job_execution_ns: schedule_stats.job_execution_ns,
         build_receive_wait_ns: schedule_stats.receive_wait_ns,
         build_admission_ns: schedule_stats.admission_ns,
+        build_framing_ns: schedule_stats.framing_ns,
+        build_framing_chunks: schedule_stats.framing_chunks,
+        build_framing_bytes: schedule_stats.framing_bytes,
         inference_build,
         build_profile: profile,
         ..StartupStats::default()

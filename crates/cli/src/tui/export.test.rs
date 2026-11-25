@@ -13,6 +13,7 @@ fn raw_fallback_export_keeps_status_and_explicit_unavailable_state() {
             revision: objekte_search_core::inventory::SourceRevision {
                 size: 5,
                 modified_ns: 1,
+                object_id: None,
             },
             created_ns: None,
             status: FileStatus::Broken,
@@ -66,6 +67,7 @@ fn unlinked_hit_keeps_record_identity_and_emits_null_file_metadata() {
         revision: objekte_search_core::inventory::SourceRevision {
             size: 10,
             modified_ns: 1,
+            object_id: None,
         },
         created_ns: None,
         status: FileStatus::Valid,
