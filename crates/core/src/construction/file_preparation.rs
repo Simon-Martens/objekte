@@ -1,7 +1,7 @@
 //! File, chunk and supplied-byte preparation for construction.
 
 use std::collections::{BTreeMap, VecDeque};
-use std::io::{BufRead, BufReader, Cursor, Read};
+use std::io::{BufRead, BufReader, Cursor, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::Arc;
@@ -57,7 +57,44 @@ pub(crate) struct PreparedFileBuild {
     pub source: SourceFileInput,
     /// Exact raw bytes from one preparation read, when that reader exposes it.
     pub fingerprint: Option<[u8; 32]>,
+    /// Object observed through core's open handle. It is checked again after
+    /// parsing and before a mutation hands its candidate to publication.
+    pub identity: Option<FileObjectIdentity>,
     pub collections: Vec<PreparedCollectionBuild>,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct FileObjectIdentity {
+    #[cfg(unix)]
+    device: u64,
+    #[cfg(unix)]
+    inode: u64,
+}
+
+impl FileObjectIdentity {
+    fn from_metadata(metadata: &std::fs::Metadata) -> Option<Self> {
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::MetadataExt;
+            Some(Self {
+                device: metadata.dev(),
+                inode: metadata.ino(),
+            })
+        }
+        #[cfg(not(unix))]
+        {
+            let _ = metadata;
+            None
+        }
+    }
+}
+
+pub(crate) fn created_ns(metadata: &std::fs::Metadata) -> Option<i128> {
+    metadata
+        .created()
+        .ok()
+        .and_then(|time| time.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
+        .map(|duration| duration.as_nanos() as i128)
 }
 
 impl PreparedFileBuild {
@@ -89,6 +126,48 @@ impl PreparedFileBuild {
             })
             .collect()
     }
+}
+
+pub(crate) fn verify_current_source(
+    root: &Path,
+    source: &SourceFileInput,
+    identity: Option<FileObjectIdentity>,
+    fingerprint: Option<[u8; 32]>,
+) -> Result<(), String> {
+    let path = root.join(&source.relative_path);
+    let canonical = path.canonicalize().map_err(|error| error.to_string())?;
+    if !canonical.starts_with(root) {
+        return Err("source path escapes catalog root".into());
+    }
+    let metadata = std::fs::metadata(&canonical).map_err(|error| error.to_string())?;
+    if SourceRevision::from_metadata(&metadata)? != source.revision {
+        return Err("stale source revision before publication".into());
+    }
+    if source.created_ns.is_some() && created_ns(&metadata) != source.created_ns {
+        return Err("source creation time changed before publication".into());
+    }
+    if let Some(identity) = identity {
+        if FileObjectIdentity::from_metadata(&metadata) != Some(identity) {
+            return Err("source object changed before publication".into());
+        }
+    } else if let Some(expected) = fingerprint {
+        let mut digest = Sha256::new();
+        let mut file = std::fs::File::open(&canonical).map_err(|error| error.to_string())?;
+        let mut chunk = [0u8; 64 * 1024];
+        loop {
+            let count = file.read(&mut chunk).map_err(|error| error.to_string())?;
+            if count == 0 {
+                break;
+            }
+            digest.update(&chunk[..count]);
+        }
+        if <[u8; 32]>::from(digest.finalize()) != expected {
+            return Err("source content changed before publication".into());
+        }
+    } else {
+        return Err("source identity cannot be verified".into());
+    }
+    Ok(())
 }
 
 /// Failure while preparing a complete replacement supplied by the caller.
@@ -173,17 +252,11 @@ fn prepare_bounded_json_lines(
     inference: InferenceConfig,
     inference_jobs: usize,
     hash_bytes: bool,
+    file: &mut std::fs::File,
 ) -> Result<(Vec<BatchContribution>, Option<[u8; 32]>), String> {
     let path = root.join(&input.relative_path);
-    let file = match std::fs::File::open(&path) {
-        Ok(file) => file,
-        Err(_) => {
-            return Ok((
-                prepare_unframed_file(root, input, binding, alphabet, inference, inference_jobs)?,
-                None,
-            ));
-        }
-    };
+    file.seek(SeekFrom::Start(0))
+        .map_err(|error| error.to_string())?;
     if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
         != input.revision
     {
@@ -192,7 +265,7 @@ fn prepare_bounded_json_lines(
     let mut digest = Sha256::new();
     let mut bytes_read = 0u64;
     let reader = HashingReader {
-        inner: &file,
+        inner: &mut *file,
         digest: hash_bytes.then_some(&mut digest),
         bytes_read: &mut bytes_read,
     };
@@ -253,6 +326,27 @@ pub(crate) fn prepare_file_build(
     inference_jobs: usize,
 ) -> Result<PreparedFileBuild, String> {
     let path = root.join(&input.relative_path);
+    let mut opened = std::fs::File::open(&path).ok();
+    let identity = if let Some(file) = opened.as_ref() {
+        let metadata = file.metadata().map_err(|error| error.to_string())?;
+        if SourceRevision::from_metadata(&metadata)? != input.revision {
+            return Err("stale source revision during preparation".into());
+        }
+        if input.created_ns.is_some() && created_ns(&metadata) != input.created_ns {
+            return Err("source creation time changed during preparation".into());
+        }
+        FileObjectIdentity::from_metadata(&metadata)
+    } else if let Ok(metadata) = std::fs::metadata(&path) {
+        if SourceRevision::from_metadata(&metadata)? != input.revision {
+            return Err("stale source revision during preparation".into());
+        }
+        if input.created_ns.is_some() && created_ns(&metadata) != input.created_ns {
+            return Err("source creation time changed during preparation".into());
+        }
+        FileObjectIdentity::from_metadata(&metadata)
+    } else {
+        None
+    };
     let mut fingerprint = None;
     let mut collections = Vec::with_capacity(bindings.len());
     for binding in bindings {
@@ -261,7 +355,9 @@ pub(crate) fn prepare_file_build(
                 return Err("stale source revision during preparation".into());
             }
         }
-        let contributions = if binding.source.reader().supports_bounded_json_lines_build() {
+        let contributions = if binding.source.reader().supports_bounded_json_lines_build()
+            && opened.is_some()
+        {
             let (contributions, digest) = prepare_bounded_json_lines(
                 root,
                 &input,
@@ -270,6 +366,7 @@ pub(crate) fn prepare_file_build(
                 inference,
                 inference_jobs,
                 fingerprint.is_none(),
+                opened.as_mut().expect("checked above"),
             )?;
             fingerprint = fingerprint.or(digest);
             contributions
@@ -337,9 +434,23 @@ pub(crate) fn prepare_file_build(
             contributions,
         });
     }
+    if let Some(file) = opened.as_ref() {
+        let handle_metadata = file.metadata().map_err(|error| error.to_string())?;
+        let path_metadata = std::fs::metadata(&path).map_err(|error| error.to_string())?;
+        if SourceRevision::from_metadata(&handle_metadata)? != input.revision
+            || SourceRevision::from_metadata(&path_metadata)? != input.revision
+            || (input.created_ns.is_some() && created_ns(&handle_metadata) != input.created_ns)
+            || (input.created_ns.is_some() && created_ns(&path_metadata) != input.created_ns)
+            || FileObjectIdentity::from_metadata(&handle_metadata) != identity
+            || FileObjectIdentity::from_metadata(&path_metadata) != identity
+        {
+            return Err("stale source object during preparation".into());
+        }
+    }
     Ok(PreparedFileBuild {
         source: input,
         fingerprint,
+        identity,
         collections,
     })
 }
@@ -482,6 +593,7 @@ pub(crate) fn prepare_file_build_from_bytes(
     Ok(PreparedFileBuild {
         source: input,
         fingerprint,
+        identity: None,
         collections,
     })
 }

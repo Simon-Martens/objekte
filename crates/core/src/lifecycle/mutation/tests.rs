@@ -1340,6 +1340,49 @@ fn supplied_bytes_update_preserves_source_and_checks_deletion_conflict() {
 }
 
 #[test]
+fn prepared_add_rejects_same_stamp_path_replacement_before_publication() {
+    let root = test_root("same-stamp-object-swap");
+    let index = index(&root);
+    let path = root.join("data/file.jsonl");
+    let replacement = root.join("data/replacement.jsonl");
+    let original = b"{\"name\":\"aaa\"}\n";
+    let changed = b"{\"name\":\"bbb\"}\n";
+    std::fs::write(&path, original).unwrap();
+    let metadata = std::fs::metadata(&path).unwrap();
+    let prepared = index.prepare_add_file(&path).unwrap();
+    let source = prepared.file.source.clone();
+    let identity = prepared.file.identity;
+    let fingerprint = prepared.file.fingerprint;
+    let old_revision = index.view().unwrap().revision();
+    let staged = index.stage_prepared_add(prepared).unwrap();
+
+    std::fs::write(&replacement, changed).unwrap();
+    std::fs::File::open(&replacement)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
+        .unwrap();
+    std::fs::rename(&replacement, &path).unwrap();
+    assert_eq!(
+        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        source.revision
+    );
+    assert!(
+        crate::construction::file_preparation::verify_current_source(
+            &root,
+            &source,
+            identity,
+            fingerprint,
+        )
+        .is_err()
+    );
+    drop(staged);
+    assert_eq!(index.view().unwrap().revision(), old_revision);
+    let added = index.add_file(&path).unwrap();
+    assert_eq!(added.indexed_records, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn move_rejects_destination_owned_by_another_file() {
     let root = test_root("collision");
     let index = index(&root);

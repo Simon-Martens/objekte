@@ -5,6 +5,7 @@ use std::time::Duration;
 use std::path::Path;
 use std::time::Instant;
 
+use crate::construction::file_preparation::verify_current_source;
 use crate::lifecycle::{Index, IndexError, IndexView};
 
 const MAX_RECONCILIATION_ISSUES: usize = 128;
@@ -268,8 +269,13 @@ impl Index {
                         "source changed after metadata scan".into(),
                     ));
                 }
+                let source = prepared.file.source.clone();
+                let identity = prepared.file.identity;
+                let fingerprint = prepared.file.fingerprint;
                 let expected = prepared.expected_revision;
                 let next = self.stage_prepared_add(prepared)?;
+                verify_current_source(root, &source, identity, fingerprint)
+                    .map_err(IndexError::SourceUnavailable)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
             ScanChange::Update { previous, observed } => {
@@ -282,8 +288,13 @@ impl Index {
                         "source changed after metadata scan".into(),
                     ));
                 }
+                let source = prepared.file.source.clone();
+                let identity = prepared.file.identity;
+                let fingerprint = prepared.file.fingerprint;
                 let expected = prepared.expected_revision;
                 let next = self.stage_prepared_replace(prepared)?;
+                verify_current_source(root, &source, identity, fingerprint)
+                    .map_err(IndexError::SourceUnavailable)?;
                 self.publish_prepared(expected, next).map(|_| ())
             }
             ScanChange::Remove(observed) => {

@@ -7,7 +7,7 @@ use std::path::{Component, Path, PathBuf};
 
 use sha2::{Digest, Sha256};
 
-use crate::construction::file_preparation::PreparedFileBuild;
+use crate::construction::file_preparation::{PreparedFileBuild, verify_current_source};
 use crate::inventory::SourceRevision;
 use crate::inventory::discovery::selects_file;
 use crate::lifecycle::maintenance::compaction::compact_published;
@@ -333,6 +333,9 @@ impl Index {
             let file_id = prepared.file.source.id;
             let indexed_records = prepared.file.record_count();
             let affected_collections = collection_names(&view, &[], &prepared.file);
+            let source = prepared.file.source.clone();
+            let identity = prepared.file.identity;
+            let fingerprint = prepared.file.fingerprint;
             let expected = prepared.expected_revision;
             let next = match self.stage_prepared_add(prepared) {
                 Ok(next) => next,
@@ -350,6 +353,13 @@ impl Index {
                         IndexError::InvalidPublication("new file version missing".into()),
                     )?,
                 };
+            verify_current_source(
+                view.repository().files().required_root(),
+                &source,
+                identity,
+                fingerprint,
+            )
+            .map_err(IndexError::SourceUnavailable)?;
             match self.publish_prepared(expected, next) {
                 Ok(revision) => {
                     return Ok(FileMutationResult {
@@ -790,6 +800,9 @@ impl Index {
             let indexed_records = prepared.file.record_count();
             let affected_collections =
                 collection_names(&view, &previous.collections, &prepared.file);
+            let source = prepared.file.source.clone();
+            let identity = prepared.file.identity;
+            let fingerprint = prepared.file.fingerprint;
             let same_memberships = previous.collections.len() == prepared.file.collections.len()
                 && previous.collections.iter().all(|collection| {
                     prepared
@@ -807,6 +820,13 @@ impl Index {
                 && prepared.file.fingerprint.is_some()
                 && view.file_fingerprint(handle.file_id) == prepared.file.fingerprint;
             if unchanged {
+                verify_current_source(
+                    view.repository().files().required_root(),
+                    &source,
+                    identity,
+                    fingerprint,
+                )
+                .map_err(IndexError::SourceUnavailable)?;
                 if self.view()?.revision() != view.revision() {
                     continue;
                 }
@@ -884,6 +904,13 @@ impl Index {
                     IndexError::InvalidPublication("replacement file version missing".into()),
                 )?,
             };
+            verify_current_source(
+                view.repository().files().required_root(),
+                &source,
+                identity,
+                fingerprint,
+            )
+            .map_err(IndexError::SourceUnavailable)?;
             match self.publish_prepared(expected, next) {
                 Ok(revision) => {
                     return Ok(FileMutationResult {

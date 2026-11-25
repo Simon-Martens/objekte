@@ -367,7 +367,7 @@ fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
             id: FileId(91),
             relative_path: "shared.jsonl".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-            created_ns: Some(123),
+            created_ns: super::file_preparation::created_ns(&std::fs::metadata(&path).unwrap()),
         };
         let expected = prepare_file_build(
             &root,
@@ -697,13 +697,16 @@ fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
             id: FileId(91),
             relative_path: "shared.jsonl".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-            created_ns: Some(123),
+            created_ns: super::file_preparation::created_ns(&std::fs::metadata(&path).unwrap()),
         };
         let prepared =
             prepare_file_build(&root, input, &bindings, BigramAlphabet::Ascii, inference, 1)
                 .unwrap();
         assert_eq!(prepared.source.id, FileId(91));
-        assert_eq!(prepared.source.created_ns, Some(123));
+        assert_eq!(
+            prepared.source.created_ns,
+            super::file_preparation::created_ns(&std::fs::metadata(&path).unwrap())
+        );
         assert_eq!(prepared.fingerprint, Some(Sha256::digest(bytes).into()));
         assert_eq!(prepared.collections.len(), 2);
         for (index, collection) in prepared.collections.iter().enumerate() {
