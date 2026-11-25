@@ -437,16 +437,7 @@ impl<'a> BatchBuilder<'a> {
             issue,
         );
         let reference = file.record_diagnostic(diagnostic)?;
-        let id = RecordId::fallback(
-            self.collection,
-            self.source.id(),
-            self.source.version(),
-            &file.relative_path,
-            file.id,
-            file.revision.modified_ns,
-            range.start,
-            range.end,
-        );
+        let id = fallback_build_id(self.collection, self.source, file, range);
         let slot = self.next_slot()?;
         self.records.push(RecordEntry {
             slot,
@@ -536,48 +527,15 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.validation_ns += started.elapsed().as_nanos() as u64;
         }
-        let id = (|| -> Result<RecordId, String> {
-            match &self.definition.identity {
-                IdentityPolicy::Filename => {
-                    let stem = path
-                        .file_stem()
-                        .and_then(|s| s.to_str())
-                        .ok_or("non-UTF-8 filename identity")?;
-                    RecordId::intrinsic(stem)
-                }
-                IdentityPolicy::RelativePath => {
-                    if !self.definition.format.supports_relative_path_identity() {
-                        return Err(
-                            "relative-path identity requires a single-record JSON reader".into(),
-                        );
-                    }
-                    let source_dir = self.root.join(&self.definition.source_path);
-                    let relative = path
-                        .strip_prefix(&source_dir)
-                        .map_err(|_| "source path is outside the collection directory")?;
-                    RecordId::intrinsic(format!(
-                        "path:{}",
-                        crate::model::path_representation::query_path(relative)
-                    ))
-                }
-                IdentityPolicy::Generated => Ok(RecordId::generated(
-                    file.id,
-                    revision.modified_ns,
-                    range.start,
-                )),
-                IdentityPolicy::Intrinsic(field) => {
-                    let value = self
-                        .source
-                        .reader()
-                        .intrinsic_id(&extracted, field)?
-                        .ok_or_else(|| {
-                            format!("missing intrinsic record ID at {}", field.join("."))
-                        })?;
-                    RecordId::intrinsic(value)
-                }
-            }
-        })()
-        .map_err(|error| format!("{}:{}..{}: {error}", path.display(), range.start, range.end))?;
+        let id = build_record_id(
+            self.root,
+            self.definition,
+            self.source,
+            file,
+            path,
+            range,
+            &extracted,
+        )?;
         let slot = self.next_slot()?;
         let text_derivation = self.source.reader().text_derivation();
         self.add_logical_indexes(
@@ -1003,6 +961,74 @@ mod retained_contribution_tests {
         assert_eq!(indexed.logical_records.len(), 1);
         assert!(indexed.postings.fields.contains_key(&vec!["year".into()]));
     }
+}
+
+pub(super) fn fallback_build_id(
+    collection: CollectionId,
+    source: &PreparedSource,
+    file: &FileEntry,
+    range: ByteRange,
+) -> RecordId {
+    RecordId::fallback(
+        collection,
+        source.id(),
+        source.version(),
+        &file.relative_path,
+        file.id,
+        file.revision.modified_ns,
+        range.start,
+        range.end,
+    )
+}
+
+pub(super) fn build_record_id(
+    root: &Path,
+    definition: &CollectionDefinition,
+    source: &PreparedSource,
+    file: &FileEntry,
+    path: &Path,
+    range: ByteRange,
+    extracted: &ExtractedRecord,
+) -> Result<RecordId, String> {
+    (|| -> Result<RecordId, String> {
+        match &definition.identity {
+            IdentityPolicy::Filename => {
+                let stem = path
+                    .file_stem()
+                    .and_then(|s| s.to_str())
+                    .ok_or("non-UTF-8 filename identity")?;
+                RecordId::intrinsic(stem)
+            }
+            IdentityPolicy::RelativePath => {
+                if !definition.format.supports_relative_path_identity() {
+                    return Err(
+                        "relative-path identity requires a single-record JSON reader".into(),
+                    );
+                }
+                let source_dir = root.join(&definition.source_path);
+                let relative = path
+                    .strip_prefix(&source_dir)
+                    .map_err(|_| "source path is outside the collection directory")?;
+                RecordId::intrinsic(format!(
+                    "path:{}",
+                    crate::model::path_representation::query_path(relative)
+                ))
+            }
+            IdentityPolicy::Generated => Ok(RecordId::generated(
+                file.id,
+                file.revision.modified_ns,
+                range.start,
+            )),
+            IdentityPolicy::Intrinsic(field) => {
+                let value = source
+                    .reader()
+                    .intrinsic_id(extracted, field)?
+                    .ok_or_else(|| format!("missing intrinsic record ID at {}", field.join(".")))?;
+                RecordId::intrinsic(value)
+            }
+        }
+    })()
+    .map_err(|error| format!("{}:{}..{}: {error}", path.display(), range.start, range.end))
 }
 
 impl BatchBuilder<'_> {

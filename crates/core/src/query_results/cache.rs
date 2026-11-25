@@ -212,7 +212,7 @@ pub(crate) fn materialize_lifecycle_cached(
             segments
                 .get(collection_index)
                 .and_then(|group| group.get(index))
-                .map(|published| published.index.id.get())
+                .map(|published| published.id.get())
         });
         crate::query_execution::request::record_cache_hit_observation(
             repo.instance_id,

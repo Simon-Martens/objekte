@@ -2079,3 +2079,135 @@ fn multisegment_managed_file_has_one_membership_per_collection() {
     assert_eq!(catalog.records_for_file(id).unwrap().len(), 1536);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+type FilePreparationProbe = Box<dyn FnMut(&str) -> bool>;
+
+thread_local! {
+    static FILE_PREPARATION_PROBE: std::cell::RefCell<Option<FilePreparationProbe>> =
+        const { std::cell::RefCell::new(None) };
+}
+
+pub(super) fn reach_file_preparation_checkpoint(phase: &str) -> bool {
+    FILE_PREPARATION_PROBE.with_borrow_mut(|probe| probe.as_mut().is_some_and(|probe| probe(phase)))
+}
+
+#[test]
+fn direct_publication_progresses_during_private_file_work() {
+    use std::sync::{
+        Arc,
+        atomic::{AtomicUsize, Ordering},
+        mpsc,
+    };
+    use std::time::Duration;
+
+    for phase in [
+        "old-layout",
+        "verified-compaction",
+        "whole-document-finalization",
+        "digest-read",
+    ] {
+        let root = test_root(phase);
+        let mut builder = Index::builder();
+        let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        let collection = builder
+            .collection("entries", definition.schema.clone())
+            .unwrap();
+        let registration = builder.register_records(collection, "direct", 1).unwrap();
+        builder
+            .register_file_catalog(crate::files::FileCatalog::new(&root).unwrap())
+            .unwrap();
+        builder
+            .register_file_source(collection, definition.file_source())
+            .unwrap();
+        let index = builder.build().unwrap();
+        let path = root.join("data/item.json");
+        let old = br#"{"id":"old"}"#;
+        let updating = phase == "old-layout" || phase == "verified-compaction";
+        let previous = if updating {
+            std::fs::write(&path, old).unwrap();
+            Some(index.add_file(&path).unwrap().file)
+        } else {
+            None
+        };
+        let pinned = index.view().unwrap();
+        std::fs::write(&path, br#"{"id":"new-record"}"#).unwrap();
+        let session = index.ingestion();
+        let writer = session.writer(registration).unwrap();
+        let (entered, waiting) = mpsc::sync_channel(1);
+        let (release, released) = mpsc::channel::<()>();
+        let (published, receipt) = mpsc::sync_channel(1);
+        let deadline = Duration::from_secs(5);
+        let layouts = Arc::new(AtomicUsize::new(0));
+        std::thread::scope(|scope| {
+            let index_ref = &index;
+            let path_ref = &path;
+            let layouts_ref = Arc::clone(&layouts);
+            let mutation = scope.spawn(move || {
+                let mut paused = false;
+                FILE_PREPARATION_PROBE.with_borrow_mut(|probe| {
+                    *probe = Some(Box::new(move |step| {
+                        if step == "old-layout" {
+                            layouts_ref.fetch_add(1, Ordering::Relaxed);
+                        }
+                        if step == phase && !paused {
+                            paused = true;
+                            entered.send(()).unwrap();
+                            let _ = released.recv_timeout(deadline * 2);
+                        }
+                        phase == "digest-read" && step == "force-digest"
+                    }));
+                });
+                match previous {
+                    Some(file) => index_ref.update_file_with_options(
+                        file,
+                        path_ref,
+                        UpdateOptions {
+                            strategy: UpdateStrategy::PreferVerified,
+                            old_content: Some(old),
+                        },
+                    ),
+                    None => index_ref.add_file(path_ref),
+                }
+            });
+            let reached = waiting.recv_timeout(deadline);
+            let direct = scope.spawn(move || {
+                let mut batch = writer.batch();
+                batch
+                    .insert("direct", crate::model::Value::String("direct".into()))
+                    .unwrap();
+                let result = writer.submit(batch).unwrap().wait_published();
+                let _ = published.send(result);
+            });
+            let outcome = receipt.recv_timeout(deadline);
+            drop(release);
+            reached.expect("file checkpoint reached");
+            outcome
+                .expect("direct receipt published while file was gated")
+                .unwrap();
+            direct.join().unwrap();
+            let result = mutation.join().unwrap().unwrap();
+            if updating {
+                assert!(matches!(
+                    result.strategy,
+                    FileMutationStrategy::VerifiedPhysicalRemoval
+                        | FileMutationStrategy::VerifiedSlotPreserving
+                ));
+            }
+        });
+        assert_eq!(layouts.load(Ordering::Relaxed), usize::from(updating));
+        let live = index.view().unwrap();
+        let contains = |view: &crate::lifecycle::IndexView, id| {
+            view.get_record("entries", id, ReturnMode::Locator)
+                .unwrap()
+                .is_some()
+        };
+        assert!(contains(&live, "new-record"));
+        assert!(contains(&live, "direct"));
+        assert!(!contains(&live, "old"));
+        assert!(!contains(&pinned, "direct"));
+        assert_eq!(contains(&pinned, "old"), updating);
+        session.finish().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}

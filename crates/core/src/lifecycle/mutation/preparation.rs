@@ -134,6 +134,8 @@ pub(crate) fn index_prepared_file(
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
         let mut finish = |admission: SegmentAdmission| -> Result<(), IndexError> {
+            #[cfg(test)]
+            super::tests::reach_file_preparation_checkpoint("whole-document-finalization");
             indexed.push(
                 admission
                     .finish()

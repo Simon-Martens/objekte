@@ -7,7 +7,7 @@ use sha2::{Digest, Sha256};
 
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
-    FilePreparationBinding, prepare_file_build_from_bytes,
+    FilePreparationBinding, FileRecordLayout, reconstruct_file_layout,
 };
 use crate::index::segment::PublishedSegment;
 use crate::lifecycle::mutation::VerifiedFallbackReason;
@@ -34,6 +34,15 @@ pub(crate) fn verify_old_content(
     handle: FileHandle,
     old_bytes: &[u8],
 ) -> Result<VerifiedPlan, VerifiedFallbackReason> {
+    verify_old_content_with_layout(view, handle, old_bytes, &mut None)
+}
+
+pub(super) fn verify_old_content_with_layout(
+    view: &IndexView,
+    handle: FileHandle,
+    old_bytes: &[u8],
+    old_layout: &mut Option<FileRecordLayout>,
+) -> Result<VerifiedPlan, VerifiedFallbackReason> {
     let old = view
         .file_entry(handle.file_id)
         .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
@@ -42,10 +51,6 @@ pub(crate) fn verify_old_content(
         .ok_or(VerifiedFallbackReason::MissingFingerprint)?;
     if view.file_configuration(handle.file_id) != Some(view.configuration_identity()) {
         return Err(VerifiedFallbackReason::ConfigurationChanged);
-    }
-    let supplied_fingerprint: [u8; 32] = Sha256::digest(old_bytes).into();
-    if supplied_fingerprint != fingerprint {
-        return Err(VerifiedFallbackReason::ContentMismatch);
     }
     let repository = view.repository();
     let mut bindings = Vec::with_capacity(old.collections.len());
@@ -69,19 +74,9 @@ pub(crate) fn verify_old_content(
         revision: old.revision,
         created_ns: old.created_ns,
     };
-    let options = repository.options();
-    let reconstructed = prepare_file_build_from_bytes(
-        &repository.files().required_root(),
-        input,
-        old_bytes,
-        &bindings,
-        options.bigram_alphabet,
-        options.inference,
-        1,
-    )
-    .map_err(|_| VerifiedFallbackReason::ReconstructionFailed)?;
     let mut current = Vec::new();
     let mut old_shards = Vec::new();
+    let mut scanned = 0usize;
     let mut base_owned = false;
     let mut has_active_base = false;
     for collection_id in &old.collections {
@@ -115,10 +110,23 @@ pub(crate) fn verify_old_content(
                 }
             }
         }
+        let routes = view
+            .0
+            .record_routes
+            .get(number)
+            .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
         let shards = view
             .segments(*collection_id)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        for shard in shards {
+        for id in routes.segments_for_file(handle.file_id) {
+            let shard = routes
+                .position(*id)
+                .and_then(|position| shards.get(position))
+                .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
+            scanned = scanned.saturating_add(shard.index.record_count());
+            if scanned > MAX_VERIFIED_SCANNED_RECORDS {
+                return Err(VerifiedFallbackReason::CompactionBudget);
+            }
             let Some(slots) = shard.index.file_records(handle.file_id) else {
                 continue;
             };
@@ -159,28 +167,42 @@ pub(crate) fn verify_old_content(
     {
         return Err(VerifiedFallbackReason::IndexedLayoutChanged);
     }
-    let mut reconstructed = reconstructed.record_layout();
-    let order = |item: &(
-        CollectionId,
-        crate::model::RecordId,
-        crate::inventory::ByteRange,
-        crate::inventory::RecordClass,
-    )| { (item.0, item.2.start, item.2.end, item.1.clone()) };
-    current.sort_by_key(order);
-    reconstructed.sort_by_key(order);
-    if current != reconstructed {
-        return Err(VerifiedFallbackReason::IndexedLayoutChanged);
+    if current.len() > MAX_VERIFIED_SCANNED_RECORDS {
+        return Err(VerifiedFallbackReason::CompactionBudget);
     }
-    let mut scanned = 0usize;
-    for (collection, ordinal) in &old_shards {
-        let shard = view
-            .segments(*collection)
-            .and_then(|shards| shards.iter().find(|shard| shard.id.get() == *ordinal))
-            .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        scanned = scanned.saturating_add(shard.index.record_count());
-        if scanned > MAX_VERIFIED_SCANNED_RECORDS {
-            return Err(VerifiedFallbackReason::CompactionBudget);
+    let sort_layout = |layout: &mut FileRecordLayout| {
+        layout.sort_unstable_by(|left, right| {
+            (left.0, left.2.start, left.2.end, &left.1).cmp(&(
+                right.0,
+                right.2.start,
+                right.2.end,
+                &right.1,
+            ))
+        });
+    };
+    let reconstructed = match old_layout {
+        Some(layout) => layout,
+        None => {
+            let supplied_fingerprint: [u8; 32] = Sha256::digest(old_bytes).into();
+            if supplied_fingerprint != fingerprint {
+                return Err(VerifiedFallbackReason::ContentMismatch);
+            }
+            #[cfg(test)]
+            super::tests::reach_file_preparation_checkpoint("old-layout");
+            let mut layout = reconstruct_file_layout(
+                repository.files().required_root(),
+                &input,
+                old_bytes,
+                &bindings,
+            )
+            .map_err(|_| VerifiedFallbackReason::ReconstructionFailed)?;
+            sort_layout(&mut layout);
+            old_layout.insert(layout)
         }
+    };
+    sort_layout(&mut current);
+    if &current != reconstructed {
+        return Err(VerifiedFallbackReason::IndexedLayoutChanged);
     }
     Ok(VerifiedPlan {
         old_shards,

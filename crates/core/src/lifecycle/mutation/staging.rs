@@ -1,7 +1,43 @@
+use std::sync::Arc;
+
+use crate::construction::file_preparation::PreparedFileBuild;
+use crate::index::segment::IndexedCollectionSegment;
+use crate::inventory::FileEntry;
 use crate::lifecycle::mutation::preparation::{
     PreparedAdd, PreparedReplacement, index_prepared_file,
 };
-use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, PublishedIndex};
+use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView, PublishedIndex};
+
+pub(super) struct IndexedFilePlacement {
+    pub(super) entry: FileEntry,
+    segments: Vec<Arc<IndexedCollectionSegment>>,
+}
+
+impl IndexedFilePlacement {
+    pub(super) fn prepare(
+        view: &IndexView,
+        file: &mut PreparedFileBuild,
+    ) -> Result<Self, IndexError> {
+        let (entry, segments) = index_prepared_file(
+            view.repository(),
+            &file.source,
+            std::mem::take(&mut file.collections),
+            0,
+            view.repository().options().segment_policy,
+        )?;
+        Ok(Self {
+            entry,
+            segments: segments.into_iter().map(Arc::new).collect(),
+        })
+    }
+
+    fn stage(&self, next: &mut PublishedIndex) -> Result<(), IndexError> {
+        for segment in &self.segments {
+            next.stage_reusable_file_segment(segment)?;
+        }
+        Ok(())
+    }
+}
 
 impl Index {
     pub(crate) fn stage_prepared_delete(
@@ -74,9 +110,18 @@ impl Index {
     /// checked by the mutation writer before the eventual root swap.
     pub(crate) fn stage_prepared_add(
         &self,
-        prepared: PreparedAdd,
+        mut prepared: PreparedAdd,
     ) -> Result<PublishedIndex, IndexError> {
         let view = self.view()?;
+        let file = IndexedFilePlacement::prepare(&view, &mut prepared.file)?;
+        Self::stage_file_add(&view, &prepared, &file)
+    }
+
+    pub(super) fn stage_file_add(
+        view: &IndexView,
+        prepared: &PreparedAdd,
+        file: &IndexedFilePlacement,
+    ) -> Result<PublishedIndex, IndexError> {
         if view.revision() != prepared.expected_revision {
             return Err(IndexError::RevisionConflict {
                 expected: prepared.expected_revision,
@@ -101,27 +146,20 @@ impl Index {
         {
             return Err(IndexError::DestinationExists);
         }
-        let source = prepared.file.source;
-        let fingerprint = prepared.file.fingerprint;
-        let (entry, indexed) = index_prepared_file(
-            view.repository(),
-            &source,
-            prepared.file.collections,
-            view.0.next_segment_ordinal,
-            view.repository().options().segment_policy,
-        )?;
         let mut next = (*view.0).clone();
         next.catalog = next
             .catalog
-            .appended(entry, fingerprint, Some(prepared.configuration_identity))
+            .appended(
+                file.entry.clone(),
+                prepared.file.fingerprint,
+                Some(prepared.configuration_identity),
+            )
             .map_err(IndexError::InvalidPublication)?;
         next.file_versions = next
             .file_versions
             .appended()
             .map_err(IndexError::ResourceLimit)?;
-        for segment in indexed {
-            next = next.with_segment(segment)?;
-        }
+        file.stage(&mut next)?;
         next.revision = view.revision().next()?;
         Ok(next)
     }
@@ -130,9 +168,19 @@ impl Index {
     /// the captured revision and publishes it.
     pub(crate) fn stage_prepared_replace(
         &self,
-        prepared: PreparedReplacement,
+        mut prepared: PreparedReplacement,
     ) -> Result<PublishedIndex, IndexError> {
         let view = self.view()?;
+        let file = IndexedFilePlacement::prepare(&view, &mut prepared.file)?;
+        self.stage_file_replace(&view, &prepared, &file)
+    }
+
+    pub(super) fn stage_file_replace(
+        &self,
+        view: &IndexView,
+        prepared: &PreparedReplacement,
+        file: &IndexedFilePlacement,
+    ) -> Result<PublishedIndex, IndexError> {
         if prepared.expected_handle.instance_id != self.instance_id() {
             return Err(IndexError::ForeignInstance);
         }
@@ -178,15 +226,7 @@ impl Index {
         {
             return Err(IndexError::DestinationExists);
         }
-        let source = prepared.file.source;
-        let fingerprint = prepared.file.fingerprint;
-        let (mut entry, indexed) = index_prepared_file(
-            view.repository(),
-            &source,
-            prepared.file.collections,
-            view.0.next_segment_ordinal,
-            view.repository().options().segment_policy,
-        )?;
+        let mut entry = file.entry.clone();
         let mut next = (*view.0).clone();
         next.retire_file_records(previous)?;
         for collection in next.refresh_record_links(file_id, Some(&entry))? {
@@ -196,16 +236,18 @@ impl Index {
         }
         next.catalog = next
             .catalog
-            .replaced(entry, fingerprint, Some(prepared.configuration_identity))
+            .replaced(
+                entry,
+                prepared.file.fingerprint,
+                Some(prepared.configuration_identity),
+            )
             .map_err(IndexError::InvalidPublication)?;
         next.file_versions = next
             .file_versions
             .advanced(file_id)
             .map_err(IndexError::ResourceLimit)?
             .0;
-        for segment in indexed {
-            next = next.with_segment(segment)?;
-        }
+        file.stage(&mut next)?;
         // A replacement may remove a collection contribution without adding
         // a new shard there. Recheck its retired ratio after the catalog swap.
         for collection in &previous.collections {

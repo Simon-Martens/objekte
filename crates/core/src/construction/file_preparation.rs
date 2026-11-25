@@ -123,6 +123,7 @@ impl PreparedFileBuild {
     /// Record identity and framing reconstructed from one complete source.
     /// Verified removal compares this with active indexed ownership before
     /// using the old-byte hint for physical maintenance.
+    #[cfg(test)]
     pub(crate) fn record_layout(&self) -> Vec<(CollectionId, RecordId, ByteRange, RecordClass)> {
         self.collections
             .iter()
@@ -1076,6 +1077,7 @@ fn prepare_managed_stream(
 /// The caller owns `bytes` and must validate the declared revision and file
 /// identity again before publishing the returned contributions. No raw payload
 /// is kept in the result.
+#[cfg(test)]
 pub(crate) fn prepare_file_build_from_bytes(
     root: &Path,
     input: SourceFileInput,
@@ -1225,6 +1227,71 @@ fn prepare_file_build_with_fingerprint(
         identity: None,
         collections,
     })
+}
+
+pub(crate) type FileRecordLayout = Vec<(CollectionId, RecordId, ByteRange, RecordClass)>;
+
+/// Reconstruct only the fields used by verified maintenance.
+pub(crate) fn reconstruct_file_layout(
+    root: &Path,
+    input: &SourceFileInput,
+    bytes: &[u8],
+    bindings: &[FilePreparationBinding<'_>],
+) -> Result<FileRecordLayout, String> {
+    use super::batch::{build_record_id, fallback_build_id};
+
+    if input.revision.size != bytes.len() as u64 {
+        return Err("old source size changed".into());
+    }
+    let path = root.join(&input.relative_path);
+    let mut layout = Vec::new();
+    for binding in bindings {
+        let file = input.for_collection(binding.collection);
+        let fallback = |range| {
+            (
+                binding.collection,
+                fallback_build_id(binding.collection, binding.source, &file, range),
+                range,
+                RecordClass::RawFallback,
+            )
+        };
+        let reader = binding.source.reader();
+        let ranges = match reader.frame_outcome(bytes) {
+            Ok(ranges) => ranges,
+            Err(ReaderFailure::Malformed(_)) => {
+                layout.push(fallback(ByteRange {
+                    start: 0,
+                    end: input.revision.size,
+                }));
+                continue;
+            }
+            Err(ReaderFailure::Fatal(error)) => return Err(error),
+        };
+        validate_reader_ranges(&ranges, bytes.len())?;
+        for range in ranges {
+            match reader.parse_for_build_outcome(&bytes[range.start as usize..range.end as usize]) {
+                Ok(mut record) => {
+                    if finish_build_record(&binding.definition.schema, &mut record).is_ok() {
+                        let id = build_record_id(
+                            root,
+                            binding.definition,
+                            binding.source,
+                            &file,
+                            &path,
+                            range,
+                            &record,
+                        )?;
+                        layout.push((binding.collection, id, range, RecordClass::Logical));
+                    } else {
+                        layout.push(fallback(range));
+                    }
+                }
+                Err(ReaderFailure::Malformed(_)) => layout.push(fallback(range)),
+                Err(ReaderFailure::Fatal(error)) => return Err(error),
+            }
+        }
+    }
+    Ok(layout)
 }
 
 fn whole_document_chunks(
@@ -1671,7 +1738,7 @@ pub(super) fn process_framed_file_with_budget(
             let bytes = Arc::clone(&bytes);
             let ranges = Arc::clone(&ranges);
             let counters = Arc::clone(&counters);
-            pool.spawn(move || {
+            let execute = move || {
                 let result = counters.run(|| {
                     process_framed_batch(
                         &root,
@@ -1692,7 +1759,12 @@ pub(super) fn process_framed_file_with_budget(
                     )
                 });
                 let _ = sender.send((index, result));
-            });
+            };
+            if pool.current_thread_index().is_some() {
+                execute();
+            } else {
+                pool.spawn(execute);
+            }
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;

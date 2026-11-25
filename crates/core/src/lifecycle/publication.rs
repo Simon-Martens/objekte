@@ -476,6 +476,22 @@ impl PublishedIndex {
         payload: &mut Arc<IndexedCollectionSegment>,
         observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
     ) -> Result<(), IndexError> {
+        self.stage_segment_payload(payload, observation, false)
+    }
+
+    pub(crate) fn stage_reusable_file_segment(
+        &mut self,
+        payload: &Arc<IndexedCollectionSegment>,
+    ) -> Result<(), IndexError> {
+        self.stage_segment_payload(&mut Arc::clone(payload), None, true)
+    }
+
+    fn stage_segment_payload(
+        &mut self,
+        payload: &mut Arc<IndexedCollectionSegment>,
+        observation: Option<Arc<crate::construction::inference::InferenceObservation>>,
+        allocate_id: bool,
+    ) -> Result<(), IndexError> {
         let index = &**payload;
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
@@ -562,7 +578,8 @@ impl PublishedIndex {
         }
         let active = ActiveRecords::all(index.records.len()).map_err(IndexError::ResourceLimit)?;
         let mut segment_id = index.id;
-        if segment_id.get() == 1
+        if allocate_id
+            || segment_id.get() == 1
             || self.segments[number]
                 .iter()
                 .any(|segment| segment.id == segment_id)
@@ -575,7 +592,7 @@ impl PublishedIndex {
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
-        if index.id != segment_id {
+        if !allocate_id && index.id != segment_id {
             Arc::get_mut(payload)
                 .expect("unpublished payload is uniquely owned before placement")
                 .id = segment_id;

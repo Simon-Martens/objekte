@@ -14,15 +14,35 @@ use crate::lifecycle::maintenance::compaction::compact_published;
 use crate::lifecycle::mutation::preparation::PreparedReplacement;
 use crate::lifecycle::mutation::verified::{
     preserve_partition_record_slots, preserve_single_record_slots, remove_verified_old_shards,
-    verify_old_content,
+    verify_old_content, verify_old_content_with_layout,
 };
 use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView, PublishedIndex};
 use crate::model::{CollectionId, FileId, MetadataField, PathRoot};
 use crate::repository::configuration::IdentityPolicy;
 
 use preparation::{created_ns, prepare_replacement_bytes};
+use staging::IndexedFilePlacement;
 
 const MAX_PUBLICATION_RETRIES: usize = 8;
+
+fn verify_file_source(view: &IndexView, file: &PreparedFileBuild) -> Result<(), IndexError> {
+    #[cfg(test)]
+    let identity = if tests::reach_file_preparation_checkpoint("force-digest") {
+        tests::reach_file_preparation_checkpoint("digest-read");
+        None
+    } else {
+        file.identity
+    };
+    #[cfg(not(test))]
+    let identity = file.identity;
+    verify_current_source(
+        view.repository().files().required_root(),
+        &file.source,
+        identity,
+        file.fingerprint,
+    )
+    .map_err(IndexError::SourceUnavailable)
+}
 
 fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, VerifiedFallbackReason> {
     compact_published(next, next.revision).map_err(|error| match error {
@@ -142,16 +162,9 @@ impl Index {
 fn collection_names(
     view: &IndexView,
     previous: &[CollectionId],
-    prepared: &PreparedFileBuild,
+    prepared: &[CollectionId],
 ) -> Vec<String> {
-    let mut ids = BTreeSet::new();
-    ids.extend(previous.iter().copied());
-    ids.extend(
-        prepared
-            .collections
-            .iter()
-            .map(|collection| collection.collection),
-    );
+    let ids: BTreeSet<_> = previous.iter().chain(prepared).copied().collect();
     ids.into_iter()
         .map(|id| {
             view.repository().collections()[id.0 as usize]
@@ -320,19 +333,19 @@ impl Index {
     /// destination is a collision; no source bytes are written by this call.
     pub fn add_file(&self, path: &Path) -> Result<FileMutationResult, IndexError> {
         let mut conflict = None;
-        let mut ready = Some(self.prepare_add_file(path)?);
+        let mut ready = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
-            let mut prepared = match ready.take() {
-                Some(prepared) => prepared,
-                None => self.prepare_add_file(path)?,
-            };
-            // Independent direct work can finish while the reader is active.
-            // Place both writers' prepared content against the latest root.
-            let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
             let view = self.view()?;
+            let (mut prepared, placement, indexed_records) = match ready.take() {
+                Some(ready) => ready,
+                None => {
+                    let mut prepared = self.prepare_add_file(path)?;
+                    let indexed_records = prepared.file.record_count();
+                    let placement = IndexedFilePlacement::prepare(&view, &mut prepared.file)?;
+                    (prepared, placement, indexed_records)
+                }
+            };
             if view.revision() != prepared.expected_revision {
-                // A direct batch changes the publication revision but cannot
-                // claim a catalog slot. Keep the completed file preparation.
                 if view.configuration_identity() == prepared.configuration_identity
                     && view.0.catalog.allocated_files() == prepared.file.source.id.0 as usize
                 {
@@ -346,20 +359,9 @@ impl Index {
                 }
             }
             let file_id = prepared.file.source.id;
-            let indexed_records = prepared.file.record_count();
-            let affected_collections = collection_names(&view, &[], &prepared.file);
-            let source = prepared.file.source.clone();
-            let identity = prepared.file.identity;
-            let fingerprint = prepared.file.fingerprint;
+            let affected_collections = collection_names(&view, &[], &placement.entry.collections);
             let expected = prepared.expected_revision;
-            let next = match self.stage_prepared_add(prepared) {
-                Ok(next) => next,
-                Err(error @ IndexError::RevisionConflict { .. }) => {
-                    conflict = Some(error);
-                    continue;
-                }
-                Err(error) => return Err(error),
-            };
+            let next = Self::stage_file_add(&view, &prepared, &placement)?;
             let file =
                 FileHandle {
                     instance_id: self.instance_id(),
@@ -368,14 +370,8 @@ impl Index {
                         IndexError::InvalidPublication("new file version missing".into()),
                     )?,
                 };
-            verify_current_source(
-                view.repository().files().required_root(),
-                &source,
-                identity,
-                fingerprint,
-            )
-            .map_err(IndexError::SourceUnavailable)?;
-            match self.publish_prepared(expected, next) {
+            verify_file_source(&view, &prepared.file)?;
+            match self.install_file_candidate(expected, next) {
                 Ok(revision) => {
                     return Ok(FileMutationResult {
                         revision,
@@ -389,11 +385,23 @@ impl Index {
                         fallback_reason: None,
                     });
                 }
-                Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),
+                Err(error @ IndexError::RevisionConflict { .. }) => {
+                    conflict = Some(error);
+                    ready = Some((prepared, placement, indexed_records));
+                }
                 Err(error) => return Err(error),
             }
         }
         Err(conflict.expect("publication retry always captures a conflict"))
+    }
+
+    fn install_file_candidate(
+        &self,
+        expected: IndexRevision,
+        next: PublishedIndex,
+    ) -> Result<IndexRevision, IndexError> {
+        let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
+        self.publish_prepared(expected, next)
     }
 
     /// Reindex the current source path after the application changes it.
@@ -793,55 +801,55 @@ impl Index {
         handle: FileHandle,
         kind: FileMutationKind,
         options: UpdateOptions<'_>,
-        mut prepare: impl FnMut(&Self) -> Result<PreparedReplacement, IndexError>,
+        prepare: impl FnOnce(&Self) -> Result<PreparedReplacement, IndexError>,
     ) -> Result<FileMutationResult, IndexError> {
         let mut conflict = None;
-        let mut ready = Some(prepare(self)?);
+        let mut prepared = prepare(self)?;
+        let indexed_records = prepared.file.record_count();
+        let mut placement = None::<IndexedFilePlacement>;
+        let mut old_layout = None;
         for _ in 0..MAX_PUBLICATION_RETRIES {
-            let mut prepared = match ready.take() {
-                Some(prepared) => prepared,
-                None => prepare(self)?,
-            };
-            // Independent direct work can finish while the reader is active.
-            // Place both writers' prepared content against the latest root.
-            let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
             let view = self.view()?;
-            if view.revision() != prepared.expected_revision {
-                // Rebase completed source work over unrelated direct batches;
-                // staging still checks the file incarnation and ID owners.
-                if view.configuration_identity() == prepared.configuration_identity
-                    && view.file_version_including_inactive(handle.file_id) == Some(handle.version)
-                    && view.file_entry(handle.file_id).is_some()
-                {
-                    prepared.expected_revision = view.revision();
-                } else {
-                    conflict = Some(IndexError::RevisionConflict {
-                        expected: prepared.expected_revision,
-                        actual: view.revision(),
-                    });
-                    continue;
-                }
+            if view.configuration_identity() != prepared.configuration_identity {
+                return Err(IndexError::IncompatibleConfiguration(
+                    "configuration changed during file preparation".into(),
+                ));
             }
+            let actual = view
+                .file_version_including_inactive(handle.file_id)
+                .ok_or(IndexError::UnknownFile)?;
+            if actual != handle.version {
+                return Err(IndexError::FileConflict {
+                    file: handle.file_id,
+                    expected: handle.version,
+                    actual,
+                });
+            }
+            prepared.expected_revision = view.revision();
             let previous = view
                 .file_entry(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;
             let retired_records = view
                 .file_record_count(handle.file_id)
                 .ok_or(IndexError::UnknownFile)?;
-            let indexed_records = prepared.file.record_count();
-            let affected_collections =
-                collection_names(&view, &previous.collections, &prepared.file);
-            let source = prepared.file.source.clone();
-            let identity = prepared.file.identity;
-            let fingerprint = prepared.file.fingerprint;
-            let same_memberships = previous.collections.len() == prepared.file.collections.len()
-                && previous.collections.iter().all(|collection| {
-                    prepared
-                        .file
-                        .collections
-                        .iter()
-                        .any(|built| built.collection == *collection)
-                });
+            let prepared_collections;
+            let memberships = if let Some(placement) = &placement {
+                &placement.entry.collections
+            } else {
+                prepared_collections = prepared
+                    .file
+                    .collections
+                    .iter()
+                    .map(|built| built.collection)
+                    .collect::<Vec<_>>();
+                &prepared_collections
+            };
+            let affected_collections = collection_names(&view, &previous.collections, memberships);
+            let same_memberships = previous.collections.len() == memberships.len()
+                && previous
+                    .collections
+                    .iter()
+                    .all(|collection| memberships.contains(collection));
             let unchanged = previous.relative_path.as_path()
                 == prepared.file.source.relative_path.as_path()
                 && previous.revision == prepared.file.source.revision
@@ -851,14 +859,14 @@ impl Index {
                 && prepared.file.fingerprint.is_some()
                 && view.file_fingerprint(handle.file_id) == prepared.file.fingerprint;
             if unchanged {
-                verify_current_source(
-                    view.repository().files().required_root(),
-                    &source,
-                    identity,
-                    fingerprint,
-                )
-                .map_err(IndexError::SourceUnavailable)?;
-                if self.view()?.revision() != view.revision() {
+                verify_file_source(&view, &prepared.file)?;
+                let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
+                let actual = self.view()?.revision();
+                if actual != view.revision() {
+                    conflict = Some(IndexError::RevisionConflict {
+                        expected: view.revision(),
+                        actual,
+                    });
                     continue;
                 }
                 return Ok(FileMutationResult {
@@ -876,21 +884,25 @@ impl Index {
             let verified = match options.strategy {
                 UpdateStrategy::AppendReplacement => None,
                 UpdateStrategy::PreferVerified => Some(match options.old_content {
-                    Some(bytes) => verify_old_content(&view, handle, bytes),
+                    Some(bytes) => {
+                        verify_old_content_with_layout(&view, handle, bytes, &mut old_layout)
+                    }
                     None => Err(VerifiedFallbackReason::MissingOldContent),
                 }),
             };
             let expected = prepared.expected_revision;
-            let next = match self.stage_prepared_replace(prepared) {
-                Ok(next) => next,
-                Err(error @ IndexError::RevisionConflict { .. }) => {
-                    conflict = Some(error);
-                    continue;
-                }
-                Err(error) => return Err(error),
-            };
+            if placement.is_none() {
+                placement = Some(IndexedFilePlacement::prepare(&view, &mut prepared.file)?);
+            }
+            let next = self.stage_file_replace(
+                &view,
+                &prepared,
+                placement.as_ref().expect("file placement was prepared"),
+            )?;
             let (next, strategy, fallback_reason) = match verified {
                 Some(Ok(plan)) => {
+                    #[cfg(test)]
+                    tests::reach_file_preparation_checkpoint("verified-compaction");
                     if plan.requires_base_compaction() {
                         match compact_verified_base(&next) {
                             Ok(compacted) => (
@@ -935,14 +947,8 @@ impl Index {
                     IndexError::InvalidPublication("replacement file version missing".into()),
                 )?,
             };
-            verify_current_source(
-                view.repository().files().required_root(),
-                &source,
-                identity,
-                fingerprint,
-            )
-            .map_err(IndexError::SourceUnavailable)?;
-            match self.publish_prepared(expected, next) {
+            verify_file_source(&view, &prepared.file)?;
+            match self.install_file_candidate(expected, next) {
                 Ok(revision) => {
                     return Ok(FileMutationResult {
                         revision,
