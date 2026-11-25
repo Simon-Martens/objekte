@@ -1946,3 +1946,71 @@ fn ordinary_file_batches_respect_distinct_file_limit_before_decoding() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[cfg(unix)]
+#[test]
+fn initial_publication_rechecks_symlink_eligibility_after_framing() {
+    use crate::inventory::discovery::{SymlinkPolicy, discover};
+
+    struct RelinkDuringFraming(std::path::PathBuf);
+    impl SourceReader for RelinkDuringFraming {
+        fn name(&self) -> &'static str {
+            "relink-test"
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            use std::os::unix::fs::symlink;
+            std::fs::rename(self.0.join("selected"), self.0.join(".relocated")).unwrap();
+            symlink(".relocated", self.0.join("selected")).unwrap();
+            JsonLinesReader.frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonLinesReader.parse(bytes)
+        }
+    }
+
+    for policy in [SymlinkPolicy::Skip, SymlinkPolicy::FollowWithinRoot] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-relink-initial-{}-{policy:?}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data/selected")).unwrap();
+        let relative = std::path::Path::new("data/selected/entry.relink");
+        std::fs::write(root.join(relative), b"{}\n").unwrap();
+        let mut registry = SourceRegistry::builtin();
+        registry
+            .register(
+                "relink-test",
+                1,
+                "relink",
+                Arc::new(RelinkDuringFraming(root.join("data"))),
+            )
+            .unwrap();
+        let format = SourceFormat::registered("relink-test");
+        let mut definition = CollectionDefinition::folder("entries", "data", format.clone());
+        definition.discovery.recursive = true;
+        definition.discovery.symlinks = policy;
+        let discovery = definition.discovery.clone();
+        let reader = registry.resolve(&format).unwrap();
+        let task = Index::start_build(
+            &root,
+            vec![definition],
+            RepositoryOptions::default(),
+            registry,
+        )
+        .unwrap();
+        let index = task.wait_catalogue().unwrap();
+        let result = task.wait_complete();
+        let fresh_paths =
+            discover(&root, std::path::Path::new("data"), &discovery, &reader).unwrap();
+        let selected = fresh_paths.contains(&root.join(relative));
+        let view = index.view().unwrap();
+        let catalog = view.file_catalog().unwrap();
+        let file = catalog.file_by_path(relative).unwrap();
+        let records = catalog.records_for_file(file.id).unwrap().len();
+        std::fs::remove_dir_all(root).unwrap();
+        assert_eq!(result.is_ok(), selected, "policy {policy:?}");
+        assert_eq!(records, usize::from(selected));
+    }
+}

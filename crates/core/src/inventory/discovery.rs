@@ -644,37 +644,61 @@ impl PreparedScanSelection {
     }
 
     pub(crate) fn selects_file(&self, root: &Path, relative_path: &Path) -> Result<bool, String> {
+        Ok(self.selected_metadata(root, relative_path)?.is_some())
+    }
+
+    /// Return the leaf observation that passed discovery's path checks.
+    pub(crate) fn selected_metadata(
+        &self,
+        root: &Path,
+        relative_path: &Path,
+    ) -> Result<Option<std::fs::Metadata>, String> {
         if !self.selects_lexical(relative_path) {
-            return Ok(false);
+            return Ok(None);
         }
         let selected = relative_path
             .strip_prefix(&self.source_path)
             .map_err(|error| error.to_string())?;
-        let path = root.join(relative_path);
-        if self.rules.symlinks == SymlinkPolicy::Skip {
-            let mut component_path = self.source_directory.clone();
-            for part in selected.components() {
-                component_path.push(part);
-                let metadata = match std::fs::symlink_metadata(&component_path) {
-                    Ok(metadata) => metadata,
-                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
-                    Err(error) => return Err(format!("{}: {error}", component_path.display())),
-                };
-                if metadata.file_type().is_symlink() {
-                    return Ok(false);
+        let mut parts = selected.components().peekable();
+        let mut path = self.source_directory.clone();
+        let mut ancestors = Vec::new();
+        while let Some(part) = parts.next() {
+            path.push(part);
+            let metadata = if self.rules.symlinks == SymlinkPolicy::Skip {
+                match std::fs::symlink_metadata(&path) {
+                    Ok(metadata) if !metadata.file_type().is_symlink() => metadata,
+                    Ok(_) => return Ok(None),
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+                    Err(error) => return Err(format!("{}: {error}", path.display())),
                 }
-            }
-            Ok(path.is_file())
-        } else {
-            let physical = match path.canonicalize() {
-                Ok(path) => path,
-                Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
-                Err(error) => return Err(format!("{}: {error}", path.display())),
+            } else {
+                let physical = match path.canonicalize() {
+                    Ok(path) => path,
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+                    Err(error) => return Err(format!("{}: {error}", path.display())),
+                };
+                if !physical.starts_with(&self.physical_root)
+                    || physical_path_is_generated(root, &physical)
+                    || physical == self.physical_root
+                    || ancestors.contains(&physical)
+                {
+                    return Ok(None);
+                }
+                let metadata = std::fs::metadata(&physical)
+                    .map_err(|error| format!("{}: {error}", physical.display()))?;
+                if parts.peek().is_some() {
+                    ancestors.push(physical);
+                }
+                metadata
             };
-            Ok(physical.starts_with(&self.physical_root)
-                && !physical_path_is_generated(root, &physical)
-                && physical.is_file())
+            if parts.peek().is_none() {
+                return Ok(metadata.is_file().then_some(metadata));
+            }
+            if !metadata.is_dir() {
+                return Ok(None);
+            }
         }
+        Ok(None)
     }
 }
 

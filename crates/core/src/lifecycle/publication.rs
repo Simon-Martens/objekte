@@ -1036,56 +1036,110 @@ fn verify_initial_files(
     segments: &[&IndexedCollectionSegment],
 ) -> Result<(), IndexError> {
     use crate::construction::file_preparation::created_ns;
-    use crate::inventory::SourceRevision;
+    use crate::inventory::{SourceRevision, discovery::PreparedScanSelection};
     use rayon::prelude::*;
 
-    let root = view.repository().files().required_root();
-    let verify = |entry: &FileEntry| {
-        let path = root.join(&entry.relative_path);
-        let metadata = std::fs::metadata(&path).map_err(|error| {
-            IndexError::SourceUnavailable(format!("{}: {error}", path.display()))
-        })?;
+    let repository = view.repository();
+    let root = repository.files().required_root();
+    let mut selections = Vec::new();
+    let mut by_collection = std::collections::HashMap::new();
+    for segment in segments {
+        if by_collection.contains_key(&segment.collection) {
+            continue;
+        }
+        let collection = repository
+            .collections()
+            .get(segment.collection.0 as usize)
+            .ok_or_else(|| IndexError::InvalidPublication("missing file collection".into()))?;
+        let config = collection.required_file_source();
+        let reader = collection.required_file_reader();
+        let position = match selections
+            .iter()
+            .position(|(source_path, rules, extension, _)| {
+                *source_path == &config.source_path
+                    && *rules == &config.discovery
+                    && *extension == reader.extension()
+            }) {
+            Some(position) => position,
+            None => {
+                let position = selections.len();
+                selections.push((
+                    &config.source_path,
+                    &config.discovery,
+                    reader.extension(),
+                    PreparedScanSelection::new(
+                        root,
+                        &config.source_path,
+                        &config.discovery,
+                        reader,
+                    )
+                    .map_err(IndexError::SourceUnavailable)?,
+                ));
+                position
+            }
+        };
+        by_collection.insert(segment.collection, position);
+    }
+    let verify = |entry: &FileEntry, selection: &PreparedScanSelection| {
+        let metadata = selection
+            .selected_metadata(root, &entry.relative_path)
+            .map_err(IndexError::SourceUnavailable)?
+            .ok_or_else(|| {
+                IndexError::SourceUnavailable(format!(
+                    "source is ineligible before initial publication: {}",
+                    root.join(&entry.relative_path).display()
+                ))
+            })?;
         let revision =
             SourceRevision::from_metadata(&metadata).map_err(IndexError::SourceUnavailable)?;
         if revision != entry.revision || created_ns(&metadata) != entry.created_ns {
             return Err(IndexError::SourceUnavailable(format!(
                 "source changed before initial publication: {}",
-                path.display()
+                root.join(&entry.relative_path).display()
             )));
         }
         if revision.object_id.is_none() {
             return Err(IndexError::SourceUnavailable(format!(
                 "source identity cannot be verified: {}",
-                path.display()
+                root.join(&entry.relative_path).display()
             )));
         }
         Ok(())
     };
-    let workers = &view.repository().workers;
+    let workers = &repository.workers;
     if let [segment] = segments {
+        let selection = &selections[by_collection[&segment.collection]].3;
         if segment.files.len() >= 256 && workers.current_num_threads() > 1 {
             return workers.install(|| {
                 segment
                     .files
                     .par_iter()
-                    .try_for_each(|file| verify(&file.entry))
+                    .try_for_each(|file| verify(&file.entry, selection))
             });
         }
         return segment
             .files
             .iter()
-            .try_for_each(|file| verify(&file.entry));
+            .try_for_each(|file| verify(&file.entry, selection));
     }
     let mut checked = std::collections::HashSet::new();
     let entries = segments
         .iter()
-        .flat_map(|segment| &segment.files)
-        .filter_map(|file| checked.insert(file.entry.id).then_some(&file.entry))
+        .flat_map(|segment| {
+            let selection = by_collection[&segment.collection];
+            segment
+                .files
+                .iter()
+                .map(move |file| (&file.entry, selection))
+        })
+        .filter(|(entry, selection)| checked.insert((entry.id, *selection)))
         .collect::<Vec<_>>();
+    let verify_entry =
+        |(entry, selection): (&FileEntry, usize)| verify(entry, &selections[selection].3);
     if entries.len() >= 256 && workers.current_num_threads() > 1 {
-        workers.install(|| entries.par_iter().try_for_each(|entry| verify(entry)))
+        workers.install(|| entries.into_par_iter().try_for_each(verify_entry))
     } else {
-        entries.into_iter().try_for_each(verify)
+        entries.into_iter().try_for_each(verify_entry)
     }
 }
 
