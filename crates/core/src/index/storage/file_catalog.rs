@@ -6,7 +6,7 @@ use std::ops::Bound;
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::inventory::{FileEntry, SourceDiagnostic};
+use crate::inventory::{FileEntry, FileVersion, SourceDiagnostic};
 use crate::model::{CollectionId, FileId, Number};
 use crate::query::Operator;
 
@@ -169,8 +169,16 @@ pub(crate) trait FileCatalogBase: FileCatalogSource + std::any::Any {
 
 pub(crate) type FileCatalogHandle = Arc<dyn FileCatalogRevision>;
 
-pub(crate) trait FileCatalogRevision: FileCatalogReader {
+pub(crate) trait FileCatalogRevision: FileCatalogReader + std::any::Any {
     fn construction_complete(&self) -> bool;
+    fn version(&self, id: FileId) -> StorageResult<Option<FileVersion>>;
+
+    /// Read a contiguous range of allocated versions, including retired IDs.
+    fn read_versions(
+        &self,
+        start: FileId,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [FileVersion]>, BatchStatus)>;
     fn estimates_delta_bytes(&self) -> usize;
     fn fingerprint(&self, id: FileId) -> StorageResult<Option<[u8; 32]>>;
     fn configuration(&self, id: FileId) -> StorageResult<Option<[u8; 32]>>;
@@ -189,6 +197,8 @@ pub(crate) enum FileCatalogDelta<'a> {
         configuration: Option<[u8; 32]>,
     },
     Retire(FileId),
+    AdvanceVersion(FileId),
+    ResetVersions(FileVersion),
     Rebase(&'a dyn FileCatalogBase),
     ConstructionComplete(bool),
 }
@@ -307,8 +317,73 @@ impl dyn FileCatalogRevision {
         )
     }
 
+    pub(crate) fn replaced_incarnation(
+        &self,
+        entry: FileEntry,
+        fingerprint: Option<[u8; 32]>,
+        configuration: Option<[u8; 32]>,
+    ) -> StorageResult<FileCatalogHandle> {
+        let id = entry.id;
+        edit_file_catalog(
+            self,
+            [
+                FileCatalogDelta::Replace {
+                    entry,
+                    fingerprint,
+                    configuration,
+                },
+                FileCatalogDelta::AdvanceVersion(id),
+            ],
+        )
+    }
+
     pub(crate) fn retired(&self, id: FileId) -> StorageResult<FileCatalogHandle> {
-        edit_file_catalog(self, [FileCatalogDelta::Retire(id)])
+        edit_file_catalog(
+            self,
+            [
+                FileCatalogDelta::Retire(id),
+                FileCatalogDelta::AdvanceVersion(id),
+            ],
+        )
+    }
+}
+
+pub(crate) fn transfer_versions(
+    source: &dyn FileCatalogRevision,
+    limit: BatchLimit,
+    cancelled: &dyn Fn() -> bool,
+    mut write: impl FnMut(&[FileVersion]) -> StorageResult<()>,
+) -> StorageResult<()> {
+    const OP: &str = "transfer file versions";
+    let mut start = 0u32;
+    let high_water = source.high_water_mark();
+    let maximum_batch = limit.fixed_batch_len(OP, size_of::<FileVersion>())?;
+    loop {
+        if cancelled() {
+            return Err(StorageError::Cancelled);
+        }
+        let (versions, status) = source.read_versions(FileId(start), limit)?;
+        if versions.len() > maximum_batch
+            || versions.len() > (high_water - start) as usize
+            || versions.iter().any(|version| version.0 == 0)
+        {
+            return Err(StorageError::invalid(OP, "invalid version batch"));
+        }
+        start += versions.len() as u32;
+        if status == BatchStatus::Done && start != high_water
+            || status == BatchStatus::More && (versions.is_empty() || start == high_water)
+        {
+            return Err(StorageError::invalid(
+                OP,
+                "unexpected version batch completion",
+            ));
+        }
+        if !versions.is_empty() {
+            write(&versions)?;
+        }
+        if status == BatchStatus::Done {
+            return Ok(());
+        }
     }
 }
 

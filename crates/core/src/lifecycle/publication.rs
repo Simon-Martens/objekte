@@ -13,7 +13,7 @@ use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
     install_segment,
 };
-use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
+use crate::inventory::{ActiveRecords, FileEntry, FileStatus};
 use crate::model::{CollectionId, RecordId};
 use crate::repository::Repository;
 
@@ -39,7 +39,6 @@ pub(crate) struct PublishedIndex {
     /// independent triggers and may run sooner.
     pub(crate) last_size_maintenance_revision: u64,
     pub(crate) catalog: FileCatalogHandle,
-    pub(crate) file_versions: FileVersions,
     pub(crate) reconciliation: ReconciliationState,
     pub(crate) processed_files: usize,
     /// Only populated during an initial build. One bitmap per collection
@@ -164,11 +163,9 @@ impl PublishedIndex {
         segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     ) -> Result<Self, IndexError> {
         let configuration_identity = repository.configuration_identity;
-        let file_versions =
-            FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
         let catalog = repository
             .storage_factory
-            .file_catalog(&repository.file_catalog_base())?;
+            .file_catalog(&repository.file_catalog_base(), FileVersion(revision.0))?;
         let processed_files = catalog.live_count() as usize;
         let next_segment_ordinal = segments
             .iter()
@@ -198,7 +195,6 @@ impl PublishedIndex {
             next_segment_ordinal,
             last_size_maintenance_revision: 0,
             catalog,
-            file_versions,
             reconciliation: ReconciliationState::NotStarted,
             processed_files,
             processed_memberships: Vec::new(),
@@ -218,7 +214,6 @@ impl PublishedIndex {
     }
 
     pub(super) fn status(&self) -> IndexStatus {
-        debug_assert_eq!(self.catalog.allocated_files(), self.file_versions.len());
         IndexStatus {
             instance_id: self.instance_id,
             revision: self.revision,

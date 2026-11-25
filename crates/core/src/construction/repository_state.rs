@@ -322,11 +322,10 @@ fn initialize_empty_configured(
     }
     crate::index::relation::validate_indexes(&collections)?;
     let workers = Repository::create_workers(options.query_workers)?;
-    let catalog = storage_factory.file_catalog(&files.catalog_base(
-        Vec::new(),
-        configuration_identity,
-        collections.len(),
-    ))?;
+    let catalog = storage_factory.file_catalog(
+        &files.catalog_base(Vec::new(), configuration_identity, collections.len()),
+        crate::inventory::FileVersion::INITIAL,
+    )?;
     let active = (0..collections.len())
         .map(|_| ActiveRecords::all(0))
         .collect::<Result<Vec<_>, _>>()?;

@@ -25,6 +25,7 @@ struct OrderedFiles {
     root: Option<Arc<PathBuf>>,
     complete: bool,
     fail_seal: Arc<AtomicBool>,
+    versions: Vec<FileVersion>,
     fail_after_first_batch: bool,
     fail_path_lookup: bool,
 }
@@ -48,6 +49,7 @@ impl OrderedFiles {
             root: root.map(|root| Arc::new(root.to_path_buf())),
             complete: true,
             fail_seal,
+            versions: vec![FileVersion::INITIAL; source.high_water_mark() as usize],
             fail_after_first_batch: false,
             fail_path_lookup: false,
         };
@@ -212,6 +214,7 @@ impl OrderedFiles {
                 ));
             }
             self.allocated += 1;
+            self.versions.push(FileVersion::INITIAL);
             self.rows.push(row);
         } else {
             let position = self.position(id).map_err(|_| {
@@ -229,6 +232,30 @@ impl OrderedFiles {
 impl FileCatalogRevision for OrderedFiles {
     fn construction_complete(&self) -> bool {
         self.complete
+    }
+
+    fn version(&self, id: FileId) -> StorageResult<Option<FileVersion>> {
+        Ok(self.versions.get(id.0 as usize).copied())
+    }
+
+    fn read_versions(
+        &self,
+        start: FileId,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [FileVersion]>, BatchStatus)> {
+        let remaining = self.versions.get(start.0 as usize..).ok_or_else(|| {
+            StorageError::invalid("test file catalog", "invalid version batch offset")
+        })?;
+        let batch_len = remaining
+            .len()
+            .min(limit.fixed_batch_len("test file catalog", size_of::<FileVersion>())?)
+            .min(2);
+        let end = if remaining.len() == batch_len {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Owned(remaining[..batch_len].to_vec()), end))
     }
 
     fn estimates_delta_bytes(&self) -> usize {
@@ -278,6 +305,13 @@ impl FileCatalogEditor for OrderedFiles {
                 self.paths
                     .remove(&self.rows.remove(position).entry.relative_path.query_key());
             }
+            FileCatalogDelta::AdvanceVersion(id) => {
+                let version = self.versions.get_mut(id.0 as usize).ok_or_else(|| {
+                    StorageError::invalid("test file catalog", "missing version ID")
+                })?;
+                *version = version.next().map_err(StorageError::ResourceLimit)?;
+            }
+            FileCatalogDelta::ResetVersions(version) => self.versions.fill(version),
             FileCatalogDelta::Rebase(base) => {
                 // This fixture has bounded size and a contiguous discovery base.
                 let next = Self::load(base, base.root(), Arc::clone(&self.fail_seal), &|| false)?;
@@ -317,23 +351,36 @@ struct OrderedFileFactory {
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
-    fn file_catalog(&self, base: &dyn FileCatalogBase) -> StorageResult<FileCatalogHandle> {
-        self.restore_file_catalog(base, base, &|| false)
+    fn file_catalog(
+        &self,
+        base: &dyn FileCatalogBase,
+        version: FileVersion,
+    ) -> StorageResult<FileCatalogHandle> {
+        let mut catalog =
+            OrderedFiles::load(base, base.root(), Arc::clone(&self.fail_seal), &|| false)?;
+        catalog.versions.fill(version);
+        Box::new(catalog).seal()
     }
 
     fn restore_file_catalog(
         &self,
         base: &dyn FileCatalogBase,
-        source: &dyn FileCatalogSource,
+        source: &dyn FileCatalogRevision,
         cancelled: &dyn Fn() -> bool,
     ) -> StorageResult<FileCatalogHandle> {
-        Box::new(OrderedFiles::load(
+        let mut catalog =
+            OrderedFiles::load(source, base.root(), Arc::clone(&self.fail_seal), cancelled)?;
+        catalog.versions.clear();
+        crate::index::storage::file_catalog::transfer_versions(
             source,
-            base.root(),
-            Arc::clone(&self.fail_seal),
+            super::FILE_TRANSFER_LIMIT,
             cancelled,
-        )?)
-        .seal()
+            |batch| {
+                catalog.versions.extend_from_slice(batch);
+                Ok(())
+            },
+        )?;
+        Box::new(catalog).seal()
     }
 
     fn segment_catalog(
@@ -420,6 +467,16 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
     assert!(pinned.file_handle_for_path(second).unwrap().is_none());
     assert!(after_add.file_handle_for_path(second).unwrap().is_some());
     let compacted = index.view().unwrap();
+    assert_eq!(
+        compacted
+            .file_version_including_inactive(added.file.file_id)
+            .unwrap(),
+        Some(added.file.version.next().unwrap())
+    );
+    assert_eq!(
+        after_add.file_version(added.file.file_id).unwrap(),
+        Some(added.file.version)
+    );
     assert!(compacted.file_handle_for_path(second).unwrap().is_none());
     assert_eq!(
         compacted
@@ -430,8 +487,22 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
             .len(),
         2
     );
+    let base = compacted.repository().file_catalog_base();
+    let native = crate::index::storage::default_factory()
+        .restore_file_catalog(&base, compacted.0.catalog.as_ref(), &|| false)
+        .unwrap();
+    assert_eq!(
+        native.version(added.file.file_id).unwrap(),
+        Some(added.file.version.next().unwrap())
+    );
+    assert!(native.file(added.file.file_id).unwrap().is_none());
+    assert_eq!(
+        native.version(initial.id).unwrap(),
+        pinned.file_version(initial.id).unwrap()
+    );
 }
 
+use crate::inventory::FileVersion;
 use crate::model::Number;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
@@ -692,8 +763,12 @@ fn scalar_cap_counts_live_members_after_base_and_delta_churn() {
                     .unwrap();
             }
         }
-        let mut catalog =
-            FileCatalog::from_parts(Arc::new(inventory), Arc::new(Vec::new()), [0; 32]);
+        let mut catalog = FileCatalog::from_parts(
+            Arc::new(inventory),
+            Arc::new(Vec::new()),
+            [0; 32],
+            FileVersion::INITIAL,
+        );
         let entry = |number| crate::inventory::FileEntry {
             id: FileId(number),
             relative_path: format!("{number}.row").into(),

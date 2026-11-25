@@ -373,7 +373,7 @@ impl Index {
                 FileHandle {
                     instance_id: self.instance_id(),
                     file_id,
-                    version: next.file_versions.get(file_id).ok_or(
+                    version: next.catalog.version(file_id)?.ok_or(
                         IndexError::InvalidPublication("new file version missing".into()),
                     )?,
                 };
@@ -460,7 +460,7 @@ impl Index {
     ) -> Result<FileMutationResult, IndexError> {
         let view = self.view()?;
         let actual = view
-            .file_version_including_inactive(handle.file_id)
+            .file_version_including_inactive(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
         if actual != handle.version {
             return Err(IndexError::FileConflict {
@@ -547,20 +547,16 @@ impl Index {
         next.catalog = if entry.collections.is_empty() {
             next.catalog.retired(handle.file_id)?
         } else {
-            next.catalog.replaced(entry, None, None)?
+            next.catalog.replaced_incarnation(entry, None, None)?
         };
-        next.file_versions = next
-            .file_versions
-            .advanced(handle.file_id)
-            .map_err(IndexError::ResourceLimit)?
-            .0;
+
         next.revision = view.revision().next()?;
         let file = FileHandle {
             instance_id: self.instance_id(),
             file_id: handle.file_id,
             version: next
-                .file_versions
-                .get(handle.file_id)
+                .catalog
+                .version(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?,
         };
         let revision = self.publish_prepared(view.revision(), next)?;
@@ -607,7 +603,7 @@ impl Index {
         }
         let view = self.view()?;
         let actual = view
-            .file_version_including_inactive(handle.file_id)
+            .file_version_including_inactive(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
         if actual != handle.version {
             return Err(IndexError::FileConflict {
@@ -673,7 +669,7 @@ impl Index {
                 self.view()?
             };
             let actual = view
-                .file_version_including_inactive(handle.file_id)
+                .file_version_including_inactive(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?;
             if actual != handle.version {
                 return Err(IndexError::FileConflict {
@@ -721,21 +717,17 @@ impl Index {
             let mut next = (*view.0).clone();
             let mut relocated = old.clone().into_owned();
             relocated.relative_path = relative.into();
-            next.catalog = next.catalog.replaced(
+            next.catalog = next.catalog.replaced_incarnation(
                 relocated,
                 Some(fingerprint),
                 Some(view.configuration_identity()),
             )?;
-            next.file_versions = next
-                .file_versions
-                .advanced(handle.file_id)
-                .map_err(IndexError::ResourceLimit)?
-                .0;
+
             next.revision = view.revision().next()?;
             let file = FileHandle {
                 instance_id: self.instance_id(),
                 file_id: handle.file_id,
-                version: next.file_versions.get(handle.file_id).ok_or_else(|| {
+                version: next.catalog.version(handle.file_id)?.ok_or_else(|| {
                     IndexError::InvalidPublication("moved file version missing".into())
                 })?,
             };
@@ -825,7 +817,7 @@ impl Index {
                 ));
             }
             let actual = view
-                .file_version_including_inactive(handle.file_id)
+                .file_version_including_inactive(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?;
             if actual != handle.version {
                 return Err(IndexError::FileConflict {
@@ -963,7 +955,7 @@ impl Index {
             let file = FileHandle {
                 instance_id: self.instance_id(),
                 file_id: handle.file_id,
-                version: next.file_versions.get(handle.file_id).ok_or(
+                version: next.catalog.version(handle.file_id)?.ok_or(
                     IndexError::InvalidPublication("replacement file version missing".into()),
                 )?,
             };
@@ -1004,7 +996,7 @@ impl Index {
             }
             let view = self.view()?;
             let actual = view
-                .file_version_including_inactive(handle.file_id)
+                .file_version_including_inactive(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?;
             if actual != handle.version {
                 return Err(IndexError::FileConflict {

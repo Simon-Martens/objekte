@@ -51,8 +51,8 @@ impl Index {
         let current = self.view()?;
         let actual = current
             .0
-            .file_versions
-            .get(handle.file_id)
+            .catalog
+            .version(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
         if actual != handle.version {
             return Err(IndexError::FileConflict {
@@ -83,11 +83,7 @@ impl Index {
             })
             .collect();
         next.catalog = next.catalog.retired(handle.file_id)?;
-        next.file_versions = next
-            .file_versions
-            .advanced(handle.file_id)
-            .map_err(IndexError::ResourceLimit)?
-            .0;
+
         // Pure deletions have no shard admission to trigger retirement work.
         for collection in &file.collections {
             next.make_room_for_segment(collection.0 as usize)?;
@@ -150,10 +146,7 @@ impl Index {
             prepared.file.fingerprint,
             Some(prepared.configuration_identity),
         )?;
-        next.file_versions = next
-            .file_versions
-            .appended()
-            .map_err(IndexError::ResourceLimit)?;
+
         file.stage(&mut next)?;
         next.revision = view.revision().next()?;
         Ok(next)
@@ -198,8 +191,8 @@ impl Index {
         }
         let actual = view
             .0
-            .file_versions
-            .get(file_id)
+            .catalog
+            .version(file_id)?
             .ok_or(IndexError::UnknownFile)?;
         if actual != prepared.expected_handle.version {
             return Err(IndexError::FileConflict {
@@ -229,16 +222,12 @@ impl Index {
                 entry.collections.push(collection);
             }
         }
-        next.catalog = next.catalog.replaced(
+        next.catalog = next.catalog.replaced_incarnation(
             entry,
             prepared.file.fingerprint,
             Some(prepared.configuration_identity),
         )?;
-        next.file_versions = next
-            .file_versions
-            .advanced(file_id)
-            .map_err(IndexError::ResourceLimit)?
-            .0;
+
         file.stage(&mut next)?;
         // A replacement may remove a collection contribution without adding
         // a new shard there. Recheck its retired ratio after the catalog swap.

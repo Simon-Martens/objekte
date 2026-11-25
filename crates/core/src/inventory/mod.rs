@@ -15,9 +15,7 @@ use crate::source::{DiagnosticCategory, ReaderDiagnostic};
 
 pub mod discovery;
 // Compatibility imports while repository and construction consumers migrate.
-pub(crate) use crate::index::memory::inventory::{
-    ActiveRecords, FileVersions, append_shifted_bitmap,
-};
+pub(crate) use crate::index::memory::inventory::{ActiveRecords, append_shifted_bitmap};
 pub use crate::index::memory::inventory::{
     CollectionBuilder, CollectionGeneration, FileInventory, FileRecordIndex,
 };

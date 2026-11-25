@@ -137,9 +137,10 @@ impl Repository {
                 Arc::clone(&self.storage_factory),
             )?;
             empty.configuration_identity = self.configuration_identity;
-            empty.catalog = empty
-                .storage_factory
-                .file_catalog(&empty.file_catalog_base())?;
+            empty.catalog = empty.storage_factory.file_catalog(
+                &empty.file_catalog_base(),
+                crate::inventory::FileVersion::INITIAL,
+            )?;
             empty
         };
         for (source, target) in self.collections.iter().zip(&mut empty.collections) {

@@ -20,14 +20,15 @@ impl StorageFactory for Arc<TableFactory> {
     fn file_catalog(
         &self,
         base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
+        version: crate::inventory::FileVersion,
     ) -> StorageResult<crate::index::storage::file_catalog::FileCatalogHandle> {
-        crate::index::storage::default_factory().file_catalog(base)
+        crate::index::storage::default_factory().file_catalog(base, version)
     }
 
     fn restore_file_catalog(
         &self,
         base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
-        source: &dyn crate::index::storage::file_catalog::FileCatalogSource,
+        source: &dyn crate::index::storage::file_catalog::FileCatalogRevision,
         cancelled: &dyn Fn() -> bool,
     ) -> StorageResult<crate::index::storage::file_catalog::FileCatalogHandle> {
         crate::index::storage::default_factory().restore_file_catalog(base, source, cancelled)

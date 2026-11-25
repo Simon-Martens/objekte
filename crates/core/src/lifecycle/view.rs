@@ -653,16 +653,18 @@ impl IndexView {
     }
 
     pub fn file_version(&self, file: FileId) -> Result<Option<FileVersion>, IndexError> {
-        Ok(self
-            .0
-            .catalog
-            .is_active(file)?
-            .then(|| self.0.file_versions.get(file))
-            .flatten())
+        if self.0.catalog.is_active(file)? {
+            self.file_version_including_inactive(file)
+        } else {
+            Ok(None)
+        }
     }
 
-    pub(crate) fn file_version_including_inactive(&self, file: FileId) -> Option<FileVersion> {
-        self.0.file_versions.get(file)
+    pub(crate) fn file_version_including_inactive(
+        &self,
+        file: FileId,
+    ) -> Result<Option<FileVersion>, IndexError> {
+        Ok(self.0.catalog.version(file)?)
     }
 
     pub(crate) fn file_entry(

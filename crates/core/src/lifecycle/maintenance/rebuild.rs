@@ -1,8 +1,10 @@
 use std::time::{Duration, Instant};
 
 use crate::index::segment::SegmentBacking;
-use crate::index::storage::file_catalog::{FILE_TRANSFER_LIMIT, FileCatalogSource, transfer_files};
-use crate::inventory::{FileVersion, FileVersions};
+use crate::index::storage::file_catalog::{
+    FILE_TRANSFER_LIMIT, FileCatalogDelta, FileCatalogSource, edit_file_catalog, transfer_files,
+};
+use crate::inventory::FileVersion;
 use crate::lifecycle::initial::InitialBuildPhase;
 use crate::lifecycle::maintenance::MaintenancePhase;
 use crate::lifecycle::mutation::preparation::{index_prepared_file, prepare_file_at};
@@ -178,16 +180,12 @@ impl Index {
                                 entry.collections.push(collection);
                             }
                         }
-                        next.catalog = next.catalog.replaced(
+                        next.catalog = next.catalog.replaced_incarnation(
                             entry,
                             prepared.fingerprint,
                             Some(view.configuration_identity()),
                         )?;
-                        next.file_versions = next
-                            .file_versions
-                            .advanced(old.id)
-                            .map_err(IndexError::ResourceLimit)?
-                            .0;
+
                         observed.push((
                             prepared.source,
                             prepared.identity,
@@ -273,8 +271,12 @@ impl Index {
             let mut next = (*fresh.view()?.0).clone();
             next.instance_id = self.instance_id();
             next.revision = next_revision;
-            next.file_versions =
-                FileVersions::filled(next.catalog.allocated_files(), FileVersion(next_revision.0));
+            next.catalog = edit_file_catalog(
+                next.catalog.as_ref(),
+                [FileCatalogDelta::ResetVersions(FileVersion(
+                    next_revision.0,
+                ))],
+            )?;
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }

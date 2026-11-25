@@ -17,22 +17,23 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
     fn file_catalog(
         &self,
         base: &dyn super::storage::file_catalog::FileCatalogBase,
+        version: crate::inventory::FileVersion,
     ) -> super::storage::transfer::StorageResult<super::storage::file_catalog::FileCatalogHandle>
     {
         Ok(std::sync::Arc::new(file_catalog::FileCatalog::from_base(
-            base,
+            base, version,
         )?))
     }
 
     fn restore_file_catalog(
         &self,
         base: &dyn super::storage::file_catalog::FileCatalogBase,
-        source: &dyn super::storage::file_catalog::FileCatalogSource,
+        source: &dyn super::storage::file_catalog::FileCatalogRevision,
         cancelled: &dyn Fn() -> bool,
     ) -> super::storage::transfer::StorageResult<super::storage::file_catalog::FileCatalogHandle>
     {
         Ok(std::sync::Arc::new(
-            file_catalog::FileCatalog::restore_base(base, source, cancelled)?,
+            file_catalog::FileCatalog::restore_revision(base, source, cancelled)?,
         ))
     }
 

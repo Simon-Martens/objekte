@@ -16,7 +16,7 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use super::inventory::FileInventory;
+use super::inventory::{FileInventory, FileVersions};
 use crate::index::storage::file_catalog::{
     FILE_TRANSFER_LIMIT, FileCatalogBase, FileCatalogDelta, FileCatalogEditor, FileCatalogHandle,
     FileCatalogReader, FileCatalogRevision, FileCatalogSource, FilePathBounds, FileScalarPredicate,
@@ -27,7 +27,7 @@ use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, Sto
 use crate::inventory::FileStatus;
 #[cfg(test)]
 use crate::inventory::relative_path_bounds;
-use crate::inventory::{FileEntry, SharedPath, empty_path_bounds};
+use crate::inventory::{FileEntry, FileVersion, SharedPath, empty_path_bounds};
 #[cfg(test)]
 use crate::lifecycle::reconciliation::scan::FileStamp;
 use crate::model::{FileId, Number};
@@ -90,6 +90,7 @@ pub(crate) struct FileCatalog {
     active: Arc<RoaringBitmap>,
     scalar_base_live: Arc<RoaringBitmap>,
     len: u32,
+    versions: FileVersions,
 }
 
 /// Native discoveries are retained by reference. Other representations can
@@ -239,9 +240,17 @@ fn path_bounds_with_ids(
 }
 
 impl FileCatalog {
-    pub(super) fn from_base(base: &dyn FileCatalogBase) -> StorageResult<Self> {
+    pub(super) fn from_base(
+        base: &dyn FileCatalogBase,
+        version: FileVersion,
+    ) -> StorageResult<Self> {
         let (files, fingerprints) = native_base(base)?;
-        Ok(Self::from_parts(files, fingerprints, base.configuration()))
+        Ok(Self::from_parts(
+            files,
+            fingerprints,
+            base.configuration(),
+            version,
+        ))
     }
 
     /// Build a private catalog from ordered live rows and an allocation bound.
@@ -250,6 +259,7 @@ impl FileCatalog {
         base: &dyn FileCatalogBase,
         source: &dyn FileCatalogSource,
         cancelled: &dyn Fn() -> bool,
+        versions: FileVersions,
     ) -> StorageResult<Self> {
         const OP: &str = "restore file catalog";
         let (base_files, base_fingerprints) = native_base(base)?;
@@ -353,12 +363,25 @@ impl FileCatalog {
             active: Arc::new(active),
             scalar_base_live: Arc::new(scalar_base_live),
             len,
+            versions,
         })
+    }
+
+    pub(super) fn restore_revision(
+        base: &dyn FileCatalogBase,
+        source: &dyn FileCatalogRevision,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<Self> {
+        let versions = match (source as &dyn std::any::Any).downcast_ref::<Self>() {
+            Some(source) => source.versions.clone(),
+            None => FileVersions::from_catalog(source, cancelled)?,
+        };
+        Self::restore_base(base, source, cancelled, versions)
     }
 
     #[cfg(test)]
     pub(crate) fn from_repository(base: Arc<Repository>) -> Result<Self, String> {
-        Self::from_base(&base.file_catalog_base()).map_err(String::from)
+        Self::from_base(&base.file_catalog_base(), FileVersion::INITIAL).map_err(String::from)
     }
 
     #[cfg(test)]
@@ -367,13 +390,19 @@ impl FileCatalog {
         source: &dyn FileCatalogSource,
         cancelled: &dyn Fn() -> bool,
     ) -> StorageResult<Self> {
-        Self::restore_base(&base.file_catalog_base(), source, cancelled)
+        Self::restore_base(
+            &base.file_catalog_base(),
+            source,
+            cancelled,
+            FileVersions::filled(source.high_water_mark() as usize, FileVersion::INITIAL),
+        )
     }
 
     fn from_parts(
         files: Arc<crate::inventory::FileInventory>,
         fingerprints: Arc<Vec<Option<[u8; 32]>>>,
         base_configuration: [u8; 32],
+        version: FileVersion,
     ) -> Self {
         let _ = files.scalar_index();
         let len = u32::try_from(files.files.len()).expect("file inventory length checked at build");
@@ -392,6 +421,7 @@ impl FileCatalog {
             active: Arc::new(active.clone()),
             scalar_base_live: Arc::new(active),
             len,
+            versions: FileVersions::filled(len as usize, version),
         }
     }
 
@@ -757,6 +787,7 @@ impl FileCatalog {
         Arc::make_mut(&mut next.changed_relative_paths).insert((query_key, id), ());
         Arc::make_mut(&mut next.active).insert(id.0);
         next.len = next.len.checked_add(1).ok_or("too many indexed files")?;
+        next.versions = next.versions.appended()?;
         Ok(next)
     }
 
@@ -831,6 +862,18 @@ impl FileCatalogRevision for FileCatalog {
         self.construction_complete()
     }
 
+    fn version(&self, id: FileId) -> StorageResult<Option<FileVersion>> {
+        Ok(self.versions.get(id))
+    }
+
+    fn read_versions(
+        &self,
+        start: FileId,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [FileVersion]>, BatchStatus)> {
+        self.versions.read_batch(start, limit)
+    }
+
     fn estimates_delta_bytes(&self) -> usize {
         self.scalar_delta_heap_bytes()
     }
@@ -873,6 +916,16 @@ impl FileCatalogEditor for FileCatalog {
                 *self = self
                     .retired(file)
                     .map_err(|error| StorageError::invalid("retire file metadata", error))?;
+            }
+            FileCatalogDelta::AdvanceVersion(id) => {
+                self.versions = self
+                    .versions
+                    .advanced(id)
+                    .map_err(StorageError::ResourceLimit)?
+                    .0;
+            }
+            FileCatalogDelta::ResetVersions(version) => {
+                self.versions = FileVersions::filled(self.len as usize, version);
             }
             FileCatalogDelta::Rebase(base) => self.rebase(base)?,
             FileCatalogDelta::ConstructionComplete(complete) => {

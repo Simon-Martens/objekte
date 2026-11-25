@@ -14,17 +14,21 @@ pub(crate) mod segment_catalog;
 
 use std::sync::Arc;
 
-use file_catalog::{FileCatalogBase, FileCatalogHandle, FileCatalogSource};
+use file_catalog::{FileCatalogBase, FileCatalogHandle, FileCatalogRevision};
 use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
-    fn file_catalog(&self, base: &dyn FileCatalogBase) -> StorageResult<FileCatalogHandle>;
+    fn file_catalog(
+        &self,
+        base: &dyn FileCatalogBase,
+        initial_version: crate::inventory::FileVersion,
+    ) -> StorageResult<FileCatalogHandle>;
 
     fn restore_file_catalog(
         &self,
         base: &dyn FileCatalogBase,
-        source: &dyn FileCatalogSource,
+        source: &dyn FileCatalogRevision,
         cancelled: &dyn Fn() -> bool,
     ) -> StorageResult<FileCatalogHandle>;
 

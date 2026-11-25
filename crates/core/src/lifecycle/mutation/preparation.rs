@@ -62,8 +62,8 @@ impl Index {
         let view = self.view()?;
         let actual = view
             .0
-            .file_versions
-            .get(handle.file_id)
+            .catalog
+            .version(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
         if actual != handle.version {
             return Err(IndexError::FileConflict {
@@ -327,7 +327,7 @@ pub(super) fn prepare_replacement_bytes(
     }
     let view = index.view()?;
     let actual = view
-        .file_version_including_inactive(handle.file_id)
+        .file_version_including_inactive(handle.file_id)?
         .ok_or(IndexError::UnknownFile)?;
     if actual != handle.version {
         return Err(IndexError::FileConflict {

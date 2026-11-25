@@ -1335,7 +1335,7 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
         Some(FileId(0))
     );
     assert_eq!(
-        staged.file_versions.get(FileId(0)).unwrap().0,
+        staged.catalog.version(FileId(0)).unwrap().unwrap().0,
         handle.version.0 + 1
     );
     assert_eq!(index.status().unwrap(), before);

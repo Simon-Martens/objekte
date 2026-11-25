@@ -81,6 +81,7 @@ impl FileVersions {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn len(&self) -> usize {
         self.len
     }
@@ -94,6 +95,64 @@ impl FileVersions {
             .get(index / FILE_VERSION_CHUNK)?
             .get(index % FILE_VERSION_CHUNK)
             .copied()
+    }
+
+    pub(super) fn read_batch(
+        &self,
+        start: FileId,
+        limit: crate::index::storage::transfer::BatchLimit,
+    ) -> crate::index::storage::transfer::StorageResult<(
+        std::borrow::Cow<'_, [FileVersion]>,
+        crate::index::storage::transfer::BatchStatus,
+    )> {
+        use crate::index::storage::transfer::{BatchStatus, StorageError};
+        const OP: &str = "read native file versions";
+        let start = start.0 as usize;
+        if start == self.len {
+            return Ok((std::borrow::Cow::Borrowed(&[]), BatchStatus::Done));
+        }
+        let chunk = self
+            .chunks
+            .get(start / FILE_VERSION_CHUNK)
+            .and_then(|chunk| chunk.get(start % FILE_VERSION_CHUNK..))
+            .ok_or_else(|| StorageError::invalid(OP, "version start out of bounds"))?;
+        let length = chunk
+            .len()
+            .min(limit.fixed_batch_len(OP, size_of::<FileVersion>())?);
+        let status = if start + length == self.len {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((std::borrow::Cow::Borrowed(&chunk[..length]), status))
+    }
+
+    pub(super) fn from_catalog(
+        source: &dyn crate::index::storage::file_catalog::FileCatalogRevision,
+        cancelled: &dyn Fn() -> bool,
+    ) -> crate::index::storage::transfer::StorageResult<Self> {
+        use crate::index::storage::file_catalog::{FILE_TRANSFER_LIMIT, transfer_versions};
+        let mut chunks = Vec::new();
+        let mut current = Vec::new();
+        transfer_versions(source, FILE_TRANSFER_LIMIT, cancelled, |mut versions| {
+            while !versions.is_empty() {
+                let length = versions.len().min(FILE_VERSION_CHUNK - current.len());
+                let (next, rest) = versions.split_at(length);
+                current.extend_from_slice(next);
+                if current.len() == FILE_VERSION_CHUNK {
+                    chunks.push(Arc::new(std::mem::take(&mut current)));
+                }
+                versions = rest;
+            }
+            Ok(())
+        })?;
+        if !current.is_empty() {
+            chunks.push(Arc::new(current));
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            len: source.high_water_mark() as usize,
+        })
     }
 
     /// Create a private next version without changing any published view.

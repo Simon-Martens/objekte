@@ -251,7 +251,7 @@ fn partition_base_with_limits_inner(
     let empty = Arc::new(root.repository.empty_like().map_err(IndexError::Build)?);
     let catalog = empty.storage_factory.restore_file_catalog(
         &empty.file_catalog_base(),
-        &root.catalog,
+        root.catalog.as_ref(),
         &|| false,
     )?;
     let mut groups = root.segments.clone();

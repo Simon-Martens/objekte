@@ -104,6 +104,7 @@ impl From<crate::index::storage::transfer::StorageError> for IndexError {
         use crate::index::storage::transfer::StorageError;
         match error {
             StorageError::Cancelled => Self::Cancelled,
+            StorageError::ResourceLimit(message) => Self::ResourceLimit(message),
             StorageError::OversizedItem { .. } => Self::ResourceLimit(error.to_string()),
             StorageError::InvalidTransfer { .. } => Self::Storage(error.to_string()),
         }
