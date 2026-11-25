@@ -77,9 +77,6 @@ struct GroupInfo {
 
 impl GroupInfo {
     fn for_batch(batch: &Batch) -> Option<Self> {
-        if batch.operations.len() > 128 {
-            return None;
-        }
         Some(Self {
             registration: batch.registration,
             shape: group_shape(batch)?,
@@ -447,7 +444,6 @@ impl RecordWriter {
             return Err(SubmitError::BatchTooLarge(batch));
         }
         let weight = batch.estimated_bytes;
-        let group = GroupInfo::for_batch(&batch);
         let lock = if memory_only {
             queue.state.try_lock().ok()
         } else {
@@ -469,6 +465,9 @@ impl RecordWriter {
                 .metrics
                 .high_water_ram_bytes
                 .max(state.metrics.pending_ram_bytes);
+            let group = (batch.operations.len() <= 128)
+                .then(|| GroupInfo::for_batch(&batch))
+                .flatten();
             return Ok(enqueue(
                 &mut state,
                 queue,
@@ -537,6 +536,7 @@ impl RecordWriter {
             state.metrics.pending_spool_bytes -= reclaimed;
             return Err(SubmitError::Closed(batch));
         }
+        let group = GroupInfo::for_batch(&batch);
         Ok(enqueue(
             &mut state,
             queue,
