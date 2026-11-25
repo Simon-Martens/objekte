@@ -1,0 +1,4 @@
+live_segments=63 resolved=1 matched_files=1 membership_probes=1 broad=0 content_opens=0
+live_segments=64 resolved=1 matched_files=1 membership_probes=1 broad=0 content_opens=0
+test routed_size_filter_stays_selective_after_managed_catalog_churn ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 1.02s

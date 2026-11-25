@@ -1,0 +1,79 @@
+{
+  "fixture": "/home/simon/source/objekte/examples/musenalm",
+  "platform": "Linux-7.3.3-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "available_cpus": 32,
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "implementations": {
+    "base": {
+      "revision": "f5b846771ccf63151ad33f07739f5a19dcb26505",
+      "build": [
+        "cargo",
+        "build",
+        "--locked",
+        "--release",
+        "-p",
+        "objekte-search-core",
+        "--features",
+        "detailed-profiling",
+        "--example",
+        "bench_native_record_ingestion",
+        "--example",
+        "bench_lifecycle_mutations",
+        "--example",
+        "bench_metadata_repair_probe",
+        "--example",
+        "bench_managed_file_scale_repair_probe",
+        "--example",
+        "bench_build_musenalm_repair_probe"
+      ],
+      "binaries": {
+        "bench_native_record_ingestion": "4afd9f4eada6b3eccad353a975b23fac97b5ae00eba697d8685d1173f3b8b5b8",
+        "bench_lifecycle_mutations": "efb3048ed0541ed3a425b161041ca6c77ac7e687d026b32098de2e88558a2002",
+        "bench_metadata_repair_probe": "6097bd9ab1ad493b5cbfc48b33c704f9a8a6e815e488f51abea5663c3aae018c",
+        "bench_managed_file_scale_repair_probe": "8f7eb602c6c4368e6b435d5fa370312205561c7c1f80b2692ee725493941f8d7",
+        "bench_build_musenalm_repair_probe": "34eb852cface8350a3e75496d88f53b01e563ab56cb89cd3e2905546767f18c6"
+      },
+      "copied_sources": {
+        "bench_metadata_repair_probe": "742a9e175f7d81a61f39deadd517eedb9e3d36d46a9e2c6b3d476590e1355059",
+        "bench_managed_file_scale_repair_probe": "5fc25aea55337b4a06a4126c154722b4fca33452a40757ebccc800a1cc3e1b2b",
+        "bench_build_musenalm_repair_probe": "5a104840104771708ca2155ef7cc19b033940f15e3eed3a22908e95aa14ae3df"
+      }
+    },
+    "final": {
+      "revision": "2b97e38698777bbaea85b8e64c7693ecdcdfa78c",
+      "build": [
+        "cargo",
+        "build",
+        "--locked",
+        "--release",
+        "-p",
+        "objekte-search-core",
+        "--features",
+        "detailed-profiling",
+        "--example",
+        "bench_native_record_ingestion",
+        "--example",
+        "bench_lifecycle_mutations",
+        "--example",
+        "bench_metadata_repair_probe",
+        "--example",
+        "bench_managed_file_scale",
+        "--example",
+        "bench_build_musenalm"
+      ],
+      "binaries": {
+        "bench_native_record_ingestion": "4c52931d4beab9697a94eaa246d6903a84cc07164fcbbf30960d3b5c6fd77090",
+        "bench_lifecycle_mutations": "996639048afffec42130ad0f258cc26d568525cfa3d5d42f90ef18e5e60978c5",
+        "bench_metadata_repair_probe": "e3f85966c05b727b68e3cb71d1911ca4ee3d5104c4d8a03201f7e4540fb8a2cb",
+        "bench_managed_file_scale": "ecab8281ca72a10e57f8f1407aba4cad7c4b33b7e65619d5084cb6a25ad810c9",
+        "bench_build_musenalm": "2c9b047f35752d9bd047f62ddbfa8bdfb5c030be37e9cf3966def1f8b78fb6a7"
+      },
+      "copied_sources": {
+        "bench_metadata_repair_probe": "742a9e175f7d81a61f39deadd517eedb9e3d36d46a9e2c6b3d476590e1355059"
+      }
+    }
+  },
+  "complete": true,
+  "run_count": 62
+}
