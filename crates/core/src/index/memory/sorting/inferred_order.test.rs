@@ -136,7 +136,7 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
 
 #[test]
 fn mixed_scalar_sort_keys_obey_total_kind_order_and_comparator_laws() {
-    use time::Month;
+    use time::{Date, Month};
 
     let date = Date::from_calendar_date(2026, Month::January, 1).unwrap();
     let instant = date.midnight().assume_utc();

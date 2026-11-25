@@ -714,4 +714,5 @@ impl FileCatalog {
 }
 
 #[cfg(test)]
+#[path = "file_catalog/tests.rs"]
 mod tests;

@@ -16,7 +16,7 @@ use crate::model::{CollectionId, FileId};
 use crate::query_results::SearchResult;
 
 pub(crate) mod builder;
-pub(crate) mod catalog;
+pub(crate) use crate::index::memory::file_catalog as catalog;
 pub mod initial;
 pub mod maintenance;
 pub mod mutation;

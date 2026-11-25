@@ -16,27 +16,7 @@ use crate::schema::relations::{RelationDefinition, RelationId};
 static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
     std::sync::atomic::AtomicUsize::new(0);
 
-/// Resolved target slot or an ID that has no target in its declared namespace.
-#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
-pub enum RelationTarget {
-    Resolved(RecordSlot),
-    Unresolved(String),
-}
-
-/// One source occurrence of a declared ID, with array indexes from outer to inner.
-/// The logical target ID remains available when the resolved slot is retired.
-#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
-pub struct RelationEdge {
-    pub target: RelationTarget,
-    target_id: String,
-    pub positions: Vec<u32>,
-}
-
-impl RelationEdge {
-    pub fn target_id(&self) -> &str {
-        &self.target_id
-    }
-}
+pub use crate::index::storage::relation::{RelationEdge, RelationTarget};
 
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
 /// read from its `CollectionGeneration` record; no file ID is duplicated here.

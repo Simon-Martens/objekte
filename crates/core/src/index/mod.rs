@@ -1,7 +1,7 @@
-//! Physical index storage and transformations.
+//! Index storage and backend-independent index types.
 
-pub mod bigram;
-pub mod posting;
-pub mod relation;
-pub mod segment;
-pub mod sorting;
+pub(crate) mod memory;
+pub(crate) mod storage;
+
+// Transitional exports during the storage consumer migration.
+pub use memory::{bigram, posting, relation, segment, sorting};

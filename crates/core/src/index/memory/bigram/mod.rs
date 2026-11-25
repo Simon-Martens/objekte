@@ -8,7 +8,6 @@ use crate::model::RecordSlot;
 use crate::model::text::fold;
 use crate::source::TextSegment;
 use roaring::RoaringBitmap;
-use serde::{Deserialize, Serialize};
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 mod builder;
@@ -17,15 +16,7 @@ pub(crate) use builder::{
     BigramBuilder, BigramConstructionStats, BigramContribution, storage_diagnostic_enabled,
 };
 
-pub const BIGRAM_VERSION: u32 = 3;
-pub const FOLDED_REPRESENTATION: &str = "unicode-casefold-0.2.0/unicode-9.0.0/full/non-turkic";
-
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "lowercase")]
-pub enum BigramAlphabet {
-    Ascii,
-    Unicode,
-}
+pub use crate::index::storage::text::{BIGRAM_VERSION, BigramAlphabet, FOLDED_REPRESENTATION};
 
 /// Emit windows over the folded stream without losing unsupported ASCII byte
 /// positions or joining independent reader-owned segments.
