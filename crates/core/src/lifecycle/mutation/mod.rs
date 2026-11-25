@@ -504,10 +504,15 @@ impl Index {
                 entry.collections.push(collection);
             }
         }
-        next.catalog = next
-            .catalog
-            .replaced(entry, None, None)
-            .map_err(IndexError::InvalidPublication)?;
+        next.catalog = if entry.collections.is_empty() {
+            next.catalog
+                .retired(handle.file_id)
+                .map_err(IndexError::InvalidPublication)?
+        } else {
+            next.catalog
+                .replaced(entry, None, None)
+                .map_err(IndexError::InvalidPublication)?
+        };
         next.file_versions = next
             .file_versions
             .advanced(handle.file_id)

@@ -841,6 +841,64 @@ fn move_across_importer_selection_indexes_and_retires_only_imported_records() {
 }
 
 #[test]
+fn importer_only_move_outside_selection_retires_empty_catalog_membership() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-importer-only-transition-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::create_dir_all(root.join("attachments")).unwrap();
+    let inside = root.join("data/one.json");
+    let outside = root.join("attachments/one.json");
+    std::fs::write(&inside, br#"{"title":"imported"}"#).unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    let importer = CollectionDefinition::folder("entries", "data", SourceFormat::Json);
+    builder
+        .register_file_source(collection, importer.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let added = index.add_file(&inside).unwrap();
+    let pinned = index.view().unwrap();
+    assert_eq!(index.status().unwrap().live_records, 1);
+    std::fs::rename(&inside, &outside).unwrap();
+    let moved = index.move_file(added.file, &outside).unwrap();
+    assert_eq!(moved.retired_records, 1);
+    assert_eq!(moved.indexed_records, 0);
+    assert_eq!(index.status().unwrap().live_records, 0);
+    let current = index.view().unwrap();
+    assert!(current.file_handle_for_path(&outside).is_none());
+    assert!(
+        current
+            .file_catalog()
+            .unwrap()
+            .file_by_path(std::path::Path::new("attachments/one.json"))
+            .is_none()
+    );
+    assert_eq!(
+        current
+            .file_catalog()
+            .unwrap()
+            .records_for_file(added.file.file_id),
+        Err(objekte_search_core::files::LookupError::FileNotFound)
+    );
+    assert!(
+        pinned
+            .file_catalog()
+            .unwrap()
+            .file(added.file.file_id)
+            .is_ok()
+    );
+    index.rebuild().unwrap();
+    assert_eq!(index.status().unwrap().live_records, 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn rootless_file_operations_and_reconciliation_return_without_panicking() {
     let mut builder = Index::builder();
     let collection = builder.collection("entries", Schema::default()).unwrap();
