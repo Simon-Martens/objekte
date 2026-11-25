@@ -2,7 +2,7 @@ use std::collections::{BTreeMap, HashMap};
 use std::sync::{Arc, Mutex};
 
 use objekte_search_core::files::FileCatalog;
-use objekte_search_core::ingestion::{IngestionOptions, SubmitError};
+use objekte_search_core::ingestion::{IngestionOptions, RecordInput, SubmitError};
 use objekte_search_core::inventory::{ByteRange, SourceRevision};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
@@ -631,7 +631,15 @@ fn file_tokens_are_bound_to_the_declaration_batch() {
         "foreign batch file token"
     );
     second
-        .insert_with_file("second", record(2, "second"), second_token, None)
+        .insert_input(
+            "second",
+            RecordInput::new(record(2, "second"))
+                .with_text(vec![TextSegment {
+                    path: vec!["note".into()],
+                    text: "second".into(),
+                }])
+                .with_file(second_token, None),
+        )
         .unwrap();
     writer.submit(second).unwrap().wait_published().unwrap();
     writer.submit(first).unwrap().wait_published().unwrap();
@@ -1452,18 +1460,48 @@ fn versioned_provider_disposes_input_and_checks_rereads() {
     let mut batch = writer.batch();
     let file = batch.declare_file("source.txt", file_revision).unwrap();
     batch
-        .insert_from_reader_with_file(
+        .insert_input(
             "entry-47",
-            record(1808, "Leipzig"),
-            RecordVersion::new(7),
-            file,
-            Some(ByteRange::checked(0, 5, file_revision.size).unwrap()),
+            RecordInput::new(record(1808, "Leipzig"))
+                .with_text(vec![TextSegment {
+                    path: vec!["note".into()],
+                    text: "Leipzig".into(),
+                }])
+                .from_reader(RecordVersion::new(7))
+                .with_file(
+                    file,
+                    Some(ByteRange::checked(0, 5, file_revision.size).unwrap()),
+                ),
         )
         .unwrap();
     batch
         .insert_from_reader("retired", record(1808, "Leipzig"), RecordVersion::new(7))
         .unwrap();
     writer.submit(batch).unwrap().wait_published().unwrap();
+    let mut replacement = writer.batch();
+    let file = replacement
+        .declare_file("source.txt", file_revision)
+        .unwrap();
+    replacement
+        .replace_input(
+            "entry-47",
+            RecordInput::new(record(1808, "Leipzig"))
+                .with_text(vec![TextSegment {
+                    path: vec!["note".into()],
+                    text: "Leipzig".into(),
+                }])
+                .from_reader(RecordVersion::new(7))
+                .with_file(
+                    file,
+                    Some(ByteRange::checked(0, 5, file_revision.size).unwrap()),
+                ),
+        )
+        .unwrap();
+    writer
+        .submit(replacement)
+        .unwrap()
+        .wait_published()
+        .unwrap();
     let pinned = index.view().unwrap();
     let mut deletion = writer.batch();
     deletion.delete("retired").unwrap();

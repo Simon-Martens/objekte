@@ -25,6 +25,41 @@ pub struct FileToken {
     ordinal: u32,
 }
 
+/// One owned logical input with independently chosen text, provider version
+/// and optional batch-local file association.
+pub struct RecordInput {
+    value: Value,
+    text: Vec<TextSegment>,
+    version: Option<RecordVersion>,
+    file: Option<(FileToken, Option<ByteRange>)>,
+}
+
+impl RecordInput {
+    pub fn new(value: Value) -> Self {
+        Self {
+            value,
+            text: Vec::new(),
+            version: None,
+            file: None,
+        }
+    }
+
+    pub fn with_text(mut self, text: Vec<TextSegment>) -> Self {
+        self.text = text;
+        self
+    }
+
+    pub fn from_reader(mut self, version: RecordVersion) -> Self {
+        self.version = Some(version);
+        self
+    }
+
+    pub fn with_file(mut self, token: FileToken, range: Option<ByteRange>) -> Self {
+        self.file = Some((token, range));
+        self
+    }
+}
+
 static NEXT_BATCH: AtomicU64 = AtomicU64::new(1);
 
 /// Only a validated batch-local ordinal crosses the private spool boundary.
@@ -135,6 +170,54 @@ impl Batch {
         );
         self.operations.push(operation);
         Ok(())
+    }
+
+    /// Insert any supported combination of logical value, supplied text,
+    /// provider version and local file token.
+    pub fn insert_input(&mut self, id: impl AsRef<str>, input: RecordInput) -> Result<(), String> {
+        self.push_input(id, input, false)
+    }
+
+    /// Replace using the same input choices as `insert_input`.
+    pub fn replace_input(&mut self, id: impl AsRef<str>, input: RecordInput) -> Result<(), String> {
+        self.push_input(id, input, true)
+    }
+
+    fn push_input(
+        &mut self,
+        id: impl AsRef<str>,
+        input: RecordInput,
+        replace: bool,
+    ) -> Result<(), String> {
+        if input.version.is_some() && !self.reader_available {
+            return Err("provider input needs a registered reader".into());
+        }
+        let file = input
+            .file
+            .map(|(token, range)| self.checked_file(token, range))
+            .transpose()?
+            .flatten();
+        let id = RecordId::intrinsic(id.as_ref())?;
+        let bytes =
+            estimated_value_bytes(&input.value).saturating_add(estimated_text_bytes(&input.text));
+        let operation = if replace {
+            Operation::Replace {
+                id,
+                value: input.value,
+                text: input.text,
+                file,
+                version: input.version,
+            }
+        } else {
+            Operation::Insert {
+                id,
+                value: input.value,
+                text: input.text,
+                file,
+                version: input.version,
+            }
+        };
+        self.push(operation, bytes)
     }
 
     pub fn insert(&mut self, id: impl AsRef<str>, value: Value) -> Result<(), String> {

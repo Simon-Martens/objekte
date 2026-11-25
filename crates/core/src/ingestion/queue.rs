@@ -1530,6 +1530,113 @@ mod tests {
     }
 
     #[test]
+    fn group_seals_at_policy_target_and_preserves_later_ordered_changes() {
+        let mut builder =
+            Index::builder().with_options(crate::repository::configuration::RepositoryOptions {
+                segment_policy: crate::index::segment::SegmentPolicy::with_target_records(
+                    std::num::NonZeroUsize::new(4).unwrap(),
+                )
+                .unwrap(),
+                ..Default::default()
+            });
+        let collection = builder.collection("entries", Schema::default()).unwrap();
+        let registration = builder
+            .register_records(collection, "group-target", 1)
+            .unwrap();
+        let index = builder.build().unwrap();
+        let session = index.ingestion();
+        session.pause_worker_for_measurement().unwrap();
+        let writer = session.writer(registration).unwrap();
+        let mut large = writer.batch();
+        for number in 0..6 {
+            large
+                .insert(
+                    format!("large-{number}"),
+                    crate::model::Value::String("large".into()),
+                )
+                .unwrap();
+        }
+        let large_receipt = writer.submit(large).unwrap();
+        let mut receipts = Vec::new();
+        for number in 0..9 {
+            receipts.push(
+                writer
+                    .submit(batch(
+                        session.core.id,
+                        registration,
+                        &format!("small-{number}"),
+                    ))
+                    .unwrap(),
+            );
+        }
+        session.resume_worker_for_measurement();
+        let large_revision = large_receipt.wait_published().unwrap();
+        let revisions = receipts
+            .iter()
+            .map(Receipt::wait_published)
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap();
+        assert!(revisions[0] > large_revision);
+        assert!(
+            revisions[0..4]
+                .iter()
+                .all(|revision| *revision == revisions[0])
+        );
+        assert!(
+            revisions[4..8]
+                .iter()
+                .all(|revision| *revision == revisions[4])
+        );
+        assert!(revisions[8] > revisions[4]);
+        assert_eq!(index.status().unwrap().live_records, 15);
+
+        let mut replacement = writer.batch();
+        replacement
+            .replace("small-0", crate::model::Value::String("replaced".into()))
+            .unwrap();
+        let replaced_revision = writer
+            .submit(replacement)
+            .unwrap()
+            .wait_published()
+            .unwrap();
+        assert!(replaced_revision > revisions[8]);
+        let mut deletion = writer.batch();
+        deletion.delete("small-1").unwrap();
+        writer.submit(deletion).unwrap().wait_published().unwrap();
+        let idle = writer
+            .submit(batch(session.core.id, registration, "idle"))
+            .unwrap();
+        assert_eq!(session.flush().unwrap(), idle.wait_published().unwrap());
+        let later = writer
+            .submit(batch(session.core.id, registration, "later"))
+            .unwrap();
+        assert_eq!(session.flush().unwrap(), later.wait_published().unwrap());
+        session.finish().unwrap();
+        assert_eq!(index.status().unwrap().live_records, 16);
+        assert_eq!(session.metrics().accepted_batches, 14);
+        assert_eq!(session.metrics().published_batches, 14);
+        let view = index.view().unwrap();
+        assert!(
+            view.get_record(
+                "entries",
+                "small-1",
+                crate::query::options::ReturnMode::Locator
+            )
+            .unwrap()
+            .is_none()
+        );
+        assert!(
+            view.get_record(
+                "entries",
+                "later",
+                crate::query::options::ReturnMode::Locator
+            )
+            .unwrap()
+            .is_some()
+        );
+    }
+
+    #[test]
     fn failed_middle_group_member_publishes_valid_prefix_only() {
         let mut builder = Index::builder();
         let collection = builder.collection("entries", Schema::default()).unwrap();
