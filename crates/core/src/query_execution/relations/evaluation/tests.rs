@@ -3004,15 +3004,15 @@ fn base_repository(root: &std::path::Path, definitions: Vec<CollectionDefinition
             offsets,
             slots,
         };
-        state.postings = segment.postings.clone();
+        state.postings = (*segment.postings).clone();
         state.inference = segment.inference.clone();
         state.custom_postings = segment.custom_postings.clone();
-        state.raw = segment.raw.clone();
-        state.fallback_text = segment.fallback_text.clone();
+        state.raw = (*segment.raw).clone();
+        state.fallback_text = (*segment.fallback_text).clone();
         state.logical_records = segment.logical_records.clone();
         state.empty_array_records = segment.empty_array_records.clone();
         state.custom_text = segment.custom_text.clone();
-        state.sorting = segment.sorting.clone();
+        state.sorting = (*segment.sorting).clone();
         state.index_family_bytes = segment.accounting.index_family_bytes;
         state.id_lookup = segment.id_lookup.clone();
         state.identity_order = segment.identity_order.clone();

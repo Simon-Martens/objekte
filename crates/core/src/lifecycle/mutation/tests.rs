@@ -139,6 +139,14 @@ fn native_link_refresh_touches_only_routed_segments_and_skips_unchanged_file() {
     for (left, right) in before.0.segments[0].iter().zip(removed.segments[0].iter()) {
         if left.index.file_index.contains_key(&entry.id) {
             assert!(!std::sync::Arc::ptr_eq(left, right));
+            assert!(left.index.postings.shares_with(&right.index.postings));
+            assert!(left.index.raw.shares_with(&right.index.raw));
+            assert!(
+                left.index
+                    .fallback_text
+                    .shares_with(&right.index.fallback_text)
+            );
+            assert!(left.index.sorting.shares_with(&right.index.sorting));
         } else {
             assert!(std::sync::Arc::ptr_eq(left, right));
         }

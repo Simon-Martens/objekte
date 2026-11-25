@@ -659,7 +659,7 @@ pub(crate) fn assemble_final_repository(
             // segment-local columns can be selected. Keys remain owned by
             // their source segments and are never addressed through this
             // compatibility header.
-            collection.sorting = first.index.sorting.clone();
+            collection.sorting = (*first.index.sorting).clone();
             for column in collection.sorting.columns.values_mut() {
                 column.keys.clear();
                 column.keys.shrink_to_fit();

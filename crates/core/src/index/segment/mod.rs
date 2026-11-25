@@ -9,7 +9,7 @@ pub(crate) use projection::PartitionRouting;
 use std::collections::{BTreeMap, HashMap};
 use std::fmt;
 use std::num::NonZeroUsize;
-use std::ops::BitOrAssign;
+use std::ops::{BitOrAssign, Deref, DerefMut};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
@@ -28,6 +28,38 @@ use crate::records::RecordVersion;
 use crate::source::TextSegment;
 
 const ACCOUNTING_OVERHEAD: usize = 48;
+
+/// Immutable segment columns are shared across publication-local link edits.
+/// Construction still mutates an unshared value through copy-on-write.
+#[derive(Clone)]
+pub(crate) struct SharedColumn<T: Clone>(Arc<T>);
+
+impl<T: Clone> From<T> for SharedColumn<T> {
+    fn from(value: T) -> Self {
+        Self(Arc::new(value))
+    }
+}
+
+impl<T: Clone> Deref for SharedColumn<T> {
+    type Target = T;
+
+    fn deref(&self) -> &T {
+        &self.0
+    }
+}
+
+impl<T: Clone> DerefMut for SharedColumn<T> {
+    fn deref_mut(&mut self) -> &mut T {
+        Arc::make_mut(&mut self.0)
+    }
+}
+
+#[cfg(test)]
+impl<T: Clone> SharedColumn<T> {
+    pub(crate) fn shares_with(&self, other: &Self) -> bool {
+        Arc::ptr_eq(&self.0, &other.0)
+    }
+}
 
 /// Deterministic soft target used by every ordinary segment-producing path.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -621,15 +653,15 @@ pub(crate) struct IndexedCollectionSegment {
     pub raw_covers_logical_fields: bool,
     pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
-    pub postings: PostingCollection,
+    pub postings: SharedColumn<PostingCollection>,
     pub inference: Option<InferenceState>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub raw: BigramIndex,
-    pub fallback_text: BigramIndex,
+    pub raw: SharedColumn<BigramIndex>,
+    pub fallback_text: SharedColumn<BigramIndex>,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
-    pub sorting: SortCollection,
+    pub sorting: SharedColumn<SortCollection>,
     /// Relation source references retain logical target IDs for merged-view
     /// resolution across segment and collection boundaries.
     pub relations: Vec<RelationContribution>,
@@ -707,6 +739,14 @@ impl IndexedCollectionSegment {
         let backing = &self.backing;
         let files = &self.files;
         let file_index = &self.file_index;
+        if !self
+            .sorting
+            .columns
+            .keys()
+            .any(|path| matches!(path.root, crate::model::PathRoot::Metadata(_)))
+        {
+            return Ok(());
+        }
         self.sorting.refresh_metadata_slots(
             &self.records,
             slots,

@@ -369,14 +369,14 @@ impl IndexedCollectionSegment {
         let mut file_index = HashMap::new();
         let mut records = Vec::with_capacity(total_records);
         let mut id_lookup = HashMap::new();
-        let mut postings = first.postings.clone();
+        let mut postings = (*first.postings).clone();
         let mut custom_postings = first.custom_postings.clone();
-        let mut raw = first.raw.clone();
-        let mut fallback_text = first.fallback_text.clone();
+        let mut raw = (*first.raw).clone();
+        let mut fallback_text = (*first.fallback_text).clone();
         let mut custom_text = first.custom_text.clone();
         let mut logical_records = RoaringBitmap::new();
         let mut empty_array_records = RoaringBitmap::new();
-        let mut sorting = first.sorting.clone();
+        let mut sorting = (*first.sorting).clone();
         let mut relations = first.relations.clone();
         let mut record_parses = 0u64;
         let mut failed_parses = 0u64;
@@ -433,7 +433,7 @@ impl IndexedCollectionSegment {
             append_shifted_bitmap(&mut logical_records, &shard.logical_records, base)?;
             append_shifted_bitmap(&mut empty_array_records, &shard.empty_array_records, base)?;
             if number != 0 {
-                postings.merge_shifted(shard.postings.clone(), base)?;
+                postings.merge_shifted((*shard.postings).clone(), base)?;
                 if custom_postings.len() != shard.custom_postings.len() {
                     return Err("custom posting segment coverage mismatch".into());
                 }
@@ -576,15 +576,15 @@ impl IndexedCollectionSegment {
             raw_covers_logical_fields: shards.iter().all(|shard| shard.raw_covers_logical_fields),
             id_lookup,
             identity_order,
-            postings,
+            postings: postings.into(),
             inference,
             custom_postings,
-            raw,
-            fallback_text,
+            raw: raw.into(),
+            fallback_text: fallback_text.into(),
             custom_text,
             logical_records,
             empty_array_records,
-            sorting,
+            sorting: sorting.into(),
             relations,
             record_parses,
             failed_parses,

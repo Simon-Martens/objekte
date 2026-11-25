@@ -212,13 +212,13 @@ impl Repository {
                     .map(|relation| relation.estimated_bytes())
                     .sum(),
                 bigram_stores: 2 + view.index.custom_text.len(),
-                distinct_gram_keys: std::iter::once(&view.index.raw)
-                    .chain(std::iter::once(&view.index.fallback_text))
+                distinct_gram_keys: std::iter::once(&*view.index.raw)
+                    .chain(std::iter::once(&*view.index.fallback_text))
                     .chain(view.index.custom_text.values())
                     .map(|index| index.normal.len() + index.skip.len())
                     .sum(),
-                bigram_heap_bytes: std::iter::once(&view.index.raw)
-                    .chain(std::iter::once(&view.index.fallback_text))
+                bigram_heap_bytes: std::iter::once(&*view.index.raw)
+                    .chain(std::iter::once(&*view.index.fallback_text))
                     .chain(view.index.custom_text.values())
                     .map(crate::index::bigram::BigramIndex::estimated_heap_bytes)
                     .sum(),
