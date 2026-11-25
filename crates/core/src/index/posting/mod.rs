@@ -68,6 +68,8 @@ const SUMMARY_STRING_OR_ID: u16 = SUMMARY_STRING | SUMMARY_ID;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SelectionSummary {
     kinds: u16,
+    // Here we mark if there wer objects where the path matched multiple keys in
+    // the same object.
     multiple: bool,
     empty_traversal: bool,
 }
@@ -194,12 +196,17 @@ impl SelectionSummary {
 pub struct PostingIndex {
     pub path: Vec<String>,
     pub kind: LogicalType,
+    // eg. {"items": [{"price": 23}]}. Then the path items.price can match many different
+    // concrete paths in a cocrete structure. For two keys in an object with the same path
+    // see summary.multiple
     pub multi: bool,
     pub presence: RoaringBitmap,
+
     /// Complete terminal observation when construction can certify it.
     pub summary: Option<SelectionSummary>,
     pub values: BTreeMap<ScalarKey, RoaringBitmap>,
     pub lengths: BTreeMap<Number, RoaringBitmap>,
+
     /// Whether the declared field admits a complete typed value dictionary.
     /// Partial length and empty-string shortcuts are tracked separately.
     pub values_indexed: bool,
