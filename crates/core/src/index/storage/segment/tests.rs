@@ -3,7 +3,6 @@ use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::*;
 use crate::index::storage::liveness::InitialLiveness;
-use crate::index::storage::transfer::StorageError;
 use crate::inventory::{DiagnosticRef, RecordClass};
 use crate::model::{RecordId, Value};
 use crate::query::options::ReturnMode;
@@ -17,6 +16,7 @@ struct RecordTable {
     rows: Vec<(RecordHeader, Value)>,
     bodies_read: AtomicUsize,
     fail_read: AtomicBool,
+    fail_header_after: Option<usize>,
 }
 
 impl SegmentReader for RecordTable {
@@ -26,6 +26,45 @@ impl SegmentReader for RecordTable {
             collection: CollectionId(0),
             slots: self.rows.len(),
         }
+    }
+
+    fn source(&self) -> SegmentSource<'_> {
+        SegmentSource {
+            adapter: "fixture-record-table",
+            version: 1,
+            registration: Some(0),
+        }
+    }
+
+    fn read_header_batch(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [RecordHeader]>, BatchStatus)> {
+        const OP: &str = "read test headers";
+        if self.fail_header_after.is_some_and(|after| start >= after) {
+            return Err(StorageError::invalid(OP, "injected late header failure"));
+        }
+        let remaining = self
+            .rows
+            .get(start..)
+            .ok_or_else(|| StorageError::invalid(OP, "start beyond last slot"))?;
+        let mut batch = Vec::new();
+        let mut bytes = 0;
+        for (header, _) in remaining.iter().take(2) {
+            let size = size_of::<RecordHeader>() + header.id.0.len();
+            if !limit.accepts(OP, batch.len(), bytes, size)? {
+                break;
+            }
+            bytes += size;
+            batch.push(header.clone());
+        }
+        let status = if batch.len() == remaining.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Owned(batch), status))
     }
 
     fn backing_kind(&self) -> RecordBacking {
@@ -117,6 +156,7 @@ fn real_direct_lookup_supports_owned_record_rows_and_checked_payload_reads() {
         )],
         bodies_read: AtomicUsize::new(0),
         fail_read: AtomicBool::new(false),
+        fail_header_after: None,
     };
     let active = crate::index::storage::test_factory()
         .live_records(1, InitialLiveness::All)
@@ -149,4 +189,48 @@ fn real_direct_lookup_supports_owned_record_rows_and_checked_payload_reads() {
             .unwrap_err()
             .contains("injected body read failure")
     );
+}
+
+#[test]
+fn header_batches_preserve_slot_order_and_report_a_late_failure() {
+    let rows: Vec<_> = (0..5)
+        .map(|slot| {
+            let id = RecordId::intrinsic(format!("row-{slot}")).unwrap();
+            (
+                RecordHeader {
+                    slot: RecordSlot(slot),
+                    id,
+                    class: RecordClass::Logical,
+                    diagnostic_ref: DiagnosticRef(0),
+                },
+                Value::Null,
+            )
+        })
+        .collect();
+    let mut segment = RecordTable {
+        by_id: rows
+            .iter()
+            .map(|(header, _)| (header.id.clone(), header.slot))
+            .collect(),
+        rows,
+        bodies_read: AtomicUsize::new(0),
+        fail_read: AtomicBool::new(false),
+        fail_header_after: None,
+    };
+    let collect = |reader: &RecordTable, slots: &mut Vec<u32>| {
+        visit_record_headers(reader, |headers| {
+            assert!(headers.len() <= 2);
+            slots.extend(headers.iter().map(|header| header.slot.0));
+            Ok::<_, StorageError>(())
+        })
+    };
+    let mut slots = Vec::new();
+    collect(&segment, &mut slots).unwrap();
+    assert_eq!(slots, [0, 1, 2, 3, 4]);
+    slots.clear();
+    segment.fail_header_after = Some(2);
+    let error = collect(&segment, &mut slots).unwrap_err();
+    assert!(error.to_string().contains("injected late header failure"));
+    assert_eq!(slots, [0, 1]);
+    assert_eq!(segment.bodies_read.load(Ordering::Relaxed), 0);
 }

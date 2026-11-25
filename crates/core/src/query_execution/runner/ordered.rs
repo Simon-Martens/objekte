@@ -235,17 +235,19 @@ pub(super) fn flush_all_batch_if_full(
     Ok(())
 }
 
-pub(super) fn inferred_order_index<'a>(
-    repo: &'a Repository,
+pub(super) fn inferred_order_path(
+    repo: &Repository,
     query: &Query,
-    segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
-) -> Option<(usize, FieldPath, &'a PostingIndex)> {
-    if query.options.sort.len() != 1 {
-        return None;
-    }
-    let part = simple_composite_part(&query.options.sort[0])?;
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+) -> Result<Option<(usize, FieldPath)>, String> {
+    let [field] = query.options.sort.as_slice() else {
+        return Ok(None);
+    };
+    let Some(part) = simple_composite_part(field) else {
+        return Ok(None);
+    };
     if part.path.root != PathRoot::Data {
-        return None;
+        return Ok(None);
     }
     let mut selected = repo
         .collections
@@ -254,9 +256,11 @@ pub(super) fn inferred_order_index<'a>(
         .filter(|(_, collection)| {
             query.collections.is_empty() || query.collections.contains(&collection.definition.name)
         });
-    let (collection_index, collection) = selected.next()?;
+    let Some((collection_index, collection)) = selected.next() else {
+        return Ok(None);
+    };
     if selected.next().is_some()
-        || collection.sorting.columns.contains_key(&part.path)
+        || collection.definition.sort_fields.contains(&part.path)
         || collection
             .definition
             .schema
@@ -264,21 +268,22 @@ pub(super) fn inferred_order_index<'a>(
             .get(&part.path.segments)
             .is_some_and(|name| name != "default")
     {
-        return None;
+        return Ok(None);
     }
-    let mut selected = None;
-    for segment in segments.get(collection_index)?.iter() {
+    let Some(group) = segments.get(collection_index) else {
+        return Ok(None);
+    };
+    let mut saw_segment = false;
+    for segment in group.iter() {
         if segment.active.len() == 0 {
             continue;
         }
-        let catalog =
-            crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection);
-        let index = catalog.sortable_scalar(&part.path.segments)?;
-        if selected.is_none() {
-            selected = Some(index);
+        if !segment.index.supports_posting_order(&part.path)? {
+            return Ok(None);
         }
+        saw_segment = true;
     }
-    selected.map(|index| (collection_index, part.path, index))
+    Ok(saw_segment.then_some((collection_index, part.path)))
 }
 
 /// A posting order is useful for an unrestricted page or a filter whose
@@ -292,7 +297,7 @@ pub(super) fn posting_order_eligible(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &dyn FileCatalogReader,
 ) -> Result<bool, String> {
-    let Some((collection_index, _, _)) = inferred_order_index(repo, query, segments) else {
+    let Some((collection_index, _)) = inferred_order_path(repo, query, segments)? else {
         return Ok(false);
     };
     if query.fts.is_some() {
@@ -349,7 +354,7 @@ pub(super) fn inferred_order_column(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<(usize, Arc<dyn OrderColumnReader>)>, String> {
-    let Some((collection_index, path, _index)) = inferred_order_index(repo, query, segments) else {
+    let Some((collection_index, path)) = inferred_order_path(repo, query, segments)? else {
         return Ok(None);
     };
     if prepared.collections.len() != 1
@@ -377,11 +382,6 @@ pub(super) fn inferred_order_column_for_segment(
     execution: Option<&ExecutionContext>,
 ) -> Result<Option<Arc<dyn OrderColumnReader>>, String> {
     let collection = &repo.collections[collection_index];
-    let segment_index =
-        crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection);
-    let index = segment_index
-        .sortable_scalar(&path.segments)
-        .ok_or("selected inferred segment lost scalar coverage")?;
     let key = InferredOrderKey::new(
         collection_index,
         collection.generation.generation,
@@ -392,14 +392,14 @@ pub(super) fn inferred_order_column_for_segment(
         query.options.sort[0].descending,
     );
     let column = cached_inferred_order(&repo.inferred_orders, key, || {
-        let rows = crate::index::sorting::build_inferred_order_rows(
-            index,
-            &segment.index.records,
-            path.clone(),
-            &collection.definition.sort_locale,
-            collection.definition.sort_options,
-            query.options.sort[0].descending,
-            execution,
+        let rows = segment.index.build_posting_order(
+            crate::index::storage::order::PostingOrderRequest {
+                path,
+                locale: &collection.definition.sort_locale,
+                options: collection.definition.sort_options,
+                descending: query.options.sort[0].descending,
+                execution,
+            },
         )?;
         rows.map(|rows| repo.storage_factory.inferred_order(rows))
             .transpose()
@@ -530,7 +530,7 @@ pub(super) fn try_inferred_segment_order_page(
     }
     let collection_index = prepared.collections[0].collection_index;
     let filter = prepared.collections[0].filter.as_ref();
-    let Some((_, path, _)) = inferred_order_index(repo, query, segments) else {
+    let Some((_, path)) = inferred_order_path(repo, query, segments)? else {
         return Ok(None);
     };
     let collection = &repo.collections[collection_index];

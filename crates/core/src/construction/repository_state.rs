@@ -669,25 +669,8 @@ pub(crate) fn assemble_final_repository(
         collection.stats = metadata.stats;
         collection.logical_records = metadata.logical_records;
         collection.empty_array_records = metadata.empty_array_records;
-        if let Some(first) = segments.first() {
-            // Sort bindings need locale/options/direction metadata before
-            // segment-local columns can be selected. Keys remain owned by
-            // their source segments and are never addressed through this
-            // compatibility header.
-            collection.sorting = (*first.index.sorting).clone();
-            for column in collection.sorting.columns.values_mut() {
-                column.keys.clear();
-                column.keys.shrink_to_fit();
-                column.ascending.clear();
-                column.ascending.shrink_to_fit();
-                column.descending.clear();
-                column.descending.shrink_to_fit();
-            }
-            for composite in &mut collection.sorting.composites {
-                composite.order.clear();
-                composite.order.shrink_to_fit();
-            }
-        }
+        // The empty sort columns already carry the declaration and collation
+        // metadata. Keep the finished keys and orders on their source segments.
         pending_relations.push(relations);
         let (_, stats) = state.finish_summary(options).map_err(IndexError::Build)?;
         collection.global_inference = crate::index::memory::inference::aggregate_segment_inference(

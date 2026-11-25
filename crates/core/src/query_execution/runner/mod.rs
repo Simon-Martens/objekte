@@ -11,7 +11,6 @@ use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::index::posting::PostingIndex;
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 #[cfg(test)]
@@ -98,7 +97,7 @@ mod source_scan;
 use ordered::cached_inferred_order;
 pub(crate) use ordered::direct_payload;
 use ordered::{
-    LifecycleOrderCursor, RejectedOrderPlans, flush_all_batch_if_full, inferred_order_index,
+    LifecycleOrderCursor, RejectedOrderPlans, flush_all_batch_if_full, inferred_order_path,
     offer_cached_key, posting_order_eligible, read_lifecycle_ordered_record,
     try_inferred_order_page, try_inferred_segment_order_page, try_stored_order_page,
 };
@@ -6776,8 +6775,8 @@ pub(crate) fn explain_with_active(
         && !has_related_fts
         && prepared.collections.len() == 1
         && posting_order_eligible(repo, query, Some(&prepared), &repo.segments, &repo.catalog)?
-        && inferred_order_index(repo, query, &repo.segments)
-            .is_some_and(|(index, _, _)| prepared.collections[0].collection_index == index);
+        && inferred_order_path(repo, query, &repo.segments)?
+            .is_some_and(|(index, _)| prepared.collections[0].collection_index == index);
     let mut traces = Vec::new();
     let mut ordered_candidate_total = 0u64;
     for entry in prepared.collections {

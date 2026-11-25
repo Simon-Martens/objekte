@@ -10,6 +10,7 @@ use crate::index::storage::file_catalog::{
     FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource, edit_file_catalog,
 };
 use crate::index::storage::liveness::InitialLiveness;
+use crate::index::storage::segment::{SegmentReader, visit_record_headers};
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
     install_segment,
@@ -310,7 +311,8 @@ impl PublishedIndex {
         allocate_id: bool,
     ) -> Result<(), IndexError> {
         let index = &**payload;
-        let number = index.collection.0 as usize;
+        let descriptor = index.descriptor();
+        let number = descriptor.collection.0 as usize;
         if number >= self.segments.len() {
             return Err(IndexError::InvalidPublication(
                 "segment collection missing".into(),
@@ -321,21 +323,19 @@ impl PublishedIndex {
             self.repository.collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("segment collection missing".into())
             })?;
-        let source_matches = match &index.backing {
-            crate::index::segment::SegmentBacking::FileRange { .. } => {
-                collection.source.as_ref().is_some_and(|source| {
-                    index.source_id == source.id() && index.source_version == source.version()
-                })
-            }
-            crate::index::segment::SegmentBacking::Retained { registration, .. }
-            | crate::index::segment::SegmentBacking::Provider { registration, .. } => self
+        let binding = index.source();
+        let source_matches = match binding.registration {
+            None => collection.source.as_ref().is_some_and(|source| {
+                binding.adapter == source.id() && binding.version == source.version()
+            }),
+            Some(registration) => self
                 .repository
                 .record_registrations
-                .get(*registration as usize)
+                .get(registration as usize)
                 .is_some_and(|source| {
-                    source.handle.collection == index.collection
-                        && index.source_id == source.adapter_id
-                        && index.source_version == source.version
+                    source.handle.collection == descriptor.collection
+                        && binding.adapter == source.adapter_id
+                        && binding.version == source.version
                 }),
         };
         if !source_matches {
@@ -355,20 +355,24 @@ impl PublishedIndex {
                 ));
             }
         }
-        for id in index.id_lookup.keys() {
-            let existing_duplicate = self.live_route(number, id.0.as_ref())?.is_some();
-            if collection
-                .id_lookup
-                .get(id)
-                .is_some_and(|slot| self.active[number].contains(*slot))
-                || existing_duplicate
-            {
-                return Err(IndexError::DuplicateRecordId {
-                    collection: collection.definition.name.clone(),
-                    record_id: id.0.to_string(),
-                });
+        visit_record_headers(index, |headers| {
+            for header in headers {
+                let id = &header.id;
+                let existing_duplicate = self.live_route(number, id.0.as_ref())?.is_some();
+                if collection
+                    .id_lookup
+                    .get(id)
+                    .is_some_and(|slot| self.active[number].contains(*slot))
+                    || existing_duplicate
+                {
+                    return Err(IndexError::DuplicateRecordId {
+                        collection: collection.definition.name.clone(),
+                        record_id: id.0.to_string(),
+                    });
+                }
             }
-        }
+            Ok(())
+        })?;
         if !self.catalog.construction_complete() {
             for file in &index.files {
                 let members = self.processed_memberships.get_mut(number).ok_or_else(|| {
@@ -391,8 +395,8 @@ impl PublishedIndex {
         let active = self
             .repository
             .storage_factory
-            .live_records(index.records.len(), InitialLiveness::All)?;
-        let mut segment_id = index.id;
+            .live_records(descriptor.slots, InitialLiveness::All)?;
+        let mut segment_id = descriptor.id;
         if allocate_id
             || segment_id.get() == 1
             || self.segments[number]
@@ -407,7 +411,7 @@ impl PublishedIndex {
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
-        if !allocate_id && index.id != segment_id {
+        if !allocate_id && descriptor.id != segment_id {
             Arc::get_mut(payload)
                 .expect("unpublished payload is uniquely owned before placement")
                 .id = segment_id;
@@ -1132,16 +1136,7 @@ impl Index {
                         ))
                     })?;
                     let published = &next.segments[number][index];
-                    let owner = match &published.index.backing {
-                        crate::index::segment::SegmentBacking::Retained {
-                            registration, ..
-                        }
-                        | crate::index::segment::SegmentBacking::Provider {
-                            registration, ..
-                        } => *registration,
-                        crate::index::segment::SegmentBacking::FileRange { .. } => u32::MAX,
-                    };
-                    if owner != registration.ordinal {
+                    if published.index.source().registration != Some(registration.ordinal) {
                         return Err(IndexError::Build(format!(
                             "record {} belongs to another registrar",
                             change.id.0
@@ -1150,17 +1145,19 @@ impl Index {
                     if expected != prepared_from.revision() {
                         // Compaction relocates headers but shares the immutable ID
                         // allocation. A new direct write creates a new allocation.
-                        let current = &published.index.records[slot.0 as usize].id.0;
-                        let original = prepared_from
-                            .0
-                            .live_route(number, change.id.0.as_ref())?
-                            .and_then(|(position, slot)| {
-                                prepared_from.0.segments[number][position]
-                                    .index
-                                    .record(slot)
-                                    .map(|record| &record.id.0)
-                            });
-                        if !original.is_some_and(|original| Arc::ptr_eq(current, original)) {
+                        let current = published.index.header(slot)?.ok_or_else(|| {
+                            IndexError::Storage("record route points to a missing header".into())
+                        })?;
+                        let original = prepared_from.0.live_route(number, change.id.0.as_ref())?;
+                        let original = match original {
+                            Some((position, slot)) => prepared_from.0.segments[number][position]
+                                .index
+                                .header(slot)?,
+                            None => None,
+                        };
+                        if !original
+                            .is_some_and(|original| Arc::ptr_eq(&current.id.0, &original.id.0))
+                        {
                             return Err(IndexError::Build(format!(
                                 "record {} changed during preparation",
                                 change.id.0

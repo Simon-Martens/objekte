@@ -25,7 +25,7 @@ use crate::schema::Schema;
 
 mod inferred_order;
 
-pub(crate) use inferred_order::build_inferred_order_rows;
+pub(super) use inferred_order::build_inferred_order_rows;
 
 pub(crate) use crate::index::storage::order::simple_composite_part;
 pub use crate::index::storage::order::{

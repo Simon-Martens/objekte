@@ -3882,13 +3882,6 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     .unwrap();
     let collection = &repo.collections[0];
     let segment = &repo.segments[0][0];
-    let index = crate::query_access::catalog::IndexCatalog::segment(&segment.index, collection)
-        .sortable_scalar(&["label".into()])
-        .unwrap();
-    let mut generation = collection.generation.clone();
-    generation.records = (0..segment.index.records.len())
-        .map(|slot| segment.index.file_record(RecordSlot(slot as u32)).unwrap())
-        .collect();
     let token = CancellationToken::new();
     let context = ExecutionContext::new(
         crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
@@ -3896,21 +3889,21 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
         Some(token.clone()),
     );
     context.cancel_on_check_for_test(3);
-    let error = crate::index::sorting::build_inferred_order_rows(
-        index,
-        &generation.records,
-        FieldPath::parse("label").unwrap(),
-        &collection.definition.sort_locale,
-        collection.definition.sort_options,
-        false,
-        Some(&context),
-    )
-    .err()
-    .expect("cancelled order build");
+    let error = segment
+        .index
+        .build_posting_order(crate::index::storage::order::PostingOrderRequest {
+            path: &FieldPath::parse("label").unwrap(),
+            locale: &collection.definition.sort_locale,
+            options: collection.definition.sort_options,
+            descending: false,
+            execution: Some(&context),
+        })
+        .err()
+        .expect("cancelled order build");
     assert!(token.is_cancelled());
     assert!(context.checks_for_test() >= 3);
     assert_eq!(
-        context.recorded_error(error).kind,
+        context.recorded_error(String::from(error)).kind,
         ExecutionErrorKind::Cancelled
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -8977,7 +8970,11 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
             evidence: false,
         },
     };
-    assert!(inferred_order_index(&repo, &request, &repo.segments).is_some());
+    assert!(
+        inferred_order_path(&repo, &request, &repo.segments)
+            .unwrap()
+            .is_some()
+    );
     assert!(!posting_order_eligible(&repo, &request, None, &repo.segments, &repo.catalog).unwrap());
     let cold = repo.search(&request).unwrap();
     assert_eq!(cold.hits, repo.search_reference(&request).unwrap().hits);

@@ -23,13 +23,13 @@ use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
 use crate::index::storage::file_catalog::FileCatalogHandle;
-use crate::index::storage::order::SortKey;
+use crate::index::storage::order::{InferredOrderRows, PostingOrderRequest, SortKey};
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::segment::{
     RecordBacking, RecordOrigin, RetainedBlock, RetainedBlockReader, SegmentDescriptor,
-    SegmentReader,
+    SegmentReader, SegmentSource,
 };
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
 use crate::lifecycle::IndexRevision;
 #[cfg(test)]
@@ -678,6 +678,40 @@ impl SegmentReader for IndexedCollectionSegment {
         }
     }
 
+    fn source(&self) -> SegmentSource<'_> {
+        let registration = match &self.backing {
+            SegmentBacking::FileRange { .. } => None,
+            SegmentBacking::Retained { registration, .. }
+            | SegmentBacking::Provider { registration, .. } => Some(*registration),
+        };
+        SegmentSource {
+            adapter: &self.source_id,
+            version: self.source_version,
+            registration,
+        }
+    }
+
+    fn read_header_batch(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [crate::records::RecordHeader]>, BatchStatus)> {
+        const OP: &str = "read native segment headers";
+        let remaining = self
+            .records
+            .get(start..)
+            .ok_or_else(|| StorageError::invalid(OP, "start beyond last slot"))?;
+        let len = remaining
+            .len()
+            .min(limit.fixed_batch_len(OP, size_of::<crate::records::RecordHeader>())?);
+        let status = if len == remaining.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Borrowed(&remaining[..len]), status))
+    }
+
     fn backing_kind(&self) -> RecordBacking {
         match self.backing {
             SegmentBacking::FileRange { .. } => RecordBacking::FileRange,
@@ -744,6 +778,33 @@ impl SegmentReader for IndexedCollectionSegment {
             }
         }
         Ok(())
+    }
+
+    fn supports_posting_order(&self, path: &crate::model::FieldPath) -> StorageResult<bool> {
+        Ok(super::access::catalog::sortable_segment_posting(self, &path.segments).is_some())
+    }
+
+    fn build_posting_order(
+        &self,
+        request: PostingOrderRequest<'_>,
+    ) -> StorageResult<Option<InferredOrderRows>> {
+        let index = super::access::catalog::sortable_segment_posting(self, &request.path.segments)
+            .ok_or_else(|| {
+                StorageError::invalid(
+                    "build inferred order",
+                    "selected posting lost scalar coverage",
+                )
+            })?;
+        super::sorting::build_inferred_order_rows(
+            index,
+            &self.records,
+            request.path.clone(),
+            request.locale,
+            request.options,
+            request.descending,
+            request.execution,
+        )
+        .map_err(|error| StorageError::invalid("build inferred order", error))
     }
 
     fn stored_key(

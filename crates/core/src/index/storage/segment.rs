@@ -11,9 +11,9 @@ use crate::model::{CollectionId, FieldPath, FileId, RecordSlot};
 use crate::query::options::SortField;
 use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
-use super::order::SortKey;
+use super::order::{InferredOrderRows, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
-use super::transfer::{BatchLimit, StorageResult};
+use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 /// Deterministic soft target used by every ordinary segment-producing path.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -114,6 +114,56 @@ pub(crate) struct SegmentDescriptor {
     pub(crate) slots: usize,
 }
 
+/// Adapter identity captured when a segment is sealed.
+pub(crate) struct SegmentSource<'a> {
+    pub adapter: &'a str,
+    pub version: u32,
+    pub registration: Option<u32>,
+}
+
+const HEADER_LIMIT: BatchLimit = BatchLimit::new(
+    NonZeroUsize::new(256).unwrap(),
+    NonZeroUsize::new(16 * 1024 * 1024).unwrap(),
+);
+
+const READ_HEADERS: &str = "read segment headers";
+
+/// Check slot order and completion before passing a batch to publication.
+pub(crate) fn visit_record_headers<E: From<StorageError>>(
+    reader: &dyn SegmentReader,
+    mut visit: impl FnMut(&[RecordHeader]) -> Result<(), E>,
+) -> Result<(), E> {
+    let total = reader.descriptor().slots;
+    let mut start = 0usize;
+    let max_rows = HEADER_LIMIT.fixed_batch_len(READ_HEADERS, size_of::<RecordHeader>())?;
+    loop {
+        let (headers, status) = reader.read_header_batch(start, HEADER_LIMIT)?;
+        let end = start
+            .checked_add(headers.len())
+            .ok_or_else(|| StorageError::invalid(READ_HEADERS, "record slot overflow"))?;
+        if end > total
+            || (status == BatchStatus::Done) != (end == total)
+            || (headers.is_empty() && status == BatchStatus::More)
+            || headers.len() > max_rows
+            || headers
+                .iter()
+                .enumerate()
+                .any(|(offset, header)| header.slot.0 as usize != start + offset)
+        {
+            return Err(
+                StorageError::invalid(READ_HEADERS, "invalid header batch or slot order").into(),
+            );
+        }
+        if !headers.is_empty() {
+            visit(&headers)?;
+        }
+        if status == BatchStatus::Done {
+            return Ok(());
+        }
+        start = end;
+    }
+}
+
 /// Logical provenance for a file-backed address or an optional direct link.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct FileRangeLocator {
@@ -165,6 +215,16 @@ pub(crate) type RetainedBlock = std::sync::Arc<dyn RetainedBlockReader>;
 pub(crate) trait SegmentReader: Send + Sync {
     fn descriptor(&self) -> SegmentDescriptor;
 
+    fn source(&self) -> SegmentSource<'_>;
+
+    /// Read records in slot order. Borrowed batches charge their row storage,
+    /// and decoded batches also charge their owned IDs to the supplied limit.
+    fn read_header_batch(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [RecordHeader]>, BatchStatus)>;
+
     fn backing_kind(&self) -> RecordBacking;
 
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>>;
@@ -184,6 +244,17 @@ pub(crate) trait SegmentReader: Send + Sync {
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()>;
 
+    fn supports_posting_order(&self, _path: &FieldPath) -> StorageResult<bool> {
+        Ok(false)
+    }
+
+    fn build_posting_order(
+        &self,
+        _request: PostingOrderRequest<'_>,
+    ) -> StorageResult<Option<InferredOrderRows>> {
+        Ok(None)
+    }
+
     fn stored_key(
         &self,
         path: &FieldPath,
@@ -200,6 +271,18 @@ pub(crate) trait SegmentReader: Send + Sync {
 impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
     fn descriptor(&self) -> SegmentDescriptor {
         self.as_ref().descriptor()
+    }
+
+    fn source(&self) -> SegmentSource<'_> {
+        self.as_ref().source()
+    }
+
+    fn read_header_batch(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [RecordHeader]>, BatchStatus)> {
+        self.as_ref().read_header_batch(start, limit)
     }
 
     fn backing_kind(&self) -> RecordBacking {
@@ -233,6 +316,17 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()> {
         self.as_ref().visit_file_slots(file, limit, visit)
+    }
+
+    fn supports_posting_order(&self, path: &FieldPath) -> StorageResult<bool> {
+        self.as_ref().supports_posting_order(path)
+    }
+
+    fn build_posting_order(
+        &self,
+        request: PostingOrderRequest<'_>,
+    ) -> StorageResult<Option<InferredOrderRows>> {
+        self.as_ref().build_posting_order(request)
     }
 
     fn stored_key(

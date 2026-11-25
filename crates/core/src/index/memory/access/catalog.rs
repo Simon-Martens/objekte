@@ -556,34 +556,39 @@ impl<'a> IndexCatalog<'a> {
         }
         (built_in && !named_operation && raw_field_compatible).then_some(self.raw_text)
     }
+}
 
-    /// An ordered value access needs one complete scalar key or a known
-    /// missing/null state for every logical record. This rule is independent
-    /// of the producer that populated the posting.
-    pub fn sortable_scalar(&self, path: &[String]) -> Option<&'a PostingIndex> {
-        self.field_postings(path, "default", false)
-            .into_iter()
-            .flatten()
-            .find(|access| {
-                let index = access.index;
-                access.admitted
-                    && index.covered_records as u64 == self.logical.len()
-                    && index.value_complete
-                    && !index.multi
-                    && matches!(
-                        index.kind,
-                        LogicalType::Number | LogicalType::Bool | LogicalType::String
-                    )
-                    && access.short_string_coverage.is_none_or(|covered| {
-                        index.null_posting().map_or_else(
-                            || index.presence.difference_len(covered) == 0,
-                            |nulls| {
-                                index.presence.difference_len(covered)
-                                    == nulls.difference_len(covered)
-                            },
-                        )
-                    })
+/// An ordered value access needs one complete scalar key or a known
+/// missing/null state for every logical record.
+pub(in crate::index::memory) fn sortable_segment_posting<'a>(
+    segment: &'a IndexedCollectionSegment,
+    path: &[String],
+) -> Option<&'a PostingIndex> {
+    let complete = |index: &PostingIndex, short_string_coverage: Option<&RoaringBitmap>| {
+        index.covered_records as u64 == segment.logical_records.len()
+            && index.value_complete
+            && !index.multi
+            && matches!(
+                index.kind,
+                LogicalType::Number | LogicalType::Bool | LogicalType::String
+            )
+            && short_string_coverage.is_none_or(|covered| {
+                index.null_posting().map_or_else(
+                    || index.presence.difference_len(covered) == 0,
+                    |nulls| index.presence.difference_len(covered) == nulls.difference_len(covered),
+                )
             })
-            .map(|access| access.index)
-    }
+    };
+    segment
+        .postings
+        .fields
+        .get(path)
+        .filter(|index| complete(index, None))
+        .or_else(|| {
+            let observed = segment.inference.as_ref()?;
+            observed
+                .indexes
+                .get(path)
+                .filter(|index| complete(index, observed.short_string_coverage.get(path)))
+        })
 }

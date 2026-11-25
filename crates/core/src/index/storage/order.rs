@@ -26,6 +26,15 @@ pub(crate) trait OrderColumnReader: Send + Sync {
     fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots>;
 }
 
+/// A query-created scalar order requested against one pinned segment.
+pub(crate) struct PostingOrderRequest<'a> {
+    pub path: &'a FieldPath,
+    pub locale: &'a str,
+    pub options: SortOptions,
+    pub descending: bool,
+    pub execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
+}
+
 /// Owned logical keys and an ordered slot sequence prepared from a complete
 /// scalar dictionary. The destination can adopt or encode these buffers.
 pub(crate) struct InferredOrderRows {
