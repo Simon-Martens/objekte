@@ -3947,6 +3947,55 @@ fn segmented_stream_error(
     }
 }
 
+#[derive(Clone, Copy)]
+enum StreamBacking {
+    File,
+    Retained,
+    Provider,
+}
+
+fn stream_backing_for_hit(
+    repo: &Repository,
+    hit: &SearchHit,
+    collection_index: usize,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+) -> Result<StreamBacking, String> {
+    if repo.collections[collection_index]
+        .id_lookup
+        .get(hit.record_id.as_str())
+        .is_some_and(|slot| base_active[collection_index].contains(*slot))
+    {
+        return Ok(StreamBacking::File);
+    }
+    for group in repo
+        .segments
+        .get(collection_index)
+        .into_iter()
+        .chain(segments.get(collection_index))
+    {
+        for published in group.iter() {
+            if published
+                .index
+                .id_lookup
+                .get(hit.record_id.as_str())
+                .is_some_and(|slot| published.active.contains(*slot))
+            {
+                return Ok(match &published.index.backing {
+                    crate::index::segment::SegmentBacking::FileRange { .. } => StreamBacking::File,
+                    crate::index::segment::SegmentBacking::Retained { .. } => {
+                        StreamBacking::Retained
+                    }
+                    crate::index::segment::SegmentBacking::Provider { .. } => {
+                        StreamBacking::Provider
+                    }
+                });
+            }
+        }
+    }
+    Err("stream hit no longer resolves in pinned view".into())
+}
+
 fn materialize_segmented_stream_hit(
     repo: &Repository,
     mut hit: SearchHit,
@@ -3956,24 +4005,32 @@ fn materialize_segmented_stream_hit(
     catalog: &FileCatalog,
     revision: IndexRevision,
     context: &ExecutionContext,
-) -> Result<SearchHit, String> {
+) -> Result<(SearchHit, StreamBacking), String> {
     if mode == ReturnMode::Locator {
-        return Ok(hit);
+        return Ok((hit, StreamBacking::Retained));
     }
     context.check_string()?;
-    if hit.source_range_len() > context.limits.source_record_bytes {
-        return Err(context.fail(
-            ExecutionErrorKind::Resource,
-            "stream record exceeds source read allowance",
-        ));
-    }
-    context.charge_reads(1)?;
-    context.charge_bytes(hit.source_range_len())?;
     let collection_index = repo
         .collections
         .iter()
         .position(|collection| collection.definition.name == hit.collection)
         .ok_or("stream hit collection missing")?;
+    let backing = stream_backing_for_hit(repo, &hit, collection_index, base_active, segments)?;
+    if matches!(backing, StreamBacking::File | StreamBacking::Provider) {
+        let bytes = if matches!(backing, StreamBacking::File) {
+            hit.source_range_len()
+        } else {
+            0
+        };
+        if bytes > context.limits.source_record_bytes {
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "stream record exceeds source read allowance",
+            ));
+        }
+        context.charge_reads(1)?;
+        context.charge_bytes(bytes)?;
+    }
     let materialized = repo.get_record_with_active(
         &hit.collection,
         &hit.record_id,
@@ -4003,7 +4060,19 @@ fn materialize_segmented_stream_hit(
     };
     repo.stamp_native_hit_at(&mut materialized, revision);
     materialized.matched_fields = std::mem::take(&mut hit.matched_fields);
-    Ok(materialized)
+    if matches!(backing, StreamBacking::Provider) {
+        let bytes = materialized.payload.as_ref().map_or(0, |payload| {
+            crate::query_execution::streaming::payload_bytes(payload) as u64
+        });
+        if bytes > context.limits.source_record_bytes {
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "stream provider record exceeds source read allowance",
+            ));
+        }
+        context.charge_bytes(bytes)?;
+    }
+    Ok((materialized, backing))
 }
 
 fn lifecycle_segment_order<'a>(
@@ -5332,7 +5401,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 return segmented_stream_error(&mut delivery, context, message);
             }
             let locator = SourceHitLocator::from_hit(&hit);
-            let mut hit = match materialize_segmented_stream_hit(
+            let (mut hit, backing) = match materialize_segmented_stream_hit(
                 repo,
                 hit,
                 query.options.return_mode.clone(),
@@ -5372,12 +5441,14 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             };
             repo.stamp_native_hit_at(&mut hit, revision);
             if query.options.return_mode != ReturnMode::Locator {
-                result.counters.files_opened += 1;
-                result.counters.bytes_read += hit.source_range_len();
-                result.counters.record_parses += u64::from(
-                    query.options.return_mode == ReturnMode::Logical
-                        && hit.record_class == RecordClass::Logical,
-                );
+                if matches!(backing, StreamBacking::File) {
+                    result.counters.files_opened += 1;
+                    result.counters.bytes_read += hit.source_range_len();
+                    result.counters.record_parses += u64::from(
+                        query.options.return_mode == ReturnMode::Logical
+                            && hit.record_class == RecordClass::Logical,
+                    );
+                }
             }
             let size = crate::query_execution::streaming::hit_bytes(&hit);
             if !batch.is_empty()

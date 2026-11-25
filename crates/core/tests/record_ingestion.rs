@@ -365,6 +365,27 @@ fn public_catalog_links_and_reverse_lookup_are_pinned_with_records() {
     assert_eq!(linked.counters.selected_payload_reads, 0);
     assert_eq!(linked.counters.files_opened, 0);
     assert_eq!(linked.counters.record_parses, 0);
+    let mut streamed = Vec::new();
+    let outcome = view
+        .search_stream_scoped_with_context(
+            &linked_query,
+            ResultScope::All { offset: 0 },
+            StreamOptions::default(),
+            &no_source_reads(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend(rows.iter().map(|hit| hit.record_id.clone()));
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    assert_eq!(streamed, ["same"]);
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("linked retained stream did not complete")
+    };
+    assert_eq!(summary.counters.files_opened, 0);
+    assert_eq!(summary.counters.bytes_read, 0);
     for (predicate, expected) in [
         ("@record.byte_start = 0", vec!["same"]),
         ("@record.byte_start != 0", vec![]),
@@ -1694,11 +1715,11 @@ fn fileless_records_stream_in_page_and_all_scopes() {
     ] {
         let mut ids = Vec::new();
         let outcome = view
-            .search_stream_scoped(
+            .search_stream_scoped_with_context(
                 &query,
                 scope,
                 StreamOptions::default(),
-                &CancellationToken::new(),
+                &no_source_reads(),
                 &mut |event| {
                     if let StreamEvent::OrderedRows { rows, .. } = event {
                         ids.extend(rows.iter().map(|hit| hit.record_id.clone()));
@@ -1708,7 +1729,12 @@ fn fileless_records_stream_in_page_and_all_scopes() {
             )
             .unwrap();
         assert_eq!(ids.len(), expected);
-        assert!(matches!(outcome, StreamOutcome::Complete(_)));
+        let StreamOutcome::Complete(summary) = outcome else {
+            panic!("retained stream did not complete")
+        };
+        assert_eq!(summary.counters.files_opened, 0);
+        assert_eq!(summary.counters.bytes_read, 0);
+        assert_eq!(summary.counters.record_parses, 0);
     }
     let residual = Query {
         filter: Some(parse_filter("@record.id = 'entry-3'").unwrap()),
