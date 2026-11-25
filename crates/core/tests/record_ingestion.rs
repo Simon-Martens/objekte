@@ -3155,3 +3155,136 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
     session.finish().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+#[ignore = "4,097 public managed imports and retirements"]
+fn routed_size_filter_stays_selective_after_managed_catalog_churn() {
+    use objekte_search_core::query::Operator;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-catalog-churn-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let direct = builder
+        .register_records(collection, "churn.direct", 1)
+        .unwrap();
+    builder
+        .register_file_catalog(FileCatalog::new(&root).unwrap())
+        .unwrap();
+    let mut definition = CollectionDefinition::folder("entries", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Filename;
+    builder
+        .register_file_source(collection, definition.file_source())
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(direct).unwrap();
+    for number in 0..64 {
+        let mut batch = writer.batch();
+        batch
+            .insert(
+                format!("manual-{number}"),
+                Value::Object(
+                    [("path".into(), Value::String("data/00000.jsonl".into()))]
+                        .into_iter()
+                        .collect(),
+                ),
+            )
+            .unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+    }
+    let bytes = b"{\"title\":\"same\"}\n";
+    let add = |number| {
+        let path = root.join(format!("data/{number:05}.jsonl"));
+        std::fs::write(&path, bytes).unwrap();
+        index.add_file(&path).unwrap().file
+    };
+    let handles = (0..4097).map(add).collect::<Vec<_>>();
+    let empty_path = root.join("data/empty.jsonl");
+    std::fs::write(&empty_path, []).unwrap();
+    let empty = index.add_file(&empty_path).unwrap();
+    assert_eq!(empty.indexed_records, 0);
+    let pinned = index.view().unwrap();
+    let query = |expression: &str| Query {
+        collections: vec!["entries".into()],
+        fts: None,
+        filter: Some(parse_filter(expression).unwrap()),
+        options: QueryOptions {
+            limit: 5,
+            offset: 0,
+            count: true,
+            sort: Vec::new(),
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let size = bytes.len();
+    let exact_size = query(&format!("@file.size = {size}"));
+    let broad_before = pinned.search(&exact_size).unwrap();
+    assert_eq!(broad_before.count, Some(4097));
+    assert_eq!(broad_before.counters.file_restrictions_broad, 1);
+    for handle in &handles[..4096] {
+        index.delete_file(*handle).unwrap();
+    }
+    let assert_current = |id| {
+        let view = index.view().unwrap();
+        let catalog = view.file_catalog().unwrap();
+        assert_eq!(
+            catalog.files_by_size(Operator::Eq, size as u64).unwrap()[0].id,
+            id
+        );
+        let selected = view.search(&exact_size).unwrap();
+        let reference = view.search_reference(&exact_size).unwrap();
+        assert_eq!(selected.count, reference.count);
+        assert_eq!(selected.hits, reference.hits);
+        assert_eq!(selected.count, Some(1));
+        assert_eq!(selected.counters.file_restrictions_resolved, 1);
+        assert_eq!(selected.counters.file_restriction_matching_files, 1);
+        assert_eq!(selected.counters.file_membership_lists_probed, 1);
+        assert_eq!(selected.counters.file_restrictions_broad, 0);
+        assert_eq!(
+            (selected.counters.files_opened, selected.counters.bytes_read),
+            (0, 0)
+        );
+        assert_eq!(catalog.records_for_file(empty.file.file_id).unwrap(), []);
+        for expression in [
+            format!("@file.size > {}.5", size - 1),
+            format!("@file.size = {size} || @record.id = 'manual-0'"),
+            format!("!(@file.size = {size})"),
+            "@file.size >= 0".into(),
+        ] {
+            let query = query(&expression);
+            let optimized = view.search(&query).unwrap();
+            let reference = view.search_reference(&query).unwrap();
+            assert_eq!(optimized.count, reference.count, "{expression}");
+            assert_eq!(optimized.hits, reference.hits, "{expression}");
+            assert_eq!(optimized.counters.files_opened, 0, "{expression}");
+        }
+        eprintln!(
+            "live_segments={} resolved={} matched_files={} membership_probes={} broad={} content_opens={}",
+            view.segment_summaries().len(),
+            selected.counters.file_restrictions_resolved,
+            selected.counters.file_restriction_matching_files,
+            selected.counters.file_membership_lists_probed,
+            selected.counters.file_restrictions_broad,
+            selected.counters.files_opened
+        );
+    };
+    assert_current(handles[4096].file_id);
+    index.delete_file(handles[4096]).unwrap();
+    assert_current(add(4097).file_id);
+    assert_eq!(
+        pinned
+            .file_catalog()
+            .unwrap()
+            .files_by_size(Operator::Eq, size as u64)
+            .unwrap()
+            .len(),
+        4097
+    );
+    session.finish().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

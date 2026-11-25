@@ -147,6 +147,8 @@ pub struct SessionMetrics {
     pub high_water_waiting_descriptors: usize,
     pub spool_written_bytes: u64,
     pub spool_read_bytes: u64,
+    pub in_flight_batches: usize,
+    pub high_water_in_flight_batches: usize,
     pub in_flight_estimated_bytes: usize,
     pub high_water_in_flight_estimated_bytes: usize,
     pub overflow_write_ns: u128,
@@ -715,6 +717,11 @@ fn take_next(
     if matches!(item.storage, Storage::Memory(_)) {
         state.metrics.pending_ram_bytes -= item.weight;
     }
+    state.metrics.in_flight_batches += 1;
+    state.metrics.high_water_in_flight_batches = state
+        .metrics
+        .high_water_in_flight_batches
+        .max(state.metrics.in_flight_batches);
     state.metrics.in_flight_estimated_bytes += item.weight;
     state.metrics.high_water_in_flight_estimated_bytes = state
         .metrics
@@ -851,6 +858,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                     state.metrics.root_installations += 1;
                     if outcome.failure.is_none() {
                         state.metrics.in_flight_estimated_bytes = 0;
+                        state.metrics.in_flight_batches = 0;
                     }
                     queue.changed.notify_all();
                 }
@@ -859,7 +867,7 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
                 };
                 item = Queued {
                     sequence,
-                    weight: bytes,
+                    weight: 0,
                     encoded_bytes: 0,
                     storage: Storage::Failed(error),
                     group: None,
@@ -909,7 +917,8 @@ fn run_worker(index: Index, queue: Arc<Queue>, session_id: u64) {
             .receipts
             .complete_through(item.sequence, result.clone());
         let mut state = queue.state.lock().expect("queue mutex poisoned");
-        state.metrics.in_flight_estimated_bytes -= item.weight;
+        state.metrics.in_flight_estimated_bytes = 0;
+        state.metrics.in_flight_batches = 0;
         state.completed = item.sequence;
         match result {
             Ok(revision) => {
@@ -1774,9 +1783,21 @@ mod tests {
                     first.sequence()
                 );
             }
-            let second = writer
-                .submit(batch(session.core.id, registration, "manual-b"))
+            let mut second_batch = writer.batch();
+            if grouped && collision {
+                second_batch
+                    .insert("must-not-leak", Value::String("staged".into()))
+                    .unwrap();
+            }
+            second_batch
+                .insert("manual-b", Value::String("Leipzig".into()))
                 .unwrap();
+            let second = writer.submit(second_batch).unwrap();
+            let suffix = (grouped && collision).then(|| {
+                writer
+                    .submit(batch(session.core.id, registration, "cancelled-tail"))
+                    .unwrap()
+            });
             if grouped {
                 session.resume_worker_for_measurement();
                 assert_eq!(
@@ -1784,7 +1805,11 @@ mod tests {
                     first.sequence()
                 );
             }
-            let file_id = if collision { "manual-a" } else { "file-a" };
+            let file_id = match (grouped, collision) {
+                (true, true) => "manual-b",
+                (false, true) => "manual-a",
+                (_, false) => "file-a",
+            };
             let path = root.join("data/item.json");
             std::fs::write(&path, format!(r#"{{"id":"{file_id}"}}"#)).unwrap();
             index.add_file(&path).unwrap();
@@ -1799,12 +1824,40 @@ mod tests {
             );
             assert!(
                 pinned
-                    .get_record("entries", "manual-b", ReturnMode::Locator)
+                    .get_record(
+                        "entries",
+                        if file_id == "manual-b" {
+                            "manual-a"
+                        } else {
+                            "manual-b"
+                        },
+                        ReturnMode::Locator
+                    )
                     .unwrap()
                     .is_none()
             );
             release.send(()).unwrap();
-            if collision {
+            if let Some(suffix) = suffix {
+                assert!(first.wait_published().unwrap() > pinned.revision());
+                assert!(matches!(
+                    second.wait_published(),
+                    Err(IngestionError::Index(
+                        crate::lifecycle::IndexError::DuplicateRecordId { .. }
+                    ))
+                ));
+                assert!(
+                    matches!(suffix.wait_published(), Err(IngestionError::Cancelled {
+                    originating_sequence
+                }) if originating_sequence == second.sequence())
+                );
+                let view = index.view().unwrap();
+                assert!(
+                    view.get_record("entries", "must-not-leak", ReturnMode::Locator)
+                        .unwrap()
+                        .is_none()
+                );
+                assert_eq!(index.status().unwrap().live_records, 3);
+            } else if collision {
                 assert!(matches!(
                     first.wait_published(),
                     Err(IngestionError::Index(
@@ -1832,7 +1885,15 @@ mod tests {
             );
             assert!(
                 pinned
-                    .get_record("entries", "manual-b", ReturnMode::Locator)
+                    .get_record(
+                        "entries",
+                        if file_id == "manual-b" {
+                            "manual-a"
+                        } else {
+                            "manual-b"
+                        },
+                        ReturnMode::Locator
+                    )
                     .unwrap()
                     .is_none()
             );

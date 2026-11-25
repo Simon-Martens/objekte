@@ -356,7 +356,7 @@ struct SegmentPlanContext<'a> {
     provider: NativeSegmentProvider<'a>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
     predicates: Option<&'a PreparedPredicates>,
-    routed: Option<&'a RoutedFileRestrictions>,
+    routed: Option<(&'a RoutedFileRestrictions, SegmentId)>,
     execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
     offers: HashMap<TermId, OfferList>,
     terms: Vec<(BoundTerm, TermId)>,
@@ -451,11 +451,13 @@ impl<'a> SegmentPlanContext<'a> {
         input: &RoaringBitmap,
     ) -> Result<SegmentCandidateBounds, String> {
         let term_id = self.term_id(term);
-        if let Some(selection) = self.routed.and_then(|routed| routed.terms.get(&term_id)) {
+        if let Some((routed, published_id)) = self.routed
+            && let Some(selection) = routed.terms.get(&term_id)
+        {
             let segment = self.provider.segment;
             let slots = match selection {
                 Some(by_segment) => by_segment
-                    .get(&segment.id)
+                    .get(&published_id)
                     .map_or_else(RoaringBitmap::new, |slots| slots & input),
                 None => {
                     let catalog = self
@@ -755,7 +757,7 @@ pub(crate) fn segment_filter_bounds_with_routes(
     input: &RoaringBitmap,
     predicates: Option<&PreparedPredicates>,
     execution: Option<&crate::query_execution::streaming::ExecutionContext>,
-    routed: Option<&RoutedFileRestrictions>,
+    routed: Option<(&RoutedFileRestrictions, SegmentId)>,
 ) -> Result<SegmentCandidateBounds, String> {
     #[cfg(test)]
     PREDICATE_BOUNDS_CALLS.with(|calls| calls.set(calls.get() + 1));
@@ -1704,7 +1706,7 @@ fn segment_expr_bounds_with_context(
             for part in parts {
                 flatten_and(part, &mut flattened);
             }
-            let use_fused = context.routed.is_none_or(|routes| {
+            let use_fused = context.routed.is_none_or(|(routes, _)| {
                 !flattened.iter().any(|expr| match expr {
                     BoundExpr::Term(term) if indexed_file_path_term(term).is_some() => context
                         .predicates

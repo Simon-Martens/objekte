@@ -831,6 +831,7 @@ impl Repository {
         }
         let mut parallel_streams = Vec::<(usize, Vec<FileId>)>::new();
         let mut jobs = Vec::new();
+        let mut large_jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
             let ordinary;
             let members = if shared.is_empty() {
@@ -864,7 +865,7 @@ impl Repository {
                     && (streams
                         || discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024)
                 {
-                    jobs.push(ScheduledBuildJob::Large {
+                    large_jobs.push(ScheduledBuildJob::Large {
                         collection_index,
                         collection: state.id,
                         definition: Arc::clone(&state.definition),
@@ -885,6 +886,9 @@ impl Repository {
                 parallel_streams.push((collection_index, small_streams));
             }
         }
+        // Publish bounded ordinary partitions before holding a large stream.
+        // File positions and generated IDs come from discovery and framing.
+        jobs.extend(large_jobs);
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.job_scheduling_ns = started.elapsed().as_nanos() as u64;
         }

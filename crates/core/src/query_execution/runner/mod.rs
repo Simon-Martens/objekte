@@ -1724,7 +1724,7 @@ fn exact_or_branch_evidence_fields(
     catalog: &FileCatalog,
     predicates: &crate::query_predicate::PreparedPredicates,
     context: Option<&ExecutionContext>,
-    routed: Option<&RoutedFileRestrictions>,
+    routed: Option<(&RoutedFileRestrictions, crate::index::segment::SegmentId)>,
 ) -> Result<Option<OrRestrictionProbe>, String> {
     let BoundExpr::Or(parts) = filter else {
         return Ok(None);
@@ -2109,7 +2109,10 @@ fn try_exact_segment_ordered_page(
                         &published.active.bitmap(),
                         Some(&prepared.predicates),
                         context,
-                        restriction_cache.routed.as_ref(),
+                        restriction_cache
+                            .routed
+                            .as_ref()
+                            .map(|routes| (routes, published.id)),
                     )
                 })
                 .transpose()?
@@ -2749,7 +2752,10 @@ fn search_segmented_impl(
                             filter_input.as_ref(),
                             Some(&predicates),
                             context,
-                            restriction_cache.routed.as_ref(),
+                            restriction_cache
+                                .routed
+                                .as_ref()
+                                .map(|routes| (routes, published.id)),
                         )
                     })
                     .transpose()?
@@ -2910,7 +2916,10 @@ fn search_segmented_impl(
                     catalog,
                     &predicates,
                     context,
-                    restriction_cache.routed.as_ref(),
+                    restriction_cache
+                        .routed
+                        .as_ref()
+                        .map(|routes| (routes, published.id)),
                 )?
                 .and_then(|probe| probe.evidence)
             } else {
@@ -4442,7 +4451,10 @@ fn try_lifecycle_ordered_stream(
                     catalog,
                     &predicates,
                     Some(context),
-                    restriction_cache.routed.as_ref(),
+                    restriction_cache
+                        .routed
+                        .as_ref()
+                        .map(|routes| (routes, segment.id)),
                 )?
                 else {
                     return Ok(None);
@@ -4488,7 +4500,10 @@ fn try_lifecycle_ordered_stream(
                             &active,
                             Some(&predicates),
                             Some(context),
-                            restriction_cache.routed.as_ref(),
+                            restriction_cache
+                                .routed
+                                .as_ref()
+                                .map(|routes| (routes, segment.id)),
                         )?;
                         let logical = &segment.active.bitmap() & &segment.index.logical_records;
                         filter_exact[collection_index][segment_index] = bounds.may == bounds.must

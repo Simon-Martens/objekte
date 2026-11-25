@@ -192,6 +192,8 @@ fn ingest(
             "spool_written_bytes": metrics.spool_written_bytes,
             "spool_read_bytes": metrics.spool_read_bytes,
             "high_water_in_flight_estimated_bytes": metrics.high_water_in_flight_estimated_bytes,
+            "high_water_waiting_descriptors": metrics.high_water_waiting_descriptors,
+            "high_water_active_descriptors": metrics.high_water_in_flight_batches,
             "overflow_write_ns": metrics.overflow_write_ns,
             "pending_ram_bytes": metrics.pending_ram_bytes,
             "pending_spool_bytes": metrics.pending_spool_bytes,
