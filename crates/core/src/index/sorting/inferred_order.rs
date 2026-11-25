@@ -297,11 +297,10 @@ impl SortColumn {
                 ScalarKey::Bool(flag) if index.kind == LogicalType::Bool => SortKey::Bool(*flag),
                 ScalarKey::String(text) if index.kind == LogicalType::String => {
                     let mut bytes = Vec::new();
-                    collator
+                    let Ok(()) = collator
                         .as_ref()
                         .expect("string collator")
-                        .write_sort_key_to(text, &mut bytes)
-                        .map_err(|error| error.to_string())?;
+                        .write_sort_key_to(text, &mut bytes);
                     let memberships = usize::try_from(slots.len())
                         .map_err(|_| "inferred sort membership count overflow")?;
                     let key_bytes = bytes

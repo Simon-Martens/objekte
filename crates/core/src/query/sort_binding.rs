@@ -1033,9 +1033,7 @@ impl ComputedSort {
             Value::Null => Ok(SortKey::Null),
             Value::String(text) => {
                 let mut key = Vec::new();
-                self.collator
-                    .write_sort_key_to(text, &mut key)
-                    .map_err(|error| error.to_string())?;
+                let Ok(()) = self.collator.write_sort_key_to(text, &mut key);
                 Ok(SortKey::String(key))
             }
             Value::Id(text) => Ok(SortKey::Id(text.clone())),

@@ -226,12 +226,3 @@ pub fn scan_record(
         },
     )
 }
-
-#[cfg(test)]
-pub(crate) mod records {
-    pub use super::document::{
-        json_reader_failure, parse_json, parse_json_for_query, parse_json_for_query_diagnosed,
-        parse_json_for_query_trusted,
-    };
-    pub use super::scan_record;
-}

@@ -12,11 +12,6 @@ use super::{ScalarWalker, json_whitespace};
 
 const MAX_SCAN_SCRATCH_CAPACITY: usize = 256 * 1024;
 
-#[cfg(test)]
-thread_local! {
-    static BORROWED_NODE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
-}
-
 /// Match source scalars while the required logical projection is constructed.
 /// The path owns only active member names; scalar text is consumed before the
 /// required Value takes ownership or before reusable decoding storage is reset.
@@ -96,23 +91,25 @@ thread_local! {
 }
 
 #[cfg(test)]
-static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
-#[cfg(test)]
-static COMBINED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+crate::objekte_json_unit_tests! {
+    thread_local! {
+        static BORROWED_NODE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    }
 
-#[cfg(test)]
-pub(crate) fn borrowed_scan_calls() -> usize {
-    BORROWED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
-}
+    static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+    static COMBINED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 
-#[cfg(test)]
-pub(super) fn borrowed_node_visits() -> usize {
-    BORROWED_NODE_VISITS.with(std::cell::Cell::get)
-}
+    pub(crate) fn borrowed_scan_calls() -> usize {
+        BORROWED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
+    }
 
-#[cfg(test)]
-pub(crate) fn combined_scan_calls() -> usize {
-    COMBINED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
+    pub(super) fn borrowed_node_visits() -> usize {
+        BORROWED_NODE_VISITS.with(std::cell::Cell::get)
+    }
+
+    pub(crate) fn combined_scan_calls() -> usize {
+        COMBINED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
+    }
 }
 
 fn path_is(path: &[Cow<'_, str>], expected: &[String]) -> bool {
@@ -161,7 +158,9 @@ impl<'a> ScalarWalker<'a> {
         filter_element: bool,
     ) -> Result<(), String> {
         #[cfg(test)]
-        BORROWED_NODE_VISITS.with(|count| count.set(count.get() + 1));
+        crate::objekte_json_unit_tests! {
+            BORROWED_NODE_VISITS.with(|count| count.set(count.get() + 1));
+        }
         if depth >= 128 {
             return Err("JSON recursion limit exceeded (resource limit)".into());
         }
@@ -489,7 +488,9 @@ pub(crate) fn scan_borrowed_segments_worker(
 ) -> Result<BorrowedScanResult, String> {
     let _fold_record = objekte_search_core::source::verification::scalar_match_session();
     #[cfg(test)]
-    BORROWED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+    crate::objekte_json_unit_tests! {
+        BORROWED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+    }
     BORROWED_SCAN_SCRATCH.with(|scratch| {
         let mut scratch = scratch.borrow_mut();
         let result = scan_borrowed_segments(bytes, query, &mut scratch);
@@ -509,7 +510,9 @@ pub(crate) fn extract_query_record_borrowed_fts_worker(
 ) -> Result<(objekte_search_core::model::Value, BorrowedScanResult), String> {
     let _fold_record = objekte_search_core::source::verification::scalar_match_session();
     #[cfg(test)]
-    COMBINED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+    crate::objekte_json_unit_tests! {
+        COMBINED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+    }
     BORROWED_SCAN_SCRATCH.with(|scratch| {
         let mut scratch = scratch.borrow_mut();
         scratch.decoded_text.clear();

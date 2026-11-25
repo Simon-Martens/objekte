@@ -303,9 +303,7 @@ fn sort_key_from_value(
         Some(Value::Null) => SortKey::Null,
         Some(Value::String(text)) => {
             let mut key = Vec::new();
-            collator
-                .write_sort_key_to(text, &mut key)
-                .map_err(|e| e.to_string())?;
+            let Ok(()) = collator.write_sort_key_to(text, &mut key);
             SortKey::String(key)
         }
         Some(Value::Id(id)) => SortKey::Id(id.clone()),
