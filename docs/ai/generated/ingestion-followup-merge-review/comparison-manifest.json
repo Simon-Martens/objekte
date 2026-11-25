@@ -1,0 +1,23 @@
+{
+  "reviewed": "2a748ed285ced6d5980f2cfd4e823a4295bf3c98",
+  "repair": "d2ae68aeb7e1d24673b4ce0f622c8fa417b8101d",
+  "platform": "Linux-7.3.3-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "cpus": 32,
+  "governor": "performance",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "separate_cargo_targets": true,
+  "flags": [
+    "--locked",
+    "--release",
+    "--features",
+    "detailed-profiling"
+  ],
+  "binaries_sha256": {
+    "reviewed": "d8098586358b9c9d19cfb1574aa1d5f0ee4e71bf762c63e260da530f4cd8e598",
+    "repair": "09ecc3ce81c371e196e658a64fad245dccc66bac3f6ffdc2f7792918d05f559d"
+  },
+  "pairs": 3,
+  "runs": 36,
+  "reviewed_probe_difference": "Observe the mixed file overlap without requiring the repaired behavior"
+}

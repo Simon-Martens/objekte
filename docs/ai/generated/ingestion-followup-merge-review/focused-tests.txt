@@ -1,0 +1,9 @@
+zero_ranges=64 trailer_bytes=0 unsealed_peak=2 private_segment_peak=1
+cancelled: prior group retained, two views agree, zero outstanding work
+zero_ranges=30000 trailer_bytes=0 unsealed_peak=1 private_segment_peak=1
+zero_ranges=30000 trailer_bytes=13 unsealed_peak=1 private_segment_peak=1
+zero_ranges=30000 trailer_bytes=1 unsealed_peak=1 private_segment_peak=1
+failed: terminal delayed until two callbacks exited, zero outstanding work
+test lifecycle::initial::tests::large_registered_file_decodes_concurrently_beside_a_small_file ... ok
+test result: ok. 28 passed; 0 failed; 0 ignored; 0 measured; 720 filtered out; finished in 4.13s
+test query_access::segment::managed_queries_and_components_use_distinct_published_domains ... ok
