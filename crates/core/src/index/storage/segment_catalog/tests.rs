@@ -196,18 +196,17 @@ struct TableDirectory {
 }
 
 impl SegmentCatalogReader for TableDirectory {
-    fn get(&self, id: &str) -> StorageResult<Option<(usize, RecordSlot)>> {
+    fn route(&self, id: &str) -> StorageResult<Option<RoutedSlot>> {
         if self.control.fail_lookup.load(Ordering::Relaxed) {
             return Err(StorageError::invalid(
                 "test directory",
                 "injected lookup failure",
             ));
         }
-        Ok(self.records.get(id).and_then(|(segment, slot)| {
-            self.positions
-                .get(segment)
-                .map(|&position| (position, *slot))
-        }))
+        Ok(self
+            .records
+            .get(id)
+            .map(|&(segment, slot)| RoutedSlot { segment, slot }))
     }
 
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>> {

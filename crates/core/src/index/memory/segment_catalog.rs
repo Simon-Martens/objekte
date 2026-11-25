@@ -9,24 +9,18 @@ use std::sync::Arc;
 
 use super::segment::{PublishedSegment, SegmentId};
 use crate::index::storage::segment_catalog::{
-    SegmentCatalogEditor, SegmentCatalogHandle, SegmentCatalogReader, SegmentDirectoryDelta,
-    SegmentRouteSource,
+    LocatedSlot, RoutedSlot, SegmentCatalogEditor, SegmentCatalogHandle, SegmentCatalogReader,
+    SegmentDirectoryDelta, SegmentRouteSource,
 };
 use crate::index::storage::transfer::StorageResult;
 use crate::model::{FileId, RecordId, RecordSlot};
 
 const RECORD_ROUTE_SHARDS: usize = 64;
 
-#[derive(Clone, Copy)]
-struct RoutedRecord {
-    pub(crate) segment: SegmentId,
-    pub(crate) slot: RecordSlot,
-}
-
 /// Delta ID routes share all untouched shards with older pinned roots.
 #[derive(Clone)]
 pub(super) struct RecordRoutes {
-    shards: Arc<Vec<Arc<HashMap<RecordId, RoutedRecord>>>>,
+    shards: Arc<Vec<Arc<HashMap<RecordId, RoutedSlot>>>>,
     file_shards: Arc<Vec<Arc<HashMap<FileId, SmallVec<[SegmentId; 1]>>>>>,
     positions: Arc<HashMap<SegmentId, usize>>,
 }
@@ -39,7 +33,7 @@ impl RecordRoutes {
             bytes.saturating_add(
                 shard
                     .capacity()
-                    .saturating_mul(std::mem::size_of::<(RecordId, RoutedRecord)>() + 16),
+                    .saturating_mul(std::mem::size_of::<(RecordId, RoutedSlot)>() + 16),
             )
         });
         let file_routes =
@@ -68,8 +62,7 @@ impl RecordRoutes {
                     .saturating_mul(std::mem::size_of::<(SegmentId, usize)>() + 16),
             )
             .saturating_add(
-                2 * RECORD_ROUTE_SHARDS
-                    * std::mem::size_of::<Arc<HashMap<RecordId, RoutedRecord>>>(),
+                2 * RECORD_ROUTE_SHARDS * std::mem::size_of::<Arc<HashMap<RecordId, RoutedSlot>>>(),
             )
     }
 
@@ -95,9 +88,8 @@ impl RecordRoutes {
         (hasher.finish() as usize) % RECORD_ROUTE_SHARDS
     }
 
-    fn get(&self, id: &str) -> Option<(usize, RecordSlot)> {
-        let address = self.shards[Self::shard(id)].get(id)?;
-        Some((*self.positions.get(&address.segment)?, address.slot))
+    fn record_route(&self, id: &str) -> Option<RoutedSlot> {
+        self.shards[Self::shard(id)].get(id).copied()
     }
 
     fn remove(&mut self, id: &str) {
@@ -153,7 +145,7 @@ impl RecordRoutes {
         for (id, &slot) in &source.index.id_lookup {
             if source.active.contains(slot) {
                 Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
-                    .insert(id.clone(), RoutedRecord { segment, slot });
+                    .insert(id.clone(), RoutedSlot { segment, slot });
             }
         }
         let file_shards = Arc::make_mut(&mut self.file_shards);
@@ -180,7 +172,7 @@ impl RecordRoutes {
         source.visit_live_records(&mut |rows| {
             for &(id, slot) in rows {
                 Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
-                    .insert(id.clone(), RoutedRecord { segment, slot });
+                    .insert(id.clone(), RoutedSlot { segment, slot });
             }
             Ok(())
         })?;
@@ -238,8 +230,21 @@ impl RecordRoutes {
 }
 
 impl SegmentCatalogReader for RecordRoutes {
-    fn get(&self, id: &str) -> StorageResult<Option<(usize, RecordSlot)>> {
-        Ok(RecordRoutes::get(self, id))
+    fn route(&self, id: &str) -> StorageResult<Option<RoutedSlot>> {
+        Ok(self.record_route(id))
+    }
+
+    fn locate(&self, id: &str) -> StorageResult<Option<LocatedSlot>> {
+        let Some(route) = self.record_route(id) else {
+            return Ok(None);
+        };
+        let position = self.position(route.segment).ok_or_else(|| {
+            crate::index::storage::transfer::StorageError::invalid(
+                "resolve native segment route",
+                "route points to an unlisted segment",
+            )
+        })?;
+        Ok(Some(LocatedSlot { route, position }))
     }
 
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>> {

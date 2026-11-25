@@ -108,6 +108,26 @@ fn cheapest_consolidation_pair(
     None
 }
 impl PublishedIndex {
+    fn live_route(
+        &self,
+        number: usize,
+        id: &str,
+    ) -> Result<Option<(usize, crate::model::RecordSlot)>, IndexError> {
+        let Some(found) = self.record_routes[number].locate(id)? else {
+            return Ok(None);
+        };
+        let segment = self.segments[number]
+            .get(found.position)
+            .filter(|segment| segment.id == found.route.segment)
+            .ok_or_else(|| {
+                IndexError::Storage("record route points to a different segment".into())
+            })?;
+        Ok(segment
+            .active
+            .contains(found.route.slot)
+            .then_some((found.position, found.route.slot)))
+    }
+
     pub(crate) fn rebuild_record_routes(&mut self, number: usize) -> Result<(), IndexError> {
         self.record_routes[number] = build_catalog(
             self.repository.storage_factory.as_ref(),
@@ -335,13 +355,8 @@ impl PublishedIndex {
                 ));
             }
         }
-        for (id, _) in &index.id_lookup {
-            let existing_duplicate =
-                self.record_routes[number]
-                    .get(id.0.as_ref())?
-                    .is_some_and(|(position, slot)| {
-                        self.segments[number][position].active.contains(slot)
-                    });
+        for id in index.id_lookup.keys() {
+            let existing_duplicate = self.live_route(number, id.0.as_ref())?.is_some();
             if collection
                 .id_lookup
                 .get(id)
@@ -1099,9 +1114,7 @@ impl Index {
                 .get(&change.id)
                 .copied()
                 .filter(|slot| next.active[number].contains(*slot));
-            let found = next.record_routes[number]
-                .get(change.id.0.as_ref())?
-                .filter(|(index, slot)| next.segments[number][*index].active.contains(*slot));
+            let found = next.live_route(number, change.id.0.as_ref())?;
             match change.kind {
                 RecordMutationKind::Insert => {
                     if base.is_some() || found.is_some() {
@@ -1138,14 +1151,14 @@ impl Index {
                         // Compaction relocates headers but shares the immutable ID
                         // allocation. A new direct write creates a new allocation.
                         let current = &published.index.records[slot.0 as usize].id.0;
-                        let original = prepared_from.0.record_routes[number]
-                            .get(change.id.0.as_ref())?
+                        let original = prepared_from
+                            .0
+                            .live_route(number, change.id.0.as_ref())?
                             .and_then(|(position, slot)| {
-                                let segment = &prepared_from.0.segments[number][position];
-                                segment
-                                    .active
-                                    .contains(slot)
-                                    .then(|| &segment.index.records[slot.0 as usize].id.0)
+                                prepared_from.0.segments[number][position]
+                                    .index
+                                    .record(slot)
+                                    .map(|record| &record.id.0)
                             });
                         if !original.is_some_and(|original| Arc::ptr_eq(current, original)) {
                             return Err(IndexError::Build(format!(

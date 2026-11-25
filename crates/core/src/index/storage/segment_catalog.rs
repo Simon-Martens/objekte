@@ -7,12 +7,38 @@ use std::sync::Arc;
 use crate::model::{FileId, RecordId, RecordSlot};
 
 use super::segment::SegmentId;
-use super::transfer::StorageResult;
+use super::transfer::{StorageError, StorageResult};
 
 pub(crate) type SegmentCatalogHandle = Arc<dyn SegmentCatalogReader>;
 
+/// Stable local address. Group positions may change at any publication.
+#[derive(Clone, Copy)]
+pub(crate) struct RoutedSlot {
+    pub(crate) segment: SegmentId,
+    pub(crate) slot: RecordSlot,
+}
+
+pub(crate) struct LocatedSlot {
+    pub(crate) route: RoutedSlot,
+    pub(crate) position: usize,
+}
+
 pub(crate) trait SegmentCatalogReader: Send + Sync {
-    fn get(&self, id: &str) -> StorageResult<Option<(usize, RecordSlot)>>;
+    fn route(&self, id: &str) -> StorageResult<Option<RoutedSlot>>;
+
+    fn locate(&self, id: &str) -> StorageResult<Option<LocatedSlot>> {
+        let Some(route) = self.route(id)? else {
+            return Ok(None);
+        };
+        let position = self.position(route.segment)?.ok_or_else(|| {
+            StorageError::invalid(
+                "resolve segment route",
+                "route points to an unlisted segment",
+            )
+        })?;
+        Ok(Some(LocatedSlot { route, position }))
+    }
+
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>>;
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>>;
     fn estimated_directory_bytes(&self) -> usize;

@@ -909,14 +909,22 @@ pub(crate) fn direct_lookup_segmented_counted(
         if let Some(counters) = counters.as_deref_mut() {
             counters.route_key_probes += 1;
         }
-        routes[collection_index]
-            .get(record_id)
-            .map_err(|error| error.to_string())?
-            .filter(|(index, slot)| segments[collection_index][*index].active.contains(*slot))
+        if let Some(found) = routes[collection_index].locate(record_id)? {
+            let segment = segments[collection_index]
+                .get(found.position)
+                .filter(|segment| segment.id == found.route.segment)
+                .ok_or("record route points to a different segment")?;
+            segment
+                .active
+                .contains(found.route.slot)
+                .then_some((found.position, found.route.slot))
+        } else {
+            None
+        }
     } else {
         let mut selected = None;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.id_lookup.get(record_id).copied()
+            if let Some(slot) = segment.index.slot_for_record(record_id)?
                 && segment.active.contains(slot)
             {
                 if base.is_some() || selected.is_some() {
