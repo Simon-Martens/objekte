@@ -1,5 +1,6 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
+use crate::index::storage::segment::{RecordBacking, SegmentReader};
 use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
@@ -1669,16 +1670,11 @@ fn segment_raw_covers_identity_field(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
 ) -> bool {
-    let representation_covers = match &segment.backing {
-        crate::index::segment::SegmentBacking::FileRange { .. } => {
-            collection.source.as_ref().is_some_and(|source| {
-                source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
-            })
-        }
-        crate::index::segment::SegmentBacking::Retained { .. }
-        | crate::index::segment::SegmentBacking::Provider { .. } => {
-            segment.raw_covers_logical_fields
-        }
+    let representation_covers = match segment.backing_kind() {
+        RecordBacking::FileRange => collection.source.as_ref().is_some_and(|source| {
+            source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
+        }),
+        RecordBacking::Retained | RecordBacking::Provider => segment.raw_covers_logical_fields,
     };
     representation_covers
         && collection.definition.schema.raw.is_none()

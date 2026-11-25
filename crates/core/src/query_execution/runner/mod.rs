@@ -20,7 +20,7 @@ use crate::index::sorting::{InferredOrderKey, SortColumn};
 use crate::index::sorting::{SortKey, SortOptions};
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::ordered_slots::OrderedSlotCursor;
-use crate::index::storage::segment::SegmentReader;
+use crate::index::storage::segment::{RecordBacking, RecordOrigin, SegmentReader};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
@@ -549,64 +549,67 @@ pub(crate) struct SegmentRecordRef<'a> {
     pub file: std::borrow::Cow<'a, FileEntry>,
 }
 
-fn segment_active_file<'a>(
-    segment: &IndexedCollectionSegment,
+fn segment_active_file<'a, S: SegmentReader + ?Sized>(
+    segment: &S,
     active: &ActiveRecords,
     catalog: &'a dyn FileCatalogReader,
     file_id: crate::model::FileId,
 ) -> Result<std::borrow::Cow<'a, FileEntry>, String> {
-    if active.slot_count() as usize != segment.record_count() {
+    let descriptor = segment.descriptor();
+    if active.slot_count() as usize != descriptor.slots {
         return Err("segment active domain length mismatch".into());
     }
-    let file_index = segment
-        .file_index
-        .get(&file_id)
-        .copied()
-        .ok_or("segment record file missing")?;
-    let segment_revision = segment
-        .files
-        .get(file_index)
-        .map(|file| file.entry.revision)
+    let source = segment
+        .file_metadata(file_id)?
         .ok_or("segment record file missing")?;
     let file = catalog
-        .file(file_id)
-        .map_err(|error| error.to_string())?
+        .file(file_id)?
         .ok_or("active segment record file is retired")?;
-    if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
+    if file.revision != source.revision || !file.collections.contains(&descriptor.collection) {
         return Err("active segment record file changed without retirement".into());
     }
     Ok(file)
 }
 
-pub(crate) fn segment_record_ref<'a>(
-    segment: &'a IndexedCollectionSegment,
+pub(crate) fn segment_record_ref<'a, S: SegmentReader + ?Sized>(
+    segment: &S,
     active: &ActiveRecords,
     catalog: &'a dyn FileCatalogReader,
     slot: RecordSlot,
 ) -> Result<Option<SegmentRecordRef<'a>>, String> {
-    if active.slot_count() as usize != segment.record_count() {
+    if active.slot_count() as usize != segment.descriptor().slots {
         return Err("segment active domain length mismatch".into());
     }
     if !active.contains(slot) {
         return Ok(None);
     }
-    let record = segment
-        .file_record(slot)
-        .ok_or("segment record slot missing")?;
-    let locator = segment
-        .backing
-        .file_locator(slot)
-        .ok_or("segment record has no file-range backing")?;
+    let header = segment.header(slot)?.ok_or("segment record slot missing")?;
+    let Some(RecordOrigin::FileRange(locator)) = segment.origin(slot)? else {
+        return Err("segment record has no file-range backing".into());
+    };
+    let range = locator
+        .range
+        .ok_or("file-backed segment record range missing")?;
     let file = segment_active_file(segment, active, catalog, locator.file)?;
-    Ok(Some(SegmentRecordRef { record, file }))
+    Ok(Some(SegmentRecordRef {
+        record: RecordEntry {
+            slot: header.slot,
+            id: header.id.clone(),
+            file: locator.file,
+            range,
+            revision: locator.revision,
+            class: header.class,
+            diagnostic_ref: header.diagnostic_ref,
+        },
+        file,
+    }))
 }
 
-/// Direct lookup for one indexed delta. The publication owner chooses the
-/// active segment for an ID and invokes this with that segment's active mask.
-pub(crate) fn get_segment_record_by_id(
+/// Direct lookup for one indexed delta, using the active mask from the same pin.
+pub(crate) fn get_segment_record_by_id<S: SegmentReader + ?Sized>(
     repo: &Repository,
     collection_index: usize,
-    segment: &IndexedCollectionSegment,
+    segment: &S,
     active: &ActiveRecords,
     catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
@@ -617,138 +620,108 @@ pub(crate) fn get_segment_record_by_id(
         .collections
         .get(collection_index)
         .ok_or("segment collection missing")?;
-    if segment.descriptor().collection != collection.generation.collection {
-        return Err("segment collection mismatch".into());
+    let descriptor = segment.descriptor();
+    if descriptor.collection != collection.generation.collection
+        || active.slot_count() as usize != descriptor.slots
+    {
+        return Err("segment collection or slot domain mismatch".into());
     }
-    let Some(slot) = segment
-        .slot_for_record(record_id)
-        .map_err(|error| error.to_string())?
-    else {
+    let Some(slot) = segment.slot_for_record(record_id)? else {
         return Ok(None);
     };
-    if segment.backing.provider_version(slot).is_some() {
-        if !active.contains(slot) {
-            return Ok(None);
+    if !active.contains(slot) {
+        return Ok(None);
+    }
+    let record = segment
+        .header(slot)?
+        .ok_or("direct lookup record slot missing")?;
+    let origin = segment
+        .origin(slot)?
+        .ok_or("direct lookup record origin missing")?;
+    let file;
+    let payload;
+    match origin {
+        RecordOrigin::FileRange(locator) => {
+            let range = locator
+                .range
+                .ok_or("file-backed segment record range missing")?;
+            let entry = segment_active_file(segment, active, catalog, locator.file)?;
+            payload = match return_mode {
+                ReturnMode::Locator => None,
+                ReturnMode::Logical if record.class == RecordClass::RawFallback => {
+                    Some(Payload::LogicalUnavailable {
+                        diagnostic_ref: record.diagnostic_ref,
+                    })
+                }
+                ReturnMode::Bytes | ReturnMode::Logical => {
+                    let root = catalog
+                        .repository_root()
+                        .ok_or("file-backed segment has no catalog root")?;
+                    let path = root.join(&entry.relative_path);
+                    let bytes = read_record_range_for_search(
+                        collection.required_file_reader().reader(),
+                        &path,
+                        entry.revision,
+                        range,
+                        None,
+                    )?;
+                    payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
+                }
+            };
+            file = Some(crate::files::RecordFileInfo::from_entry(
+                &entry,
+                Some(range),
+            ));
         }
-        let record = segment.record(slot).ok_or("provider record slot missing")?;
-        let payload = match return_mode {
-            ReturnMode::Locator => None,
-            ReturnMode::Logical => Some(Payload::Logical(
-                read_provider(
-                    repo,
-                    segment,
-                    slot,
-                    &crate::records::reader::RecordProjection::full(),
-                )?
-                .value,
-            )),
-            ReturnMode::Bytes => Some(
-                match read_provider(
-                    repo,
-                    segment,
-                    slot,
-                    &crate::records::reader::RecordProjection {
-                        original_bytes: true,
-                        ..crate::records::reader::RecordProjection::full()
+        RecordOrigin::Retained(_) | RecordOrigin::Provider { .. } => {
+            payload = match (origin, return_mode) {
+                (_, ReturnMode::Locator) => None,
+                (RecordOrigin::Retained(_), ReturnMode::Bytes) => {
+                    Some(Payload::OriginalBytesUnavailable)
+                }
+                (RecordOrigin::Retained(_), ReturnMode::Logical) => {
+                    let body = segment
+                        .retained_body(slot)?
+                        .ok_or("retained record body missing")?;
+                    Some(Payload::Logical(match body {
+                        std::borrow::Cow::Borrowed(body) => body.value.clone(),
+                        std::borrow::Cow::Owned(body) => body.value,
+                    }))
+                }
+                (
+                    RecordOrigin::Provider {
+                        registration,
+                        version,
+                        ..
                     },
-                )?
-                .original_bytes
-                {
-                    Some(bytes) => Payload::Bytes(bytes),
-                    None => Payload::OriginalBytesUnavailable,
-                },
-            ),
-        };
-        let file = segment
-            .backing
-            .file_locator(slot)
-            .map(|locator| {
-                catalog.file(locator.file).map(|file| {
-                    file.map(|entry| {
-                        crate::files::RecordFileInfo::from_entry(entry.as_ref(), locator.range)
+                    mode,
+                ) => {
+                    let key =
+                        crate::records::RecordKey::new(descriptor.collection, record.id.clone());
+                    let projection = crate::records::reader::RecordProjection {
+                        original_bytes: mode == ReturnMode::Bytes,
+                        ..crate::records::reader::RecordProjection::full()
+                    };
+                    let read =
+                        read_registered_record(repo, registration, &key, version, &projection)?;
+                    Some(if mode == ReturnMode::Logical {
+                        Payload::Logical(read.value)
+                    } else {
+                        read.original_bytes
+                            .map(Payload::Bytes)
+                            .unwrap_or(Payload::OriginalBytesUnavailable)
                     })
-                })
-            })
-            .transpose()
-            .map_err(|error| error.to_string())?
-            .flatten();
-        return Ok(Some(SearchHit {
-            collection: collection.definition.name.clone(),
-            record_id: record.id.0.to_string(),
-            generation: revision.0,
-            file,
-            matched_fields: Vec::new(),
-            record_class: record.class,
-            diagnostic_ref: record.diagnostic_ref,
-            payload,
-        }));
+                }
+                (RecordOrigin::FileRange(_), _) => unreachable!("file origin handled above"),
+            };
+            file = optional_record_file(catalog, origin)?;
+        }
     }
-    if let Some(body) = segment.backing.retained_body(slot) {
-        if !active.contains(slot) {
-            return Ok(None);
-        }
-        let record = segment.record(slot).ok_or("retained record slot missing")?;
-        let payload = match return_mode {
-            ReturnMode::Locator => None,
-            ReturnMode::Logical => Some(Payload::Logical(body.value.clone())),
-            ReturnMode::Bytes => Some(Payload::OriginalBytesUnavailable),
-        };
-        let file = segment
-            .backing
-            .file_locator(slot)
-            .map(|locator| {
-                catalog.file(locator.file).map(|file| {
-                    file.map(|entry| {
-                        crate::files::RecordFileInfo::from_entry(entry.as_ref(), locator.range)
-                    })
-                })
-            })
-            .transpose()
-            .map_err(|error| error.to_string())?
-            .flatten();
-        return Ok(Some(SearchHit {
-            collection: collection.definition.name.clone(),
-            record_id: record.id.0.to_string(),
-            generation: revision.0,
-            file,
-            matched_fields: Vec::new(),
-            record_class: record.class,
-            diagnostic_ref: record.diagnostic_ref,
-            payload,
-        }));
-    }
-    let Some(resolved) = segment_record_ref(segment, active, catalog, slot)? else {
-        return Ok(None);
-    };
-    let record = resolved.record;
-    let file = resolved.file;
-    let payload = match return_mode {
-        ReturnMode::Locator => None,
-        ReturnMode::Logical if record.class == RecordClass::RawFallback => {
-            Some(Payload::LogicalUnavailable {
-                diagnostic_ref: record.diagnostic_ref,
-            })
-        }
-        ReturnMode::Bytes | ReturnMode::Logical => {
-            let path = repo.files.required_root().join(&file.relative_path);
-            let bytes = read_record_range_for_search(
-                collection.required_file_reader().reader(),
-                &path,
-                file.revision,
-                record.range,
-                None,
-            )?;
-            payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
-        }
-    };
     Ok(Some(SearchHit {
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: revision.0,
-        file: Some(crate::files::RecordFileInfo::from_entry(
-            file.as_ref(),
-            Some(record.range),
-        )),
+        file,
         matched_fields: Vec::new(),
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
@@ -756,32 +729,42 @@ pub(crate) fn get_segment_record_by_id(
     }))
 }
 
-fn read_provider(
-    repo: &Repository,
-    segment: &IndexedCollectionSegment,
-    slot: RecordSlot,
-    projection: &crate::records::reader::RecordProjection,
-) -> Result<crate::records::reader::RecordRead, String> {
-    let crate::index::segment::SegmentBacking::Provider {
-        registration,
-        versions,
-        ..
-    } = &segment.backing
-    else {
-        return Err("segment is not provider-backed".into());
+fn optional_record_file(
+    catalog: &dyn FileCatalogReader,
+    origin: RecordOrigin,
+) -> Result<Option<crate::files::RecordFileInfo>, String> {
+    let Some(locator) = origin.file() else {
+        return Ok(None);
     };
-    let expected = *versions
-        .get(slot.0 as usize)
-        .ok_or("provider version missing")?;
+    Ok(catalog
+        .file(locator.file)?
+        .map(|entry| crate::files::RecordFileInfo::from_entry(&entry, locator.range)))
+}
+
+fn registered_record_reader(
+    repo: &Repository,
+    registration: u32,
+) -> Result<&dyn crate::records::reader::RecordReader, String> {
     let source = repo
         .record_registrations
-        .get(*registration as usize)
+        .get(registration as usize)
         .ok_or("provider registration missing")?;
-    let reader = source.reader.as_ref().ok_or("provider reader missing")?;
-    let record = segment.record(slot).ok_or("provider record missing")?;
-    let key = crate::records::RecordKey::new(segment.collection, record.id.clone());
+    source
+        .reader
+        .as_deref()
+        .ok_or_else(|| "provider reader missing".into())
+}
+
+fn read_registered_record(
+    repo: &Repository,
+    registration: u32,
+    key: &crate::records::RecordKey,
+    expected: crate::records::RecordVersion,
+    projection: &crate::records::reader::RecordProjection,
+) -> Result<crate::records::reader::RecordRead, String> {
+    let reader = registered_record_reader(repo, registration)?;
     let read = reader
-        .read_projected(&key, expected, projection)
+        .read_projected(key, expected, projection)
         .map_err(|error| error.to_string())?;
     if read.version != expected {
         return Err("provider returned a different record version".into());
@@ -789,39 +772,59 @@ fn read_provider(
     Ok(read)
 }
 
-fn read_provider_batch(
+pub(crate) fn read_provider<S: SegmentReader + ?Sized>(
     repo: &Repository,
-    segment: &IndexedCollectionSegment,
+    segment: &S,
+    slot: RecordSlot,
+    projection: &crate::records::reader::RecordProjection,
+) -> Result<crate::records::reader::RecordRead, String> {
+    let Some(RecordOrigin::Provider {
+        registration,
+        version,
+        ..
+    }) = segment.origin(slot)?
+    else {
+        return Err("provider record origin missing".into());
+    };
+    let record = segment.header(slot)?.ok_or("provider record missing")?;
+    let key = crate::records::RecordKey::new(segment.descriptor().collection, record.id.clone());
+    read_registered_record(repo, registration, &key, version, projection)
+}
+
+pub(crate) fn read_provider_batch<S: SegmentReader + ?Sized>(
+    repo: &Repository,
+    segment: &S,
     slots: &[RecordSlot],
     projection: &crate::records::reader::RecordProjection,
 ) -> Result<Vec<crate::records::reader::RecordRead>, String> {
-    let crate::index::segment::SegmentBacking::Provider {
-        registration,
-        versions,
-        ..
-    } = &segment.backing
-    else {
-        return Err("segment is not provider-backed".into());
+    let mut registrar = None;
+    let collection = segment.descriptor().collection;
+    let mut requests = Vec::with_capacity(slots.len());
+    for &slot in slots {
+        let Some(RecordOrigin::Provider {
+            registration,
+            version,
+            ..
+        }) = segment.origin(slot)?
+        else {
+            return Err("provider record origin missing".into());
+        };
+        if registrar
+            .replace(registration)
+            .is_some_and(|previous| previous != registration)
+        {
+            return Err("provider record batch crosses source registrations".into());
+        }
+        let record = segment.header(slot)?.ok_or("provider record missing")?;
+        requests.push(crate::records::reader::RecordReadRequest {
+            key: crate::records::RecordKey::new(collection, record.id.clone()),
+            expected_version: version,
+        });
+    }
+    let Some(registration) = registrar else {
+        return Ok(Vec::new());
     };
-    let source = repo
-        .record_registrations
-        .get(*registration as usize)
-        .ok_or("provider registration missing")?;
-    let reader = source.reader.as_ref().ok_or("provider reader missing")?;
-    let requests = slots
-        .iter()
-        .map(|slot| {
-            let record = segment.record(*slot).ok_or("provider record missing")?;
-            let expected_version = *versions
-                .get(slot.0 as usize)
-                .ok_or("provider version missing")?;
-            Ok(crate::records::reader::RecordReadRequest {
-                key: crate::records::RecordKey::new(segment.collection, record.id.clone()),
-                expected_version,
-            })
-        })
-        .collect::<Result<Vec<_>, String>>()?;
-    let results = reader.read_batch(&requests, projection);
+    let results = registered_record_reader(repo, registration)?.read_batch(&requests, projection);
     if results.len() != requests.len() {
         return Err("provider returned wrong batch length".into());
     }
@@ -985,9 +988,8 @@ pub(crate) fn direct_lookup_segmented_counted(
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
         if matches!(
-            &segment.index.backing,
-            crate::index::segment::SegmentBacking::Retained { .. }
-                | crate::index::segment::SegmentBacking::Provider { .. }
+            segment.index.backing_kind(),
+            RecordBacking::Retained | RecordBacking::Provider
         ) {
             let mut hit = get_segment_record_by_id(
                 repo,
@@ -1146,13 +1148,10 @@ fn retained_locator_hit(
     mut matched_fields: Vec<String>,
 ) -> Result<SearchHit, String> {
     matched_fields.sort();
-    let file = if let Some(locator) = segment.backing.file_locator(record.slot) {
-        catalog
-            .file(locator.file)?
-            .map(|entry| crate::files::RecordFileInfo::from_entry(&entry, locator.range))
-    } else {
-        None
-    };
+    let origin = segment
+        .origin(record.slot)?
+        .ok_or("retained hit origin missing")?;
+    let file = optional_record_file(catalog, origin)?;
     Ok(SearchHit {
         collection: collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
@@ -1252,12 +1251,9 @@ fn has_provider_relation_dependency(
     let provider_collections = segments
         .iter()
         .map(|group| {
-            group.iter().any(|segment| {
-                matches!(
-                    segment.index.backing,
-                    crate::index::segment::SegmentBacking::Provider { .. }
-                )
-            })
+            group
+                .iter()
+                .any(|segment| matches!(segment.index.backing_kind(), RecordBacking::Provider))
         })
         .collect::<Vec<_>>();
     if !provider_collections.iter().any(|provider| *provider) {
@@ -2363,10 +2359,7 @@ fn offer_admitted_segment_slot(
     #[cfg(test)]
     SEGMENT_SLOT_EVIDENCE_CALLS.with(|calls| calls.set(calls.get() + 1));
     let matched_fields = evidence();
-    let retained = !matches!(
-        segment.backing,
-        crate::index::segment::SegmentBacking::FileRange { .. }
-    );
+    let retained = !matches!(segment.backing_kind(), RecordBacking::FileRange);
     let resolved = if retained {
         None
     } else {
@@ -2474,10 +2467,7 @@ fn search_segmented_impl(
                 .collections
                 .contains(&repo.collections[number].definition.name))
             && group.iter().any(|published| {
-                !matches!(
-                    published.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                )
+                !matches!(published.index.backing_kind(), RecordBacking::FileRange)
             })
     });
     query
@@ -3115,9 +3105,8 @@ fn search_segmented_impl(
                 None
             };
             if matches!(
-                segment.backing,
-                crate::index::segment::SegmentBacking::Retained { .. }
-                    | crate::index::segment::SegmentBacking::Provider { .. }
+                segment.backing_kind(),
+                RecordBacking::Retained | RecordBacking::Provider
             ) {
                 let fields = if fts.is_none() && !sort.bound.has_computed {
                     filter.as_ref().and_then(segment_filter_source_fields)
@@ -3143,10 +3132,7 @@ fn search_segmented_impl(
                         if slots.is_empty() {
                             break;
                         }
-                        if matches!(
-                            segment.backing,
-                            crate::index::segment::SegmentBacking::Provider { .. }
-                        ) {
+                        if matches!(segment.backing_kind(), RecordBacking::Provider) {
                             if let Some(context) = context {
                                 context.check_string()?;
                                 context.charge_reads(slots.len() as u64)?;
@@ -3164,18 +3150,18 @@ fn search_segmented_impl(
                         context.check_string()?;
                     }
                     let record = segment.record(slot).ok_or("retained candidate missing")?;
-                    let retained_body = segment.backing.retained_body(slot);
+                    let retained_body = segment.retained_body(slot)?;
                     let value = provider_body
                         .as_ref()
                         .map(|body| &body.value)
-                        .or_else(|| retained_body.map(|body| &body.value))
+                        .or_else(|| retained_body.as_deref().map(|body| &body.value))
                         .ok_or("record body missing")?;
                     let text = provider_body
                         .as_ref()
                         .map(|body| body.text.as_slice())
-                        .or_else(|| retained_body.map(|body| body.text.as_slice()))
+                        .or_else(|| retained_body.as_deref().map(|body| body.text.as_slice()))
                         .ok_or("record text missing")?;
-                    let locator = segment.backing.file_locator(slot);
+                    let locator = segment.origin(slot)?.and_then(RecordOrigin::file);
                     let origin = locator
                         .map(|locator| catalog.file(locator.file))
                         .transpose()?
@@ -3721,14 +3707,10 @@ fn search_segmented_impl(
         for mut winner in page {
             if let Some((collection_index, segment_index)) = winner.segment {
                 let published = &segments[collection_index][segment_index];
-                let file_backed = matches!(
-                    &published.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                );
-                let provider_backed = matches!(
-                    &published.index.backing,
-                    crate::index::segment::SegmentBacking::Provider { .. }
-                );
+                let file_backed =
+                    matches!(published.index.backing_kind(), RecordBacking::FileRange);
+                let provider_backed =
+                    matches!(published.index.backing_kind(), RecordBacking::Provider);
                 if let Some(context) = context {
                     context.check_string()?;
                     if file_backed {
@@ -4211,14 +4193,10 @@ fn stream_backing_for_hit(
                 .get(hit.record_id.as_str())
                 .is_some_and(|slot| published.active.contains(*slot))
             {
-                return Ok(match &published.index.backing {
-                    crate::index::segment::SegmentBacking::FileRange { .. } => StreamBacking::File,
-                    crate::index::segment::SegmentBacking::Retained { .. } => {
-                        StreamBacking::Retained
-                    }
-                    crate::index::segment::SegmentBacking::Provider { .. } => {
-                        StreamBacking::Provider
-                    }
+                return Ok(match published.index.backing_kind() {
+                    RecordBacking::FileRange => StreamBacking::File,
+                    RecordBacking::Retained => StreamBacking::Retained,
+                    RecordBacking::Provider => StreamBacking::Provider,
                 });
             }
         }
@@ -4429,12 +4407,7 @@ fn try_lifecycle_ordered_stream(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|segment| {
-            !matches!(
-                segment.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            )
-        })
+        .any(|segment| !matches!(segment.index.backing_kind(), RecordBacking::FileRange))
     {
         return Ok(None);
     }

@@ -1,6 +1,7 @@
 //! Verified result-cache admission accounting.
 
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::{RecordBacking, SegmentReader};
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
@@ -256,10 +257,7 @@ pub(crate) fn materialize_lifecycle_cached(
             .get(member.collection_index)
             .and_then(|group| group.get(segment_index))
             .ok_or("cached provider segment missing")?;
-        if !matches!(
-            &segment.index.backing,
-            crate::index::segment::SegmentBacking::Provider { .. }
-        ) {
+        if !matches!(segment.index.backing_kind(), RecordBacking::Provider) {
             continue;
         }
         if let Some(context) = context {
@@ -340,14 +338,9 @@ pub(crate) fn materialize_lifecycle_cached(
             .ok_or("cached lifecycle segment locator missing")?;
             hit.matched_fields = member.matched_fields.to_vec();
             if query.options.return_mode != ReturnMode::Locator {
-                let file_backed = matches!(
-                    &segment.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                );
-                let provider_backed = matches!(
-                    &segment.index.backing,
-                    crate::index::segment::SegmentBacking::Provider { .. }
-                );
+                let file_backed = matches!(segment.index.backing_kind(), RecordBacking::FileRange);
+                let provider_backed =
+                    matches!(segment.index.backing_kind(), RecordBacking::Provider);
                 let source_bytes = hit.source_range_len();
                 if let Some(context) = context {
                     if file_backed {

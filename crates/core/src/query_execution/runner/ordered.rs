@@ -666,14 +666,8 @@ pub(super) fn try_inferred_segment_order_page(
         let mut retained = Vec::with_capacity(page.len());
         for (cursor, mut hit) in page {
             let segment = cursors[cursor].0;
-            let file_backed = matches!(
-                &segment.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            );
-            let provider_backed = matches!(
-                &segment.index.backing,
-                crate::index::segment::SegmentBacking::Provider { .. }
-            );
+            let file_backed = matches!(segment.index.backing_kind(), RecordBacking::FileRange);
+            let provider_backed = matches!(segment.index.backing_kind(), RecordBacking::Provider);
             if let Some(execution) = execution {
                 if file_backed {
                     let source_bytes = hit.source_range_len();

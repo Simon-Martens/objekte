@@ -25,9 +25,11 @@ use crate::index::sorting::SortCollection;
 use crate::index::storage::file_catalog::FileCatalogHandle;
 use crate::index::storage::order::SortKey;
 use crate::index::storage::ordered_slots::OrderedSlots;
-use crate::index::storage::segment::{SegmentDescriptor, SegmentReader};
+use crate::index::storage::segment::{
+    RecordBacking, RecordOrigin, SegmentDescriptor, SegmentReader,
+};
 use crate::index::storage::transfer::StorageResult;
-use crate::inventory::{ActiveRecords, ByteRange, RecordEntry, SourceRevision};
+use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
 use crate::lifecycle::IndexRevision;
 #[cfg(test)]
 use crate::model::Value;
@@ -155,16 +157,7 @@ pub(crate) struct SegmentFile {
     pub records: Vec<RecordSlot>,
 }
 
-/// Source-specific file coordinates, addressed by the common record slot.
-/// A file-only provenance link can omit the byte range; ordinary file imports
-/// always supply one.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) struct FileRangeLocator {
-    pub file: FileId,
-    pub range: Option<ByteRange>,
-    pub revision: SourceRevision,
-}
-
+pub(crate) use crate::index::storage::segment::FileRangeLocator;
 pub(crate) use crate::records::RetainedBody;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -652,6 +645,14 @@ impl SegmentReader for IndexedCollectionSegment {
         }
     }
 
+    fn backing_kind(&self) -> RecordBacking {
+        match self.backing {
+            SegmentBacking::FileRange { .. } => RecordBacking::FileRange,
+            SegmentBacking::Retained { .. } => RecordBacking::Retained,
+            SegmentBacking::Provider { .. } => RecordBacking::Provider,
+        }
+    }
+
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
         Ok(self.id_lookup.get(id).copied())
     }
@@ -661,6 +662,39 @@ impl SegmentReader for IndexedCollectionSegment {
         slot: RecordSlot,
     ) -> StorageResult<Option<Cow<'_, crate::records::RecordHeader>>> {
         Ok(self.record(slot).map(Cow::Borrowed))
+    }
+
+    fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>> {
+        if self.record(slot).is_none() {
+            return Ok(None);
+        }
+        let file = self.backing.file_locator(slot);
+        let corrupt = || {
+            crate::index::storage::transfer::StorageError::invalid(
+                "read record origin",
+                "origin is missing for an existing slot",
+            )
+        };
+        Ok(Some(match &self.backing {
+            SegmentBacking::FileRange { .. } => RecordOrigin::FileRange(file.ok_or_else(corrupt)?),
+            SegmentBacking::Retained { .. } => RecordOrigin::Retained(file),
+            SegmentBacking::Provider { registration, .. } => RecordOrigin::Provider {
+                registration: *registration,
+                version: self.backing.provider_version(slot).ok_or_else(corrupt)?,
+                file,
+            },
+        }))
+    }
+
+    fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
+        Ok(self.backing.retained_body(slot).map(Cow::Borrowed))
+    }
+
+    fn file_metadata(
+        &self,
+        file: FileId,
+    ) -> StorageResult<Option<Cow<'_, crate::inventory::FileEntry>>> {
+        Ok(self.file(file).map(|file| Cow::Borrowed(&file.entry)))
     }
 
     fn visit_file_slots(

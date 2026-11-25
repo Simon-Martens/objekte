@@ -4,9 +4,10 @@ use std::{borrow::Cow, fmt, num::NonZeroUsize};
 
 use serde::{Deserialize, Serialize};
 
+use crate::inventory::{ByteRange, FileEntry, SourceRevision};
 use crate::model::{CollectionId, FieldPath, FileId, RecordSlot};
 use crate::query::options::SortField;
-use crate::records::RecordHeader;
+use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
 use super::order::SortKey;
 use super::ordered_slots::OrderedSlots;
@@ -111,14 +112,58 @@ pub(crate) struct SegmentDescriptor {
     pub(crate) slots: usize,
 }
 
+/// Logical provenance for a file-backed address or an optional direct link.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct FileRangeLocator {
+    pub file: FileId,
+    pub range: Option<ByteRange>,
+    pub revision: SourceRevision,
+}
+
+/// Source service used by the segment to materialize record data.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum RecordBacking {
+    FileRange,
+    Retained,
+    Provider,
+}
+
+#[derive(Clone, Copy)]
+pub(crate) enum RecordOrigin {
+    FileRange(FileRangeLocator),
+    Retained(Option<FileRangeLocator>),
+    Provider {
+        registration: u32,
+        version: RecordVersion,
+        file: Option<FileRangeLocator>,
+    },
+}
+
+impl RecordOrigin {
+    pub(crate) fn file(self) -> Option<FileRangeLocator> {
+        match self {
+            Self::FileRange(file) => Some(file),
+            Self::Retained(file) | Self::Provider { file, .. } => file,
+        }
+    }
+}
+
 /// Reads from a pinned segment. Returned keys and headers can borrow the
 /// pinned representation or hold an owned value decoded by the reader.
 pub(crate) trait SegmentReader: Send + Sync {
     fn descriptor(&self) -> SegmentDescriptor;
 
+    fn backing_kind(&self) -> RecordBacking;
+
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>>;
 
     fn header(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RecordHeader>>>;
+
+    fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>>;
+
+    fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>>;
+
+    fn file_metadata(&self, file: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>>;
 
     fn visit_file_slots(
         &self,
@@ -139,3 +184,61 @@ pub(crate) trait SegmentReader: Send + Sync {
         scalar: Option<(&FieldPath, bool)>,
     ) -> StorageResult<Option<&dyn OrderedSlots>>;
 }
+
+impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
+    fn descriptor(&self) -> SegmentDescriptor {
+        self.as_ref().descriptor()
+    }
+
+    fn backing_kind(&self) -> RecordBacking {
+        self.as_ref().backing_kind()
+    }
+
+    fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
+        self.as_ref().slot_for_record(id)
+    }
+
+    fn header(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RecordHeader>>> {
+        self.as_ref().header(slot)
+    }
+
+    fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>> {
+        self.as_ref().origin(slot)
+    }
+
+    fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
+        self.as_ref().retained_body(slot)
+    }
+
+    fn file_metadata(&self, file: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>> {
+        self.as_ref().file_metadata(file)
+    }
+
+    fn visit_file_slots(
+        &self,
+        file: FileId,
+        limit: BatchLimit,
+        visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        self.as_ref().visit_file_slots(file, limit, visit)
+    }
+
+    fn stored_key(
+        &self,
+        path: &FieldPath,
+        slot: RecordSlot,
+    ) -> StorageResult<Option<Cow<'_, SortKey>>> {
+        self.as_ref().stored_key(path, slot)
+    }
+
+    fn ordered_slots(
+        &self,
+        sort: &[SortField],
+        scalar: Option<(&FieldPath, bool)>,
+    ) -> StorageResult<Option<&dyn OrderedSlots>> {
+        self.as_ref().ordered_slots(sort, scalar)
+    }
+}
+
+#[cfg(test)]
+mod tests;

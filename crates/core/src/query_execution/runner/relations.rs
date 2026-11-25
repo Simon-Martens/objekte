@@ -592,12 +592,7 @@ fn try_direct_relation_page(
             && segments
                 .iter()
                 .flat_map(|group| group.iter())
-                .all(|segment| {
-                    matches!(
-                        segment.index.backing,
-                        crate::index::segment::SegmentBacking::FileRange { .. }
-                    )
-                }))
+                .all(|segment| matches!(segment.index.backing_kind(), RecordBacking::FileRange)))
     {
         return Ok(None);
     }
@@ -679,12 +674,7 @@ fn try_direct_relation_page(
         && segments
             .iter()
             .flat_map(|group| group.iter())
-            .all(|segment| {
-                matches!(
-                    segment.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                )
-            })
+            .all(|segment| matches!(segment.index.backing_kind(), RecordBacking::FileRange))
     {
         return Ok(None);
     }
@@ -832,7 +822,9 @@ fn try_direct_relation_page(
                         segment
                             .record(slot)
                             .is_some_and(|record| record.id.0.len() <= 1024)
-                            && if let Some(locator) = segment.backing.file_locator(slot) {
+                            && if let Some(locator) =
+                                segment.origin(slot)?.and_then(RecordOrigin::file)
+                            {
                                 locator.range.is_some_and(|range| range.len() <= 64 * 1024)
                                     && catalog.file(locator.file)?.is_some_and(|file| {
                                         file.relative_path.to_string_lossy().len() <= 4096
@@ -901,11 +893,8 @@ fn try_direct_relation_page(
                 // This is an index-only Locator/count proof. Actual payload or
                 // residual reads use the checked pinned source identity.
                 true
-            } else if !matches!(
-                segment.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            ) {
-                let provider_body = if segment.backing.provider_version(address).is_some() {
+            } else if !matches!(segment.backing_kind(), RecordBacking::FileRange) {
+                let provider_body = if segment.backing_kind() == RecordBacking::Provider {
                     if let Some(context) = context {
                         context.charge_reads(1)?;
                     }
@@ -933,18 +922,18 @@ fn try_direct_relation_page(
                 } else {
                     None
                 };
-                let retained_body = segment.backing.retained_body(address);
+                let retained_body = segment.retained_body(address)?;
                 let value = provider_body
                     .as_ref()
                     .map(|body| &body.value)
-                    .or_else(|| retained_body.map(|body| &body.value))
+                    .or_else(|| retained_body.as_deref().map(|body| &body.value))
                     .ok_or("direct relation target body missing")?;
                 let text = provider_body
                     .as_ref()
                     .map(|body| body.text.as_slice())
-                    .or_else(|| retained_body.map(|body| body.text.as_slice()))
+                    .or_else(|| retained_body.as_deref().map(|body| body.text.as_slice()))
                     .ok_or("direct relation target text missing")?;
-                let locator = segment.backing.file_locator(address);
+                let locator = segment.origin(address)?.and_then(RecordOrigin::file);
                 let file = locator
                     .map(|link| catalog.file(link.file))
                     .transpose()?
@@ -1115,12 +1104,9 @@ fn try_direct_relation_page(
         .checked_add(query.options.limit)
         .ok_or("direct relation page size overflow")?;
     if query.options.return_mode == ReturnMode::Locator
-        && segments[*source_index].iter().all(|segment| {
-            matches!(
-                segment.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            )
-        })
+        && segments[*source_index]
+            .iter()
+            .all(|segment| matches!(segment.index.backing_kind(), RecordBacking::FileRange))
         && context.is_none()
         && cache_builder.is_none()
         && retained_budget.is_none()
@@ -1233,10 +1219,7 @@ fn try_direct_relation_page(
                 total += 1;
                 counters.exact_posting_matches += 1;
             }
-            let hit = if matches!(
-                published.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            ) {
+            let hit = if matches!(published.index.backing_kind(), RecordBacking::FileRange) {
                 let resolved = segment_record_ref(
                     &published.index,
                     &published.active,
@@ -2830,10 +2813,7 @@ fn try_exact_native_boolean_page(
                 record,
                 None,
             )?;
-            let hit = if matches!(
-                published.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            ) {
+            let hit = if matches!(published.index.backing_kind(), RecordBacking::FileRange) {
                 let resolved =
                     segment_record_ref(&published.index, &published.active, catalog, slot)?
                         .ok_or("native Boolean file record retired")?;
@@ -2982,40 +2962,39 @@ fn try_native_relation_scan(
                 if chunk.is_empty() {
                     break;
                 }
-                let mut provider_values = if matches!(
-                    published.index.backing,
-                    crate::index::segment::SegmentBacking::Provider { .. }
-                ) {
-                    let readable = chunk
-                        .iter()
-                        .copied()
-                        .filter(|slot| {
-                            published
-                                .index
-                                .record(*slot)
-                                .is_some_and(|record| record.class != RecordClass::RawFallback)
-                        })
-                        .collect::<Vec<_>>();
-                    if let Some(context) = context {
-                        context.check_string()?;
-                        context
-                            .check_slots(counters.candidates.saturating_add(chunk.len() as u64))?;
-                        context.charge_reads(readable.len() as u64)?;
-                    }
-                    Some(std::collections::VecDeque::from(
-                        view.native_provider_batch(
-                            crate::query_execution::relations::view::MergedRecordSlot {
-                                collection: published.index.collection,
-                                segment: Some(segment_index),
-                                slot: chunk[0],
-                            },
-                            &readable,
-                            projection,
-                        )?,
-                    ))
-                } else {
-                    None
-                };
+                let mut provider_values =
+                    if matches!(published.index.backing_kind(), RecordBacking::Provider) {
+                        let readable = chunk
+                            .iter()
+                            .copied()
+                            .filter(|slot| {
+                                published
+                                    .index
+                                    .record(*slot)
+                                    .is_some_and(|record| record.class != RecordClass::RawFallback)
+                            })
+                            .collect::<Vec<_>>();
+                        if let Some(context) = context {
+                            context.check_string()?;
+                            context.check_slots(
+                                counters.candidates.saturating_add(chunk.len() as u64),
+                            )?;
+                            context.charge_reads(readable.len() as u64)?;
+                        }
+                        Some(std::collections::VecDeque::from(
+                            view.native_provider_batch(
+                                crate::query_execution::relations::view::MergedRecordSlot {
+                                    collection: published.index.collection,
+                                    segment: Some(segment_index),
+                                    slot: chunk[0],
+                                },
+                                &readable,
+                                projection,
+                            )?,
+                        ))
+                    } else {
+                        None
+                    };
                 for slot in chunk {
                     if let Some(context) = context {
                         context.check_string()?;
@@ -3262,12 +3241,7 @@ pub(super) fn search_segmented_relations(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|segment| {
-            !matches!(
-                segment.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            )
-        })
+        .any(|segment| !matches!(segment.index.backing_kind(), RecordBacking::FileRange))
     {
         if !reference
             && let Some(result) = try_direct_relation_page(
@@ -4096,12 +4070,8 @@ pub(crate) fn search_segmented_reference_records(
     let sort = if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|segment| {
-            !matches!(
-                segment.index.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            )
-        }) {
+        .any(|segment| !matches!(segment.index.backing_kind(), RecordBacking::FileRange))
+    {
         ResolvedSort::new(repo, query)?
     } else {
         ResolvedSort::new_reference(repo, query)?

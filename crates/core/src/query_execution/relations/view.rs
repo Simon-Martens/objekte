@@ -1,6 +1,7 @@
 //! Pinned relation lookup over one immutable base-plus-delta publication.
 
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::{RecordBacking, RecordOrigin, SegmentReader};
 use std::borrow::Cow;
 use std::cell::RefCell;
 use std::collections::HashMap;
@@ -345,8 +346,8 @@ impl<'a> MergedRelationView<'a> {
             !matches!(
                 self.segments[address.collection.0 as usize][position]
                     .index
-                    .backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
+                    .backing_kind(),
+                RecordBacking::FileRange
             )
         })
     }
@@ -356,8 +357,8 @@ impl<'a> MergedRelationView<'a> {
             matches!(
                 self.segments[address.collection.0 as usize][position]
                     .index
-                    .backing,
-                crate::index::segment::SegmentBacking::Provider { .. }
+                    .backing_kind(),
+                RecordBacking::Provider
             )
         })
     }
@@ -403,46 +404,27 @@ impl<'a> MergedRelationView<'a> {
             return Ok(None);
         }
         let segment = &published.index;
-        if let Some(body) = segment.backing.retained_body(address.slot) {
-            return Ok(Some((
-                std::borrow::Cow::Borrowed(&body.value),
-                std::borrow::Cow::Borrowed(&body.text),
-            )));
+        match segment.backing_kind() {
+            RecordBacking::FileRange => Ok(None),
+            RecordBacking::Retained => {
+                let body = segment
+                    .retained_body(address.slot)?
+                    .ok_or("retained record body missing")?;
+                Ok(Some(match body {
+                    Cow::Borrowed(body) => (Cow::Borrowed(&body.value), Cow::Borrowed(&body.text)),
+                    Cow::Owned(body) => (Cow::Owned(body.value), Cow::Owned(body.text)),
+                }))
+            }
+            RecordBacking::Provider => {
+                let record = crate::query_execution::runner::read_provider(
+                    self.repo,
+                    segment,
+                    address.slot,
+                    projection,
+                )?;
+                Ok(Some((Cow::Owned(record.value), Cow::Owned(record.text))))
+            }
         }
-        let crate::index::segment::SegmentBacking::Provider {
-            registration,
-            versions,
-            ..
-        } = &segment.backing
-        else {
-            return Ok(None);
-        };
-        let expected = *versions
-            .get(address.slot.0 as usize)
-            .ok_or("native provider version missing")?;
-        let source = self
-            .repo
-            .record_registrations
-            .get(*registration as usize)
-            .ok_or("native provider registration missing")?;
-        let reader = source
-            .reader
-            .as_ref()
-            .ok_or("native provider reader missing")?;
-        let record = segment
-            .record(address.slot)
-            .ok_or("native provider slot missing")?;
-        let key = crate::records::RecordKey::new(segment.collection, record.id.clone());
-        let result = reader
-            .read_projected(&key, expected, projection)
-            .map_err(|error| error.to_string())?;
-        if result.version != expected {
-            return Err("native provider returned another version".into());
-        }
-        Ok(Some((
-            std::borrow::Cow::Owned(result.value),
-            std::borrow::Cow::Owned(result.text),
-        )))
     }
 
     /// One registration and segment share a projection and reader call. The
@@ -457,57 +439,15 @@ impl<'a> MergedRelationView<'a> {
         let published = self.segments[address.collection.0 as usize]
             .get(position)
             .ok_or("native provider segment missing")?;
-        let segment = &published.index;
-        let crate::index::segment::SegmentBacking::Provider {
-            registration,
-            versions,
-            ..
-        } = &segment.backing
-        else {
-            return Err("native provider backing missing".into());
-        };
-        let source = self
-            .repo
-            .record_registrations
-            .get(*registration as usize)
-            .ok_or("native provider registration missing")?;
-        let reader = source
-            .reader
-            .as_ref()
-            .ok_or("native provider reader missing")?;
-        let requests = slots
-            .iter()
-            .map(|slot| {
-                if !published.active.contains(*slot) {
-                    return Err("native provider slot retired".to_string());
-                }
-                let record = segment
-                    .record(*slot)
-                    .ok_or("native provider slot missing")?;
-                let version = *versions
-                    .get(slot.0 as usize)
-                    .ok_or("native provider version missing")?;
-                Ok(crate::records::reader::RecordReadRequest {
-                    key: crate::records::RecordKey::new(segment.collection, record.id.clone()),
-                    expected_version: version,
-                })
-            })
-            .collect::<Result<Vec<_>, String>>()?;
-        let results = reader.read_batch(&requests, projection);
-        if results.len() != requests.len() {
-            return Err("native provider batch returned another result count".into());
+        if slots.iter().any(|slot| !published.active.contains(*slot)) {
+            return Err("native provider slot retired".into());
         }
-        results
-            .into_iter()
-            .zip(requests)
-            .map(|(result, request)| {
-                let result = result.map_err(|error| error.to_string())?;
-                if result.version != request.expected_version {
-                    return Err("native provider returned another version".into());
-                }
-                Ok(result)
-            })
-            .collect()
+        crate::query_execution::runner::read_provider_batch(
+            self.repo,
+            &published.index,
+            slots,
+            projection,
+        )
     }
 
     pub(crate) fn native_origin(
@@ -524,7 +464,7 @@ impl<'a> MergedRelationView<'a> {
             return Ok((None, None));
         };
         let segment = &self.segments[address.collection.0 as usize][position].index;
-        let Some(locator) = segment.backing.file_locator(address.slot) else {
+        let Some(locator) = segment.origin(address.slot)?.and_then(RecordOrigin::file) else {
             return Ok((None, None));
         };
         let file = self
@@ -547,45 +487,39 @@ impl<'a> MergedRelationView<'a> {
             .collections
             .get(index)
             .ok_or("merged collection missing")?;
-        let (record, original_revision) = if let Some(segment_index) = address.segment {
+        if let Some(segment_index) = address.segment {
             let published = self.segments[index]
                 .get(segment_index)
                 .ok_or("merged segment missing")?;
-            if !published.active.contains(address.slot) {
-                return Ok(None);
-            }
-            let segment = &published.index;
-            let record = segment
-                .file_record(address.slot)
-                .ok_or("merged segment slot missing")?;
-            let file_index = segment
-                .file_index
-                .get(&record.file)
-                .copied()
-                .ok_or("merged segment file missing")?;
-            let file = segment
-                .files
-                .get(file_index)
-                .map(|file| file.entry.revision)
-                .ok_or("merged segment file missing")?;
-            (record, file)
-        } else {
-            if !self.base_active[index].contains(address.slot) {
-                return Ok(None);
-            }
-            let record = collection
-                .generation
-                .records
-                .get(address.slot.0 as usize)
-                .ok_or("merged base slot missing")?;
-            let file = self
-                .repo
-                .files
-                .files
-                .get(record.file.0 as usize)
-                .ok_or("merged base file missing")?;
-            (record.clone(), file.revision)
-        };
+            return crate::query_execution::runner::segment_record_ref(
+                &published.index,
+                &published.active,
+                self.catalog,
+                address.slot,
+            )
+            .map(|record| {
+                record.map(|record| MergedRecord {
+                    record: record.record,
+                    file: record.file,
+                    collection,
+                })
+            });
+        }
+        if !self.base_active[index].contains(address.slot) {
+            return Ok(None);
+        }
+        let record = collection
+            .generation
+            .records
+            .get(address.slot.0 as usize)
+            .ok_or("merged base slot missing")?;
+        let original_revision = self
+            .repo
+            .files
+            .files
+            .get(record.file.0 as usize)
+            .ok_or("merged base file missing")?
+            .revision;
         let file = self
             .catalog
             .file(record.file)?
@@ -594,7 +528,7 @@ impl<'a> MergedRelationView<'a> {
             return Err("active merged record file changed without retirement".into());
         }
         Ok(Some(MergedRecord {
-            record,
+            record: record.clone(),
             file,
             collection,
         }))
