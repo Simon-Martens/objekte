@@ -1,5 +1,7 @@
 //! Sort configuration and comparison of logical order keys.
 
+pub(crate) mod inferred_cache;
+
 use std::borrow::Cow;
 use std::cmp::Ordering;
 
@@ -9,7 +11,7 @@ use time::{Date, OffsetDateTime};
 use crate::model::{FieldPath, Number};
 use crate::query::options::SortField;
 
-use crate::model::RecordSlot;
+use crate::model::{LogicalType, RecordSlot};
 
 use super::ordered_slots::OrderedSlots;
 use super::transfer::StorageResult;
@@ -19,8 +21,20 @@ pub(crate) trait OrderColumnReader: Send + Sync {
     fn path(&self) -> &FieldPath;
     fn options(&self) -> SortOptions;
     fn locale(&self) -> &str;
+    fn retained_bytes(&self) -> usize;
     fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>>;
     fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots>;
+}
+
+/// Owned logical keys and an ordered slot sequence prepared from a complete
+/// scalar dictionary. The destination can adopt or encode these buffers.
+pub(crate) struct InferredOrderRows {
+    pub path: FieldPath,
+    pub kind: LogicalType,
+    pub config: SortConfig,
+    pub keys: Vec<SortKey>,
+    pub order: Vec<RecordSlot>,
+    pub descending: bool,
 }
 
 pub const COLLATION_VERSION: &str =

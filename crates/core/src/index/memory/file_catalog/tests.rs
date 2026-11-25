@@ -351,6 +351,13 @@ struct OrderedFileFactory {
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
+    fn inferred_order(
+        &self,
+        rows: crate::index::storage::order::InferredOrderRows,
+    ) -> StorageResult<Arc<dyn crate::index::storage::order::OrderColumnReader>> {
+        crate::index::storage::test_factory().inferred_order(rows)
+    }
+
     fn live_records(
         &self,
         slots: usize,

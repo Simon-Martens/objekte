@@ -4,9 +4,13 @@ use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use super::*;
 use crate::index::storage::StorageFactory;
 use crate::index::storage::liveness::{ActiveRecords, InitialLiveness, LiveSlotReader};
-use crate::index::storage::transfer::StorageError;
+use crate::index::storage::order::{
+    InferredOrderRows, OrderColumnReader, SortConfig, SortKey, SortOptions,
+};
+use crate::index::storage::ordered_slots::OrderedSlots;
+use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError};
 use crate::lifecycle::Index;
-use crate::model::Value;
+use crate::model::{FieldPath, Value};
 use crate::query::options::ReturnMode;
 use crate::query_access::membership::MembershipView;
 use crate::schema::Schema;
@@ -14,6 +18,9 @@ use crate::schema::Schema;
 #[derive(Default)]
 struct TableFactory {
     installs: AtomicUsize,
+    order_builds: AtomicUsize,
+    order_rows: Arc<AtomicUsize>,
+    fail_order_refill: Arc<AtomicBool>,
     liveness_visits: Arc<AtomicUsize>,
     worker_calls: AtomicUsize,
     file_worker_calls: AtomicUsize,
@@ -23,6 +30,22 @@ struct TableFactory {
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn inferred_order(&self, rows: InferredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>> {
+        self.order_builds.fetch_add(1, Ordering::Relaxed);
+        let keys = rows.keys.into_iter().enumerate().collect();
+        Ok(Arc::new(TableOrder {
+            path: rows.path,
+            config: rows.config,
+            keys,
+            descending: rows.descending,
+            slots: ShortOrder {
+                rows: rows.order,
+                read_rows: Arc::clone(&self.order_rows),
+                fail_refill: Arc::clone(&self.fail_order_refill),
+            },
+        }))
+    }
+
     fn live_records(
         &self,
         slots: usize,
@@ -89,6 +112,176 @@ impl StorageFactory for Arc<TableFactory> {
             control: Arc::clone(self),
         }))
     }
+}
+
+struct TableOrder {
+    path: FieldPath,
+    config: SortConfig,
+    keys: BTreeMap<usize, SortKey>,
+    descending: bool,
+    slots: ShortOrder,
+}
+
+impl OrderColumnReader for TableOrder {
+    fn path(&self) -> &FieldPath {
+        &self.path
+    }
+
+    fn options(&self) -> SortOptions {
+        self.config.options
+    }
+
+    fn locale(&self) -> &str {
+        &self.config.locale
+    }
+
+    fn retained_bytes(&self) -> usize {
+        size_of::<Self>()
+            + self.keys.len() * size_of::<(usize, SortKey)>()
+            + self.slots.rows.capacity() * size_of::<RecordSlot>()
+    }
+
+    fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>> {
+        self.keys
+            .get(&(slot.0 as usize))
+            .cloned()
+            .map(Cow::Owned)
+            .ok_or_else(|| StorageError::invalid("test order", "slot out of range"))
+    }
+
+    fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots> {
+        if descending != self.descending {
+            return Err(StorageError::invalid(
+                "test order",
+                "order direction was not built",
+            ));
+        }
+        Ok(&self.slots)
+    }
+}
+
+struct ShortOrder {
+    rows: Vec<RecordSlot>,
+    read_rows: Arc<AtomicUsize>,
+    fail_refill: Arc<AtomicBool>,
+}
+
+impl OrderedSlots for ShortOrder {
+    fn len(&self) -> usize {
+        self.rows.len()
+    }
+
+    fn read_batch(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [RecordSlot]>, BatchStatus)> {
+        let size = limit
+            .fixed_batch_len("test order", size_of::<RecordSlot>())?
+            .min(2);
+        if start > 0 && self.fail_refill.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "test order",
+                "injected refill failure",
+            ));
+        }
+        let remaining = self
+            .rows
+            .get(start..)
+            .ok_or_else(|| StorageError::invalid("test order", "start out of range"))?;
+        let batch = &remaining[..size.min(remaining.len())];
+        self.read_rows.fetch_add(batch.len(), Ordering::Relaxed);
+        let status = if batch.len() == remaining.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Owned(batch.to_vec()), status))
+    }
+}
+
+#[test]
+fn inferred_order_reads_independent_short_batches_through_search() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::query::options::SortField;
+    use crate::query::{Query, QueryOptions};
+    use crate::repository::configuration::RepositoryOptions;
+    use crate::source::test_support::{document_folder, fixture_registry};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-independent-inferred-order-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let data = root.join("data");
+    for score in 0..64 {
+        std::fs::write(
+            data.join(format!("{score:02}.row")),
+            format!(r#"("score"={score})"#),
+        )
+        .unwrap();
+    }
+    let build = |factory| {
+        Index::start_build_with_factory(
+            &root,
+            vec![document_folder("data", "data")],
+            RepositoryOptions {
+                verified_cache_bytes: 0,
+                inference: InferenceConfig {
+                    mode: InferenceMode::AutoIndex,
+                    ..Default::default()
+                },
+                ..Default::default()
+            },
+            fixture_registry(),
+            factory,
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap()
+        .view()
+        .unwrap()
+    };
+    let factory = Arc::new(TableFactory::default());
+    let table = build(Arc::new(Arc::clone(&factory)));
+    let memory = build(crate::index::storage::default_factory());
+    let mut query = Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            count: false,
+            limit: 1,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+            sort: vec![SortField::simple("score", true)],
+            offset: 0,
+        },
+    };
+    let expected = memory.search(&query).unwrap();
+    let result = table.search(&query).unwrap();
+    assert_eq!(result.hits, expected.hits);
+    assert_eq!(result.hits.len(), 1);
+    assert_eq!(result.counters.files_opened, 0);
+    assert_eq!(factory.order_builds.load(Ordering::Relaxed), 1);
+    assert_eq!(factory.order_rows.load(Ordering::Relaxed), 2);
+
+    query.options.limit = 5;
+    factory.fail_order_refill.store(true, Ordering::Relaxed);
+    assert!(
+        table
+            .search(&query)
+            .unwrap_err()
+            .to_string()
+            .contains("injected refill failure")
+    );
+    factory.fail_order_refill.store(false, Ordering::Relaxed);
+    assert_eq!(
+        table.search(&query).unwrap().hits,
+        memory.search(&query).unwrap().hits
+    );
+    assert_eq!(factory.order_builds.load(Ordering::Relaxed), 1);
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[derive(Clone, Debug)]

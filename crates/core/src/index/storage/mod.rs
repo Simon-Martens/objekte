@@ -21,6 +21,11 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn inferred_order(
+        &self,
+        rows: order::InferredOrderRows,
+    ) -> StorageResult<Arc<dyn order::OrderColumnReader>>;
+
     fn live_records(
         &self,
         slots: usize,

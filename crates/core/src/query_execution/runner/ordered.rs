@@ -392,7 +392,7 @@ pub(super) fn inferred_order_column_for_segment(
         query.options.sort[0].descending,
     );
     let column = cached_inferred_order(&repo.inferred_orders, key, || {
-        SortColumn::from_inferred_posting(
+        let rows = crate::index::sorting::build_inferred_order_rows(
             index,
             &segment.index.records,
             path.clone(),
@@ -400,7 +400,10 @@ pub(super) fn inferred_order_column_for_segment(
             collection.definition.sort_options,
             query.options.sort[0].descending,
             execution,
-        )
+        )?;
+        rows.map(|rows| repo.storage_factory.inferred_order(rows))
+            .transpose()
+            .map_err(String::from)
     })?;
     if let (Some(column), Some(execution)) = (&column, execution) {
         execution.check_string()?;
@@ -411,14 +414,14 @@ pub(super) fn inferred_order_column_for_segment(
             ));
         }
     }
-    Ok(column.map(|column| column as Arc<dyn OrderColumnReader>))
+    Ok(column)
 }
 
 pub(super) fn cached_inferred_order(
-    cache: &Mutex<crate::index::sorting::InferredOrderCache>,
+    cache: &Mutex<crate::index::storage::order::inferred_cache::InferredOrderCache>,
     key: InferredOrderKey,
-    build: impl FnOnce() -> Result<Option<SortColumn>, String>,
-) -> Result<Option<Arc<SortColumn>>, String> {
+    build: impl FnOnce() -> Result<Option<Arc<dyn OrderColumnReader>>, String>,
+) -> Result<Option<Arc<dyn OrderColumnReader>>, String> {
     if let Some(column) = cache.lock().map_err(|error| error.to_string())?.get(&key) {
         return Ok(Some(column));
     }
@@ -428,7 +431,7 @@ pub(super) fn cached_inferred_order(
     let column = cache
         .lock()
         .map_err(|error| error.to_string())?
-        .insert_if_absent(key, Arc::new(column));
+        .insert_if_absent(key, column);
     Ok(Some(column))
 }
 

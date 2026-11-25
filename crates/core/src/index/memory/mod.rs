@@ -16,6 +16,15 @@ mod worker;
 pub(crate) struct MemoryStorageFactory;
 
 impl super::storage::StorageFactory for MemoryStorageFactory {
+    fn inferred_order(
+        &self,
+        rows: super::storage::order::InferredOrderRows,
+    ) -> super::storage::transfer::StorageResult<
+        std::sync::Arc<dyn super::storage::order::OrderColumnReader>,
+    > {
+        Ok(std::sync::Arc::new(sorting::SortColumn::from(rows)))
+    }
+
     fn live_records(
         &self,
         slots: usize,

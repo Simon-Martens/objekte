@@ -14,11 +14,13 @@ use smallvec::SmallVec;
 use crate::index::posting::PostingIndex;
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
+#[cfg(test)]
+use crate::index::sorting::SortColumn;
 use crate::index::sorting::simple_composite_part;
-use crate::index::sorting::{InferredOrderKey, SortColumn};
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::order::inferred_cache::InferredOrderKey;
 use crate::index::storage::ordered_slots::OrderedSlotCursor;
 use crate::index::storage::segment::{RecordBacking, RecordOrigin, SegmentReader};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};

@@ -25,16 +25,14 @@ use crate::schema::Schema;
 
 mod inferred_order;
 
-pub(crate) use inferred_order::{InferredOrderCache, InferredOrderKey};
+pub(crate) use inferred_order::build_inferred_order_rows;
 
-use crate::index::storage::order::OrderColumnReader;
 pub(crate) use crate::index::storage::order::simple_composite_part;
 pub use crate::index::storage::order::{
     COLLATION_VERSION, CollationStrength, CompositeSortPart, Placement, SortConfig, SortKey,
     SortOptions,
 };
-
-pub(crate) const INFERRED_ORDER_CACHE_BYTES: usize = 128 * 1024 * 1024;
+use crate::index::storage::order::{InferredOrderRows, OrderColumnReader};
 
 impl OrderedSlots for Vec<RecordSlot> {
     fn len(&self) -> usize {
@@ -88,6 +86,10 @@ impl OrderColumnReader for SortColumn {
         &self.locale
     }
 
+    fn retained_bytes(&self) -> usize {
+        SortColumn::retained_bytes(self)
+    }
+
     fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>> {
         self.keys
             .get(slot.0 as usize)
@@ -101,6 +103,26 @@ impl OrderColumnReader for SortColumn {
         } else {
             &self.ascending
         })
+    }
+}
+
+impl From<InferredOrderRows> for SortColumn {
+    fn from(rows: InferredOrderRows) -> Self {
+        let (ascending, descending) = if rows.descending {
+            (Vec::new(), rows.order)
+        } else {
+            (rows.order, Vec::new())
+        };
+        Self {
+            path: rows.path,
+            kind: rows.kind,
+            keys: rows.keys,
+            ascending,
+            descending,
+            locale: rows.config.locale,
+            options: rows.config.options,
+            collation_version: COLLATION_VERSION.into(),
+        }
     }
 }
 

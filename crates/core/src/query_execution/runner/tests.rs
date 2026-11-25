@@ -3687,9 +3687,9 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
     use std::sync::mpsc;
     use std::time::Duration;
 
-    let cache = Arc::new(Mutex::new(crate::index::sorting::InferredOrderCache::new(
-        1024 * 1024,
-    )));
+    let cache = Arc::new(Mutex::new(
+        crate::index::storage::order::inferred_cache::InferredOrderCache::new(1024 * 1024),
+    ));
     let (entered_tx, entered_rx) = mpsc::channel();
     let (release_first_tx, release_first_rx) = mpsc::channel();
     let (release_second_tx, release_second_rx) = mpsc::channel();
@@ -3720,7 +3720,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
             cached_inferred_order(&first_cache, first_key, || {
                 first_entered.send(1).unwrap();
                 release_first_rx.recv().unwrap();
-                Ok(Some(concurrent_test_inferred_column(first_path)))
+                Ok(Some(Arc::new(concurrent_test_inferred_column(first_path))))
             })
             .unwrap()
             .unwrap()
@@ -3735,7 +3735,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
             cached_inferred_order(&second_cache, second_key, || {
                 entered_tx.send(2).unwrap();
                 release_second_rx.recv().unwrap();
-                Ok(Some(concurrent_test_inferred_column(second_path)))
+                Ok(Some(Arc::new(concurrent_test_inferred_column(second_path))))
             })
             .unwrap()
             .unwrap()
@@ -3896,7 +3896,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
         Some(token.clone()),
     );
     context.cancel_on_check_for_test(3);
-    let error = SortColumn::from_inferred_posting(
+    let error = crate::index::sorting::build_inferred_order_rows(
         index,
         &generation.records,
         FieldPath::parse("label").unwrap(),
@@ -3905,7 +3905,8 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
         false,
         Some(&context),
     )
-    .unwrap_err();
+    .err()
+    .expect("cancelled order build");
     assert!(token.is_cancelled());
     assert!(context.checks_for_test() >= 3);
     assert_eq!(
@@ -3974,7 +3975,10 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
             let after = repo.inferred_orders.lock().unwrap().stats();
             assert_eq!(after.builds, before.builds + 1, "{field} {descending}");
             assert!(after.hits >= before.hits + 2, "{field} {descending}");
-            assert!(after.resident_bytes <= crate::index::sorting::INFERRED_ORDER_CACHE_BYTES);
+            assert!(
+                after.resident_bytes
+                    <= crate::index::storage::order::inferred_cache::INFERRED_ORDER_CACHE_BYTES
+            );
         }
     }
     let restored = crate::lifecycle::Index::build_repository_for_test(
