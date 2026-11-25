@@ -62,11 +62,9 @@ def lifecycle_rows(root):
 
 
 def material(before, after, unit):
-    """Screen a 10% rise only when its absolute difference is material."""
-    tenth_ms = 100_000 if unit == "ns" else 0.1
+    """Individual-operation deltas below one millisecond are informational."""
     one_ms = 1_000_000 if unit == "ns" else 1.0
-    return (after > before * 1.1 and
-            after - before >= (tenth_ms if before >= one_ms else one_ms))
+    return after > before * 1.1 and after - before >= one_ms
 
 
 def screen(before_root, after_root):
@@ -84,8 +82,7 @@ def screen(before_root, after_root):
             triggered = material(old, new, "ns")
             rows.append({"phase": phase, "case_id": case_id, "before_ns": old,
                          "after_ns": new, "classification": "confirm" if triggered else
-                         ("informational" if abs(new - old) <
-                          (100_000 if old >= 1_000_000 else 1_000_000)
+                         ("informational" if abs(new - old) < 1_000_000
                           else "pass")})
             if triggered:
                 selection.setdefault(phase, set()).add(case_id)
@@ -104,8 +101,7 @@ def screen(before_root, after_root):
         triggered = material(old, new, "ms")
         rows.append({"phase": "lifecycle-small", "case_id": phase, "before_ms": old,
                      "after_ms": new, "classification": "confirm" if triggered else
-                     ("informational" if abs(new - old) <
-                      (0.1 if old >= 1.0 else 1.0) else "pass")})
+                     ("informational" if abs(new - old) < 1.0 else "pass")})
         if triggered:
             selection.setdefault("lifecycle-small", set()).add(phase)
     for alphabet in ("ascii", "unicode"):

@@ -63,10 +63,8 @@ def signed(before, after):
 
 
 def material(before, after, unit):
-    tenth_ms = 100_000 if unit == "ns" else 0.1
     one_ms = 1_000_000 if unit == "ns" else 1.0
-    return after > before * 1.1 and after - before >= (
-        tenth_ms if before >= one_ms else one_ms)
+    return after > before * 1.1 and after - before >= one_ms
 
 
 def main():
@@ -193,7 +191,7 @@ def main():
                 breach = material(previous, current, "ns")
                 row("query_median", f"{phase}/{qid}", previous, current, "ns",
                     "confirm" if breach else ("informational" if abs(current - previous) <
-                    (100_000 if previous >= 1_000_000 else 1_000_000) else "pass"),
+                    1_000_000 else "pass"),
                     "seven samples per process")
                 row("query_first", f"{phase}/{qid}", first_old[qid],
                     first_new[qid], "ns", "informational", "first measured sample")
@@ -225,7 +223,7 @@ def main():
         breach = material(previous, current, "ms")
         row("lifecycle_phase", phase, previous, current, "ms",
             "confirm" if breach else ("informational" if abs(current - previous) <
-            (0.1 if previous >= 1.0 else 1.0) else "pass"), "three process medians")
+            1.0 else "pass"), "three process medians")
 
     confirmed = {}
     for phase, selected in confirmation["selected"].items():

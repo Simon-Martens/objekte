@@ -36,6 +36,19 @@ def main():
                                      text=True).strip()
     if str(fixture) != before["fixture"]:
         raise ValueError("fixture path differs from frozen baseline")
+    fixture_checkout = fixture.parent.parent
+    if subprocess.check_output(["git", "-C", str(fixture_checkout), "rev-parse", "HEAD"],
+                               text=True).strip() != before["base_commit"]:
+        raise ValueError("fixture checkout is not the frozen baseline")
+    if subprocess.check_output(["git", "-C", str(fixture_checkout), "status",
+                                "--porcelain", "--", "examples/musenalm"], text=True).strip():
+        raise ValueError("fixture differs from its tracked baseline")
+    for name in ("rustc", "cargo"):
+        observed = subprocess.check_output([name, "--version"], text=True).strip()
+        if observed != before[name]:
+            raise ValueError(f"{name} differs from frozen baseline")
+    if os.environ.get("RUSTFLAGS", "") != before["rustflags"]:
+        raise ValueError("RUSTFLAGS differs from frozen baseline")
     if digest(worktree / "Cargo.lock") != before["cargo_lock_sha256"]:
         raise ValueError("Cargo.lock differs from baseline")
     if digest(worktree / "crates/core/benches/musenalm_queries.json") != before["historical_manifest_sha256"]:
