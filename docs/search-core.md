@@ -32,12 +32,12 @@ The fixed cases and their options are in
 schema-free constructor. It enables recursive discovery, starts with an empty
 in-memory `Schema`, and creates no typed posting or sort columns. The example
 accepts repeated `--folder NAME=RELATIVE_PATH` arguments; without them it
-enumerates directories under `data/` at runtime. It never loads nearby
-`.objekte` schema files. JSON folders use stable `path:`-prefixed IDs from the
-native path relative to the collection directory, including `.json`; files
-such as `a/item.json` and `b/item.json` stay distinct. JSONL and registered
-reader folders use generated per-record IDs because a file may contain more
-than one record. The helper skips hidden files and symlinks by default, and
+enumerates directories under `data/` at runtime. The mode omits nearby
+`.objekte` schema files. The example uses the JSON loader's folder helper,
+which chooses stable `path:`-prefixed IDs from the native path relative to
+the collection directory. Paths such as `a/item.json` and `b/item.json` stay
+distinct. The core folder constructor defaults to generated per-record IDs,
+including for JSON Lines. The helper skips hidden files and symlinks by default, and
 reader-specific extensions still decide which files are admitted. Callers may
 override these policies in the returned definition. The logical value model
 accepts JSON scalar, object, and array roots, including mixed nested arrays.
@@ -78,7 +78,7 @@ collection and feeds that collection's postings, text filters, sorting columns,
 and inventory from the value. A physical file shared by several collections is
 currently parsed once for each collection.
 
-Built-in and caller-supplied readers are resolved through `SourceRegistry`
+Installed readers are resolved through `SourceRegistry`
 when a collection opens. A registration has a stable ID, semantic version, file
 extension, and reader. The prepared reader handles framing, query verification,
 and payload decoding. Live configuration identity includes the resolved registration

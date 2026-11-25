@@ -10,6 +10,20 @@ A new `SourceRegistry` is empty. Install the formats the application accepts bef
 
 Replace `SourceRegistry::builtin()` with explicit calls to the loaders you select. Pass the registry to `Index::start_build`, `SourceScan::open`, or `Index::builder().with_source_registry(...)`. `objekte_cli::loader::installed_sources()` exposes the shared CLI, TUI and desktop defaults. Linking JSON Lines pulls in the JSON record decoder and registers only `jsonl`.
 
+## Rust API migration
+
+| Previous API | Replacement |
+| --- | --- |
+| `SourceFormat::Json` | `objekte_loader_json::JSON_DOCUMENTS` or `objekte_loader_json::folder(name, path)` |
+| `SourceFormat::JsonDecodedScalars` | `objekte_loader_json::JSON_DECODED_SCALARS` or `objekte_loader_json::decoded_scalar_folder(name, path)` |
+| `SourceFormat::JsonLines` | `objekte_loader_jsonl::JSON_LINES` |
+| `SourceFormat::Registered(id)` | `SourceFormat::registered(id)` |
+| `Value::from_json(value)` | `objekte_loader_json::value_from_json(value)` |
+| `objekte_search_core::query::parse_parameter_json(text)` | `objekte_loader_json::parameters::parse_parameter_json(text)` |
+| `Query::from_workload(case)` | `objekte_cli::workload::query_from_workload(case)` for benchmark requests |
+
+The JSON folder helpers select relative-path IDs. The core folder constructor defaults to generated IDs. Use `CollectionDefinition::folder_with_identity` to supply an explicit policy. Use the loader selectors when preserving existing configuration fingerprints. A generic registration can select the same reader with its own configuration fingerprint.
+
 Replace core JSON Schema helpers with `objekte_loader_json::configuration::load_optional_schema` or `load_repository_configuration`. For one collection, pass the compiled `Schema` and sort fields to the existing collection definition. When the explicit schema is inside the data tree, include its relative path in `discovery.exclude_files`. Repository configuration supplies discovery exclusions and the schema files the host must protect. The compiler supplies an exact-byte digest through `Schema::source_digest()`. Reuse the compiled schema across files and queries. Direct inputs and manually declared schemas need no file.
 
 ## Examples

@@ -7,14 +7,13 @@ Choose a mode at opening:
 ```rust
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::lifecycle::{Index, IndexError};
-use objekte_search_core::repository::configuration::{
-    CollectionDefinition, RepositoryOptions,
-};
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::repository::configuration::RepositoryOptions;
 use objekte_search_core::source::registry::SourceRegistry;
 
 fn demonstrate_inference() -> Result<(), IndexError> {
-    let definition = CollectionDefinition::folder("items", "data/items", SourceFormat::Json);
+    let mut sources = SourceRegistry::default();
+    objekte_loader_json::register(&mut sources).map_err(IndexError::Build)?;
+    let definition = objekte_loader_json::folder("items", "data/items");
     let options = RepositoryOptions {
         inference: InferenceConfig {
             mode: InferenceMode::AutoIndex,
@@ -26,7 +25,7 @@ fn demonstrate_inference() -> Result<(), IndexError> {
         "/repository",
         vec![definition],
         options,
-        SourceRegistry::builtin(),
+        sources,
     )?
     .wait_complete()?;
     let view = index.view()?;
