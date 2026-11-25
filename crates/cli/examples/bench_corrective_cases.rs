@@ -326,11 +326,12 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
         assert_eq!(repo.build_failed_parses(), if malformed { 10 } else { 0 });
         println!(
             "{}",
-            serde_json::json!({"case":format!("{name}-build"),"median_ns":build_samples[5],"samples_ns":build_samples,"parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"resident_bytes":memory_bytes("VmRSS:"),"process_peak_resident_bytes":memory_bytes("VmHWM:"),"file_status":repo.file_status(objekte_search_core::model::FileId(0)).ok_or("missing built file")?.code()})
+            serde_json::json!({"case":format!("{name}-build"),"median_ns":build_samples[5],"samples_ns":build_samples,"parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"resident_bytes":memory_bytes("VmRSS:"),"process_peak_resident_bytes":memory_bytes("VmHWM:"),"file_status":repo.file_status(objekte_search_core::model::FileId(0)).map_err(|error| error.to_string())?.ok_or("missing built file")?.code()})
         );
         if malformed {
             assert_eq!(
-                repo.file_status(objekte_search_core::model::FileId(0)),
+                repo.file_status(objekte_search_core::model::FileId(0))
+                    .unwrap(),
                 Some(FileStatus::Broken)
             );
             let query = Query {

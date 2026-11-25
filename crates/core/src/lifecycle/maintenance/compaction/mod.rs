@@ -7,7 +7,6 @@ use std::time::{Duration, Instant};
 use crate::index::segment::PublishedSegment;
 use crate::index::segment::{IndexedCollectionSegment, SegmentFile};
 use crate::inventory::ActiveRecords;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::maintenance::MaintenancePhase;
 use crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
@@ -264,7 +263,11 @@ fn compact_published_with_budget(
             "compaction configuration changed".into(),
         ));
     }
-    next.catalog = FileCatalog::restore_from(&empty, &old.catalog, &cancelled)?;
+    next.catalog = empty.storage_factory.restore_file_catalog(
+        &empty.file_catalog_base(),
+        &old.catalog,
+        &cancelled,
+    )?;
     next.file_versions = old.file_versions.clone();
     next.next_segment_ordinal = old.next_segment_ordinal;
     next.last_size_maintenance_revision = old.last_size_maintenance_revision;

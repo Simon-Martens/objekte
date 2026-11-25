@@ -62,6 +62,7 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
         .view()
         .unwrap()
         .file_handle_for_path(&source)
+        .unwrap()
         .unwrap();
     adapter.index().delete_file(handle).unwrap();
     assert_eq!(adapter.search(&query).unwrap().count, Some(0));
@@ -197,7 +198,7 @@ fn pinned_view_uses_published_range_after_old_path_is_replaced() {
         },
     };
     let id = pinned.search(&query).unwrap().hits[0].record_id.clone();
-    let handle = pinned.file_handle_for_path(&original).unwrap();
+    let handle = pinned.file_handle_for_path(&original).unwrap().unwrap();
     std::fs::rename(&original, &destination).unwrap();
     index.move_file(handle, &destination).unwrap();
     std::fs::write(&original, b"(\"name\"=\"new\")\n").unwrap();

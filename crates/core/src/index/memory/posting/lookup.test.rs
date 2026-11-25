@@ -1955,8 +1955,8 @@ fn terminal_membership_tracks_file_replacement_move_delete_and_add() {
         }
     };
     check(&initial, [1, 1, 0, 1, 1, 1]);
-    let a_handle = initial.file_handle_for_path(&a).unwrap();
-    let b_handle = initial.file_handle_for_path(&b).unwrap();
+    let a_handle = initial.file_handle_for_path(&a).unwrap().unwrap();
+    let b_handle = initial.file_handle_for_path(&b).unwrap().unwrap();
     std::fs::write(&a, br#"("x"=[],"shape"=null)"#).unwrap();
     let replaced = index.update_file(a_handle, &a).unwrap();
     check(&index.view().unwrap(), [0, 1, 1, 1, 0, 2]);

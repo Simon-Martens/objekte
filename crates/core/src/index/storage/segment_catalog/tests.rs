@@ -17,6 +17,22 @@ struct TableFactory {
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn file_catalog(
+        &self,
+        base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
+    ) -> StorageResult<crate::index::storage::file_catalog::FileCatalogHandle> {
+        crate::index::storage::default_factory().file_catalog(base)
+    }
+
+    fn restore_file_catalog(
+        &self,
+        base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
+        source: &dyn crate::index::storage::file_catalog::FileCatalogSource,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<crate::index::storage::file_catalog::FileCatalogHandle> {
+        crate::index::storage::default_factory().restore_file_catalog(base, source, cancelled)
+    }
+
     fn segment_catalog(&self) -> StorageResult<Box<dyn SegmentCatalogEditor>> {
         Ok(Box::new(TableDirectory {
             records: BTreeMap::new(),

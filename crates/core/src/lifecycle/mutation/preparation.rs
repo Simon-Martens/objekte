@@ -1,3 +1,4 @@
+use crate::index::storage::file_catalog::FileCatalogReader;
 use std::path::Path;
 use std::time::SystemTime;
 
@@ -71,7 +72,7 @@ impl Index {
                 actual,
             });
         }
-        if !view.0.catalog.is_active(handle.file_id) {
+        if !view.0.catalog.is_active(handle.file_id)? {
             return Err(IndexError::UnknownFile);
         }
         let file = prepare_file_at(&view, path, handle.file_id)?;
@@ -240,7 +241,7 @@ pub(crate) fn prepare_file_at(
     if view
         .0
         .catalog
-        .id_for(relative)
+        .id_for_path(relative)?
         .is_some_and(|other| other != id)
     {
         return Err(IndexError::DestinationExists);
@@ -335,11 +336,11 @@ pub(super) fn prepare_replacement_bytes(
             actual,
         });
     }
-    view.file_entry(handle.file_id)
+    view.file_entry(handle.file_id)?
         .ok_or(IndexError::UnknownFile)?;
     let relative = relative_path(&view, path)?;
     if view
-        .file_handle_for_path(&relative)
+        .file_handle_for_path(&relative)?
         .is_some_and(|other| other.file_id != handle.file_id)
     {
         return Err(IndexError::DestinationExists);

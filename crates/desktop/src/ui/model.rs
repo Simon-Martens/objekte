@@ -609,31 +609,30 @@ impl FileCatalogue {
         &self,
         collection: Option<&str>,
         directory: Option<&str>,
-    ) -> Arc<Vec<FileId>> {
+    ) -> Result<Arc<Vec<FileId>>, objekte_search_core::lifecycle::IndexError> {
         let ids = match collection {
             Some(name) => match self.by_collection.get(name) {
                 Some(ids) => ids,
-                None => return Arc::new(Vec::new()),
+                None => return Ok(Arc::new(Vec::new())),
             },
             None => &self.ids,
         };
         let Some(directory) = directory else {
-            return Arc::clone(ids);
+            return Ok(Arc::clone(ids));
         };
         let prefix = format!("{directory}/");
-        Arc::new(
-            ids.iter()
-                .copied()
-                .filter(|id| {
-                    self.view.catalogue_row(*id).is_some_and(|row| {
-                        objekte_search_core::model::path_representation::query_path(
-                            row.relative_path.as_ref(),
-                        )
-                        .starts_with(&prefix)
-                    })
-                })
-                .collect(),
-        )
+        let mut visible = Vec::new();
+        for &id in ids.iter() {
+            if self.view.catalogue_row(id)?.is_some_and(|row| {
+                objekte_search_core::model::path_representation::query_path(
+                    row.relative_path.as_ref(),
+                )
+                .starts_with(&prefix)
+            }) {
+                visible.push(id);
+            }
+        }
+        Ok(Arc::new(visible))
     }
 }
 

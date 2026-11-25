@@ -77,7 +77,7 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
         if let Some(path) = retire_path.as_deref() {
             let handle = index
                 .view()?
-                .file_handle_for_path(Path::new(path))
+                .file_handle_for_path(Path::new(path))?
                 .ok_or_else(|| std::io::Error::other(format!("unknown file to retire: {path}")))?;
             index.delete_file(handle)?;
         }

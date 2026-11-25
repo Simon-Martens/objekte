@@ -86,6 +86,7 @@ fn maintenance_admission_shares_only_the_real_worker() {
         .view()
         .unwrap()
         .file_handle_for_path(std::path::Path::new("data/records.rows"))
+        .unwrap()
         .unwrap();
     index.delete_file(retired).unwrap();
     std::fs::remove_file(root.join("data/records.rows")).unwrap();
@@ -188,6 +189,7 @@ fn concurrent_quiesce_and_shutdown_wait_for_the_same_worker() {
     let pinned_revision = pinned.revision();
     let retired = pinned
         .file_handle_for_path(std::path::Path::new("data/records.rows"))
+        .unwrap()
         .unwrap();
     index.delete_file(retired).unwrap();
     std::fs::remove_file(root.join("data/records.rows")).unwrap();

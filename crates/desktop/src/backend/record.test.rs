@@ -10,6 +10,7 @@ fn canonical_lookup_under_new_view_never_follows_a_retired_record_slot() {
     let id = "path:a.json";
     let handle = old_view
         .file_handle_for_path(&fixture._root.path().join("a.json"))
+        .unwrap()
         .unwrap();
     index.delete_file(handle).unwrap();
     let new_view = index.view().unwrap();

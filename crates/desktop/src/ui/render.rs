@@ -654,8 +654,10 @@ impl DesktopView {
                                         let Some(view) = &catalogue_view else {
                                             return div().into_any_element();
                                         };
-                                        let Some(row) = view.catalogue_row(file_ids[item - directory_count]) else {
-                                            return div().into_any_element();
+                                        let row = match view.catalogue_row(file_ids[item - directory_count]) {
+                                            Ok(Some(row)) => row,
+                                            Ok(None) => return div().into_any_element(),
+                                            Err(error) => return div().child(error.to_string()).into_any_element(),
                                         };
                                         let path = objekte_search_core::model::path_representation::query_path(row.relative_path.as_ref());
                                         let label = format!("{} · #{}", path.rsplit('/').next().unwrap_or(&path), row.id.0);

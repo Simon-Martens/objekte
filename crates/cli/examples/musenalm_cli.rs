@@ -256,7 +256,9 @@ fn run() -> Result<(), String> {
     .map_err(|error| error.to_string())?;
     let index = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let repository = index.index().view().map_err(|error| error.to_string())?;
-    let observation = repository.index_observation();
+    let observation = repository
+        .index_observation()
+        .map_err(|error| error.to_string())?;
     for (state, counts) in index
         .collections()
         .iter()
@@ -411,10 +413,15 @@ fn run() -> Result<(), String> {
             hit.diagnostic_ref.0,
             hit.matched_fields
         );
-        if let Some(issue) = repository.diagnostic(
-            objekte_search_core::model::FileId(hit.file.as_ref().expect("file origin").file_id.0),
-            hit.diagnostic_ref,
-        ) {
+        if let Some(issue) = repository
+            .diagnostic(
+                objekte_search_core::model::FileId(
+                    hit.file.as_ref().expect("file origin").file_id.0,
+                ),
+                hit.diagnostic_ref,
+            )
+            .map_err(|error| error.to_string())?
+        {
             println!(
                 "  diagnostic={} {:?}: {}",
                 issue.code, issue.category, issue.message

@@ -10,10 +10,10 @@ use roaring::RoaringBitmap;
 use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inference::{InferenceIndexStatus, InferenceMode};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;
 use crate::repository::Repository;
@@ -442,7 +442,7 @@ fn scan_inferred_segment(
     repo: &Repository,
     collection: &CollectionState,
     segment: &PublishedSegment,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     path: &FieldPath,
     kind: &LogicalType,
     multi: bool,
@@ -490,7 +490,7 @@ fn scan_inferred_segment(
             continue;
         }
         let current = catalog
-            .entry(file.entry.id)
+            .file(file.entry.id)?
             .ok_or("active inferred segment file retired")?;
         if current.relative_path != file.entry.relative_path
             || current.revision != file.entry.revision
@@ -555,7 +555,7 @@ fn legacy_facts(value: &Value, path: &[String]) -> (bool, bool) {
 fn verify_legacy_facts(
     repo: &Repository,
     collection: &CollectionState,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     path: &[String],
     operation: Option<&dyn crate::schema::operation::BindingOperation>,
     records: impl Iterator<
@@ -585,7 +585,7 @@ fn verify_legacy_facts(
     let mut singleton_null = 0u64;
     for (file_id, mut entries) in by_file {
         let current = catalog
-            .entry(file_id)
+            .file(file_id)?
             .ok_or("legacy count verification file is not active")?;
         if entries
             .iter()
@@ -740,7 +740,7 @@ pub(crate) fn select_exact_segmented(
     revision: IndexRevision,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
 ) -> Result<ExactSelection, String> {
     let (collection_index, state) = repo
         .collections
@@ -887,7 +887,7 @@ pub(crate) fn posting_values_segmented(
     revision: IndexRevision,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
 ) -> Result<PostingValuesPage, String> {
     let (collection_index, collection) = repo
         .collections
@@ -1027,7 +1027,7 @@ pub(crate) fn posting_values_segmented(
                 .any(|slot| segment.active.contains(*slot))
             {
                 let current = catalog
-                    .entry(file.entry.id)
+                    .file(file.entry.id)?
                     .ok_or("active segment posting file retired")?;
                 if current.relative_path != file.entry.relative_path
                     || current.revision != file.entry.revision

@@ -560,8 +560,20 @@ fn files(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     );
     for row in 0..app.viewport_rows {
         let index = app.file_scroll + row;
-        let Some(file) = app.file_at(index) else {
-            continue;
+        let file = match app.file_at(index) {
+            Ok(Some(file)) => file,
+            Ok(None) => continue,
+            Err(error) => {
+                frame.render_widget(
+                    Paragraph::new(error.to_string()),
+                    Rect {
+                        y: area.y.saturating_add(row as u16 + 1),
+                        height: 1,
+                        ..area
+                    },
+                );
+                break;
+            }
         };
         let selected = index == app.file_selected;
         let style = if selected {
@@ -917,9 +929,7 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         Rect { height: 1, ..area },
     );
 
-    let diagnostic = app
-        .diagnostic(&hit)
-        .map(|issue| format!("{}: {}", issue.code, issue.message));
+    let diagnostic = app.diagnostic_text(&hit);
     let mut rows = app.record.rows(&hit, diagnostic.as_deref());
     let field_rows = rows.len();
     rows.extend(app.relation_rows.iter().map(|row| record::RecordRow {
@@ -1130,9 +1140,7 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         height: inner.height.saturating_sub(2),
         ..inner
     };
-    let diagnostic = app
-        .diagnostic(&hit)
-        .map(|issue| format!("{}: {}", issue.code, issue.message));
+    let diagnostic = app.diagnostic_text(&hit);
     let mut rows = app.record.rows(&hit, diagnostic.as_deref());
     if let Some(metadata) = rows.iter().position(|row| row.label == "Metadata") {
         rows.truncate(metadata);

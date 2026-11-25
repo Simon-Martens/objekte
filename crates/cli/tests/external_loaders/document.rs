@@ -138,6 +138,7 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
     assert_eq!(hit.record_class, RecordClass::RawFallback);
     let issue = repo
         .diagnostic(hit.file.as_ref().unwrap().file_id, hit.diagnostic_ref)
+        .unwrap()
         .unwrap();
     assert!(issue.message.contains("root must be an object"));
     std::fs::remove_dir_all(root).unwrap();

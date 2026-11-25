@@ -369,8 +369,7 @@ enum WorkerEvent {
     Directories {
         open_generation: u64,
         publication: Publication,
-        directories: DirectoryCatalog,
-        file_catalogue: FileCatalogue,
+        result: Result<(DirectoryCatalog, FileCatalogue), String>,
     },
     Queried {
         open_generation: u64,
@@ -752,13 +751,16 @@ impl DesktopController {
         let open_generation = self.open_generation;
         let collections = session.collections.clone();
         thread::spawn(move || {
-            let directories = indexed_directories(&view, &collections);
-            let file_catalogue = indexed_file_catalogue(view, &collections);
+            let result = (|| {
+                let directories = indexed_directories(&view, &collections)?;
+                let files = indexed_file_catalogue(view, &collections)?;
+                Ok::<_, objekte_search_core::lifecycle::IndexError>((directories, files))
+            })()
+            .map_err(|error| error.to_string());
             let _ = sender.send(WorkerEvent::Directories {
                 open_generation,
                 publication,
-                directories,
-                file_catalogue,
+                result,
             });
         });
     }
@@ -2567,13 +2569,20 @@ impl DesktopController {
             WorkerEvent::Directories {
                 open_generation,
                 publication,
-                directories,
-                file_catalogue,
+                result,
             } if open_generation == self.open_generation => {
                 self.pending_directories = None;
                 if self.session_publication_is_current(publication) {
-                    updates.push(UiUpdate::Directories(directories));
-                    updates.push(UiUpdate::FileCatalogue(file_catalogue));
+                    match result {
+                        Ok((directories, file_catalogue)) => {
+                            updates.push(UiUpdate::Directories(directories));
+                            updates.push(UiUpdate::FileCatalogue(file_catalogue));
+                        }
+                        Err(message) => updates.push(UiUpdate::Error {
+                            field: ErrorField::General,
+                            message,
+                        }),
+                    }
                 } else {
                     self.request_directories();
                 }
@@ -4064,8 +4073,10 @@ fn open_with_preferences(spec: &OpenSpec, token: &CancellationToken) -> OpenComp
         instance_id: view.instance_id(),
         revision: view.revision(),
     };
-    let directories = indexed_directories(&view, &session.collections);
-    let file_catalogue = indexed_file_catalogue(view, &session.collections);
+    let directories =
+        indexed_directories(&view, &session.collections).map_err(|error| error.to_string())?;
+    let file_catalogue =
+        indexed_file_catalogue(view, &session.collections).map_err(|error| error.to_string())?;
     Ok((
         session,
         preferences,
@@ -4076,13 +4087,17 @@ fn open_with_preferences(spec: &OpenSpec, token: &CancellationToken) -> OpenComp
     ))
 }
 
-fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalogue {
+fn indexed_file_catalogue(
+    view: IndexView,
+    collections: &[String],
+) -> Result<FileCatalogue, objekte_search_core::lifecycle::IndexError> {
     let mut ids = Vec::new();
     let mut by_collection = collections
         .iter()
         .map(|name| (name.clone(), Vec::new()))
         .collect::<std::collections::BTreeMap<_, _>>();
     for row in view.catalogue_rows() {
+        let row = row?;
         ids.push(row.id);
         for collection in row.collections.iter() {
             if let Some(name) = collections.get(collection.0 as usize) {
@@ -4092,33 +4107,41 @@ fn indexed_file_catalogue(view: IndexView, collections: &[String]) -> FileCatalo
             }
         }
     }
-    FileCatalogue {
+    Ok(FileCatalogue {
         view,
         ids: Arc::new(ids),
         by_collection: by_collection
             .into_iter()
             .map(|(name, files)| (name, Arc::new(files)))
             .collect(),
-    }
+    })
 }
 
-fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCatalog {
-    let all = parent_directories(view.file_paths());
+fn indexed_directories(
+    view: &IndexView,
+    collections: &[String],
+) -> Result<DirectoryCatalog, objekte_search_core::lifecycle::IndexError> {
+    let all = parent_directories(view.file_paths())?;
     let by_collection = collections
         .iter()
         .map(|name| {
-            (
+            Ok((
                 name.clone(),
-                parent_directories(view.file_paths_for_collection(name)),
-            )
+                parent_directories(view.file_paths_for_collection(name))?,
+            ))
         })
-        .collect();
-    DirectoryCatalog { all, by_collection }
+        .collect::<Result<_, objekte_search_core::lifecycle::IndexError>>()?;
+    Ok(DirectoryCatalog { all, by_collection })
 }
 
-fn parent_directories<'a>(paths: impl Iterator<Item = &'a Path>) -> Vec<String> {
+fn parent_directories<'a>(
+    paths: impl Iterator<
+        Item = Result<std::borrow::Cow<'a, Path>, objekte_search_core::lifecycle::IndexError>,
+    >,
+) -> Result<Vec<String>, objekte_search_core::lifecycle::IndexError> {
     let mut directories = BTreeSet::new();
     for path in paths {
+        let path = path?;
         let mut parent = path.parent();
         while let Some(directory) = parent.filter(|directory| !directory.as_os_str().is_empty()) {
             directories.insert(objekte_search_core::model::path_representation::query_path(
@@ -4127,7 +4150,7 @@ fn parent_directories<'a>(paths: impl Iterator<Item = &'a Path>) -> Vec<String> 
             parent = directory.parent();
         }
     }
-    directories.into_iter().collect()
+    Ok(directories.into_iter().collect())
 }
 
 fn lifecycle_source_key(session: &OpenedSession) -> String {

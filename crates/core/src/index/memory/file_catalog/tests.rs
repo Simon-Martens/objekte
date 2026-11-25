@@ -4,38 +4,55 @@ use std::num::NonZeroUsize;
 use std::ops::RangeBounds;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
-use std::sync::atomic::{AtomicUsize, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::FileCatalog;
 use crate::index::storage::file_catalog::{
-    FileCatalogReader, FileCatalogSource, FilePathBounds, FileScalarPredicate, FileTransferRow,
+    FileCatalogBase, FileCatalogDelta, FileCatalogEditor, FileCatalogHandle, FileCatalogReader,
+    FileCatalogRevision, FileCatalogSource, FilePathBounds, FileScalarPredicate, FileTransferRow,
     transfer_files,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 /// An independent catalog used in transfer tests. Store only ordered live
 /// rows, with no native inventory, index, masks, or lookup tables.
+#[derive(Clone)]
 struct OrderedFiles {
     allocated: u32,
     rows: Vec<FileTransferRow<'static>>,
     paths: BTreeMap<Arc<str>, FileId>,
-    reads: AtomicUsize,
+    reads: Arc<AtomicUsize>,
+    root: Option<Arc<PathBuf>>,
+    complete: bool,
+    fail_seal: Arc<AtomicBool>,
     fail_after_first_batch: bool,
     fail_path_lookup: bool,
 }
 
 impl OrderedFiles {
     fn copy_from(source: &dyn FileCatalogSource) -> Self {
+        Self::load(source, None, Arc::new(AtomicBool::new(false)), &|| false).unwrap()
+    }
+
+    fn load(
+        source: &dyn FileCatalogSource,
+        root: Option<&Path>,
+        fail_seal: Arc<AtomicBool>,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<Self> {
         let mut result = Self {
             allocated: source.high_water_mark(),
             rows: Vec::new(),
             paths: BTreeMap::new(),
-            reads: AtomicUsize::new(0),
+            reads: Arc::new(AtomicUsize::new(0)),
+            root: root.map(|root| Arc::new(root.to_path_buf())),
+            complete: true,
+            fail_seal,
             fail_after_first_batch: false,
             fail_path_lookup: false,
         };
         let limit = BatchLimit::new(NonZeroUsize::new(1).unwrap(), NonZeroUsize::MAX);
-        transfer_files(source, result.allocated, limit, &|| false, |row| {
+        transfer_files(source, result.allocated, limit, cancelled, |row| {
             result
                 .paths
                 .insert(row.entry.relative_path.query_key(), row.entry.id);
@@ -45,9 +62,8 @@ impl OrderedFiles {
                 configuration: row.configuration,
             });
             Ok::<_, StorageError>(())
-        })
-        .unwrap();
-        result
+        })?;
+        Ok(result)
     }
 }
 
@@ -93,7 +109,7 @@ impl FileCatalogSource for OrderedFiles {
 }
 impl FileCatalogReader for OrderedFiles {
     fn repository_root(&self) -> Option<&Path> {
-        None
+        self.root.as_deref().map(PathBuf::as_path)
     }
 
     fn file(&self, id: FileId) -> StorageResult<Option<Cow<'_, crate::inventory::FileEntry>>> {
@@ -164,6 +180,256 @@ impl FileCatalogReader for OrderedFiles {
         }
         Ok(Some(ids.into()))
     }
+}
+
+impl OrderedFiles {
+    fn position(&self, id: FileId) -> Result<usize, usize> {
+        self.rows.binary_search_by_key(&id.0, |row| row.entry.id.0)
+    }
+
+    fn write(
+        &mut self,
+        entry: crate::inventory::FileEntry,
+        fingerprint: Option<[u8; 32]>,
+        configuration: Option<[u8; 32]>,
+        append: bool,
+    ) -> StorageResult<()> {
+        let path = entry.relative_path.query_key();
+        if self.paths.get(&path).is_some_and(|id| *id != entry.id) {
+            return Err(StorageError::invalid("test file catalog", "duplicate path"));
+        }
+        let id = entry.id;
+        let row = FileTransferRow {
+            entry: Cow::Owned(entry),
+            fingerprint,
+            configuration,
+        };
+        if append {
+            if id.0 != self.allocated {
+                return Err(StorageError::invalid(
+                    "test file catalog",
+                    "invalid append ID",
+                ));
+            }
+            self.allocated += 1;
+            self.rows.push(row);
+        } else {
+            let position = self.position(id).map_err(|_| {
+                StorageError::invalid("test file catalog", "missing replacement ID")
+            })?;
+            self.paths
+                .remove(&self.rows[position].entry.relative_path.query_key());
+            self.rows[position] = row;
+        }
+        self.paths.insert(path, id);
+        Ok(())
+    }
+}
+
+impl FileCatalogRevision for OrderedFiles {
+    fn construction_complete(&self) -> bool {
+        self.complete
+    }
+
+    fn estimates_delta_bytes(&self) -> usize {
+        self.rows.iter().map(FileTransferRow::bytes).sum()
+    }
+
+    fn fingerprint(&self, id: FileId) -> StorageResult<Option<[u8; 32]>> {
+        Ok(self
+            .position(id)
+            .ok()
+            .and_then(|index| self.rows[index].fingerprint))
+    }
+
+    fn configuration(&self, id: FileId) -> StorageResult<Option<[u8; 32]>> {
+        Ok(self
+            .position(id)
+            .ok()
+            .and_then(|index| self.rows[index].configuration))
+    }
+
+    fn edit(&self) -> StorageResult<Box<dyn FileCatalogEditor>> {
+        Ok(Box::new(self.clone()))
+    }
+}
+
+impl FileCatalogEditor for OrderedFiles {
+    fn apply(&mut self, delta: FileCatalogDelta<'_>) -> StorageResult<()> {
+        match delta {
+            FileCatalogDelta::Append {
+                entry,
+                fingerprint,
+                configuration,
+            } => {
+                self.write(entry, fingerprint, configuration, true)?;
+            }
+            FileCatalogDelta::Replace {
+                entry,
+                fingerprint,
+                configuration,
+            } => {
+                self.write(entry, fingerprint, configuration, false)?;
+            }
+            FileCatalogDelta::Retire(id) => {
+                let position = self.position(id).map_err(|_| {
+                    StorageError::invalid("test file catalog", "missing retirement ID")
+                })?;
+                self.paths
+                    .remove(&self.rows.remove(position).entry.relative_path.query_key());
+            }
+            FileCatalogDelta::Rebase(base) => {
+                // This fixture has bounded size and a contiguous discovery base.
+                let next = Self::load(base, base.root(), Arc::clone(&self.fail_seal), &|| false)?;
+                if next.allocated != self.allocated {
+                    return Err(StorageError::invalid(
+                        "test file catalog",
+                        "changed rebased ID bound",
+                    ));
+                }
+                for row in &mut self.rows {
+                    let position = next.position(row.entry.id).map_err(|_| {
+                        StorageError::invalid("test file catalog", "missing rebased row")
+                    })?;
+                    row.fingerprint = next.rows[position].fingerprint;
+                    row.configuration = next.rows[position].configuration;
+                }
+            }
+            FileCatalogDelta::ConstructionComplete(complete) => self.complete = complete,
+        }
+        Ok(())
+    }
+
+    fn seal(self: Box<Self>) -> StorageResult<FileCatalogHandle> {
+        if self.fail_seal.swap(false, Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "test file catalog",
+                "injected file catalog seal failure",
+            ));
+        }
+        Ok(Arc::from(self as Box<dyn FileCatalogRevision>))
+    }
+}
+
+#[derive(Default)]
+struct OrderedFileFactory {
+    fail_seal: Arc<AtomicBool>,
+}
+
+impl crate::index::storage::StorageFactory for OrderedFileFactory {
+    fn file_catalog(&self, base: &dyn FileCatalogBase) -> StorageResult<FileCatalogHandle> {
+        self.restore_file_catalog(base, base, &|| false)
+    }
+
+    fn restore_file_catalog(
+        &self,
+        base: &dyn FileCatalogBase,
+        source: &dyn FileCatalogSource,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<FileCatalogHandle> {
+        Box::new(OrderedFiles::load(
+            source,
+            base.root(),
+            Arc::clone(&self.fail_seal),
+            cancelled,
+        )?)
+        .seal()
+    }
+
+    fn segment_catalog(
+        &self,
+    ) -> StorageResult<Box<dyn crate::index::storage::segment_catalog::SegmentCatalogEditor>> {
+        crate::index::storage::default_factory().segment_catalog()
+    }
+}
+
+#[test]
+fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
+    use crate::lifecycle::Index;
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-ordered-file-catalog-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/first.rows"), b"first\nsecond\n").unwrap();
+    let factory = Arc::new(OrderedFileFactory::default());
+    let index = Index::start_build_with_factory(
+        &root,
+        vec![CollectionDefinition::folder(
+            "entries",
+            "data",
+            line_format(),
+        )],
+        RepositoryOptions::default(),
+        fixture_registry(),
+        Arc::clone(&factory) as Arc<dyn crate::index::storage::StorageFactory>,
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let pinned = index.view().unwrap();
+    let first = Path::new("data/first.rows");
+    let second = Path::new("data/second.rows");
+    let initial = pinned
+        .file_catalog()
+        .unwrap()
+        .file_by_path(first)
+        .unwrap()
+        .unwrap();
+    assert!(matches!(initial.relative_path, Cow::Owned(_)));
+    assert_eq!(
+        pinned
+            .file_catalog()
+            .unwrap()
+            .records_for_file(initial.id)
+            .unwrap()
+            .len(),
+        2
+    );
+
+    std::fs::write(root.join(second), b"third\nfourth\n").unwrap();
+    factory.fail_seal.store(true, Ordering::Relaxed);
+    let error = index.add_file(second).unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("injected file catalog seal failure")
+    );
+    let unchanged = index.view().unwrap();
+    assert_eq!(unchanged.revision(), pinned.revision());
+    assert!(unchanged.file_handle_for_path(second).unwrap().is_none());
+
+    let added = index.add_file(second).unwrap();
+    let after_add = index.view().unwrap();
+    assert_eq!(
+        after_add
+            .file_catalog()
+            .unwrap()
+            .records_for_file(added.file.file_id)
+            .unwrap()
+            .len(),
+        2
+    );
+    index.delete_file(added.file).unwrap();
+    std::fs::remove_dir_all(&root).unwrap();
+    index.compact().unwrap();
+    assert!(pinned.file_handle_for_path(second).unwrap().is_none());
+    assert!(after_add.file_handle_for_path(second).unwrap().is_some());
+    let compacted = index.view().unwrap();
+    assert!(compacted.file_handle_for_path(second).unwrap().is_none());
+    assert_eq!(
+        compacted
+            .file_catalog()
+            .unwrap()
+            .records_for_file(initial.id)
+            .unwrap()
+            .len(),
+        2
+    );
 }
 
 use crate::model::Number;
@@ -426,7 +692,8 @@ fn scalar_cap_counts_live_members_after_base_and_delta_churn() {
                     .unwrap();
             }
         }
-        let mut catalog = FileCatalog::from_parts(Arc::new(inventory), Vec::new(), [0; 32]);
+        let mut catalog =
+            FileCatalog::from_parts(Arc::new(inventory), Arc::new(Vec::new()), [0; 32]);
         let entry = |number| crate::inventory::FileEntry {
             id: FileId(number),
             relative_path: format!("{number}.row").into(),

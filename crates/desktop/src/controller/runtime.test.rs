@@ -502,12 +502,18 @@ fn indexed_query_projects_metadata_with_its_repository_root() {
 fn file_catalogue_uses_pinned_file_ids_without_copied_paths() {
     let fixture = crate::backend::test_support::fixture();
     let view = fixture.session.repository.index().view().unwrap();
-    let catalogue = indexed_file_catalogue(view, &fixture.session.collections);
+    let catalogue = indexed_file_catalogue(view, &fixture.session.collections).unwrap();
     assert_eq!(catalogue.ids.len(), 3);
-    assert_eq!(catalogue.filtered_ids(Some("files"), None).len(), 3);
-    assert_eq!(catalogue.filtered_ids(Some("missing"), None).len(), 0);
+    assert_eq!(
+        catalogue.filtered_ids(Some("files"), None).unwrap().len(),
+        3
+    );
+    assert_eq!(
+        catalogue.filtered_ids(Some("missing"), None).unwrap().len(),
+        0
+    );
     for id in catalogue.ids.iter().copied() {
-        assert!(catalogue.view.catalogue_row(id).is_some());
+        assert!(catalogue.view.catalogue_row(id).unwrap().is_some());
     }
 }
 
@@ -517,6 +523,7 @@ fn indexed_directory_tree_follows_added_and_deleted_files() {
     let index = fixture.session.repository.index();
     assert!(
         indexed_directories(&index.view().unwrap(), &fixture.session.collections)
+            .unwrap()
             .all
             .is_empty()
     );
@@ -525,17 +532,18 @@ fn indexed_directory_tree_follows_added_and_deleted_files() {
     std::fs::write(&file, r#"{"title":"New"}"#).unwrap();
     index.add_file(&file).unwrap();
     let view = index.view().unwrap();
-    let directories = indexed_directories(&view, &fixture.session.collections);
+    let directories = indexed_directories(&view, &fixture.session.collections).unwrap();
     assert_eq!(directories.all, ["docs", "docs/nested"]);
     assert_eq!(
         directories.by_collection[&fixture.session.collections[0]],
         ["docs", "docs/nested"]
     );
     assert!(view.file_paths_for_collection("missing").next().is_none());
-    let handle = view.file_handle_for_path(&file).unwrap();
+    let handle = view.file_handle_for_path(&file).unwrap().unwrap();
     index.delete_file(handle).unwrap();
     assert!(
         indexed_directories(&index.view().unwrap(), &fixture.session.collections)
+            .unwrap()
             .all
             .is_empty()
     );

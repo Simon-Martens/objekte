@@ -150,14 +150,16 @@ fn run() -> Result<(), String> {
         .collect::<Vec<_>>();
     let mut index_family_bytes = 0usize;
     let mut segment_counts = std::collections::BTreeMap::new();
-    let observation = repo.index_observation_with_segments(|segment| {
-        index_family_bytes = index_family_bytes.saturating_add(segment.index_family_bytes);
-        let name = &collection_names[segment.collection.0 as usize];
-        segment_counts
-            .entry(name.clone())
-            .or_insert_with(Vec::new)
-            .push((segment.id.get(), segment.records, segment.files));
-    });
+    let observation = repo
+        .index_observation_with_segments(|segment| {
+            index_family_bytes = index_family_bytes.saturating_add(segment.index_family_bytes);
+            let name = &collection_names[segment.collection.0 as usize];
+            segment_counts
+                .entry(name.clone())
+                .or_insert_with(Vec::new)
+                .push((segment.id.get(), segment.records, segment.files));
+        })
+        .map_err(|error| error.to_string())?;
     let (inventory_heap_bytes, diagnostic_heap_bytes) = (
         observation.inventory_heap_bytes,
         observation.diagnostic_heap_bytes,

@@ -190,8 +190,10 @@ fn run() -> Result<(), String> {
         }
         Ok(remainder)
     }).transpose()?;
-    let corpus_fingerprint = fingerprint_inventory(&repo);
-    let observation = repo.index_observation();
+    let corpus_fingerprint = fingerprint_inventory(&repo)?;
+    let observation = repo
+        .index_observation()
+        .map_err(|error| error.to_string())?;
     let files = observation.files;
     let records = observation.records;
     let build_parses = repo.build_parses();
@@ -440,6 +442,7 @@ fn run_incremental(
     let mut source_bytes = 0u64;
     let mut hash = Sha256::new();
     for row in view.catalogue_rows() {
+        let row = row.map_err(|error| error.to_string())?;
         files += 1;
         source_bytes = source_bytes.saturating_add(row.size);
         hash.update(row.relative_path.to_string_lossy().as_bytes());
@@ -581,6 +584,7 @@ fn probe_storage_operations(repo: &IndexView) -> Result<serde_json::Value, Strin
     let exact_lookup_ns = median_probe_ns(100_000, || {
         let found = repo
             .file_handle_for_path(path)
+            .map_err(|error| error.to_string())?
             .ok_or("exact path lookup missed")?;
         std::hint::black_box(found);
         Ok(())
@@ -688,14 +692,15 @@ fn command_output(command: &str, args: &[&str]) -> Result<String, String> {
     Ok(String::from_utf8_lossy(&output.stdout).trim().into())
 }
 
-fn fingerprint_inventory(repo: &IndexView) -> String {
+fn fingerprint_inventory(repo: &IndexView) -> Result<String, String> {
     let mut hash = Sha256::new();
     for file in repo.catalogue_rows() {
+        let file = file.map_err(|error| error.to_string())?;
         hash.update(file.relative_path.to_string_lossy().as_bytes());
         hash.update(file.modified_ns.to_le_bytes());
         hash.update(file.size.to_le_bytes());
     }
-    format!("{:x}", hash.finalize())
+    Ok(format!("{:x}", hash.finalize()))
 }
 
 fn hash_schema_files(root: &Path) -> Result<String, String> {

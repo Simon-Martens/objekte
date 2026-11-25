@@ -115,7 +115,7 @@ fn batch_update(index: &Index, paths: &[PathBuf]) -> Result<(Duration, String), 
     for path in paths {
         let handle = index
             .view()?
-            .file_handle_for_path(path)
+            .file_handle_for_path(path)?
             .ok_or("batch file missing")?;
         let mut bytes = fs::read(path)?;
         bytes.extend_from_slice(b" \n");
@@ -256,7 +256,7 @@ fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
     let mut old = fs::read(&target)?;
     let mut handle = index
         .view()?
-        .file_handle_for_path(&target)
+        .file_handle_for_path(&target)?
         .ok_or("synthetic target missing")?;
     for run in 0..11 {
         let next =
@@ -385,7 +385,7 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     fs::write(&source, &update1)?;
     let handle = index
         .view()?
-        .file_handle_for_path(&source)
+        .file_handle_for_path(&source)?
         .ok_or("source handle missing")?;
     let started = Instant::now();
     let appended = index.update_file(handle, &source)?;
@@ -461,7 +461,7 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         let verified_path = &paths[136];
         let verified_handle = index
             .view()?
-            .file_handle_for_path(verified_path)
+            .file_handle_for_path(verified_path)?
             .ok_or("verified base file missing")?;
         let old_content = fs::read(verified_path)?;
         let mut changed = old_content.clone();
@@ -491,7 +491,7 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         let isolated_path = &paths[4096];
         let isolated_handle = index
             .view()?
-            .file_handle_for_path(isolated_path)
+            .file_handle_for_path(isolated_path)?
             .ok_or("untouched base file missing")?;
         let isolated_old = fs::read(isolated_path)?;
         let mut isolated_new = isolated_old.clone();
@@ -522,7 +522,7 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
 
         let mut handle = index
             .view()?
-            .file_handle_for_path(&source)
+            .file_handle_for_path(&source)?
             .ok_or("repeated-update file missing")?;
         let started = Instant::now();
         let mut times = Vec::new();

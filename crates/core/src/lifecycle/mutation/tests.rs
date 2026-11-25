@@ -181,7 +181,7 @@ fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() 
     .unwrap();
     let old_view = index.view().unwrap();
     let old_revision = old_view.revision();
-    let old_handle = old_view.file_handle_for_path(&path).unwrap();
+    let old_handle = old_view.file_handle_for_path(&path).unwrap().unwrap();
     let query = |filter: &str| Query {
         collections: vec!["items".into()],
         fts: None,
@@ -208,8 +208,14 @@ fn pinned_views_keep_membership_and_file_handles_across_same_file_replacement() 
     assert_eq!(old_view.count_exact(&query("rank = 2002")).unwrap(), 0);
     assert_eq!(new_view.count_exact(&query("rank = 10")).unwrap(), 0);
     assert_eq!(new_view.count_exact(&query("rank = 2002")).unwrap(), 1);
-    assert_eq!(old_view.file_handle_for_path(&path).unwrap(), old_handle);
-    assert_eq!(new_view.file_handle_for_path(&path).unwrap(), updated.file);
+    assert_eq!(
+        old_view.file_handle_for_path(&path).unwrap().unwrap(),
+        old_handle
+    );
+    assert_eq!(
+        new_view.file_handle_for_path(&path).unwrap().unwrap(),
+        updated.file
+    );
     assert_ne!(updated.file, old_handle);
 
     drop(new_view);
@@ -290,7 +296,12 @@ fn inferred_order_uses_the_current_snapshot_after_multi_segment_mutation() {
         assert_eq!(result.counters.record_parses, 0);
     }
 
-    let first_handle = index.view().unwrap().file_handle_for_path(&first).unwrap();
+    let first_handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&first)
+        .unwrap()
+        .unwrap();
     index.delete_file(first_handle).unwrap();
     index.delete_file(added.file).unwrap();
     let request = request(false, 0, true);
@@ -377,7 +388,12 @@ fn selected_null_and_presence_survive_explicit_mutations_and_compaction() {
         }
     };
     check(&index, [1, 0, 1], true);
-    let first_handle = index.view().unwrap().file_handle_for_path(&first).unwrap();
+    let first_handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&first)
+        .unwrap()
+        .unwrap();
     std::fs::write(&first, r#"("tags"=[(),()],"text"="filled")"#).unwrap();
     // Search remains bound to the published facts until the explicit update.
     check(&index, [1, 0, 1], false);
@@ -419,7 +435,12 @@ fn search_trusts_recorded_source_validation_until_explicit_update() {
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let mut handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
+    let mut handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&path)
+        .unwrap()
+        .unwrap();
     let mut query = Query {
         collections: vec!["items".into()],
         fts: None,
@@ -484,8 +505,8 @@ fn final_mutated_view_matches_independent_fresh_build() {
     std::fs::write(&second, b"(\"name\"=\"second\")\n").unwrap();
     let live = index(&root);
     let original = live.view().unwrap();
-    let first_handle = original.file_handle_for_path(&first).unwrap();
-    let second_handle = original.file_handle_for_path(&second).unwrap();
+    let first_handle = original.file_handle_for_path(&first).unwrap().unwrap();
+    let second_handle = original.file_handle_for_path(&second).unwrap().unwrap();
     let third = root.join("data/third.rows");
     std::fs::write(&third, b"(\"name\"=\"third\")\n").unwrap();
     let third_handle = live.add_file(&third).unwrap().file;
@@ -580,9 +601,20 @@ fn public_mutations_add_update_move_and_preserve_version_conflicts() {
     assert_eq!(moved.indexed_records, 2);
     assert_eq!(moved.file.file_id, changed.file.file_id);
     assert_ne!(moved.file.version, changed.file.version);
-    assert!(index.view().unwrap().file_handle_for_path(&path).is_none());
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .unwrap()
+            .is_none()
+    );
     assert_eq!(
-        index.view().unwrap().file_handle_for_path(&destination),
+        index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&destination)
+            .unwrap(),
         Some(moved.file)
     );
     assert!(!path.exists());
@@ -597,8 +629,8 @@ fn compatible_move_keeps_index_contributions_and_advances_file_version() {
     std::fs::write(&original, b"(\"name\"=\"one\")\n(\"name\"=\"two\")\n").unwrap();
     let index = index(&root);
     let before = index.view().unwrap();
-    let handle = before.file_handle_for_path(&original).unwrap();
-    let fingerprint = before.file_fingerprint(handle.file_id);
+    let handle = before.file_handle_for_path(&original).unwrap().unwrap();
+    let fingerprint = before.file_fingerprint(handle.file_id).unwrap();
     let prior_segments = before.0.segments.clone();
     let prior_repository = std::sync::Arc::clone(&before.0.repository);
     let destination = root.join("data/renamed.rows");
@@ -610,9 +642,12 @@ fn compatible_move_keeps_index_contributions_and_advances_file_version() {
     assert_eq!(moved.indexed_records, 2);
     assert_ne!(moved.file.version, handle.version);
     let after = index.view().unwrap();
-    assert!(after.file_handle_for_path(&original).is_none());
-    assert_eq!(after.file_handle_for_path(&destination), Some(moved.file));
-    assert_eq!(after.file_fingerprint(handle.file_id), fingerprint);
+    assert!(after.file_handle_for_path(&original).unwrap().is_none());
+    assert_eq!(
+        after.file_handle_for_path(&destination).unwrap(),
+        Some(moved.file)
+    );
+    assert_eq!(after.file_fingerprint(handle.file_id).unwrap(), fingerprint);
     assert!(std::sync::Arc::ptr_eq(
         &prior_repository,
         &after.0.repository
@@ -647,7 +682,7 @@ fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() 
     .and_then(|task| task.wait_complete())
     .unwrap();
     let before = index.view().unwrap();
-    let handle = before.file_handle_for_path(&original).unwrap();
+    let handle = before.file_handle_for_path(&original).unwrap().unwrap();
     let original_metadata = std::fs::metadata(&original).unwrap();
     std::fs::write(&original, new_bytes).unwrap();
     std::fs::File::options()
@@ -683,7 +718,11 @@ fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() 
     );
     assert_eq!(index.status().unwrap().revision, revision);
     assert_eq!(
-        index.view().unwrap().file_handle_for_path(&destination),
+        index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&destination)
+            .unwrap(),
         Some(moved.file)
     );
     index.shutdown().unwrap();
@@ -713,6 +752,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         .view()
         .unwrap()
         .file_handle_for_path(&original)
+        .unwrap()
         .unwrap();
     let destination = root.join("data/right/item.rows");
     std::fs::rename(&original, &destination).unwrap();
@@ -753,6 +793,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         .view()
         .unwrap()
         .file_handle_for_path(&original)
+        .unwrap()
         .unwrap();
     let destination = root.join("data/item.row");
     std::fs::rename(&original, &destination).unwrap();
@@ -789,6 +830,7 @@ fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
         .view()
         .unwrap()
         .file_handle_for_path(&original)
+        .unwrap()
         .unwrap();
     let destination = root.join("data/new.row");
     std::fs::rename(&original, &destination).unwrap();
@@ -832,7 +874,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
-    let handle = pinned.file_handle_for_path(&original).unwrap();
+    let handle = pinned.file_handle_for_path(&original).unwrap().unwrap();
     let original_metadata = std::fs::metadata(&original).unwrap();
     let destination = root.join("data/z-moved.rows");
     std::fs::rename(&original, &destination).unwrap();
@@ -992,7 +1034,7 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
         .and_then(|task| task.wait_complete())
         .unwrap();
         let before = index.view().unwrap();
-        let handle = before.file_handle_for_path(&original).unwrap();
+        let handle = before.file_handle_for_path(&original).unwrap().unwrap();
         let old_shards = Arc::clone(&before.0.segments[0]);
         let destination = root.join("data/moved.rows");
         if compatible {
@@ -1104,7 +1146,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
     .unwrap();
     let restored = built;
     let pinned = restored.view().unwrap();
-    let handle = pinned.file_handle_for_path(&middle).unwrap();
+    let handle = pinned.file_handle_for_path(&middle).unwrap().unwrap();
     let old_shard = pinned
         .segments(CollectionId(0))
         .unwrap()
@@ -1409,9 +1451,9 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     std::fs::write(&path, old).unwrap();
     let index = index(&root);
     let pinned = index.view().unwrap();
-    let handle = pinned.file_handle_for_path(&path).unwrap();
+    let handle = pinned.file_handle_for_path(&path).unwrap().unwrap();
     assert_eq!(
-        pinned.file_fingerprint(handle.file_id),
+        pinned.file_fingerprint(handle.file_id).unwrap(),
         Some(Sha256::digest(old).into())
     );
     assert_eq!(
@@ -1459,7 +1501,11 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     );
     assert_eq!(index.status().unwrap().live_records, 1);
     assert_eq!(
-        index.view().unwrap().file_fingerprint(handle.file_id),
+        index
+            .view()
+            .unwrap()
+            .file_fingerprint(handle.file_id)
+            .unwrap(),
         Some(Sha256::digest(b"(\"name\"=\"new\")\n").into())
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -1473,7 +1519,7 @@ fn fresh_base_verified_delete_reclaims_base_without_reading_source() {
     std::fs::write(&path, old).unwrap();
     let index = index(&root);
     let pinned = index.view().unwrap();
-    let handle = pinned.file_handle_for_path(&path).unwrap();
+    let handle = pinned.file_handle_for_path(&path).unwrap().unwrap();
     std::fs::remove_file(&path).unwrap();
     let deleted = index.delete_file_with_old_content(handle, old).unwrap();
     assert_eq!(
@@ -1516,8 +1562,8 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
         .expect("segment consolidation should share a shard");
     let target = shared.index.files[0].entry.id;
     let sibling = shared.index.files[1].entry.id;
-    let handle = before.file_handle(target).unwrap();
-    let path = root.join(&before.file_entry(target).unwrap().relative_path);
+    let handle = before.file_handle(target).unwrap().unwrap();
+    let path = root.join(&before.file_entry(target).unwrap().unwrap().relative_path);
     let old = std::fs::read(&path).unwrap();
     std::fs::write(&path, b"(\"name\"=\"changed\")\n").unwrap();
     let result = index
@@ -2011,7 +2057,8 @@ fn programmatic_rebuild_rejects_source_replacement_at_handoff() {
         index
             .view()
             .unwrap()
-            .file_handle_for_path(std::path::Path::new("data/file.rows")),
+            .file_handle_for_path(std::path::Path::new("data/file.rows"))
+            .unwrap(),
         Some(imported.file)
     );
     std::fs::remove_dir_all(root).unwrap();
@@ -2431,6 +2478,7 @@ fn managed_streams_bound_framers_pending_input_and_oversize_decoder_work() {
                     .view()
                     .unwrap()
                     .file_handle_for_path(std::path::Path::new("data/retry.budget"))
+                    .unwrap()
                     .is_none()
             );
             assert_eq!(budget.current(), Default::default());
@@ -2463,6 +2511,7 @@ fn verified_replacement_rejects_a_concurrent_replacement_of_the_same_handle() {
     let pinned = index.view().unwrap();
     let handle = pinned
         .file_handle_for_path(std::path::Path::new("data/entry.rows"))
+        .unwrap()
         .unwrap();
     std::fs::write(&path, b"(\"id\"=\"new\")\n").unwrap();
     let (entered, arrival) = mpsc::sync_channel(1);

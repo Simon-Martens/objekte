@@ -59,7 +59,7 @@ fn compacting_native_segments_preserves_text_postings() {
         Some(1)
     );
     index
-        .delete_file(pinned.file_handle_for_path(&remove).unwrap())
+        .delete_file(pinned.file_handle_for_path(&remove).unwrap().unwrap())
         .unwrap();
     std::fs::remove_file(&remove).unwrap();
     assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
@@ -115,7 +115,7 @@ fn compaction_reuses_unaffected_native_segment() {
         Some(1)
     );
     index
-        .delete_file(pinned.file_handle_for_path(&removed).unwrap())
+        .delete_file(pinned.file_handle_for_path(&removed).unwrap().unwrap())
         .unwrap();
     std::fs::remove_file(&removed).unwrap();
     index.compact().unwrap();
@@ -216,8 +216,8 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     assert_eq!(no_op.revision, initial);
     assert_eq!(no_op.retired_slots_removed, 0);
     let old = index.view().unwrap();
-    let a_handle = old.file_handle_for_path(&a).unwrap();
-    let b_handle = old.file_handle_for_path(&b).unwrap();
+    let a_handle = old.file_handle_for_path(&a).unwrap().unwrap();
+    let b_handle = old.file_handle_for_path(&b).unwrap().unwrap();
     index.delete_file(a_handle).unwrap();
     std::fs::write(&b, br#"("name"="B2")"#).unwrap();
     index.update_file(b_handle, &b).unwrap();
@@ -273,7 +273,12 @@ fn compacted_base_contributions_preserve_native_queries() {
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let handle = index.view().unwrap().file_handle_for_path(&a).unwrap();
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&a)
+        .unwrap()
+        .unwrap();
     index.delete_file(handle).unwrap();
     std::fs::remove_file(&a).unwrap();
     assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
@@ -305,7 +310,7 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
     .unwrap();
     let old = index.view().unwrap();
     index
-        .delete_file(old.file_handle_for_path(&file).unwrap())
+        .delete_file(old.file_handle_for_path(&file).unwrap().unwrap())
         .unwrap();
     let task = index.start_compaction().unwrap();
     assert_eq!(
@@ -356,10 +361,15 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     let b = root.join("data/b.row");
     let initial = index.view().unwrap();
     index
-        .delete_file(initial.file_handle_for_path(&a).unwrap())
+        .delete_file(initial.file_handle_for_path(&a).unwrap().unwrap())
         .unwrap();
     index.compact().unwrap();
-    let b_handle = index.view().unwrap().file_handle_for_path(&b).unwrap();
+    let b_handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&b)
+        .unwrap()
+        .unwrap();
     std::fs::write(&b, br#"("name"="bb")"#).unwrap();
     index.update_file(b_handle, &b).unwrap();
     let dense = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].clone();
@@ -434,7 +444,7 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
     let pinned = index.view().unwrap();
     assert_eq!(pinned.search(&all()).unwrap().count, Some(count + 1));
     index
-        .delete_file(pinned.file_handle_for_path(&single).unwrap())
+        .delete_file(pinned.file_handle_for_path(&single).unwrap().unwrap())
         .unwrap();
     std::fs::remove_file(&many).unwrap();
     std::fs::remove_file(&single).unwrap();

@@ -1,3 +1,4 @@
+use crate::index::storage::file_catalog::FileCatalogReader;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
@@ -47,18 +48,21 @@ fn pinned_catalogue_metadata_tracks_each_publication_independently() {
 
     let moved_path = root.join("data/c.row");
     std::fs::rename(&initial_path, &moved_path).unwrap();
-    let initial_handle = after_add.file_handle_for_path(&initial_path).unwrap();
+    let initial_handle = after_add
+        .file_handle_for_path(&initial_path)
+        .unwrap()
+        .unwrap();
     index.move_file(initial_handle, &moved_path).unwrap();
     let after_move = index.view().unwrap();
 
     let paths = |view: &crate::lifecycle::IndexView| {
         view.file_paths()
-            .map(std::path::Path::to_path_buf)
+            .map(|path| path.unwrap().into_owned())
             .collect::<Vec<_>>()
     };
     let catalogue_paths = |view: &crate::lifecycle::IndexView| {
         view.catalogue_rows()
-            .map(|row| row.relative_path.to_path_buf())
+            .map(|row| row.unwrap().relative_path.into_owned())
             .collect::<Vec<_>>()
     };
     assert_eq!(paths(&initial), [std::path::PathBuf::from("data/a.row")]);
@@ -80,13 +84,38 @@ fn pinned_catalogue_metadata_tracks_each_publication_independently() {
     );
     assert_eq!(catalogue_paths(&after_move), paths(&after_move));
 
-    assert!(initial.file_handle_for_path(&initial_path).is_some());
-    assert!(initial.file_handle_for_path(&added_path).is_none());
-    assert!(initial.file_handle_for_path(&moved_path).is_none());
-    assert!(after_add.file_handle_for_path(&added_path).is_some());
-    assert!(after_add.file_handle_for_path(&moved_path).is_none());
-    assert!(after_move.file_handle_for_path(&initial_path).is_none());
-    assert!(after_move.file_handle_for_path(&moved_path).is_some());
+    assert!(
+        initial
+            .file_handle_for_path(&initial_path)
+            .unwrap()
+            .is_some()
+    );
+    assert!(initial.file_handle_for_path(&added_path).unwrap().is_none());
+    assert!(initial.file_handle_for_path(&moved_path).unwrap().is_none());
+    assert!(
+        after_add
+            .file_handle_for_path(&added_path)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        after_add
+            .file_handle_for_path(&moved_path)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        after_move
+            .file_handle_for_path(&initial_path)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        after_move
+            .file_handle_for_path(&moved_path)
+            .unwrap()
+            .is_some()
+    );
 
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -119,7 +148,10 @@ fn index_observation_counts_only_each_pinned_publications_live_records() {
     std::fs::write(&added_path, br#"("name"="added")"#).unwrap();
     index.add_file(&added_path).unwrap();
     let after_add = index.view().unwrap();
-    let initial_handle = after_add.file_handle_for_path(&initial_path).unwrap();
+    let initial_handle = after_add
+        .file_handle_for_path(&initial_path)
+        .unwrap()
+        .unwrap();
     index.delete_file(initial_handle).unwrap();
     std::fs::remove_file(&initial_path).unwrap();
     let after_delete = index.view().unwrap();
@@ -140,7 +172,7 @@ fn index_observation_counts_only_each_pinned_publications_live_records() {
         ),
         (&after_delete, 1, added_bytes, 1, entries(1, added_bytes, 1)),
     ] {
-        let observation = view.index_observation();
+        let observation = view.index_observation().unwrap();
         assert_eq!(observation.files, files);
         assert_eq!(observation.source_bytes, source_bytes);
         assert_eq!(observation.records, records);
@@ -159,7 +191,7 @@ fn index_observation_counts_only_each_pinned_publications_live_records() {
 
     let paths = |view: &crate::lifecycle::IndexView| {
         view.file_paths()
-            .map(std::path::Path::to_path_buf)
+            .map(|path| path.unwrap().into_owned())
             .collect::<Vec<_>>()
     };
     assert_eq!(paths(&initial), [std::path::PathBuf::from("data/a.row")]);
@@ -205,7 +237,7 @@ fn index_observation_counts_shared_files_once_globally_and_per_membership() {
     .and_then(|task| task.wait_complete())
     .unwrap();
     let view = index.view().unwrap();
-    let observation = view.index_observation();
+    let observation = view.index_observation().unwrap();
     assert_eq!(observation.files, 1);
     assert_eq!(observation.source_bytes, source.len() as u64);
     assert_eq!(observation.records, 2);
@@ -215,7 +247,9 @@ fn index_observation_counts_shared_files_once_globally_and_per_membership() {
         assert_eq!(part.source_bytes, source.len() as u64);
         assert_eq!(part.records, 1);
         assert_eq!(
-            view.file_paths_for_collection(name).collect::<Vec<_>>(),
+            view.file_paths_for_collection(name)
+                .map(Result::unwrap)
+                .collect::<Vec<_>>(),
             [std::path::Path::new("data/shared.row")]
         );
     }
@@ -281,19 +315,21 @@ fn segment_observation_visits_match_pinned_collection_aggregates() {
     let verify = |view: &crate::lifecycle::IndexView| {
         let mut per_collection = vec![[0usize; 9]; 2];
         let mut visited_ids = Vec::new();
-        let observation = view.index_observation_with_segments(|segment| {
-            visited_ids.push(segment.id);
-            let target = &mut per_collection[segment.collection.0 as usize];
-            target[0] = target[0].saturating_add(segment.active_records);
-            target[1] = target[1].saturating_add(segment.posting_fields);
-            target[2] = target[2].saturating_add(segment.sort_columns);
-            target[3] = target[3].saturating_add(segment.relation_count);
-            target[4] = target[4].saturating_add(segment.relation_edges);
-            target[5] = target[5].saturating_add(segment.relation_heap_bytes);
-            target[6] = target[6].saturating_add(segment.bigram_stores);
-            target[7] = target[7].saturating_add(segment.distinct_gram_keys);
-            target[8] = target[8].saturating_add(segment.bigram_heap_bytes);
-        });
+        let observation = view
+            .index_observation_with_segments(|segment| {
+                visited_ids.push(segment.id);
+                let target = &mut per_collection[segment.collection.0 as usize];
+                target[0] = target[0].saturating_add(segment.active_records);
+                target[1] = target[1].saturating_add(segment.posting_fields);
+                target[2] = target[2].saturating_add(segment.sort_columns);
+                target[3] = target[3].saturating_add(segment.relation_count);
+                target[4] = target[4].saturating_add(segment.relation_edges);
+                target[5] = target[5].saturating_add(segment.relation_heap_bytes);
+                target[6] = target[6].saturating_add(segment.bigram_stores);
+                target[7] = target[7].saturating_add(segment.distinct_gram_keys);
+                target[8] = target[8].saturating_add(segment.bigram_heap_bytes);
+            })
+            .unwrap();
         assert_eq!(
             visited_ids,
             view.segment_summaries()
@@ -357,7 +393,7 @@ fn segment_observation_visits_match_pinned_collection_aggregates() {
     let after_add = index.view().unwrap();
     verify(&after_add);
     assert!(after_add.segment_summaries().len() > initial_segment_count);
-    let initial_handle = after_add.file_handle_for_path(&original).unwrap();
+    let initial_handle = after_add.file_handle_for_path(&original).unwrap().unwrap();
     index.delete_file(initial_handle).unwrap();
     std::fs::remove_file(original).unwrap();
     let after_delete = index.view().unwrap();
@@ -370,6 +406,7 @@ fn segment_observation_visits_match_pinned_collection_aggregates() {
     assert_eq!(
         initial
             .index_observation()
+            .unwrap()
             .collection_parts
             .iter()
             .map(|part| part.build_empty_array_bitmap_serialized_bytes)
@@ -428,6 +465,7 @@ fn benchmark_locator_sample_follows_live_records_after_source_deletion() {
     );
     let handle = initial
         .file_handle_for_path(&first.file.as_ref().unwrap().path)
+        .unwrap()
         .unwrap();
     index.delete_file(handle).unwrap();
 
@@ -517,7 +555,12 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     let old = pinned.0.segments[0][0].clone();
     for number in 0..64 {
         let path = root.join(format!("data/{number:03}.row"));
-        let handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
+        let handle = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(&path)
+            .unwrap()
+            .unwrap();
         index.delete_file(handle).unwrap();
         std::fs::remove_file(path).unwrap();
     }
@@ -811,7 +854,7 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
     .unwrap();
     let index = static_index(repository);
     let old = index.view().unwrap();
-    let handle = old.file_handle_for_path(&original).unwrap();
+    let handle = old.file_handle_for_path(&original).unwrap().unwrap();
     std::fs::rename(&original, &destination).unwrap();
     let moved = index.move_file(handle, &destination).unwrap();
     assert_eq!(
@@ -877,7 +920,7 @@ fn pinned_view_stays_stable_when_a_new_root_is_published() {
     let index = static_index(fixture_repository(&root));
     let clone = index.clone();
     let old = index.view().unwrap();
-    let first_file = old.file_handle(FileId(0)).unwrap();
+    let first_file = old.file_handle(FileId(0)).unwrap().unwrap();
     assert_eq!(old.revision(), IndexRevision::INITIAL);
     assert_eq!(index.status().unwrap().revision, IndexRevision::INITIAL);
     assert_eq!(old.search(&all_records()).unwrap().count, Some(1));
@@ -906,8 +949,11 @@ fn pinned_view_stays_stable_when_a_new_root_is_published() {
             .iter()
             .all(|hit| hit.generation == new_revision.0)
     );
-    assert_eq!(current.file_version(FileId(0)).unwrap().0, new_revision.0);
-    assert_eq!(old.file_handle(FileId(0)).unwrap(), first_file);
+    assert_eq!(
+        current.file_version(FileId(0)).unwrap().unwrap().0,
+        new_revision.0
+    );
+    assert_eq!(old.file_handle(FileId(0)).unwrap().unwrap(), first_file);
     assert_eq!(old.search(&all_records()).unwrap().count, Some(1));
     assert_eq!(
         old.segments(crate::model::CollectionId(0))
@@ -1080,11 +1126,12 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     .and_then(|task| task.wait_complete())
     .unwrap();
     let old = index.view().unwrap();
-    let handle = old.file_handle(FileId(0)).unwrap();
-    assert_eq!(old.file_handle_for_path(&source), Some(handle));
+    let handle = old.file_handle(FileId(0)).unwrap().unwrap();
+    assert_eq!(old.file_handle_for_path(&source).unwrap(), Some(handle));
     for collection in ["left", "right"] {
         assert_eq!(
             old.file_paths_for_collection(collection)
+                .map(Result::unwrap)
                 .collect::<Vec<_>>(),
             [std::path::Path::new("data/shared.rows")]
         );
@@ -1133,8 +1180,8 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
             .iter()
             .all(|node| node.record_count == 0)
     );
-    assert!(current.file_handle(FileId(0)).is_none());
-    assert!(current.file_handle_for_path(&source).is_none());
+    assert!(current.file_handle(FileId(0)).unwrap().is_none());
+    assert!(current.file_handle_for_path(&source).unwrap().is_none());
     assert!(
         current
             .get_record(
@@ -1214,7 +1261,10 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
         next_ordinal + 1
     );
     assert_eq!(
-        staged.catalog.id_for(std::path::Path::new("data/b.rows")),
+        staged
+            .catalog
+            .id_for_path(std::path::Path::new("data/b.rows"))
+            .unwrap(),
         Some(FileId(1))
     );
     assert_eq!(index.status().unwrap(), before);
@@ -1253,7 +1303,12 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     .unwrap();
     let prior_segments = index.view().unwrap().0.segments[0].len();
     let before = index.status().unwrap();
-    let handle = index.view().unwrap().file_handle(FileId(0)).unwrap();
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle(FileId(0))
+        .unwrap()
+        .unwrap();
     let new_path = root.join("data/new.rows");
     std::fs::write(&new_path, b"(\"name\"=\"replacement\")\n").unwrap();
     let prepared = index.prepare_replace_file(handle, &new_path).unwrap();
@@ -1266,11 +1321,17 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     assert_eq!(staged.segments[0].len(), prior_segments + 1);
     assert_eq!(staged.segments[1].len(), prior_segments + 1);
     assert_eq!(
-        staged.catalog.id_for(std::path::Path::new("data/old.rows")),
+        staged
+            .catalog
+            .id_for_path(std::path::Path::new("data/old.rows"))
+            .unwrap(),
         None
     );
     assert_eq!(
-        staged.catalog.id_for(std::path::Path::new("data/new.rows")),
+        staged
+            .catalog
+            .id_for_path(std::path::Path::new("data/new.rows"))
+            .unwrap(),
         Some(FileId(0))
     );
     assert_eq!(
@@ -1458,6 +1519,7 @@ fn many_small_additions_and_replacements_stay_within_segment_budget() {
             .view()
             .unwrap()
             .file_handle_for_path(relative)
+            .unwrap()
             .unwrap();
         let prepared = index.prepare_replace_file(handle, relative).unwrap();
         let expected = prepared.expected_revision;
@@ -1955,6 +2017,7 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
         .view()
         .unwrap()
         .file_handle_for_path(&root.join("data/a.row"))
+        .unwrap()
         .unwrap();
     index.delete_file(handle).unwrap();
     let current = index.view().unwrap();
@@ -2040,7 +2103,12 @@ fn generated_namespaces_are_rejected_by_mutation_and_reconciliation() {
     std::fs::rename(&b, &moved).unwrap();
     assert!(index.move_file(added.file, &moved).is_err());
     std::fs::write(&b, br#"("title"="Beta changed")"#).unwrap();
-    let handle = index.view().unwrap().file_handle_for_path(&b).unwrap();
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&b)
+        .unwrap()
+        .unwrap();
     let generated_update = root.join("data/nested/objekte-indexes/updated.row");
     std::fs::write(&generated_update, br#"("title"="Updated poison")"#).unwrap();
     assert!(index.update_file(handle, &generated_update).is_err());
@@ -2243,7 +2311,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
     let index = Index::from_repository(repo).unwrap();
     assert!(weak.upgrade().is_some());
     let view = index.view().unwrap();
-    let handle = view.file_handle_for_path(&path).unwrap();
+    let handle = view.file_handle_for_path(&path).unwrap().unwrap();
     drop(view);
     std::fs::write(&path, br#"("id"="item","title"="new")"#).unwrap();
     index.update_file(handle, &path).unwrap();
@@ -2264,7 +2332,7 @@ fn adopted_segment_payloads_are_reclaimed_after_replacement_and_pinned_views() {
     let weak = std::sync::Arc::downgrade(&repo.segments[0][0].index);
     let index = Index::from_repository(repo).unwrap();
     let pinned = index.view().unwrap();
-    let handle = pinned.file_handle_for_path(&path).unwrap();
+    let handle = pinned.file_handle_for_path(&path).unwrap().unwrap();
     std::fs::write(&path, br#"("id"="item","title"="newer")"#).unwrap();
     index.update_file(handle, &path).unwrap();
     index.compact().unwrap();

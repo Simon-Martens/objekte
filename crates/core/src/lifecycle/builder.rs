@@ -529,8 +529,8 @@ mod tests {
             view.collection_declarations().next().unwrap().name,
             "entries"
         );
-        assert_eq!(view.index_observation().files, 0);
-        assert_eq!(view.index_observation().records, 0);
+        assert_eq!(view.index_observation().unwrap().files, 0);
+        assert_eq!(view.index_observation().unwrap().records, 0);
         assert!(view.file_catalog().is_none());
         assert!(
             view.get_record(
@@ -567,7 +567,7 @@ mod tests {
         let view = builder.build().unwrap().view().unwrap();
         let files = view.file_catalog().unwrap();
         assert_ne!(view.configuration_identity(), without_identity);
-        assert_eq!(view.index_observation().files, 0);
+        assert_eq!(view.index_observation().unwrap().files, 0);
         assert_eq!(
             files.records_for_file(crate::model::FileId(0)),
             Err(crate::files::LookupError::FileNotFound)

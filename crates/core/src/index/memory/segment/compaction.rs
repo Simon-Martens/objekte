@@ -27,7 +27,7 @@ impl IndexedCollectionSegment {
         &self,
         active: &ActiveRecords,
         max_scanned_records: usize,
-        retain_file: impl Fn(&FileEntry) -> bool,
+        retain_file: impl FnMut(&FileEntry) -> bool,
     ) -> Result<CompactedSegment, String> {
         self.compact_active_mapped(active, max_scanned_records, retain_file, None, None)
     }
@@ -54,7 +54,7 @@ impl IndexedCollectionSegment {
         &self,
         active: &ActiveRecords,
         max_scanned_records: usize,
-        retain_file: impl Fn(&FileEntry) -> bool,
+        retain_file: impl FnMut(&FileEntry) -> bool,
         new_slots: Option<&[RecordSlot]>,
         posting_projection: Option<PostingProjection>,
     ) -> Result<CompactedSegment, String> {
@@ -160,7 +160,7 @@ impl IndexedCollectionSegment {
         &self,
         slot_map: &SlotMap<'_>,
         next: u32,
-        retain_file: impl Fn(&FileEntry) -> bool,
+        mut retain_file: impl FnMut(&FileEntry) -> bool,
         posting_projection: Option<PostingProjection>,
         bigram_projection: Option<BigramProjection>,
         relation_projection: Option<Vec<RelationContribution>>,

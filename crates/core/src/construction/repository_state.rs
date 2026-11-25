@@ -18,7 +18,6 @@ use crate::inference::InferenceBuildStats;
 use crate::inventory::{
     ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
 };
-use crate::lifecycle::catalog::FileCatalog;
 use crate::lifecycle::{IndexError, IndexRevision};
 use crate::model::{CollectionId, RecordId, RecordSlot};
 use crate::repository::configuration::{
@@ -323,7 +322,11 @@ fn initialize_empty_configured(
     }
     crate::index::relation::validate_indexes(&collections)?;
     let workers = Repository::create_workers(options.query_workers)?;
-    let catalog = FileCatalog::from_parts(Arc::clone(&files), Vec::new(), configuration_identity);
+    let catalog = storage_factory.file_catalog(&files.catalog_base(
+        Vec::new(),
+        configuration_identity,
+        collections.len(),
+    ))?;
     let active = (0..collections.len())
         .map(|_| ActiveRecords::all(0))
         .collect::<Result<Vec<_>, _>>()?;
@@ -392,7 +395,7 @@ mod programmatic_tests {
         let view = index.view().unwrap();
         assert_eq!(view.configuration_identity(), expected_identity);
         assert_eq!(view.collection_declarations().count(), 1);
-        assert_eq!(view.index_observation().records, 0);
+        assert_eq!(view.index_observation().unwrap().records, 0);
     }
 }
 struct SegmentMetadata {
@@ -630,7 +633,7 @@ pub(crate) fn assemble_final_repository(
     let mut final_files = (*discovered).clone();
     let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
     for file in &mut final_files.files {
-        if let Some(current) = segment_view.file_entry(file.id) {
+        if let Some(current) = segment_view.file_entry(file.id)? {
             file.status = current.status;
             file.omitted_diagnostics = current.omitted_diagnostics;
             for diagnostic in &current.diagnostics {

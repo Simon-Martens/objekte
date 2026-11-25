@@ -153,9 +153,11 @@ fn query(case: Case) -> Result<Query, String> {
     })
 }
 
-fn store_counts(repo: &IndexView) -> (usize, usize) {
-    let observation = repo.index_observation();
-    (observation.bigram_stores, observation.distinct_gram_keys)
+fn store_counts(repo: &IndexView) -> Result<(usize, usize), String> {
+    let observation = repo
+        .index_observation()
+        .map_err(|error| error.to_string())?;
+    Ok((observation.bigram_stores, observation.distinct_gram_keys))
 }
 
 fn main() {
@@ -205,7 +207,7 @@ fn run() -> Result<(), String> {
         .and_then(|task| task.wait_complete())
         .map_err(|error| error.to_string())?;
         let repo = index.view().map_err(|error| error.to_string())?;
-        let original_stores = store_counts(&repo);
+        let original_stores = store_counts(&repo)?;
         for cache in ["off", "warm"] {
             index
                 .configure_verified_cache(if cache == "warm" { 64 << 20 } else { 0 })
@@ -245,7 +247,7 @@ fn run() -> Result<(), String> {
                 );
             }
         }
-        if store_counts(&repo) != original_stores {
+        if store_counts(&repo)? != original_stores {
             return Err("case toggle rebuilt an index".into());
         }
     }

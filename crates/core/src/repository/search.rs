@@ -30,7 +30,7 @@ impl Repository {
             snapshot.revision,
             Some(cache),
         )?;
-        Ok(self.stamp_native_query_result(query, result))
+        self.stamp_native_query_result(query, result)
     }
 
     /// Count exact matches without constructing a result page or sort keys.
@@ -98,7 +98,8 @@ impl Repository {
             context,
             Some(cache),
         )?;
-        Ok(self.stamp_native_result(result))
+        self.stamp_native_result(result)
+            .map_err(|error| context.recorded_error(error))
     }
 
     /// Deliver verified requested-page updates while the query is executing.
@@ -223,7 +224,7 @@ impl Repository {
                     } if rows.iter().any(needs_remap) => {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
-                            self.stamp_native_hit(hit);
+                            self.stamp_native_hit(hit)?;
                         }
                         sink(
                             crate::query_execution::streaming::StreamEvent::OrderedRows {
@@ -241,7 +242,7 @@ impl Repository {
                     } if rows.iter().any(needs_remap) => {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
-                            self.stamp_native_hit(hit);
+                            self.stamp_native_hit(hit)?;
                         }
                         sink(
                             crate::query_execution::streaming::StreamEvent::PageReplacement {
@@ -321,7 +322,7 @@ impl Repository {
                 } if rows.iter().any(needs_remap) => {
                     let mut remapped = rows.to_vec();
                     for hit in &mut remapped {
-                        self.stamp_native_hit(hit);
+                        self.stamp_native_hit(hit)?;
                     }
                     sink(
                         crate::query_execution::streaming::StreamEvent::OrderedRows {
@@ -339,7 +340,7 @@ impl Repository {
                 } if rows.iter().any(needs_remap) => {
                     let mut remapped = rows.to_vec();
                     for hit in &mut remapped {
-                        self.stamp_native_hit(hit);
+                        self.stamp_native_hit(hit)?;
                     }
                     sink(
                         crate::query_execution::streaming::StreamEvent::PageReplacement {
@@ -448,7 +449,7 @@ impl Repository {
             &self.catalog,
             self.revision,
         )?;
-        Ok((self.stamp_native_result(result.0), result.1))
+        Ok((self.stamp_native_result(result.0)?, result.1))
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
@@ -471,7 +472,7 @@ impl Repository {
             &self.catalog,
             self.revision,
         )?;
-        Ok(self.stamp_native_result(result))
+        self.stamp_native_result(result)
     }
 
     /// Evaluate a parameter choice through the independent reference route.

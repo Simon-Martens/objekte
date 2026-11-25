@@ -214,7 +214,13 @@ impl UiState {
         if self.visible_file_scope.as_ref() == Some(&scope) {
             return;
         }
-        self.visible_file_ids = catalogue.filtered_ids(scope.0.as_deref(), scope.1.as_deref());
+        match catalogue.filtered_ids(scope.0.as_deref(), scope.1.as_deref()) {
+            Ok(ids) => self.visible_file_ids = ids,
+            Err(error) => {
+                self.errors.insert(ErrorField::General, error.to_string());
+                self.visible_file_ids = Arc::new(Vec::new());
+            }
+        }
         self.visible_file_scope = Some(scope);
     }
 

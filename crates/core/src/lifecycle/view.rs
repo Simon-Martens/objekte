@@ -6,6 +6,7 @@ use std::sync::{Arc, Weak};
 use roaring::RoaringBitmap;
 
 use crate::index::segment::PublishedSegment;
+use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, Value};
 use crate::query::Query;
@@ -147,7 +148,7 @@ impl IndexView {
     /// collection membership. Logical record counts combine the base liveness
     /// mask and published segment masks; retained source metadata rows are not
     /// counted a second time.
-    pub fn index_observation(&self) -> IndexObservation {
+    pub fn index_observation(&self) -> Result<IndexObservation, IndexError> {
         self.index_observation_with_segments(|_| {})
     }
 
@@ -156,7 +157,7 @@ impl IndexView {
     pub fn index_observation_with_segments(
         &self,
         mut visit: impl FnMut(&crate::index::segment::NativeSegmentSummary),
-    ) -> IndexObservation {
+    ) -> Result<IndexObservation, IndexError> {
         let collections = self.repository().collections();
         let mut collection_parts = collections
             .iter()
@@ -191,6 +192,7 @@ impl IndexView {
         let mut files = 0usize;
         let mut source_bytes = 0u64;
         for file in self.catalogue_rows() {
+            let file = file?;
             files += 1;
             source_bytes = source_bytes.saturating_add(file.size);
             for collection in file.collections.iter() {
@@ -224,8 +226,8 @@ impl IndexView {
         let (base_inventory_heap_bytes, diagnostic_heap_bytes) =
             self.repository().files().estimated_heap_bytes();
         let inventory_heap_bytes =
-            base_inventory_heap_bytes + self.0.catalog.scalar_delta_heap_bytes();
-        IndexObservation {
+            base_inventory_heap_bytes + self.0.catalog.estimates_delta_bytes();
+        Ok(IndexObservation {
             files,
             source_bytes,
             records: collection_parts
@@ -267,7 +269,7 @@ impl IndexView {
             inventory_heap_bytes,
             diagnostic_heap_bytes,
             collection_parts,
-        }
+        })
     }
 
     /// Inventory component accounting without returning the file table.
@@ -276,13 +278,16 @@ impl IndexView {
     ) -> (usize, usize, crate::inventory::FileStorageDiagnostic) {
         let inventory = self.repository().files();
         let (base_heap_bytes, diagnostic_bytes) = inventory.estimated_heap_bytes();
-        let heap_bytes = base_heap_bytes + self.0.catalog.scalar_delta_heap_bytes();
+        let heap_bytes = base_heap_bytes + self.0.catalog.estimates_delta_bytes();
         (heap_bytes, diagnostic_bytes, inventory.storage_diagnostic())
     }
 
     /// Construction status for one catalogue file in this pinned publication.
-    pub fn file_status(&self, file: FileId) -> Option<crate::inventory::FileStatus> {
-        self.file_entry(file).map(|entry| entry.status)
+    pub fn file_status(
+        &self,
+        file: FileId,
+    ) -> Result<Option<crate::inventory::FileStatus>, IndexError> {
+        Ok(self.file_entry(file)?.map(|entry| entry.status))
     }
 
     pub fn initial_construction_complete(&self) -> bool {
@@ -333,9 +338,7 @@ impl IndexView {
         &self,
         mut visit: impl FnMut(&FileEntry) -> Result<(), IndexError>,
     ) -> Result<(), IndexError> {
-        use crate::index::storage::file_catalog::{
-            FILE_TRANSFER_LIMIT, FileCatalogSource, transfer_files,
-        };
+        use crate::index::storage::file_catalog::{FILE_TRANSFER_LIMIT, transfer_files};
         let catalog = &self.0.catalog;
         transfer_files(
             catalog,
@@ -348,24 +351,18 @@ impl IndexView {
 
     /// Number of visible file metadata entries in this revision.
     pub fn file_metadata_count(&self) -> u64 {
-        self.0.catalog.active_files()
+        self.0.catalog.live_count()
     }
 
-    /// Borrow a row from this pinned publication without copying the corpus
-    /// path catalogue or implying that the file has been parsed.
-    pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow<'_>> {
-        if !self.0.catalog.is_active(id) {
-            return None;
-        }
-        let file = self.0.catalog.entry(id)?;
-        Some(FileCatalogueRow::from_entry(std::borrow::Cow::Borrowed(
-            file,
-        )))
+    /// Read discovery metadata from this pinned publication.
+    pub fn catalogue_row(&self, id: FileId) -> Result<Option<FileCatalogueRow<'_>>, IndexError> {
+        Ok(self.file_entry(id)?.map(FileCatalogueRow::from_entry))
     }
 
-    pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow<'_>> + '_ {
-        (0..self.0.catalog.allocated_files())
-            .filter_map(|number| self.catalogue_row(FileId(number as u32)))
+    pub fn catalogue_rows(
+        &self,
+    ) -> impl Iterator<Item = Result<FileCatalogueRow<'_>, IndexError>> + '_ {
+        FileRows::new(&self.0.catalog).map(|row| Ok(FileCatalogueRow::from_entry(row?.entry)))
     }
 
     /// Narrow index-family estimate for a direct repository, summed across the
@@ -473,8 +470,7 @@ impl IndexView {
     }
 
     pub fn estimated_inventory_bytes(&self) -> usize {
-        self.repository().files().estimated_heap_bytes().0
-            + self.0.catalog.scalar_delta_heap_bytes()
+        self.repository().files().estimated_heap_bytes().0 + self.0.catalog.estimates_delta_bytes()
     }
 
     fn has_segments(&self) -> bool {
@@ -518,17 +514,17 @@ impl IndexView {
         Ok(())
     }
 
-    fn stamp_result(&self, mut result: SearchResult) -> SearchResult {
+    fn stamp_result(&self, mut result: SearchResult) -> Result<SearchResult, String> {
         for hit in &mut result.hits {
             hit.generation = self.revision().0;
-            self.remap_hit_diagnostic(hit);
+            self.remap_hit_diagnostic(hit)?;
         }
-        result
+        Ok(result)
     }
 
-    fn remap_hit_diagnostic(&self, hit: &mut SearchHit) {
+    fn remap_hit_diagnostic(&self, hit: &mut SearchHit) -> Result<(), String> {
         let Some(local) = hit.diagnostic_ref.stored_index() else {
-            return;
+            return Ok(());
         };
         let Some(collection) = self
             .repository()
@@ -536,10 +532,10 @@ impl IndexView {
             .iter()
             .position(|collection| collection.definition.name == hit.collection)
         else {
-            return;
+            return Ok(());
         };
         let Some(file) = hit.file.as_ref().map(|origin| origin.file_id) else {
-            return;
+            return Ok(());
         };
         for segment in self.0.segments[collection].iter() {
             let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
@@ -557,18 +553,18 @@ impl IndexView {
                 continue;
             }
             let Some(source) = segment.index.file(file) else {
-                return;
+                return Ok(());
             };
             let Some(diagnostic) = source.entry.diagnostics.get(local) else {
-                return;
+                return Ok(());
             };
-            let Some(position) = self.0.catalog.entry(file).and_then(|entry| {
+            let Some(position) = self.0.catalog.file(file)?.and_then(|entry| {
                 entry
                     .diagnostics
                     .iter()
                     .position(|candidate| candidate == diagnostic)
             }) else {
-                return;
+                return Ok(());
             };
             let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
             hit.diagnostic_ref = reference;
@@ -577,8 +573,9 @@ impl IndexView {
             {
                 *diagnostic_ref = reference;
             }
-            return;
+            return Ok(());
         }
+        Ok(())
     }
 
     pub fn instance_id(&self) -> u64 {
@@ -595,42 +592,48 @@ impl IndexView {
         self.0.configuration_identity
     }
 
-    pub fn file_handle(&self, file: FileId) -> Option<FileHandle> {
-        self.0.catalog.is_active(file).then(|| {
-            self.0.file_versions.get(file).map(|version| FileHandle {
-                instance_id: self.0.instance_id,
-                file_id: file,
-                version,
-            })
-        })?
+    pub fn file_handle(&self, file: FileId) -> Result<Option<FileHandle>, IndexError> {
+        Ok(self.file_version(file)?.map(|version| FileHandle {
+            instance_id: self.0.instance_id,
+            file_id: file,
+            version,
+        }))
     }
 
     /// Resolve an active file by a repository-relative path, or by an
     /// absolute path beneath this view's source root.
-    pub fn file_handle_for_path(&self, path: &Path) -> Option<FileHandle> {
+    pub fn file_handle_for_path(&self, path: &Path) -> Result<Option<FileHandle>, IndexError> {
         let relative = if path.is_absolute() {
-            path.strip_prefix(self.0.repository.files().root()?).ok()?
+            let Some(relative) = self
+                .0
+                .catalog
+                .repository_root()
+                .and_then(|root| path.strip_prefix(root).ok())
+            else {
+                return Ok(None);
+            };
+            relative
         } else {
             path
         };
-        self.0
-            .catalog
-            .id_for(relative)
-            .and_then(|id| self.file_handle(id))
+        let Some(id) = self.0.catalog.id_for_path(relative)? else {
+            return Ok(None);
+        };
+        self.file_handle(id)
     }
 
     /// Paths of files active in this immutable publication.
-    pub fn file_paths(&self) -> impl Iterator<Item = &Path> + '_ {
-        (0..self.0.catalog.allocated_files()).filter_map(|number| {
-            self.0
-                .catalog
-                .entry(FileId(number as u32))
-                .map(|entry| entry.relative_path.as_path())
-        })
+    pub fn file_paths(
+        &self,
+    ) -> impl Iterator<Item = Result<std::borrow::Cow<'_, Path>, IndexError>> + '_ {
+        self.catalogue_rows().map(|row| Ok(row?.relative_path))
     }
 
     /// Paths of active files indexed for one collection in this publication.
-    pub fn file_paths_for_collection(&self, name: &str) -> impl Iterator<Item = &Path> + '_ {
+    pub fn file_paths_for_collection(
+        &self,
+        name: &str,
+    ) -> impl Iterator<Item = Result<std::borrow::Cow<'_, Path>, IndexError>> + '_ {
         let collection_id = self
             .0
             .repository
@@ -638,51 +641,68 @@ impl IndexView {
             .iter()
             .find(|collection| collection.definition.name == name)
             .map(|collection| collection.generation.collection);
-        (0..self.0.catalog.allocated_files()).filter_map(move |number| {
-            let entry = self.0.catalog.entry(FileId(number as u32))?;
-            collection_id
-                .filter(|id| entry.collections.contains(id))
-                .map(|_| entry.relative_path.as_path())
+        collection_id.into_iter().flat_map(move |id| {
+            self.catalogue_rows().filter_map(move |row| match row {
+                Ok(row) => row
+                    .collections
+                    .contains(&id)
+                    .then_some(Ok(row.relative_path)),
+                Err(error) => Some(Err(error)),
+            })
         })
     }
 
-    pub fn file_version(&self, file: FileId) -> Option<FileVersion> {
-        self.0
+    pub fn file_version(&self, file: FileId) -> Result<Option<FileVersion>, IndexError> {
+        Ok(self
+            .0
             .catalog
-            .is_active(file)
-            .then(|| self.0.file_versions.get(file))?
+            .is_active(file)?
+            .then(|| self.0.file_versions.get(file))
+            .flatten())
     }
 
     pub(crate) fn file_version_including_inactive(&self, file: FileId) -> Option<FileVersion> {
         self.0.file_versions.get(file)
     }
 
-    pub(crate) fn file_entry(&self, file: FileId) -> Option<&FileEntry> {
-        self.0.catalog.entry(file)
+    pub(crate) fn file_entry(
+        &self,
+        file: FileId,
+    ) -> Result<Option<std::borrow::Cow<'_, FileEntry>>, IndexError> {
+        Ok(self.0.catalog.file(file)?)
     }
 
     pub fn diagnostic(
         &self,
         file: FileId,
         reference: crate::inventory::DiagnosticRef,
-    ) -> Option<&crate::inventory::SourceDiagnostic> {
-        self.0
-            .catalog
-            .entry(file)?
-            .diagnostics
-            .get(reference.stored_index()?)
+    ) -> Result<Option<std::borrow::Cow<'_, crate::inventory::SourceDiagnostic>>, IndexError> {
+        let Some(index) = reference.stored_index() else {
+            return Ok(None);
+        };
+        Ok(match self.file_entry(file)? {
+            Some(std::borrow::Cow::Borrowed(entry)) => {
+                entry.diagnostics.get(index).map(std::borrow::Cow::Borrowed)
+            }
+            Some(std::borrow::Cow::Owned(entry)) => entry
+                .diagnostics
+                .into_iter()
+                .nth(index)
+                .map(std::borrow::Cow::Owned),
+            None => None,
+        })
     }
 
-    pub(crate) fn file_fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
-        self.0.catalog.fingerprint(file)
+    pub(crate) fn file_fingerprint(&self, file: FileId) -> Result<Option<[u8; 32]>, IndexError> {
+        Ok(self.0.catalog.fingerprint(file)?)
     }
 
-    pub(crate) fn file_configuration(&self, file: FileId) -> Option<[u8; 32]> {
-        self.0.catalog.configuration(file)
+    pub(crate) fn file_configuration(&self, file: FileId) -> Result<Option<[u8; 32]>, IndexError> {
+        Ok(self.0.catalog.configuration(file)?)
     }
 
     pub(crate) fn file_record_count(&self, file: FileId) -> Result<Option<u64>, IndexError> {
-        let Some(entry) = self.file_entry(file) else {
+        let Some(entry) = self.file_entry(file)? else {
             return Ok(None);
         };
         if !self.initial_construction_complete()
@@ -772,7 +792,7 @@ impl IndexView {
             self.revision(),
             cache,
         );
-        result.map(|result| self.stamp_result(result))
+        result.and_then(|result| self.stamp_result(result))
     }
 
     /// Opt in to the validated records in this publication. An incomplete
@@ -789,7 +809,7 @@ impl IndexView {
             result,
             complete,
             revision: self.revision(),
-            discovered_files: self.0.catalog.active_files() as usize,
+            discovered_files: self.0.catalog.live_count() as usize,
             processed_files: self.0.processed_files,
         })
     }
@@ -853,7 +873,10 @@ impl IndexView {
             context,
             cache,
         );
-        result.map(|result| self.stamp_result(result))
+        result.and_then(|result| {
+            self.stamp_result(result)
+                .map_err(|error| context.recorded_error(error))
+        })
     }
 
     pub fn search_available_with_context(
@@ -877,7 +900,7 @@ impl IndexView {
             result,
             complete,
             revision: self.revision(),
-            discovered_files: self.0.catalog.active_files() as usize,
+            discovered_files: self.0.catalog.live_count() as usize,
             processed_files: self.0.processed_files,
         })
     }
@@ -1065,14 +1088,16 @@ impl IndexView {
             context,
             None,
         )?;
-        result = self.stamp_result(result);
+        result = self
+            .stamp_result(result)
+            .map_err(|error| context.recorded_error(error))?;
         result.count = None;
         result.counters.match_count_complete = false;
         Ok(Some(AvailableSearchResult {
             result,
             complete: false,
             revision: self.revision(),
-            discovered_files: self.0.catalog.active_files() as usize,
+            discovered_files: self.0.catalog.live_count() as usize,
             processed_files: self.0.processed_files,
         }))
     }
@@ -1168,7 +1193,7 @@ impl IndexView {
             Some(counters),
         )? {
             crate::query_execution::runner::DirectLookupResult::Found(mut hit) => {
-                self.remap_hit_diagnostic(&mut hit);
+                self.remap_hit_diagnostic(&mut hit)?;
                 Ok(Some(hit))
             }
             crate::query_execution::runner::DirectLookupResult::NotFound => Ok(None),
@@ -1199,7 +1224,7 @@ impl IndexView {
             self.revision(),
         )?;
         if let crate::query_execution::runner::DirectLookupResult::Found(hit) = &mut result {
-            self.remap_hit_diagnostic(hit);
+            self.remap_hit_diagnostic(hit)?;
         }
         Ok(result)
     }
@@ -1216,7 +1241,7 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
         )
-        .map(|result| self.stamp_result(result))
+        .and_then(|result| self.stamp_result(result))
     }
 
     pub fn search_reference_with_parameters(
@@ -1369,7 +1394,7 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
         )
-        .map(|(result, trace)| (self.stamp_result(result), trace))
+        .and_then(|(result, trace)| Ok((self.stamp_result(result)?, trace)))
     }
 
     pub fn explain(
@@ -1513,7 +1538,7 @@ impl IndexView {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
                             hit.generation = self.revision().0;
-                            self.remap_hit_diagnostic(hit);
+                            self.remap_hit_diagnostic(hit)?;
                         }
                         sink(StreamEvent::OrderedRows {
                             sequence,
@@ -1542,7 +1567,7 @@ impl IndexView {
                         let mut remapped = rows.to_vec();
                         for hit in &mut remapped {
                             hit.generation = self.revision().0;
-                            self.remap_hit_diagnostic(hit);
+                            self.remap_hit_diagnostic(hit)?;
                         }
                         sink(StreamEvent::PageReplacement {
                             sequence,

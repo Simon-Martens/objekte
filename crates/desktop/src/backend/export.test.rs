@@ -168,7 +168,7 @@ fn removed_record_cannot_be_exported_from_an_old_row_identity() {
     let index = fixture.session.repository.index();
     let old_view = index.view().unwrap();
     let source = fixture._root.path().join("a.json");
-    let handle = old_view.file_handle_for_path(&source).unwrap();
+    let handle = old_view.file_handle_for_path(&source).unwrap().unwrap();
     index.delete_file(handle).unwrap();
     let current_view = index.view().unwrap();
     let output = tempfile::tempdir().unwrap();

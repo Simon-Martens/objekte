@@ -1356,6 +1356,7 @@ fn segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock() {
     let before = index.view().unwrap();
     let m2 = before
         .file_handle_for_path(std::path::Path::new("mentions/m2.row"))
+        .unwrap()
         .unwrap();
     std::fs::write(
         root.join("mentions/m2.row"),
@@ -1906,6 +1907,7 @@ fn adopted_base_view_reference_search_keeps_retired_rows_on_the_old_pin() {
 
     let retired = pinned
         .file_handle_for_path(std::path::Path::new("mentions/m2.row"))
+        .unwrap()
         .unwrap();
     let deletion = index.delete_file(retired).unwrap();
     assert_eq!(deletion.retired_records, 1);
@@ -1952,6 +1954,7 @@ fn adopted_base_view_reference_search_uses_each_pins_catalogue() {
     let pinned = index.view().unwrap();
     let handle = pinned
         .file_handle_for_path(std::path::Path::new("entries/a.row"))
+        .unwrap()
         .unwrap();
     let mut request = query("entries", Some("id = 'A' SORT BY title"), None, None, false);
     request.options.return_mode = ReturnMode::Locator;

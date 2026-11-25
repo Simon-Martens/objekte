@@ -1,3 +1,4 @@
+use crate::index::storage::file_catalog::FileCatalogReader;
 use std::collections::BTreeMap;
 
 use super::{ScanChange, scan_sources_batched};
@@ -490,9 +491,10 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     let file_id = view
         .0
         .catalog
-        .id_for(std::path::Path::new("data/shared/000000.row"))
+        .id_for_path(std::path::Path::new("data/shared/000000.row"))
+        .unwrap()
         .unwrap();
-    let file = view.0.catalog.entry(file_id).unwrap();
+    let file = view.0.catalog.file(file_id).unwrap().unwrap();
     assert_eq!(file.collections.len(), 2);
     eprintln!(
         "reconcile_scale build_ms={build_ms} unchanged_ms={unchanged_ms} updated_ms={updated_ms} files={} records={} shared_memberships={} unchanged_indexed_bytes={} updated_indexed_bytes={}",

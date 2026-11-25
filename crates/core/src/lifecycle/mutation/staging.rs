@@ -1,3 +1,4 @@
+use crate::index::storage::file_catalog::FileCatalogReader;
 use std::sync::Arc;
 
 use crate::construction::file_preparation::PreparedFileBuild;
@@ -60,16 +61,16 @@ impl Index {
                 actual,
             });
         }
-        if !current.0.catalog.is_active(handle.file_id) {
+        if !current.0.catalog.is_active(handle.file_id)? {
             return Err(IndexError::UnknownFile);
         }
         let file = current
             .0
             .catalog
-            .entry(handle.file_id)
+            .file(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
         let mut next = (*current.0).clone();
-        let retired_records = next.retire_file_records(file)?;
+        let retired_records = next.retire_file_records(&file)?;
         next.refresh_record_links(handle.file_id, None)?;
         let affected_collections = file
             .collections
@@ -81,10 +82,7 @@ impl Index {
                     .clone()
             })
             .collect();
-        next.catalog = next
-            .catalog
-            .retired(handle.file_id)
-            .map_err(IndexError::InvalidPublication)?;
+        next.catalog = next.catalog.retired(handle.file_id)?;
         next.file_versions = next
             .file_versions
             .advanced(handle.file_id)
@@ -141,20 +139,17 @@ impl Index {
         if view
             .0
             .catalog
-            .id_for(&prepared.file.source.relative_path)
+            .id_for_path(&prepared.file.source.relative_path)?
             .is_some()
         {
             return Err(IndexError::DestinationExists);
         }
         let mut next = (*view.0).clone();
-        next.catalog = next
-            .catalog
-            .appended(
-                file.entry.clone(),
-                prepared.file.fingerprint,
-                Some(prepared.configuration_identity),
-            )
-            .map_err(IndexError::InvalidPublication)?;
+        next.catalog = next.catalog.appended(
+            file.entry.clone(),
+            prepared.file.fingerprint,
+            Some(prepared.configuration_identity),
+        )?;
         next.file_versions = next
             .file_versions
             .appended()
@@ -216,32 +211,29 @@ impl Index {
         let previous = view
             .0
             .catalog
-            .entry(file_id)
+            .file(file_id)?
             .ok_or(IndexError::UnknownFile)?;
         if view
             .0
             .catalog
-            .id_for(&prepared.file.source.relative_path)
+            .id_for_path(&prepared.file.source.relative_path)?
             .is_some_and(|other| other != file_id)
         {
             return Err(IndexError::DestinationExists);
         }
         let mut entry = file.entry.clone();
         let mut next = (*view.0).clone();
-        next.retire_file_records(previous)?;
+        next.retire_file_records(&previous)?;
         for collection in next.refresh_record_links(file_id, Some(&entry))? {
             if !entry.collections.contains(&collection) {
                 entry.collections.push(collection);
             }
         }
-        next.catalog = next
-            .catalog
-            .replaced(
-                entry,
-                prepared.file.fingerprint,
-                Some(prepared.configuration_identity),
-            )
-            .map_err(IndexError::InvalidPublication)?;
+        next.catalog = next.catalog.replaced(
+            entry,
+            prepared.file.fingerprint,
+            Some(prepared.configuration_identity),
+        )?;
         next.file_versions = next
             .file_versions
             .advanced(file_id)

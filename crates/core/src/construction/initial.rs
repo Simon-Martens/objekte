@@ -1127,7 +1127,7 @@ impl Repository {
             IndexRevision::INITIAL,
             repository,
         )?;
-        published.begin_initial_construction();
+        published.begin_initial_construction()?;
         let index = Index::from_published(published);
         on_catalogue(&index)?;
         if let (Some(started), Some(profile)) = (setup_started, profile.as_mut()) {

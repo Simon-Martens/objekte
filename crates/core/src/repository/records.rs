@@ -1,5 +1,6 @@
 //! Repository record lookup and hit stamping.
 
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::RecordId;
@@ -40,7 +41,7 @@ impl Repository {
                 self.revision,
             )? {
                 crate::query_execution::runner::DirectLookupResult::Found(mut hit) => {
-                    self.stamp_native_hit(&mut hit);
+                    self.stamp_native_hit(&mut hit)?;
                     Ok(Some(hit))
                 }
                 crate::query_execution::runner::DirectLookupResult::NotFound => Ok(None),
@@ -96,18 +97,21 @@ impl Repository {
         )))
     }
 
-    pub(super) fn stamp_native_result(&self, mut result: SearchResult) -> SearchResult {
+    pub(super) fn stamp_native_result(
+        &self,
+        mut result: SearchResult,
+    ) -> Result<SearchResult, String> {
         for hit in &mut result.hits {
-            self.stamp_native_hit(hit);
+            self.stamp_native_hit(hit)?;
         }
-        result
+        Ok(result)
     }
 
     pub(super) fn stamp_native_query_result(
         &self,
         query: &crate::query::Query,
         mut result: SearchResult,
-    ) -> SearchResult {
+    ) -> Result<SearchResult, String> {
         if query.options.return_mode != crate::query::options::ReturnMode::Locator
             && result.counters.source_unavailable_events > 0
         {
@@ -117,7 +121,7 @@ impl Repository {
         self.stamp_native_result(result)
     }
 
-    pub(crate) fn stamp_native_hit(&self, hit: &mut SearchHit) {
+    pub(crate) fn stamp_native_hit(&self, hit: &mut SearchHit) -> Result<(), String> {
         if let Some(collection) = self
             .collections
             .iter()
@@ -125,27 +129,31 @@ impl Repository {
         {
             hit.generation = collection.generation.generation;
         }
-        self.remap_native_diagnostic(hit);
+        self.remap_native_diagnostic(hit)
     }
 
-    pub(crate) fn stamp_native_hit_at(&self, hit: &mut SearchHit, revision: IndexRevision) {
+    pub(crate) fn stamp_native_hit_at(
+        &self,
+        hit: &mut SearchHit,
+        revision: IndexRevision,
+    ) -> Result<(), String> {
         hit.generation = revision.0;
-        self.remap_native_diagnostic(hit);
+        self.remap_native_diagnostic(hit)
     }
 
-    fn remap_native_diagnostic(&self, hit: &mut SearchHit) {
+    fn remap_native_diagnostic(&self, hit: &mut SearchHit) -> Result<(), String> {
         let Some(local) = hit.diagnostic_ref.stored_index() else {
-            return;
+            return Ok(());
         };
         let Some(collection_index) = self
             .collections
             .iter()
             .position(|collection| collection.definition.name == hit.collection)
         else {
-            return;
+            return Ok(());
         };
         let Some(file) = hit.file.as_ref().map(|origin| origin.file_id) else {
-            return;
+            return Ok(());
         };
         for segment in self.segments[collection_index].iter() {
             let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
@@ -163,25 +171,26 @@ impl Repository {
                 continue;
             }
             let Some(source) = segment.index.file(file) else {
-                return;
+                return Ok(());
             };
             let Some(diagnostic) = source.entry.diagnostics.get(local) else {
-                return;
+                return Ok(());
             };
-            let Some(position) = self.catalog.entry(file).and_then(|entry| {
+            let Some(position) = self.catalog.file(file)?.and_then(|entry| {
                 entry
                     .diagnostics
                     .iter()
                     .position(|candidate| candidate == diagnostic)
             }) else {
-                return;
+                return Ok(());
             };
             let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
             hit.diagnostic_ref = reference;
             if let Some(Payload::LogicalUnavailable { diagnostic_ref }) = &mut hit.payload {
                 *diagnostic_ref = reference;
             }
-            return;
+            return Ok(());
         }
+        Ok(())
     }
 }

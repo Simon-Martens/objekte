@@ -276,6 +276,7 @@ fn run() -> Result<(), String> {
             if corpus_hash.is_empty() {
                 let mut hash = Sha256::new();
                 for row in view.catalogue_rows() {
+                    let row = row.map_err(|error| error.to_string())?;
                     hash.update(row.relative_path.to_string_lossy().as_bytes());
                     hash.update(row.modified_ns.to_le_bytes());
                     hash.update(row.size.to_le_bytes());
@@ -325,11 +326,13 @@ fn run() -> Result<(), String> {
             let open_ns = build_start.elapsed().as_nanos() as u64;
             let build_ns = repo.startup_stats().build_ns;
             if corpus_hash.is_empty() {
-                corpus_hash = fingerprint_inventory(&repo);
+                corpus_hash = fingerprint_inventory(&repo)?;
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let observation = repo.index_observation();
+            let observation = repo
+                .index_observation()
+                .map_err(|error| error.to_string())?;
             build_results.push(serde_json::json!({
                 "alphabet": alphabet, "build_mode": "repository", "build_ns": build_ns, "open_ns": open_ns,
                 "discovery_ns": repo.startup_stats().build_discovery_ns,
@@ -727,14 +730,15 @@ fn hash_paths(paths: &[PathBuf]) -> Result<String, String> {
     Ok(format!("{:x}", hash.finalize()))
 }
 
-fn fingerprint_inventory(repo: &IndexView) -> String {
+fn fingerprint_inventory(repo: &IndexView) -> Result<String, String> {
     let mut hash = Sha256::new();
     for file in repo.catalogue_rows() {
+        let file = file.map_err(|error| error.to_string())?;
         hash.update(file.relative_path.to_string_lossy().as_bytes());
         hash.update(file.modified_ns.to_le_bytes());
         hash.update(file.size.to_le_bytes());
     }
-    format!("{:x}", hash.finalize())
+    Ok(format!("{:x}", hash.finalize()))
 }
 
 fn resident_bytes() -> u64 {

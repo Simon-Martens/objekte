@@ -343,7 +343,7 @@ fn importer_only_move_outside_selection_retires_empty_catalog_membership() {
     assert_eq!(moved.indexed_records, 0);
     assert_eq!(index.status().unwrap().live_records, 0);
     let current = index.view().unwrap();
-    assert!(current.file_handle_for_path(&outside).is_none());
+    assert!(current.file_handle_for_path(&outside).unwrap().is_none());
     assert!(
         current
             .file_catalog()
@@ -394,6 +394,7 @@ fn rootless_file_operations_and_reconciliation_return_without_panicking() {
             .view()
             .unwrap()
             .file_handle_for_path(std::path::Path::new("/tmp/missing.json"))
+            .unwrap()
             .is_none()
     );
     let report = index.start_reconcile().unwrap().wait().unwrap();
@@ -2716,6 +2717,7 @@ fn one_collection_interleaves_managed_files_retained_and_versioned_records() {
             .view()
             .unwrap()
             .file_handle_for_path(std::path::Path::new("data/source.jsonl"))
+            .unwrap()
             .unwrap();
         let moved_path = root.join("data/moved.jsonl");
         std::fs::rename(&path, &moved_path).unwrap();
@@ -3184,6 +3186,7 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
     let pinned = index.view().unwrap();
     let handle = pinned
         .file_handle_for_path(std::path::Path::new("data/a.json"))
+        .unwrap()
         .unwrap();
     std::fs::rename(root.join("data/a.json"), root.join("data/y.json")).unwrap();
     index.move_file(handle, &root.join("data/y.json")).unwrap();

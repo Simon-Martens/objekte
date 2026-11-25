@@ -20,6 +20,7 @@ use crate::index::bigram::BigramIndex;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
+use crate::index::storage::file_catalog::FileCatalogHandle;
 use crate::index::storage::order::SortKey;
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::segment::{SegmentDescriptor, SegmentReader};
@@ -27,7 +28,6 @@ use crate::index::storage::transfer::StorageResult;
 use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry, SourceRevision};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, Number, RecordSlot, Value};
 use crate::records::RecordVersion;
 use crate::source::TextSegment;
@@ -640,7 +640,7 @@ impl PublishedSegment {
 pub(crate) struct NativeSnapshotRef<'a> {
     pub active: &'a [ActiveRecords],
     pub segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
-    pub catalog: &'a FileCatalog,
+    pub catalog: &'a FileCatalogHandle,
     pub revision: IndexRevision,
 }
 

@@ -6,12 +6,14 @@ use roaring::RoaringBitmap;
 
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::{PublishedSegment, SegmentId};
+use crate::index::storage::file_catalog::{
+    FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource, edit_file_catalog,
+};
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
     install_segment,
 };
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
-use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{CollectionId, RecordId};
 use crate::repository::Repository;
 
@@ -36,7 +38,7 @@ pub(crate) struct PublishedIndex {
     /// Hysteresis for byte-triggered coalescing; count and retirement remain
     /// independent triggers and may run sooner.
     pub(crate) last_size_maintenance_revision: u64,
-    pub(crate) catalog: FileCatalog,
+    pub(crate) catalog: FileCatalogHandle,
     pub(crate) file_versions: FileVersions,
     pub(crate) reconciliation: ReconciliationState,
     pub(crate) processed_files: usize,
@@ -164,12 +166,10 @@ impl PublishedIndex {
         let configuration_identity = repository.configuration_identity;
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
-        let catalog = FileCatalog::from_parts(
-            Arc::clone(&repository.files),
-            repository.base_fingerprints.clone(),
-            configuration_identity,
-        );
-        let processed_files = catalog.active_files() as usize;
+        let catalog = repository
+            .storage_factory
+            .file_catalog(&repository.file_catalog_base())?;
+        let processed_files = catalog.live_count() as usize;
         let next_segment_ordinal = segments
             .iter()
             .flat_map(|group| group.iter())
@@ -205,12 +205,16 @@ impl PublishedIndex {
         })
     }
 
-    pub(crate) fn begin_initial_construction(&mut self) {
-        self.catalog.set_construction_complete(false);
+    pub(crate) fn begin_initial_construction(&mut self) -> Result<(), IndexError> {
+        self.catalog = edit_file_catalog(
+            self.catalog.as_ref(),
+            [FileCatalogDelta::ConstructionComplete(false)],
+        )?;
         self.processed_files = 0;
         self.processed_memberships = (0..self.repository.collections().len())
             .map(|_| Arc::new(RoaringBitmap::new()))
             .collect();
+        Ok(())
     }
 
     pub(super) fn status(&self) -> IndexStatus {
@@ -219,7 +223,7 @@ impl PublishedIndex {
             instance_id: self.instance_id,
             revision: self.revision,
             reconciliation: self.reconciliation,
-            indexed_files: self.catalog.active_files() as usize,
+            indexed_files: self.catalog.live_count() as usize,
             processed_files: self.processed_files,
             initial_construction_complete: self.catalog.construction_complete(),
             build_parses: self.repository.build_parses(),
@@ -324,7 +328,7 @@ impl PublishedIndex {
             ));
         }
         for file in &index.files {
-            if self.catalog.entry(file.entry.id).is_none_or(|current| {
+            if self.catalog.file(file.entry.id)?.is_none_or(|current| {
                 !current.collections.contains(&index.collection)
                     || current.relative_path != file.entry.relative_path
                     || current.revision != file.entry.revision
@@ -360,7 +364,7 @@ impl PublishedIndex {
                     IndexError::InvalidPublication("processed membership missing".into())
                 })?;
                 if Arc::make_mut(members).insert(file.entry.id.0) {
-                    let catalogue_entry = self.catalog.entry(file.entry.id).ok_or_else(|| {
+                    let catalogue_entry = self.catalog.file(file.entry.id)?.ok_or_else(|| {
                         IndexError::InvalidPublication("processed file missing".into())
                     })?;
                     if catalogue_entry.collections.iter().all(|collection| {
@@ -453,7 +457,7 @@ impl PublishedIndex {
                         .ok_or_else(|| {
                             IndexError::InvalidPublication("segment file row missing".into())
                         })?;
-                    if self.catalog.entry(file.id).is_some_and(|current| {
+                    if self.catalog.file(file.id)?.is_some_and(|current| {
                         current.revision == file.revision
                             && current.created_ns == file.created_ns
                             && current.collections.contains(&segment.index.collection)
@@ -865,9 +869,9 @@ fn prepare_initial_segment(
         }
         let mut merged = next
             .catalog
-            .entry(file.entry.id)
+            .file(file.entry.id)?
             .ok_or(IndexError::UnknownFile)?
-            .clone();
+            .into_owned();
         merged.status = merged.status.max(file.entry.status);
         for diagnostic in &file.entry.diagnostics {
             merged
@@ -877,10 +881,7 @@ fn prepare_initial_segment(
         merged.omitted_diagnostics = merged
             .omitted_diagnostics
             .saturating_add(file.entry.omitted_diagnostics);
-        next.catalog = next
-            .catalog
-            .replaced(merged, None, None)
-            .map_err(IndexError::InvalidPublication)?;
+        next.catalog = next.catalog.replaced(merged, None, None)?;
     }
     next.stage_segment(&mut Arc::new(segment), observation)
 }
@@ -1303,7 +1304,7 @@ impl Index {
             ));
         }
         let mut next = (*view.0).clone();
-        if next.processed_files != next.catalog.active_files() as usize {
+        if next.processed_files != next.catalog.live_count() as usize {
             return Err(IndexError::InvalidPublication(
                 "initial construction has unprocessed files".into(),
             ));
@@ -1454,10 +1455,14 @@ impl Index {
                 });
             }
         }
-        next.catalog
-            .rebase(Arc::clone(&repository))
-            .map_err(IndexError::InvalidPublication)?;
-        next.catalog.set_construction_complete(true);
+        let base = repository.file_catalog_base();
+        next.catalog = edit_file_catalog(
+            next.catalog.as_ref(),
+            [
+                FileCatalogDelta::Rebase(&base),
+                FileCatalogDelta::ConstructionComplete(true),
+            ],
+        )?;
         next.processed_memberships.clear();
         next.repository = repository;
         next.revision = expected.next()?;

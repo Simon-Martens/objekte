@@ -29,7 +29,10 @@ fn directory_scope_preserves_prefix_boundaries_and_combines_with_filter() {
     )
     .unwrap();
     let view = session.repository.index().view().unwrap();
-    let paths: Vec<_> = view.file_paths().map(|path| path.to_path_buf()).collect();
+    let paths: Vec<_> = view
+        .file_paths()
+        .map(|path| path.unwrap().into_owned())
+        .collect();
     assert_eq!(paths.len(), 4);
     let scoped = QuerySpec {
         directory: Some("dir".into()),

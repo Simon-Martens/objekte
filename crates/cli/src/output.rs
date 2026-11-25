@@ -170,7 +170,11 @@ impl<W: Write> EventWriter<W> {
             || serde_json::from_slice::<IgnoredAny>(bytes).is_ok();
         let file = hit.file.as_ref();
         let range = file.and_then(|file| file.range);
-        let diagnostic = file.and_then(|file| repo.diagnostic(file.file_id, hit.diagnostic_ref));
+        let diagnostic = file
+            .map(|file| repo.diagnostic(file.file_id, hit.diagnostic_ref))
+            .transpose()
+            .map_err(io::Error::other)?
+            .flatten();
         let mut event = json!({
             "protocol_version": PROTOCOL_VERSION,
             "type": "hit",

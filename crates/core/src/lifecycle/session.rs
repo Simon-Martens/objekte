@@ -69,8 +69,15 @@ impl IndexedRepository {
     /// Resolve diagnostics from the current catalog, including files added
     /// after the base repository was built. Return an owned value because the
     /// publication pin is released when this method returns.
-    pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<SourceDiagnostic> {
-        self.read_view().ok()?.diagnostic(file, reference).cloned()
+    pub fn diagnostic(
+        &self,
+        file: FileId,
+        reference: DiagnosticRef,
+    ) -> Result<Option<SourceDiagnostic>, IndexError> {
+        Ok(self
+            .read_view()?
+            .diagnostic(file, reference)?
+            .map(std::borrow::Cow::into_owned))
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {

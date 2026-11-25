@@ -109,13 +109,13 @@ impl Index {
                                     if cancelled() {
                                         return Err(IndexError::Cancelled);
                                     }
-                                    let current = view.file_entry(file.entry.id);
+                                    let current = view.file_entry(file.entry.id)?;
                                     let current_incarnation = if let Some(entry) = current {
                                         entry.revision == file.entry.revision
                                             && entry.created_ns == file.entry.created_ns
                                             && view
                                                 .0
-                                                .imported_collections(entry)?
+                                                .imported_collections(&entry)?
                                                 .contains(&segment.index.collection)
                                     } else {
                                         false
@@ -178,14 +178,11 @@ impl Index {
                                 entry.collections.push(collection);
                             }
                         }
-                        next.catalog = next
-                            .catalog
-                            .replaced(
-                                entry,
-                                prepared.fingerprint,
-                                Some(view.configuration_identity()),
-                            )
-                            .map_err(IndexError::InvalidPublication)?;
+                        next.catalog = next.catalog.replaced(
+                            entry,
+                            prepared.fingerprint,
+                            Some(view.configuration_identity()),
+                        )?;
                         next.file_versions = next
                             .file_versions
                             .advanced(old.id)

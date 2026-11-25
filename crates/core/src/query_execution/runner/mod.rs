@@ -1000,7 +1000,7 @@ pub(crate) fn direct_lookup_segmented_counted(
                 return_mode,
             )?
             .ok_or("active retained direct-lookup record disappeared")?;
-            repo.stamp_native_hit_at(&mut hit, revision);
+            repo.stamp_native_hit_at(&mut hit, revision)?;
             return Ok(DirectLookupResult::Found(hit));
         }
         let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
@@ -1024,7 +1024,7 @@ pub(crate) fn direct_lookup_segmented_counted(
     };
     match result {
         Ok(Some(mut hit)) => {
-            repo.stamp_native_hit_at(&mut hit, revision);
+            repo.stamp_native_hit_at(&mut hit, revision)?;
             Ok(DirectLookupResult::Found(hit))
         }
         Ok(None) => Err("active direct-lookup record disappeared".into()),
@@ -4288,7 +4288,7 @@ fn materialize_segmented_stream_hit(
         }
         found.ok_or("stream hit no longer resolves in pinned view")?
     };
-    repo.stamp_native_hit_at(&mut materialized, revision);
+    repo.stamp_native_hit_at(&mut materialized, revision)?;
     materialized.matched_fields = std::mem::take(&mut hit.matched_fields);
     if matches!(backing, StreamBacking::Provider) {
         let bytes = materialized.payload.as_ref().map_or(0, |payload| {
@@ -5110,7 +5110,7 @@ fn try_lifecycle_ordered_stream(
                 Vec::new()
             },
         );
-        repo.stamp_native_hit_at(&mut hit, revision);
+        repo.stamp_native_hit_at(&mut hit, revision)?;
         if output_mode != ReturnMode::Locator {
             if output_mode == ReturnMode::Logical && record.class == RecordClass::RawFallback {
                 hit.payload = Some(Payload::LogicalUnavailable {
@@ -5507,7 +5507,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 Ok(result) => result,
                 Err(message) => return segmented_stream_error(&mut delivery, context, message),
             };
-            stamp_native_rows(repo, revision, &mut result.hits);
+            if let Err(error) = stamp_native_rows(repo, revision, &mut result.hits) {
+                return segmented_stream_error(&mut delivery, context, error);
+            }
             let delivered = match options.mode {
                 StreamMode::OrderedRows => result
                     .hits
@@ -5692,7 +5694,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                     }
                 }
             };
-            repo.stamp_native_hit_at(&mut hit, revision);
+            if let Err(error) = repo.stamp_native_hit_at(&mut hit, revision) {
+                return segmented_stream_error(&mut delivery, context, error);
+            }
             if query.options.return_mode != ReturnMode::Locator {
                 if matches!(backing, StreamBacking::File) {
                     result.counters.files_opened += 1;
@@ -5726,7 +5730,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         }
         result.counters.returned_records = delivery.progress.emitted_rows;
     } else {
-        stamp_native_rows(repo, revision, &mut result.hits);
+        if let Err(error) = stamp_native_rows(repo, revision, &mut result.hits) {
+            return segmented_stream_error(&mut delivery, context, error);
+        }
         let delivered = match options.mode {
             crate::query_execution::streaming::StreamMode::OrderedRows => {
                 delivery.ordered_rows(&result.hits, &result.counters, true)
@@ -5790,10 +5796,15 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     })))
 }
 
-fn stamp_native_rows(repo: &Repository, revision: IndexRevision, rows: &mut [SearchHit]) {
+fn stamp_native_rows(
+    repo: &Repository,
+    revision: IndexRevision,
+    rows: &mut [SearchHit],
+) -> Result<(), String> {
     for row in rows {
-        repo.stamp_native_hit_at(row, revision);
+        repo.stamp_native_hit_at(row, revision)?;
     }
+    Ok(())
 }
 
 fn collection_domain(

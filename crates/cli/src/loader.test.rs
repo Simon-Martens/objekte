@@ -126,10 +126,12 @@ fn configured_source_keeps_unrelated_sibling_directories() {
     let view = repo.index().view().unwrap();
     assert!(
         view.file_handle_for_path(std::path::Path::new("data/a.json"))
+            .unwrap()
             .is_some()
     );
     assert!(
         view.file_handle_for_path(std::path::Path::new("data/cache[odd]/keep.json"))
+            .unwrap()
             .is_some()
     );
     assert_eq!(repo.index().status().unwrap().indexed_files, 2);

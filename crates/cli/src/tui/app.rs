@@ -316,12 +316,20 @@ impl App {
             .unwrap_or_else(|| repository.index().view().expect("opened repository view"));
         // Restored indexes may have sparse FileIds after reconciliation. Fresh
         // discovery assigns contiguous IDs, so it needs no second ID list.
-        let cached_file_ids = build_status.as_ref().is_none().then(|| {
-            catalogue_view
-                .catalogue_rows()
-                .map(|row| row.id)
-                .collect::<Vec<_>>()
-        });
+        let cached_file_ids = build_status
+            .as_ref()
+            .is_none()
+            .then(|| {
+                catalogue_view
+                    .catalogue_rows()
+                    .map(|row| Ok(row?.id))
+                    .collect::<Result<Vec<_>, objekte_search_core::lifecycle::IndexError>>()
+            })
+            .transpose();
+        let (cached_file_ids, catalogue_error) = match cached_file_ids {
+            Ok(ids) => (ids, None),
+            Err(error) => (None, Some(error.to_string())),
+        };
         let catalogue_count = build_status.as_ref().map_or_else(
             || cached_file_ids.as_ref().map_or(0, Vec::len),
             |status| status.discovered_files,
@@ -428,7 +436,7 @@ impl App {
             viewport_rows: 1,
             status,
             clipboard: None,
-            error: None,
+            error: catalogue_error,
             searching: false,
             last_search_duration: None,
             last_first_result_duration: None,
@@ -533,13 +541,19 @@ impl App {
         self.catalogue_count
     }
 
-    pub(super) fn file_at(&self, index: usize) -> Option<FileCatalogueRow<'_>> {
+    pub(super) fn file_at(
+        &self,
+        index: usize,
+    ) -> Result<Option<FileCatalogueRow<'_>>, objekte_search_core::lifecycle::IndexError> {
         let id = if let Some(ids) = &self.cached_file_ids {
-            *ids.get(index)?
+            ids.get(index).copied()
         } else {
-            FileId(u32::try_from(index).ok()?)
+            u32::try_from(index).ok().map(FileId)
         };
-        self.catalogue_view.catalogue_row(id)
+        match id {
+            Some(id) => self.catalogue_view.catalogue_row(id),
+            None => Ok(None),
+        }
     }
 
     pub(super) fn toggle_files(&mut self) {
@@ -644,9 +658,7 @@ impl App {
             self.detail_scroll = self.detail_scroll.saturating_add_signed(delta as i16);
             return;
         }
-        let diagnostic = self
-            .diagnostic(hit)
-            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let diagnostic = self.diagnostic_text(hit);
         let count = self.record.rows(hit, diagnostic.as_deref()).len() + self.relation_rows.len();
         self.record.cursor = self
             .record
@@ -677,9 +689,7 @@ impl App {
         let Some(hit) = self.current_detail_hit() else {
             return;
         };
-        let diagnostic = self
-            .diagnostic(hit)
-            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let diagnostic = self.diagnostic_text(hit);
         let base = self.record.rows(hit, diagnostic.as_deref()).len();
         let label = if section == 2 {
             "Outgoing"
@@ -698,9 +708,7 @@ impl App {
         let Some(hit) = self.current_detail_hit() else {
             return;
         };
-        let diagnostic = self
-            .diagnostic(hit)
-            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let diagnostic = self.diagnostic_text(hit);
         let base = self.record.rows(hit, diagnostic.as_deref()).len();
         let mut sections = vec![0];
         for label in ["Outgoing", "Backlinks"] {
@@ -735,9 +743,7 @@ impl App {
         if needle.is_empty() {
             return;
         }
-        let diagnostic = self
-            .diagnostic(hit)
-            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let diagnostic = self.diagnostic_text(hit);
         let rows = self.record.rows(hit, diagnostic.as_deref());
         let total = rows.len() + self.relation_rows.len();
         for step in 1..=total {
@@ -782,9 +788,7 @@ impl App {
         let text = if whole || self.record.raw {
             record::raw_text(hit)
         } else {
-            let diagnostic = self
-                .diagnostic(hit)
-                .map(|issue| format!("{}: {}", issue.code, issue.message));
+            let diagnostic = self.diagnostic_text(hit);
             let rows = self.record.rows(hit, diagnostic.as_deref());
             if let Some(row) = rows.get(self.record.cursor) {
                 row.value.clone()
@@ -809,9 +813,7 @@ impl App {
         let Some(hit) = self.current_detail_hit() else {
             return;
         };
-        let diagnostic = self
-            .diagnostic(hit)
-            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let diagnostic = self.diagnostic_text(hit);
         let rows = self.record.rows(hit, diagnostic.as_deref());
         if let Some((path, array)) = rows
             .get(self.record.cursor)
@@ -846,12 +848,15 @@ impl App {
         }
     }
 
-    pub(super) fn diagnostic(
-        &self,
-        hit: &SearchHit,
-    ) -> Option<objekte_search_core::inventory::SourceDiagnostic> {
-        self.repo
+    pub(super) fn diagnostic_text(&self, hit: &SearchHit) -> Option<String> {
+        match self
+            .repo
             .diagnostic(hit.file.as_ref()?.file_id, hit.diagnostic_ref)
+        {
+            Ok(None) => None,
+            Ok(Some(issue)) => Some(format!("{}: {}", issue.code, issue.message)),
+            Err(error) => Some(error.to_string()),
+        }
     }
 
     pub(super) fn busy(&self) -> bool {

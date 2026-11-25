@@ -16,17 +16,23 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
+use super::inventory::FileInventory;
 use crate::index::storage::file_catalog::{
-    FILE_TRANSFER_LIMIT, FileCatalogReader, FileCatalogSource, FilePathBounds, FileScalarPredicate,
+    FILE_TRANSFER_LIMIT, FileCatalogBase, FileCatalogDelta, FileCatalogEditor, FileCatalogHandle,
+    FileCatalogReader, FileCatalogRevision, FileCatalogSource, FilePathBounds, FileScalarPredicate,
     FileTransferRow, transfer_files,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 #[cfg(test)]
+use crate::inventory::FileStatus;
+#[cfg(test)]
 use crate::inventory::relative_path_bounds;
-use crate::inventory::{FileEntry, FileStatus, SharedPath, empty_path_bounds};
+use crate::inventory::{FileEntry, SharedPath, empty_path_bounds};
+#[cfg(test)]
 use crate::lifecycle::reconciliation::scan::FileStamp;
 use crate::model::{FileId, Number};
 use crate::query::Operator;
+#[cfg(test)]
 use crate::repository::Repository;
 
 use super::file_scalar::FileScalarIndex;
@@ -86,6 +92,116 @@ pub(crate) struct FileCatalog {
     len: u32,
 }
 
+/// Native discoveries are retained by reference. Other representations can
+/// expose the same discovered base by reading its bounded row source.
+struct DiscoveredFiles {
+    inventory: Arc<FileInventory>,
+    fingerprints: Arc<Vec<Option<[u8; 32]>>>,
+    configuration: [u8; 32],
+    collections: usize,
+}
+
+impl FileInventory {
+    pub(crate) fn catalog_base(
+        self: &Arc<Self>,
+        fingerprints: Vec<Option<[u8; 32]>>,
+        configuration: [u8; 32],
+        collections: usize,
+    ) -> impl FileCatalogBase + use<> {
+        DiscoveredFiles {
+            inventory: Arc::clone(self),
+            fingerprints: Arc::new(fingerprints),
+            configuration,
+            collections,
+        }
+    }
+}
+
+impl FileCatalogBase for DiscoveredFiles {
+    fn root(&self) -> Option<&Path> {
+        self.inventory.root()
+    }
+
+    fn collection_count(&self) -> usize {
+        self.collections
+    }
+
+    fn configuration(&self) -> [u8; 32] {
+        self.configuration
+    }
+}
+
+impl FileCatalogSource for DiscoveredFiles {
+    fn high_water_mark(&self) -> u32 {
+        u32::try_from(self.inventory.files.len()).expect("checked file inventory length")
+    }
+
+    fn live_count(&self) -> u64 {
+        self.high_water_mark() as u64
+    }
+
+    fn read_batch<'a>(
+        &'a self,
+        after: Option<FileId>,
+        limit: BatchLimit,
+        output: &mut Vec<FileTransferRow<'a>>,
+    ) -> StorageResult<BatchStatus> {
+        let start = after.map_or(0, |id| id.0 as usize + 1);
+        let mut bytes = 0;
+        for file in self.inventory.files.iter().skip(start) {
+            let fingerprint = self.fingerprints.get(file.id.0 as usize).copied().flatten();
+            let row = FileTransferRow {
+                entry: Cow::Borrowed(file),
+                fingerprint,
+                configuration: fingerprint.map(|_| self.configuration),
+            };
+            let size = row.bytes();
+            if !limit.accepts("read discovered files", output.len(), bytes, size)? {
+                return Ok(BatchStatus::More);
+            }
+            bytes += size;
+            output.push(row);
+        }
+        Ok(BatchStatus::Done)
+    }
+}
+
+fn native_base(
+    base: &dyn FileCatalogBase,
+) -> StorageResult<(Arc<FileInventory>, Arc<Vec<Option<[u8; 32]>>>)> {
+    if let Some(base) = (base as &dyn std::any::Any).downcast_ref::<DiscoveredFiles>() {
+        return Ok((Arc::clone(&base.inventory), Arc::clone(&base.fingerprints)));
+    }
+
+    let mut inventory = base
+        .root()
+        .map_or_else(FileInventory::without_root, |root| {
+            FileInventory::new(root.to_path_buf())
+        });
+    let mut fingerprints = Vec::new();
+    transfer_files(
+        base,
+        base.high_water_mark(),
+        FILE_TRANSFER_LIMIT,
+        &|| false,
+        |row| {
+            if row.entry.id.0 as usize != inventory.files.len() {
+                return Err(StorageError::invalid(
+                    "load discovered base",
+                    "non-contiguous file IDs",
+                ));
+            }
+            inventory.files.push(row.entry.into_owned());
+            fingerprints.push(row.fingerprint);
+            Ok(())
+        },
+    )?;
+    inventory
+        .rebuild_lookup()
+        .map_err(|error| StorageError::invalid("load discovered base", error))?;
+    Ok((Arc::new(inventory), Arc::new(fingerprints)))
+}
+
 fn shard<T: Hash>(value: &T) -> usize {
     let mut hasher = std::collections::hash_map::DefaultHasher::new();
     value.hash(&mut hasher);
@@ -123,21 +239,23 @@ fn path_bounds_with_ids(
 }
 
 impl FileCatalog {
-    fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
-        Ok(base.configuration_identity)
+    pub(super) fn from_base(base: &dyn FileCatalogBase) -> StorageResult<Self> {
+        let (files, fingerprints) = native_base(base)?;
+        Ok(Self::from_parts(files, fingerprints, base.configuration()))
     }
 
     /// Build a private catalog from ordered live rows and an allocation bound.
     /// Missing IDs stay retired, including trailing holes.
-    pub(crate) fn restore_from(
-        base: &Repository,
+    pub(super) fn restore_base(
+        base: &dyn FileCatalogBase,
         source: &dyn FileCatalogSource,
         cancelled: &dyn Fn() -> bool,
     ) -> StorageResult<Self> {
         const OP: &str = "restore file catalog";
-        let base_configuration = base.configuration_identity;
+        let (base_files, base_fingerprints) = native_base(base)?;
+        let base_configuration = base.configuration();
         let len = source.high_water_mark();
-        if (len as usize) < base.files().files.len() {
+        if (len as usize) < base_files.files.len() {
             return Err(StorageError::invalid(
                 OP,
                 "source is shorter than base inventory",
@@ -171,7 +289,7 @@ impl FileCatalog {
                 || entry
                     .collections
                     .iter()
-                    .any(|collection| collection.0 as usize >= base.collections().len())
+                    .any(|collection| collection.0 as usize >= base.collection_count())
                 || entry.diagnostics.iter().any(|diagnostic| {
                     diagnostic.file != id || !entry.collections.contains(&diagnostic.collection)
                 })
@@ -182,7 +300,7 @@ impl FileCatalog {
                     format!("invalid entry for file ID {}", id.0),
                 ));
             }
-            let baseline = base.files().files.get(number);
+            let baseline = base_files.files.get(number);
             let new_path =
                 baseline.is_none_or(|original| original.relative_path != entry.relative_path);
             let changed_metadata = baseline.is_none_or(|original| {
@@ -198,7 +316,7 @@ impl FileCatalog {
                 changed_relative_paths.insert((entry.relative_path.query_key(), id), ());
                 changed_paths[shard(&path)].insert(path, id);
             }
-            let base_fingerprint = base.base_fingerprints.get(number).copied().flatten();
+            let base_fingerprint = base_fingerprints.get(number).copied().flatten();
             let base_configuration_for_file = base_fingerprint.map(|_| base_configuration);
             if baseline.is_some_and(|base| same_scalars(base, entry)) {
                 scalar_base_live.insert(id.0);
@@ -223,8 +341,8 @@ impl FileCatalog {
             Ok(())
         })?;
         Ok(Self {
-            base_files: Arc::clone(&base.files),
-            base_fingerprints: Arc::new(base.base_fingerprints.clone()),
+            base_files,
+            base_fingerprints,
             construction_complete: true,
             base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
@@ -240,17 +358,21 @@ impl FileCatalog {
 
     #[cfg(test)]
     pub(crate) fn from_repository(base: Arc<Repository>) -> Result<Self, String> {
-        let base_configuration = Self::configuration_for(&base)?;
-        Ok(Self::from_parts(
-            Arc::clone(&base.files),
-            base.base_fingerprints.clone(),
-            base_configuration,
-        ))
+        Self::from_base(&base.file_catalog_base()).map_err(String::from)
     }
 
-    pub(crate) fn from_parts(
+    #[cfg(test)]
+    fn restore_from(
+        base: &Repository,
+        source: &dyn FileCatalogSource,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<Self> {
+        Self::restore_base(&base.file_catalog_base(), source, cancelled)
+    }
+
+    fn from_parts(
         files: Arc<crate::inventory::FileInventory>,
-        fingerprints: Vec<Option<[u8; 32]>>,
+        fingerprints: Arc<Vec<Option<[u8; 32]>>>,
         base_configuration: [u8; 32],
     ) -> Self {
         let _ = files.scalar_index();
@@ -259,7 +381,7 @@ impl FileCatalog {
         active.insert_range(0..len);
         Self {
             base_files: files,
-            base_fingerprints: Arc::new(fingerprints),
+            base_fingerprints: fingerprints,
             construction_complete: true,
             base_configuration,
             changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
@@ -273,6 +395,7 @@ impl FileCatalog {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn allocated_files(&self) -> usize {
         self.len as usize
     }
@@ -287,11 +410,15 @@ impl FileCatalog {
 
     /// Rebind an otherwise unchanged discovered inventory to final metadata
     /// (global inference and captured fingerprints) without copying paths.
-    pub(crate) fn rebase(&mut self, base: Arc<Repository>) -> Result<(), String> {
-        if self.base_files.files.len() != base.files.files.len()
-            || Self::configuration_for(&base)? != self.base_configuration
+    fn rebase(&mut self, base: &dyn FileCatalogBase) -> StorageResult<()> {
+        let (files, fingerprints) = native_base(base)?;
+        if self.base_files.files.len() != files.files.len()
+            || base.configuration() != self.base_configuration
         {
-            return Err("catalog rebase changed discovered files or configuration".into());
+            return Err(StorageError::invalid(
+                "rebase file catalog",
+                "discovered files or configuration changed",
+            ));
         }
         if !self.construction_complete {
             // Initial diagnostic overlays precede final digest assembly. Give
@@ -299,14 +426,13 @@ impl FileCatalog {
             let shards = Arc::make_mut(&mut self.changed);
             for shard in shards.iter_mut().filter(|shard| !shard.is_empty()) {
                 for (id, changed) in Arc::make_mut(shard).iter_mut() {
-                    changed.fingerprint =
-                        base.base_fingerprints.get(id.0 as usize).copied().flatten();
+                    changed.fingerprint = fingerprints.get(id.0 as usize).copied().flatten();
                     changed.configuration = changed.fingerprint.map(|_| self.base_configuration);
                 }
             }
         }
-        self.base_files = Arc::clone(&base.files);
-        self.base_fingerprints = Arc::new(base.base_fingerprints.clone());
+        self.base_files = files;
+        self.base_fingerprints = fingerprints;
         self.scalar_cache = Arc::new(std::sync::Mutex::new(BTreeMap::new()));
         Ok(())
     }
@@ -575,21 +701,6 @@ impl FileCatalog {
         stamps
     }
 
-    pub(crate) fn scan_stamp(&self, file: FileId) -> Option<FileStamp> {
-        let entry = self.entry(file)?;
-        Some(FileStamp {
-            path: entry.relative_path.to_path_buf(),
-            revision: entry.revision,
-            created_ns: entry.created_ns,
-            collections: entry.collections.iter().copied().collect(),
-            retry_unreadable: entry.status == FileStatus::Unreadable,
-        })
-    }
-
-    pub(crate) fn active_ids(&self) -> impl Iterator<Item = FileId> + '_ {
-        self.active.iter().map(FileId)
-    }
-
     pub(crate) fn retired(&self, file: FileId) -> Result<Self, String> {
         let entry = self.entry(file).ok_or("unknown active file")?;
         let mut next = self.clone();
@@ -712,6 +823,67 @@ impl FileCatalog {
             ordered.insert((new_path.query_key(), id), ());
         }
         Ok(next)
+    }
+}
+
+impl FileCatalogRevision for FileCatalog {
+    fn construction_complete(&self) -> bool {
+        self.construction_complete()
+    }
+
+    fn estimates_delta_bytes(&self) -> usize {
+        self.scalar_delta_heap_bytes()
+    }
+
+    fn fingerprint(&self, id: FileId) -> StorageResult<Option<[u8; 32]>> {
+        Ok(self.fingerprint(id))
+    }
+
+    fn configuration(&self, id: FileId) -> StorageResult<Option<[u8; 32]>> {
+        Ok(self.configuration(id))
+    }
+
+    fn edit(&self) -> StorageResult<Box<dyn FileCatalogEditor>> {
+        Ok(Box::new(self.clone()))
+    }
+}
+
+impl FileCatalogEditor for FileCatalog {
+    fn apply(&mut self, delta: FileCatalogDelta<'_>) -> StorageResult<()> {
+        match delta {
+            FileCatalogDelta::Append {
+                entry,
+                fingerprint,
+                configuration,
+            } => {
+                *self = self
+                    .appended(entry, fingerprint, configuration)
+                    .map_err(|error| StorageError::invalid("append file metadata", error))?;
+            }
+            FileCatalogDelta::Replace {
+                entry,
+                fingerprint,
+                configuration,
+            } => {
+                *self = self
+                    .replaced(entry, fingerprint, configuration)
+                    .map_err(|error| StorageError::invalid("replace file metadata", error))?;
+            }
+            FileCatalogDelta::Retire(file) => {
+                *self = self
+                    .retired(file)
+                    .map_err(|error| StorageError::invalid("retire file metadata", error))?;
+            }
+            FileCatalogDelta::Rebase(base) => self.rebase(base)?,
+            FileCatalogDelta::ConstructionComplete(complete) => {
+                self.set_construction_complete(complete)
+            }
+        }
+        Ok(())
+    }
+
+    fn seal(self: Box<Self>) -> StorageResult<FileCatalogHandle> {
+        Ok(Arc::from(self as Box<dyn FileCatalogRevision>))
     }
 }
 

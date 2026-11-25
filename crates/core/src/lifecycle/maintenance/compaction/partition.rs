@@ -12,11 +12,11 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PartitionRouting;
 #[cfg(test)]
 use crate::index::segment::PublishedSegment;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
 #[cfg(test)]
 use crate::lifecycle::PublishedIndex;
-use crate::lifecycle::catalog::FileCatalog;
 #[cfg(test)]
 use crate::lifecycle::maintenance::compaction::base_as_segment;
 use crate::model::FileId;
@@ -27,7 +27,7 @@ pub(crate) const BASE_PARTITION_RECORDS: usize = 2_048;
 pub(crate) fn compact_source_parts_with_policy(
     source: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     policy: crate::index::segment::SegmentPolicy,
     cancelled: impl FnMut() -> bool,
 ) -> Result<Vec<IndexedCollectionSegment>, IndexError> {
@@ -44,7 +44,7 @@ pub(crate) fn compact_source_parts_with_policy(
 fn compact_source_parts_with_limits(
     source: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     max_records: usize,
     max_files: usize,
     mut cancelled: impl FnMut() -> bool,
@@ -95,7 +95,7 @@ fn compact_source_parts_with_limits(
             if matches!(
                 &source.backing,
                 crate::index::segment::SegmentBacking::FileRange { .. }
-            ) && !catalog.entry(link.file).is_some_and(|current| {
+            ) && !catalog.file(link.file)?.is_some_and(|current| {
                 current.revision == file.revision
                     && current.created_ns == file.created_ns
                     && current.collections.contains(&source.collection)
@@ -128,7 +128,7 @@ fn compact_source_parts_with_limits(
         if selected_files.contains(&file.entry.id) {
             continue;
         }
-        let Some(current) = catalog.entry(file.entry.id) else {
+        let Some(current) = catalog.file(file.entry.id)? else {
             continue;
         };
         if current.revision != file.entry.revision
@@ -201,7 +201,7 @@ fn compact_source_parts_with_limits(
             )
             .map_err(IndexError::Build)?;
         for file in &mut compacted.files {
-            if let Some(current) = catalog.entry(file.entry.id) {
+            if let Some(current) = catalog.file(file.entry.id)? {
                 file.entry.relative_path = current.relative_path.clone();
             }
         }
@@ -249,7 +249,11 @@ fn partition_base_with_limits_inner(
         return Ok(root);
     }
     let empty = Arc::new(root.repository.empty_like().map_err(IndexError::Build)?);
-    let catalog = FileCatalog::restore_from(&empty, &root.catalog, &|| false)?;
+    let catalog = empty.storage_factory.restore_file_catalog(
+        &empty.file_catalog_base(),
+        &root.catalog,
+        &|| false,
+    )?;
     let mut groups = root.segments.clone();
     for (number, collection) in root.repository.collections().iter().enumerate() {
         if collection.generation.files.is_empty() {

@@ -10,9 +10,9 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::StorageFactory;
+use crate::index::storage::file_catalog::{FileCatalogBase, FileCatalogHandle};
 use crate::inventory::{ActiveRecords, FileInventory};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::source::registry::SourceRegistry;
 
 use self::configuration::RepositoryOptions;
@@ -56,7 +56,7 @@ pub struct Repository {
     pub(crate) collections: Vec<CollectionState>,
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
-    pub(crate) catalog: FileCatalog,
+    pub(crate) catalog: FileCatalogHandle,
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) programmatic: bool,
     pub(crate) catalog_registered: bool,
@@ -74,6 +74,14 @@ pub struct Repository {
     pub(crate) inferred_orders: Mutex<crate::index::sorting::InferredOrderCache>,
 }
 impl Repository {
+    pub(crate) fn file_catalog_base(&self) -> impl FileCatalogBase + use<> {
+        self.files.catalog_base(
+            self.base_fingerprints.clone(),
+            self.configuration_identity,
+            self.collections.len(),
+        )
+    }
+
     pub(crate) fn create_workers(count: usize) -> Result<rayon::ThreadPool, String> {
         if count == 0 || count > 256 {
             return Err("query_workers must be between 1 and 256".into());
@@ -129,11 +137,9 @@ impl Repository {
                 Arc::clone(&self.storage_factory),
             )?;
             empty.configuration_identity = self.configuration_identity;
-            empty.catalog = FileCatalog::from_parts(
-                Arc::clone(&empty.files),
-                Vec::new(),
-                self.configuration_identity,
-            );
+            empty.catalog = empty
+                .storage_factory
+                .file_catalog(&empty.file_catalog_base())?;
             empty
         };
         for (source, target) in self.collections.iter().zip(&mut empty.collections) {

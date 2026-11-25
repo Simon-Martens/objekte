@@ -1,5 +1,6 @@
 //! Verified old-content admission and physical removal in an unpublished root.
 
+use crate::index::storage::file_catalog::FileCatalogReader;
 use std::collections::BTreeSet;
 use std::sync::Arc;
 
@@ -81,12 +82,12 @@ pub(super) fn verify_old_content_with_layout(
     old_layout: &mut Option<FileRecordLayout>,
 ) -> Result<VerifiedPlan, VerificationError> {
     let old = view
-        .file_entry(handle.file_id)
+        .file_entry(handle.file_id)?
         .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
     let fingerprint = view
-        .file_fingerprint(handle.file_id)
+        .file_fingerprint(handle.file_id)?
         .ok_or(VerifiedFallbackReason::MissingFingerprint)?;
-    if view.file_configuration(handle.file_id) != Some(view.configuration_identity()) {
+    if view.file_configuration(handle.file_id)? != Some(view.configuration_identity()) {
         return Err(VerifiedFallbackReason::ConfigurationChanged.into());
     }
     let repository = view.repository();
@@ -260,82 +261,87 @@ pub(crate) fn preserve_single_record_slots(
     next: &PublishedIndex,
     plan: &VerifiedPlan,
     file: FileId,
-) -> Option<PublishedIndex> {
+) -> Result<Option<PublishedIndex>, IndexError> {
     if plan.has_active_base {
-        return None;
+        return Ok(None);
     }
-    let old_entry = view.file_entry(file)?;
-    let new_entry = next.catalog.entry(file)?;
-    if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
-        return None;
-    }
-    let mut replacements = Vec::with_capacity(old_entry.collections.len());
-    for collection in &old_entry.collections {
-        let mut ordinals = plan
-            .old_shards
-            .iter()
-            .filter(|(id, _)| id == collection)
-            .map(|(_, ordinal)| *ordinal);
-        let old_ordinal = ordinals.next()?;
-        if ordinals.next().is_some() {
+    let (Some(old_entry), Some(new_entry)) = (view.file_entry(file)?, next.catalog.file(file)?)
+    else {
+        return Ok(None);
+    };
+    let preserve = || -> Option<PublishedIndex> {
+        if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
             return None;
         }
-        let old = view
-            .segments(*collection)?
-            .iter()
-            .find(|shard| shard.id.get() == old_ordinal)?;
-        if old.index.file_count() != 1
-            || old.index.record_count() != 1
-            || old.active.len() != 1
-            || !old.active.contains(RecordSlot(0))
-            || old.index.file_records(file)? != [RecordSlot(0)]
-        {
-            return None;
+        let mut replacements = Vec::with_capacity(old_entry.collections.len());
+        for collection in &old_entry.collections {
+            let mut ordinals = plan
+                .old_shards
+                .iter()
+                .filter(|(id, _)| id == collection)
+                .map(|(_, ordinal)| *ordinal);
+            let old_ordinal = ordinals.next()?;
+            if ordinals.next().is_some() {
+                return None;
+            }
+            let old = view
+                .segments(*collection)?
+                .iter()
+                .find(|shard| shard.id.get() == old_ordinal)?;
+            if old.index.file_count() != 1
+                || old.index.record_count() != 1
+                || old.active.len() != 1
+                || !old.active.contains(RecordSlot(0))
+                || old.index.file_records(file)? != [RecordSlot(0)]
+            {
+                return None;
+            }
+            let group = next.segments.get(collection.0 as usize)?;
+            let old_position = group
+                .iter()
+                .position(|shard| shard.id.get() == old_ordinal)?;
+            if group[old_position].active.len() != 0 {
+                return None;
+            }
+            let new_position = group
+                .iter()
+                .enumerate()
+                .filter(|(_, shard)| shard.index.file(file).is_some())
+                .max_by_key(|(_, shard)| shard.id)?
+                .0;
+            if new_position == old_position {
+                return None;
+            }
+            let new = &group[new_position];
+            if new.index.file_count() != 1
+                || new.index.record_count() != 1
+                || new.active.len() != 1
+                || !new.active.contains(RecordSlot(0))
+                || new.index.file_records(file)? != [RecordSlot(0)]
+                || old.index.source_id != new.index.source_id
+                || old.index.source_version != new.index.source_version
+                || old.index.record(RecordSlot(0))?.id != new.index.record(RecordSlot(0))?.id
+                || old.index.record(RecordSlot(0))?.class != new.index.record(RecordSlot(0))?.class
+            {
+                return None;
+            }
+            replacements.push((*collection, old_position, new_position, old_ordinal));
         }
-        let group = next.segments.get(collection.0 as usize)?;
-        let old_position = group
-            .iter()
-            .position(|shard| shard.id.get() == old_ordinal)?;
-        if group[old_position].active.len() != 0 {
-            return None;
+        let mut candidate = next.clone();
+        for (collection, old_position, new_position, old_ordinal) in replacements {
+            let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
+            let replacement = Arc::clone(&group[new_position]);
+            group[old_position] = Arc::new(PublishedSegment {
+                id: crate::index::segment::SegmentId::new(old_ordinal),
+                index: Arc::clone(&replacement.index),
+                active: replacement.active.clone(),
+                observation: None,
+            });
+            group.remove(new_position);
         }
-        let new_position = group
-            .iter()
-            .enumerate()
-            .filter(|(_, shard)| shard.index.file(file).is_some())
-            .max_by_key(|(_, shard)| shard.id)?
-            .0;
-        if new_position == old_position {
-            return None;
-        }
-        let new = &group[new_position];
-        if new.index.file_count() != 1
-            || new.index.record_count() != 1
-            || new.active.len() != 1
-            || !new.active.contains(RecordSlot(0))
-            || new.index.file_records(file)? != [RecordSlot(0)]
-            || old.index.source_id != new.index.source_id
-            || old.index.source_version != new.index.source_version
-            || old.index.record(RecordSlot(0))?.id != new.index.record(RecordSlot(0))?.id
-            || old.index.record(RecordSlot(0))?.class != new.index.record(RecordSlot(0))?.class
-        {
-            return None;
-        }
-        replacements.push((*collection, old_position, new_position, old_ordinal));
-    }
-    let mut candidate = next.clone();
-    for (collection, old_position, new_position, old_ordinal) in replacements {
-        let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
-        let replacement = Arc::clone(&group[new_position]);
-        group[old_position] = Arc::new(PublishedSegment {
-            id: crate::index::segment::SegmentId::new(old_ordinal),
-            index: Arc::clone(&replacement.index),
-            active: replacement.active.clone(),
-            observation: None,
-        });
-        group.remove(new_position);
-    }
-    Some(candidate)
+        Some(candidate)
+    };
+    Ok(preserve())
 }
 
 /// Replace one active record inside a bounded shared shard. The old shard is
@@ -347,113 +353,129 @@ pub(crate) fn preserve_partition_record_slots(
     next: &PublishedIndex,
     plan: &VerifiedPlan,
     file: FileId,
-) -> Option<PublishedIndex> {
+) -> Result<Option<PublishedIndex>, IndexError> {
     if plan.has_active_base {
-        return None;
+        return Ok(None);
     }
-    let old_entry = view.file_entry(file)?;
-    let new_entry = next.catalog.entry(file)?;
-    if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
-        return None;
-    }
-    let mut replacements = Vec::with_capacity(old_entry.collections.len());
-    for collection in &old_entry.collections {
-        let mut ordinals = plan
-            .old_shards
-            .iter()
-            .filter(|(id, _)| id == collection)
-            .map(|(_, ordinal)| *ordinal);
-        let old_ordinal = ordinals.next()?;
-        if ordinals.next().is_some() {
+    let (Some(old_entry), Some(new_entry)) = (view.file_entry(file)?, next.catalog.file(file)?)
+    else {
+        return Ok(None);
+    };
+    let mut read_error = None;
+    let mut preserve = || -> Option<PublishedIndex> {
+        if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
             return None;
         }
-        let old = view
-            .segments(*collection)?
-            .iter()
-            .find(|shard| shard.id.get() == old_ordinal)?;
-        let old_slots = old.index.file_records(file)?;
-        if old_slots.len() != 1
-            || old.index.record_count() <= 1
-            || old.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
-            || old.active.len() as usize != old.index.record_count()
-            || !old.active.contains(old_slots[0])
-        {
-            return None;
-        }
-        let old_slot = old_slots[0];
-        let group = next.segments.get(collection.0 as usize)?;
-        let old_position = group
-            .iter()
-            .position(|shard| shard.id.get() == old_ordinal)?;
-        if group[old_position].active.contains(old_slot) {
-            return None;
-        }
-        let new_position = group
-            .iter()
-            .enumerate()
-            .filter(|(_, shard)| shard.index.file(file).is_some())
-            .max_by_key(|(_, shard)| shard.id)?
-            .0;
-        if new_position == old_position {
-            return None;
-        }
-        let new = &group[new_position];
-        if new.index.file_count() != 1
-            || new.index.record_count() != 1
-            || new.active.len() != 1
-            || !new.active.contains(RecordSlot(0))
-            || new.index.file_records(file)? != [RecordSlot(0)]
-            || old.index.source_id != new.index.source_id
-            || old.index.source_version != new.index.source_version
-            || old.index.record(old_slot)?.id != new.index.record(RecordSlot(0))?.id
-            || old.index.record(old_slot)?.class != new.index.record(RecordSlot(0))?.class
-        {
-            return None;
-        }
-        let active_without_old = old.active.retired(&[old_slot]).ok()?;
-        let compacted = old
-            .index
-            .compact_active(&active_without_old, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
-                entry.id != file
-                    && next.catalog.entry(entry.id).is_some_and(|current| {
-                        current.revision == entry.revision
-                            && current.created_ns == entry.created_ns
-                            && current.collections.contains(collection)
-                    })
-            })
-            .ok()?;
-        let consolidated = crate::index::segment::IndexedCollectionSegment::consolidate(
-            &[&compacted.index, &new.index],
-            MAX_VERIFIED_SCANNED_RECORDS,
-        )
-        .ok()?;
-        let mut remap = vec![old_slot; consolidated.index.record_count()];
-        for (original, projected) in compacted.old_to_new.iter().enumerate() {
-            if let Some(projected) = projected {
-                remap[projected.0 as usize] = RecordSlot(original as u32);
+        let mut replacements = Vec::with_capacity(old_entry.collections.len());
+        for collection in &old_entry.collections {
+            let mut ordinals = plan
+                .old_shards
+                .iter()
+                .filter(|(id, _)| id == collection)
+                .map(|(_, ordinal)| *ordinal);
+            let old_ordinal = ordinals.next()?;
+            if ordinals.next().is_some() {
+                return None;
             }
+            let old = view
+                .segments(*collection)?
+                .iter()
+                .find(|shard| shard.id.get() == old_ordinal)?;
+            let old_slots = old.index.file_records(file)?;
+            if old_slots.len() != 1
+                || old.index.record_count() <= 1
+                || old.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS
+                || old.active.len() as usize != old.index.record_count()
+                || !old.active.contains(old_slots[0])
+            {
+                return None;
+            }
+            let old_slot = old_slots[0];
+            let group = next.segments.get(collection.0 as usize)?;
+            let old_position = group
+                .iter()
+                .position(|shard| shard.id.get() == old_ordinal)?;
+            if group[old_position].active.contains(old_slot) {
+                return None;
+            }
+            let new_position = group
+                .iter()
+                .enumerate()
+                .filter(|(_, shard)| shard.index.file(file).is_some())
+                .max_by_key(|(_, shard)| shard.id)?
+                .0;
+            if new_position == old_position {
+                return None;
+            }
+            let new = &group[new_position];
+            if new.index.file_count() != 1
+                || new.index.record_count() != 1
+                || new.active.len() != 1
+                || !new.active.contains(RecordSlot(0))
+                || new.index.file_records(file)? != [RecordSlot(0)]
+                || old.index.source_id != new.index.source_id
+                || old.index.source_version != new.index.source_version
+                || old.index.record(old_slot)?.id != new.index.record(RecordSlot(0))?.id
+                || old.index.record(old_slot)?.class != new.index.record(RecordSlot(0))?.class
+            {
+                return None;
+            }
+            let active_without_old = old.active.retired(&[old_slot]).ok()?;
+            let compacted = old
+                .index
+                .compact_active(&active_without_old, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
+                    entry.id != file
+                        && match next.catalog.file(entry.id) {
+                            Ok(current) => current.is_some_and(|current| {
+                                current.revision == entry.revision
+                                    && current.created_ns == entry.created_ns
+                                    && current.collections.contains(collection)
+                            }),
+                            Err(error) => {
+                                read_error = Some(error.into());
+                                false
+                            }
+                        }
+                })
+                .ok()?;
+            let consolidated = crate::index::segment::IndexedCollectionSegment::consolidate(
+                &[&compacted.index, &new.index],
+                MAX_VERIFIED_SCANNED_RECORDS,
+            )
+            .ok()?;
+            let mut remap = vec![old_slot; consolidated.index.record_count()];
+            for (original, projected) in compacted.old_to_new.iter().enumerate() {
+                if let Some(projected) = projected {
+                    remap[projected.0 as usize] = RecordSlot(original as u32);
+                }
+            }
+            let replacement = consolidated.index.remap_dense(&remap).ok()?;
+            replacements.push((
+                *collection,
+                old_position,
+                new_position,
+                old_ordinal,
+                replacement,
+            ));
         }
-        let replacement = consolidated.index.remap_dense(&remap).ok()?;
-        replacements.push((
-            *collection,
-            old_position,
-            new_position,
-            old_ordinal,
-            replacement,
-        ));
+        let mut candidate = next.clone();
+        for (collection, old_position, new_position, old_ordinal, replacement) in replacements {
+            let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
+            group[old_position] = Arc::new(PublishedSegment {
+                id: crate::index::segment::SegmentId::new(old_ordinal),
+                active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
+                index: Arc::new(replacement),
+                observation: None,
+            });
+            group.remove(new_position);
+        }
+        Some(candidate)
+    };
+    let candidate = preserve();
+    if let Some(error) = read_error {
+        return Err(error);
     }
-    let mut candidate = next.clone();
-    for (collection, old_position, new_position, old_ordinal, replacement) in replacements {
-        let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
-        group[old_position] = Arc::new(PublishedSegment {
-            id: crate::index::segment::SegmentId::new(old_ordinal),
-            active: crate::inventory::ActiveRecords::all(replacement.record_count()).ok()?,
-            index: Arc::new(replacement),
-            observation: None,
-        });
-        group.remove(new_position);
-    }
-    Some(candidate)
+    Ok(candidate)
 }
 
 /// Project all retired old shards out of a private staged root. A failure
@@ -483,7 +505,7 @@ pub(crate) fn remove_verified_old_shards(
         // staging, so it has the highest ordinal for this FileId. Deletion
         // has no replacement and removes every historical shard of the file.
         let replacement_ordinal = catalog
-            .entry(replaced_file)
+            .file(replaced_file)?
             .filter(|entry| entry.collections.contains(&collection))
             .and_then(|_| {
                 group
@@ -508,15 +530,23 @@ pub(crate) fn remove_verified_old_shards(
                 group.remove(position);
                 continue;
             }
+            let mut retained = std::collections::HashSet::new();
+            for file in &shard.index.files {
+                let entry = &file.entry;
+                if entry.id != replaced_file
+                    && catalog.file(entry.id)?.is_some_and(|current| {
+                        current.revision == entry.revision
+                            && current.created_ns == entry.created_ns
+                            && current.collections.contains(&collection)
+                    })
+                {
+                    retained.insert(entry.id);
+                }
+            }
             let compacted = shard
                 .index
                 .compact_active(&shard.active, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
-                    entry.id != replaced_file
-                        && catalog.entry(entry.id).is_some_and(|current| {
-                            current.revision == entry.revision
-                                && current.created_ns == entry.created_ns
-                                && current.collections.contains(&collection)
-                        })
+                    retained.contains(&entry.id)
                 })
                 .map_err(|_| VerifiedFallbackReason::CompactionUnavailable)?;
             if compacted.index.record_count() == 0 {

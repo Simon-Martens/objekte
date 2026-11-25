@@ -4,9 +4,9 @@ use std::sync::Arc;
 
 use crate::index::relation::RelationTarget;
 use crate::index::segment::PublishedSegment;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
 use crate::lifecycle::IndexRevision;
-use crate::lifecycle::catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query_execution::relations::view::{MergedRecordSlot, MergedRelationView};
 use crate::repository::Repository;
@@ -493,7 +493,7 @@ pub(crate) fn relation_outgoing_page_segmented(
     revision: IndexRevision,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
 ) -> Result<OutgoingReferencePage, String> {
     let limit = page_limit(limit)?;
     let source = repo
@@ -553,7 +553,7 @@ pub(crate) fn relation_backlink_page_segmented(
     revision: IndexRevision,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
 ) -> Result<BacklinkPage, String> {
     let limit = page_limit(limit)?;
     let target = repo
@@ -590,7 +590,7 @@ pub(crate) fn collection_graph_segmented(
     revision: IndexRevision,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
 ) -> Result<CollectionGraph, String> {
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
     let mut nodes = repo

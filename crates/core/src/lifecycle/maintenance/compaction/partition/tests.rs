@@ -82,7 +82,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
         .cloned()
         .collect::<Vec<_>>();
     assert_eq!(full.len(), 65);
-    let mut handle = before.file_handle_for_path(&small).unwrap();
+    let mut handle = before.file_handle_for_path(&small).unwrap().unwrap();
     for update in 0..70 {
         std::fs::write(&small, format!("(\"name\"=\"small-{update}\")\n")).unwrap();
         handle = index.update_file(handle, &small).unwrap().file;
@@ -183,6 +183,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
                 .view()
                 .unwrap()
                 .file_handle_for_path(std::path::Path::new(&format!("data/{number}.rows")))
+                .unwrap()
                 .is_some()
         );
     }

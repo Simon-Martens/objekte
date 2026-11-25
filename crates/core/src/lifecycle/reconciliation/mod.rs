@@ -6,6 +6,7 @@ use std::path::Path;
 use std::time::Instant;
 
 use crate::construction::file_preparation::verify_current_source;
+use crate::index::storage::file_catalog::{FileCatalogReader, FileRows};
 use crate::lifecycle::{Index, IndexError, IndexView};
 
 const MAX_RECONCILIATION_ISSUES: usize = 128;
@@ -197,18 +198,24 @@ impl Index {
             &repository.sources,
             |_| false,
             |path| {
-                let id = snapshot.0.catalog.id_for(path)?;
-                let mut stamp = snapshot.0.catalog.scan_stamp(id)?;
-                if let Some(entry) = snapshot.file_entry(id) {
-                    match snapshot.0.imported_collections(entry) {
-                        Ok(collections) => stamp.collections = collections,
-                        Err(error) => {
-                            storage_error.replace(Some(error));
-                            return None;
-                        }
+                let observed: Result<_, IndexError> = (|| {
+                    let Some(id) = snapshot.0.catalog.id_for_path(path)? else {
+                        return Ok(None);
+                    };
+                    let entry = snapshot.file_entry(id)?.ok_or_else(|| {
+                        IndexError::Storage("file path routes to a missing catalog row".into())
+                    })?;
+                    let mut stamp = file_stamp(&entry);
+                    stamp.collections = snapshot.0.imported_collections(&entry)?;
+                    Ok(Some((id, stamp)))
+                })();
+                match observed {
+                    Ok(observed) => observed,
+                    Err(error) => {
+                        storage_error.replace(Some(error));
+                        None
                     }
                 }
-                Some((id, stamp))
             },
             &|| cancelled() || storage_error.borrow().is_some(),
             256,
@@ -219,31 +226,29 @@ impl Index {
             },
         );
         if !scan.cancelled && storage_error.borrow().is_none() {
-            for id in snapshot.0.catalog.active_ids() {
+            for row in FileRows::new(&snapshot.0.catalog) {
                 if cancelled() {
                     break;
                 }
-                if scan.seen_existing.contains(id.0) {
+                let entry = match row {
+                    Ok(row) => row.entry,
+                    Err(error) => {
+                        storage_error.replace(Some(error.into()));
+                        break;
+                    }
+                };
+                if scan.seen_existing.contains(entry.id.0) {
                     continue;
                 }
-                let Some(entry) = snapshot.file_entry(id) else {
-                    continue;
-                };
-                let imported = match snapshot.0.imported_collections(entry) {
+                let imported = match snapshot.0.imported_collections(&entry) {
                     Ok(imported) => imported,
                     Err(error) => {
                         storage_error.replace(Some(error));
                         break;
                     }
                 };
-                if imported.is_empty() {
-                    continue;
-                }
-                let Some(stamp) = snapshot.0.catalog.scan_stamp(id) else {
-                    continue;
-                };
-                if imported.is_subset(&scan.complete_collections) {
-                    let mut stamp = stamp;
+                if !imported.is_empty() && imported.is_subset(&scan.complete_collections) {
+                    let mut stamp = file_stamp(&entry);
                     stamp.collections = imported;
                     apply(ScanChange::Remove(stamp));
                 }
@@ -301,7 +306,7 @@ impl Index {
             }
             ScanChange::Update { previous, observed } => {
                 let handle = snapshot
-                    .file_handle_for_path(&previous.path)
+                    .file_handle_for_path(&previous.path)?
                     .ok_or(IndexError::UnknownFile)?;
                 let prepared = self.prepare_replace_file(handle, &observed.path)?;
                 if prepared.file.source.revision != observed.revision {
@@ -327,7 +332,7 @@ impl Index {
             }
             ScanChange::Remove(observed) => {
                 let handle = snapshot
-                    .file_handle_for_path(&observed.path)
+                    .file_handle_for_path(&observed.path)?
                     .ok_or(IndexError::UnknownFile)?;
                 match std::fs::metadata(root.join(&observed.path)) {
                     Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
@@ -340,5 +345,15 @@ impl Index {
                 }
             }
         }
+    }
+}
+
+fn file_stamp(entry: &crate::inventory::FileEntry) -> scan::FileStamp {
+    scan::FileStamp {
+        path: entry.relative_path.to_path_buf(),
+        revision: entry.revision,
+        created_ns: entry.created_ns,
+        collections: entry.collections.iter().copied().collect(),
+        retry_unreadable: entry.status == crate::inventory::FileStatus::Unreadable,
     }
 }

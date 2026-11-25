@@ -444,9 +444,9 @@ impl Index {
         }
         let view = self.view()?;
         let file = view
-            .file_entry(handle.file_id)
+            .file_entry(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
-        Ok(view.0.imported_collections(file)?.is_empty())
+        Ok(view.0.imported_collections(&file)?.is_empty())
     }
 
     /// Refresh metadata for a registrar-declared file with no file importer.
@@ -470,7 +470,7 @@ impl Index {
             });
         }
         let previous = view
-            .file_entry(handle.file_id)
+            .file_entry(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
         let root = view
             .repository()
@@ -489,7 +489,7 @@ impl Index {
             ));
         }
         if view
-            .file_handle_for_path(relative)
+            .file_handle_for_path(relative)?
             .is_some_and(|other| other.file_id != handle.file_id)
         {
             return Err(IndexError::DestinationExists);
@@ -521,17 +521,17 @@ impl Index {
             });
         }
         let mut next = (*view.0).clone();
-        let mut entry = previous.clone();
+        let mut entry = previous.clone().into_owned();
         entry.relative_path = relative.to_path_buf().into();
         entry.revision = revision;
         entry.created_ns = creation;
         let imported = if retire_imported {
-            view.0.imported_collections(previous)?
+            view.0.imported_collections(&previous)?
         } else {
             std::collections::BTreeSet::new()
         };
         let retired_records = if retire_imported {
-            next.retire_file_records(previous)?
+            next.retire_file_records(&previous)?
         } else {
             0
         };
@@ -545,13 +545,9 @@ impl Index {
             }
         }
         next.catalog = if entry.collections.is_empty() {
-            next.catalog
-                .retired(handle.file_id)
-                .map_err(IndexError::InvalidPublication)?
+            next.catalog.retired(handle.file_id)?
         } else {
-            next.catalog
-                .replaced(entry, None, None)
-                .map_err(IndexError::InvalidPublication)?
+            next.catalog.replaced(entry, None, None)?
         };
         next.file_versions = next
             .file_versions
@@ -621,9 +617,9 @@ impl Index {
             });
         }
         let old = view
-            .file_entry(handle.file_id)
+            .file_entry(handle.file_id)?
             .ok_or(IndexError::UnknownFile)?;
-        let imported = !view.0.imported_collections(old)?.is_empty();
+        let imported = !view.0.imported_collections(&old)?.is_empty();
         let selected = destination_has_importer(&view, destination)?;
         if !selected {
             if imported {
@@ -687,25 +683,25 @@ impl Index {
                 });
             }
             let old = view
-                .file_entry(handle.file_id)
+                .file_entry(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?;
             let relative = relative_path(&view, destination)?;
             if relative.as_path() == old.relative_path.as_path() {
                 return Ok(None);
             }
             if view
-                .file_handle_for_path(&relative)
+                .file_handle_for_path(&relative)?
                 .is_some_and(|other| other.file_id != handle.file_id)
             {
                 return Err(IndexError::DestinationExists);
             }
-            if !path_independent_memberships(&view, old, &relative)? {
+            if !path_independent_memberships(&view, &old, &relative)? {
                 return Ok(None);
             }
-            let Some(fingerprint) = view.file_fingerprint(handle.file_id) else {
+            let Some(fingerprint) = view.file_fingerprint(handle.file_id)? else {
                 return Ok(None);
             };
-            if view.file_configuration(handle.file_id) != Some(view.configuration_identity()) {
+            if view.file_configuration(handle.file_id)? != Some(view.configuration_identity()) {
                 return Ok(None);
             }
             let absolute = view.repository().files().required_root().join(&relative);
@@ -723,16 +719,13 @@ impl Index {
                 return Ok(None);
             }
             let mut next = (*view.0).clone();
-            let mut relocated = old.clone();
+            let mut relocated = old.clone().into_owned();
             relocated.relative_path = relative.into();
-            next.catalog = next
-                .catalog
-                .replaced(
-                    relocated,
-                    Some(fingerprint),
-                    Some(view.configuration_identity()),
-                )
-                .map_err(IndexError::InvalidPublication)?;
+            next.catalog = next.catalog.replaced(
+                relocated,
+                Some(fingerprint),
+                Some(view.configuration_identity()),
+            )?;
             next.file_versions = next
                 .file_versions
                 .advanced(handle.file_id)
@@ -843,7 +836,7 @@ impl Index {
             }
             prepared.expected_revision = view.revision();
             let previous = view
-                .file_entry(handle.file_id)
+                .file_entry(handle.file_id)?
                 .ok_or(IndexError::UnknownFile)?;
             let retired_records = view
                 .file_record_count(handle.file_id)?
@@ -871,9 +864,10 @@ impl Index {
                 && previous.revision == prepared.file.source.revision
                 && previous.created_ns == prepared.file.source.created_ns
                 && same_memberships
-                && view.file_configuration(handle.file_id) == Some(prepared.configuration_identity)
+                && view.file_configuration(handle.file_id)?
+                    == Some(prepared.configuration_identity)
                 && prepared.file.fingerprint.is_some()
-                && view.file_fingerprint(handle.file_id) == prepared.file.fingerprint;
+                && view.file_fingerprint(handle.file_id)? == prepared.file.fingerprint;
             if unchanged {
                 verify_file_source(&view, &prepared.file)?;
                 let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
@@ -932,9 +926,15 @@ impl Index {
                             }
                         }
                     } else if let Some(mut preserved) =
-                        preserve_single_record_slots(&view, &next, &plan, handle.file_id).or_else(
-                            || preserve_partition_record_slots(&view, &next, &plan, handle.file_id),
-                        )
+                        match preserve_single_record_slots(&view, &next, &plan, handle.file_id)? {
+                            Some(candidate) => Some(candidate),
+                            None => preserve_partition_record_slots(
+                                &view,
+                                &next,
+                                &plan,
+                                handle.file_id,
+                            )?,
+                        }
                     {
                         preserved.rebuild_all_record_routes()?;
                         (
@@ -1013,7 +1013,7 @@ impl Index {
                     actual,
                 });
             }
-            if view.file_entry(handle.file_id).is_none() {
+            if view.file_entry(handle.file_id)?.is_none() {
                 return Err(IndexError::UnknownFile);
             }
             let verified = verify_old_content(&view, handle, old_content).into_fallback()?;

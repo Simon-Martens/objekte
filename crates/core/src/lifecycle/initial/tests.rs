@@ -981,7 +981,10 @@ fn discovery_and_segments_publish_without_losing_records() {
             .all(|field| field.path != ["late", "rare.field"])
     }));
     assert_eq!(catalogue.catalogue_rows().count(), 2_050);
-    assert_eq!(catalogue.catalogue_row(FileId(0)).unwrap().size > 0, true);
+    assert_eq!(
+        catalogue.catalogue_row(FileId(0)).unwrap().unwrap().size > 0,
+        true
+    );
     assert_eq!(catalogue.file_record_count(FileId(0)).unwrap(), None);
     assert!(catalogue.search(&all_query()).is_err());
     assert!(
@@ -1237,6 +1240,7 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
             .iter()
             .position(|collection| collection.definition.name == hit.collection)
             .unwrap();
+        let diagnostic = diagnostic.unwrap();
         assert_eq!(diagnostic.collection.0 as usize, expected_collection);
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -1297,6 +1301,7 @@ fn lines_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
                     FileId(hit.file.as_ref().expect("file origin").file_id.0),
                     hit.diagnostic_ref
                 )
+                .unwrap()
                 .is_some()
             );
         }
@@ -2522,6 +2527,7 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
     }
     let file = view
         .file_handle_for_path(std::path::Path::new("data/item-0.row"))
+        .unwrap()
         .unwrap();
     index.delete_file(file).unwrap();
     assert_eq!(view.search(&query).unwrap().count, Some(10));
@@ -3094,7 +3100,7 @@ fn registered_bounded_lines_blank_frames_keep_constant_unsealed_work() {
                 usize::from(append_record)
             );
             assert_eq!(
-                view.file_fingerprint(main.id),
+                view.file_fingerprint(main.id).unwrap(),
                 Some(digest.finalize().into())
             );
             assert_eq!(task.status().unwrap().processed_files, 2);
