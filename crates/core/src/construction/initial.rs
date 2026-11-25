@@ -2,12 +2,12 @@
 //! Discovery supplies one shared path inventory. Completed work units move
 //! into segments; the final metadata repository shares that same inventory.
 
+use std::collections::{BTreeMap, VecDeque};
 use std::path::PathBuf;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::time::Instant;
 
-use rayon::prelude::*;
 use roaring::RoaringBitmap;
 
 use super::segment_jobs::{
@@ -44,81 +44,219 @@ type InitialSegment = (
     Option<Arc<crate::construction::inference::InferenceObservation>>,
 );
 
-struct SmallStreamResult {
+struct StagedStreamBinding {
     collection: IncrementalCollection,
     segments: Vec<InitialSegment>,
-    stats: crate::construction::scheduling::BuildScheduleStats,
+    tail: Vec<BatchContribution>,
+    stats: super::scheduling::BuildScheduleStats,
     parses: u64,
     failed: u64,
 }
 
-fn stage_small_stream(
+#[derive(Clone)]
+struct StreamBinding {
+    definition: Arc<CollectionDefinition>,
+    reader: PreparedSource,
+    id: CollectionId,
+}
+
+struct StreamGroup {
+    bindings: Arc<[StreamBinding]>,
+    files: Vec<FileId>,
+}
+
+fn stage_stream_binding(
     pool: &rayon::ThreadPool,
     root: Arc<PathBuf>,
-    definition: Arc<CollectionDefinition>,
-    id: CollectionId,
-    reader: PreparedSource,
+    binding: &StreamBinding,
     file: FileId,
     source_files: Arc<Vec<SourceFileInput>>,
     options: RepositoryOptions,
     collection_count: usize,
-    shared_budget: &super::file_preparation::StreamBudget,
-) -> Result<SmallStreamResult, String> {
-    let mut collection = IncrementalCollection::new(
-        (*definition).clone(),
-        reader.clone(),
+    budget: &super::file_preparation::StreamBudget,
+) -> Result<StagedStreamBinding, String> {
+    let StreamBinding {
+        definition,
+        reader,
         id,
+    } = binding;
+    let mut collection = IncrementalCollection::new(
+        (**definition).clone(),
+        reader.clone(),
+        *id,
         Vec::new(),
         options,
         collection_count,
     );
     let mut segments = Vec::new();
+    let mut tail = Vec::new();
+    let mut tail_records = 0;
     let mut parses = 0;
     let mut failed = 0;
-    let mut seal = |draft: crate::construction::segment_admission::CollectionSegment| {
-        let (index, observation) = draft.into_indexed_observation_profiled(
-            &*definition,
-            options.bigram_alphabet,
-            options.inference,
-            collection_count,
-            pool,
-            None,
-        )?;
-        segments.push((index, observation.map(Arc::new)));
-        Ok::<(), String>(())
-    };
-    let stats = crate::construction::file_preparation::process_framed_file_with_budget(
+    let stats = super::file_preparation::process_framed_file_with_budget(
         pool,
         root,
-        Arc::clone(&definition),
-        id,
-        reader,
+        Arc::clone(definition),
+        *id,
+        reader.clone(),
         file,
         source_files,
         options.bigram_alphabet,
         options.inference,
         options.detailed_profiling_enabled(),
         options.segment_policy.target_records.get(),
-        Some(shared_budget),
+        Some(budget),
         |batch| {
             parses += batch.record_parses;
             failed += batch.failed_parses;
-            if let Some(draft) = collection.admit_large_chunk_profiled(batch, None)? {
-                seal(draft)?;
+            collection.observe(&batch, None)?;
+            tail_records += batch.record_count();
+            tail.push(batch);
+            if tail_records == options.segment_policy.target_records.get() {
+                for batch in tail.drain(..) {
+                    collection.admission.admit_batch(batch)?;
+                }
+                segments.push(finish_stream_draft(
+                    collection
+                        .take_segment()
+                        .expect("full private stream draft"),
+                    definition,
+                    options,
+                    collection_count,
+                    pool,
+                )?);
+                tail_records = 0;
             }
             Ok(())
         },
     )?;
-    if let Some(draft) = collection.take_segment() {
-        seal(draft)?;
-    }
-    Ok(SmallStreamResult {
+    Ok(StagedStreamBinding {
         collection,
         segments,
+        tail,
         stats,
         parses,
         failed,
     })
+}
+
+fn finish_stream_draft(
+    draft: super::segment_admission::CollectionSegment,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+    collection_count: usize,
+    pool: &rayon::ThreadPool,
+) -> Result<InitialSegment, String> {
+    let (index, observation) = draft.into_indexed_observation_profiled(
+        definition,
+        options.bigram_alphabet,
+        options.inference,
+        collection_count,
+        pool,
+        None,
+    )?;
+    Ok((index, observation.map(Arc::new)))
+}
+
+fn group_stream_files(
+    files: &[FileId],
+    inventory: &FileInventory,
+    options: RepositoryOptions,
+    bindings: Arc<[StreamBinding]>,
+    groups: &mut Vec<StreamGroup>,
+) {
+    let file_limit = options
+        .segment_policy
+        .max_files
+        .get()
+        .min(options.segment_policy.target_records.get());
+    for batch in super::batch::file_batches(files, inventory) {
+        for files in batch.chunks(file_limit) {
+            groups.push(StreamGroup {
+                bindings: Arc::clone(&bindings),
+                files: files.to_vec(),
+            });
+        }
+    }
+}
+
+fn run_stream_groups(
+    groups: Vec<StreamGroup>,
+    pool: &Arc<rayon::ThreadPool>,
+    root: Arc<PathBuf>,
+    source_files: &Arc<Vec<SourceFileInput>>,
+    options: RepositoryOptions,
+    collection_count: usize,
+    budget: &Arc<super::file_preparation::StreamBudget>,
+    cancelled: &impl Fn() -> bool,
+    mut publish: impl FnMut(Vec<Vec<StagedStreamBinding>>) -> Result<(), IndexError>,
+) -> Result<(), IndexError> {
+    use std::sync::mpsc;
+
+    let (sender, receiver) = mpsc::channel();
+    let window = pool.current_num_threads().min(4);
+    let mut work = VecDeque::from(groups);
+    let mut next_group = 0;
+    let mut dispatch = VecDeque::new();
+    let mut outstanding = 0;
+    let mut waiting = BTreeMap::<usize, (usize, BTreeMap<FileId, Vec<StagedStreamBinding>>)>::new();
+    while outstanding != 0 || !work.is_empty() || !dispatch.is_empty() {
+        while outstanding < window && !cancelled() {
+            if dispatch.is_empty() {
+                let Some(group) = work.pop_front() else { break };
+                waiting.insert(next_group, (group.files.len(), BTreeMap::new()));
+                dispatch.extend(
+                    group
+                        .files
+                        .into_iter()
+                        .map(|file| (next_group, file, Arc::clone(&group.bindings))),
+                );
+                next_group += 1;
+            }
+            let (group, file, bindings) = dispatch.pop_front().expect("stream job");
+            let task_pool = Arc::clone(pool);
+            let root = Arc::clone(&root);
+            let inputs = Arc::clone(source_files);
+            let budget = Arc::clone(budget);
+            let sender = sender.clone();
+            pool.spawn(move || {
+                let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    bindings
+                        .iter()
+                        .map(|binding| {
+                            stage_stream_binding(
+                                &task_pool,
+                                Arc::clone(&root),
+                                binding,
+                                file,
+                                Arc::clone(&inputs),
+                                options,
+                                collection_count,
+                                &budget,
+                            )
+                        })
+                        .collect::<Result<Vec<_>, _>>()
+                }))
+                .unwrap_or_else(|_| Err("registered file build worker panicked".into()));
+                let _ = sender.send((group, file, result));
+            });
+            outstanding += 1;
+        }
+        if cancelled() {
+            return Err(IndexError::Cancelled);
+        }
+        let (group, file, result) = receiver
+            .recv()
+            .map_err(|error| IndexError::Build(error.to_string()))?;
+        outstanding -= 1;
+        let (count, staged) = waiting.get_mut(&group).expect("active stream group");
+        staged.insert(file, result.map_err(IndexError::Build)?);
+        if staged.len() == *count {
+            let (_, staged) = waiting.remove(&group).expect("complete stream group");
+            publish(staged.into_values().collect())?;
+        }
+    }
+    Ok(())
 }
 
 struct IncrementalCollection {
@@ -830,7 +968,21 @@ impl Repository {
                     .push(entry.id);
             }
         }
-        let mut parallel_streams = Vec::<(usize, Vec<FileId>)>::new();
+        let mut stream_groups = Vec::new();
+        let registered_stream_files = discovered
+            .files
+            .iter()
+            .filter(|file| {
+                file.collections.iter().any(|id| {
+                    pending[id.0 as usize]
+                        .source
+                        .reader()
+                        .supports_streaming_build()
+                })
+            })
+            .take(2)
+            .count();
+        let parallel_file_streams = registered_stream_files > 1;
         let mut jobs = Vec::new();
         let mut large_jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
@@ -846,7 +998,20 @@ impl Repository {
                     .collect::<Vec<_>>();
                 &ordinary
             };
-            let streams = state.source.reader().supports_streaming_build();
+            if parallel_file_streams && state.source.reader().supports_streaming_build() {
+                group_stream_files(
+                    members,
+                    &discovered,
+                    options,
+                    Arc::from([StreamBinding {
+                        definition: Arc::clone(&state.definition),
+                        reader: state.source.clone(),
+                        id: state.id,
+                    }]),
+                    &mut stream_groups,
+                );
+                continue;
+            }
             let bounded_lines = state.source.reader().supports_bounded_json_lines_build();
             let record_target = options.segment_policy.target_records.get() as u64;
             let needs_chunks = |file: FileId| {
@@ -862,7 +1027,6 @@ impl Repository {
                 .get()
                 .min(options.segment_policy.target_records.get());
             let batches = crate::construction::batch::file_batches(members, &discovered);
-            let mut small_streams = Vec::new();
             for batch in batches.into_iter().flat_map(|batch| {
                 if batch.iter().copied().any(needs_chunks) {
                     batch.chunks(1)
@@ -870,14 +1034,6 @@ impl Repository {
                     batch.chunks(files_per_draft)
                 }
             }) {
-                if streams
-                    && build_workers > 1
-                    && members.len() > 1
-                    && discovered.files[batch[0].0 as usize].revision.size <= 8 * 1024 * 1024
-                {
-                    small_streams.push(batch[0]);
-                    continue;
-                }
                 if batch.len() == 1 && needs_chunks(batch[0]) {
                     large_jobs.push(ScheduledBuildJob::Large {
                         collection_index,
@@ -896,9 +1052,31 @@ impl Repository {
                     }));
                 }
             }
-            if !small_streams.is_empty() {
-                parallel_streams.push((collection_index, small_streams));
-            }
+        }
+        if parallel_file_streams {
+            shared.retain(|bindings, files| {
+                let streams = bindings.iter().any(|id| {
+                    pending[id.0 as usize]
+                        .source
+                        .reader()
+                        .supports_streaming_build()
+                });
+                if streams {
+                    let bindings = bindings
+                        .iter()
+                        .map(|id| {
+                            let state = &pending[id.0 as usize];
+                            StreamBinding {
+                                definition: Arc::clone(&state.definition),
+                                reader: state.source.clone(),
+                                id: *id,
+                            }
+                        })
+                        .collect::<Arc<[_]>>();
+                    group_stream_files(files, &discovered, options, bindings, &mut stream_groups);
+                }
+                !streams
+            });
         }
         // Publish bounded ordinary partitions before holding a large stream.
         // File positions and generated IDs come from discovery and framing.
@@ -1231,87 +1409,105 @@ impl Repository {
             &mut publication_ns,
             &mut profile,
         )?;
-        // Each small registered stream in this window runs on one existing
-        // worker and decodes inline. The window bounds retained finalized
-        // files and prevents blocked reader callbacks from serializing peers.
-        let streaming_budget = super::file_preparation::StreamBudget::default();
-        let stream_window = build_workers.min(4);
-        for (number, files) in parallel_streams {
-            for group in files.chunks(stream_window) {
-                if cancelled() {
-                    return Err(IndexError::Cancelled);
-                }
-                let definition = Arc::clone(&pending[number].definition);
-                let id = pending[number].id;
-                let source = pending[number].source.clone();
-                let count = pending.len();
-                let stream_root = Arc::new(root.clone());
-                let results = pool.install(|| {
-                    group
-                        .par_iter()
-                        .map(|file| {
-                            stage_small_stream(
-                                &pool,
-                                Arc::clone(&stream_root),
-                                Arc::clone(&definition),
+        let streaming_budget = Arc::new(super::file_preparation::StreamBudget::default());
+        let collection_count = pending.len();
+        run_stream_groups(
+            stream_groups,
+            &pool,
+            Arc::new(root.clone()),
+            &source_files,
+            options,
+            collection_count,
+            &streaming_budget,
+            &cancelled,
+            |files| {
+                let mut segments = Vec::new();
+                let mut tails = BTreeMap::<CollectionId, SegmentAdmission>::new();
+                for bindings in files {
+                    for binding in bindings {
+                        let id = binding.collection.id;
+                        let state = &mut pending[id.0 as usize];
+                        append_shifted_bitmap(
+                            &mut state.logical_records,
+                            &binding.collection.logical_records,
+                            state.records,
+                        )
+                        .map_err(IndexError::Build)?;
+                        state.records = state
+                            .records
+                            .checked_add(binding.collection.records)
+                            .ok_or_else(|| {
+                                IndexError::ResourceLimit("collection record slot overflow".into())
+                            })?;
+                        state.observed_batches += binding.collection.observed_batches;
+                        build_parses += binding.parses;
+                        failed_parses += binding.failed;
+                        if let Some((file, digest)) = binding.stats.file_fingerprint {
+                            digest_bindings[file.0 as usize].push((id, digest));
+                        }
+                        schedule_stats.absorb(binding.stats);
+                        segments.extend(binding.segments);
+                        let new_tail = || {
+                            SegmentAdmission::with_limits_and_id(
                                 id,
-                                source.clone(),
-                                *file,
-                                Arc::clone(&source_files),
-                                options,
-                                count,
-                                &streaming_budget,
+                                &state.source,
+                                options.segment_policy,
+                                SegmentId::new(0),
                             )
-                        })
-                        .collect::<Vec<_>>()
-                });
-                for result in results {
-                    if cancelled() {
-                        return Err(IndexError::Cancelled);
+                        };
+                        let tail = tails.entry(id).or_insert_with(new_tail);
+                        for batch in binding.tail {
+                            if !tail.can_admit_batch(&batch) {
+                                let draft = std::mem::replace(tail, new_tail()).finish();
+                                segments.push(
+                                    finish_stream_draft(
+                                        draft,
+                                        &state.definition,
+                                        options,
+                                        collection_count,
+                                        &pool,
+                                    )
+                                    .map_err(IndexError::Build)?,
+                                );
+                            }
+                            tail.admit_batch(batch).map_err(IndexError::Build)?;
+                        }
                     }
-                    let result = result.map_err(IndexError::Build)?;
-                    let state = &mut pending[number];
-                    append_shifted_bitmap(
-                        &mut state.logical_records,
-                        &result.collection.logical_records,
-                        state.records,
-                    )
-                    .map_err(IndexError::Build)?;
-                    state.records = state
-                        .records
-                        .checked_add(result.collection.records)
-                        .ok_or_else(|| {
-                            IndexError::ResourceLimit("collection record slot overflow".into())
-                        })?;
-                    state.observed_batches += result.collection.observed_batches;
-                    build_parses += result.parses;
-                    failed_parses += result.failed;
-                    if let Some((file, digest)) = result.stats.file_fingerprint {
-                        digest_bindings[file.0 as usize].push((id, digest));
-                    }
-                    schedule_stats.absorb(result.stats);
-                    let mut segments = result.segments;
-                    let mut ordinal = index.view()?.0.next_segment_ordinal;
-                    for (segment, _) in &mut segments {
-                        segment.id = SegmentId::new(ordinal);
-                        ordinal = ordinal.checked_add(1).ok_or_else(|| {
-                            IndexError::ResourceLimit("segment identity overflow".into())
-                        })?;
-                    }
-                    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-                    let (revision, phases) =
-                        index.publish_initial_segments(expected, segments, profile.is_some())?;
-                    expected = revision;
-                    if let Some(profile) = profile.as_mut() {
-                        profile.publication_prepare_ns += phases.preparation_ns;
-                        profile.publication_install_ns += phases.install_ns;
-                    }
-                    on_publication(&index)?;
-                    publication_ns +=
-                        phase.map_or(0, |started| started.elapsed().as_nanos() as u64);
                 }
-            }
-        }
+                for (id, tail) in tails {
+                    if tail.file_count() != 0 {
+                        segments.push(
+                            finish_stream_draft(
+                                tail.finish(),
+                                &pending[id.0 as usize].definition,
+                                options,
+                                collection_count,
+                                &pool,
+                            )
+                            .map_err(IndexError::Build)?,
+                        );
+                    }
+                }
+                let mut ordinal = index.view()?.0.next_segment_ordinal;
+                for (segment, _) in &mut segments {
+                    segment.id = SegmentId::new(ordinal);
+                    ordinal = ordinal.checked_add(1).ok_or_else(|| {
+                        IndexError::ResourceLimit("segment identity overflow".into())
+                    })?;
+                }
+                let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
+                let (revision, phases) =
+                    index.publish_initial_segments(expected, segments, profile.is_some())?;
+                expected = revision;
+                if let Some(profile) = profile.as_mut() {
+                    profile.publication_prepare_ns += phases.preparation_ns;
+                    profile.publication_install_ns += phases.install_ns;
+                }
+                on_publication(&index)?;
+                publication_ns += phase.map_or(0, |started| started.elapsed().as_nanos() as u64);
+                Ok(())
+            },
+        )?;
         // Ordinary partitions can publish independently. A shared group
         // stays private until the last binding has finished each of its files.
         for (bindings, files) in shared {

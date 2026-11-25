@@ -2153,3 +2153,289 @@ fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
         std::fs::remove_dir_all(root).unwrap();
     }
 }
+
+struct RegisteredPackingReader {
+    gate: Option<std::sync::Arc<RegisteredPackingGate>>,
+    gate_only_this_binding: bool,
+}
+
+struct RegisteredPackingGate {
+    entered: mpsc::SyncSender<()>,
+    released: std::sync::Mutex<mpsc::Receiver<()>>,
+    fail: bool,
+}
+
+impl SourceReader for RegisteredPackingReader {
+    fn name(&self) -> &'static str {
+        "registered-packing"
+    }
+
+    fn supports_streaming_build(&self) -> bool {
+        true
+    }
+
+    fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> {
+        Err("registered stream must use chunk framing".into())
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        JsonLinesReader.parse(bytes)
+    }
+
+    fn stream_build_chunks(
+        &self,
+        input: &mut dyn std::io::Read,
+        max_bytes: usize,
+        max_ranges: usize,
+        emit: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+    ) -> Option<Result<(), String>> {
+        use std::io::{BufRead, BufReader};
+
+        Some((|| {
+            let mut buffered = BufReader::new(input);
+            if let Some(gate) = &self.gate
+                && (self.gate_only_this_binding
+                    || buffered
+                        .fill_buf()
+                        .map_err(|e| e.to_string())?
+                        .starts_with(b"{\"id\":\"held"))
+            {
+                gate.entered.send(()).map_err(|e| e.to_string())?;
+                gate.released
+                    .lock()
+                    .unwrap()
+                    .recv_timeout(std::time::Duration::from_secs(10))
+                    .map_err(|e| e.to_string())?;
+                if gate.fail {
+                    return Err("fatal final binding".into());
+                }
+            }
+            let mut framer = crate::source::framing::BoundedJsonLines::from_reader(buffered);
+            while let Some(chunk) = framer.next_chunk(max_bytes, max_ranges)? {
+                emit(chunk)?;
+            }
+            Ok(())
+        })())
+    }
+}
+
+fn registered_packing_definition(name: &str, reader: &str) -> CollectionDefinition {
+    let mut definition =
+        CollectionDefinition::folder(name, "data", SourceFormat::registered(reader));
+    definition.identity =
+        crate::repository::configuration::IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+}
+
+#[test]
+fn registered_small_files_pack_into_shared_segments_and_publications() {
+    for file_limit in [8, 1] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-small-stream-packing-{}-{file_limit}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register(
+                "packing",
+                1,
+                "pack",
+                Arc::new(RegisteredPackingReader {
+                    gate: None,
+                    gate_only_this_binding: false,
+                }),
+            )
+            .unwrap();
+        for file in 0..64 {
+            std::fs::write(
+                root.join(format!("data/{file:02}.pack")),
+                format!("{{\"id\":\"r{file:02}\"}}\n"),
+            )
+            .unwrap();
+        }
+        let index = Index::start_build(
+            &root,
+            vec![registered_packing_definition("entries", "packing")],
+            RepositoryOptions {
+                build_workers: Some(NonZeroUsize::new(4).unwrap()),
+                segment_policy: crate::index::segment::SegmentPolicy {
+                    target_records: NonZeroUsize::new(8).unwrap(),
+                    max_files: NonZeroUsize::new(file_limit).unwrap(),
+                },
+                ..RepositoryOptions::default()
+            },
+            sources,
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap();
+        let view = index.view().unwrap();
+        assert_eq!(
+            view.segments(crate::model::CollectionId(0))
+                .unwrap()
+                .iter()
+                .map(|seg| seg.index.records.len())
+                .collect::<Vec<_>>(),
+            vec![file_limit; 64 / file_limit]
+        );
+        assert_eq!(view.revision().0, 2 + (64 / file_limit) as u64);
+        let catalogue = view.file_catalog().unwrap();
+        for n in 0..64 {
+            let path = format!("data/{n:02}.pack");
+            let file = catalogue.file_by_path(std::path::Path::new(&path)).unwrap();
+            assert_eq!(file.collections.len(), 1);
+            assert_eq!(catalogue.records_for_file(file.id).unwrap().len(), 1);
+            let id = format!("r{n:02}");
+            let hit = view
+                .get_record("entries", &id, ReturnMode::Locator)
+                .unwrap()
+                .unwrap();
+            assert_eq!(hit.source_range(), Some(ByteRange { start: 0, end: 12 }));
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn independent_registered_groups_publish_while_a_binding_waits() {
+    use std::time::{Duration, Instant};
+
+    let other_is_searchable = |view: &crate::lifecycle::IndexView| {
+        let mut query = all_query();
+        query.collections = vec!["entries".into()];
+        query.options.limit = 32;
+        view.search_available(&query)
+            .unwrap()
+            .result
+            .hits
+            .iter()
+            .any(|hit| hit.record_id == "other0")
+    };
+    let padded = |prefix: &str, large: bool| {
+        let mut data = Vec::new();
+        for record in 0..if large { 10 } else { 1 } {
+            let mut line = format!("{{\"id\":\"{prefix}{record}\"}}").into_bytes();
+            if large {
+                line.resize(950 * 1024, b' ');
+            }
+            data.extend(line);
+            data.push(b'\n');
+        }
+        data
+    };
+    for (other_large, shared, fail, workers) in [
+        (true, false, false, 4),
+        (false, false, false, 4),
+        (false, true, false, 4),
+        (false, true, true, 4),
+        (false, false, false, 1),
+    ] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-stream-independent-{}-{other_large}-{shared}-{fail}-{workers}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(root.join("data/held.pack"), padded("held", !shared)).unwrap();
+        std::fs::write(root.join("data/other.pack"), padded("other", other_large)).unwrap();
+        let (entered, waiting) = mpsc::sync_channel(1);
+        let (release, released) = mpsc::channel();
+        let gate = Arc::new(RegisteredPackingGate {
+            entered,
+            released: std::sync::Mutex::new(released),
+            fail,
+        });
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register(
+                "packing",
+                1,
+                "pack",
+                Arc::new(RegisteredPackingReader {
+                    gate: (!shared && workers > 1).then(|| gate.clone()),
+                    gate_only_this_binding: false,
+                }),
+            )
+            .unwrap();
+        let mut definitions = vec![registered_packing_definition("entries", "packing")];
+        if shared {
+            sources
+                .register(
+                    "held-packing",
+                    1,
+                    "pack",
+                    Arc::new(RegisteredPackingReader {
+                        gate: Some(gate),
+                        gate_only_this_binding: true,
+                    }),
+                )
+                .unwrap();
+            let mut definition = registered_packing_definition("references", "held-packing");
+            definition.discovery.include = vec!["held.pack".into()];
+            definitions.push(definition);
+        }
+        let task = Index::start_build(
+            &root,
+            definitions,
+            RepositoryOptions {
+                build_workers: Some(NonZeroUsize::new(workers).unwrap()),
+                ..RepositoryOptions::default()
+            },
+            sources,
+        )
+        .unwrap();
+        let index = task.wait_catalogue().unwrap();
+        let mut pinned = None;
+        if workers > 1 {
+            let entered = waiting.recv_timeout(Duration::from_secs(5));
+            let deadline = Instant::now() + Duration::from_secs(5);
+            while entered.is_ok() && Instant::now() < deadline {
+                let view = index.view().unwrap();
+                if other_is_searchable(&view) {
+                    pinned = Some(view);
+                    break;
+                }
+                std::thread::sleep(Duration::from_millis(2));
+            }
+            let _ = release.send(());
+            assert!(entered.is_ok(), "registered callback did not enter");
+            let view = pinned
+                .as_ref()
+                .expect("independent group was not searchable");
+            let catalogue = view.file_catalog().unwrap();
+            let held = catalogue
+                .file_by_path(std::path::Path::new("data/held.pack"))
+                .unwrap();
+            assert!(catalogue.records_for_file(held.id).unwrap().is_empty());
+        }
+        let result = task.wait_complete();
+        assert_eq!(result.is_err(), fail);
+        let final_view = index.view().unwrap();
+        let catalogue = final_view.file_catalog().unwrap();
+        let held = catalogue
+            .file_by_path(std::path::Path::new("data/held.pack"))
+            .unwrap();
+        assert_eq!(
+            catalogue.records_for_file(held.id).unwrap().len(),
+            if fail {
+                0
+            } else if shared {
+                2
+            } else {
+                10
+            }
+        );
+        assert!(other_is_searchable(&final_view));
+        if let Some(pinned) = pinned {
+            assert!(
+                pinned
+                    .file_catalog()
+                    .unwrap()
+                    .records_for_file(held.id)
+                    .unwrap()
+                    .is_empty()
+            );
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
