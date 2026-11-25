@@ -1563,3 +1563,127 @@ fn direct_json_build_matches_static_inference_overlap_and_native_publication() {
     restored.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
+    struct HoldSecondBinding {
+        frames: AtomicUsize,
+        entered: mpsc::Sender<()>,
+        release: std::sync::Mutex<mpsc::Receiver<()>>,
+        fail: bool,
+    }
+    impl SourceReader for HoldSecondBinding {
+        fn name(&self) -> &'static str {
+            "shared-binding"
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            if self.frames.fetch_add(1, Ordering::SeqCst) == 1 {
+                self.entered.send(()).unwrap();
+                self.release
+                    .lock()
+                    .unwrap()
+                    .recv_timeout(std::time::Duration::from_secs(10))
+                    .unwrap();
+                if self.fail {
+                    return Err("last file binding failed deliberately".into());
+                }
+            }
+            JsonLinesReader.frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonLinesReader.parse(bytes)
+        }
+    }
+
+    for (large, fail) in [(false, false), (true, false), (false, true)] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-shared-atomic-{}-{large}-{fail}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("shared")).unwrap();
+        std::fs::create_dir_all(root.join("independent")).unwrap();
+        std::fs::write(root.join("independent/solo.json"), b"{}").unwrap();
+        let mut bytes = b"{\"id\":\"one\"}\n{\"id\":\"two\"}\n".to_vec();
+        if large {
+            bytes.resize(9 * 1024 * 1024, b' ');
+        }
+        std::fs::write(root.join("shared/two.bindings"), bytes).unwrap();
+        let (entered, arrivals) = mpsc::channel();
+        let (release, exits) = mpsc::channel();
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register(
+                "shared-binding",
+                1,
+                "bindings",
+                Arc::new(HoldSecondBinding {
+                    frames: AtomicUsize::new(0),
+                    entered,
+                    release: std::sync::Mutex::new(exits),
+                    fail,
+                }),
+            )
+            .unwrap();
+        let format = SourceFormat::registered("shared-binding");
+        let task = Index::start_build(
+            &root,
+            vec![
+                CollectionDefinition::folder("entries", "shared", format.clone()),
+                CollectionDefinition::folder("references", "shared", format),
+                CollectionDefinition::folder("solo", "independent", SourceFormat::Json),
+            ],
+            RepositoryOptions::default(),
+            sources,
+        )
+        .unwrap();
+        let index = task.wait_catalogue().unwrap();
+        arrivals
+            .recv_timeout(std::time::Duration::from_secs(10))
+            .unwrap();
+        let pinned = index.view().unwrap();
+        let catalog = pinned.file_catalog().unwrap();
+        let shared = catalog
+            .file_by_path(std::path::Path::new("shared/two.bindings"))
+            .unwrap()
+            .id;
+        let solo = catalog
+            .file_by_path(std::path::Path::new("independent/solo.json"))
+            .unwrap()
+            .id;
+        assert_eq!(catalog.records_for_file(solo).unwrap().len(), 1);
+        let held = catalog.records_for_file(shared).unwrap();
+        release.send(()).unwrap();
+        assert!(held.is_empty(), "a private binding must stay invisible");
+        let result = task.wait_complete();
+        if fail {
+            assert!(result.is_err());
+            assert_eq!(index.view().unwrap().revision(), pinned.revision());
+        } else {
+            let complete = result.unwrap().view().unwrap();
+            let catalog = complete.file_catalog().unwrap();
+            assert_eq!(
+                catalog
+                    .records_for_file_in_collection(shared, "entries")
+                    .unwrap()
+                    .len(),
+                2
+            );
+            assert_eq!(
+                catalog
+                    .records_for_file_in_collection(shared, "references")
+                    .unwrap()
+                    .len(),
+                2
+            );
+            assert_eq!(
+                complete.revision().0,
+                pinned.revision().0 + 2,
+                "one group swap followed by final build completion"
+            );
+        }
+        assert!(catalog.records_for_file(shared).unwrap().is_empty());
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}

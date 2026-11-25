@@ -738,10 +738,30 @@ impl Repository {
         let mut scheduler =
             SegmentBuildScheduler::new(pool.current_num_threads(), pending.len(), gate);
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
+        let mut shared = std::collections::BTreeMap::<Vec<CollectionId>, Vec<FileId>>::new();
+        for entry in &discovered.files {
+            if entry.collections.len() > 1 {
+                shared
+                    .entry(entry.collections.clone())
+                    .or_default()
+                    .push(entry.id);
+            }
+        }
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
-            for batch in crate::construction::batch::file_batches(&state.member_files, &discovered)
-            {
+            let ordinary;
+            let members = if shared.is_empty() {
+                state.member_files.as_slice()
+            } else {
+                ordinary = state
+                    .member_files
+                    .iter()
+                    .copied()
+                    .filter(|file| discovered.files[file.0 as usize].collections.len() == 1)
+                    .collect::<Vec<_>>();
+                &ordinary
+            };
+            for batch in crate::construction::batch::file_batches(members, &discovered) {
                 if batch.len() == 1
                     && discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
                 {
@@ -1060,12 +1080,6 @@ impl Repository {
                 }
             })?);
         }
-        let extraction_index_ns = extraction_started.elapsed().as_nanos() as u64;
-        if let Some(profile) = profile.as_mut() {
-            profile.source_work_ns = extraction_index_ns;
-            profile.admission_schedule = schedule_stats.admission_schedule;
-            profile.extraction_rss_bytes = build_profile_rss_bytes();
-        }
         let flush_started = crate::measurement::timer::start_if_enabled(profile.is_some());
         for number in 0..pending.len() {
             if cancelled() {
@@ -1096,6 +1110,145 @@ impl Repository {
             &mut publication_ns,
             &mut profile,
         )?;
+        // Ordinary partitions can publish independently. A shared group
+        // stays private until the last binding has finished each of its files.
+        for (bindings, files) in shared {
+            let streaming = bindings.iter().any(|id| {
+                pending[id.0 as usize]
+                    .source
+                    .reader()
+                    .supports_streaming_build()
+            });
+            let batches = if streaming {
+                files.chunks(1).collect::<Vec<_>>()
+            } else {
+                crate::construction::batch::file_batches(&files, &discovered)
+                    .into_iter()
+                    .flat_map(|batch| batch.chunks(options.segment_policy.max_files.get()))
+                    .collect()
+            };
+            for files in batches {
+                let mut builds = Vec::new();
+                let collection_count = pending.len();
+                let mut ordinal = index.view()?.0.next_segment_ordinal;
+                for id in &bindings {
+                    let state = &mut pending[id.0 as usize];
+                    let source = state.source.clone();
+                    let definition = Arc::clone(&state.definition);
+                    let mut seal = |mut draft: crate::construction::segment_admission::CollectionSegment| -> Result<(), String> {
+                        draft.id = SegmentId::new(ordinal);
+                        ordinal = ordinal.checked_add(1).ok_or("segment identity overflow")?;
+                        let (index, observation) = draft.into_indexed_observation_profiled(
+                            &*definition, options.bigram_alphabet, options.inference,
+                            collection_count, &pool, None,
+                        )?;
+                        builds.push((index, observation.map(Arc::new)));
+                        Ok(())
+                    };
+                    let mut admit = |batch: BatchContribution| -> Result<(), String> {
+                        if cancelled() {
+                            return Err("initial construction cancelled".into());
+                        }
+                        build_parses += batch.record_parses;
+                        failed_parses += batch.failed_parses;
+                        source_reads += batch.source_reads;
+                        source_bytes_read += batch.source_bytes_read;
+                        for &(file, digest) in batch.file_fingerprints() {
+                            digest_bindings[file.0 as usize].push((*id, digest));
+                        }
+                        if let Some(profile) = profile.as_mut() {
+                            profile.work.absorb(&batch.profile);
+                            profile
+                                .work_by_collection
+                                .entry(definition.name.clone())
+                                .or_default()
+                                .absorb(&batch.profile);
+                        }
+                        if let Some(draft) = state.admit_large_chunk_profiled(batch, None)? {
+                            seal(draft)?;
+                        }
+                        Ok(())
+                    };
+                    if files.len() == 1
+                        && (streaming
+                            || discovered.files[files[0].0 as usize].revision.size
+                                > 8 * 1024 * 1024)
+                    {
+                        let stats =
+                            crate::construction::file_preparation::process_framed_file_profiled(
+                                &pool,
+                                Arc::new(root.clone()),
+                                Arc::clone(&definition),
+                                *id,
+                                source,
+                                files[0],
+                                Arc::clone(&source_files),
+                                options.bigram_alphabet,
+                                options.inference,
+                                options.detailed_profiling_enabled(),
+                                &mut admit,
+                            )
+                            .map_err(|error| {
+                                if cancelled() {
+                                    IndexError::Cancelled
+                                } else {
+                                    IndexError::Build(error)
+                                }
+                            })?;
+                        if let Some((file, digest)) = stats.file_fingerprint {
+                            digest_bindings[file.0 as usize].push((*id, digest));
+                        }
+                        schedule_stats.absorb(stats);
+                    } else {
+                        let batch = pool
+                            .install(|| {
+                                crate::construction::batch::process_batch_profiled(
+                                    &root,
+                                    &definition,
+                                    *id,
+                                    &source,
+                                    files,
+                                    &source_files,
+                                    options.bigram_alphabet,
+                                    options.inference,
+                                    options.inference.max_build_jobs(pool.current_num_threads()),
+                                    options.detailed_profiling_enabled(),
+                                )
+                            })
+                            .map_err(IndexError::Build)?;
+                        admit(batch).map_err(|error| {
+                            if cancelled() {
+                                IndexError::Cancelled
+                            } else {
+                                IndexError::Build(error)
+                            }
+                        })?;
+                    }
+                    if let Some(draft) = state.take_segment() {
+                        seal(draft).map_err(IndexError::Build)?;
+                    }
+                }
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
+                let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
+                let (revision, phases) =
+                    index.publish_initial_segments(expected, builds, profile.is_some())?;
+                expected = revision;
+                if let Some(profile) = profile.as_mut() {
+                    profile.publication_prepare_ns += phases.preparation_ns;
+                    profile.publication_install_ns += phases.install_ns;
+                }
+                on_publication(&index)?;
+                publication_ns += phase.map_or(0, |started| started.elapsed().as_nanos() as u64);
+            }
+        }
+        let extraction_index_ns = extraction_started.elapsed().as_nanos() as u64;
+        if let Some(profile) = profile.as_mut() {
+            profile.source_work_ns = extraction_index_ns;
+            profile.admission_schedule = schedule_stats.admission_schedule;
+            profile.extraction_rss_bytes = build_profile_rss_bytes();
+        }
         let peak_segment_jobs = scheduler.peak_running.load(Ordering::Relaxed);
         let peak_segment_window = scheduler.peak_outstanding;
         if let Some(profile) = profile.as_mut() {

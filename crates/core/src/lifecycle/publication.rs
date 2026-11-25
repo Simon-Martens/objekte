@@ -1028,10 +1028,7 @@ fn prepare_initial_segment(
             .replaced(merged, None, None)
             .map_err(IndexError::InvalidPublication)?;
     }
-    *next = next
-        .clone()
-        .with_segment_observation(segment, observation)?;
-    Ok(())
+    next.stage_segment(&mut Arc::new(segment), observation)
 }
 
 fn verify_initial_files<'a>(
