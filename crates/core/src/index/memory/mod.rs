@@ -16,6 +16,61 @@ mod worker;
 pub(crate) struct MemoryStorageFactory;
 
 impl super::storage::StorageFactory for MemoryStorageFactory {
+    fn start_file_segment(
+        &self,
+        input: super::storage::segment::build::FileSegmentBuild<'_>,
+    ) -> super::storage::transfer::StorageResult<
+        Box<dyn super::storage::segment::build::SegmentBuilder>,
+    > {
+        Ok(Box::new(
+            segment::admission::SegmentAdmission::with_limits_and_id(
+                input.collection,
+                input.source,
+                input.policy,
+                segment::SegmentId::new(0),
+            ),
+        ))
+    }
+
+    fn seal_direct_segment(
+        &self,
+        input: super::storage::segment::build::DirectSegmentBuild<'_>,
+        seal: super::storage::segment::build::SegmentSeal<'_>,
+    ) -> super::storage::transfer::StorageResult<super::storage::segment::build::BuiltSegment> {
+        use super::storage::segment::build::DirectSegmentBodies;
+        use super::storage::transfer::StorageError;
+        let draft = match input.bodies {
+            DirectSegmentBodies::Versioned(versions) => {
+                segment::admission::CollectionSegment::from_provider(
+                    seal.id,
+                    input.collection,
+                    input.source_id.into(),
+                    input.source_version,
+                    input.registration,
+                    input.raw_covers_logical_fields,
+                    input.headers,
+                    versions.to_vec(),
+                    input.contribution,
+                )
+            }
+            DirectSegmentBodies::Retained(bodies) => {
+                segment::admission::CollectionSegment::from_retained(
+                    seal.id,
+                    input.collection,
+                    input.source_id.into(),
+                    input.source_version,
+                    input.registration,
+                    input.raw_covers_logical_fields,
+                    input.headers,
+                    bodies,
+                    input.contribution,
+                )
+            }
+        }
+        .map_err(|error| StorageError::invalid("admit direct segment", error))?;
+        draft.seal(seal)
+    }
+
     fn retain_record_bodies(
         &self,
         bodies: Vec<crate::records::RetainedBody>,

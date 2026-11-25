@@ -17,6 +17,8 @@ use crate::index::segment::{
     IndexedCollectionSegment, SegmentAccounting, SegmentFile, SegmentId, SegmentPolicy,
 };
 use crate::index::sorting::SortBuilder;
+use crate::index::storage::segment::build::{BuiltSegment, SegmentBuilder, SegmentSeal};
+use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::InferenceConfig;
 use crate::inventory::{
     CollectionBuilder, DiagnosticRef, FileInventory, FileStatus, RecordClass, RecordEntry,
@@ -273,7 +275,7 @@ struct SegmentAggregate {
 
 impl SegmentAggregate {
     fn new(
-        definition: &impl CollectionPolicy,
+        definition: &dyn CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -605,6 +607,7 @@ impl SegmentAdmission {
     /// Admit one ordered construction batch, including batches spanning many
     /// physical files. A fresh partition builder can seal between batches;
     /// ordinary one-file admission uses the same local slot mapping.
+    #[cfg(test)]
     pub(crate) fn admit_batch(&mut self, batch: BatchContribution) -> Result<(), String> {
         self.admit_batch_profiled(batch, None)
     }
@@ -748,7 +751,61 @@ impl SegmentAdmission {
     }
 }
 
+impl SegmentBuilder for SegmentAdmission {
+    fn file_count(&self) -> usize {
+        self.file_count()
+    }
+
+    fn record_count(&self) -> usize {
+        self.records.len()
+    }
+
+    fn source_bytes(&self) -> u64 {
+        self.files
+            .iter()
+            .map(|file| file.entry.revision.size)
+            .fold(0, u64::saturating_add)
+    }
+
+    fn at_capacity(&self) -> bool {
+        self.at_capacity()
+    }
+
+    fn can_admit(&self, batch: &BatchContribution) -> StorageResult<bool> {
+        Ok(self.can_admit_batch(batch))
+    }
+
+    fn admit(
+        &mut self,
+        batch: BatchContribution,
+        profile: Option<&mut AdmissionBreakdown>,
+    ) -> StorageResult<()> {
+        self.admit_batch_profiled(batch, profile)
+            .map_err(|error| StorageError::invalid("admit file segment", error))
+    }
+
+    fn seal(self: Box<Self>, input: SegmentSeal<'_>) -> StorageResult<BuiltSegment> {
+        self.finish().seal(input)
+    }
+}
+
 impl CollectionSegment {
+    pub(crate) fn seal(mut self, input: SegmentSeal<'_>) -> StorageResult<BuiltSegment> {
+        self.id = input.id;
+        let (index, observation) = self
+            .into_indexed_profiled_inner(
+                input.definition,
+                input.options.bigram_alphabet,
+                input.options.inference,
+                input.collection_count,
+                input.pool,
+                input.profile,
+                input.observe_inference,
+            )
+            .map_err(|error| StorageError::invalid("seal segment", error))?;
+        Ok(BuiltSegment { index, observation })
+    }
+
     /// Admit one typed batch as an ordinary native segment. The logical
     /// contribution uses the same finalization and index validation as files.
     pub(crate) fn from_retained(
@@ -861,9 +918,10 @@ impl CollectionSegment {
         })
     }
 
+    #[cfg(test)]
     pub fn into_indexed(
         self,
-        definition: &impl CollectionPolicy,
+        definition: &dyn CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -879,9 +937,10 @@ impl CollectionSegment {
         )
     }
 
+    #[cfg(test)]
     pub fn into_indexed_profiled(
         self,
-        definition: &impl CollectionPolicy,
+        definition: &dyn CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -900,9 +959,10 @@ impl CollectionSegment {
         .map(|(index, _)| index)
     }
 
+    #[cfg(test)]
     pub(crate) fn into_indexed_observation_profiled(
         self,
-        definition: &impl CollectionPolicy,
+        definition: &dyn CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
@@ -928,7 +988,7 @@ impl CollectionSegment {
 
     fn into_indexed_profiled_inner(
         self,
-        definition: &impl CollectionPolicy,
+        definition: &dyn CollectionPolicy,
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,

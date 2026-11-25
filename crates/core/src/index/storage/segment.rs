@@ -1,5 +1,7 @@
 //! Segment identity, record addresses, and sizing policy.
 
+pub(crate) mod build;
+
 use std::{borrow::Cow, fmt, num::NonZeroUsize};
 
 use serde::{Deserialize, Serialize};

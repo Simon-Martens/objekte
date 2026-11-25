@@ -12,8 +12,8 @@ use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
 
 use crate::index::bigram::BigramAlphabet;
-use crate::index::segment::admission::SegmentAdmission;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
 use crate::index::storage::{
     StorageFactory,
     worker::{FileWorkerBatch, FileWorkerInput},
@@ -1314,34 +1314,37 @@ fn prepare_managed_stream(
     let pool = &repository.workers;
     let policy = options.segment_policy;
     let fresh = || {
-        SegmentAdmission::with_limits_and_id(
-            binding.collection,
-            binding.source,
+        binding.factory.start_file_segment(FileSegmentBuild {
+            collection: binding.collection,
+            source: binding.source,
             policy,
-            SegmentId::new(2),
-        )
+        })
     };
-    let mut admission = fresh();
+    let mut admission = fresh()?;
     let mut indexed = Vec::new();
-    let mut seal = |draft: SegmentAdmission| -> Result<(), String> {
-        let segment = draft.finish().into_indexed(
-            binding.definition,
-            options.bigram_alphabet,
-            options.inference,
-            repository.collections().len(),
-            pool,
-        )?;
+    let mut seal = |draft: Box<dyn SegmentBuilder>| -> Result<(), String> {
+        let segment = draft
+            .seal(SegmentSeal {
+                id: SegmentId::new(2),
+                definition: binding.definition,
+                options,
+                collection_count: repository.collections().len(),
+                pool,
+                profile: None,
+                observe_inference: false,
+            })?
+            .index;
         private.add_private_segment(&segment);
         indexed.push(segment);
         Ok(())
     };
     let mut consume = |batch: BatchContribution| -> Result<(), String> {
-        if !admission.can_admit_batch(&batch) {
-            seal(std::mem::replace(&mut admission, fresh()))?;
+        if !admission.can_admit(&batch)? {
+            seal(std::mem::replace(&mut admission, fresh()?))?;
         }
-        admission.admit_batch(batch)?;
+        admission.admit(batch, None)?;
         if admission.at_capacity() {
-            seal(std::mem::replace(&mut admission, fresh()))?;
+            seal(std::mem::replace(&mut admission, fresh()?))?;
         }
         Ok(())
     };

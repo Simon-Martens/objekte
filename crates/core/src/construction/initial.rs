@@ -19,7 +19,9 @@ use crate::construction::batch::{BatchContribution, SourceFileInput};
 use crate::construction::discovery::{prepare_discovered_file, prepare_discovered_window};
 use crate::construction::scheduling::RepositoryFileJob;
 use crate::index::segment::SegmentId;
-use crate::index::segment::admission::SegmentAdmission;
+use crate::index::storage::StorageFactory;
+use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
+use crate::index::storage::transfer::StorageResult;
 use crate::inventory::discovery::discover;
 use crate::inventory::{CollectionBuilder, FileInventory, append_shifted_bitmap};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
@@ -74,18 +76,18 @@ impl StagedStreamBinding {
     fn new(
         binding: &StreamBinding,
         options: RepositoryOptions,
-        collection_count: usize,
+        factory: &Arc<dyn StorageFactory>,
         budget: &super::file_preparation::StreamBudget,
-    ) -> Self {
-        Self {
+    ) -> StorageResult<Self> {
+        Ok(Self {
             collection: IncrementalCollection::new(
                 (*binding.definition).clone(),
                 binding.reader.clone(),
                 binding.id,
                 Vec::new(),
                 options,
-                collection_count,
-            ),
+                Arc::clone(factory),
+            )?,
             segments: Vec::new(),
             tail: Vec::new(),
             tail_records: 0,
@@ -94,7 +96,7 @@ impl StagedStreamBinding {
             stats: Default::default(),
             parses: 0,
             failed: 0,
-        }
+        })
     }
 
     fn admit(
@@ -116,12 +118,12 @@ impl StagedStreamBinding {
         self.unsealed.set(self.tail.len() as u64, 0);
         if self.tail_records == options.segment_policy.target_records.get() {
             for batch in self.tail.drain(..) {
-                self.collection.admission.admit_batch(batch)?;
+                self.collection.admission.admit(batch, None)?;
             }
             self.unsealed.set(0, 0);
             let built = finish_stream_draft(
                 self.collection
-                    .take_segment()
+                    .take_segment()?
                     .expect("full private stream draft"),
                 &self.collection.definition,
                 options,
@@ -154,8 +156,8 @@ fn stage_stream_file(
     }
     let mut staged = bindings
         .iter()
-        .map(|binding| StagedStreamBinding::new(binding, options, collection_count, budget))
-        .collect::<Vec<_>>();
+        .map(|binding| StagedStreamBinding::new(binding, options, factory, budget))
+        .collect::<StorageResult<Vec<_>>>()?;
     let first = &bindings[0];
     if bindings.len() > 1
         && first.reader.reader().uses_pull_framing()
@@ -218,21 +220,22 @@ fn stage_stream_file(
 }
 
 fn finish_stream_draft(
-    draft: crate::index::segment::admission::CollectionSegment,
+    draft: Box<dyn SegmentBuilder>,
     definition: &CollectionDefinition,
     options: RepositoryOptions,
     collection_count: usize,
     pool: &rayon::ThreadPool,
 ) -> Result<InitialSegment, String> {
-    let (index, observation) = draft.into_indexed_observation_profiled(
+    let built = draft.seal(SegmentSeal {
+        id: SegmentId::new(0),
         definition,
-        options.bigram_alphabet,
-        options.inference,
+        options,
         collection_count,
         pool,
-        None,
-    )?;
-    Ok((index, observation.map(Arc::new)))
+        profile: None,
+        observe_inference: true,
+    })?;
+    Ok((built.index, built.observation.map(Arc::new)))
 }
 
 fn partition_file_jobs<'a>(
@@ -439,7 +442,8 @@ struct IncrementalCollection {
     source: PreparedSource,
     id: CollectionId,
     member_files: Vec<FileId>,
-    admission: SegmentAdmission,
+    admission: Box<dyn SegmentBuilder>,
+    factory: Arc<dyn StorageFactory>,
     records: u32,
     observed_batches: u64,
     logical_records: RoaringBitmap,
@@ -453,26 +457,26 @@ impl IncrementalCollection {
         id: CollectionId,
         member_files: Vec<FileId>,
         options: RepositoryOptions,
-        _collection_count: usize,
-    ) -> Self {
+        factory: Arc<dyn StorageFactory>,
+    ) -> StorageResult<Self> {
         let definition = Arc::new(definition);
-        let admission = SegmentAdmission::with_limits_and_id(
-            id,
-            &source,
-            options.segment_policy,
-            SegmentId::new(0),
-        );
-        Self {
+        let admission = factory.start_file_segment(FileSegmentBuild {
+            collection: id,
+            source: &source,
+            policy: options.segment_policy,
+        })?;
+        Ok(Self {
             definition,
             source,
             id,
             member_files,
             admission,
+            factory,
             records: 0,
             observed_batches: 0,
             logical_records: RoaringBitmap::new(),
             options,
-        }
+        })
     }
 
     fn observe(
@@ -509,18 +513,18 @@ impl IncrementalCollection {
         &mut self,
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<Option<crate::index::segment::admission::CollectionSegment>, String> {
+    ) -> Result<Option<Box<dyn SegmentBuilder>>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let sealed = if !self.admission.can_admit_batch(&batch) {
-            self.take_segment()
+        let sealed = if !self.admission.can_admit(&batch)? {
+            self.take_segment()?
         } else {
             None
         };
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
         }
-        self.admission.admit_batch_profiled(batch, profile)?;
+        self.admission.admit(batch, profile)?;
         Ok(sealed)
     }
 
@@ -530,38 +534,34 @@ impl IncrementalCollection {
         &mut self,
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<Option<crate::index::segment::admission::CollectionSegment>, String> {
+    ) -> Result<Option<Box<dyn SegmentBuilder>>, String> {
         self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let sealed = if self.admission.file_count() != 0 && !self.admission.can_admit_batch(&batch)
-        {
-            self.take_segment()
+        let sealed = if self.admission.file_count() != 0 && !self.admission.can_admit(&batch)? {
+            self.take_segment()?
         } else {
             None
         };
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
         }
-        self.admission.admit_batch_profiled(batch, profile)?;
-        Ok(sealed.or_else(|| {
-            self.admission
-                .at_capacity()
-                .then(|| self.take_segment())
-                .flatten()
-        }))
+        self.admission.admit(batch, profile)?;
+        if sealed.is_none() && self.admission.at_capacity() {
+            return self.take_segment().map_err(String::from);
+        }
+        Ok(sealed)
     }
 
-    fn take_segment(&mut self) -> Option<crate::index::segment::admission::CollectionSegment> {
+    fn take_segment(&mut self) -> StorageResult<Option<Box<dyn SegmentBuilder>>> {
         if self.admission.file_count() == 0 {
-            return None;
+            return Ok(None);
         }
-        let replacement = SegmentAdmission::with_limits_and_id(
-            self.id,
-            &self.source,
-            self.options.segment_policy,
-            SegmentId::new(0),
-        );
-        Some(std::mem::replace(&mut self.admission, replacement).finish())
+        let replacement = self.factory.start_file_segment(FileSegmentBuild {
+            collection: self.id,
+            source: &self.source,
+            policy: self.options.segment_policy,
+        })?;
+        Ok(Some(std::mem::replace(&mut self.admission, replacement)))
     }
 }
 
@@ -783,7 +783,7 @@ fn schedule_public_segment(
     expected: &mut IndexRevision,
     pending: &[IncrementalCollection],
     collection_index: usize,
-    segment: crate::index::segment::admission::CollectionSegment,
+    segment: Box<dyn SegmentBuilder>,
     options: RepositoryOptions,
     pool: &Arc<rayon::ThreadPool>,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
@@ -1089,7 +1089,6 @@ impl Repository {
                 .map(|file| file.revision.size)
                 .ok_or_else(|| "missing scheduled source metadata".to_owned())
         };
-        let collection_count = selected.len();
         let mut pending = selected
             .into_iter()
             .map(|(definition, id, source, members)| {
@@ -1099,10 +1098,10 @@ impl Repository {
                     id,
                     members,
                     options,
-                    collection_count,
+                    Arc::clone(&storage_factory),
                 )
             })
-            .collect::<Vec<_>>();
+            .collect::<StorageResult<Vec<_>>>()?;
         let mut repository = crate::construction::repository_state::initialize_empty(
             root.clone(),
             definitions.clone(),
@@ -1426,7 +1425,7 @@ impl Repository {
                         })?);
                         normal.clear();
                     }
-                    if let Some(sealed) = pending[collection_index].take_segment() {
+                    if let Some(sealed) = pending[collection_index].take_segment()? {
                         schedule_public_segment(
                             &mut scheduler,
                             &index,
@@ -1580,28 +1579,34 @@ impl Repository {
                         digest_bindings[file.0 as usize].push((collection, digest));
                     }
                     schedule_stats.absorb(result);
-                    if let Some(sealed) = pending[collection_index].take_segment() {
-                        let submit_result = schedule_private_segment(
-                            &mut scheduler,
-                            &mut private_group,
-                            collection_index,
-                            sealed,
-                            Arc::clone(&definition_for_private),
-                            options,
-                            collection_count,
-                            &pool,
-                            &cancelled,
-                        );
-                        if let Err(error) = submit_result {
-                            let drain_error = private_group.discard(&mut scheduler).err();
-                            return Err(match (cancelled(), drain_error) {
-                                (true, _) => IndexError::Cancelled,
-                                (false, Some(drain)) => IndexError::Build(format!(
-                                    "{error}; private segment drain: {drain}"
-                                )),
-                                (false, None) => error,
-                            });
-                        }
+                    let submit_result = pending[collection_index]
+                        .take_segment()
+                        .map_err(IndexError::from)
+                        .and_then(|sealed| {
+                            if let Some(sealed) = sealed {
+                                schedule_private_segment(
+                                    &mut scheduler,
+                                    &mut private_group,
+                                    collection_index,
+                                    sealed,
+                                    Arc::clone(&definition_for_private),
+                                    options,
+                                    collection_count,
+                                    &pool,
+                                    &cancelled,
+                                )?;
+                            }
+                            Ok(())
+                        });
+                    if let Err(error) = submit_result {
+                        let drain_error = private_group.discard(&mut scheduler).err();
+                        return Err(match (cancelled(), drain_error) {
+                            (true, _) => IndexError::Cancelled,
+                            (false, Some(drain)) => IndexError::Build(format!(
+                                "{error}; private segment drain: {drain}"
+                            )),
+                            (false, None) => error,
+                        });
                     }
                     let publish_result = publish_private_segment_group(
                         &mut scheduler,
@@ -1670,7 +1675,7 @@ impl Repository {
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
-            if let Some(sealed) = pending[number].take_segment() {
+            if let Some(sealed) = pending[number].take_segment()? {
                 schedule_public_segment(
                     &mut scheduler,
                     &index,
@@ -1711,7 +1716,7 @@ impl Repository {
                 let mut private_work = Vec::new();
                 let mut sealed_tails =
                     streaming_budget.activity(StreamActivity::PrivateSegments, 0, 0);
-                let mut tails = BTreeMap::<CollectionId, SegmentAdmission>::new();
+                let mut tails = BTreeMap::<CollectionId, Box<dyn SegmentBuilder>>::new();
                 for bindings in files {
                     for binding in bindings {
                         let id = binding.collection.id;
@@ -1738,17 +1743,21 @@ impl Repository {
                         segments.extend(binding.segments);
                         private_work.push(binding.private);
                         let new_tail = || {
-                            SegmentAdmission::with_limits_and_id(
-                                id,
-                                &state.source,
-                                options.segment_policy,
-                                SegmentId::new(0),
-                            )
+                            storage_factory.start_file_segment(FileSegmentBuild {
+                                collection: id,
+                                source: &state.source,
+                                policy: options.segment_policy,
+                            })
                         };
-                        let tail = tails.entry(id).or_insert_with(new_tail);
+                        let tail = match tails.entry(id) {
+                            std::collections::btree_map::Entry::Occupied(entry) => entry.into_mut(),
+                            std::collections::btree_map::Entry::Vacant(entry) => {
+                                entry.insert(new_tail()?)
+                            }
+                        };
                         for batch in binding.tail {
-                            if !tail.can_admit_batch(&batch) {
-                                let draft = std::mem::replace(tail, new_tail()).finish();
+                            if !tail.can_admit(&batch)? {
+                                let draft = std::mem::replace(tail, new_tail()?);
                                 let built = finish_stream_draft(
                                     draft,
                                     &state.definition,
@@ -1760,14 +1769,14 @@ impl Repository {
                                 sealed_tails.add_private_segment(&built.0);
                                 segments.push(built);
                             }
-                            tail.admit_batch(batch).map_err(IndexError::Build)?;
+                            tail.admit(batch, None)?;
                         }
                     }
                 }
                 for (id, tail) in tails {
                     if tail.file_count() != 0 {
                         let built = finish_stream_draft(
-                            tail.finish(),
+                            tail,
                             &pending[id.0 as usize].definition,
                             options,
                             collection_count,
@@ -1852,15 +1861,20 @@ impl Repository {
                     let state = &mut pending[id.0 as usize];
                     let source = state.source.clone();
                     let definition = Arc::clone(&state.definition);
-                    let mut seal = |mut draft: crate::index::segment::admission::CollectionSegment| -> Result<(), String> {
-                        draft.id = SegmentId::new(ordinal);
+                    let mut seal = |draft: Box<dyn SegmentBuilder>| -> Result<(), String> {
+                        let id = SegmentId::new(ordinal);
                         ordinal = ordinal.checked_add(1).ok_or("segment identity overflow")?;
-                        let (index, observation) = draft.into_indexed_observation_profiled(
-                            &*definition, options.bigram_alphabet, options.inference,
-                            collection_count, &pool, None,
-                        )?;
-                        private_work.add_private_segment(&index);
-                        builds.push((index, observation.map(Arc::new)));
+                        let built = draft.seal(SegmentSeal {
+                            id,
+                            definition: &*definition,
+                            options,
+                            collection_count,
+                            pool: &pool,
+                            profile: None,
+                            observe_inference: true,
+                        })?;
+                        private_work.add_private_segment(&built.index);
+                        builds.push((built.index, built.observation.map(Arc::new)));
                         Ok(())
                     };
                     let mut admit = |batch: BatchContribution| -> Result<(), String> {
@@ -1944,7 +1958,7 @@ impl Repository {
                             }
                         })?;
                     }
-                    if let Some(draft) = state.take_segment() {
+                    if let Some(draft) = state.take_segment()? {
                         seal(draft).map_err(IndexError::Build)?;
                     }
                 }

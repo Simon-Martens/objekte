@@ -8,6 +8,7 @@ use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::repository::statistics::IncrementalSegmentProfile;
 
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::segment::build::{SegmentBuilder, SegmentSeal};
 
 pub(crate) struct SegmentJobGate {
     state: std::sync::Mutex<SegmentJobGateState>,
@@ -358,7 +359,7 @@ impl SegmentBuildScheduler {
     fn submit(
         &mut self,
         collection_index: usize,
-        mut segment: crate::index::segment::admission::CollectionSegment,
+        segment: Box<dyn SegmentBuilder>,
         definition: Arc<CollectionDefinition>,
         options: RepositoryOptions,
         collection_count: usize,
@@ -378,14 +379,13 @@ impl SegmentBuildScheduler {
         let private_job = (destination == SegmentBuildDestination::Private)
             .then(|| self.gate.as_ref().map(|gate| gate.allocate_private_job()))
             .flatten();
-        segment.id = SegmentId::new(segment_id);
         planned.push(segment_id);
         self.outstanding = self
             .outstanding
             .checked_add(1)
             .ok_or("segment scheduler overflow")?;
         self.peak_outstanding = self.peak_outstanding.max(self.outstanding);
-        let collection = segment.collection;
+        let collection = crate::model::CollectionId(collection_index as u32);
         let sender = self.sender.clone();
         let profile_build = options.detailed_profiling_enabled();
         let running = Arc::clone(&self.running);
@@ -401,13 +401,9 @@ impl SegmentBuildScheduler {
             let phase = crate::measurement::timer::DetailedInstant::now();
             let mut profile = profile_build.then(|| IncrementalSegmentProfile {
                 collection: definition.name.clone(),
-                files: segment.files.len(),
-                records: segment.records.len(),
-                source_bytes: segment
-                    .files
-                    .iter()
-                    .map(|file| file.entry.revision.size)
-                    .sum(),
+                files: segment.file_count(),
+                records: segment.record_count(),
+                source_bytes: segment.source_bytes(),
                 ..Default::default()
             });
             #[allow(unused_mut)]
@@ -417,17 +413,19 @@ impl SegmentBuildScheduler {
                 Err(error)
             } else {
                 segment
-                    .into_indexed_observation_profiled(
-                        definition.as_ref(),
-                        options.bigram_alphabet,
-                        options.inference,
+                    .seal(SegmentSeal {
+                        id: SegmentId::new(segment_id),
+                        definition: definition.as_ref(),
+                        options,
                         collection_count,
-                        &worker_pool,
-                        profile.as_mut(),
-                    )
-                    .map(|(index, observation)| IndexedSegmentBuild {
-                        index,
-                        observation: observation.map(Arc::new),
+                        pool: &worker_pool,
+                        profile: profile.as_mut(),
+                        observe_inference: true,
+                    })
+                    .map_err(String::from)
+                    .map(|built| IndexedSegmentBuild {
+                        index: built.index,
+                        observation: built.observation.map(Arc::new),
                         profile,
                         build_ns: phase.elapsed().as_nanos() as u64,
                     })
@@ -658,7 +656,7 @@ impl PrivateSegmentGroup {
 pub(super) fn schedule_segment(
     scheduler: &mut SegmentBuildScheduler,
     collection_index: usize,
-    segment: crate::index::segment::admission::CollectionSegment,
+    segment: Box<dyn SegmentBuilder>,
     definition: Arc<CollectionDefinition>,
     options: RepositoryOptions,
     collection_count: usize,
@@ -693,7 +691,7 @@ pub(super) fn schedule_private_segment(
     scheduler: &mut SegmentBuildScheduler,
     private_group: &mut PrivateSegmentGroup,
     collection_index: usize,
-    segment: crate::index::segment::admission::CollectionSegment,
+    segment: Box<dyn SegmentBuilder>,
     definition: Arc<CollectionDefinition>,
     options: RepositoryOptions,
     collection_count: usize,

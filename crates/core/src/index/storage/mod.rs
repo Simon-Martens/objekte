@@ -21,6 +21,17 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn start_file_segment(
+        &self,
+        input: segment::build::FileSegmentBuild<'_>,
+    ) -> StorageResult<Box<dyn segment::build::SegmentBuilder>>;
+
+    fn seal_direct_segment(
+        &self,
+        input: segment::build::DirectSegmentBuild<'_>,
+        seal: segment::build::SegmentSeal<'_>,
+    ) -> StorageResult<segment::build::BuiltSegment>;
+
     fn retain_record_bodies(
         &self,
         bodies: Vec<crate::records::RetainedBody>,

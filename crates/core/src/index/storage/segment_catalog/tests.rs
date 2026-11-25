@@ -2,17 +2,22 @@ use std::collections::BTreeMap;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::*;
+use crate::construction::batch::BatchContribution;
 use crate::index::storage::StorageFactory;
 use crate::index::storage::liveness::{ActiveRecords, InitialLiveness, LiveSlotReader};
 use crate::index::storage::order::{
     InferredOrderRows, OrderColumnReader, SortConfig, SortKey, SortOptions,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
+use crate::index::storage::segment::build::{
+    BuiltSegment, DirectSegmentBuild, FileSegmentBuild, SegmentBuilder, SegmentSeal,
+};
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError};
 use crate::lifecycle::Index;
 use crate::model::{FieldPath, Value};
 use crate::query::options::ReturnMode;
 use crate::query_access::membership::MembershipView;
+use crate::repository::statistics::AdmissionBreakdown;
 use crate::schema::Schema;
 
 #[derive(Default)]
@@ -27,12 +32,35 @@ struct TableFactory {
     liveness_visits: Arc<AtomicUsize>,
     worker_calls: AtomicUsize,
     file_worker_calls: AtomicUsize,
+    direct_seals: AtomicUsize,
+    file_batches_admitted: AtomicUsize,
+    file_segments_sealed: AtomicUsize,
+    fail_file_segment_seal: AtomicBool,
     fail_file_worker: AtomicBool,
     fail_seal: AtomicBool,
     fail_lookup: AtomicBool,
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn start_file_segment(
+        &self,
+        input: FileSegmentBuild<'_>,
+    ) -> StorageResult<Box<dyn SegmentBuilder>> {
+        Ok(Box::new(FailureInjectingBuilder {
+            inner: crate::index::storage::default_factory().start_file_segment(input)?,
+            control: Arc::clone(self),
+        }))
+    }
+
+    fn seal_direct_segment(
+        &self,
+        input: DirectSegmentBuild<'_>,
+        seal: SegmentSeal<'_>,
+    ) -> StorageResult<BuiltSegment> {
+        self.direct_seals.fetch_add(1, Ordering::Relaxed);
+        crate::index::storage::default_factory().seal_direct_segment(input, seal)
+    }
+
     fn retain_record_bodies(
         &self,
         bodies: Vec<crate::records::RetainedBody>,
@@ -131,6 +159,63 @@ impl StorageFactory for Arc<TableFactory> {
     }
 }
 
+struct FailureInjectingBuilder {
+    inner: Box<dyn SegmentBuilder>,
+    control: Arc<TableFactory>,
+}
+
+impl SegmentBuilder for FailureInjectingBuilder {
+    fn file_count(&self) -> usize {
+        self.inner.file_count()
+    }
+
+    fn record_count(&self) -> usize {
+        self.inner.record_count()
+    }
+
+    fn source_bytes(&self) -> u64 {
+        self.inner.source_bytes()
+    }
+
+    fn at_capacity(&self) -> bool {
+        self.inner.at_capacity()
+    }
+
+    fn can_admit(&self, batch: &BatchContribution) -> StorageResult<bool> {
+        self.inner.can_admit(batch)
+    }
+
+    fn admit(
+        &mut self,
+        batch: BatchContribution,
+        profile: Option<&mut AdmissionBreakdown>,
+    ) -> StorageResult<()> {
+        self.inner.admit(batch, profile)?;
+        self.control
+            .file_batches_admitted
+            .fetch_add(1, Ordering::Relaxed);
+        Ok(())
+    }
+
+    fn seal(self: Box<Self>, input: SegmentSeal<'_>) -> StorageResult<BuiltSegment> {
+        let built = self.inner.seal(input)?;
+        self.control
+            .file_segments_sealed
+            .fetch_add(1, Ordering::Relaxed);
+        if self
+            .control
+            .fail_file_segment_seal
+            .swap(false, Ordering::Relaxed)
+        {
+            return Err(StorageError::invalid(
+                "test file segment",
+                "injected segment seal failure",
+            ));
+        }
+        Ok(built)
+    }
+}
+
 struct TableBodies {
     count: usize,
     bodies: BTreeMap<usize, crate::records::RetainedBody>,
@@ -192,6 +277,7 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
     let before = pinned.0.record_routes[0].route("kept").unwrap().unwrap();
     assert_eq!(before.slot, RecordSlot(1));
     assert_eq!(factory.retained_builds.load(Ordering::Relaxed), 1);
+    assert_eq!(factory.direct_seals.load(Ordering::Relaxed), 1);
     assert_eq!(factory.retained_reads.load(Ordering::Relaxed), 0);
 
     factory.fail_retained_read.store(true, Ordering::Relaxed);
@@ -752,6 +838,29 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
     std::fs::write(root.join(relative), b"third\nfourth\n").unwrap();
     let file_workers = factory.file_worker_calls.load(Ordering::Relaxed);
     assert!(file_workers > 0);
+    let admitted = factory.file_batches_admitted.load(Ordering::Relaxed);
+    let sealed = factory.file_segments_sealed.load(Ordering::Relaxed);
+    assert!(admitted > 0);
+    assert!(sealed > 0);
+    factory
+        .fail_file_segment_seal
+        .store(true, Ordering::Relaxed);
+    let error = index.add_file(relative).unwrap_err();
+    assert!(error.to_string().contains("injected segment seal failure"));
+    assert_eq!(index.view().unwrap().revision(), pinned.revision());
+    assert!(factory.file_batches_admitted.load(Ordering::Relaxed) > admitted);
+    assert!(factory.file_segments_sealed.load(Ordering::Relaxed) > sealed);
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .file_catalog()
+            .unwrap()
+            .file_by_path(relative)
+            .unwrap()
+            .is_none()
+    );
+
     factory.fail_file_worker.store(true, Ordering::Relaxed);
     let error = index.add_file(relative).unwrap_err();
     assert!(error.to_string().contains("injected prepared file failure"));

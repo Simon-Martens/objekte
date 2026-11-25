@@ -7,8 +7,8 @@ use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
     FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_observed_file_build,
 };
-use crate::index::segment::admission::SegmentAdmission;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
 use crate::inventory::discovery::selects_file;
 use crate::inventory::{FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView};
@@ -125,65 +125,49 @@ pub(crate) fn index_prepared_file(
             }
             continue;
         }
-        let mut admission = SegmentAdmission::with_limits_and_id(
-            collection.collection,
-            &state.required_file_reader(),
-            policy,
-            SegmentId::new(next_segment_id),
-        );
-        next_segment_id = next_segment_id
-            .checked_add(1)
-            .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
-        let mut finish = |admission: SegmentAdmission| -> Result<(), IndexError> {
-            #[cfg(test)]
-            super::tests::reach_file_preparation_checkpoint("whole-document-finalization");
-            indexed.push(
-                admission
-                    .finish()
-                    .into_indexed(
-                        &state.definition,
-                        options.bigram_alphabet,
-                        options.inference,
-                        repository.collections().len(),
-                        &repository.workers,
-                    )
-                    .map_err(IndexError::Build)?,
-            );
-            Ok(())
+        let source = state.required_file_reader();
+        let mut fresh = || -> Result<_, IndexError> {
+            let id = SegmentId::new(next_segment_id);
+            next_segment_id = next_segment_id
+                .checked_add(1)
+                .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+            let builder = repository
+                .storage_factory
+                .start_file_segment(FileSegmentBuild {
+                    collection: collection.collection,
+                    source: &source,
+                    policy,
+                })?;
+            Ok((id, builder))
         };
+        let mut draft = fresh()?;
+        let mut finish =
+            |(id, admission): (SegmentId, Box<dyn SegmentBuilder>)| -> Result<(), IndexError> {
+                #[cfg(test)]
+                super::tests::reach_file_preparation_checkpoint("whole-document-finalization");
+                let built = admission.seal(SegmentSeal {
+                    id,
+                    definition: &state.definition,
+                    options,
+                    collection_count: repository.collections().len(),
+                    pool: &repository.workers,
+                    profile: None,
+                    observe_inference: false,
+                })?;
+                indexed.push(built.index);
+                Ok(())
+            };
         for batch in collection.contributions {
-            if !admission.can_admit_batch(&batch) {
-                finish(std::mem::replace(
-                    &mut admission,
-                    SegmentAdmission::with_limits_and_id(
-                        collection.collection,
-                        &state.required_file_reader(),
-                        policy,
-                        SegmentId::new(next_segment_id),
-                    ),
-                ))?;
-                next_segment_id = next_segment_id
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+            if !draft.1.can_admit(&batch)? {
+                finish(std::mem::replace(&mut draft, fresh()?))?;
             }
-            admission.admit_batch(batch).map_err(IndexError::Build)?;
-            if admission.at_capacity() {
-                finish(std::mem::replace(
-                    &mut admission,
-                    SegmentAdmission::with_limits_and_id(
-                        collection.collection,
-                        &state.required_file_reader(),
-                        policy,
-                        SegmentId::new(next_segment_id),
-                    ),
-                ))?;
-                next_segment_id = next_segment_id
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
+            draft.1.admit(batch, None)?;
+            if draft.1.at_capacity() {
+                finish(std::mem::replace(&mut draft, fresh()?))?;
             }
         }
-        if admission.file_count() != 0 {
-            finish(admission)?;
+        if draft.1.file_count() != 0 {
+            finish(draft)?;
         }
     }
     let mut entry = FileEntry {

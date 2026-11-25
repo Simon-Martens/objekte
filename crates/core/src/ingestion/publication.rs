@@ -4,8 +4,8 @@ use std::collections::HashSet;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 
-use crate::index::segment::admission::CollectionSegment;
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::segment::build::{DirectSegmentBodies, DirectSegmentBuild, SegmentSeal};
 use crate::index::storage::worker::{DirectRecordBatch, DirectRecordInput, PreparedDirectBatch};
 use crate::lifecycle::publication::{RecordMutation, RecordMutationKind};
 use crate::lifecycle::{Index, IndexError, IndexRevision, IndexView, RecordRegistration};
@@ -159,47 +159,42 @@ fn build_segment_inputs(
             completed_records: completed,
         })
         .map_err(|error| IngestionError::Index(IndexError::Build(error.to_string())))?;
-    let draft = if let Some(versions) = versions {
-        CollectionSegment::from_provider(
-            SegmentId::new(2),
-            collection,
-            registration.adapter_id.clone(),
-            registration.version,
-            registration.handle.ordinal,
-            raw_covers_logical_fields,
-            headers,
-            versions.to_vec(),
-            contribution,
-        )
+    let factory = &view.repository().storage_factory;
+    let bodies = if let Some(versions) = versions {
+        DirectSegmentBodies::Versioned(versions)
     } else {
-        let bodies = view
-            .repository()
-            .storage_factory
-            .retain_record_bodies(bodies)
-            .map_err(IndexError::from)
-            .map_err(IngestionError::Index)?;
-        CollectionSegment::from_retained(
-            SegmentId::new(2),
-            collection,
-            registration.adapter_id.clone(),
-            registration.version,
-            registration.handle.ordinal,
-            raw_covers_logical_fields,
-            headers,
-            bodies,
-            contribution,
+        DirectSegmentBodies::Retained(
+            factory
+                .retain_record_bodies(bodies)
+                .map_err(IndexError::from)
+                .map_err(IngestionError::Index)?,
         )
-    }
-    .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
-    let mut segment = draft
-        .into_indexed(
-            declaration,
-            options.bigram_alphabet,
-            options.inference,
-            view.repository().collections.len(),
-            &view.repository().workers,
+    };
+    let mut segment = factory
+        .seal_direct_segment(
+            DirectSegmentBuild {
+                collection,
+                source_id: &registration.adapter_id,
+                source_version: registration.version,
+                registration: registration.handle.ordinal,
+                raw_covers_logical_fields,
+                bodies,
+                headers,
+                contribution,
+            },
+            SegmentSeal {
+                id: SegmentId::new(2),
+                definition: declaration,
+                options,
+                collection_count: view.repository().collections.len(),
+                pool: &view.repository().workers,
+                profile: None,
+                observe_inference: false,
+            },
         )
-        .map_err(|error| IngestionError::Index(IndexError::Build(error)))?;
+        .map_err(IndexError::from)
+        .map_err(IngestionError::Index)?
+        .index;
     segment.recompute_accounting();
     Ok(segment)
 }

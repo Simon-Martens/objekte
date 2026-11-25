@@ -351,6 +351,21 @@ struct OrderedFileFactory {
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
+    fn start_file_segment(
+        &self,
+        input: crate::index::storage::segment::build::FileSegmentBuild<'_>,
+    ) -> StorageResult<Box<dyn crate::index::storage::segment::build::SegmentBuilder>> {
+        crate::index::storage::default_factory().start_file_segment(input)
+    }
+
+    fn seal_direct_segment(
+        &self,
+        input: crate::index::storage::segment::build::DirectSegmentBuild<'_>,
+        seal: crate::index::storage::segment::build::SegmentSeal<'_>,
+    ) -> StorageResult<crate::index::storage::segment::build::BuiltSegment> {
+        crate::index::storage::default_factory().seal_direct_segment(input, seal)
+    }
+
     fn retain_record_bodies(
         &self,
         bodies: Vec<crate::records::RetainedBody>,
