@@ -459,7 +459,7 @@ pub(crate) fn materialize_lifecycle_cached(
             collection,
             SegmentRecordRef {
                 record: record.clone(),
-                file,
+                file: std::borrow::Cow::Borrowed(file),
             },
             revision,
             member.matched_fields.to_vec(),

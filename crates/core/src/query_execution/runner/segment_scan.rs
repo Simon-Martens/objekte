@@ -220,6 +220,7 @@ pub(super) fn scan_segment_file_parallel(
         catalog,
         crate::model::FileId(file_id),
     )?;
+    let file = file.as_ref();
     let path = repo.files.required_root().join(&file.relative_path);
     let mut reader = RecordRangeReader::open_for_search(&path, file.revision, None)?
         .with_backend(collection.required_file_reader().reader_handle());
@@ -263,8 +264,6 @@ pub(super) fn scan_segment_file_parallel(
             {
                 return Err("segment scan file ownership mismatch".into());
             }
-            let resolved = SegmentRecordRef { record, file };
-            let record = resolved.record;
             result.record_parses += u64::from(
                 record.class == RecordClass::Logical
                     && (direct_plan.is_none()
@@ -281,7 +280,7 @@ pub(super) fn scan_segment_file_parallel(
                 repo,
                 collection,
                 &record,
-                resolved.file,
+                file,
                 &bytes,
                 filter,
                 fts,
@@ -301,13 +300,20 @@ pub(super) fn scan_segment_file_parallel(
                 source_bytes: Some(&bytes),
                 record: &record,
                 range: (record).record_range(),
-                file: Some(resolved.file),
+                file: Some(file),
                 collection_name: &collection.definition.name,
                 repository_root: Some(repo.files.required_root()),
             };
             result.matches += 1;
             result.sort_key_evaluations += u64::from(sort.bound.has_computed);
-            let key = segment_rank_key(repo, sort, collection_index, segment, &record, Some(&ctx))?;
+            let key = segment_rank_key(
+                repo,
+                sort,
+                collection_index,
+                segment.as_ref(),
+                &record,
+                Some(&ctx),
+            )?;
             if cap == 0
                 || (local_winners.len() >= cap
                     && local_winners

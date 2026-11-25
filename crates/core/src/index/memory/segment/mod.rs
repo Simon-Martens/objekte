@@ -6,6 +6,7 @@ mod projection;
 
 pub(crate) use projection::PartitionRouting;
 
+use std::borrow::Cow;
 use std::collections::{BTreeMap, HashMap};
 #[cfg(test)]
 use std::num::NonZeroUsize;
@@ -19,6 +20,10 @@ use crate::index::bigram::BigramIndex;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
+use crate::index::storage::order::SortKey;
+use crate::index::storage::ordered_slots::OrderedSlots;
+use crate::index::storage::segment::{SegmentDescriptor, SegmentReader};
+use crate::index::storage::transfer::StorageResult;
 use crate::inference::InferenceState;
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry, SourceRevision};
 use crate::lifecycle::IndexRevision;
@@ -643,29 +648,66 @@ pub use crate::index::storage::component::{
     ComponentDescriptor as NativeComponentDescriptor, ComponentKind as NativeComponentKind,
 };
 
-impl IndexedCollectionSegment {
-    pub(crate) fn ordered_slots(
+impl SegmentReader for IndexedCollectionSegment {
+    fn descriptor(&self) -> SegmentDescriptor {
+        SegmentDescriptor {
+            id: self.id,
+            collection: self.collection,
+            slots: self.record_count(),
+        }
+    }
+
+    fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
+        Ok(self.id_lookup.get(id).copied())
+    }
+
+    fn header(
+        &self,
+        slot: RecordSlot,
+    ) -> StorageResult<Option<Cow<'_, crate::records::RecordHeader>>> {
+        Ok(self.record(slot).map(Cow::Borrowed))
+    }
+
+    fn stored_key(
+        &self,
+        path: &crate::model::FieldPath,
+        slot: RecordSlot,
+    ) -> StorageResult<Option<Cow<'_, SortKey>>> {
+        Ok(self
+            .sorting
+            .columns
+            .get(path)
+            .and_then(|column| column.keys.get(slot.0 as usize))
+            .map(Cow::Borrowed))
+    }
+
+    fn ordered_slots(
         &self,
         sort: &[crate::query::options::SortField],
         scalar: Option<(&crate::model::FieldPath, bool)>,
-    ) -> Option<&dyn crate::index::storage::ordered_slots::OrderedSlots> {
+    ) -> StorageResult<Option<&dyn OrderedSlots>> {
         if sort.is_empty() {
-            return Some(&self.identity_order);
+            return Ok(Some(&self.identity_order));
         }
         if sort.len() > 1 {
-            return self.sorting.composite(sort).map(|column| {
-                &column.order as &dyn crate::index::storage::ordered_slots::OrderedSlots
-            });
+            return Ok(self
+                .sorting
+                .composite(sort)
+                .map(|column| &column.order as &dyn OrderedSlots));
         }
-        let (path, descending) = scalar?;
-        let column = self.sorting.columns.get(path)?;
-        Some(if descending {
-            &column.descending
-        } else {
-            &column.ascending
-        })
+        Ok(scalar.and_then(|(path, descending)| {
+            self.sorting.columns.get(path).map(|column| {
+                if descending {
+                    &column.descending as &dyn OrderedSlots
+                } else {
+                    &column.ascending
+                }
+            })
+        }))
     }
+}
 
+impl IndexedCollectionSegment {
     pub(crate) fn refresh_metadata_sort_slots(
         &mut self,
         slots: impl IntoIterator<Item = RecordSlot>,

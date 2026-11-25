@@ -5,8 +5,8 @@ use std::{path::Path, sync::Arc};
 
 use crate::source::{SourceReader, registry::PreparedSource};
 
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inventory::{ByteRange, FileInventory, SourceRevision};
-use crate::lifecycle::catalog::FileCatalog;
 use crate::model::FileId;
 
 use super::RecordRangeReader;
@@ -27,7 +27,7 @@ enum SourceFileTable<'a> {
     Inventory(&'a FileInventory),
     Catalog {
         root: &'a Path,
-        catalog: &'a FileCatalog,
+        catalog: &'a dyn FileCatalogReader,
     },
 }
 
@@ -60,7 +60,7 @@ impl<'a> SourceAccessSession<'a> {
         }
     }
 
-    pub(crate) fn from_catalog(root: &'a Path, catalog: &'a FileCatalog) -> Self {
+    pub(crate) fn from_catalog(root: &'a Path, catalog: &'a dyn FileCatalogReader) -> Self {
         Self {
             source: SourceFileTable::Catalog { root, catalog },
             open: Vec::new(),
@@ -135,7 +135,10 @@ impl<'a> SourceAccessSession<'a> {
                 (path, file.revision)
             }
             SourceFileTable::Catalog { root, catalog } => {
-                let file = catalog.entry(file_id).ok_or("unknown source file")?;
+                let file = catalog
+                    .file(file_id)
+                    .map_err(|error| error.to_string())?
+                    .ok_or("unknown source file")?;
                 (root.join(&file.relative_path), file.revision)
             }
         };

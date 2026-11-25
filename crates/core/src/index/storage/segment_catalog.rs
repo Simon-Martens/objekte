@@ -1,5 +1,6 @@
 //! Pinned routing within a collection's segment directory.
 
+use std::any::Any;
 use std::borrow::Cow;
 use std::sync::Arc;
 
@@ -19,7 +20,7 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
 }
 
 /// A sealed segment supplies route inputs without exposing its containers.
-pub(crate) trait SegmentRouteSource {
+pub(crate) trait SegmentRouteSource: Any + Send + Sync {
     fn segment_id(&self) -> SegmentId;
 
     fn visit_live_records(
@@ -65,38 +66,18 @@ pub(crate) fn edited_catalog(
     editor.seal()
 }
 
-pub(crate) fn build_catalog(
+pub(crate) fn build_catalog<'a, S: SegmentRouteSource>(
     factory: &dyn super::StorageFactory,
-    segments: impl IntoIterator<Item = impl SegmentRouteSource>,
+    segments: impl IntoIterator<Item = &'a S>,
 ) -> StorageResult<SegmentCatalogHandle> {
     let mut editor = factory.segment_catalog()?;
     for (position, segment) in segments.into_iter().enumerate() {
         editor.apply(SegmentDirectoryDelta::Install {
-            source: &segment,
+            source: segment,
             position,
         })?;
     }
     editor.seal()
-}
-
-impl<T: SegmentRouteSource + ?Sized> SegmentRouteSource for &T {
-    fn segment_id(&self) -> SegmentId {
-        (**self).segment_id()
-    }
-
-    fn visit_live_records(
-        &self,
-        visit: &mut dyn FnMut(&[(&RecordId, RecordSlot)]) -> StorageResult<()>,
-    ) -> StorageResult<()> {
-        (**self).visit_live_records(visit)
-    }
-
-    fn visit_files(
-        &self,
-        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
-    ) -> StorageResult<()> {
-        (**self).visit_files(visit)
-    }
 }
 
 #[cfg(test)]

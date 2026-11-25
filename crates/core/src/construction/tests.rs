@@ -2112,7 +2112,8 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
         );
     }
     assert_eq!(
-        file_batches(&ids, &inventory)
+        file_batches(&ids, |id| Ok(inventory.files[id.0 as usize].revision.size))
+            .unwrap()
             .iter()
             .map(|batch| batch.len())
             .collect::<Vec<_>>(),
@@ -2137,7 +2138,8 @@ fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
         );
     }
     assert_eq!(
-        file_batches(&ids, &large)
+        file_batches(&ids, |id| Ok(large.files[id.0 as usize].revision.size))
+            .unwrap()
             .iter()
             .map(|batch| batch.len())
             .collect::<Vec<_>>(),

@@ -546,7 +546,7 @@ fn scan_direct_target_parallel(
         source_bytes: Some(&bytes),
         record: &resolved.record,
         range: (resolved.record).record_range(),
-        file: Some(resolved.file),
+        file: Some(resolved.file.as_ref()),
         collection_name: &target_collection.definition.name,
         repository_root: Some(repo.files.required_root()),
     };
@@ -1000,7 +1000,7 @@ fn try_direct_relation_page(
                     source_bytes: Some(&bytes),
                     record: &resolved.record,
                     range: (resolved.record).record_range(),
-                    file: Some(resolved.file),
+                    file: Some(resolved.file.as_ref()),
                     collection_name: &target_collection.definition.name,
                     repository_root: Some(repo.files.required_root()),
                 };
@@ -1148,7 +1148,7 @@ fn try_direct_relation_page(
             && direct_sort_column.is_none()
             && cap < may.len() as usize
         {
-            lifecycle_segment_order(&published.index, sort, query, *source_index)
+            lifecycle_segment_order(published.index.as_ref(), sort, query, *source_index)?
         } else {
             None
         };
@@ -1207,7 +1207,14 @@ fn try_direct_relation_page(
                     id: record.id.0.to_string(),
                 }
             } else {
-                segment_rank_key(repo, sort, *source_index, &published.index, record, None)?
+                segment_rank_key(
+                    repo,
+                    sort,
+                    *source_index,
+                    published.index.as_ref(),
+                    record,
+                    None,
+                )?
             };
             if !ordered {
                 total += 1;
@@ -1726,7 +1733,7 @@ fn scan_relation_file_parallel(
             repo,
             sort,
             collection_index,
-            &segments[collection_index][job.segment_index].index,
+            segments[collection_index][job.segment_index].index.as_ref(),
             &record,
             Some(&ctx),
         )?;
@@ -1734,7 +1741,7 @@ fn scan_relation_file_parallel(
             resolved.collection,
             SegmentRecordRef {
                 record: record.clone(),
-                file: resolved.file,
+                file: std::borrow::Cow::Borrowed(resolved.file),
             },
             revision,
             if query.options.evidence {
@@ -2802,8 +2809,14 @@ fn try_exact_native_boolean_page(
                 .index
                 .record(slot)
                 .ok_or("native Boolean ranked slot missing")?;
-            let key =
-                segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+            let key = segment_rank_key(
+                repo,
+                sort,
+                collection_index,
+                published.index.as_ref(),
+                record,
+                None,
+            )?;
             let hit = if matches!(
                 published.index.backing,
                 crate::index::segment::SegmentBacking::FileRange { .. }
@@ -3712,7 +3725,7 @@ pub(super) fn search_segmented_relations(
                 resolved.collection,
                 SegmentRecordRef {
                     record: record.clone(),
-                    file: resolved.file,
+                    file: std::borrow::Cow::Borrowed(resolved.file),
                 },
                 revision,
                 if query.options.evidence {
@@ -4237,10 +4250,19 @@ pub(crate) fn explain_segmented(
                         .offset
                         .saturating_add(query.options.limit)
                         .saturating_mul(4) as u64)
-            && segments[collection_index].iter().all(|segment| {
-                lifecycle_segment_order(&segment.index, &resolved_sort, query, collection_index)
-                    .is_some()
-            })
+            && segments[collection_index]
+                .iter()
+                .try_fold(true, |all, segment| {
+                    Ok::<_, String>(
+                        all && lifecycle_segment_order(
+                            segment.index.as_ref(),
+                            &resolved_sort,
+                            query,
+                            collection_index,
+                        )?
+                        .is_some(),
+                    )
+                })?
         {
             trace.fts_strategy = "stored order page traversal".into();
             trace.sort_strategy = if query.options.sort.len() > 1 {

@@ -18,7 +18,9 @@ use crate::index::sorting::simple_composite_part;
 use crate::index::sorting::{InferredOrderKey, SortColumn};
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::ordered_slots::OrderedSlotCursor;
+use crate::index::storage::segment::SegmentReader;
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::lifecycle::catalog::FileCatalog;
@@ -497,7 +499,7 @@ fn segment_metadata_fts_evidence(
             source_bytes: None,
             record: &resolved.record,
             range: (resolved.record).record_range(),
-            file: Some(resolved.file),
+            file: Some(resolved.file.as_ref()),
             collection_name: &collection.definition.name,
             repository_root: Some(repo.files.required_root()),
         };
@@ -545,15 +547,15 @@ pub(crate) fn make_hit(
 /// address a file added after the base generation was built.
 pub(crate) struct SegmentRecordRef<'a> {
     pub record: RecordEntry,
-    pub file: &'a FileEntry,
+    pub file: std::borrow::Cow<'a, FileEntry>,
 }
 
 fn segment_active_file<'a>(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &'a FileCatalog,
+    catalog: &'a dyn FileCatalogReader,
     file_id: crate::model::FileId,
-) -> Result<&'a FileEntry, String> {
+) -> Result<std::borrow::Cow<'a, FileEntry>, String> {
     if active.slot_count() as usize != segment.record_count() {
         return Err("segment active domain length mismatch".into());
     }
@@ -568,7 +570,8 @@ fn segment_active_file<'a>(
         .map(|file| file.entry.revision)
         .ok_or("segment record file missing")?;
     let file = catalog
-        .entry(file_id)
+        .file(file_id)
+        .map_err(|error| error.to_string())?
         .ok_or("active segment record file is retired")?;
     if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
         return Err("active segment record file changed without retirement".into());
@@ -579,7 +582,7 @@ fn segment_active_file<'a>(
 pub(crate) fn segment_record_ref<'a>(
     segment: &'a IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &'a FileCatalog,
+    catalog: &'a dyn FileCatalogReader,
     slot: RecordSlot,
 ) -> Result<Option<SegmentRecordRef<'a>>, String> {
     if active.slot_count() as usize != segment.record_count() {
@@ -595,24 +598,7 @@ pub(crate) fn segment_record_ref<'a>(
         .backing
         .file_locator(slot)
         .ok_or("segment record has no file-range backing")?;
-    let file_index = segment
-        .file_index
-        .get(&locator.file)
-        .copied()
-        .ok_or("segment record file missing")?;
-    let segment_revision = segment
-        .files
-        .get(file_index)
-        .map(|file| file.entry.revision)
-        .ok_or("segment record file missing")?;
-    let file = catalog
-        .entry(locator.file)
-        .ok_or("active segment record file is retired")?;
-    // The catalog owns the path in this publication. A compatible move may
-    // route an unchanged segment to a new path without rebuilding postings.
-    if file.revision != segment_revision || !file.collections.contains(&segment.collection) {
-        return Err("active segment record file changed without retirement".into());
-    }
+    let file = segment_active_file(segment, active, catalog, locator.file)?;
     Ok(Some(SegmentRecordRef { record, file }))
 }
 
@@ -623,7 +609,7 @@ pub(crate) fn get_segment_record_by_id(
     collection_index: usize,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
-    catalog: &FileCatalog,
+    catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     record_id: &str,
     return_mode: ReturnMode,
@@ -632,10 +618,13 @@ pub(crate) fn get_segment_record_by_id(
         .collections
         .get(collection_index)
         .ok_or("segment collection missing")?;
-    if segment.collection != collection.generation.collection {
+    if segment.descriptor().collection != collection.generation.collection {
         return Err("segment collection mismatch".into());
     }
-    let Some(slot) = segment.id_lookup.get(record_id).copied() else {
+    let Some(slot) = segment
+        .slot_for_record(record_id)
+        .map_err(|error| error.to_string())?
+    else {
         return Ok(None);
     };
     if segment.backing.provider_version(slot).is_some() {
@@ -671,11 +660,19 @@ pub(crate) fn get_segment_record_by_id(
                 },
             ),
         };
-        let file = segment.backing.file_locator(slot).and_then(|locator| {
-            catalog
-                .entry(locator.file)
-                .map(|entry| crate::files::RecordFileInfo::from_entry(entry, locator.range))
-        });
+        let file = segment
+            .backing
+            .file_locator(slot)
+            .map(|locator| {
+                catalog.file(locator.file).map(|file| {
+                    file.map(|entry| {
+                        crate::files::RecordFileInfo::from_entry(entry.as_ref(), locator.range)
+                    })
+                })
+            })
+            .transpose()
+            .map_err(|error| error.to_string())?
+            .flatten();
         return Ok(Some(SearchHit {
             collection: collection.definition.name.clone(),
             record_id: record.id.0.to_string(),
@@ -697,11 +694,19 @@ pub(crate) fn get_segment_record_by_id(
             ReturnMode::Logical => Some(Payload::Logical(body.value.clone())),
             ReturnMode::Bytes => Some(Payload::OriginalBytesUnavailable),
         };
-        let file = segment.backing.file_locator(slot).and_then(|locator| {
-            catalog
-                .entry(locator.file)
-                .map(|entry| crate::files::RecordFileInfo::from_entry(entry, locator.range))
-        });
+        let file = segment
+            .backing
+            .file_locator(slot)
+            .map(|locator| {
+                catalog.file(locator.file).map(|file| {
+                    file.map(|entry| {
+                        crate::files::RecordFileInfo::from_entry(entry.as_ref(), locator.range)
+                    })
+                })
+            })
+            .transpose()
+            .map_err(|error| error.to_string())?
+            .flatten();
         return Ok(Some(SearchHit {
             collection: collection.definition.name.clone(),
             record_id: record.id.0.to_string(),
@@ -742,7 +747,7 @@ pub(crate) fn get_segment_record_by_id(
         record_id: record.id.0.to_string(),
         generation: revision.0,
         file: Some(crate::files::RecordFileInfo::from_entry(
-            file,
+            file.as_ref(),
             Some(record.range),
         )),
         matched_fields: Vec::new(),
@@ -977,7 +982,7 @@ pub(crate) fn direct_lookup_segmented_counted(
                 payload,
             })
         });
-        (record.clone(), file, result)
+        (record.clone(), std::borrow::Cow::Borrowed(file), result)
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
         if matches!(
@@ -1123,7 +1128,7 @@ pub(crate) fn segment_locator_hit(
         record_id: record.id.0.to_string(),
         generation: revision.0,
         file: Some(crate::files::RecordFileInfo::from_entry(
-            file,
+            file.as_ref(),
             Some(record.range),
         )),
         matched_fields,
@@ -1881,8 +1886,13 @@ fn push_exact_order_cursor<'a>(
             .index
             .record(slot)
             .ok_or("exact ordered slot missing")?;
-        let predicted_key_bytes =
-            segment_rank_key_owned_bytes(repo, sort, collection_index, &published.index, record)?;
+        let predicted_key_bytes = segment_rank_key_owned_bytes(
+            repo,
+            sort,
+            collection_index,
+            published.index.as_ref(),
+            record,
+        )?;
         let Some(bytes) = predicted_key_bytes
             .checked_add(std::mem::size_of::<LifecycleOrderCursor>())
             .and_then(|bytes| bytes.checked_add(order.owned_batch_bytes()))
@@ -1895,7 +1905,14 @@ fn push_exact_order_cursor<'a>(
         if next > 64 * 1024 * 1024 {
             return Ok(false);
         }
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        let key = segment_rank_key(
+            repo,
+            sort,
+            collection_index,
+            published.index.as_ref(),
+            record,
+            None,
+        )?;
         #[cfg(test)]
         assert_eq!(
             rank_key_bytes(&key),
@@ -1968,7 +1985,8 @@ fn exact_ordered_page(
     let mut heap = BinaryHeap::new();
     for segment_index in 0..selected.len() {
         let segment = &segments[collection_index][segment_index].index;
-        let Some(order) = lifecycle_segment_order(segment, sort, query, collection_index) else {
+        let Some(order) = lifecycle_segment_order(segment.as_ref(), sort, query, collection_index)?
+        else {
             return Ok(None);
         };
         if !push_exact_order_cursor(
@@ -2103,7 +2121,9 @@ fn try_exact_segment_ordered_page(
         routed.count_work(&mut counters);
     }
     for (segment_index, published) in segments[collection_index].iter().enumerate() {
-        if lifecycle_segment_order(&published.index, sort, query, collection_index).is_none() {
+        if lifecycle_segment_order(published.index.as_ref(), sort, query, collection_index)?
+            .is_none()
+        {
             return Ok(None);
         }
         let cached = restriction_cache
@@ -3009,7 +3029,7 @@ fn search_segmented_impl(
                     && context.is_none()
                     && cap < candidates.len() as usize
                     && let Some(mut order) =
-                        lifecycle_segment_order(segment, &sort, query, collection_index)
+                        lifecycle_segment_order(segment.as_ref(), &sort, query, collection_index)?
                 {
                     total += candidates.len();
                     counters.exact_posting_matches += candidates.len();
@@ -3029,7 +3049,7 @@ fn search_segmented_impl(
                             repo,
                             &sort,
                             collection_index,
-                            segment,
+                            segment.as_ref(),
                             &resolved.record,
                             None,
                         )?;
@@ -3202,7 +3222,7 @@ fn search_segmented_impl(
                         repo,
                         &sort,
                         collection_index,
-                        segment,
+                        segment.as_ref(),
                         record,
                         Some(&ctx),
                     )?;
@@ -3409,7 +3429,7 @@ fn search_segmented_impl(
                                     repo,
                                     collection,
                                     &resolved.record,
-                                    resolved.file,
+                                    resolved.file.as_ref(),
                                     source_bytes,
                                     filter.as_ref(),
                                     fts.as_ref(),
@@ -3522,7 +3542,10 @@ fn search_segmented_impl(
                         {
                             return Err("segment scan file ownership mismatch".into());
                         }
-                        let resolved = SegmentRecordRef { record, file };
+                        let resolved = SegmentRecordRef {
+                            record,
+                            file: std::borrow::Cow::Borrowed(file.as_ref()),
+                        };
                         let record = &resolved.record;
                         counters.record_parses += u64::from(
                             record.class == RecordClass::Logical
@@ -3542,7 +3565,7 @@ fn search_segmented_impl(
                                 repo,
                                 collection,
                                 &record,
-                                resolved.file,
+                                file.as_ref(),
                                 &bytes,
                                 filter.as_ref(),
                                 fts.as_ref(),
@@ -3566,7 +3589,7 @@ fn search_segmented_impl(
                             source_bytes: Some(&bytes),
                             record,
                             range: (record).record_range(),
-                            file: Some(resolved.file),
+                            file: Some(file.as_ref()),
                             collection_name: &collection.definition.name,
                             repository_root: Some(repo.files.required_root()),
                         };
@@ -3576,7 +3599,7 @@ fn search_segmented_impl(
                             repo,
                             &sort,
                             collection_index,
-                            segment,
+                            segment.as_ref(),
                             record,
                             Some(&ctx),
                         )?;
@@ -3598,7 +3621,7 @@ fn search_segmented_impl(
                                     repo,
                                     collection,
                                     &record,
-                                    resolved.file,
+                                    file.as_ref(),
                                     &bytes,
                                     filter.as_ref(),
                                     fts.as_ref(),
@@ -4273,11 +4296,11 @@ fn materialize_segmented_stream_hit(
 }
 
 fn lifecycle_segment_order<'a>(
-    segment: &'a IndexedCollectionSegment,
+    segment: &'a dyn SegmentReader,
     sort: &ResolvedSort<'_>,
     query: &Query,
     collection_index: usize,
-) -> Option<OrderedSlotCursor<'a>> {
+) -> Result<Option<OrderedSlotCursor<'a>>, String> {
     let scalar = sort
         .bound
         .terms
@@ -4288,9 +4311,10 @@ fn lifecycle_segment_order<'a>(
             BoundSortSource::Stored(column) => Some((&column.path, term.descending)),
             BoundSortSource::Computed(_) => None,
         });
-    segment
+    Ok(segment
         .ordered_slots(&query.options.sort, scalar)
-        .map(OrderedSlotCursor::new)
+        .map_err(|error| error.to_string())?
+        .map(OrderedSlotCursor::new))
 }
 
 fn push_lifecycle_order_cursor<'a>(
@@ -4319,8 +4343,13 @@ fn push_lifecycle_order_cursor<'a>(
             .index
             .record(slot)
             .ok_or("lifecycle ordered slot missing")?;
-        let key_bytes =
-            segment_rank_key_owned_bytes(repo, sort, collection_index, &published.index, record)?;
+        let key_bytes = segment_rank_key_owned_bytes(
+            repo,
+            sort,
+            collection_index,
+            published.index.as_ref(),
+            record,
+        )?;
         let bytes = key_bytes.saturating_add(order.owned_batch_bytes());
         let next = heap_bytes.checked_add(bytes).ok_or_else(|| {
             context.fail(
@@ -4334,7 +4363,14 @@ fn push_lifecycle_order_cursor<'a>(
                 "ordered cursors exceed stream memory budget",
             ));
         }
-        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        let key = segment_rank_key(
+            repo,
+            sort,
+            collection_index,
+            published.index.as_ref(),
+            record,
+            None,
+        )?;
         #[cfg(test)]
         assert_eq!(rank_key_bytes(&key), key_bytes as u64);
         *heap_bytes = next;
@@ -4428,7 +4464,9 @@ fn try_lifecycle_ordered_stream(
     for entry in &prepared.collections {
         let collection_index = entry.collection_index;
         for segment in segments[collection_index].iter() {
-            if lifecycle_segment_order(&segment.index, &sort, request, collection_index).is_none() {
+            if lifecycle_segment_order(segment.index.as_ref(), sort, request, collection_index)?
+                .is_none()
+            {
                 return Ok(None);
             }
         }
@@ -4747,8 +4785,9 @@ fn try_lifecycle_ordered_stream(
             continue;
         }
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
-            let order = lifecycle_segment_order(&published.index, sort, request, collection_index)
-                .ok_or("lifecycle stored order unavailable")?;
+            let order =
+                lifecycle_segment_order(published.index.as_ref(), sort, request, collection_index)?
+                    .ok_or("lifecycle stored order unavailable")?;
             push_lifecycle_order_cursor(
                 repo,
                 &sort,
@@ -4839,7 +4878,7 @@ fn try_lifecycle_ordered_stream(
             continue;
         };
         let record = &resolved.record;
-        let file = resolved.file;
+        let file = resolved.file.as_ref();
         let collection = &repo.collections[cursor.collection_index];
         counters.candidates += 1;
         let (filter, fts) = filters[cursor.collection_index]
@@ -5052,7 +5091,7 @@ fn try_lifecycle_ordered_stream(
             collection,
             SegmentRecordRef {
                 record: record.clone(),
-                file,
+                file: std::borrow::Cow::Borrowed(file),
             },
             revision,
             if request.options.evidence {

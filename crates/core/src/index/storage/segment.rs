@@ -1,10 +1,16 @@
 //! Segment identity, record addresses, and sizing policy.
 
-use std::{fmt, num::NonZeroUsize};
+use std::{borrow::Cow, fmt, num::NonZeroUsize};
 
 use serde::{Deserialize, Serialize};
 
-use crate::model::{CollectionId, RecordSlot};
+use crate::model::{CollectionId, FieldPath, RecordSlot};
+use crate::query::options::SortField;
+use crate::records::RecordHeader;
+
+use super::order::SortKey;
+use super::ordered_slots::OrderedSlots;
+use super::transfer::StorageResult;
 
 /// Deterministic soft target used by every ordinary segment-producing path.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -95,4 +101,34 @@ pub(crate) struct SegmentRecordAddress {
     pub collection: CollectionId,
     pub segment: SegmentId,
     pub slot: RecordSlot,
+}
+
+/// Immutable logical segment metadata, captured at seal.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct SegmentDescriptor {
+    pub(crate) id: SegmentId,
+    pub(crate) collection: CollectionId,
+    pub(crate) slots: usize,
+}
+
+/// Reads from a pinned segment. Returned keys and headers can borrow the
+/// pinned representation or hold an owned value decoded by the reader.
+pub(crate) trait SegmentReader: Send + Sync {
+    fn descriptor(&self) -> SegmentDescriptor;
+
+    fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>>;
+
+    fn header(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RecordHeader>>>;
+
+    fn stored_key(
+        &self,
+        path: &FieldPath,
+        slot: RecordSlot,
+    ) -> StorageResult<Option<Cow<'_, SortKey>>>;
+
+    fn ordered_slots(
+        &self,
+        sort: &[SortField],
+        scalar: Option<(&FieldPath, bool)>,
+    ) -> StorageResult<Option<&dyn OrderedSlots>>;
 }

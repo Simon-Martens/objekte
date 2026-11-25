@@ -261,17 +261,17 @@ fn partition_file_jobs<'a>(
 
 fn group_stream_files(
     files: &[FileId],
-    inventory: &FileInventory,
+    size_of: impl Fn(FileId) -> Result<u64, String>,
     options: RepositoryOptions,
     bindings: Arc<[StreamBinding]>,
     groups: &mut Vec<StreamGroup>,
-) {
+) -> Result<(), IndexError> {
     let file_limit = options
         .segment_policy
         .max_files
         .get()
         .min(options.segment_policy.target_records.get());
-    for batch in super::batch::file_batches(files, inventory) {
+    for batch in super::batch::file_batches(files, size_of).map_err(IndexError::Build)? {
         for files in batch.chunks(file_limit) {
             groups.push(StreamGroup {
                 bindings: Arc::clone(&bindings),
@@ -279,6 +279,7 @@ fn group_stream_files(
             });
         }
     }
+    Ok(())
 }
 
 fn run_stream_groups(
@@ -1072,6 +1073,12 @@ impl Repository {
                 .map(SourceFileInput::from_entry)
                 .collect::<Vec<_>>(),
         );
+        let source_size = |id: FileId| {
+            source_files
+                .get(id.0 as usize)
+                .map(|file| file.revision.size)
+                .ok_or_else(|| "missing scheduled source metadata".to_owned())
+        };
         let collection_count = selected.len();
         let mut pending = selected
             .into_iter()
@@ -1110,7 +1117,7 @@ impl Repository {
             collection.stats.total_file_bytes = state
                 .member_files
                 .iter()
-                .map(|file| discovered.files[file.0 as usize].revision.size)
+                .map(|file| source_files[file.0 as usize].revision.size)
                 .sum();
         }
         repository.startup.build_discovery_ns = discovery_ns;
@@ -1172,7 +1179,7 @@ impl Repository {
             if parallel_registered_files && state.source.schedules_separate_file_jobs() {
                 group_stream_files(
                     members,
-                    &discovered,
+                    source_size,
                     options,
                     Arc::from([StreamBinding {
                         definition: Arc::clone(&state.definition),
@@ -1180,24 +1187,25 @@ impl Repository {
                         id: state.id,
                     }]),
                     &mut stream_groups,
-                );
+                )?;
                 continue;
             }
             let record_bound = |file: FileId| {
                 state
                     .source
                     .reader()
-                    .maximum_records(discovered.files[file.0 as usize].revision.size)
+                    .maximum_records(source_files[file.0 as usize].revision.size)
                     .max(1)
             };
             let record_target = options.segment_policy.target_records.get() as u64;
             let needs_chunks = |file: FileId| {
-                let size = discovered.files[file.0 as usize].revision.size;
+                let size = source_files[file.0 as usize].revision.size;
                 state.source.schedules_separate_file_jobs()
                     || size > 8 * 1024 * 1024
                     || record_bound(file) > record_target
             };
-            let batches = super::batch::file_batches(members, &discovered);
+            let batches =
+                super::batch::file_batches(members, source_size).map_err(IndexError::Build)?;
             for batch in batches.into_iter().flat_map(|batch| {
                 partition_file_jobs(
                     batch,
@@ -1227,7 +1235,11 @@ impl Repository {
             }
         }
         if parallel_registered_files {
+            let mut group_result = Ok(());
             shared.retain(|bindings, files| {
+                if group_result.is_err() {
+                    return true;
+                }
                 let streams = bindings
                     .iter()
                     .any(|id| pending[id.0 as usize].source.schedules_separate_file_jobs());
@@ -1243,13 +1255,20 @@ impl Repository {
                             }
                         })
                         .collect::<Arc<[_]>>();
-                    group_stream_files(files, &discovered, options, bindings, &mut stream_groups);
+                    group_result = group_stream_files(
+                        files,
+                        source_size,
+                        options,
+                        bindings,
+                        &mut stream_groups,
+                    );
                 }
                 !streams
             });
+            group_result?;
         }
         let shared_pull_file = |bindings: &[CollectionId], file: FileId| {
-            let size = discovered.files[file.0 as usize].revision.size;
+            let size = source_files[file.0 as usize].revision.size;
             bindings.iter().any(|id| {
                 let reader = pending[id.0 as usize].source.reader();
                 reader.uses_pull_framing()
@@ -1782,7 +1801,7 @@ impl Repository {
                 .map(|id| pending[id.0 as usize].source.clone())
                 .collect();
             let record_bound = |file: FileId| {
-                let size = discovered.files[file.0 as usize].revision.size;
+                let size = source_files[file.0 as usize].revision.size;
                 readers
                     .iter()
                     .map(|source| source.reader().maximum_records(size))
@@ -1791,12 +1810,13 @@ impl Repository {
                     .max(1)
             };
             let needs_chunks = |file: FileId| {
-                let size = discovered.files[file.0 as usize].revision.size;
+                let size = source_files[file.0 as usize].revision.size;
                 registered
                     || size > 8 * 1024 * 1024
                     || record_bound(file) > options.segment_policy.target_records.get() as u64
             };
-            let batches = super::batch::file_batches(&files, &discovered)
+            let batches = super::batch::file_batches(&files, source_size)
+                .map_err(IndexError::Build)?
                 .into_iter()
                 .flat_map(|batch| {
                     partition_file_jobs(

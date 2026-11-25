@@ -16,8 +16,8 @@ use crate::index::relation::RelationContribution;
 use crate::index::sorting::{SortBuilder, SortKey};
 use crate::inference::InferenceConfig;
 use crate::inventory::{
-    ByteRange, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, RecordEntry,
-    SharedPath, SourceDiagnostic, SourceRevision,
+    ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SharedPath,
+    SourceDiagnostic, SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
 use crate::query::semantics::record::data_values;
@@ -134,8 +134,8 @@ impl SourceFileInput {
 /// entire file in memory.
 pub(crate) fn file_batches<'a>(
     files: &'a [FileId],
-    inventory: &FileInventory,
-) -> Vec<&'a [FileId]> {
+    size_of: impl Fn(FileId) -> Result<u64, String>,
+) -> Result<Vec<&'a [FileId]>, String> {
     const MAX_FILES: usize = 512;
     const MAX_BYTES: u64 = 8 * 1024 * 1024;
     let mut batches = Vec::new();
@@ -144,7 +144,7 @@ pub(crate) fn file_batches<'a>(
         let mut end = start;
         let mut bytes = 0u64;
         while end < files.len() && end - start < MAX_FILES {
-            let size = inventory.files[files[end].0 as usize].revision.size;
+            let size = size_of(files[end])?;
             if end > start && bytes.saturating_add(size) > MAX_BYTES {
                 break;
             }
@@ -157,7 +157,7 @@ pub(crate) fn file_batches<'a>(
         batches.push(&files[start..end]);
         start = end;
     }
-    batches
+    Ok(batches)
 }
 
 /// All expensive per-record projection is complete before this crosses the

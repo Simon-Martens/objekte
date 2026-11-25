@@ -45,16 +45,22 @@ pub fn measure_direct_shard_build(
             .map(SourceFileInput::from_entry)
             .collect::<Vec<_>>(),
     );
-    let jobs = file_batches(&collection.generation.files, repository.files())
-        .into_iter()
-        .map(|files| RepositoryFileJob {
-            collection_index: id.0 as usize,
-            collection: id,
-            definition: Arc::clone(&definition),
-            source: source.clone(),
-            files: files.to_vec(),
-        })
-        .collect::<Vec<_>>();
+    let jobs = file_batches(&collection.generation.files, |id| {
+        source_files
+            .get(id.0 as usize)
+            .map(|file| file.revision.size)
+            .ok_or_else(|| "missing scheduled source metadata".to_owned())
+    })
+    .unwrap()
+    .into_iter()
+    .map(|files| RepositoryFileJob {
+        collection_index: id.0 as usize,
+        collection: id,
+        definition: Arc::clone(&definition),
+        source: source.clone(),
+        files: files.to_vec(),
+    })
+    .collect::<Vec<_>>();
     let pool = rayon::ThreadPoolBuilder::new()
         .num_threads(repository.startup().build_workers)
         .build()

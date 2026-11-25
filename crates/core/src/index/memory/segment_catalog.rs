@@ -1,6 +1,7 @@
 //! Copy-on-write record and file routes for the native segment directory.
 
 use smallvec::SmallVec;
+use std::any::Any;
 use std::borrow::Cow;
 use std::collections::HashMap;
 use std::hash::{Hash, Hasher};
@@ -153,20 +154,39 @@ impl RecordRoutes {
         let segment = source.segment_id();
         Arc::make_mut(&mut self.positions).insert(segment, position);
         let shards = Arc::make_mut(&mut self.shards);
+        let file_shards = Arc::make_mut(&mut self.file_shards);
+        let mut record = |id: &RecordId, slot| {
+            Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
+                .insert(id.clone(), RoutedRecord { segment, slot });
+        };
+        let mut file = |file: FileId| {
+            Arc::make_mut(&mut file_shards[file.0 as usize % RECORD_ROUTE_SHARDS])
+                .entry(file)
+                .or_default()
+                .push(segment);
+        };
+        if let Some(native) = (source as &dyn Any).downcast_ref::<PublishedSegment>() {
+            // Both sides are native. Adopt routes directly from the sealed
+            // columns and leave logical batch transfer for mixed placement.
+            for (id, &slot) in &native.index.id_lookup {
+                if native.active.contains(slot) {
+                    record(id, slot);
+                }
+            }
+            for entry in &native.index.files {
+                file(entry.entry.id);
+            }
+            return Ok(());
+        }
         source.visit_live_records(&mut |rows| {
             for &(id, slot) in rows {
-                Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
-                    .insert(id.clone(), RoutedRecord { segment, slot });
+                record(id, slot);
             }
             Ok(())
         })?;
-        let file_shards = Arc::make_mut(&mut self.file_shards);
         source.visit_files(&mut |files| {
-            for &file in files {
-                Arc::make_mut(&mut file_shards[file.0 as usize % RECORD_ROUTE_SHARDS])
-                    .entry(file)
-                    .or_default()
-                    .push(segment);
+            for &id in files {
+                file(id);
             }
             Ok(())
         })

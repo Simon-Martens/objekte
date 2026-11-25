@@ -5,9 +5,9 @@ use std::collections::{BinaryHeap, HashSet};
 use std::sync::Arc;
 
 use super::{Payload, SearchHit};
-use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 use crate::index::sorting::{SortColumn, SortKey, SortOptions};
+use crate::index::storage::segment::SegmentReader;
 use crate::inventory::RecordEntry;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
@@ -367,18 +367,19 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
-pub(crate) fn segment_rank_key(
+pub(crate) fn segment_rank_key<S: SegmentReader + ?Sized>(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
     collection_index: usize,
-    segment: &IndexedCollectionSegment,
+    segment: &S,
     record: &impl RecordIdSlot,
     ctx: Option<&RecordContext<'_>>,
 ) -> Result<RankKey, String> {
     #[cfg(test)]
     {
         SEGMENT_RANK_KEY_CONSTRUCTIONS.with(|value| value.set(value.get() + 1));
-        LAST_SEGMENT_RANK_KEY.with(|value| value.set((segment.id.get(), record.record_slot().0)));
+        LAST_SEGMENT_RANK_KEY
+            .with(|value| value.set((segment.descriptor().id.get(), record.record_slot().0)));
     }
     let terms = sort.bound.terms[collection_index]
         .as_ref()
@@ -386,14 +387,11 @@ pub(crate) fn segment_rank_key(
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
         let key = match &term.source {
-            BoundSortSource::Stored(base_column) => {
-                let column = segment.sorting.column(&base_column.path.display())?;
-                column
-                    .keys
-                    .get(record.record_slot().0 as usize)
-                    .ok_or("segment sort slot missing")?
-                    .clone()
-            }
+            BoundSortSource::Stored(base_column) => segment
+                .stored_key(&base_column.path, record.record_slot())
+                .map_err(|error| error.to_string())?
+                .ok_or("segment sort key missing")?
+                .into_owned(),
             BoundSortSource::Computed(computed) => {
                 computed.key_local(ctx.ok_or("computed segment sort needs record context")?)?
             }
@@ -407,11 +405,11 @@ pub(crate) fn segment_rank_key(
     })
 }
 
-pub(crate) fn segment_rank_key_owned_bytes(
+pub(crate) fn segment_rank_key_owned_bytes<S: SegmentReader + ?Sized>(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
     collection_index: usize,
-    segment: &IndexedCollectionSegment,
+    segment: &S,
     record: &impl RecordIdSlot,
 ) -> Result<usize, String> {
     let terms = sort.bound.terms[collection_index]
@@ -429,14 +427,10 @@ pub(crate) fn segment_rank_key_owned_bytes(
             return Err("computed segment sort has no owned-key prediction".into());
         };
         let key = segment
-            .sorting
-            .columns
-            .get(&base_column.path)
-            .ok_or("segment sort column missing")?
-            .keys
-            .get(record.record_slot().0 as usize)
-            .ok_or("segment sort slot missing")?;
-        let variable = owned_sort_key_bytes(key);
+            .stored_key(&base_column.path, record.record_slot())
+            .map_err(|error| error.to_string())?
+            .ok_or("segment sort key missing")?;
+        let variable = owned_sort_key_bytes(key.as_ref());
         bytes = bytes
             .checked_add(variable)
             .ok_or("ordered sort key size overflow")?;
@@ -446,11 +440,11 @@ pub(crate) fn segment_rank_key_owned_bytes(
 
 /// Compare a stored segment row with the current page boundary without
 /// allocating rank parts, IDs, or a SearchHit for rows below the page.
-pub(crate) fn segment_compare_to_rank(
+pub(crate) fn segment_compare_to_rank<S: SegmentReader + ?Sized>(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
     collection_index: usize,
-    segment: &IndexedCollectionSegment,
+    segment: &S,
     slot: crate::model::RecordSlot,
     worst: &RankKey,
 ) -> Result<Ordering, String> {
@@ -464,26 +458,22 @@ pub(crate) fn segment_compare_to_rank(
         let BoundSortSource::Stored(base_column) = &term.source else {
             return Err("computed segment sort has no stored comparison".into());
         };
-        let column = segment
-            .sorting
-            .columns
-            .get(&base_column.path)
-            .ok_or("segment sort column missing")?;
-        let key = column
-            .keys
-            .get(slot.0 as usize)
-            .ok_or("segment sort slot missing")?;
+        let key = segment
+            .stored_key(&base_column.path, slot)
+            .map_err(|error| error.to_string())?
+            .ok_or("segment sort key missing")?;
         let order = key.compare_with(other, term.descending, term.options);
         if !order.is_eq() {
             return Ok(order);
         }
     }
+    let record = segment
+        .header(slot)
+        .map_err(|error| error.to_string())?
+        .ok_or("segment sort slot missing")?;
     Ok((
         repo.collections[collection_index].definition.name.as_str(),
-        segment
-            .record(slot)
-            .map(|record| record.id.0.as_ref())
-            .ok_or("segment sort slot missing")?,
+        record.id.0.as_ref(),
     )
         .cmp(&(worst.collection.as_str(), worst.id.as_str())))
 }
@@ -523,12 +513,10 @@ pub(crate) fn relation_rank_key_merged(
                 if let Some(segment_index) = address.segment {
                     let segment = &segments[collection_index][segment_index].index;
                     segment
-                        .sorting
-                        .column(&column.path.display())?
-                        .keys
-                        .get(address.slot.0 as usize)
-                        .ok_or("merged segment sort slot missing")?
-                        .clone()
+                        .stored_key(&column.path, address.slot)
+                        .map_err(|error| error.to_string())?
+                        .ok_or("merged segment sort key missing")?
+                        .into_owned()
                 } else {
                     column
                         .keys
