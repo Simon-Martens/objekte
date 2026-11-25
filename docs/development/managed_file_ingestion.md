@@ -4,6 +4,8 @@ A collection may receive records from both a registered file reader and a direct
 
 The runnable [public example](../../crates/core/examples/record_ingestion_public.rs) shows a rootless direct index, an interleaved file and direct collection, and a versioned direct provider.
 
+The pinned file catalog provides `files_by_size`, `files_by_modified`, `files_by_created` and `files_without_creation_time`. Ordered size and time comparisons use one scalar membership per file. A query projects matching file IDs through live file-to-record routes; direct records have missing `@file.*` metadata even if their own value contains a field named `path` or `@file`.
+
 ## Migration from direct file links
 
 | Previous call or use | Replacement |

@@ -982,6 +982,7 @@ fn segment_file_size_matches(
     segment: &IndexedCollectionSegment,
     domain: &RoaringBitmap,
     term: &BoundTerm,
+    catalog: Option<&FileCatalog>,
 ) -> Result<Option<RoaringBitmap>, String> {
     if term.path.root != PathRoot::Metadata(MetadataField::FileSize)
         || term.transform != Transform::Identity
@@ -994,6 +995,17 @@ fn segment_file_size_matches(
     let Value::Number(literal) = &term.literal else {
         return Ok(None);
     };
+    if let Some(files) = catalog.and_then(|catalog| catalog.size_ids(term.operator, literal, 4096))
+    {
+        let mut matches = RoaringBitmap::new();
+        for file in files {
+            if let Some(slots) = segment.file_records(file) {
+                matches.extend(slots.iter().map(|slot| slot.0));
+            }
+        }
+        matches &= domain;
+        return Ok(Some(matches));
+    }
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
         let revision = segment
@@ -1040,6 +1052,7 @@ fn segment_file_modified_matches(
     collection: &CollectionState,
     domain: &RoaringBitmap,
     term: &BoundTerm,
+    catalog: Option<&FileCatalog>,
 ) -> Result<Option<RoaringBitmap>, String> {
     if term.path.root != PathRoot::Metadata(MetadataField::FileModified)
         || term.rhs.is_some()
@@ -1068,6 +1081,18 @@ fn segment_file_modified_matches(
     } else {
         None
     };
+    if let Some(files) = direct_literal.and_then(|literal| {
+        catalog.and_then(|catalog| catalog.modified_ids(term.operator, literal, 4096))
+    }) {
+        let mut matches = RoaringBitmap::new();
+        for file in files {
+            if let Some(slots) = segment.file_records(file) {
+                matches.extend(slots.iter().map(|slot| slot.0));
+            }
+        }
+        matches &= domain;
+        return Ok(Some(matches));
+    }
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
         if segment
@@ -1107,6 +1132,54 @@ fn segment_file_modified_matches(
     }
     matches &= domain;
     Ok(Some(matches))
+}
+
+fn segment_file_created_matches(
+    segment: &IndexedCollectionSegment,
+    domain: &RoaringBitmap,
+    term: &BoundTerm,
+    catalog: Option<&FileCatalog>,
+) -> Option<RoaringBitmap> {
+    if term.path.root != PathRoot::Metadata(MetadataField::FileCreated)
+        || term.transform != Transform::Identity
+        || term.period.is_some()
+        || term.rhs.is_some()
+        || term.related.is_some()
+        || term.matcher.is_some()
+        || term.operation.is_some()
+    {
+        return None;
+    }
+    let files = if term.derived == Derived::Null {
+        let Value::Bool(literal) = &term.literal else {
+            return None;
+        };
+        let want_null = match term.operator {
+            Operator::Eq => *literal,
+            Operator::Ne => !*literal,
+            _ => return None,
+        };
+        if !want_null {
+            return None;
+        }
+        catalog?.unknown_created_ids(4096)?
+    } else {
+        if term.derived != Derived::None {
+            return None;
+        }
+        let Value::Datetime(literal) = &term.literal else {
+            return None;
+        };
+        catalog?.created_ids(term.operator, literal.unix_timestamp_nanos(), 4096)?
+    };
+    let mut matches = RoaringBitmap::new();
+    for file in files {
+        if let Some(slots) = segment.file_records(file) {
+            matches.extend(slots.iter().map(|slot| slot.0));
+        }
+    }
+    matches &= domain;
+    Some(matches)
 }
 
 fn segment_record_range_matches(
@@ -1609,7 +1682,7 @@ pub(crate) fn segment_expr_bounds(
                 }
                 return Ok(SegmentCandidateBounds::exact(matches));
             }
-            if let Some(matches) = segment_file_size_matches(segment, domain, term)? {
+            if let Some(matches) = segment_file_size_matches(segment, domain, term, catalog)? {
                 return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some((operator, literal)) = indexed_file_path_term(term)
@@ -1631,8 +1704,12 @@ pub(crate) fn segment_expr_bounds(
                 matches &= domain;
                 return Ok(SegmentCandidateBounds::exact(matches));
             }
-            if let Some(matches) = segment_file_modified_matches(segment, collection, domain, term)?
+            if let Some(matches) =
+                segment_file_modified_matches(segment, collection, domain, term, catalog)?
             {
+                return Ok(SegmentCandidateBounds::exact(matches));
+            }
+            if let Some(matches) = segment_file_created_matches(segment, domain, term, catalog) {
                 return Ok(SegmentCandidateBounds::exact(matches));
             }
             if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)?
@@ -2429,6 +2506,69 @@ fn term_set(
                     result.insert(slot.0);
                 }
                 return Ok(Some(result));
+            }
+        }
+        if field == MetadataField::FileCreated
+            && term.derived == Derived::Null
+            && term.transform == Transform::Identity
+            && let Value::Bool(literal) = &term.literal
+            && matches!(term.operator, Operator::Eq | Operator::Ne)
+            && ((*literal && term.operator == Operator::Eq)
+                || (!*literal && term.operator == Operator::Ne))
+        {
+            let mut files = Vec::new();
+            if repo
+                .files
+                .scalar_index()
+                .unknown_created_ids(&mut files, 4096)
+            {
+                let mut result = RoaringBitmap::new();
+                for file in files {
+                    if let Some(slots) = collection.generation.file_records.records_for(file) {
+                        result.extend(slots.iter().map(|slot| slot.0));
+                    }
+                }
+                return Ok(Some(result & domain));
+            }
+        }
+        if term.transform == Transform::Identity
+            && term.derived == Derived::None
+            && term.period.is_none()
+            && term.matcher.is_none()
+            && term.operation.is_none()
+        {
+            let mut files = Vec::new();
+            let indexed = match (field, &term.literal) {
+                (MetadataField::FileSize, Value::Number(literal)) => repo
+                    .files
+                    .scalar_index()
+                    .size_ids(term.operator, literal, &mut files, 4096),
+                (MetadataField::FileModified, Value::Datetime(literal)) => {
+                    repo.files.scalar_index().modified_ids(
+                        term.operator,
+                        literal.unix_timestamp_nanos(),
+                        &mut files,
+                        4096,
+                    )
+                }
+                (MetadataField::FileCreated, Value::Datetime(literal)) => {
+                    repo.files.scalar_index().created_ids(
+                        term.operator,
+                        literal.unix_timestamp_nanos(),
+                        &mut files,
+                        4096,
+                    )
+                }
+                _ => false,
+            };
+            if indexed {
+                let mut result = RoaringBitmap::new();
+                for file in files {
+                    if let Some(slots) = collection.generation.file_records.records_for(file) {
+                        result.extend(slots.iter().map(|slot| slot.0));
+                    }
+                }
+                return Ok(Some(result & domain));
             }
         }
         if let Some((operator, literal)) = indexed_file_path_term(term) {

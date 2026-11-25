@@ -14,6 +14,7 @@ use objekte_search_core::inventory::ByteRange;
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FileId, LogicalType, Number, RecordId, Value};
 use objekte_search_core::query::options::ReturnMode;
+use objekte_search_core::query::{Operator, Query, QueryOptions, parse_filter};
 use objekte_search_core::query_execution::runner::DirectRouteCounters;
 use objekte_search_core::records::RecordKey;
 use objekte_search_core::repository::configuration::{
@@ -211,6 +212,7 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
     std::fs::create_dir_all(root.join("data"))?;
     let records_per_file = count / 64;
     let mut files = Vec::new();
+    let mut selective_size = 0u64;
     for group in 0..64 {
         let name = format!("data/group-{group:02}.jsonl");
         let mut bytes = Vec::new();
@@ -218,9 +220,14 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         for offset in 0..records_per_file {
             let number = group * records_per_file + offset;
             let start = bytes.len() as u64;
+            let pad = if group == 63 && offset == 0 {
+                ",\"pad\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\""
+            } else {
+                ""
+            };
             bytes.extend_from_slice(
                 format!(
-                    "{{\"id\":\"r{number:05}\",\"year\":{},\"note\":\"{}\"}}\n",
+                    "{{\"id\":\"r{number:05}\",\"year\":{},\"note\":\"{}\"{pad}}}\n",
                     1800 + number % 16,
                     if number % 2 == 0 { "Leipzig" } else { "Wien" }
                 )
@@ -232,6 +239,9 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
             });
         }
         std::fs::write(root.join(&name), bytes)?;
+        if group == 63 {
+            selective_size = std::fs::metadata(root.join(&name))?.len();
+        }
         files.push((name, ranges));
     }
     std::fs::write(root.join("data/empty.jsonl"), [])?;
@@ -244,16 +254,71 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
         ..Default::default()
     });
     let collection = builder.collection("records", schema()?)?;
+    let registration = builder.register_records(collection, "benchmark.direct", 1)?;
     builder.register_file_catalog(FileCatalog::new(&root)?)?;
     let mut definition = CollectionDefinition::folder("records", "data", SourceFormat::JsonLines);
     definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
     builder.register_file_source(collection, definition.file_source())?;
     let index = builder.build()?;
-    for (name, _) in &files {
+    let session = index.ingestion();
+    let writer = session.writer(registration)?;
+    let publish_direct = |id: &str| -> Result<(), Box<dyn Error>> {
+        let mut batch = writer.batch();
+        batch.insert(id, value(0))?;
+        writer
+            .submit(batch)
+            .map_err(|_| "batch admission refused")?
+            .wait_published()?;
+        Ok(())
+    };
+    publish_direct("manual-1")?;
+    for (group, (name, _)) in files.iter().enumerate() {
         index.add_file(&root.join(name))?;
+        if group == 31 {
+            publish_direct("manual-2")?;
+        }
     }
     index.add_file(&root.join("data/empty.jsonl"))?;
+    publish_direct("manual-3")?;
     let view = index.view()?;
+    let catalog = view.file_catalog().ok_or("catalog missing")?;
+    let selected_files = catalog.files_by_size(Operator::Eq, selective_size)?;
+    if selected_files.len() != 1
+        || selected_files[0].relative_path != std::path::Path::new(&files[63].0)
+    {
+        return Err("size index selected wrong file".into());
+    }
+    let metadata_query = |filter: String| -> Result<Query, Box<dyn Error>> {
+        Ok(Query {
+            collections: vec!["records".into()],
+            fts: None,
+            filter: Some(parse_filter(&filter)?),
+            options: QueryOptions {
+                sort: Vec::new(),
+                offset: 0,
+                limit: 10,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        })
+    };
+    let selected = view.search(&metadata_query(format!("@file.size = {selective_size}"))?)?;
+    let composed = view.search(&metadata_query(format!(
+        "@file.size = {selective_size} || @record.id = 'manual-1'"
+    ))?)?;
+    if selected.count != Some(records_per_file)
+        || composed.count != Some(records_per_file + 1)
+        || selected.counters.files_opened != 0
+        || selected.counters.bytes_read != 0
+        || composed.counters.files_opened != 0
+    {
+        return Err(format!(
+            "selective metadata query mismatch: selected {:?} {:?}, composed {:?} {:?}",
+            selected.count, selected.counters, composed.count, composed.counters
+        )
+        .into());
+    }
     let observed_segments = view.segment_summaries().len();
     let started = Instant::now();
     let mut hits = 0usize;
@@ -270,7 +335,6 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
     }
     black_box(hits);
     let lookup_ns = started.elapsed().as_nanos();
-    let catalog = view.file_catalog().ok_or("catalog missing")?;
     let mut route_counts = DirectRouteCounters::default();
     for operation in 0..10_000 {
         let id = if operation % 2 == 0 {
@@ -347,11 +411,18 @@ fn routing(segment_count: usize, count: usize, root: PathBuf) -> Result<(), Box<
             "route_segment_visits": route_counts.route_segment_visits,
             "unrelated_segment_visits": route_counts.route_segment_visits.saturating_sub(hits as u64),
             "reverse_members": members, "reverse_ns": reverse_ns,
+            "metadata_size_candidates": selected_files.len(),
+            "metadata_record_candidates": selected.counters.candidates,
+            "metadata_matching_records": selected.count,
+            "metadata_source_opens": selected.counters.files_opened,
+            "metadata_source_bytes": selected.counters.bytes_read,
+            "mixed_or_count": composed.count,
             "index_family_bytes": view.estimated_index_bytes(),
             "native_storage": view.native_storage_estimate(),
             "ready_rss_kib": rss_kib("VmRSS:"), "peak_rss_kib": rss_kib("VmHWM:")
         })
     );
+    session.finish()?;
     std::fs::remove_dir_all(root)?;
     Ok(())
 }

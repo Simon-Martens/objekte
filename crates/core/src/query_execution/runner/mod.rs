@@ -1675,6 +1675,21 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
+fn metadata_only_filter(expr: &BoundExpr) -> bool {
+    match expr {
+        BoundExpr::Term(term) => {
+            matches!(term.path.root, PathRoot::Metadata(_))
+                && term.related.is_none()
+                && term
+                    .rhs
+                    .as_ref()
+                    .is_none_or(|rhs| matches!(rhs.path.root, PathRoot::Metadata(_)))
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts.iter().all(metadata_only_filter),
+        BoundExpr::Not(inner) => metadata_only_filter(inner),
+    }
+}
+
 struct OrRestrictionProbe {
     bounds: crate::query_execution::restrictions::SegmentCandidateBounds,
     evidence: Option<Vec<(RoaringBitmap, Vec<String>)>>,
@@ -1687,7 +1702,7 @@ fn exact_or_branch_evidence_fields(
     collection: &CollectionState,
     catalog: &FileCatalog,
     predicates: &crate::query_predicate::PreparedPredicates,
-    context: &ExecutionContext,
+    context: Option<&ExecutionContext>,
 ) -> Result<Option<OrRestrictionProbe>, String> {
     let BoundExpr::Or(parts) = filter else {
         return Ok(None);
@@ -1713,7 +1728,7 @@ fn exact_or_branch_evidence_fields(
             Some(catalog),
             &input,
             Some(predicates),
-            Some(context),
+            context,
         )?;
         let logical = &input & &segment.logical_records;
         let exact = bounds.may == bounds.must
@@ -2848,8 +2863,29 @@ fn search_segmented_impl(
             } else {
                 None
             };
+            let or_evidence = if query.options.evidence
+                && fts.is_none()
+                && exact_evidence.is_none()
+                && let Some(filter) = filter.as_ref()
+                && matches!(filter, BoundExpr::Or(_))
+                && metadata_only_filter(filter)
+            {
+                exact_or_branch_evidence_fields(
+                    segment,
+                    &published.active,
+                    filter,
+                    collection,
+                    catalog,
+                    &predicates,
+                    context,
+                )?
+                .and_then(|probe| probe.evidence)
+            } else {
+                None
+            };
             let index_exact = (!query.options.evidence
                 || exact_evidence.is_some()
+                || or_evidence.is_some()
                 || metadata_evidence.is_some())
                 && !sort.bound.has_computed
                 && !sort.bound.needs_source
@@ -2872,6 +2908,17 @@ fn search_segmented_impl(
                 });
             if index_exact {
                 let exact_fields = |slot: u32| {
+                    if let Some(branches) = &or_evidence {
+                        let mut fields = Vec::new();
+                        for (members, branch_fields) in branches {
+                            if members.contains(slot) {
+                                fields.extend(branch_fields.iter().cloned());
+                            }
+                        }
+                        fields.sort();
+                        fields.dedup();
+                        return fields;
+                    }
                     metadata_evidence
                         .as_ref()
                         .and_then(|evidence| evidence.get(&slot))
@@ -4359,7 +4406,7 @@ fn try_lifecycle_ordered_stream(
                     collection,
                     catalog,
                     &predicates,
-                    context,
+                    Some(context),
                 )?
                 else {
                     return Ok(None);

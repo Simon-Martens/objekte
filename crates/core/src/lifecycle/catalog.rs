@@ -16,14 +16,36 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use crate::inventory::{
-    FileEntry, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
+    FileEntry, FileScalarIndex, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
 };
 use crate::lifecycle::reconciliation::scan::FileStamp;
-use crate::model::FileId;
+use crate::model::{FileId, Number};
 use crate::query::Operator;
 use crate::repository::Repository;
 
 const SHARDS: usize = 256;
+const SCALAR_SHARDS: usize = 32;
+const SCALAR_CACHE_LIMIT: usize = 64;
+
+#[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
+enum ScalarLookup {
+    Size(u8, Number, usize),
+    Modified(u8, i128, usize),
+    Created(u8, i128, usize),
+    UnknownCreated(usize),
+}
+
+fn operator_key(operator: Operator) -> Option<u8> {
+    Some(match operator {
+        Operator::Eq => 0,
+        Operator::Ne => 1,
+        Operator::Gt => 2,
+        Operator::Ge => 3,
+        Operator::Lt => 4,
+        Operator::Le => 5,
+        _ => return None,
+    })
+}
 
 #[derive(Clone)]
 struct ChangedFile {
@@ -47,6 +69,10 @@ pub(crate) struct FileCatalog {
     /// Ordered paths that differ from the immutable base; ordinary moves copy
     /// only this delta, while base lookups use the repository's path index.
     changed_relative_paths: Arc<BTreeMap<(Arc<str>, FileId), ()>>,
+    /// Only changed file scalar memberships live here; the immutable base
+    /// keeps one sorted membership per discovered physical file.
+    changed_scalar: Arc<Vec<Arc<FileScalarIndex>>>,
+    scalar_cache: Arc<std::sync::Mutex<BTreeMap<ScalarLookup, Option<Vec<FileId>>>>>,
     active: Arc<RoaringBitmap>,
     len: u32,
 }
@@ -63,6 +89,18 @@ fn valid_relative_path(path: &Path) -> bool {
         && path
             .components()
             .all(|part| matches!(part, std::path::Component::Normal(_)))
+}
+
+fn scalar_matches(order: std::cmp::Ordering, operator: Operator) -> bool {
+    match operator {
+        Operator::Eq => order.is_eq(),
+        Operator::Ne => !order.is_eq(),
+        Operator::Gt => order.is_gt(),
+        Operator::Ge => order.is_ge(),
+        Operator::Lt => order.is_lt(),
+        Operator::Le => order.is_le(),
+        _ => false,
+    }
 }
 
 fn path_bounds_with_ids(
@@ -115,6 +153,7 @@ impl FileCatalog {
         let mut changed = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
         let mut changed_paths = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
         let mut changed_relative_paths = BTreeMap::new();
+        let mut changed_scalar = vec![FileScalarIndex::default(); SCALAR_SHARDS];
         let mut active = RoaringBitmap::new();
         let mut paths = HashSet::new();
         for (number, slot) in slots.into_iter().enumerate() {
@@ -166,6 +205,7 @@ impl FileCatalog {
                 || fingerprint != base_fingerprint
                 || configuration != base_configuration_for_file
             {
+                changed_scalar[id.0 as usize % SCALAR_SHARDS].insert(&entry);
                 changed[shard(&id)].insert(
                     id,
                     ChangedFile {
@@ -185,6 +225,8 @@ impl FileCatalog {
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
             changed_paths: Arc::new(changed_paths.into_iter().map(Arc::new).collect()),
             changed_relative_paths: Arc::new(changed_relative_paths),
+            changed_scalar: Arc::new(changed_scalar.into_iter().map(Arc::new).collect()),
+            scalar_cache: Arc::new(std::sync::Mutex::new(BTreeMap::new())),
             active: Arc::new(active),
             len,
         })
@@ -205,6 +247,7 @@ impl FileCatalog {
         fingerprints: Vec<Option<[u8; 32]>>,
         base_configuration: [u8; 32],
     ) -> Self {
+        let _ = files.scalar_index();
         let len = u32::try_from(files.files.len()).expect("file inventory length checked at build");
         let mut active = RoaringBitmap::new();
         active.insert_range(0..len);
@@ -216,6 +259,8 @@ impl FileCatalog {
             changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             changed_paths: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             changed_relative_paths: Arc::new(BTreeMap::new()),
+            changed_scalar: Arc::new(vec![Arc::new(FileScalarIndex::default()); SCALAR_SHARDS]),
+            scalar_cache: Arc::new(std::sync::Mutex::new(BTreeMap::new())),
             active: Arc::new(active),
             len,
         }
@@ -259,11 +304,129 @@ impl FileCatalog {
         }
         self.base_files = Arc::clone(&base.files);
         self.base_fingerprints = Arc::new(base.base_fingerprints.clone());
+        self.scalar_cache = Arc::new(std::sync::Mutex::new(BTreeMap::new()));
         Ok(())
     }
 
     pub(crate) fn active_files(&self) -> u64 {
         self.active.len()
+    }
+
+    pub(crate) fn scalar_delta_heap_bytes(&self) -> usize {
+        self.changed_scalar
+            .iter()
+            .map(|shard| shard.estimated_heap_bytes())
+            .sum()
+    }
+
+    fn scalar_ids(
+        &self,
+        limit: usize,
+        mut select: impl FnMut(&FileScalarIndex, &mut Vec<FileId>, usize) -> bool,
+        valid: impl Fn(&FileEntry) -> bool,
+    ) -> Option<Vec<FileId>> {
+        let mut ids = Vec::new();
+        if !select(self.base_files.scalar_index(), &mut ids, limit) {
+            return None;
+        }
+        for shard in self.changed_scalar.iter() {
+            if !select(shard, &mut ids, limit) {
+                return None;
+            }
+        }
+        ids.retain(|id| self.entry(*id).is_some_and(&valid));
+        ids.sort_unstable();
+        ids.dedup();
+        Some(ids)
+    }
+
+    fn cached_scalar_ids(
+        &self,
+        key: ScalarLookup,
+        limit: usize,
+        select: impl FnMut(&FileScalarIndex, &mut Vec<FileId>, usize) -> bool,
+        valid: impl Fn(&FileEntry) -> bool,
+    ) -> Option<Vec<FileId>> {
+        if limit > 4096 {
+            return self.scalar_ids(limit, select, valid);
+        }
+        if let Some(cached) = self
+            .scalar_cache
+            .lock()
+            .unwrap_or_else(|poison| poison.into_inner())
+            .get(&key)
+        {
+            return cached.clone();
+        }
+        let ids = self.scalar_ids(limit, select, valid);
+        let mut cache = self
+            .scalar_cache
+            .lock()
+            .unwrap_or_else(|poison| poison.into_inner());
+        if cache.len() == SCALAR_CACHE_LIMIT {
+            cache.clear();
+        }
+        cache.insert(key, ids.clone());
+        ids
+    }
+
+    pub(crate) fn size_ids(
+        &self,
+        operator: Operator,
+        literal: &Number,
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
+        self.cached_scalar_ids(
+            ScalarLookup::Size(operator_key(operator)?, literal.clone(), limit),
+            limit,
+            |index, ids, limit| index.size_ids(operator, literal, ids, limit),
+            |file| {
+                scalar_matches(
+                    Number::integer(file.revision.size as i128).cmp(literal),
+                    operator,
+                )
+            },
+        )
+    }
+
+    pub(crate) fn modified_ids(
+        &self,
+        operator: Operator,
+        literal: i128,
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
+        self.cached_scalar_ids(
+            ScalarLookup::Modified(operator_key(operator)?, literal, limit),
+            limit,
+            |index, ids, limit| index.modified_ids(operator, literal, ids, limit),
+            |file| scalar_matches(file.revision.modified_ns.cmp(&literal), operator),
+        )
+    }
+
+    pub(crate) fn created_ids(
+        &self,
+        operator: Operator,
+        literal: i128,
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
+        self.cached_scalar_ids(
+            ScalarLookup::Created(operator_key(operator)?, literal, limit),
+            limit,
+            |index, ids, limit| index.created_ids(operator, literal, ids, limit),
+            |file| {
+                file.created_ns
+                    .is_some_and(|created| scalar_matches(created.cmp(&literal), operator))
+            },
+        )
+    }
+
+    pub(crate) fn unknown_created_ids(&self, limit: usize) -> Option<Vec<FileId>> {
+        self.cached_scalar_ids(
+            ScalarLookup::UnknownCreated(limit),
+            limit,
+            |index, ids, limit| index.unknown_created_ids(ids, limit),
+            |file| file.created_ns.is_none(),
+        )
     }
 
     pub(crate) fn is_active(&self, file: FileId) -> bool {
@@ -444,6 +607,7 @@ impl FileCatalog {
     pub(crate) fn retired(&self, file: FileId) -> Result<Self, String> {
         let entry = self.entry(file).ok_or("unknown active file")?;
         let mut next = self.clone();
+        next.scalar_cache = Arc::new(std::sync::Mutex::new(BTreeMap::new()));
         Arc::make_mut(&mut next.active).remove(file.0);
         let bucket = shard(&entry.relative_path);
         let paths = Arc::make_mut(&mut next.changed_paths);
@@ -466,7 +630,10 @@ impl FileCatalog {
             return Err("file ID or path collision".into());
         }
         let mut next = self.clone();
+        next.scalar_cache = Arc::new(std::sync::Mutex::new(BTreeMap::new()));
         let id = entry.id;
+        let scalar = Arc::make_mut(&mut next.changed_scalar);
+        Arc::make_mut(&mut scalar[id.0 as usize % SCALAR_SHARDS]).insert(&entry);
         let path = entry.relative_path.clone();
         let query_key = path.query_key();
         let changed = Arc::make_mut(&mut next.changed);
@@ -508,6 +675,13 @@ impl FileCatalog {
             return Err("file path collision".into());
         }
         let mut next = self.clone();
+        next.scalar_cache = Arc::new(std::sync::Mutex::new(BTreeMap::new()));
+        let scalar = Arc::make_mut(&mut next.changed_scalar);
+        let scalar = Arc::make_mut(&mut scalar[id.0 as usize % SCALAR_SHARDS]);
+        if let Some(previous) = self.changed[shard(&id)].get(&id) {
+            scalar.remove(&previous.entry);
+        }
+        scalar.insert(&entry);
         let new_path = entry.relative_path.clone();
         let changed = Arc::make_mut(&mut next.changed);
         Arc::make_mut(&mut changed[shard(&id)]).insert(

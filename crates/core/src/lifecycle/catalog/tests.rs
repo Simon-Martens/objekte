@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use super::FileCatalog;
+use crate::model::Number;
 use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
@@ -42,9 +43,42 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
 
     let mut moved = repository.files().files[0].clone();
     moved.relative_path = "data/renamed.json".into();
+    moved.revision.size = 77;
+    moved.revision.modified_ns += 100;
+    moved.created_ns = Some(777);
+    let moved_modified = moved.revision.modified_ns;
     let changed = original
         .replaced(moved, Some([7; 32]), Some([8; 32]))
         .unwrap();
+    assert_eq!(
+        original.size_ids(Operator::Eq, &Number::integer(2), 8),
+        Some(vec![FileId(0), FileId(1)])
+    );
+    assert_eq!(
+        changed.size_ids(Operator::Eq, &Number::integer(2), 8),
+        Some(vec![FileId(1)])
+    );
+    assert_eq!(
+        changed.size_ids(Operator::Eq, &Number::integer(77), 8),
+        Some(vec![FileId(0)])
+    );
+    assert_eq!(
+        changed.size_ids(Operator::Gt, &Number::integer(2), 8),
+        Some(vec![FileId(0)])
+    );
+    assert_eq!(
+        changed.size_ids(Operator::Ne, &Number::integer(77), 8),
+        Some(vec![FileId(1)])
+    );
+    assert_eq!(changed.size_ids(Operator::Ge, &Number::integer(0), 1), None);
+    assert_eq!(
+        changed.created_ids(Operator::Eq, 777, 8),
+        Some(vec![FileId(0)])
+    );
+    assert_eq!(
+        changed.modified_ids(Operator::Eq, moved_modified, 8),
+        Some(vec![FileId(0)])
+    );
     assert_eq!(changed.id_for(std::path::Path::new("data/a.json")), None);
     assert_eq!(
         changed.id_for(std::path::Path::new("data/renamed.json")),
@@ -72,7 +106,18 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let mut added = repository.files().files[1].clone();
     added.id = FileId(2);
     added.relative_path = "data/new.json".into();
+    added.created_ns = None;
     let appended = retired.appended(added, None, None).unwrap();
+    assert!(
+        appended
+            .unknown_created_ids(8)
+            .unwrap()
+            .contains(&FileId(2))
+    );
+    assert_eq!(
+        appended.size_ids(Operator::Eq, &Number::integer(77), 8),
+        Some(vec![FileId(0)])
+    );
     assert_eq!(appended.allocated_files(), 3);
     assert_eq!(appended.active_files(), 2);
     let mut prefix = appended.relative_path_ids(Operator::Ge, "data/n").unwrap();

@@ -213,8 +213,10 @@ impl IndexView {
                     .saturating_add(segment.bigram_heap_bytes);
             }
         }
-        let (inventory_heap_bytes, diagnostic_heap_bytes) =
+        let (base_inventory_heap_bytes, diagnostic_heap_bytes) =
             self.repository().files().estimated_heap_bytes();
+        let inventory_heap_bytes =
+            base_inventory_heap_bytes + self.0.catalog.scalar_delta_heap_bytes();
         IndexObservation {
             files,
             source_bytes,
@@ -265,7 +267,8 @@ impl IndexView {
         &self,
     ) -> (usize, usize, crate::inventory::FileStorageDiagnostic) {
         let inventory = self.repository().files();
-        let (heap_bytes, diagnostic_bytes) = inventory.estimated_heap_bytes();
+        let (base_heap_bytes, diagnostic_bytes) = inventory.estimated_heap_bytes();
+        let heap_bytes = base_heap_bytes + self.0.catalog.scalar_delta_heap_bytes();
         (heap_bytes, diagnostic_bytes, inventory.storage_diagnostic())
     }
 
@@ -445,6 +448,7 @@ impl IndexView {
 
     pub fn estimated_inventory_bytes(&self) -> usize {
         self.repository().files().estimated_heap_bytes().0
+            + self.0.catalog.scalar_delta_heap_bytes()
     }
 
     fn has_segments(&self) -> bool {

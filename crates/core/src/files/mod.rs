@@ -6,6 +6,7 @@ use crate::inventory::{ByteRange, FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::{FileCatalogueRow, IndexView};
 use crate::model::FileId;
 use crate::model::RecordId;
+use crate::query::Operator;
 use crate::query::options::ReturnMode;
 use crate::records::RecordKey;
 
@@ -94,6 +95,69 @@ impl<'a> FileCatalogView<'a> {
     pub fn file_by_path(&self, path: &Path) -> Option<FileCatalogueRow<'a>> {
         let id = self.view.0.catalog.id_for(path)?;
         self.view.catalogue_row(id)
+    }
+
+    fn rows_for_ids(
+        &self,
+        ids: Option<Vec<FileId>>,
+    ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
+        ids.ok_or_else(|| LookupError::Query("unsupported file scalar comparison".into()))?
+            .into_iter()
+            .map(|id| self.file(id))
+            .collect()
+    }
+
+    /// Ordered file-level size lookup in the pinned catalog.
+    pub fn files_by_size(
+        &self,
+        operator: Operator,
+        size: u64,
+    ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
+        self.rows_for_ids(self.view.0.catalog.size_ids(
+            operator,
+            &crate::model::Number::integer(size as i128),
+            usize::MAX,
+        ))
+    }
+
+    /// Ordered file-level modification-time lookup, in Unix nanoseconds.
+    pub fn files_by_modified(
+        &self,
+        operator: Operator,
+        modified_ns: i128,
+    ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
+        self.rows_for_ids(
+            self.view
+                .0
+                .catalog
+                .modified_ids(operator, modified_ns, usize::MAX),
+        )
+    }
+
+    /// Ordered file-level creation-time lookup, in Unix nanoseconds.
+    pub fn files_by_created(
+        &self,
+        operator: Operator,
+        created_ns: i128,
+    ) -> Result<Vec<FileCatalogueRow<'a>>, LookupError> {
+        self.rows_for_ids(
+            self.view
+                .0
+                .catalog
+                .created_ids(operator, created_ns, usize::MAX),
+        )
+    }
+
+    /// Files whose creation time could not be observed.
+    pub fn files_without_creation_time(&self) -> Vec<FileCatalogueRow<'a>> {
+        self.view
+            .0
+            .catalog
+            .unknown_created_ids(usize::MAX)
+            .unwrap_or_default()
+            .into_iter()
+            .filter_map(|id| self.view.catalogue_row(id))
+            .collect()
     }
 
     pub fn file_for_record(

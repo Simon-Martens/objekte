@@ -3039,6 +3039,41 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
     for name in ["a.json", "m.json", "z.json"] {
         index.add_file(&root.join("data").join(name)).unwrap();
     }
+    let initial_view = index.view().unwrap();
+    let initial_catalog = initial_view.file_catalog().unwrap();
+    let sample = initial_catalog
+        .file_by_path(std::path::Path::new("data/a.json"))
+        .unwrap();
+    assert_eq!(
+        initial_catalog
+            .files_by_size(objekte_search_core::query::Operator::Eq, sample.size)
+            .unwrap()
+            .len(),
+        3
+    );
+    assert!(
+        initial_catalog
+            .files_by_modified(objekte_search_core::query::Operator::Eq, sample.modified_ns)
+            .unwrap()
+            .iter()
+            .any(|row| row.id == sample.id)
+    );
+    if let Some(created) = sample.created_ns {
+        assert!(
+            initial_catalog
+                .files_by_created(objekte_search_core::query::Operator::Eq, created)
+                .unwrap()
+                .iter()
+                .any(|row| row.id == sample.id)
+        );
+    } else {
+        assert!(
+            initial_catalog
+                .files_without_creation_time()
+                .iter()
+                .any(|row| row.id == sample.id)
+        );
+    }
     let query = |descending, offset| Query {
         collections: vec!["entries".into()],
         fts: None,
@@ -3061,6 +3096,31 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
             .map(|hit| hit.record_id)
             .collect::<Vec<_>>()
     };
+    let compare_metadata = || {
+        let view = index.view().unwrap();
+        for filter in [
+            "@file.size > 0",
+            "@file.size != 10",
+            "@file.size > 0 || @record.id = 'unlinked'",
+            "!(@file.size > 0)",
+            "@file.created:null = true",
+            "@file.created:exists = true",
+            "@file.path >= 'data/m.json'",
+        ] {
+            let mut request = query(false, 0);
+            request.options.sort.clear();
+            request.filter = Some(parse_filter(filter).unwrap());
+            let optimized = view.search(&request).unwrap();
+            let exact = view.search_reference(&request).unwrap();
+            assert_eq!(optimized.count, exact.count, "{filter}");
+            assert_eq!(optimized.hits, exact.hits, "{filter}");
+            if filter == "@file.size > 0" {
+                assert_eq!(optimized.counters.files_opened, 0);
+                assert_eq!(optimized.counters.bytes_read, 0);
+            }
+        }
+    };
+    compare_metadata();
     assert_eq!(ids(query(false, 0)), ["z", "b", "a", "unlinked"]);
     assert_eq!(ids(query(true, 0)), ["a", "b", "z", "unlinked"]);
     assert_eq!(ids(query(false, 1)), ["b", "a", "unlinked"]);
@@ -3070,6 +3130,17 @@ fn managed_file_metadata_sort_keeps_direct_missing_and_updates_local_paths() {
         .unwrap();
     std::fs::rename(root.join("data/a.json"), root.join("data/y.json")).unwrap();
     index.move_file(handle, &root.join("data/y.json")).unwrap();
+    compare_metadata();
+    let moved_view = index.view().unwrap();
+    assert_eq!(
+        moved_view
+            .file_catalog()
+            .unwrap()
+            .files_by_size(objekte_search_core::query::Operator::Eq, sample.size)
+            .unwrap()
+            .len(),
+        3
+    );
     assert_eq!(ids(query(false, 0)), ["b", "z", "a", "unlinked"]);
     assert_eq!(
         pinned

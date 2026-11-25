@@ -16,6 +16,9 @@ use crate::query::Operator;
 use crate::source::{DiagnosticCategory, ReaderDiagnostic};
 
 pub mod discovery;
+mod scalar;
+
+pub(crate) use scalar::FileScalarIndex;
 
 /// Append a batch-local bitmap after its final slot base is known. Batch
 /// admission is ordered, so each translated set must follow existing slots.
@@ -650,6 +653,8 @@ pub struct FileInventory {
     /// Ordered root-relative query keys, rebuilt with every restored index.
     #[serde(skip)]
     pub(crate) relative_paths: BTreeMap<Arc<str>, FileId>,
+    #[serde(skip)]
+    scalar: Arc<std::sync::OnceLock<FileScalarIndex>>,
 }
 
 /// Opt-in component accounting for the file table and its path indexes.
@@ -670,6 +675,7 @@ pub struct FileStorageDiagnostic {
     pub escaped_query_payload_bytes: usize,
     pub collection_membership_bytes: usize,
     pub root_payload_bytes: usize,
+    pub scalar_index_bytes: usize,
     pub estimated_live_bytes: usize,
 }
 
@@ -738,6 +744,10 @@ impl FileInventory {
             .map(|file| file.collections.capacity() * std::mem::size_of::<CollectionId>())
             .sum::<usize>();
         let root_payload_bytes = self.root.as_ref().map_or(0, PathBuf::capacity);
+        let scalar_index_bytes = self
+            .scalar
+            .get()
+            .map_or(0, FileScalarIndex::estimated_heap_bytes);
         FileStorageDiagnostic {
             files_len: self.files.len(),
             files_capacity: self.files.capacity(),
@@ -753,13 +763,15 @@ impl FileInventory {
             escaped_query_payload_bytes,
             collection_membership_bytes,
             root_payload_bytes,
+            scalar_index_bytes,
             estimated_live_bytes: file_table_slot_bytes
                 + native_path_payload_bytes
                 + exact_lookup_slot_bytes
                 + ordered_lookup_slot_bytes
                 + escaped_query_payload_bytes
                 + collection_membership_bytes
-                + root_payload_bytes,
+                + root_payload_bytes
+                + scalar_index_bytes,
         }
     }
 
@@ -791,6 +803,10 @@ impl FileInventory {
             .filter(|file| file.relative_path.query_key_has_separate_payload())
             .map(|file| crate::model::path_representation::query_path(&file.relative_path).len())
             .sum::<usize>();
+        inventory += self
+            .scalar
+            .get()
+            .map_or(0, FileScalarIndex::estimated_heap_bytes);
         (inventory, diagnostics)
     }
 
@@ -800,6 +816,7 @@ impl FileInventory {
             files: Vec::new(),
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
+            scalar: Arc::new(std::sync::OnceLock::new()),
         }
     }
 
@@ -810,6 +827,7 @@ impl FileInventory {
             files: Vec::new(),
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
+            scalar: Arc::new(std::sync::OnceLock::new()),
         }
     }
 
@@ -835,6 +853,7 @@ impl FileInventory {
             files: entries,
             by_path: HashMap::new(),
             relative_paths: BTreeMap::new(),
+            scalar: Arc::new(std::sync::OnceLock::new()),
         };
         inventory.rebuild_lookup()?;
         Ok(inventory)
@@ -877,6 +896,7 @@ impl FileInventory {
             diagnostics: Vec::new(),
             omitted_diagnostics: 0,
         });
+        self.scalar = Arc::new(std::sync::OnceLock::new());
         Ok(id)
     }
 
@@ -956,6 +976,7 @@ impl FileInventory {
         self.by_path.clear();
         self.by_path.reserve(self.files.len());
         self.relative_paths.clear();
+        self.scalar = Arc::new(std::sync::OnceLock::new());
         for (slot, file) in self.files.iter().enumerate() {
             if !valid_relative_path(&file.relative_path)
                 || file.id.0 as usize != slot
@@ -983,6 +1004,11 @@ impl FileInventory {
         self.files
             .get(id.0 as usize)
             .map(|f| root.join(&f.relative_path))
+    }
+
+    pub(crate) fn scalar_index(&self) -> &FileScalarIndex {
+        self.scalar
+            .get_or_init(|| FileScalarIndex::from_files(&self.files))
     }
 
     pub fn id_for(&self, path: &Path) -> Option<FileId> {
