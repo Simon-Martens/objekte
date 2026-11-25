@@ -352,6 +352,7 @@ fn initialize_empty_configured(
         verified: Mutex::new(crate::query_results::verified::VerifiedCache::new(
             options.verified_cache_bytes,
         )),
+        stream_budget: Default::default(),
         inferred_orders: Mutex::new(crate::index::sorting::InferredOrderCache::new(
             crate::index::sorting::INFERRED_ORDER_CACHE_BYTES,
         )),

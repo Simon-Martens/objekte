@@ -1597,15 +1597,23 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
         }
     }
 
-    for (large, fail) in [(false, false), (true, false), (false, true)] {
+    for (large, fail, empty) in [
+        (false, false, false),
+        (true, false, false),
+        (false, true, false),
+        (false, false, true),
+    ] {
         let root = std::env::temp_dir().join(format!(
-            "objekte-shared-atomic-{}-{large}-{fail}",
+            "objekte-shared-atomic-{}-{large}-{fail}-{empty}",
             std::process::id()
         ));
         std::fs::create_dir_all(root.join("shared")).unwrap();
         std::fs::create_dir_all(root.join("independent")).unwrap();
         std::fs::write(root.join("independent/solo.json"), b"{}").unwrap();
         let mut bytes = b"{\"id\":\"one\"}\n{\"id\":\"two\"}\n".to_vec();
+        if empty {
+            bytes.clear();
+        }
         if large {
             bytes.resize(9 * 1024 * 1024, b' ');
         }
@@ -1668,14 +1676,14 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
                     .records_for_file_in_collection(shared, "entries")
                     .unwrap()
                     .len(),
-                2
+                if empty { 0 } else { 2 }
             );
             assert_eq!(
                 catalog
                     .records_for_file_in_collection(shared, "references")
                     .unwrap()
                     .len(),
-                2
+                if empty { 0 } else { 2 }
             );
             assert_eq!(
                 complete.revision().0,
@@ -1684,6 +1692,153 @@ fn shared_initial_file_is_hidden_until_all_bindings_are_complete() {
             );
         }
         assert!(catalog.records_for_file(shared).unwrap().is_empty());
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn registered_stream_seals_private_work_before_eof_and_discards_late_failure() {
+    struct PauseBeforeEof {
+        paused: mpsc::Sender<()>,
+        release: std::sync::Mutex<mpsc::Receiver<()>>,
+        fail: bool,
+    }
+
+    impl SourceReader for PauseBeforeEof {
+        fn name(&self) -> &'static str {
+            "private-stream"
+        }
+        fn supports_streaming_build(&self) -> bool {
+            true
+        }
+        fn frame(&self, _bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            Err("expected registered stream".into())
+        }
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonLinesReader.parse(bytes)
+        }
+        fn stream_build_chunks(
+            &self,
+            input: &mut dyn std::io::Read,
+            _: usize,
+            _: usize,
+            emit: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+        ) -> Option<Result<(), String>> {
+            Some((|| {
+                let mut first = vec![0; 4];
+                input
+                    .read_exact(&mut first)
+                    .map_err(|error| error.to_string())?;
+                emit(crate::source::BuildChunk {
+                    bytes: first,
+                    ranges: vec![
+                        ByteRange { start: 0, end: 1 },
+                        ByteRange { start: 2, end: 3 },
+                    ],
+                    file_offset: 0,
+                    preceding_lines: 0,
+                })?;
+                self.paused.send(()).map_err(|error| error.to_string())?;
+                self.release
+                    .lock()
+                    .unwrap()
+                    .recv_timeout(std::time::Duration::from_secs(5))
+                    .map_err(|error| error.to_string())?;
+                let mut last = Vec::new();
+                input
+                    .read_to_end(&mut last)
+                    .map_err(|error| error.to_string())?;
+                if self.fail {
+                    return Err("late registered framing failure".into());
+                }
+                emit(crate::source::BuildChunk {
+                    bytes: last,
+                    ranges: vec![ByteRange { start: 0, end: 1 }],
+                    file_offset: 4,
+                    preceding_lines: 2,
+                })
+            })())
+        }
+    }
+
+    for fail in [false, true] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-private-stream-{}-{fail}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(root.join("data/records.private"), b"1\n2\n3").unwrap();
+        let (paused, waiting) = mpsc::channel();
+        let (release, resume) = mpsc::channel();
+        let (catalogue, views) = mpsc::channel();
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register(
+                "private-stream",
+                1,
+                "private",
+                Arc::new(PauseBeforeEof {
+                    paused,
+                    release: std::sync::Mutex::new(resume),
+                    fail,
+                }),
+            )
+            .unwrap();
+        let gate = Arc::new(crate::construction::segment_jobs::SegmentJobGate::new());
+        gate.release();
+        gate.release_after_submission();
+        gate.release_after_validation();
+        let worker_gate = gate.clone();
+        let worker_root = root.clone();
+        let worker = std::thread::spawn(move || {
+            Repository::build_incremental_with_sources_gated(
+                worker_root,
+                vec![CollectionDefinition::folder(
+                    "entries",
+                    "data",
+                    SourceFormat::registered("private-stream"),
+                )],
+                RepositoryOptions {
+                    build_workers: NonZeroUsize::new(1),
+                    segment_policy: crate::index::segment::SegmentPolicy {
+                        target_records: NonZeroUsize::new(2).unwrap(),
+                        max_files: NonZeroUsize::new(1).unwrap(),
+                    },
+                    ..Default::default()
+                },
+                sources,
+                |index| {
+                    catalogue.send(index.clone()).unwrap();
+                    Ok(())
+                },
+                |_| Ok(()),
+                || false,
+                worker_gate,
+            )
+        });
+        let index = views
+            .recv_timeout(std::time::Duration::from_secs(5))
+            .unwrap();
+        waiting
+            .recv_timeout(std::time::Duration::from_secs(5))
+            .unwrap();
+        let finalized = gate.wait_for_private_job(0, std::time::Duration::from_secs(3));
+        let pinned = index.view().unwrap();
+        release.send(()).unwrap();
+        assert!(
+            finalized,
+            "private segment must finish before the reader reaches EOF"
+        );
+        assert_eq!(pinned.file_record_count(FileId(0)), None);
+        if fail {
+            assert!(worker.join().unwrap().is_err());
+            assert_eq!(index.view().unwrap().revision(), pinned.revision());
+        } else {
+            let finished = worker.join().unwrap().unwrap();
+            assert_eq!(finished.status().unwrap().live_records, 3);
+            assert_eq!(finished.view().unwrap().segment_summaries().len(), 2);
+        }
+        assert_eq!(pinned.file_record_count(FileId(0)), None);
         std::fs::remove_dir_all(root).unwrap();
     }
 }

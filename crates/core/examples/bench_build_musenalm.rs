@@ -187,6 +187,8 @@ fn run() -> Result<(), String> {
             "extraction_index_ns": repo.startup_stats().build_extraction_index_ns,
             "finalization_ns": repo.startup_stats().build_finalization_ns,
             "build_parses": repo.build_parses(),
+            "build_source_content_opens": repo.startup_stats().build_source_reads,
+            "build_source_bytes_read": repo.startup_stats().build_source_bytes_read,
             "failed_parses": repo.build_failed_parses(),
             "inventory_heap_bytes": inventory_heap_bytes,
             "diagnostic_heap_bytes": diagnostic_heap_bytes,

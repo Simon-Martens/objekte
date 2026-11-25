@@ -326,6 +326,9 @@ impl Index {
                 Some(prepared) => prepared,
                 None => self.prepare_add_file(path)?,
             };
+            // Independent direct work can finish while the reader is active.
+            // Place both writers' prepared content against the latest root.
+            let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
                 // A direct batch changes the publication revision but cannot
@@ -799,6 +802,9 @@ impl Index {
                 Some(prepared) => prepared,
                 None => prepare(self)?,
             };
+            // Independent direct work can finish while the reader is active.
+            // Place both writers' prepared content against the latest root.
+            let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
             let view = self.view()?;
             if view.revision() != prepared.expected_revision {
                 // Rebase completed source work over unrelated direct batches;

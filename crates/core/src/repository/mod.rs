@@ -67,6 +67,7 @@ pub struct Repository {
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
+    pub(crate) stream_budget: crate::construction::file_preparation::StreamBudget,
     pub(crate) verified: Mutex<crate::query_results::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::index::sorting::InferredOrderCache>,
 }

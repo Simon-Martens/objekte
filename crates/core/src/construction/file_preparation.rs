@@ -4,9 +4,9 @@ use std::collections::{BTreeMap, VecDeque};
 use std::io::{BufRead, BufReader, Cursor, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::path::PathBuf;
-use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::mpsc;
+use std::sync::{Arc, Condvar, Mutex};
 
 use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
@@ -176,6 +176,7 @@ pub(crate) fn verify_current_source(
     } else if let Some(expected) = fingerprint {
         let mut digest = Sha256::new();
         let mut file = std::fs::File::open(&canonical).map_err(|error| error.to_string())?;
+        crate::source::access::check_revision(&canonical, &file, source.revision)?;
         let mut chunk = [0u8; 64 * 1024];
         loop {
             let count = file.read(&mut chunk).map_err(|error| error.to_string())?;
@@ -184,6 +185,7 @@ pub(crate) fn verify_current_source(
             }
             digest.update(&chunk[..count]);
         }
+        crate::source::access::check_revision(&canonical, &file, source.revision)?;
         if <[u8; 32]>::from(digest.finalize()) != expected {
             return Err("source content changed before publication".into());
         }
@@ -452,6 +454,66 @@ fn prepare_custom_stream(
     }))
 }
 
+/// Credits cover input and completed work until ordered admission.
+#[derive(Default)]
+pub(crate) struct StreamBudget {
+    usage: Mutex<(usize, u64)>,
+    available: Condvar,
+}
+
+struct StreamCredit<'a> {
+    budget: &'a StreamBudget,
+    bytes: u64,
+}
+
+impl StreamBudget {
+    fn try_reserve(&self, bytes: u64, jobs: usize, limit: u64) -> Option<StreamCredit<'_>> {
+        let mut usage = self.usage.lock().expect("stream budget mutex poisoned");
+        if usage.0 >= jobs || (usage.0 != 0 && !fits_allowance(usage.1, bytes, limit)) {
+            return None;
+        }
+        usage.0 += 1;
+        usage.1 += bytes;
+        Some(StreamCredit {
+            budget: self,
+            bytes,
+        })
+    }
+
+    fn reserve(&self, bytes: u64, jobs: usize, limit: u64, pool: &ThreadPool) -> StreamCredit<'_> {
+        loop {
+            if let Some(credit) = self.try_reserve(bytes, jobs, limit) {
+                return credit;
+            }
+            if pool.current_thread_index().is_some() {
+                // Allow queued jobs to finish if the caller is on the pool.
+                pool.yield_now();
+            }
+            let usage = self.usage.lock().expect("stream budget mutex poisoned");
+            if usage.0 >= jobs || (usage.0 != 0 && !fits_allowance(usage.1, bytes, limit)) {
+                drop(
+                    self.available
+                        .wait_timeout(usage, std::time::Duration::from_millis(2))
+                        .expect("stream budget mutex poisoned"),
+                );
+            }
+        }
+    }
+}
+
+impl Drop for StreamCredit<'_> {
+    fn drop(&mut self) {
+        let mut usage = self
+            .budget
+            .usage
+            .lock()
+            .expect("stream budget mutex poisoned");
+        usage.0 -= 1;
+        usage.1 -= self.bytes;
+        self.budget.available.notify_all();
+    }
+}
+
 /// Process a registered stream through an ordered, bounded window of owned
 /// chunks. The callback contributes to private segment admission as it runs.
 fn process_custom_stream_profiled(
@@ -465,16 +527,18 @@ fn process_custom_stream_profiled(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     expected_bytes: Option<&[u8]>,
+    hash: bool,
     limits: BoundedBuildLimits,
+    shared_budget: Option<&StreamBudget>,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
-) -> Result<(BuildScheduleStats, [u8; 32]), String> {
+) -> Result<(BuildScheduleStats, Option<[u8; 32]>), String> {
     file.seek(SeekFrom::Start(0))
         .map_err(|error| error.to_string())?;
     let mut digest = Sha256::new();
     let bytes_read = AtomicU64::new(0);
     let mut reader = HashingReader {
         inner: file,
-        digest: Some(&mut digest),
+        digest: hash.then_some(&mut digest),
         bytes_read: &bytes_read,
         expected_bytes,
     };
@@ -482,7 +546,12 @@ fn process_custom_stream_profiled(
     let inline = pool.current_num_threads() == 1 || pool.current_thread_index().is_some();
     let window = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let counters = Arc::new(JobCounters::default());
-    let mut waiting = VecDeque::<(u64, mpsc::Receiver<Result<BatchContribution, String>>)>::new();
+    type Waiting<'a> = (
+        u64,
+        mpsc::Receiver<Result<BatchContribution, String>>,
+        Option<StreamCredit<'a>>,
+    );
+    let mut waiting = VecDeque::<Waiting<'_>>::new();
     let mut stats = BuildScheduleStats {
         weight_limit_bytes: limits.admitted_bytes,
         source_reads: 1,
@@ -494,12 +563,15 @@ fn process_custom_stream_profiled(
     let mut emitted = 0usize;
     let mut ordinal = 0usize;
 
-    let mut drain = |pending: (u64, mpsc::Receiver<Result<BatchContribution, String>>)| {
+    let mut drain = |pending: Waiting<'_>, ready: Option<Result<BatchContribution, String>>| {
         let started = crate::measurement::timer::DetailedInstant::now();
-        let result = pending
-            .1
-            .recv()
-            .map_err(|error| format!("stream decoder stopped: {error}"))?;
+        let result = match ready {
+            Some(result) => result,
+            None => pending
+                .1
+                .recv()
+                .map_err(|error| format!("stream decoder stopped: {error}"))?,
+        };
         let wait = started.elapsed().as_nanos() as u64;
         result.and_then(&mut admit)?;
         counters.admitted.fetch_add(1, Ordering::Relaxed);
@@ -512,8 +584,23 @@ fn process_custom_stream_profiled(
         while waiting.len() >= window || !fits_allowance(buffered, weight, limits.admitted_bytes) {
             let pending = waiting.pop_front().expect("a pending job owns credit");
             buffered -= pending.0;
-            stats.receive_wait_ns += drain(pending)?;
+            stats.receive_wait_ns += drain(pending, None)?;
         }
+        let credit = if let Some(shared) = shared_budget {
+            Some(loop {
+                if let Some(credit) = shared.try_reserve(weight, window, limits.admitted_bytes) {
+                    break credit;
+                }
+                if let Some(pending) = waiting.pop_front() {
+                    buffered -= pending.0;
+                    stats.receive_wait_ns += drain(pending, None)?;
+                } else {
+                    break shared.reserve(weight, window, limits.admitted_bytes, pool);
+                }
+            })
+        } else {
+            None
+        };
         let (send, receive) = mpsc::sync_channel(1);
         let root = Arc::clone(&root);
         let definition = Arc::clone(&definition);
@@ -545,22 +632,24 @@ fn process_custom_stream_profiled(
             let _ = send.send(result);
         };
         if inline {
-            execute();
-            stats.receive_wait_ns += drain((weight, receive))?;
+            if pool.current_thread_index().is_some() {
+                execute();
+            } else {
+                pool.install(execute);
+            }
+            stats.receive_wait_ns += drain((weight, receive, credit), None)?;
         } else {
             buffered += weight;
-            waiting.push_back((weight, receive));
+            waiting.push_back((weight, receive, credit));
             pool.spawn(execute);
             // Feed completed contributions before allowing the reader to
             // advance, without waiting for a younger ordinal.
-            while let Some((_, first)) = waiting.front() {
+            while let Some((_, first, _)) = waiting.front() {
                 match first.try_recv() {
                     Ok(result) => {
-                        let (weight, _) = waiting.pop_front().expect("front is ready");
-                        buffered -= weight;
-                        let (send, receive) = mpsc::sync_channel(1);
-                        let _ = send.send(result);
-                        stats.receive_wait_ns += drain((weight, receive))?;
+                        let pending = waiting.pop_front().expect("front is ready");
+                        buffered -= pending.0;
+                        stats.receive_wait_ns += drain(pending, Some(result))?;
                     }
                     Err(mpsc::TryRecvError::Empty) => break,
                     Err(mpsc::TryRecvError::Disconnected) => {
@@ -618,7 +707,7 @@ fn process_custom_stream_profiled(
     let mut outcome = result;
     for pending in waiting {
         if outcome.is_ok() {
-            match drain(pending) {
+            match drain(pending, None) {
                 Ok(wait) => stats.receive_wait_ns += wait,
                 Err(error) => outcome = Err(error),
             }
@@ -631,7 +720,7 @@ fn process_custom_stream_profiled(
     stats.framing_bytes = next_offset;
     stats.source_bytes_read = bytes_read.load(Ordering::Relaxed);
     counters.add_to(&mut stats);
-    Ok((stats, digest.finalize().into()))
+    Ok((stats, hash.then(|| digest.finalize().into())))
 }
 
 /// Prepare one physical file across all supplied eligible collections. JSONL
@@ -914,10 +1003,12 @@ fn prepare_managed_stream(
             options.bigram_alphabet,
             options.inference,
             expected_bytes,
+            hash,
             limits,
+            Some(&repository.stream_budget),
             &mut consume,
         )?;
-        Some(digest)
+        digest
     } else {
         file.seek(SeekFrom::Start(0))
             .map_err(|error| error.to_string())?;
@@ -941,6 +1032,7 @@ fn prepare_managed_stream(
             options.detailed_profiling_enabled(),
             reader,
             limits,
+            Some(&repository.stream_budget),
             &mut consume,
         )?;
         if bytes_read.load(Ordering::Relaxed) != input.revision.size {
@@ -1140,7 +1232,7 @@ fn prepare_malformed_supplied_file(
     input: &SourceFileInput,
     binding: &FilePreparationBinding<'_>,
     bytes: &[u8],
-    diagnostic: ReaderDiagnostic,
+    mut diagnostic: ReaderDiagnostic,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     inference_jobs: usize,
@@ -1156,11 +1248,18 @@ fn prepare_malformed_supplied_file(
         inference,
         inference_jobs,
     )?;
+    let range = ByteRange::checked(0, input.revision.size, input.revision.size)?;
+    crate::source::extraction::file_coordinates(
+        bytes,
+        range,
+        &mut diagnostic,
+        &mut crate::source::extraction::FileCoordinateCursor::default(),
+    );
     builder.outcome(
         &mut file,
         &path,
         SourceOutcome::Malformed {
-            range: ByteRange::checked(0, input.revision.size, input.revision.size)?,
+            range,
             diagnostic,
             bytes: bytes.to_vec(),
         },
@@ -1330,6 +1429,36 @@ pub(crate) fn process_framed_file_profiled(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     profile_build: bool,
+    admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
+    process_framed_file_with_budget(
+        pool,
+        root,
+        definition,
+        collection,
+        source,
+        file_id,
+        source_files,
+        alphabet,
+        inference,
+        profile_build,
+        None,
+        admit,
+    )
+}
+
+pub(super) fn process_framed_file_with_budget(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    file_id: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    profile_build: bool,
+    shared_budget: Option<&StreamBudget>,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     if source.reader().supports_streaming_build() {
@@ -1352,11 +1481,13 @@ pub(crate) fn process_framed_file_profiled(
             alphabet,
             inference,
             None,
+            true,
             BoundedBuildLimits::default(),
+            shared_budget,
             admit,
         )?;
         crate::source::access::check_revision(&path, &file, input.revision)?;
-        stats.file_fingerprint = Some((file_id, digest));
+        stats.file_fingerprint = digest.map(|digest| (file_id, digest));
         return Ok(stats);
     }
     if source.reader().supports_bounded_json_lines_build() {
@@ -1701,6 +1832,7 @@ pub(crate) fn process_bounded_json_lines_reader<R: BufRead + Send>(
         profile_build,
         reader,
         limits,
+        None,
         admit,
     )
 }
@@ -1717,6 +1849,7 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
     profile_build: bool,
     mut reader: BoundedJsonLines<R>,
     limits: BoundedBuildLimits,
+    shared_budget: Option<&StreamBudget>,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let path = root.join(&input.relative_path);
@@ -1782,6 +1915,15 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
             if !fits_allowance(admitted_bytes, weight, limits.admitted_bytes) {
                 break;
             }
+            let credit = if let Some(shared) = shared_budget {
+                match shared.try_reserve(weight, max_jobs, limits.admitted_bytes) {
+                    Some(credit) => Some(credit),
+                    None if next < dispatched => break,
+                    None => Some(shared.reserve(weight, max_jobs, limits.admitted_bytes, pool)),
+                }
+            } else {
+                None
+            };
             let chunk = pending.take().expect("checked pending chunk");
             let index = dispatched;
             let sender = sender.clone();
@@ -1812,12 +1954,14 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
                 });
                 let _ = sender.send((index, result));
             };
-            if pool.current_num_threads() == 1 || pool.current_thread_index().is_some() {
+            if pool.current_thread_index().is_some() {
                 execute();
+            } else if pool.current_num_threads() == 1 {
+                pool.install(execute);
             } else {
                 pool.spawn(execute);
             }
-            reservations.push_back(weight);
+            reservations.push_back((weight, credit));
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
@@ -1839,7 +1983,7 @@ fn process_bounded_json_lines_input<R: BufRead + Send>(
         completed += 1;
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
-            let weight = reservations
+            let (weight, _credit) = reservations
                 .pop_front()
                 .ok_or("missing chunk reservation")?;
             admitted_bytes = admitted_bytes

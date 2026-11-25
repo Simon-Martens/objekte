@@ -353,11 +353,16 @@ where
         sample.open_ns = started.elapsed().as_nanos() as u64;
     }
     let observe_build = fingerprint.is_some();
-    if observe_build
-        && SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
+    let verify_opened = |file: &std::fs::File| -> Result<(), String> {
+        if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
             != expected
-    {
-        return Err("stale source revision before build extraction".into());
+        {
+            return Err("stale source revision during build extraction".into());
+        }
+        Ok(())
+    };
+    if observe_build {
+        verify_opened(&file)?;
     }
     if check_freshness {
         check_revision(path, &file, expected)?;
@@ -439,8 +444,10 @@ where
                 diagnostic,
                 bytes: std::mem::take(bytes),
             })?;
-            if check_freshness || observe_build {
+            if check_freshness {
                 check_revision(path, &file, expected)?;
+            } else if observe_build {
+                verify_opened(&file)?;
             }
             return Ok(ExtractionCounters {
                 framed_records: 1,
@@ -462,8 +469,10 @@ where
     if let (Some(started), Some(sample)) = (extraction_started, profile.as_deref_mut()) {
         sample.extraction_ns = started.elapsed().as_nanos() as u64;
     }
-    if check_freshness || observe_build {
+    if check_freshness {
         check_revision(path, &file, expected)?;
+    } else if observe_build {
+        verify_opened(&file)?;
     }
     Ok(counters)
 }

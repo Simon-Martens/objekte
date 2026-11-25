@@ -7,6 +7,7 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::time::Instant;
 
+use rayon::prelude::*;
 use roaring::RoaringBitmap;
 
 use super::segment_jobs::{
@@ -36,6 +37,87 @@ enum ScheduledBuildJob {
         source: PreparedSource,
         file: FileId,
     },
+}
+
+type InitialSegment = (
+    crate::index::segment::IndexedCollectionSegment,
+    Option<Arc<crate::construction::inference::InferenceObservation>>,
+);
+
+struct SmallStreamResult {
+    collection: IncrementalCollection,
+    segments: Vec<InitialSegment>,
+    stats: crate::construction::scheduling::BuildScheduleStats,
+    parses: u64,
+    failed: u64,
+}
+
+fn stage_small_stream(
+    pool: &rayon::ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    id: CollectionId,
+    reader: PreparedSource,
+    file: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    options: RepositoryOptions,
+    collection_count: usize,
+    shared_budget: &super::file_preparation::StreamBudget,
+) -> Result<SmallStreamResult, String> {
+    let mut collection = IncrementalCollection::new(
+        (*definition).clone(),
+        reader.clone(),
+        id,
+        Vec::new(),
+        options,
+        collection_count,
+    );
+    let mut segments = Vec::new();
+    let mut parses = 0;
+    let mut failed = 0;
+    let mut seal = |draft: crate::construction::segment_admission::CollectionSegment| {
+        let (index, observation) = draft.into_indexed_observation_profiled(
+            &*definition,
+            options.bigram_alphabet,
+            options.inference,
+            collection_count,
+            pool,
+            None,
+        )?;
+        segments.push((index, observation.map(Arc::new)));
+        Ok::<(), String>(())
+    };
+    let stats = crate::construction::file_preparation::process_framed_file_with_budget(
+        pool,
+        root,
+        Arc::clone(&definition),
+        id,
+        reader,
+        file,
+        source_files,
+        options.bigram_alphabet,
+        options.inference,
+        options.detailed_profiling_enabled(),
+        Some(shared_budget),
+        |batch| {
+            parses += batch.record_parses;
+            failed += batch.failed_parses;
+            if let Some(draft) = collection.admit_large_chunk_profiled(batch, None)? {
+                seal(draft)?;
+            }
+            Ok(())
+        },
+    )?;
+    if let Some(draft) = collection.take_segment() {
+        seal(draft)?;
+    }
+    Ok(SmallStreamResult {
+        collection,
+        segments,
+        stats,
+        parses,
+        failed,
+    })
 }
 
 struct IncrementalCollection {
@@ -747,6 +829,7 @@ impl Repository {
                     .push(entry.id);
             }
         }
+        let mut parallel_streams = Vec::<(usize, Vec<FileId>)>::new();
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
             let ordinary;
@@ -767,7 +850,16 @@ impl Repository {
             } else {
                 crate::construction::batch::file_batches(members, &discovered)
             };
+            let mut small_streams = Vec::new();
             for batch in batches {
+                if streams
+                    && build_workers > 1
+                    && members.len() > 1
+                    && discovered.files[batch[0].0 as usize].revision.size <= 8 * 1024 * 1024
+                {
+                    small_streams.push(batch[0]);
+                    continue;
+                }
                 if batch.len() == 1
                     && (streams
                         || discovered.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024)
@@ -788,6 +880,9 @@ impl Repository {
                         files: batch.to_vec(),
                     }));
                 }
+            }
+            if !small_streams.is_empty() {
+                parallel_streams.push((collection_index, small_streams));
             }
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
@@ -1117,6 +1212,87 @@ impl Repository {
             &mut publication_ns,
             &mut profile,
         )?;
+        // Each small registered stream in this window runs on one existing
+        // worker and decodes inline. The window bounds retained finalized
+        // files and prevents blocked reader callbacks from serializing peers.
+        let streaming_budget = super::file_preparation::StreamBudget::default();
+        let stream_window = build_workers.min(4);
+        for (number, files) in parallel_streams {
+            for group in files.chunks(stream_window) {
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
+                let definition = Arc::clone(&pending[number].definition);
+                let id = pending[number].id;
+                let source = pending[number].source.clone();
+                let count = pending.len();
+                let stream_root = Arc::new(root.clone());
+                let results = pool.install(|| {
+                    group
+                        .par_iter()
+                        .map(|file| {
+                            stage_small_stream(
+                                &pool,
+                                Arc::clone(&stream_root),
+                                Arc::clone(&definition),
+                                id,
+                                source.clone(),
+                                *file,
+                                Arc::clone(&source_files),
+                                options,
+                                count,
+                                &streaming_budget,
+                            )
+                        })
+                        .collect::<Vec<_>>()
+                });
+                for result in results {
+                    if cancelled() {
+                        return Err(IndexError::Cancelled);
+                    }
+                    let result = result.map_err(IndexError::Build)?;
+                    let state = &mut pending[number];
+                    append_shifted_bitmap(
+                        &mut state.logical_records,
+                        &result.collection.logical_records,
+                        state.records,
+                    )
+                    .map_err(IndexError::Build)?;
+                    state.records = state
+                        .records
+                        .checked_add(result.collection.records)
+                        .ok_or_else(|| {
+                            IndexError::ResourceLimit("collection record slot overflow".into())
+                        })?;
+                    state.observed_batches += result.collection.observed_batches;
+                    build_parses += result.parses;
+                    failed_parses += result.failed;
+                    if let Some((file, digest)) = result.stats.file_fingerprint {
+                        digest_bindings[file.0 as usize].push((id, digest));
+                    }
+                    schedule_stats.absorb(result.stats);
+                    let mut segments = result.segments;
+                    let mut ordinal = index.view()?.0.next_segment_ordinal;
+                    for (segment, _) in &mut segments {
+                        segment.id = SegmentId::new(ordinal);
+                        ordinal = ordinal.checked_add(1).ok_or_else(|| {
+                            IndexError::ResourceLimit("segment identity overflow".into())
+                        })?;
+                    }
+                    let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
+                    let (revision, phases) =
+                        index.publish_initial_segments(expected, segments, profile.is_some())?;
+                    expected = revision;
+                    if let Some(profile) = profile.as_mut() {
+                        profile.publication_prepare_ns += phases.preparation_ns;
+                        profile.publication_install_ns += phases.install_ns;
+                    }
+                    on_publication(&index)?;
+                    publication_ns +=
+                        phase.map_or(0, |started| started.elapsed().as_nanos() as u64);
+                }
+            }
+        }
         // Ordinary partitions can publish independently. A shared group
         // stays private until the last binding has finished each of its files.
         for (bindings, files) in shared {

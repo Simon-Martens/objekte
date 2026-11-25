@@ -598,6 +598,10 @@ impl FileCatalog {
             let scalar = Arc::make_mut(&mut next.changed_scalar);
             Arc::make_mut(&mut scalar[file.0 as usize % SCALAR_SHARDS]).remove(entry);
         }
+        if self.changed[shard(&file)].contains_key(&file) {
+            let changed = Arc::make_mut(&mut next.changed);
+            Arc::make_mut(&mut changed[shard(&file)]).remove(&file);
+        }
         Arc::make_mut(&mut next.active).remove(file.0);
         let bucket = shard(&entry.relative_path);
         let paths = Arc::make_mut(&mut next.changed_paths);

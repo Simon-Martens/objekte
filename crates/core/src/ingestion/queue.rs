@@ -1007,6 +1007,14 @@ mod tests {
         let writer = session.writer(registration).unwrap();
         let mut receipts = Vec::new();
         for number in 0..120_000 {
+            if number == 100_000 {
+                let metrics = session.metrics();
+                assert_eq!(metrics.accepted_batches, 100_000);
+                assert_eq!(
+                    metrics.high_water_waiting_descriptors,
+                    MAX_PENDING_DESCRIPTORS
+                );
+            }
             receipts.push(
                 writer
                     .submit(batch(
@@ -1036,7 +1044,33 @@ mod tests {
         ));
         let paused = session.metrics();
         assert!(paused.pending_spool_bytes > 0);
+        let start = Arc::new(std::sync::Barrier::new(5));
+        let mut producers = Vec::new();
+        for producer in 0..4 {
+            let writer = writer.clone();
+            let start = Arc::clone(&start);
+            let session_id = session.core.id;
+            producers.push(std::thread::spawn(move || {
+                start.wait();
+                (0..256)
+                    .map(|number| {
+                        writer
+                            .submit(batch(
+                                session_id,
+                                registration,
+                                &format!("tail-{producer}-{number}"),
+                            ))
+                            .unwrap()
+                    })
+                    .collect::<Vec<_>>()
+            }));
+        }
         session.resume_worker_for_measurement();
+        start.wait();
+        for producer in producers {
+            receipts.extend(producer.join().unwrap());
+        }
+        receipts.sort_unstable_by_key(Receipt::sequence);
         for (number, receipt) in receipts.into_iter().enumerate() {
             assert_eq!(receipt.sequence(), number as u64 + 1);
             receipt.wait_published().unwrap();
@@ -1044,8 +1078,8 @@ mod tests {
         session.finish().unwrap();
         let finished = session.metrics();
         assert_eq!(finished.pending_spool_bytes, 0);
-        assert_eq!(finished.spool_read_bytes, paused.pending_spool_bytes);
-        assert_eq!(index.status().unwrap().live_records, 120_000);
+        assert_eq!(finished.spool_read_bytes, finished.spool_written_bytes);
+        assert_eq!(index.status().unwrap().live_records, 121_024);
         eprintln!("paused={paused:?} finished={finished:?}");
         assert_eq!(std::fs::read_dir(&root).unwrap().count(), 0);
         std::fs::remove_dir(root).unwrap();

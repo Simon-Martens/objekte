@@ -2791,3 +2791,99 @@ fn registered_streaming_reader_initial_build_dispatches_small_files_and_decodes_
         std::fs::remove_dir_all(root).unwrap();
     }
 }
+
+#[test]
+fn registered_streaming_reader_callbacks_overlap_across_small_files() {
+    use crate::source::{SourceReader, registry::SourceRegistry};
+    use std::sync::atomic::{AtomicUsize, Ordering};
+    use std::sync::{Condvar, Mutex};
+    use std::time::Duration;
+
+    struct PeerProbe {
+        callbacks: Mutex<usize>,
+        arrived: Condvar,
+        frames: AtomicUsize,
+    }
+
+    impl SourceReader for PeerProbe {
+        fn name(&self) -> &'static str {
+            "peer-probe"
+        }
+        fn supports_streaming_build(&self) -> bool {
+            true
+        }
+
+        fn frame(&self, _bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            self.frames.fetch_add(1, Ordering::Relaxed);
+            Err("expected a stream".into())
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            PipeLineReader {
+                streaming: false,
+                failure: None,
+            }
+            .parse(bytes)
+        }
+
+        fn stream_build_chunks(
+            &self,
+            input: &mut dyn std::io::Read,
+            bytes: usize,
+            ranges: usize,
+            emit: &mut dyn FnMut(crate::source::BuildChunk) -> Result<(), String>,
+        ) -> Option<Result<(), String>> {
+            let mut active = self.callbacks.lock().unwrap();
+            *active += 1;
+            self.arrived.notify_all();
+            let (active, _) = self
+                .arrived
+                .wait_timeout_while(active, Duration::from_secs(5), |arrived| *arrived < 2)
+                .unwrap();
+            if *active != 2 {
+                return Some(Err("independent file callbacks did not overlap".into()));
+            }
+            drop(active);
+            PipeLineReader {
+                streaming: true,
+                failure: None,
+            }
+            .stream_build_chunks(input, bytes, ranges, emit)
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!("objekte-peer-streams-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/one.peer"), "one|München").unwrap();
+    std::fs::write(root.join("data/two.peer"), "two|Leipzig").unwrap();
+    let reader = Arc::new(PeerProbe {
+        callbacks: Mutex::new(0),
+        arrived: Condvar::new(),
+        frames: AtomicUsize::new(0),
+    });
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register("peer-probe", 1, "peer", reader.clone())
+        .unwrap();
+    let index = crate::lifecycle::Index::start_build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "records",
+            "data",
+            SourceFormat::registered("peer-probe"),
+        )],
+        RepositoryOptions {
+            build_workers: NonZeroUsize::new(2),
+            ..Default::default()
+        },
+        sources,
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let status = index.status().unwrap();
+    assert_eq!(status.build_source_reads, 2);
+    assert_eq!(status.live_records, 2);
+    assert_eq!(reader.frames.load(Ordering::Relaxed), 0);
+    std::fs::remove_dir_all(root).unwrap();
+}

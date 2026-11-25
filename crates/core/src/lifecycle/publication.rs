@@ -1031,20 +1031,16 @@ fn prepare_initial_segment(
     next.stage_segment(&mut Arc::new(segment), observation)
 }
 
-fn verify_initial_files<'a>(
+fn verify_initial_files(
     view: &IndexView,
-    segments: impl IntoIterator<Item = &'a IndexedCollectionSegment>,
+    segments: &[&IndexedCollectionSegment],
 ) -> Result<(), IndexError> {
     use crate::construction::file_preparation::created_ns;
     use crate::inventory::SourceRevision;
+    use rayon::prelude::*;
 
-    let mut checked = std::collections::HashSet::new();
     let root = view.repository().files().required_root();
-    for file in segments.into_iter().flat_map(|segment| &segment.files) {
-        let entry = &file.entry;
-        if !checked.insert(entry.id) {
-            continue;
-        }
+    let verify = |entry: &FileEntry| {
         let path = root.join(&entry.relative_path);
         let metadata = std::fs::metadata(&path).map_err(|error| {
             IndexError::SourceUnavailable(format!("{}: {error}", path.display()))
@@ -1063,8 +1059,34 @@ fn verify_initial_files<'a>(
                 path.display()
             )));
         }
+        Ok(())
+    };
+    let workers = &view.repository().workers;
+    if let [segment] = segments {
+        if segment.files.len() >= 256 && workers.current_num_threads() > 1 {
+            return workers.install(|| {
+                segment
+                    .files
+                    .par_iter()
+                    .try_for_each(|file| verify(&file.entry))
+            });
+        }
+        return segment
+            .files
+            .iter()
+            .try_for_each(|file| verify(&file.entry));
     }
-    Ok(())
+    let mut checked = std::collections::HashSet::new();
+    let entries = segments
+        .iter()
+        .flat_map(|segment| &segment.files)
+        .filter_map(|file| checked.insert(file.entry.id).then_some(&file.entry))
+        .collect::<Vec<_>>();
+    if entries.len() >= 256 && workers.current_num_threads() > 1 {
+        workers.install(|| entries.par_iter().try_for_each(|entry| verify(entry)))
+    } else {
+        entries.into_iter().try_for_each(verify)
+    }
 }
 
 impl Index {
@@ -1096,6 +1118,9 @@ impl Index {
         segments: &mut [Arc<IndexedCollectionSegment>],
         publication_guard: impl Fn() -> Result<G, IndexError>,
     ) -> Result<IndexRevision, IndexError> {
+        // File mutation and direct ingestion share placement coordination.
+        // Their file reads, decoding and segment construction happen first.
+        let _placement = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
         loop {
             let view = self.view()?;
             match self.stage_record_batch(prepared_from, &view, registration, changes, segments) {
@@ -1241,7 +1266,7 @@ impl Index {
                 "initial construction already completed".into(),
             ));
         }
-        verify_initial_files(&view, std::iter::once(&segment))?;
+        verify_initial_files(&view, &[&segment])?;
         let mut next = (*view.0).clone();
         prepare_initial_segment(&mut next, (segment, observation))?;
         next.revision = expected.next()?;
@@ -1290,7 +1315,13 @@ impl Index {
                 "initial construction already completed".into(),
             ));
         }
-        verify_initial_files(&view, segments.iter().map(|(segment, _)| segment))?;
+        verify_initial_files(
+            &view,
+            &segments
+                .iter()
+                .map(|(segment, _)| segment)
+                .collect::<Vec<_>>(),
+        )?;
         let mut next = (*view.0).clone();
         for segment in segments {
             prepare_initial_segment(&mut next, segment)?;
