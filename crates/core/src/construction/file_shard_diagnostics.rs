@@ -38,12 +38,10 @@ pub fn measure_direct_shard_build(
     let definition = Arc::new(collection.required_file_definition().clone());
     let source = collection.required_file_reader().clone();
     let source_files = Arc::new(
-        repository
-            .files()
-            .files
-            .iter()
-            .map(SourceFileInput::from_entry)
-            .collect::<Vec<_>>(),
+        crate::index::storage::file_catalog::FileRows::new(&repository.catalog)
+            .map(|row| row.map(|row| SourceFileInput::from_entry(&row.entry)))
+            .collect::<Result<Vec<_>, _>>()
+            .unwrap(),
     );
     let jobs = file_batches(&collection.generation.files, |id| {
         source_files

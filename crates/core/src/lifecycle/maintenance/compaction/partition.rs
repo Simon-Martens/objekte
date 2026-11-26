@@ -250,7 +250,7 @@ fn partition_base_with_limits_inner(
     }
     let empty = Arc::new(root.repository.empty_like().map_err(IndexError::Build)?);
     let catalog = empty.storage_factory.restore_file_catalog(
-        &empty.file_catalog_base(),
+        &empty.empty_file_catalog_base(),
         root.catalog.as_ref(),
         &|| false,
     )?;
@@ -259,7 +259,7 @@ fn partition_base_with_limits_inner(
         if collection.generation.files.is_empty() {
             continue;
         }
-        let source = base_as_segment(collection, root.repository.files())?;
+        let source = base_as_segment(collection, &root.repository.catalog)?;
         let mut group = Arc::unwrap_or_clone(groups[number].clone());
         for part in compact_source_parts_with_limits(
             &source,

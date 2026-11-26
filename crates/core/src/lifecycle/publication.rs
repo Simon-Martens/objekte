@@ -7,7 +7,8 @@ use roaring::RoaringBitmap;
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::index::storage::file_catalog::{
-    FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource, edit_file_catalog,
+    FileCatalogBase, FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource,
+    edit_file_catalog,
 };
 use crate::index::storage::liveness::InitialLiveness;
 use crate::index::storage::segment::{SegmentReader, visit_record_headers, visit_segment_files};
@@ -185,9 +186,14 @@ impl PublishedIndex {
         segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     ) -> Result<Self, IndexError> {
         let configuration_identity = repository.configuration_identity;
-        let catalog = repository
-            .storage_factory
-            .file_catalog(&repository.file_catalog_base(), FileVersion(revision.0))?;
+        let catalog = if revision == repository.revision {
+            Arc::clone(&repository.catalog)
+        } else {
+            edit_file_catalog(
+                repository.catalog.as_ref(),
+                [FileCatalogDelta::ResetVersions(FileVersion(revision.0))],
+            )?
+        };
         let processed_files = catalog.live_count() as usize;
         let next_segment_ordinal = segments
             .iter()
@@ -618,7 +624,7 @@ impl PublishedIndex {
         file: &FileEntry,
     ) -> Result<BTreeSet<CollectionId>, IndexError> {
         let mut imported = BTreeSet::new();
-        if let Some(base) = self.repository.files().files.get(file.id.0 as usize)
+        if let Some(base) = self.repository.catalog.file(file.id)?
             && base.revision == file.revision
             && base.created_ns == file.created_ns
         {
@@ -1293,7 +1299,8 @@ impl Index {
     pub(crate) fn finish_initial_construction(
         &self,
         expected: IndexRevision,
-        repository: Arc<Repository>,
+        mut repository: Repository,
+        file_base: &dyn FileCatalogBase,
     ) -> Result<IndexRevision, IndexError> {
         let view = self.view()?;
         if view.revision() != expected {
@@ -1313,15 +1320,25 @@ impl Index {
                 "initial construction has unprocessed files".into(),
             ));
         }
+        next.catalog = edit_file_catalog(
+            next.catalog.as_ref(),
+            [
+                FileCatalogDelta::Rebase(file_base),
+                FileCatalogDelta::ConstructionComplete(true),
+            ],
+        )?;
         for group in &mut next.segments {
             for published in Arc::make_mut(group).iter_mut() {
-                let needs_status_refresh = published.index.files.iter().any(|file| {
-                    repository
-                        .files
-                        .files
-                        .get(file.entry.id.0 as usize)
-                        .is_some_and(|current| current.status != file.entry.status)
-                });
+                let mut needs_status_refresh = false;
+                visit_segment_files(published.index.as_ref(), |file| {
+                    if !needs_status_refresh {
+                        needs_status_refresh = next
+                            .catalog
+                            .file(file.id)?
+                            .is_some_and(|current| current.status != file.status);
+                    }
+                    Ok::<_, IndexError>(())
+                })?;
                 let decision = repository
                     .collections
                     .get(published.index.collection.0 as usize)
@@ -1368,25 +1385,23 @@ impl Index {
                 }
                 let mut index = (*published.index).clone();
                 for file in &mut index.files {
-                    if let Some(current) = repository.files.files.get(file.entry.id.0 as usize) {
+                    if let Some(current) = next.catalog.file(file.entry.id)? {
                         file.entry.status = current.status;
                         file.entry.diagnostics = current.diagnostics.clone();
                         file.entry.omitted_diagnostics = current.omitted_diagnostics;
                     }
                 }
+                let files = &index.files;
+                let positions = &index.file_index;
                 index
                     .sorting
                     .refresh_file_status_for_records(&index.records, |slot| {
                         let file = index.backing.file_locator(slot)?.file;
-                        Some(
-                            repository
-                                .files
-                                .files
-                                .get(file.0 as usize)
-                                .map_or(crate::inventory::FileStatus::Valid.code(), |entry| {
-                                    entry.status.code()
-                                }),
-                        )
+                        let status = positions
+                            .get(&file)
+                            .and_then(|&position| files.get(position))
+                            .map_or(FileStatus::Valid, |entry| entry.entry.status);
+                        Some(status.code())
                     });
                 if let Some(decision) = decision {
                     if let Some(inference) = index.inference.as_mut() {
@@ -1459,16 +1474,9 @@ impl Index {
                 });
             }
         }
-        let base = repository.file_catalog_base();
-        next.catalog = edit_file_catalog(
-            next.catalog.as_ref(),
-            [
-                FileCatalogDelta::Rebase(&base),
-                FileCatalogDelta::ConstructionComplete(true),
-            ],
-        )?;
         next.processed_memberships.clear();
-        next.repository = repository;
+        repository.catalog = Arc::clone(&next.catalog);
+        next.repository = Arc::new(repository);
         next.revision = expected.next()?;
         self.publish_prepared(expected, next)
     }

@@ -1114,8 +1114,17 @@ impl Repository {
             Arc::clone(&storage_factory),
         )
         .map_err(IndexError::Build)?;
-        repository.files = Arc::clone(&discovered);
-        repository.base_fingerprints = vec![None; discovered.files.len()];
+        let file_base = discovered.catalog_base(
+            Vec::new(),
+            repository.configuration_identity,
+            repository.collections.len(),
+        );
+        repository.catalog =
+            storage_factory.file_catalog(&file_base, crate::inventory::FileVersion::INITIAL)?;
+        #[cfg(test)]
+        {
+            repository.files = Arc::clone(&discovered);
+        }
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
             collection.generation = CollectionBuilder::new(
                 state.id,
@@ -2018,7 +2027,7 @@ impl Repository {
                 },
             )
             .collect::<Vec<_>>();
-        let mut final_repository =
+        let (mut final_repository, file_base) =
             crate::construction::repository_state::assemble_final_repository(
                 root,
                 definitions,
@@ -2051,7 +2060,7 @@ impl Repository {
         for collection in &mut final_repository.collections {
             collection.repository_instance = instance_id;
         }
-        index.finish_initial_construction(expected, Arc::new(final_repository))?;
+        index.finish_initial_construction(expected, final_repository, &file_base)?;
         Ok(index)
     }
 }

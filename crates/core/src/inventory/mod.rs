@@ -398,7 +398,7 @@ impl FileEntry {
 
 /// Opt-in component accounting for the file table and its path indexes.
 /// Hash-table control bytes, B-tree nodes and allocator rounding are omitted.
-#[derive(Clone, Debug, Serialize)]
+#[derive(Clone, Debug, Default, Serialize)]
 pub struct FileStorageDiagnostic {
     pub files_len: usize,
     pub files_capacity: usize,

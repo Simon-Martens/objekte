@@ -10,8 +10,12 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::StorageFactory;
-use crate::index::storage::file_catalog::{FileCatalogBase, FileCatalogHandle};
-use crate::inventory::{ActiveRecords, FileInventory};
+#[cfg(test)]
+use crate::index::storage::file_catalog::FileCatalogBase;
+use crate::index::storage::file_catalog::{EmptyFileCatalogBase, FileCatalogHandle};
+use crate::inventory::ActiveRecords;
+#[cfg(test)]
+use crate::inventory::FileInventory;
 use crate::lifecycle::IndexRevision;
 use crate::source::registry::SourceRegistry;
 
@@ -50,10 +54,12 @@ pub struct Repository {
     pub(crate) storage_factory: Arc<dyn StorageFactory>,
     /// Registered path for source access and locator interpretation.
     pub(crate) source_root: Option<Arc<std::path::Path>>,
+    #[cfg(test)]
     pub(crate) files: Arc<FileInventory>,
     /// Whole-file SHA-256 captured during the fresh builder's indexed reads.
     /// A missing digest means at least one eligible binding could not read
     /// complete bytes, so verified maintenance must fall back.
+    #[cfg(test)]
     pub(crate) base_fingerprints: Vec<Option<[u8; 32]>>,
     pub(crate) collections: Vec<CollectionState>,
     pub(crate) active: Vec<ActiveRecords>,
@@ -77,6 +83,15 @@ pub struct Repository {
         Mutex<crate::index::storage::order::inferred_cache::InferredOrderCache>,
 }
 impl Repository {
+    pub(crate) fn empty_file_catalog_base(&self) -> EmptyFileCatalogBase {
+        EmptyFileCatalogBase {
+            root: self.source_root.clone(),
+            configuration: self.configuration_identity,
+            collections: self.collections.len(),
+        }
+    }
+
+    #[cfg(test)]
     pub(crate) fn file_catalog_base(&self) -> impl FileCatalogBase + use<> {
         self.files.catalog_base(
             self.base_fingerprints.clone(),
@@ -141,7 +156,7 @@ impl Repository {
             )?;
             empty.configuration_identity = self.configuration_identity;
             empty.catalog = empty.storage_factory.file_catalog(
-                &empty.file_catalog_base(),
+                &empty.empty_file_catalog_base(),
                 crate::inventory::FileVersion::INITIAL,
             )?;
             empty

@@ -505,10 +505,7 @@ fn scan_direct_target_parallel(
             unavailable: false,
         });
     }
-    let path = repo
-        .files
-        .required_root()
-        .join(&resolved.file.relative_path);
+    let path = repo.required_file_root().join(&resolved.file.relative_path);
     let bytes = match read_record_range_for_search(
         target_collection.required_file_reader().reader(),
         &path,
@@ -960,10 +957,7 @@ fn try_direct_relation_page(
             } else {
                 let resolved = segment_record_ref(segment, &published.active, catalog, address)?
                     .ok_or("direct relation target retired")?;
-                let path = repo
-                    .files
-                    .required_root()
-                    .join(&resolved.file.relative_path);
+                let path = repo.required_file_root().join(&resolved.file.relative_path);
                 if let Some(context) = context {
                     context.charge_reads(1)?;
                     context.charge_bytes(resolved.record.range.len())?;
@@ -1534,10 +1528,7 @@ fn scan_relation_file_parallel(
     let resolved = view
         .record(address)?
         .ok_or("active parallel relation source missing")?;
-    let path = repo
-        .files
-        .required_root()
-        .join(&resolved.file.relative_path);
+    let path = repo.required_file_root().join(&resolved.file.relative_path);
     let mut reader = match RecordRangeReader::open_for_search(&path, resolved.file.revision, None) {
         Ok(reader) => {
             reader.with_backend(resolved.collection.required_file_reader().reader_handle())
@@ -3036,10 +3027,7 @@ fn try_native_relation_scan(
                         let Some(resolved) = view.record(address)? else {
                             return Err("file relation source missing".into());
                         };
-                        let path = repo
-                            .files
-                            .required_root()
-                            .join(&resolved.file.relative_path);
+                        let path = repo.required_file_root().join(&resolved.file.relative_path);
                         if let Some(context) = context {
                             context.charge_reads(1)?;
                             context.charge_bytes(resolved.record.range.len())?;
@@ -3794,10 +3782,7 @@ pub(super) fn search_segmented_relations(
             let resolved = view
                 .record(first)?
                 .ok_or("active merged base file missing")?;
-            let path = repo
-                .files
-                .required_root()
-                .join(&resolved.file.relative_path);
+            let path = repo.required_file_root().join(&resolved.file.relative_path);
             read_relation_source_file(
                 &resolved.collection.required_file_reader(),
                 &resolved.file,
@@ -3931,10 +3916,7 @@ pub(super) fn search_segmented_relations(
                 let resolved = view
                     .record(first)?
                     .ok_or("active merged segment file missing")?;
-                let path = repo
-                    .files
-                    .required_root()
-                    .join(&resolved.file.relative_path);
+                let path = repo.required_file_root().join(&resolved.file.relative_path);
                 read_relation_source_file(
                     &resolved.collection.required_file_reader(),
                     &resolved.file,

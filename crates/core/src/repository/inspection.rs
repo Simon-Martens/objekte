@@ -10,7 +10,9 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::relation::RelationIndex;
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
-use crate::inventory::{FileEntry, FileInventory};
+use crate::inventory::FileEntry;
+#[cfg(test)]
+use crate::inventory::FileInventory;
 use crate::model::{CollectionId, FileId, RecordSlot};
 
 use super::Repository;
@@ -24,6 +26,7 @@ fn hash_field(hash: &mut Sha256, value: &[u8]) {
 }
 
 impl Repository {
+    #[cfg(test)]
     pub(crate) fn files(&self) -> &FileInventory {
         &self.files
     }

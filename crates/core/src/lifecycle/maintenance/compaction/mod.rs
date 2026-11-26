@@ -67,16 +67,15 @@ fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
 
 pub(crate) fn base_as_segment(
     collection: &CollectionState,
-    files: &crate::inventory::FileInventory,
+    files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
 ) -> Result<IndexedCollectionSegment, IndexError> {
     let mut segment_files = Vec::new();
     let mut file_index = HashMap::new();
     for id in &collection.generation.files {
         let entry = files
-            .files
-            .get(id.0 as usize)
+            .file(*id)?
             .ok_or_else(|| IndexError::InvalidPublication("base file missing".into()))?
-            .clone();
+            .into_owned();
         let records = collection
             .generation
             .file_records
@@ -267,7 +266,7 @@ fn compact_published_with_budget(
         ));
     }
     next.catalog = empty.storage_factory.restore_file_catalog(
-        &empty.file_catalog_base(),
+        &empty.empty_file_catalog_base(),
         old.catalog.as_ref(),
         &cancelled,
     )?;
@@ -314,7 +313,7 @@ fn compact_published_with_budget(
             Ok(replacements)
         };
         if old.active[number].slot_count() != 0 {
-            let base = base_as_segment(collection, old.repository.files())?;
+            let base = base_as_segment(collection, &old.repository.catalog)?;
             compacted.extend(compact_source(&base, &old.active[number])?);
         }
         for segment in old.segments[number].iter() {

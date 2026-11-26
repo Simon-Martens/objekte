@@ -517,13 +517,7 @@ impl<'a> MergedRelationView<'a> {
             .records
             .get(address.slot.0 as usize)
             .ok_or("merged base slot missing")?;
-        let original_revision = self
-            .repo
-            .files
-            .files
-            .get(record.file.0 as usize)
-            .ok_or("merged base file missing")?
-            .revision;
+        let original_revision = self.repo.base_file(record.file)?.revision;
         let file = self
             .catalog
             .file(record.file)?
@@ -730,8 +724,7 @@ impl<'a> MergedRelationView<'a> {
         }
         let path = self
             .repo
-            .files
-            .required_root()
+            .required_file_root()
             .join(&resolved.file.relative_path);
         let bytes = match read_record_range_for_search(
             resolved.collection.required_file_reader().reader(),
@@ -911,8 +904,7 @@ impl<'a> MergedRelationView<'a> {
         }
         let path = self
             .repo
-            .files
-            .required_root()
+            .required_file_root()
             .join(&resolved.file.relative_path);
         let bytes = match read_record_range_for_search(
             resolved.collection.required_file_reader().reader(),

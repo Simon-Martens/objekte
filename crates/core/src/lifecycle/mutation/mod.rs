@@ -474,8 +474,7 @@ impl Index {
             .ok_or(IndexError::UnknownFile)?;
         let root = view
             .repository()
-            .files()
-            .root()
+            .repository_root()
             .ok_or(IndexError::UnknownFile)?;
         let canonical = path
             .canonicalize()

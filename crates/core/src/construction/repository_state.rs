@@ -339,7 +339,9 @@ fn initialize_empty_configured(
     Ok(Repository {
         storage_factory,
         source_root,
+        #[cfg(test)]
         files,
+        #[cfg(test)]
         base_fingerprints: Vec::new(),
         collections,
         active,
@@ -609,7 +611,13 @@ pub(crate) fn assemble_final_repository(
     extraction_index_ns: u64,
     started: Instant,
     mut profile: Option<BuildProfileStats>,
-) -> Result<Repository, crate::lifecycle::IndexError> {
+) -> Result<
+    (
+        Repository,
+        impl crate::index::storage::file_catalog::FileCatalogBase + use<>,
+    ),
+    crate::lifecycle::IndexError,
+> {
     let finalization_started = crate::measurement::timer::DetailedInstant::now();
     let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
     let base_fingerprints =
@@ -628,7 +636,6 @@ pub(crate) fn assemble_final_repository(
         storage_factory,
     )
     .map_err(IndexError::Build)?;
-    final_repository.base_fingerprints = base_fingerprints;
     final_repository.build_parses = build_parses;
     final_repository.build_failed_parses = failed_parses;
     let mut inference_build = InferenceBuildStats::default();
@@ -719,7 +726,17 @@ pub(crate) fn assemble_final_repository(
     }
     crate::index::relation::validate_indexes(&final_repository.collections)
         .map_err(IndexError::Build)?;
-    final_repository.files = Arc::new(final_files);
+    let final_files = Arc::new(final_files);
+    #[cfg(test)]
+    {
+        final_repository.files = Arc::clone(&final_files);
+        final_repository.base_fingerprints = base_fingerprints.clone();
+    }
+    let file_base = final_files.catalog_base(
+        base_fingerprints,
+        final_repository.configuration_identity,
+        final_repository.collections.len(),
+    );
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         profile.finalize_generation_ns = started.elapsed().as_nanos() as u64;
         profile.finalization_rss_bytes = build_profile_rss_bytes();
@@ -750,7 +767,7 @@ pub(crate) fn assemble_final_repository(
         build_profile: profile,
         ..StartupStats::default()
     };
-    Ok(final_repository)
+    Ok((final_repository, file_base))
 }
 
 #[cfg(test)]

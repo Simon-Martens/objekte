@@ -875,6 +875,14 @@ impl FileCatalogRevision for FileCatalog {
         self.versions.read_batch(start, limit)
     }
 
+    fn base_heap_bytes(&self) -> (usize, usize) {
+        self.base_files.estimated_heap_bytes()
+    }
+
+    fn base_storage_diagnostic(&self) -> crate::inventory::FileStorageDiagnostic {
+        self.base_files.storage_diagnostic()
+    }
+
     fn estimates_delta_bytes(&self) -> usize {
         self.scalar_delta_heap_bytes()
     }

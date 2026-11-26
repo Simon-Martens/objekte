@@ -6,7 +6,7 @@ use std::ops::Bound;
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::inventory::{FileEntry, FileVersion, SourceDiagnostic};
+use crate::inventory::{FileEntry, FileStorageDiagnostic, FileVersion, SourceDiagnostic};
 use crate::model::{CollectionId, FileId, Number};
 use crate::query::Operator;
 
@@ -177,6 +177,46 @@ pub(crate) trait FileCatalogBase: FileCatalogSource + std::any::Any {
     fn collection_count(&self) -> usize;
 }
 
+/// Configured namespace used when rebuilding or compacting into an empty base.
+pub(crate) struct EmptyFileCatalogBase {
+    pub root: Option<Arc<Path>>,
+    pub configuration: [u8; 32],
+    pub collections: usize,
+}
+
+impl FileCatalogSource for EmptyFileCatalogBase {
+    fn high_water_mark(&self) -> u32 {
+        0
+    }
+
+    fn live_count(&self) -> u64 {
+        0
+    }
+
+    fn read_batch<'a>(
+        &'a self,
+        _after: Option<FileId>,
+        _limit: BatchLimit,
+        _output: &mut Vec<FileTransferRow<'a>>,
+    ) -> StorageResult<BatchStatus> {
+        Ok(BatchStatus::Done)
+    }
+}
+
+impl FileCatalogBase for EmptyFileCatalogBase {
+    fn root(&self) -> Option<&Path> {
+        self.root.as_deref()
+    }
+
+    fn configuration(&self) -> [u8; 32] {
+        self.configuration
+    }
+
+    fn collection_count(&self) -> usize {
+        self.collections
+    }
+}
+
 pub(crate) type FileCatalogHandle = Arc<dyn FileCatalogRevision>;
 
 pub(crate) trait FileCatalogRevision: FileCatalogReader + std::any::Any {
@@ -189,6 +229,14 @@ pub(crate) trait FileCatalogRevision: FileCatalogReader + std::any::Any {
         start: FileId,
         limit: BatchLimit,
     ) -> StorageResult<(Cow<'_, [FileVersion]>, BatchStatus)>;
+    fn base_heap_bytes(&self) -> (usize, usize) {
+        (0, 0)
+    }
+
+    fn base_storage_diagnostic(&self) -> FileStorageDiagnostic {
+        FileStorageDiagnostic::default()
+    }
+
     fn estimates_delta_bytes(&self) -> usize;
     fn fingerprint(&self, id: FileId) -> StorageResult<Option<[u8; 32]>>;
     fn configuration(&self, id: FileId) -> StorageResult<Option<[u8; 32]>>;

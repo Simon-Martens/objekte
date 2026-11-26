@@ -142,11 +142,7 @@ fn inspected_record(
     if record.slot != slot {
         return Err("relation record slot mismatch".into());
     }
-    let file = repository
-        .files
-        .files
-        .get(record.file.0 as usize)
-        .ok_or("relation source file missing")?;
+    let file = repository.base_file(record.file)?;
     Ok(InspectedRecord {
         collection: collection.generation.collection,
         generation: collection.generation.generation,
