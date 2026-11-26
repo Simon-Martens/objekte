@@ -397,6 +397,16 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     let table_pin = table_index.view().unwrap();
     let flat_pin = flat.view().unwrap();
     assert!(flat_pin.segments(CollectionId(0)).unwrap().is_empty());
+    let collection = &flat_pin.repository().collections()[0];
+    let mut order = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+        collection.base_identity_order().unwrap(),
+    );
+    let mut ids = Vec::new();
+    while let Some(slot) = order.next_slot().unwrap() {
+        ids.push(collection.base_record(slot).unwrap().id.clone());
+    }
+    assert_eq!(ids.len(), 5);
+    assert!(ids.is_sorted());
     equivalent(&flat_pin);
     assert!(
         flat_pin

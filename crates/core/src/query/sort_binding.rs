@@ -1635,8 +1635,12 @@ impl ComputedSort {
                 if let Some(sources) = sources {
                     if has_position {
                         let mut seen = 0usize;
-                        for source in &source_collection.identity_order {
-                            if !SortTargetCache::is_active(cache, hop.to, *source)? {
+                        let mut identity =
+                            crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+                                source_collection.base_identity_order()?,
+                            );
+                        while let Some(source) = identity.next_slot()? {
+                            if !SortTargetCache::is_active(cache, hop.to, source)? {
                                 continue;
                             }
                             if !sources.contains(source.0) {
@@ -1652,7 +1656,7 @@ impl ComputedSort {
                                     terminal,
                                     depth + 1,
                                     hop.to.0 as usize,
-                                    *source,
+                                    source,
                                     None,
                                     cache,
                                     external_targets,

@@ -814,15 +814,15 @@ pub(super) fn try_stored_order_page(
     if sort.bound.has_computed || (query.options.count && delivery.is_none() && !force_order) {
         return Ok(None);
     }
-    if query.options.sort.len() > 1
-        && prepared.collections.iter().any(|entry| {
-            repo.collections[entry.collection_index]
-                .sorting
-                .composite(&query.options.sort)
+    if query.options.sort.len() > 1 {
+        for entry in &prepared.collections {
+            if repo.collections[entry.collection_index]
+                .base_composite_order(&query.options.sort)?
                 .is_none()
-        })
-    {
-        return Ok(None);
+            {
+                return Ok(None);
+            }
+        }
     }
     if all_offset.is_none()
         && (prepared.collections.iter().any(|entry| {
@@ -1036,15 +1036,13 @@ pub(super) fn try_stored_order_page(
             .expect("selected collection");
         let order: &dyn crate::index::storage::ordered_slots::OrderedSlots =
             if query.options.sort.len() > 1 {
-                &repo.collections[entry.collection_index]
-                    .sorting
-                    .composite(&query.options.sort)
-                    .expect("composite checked")
-                    .order
+                repo.collections[entry.collection_index]
+                    .base_composite_order(&query.options.sort)?
+                    .ok_or("base composite order missing")?
             } else if let Some(field) = query.options.sort.first() {
                 columns[0].0.slots(field.descending)?
             } else {
-                &repo.collections[entry.collection_index].identity_order
+                repo.collections[entry.collection_index].base_identity_order()?
             };
         if let Some(cursor) = stored_cursor(
             repo,

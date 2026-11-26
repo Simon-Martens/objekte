@@ -401,6 +401,7 @@ struct TableSegment {
     metadata: Header,
     rows: Vec<Row>,
     by_id: BTreeMap<RecordId, RecordSlot>,
+    identity_order: Arc<ShortOrder>,
     files: BTreeMap<FileId, FileRow>,
     retained: Option<RetainedBlock>,
     logical: Arc<[u32]>,
@@ -465,10 +466,12 @@ impl TableSegment {
                 .map(|(key, slots)| (key, slots.into()))
                 .collect(),
         });
+        let identity_order = Arc::new(control.short_order(by_id.values().copied().collect()));
         Ok(Self {
             metadata,
             rows,
             by_id,
+            identity_order,
             files,
             retained,
             logical,
@@ -831,10 +834,10 @@ impl SegmentReader for TableSegment {
 
     fn ordered_slots(
         &self,
-        _: &[SortField],
-        _: Option<(&FieldPath, bool)>,
+        fields: &[SortField],
+        inferred: Option<(&FieldPath, bool)>,
     ) -> StorageResult<Option<&dyn OrderedSlots>> {
-        Ok(None)
+        Ok((fields.is_empty() && inferred.is_none()).then_some(self.identity_order.as_ref()))
     }
 }
 

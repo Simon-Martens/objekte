@@ -24,6 +24,27 @@ pub(crate) trait OrderedSlots: Send + Sync {
     ) -> StorageResult<(Cow<'_, [RecordSlot]>, BatchStatus)>;
 }
 
+pub(crate) static EMPTY_ORDER: EmptyOrder = EmptyOrder;
+
+pub(crate) struct EmptyOrder;
+
+impl OrderedSlots for EmptyOrder {
+    fn len(&self) -> usize {
+        0
+    }
+
+    fn read_batch(
+        &self,
+        start: usize,
+        _: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [RecordSlot]>, BatchStatus)> {
+        if start != 0 {
+            return Err(StorageError::invalid(OP, "slot cursor outside empty order"));
+        }
+        Ok((Cow::Borrowed(&[]), BatchStatus::Done))
+    }
+}
+
 /// One cursor holds at most one batch. Native orders can lend a bounded view
 /// of the resident array while another backend can return a decoded page.
 pub(crate) struct OrderedSlotCursor<'a> {

@@ -6963,17 +6963,23 @@ pub(crate) fn explain_with_active(
         .limit
         .checked_add(query.options.offset)
         .ok_or("page size overflow")?;
+    let mut composite_order = true;
+    if !bound_sort.has_computed && !query.options.count && query.options.sort.len() > 1 {
+        for collection in &repo.collections {
+            if (query.collections.is_empty()
+                || query.collections.contains(&collection.definition.name))
+                && collection
+                    .base_composite_order(&query.options.sort)?
+                    .is_none()
+            {
+                composite_order = false;
+                break;
+            }
+        }
+    }
     let stored_order = !bound_sort.has_computed
         && !query.options.count
-        && (query.options.sort.len() <= 1
-            || repo
-                .collections
-                .iter()
-                .filter(|collection| {
-                    query.collections.is_empty()
-                        || query.collections.contains(&collection.definition.name)
-                })
-                .all(|collection| collection.sorting.composite(&query.options.sort).is_some()))
+        && composite_order
         && !has_source_dependent
         && !has_related_fts
         && !(cap > 0

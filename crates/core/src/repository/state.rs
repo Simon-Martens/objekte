@@ -72,6 +72,7 @@ pub struct CollectionState {
     pub(crate) index_family_bytes: usize,
     #[cfg(test)]
     pub(crate) id_lookup: HashMap<RecordId, RecordSlot>,
+    #[cfg(test)]
     pub(crate) identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
     pub(crate) initial_counts: Option<InitialCollectionCounts>,
@@ -296,7 +297,40 @@ impl CollectionState {
     ) -> crate::index::storage::transfer::StorageResult<
         Option<&dyn crate::index::storage::order::OrderColumnReader>,
     > {
+        if let Some(base) = &self.base_records {
+            return base.order_column(path);
+        }
         Ok(self.sorting.reader(path))
+    }
+
+    pub(crate) fn base_identity_order(
+        &self,
+    ) -> StorageResult<&dyn crate::index::storage::ordered_slots::OrderedSlots> {
+        if let Some(base) = &self.base_records {
+            if base.descriptor().slots == 0 {
+                return Ok(&crate::index::storage::ordered_slots::EMPTY_ORDER);
+            }
+            return base.ordered_slots(&[], None)?.ok_or_else(|| {
+                StorageError::invalid("read base record order", "identity order missing")
+            });
+        }
+        #[cfg(test)]
+        return Ok(&self.identity_order);
+        #[cfg(not(test))]
+        Ok(&crate::index::storage::ordered_slots::EMPTY_ORDER)
+    }
+
+    pub(crate) fn base_composite_order(
+        &self,
+        fields: &[crate::query::options::SortField],
+    ) -> StorageResult<Option<&dyn crate::index::storage::ordered_slots::OrderedSlots>> {
+        if let Some(base) = &self.base_records {
+            return base.ordered_slots(fields, None);
+        }
+        Ok(self
+            .sorting
+            .composite(fields)
+            .map(|order| &order.order as &dyn crate::index::storage::ordered_slots::OrderedSlots))
     }
 
     /// Counts for the base collection before segment overlays.

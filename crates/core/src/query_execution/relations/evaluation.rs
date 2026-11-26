@@ -1077,13 +1077,16 @@ fn visit_hop(
                 let target = &*repo.collections[collection_index].base_record(source_slot)?;
                 let mut seen = 0usize;
                 let mut selected = 0usize;
-                for candidate in &source_collection.identity_order {
-                    if !work.is_active(hop.to, *candidate) {
+                let mut identity = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+                    source_collection.base_identity_order()?,
+                );
+                while let Some(candidate) = identity.next_slot()? {
+                    if !work.is_active(hop.to, candidate) {
                         continue;
                     }
                     work.backlink_probe()?;
                     let Some(value) =
-                        read_reference_value(repo, hop.to.0 as usize, *candidate, work)?
+                        read_reference_value(repo, hop.to.0 as usize, candidate, work)?
                     else {
                         continue;
                     };
@@ -1106,7 +1109,7 @@ fn visit_hop(
                             config,
                             depth + 1,
                             hop.to.0 as usize,
-                            *candidate,
+                            candidate,
                             truth,
                             work,
                             source_positions,
@@ -1212,8 +1215,11 @@ fn visit_hop(
                 } else {
                     // A positional backlink means rank among sources in
                     // identity order, so retain that ordering here.
-                    for source in &source_collection.identity_order {
-                        if !work.is_active(hop.to, *source) {
+                    let mut identity = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+                        source_collection.base_identity_order()?,
+                    );
+                    while let Some(source) = identity.next_slot()? {
+                        if !work.is_active(hop.to, source) {
                             continue;
                         }
                         work.backlink_probe()?;
@@ -1229,7 +1235,7 @@ fn visit_hop(
                                 config,
                                 depth + 1,
                                 hop.to.0 as usize,
-                                *source,
+                                source,
                                 truth,
                                 work,
                                 source_positions,

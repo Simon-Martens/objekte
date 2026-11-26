@@ -317,6 +317,7 @@ fn initialize_empty_configured(
             index_family_bytes,
             #[cfg(test)]
             id_lookup: HashMap::new(),
+            #[cfg(test)]
             identity_order: Vec::new(),
             initial_counts: None,
             stats: CollectionStats {
