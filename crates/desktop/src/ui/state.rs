@@ -603,7 +603,7 @@ impl UiState {
                 self.busy = if running { Busy::Batch } else { Busy::None };
             }
             UiUpdate::Diagnostics(diagnostics) => {
-                self.diagnostics = diagnostics.chars().take(16 * 1024).collect();
+                self.diagnostics = diagnostics;
             }
             UiUpdate::Clipboard(_) => {}
             UiUpdate::Status(status) => {

@@ -1132,6 +1132,23 @@ impl DesktopView {
                             .font_weight(gpui_kit::FontWeight::SEMIBOLD)
                             .child(title),
                     )
+                    .when(kind == ActionPanel::Diagnostics, |header| {
+                        header.child(
+                            Button::new("copy-diagnostics")
+                                .ghost()
+                                .label("Copy")
+                                .accessibility_label("Copy all diagnostics")
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    let mut report = this.state.diagnostics.clone();
+                                    if !report.is_empty() && !report.ends_with('\n') {
+                                        report.push('\n');
+                                    }
+                                    report.push_str("Index\n");
+                                    report.push_str(&this.index_diagnostic_lines().join("\n"));
+                                    super::copy_text_to_clipboard(report, cx);
+                                })),
+                        )
+                    })
                     .child(
                         Button::new("action-close")
                             .ghost()
@@ -1387,13 +1404,16 @@ impl DesktopView {
                 }
             }
             ActionPanel::Diagnostics => {
+                let diagnostics = &self.state.diagnostics;
+                let preview_end = diagnostics
+                    .char_indices()
+                    .nth(16 * 1024)
+                    .map_or(diagnostics.len(), |(end, _)| end);
                 content = content.children(
-                    self.state
-                        .diagnostics
+                    diagnostics[..preview_end]
                         .lines()
                         .map(|line| div().text_sm().child(line.to_owned())),
                 );
-                let index = &self.state.index_status;
                 content = content
                     .child(
                         div()
@@ -1401,27 +1421,27 @@ impl DesktopView {
                             .font_weight(FontWeight::SEMIBOLD)
                             .child("Index"),
                     )
-                    .child(
-                        div()
-                            .text_xs()
-                            .child(format!("Readiness: {}", index.readiness)),
-                    )
-                    .child(div().text_xs().child(format!(
-                        "Source reconciliation: {}",
-                        index.source_reconciliation
-                    )))
-                    .child(
-                        div()
-                            .text_xs()
-                            .child(format!("Current revision: {}", index.revision)),
-                    )
-                    .child(div().text_xs().child(format!(
-                        "Estimated index memory: {}",
-                        memory_label(index.estimated_index_bytes.unwrap_or_default())
-                    )));
+                    .children(
+                        self.index_diagnostic_lines()
+                            .into_iter()
+                            .map(|line| div().text_xs().child(line)),
+                    );
             }
         }
         panel.child(content)
+    }
+
+    fn index_diagnostic_lines(&self) -> [String; 4] {
+        let index = &self.state.index_status;
+        [
+            format!("Readiness: {}", index.readiness),
+            format!("Source reconciliation: {}", index.source_reconciliation),
+            format!("Current revision: {}", index.revision),
+            format!(
+                "Estimated index memory: {}",
+                memory_label(index.estimated_index_bytes.unwrap_or_default())
+            ),
+        ]
     }
 
     fn export(&mut self, format: ExportFormat, cx: &mut Context<Self>) {
