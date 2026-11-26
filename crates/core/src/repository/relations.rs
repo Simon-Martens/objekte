@@ -884,4 +884,6 @@ fn graph_components(node_count: usize, edges: &[CollectionGraphEdge]) -> Vec<Col
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::relations_tests!();
+}

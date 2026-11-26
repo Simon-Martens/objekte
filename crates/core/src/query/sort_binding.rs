@@ -1741,5 +1741,6 @@ pub(crate) fn compare_parts<K: std::borrow::Borrow<SortKey>>(
 }
 
 #[cfg(test)]
-#[path = "sort_binding/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::sort_binding_tests!();
+}

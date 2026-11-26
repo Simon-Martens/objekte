@@ -79,5 +79,6 @@ pub(crate) fn parse_size_literal(input: &str) -> Result<Option<i128>, String> {
 }
 
 #[cfg(test)]
-#[path = "size_literal/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::size_literal_tests!();
+}

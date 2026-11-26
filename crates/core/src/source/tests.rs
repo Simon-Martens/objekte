@@ -1,0 +1,2299 @@
+// Expand each suite in its original module so it can access private items.
+macro_rules! extraction_tests {
+    () => {
+        use std::path::Path;
+        use std::sync::Arc;
+        use std::sync::atomic::{AtomicUsize, Ordering};
+
+        use crate::inventory::SourceRevision;
+        use crate::source::test_support::DOCUMENT_READER;
+        use crate::source::test_support::LINE_READER;
+        use crate::source::test_support::OutcomeReader;
+        use crate::source::{
+            ByteRange, DiagnosticCategory, ReaderDiagnostic, SourceOutcome, SourceReader,
+            extraction::extract_file, extraction::extract_file_build_outcomes_hashed_with_buffer,
+            extraction::trim_oversized_build_buffer,
+        };
+
+        use super::{
+            FILE_COORDINATE_SCANNED_BYTES, FileCoordinateCursor, MAX_RETAINED_BUILD_BUFFER_BYTES,
+            SourceBufferProfile, extract_file_build_outcomes, extract_file_outcomes,
+            extract_framed_outcomes_impl, file_coordinates, frame_file_for_build,
+        };
+
+        #[test]
+        fn reusable_build_buffer_preserves_outcomes_and_releases_large_storage() {
+            use sha2::{Digest, Sha256};
+
+            let root = std::env::temp_dir().join(format!(
+                "objekte-reused-build-buffer-{}-{}",
+                std::process::id(),
+                std::time::SystemTime::now()
+                    .duration_since(std::time::UNIX_EPOCH)
+                    .unwrap()
+                    .as_nanos()
+            ));
+            std::fs::create_dir(&root).unwrap();
+            let mut buffer = Vec::new();
+            let mut profile = SourceBufferProfile::default();
+            let parses = Arc::new(AtomicUsize::new(0));
+            let large = vec![b'x'; MAX_RETAINED_BUILD_BUFFER_BYTES + 1];
+            for (name, bytes, malformed) in [
+                ("large.outcome", large.as_slice(), false),
+                ("small.outcome", b"ok".as_slice(), false),
+                ("broken.outcome", b"bad".as_slice(), true),
+                ("last.outcome", b"next".as_slice(), false),
+            ] {
+                let path = root.join(name);
+                std::fs::write(&path, bytes).unwrap();
+                let revision =
+                    SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+                let reader = OutcomeReader {
+                    ranges: vec![ByteRange {
+                        start: 0,
+                        end: bytes.len() as u64,
+                    }],
+                    parses: parses.clone(),
+                    fail_framing: malformed,
+                };
+                let mut outcome_kind = None;
+                let (_, digest) = extract_file_build_outcomes_hashed_with_buffer(
+                    &path,
+                    &reader,
+                    revision,
+                    &mut buffer,
+                    None,
+                    Some(&mut profile),
+                    |outcome| {
+                        outcome_kind = Some(match outcome {
+                            SourceOutcome::Logical { .. } => "logical",
+                            SourceOutcome::Malformed { bytes: raw, .. } => {
+                                assert_eq!(raw, bytes);
+                                "malformed"
+                            }
+                            SourceOutcome::Unreadable { .. } => "unreadable",
+                        });
+                        Ok(())
+                    },
+                )
+                .unwrap();
+                assert_eq!(digest, Some(Sha256::digest(bytes).into()));
+                assert_eq!(
+                    outcome_kind,
+                    Some(if malformed { "malformed" } else { "logical" })
+                );
+                if name == "large.outcome" {
+                    assert!(buffer.capacity() > MAX_RETAINED_BUILD_BUFFER_BYTES);
+                    assert!(trim_oversized_build_buffer(&mut buffer));
+                    assert_eq!(buffer.capacity(), 0);
+                } else if name == "small.outcome" {
+                    assert!(buffer.capacity() >= bytes.len());
+                    assert!(!trim_oversized_build_buffer(&mut buffer));
+                } else if malformed {
+                    assert_eq!(buffer.capacity(), 0);
+                }
+            }
+            assert_eq!(profile.files_read, 4);
+            #[cfg(feature = "detailed-profiling")]
+            {
+                assert!(profile.growth_files >= 3);
+                assert!(profile.peak_capacity_bytes > MAX_RETAINED_BUILD_BUFFER_BYTES as u64);
+            }
+            assert_eq!(parses.load(Ordering::Relaxed), 3);
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn unavailable_source_read_is_classified_without_fabricating_records() {
+            let missing = std::env::temp_dir()
+                .join(format!("objekte-missing-source-{}.row", std::process::id()));
+            let mut issues = Vec::new();
+            let counts = extract_file_outcomes(
+                &missing,
+                &DOCUMENT_READER,
+                SourceRevision {
+                    modified_ns: 0,
+                    size: 0,
+                    object_id: None,
+                },
+                |outcome| {
+                    match outcome {
+                        SourceOutcome::Unreadable { diagnostic } => issues.push(diagnostic),
+                        _ => panic!("unreadable source produced a record"),
+                    }
+                    Ok(())
+                },
+            )
+            .unwrap();
+            assert_eq!(counts.framed_records, 0);
+            assert_eq!(issues.len(), 1);
+            assert_eq!(issues[0].category, DiagnosticCategory::Io);
+            assert_eq!(issues[0].code, "source.open");
+        }
+
+        #[test]
+        fn malformed_lines_coordinate_work_grows_with_file_size() {
+            fn scan_work(frames: usize) -> (usize, usize) {
+                let bytes = b"{oops}\n".repeat(frames);
+                let ranges = LINE_READER.frame(&bytes).unwrap();
+                FILE_COORDINATE_SCANNED_BYTES.with(|scanned| scanned.set(0));
+                let mut malformed = 0;
+                let counters = extract_framed_outcomes_impl(
+                    Path::new("malformed.rows"),
+                    &LINE_READER,
+                    &bytes,
+                    &ranges,
+                    true,
+                    |outcome| {
+                        let SourceOutcome::Malformed { diagnostic, .. } = outcome else {
+                            panic!("invalid line-framed source frame was accepted")
+                        };
+                        malformed += 1;
+                        assert_eq!(diagnostic.line, Some(malformed));
+                        Ok(())
+                    },
+                )
+                .unwrap();
+                assert_eq!(counters.failed_parses, frames as u64);
+                assert_eq!(malformed, frames as u64);
+                let scanned = FILE_COORDINATE_SCANNED_BYTES.with(|scanned| scanned.get());
+                (scanned, bytes.len())
+            }
+
+            let (small_work, small_size) = scan_work(128);
+            let (large_work, large_size) = scan_work(256);
+            assert!(small_work <= small_size, "{small_work} > {small_size}");
+            assert!(large_work <= large_size, "{large_work} > {large_size}");
+            assert!(large_work <= small_work * 2 + 8);
+        }
+
+        #[test]
+        fn file_coordinates_preserve_custom_reader_line_and_column_meaning() {
+            let file = b"aa\r\nbb_cc\nmm\nnn";
+            let mut cursor = FileCoordinateCursor::default();
+            let mut diagnostic = ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+            diagnostic.line = Some(1);
+            diagnostic.column = Some(2);
+            diagnostic.relative_byte = Some(1);
+            file_coordinates(
+                file,
+                ByteRange { start: 6, end: 9 },
+                &mut diagnostic,
+                &mut cursor,
+            );
+            assert_eq!((diagnostic.line, diagnostic.column), (Some(2), Some(4)));
+            assert_eq!(diagnostic.relative_byte, Some(1));
+
+            let mut at_boundary =
+                ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+            at_boundary.line = Some(1);
+            at_boundary.column = Some(1);
+            file_coordinates(
+                file,
+                ByteRange { start: 13, end: 15 },
+                &mut at_boundary,
+                &mut cursor,
+            );
+            assert_eq!((at_boundary.line, at_boundary.column), (Some(4), Some(1)));
+
+            let mut without_line =
+                ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+            without_line.column = Some(7);
+            file_coordinates(
+                file,
+                ByteRange { start: 15, end: 15 },
+                &mut without_line,
+                &mut cursor,
+            );
+            assert_eq!((without_line.line, without_line.column), (None, Some(7)));
+
+            let mut multiline = ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+            multiline.line = Some(2);
+            multiline.column = Some(1);
+            file_coordinates(
+                b"prefix\n{\n}\n",
+                ByteRange { start: 7, end: 10 },
+                &mut multiline,
+                &mut FileCoordinateCursor::default(),
+            );
+            assert_eq!((multiline.line, multiline.column), (Some(3), Some(1)));
+        }
+
+        #[test]
+        fn fused_extraction_parses_once_and_reports_bad_record() {
+            let path = std::env::temp_dir().join(format!(
+                "objekte-source-{}-{}.rows",
+                std::process::id(),
+                42
+            ));
+            std::fs::write(&path, b"(\"name\"=\"A\")\n(\"name\"=\"B\")\n").unwrap();
+            let mut seen = Vec::new();
+            let revision =
+                SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+            let stats = extract_file(
+                &path,
+                crate::source::test_support::line_format(),
+                revision,
+                |range, record| {
+                    seen.push((range, record.text[0].text.clone()));
+                    Ok(())
+                },
+            )
+            .unwrap();
+            assert_eq!(stats.record_parses, 2);
+            assert_eq!(seen.len(), 2);
+            std::fs::write(&path, b"(\"name\"=\"A\")\n(oops)\n").unwrap();
+            assert!(
+                extract_file(
+                    &path,
+                    crate::source::test_support::line_format(),
+                    SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+                    |_, _| Ok(())
+                )
+                .unwrap_err()
+                .contains("..")
+            );
+            std::fs::remove_file(path).unwrap();
+        }
+
+        #[test]
+        fn build_reads_use_actual_bytes_without_revision_probes() {
+            let root = std::env::temp_dir()
+                .join(format!("objekte-build-stable-input-{}", std::process::id()));
+            std::fs::create_dir_all(&root).unwrap();
+            let path = root.join("records.rows");
+            std::fs::write(&path, b"(\"x\"=1)\n(\"x\"=2)\n").unwrap();
+            let wrong_revision = SourceRevision {
+                modified_ns: 0,
+                size: 1,
+                object_id: None,
+            };
+            let mut ranges = Vec::new();
+            let counters =
+                extract_file_build_outcomes(&path, &LINE_READER, wrong_revision, |outcome| {
+                    let SourceOutcome::Logical { range, .. } = outcome else {
+                        panic!("expected logical record")
+                    };
+                    ranges.push(range);
+                    Ok(())
+                })
+                .unwrap();
+            assert_eq!(counters.record_parses, 2);
+            assert_eq!(
+                ranges,
+                [
+                    ByteRange { start: 0, end: 7 },
+                    ByteRange { start: 8, end: 15 }
+                ]
+            );
+            assert!(
+                extract_file_outcomes(&path, &LINE_READER, wrong_revision, |_| Ok(())).is_err()
+            );
+            let framed = frame_file_for_build(&path, &LINE_READER).unwrap().unwrap();
+            assert_eq!(framed.0.len(), 16);
+            assert_eq!(framed.1, ranges);
+
+            let malformed = root.join("malformed.rows");
+            std::fs::write(&malformed, b"{\n").unwrap();
+            extract_file_build_outcomes(&malformed, &LINE_READER, wrong_revision, |outcome| {
+                assert!(matches!(outcome, SourceOutcome::Malformed { .. }));
+                Ok(())
+            })
+            .unwrap();
+            let empty = root.join("empty.rows");
+            std::fs::write(&empty, b"").unwrap();
+            assert_eq!(
+                extract_file_build_outcomes(&empty, &LINE_READER, wrong_revision, |_| panic!(
+                    "empty file must not emit a record"
+                ))
+                .unwrap()
+                .framed_records,
+                0
+            );
+            let missing = root.join("missing.rows");
+            extract_file_build_outcomes(&missing, &LINE_READER, wrong_revision, |outcome| {
+                assert!(matches!(outcome, SourceOutcome::Unreadable { .. }));
+                Ok(())
+            })
+            .unwrap();
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[cfg(unix)]
+        #[test]
+        fn fresh_build_rejects_same_stamp_replacement_after_discovery() {
+            let root = std::env::temp_dir().join(format!(
+                "objekte-discovery-replacement-{}-{:?}",
+                std::process::id(),
+                std::thread::current().id()
+            ));
+            std::fs::create_dir(&root).unwrap();
+            let path = root.join("source.row");
+            let substitute = root.join("replacement");
+            std::fs::write(&path, br#"("id"="A")"#).unwrap();
+            let discovery = std::fs::metadata(&path).unwrap();
+            let expected = SourceRevision::from_metadata(&discovery).unwrap();
+            std::fs::write(&substitute, br#"("id"="B")"#).unwrap();
+            std::fs::File::open(&substitute)
+                .unwrap()
+                .set_times(std::fs::FileTimes::new().set_modified(discovery.modified().unwrap()))
+                .unwrap();
+            std::fs::rename(&substitute, &path).unwrap();
+            let current =
+                SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+            assert_eq!(
+                (expected.size, expected.modified_ns),
+                (current.size, current.modified_ns)
+            );
+            assert_ne!(expected.object_id, current.object_id);
+            let result = extract_file_build_outcomes_hashed_with_buffer(
+                &path,
+                &DOCUMENT_READER,
+                expected,
+                &mut Vec::new(),
+                None,
+                None,
+                |_| panic!("replacement bytes must not reach a discovery-owned contribution"),
+            );
+            assert!(result.unwrap_err().contains("stale source revision"));
+            std::fs::remove_dir_all(root).unwrap();
+        }
+    };
+}
+pub(super) use extraction_tests;
+
+macro_rules! preparation_tests {
+    () => {
+        use super::*;
+        use crate::construction::file_preparation::finish_build_record;
+        use crate::model::Value;
+        use crate::query::options::ReturnMode;
+        use crate::query_results::payload::materialize;
+        use std::collections::BTreeMap;
+
+        fn built_and_trusted_logical(
+            schema: &Schema,
+            bytes: &[u8],
+            projection: &ScanProjection,
+        ) -> (Value, Value) {
+            use crate::inventory::RecordClass;
+            use crate::query_results::Payload;
+
+            let source = crate::source::test_support::fixture_registry()
+                .resolve(&crate::source::test_support::document_format())
+                .unwrap();
+            let mut built = source.reader().parse_for_build_outcome(bytes).unwrap();
+            finish_build_record(schema, &mut built).unwrap();
+            let trusted = prepare_query_record(
+                RecordClass::Logical,
+                &source,
+                schema,
+                bytes,
+                projection,
+                true,
+            )
+            .unwrap();
+            let Some(Payload::Logical(logical)) =
+                materialize(&ReturnMode::Logical, Vec::new(), Some(trusted)).unwrap()
+            else {
+                panic!("logical payload");
+            };
+            (built.value, logical)
+        }
+
+        #[test]
+        fn trusted_logical_root_arrays_keep_declared_metadata_without_conversions() {
+            use crate::model::LogicalType;
+            use crate::schema::FieldDefinition;
+
+            for (bytes, nullable) in [
+                (b"[]".as_slice(), false),
+                (b"[null,null]".as_slice(), true),
+                (b"[1,2]".as_slice(), true),
+            ] {
+                let mut schema = Schema::default();
+                schema
+                    .register_field(FieldDefinition {
+                        path: Vec::new(),
+                        kind: LogicalType::Array(Box::new(LogicalType::Number)),
+                        required: true,
+                        nullable: false,
+                        indexed: false,
+                        multi: true,
+                        element_nullable: vec![nullable],
+                    })
+                    .unwrap();
+                assert!(!schema.has_converted_fields());
+                let (built, trusted) =
+                    built_and_trusted_logical(&schema, bytes, &ScanProjection::full(false));
+                assert_eq!(trusted, built);
+                let Value::Array(array) = trusted else {
+                    panic!("root array")
+                };
+                assert_eq!(array.element_type, Some(LogicalType::Number));
+                assert_eq!(array.nullable_elements, nullable);
+            }
+
+            let mut schema = Schema::default();
+            schema
+                .register_field(FieldDefinition {
+                    path: Vec::new(),
+                    kind: LogicalType::Array(Box::new(LogicalType::Array(Box::new(LogicalType::Number)))),
+                    required: true,
+                    nullable: false,
+                    indexed: false,
+                    multi: true,
+                    element_nullable: vec![false, true],
+                })
+                .unwrap();
+            let (built, trusted) =
+                built_and_trusted_logical(&schema, b"[[],[null],[1,2]]", &ScanProjection::full(false));
+            assert_eq!(trusted, built);
+            let Value::Array(outer) = trusted else {
+                panic!("outer array")
+            };
+            assert_eq!(
+                outer.element_type,
+                Some(LogicalType::Array(Box::new(LogicalType::Number)))
+            );
+            assert!(!outer.nullable_elements);
+            for item in outer.values {
+                let Value::Array(inner) = item else {
+                    panic!("inner array")
+                };
+                assert_eq!(inner.element_type, Some(LogicalType::Number));
+                assert!(inner.nullable_elements);
+            }
+        }
+
+        #[test]
+        fn trusted_logical_object_arrays_match_build_and_respect_projection() {
+            use crate::inventory::RecordClass;
+            use crate::model::LogicalType;
+            use crate::schema::FieldDefinition;
+
+            use std::collections::HashSet;
+
+            let mut schema = Schema::default();
+            for (path, kind, nullable) in [
+                (
+                    vec!["values"],
+                    LogicalType::Array(Box::new(LogicalType::Number)),
+                    vec![false],
+                ),
+                (
+                    vec!["all_null"],
+                    LogicalType::Array(Box::new(LogicalType::Number)),
+                    vec![true],
+                ),
+                (
+                    vec!["populated"],
+                    LogicalType::Array(Box::new(LogicalType::Number)),
+                    vec![true],
+                ),
+                (
+                    vec!["nested"],
+                    LogicalType::Array(Box::new(LogicalType::Array(Box::new(LogicalType::Number)))),
+                    vec![false, true],
+                ),
+                (
+                    vec!["objects"],
+                    LogicalType::Array(Box::new(LogicalType::Object)),
+                    vec![false],
+                ),
+                (
+                    vec!["objects", "tags"],
+                    LogicalType::Array(Box::new(LogicalType::String)),
+                    vec![true],
+                ),
+            ] {
+                schema
+                    .register_field(FieldDefinition {
+                        path: path.into_iter().map(str::to_owned).collect(),
+                        kind,
+                        required: false,
+                        nullable: false,
+                        indexed: false,
+                        multi: true,
+                        element_nullable: nullable,
+                    })
+                    .unwrap();
+            }
+            assert!(!schema.has_converted_fields());
+            let bytes = br#"("values"=[],"all_null"=[null,null],"populated"=[1,2],"nested"=[[],[null],[3]],"objects"=[("tags"=[])],"inferred"=[1,null])"#;
+            let (built, trusted) = built_and_trusted_logical(&schema, bytes, &ScanProjection::full(false));
+            assert_eq!(trusted, built);
+            let Value::Object(fields) = &trusted else {
+                panic!("object")
+            };
+            for name in ["values", "all_null", "populated"] {
+                let Value::Array(array) = &fields[name] else {
+                    panic!("number array")
+                };
+                assert_eq!(array.element_type, Some(LogicalType::Number));
+                assert_eq!(array.nullable_elements, name != "values");
+            }
+            let Value::Array(inferred) = &fields["inferred"] else {
+                panic!("inferred array")
+            };
+            assert_eq!(inferred.element_type, Some(LogicalType::Number));
+            assert!(inferred.nullable_elements);
+
+            let selected = HashSet::from([
+                "values".to_owned(),
+                "nested".to_owned(),
+                "inferred".to_owned(),
+            ]);
+            let projection = ScanProjection {
+                top_level: Some(selected.clone()),
+                collect_text: false,
+                resolved_text_only: false,
+            };
+            let (_, projected) = built_and_trusted_logical(&schema, bytes, &projection);
+            let Value::Object(mut expected) = built else {
+                panic!("built object")
+            };
+            expected.retain(|name, _| selected.contains(name));
+            assert_eq!(projected, Value::Object(expected));
+
+            let source = crate::source::test_support::fixture_registry()
+                .resolve(&crate::source::test_support::document_format())
+                .unwrap();
+            for stale in [
+                br#"("values"=["wrong"])"#.as_slice(),
+                br#"("values"=null)"#.as_slice(),
+            ] {
+                assert!(
+                    prepare_query_record(
+                        RecordClass::Logical,
+                        &source,
+                        &schema,
+                        stale,
+                        &ScanProjection::full(false),
+                        true
+                    )
+                    .is_ok()
+                );
+                let mut invalid = source
+                    .reader()
+                    .parse_for_query(stale, &ScanProjection::full(false))
+                    .unwrap();
+                assert!(schema.coerce_record(&mut invalid.value).is_err());
+            }
+        }
+
+        #[test]
+        fn recorded_validation_selects_trusted_or_validating_extraction() {
+            use crate::inventory::RecordClass;
+            use crate::source::test_support::SCALAR_READER;
+            use crate::source::{SourceFormat, registry::SourceRegistry};
+            use std::collections::HashSet;
+            use std::sync::Arc;
+
+            let builtin = crate::source::test_support::fixture_registry()
+                .resolve(&crate::source::test_support::scalar_format())
+                .unwrap();
+            let mut registry = SourceRegistry::default();
+            registry
+                .register("custom", 1, "row", Arc::new(SCALAR_READER))
+                .unwrap();
+            let extension = registry
+                .resolve(&SourceFormat::registered("custom"))
+                .unwrap();
+            let projection = ScanProjection {
+                top_level: Some(HashSet::from(["wanted".into()])),
+                collect_text: false,
+                resolved_text_only: false,
+            };
+            let bytes = br#"("wanted"=5,"ignored"=!)"#;
+
+            assert!(builtin.reader().supports_trusted_query_extraction());
+            assert!(extension.reader().supports_trusted_query_extraction());
+            assert!(
+                prepare_query_record(
+                    RecordClass::Logical,
+                    &builtin,
+                    &Schema::default(),
+                    bytes,
+                    &projection,
+                    false,
+                )
+                .is_ok()
+            );
+            assert!(
+                prepare_query_record(
+                    RecordClass::Logical,
+                    &extension,
+                    &Schema::default(),
+                    bytes,
+                    &projection,
+                    false,
+                )
+                .is_ok()
+            );
+            assert!(
+                prepare_query_record(
+                    RecordClass::RawFallback,
+                    &builtin,
+                    &Schema::default(),
+                    bytes,
+                    &projection,
+                    false,
+                )
+                .is_err()
+            );
+        }
+
+        #[test]
+        fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
+            use crate::inventory::RecordClass;
+            use crate::model::LogicalType;
+            use crate::query_execution::streaming::ExecutionContext;
+            use crate::schema::FieldDefinition;
+            use crate::source::test_support::DOCUMENT_READER;
+            use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
+            use std::collections::HashSet;
+            use std::sync::{
+                Arc,
+                atomic::{AtomicUsize, Ordering},
+            };
+
+            struct TrackingReader {
+                opt_in: bool,
+                validating: Arc<AtomicUsize>,
+                trusted: Arc<AtomicUsize>,
+            }
+
+            impl SourceReader for TrackingReader {
+                fn name(&self) -> &'static str {
+                    "tracking"
+                }
+
+                fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+                    DOCUMENT_READER.frame(bytes)
+                }
+
+                fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+                    DOCUMENT_READER.parse(bytes)
+                }
+
+                fn supports_trusted_query_extraction(&self) -> bool {
+                    self.opt_in
+                }
+
+                fn parse_for_query(
+                    &self,
+                    bytes: &[u8],
+                    projection: &ScanProjection,
+                ) -> Result<ExtractedRecord, String> {
+                    self.validating.fetch_add(1, Ordering::Relaxed);
+                    DOCUMENT_READER.parse_for_query(bytes, projection)
+                }
+
+                fn parse_for_query_trusted(
+                    &self,
+                    bytes: &[u8],
+                    projection: &ScanProjection,
+                ) -> Result<ExtractedRecord, String> {
+                    self.trusted.fetch_add(1, Ordering::Relaxed);
+                    DOCUMENT_READER.parse_for_query_trusted(bytes, projection)
+                }
+            }
+
+            let mut schema = Schema::default();
+            schema
+                .register_field(FieldDefinition {
+                    path: vec!["values".into()],
+                    kind: LogicalType::Array(Box::new(LogicalType::Number)),
+                    required: true,
+                    nullable: false,
+                    indexed: false,
+                    multi: true,
+                    element_nullable: vec![true],
+                })
+                .unwrap();
+            let bytes = br#"("values"=[])"#;
+            for opt_in in [false, true] {
+                for with_execution in [false, true] {
+                    let validating = Arc::new(AtomicUsize::new(0));
+                    let trusted = Arc::new(AtomicUsize::new(0));
+                    let mut registry = SourceRegistry::default();
+                    registry
+                        .register(
+                            "tracking",
+                            1,
+                            "row",
+                            Arc::new(TrackingReader {
+                                opt_in,
+                                validating: validating.clone(),
+                                trusted: trusted.clone(),
+                            }),
+                        )
+                        .unwrap();
+                    let source = registry
+                        .resolve(&SourceFormat::registered("tracking"))
+                        .unwrap();
+                    assert!(source.reader().uses_extension_query_limits());
+                    let mut built = source.reader().parse_for_build_outcome(bytes).unwrap();
+                    finish_build_record(&schema, &mut built).unwrap();
+                    let projection = ScanProjection {
+                        top_level: Some(HashSet::from(["values".to_owned()])),
+                        collect_text: false,
+                        resolved_text_only: false,
+                    };
+                    let result = if with_execution {
+                        let execution = ExecutionContext::new(
+                            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+                            Default::default(),
+                            None,
+                        );
+                        prepare_query_record_with_execution(
+                            RecordClass::Logical,
+                            &source,
+                            &schema,
+                            bytes,
+                            &projection,
+                            true,
+                            Some(&execution),
+                        )
+                        .unwrap()
+                    } else {
+                        prepare_query_record(
+                            RecordClass::Logical,
+                            &source,
+                            &schema,
+                            bytes,
+                            &projection,
+                            true,
+                        )
+                        .unwrap()
+                    };
+                    assert_eq!(result.value, built.value);
+                    assert_eq!(validating.load(Ordering::Relaxed), usize::from(!opt_in));
+                    assert_eq!(trusted.load(Ordering::Relaxed), usize::from(opt_in));
+
+                    assert!(
+                        prepare_query_record(
+                            RecordClass::RawFallback,
+                            &source,
+                            &schema,
+                            bytes,
+                            &projection,
+                            false
+                        )
+                        .is_err()
+                    );
+                    assert_eq!(validating.load(Ordering::Relaxed), usize::from(!opt_in));
+                    assert_eq!(trusted.load(Ordering::Relaxed), usize::from(opt_in));
+
+                    // The indexed record was valid at build time; a later malformed
+                    // skipped field does not change its recorded validation state.
+                    let changed = br#"("values"=[],"ignored"=!)"#;
+                    let changed_result = if with_execution {
+                        let execution = ExecutionContext::new(
+                            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+                            Default::default(),
+                            None,
+                        );
+                        prepare_query_record_with_execution(
+                            RecordClass::Logical,
+                            &source,
+                            &schema,
+                            changed,
+                            &projection,
+                            true,
+                            Some(&execution),
+                        )
+                    } else {
+                        prepare_query_record(
+                            RecordClass::Logical,
+                            &source,
+                            &schema,
+                            changed,
+                            &projection,
+                            true,
+                        )
+                    };
+                    assert_eq!(changed_result.is_ok(), opt_in);
+                    assert_eq!(validating.load(Ordering::Relaxed), 2 * usize::from(!opt_in));
+                    assert_eq!(trusted.load(Ordering::Relaxed), 2 * usize::from(opt_in));
+                }
+            }
+        }
+
+        #[test]
+        fn registered_reader_expansion_and_failures_keep_typed_classes() {
+            use crate::query_execution::streaming::{
+                ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+            };
+            use crate::source::{SourceFormat, SourceReader, registry::SourceRegistry};
+            use std::sync::{
+                Arc,
+                atomic::{AtomicUsize, Ordering},
+            };
+
+            struct ExpandingReader {
+                calls: Arc<AtomicUsize>,
+                estimate: bool,
+                fail: bool,
+                trusted: bool,
+            }
+
+            impl SourceReader for ExpandingReader {
+                fn name(&self) -> &'static str {
+                    "expanding"
+                }
+
+                fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+                    Ok(vec![crate::inventory::ByteRange::checked(
+                        0,
+                        bytes.len() as u64,
+                        bytes.len() as u64,
+                    )?])
+                }
+
+                fn parse(&self, _bytes: &[u8]) -> Result<ExtractedRecord, String> {
+                    self.calls.fetch_add(1, Ordering::Relaxed);
+                    if self.fail {
+                        return Err("extension failed".into());
+                    }
+                    Ok(ExtractedRecord {
+                        value: Value::Object(BTreeMap::from([(
+                            "payload".into(),
+                            Value::String("x".repeat(4096)),
+                        )])),
+                        text: Vec::new(),
+                    })
+                }
+
+                fn supports_trusted_query_extraction(&self) -> bool {
+                    self.trusted
+                }
+
+                fn parse_for_query_trusted(
+                    &self,
+                    bytes: &[u8],
+                    _projection: &ScanProjection,
+                ) -> Result<ExtractedRecord, String> {
+                    self.parse(bytes)
+                }
+
+                fn estimate_query_value_bytes(
+                    &self,
+                    _bytes: &[u8],
+                    _projection: &ScanProjection,
+                ) -> Option<u64> {
+                    self.estimate.then_some(4096)
+                }
+            }
+
+            let context = || {
+                ExecutionContext::new(
+                    crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+                    ExecutionLimits {
+                        extension_value_bytes: 128,
+                        ..Default::default()
+                    },
+                    None,
+                )
+            };
+            for trusted in [false, true] {
+                for (estimate, fail, expected, expected_calls) in [
+                    (true, false, ExecutionErrorKind::Resource, 0),
+                    (false, false, ExecutionErrorKind::Resource, 1),
+                    (false, true, ExecutionErrorKind::Extension, 1),
+                ] {
+                    let calls = Arc::new(AtomicUsize::new(0));
+                    let mut registry = SourceRegistry::default();
+                    // A custom registration may use a builtin-looking ID in an empty registry.
+                    registry
+                        .register(
+                            "fixture-record",
+                            1,
+                            "tiny",
+                            Arc::new(ExpandingReader {
+                                calls: calls.clone(),
+                                estimate,
+                                fail,
+                                trusted,
+                            }),
+                        )
+                        .unwrap();
+                    let source = registry
+                        .resolve(&SourceFormat::registered("fixture-record"))
+                        .unwrap();
+                    assert!(source.reader().uses_extension_query_limits());
+                    let execution = context();
+                    let error = prepare_query_record_with_execution(
+                        crate::inventory::RecordClass::Logical,
+                        &source,
+                        &Schema::default(),
+                        b"x",
+                        &ScanProjection::full(false),
+                        false,
+                        Some(&execution),
+                    )
+                    .unwrap_err();
+                    assert_eq!(execution.recorded_error(error).kind, expected);
+                    assert_eq!(calls.load(Ordering::Relaxed), expected_calls);
+                }
+            }
+        }
+    };
+}
+pub(super) use preparation_tests;
+
+macro_rules! registry_tests {
+    () => {
+        use std::path::Path;
+        use std::sync::Arc;
+        use std::sync::atomic::{AtomicUsize, Ordering};
+
+        use crate::inventory::{ByteRange, SourceRevision};
+        use crate::model::{LogicalType, Value};
+        use crate::query::options::ReturnMode;
+        use crate::query::{
+            CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, parse_filter,
+        };
+        use crate::query_results::Payload;
+        use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+        use crate::schema::{FieldDefinition, Schema};
+        use crate::source::extraction::extract_file_outcomes;
+        use crate::source::test_support::{OutcomeReader, TinyReader};
+
+        use super::super::{
+            DiagnosticCategory, ExtractedRecord, SourceFormat, SourceOutcome, SourceReader, TextSegment,
+            registry::SourceRegistry,
+        };
+
+        struct CustomReader {
+            parses: Arc<AtomicUsize>,
+            name: &'static str,
+        }
+
+        impl SourceReader for CustomReader {
+            fn name(&self) -> &'static str {
+                self.name
+            }
+
+            fn logical_text_coverage(&self) -> super::super::LogicalTextCoverage {
+                super::super::LogicalTextCoverage::AllStringFields
+            }
+
+            fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+                let mut ranges = Vec::new();
+                let mut start = 0usize;
+                for (index, byte) in file.iter().enumerate() {
+                    if *byte == b'\n' {
+                        if start < index {
+                            ranges.push(ByteRange::checked(
+                                start as u64,
+                                index as u64,
+                                file.len() as u64,
+                            )?);
+                        }
+                        start = index + 1;
+                    }
+                }
+                if start < file.len() {
+                    ranges.push(ByteRange::checked(
+                        start as u64,
+                        file.len() as u64,
+                        file.len() as u64,
+                    )?);
+                }
+                Ok(ranges)
+            }
+
+            fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+                self.parses.fetch_add(1, Ordering::Relaxed);
+                let line = std::str::from_utf8(bytes).map_err(|error| error.to_string())?;
+                let (title, body) = line.split_once('|').ok_or("missing custom separator")?;
+                Ok(ExtractedRecord {
+                    value: Value::Object(std::collections::BTreeMap::from([
+                        ("id".into(), Value::String(format!("{title}-{body}"))),
+                        ("title".into(), Value::String(title.into())),
+                        ("body".into(), Value::String(body.into())),
+                    ])),
+                    text: vec![
+                        TextSegment {
+                            path: vec!["title".into()],
+                            text: title.into(),
+                        },
+                        TextSegment {
+                            path: vec!["body".into()],
+                            text: body.into(),
+                        },
+                    ],
+                })
+            }
+        }
+
+        fn schema() -> Schema {
+            let mut schema = Schema::default();
+            for (name, indexed) in [("id", false), ("title", true), ("body", false)] {
+                schema
+                    .register_field(FieldDefinition {
+                        path: vec![name.into()],
+                        kind: LogicalType::String,
+                        required: true,
+                        nullable: false,
+                        indexed,
+                        multi: false,
+                        element_nullable: Vec::new(),
+                    })
+                    .unwrap();
+            }
+            schema
+        }
+
+        fn fts_query(evidence: bool) -> Query {
+            Query {
+                collections: vec!["data".into()],
+                fts: Some(FtsQuery {
+                    pattern_parameter: None,
+                    mode: FtsMode::Literal,
+                    case_sensitivity: CaseSensitivity::Sensitive,
+                    literal: "needle".into(),
+                    fields: vec![FtsField {
+                        query_path: None,
+                        path: crate::model::FieldPath::parse("title").unwrap(),
+                        binding: None,
+                    }],
+                }),
+                filter: None,
+                options: QueryOptions {
+                    sort: Vec::new(),
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Logical,
+                    evidence,
+                },
+            }
+        }
+
+        fn filter_query(expression: &str) -> Query {
+            Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: Some(parse_filter(expression).unwrap()),
+                options: QueryOptions {
+                    sort: Vec::new(),
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Logical,
+                    evidence: true,
+                },
+            }
+        }
+
+        fn combined_query(expression: &str) -> Query {
+            let mut query = fts_query(true);
+            query.filter = Some(parse_filter(expression).unwrap());
+            query
+        }
+
+        #[test]
+        fn custom_readers_under_builtin_names_never_use_declared_scalar_verification() {
+            use crate::source::verification::ScalarVerification;
+
+            let builtins = crate::source::test_support::fixture_registry();
+            for (format, expected) in [
+                (
+                    crate::source::test_support::document_format(),
+                    Some(ScalarVerification::ResolvedStrings),
+                ),
+                (
+                    crate::source::test_support::line_format(),
+                    Some(ScalarVerification::ResolvedStrings),
+                ),
+                (
+                    crate::source::test_support::scalar_format(),
+                    Some(ScalarVerification::DecodedScalars),
+                ),
+            ] {
+                let source = builtins.resolve(&format).unwrap();
+                assert!(!source.reader().uses_extension_query_limits());
+                assert_eq!(source.scalar_verification(), expected);
+            }
+
+            for registration_id in [
+                "fixture-record",
+                "fixture-lines",
+                "fixture-scalars",
+                "custom-control",
+            ] {
+                let root = std::env::temp_dir().join(format!(
+                    "objekte-custom-builtin-{registration_id}-{}-{}",
+                    std::process::id(),
+                    std::time::SystemTime::now()
+                        .duration_since(std::time::UNIX_EPOCH)
+                        .unwrap()
+                        .as_nanos()
+                ));
+                std::fs::create_dir_all(root.join("data")).unwrap();
+                std::fs::write(
+                    root.join("data/records.txt"),
+                    b"needle|alpha\nother|beta\nneedle|beta\n",
+                )
+                .unwrap();
+
+                let parses = Arc::new(AtomicUsize::new(0));
+                let mut sources = SourceRegistry::default();
+                sources
+                    .register(
+                        registration_id,
+                        1,
+                        "txt",
+                        Arc::new(CustomReader {
+                            parses: parses.clone(),
+                            name: if registration_id == "fixture-record" {
+                                "fixture-record"
+                            } else {
+                                "custom-builtin-name"
+                            },
+                        }),
+                    )
+                    .unwrap();
+                let resolved = sources
+                    .resolve(&SourceFormat::registered(registration_id))
+                    .unwrap();
+                assert!(resolved.reader().uses_extension_query_limits());
+                assert_eq!(resolved.scalar_verification(), None);
+                let definition = CollectionDefinition {
+                    name: "data".into(),
+                    source_path: "data".into(),
+                    format: SourceFormat::registered(registration_id),
+                    identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
+                    discovery: Default::default(),
+                    schema: schema(),
+                    sort_fields: Vec::new(),
+                    sort_locale: "de".into(),
+                    sort_options: Default::default(),
+                    sort_overrides: Default::default(),
+                };
+                let index = crate::lifecycle::Index::start_build(
+                    &root,
+                    vec![definition],
+                    RepositoryOptions::default(),
+                    sources,
+                )
+                .and_then(|task| task.wait_complete())
+                .map_err(|error| error.to_string())
+                .unwrap();
+                let view = index.view().unwrap();
+                assert_eq!(parses.load(Ordering::Relaxed), 3);
+
+                let fts = fts_query(true);
+                let fts_found = view.search(&fts).unwrap();
+                let fts_reference = view.search_reference(&fts).unwrap();
+                assert_eq!(fts_found.hits, fts_reference.hits);
+                assert_eq!(fts_found.count, Some(2));
+                assert_eq!(
+                    fts_found
+                        .hits
+                        .iter()
+                        .map(|hit| hit.record_id.as_str())
+                        .collect::<Vec<_>>(),
+                    ["needle-alpha", "needle-beta"]
+                );
+                assert!(fts_found.hits.iter().all(|hit| {
+                    hit.file
+                        .as_ref()
+                        .expect("file origin")
+                        .path
+                        .ends_with("data/records.txt")
+                        && hit.source_range().expect("file range").end
+                            > hit.source_range().expect("file range").start
+                        && hit.matched_fields == ["title"]
+                        && matches!(&hit.payload, Some(Payload::Logical(Value::Object(value)))
+                            if matches!(value["title"], Value::String(ref title) if title == "needle"))
+                }));
+
+                let parses_before_filter = parses.load(Ordering::Relaxed);
+                let filter = filter_query("body ~ 'alpha'");
+                let filter_found = view.search(&filter).unwrap();
+                let filter_reference = view.search_reference(&filter).unwrap();
+                assert_eq!(filter_found.hits, filter_reference.hits);
+                assert_eq!(filter_found.count, Some(1));
+                assert_eq!(filter_found.hits[0].record_id, "needle-alpha");
+                assert_eq!(filter_found.hits[0].matched_fields, ["body"]);
+                assert!(
+                    parses.load(Ordering::Relaxed) > parses_before_filter,
+                    "custom reader must run for residual FILTER verification"
+                );
+
+                let combined = combined_query("body ~ 'alpha'");
+                let found = view.search(&combined).unwrap();
+                let reference = view.search_reference(&combined).unwrap();
+                assert_eq!(found.hits, reference.hits);
+                assert_eq!(found.count, Some(1));
+                assert_eq!(found.hits[0].record_id, "needle-alpha");
+                assert_eq!(found.hits[0].matched_fields.len(), 2);
+                assert!(
+                    found.hits[0]
+                        .matched_fields
+                        .iter()
+                        .any(|field| field == "title")
+                );
+                assert!(
+                    found.hits[0]
+                        .matched_fields
+                        .iter()
+                        .any(|field| field == "body")
+                );
+                assert!(
+                    matches!(&found.hits[0].payload, Some(Payload::Logical(Value::Object(value)))
+                    if value["body"] == Value::String("alpha".into()))
+                );
+
+                let false_case = combined_query("body ~ 'missing'");
+                let found = view.search(&false_case).unwrap();
+                assert_eq!(found.count, Some(0));
+                assert_eq!(found.hits, view.search_reference(&false_case).unwrap().hits);
+                std::fs::remove_dir_all(root).unwrap();
+            }
+        }
+
+        struct TemporalSegmentsReader;
+
+        impl SourceReader for TemporalSegmentsReader {
+            fn name(&self) -> &'static str {
+                "temporal_segments"
+            }
+
+            fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+                Ok(vec![ByteRange::checked(
+                    0,
+                    file.len() as u64,
+                    file.len() as u64,
+                )?])
+            }
+
+            fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+                let text = std::str::from_utf8(bytes).map_err(|error| error.to_string())?;
+                let mut parts = text.split('|');
+                let title = parts.next().ok_or("missing title")?;
+                let body = parts.next().ok_or("missing body")?;
+                let date = parts.next().ok_or("missing date")?;
+                let (first, second) = body.split_once('^').ok_or("missing body boundary")?;
+                Ok(ExtractedRecord {
+                    value: Value::Object(std::collections::BTreeMap::from([
+                        ("title".into(), Value::String(title.into())),
+                        ("body".into(), Value::String(body.into())),
+                        ("date".into(), Value::String(date.into())),
+                    ])),
+                    text: vec![
+                        TextSegment {
+                            path: vec!["body".into()],
+                            text: first.into(),
+                        },
+                        TextSegment {
+                            path: vec!["body".into()],
+                            text: second.into(),
+                        },
+                    ],
+                })
+            }
+        }
+
+        #[test]
+        fn temporal_registration_does_not_replace_reader_owned_text() {
+            use crate::index::bigram::BigramAlphabet;
+            use crate::model::LogicalType;
+            use crate::query::options::ReturnMode;
+            use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
+            use crate::repository::configuration::{
+                CollectionDefinition, IdentityPolicy, RepositoryOptions,
+            };
+            use crate::schema::{FieldDefinition, Schema};
+
+            let root =
+                std::env::temp_dir().join(format!("objekte-temporal-segments-{}", std::process::id()));
+            std::fs::create_dir_all(root.join("data")).unwrap();
+            std::fs::write(
+                root.join("data/a.seg"),
+                b"secret title|needle^here|2026-01-02",
+            )
+            .unwrap();
+            let definition = |temporal| {
+                let mut schema = Schema::default();
+                if temporal {
+                    schema
+                        .register_field(FieldDefinition {
+                            path: vec!["date".into()],
+                            kind: LogicalType::Date,
+                            required: true,
+                            nullable: false,
+                            indexed: true,
+                            multi: false,
+                            element_nullable: vec![],
+                        })
+                        .unwrap();
+                }
+                CollectionDefinition {
+                    name: "data".into(),
+                    source_path: "data".into(),
+                    format: SourceFormat::registered("seg"),
+                    identity: IdentityPolicy::Filename,
+                    discovery: Default::default(),
+                    schema,
+                    sort_fields: vec![],
+                    sort_locale: "de".into(),
+                    sort_options: Default::default(),
+                    sort_overrides: Default::default(),
+                }
+            };
+            let sources = || {
+                let mut sources = crate::source::test_support::fixture_registry();
+                sources
+                    .register("seg", 1, "seg", Arc::new(TemporalSegmentsReader))
+                    .unwrap();
+                sources
+            };
+            let fts = |text: &str, field: Option<&str>| Query {
+                collections: vec!["data".into()],
+                filter: None,
+                fts: Some(FtsQuery {
+                    pattern_parameter: None,
+                    mode: crate::query::FtsMode::Literal,
+                    case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+                    literal: text.into(),
+                    fields: field
+                        .map(|name| {
+                            vec![FtsField {
+                                query_path: None,
+                                path: crate::model::FieldPath::parse(name).unwrap(),
+                                binding: None,
+                            }]
+                        })
+                        .unwrap_or_default(),
+                }),
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+                for temporal in [false, true] {
+                    let options = RepositoryOptions {
+                        bigram_alphabet: alphabet,
+                        ..Default::default()
+                    };
+                    for open in 0..2 {
+                        let repo = crate::lifecycle::Index::build_repository_for_test(
+                            &root,
+                            vec![definition(temporal)],
+                            options,
+                            sources(),
+                        )
+                        .map_err(|error| error.to_string())
+                        .unwrap();
+                        if open == 0 {}
+                        for (text, field, count, evidence) in [
+                            ("needle", None, 1, vec!["body"]),
+                            ("here", Some("body"), 1, vec!["body"]),
+                            ("needle^here", None, 0, vec![]),
+                            ("secret", None, 0, vec![]),
+                            ("secret", Some("title"), 0, vec![]),
+                        ] {
+                            let found = repo.search(&fts(text, field)).unwrap();
+                            assert_eq!(
+                                found.count,
+                                Some(count),
+                                "{alphabet:?} {temporal} {text} {field:?}"
+                            );
+                            if count == 1 {
+                                assert_eq!(found.hits[0].matched_fields, evidence);
+                            }
+                        }
+                        if temporal {
+                            let query = Query {
+                                collections: vec!["data".into()],
+                                fts: None,
+                                filter: Some(parse_filter("date = '2026-01-02'").unwrap()),
+                                options: QueryOptions {
+                                    sort: vec![],
+                                    limit: 10,
+                                    offset: 0,
+                                    count: true,
+                                    return_mode: ReturnMode::Logical,
+                                    evidence: true,
+                                },
+                            };
+                            let result = repo.search(&query).unwrap();
+                            assert_eq!(result.count, Some(1));
+                            assert!(matches!(&result.hits[0].payload,
+                                Some(crate::query_results::Payload::Logical(Value::Object(fields)))
+                                if matches!(fields["date"], Value::Date(_))));
+                        }
+                    }
+                }
+            }
+            std::fs::remove_dir_all(root).unwrap();
+        }
+        #[test]
+        fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
+            let root = std::env::temp_dir().join(format!("objekte-reader-ranges-{}", std::process::id()));
+            std::fs::create_dir_all(&root).unwrap();
+            let path = root.join("source.outcome");
+            std::fs::write(&path, b"ok\nbad").unwrap();
+            let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+            let parses = Arc::new(AtomicUsize::new(0));
+            for ranges in [
+                vec![ByteRange { start: 5, end: 2 }],
+                vec![ByteRange { start: 0, end: 7 }],
+                vec![
+                    ByteRange { start: 0, end: 3 },
+                    ByteRange { start: 2, end: 6 },
+                ],
+                vec![
+                    ByteRange { start: 4, end: 6 },
+                    ByteRange { start: 0, end: 2 },
+                ],
+            ] {
+                let reader = OutcomeReader {
+                    ranges,
+                    parses: parses.clone(),
+                    fail_framing: false,
+                };
+                let error = extract_file_outcomes(&path, &reader, revision, |_| Ok(())).unwrap_err();
+                assert!(error.contains("reader contract"), "{error}");
+                assert_eq!(parses.load(Ordering::Relaxed), 0);
+            }
+            let reader = OutcomeReader {
+                ranges: vec![
+                    ByteRange { start: 0, end: 2 },
+                    ByteRange { start: 3, end: 6 },
+                ],
+                parses: parses.clone(),
+                fail_framing: false,
+            };
+            let mut kinds = Vec::new();
+            let counters = extract_file_outcomes(&path, &reader, revision, |outcome| {
+                kinds.push(match outcome {
+                    SourceOutcome::Logical { range, .. } => (range, "logical"),
+                    SourceOutcome::Malformed {
+                        range, diagnostic, ..
+                    } => {
+                        assert_eq!(diagnostic.code, "outcome.syntax");
+                        (range, "malformed")
+                    }
+                    SourceOutcome::Unreadable { .. } => panic!("unexpected unreadable source"),
+                });
+                Ok(())
+            })
+            .unwrap();
+            assert_eq!(
+                kinds,
+                [
+                    (ByteRange { start: 0, end: 2 }, "logical"),
+                    (ByteRange { start: 3, end: 6 }, "malformed")
+                ]
+            );
+            assert_eq!(counters.framed_records, 2);
+            assert_eq!(counters.record_parses, 1);
+            assert_eq!(counters.failed_parses, 1);
+            let framing = OutcomeReader {
+                ranges: Vec::new(),
+                parses: parses.clone(),
+                fail_framing: true,
+            };
+            let mut fallback = None;
+            extract_file_outcomes(&path, &framing, revision, |outcome| {
+                if let SourceOutcome::Malformed {
+                    range, diagnostic, ..
+                } = outcome
+                {
+                    fallback = Some((range, diagnostic.category));
+                }
+                Ok(())
+            })
+            .unwrap();
+            assert_eq!(
+                fallback,
+                Some((ByteRange { start: 0, end: 6 }, DiagnosticCategory::Framing))
+            );
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn seeded_reader_ranges_obey_checked_nonoverlap_contract() {
+            const SEED: u64 = 0xA11C_2026_1106;
+            let root = std::env::temp_dir().join(format!("objekte-range-property-{}", std::process::id()));
+            std::fs::create_dir_all(&root).unwrap();
+            let path = root.join("source.outcome");
+            std::fs::write(&path, b"ok\nbad").unwrap();
+            let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+            let mut state = SEED;
+            for case in 0..256 {
+                let mut ranges = Vec::new();
+                for _ in 0..1 + (case % 4) {
+                    state ^= state << 13;
+                    state ^= state >> 7;
+                    state ^= state << 17;
+                    let start = state % 9;
+                    state ^= state << 13;
+                    state ^= state >> 7;
+                    state ^= state << 17;
+                    let end = state % 9;
+                    ranges.push(ByteRange { start, end });
+                }
+                let mut previous_end = 0;
+                let valid = ranges.iter().all(|range| {
+                    let valid = range.start <= range.end && range.end <= 6 && range.start >= previous_end;
+                    previous_end = range.end;
+                    valid
+                });
+                let reader = OutcomeReader {
+                    ranges: ranges.clone(),
+                    parses: Arc::new(AtomicUsize::new(0)),
+                    fail_framing: false,
+                };
+                let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    extract_file_outcomes(&path, &reader, revision, |_| Ok(()))
+                }));
+                assert!(
+                    result.is_ok(),
+                    "seed={SEED:#x} case={case} ranges={ranges:?}"
+                );
+                let outcome = result.unwrap();
+                assert_eq!(
+                    outcome.is_ok(),
+                    valid,
+                    "seed={SEED:#x} case={case} ranges={ranges:?} outcome={outcome:?}"
+                );
+            }
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn registered_recoverable_error_survives_repository_query_and_restore() {
+            use crate::query::options::ReturnMode;
+            use crate::query::{FtsQuery, Query, QueryOptions};
+            use crate::query_results::Payload;
+            use crate::repository::configuration::{
+                CollectionDefinition, IdentityPolicy, RepositoryOptions,
+            };
+            use crate::schema::Schema;
+            let root = std::env::temp_dir().join(format!(
+                "objekte-registered-fallback-{}",
+                std::process::id()
+            ));
+            std::fs::create_dir_all(root.join("data")).unwrap();
+            std::fs::write(root.join("data/source.outcome"), b"ok\nbad").unwrap();
+            let mut sources = crate::source::test_support::fixture_registry();
+            sources
+                .register(
+                    "outcome",
+                    1,
+                    "outcome",
+                    Arc::new(OutcomeReader {
+                        ranges: vec![
+                            ByteRange { start: 0, end: 2 },
+                            ByteRange { start: 3, end: 6 },
+                        ],
+                        parses: Arc::new(AtomicUsize::new(0)),
+                        fail_framing: false,
+                    }),
+                )
+                .unwrap();
+            let definition = CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::registered("outcome"),
+                identity: IdentityPolicy::Generated,
+                discovery: Default::default(),
+                schema: Schema::default(),
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+                sort_options: Default::default(),
+                sort_overrides: Default::default(),
+            };
+            let options = RepositoryOptions {
+                ..Default::default()
+            };
+            let built = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                options,
+                sources.clone(),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(built.collections()[0].generation.records.len(), 2);
+            assert_eq!(built.files().files[0].diagnostics[0].code, "outcome.syntax");
+            let query = Query {
+                collections: vec!["data".into()],
+                filter: None,
+                fts: Some(FtsQuery {
+                    pattern_parameter: None,
+                    mode: crate::query::FtsMode::Literal,
+                    case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+                    literal: "bad".into(),
+                    fields: vec![],
+                }),
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Logical,
+                    evidence: true,
+                },
+            };
+            let result = built.search(&query).unwrap();
+            assert_eq!(result.count, Some(1));
+            assert!(matches!(
+                result.hits[0].payload,
+                Some(Payload::LogicalUnavailable { .. })
+            ));
+            assert_eq!(result.hits[0].matched_fields, ["@record.raw_text"]);
+            let restored = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition],
+                options,
+                sources,
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(restored.search(&query).unwrap().hits, result.hits);
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn body_only_reader_does_not_prune_unindexed_title() {
+            use crate::index::bigram::BigramAlphabet;
+            use crate::model::LogicalType;
+            use crate::query::options::ReturnMode;
+            use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
+            use crate::repository::configuration::{
+                CollectionDefinition, IdentityPolicy, RepositoryOptions,
+            };
+            use crate::schema::{FieldDefinition, Schema};
+
+            let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));
+            std::fs::create_dir_all(root.join("data")).unwrap();
+            std::fs::write(
+                root.join("data/items.tiny"),
+                b"hello world|ordinary\nother|ordinary\n",
+            )
+            .unwrap();
+            let mut schema = Schema::default();
+            schema
+                .register_field(FieldDefinition {
+                    path: vec!["title".into()],
+                    kind: LogicalType::String,
+                    required: true,
+                    nullable: false,
+                    indexed: false,
+                    multi: false,
+                    element_nullable: vec![],
+                })
+                .unwrap();
+            let definition = CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::registered("tiny"),
+                identity: IdentityPolicy::Generated,
+                discovery: Default::default(),
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+                sort_options: Default::default(),
+                sort_overrides: Default::default(),
+            };
+            let sources = || {
+                let mut sources = crate::source::test_support::fixture_registry();
+                sources
+                    .register(
+                        "tiny",
+                        1,
+                        "tiny",
+                        Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+                    )
+                    .unwrap();
+                sources
+            };
+            for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+                let repo = crate::lifecycle::Index::build_repository_for_test(
+                    &root,
+                    vec![definition.clone()],
+                    RepositoryOptions {
+                        bigram_alphabet: alphabet,
+                        ..Default::default()
+                    },
+                    sources(),
+                )
+                .map_err(|error| error.to_string())
+                .unwrap();
+                for (filter, fts, expected) in [
+                    (Some("title ~ 'hello world'"), None, 1),
+                    (
+                        None,
+                        Some(FtsQuery {
+                            pattern_parameter: None,
+                            mode: crate::query::FtsMode::Literal,
+                            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+                            literal: "hello world".into(),
+                            fields: vec![FtsField {
+                                query_path: None,
+                                path: crate::model::FieldPath::parse("title").unwrap(),
+                                binding: None,
+                            }],
+                        }),
+                        0,
+                    ),
+                ] {
+                    let query = Query {
+                        collections: vec!["data".into()],
+                        filter: filter.map(|s| parse_filter(s).unwrap()),
+                        fts,
+                        options: QueryOptions {
+                            sort: vec![],
+                            limit: 10,
+                            offset: 0,
+                            count: true,
+                            return_mode: ReturnMode::Bytes,
+                            evidence: true,
+                        },
+                    };
+                    let found = repo.search(&query).unwrap();
+                    assert_eq!(found.count, Some(expected), "{alphabet:?} {filter:?}");
+                    if expected == 1 {
+                        assert!(
+                            matches!(&found.hits[0].payload, Some(crate::query_results::Payload::Bytes(raw)) if raw == b"hello world|ordinary")
+                        );
+                    }
+                }
+            }
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn relative_path_identity_depends_on_the_registered_reader() {
+            let root = std::env::temp_dir().join(format!(
+                "objekte-registered-identity-{}",
+                std::process::id()
+            ));
+            let _ = std::fs::remove_dir_all(&root);
+            std::fs::create_dir_all(root.join("fixture-record")).unwrap();
+            std::fs::create_dir_all(root.join("custom")).unwrap();
+            std::fs::create_dir_all(root.join("tiny")).unwrap();
+            std::fs::create_dir_all(root.join("multi")).unwrap();
+            std::fs::write(root.join("fixture-record/one.row"), br#"("title"="one")"#).unwrap();
+            std::fs::write(root.join("custom/one.row"), br#"("title"="one")"#).unwrap();
+            std::fs::write(root.join("tiny/records.tiny"), b"first|ordinary\n").unwrap();
+            std::fs::write(
+                root.join("multi/records.tiny"),
+                b"first|ordinary\nsecond|ordinary\n",
+            )
+            .unwrap();
+
+            let custom_record = {
+                let mut sources = SourceRegistry::default();
+                sources
+                    .register(
+                        "fixture-record",
+                        1,
+                        "row",
+                        Arc::new(crate::source::test_support::SCALAR_READER),
+                    )
+                    .unwrap();
+                sources
+            };
+            let custom_tiny = {
+                let mut sources = SourceRegistry::default();
+                sources
+                    .register(
+                        "tiny",
+                        1,
+                        "tiny",
+                        Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+                    )
+                    .unwrap();
+                sources
+            };
+            let mut definition =
+                CollectionDefinition::folder("data", "tiny", SourceFormat::registered("tiny"));
+            definition.identity = IdentityPolicy::RelativePath;
+            let error = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition],
+                RepositoryOptions::default(),
+                custom_tiny,
+            )
+            .err()
+            .expect("a reader without the capability must reject relative-path identity")
+            .to_string();
+            assert!(
+                error.contains("relative-path identity requires a reader that supports it"),
+                "{error}"
+            );
+
+            let custom = custom_record
+                .resolve(&SourceFormat::registered("fixture-record"))
+                .unwrap();
+            assert!(custom.reader().supports_trusted_query_extraction());
+            assert!(custom.reader().supports_relative_path_identity());
+            let successful = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![CollectionDefinition::folder(
+                    "data",
+                    "custom",
+                    SourceFormat::registered("fixture-record"),
+                )],
+                RepositoryOptions::default(),
+                custom_record,
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            let query = Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: None,
+                options: QueryOptions {
+                    sort: Vec::new(),
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: false,
+                },
+            };
+            let result = successful.search(&query).unwrap();
+            assert_eq!(result.count, Some(1));
+            assert!(result.hits[0].record_id.starts_with("~generated:"));
+
+            let mut multi_sources = SourceRegistry::default();
+            multi_sources
+                .register(
+                    "fixture-record",
+                    1,
+                    "tiny",
+                    Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+                )
+                .unwrap();
+            let mut declared_record = crate::source::test_support::document_folder("data", "multi");
+            declared_record.identity = IdentityPolicy::RelativePath;
+            let error = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![declared_record],
+                RepositoryOptions::default(),
+                multi_sources,
+            )
+            .err()
+            .expect("a format name must not grant relative-path identity")
+            .to_string();
+            assert!(
+                error.contains("relative-path identity requires a reader that supports it"),
+                "{error}"
+            );
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn registered_delimited_reader_reaches_build_query_payload_and_restore() {
+            use crate::model::LogicalType;
+            use crate::query::options::ReturnMode;
+            use crate::query::{FtsQuery, Query, QueryOptions};
+            use crate::query_results::Payload;
+            use crate::repository::configuration::{
+                CollectionDefinition, IdentityPolicy, RepositoryOptions,
+            };
+            use crate::schema::{FieldDefinition, Schema};
+
+            let root = std::env::temp_dir().join(format!("objekte-tiny-source-{}", std::process::id()));
+            std::fs::create_dir_all(root.join("tiny")).unwrap();
+            std::fs::write(
+                root.join("tiny/records.tiny"),
+                b"first|ordinary\nsecond|needle text\n",
+            )
+            .unwrap();
+            let mut schema = Schema::default();
+            for name in ["title", "body"] {
+                schema
+                    .register_field(FieldDefinition {
+                        path: vec![name.into()],
+                        kind: LogicalType::String,
+                        required: true,
+                        nullable: false,
+                        indexed: name == "title",
+                        multi: false,
+                        element_nullable: Vec::new(),
+                    })
+                    .unwrap();
+            }
+            let definition = CollectionDefinition {
+                name: "tiny".into(),
+                source_path: "tiny".into(),
+                format: SourceFormat::registered("tiny"),
+                identity: IdentityPolicy::Generated,
+                discovery: Default::default(),
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+                sort_options: Default::default(),
+                sort_overrides: Default::default(),
+            };
+            let parses = Arc::new(AtomicUsize::new(0));
+            let registrations = |version| {
+                let mut sources = crate::source::test_support::fixture_registry();
+                sources
+                    .register(
+                        "tiny",
+                        version,
+                        "tiny",
+                        Arc::new(TinyReader(parses.clone())),
+                    )
+                    .unwrap();
+                sources
+            };
+            let query = Query {
+                collections: vec![],
+                fts: Some(FtsQuery {
+                    pattern_parameter: None,
+                    mode: crate::query::FtsMode::Literal,
+                    case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+                    literal: "needle".into(),
+                    fields: vec![],
+                }),
+                filter: None,
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Logical,
+                    evidence: true,
+                },
+            };
+            let repo = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions::default(),
+                registrations(1),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(repo.build_parses(), 2);
+            assert_eq!(parses.load(Ordering::Relaxed), 2);
+            let found = repo.search(&query).unwrap();
+            assert_eq!(found.count.unwrap(), 1);
+            assert_eq!(found.counters.record_parses, 1);
+            assert!(
+                matches!(&found.hits[0].payload, Some(Payload::Logical(Value::Object(fields))) if fields.get("body") == Some(&Value::String("needle text".into())))
+            );
+            assert_eq!(found.hits[0].matched_fields, ["body"]);
+            assert_eq!(found.hits, repo.search_reference(&query).unwrap().hits);
+            let mut bytes_query = query.clone();
+            bytes_query.options.return_mode = ReturnMode::Bytes;
+            let bytes = repo.search(&bytes_query).unwrap();
+            assert!(
+                matches!(&bytes.hits[0].payload, Some(Payload::Bytes(raw)) if raw == b"second|needle text")
+            );
+            let after_query = parses.load(Ordering::Relaxed);
+            drop(repo);
+
+            let restored = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions {
+                    ..Default::default()
+                },
+                registrations(1),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(restored.build_parses(), 2);
+            assert_eq!(parses.load(Ordering::Relaxed), after_query + 2);
+            assert_eq!(restored.search(&query).unwrap().hits, found.hits);
+            drop(restored);
+
+            let rebuilt = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions::default(),
+                registrations(2),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(rebuilt.build_parses(), 2);
+            drop(rebuilt);
+            assert!(
+                crate::lifecycle::Index::build_repository_for_test(
+                    &root,
+                    vec![definition],
+                    RepositoryOptions::default(),
+                    crate::source::test_support::fixture_registry()
+                )
+                .map_err(|error| error.to_string())
+                .err()
+                .unwrap()
+                .contains("unknown source registration")
+            );
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn discovery_and_intrinsic_ids_share_build_restore_rules() {
+            use crate::inventory::discovery::{Discovery, SymlinkPolicy};
+            use crate::repository::configuration::{
+                CollectionDefinition, IdentityPolicy, RepositoryOptions,
+            };
+
+            let root = std::env::temp_dir().join(format!(
+                "objekte-discovery-{}-{}",
+                std::process::id(),
+                std::time::SystemTime::now()
+                    .duration_since(std::time::UNIX_EPOCH)
+                    .unwrap()
+                    .as_nanos()
+            ));
+            for dir in ["tiny/nested", "tiny/skip", "tiny/.hidden"] {
+                std::fs::create_dir_all(root.join(dir)).unwrap();
+            }
+            std::fs::write(root.join("tiny/main.tiny"), b"first|one\nsecond|two\n").unwrap();
+            std::fs::write(root.join("tiny/nested/third.tiny"), b"third|three\n").unwrap();
+            std::fs::write(root.join("tiny/skip/ignored.tiny"), b"ignored|four\n").unwrap();
+            std::fs::write(root.join("tiny/.hidden/hidden.tiny"), b"hidden|five\n").unwrap();
+            std::fs::write(root.join("tiny/other.row"), b"()").unwrap();
+            let mut sources = crate::source::test_support::fixture_registry();
+            sources
+                .register(
+                    "tiny",
+                    1,
+                    "tiny",
+                    Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+                )
+                .unwrap();
+            let rules = Discovery {
+                recursive: true,
+                include: vec!["**/*.tiny".into(), "*.tiny".into()],
+                exclude: vec!["skip/**".into()],
+                exclude_files: vec![],
+                exclude_directories: vec![],
+                hidden: false,
+                symlinks: SymlinkPolicy::Skip,
+            };
+            let definition = CollectionDefinition {
+                name: "tiny".into(),
+                source_path: "tiny".into(),
+                format: SourceFormat::registered("tiny"),
+                identity: IdentityPolicy::Intrinsic(vec!["title".into()]),
+                discovery: rules.clone(),
+                schema: Default::default(),
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+                sort_options: Default::default(),
+                sort_overrides: Default::default(),
+            };
+            let built = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions::default(),
+                sources.clone(),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(built.files().files.len(), 2);
+            let generation = &built.collections()[0].generation;
+            assert_eq!(
+                generation
+                    .records
+                    .iter()
+                    .map(|r| r.id.0.as_ref())
+                    .collect::<Vec<_>>(),
+                ["first", "second", "third"]
+            );
+            let main_id = built
+                .files()
+                .files
+                .iter()
+                .find(|f| f.relative_path.ends_with("main.tiny"))
+                .unwrap()
+                .id;
+            assert_eq!(
+                generation.file_records.records_for(main_id).unwrap().len(),
+                2
+            );
+            drop(built);
+            let restored = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions {
+                    ..Default::default()
+                },
+                sources.clone(),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(
+                restored.collections()[0]
+                    .generation
+                    .file_records
+                    .records_for(main_id)
+                    .unwrap()
+                    .len(),
+                2
+            );
+            drop(restored);
+
+            std::fs::write(root.join("tiny/nested/fourth.tiny"), b"fourth|four\n").unwrap();
+            let rebuilt = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions::default(),
+                sources.clone(),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(rebuilt.collections()[0].generation.records.len(), 4);
+            drop(rebuilt);
+
+            let mut shallow = definition.clone();
+            shallow.discovery.recursive = false;
+            let shallow = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![shallow],
+                RepositoryOptions::default(),
+                sources.clone(),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(shallow.collections()[0].generation.records.len(), 2);
+            drop(shallow);
+
+            let mut with_hidden = definition.clone();
+            with_hidden.discovery.hidden = true;
+            let with_hidden = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![with_hidden],
+                RepositoryOptions::default(),
+                sources.clone(),
+            )
+            .map_err(|error| error.to_string())
+            .unwrap();
+            assert_eq!(with_hidden.collections()[0].generation.records.len(), 5);
+            drop(with_hidden);
+
+            assert!(
+                crate::lifecycle::Index::build_repository_for_test(
+                    &root,
+                    vec![CollectionDefinition {
+                        source_path: "../tiny".into(),
+                        ..definition.clone()
+                    }],
+                    RepositoryOptions::default(),
+                    sources.clone()
+                )
+                .map_err(|error| error.to_string())
+                .is_err()
+            );
+            std::fs::write(
+                root.join("tiny/nested/duplicate.tiny"),
+                b"first|duplicate\n",
+            )
+            .unwrap();
+            let error = crate::lifecycle::Index::build_repository_for_test(
+                &root,
+                vec![definition],
+                RepositoryOptions::default(),
+                sources,
+            )
+            .map_err(|error| error.to_string())
+            .err()
+            .unwrap();
+            assert!(
+                error.contains("duplicate record ID") && error.contains("duplicate.tiny"),
+                "{error}"
+            );
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[test]
+        fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
+            use crate::repository::configuration::{
+                CollectionDefinition, IdentityPolicy, RepositoryOptions,
+            };
+
+            let root = std::env::temp_dir().join(format!("objekte-intrinsic-{}", std::process::id()));
+            std::fs::create_dir_all(root.join("data")).unwrap();
+            let definition = CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: crate::source::test_support::line_format(),
+                identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
+                discovery: Default::default(),
+                schema: Default::default(),
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+                sort_options: Default::default(),
+                sort_overrides: Default::default(),
+            };
+            for (body, expected) in [
+                (b"()\n".as_slice(), "missing intrinsic record ID"),
+                (b"(\"id\"=42)\n".as_slice(), "must be a string"),
+                (b"(\"id\"=\"\")\n".as_slice(), "invalid intrinsic record ID"),
+                (
+                    b"(\"id\"=\"~generated:1\")\n".as_slice(),
+                    "invalid intrinsic record ID",
+                ),
+            ] {
+                std::fs::write(root.join("data/one.rows"), body).unwrap();
+                let error = crate::lifecycle::Index::build_repository_for_test(
+                    &root,
+                    vec![definition.clone()],
+                    RepositoryOptions::default(),
+                    crate::source::test_support::fixture_registry(),
+                )
+                .map_err(|error| error.to_string())
+                .err()
+                .unwrap();
+                assert!(
+                    error.contains(expected) && error.contains("one.rows"),
+                    "{error}"
+                );
+            }
+            std::fs::remove_dir_all(root).unwrap();
+        }
+
+        #[cfg(unix)]
+        #[test]
+        fn discovery_symlink_policy_confines_sources_and_avoids_cycles() {
+            use crate::inventory::discovery::{Discovery, SymlinkPolicy, discover};
+            use std::os::unix::fs::symlink;
+
+            let root = std::env::temp_dir().join(format!("objekte-symlinks-{}", std::process::id()));
+            std::fs::create_dir_all(root.join("data/nested")).unwrap();
+            std::fs::write(root.join("data/nested/real.row"), b"()").unwrap();
+            let outside = std::env::temp_dir().join(format!("objekte-outside-{}.row", std::process::id()));
+            std::fs::write(&outside, b"()").unwrap();
+            symlink(root.join("data/nested"), root.join("data/alias")).unwrap();
+            symlink(root.join("data"), root.join("data/nested/cycle")).unwrap();
+            symlink(&outside, root.join("data/outside.row")).unwrap();
+            let source = crate::source::test_support::fixture_registry()
+                .resolve(&crate::source::test_support::document_format())
+                .unwrap();
+            let mut rules = Discovery {
+                recursive: true,
+                ..Discovery::default()
+            };
+            let skipped = discover(&root, Path::new("data"), &rules, &source).unwrap();
+            assert_eq!(skipped, [root.join("data/nested/real.row")]);
+            rules.symlinks = SymlinkPolicy::FollowWithinRoot;
+            let followed = discover(&root, Path::new("data"), &rules, &source).unwrap();
+            assert_eq!(followed.len(), 1);
+            assert!(followed[0].starts_with(root.join("data")));
+            std::fs::remove_dir_all(root).unwrap();
+            std::fs::remove_file(outside).unwrap();
+        }
+    };
+}
+pub(super) use registry_tests;

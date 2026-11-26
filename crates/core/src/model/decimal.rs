@@ -329,4 +329,6 @@ fn multiply_digits(digits: &mut Vec<u8>, multiplier: u8) {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::decimal_tests!();
+}

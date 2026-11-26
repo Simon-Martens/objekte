@@ -1508,4 +1508,5 @@ pub(crate) fn restrict(
 }
 
 #[cfg(test)]
+#[path = "tests.rs"]
 mod tests;

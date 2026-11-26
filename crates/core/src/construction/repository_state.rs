@@ -930,5 +930,6 @@ pub(crate) fn assemble_final_repository(
 }
 
 #[cfg(test)]
-#[path = "repository_state/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::repository_state_tests!();
+}

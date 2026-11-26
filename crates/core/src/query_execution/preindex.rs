@@ -476,7 +476,9 @@ fn record_id(
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::preindex_tests!();
+}
 
 fn file_path(entry: Cow<'_, FileEntry>) -> Cow<'_, Path> {
     match entry {

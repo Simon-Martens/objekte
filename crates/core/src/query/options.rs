@@ -59,4 +59,6 @@ impl SortField {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::options_tests!();
+}

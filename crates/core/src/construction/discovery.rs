@@ -103,5 +103,6 @@ pub(crate) fn register_discovery_window(
 }
 
 #[cfg(test)]
-#[path = "discovery/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::discovery_tests!();
+}

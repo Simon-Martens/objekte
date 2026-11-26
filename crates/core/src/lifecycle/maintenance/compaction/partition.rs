@@ -295,4 +295,6 @@ fn partition_base_with_limits_inner(
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::partition_tests!();
+}

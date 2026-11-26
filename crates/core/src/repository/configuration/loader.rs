@@ -119,4 +119,5 @@ fn normalized_selection(path: &Path) -> Result<PathBuf, String> {
 }
 
 #[cfg(test)]
+#[path = "tests.rs"]
 mod tests;

@@ -1909,4 +1909,6 @@ impl Repository {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::posting_values_tests!();
+}

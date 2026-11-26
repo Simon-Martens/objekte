@@ -270,3 +270,6 @@ pub(crate) fn bigram_storage_diagnostic_enabled() -> bool {
         *ENABLED.get_or_init(|| std::env::var_os("OBJEKTE_BIGRAM_STORAGE_STATS").is_some())
     }
 }
+
+#[cfg(test)]
+mod tests;

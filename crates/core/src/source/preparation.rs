@@ -153,4 +153,6 @@ pub(crate) fn prepare_query_record_with_execution(
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::preparation_tests!();
+}

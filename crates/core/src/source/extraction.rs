@@ -485,4 +485,6 @@ where
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::extraction_tests!();
+}

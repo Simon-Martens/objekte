@@ -115,4 +115,6 @@ impl SourceRegistry {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::registry_tests!();
+}

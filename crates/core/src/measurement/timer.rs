@@ -76,4 +76,6 @@ pub(crate) fn start_if_enabled(enabled: bool) -> Option<std::time::Instant> {
 }
 
 #[cfg(all(test, not(feature = "detailed-profiling")))]
-mod tests;
+mod tests {
+    super::super::tests::timer_tests!();
+}

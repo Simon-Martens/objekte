@@ -1252,4 +1252,6 @@ fn visit_hop(
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::evaluation_tests!();
+}

@@ -39,5 +39,6 @@ impl Repository {
 }
 
 #[cfg(test)]
-#[path = "validation/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::validation_tests!();
+}

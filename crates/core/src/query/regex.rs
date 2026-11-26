@@ -254,5 +254,6 @@ impl CompiledRegex {
 }
 
 #[cfg(test)]
-#[path = "regex/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::regex_tests!();
+}

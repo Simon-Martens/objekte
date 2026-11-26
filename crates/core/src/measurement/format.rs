@@ -17,4 +17,6 @@ pub fn signed_milliseconds_3(nanoseconds: i128) -> String {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::format_tests!();
+}
