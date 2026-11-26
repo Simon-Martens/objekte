@@ -690,9 +690,8 @@ fn managed_queries_and_components_use_distinct_published_domains() {
         let segments = view.segments(crate::model::CollectionId(0)).unwrap();
         for segment in segments {
             assert!(
-                segment
-                    .index
-                    .component_descriptors(segment.id)
+                crate::index::storage::segment::SegmentReader::components(segment)
+                    .unwrap()
                     .iter()
                     .all(|desc| desc.segment == segment.id)
             );

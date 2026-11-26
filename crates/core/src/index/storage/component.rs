@@ -1,5 +1,7 @@
 //! Logical index-component descriptors.
 
+use std::borrow::Cow;
+
 use crate::model::CollectionId;
 
 use super::segment::SegmentId;
@@ -22,6 +24,6 @@ pub struct ComponentDescriptor<'a> {
     pub collection: CollectionId,
     pub segment: SegmentId,
     pub kind: ComponentKind,
-    pub path: Option<&'a [String]>,
-    pub binding: Option<&'a str>,
+    pub path: Option<Cow<'a, [String]>>,
+    pub binding: Option<Cow<'a, str>>,
 }

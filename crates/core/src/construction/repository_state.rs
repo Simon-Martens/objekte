@@ -275,7 +275,7 @@ fn initialize_empty_configured(
         let sorting = sort_builder.finish(&generation)?;
         let text_bindings =
             crate::index::storage::text::TextBindingCatalog::new(&definition.schema);
-        let index_family_bytes = crate::lifecycle::index_family_total(
+        let index_family_bytes = crate::index::memory::segment::statistics::index_family_total(
             &raw,
             &fallback_text,
             &custom_text,

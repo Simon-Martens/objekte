@@ -5,6 +5,7 @@ mod compaction;
 mod consolidation;
 mod projection;
 mod record_versions;
+pub(crate) mod statistics;
 
 pub(crate) use projection::PartitionRouting;
 
@@ -16,7 +17,6 @@ use std::ops::{BitOrAssign, Deref, DerefMut};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
-use serde::Serialize;
 
 use crate::index::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
@@ -269,21 +269,6 @@ impl SegmentBacking {
         blocks.iter().fold(0usize, |total, block| {
             total.saturating_add(block.estimated_body_bytes())
         })
-    }
-
-    pub(crate) fn new_retained_body_bytes(
-        &self,
-        seen: &mut std::collections::HashSet<*const ()>,
-    ) -> usize {
-        let Self::Retained { blocks, .. } = self else {
-            return 0;
-        };
-        blocks
-            .iter()
-            .filter(|block| seen.insert(Arc::as_ptr(block).cast::<()>()))
-            .fold(0usize, |total, block| {
-                total.saturating_add(block.estimated_body_bytes())
-            })
     }
 
     pub(crate) fn compatible_with(&self, other: &Self) -> bool {
@@ -543,35 +528,8 @@ mod backing_tests {
     }
 }
 
-/// Saturating native retained-size and query-planning estimates.
-#[derive(Clone, Copy, Debug, Default)]
-pub(crate) struct SegmentAccounting {
-    pub retained_bytes_estimated: usize,
-    pub source_bytes_estimated: u64,
-    pub max_record_range_len: u64,
-    pub index_family_bytes: usize,
-}
-
-/// Public read-only summary of one native segment for diagnostics.
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
-pub struct NativeSegmentSummary {
-    pub id: SegmentId,
-    pub collection: CollectionId,
-    pub records: usize,
-    pub active_records: usize,
-    pub files: usize,
-    pub source_bytes: u64,
-    pub posting_fields: usize,
-    pub sort_columns: usize,
-    pub relation_count: usize,
-    pub relation_edges: usize,
-    pub relation_heap_bytes: usize,
-    pub bigram_stores: usize,
-    pub distinct_gram_keys: usize,
-    pub bigram_heap_bytes: usize,
-    pub index_family_bytes: usize,
-    pub active: bool,
-}
+pub use crate::index::storage::segment::NativeSegmentSummary;
+pub(crate) use crate::index::storage::segment::SegmentEstimates as SegmentAccounting;
 
 /// Complete native search payload owned by one immutable segment.
 #[derive(Clone)]
@@ -630,40 +588,7 @@ impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment 
 
 impl PublishedSegment {
     pub(crate) fn summary(&self) -> NativeSegmentSummary {
-        let index = &self.index;
-        let bigrams = || {
-            std::iter::once(&*index.raw)
-                .chain(std::iter::once(&*index.fallback_text))
-                .chain(index.custom_text.values())
-        };
-        NativeSegmentSummary {
-            id: self.id,
-            collection: index.collection,
-            records: index.record_count(),
-            active_records: self.active.len() as usize,
-            files: index.file_count(),
-            source_bytes: index.accounting.source_bytes_estimated,
-            posting_fields: index.postings.fields.len(),
-            sort_columns: index.sorting.column_count(),
-            relation_count: index.relations.len(),
-            relation_edges: index
-                .relations
-                .iter()
-                .map(|relation| relation.edge_count())
-                .sum(),
-            relation_heap_bytes: index
-                .relations
-                .iter()
-                .map(|relation| relation.estimated_bytes())
-                .sum(),
-            bigram_stores: 2 + index.custom_text.len(),
-            distinct_gram_keys: bigrams()
-                .map(|index| index.normal.len() + index.skip.len())
-                .sum(),
-            bigram_heap_bytes: bigrams().map(BigramIndex::estimated_heap_bytes).sum(),
-            index_family_bytes: index.accounting.index_family_bytes,
-            active: self.active.len() != 0,
-        }
+        SegmentReader::summary(self, self.active.len() as usize)
     }
 
     pub(crate) fn construction_observation_bytes(&self) -> usize {
@@ -688,6 +613,70 @@ pub use crate::index::storage::component::{
 };
 
 impl SegmentReader for IndexedCollectionSegment {
+    fn summary(&self, active_records: usize) -> NativeSegmentSummary {
+        let index = self;
+        let bigrams = || {
+            std::iter::once(&*index.raw)
+                .chain(std::iter::once(&*index.fallback_text))
+                .chain(index.custom_text.values())
+        };
+        NativeSegmentSummary {
+            id: self.id,
+            collection: index.collection,
+            records: index.record_count(),
+            active_records: active_records,
+            files: index.file_count(),
+            source_bytes: index.accounting.source_bytes_estimated,
+            posting_fields: index.postings.fields.len(),
+            sort_columns: index.sorting.column_count(),
+            relation_count: index.relations.len(),
+            relation_edges: index
+                .relations
+                .iter()
+                .map(|relation| relation.edge_count())
+                .sum(),
+            relation_heap_bytes: index
+                .relations
+                .iter()
+                .map(|relation| relation.estimated_bytes())
+                .sum(),
+            bigram_stores: 2 + index.custom_text.len(),
+            distinct_gram_keys: bigrams()
+                .map(|index| index.normal.len() + index.skip.len())
+                .sum(),
+            bigram_heap_bytes: bigrams().map(BigramIndex::estimated_heap_bytes).sum(),
+            index_family_bytes: index.accounting.index_family_bytes,
+            active: active_records != 0,
+        }
+    }
+
+    fn estimates(&self) -> SegmentAccounting {
+        self.accounting
+    }
+
+    fn observe_backing(&self, usage: &mut crate::index::storage::segment::SegmentResourceUsage) {
+        usage.add_backing_columns(self.backing.estimated_column_bytes());
+        if let SegmentBacking::Retained { blocks, .. } = &self.backing {
+            for block in blocks {
+                usage.add_retained_block(block);
+            }
+        }
+    }
+
+    fn index_family_estimate(&self) -> crate::lifecycle::IndexFamilyEstimate {
+        statistics::index_family_estimate(
+            &self.raw,
+            &self.fallback_text,
+            &self.custom_text,
+            &self.postings,
+            &self.sorting,
+        )
+    }
+
+    fn components(&self) -> StorageResult<Vec<NativeComponentDescriptor<'_>>> {
+        Ok(self.component_descriptors(self.id))
+    }
+
     fn descriptor(&self) -> SegmentDescriptor {
         SegmentDescriptor {
             id: self.id,
@@ -981,10 +970,7 @@ impl IndexedCollectionSegment {
             collection_name,
         )
     }
-    pub fn component_descriptors(
-        &self,
-        published_id: SegmentId,
-    ) -> Vec<NativeComponentDescriptor<'_>> {
+    fn component_descriptors(&self, published_id: SegmentId) -> Vec<NativeComponentDescriptor<'_>> {
         let mut descriptors = Vec::with_capacity(
             self.postings.fields.len()
                 + self
@@ -1000,7 +986,7 @@ impl IndexedCollectionSegment {
                 collection: self.collection,
                 segment: published_id,
                 kind: NativeComponentKind::DeclaredPosting,
-                path: Some(path),
+                path: Some(Cow::Borrowed(path)),
                 binding: None,
             }
         }));
@@ -1013,7 +999,7 @@ impl IndexedCollectionSegment {
                         collection: self.collection,
                         segment: published_id,
                         kind: NativeComponentKind::InferredPosting,
-                        path: Some(path),
+                        path: Some(Cow::Borrowed(path)),
                         binding: None,
                     }),
             );
@@ -1023,8 +1009,8 @@ impl IndexedCollectionSegment {
                 collection: self.collection,
                 segment: published_id,
                 kind: NativeComponentKind::CustomPosting,
-                path: Some(path),
-                binding: Some(binding),
+                path: Some(Cow::Borrowed(path)),
+                binding: Some(Cow::Borrowed(binding)),
             }
         }));
         descriptors.push(NativeComponentDescriptor {
@@ -1046,8 +1032,8 @@ impl IndexedCollectionSegment {
                 collection: self.collection,
                 segment: published_id,
                 kind: NativeComponentKind::FieldText,
-                path: Some(path),
-                binding: Some(binding),
+                path: Some(Cow::Borrowed(path)),
+                binding: Some(Cow::Borrowed(binding)),
             }
         }));
         descriptors.push(NativeComponentDescriptor {
@@ -1160,7 +1146,7 @@ impl IndexedCollectionSegment {
             retained_bytes_estimated: retained,
             source_bytes_estimated,
             max_record_range_len,
-            index_family_bytes: crate::lifecycle::index_family_total(
+            index_family_bytes: statistics::index_family_total(
                 &self.raw,
                 &self.fallback_text,
                 &self.custom_text,

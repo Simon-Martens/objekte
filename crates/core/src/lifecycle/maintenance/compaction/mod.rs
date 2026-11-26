@@ -59,10 +59,11 @@ struct CompactionWork {
     temporary_bytes: u64,
 }
 
-fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
-    u64::try_from(source.accounting.retained_bytes_estimated)
+fn source_budget_bytes(source: &dyn crate::index::storage::segment::SegmentReader) -> u64 {
+    let estimates = source.estimates();
+    u64::try_from(estimates.retained_bytes_estimated)
         .unwrap_or(u64::MAX)
-        .max(source.accounting.source_bytes_estimated)
+        .max(estimates.source_bytes_estimated)
 }
 
 pub(crate) fn base_as_segment(

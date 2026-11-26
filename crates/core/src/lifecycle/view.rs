@@ -1,11 +1,13 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 use std::num::NonZeroUsize;
 use std::path::Path;
 use std::sync::{Arc, Weak};
 
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
-use crate::index::storage::segment::{SegmentReader, visit_checked_file_slots};
+use crate::index::storage::segment::{
+    SegmentReader, SegmentResourceUsage, visit_checked_file_slots,
+};
 use crate::index::storage::transfer::StorageResult;
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, RecordSlot, Value};
@@ -20,7 +22,7 @@ use crate::repository::Repository;
 
 use super::{
     AvailableSearchResult, FileCatalogueRow, FileHandle, FileVersion, Index, IndexError,
-    IndexFamilyEstimate, IndexInner, IndexRevision, PublishedIndex, index_family_estimate,
+    IndexFamilyEstimate, IndexInner, IndexRevision, PublishedIndex,
 };
 
 impl Index {
@@ -378,31 +380,27 @@ impl IndexView {
                     .segments
                     .iter()
                     .flat_map(|group| group.iter())
-                    .map(|segment| segment.index.accounting.index_family_bytes)
+                    .map(|segment| segment.estimates().index_family_bytes)
                     .sum::<usize>(),
             )
             .saturating_add(self.estimated_construction_observation_bytes())
     }
 
     pub fn native_storage_estimate(&self) -> NativeStorageEstimate {
-        let mut estimate = NativeStorageEstimate::default();
-        let mut retained_blocks = HashSet::new();
+        let mut usage = SegmentResourceUsage::default();
         for segment in self.0.segments.iter().flat_map(|group| group.iter()) {
-            let backing = &segment.index.backing;
-            estimate.backing_column_bytes = estimate
-                .backing_column_bytes
-                .saturating_add(backing.estimated_column_bytes());
-            estimate.retained_body_bytes = estimate
-                .retained_body_bytes
-                .saturating_add(backing.new_retained_body_bytes(&mut retained_blocks));
+            segment.observe_backing(&mut usage);
         }
-        estimate.route_directory_bytes = self
-            .0
-            .record_routes
-            .iter()
-            .map(|routes| routes.estimated_directory_bytes())
-            .sum();
-        estimate
+        NativeStorageEstimate {
+            backing_column_bytes: usage.backing_column_bytes,
+            retained_body_bytes: usage.retained_body_bytes,
+            route_directory_bytes: self
+                .0
+                .record_routes
+                .iter()
+                .map(|routes| routes.estimated_directory_bytes())
+                .sum(),
+        }
     }
 
     /// Temporary provisional-build observation estimate. Completed views hold 0.
@@ -428,7 +426,7 @@ impl IndexView {
             .map(|(number, collection)| {
                 let mut parts = vec![(
                     0,
-                    index_family_estimate(
+                    crate::index::memory::segment::statistics::index_family_estimate(
                         &collection.raw,
                         &collection.fallback_text,
                         &collection.custom_text,
@@ -436,18 +434,11 @@ impl IndexView {
                         &collection.sorting,
                     ),
                 )];
-                parts.extend(self.0.segments[number].iter().map(|segment| {
-                    (
-                        segment.id.get(),
-                        index_family_estimate(
-                            &segment.index.raw,
-                            &segment.index.fallback_text,
-                            &segment.index.custom_text,
-                            &segment.index.postings,
-                            &segment.index.sorting,
-                        ),
-                    )
-                }));
+                parts.extend(
+                    self.0.segments[number]
+                        .iter()
+                        .map(|segment| (segment.id.get(), segment.index_family_estimate())),
+                );
                 (collection.definition.name.clone(), parts)
             })
             .collect()

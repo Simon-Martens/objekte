@@ -194,18 +194,23 @@ impl Repository {
             .flat_map(|group| group.iter().map(|segment| segment.summary()))
     }
 
-    /// Borrowed descriptors for one segment's independently owned native
-    /// components.
+    /// Read logical descriptors for a published segment's available components.
     pub fn segment_components(
         &self,
         collection: CollectionId,
         segment: crate::index::segment::SegmentId,
-    ) -> Option<Vec<crate::index::segment::NativeComponentDescriptor<'_>>> {
+    ) -> Result<
+        Option<Vec<crate::index::segment::NativeComponentDescriptor<'_>>>,
+        crate::lifecycle::IndexError,
+    > {
+        use crate::index::storage::segment::SegmentReader;
+
         self.segments
-            .get(collection.0 as usize)?
-            .iter()
-            .find(|candidate| candidate.id == segment)
-            .map(|candidate| candidate.index.component_descriptors(candidate.id))
+            .get(collection.0 as usize)
+            .and_then(|group| group.iter().find(|candidate| candidate.id == segment))
+            .map(|candidate| candidate.components())
+            .transpose()
+            .map_err(Into::into)
     }
 
     /// Canonical logical-content digest for the adopted native segments.

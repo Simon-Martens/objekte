@@ -560,7 +560,7 @@ impl PublishedIndex {
         let sparse_bytes = group
             .iter()
             .filter(|segment| segment.index.record_count() < target_records)
-            .map(|segment| segment.index.accounting.retained_bytes_estimated)
+            .map(|segment| segment.estimates().retained_bytes_estimated)
             .fold(0usize, usize::saturating_add);
         let size_triggered = sparse_bytes > sparse_byte_limit
             && (self.last_size_maintenance_revision == 0

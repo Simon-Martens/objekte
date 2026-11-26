@@ -672,10 +672,13 @@ impl StreamBudget {
 }
 
 impl StreamUse {
-    pub(super) fn add_private_segment(&mut self, segment: &IndexedCollectionSegment) {
+    pub(super) fn add_private_segment(
+        &mut self,
+        segment: &dyn crate::index::storage::segment::SegmentReader,
+    ) {
         self.set(
             self.count + 1,
-            self.bytes + segment.accounting.index_family_bytes as u64,
+            self.bytes + segment.estimates().index_family_bytes as u64,
         );
     }
 

@@ -4,6 +4,7 @@ pub(crate) mod build;
 
 use std::{
     borrow::Cow,
+    collections::HashSet,
     fmt,
     num::{NonZeroU64, NonZeroUsize},
 };
@@ -17,6 +18,7 @@ use crate::query_access::contract::IndexAccessProvider;
 use crate::query_access::membership::{MembershipView, SlotSet};
 use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
+use super::component::ComponentDescriptor;
 use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
@@ -121,6 +123,59 @@ pub(crate) struct SegmentDescriptor {
     pub(crate) id: SegmentId,
     pub(crate) collection: CollectionId,
     pub(crate) slots: usize,
+}
+
+/// Saturating retained-size and query-planning estimates.
+#[derive(Clone, Copy, Debug, Default)]
+pub(crate) struct SegmentEstimates {
+    pub retained_bytes_estimated: usize,
+    pub source_bytes_estimated: u64,
+    pub max_record_range_len: u64,
+    pub index_family_bytes: usize,
+}
+
+/// Public read-only summary of one segment for diagnostics.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
+pub struct NativeSegmentSummary {
+    pub id: SegmentId,
+    pub collection: CollectionId,
+    pub records: usize,
+    pub active_records: usize,
+    pub files: usize,
+    pub source_bytes: u64,
+    pub posting_fields: usize,
+    pub sort_columns: usize,
+    pub relation_count: usize,
+    pub relation_edges: usize,
+    pub relation_heap_bytes: usize,
+    pub bigram_stores: usize,
+    pub distinct_gram_keys: usize,
+    pub bigram_heap_bytes: usize,
+    pub index_family_bytes: usize,
+    pub active: bool,
+}
+
+/// Summarizes resident backing with shared retained blocks charged once.
+#[derive(Default)]
+pub(crate) struct SegmentResourceUsage {
+    retained_blocks: HashSet<usize>,
+    pub backing_column_bytes: usize,
+    pub retained_body_bytes: usize,
+}
+
+impl SegmentResourceUsage {
+    pub(crate) fn add_backing_columns(&mut self, bytes: usize) {
+        self.backing_column_bytes = self.backing_column_bytes.saturating_add(bytes);
+    }
+
+    pub(crate) fn add_retained_block(&mut self, block: &RetainedBlock) {
+        let key = std::sync::Arc::as_ptr(block).cast::<()>() as usize;
+        if self.retained_blocks.insert(key) {
+            self.retained_body_bytes = self
+                .retained_body_bytes
+                .saturating_add(block.estimated_body_bytes());
+        }
+    }
 }
 
 /// Identity of one direct write in this index process. The same token follows
@@ -367,6 +422,42 @@ pub(crate) fn read_slot_members<S: SegmentReader + ?Sized>(
 pub(crate) trait SegmentReader: Send + Sync {
     fn descriptor(&self) -> SegmentDescriptor;
 
+    fn summary(&self, active_records: usize) -> NativeSegmentSummary {
+        let descriptor = self.descriptor();
+        NativeSegmentSummary {
+            id: descriptor.id,
+            collection: descriptor.collection,
+            records: descriptor.slots,
+            active_records,
+            files: self.file_count(),
+            source_bytes: self.estimates().source_bytes_estimated,
+            posting_fields: 0,
+            sort_columns: 0,
+            relation_count: self.relation_count(),
+            relation_edges: 0,
+            relation_heap_bytes: 0,
+            bigram_stores: 0,
+            distinct_gram_keys: 0,
+            bigram_heap_bytes: 0,
+            index_family_bytes: self.estimates().index_family_bytes,
+            active: active_records != 0,
+        }
+    }
+
+    fn estimates(&self) -> SegmentEstimates {
+        SegmentEstimates::default()
+    }
+
+    fn observe_backing(&self, _usage: &mut SegmentResourceUsage) {}
+
+    fn index_family_estimate(&self) -> crate::lifecycle::IndexFamilyEstimate {
+        crate::lifecycle::IndexFamilyEstimate::default()
+    }
+
+    fn components(&self) -> StorageResult<Vec<ComponentDescriptor<'_>>> {
+        Ok(Vec::new())
+    }
+
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>>;
 
     fn source(&self) -> SegmentSource<'_>;
@@ -512,6 +603,36 @@ impl<D: SegmentReaderDelegate> SegmentReader for D {
             descriptor.id = id;
         }
         descriptor
+    }
+
+    fn summary(&self, active_records: usize) -> NativeSegmentSummary {
+        let mut summary = self.payload().summary(active_records);
+        if let Some(id) = self.placement_id() {
+            summary.id = id;
+        }
+        summary
+    }
+
+    fn estimates(&self) -> SegmentEstimates {
+        self.payload().estimates()
+    }
+
+    fn observe_backing(&self, usage: &mut SegmentResourceUsage) {
+        self.payload().observe_backing(usage);
+    }
+
+    fn index_family_estimate(&self) -> crate::lifecycle::IndexFamilyEstimate {
+        self.payload().index_family_estimate()
+    }
+
+    fn components(&self) -> StorageResult<Vec<ComponentDescriptor<'_>>> {
+        let mut components = self.payload().components()?;
+        if let Some(id) = self.placement_id() {
+            for component in &mut components {
+                component.segment = id;
+            }
+        }
+        Ok(components)
     }
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
