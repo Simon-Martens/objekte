@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap};
 use crate::index::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
+use crate::model::RecordSlot;
 use crate::records::RecordIdSlot;
 
 pub(crate) fn project_sorting(
@@ -12,6 +13,7 @@ pub(crate) fn project_sorting(
 ) -> Result<SortCollection, String> {
     let mut sorting = SortCollection {
         columns: HashMap::with_capacity(source.columns.len()),
+        placed: HashMap::with_capacity(source.placed.len()),
         composites: source
             .composites
             .iter()
@@ -77,6 +79,26 @@ pub(crate) fn project_sorting(
         });
         sorting.columns.insert(path.clone(), column);
     }
+    if !source.placed.is_empty() {
+        let mut previous = vec![None; records.len()];
+        slots.for_each_selected(|old, slot| {
+            let destination = previous
+                .get_mut(slot.0 as usize)
+                .ok_or("placed sort projection slot outside destination")?;
+            if destination.replace(RecordSlot(old as u32)).is_some() {
+                return Err("duplicate placed sort projection slot".into());
+            }
+            Ok(())
+        })?;
+        for (path, order) in &source.placed {
+            sorting.placed.insert(
+                path.clone(),
+                order.project(records, |slot| {
+                    previous.get(slot.0 as usize).copied().flatten()
+                })?,
+            );
+        }
+    }
     for composite in &mut sorting.composites {
         let columns = composite
             .fields
@@ -112,6 +134,7 @@ impl IndexedCollectionSegment {
             .iter()
             .map(|_| SortCollection {
                 columns: HashMap::with_capacity(self.sorting.columns.len()),
+                placed: HashMap::with_capacity(self.sorting.placed.len()),
                 composites: self
                     .sorting
                     .composites
@@ -174,6 +197,31 @@ impl IndexedCollectionSegment {
                             column.ascending.push(*slot);
                         }
                     }
+                }
+            }
+        }
+        if !self.sorting.placed.is_empty() {
+            for (selected, part) in routing.selected.iter().zip(&mut parts) {
+                let records = selected
+                    .iter()
+                    .enumerate()
+                    .map(|(slot, &old)| {
+                        let mut header = self
+                            .records
+                            .get(old as usize)
+                            .cloned()
+                            .ok_or("placed sort partition slot outside segment")?;
+                        header.slot = RecordSlot(slot as u32);
+                        Ok(header)
+                    })
+                    .collect::<Result<Vec<_>, String>>()?;
+                for (path, placed) in &self.sorting.placed {
+                    part.placed.insert(
+                        path.clone(),
+                        placed.project(&records, |slot| {
+                            selected.get(slot.0 as usize).map(|&old| RecordSlot(old))
+                        })?,
+                    );
                 }
             }
         }

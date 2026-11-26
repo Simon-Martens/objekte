@@ -6,7 +6,8 @@ use crate::construction::batch::BatchContribution;
 use crate::index::storage::StorageFactory;
 use crate::index::storage::liveness::{ActiveRecords, InitialLiveness, LiveSlotReader};
 use crate::index::storage::order::{
-    InferredOrderRows, OrderColumnReader, SortConfig, SortKey, SortOptions,
+    DeclaredOrderRows, DeclaredOrderStore, InferredOrderRows, OrderColumnReader, SortConfig,
+    SortKey, SortOptions,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::segment::SegmentReader;
@@ -15,7 +16,7 @@ use crate::index::storage::segment::build::{
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError};
 use crate::lifecycle::Index;
-use crate::model::{FieldPath, Value};
+use crate::model::{FieldPath, LogicalType, Value};
 use crate::query::options::ReturnMode;
 use crate::query_access::membership::MembershipView;
 use crate::repository::statistics::AdmissionBreakdown;
@@ -28,6 +29,8 @@ struct TableFactory {
     retained_reads: Arc<AtomicUsize>,
     fail_retained_read: Arc<AtomicBool>,
     order_builds: AtomicUsize,
+    store_declared_order: AtomicBool,
+    declared_order_builds: AtomicUsize,
     order_rows: Arc<AtomicUsize>,
     fail_order_refill: Arc<AtomicBool>,
     liveness_visits: Arc<AtomicUsize>,
@@ -43,7 +46,48 @@ struct TableFactory {
     wrong_slot: AtomicBool,
 }
 
+impl DeclaredOrderStore for Arc<TableFactory> {
+    fn accepts(&self, path: &FieldPath, kind: &LogicalType) -> bool {
+        path.segments == ["score"] && kind == &LogicalType::Number
+    }
+
+    fn seal(&self, rows: DeclaredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>> {
+        self.declared_order_builds.fetch_add(1, Ordering::Relaxed);
+        Ok(Arc::new(TableOrder {
+            path: rows.path,
+            kind: rows.kind,
+            collation_version: rows.collation_version,
+            config: rows.config,
+            keys: rows.keys.into_iter().enumerate().collect(),
+            directions: [
+                Some(self.short_order(rows.ascending)),
+                Some(self.short_order(rows.descending)),
+            ],
+        }))
+    }
+}
+
+impl TableFactory {
+    fn short_order(&self, rows: Vec<RecordSlot>) -> ShortOrder {
+        ShortOrder {
+            blocks: rows
+                .chunks(2)
+                .map(|block| [block[0].0, block.get(1).map_or(0, |slot| slot.0)])
+                .collect(),
+            len: rows.len(),
+            read_rows: Arc::clone(&self.order_rows),
+            fail_refill: Arc::clone(&self.fail_order_refill),
+        }
+    }
+}
+
 impl StorageFactory for Arc<TableFactory> {
+    fn declared_order_store(&self) -> Option<Arc<dyn DeclaredOrderStore>> {
+        self.store_declared_order
+            .load(Ordering::Relaxed)
+            .then(|| Arc::new(Arc::clone(self)) as Arc<dyn DeclaredOrderStore>)
+    }
+
     fn start_file_segment(
         &self,
         input: FileSegmentBuild<'_>,
@@ -79,17 +123,15 @@ impl StorageFactory for Arc<TableFactory> {
 
     fn inferred_order(&self, rows: InferredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>> {
         self.order_builds.fetch_add(1, Ordering::Relaxed);
-        let keys = rows.keys.into_iter().enumerate().collect();
+        let mut directions = [None, None];
+        directions[usize::from(rows.descending)] = Some(self.short_order(rows.order));
         Ok(Arc::new(TableOrder {
             path: rows.path,
+            kind: rows.kind,
+            collation_version: crate::index::storage::order::COLLATION_VERSION.into(),
             config: rows.config,
-            keys,
-            descending: rows.descending,
-            slots: ShortOrder {
-                rows: rows.order,
-                read_rows: Arc::clone(&self.order_rows),
-                fail_refill: Arc::clone(&self.fail_order_refill),
-            },
+            keys: rows.keys.into_iter().enumerate().collect(),
+            directions,
         }))
     }
 
@@ -361,15 +403,24 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
 
 struct TableOrder {
     path: FieldPath,
+    kind: LogicalType,
+    collation_version: String,
     config: SortConfig,
     keys: BTreeMap<usize, SortKey>,
-    descending: bool,
-    slots: ShortOrder,
+    directions: [Option<ShortOrder>; 2],
 }
 
 impl OrderColumnReader for TableOrder {
     fn path(&self) -> &FieldPath {
         &self.path
+    }
+
+    fn kind(&self) -> &LogicalType {
+        &self.kind
+    }
+
+    fn collation_version(&self) -> &str {
+        &self.collation_version
     }
 
     fn options(&self) -> SortOptions {
@@ -383,7 +434,12 @@ impl OrderColumnReader for TableOrder {
     fn retained_bytes(&self) -> usize {
         size_of::<Self>()
             + self.keys.len() * size_of::<(usize, SortKey)>()
-            + self.slots.rows.capacity() * size_of::<RecordSlot>()
+            + self
+                .directions
+                .iter()
+                .flatten()
+                .map(|order| order.blocks.capacity() * size_of::<[u32; 2]>())
+                .sum::<usize>()
     }
 
     fn key_count(&self) -> usize {
@@ -399,25 +455,23 @@ impl OrderColumnReader for TableOrder {
     }
 
     fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots> {
-        if descending != self.descending {
-            return Err(StorageError::invalid(
-                "test order",
-                "order direction was not built",
-            ));
-        }
-        Ok(&self.slots)
+        self.directions[usize::from(descending)]
+            .as_ref()
+            .map(|order| order as &dyn OrderedSlots)
+            .ok_or_else(|| StorageError::invalid("test order", "order direction was not built"))
     }
 }
 
 struct ShortOrder {
-    rows: Vec<RecordSlot>,
+    blocks: Vec<[u32; 2]>,
+    len: usize,
     read_rows: Arc<AtomicUsize>,
     fail_refill: Arc<AtomicBool>,
 }
 
 impl OrderedSlots for ShortOrder {
     fn len(&self) -> usize {
-        self.rows.len()
+        self.len
     }
 
     fn read_batch(
@@ -434,19 +488,141 @@ impl OrderedSlots for ShortOrder {
                 "injected refill failure",
             ));
         }
-        let remaining = self
-            .rows
-            .get(start..)
-            .ok_or_else(|| StorageError::invalid("test order", "start out of range"))?;
-        let batch = &remaining[..size.min(remaining.len())];
+        if start > self.len {
+            return Err(StorageError::invalid("test order", "start out of range"));
+        }
+        let end = self.len.min(start.saturating_add(size));
+        let batch: Vec<_> = (start..end)
+            .map(|position| RecordSlot(self.blocks[position / 2][position % 2]))
+            .collect();
         self.read_rows.fetch_add(batch.len(), Ordering::Relaxed);
-        let status = if batch.len() == remaining.len() {
+        let status = if end == self.len {
             BatchStatus::Done
         } else {
             BatchStatus::More
         };
-        Ok((Cow::Owned(batch.to_vec()), status))
+        Ok((Cow::Owned(batch), status))
     }
+}
+
+#[test]
+fn native_postings_and_an_independent_declared_order_share_a_segment() {
+    use crate::query::options::SortField;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::repository::configuration::RepositoryOptions;
+    use crate::schema::FieldDefinition;
+    use crate::source::test_support::{document_folder, fixture_registry};
+
+    let root = std::env::temp_dir().join(format!("objekte-declared-order-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for n in 0..64 {
+        std::fs::write(
+            root.join(format!("data/{n:03}.row")),
+            format!(r#"("score"={n})"#),
+        )
+        .unwrap();
+    }
+    let factory = Arc::new(TableFactory::default());
+    factory.store_declared_order.store(true, Ordering::Relaxed);
+    let mut definition = document_folder("entries", "data");
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .sort_fields
+        .push(FieldPath::parse("score").unwrap());
+    let build = |storage: Arc<dyn StorageFactory>| {
+        Index::start_build_with_factory(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                verified_cache_bytes: 0,
+                ..Default::default()
+            },
+            fixture_registry(),
+            storage,
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap()
+    };
+    let mixed = build(Arc::new(Arc::clone(&factory)));
+    let memory = build(crate::index::storage::default_factory());
+    let pinned = mixed.view().unwrap();
+    let memory_before = memory.view().unwrap();
+    let mut query = Query {
+        collections: vec!["entries".into()],
+        filter: Some(parse_filter("score >= 10").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            count: false,
+            limit: 1,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+            sort: vec![SortField::simple("score", true)],
+            offset: 0,
+        },
+    };
+    assert_eq!(factory.declared_order_builds.load(Ordering::Relaxed), 1);
+    let result = pinned.search(&query).unwrap();
+    assert_eq!(result.hits, memory_before.search(&query).unwrap().hits);
+    assert_eq!(result.hits[0].record_id, "path:063.row");
+    assert!(result.counters.exact_posting_matches > 0);
+    assert_eq!(result.counters.record_parses, 0);
+    assert_eq!(factory.order_rows.load(Ordering::Relaxed), 2);
+    assert_eq!(
+        pinned.native_index_signature().unwrap(),
+        memory_before.native_index_signature().unwrap()
+    );
+
+    query.options.limit = 4;
+    factory.fail_order_refill.store(true, Ordering::Relaxed);
+    assert!(
+        pinned
+            .search(&query)
+            .unwrap_err()
+            .contains("injected refill failure")
+    );
+    factory.fail_order_refill.store(false, Ordering::Relaxed);
+    for index in [&mixed, &memory] {
+        let view = index.view().unwrap();
+        let file = view
+            .file_catalog()
+            .unwrap()
+            .file_by_path(std::path::Path::new("data/063.row"))
+            .unwrap()
+            .unwrap();
+        let handle = view.file_handle(file.id).unwrap().unwrap();
+        index.delete_file(handle).unwrap();
+    }
+    std::fs::remove_dir_all(root).unwrap();
+    for index in [&mixed, &memory] {
+        assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    }
+    assert_eq!(factory.declared_order_builds.load(Ordering::Relaxed), 2);
+    let mixed_after = mixed.view().unwrap();
+    let memory_after = memory.view().unwrap();
+    assert_eq!(
+        mixed_after.search(&query).unwrap().hits,
+        memory_after.search(&query).unwrap().hits
+    );
+    assert_eq!(
+        mixed_after.native_index_signature().unwrap(),
+        memory_after.native_index_signature().unwrap()
+    );
+    assert_eq!(
+        pinned.search(&query).unwrap().hits[0].record_id,
+        "path:063.row"
+    );
 }
 
 #[test]

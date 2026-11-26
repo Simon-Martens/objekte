@@ -326,7 +326,7 @@ impl IndexView {
         self.repository().inference_index_diagnostics(collection)
     }
 
-    pub fn native_index_signature(&self) -> String {
+    pub fn native_index_signature(&self) -> Result<String, IndexError> {
         self.repository()
             .native_index_signature_for(&self.0.segments)
     }

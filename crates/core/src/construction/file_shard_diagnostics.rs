@@ -120,6 +120,7 @@ pub fn measure_direct_shard_build(
                     pool: &pool,
                     profile: None,
                     observe_inference: false,
+                    declared_orders: repository.storage_factory.declared_order_store(),
                 })
                 .map(|built| built.index)
         })

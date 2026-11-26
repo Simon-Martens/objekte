@@ -27,6 +27,7 @@ use crate::records::RecordIdSlot;
 use crate::schema::Schema;
 
 mod inferred_order;
+mod placement;
 
 pub(super) use inferred_order::build_inferred_order_rows;
 
@@ -79,6 +80,14 @@ pub struct SortColumn {
 impl OrderColumnReader for SortColumn {
     fn path(&self) -> &FieldPath {
         &self.path
+    }
+
+    fn kind(&self) -> &LogicalType {
+        &self.kind
+    }
+
+    fn collation_version(&self) -> &str {
+        &self.collation_version
     }
 
     fn options(&self) -> SortOptions {
@@ -220,6 +229,7 @@ impl From<InferredOrderRows> for SortColumn {
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
     pub composites: Vec<CompositeSortOrder>,
+    pub(in crate::index::memory) placed: HashMap<FieldPath, placement::PlacedOrder>,
 }
 
 /// Explicit composite order over compatible resident scalar columns.
@@ -550,20 +560,7 @@ impl SortBuilder {
         records: &[impl RecordIdSlot],
     ) -> Result<SortCollection, String> {
         for column in self.columns.values_mut() {
-            if column.keys.len() != records.len() {
-                return Err("sort column coverage mismatch".into());
-            }
-            column.ascending = records.iter().map(|r| r.record_slot()).collect();
-            column.ascending.sort_by(|a, b| {
-                column.keys[a.0 as usize]
-                    .compare_with(&column.keys[b.0 as usize], false, column.options)
-                    .then_with(|| {
-                        records[a.0 as usize]
-                            .record_id()
-                            .cmp(records[b.0 as usize].record_id())
-                    })
-            });
-            column.descending = descending_order(&column.ascending, &column.keys, column.options);
+            column.build_order(records)?;
         }
         let composites = self
             .composites
@@ -587,7 +584,31 @@ impl SortBuilder {
         Ok(SortCollection {
             columns: self.columns,
             composites,
+            placed: HashMap::new(),
         })
+    }
+}
+
+impl SortColumn {
+    pub(in crate::index::memory) fn build_order(
+        &mut self,
+        records: &[impl RecordIdSlot],
+    ) -> Result<(), String> {
+        if self.keys.len() != records.len() {
+            return Err("sort column coverage mismatch".into());
+        }
+        self.ascending = records.iter().map(|r| r.record_slot()).collect();
+        self.ascending.sort_by(|a, b| {
+            self.keys[a.0 as usize]
+                .compare_with(&self.keys[b.0 as usize], false, self.options)
+                .then_with(|| {
+                    records[a.0 as usize]
+                        .record_id()
+                        .cmp(records[b.0 as usize].record_id())
+                })
+        });
+        self.descending = descending_order(&self.ascending, &self.keys, self.options);
+        Ok(())
     }
 }
 
@@ -748,12 +769,6 @@ impl SortCollection {
                 });
             }
         }
-    }
-
-    pub(crate) fn reader(&self, path: &FieldPath) -> Option<&dyn OrderColumnReader> {
-        self.columns
-            .get(path)
-            .map(|column| column as &dyn OrderColumnReader)
     }
 
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {

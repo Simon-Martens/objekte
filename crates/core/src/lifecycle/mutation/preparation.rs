@@ -153,6 +153,7 @@ pub(crate) fn index_prepared_file(
                     pool: &repository.workers,
                     profile: None,
                     observe_inference: false,
+                    declared_orders: repository.storage_factory.declared_order_store(),
                 })?;
                 indexed.push(built.index);
                 Ok(())

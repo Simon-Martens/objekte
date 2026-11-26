@@ -630,7 +630,7 @@ impl PublishedSegment {
             files: index.file_count(),
             source_bytes: index.accounting.source_bytes_estimated,
             posting_fields: index.postings.fields.len(),
-            sort_columns: index.sorting.columns.len(),
+            sort_columns: index.sorting.column_count(),
             relation_count: index.relations.len(),
             relation_edges: index
                 .relations
@@ -827,12 +827,7 @@ impl SegmentReader for IndexedCollectionSegment {
         path: &crate::model::FieldPath,
         slot: RecordSlot,
     ) -> StorageResult<Option<Cow<'_, SortKey>>> {
-        Ok(self
-            .sorting
-            .columns
-            .get(path)
-            .and_then(|column| column.keys.get(slot.0 as usize))
-            .map(Cow::Borrowed))
+        self.sorting.stored_key(path, slot)
     }
 
     fn ordered_slots(
@@ -849,15 +844,13 @@ impl SegmentReader for IndexedCollectionSegment {
                 .composite(sort)
                 .map(|column| &column.order as &dyn OrderedSlots));
         }
-        Ok(scalar.and_then(|(path, descending)| {
-            self.sorting.columns.get(path).map(|column| {
-                if descending {
-                    &column.descending as &dyn OrderedSlots
-                } else {
-                    &column.ascending
-                }
-            })
-        }))
+        let Some((path, descending)) = scalar else {
+            return Ok(None);
+        };
+        self.sorting
+            .reader(path)
+            .map(|column| column.slots(descending))
+            .transpose()
     }
 }
 
@@ -1188,7 +1181,7 @@ fn gram_bytes(index: &BigramIndex) -> usize {
 }
 
 fn sort_bytes(sorting: &SortCollection) -> usize {
-    let mut total = 0usize;
+    let mut total = sorting.placed_bytes();
     for (path, column) in &sorting.columns {
         total = total
             .saturating_add(field_path_bytes(path))

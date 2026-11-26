@@ -4,6 +4,7 @@ pub(crate) mod inferred_cache;
 
 use std::borrow::Cow;
 use std::cmp::Ordering;
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -22,6 +23,8 @@ use super::transfer::StorageResult;
 /// Keys and traversal for one pinned scalar sort specification.
 pub(crate) trait OrderColumnReader: Send + Sync {
     fn path(&self) -> &FieldPath;
+    fn kind(&self) -> &LogicalType;
+    fn collation_version(&self) -> &str;
     fn options(&self) -> SortOptions;
     fn locale(&self) -> &str;
     fn retained_bytes(&self) -> usize;
@@ -93,6 +96,30 @@ pub(crate) struct InferredOrderRows {
     pub keys: Vec<SortKey>,
     pub order: Vec<RecordSlot>,
     pub descending: bool,
+}
+
+/// Logical input for one complete declared scalar column.
+#[cfg_attr(
+    not(test),
+    allow(
+        dead_code,
+        reason = "the independent declared-order store is a conformance backend"
+    )
+)]
+pub(crate) struct DeclaredOrderRows {
+    pub path: FieldPath,
+    pub kind: LogicalType,
+    pub config: SortConfig,
+    pub collation_version: String,
+    pub keys: Vec<SortKey>,
+    pub ascending: Vec<RecordSlot>,
+    pub descending: Vec<RecordSlot>,
+}
+
+pub(crate) trait DeclaredOrderStore: Send + Sync {
+    fn accepts(&self, path: &FieldPath, kind: &LogicalType) -> bool;
+    /// Preserve every key and the complete slot sequence in both directions.
+    fn seal(&self, rows: DeclaredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>>;
 }
 
 pub const COLLATION_VERSION: &str =

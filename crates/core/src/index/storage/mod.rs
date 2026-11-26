@@ -21,6 +21,10 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn declared_order_store(&self) -> Option<Arc<dyn order::DeclaredOrderStore>> {
+        None
+    }
+
     fn start_file_segment(
         &self,
         input: segment::build::FileSegmentBuild<'_>,

@@ -1332,6 +1332,7 @@ fn prepare_managed_stream(
                 pool,
                 profile: None,
                 observe_inference: false,
+                declared_orders: binding.factory.declared_order_store(),
             })?
             .index;
         private.add_private_segment(&segment);

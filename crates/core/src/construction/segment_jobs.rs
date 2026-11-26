@@ -8,6 +8,7 @@ use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::repository::statistics::IncrementalSegmentProfile;
 
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::order::DeclaredOrderStore;
 use crate::index::storage::segment::build::{SegmentBuilder, SegmentSeal};
 
 pub(crate) struct SegmentJobGate {
@@ -329,6 +330,7 @@ pub(super) struct SegmentBuildScheduler {
     pub(super) limit: usize,
     running: Arc<AtomicUsize>,
     pub(super) peak_running: Arc<AtomicUsize>,
+    declared_orders: Option<Arc<dyn DeclaredOrderStore>>,
     pub(super) gate: Option<Arc<SegmentJobGate>>,
 }
 
@@ -336,6 +338,7 @@ impl SegmentBuildScheduler {
     pub(super) fn new(
         workers: usize,
         collections: usize,
+        declared_orders: Option<Arc<dyn DeclaredOrderStore>>,
         gate: Option<Arc<SegmentJobGate>>,
     ) -> Self {
         let (sender, receiver) = std::sync::mpsc::channel();
@@ -352,6 +355,7 @@ impl SegmentBuildScheduler {
             limit: workers.saturating_mul(2).max(1),
             running: Arc::new(AtomicUsize::new(0)),
             peak_running: Arc::new(AtomicUsize::new(0)),
+            declared_orders,
             gate,
         }
     }
@@ -392,6 +396,7 @@ impl SegmentBuildScheduler {
         let peak_running = Arc::clone(&self.peak_running);
         let gate = self.gate.clone();
         let worker_pool = Arc::clone(pool);
+        let declared_orders = self.declared_orders.clone();
         pool.spawn(move || {
             let active = running.fetch_add(1, Ordering::Relaxed) + 1;
             peak_running.fetch_max(active, Ordering::Relaxed);
@@ -421,6 +426,7 @@ impl SegmentBuildScheduler {
                         pool: &worker_pool,
                         profile: profile.as_mut(),
                         observe_inference: true,
+                        declared_orders,
                     })
                     .map_err(String::from)
                     .map(|built| IndexedSegmentBuild {

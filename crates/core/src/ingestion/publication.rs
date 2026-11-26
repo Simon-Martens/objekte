@@ -190,6 +190,7 @@ fn build_segment_inputs(
                 pool: &view.repository().workers,
                 profile: None,
                 observe_inference: false,
+                declared_orders: factory.declared_order_store(),
             },
         )
         .map_err(IndexError::from)

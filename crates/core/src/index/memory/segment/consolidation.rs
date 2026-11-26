@@ -394,7 +394,7 @@ impl IndexedCollectionSegment {
         let mut custom_text = first.custom_text.clone();
         let mut logical_records = RoaringBitmap::new();
         let mut empty_array_records = RoaringBitmap::new();
-        let mut sorting = (*first.sorting).clone();
+        let (mut sorting, mut placed_orders) = first.sorting.consolidation_columns()?;
         let mut relations = first.relations.clone();
         let mut record_parses = 0u64;
         let mut failed_parses = 0u64;
@@ -482,22 +482,12 @@ impl IndexedCollectionSegment {
                 for (target, source) in relations.iter_mut().zip(&shard.relations) {
                     target.merge_shifted(source.clone(), base, shard.record_count() as u32)?;
                 }
-                if sorting.columns.len() != shard.sorting.columns.len()
+                if sorting.column_count() != shard.sorting.column_count()
                     || sorting.composites.len() != shard.sorting.composites.len()
                 {
                     return Err("sort segment coverage mismatch".into());
                 }
-                for (path, source) in &shard.sorting.columns {
-                    let target = sorting.columns.get_mut(path).ok_or("sort column missing")?;
-                    if target.kind != source.kind
-                        || target.locale != source.locale
-                        || target.options != source.options
-                        || target.collation_version != source.collation_version
-                    {
-                        return Err("sort column representation mismatch".into());
-                    }
-                    target.keys.extend_from_slice(&source.keys);
-                }
+                sorting.append_consolidation_columns(&shard.sorting, &mut placed_orders)?;
                 for (target, source) in sorting.composites.iter().zip(&shard.sorting.composites) {
                     if target.fields != source.fields {
                         return Err("composite sort representation mismatch".into());
@@ -574,6 +564,7 @@ impl IndexedCollectionSegment {
                     .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
         }
+        sorting.restore_placement(placed_orders)?;
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;

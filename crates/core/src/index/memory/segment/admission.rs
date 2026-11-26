@@ -794,7 +794,7 @@ impl SegmentBuilder for SegmentAdmission {
 impl CollectionSegment {
     pub(crate) fn seal(mut self, input: SegmentSeal<'_>) -> StorageResult<BuiltSegment> {
         self.id = input.id;
-        let (index, observation) = self
+        let (mut index, observation) = self
             .into_indexed_profiled_inner(
                 input.definition,
                 input.options.bigram_alphabet,
@@ -805,6 +805,10 @@ impl CollectionSegment {
                 input.observe_inference,
             )
             .map_err(|error| StorageError::invalid("seal segment", error))?;
+        if let Some(store) = input.declared_orders {
+            index.sorting.place_columns(store)?;
+            index.recompute_accounting();
+        }
         Ok(BuiltSegment { index, observation })
     }
 

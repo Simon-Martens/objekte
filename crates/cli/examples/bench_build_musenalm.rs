@@ -40,7 +40,7 @@ fn index_signature(
     for collection in index.collections() {
         hash_value(&mut hash, &collection.definition.name)?;
     }
-    hash_value(&mut hash, &view.native_index_signature())?;
+    hash_value(&mut hash, &view.native_index_signature()?)?;
     Ok(format!("{:x}", hash.finalize()))
 }
 

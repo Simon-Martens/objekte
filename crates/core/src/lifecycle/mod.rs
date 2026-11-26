@@ -333,7 +333,8 @@ pub(crate) fn index_family_estimate(
                     })
                     .sum::<usize>()
             })
-            .sum(),
+            .sum::<usize>()
+            .saturating_add(sorting.placed_bytes()),
     }
 }
 

@@ -126,6 +126,7 @@ impl StagedStreamBinding {
                     .take_segment()?
                     .expect("full private stream draft"),
                 &self.collection.definition,
+                self.collection.factory.as_ref(),
                 options,
                 collection_count,
                 pool,
@@ -222,6 +223,7 @@ fn stage_stream_file(
 fn finish_stream_draft(
     draft: Box<dyn SegmentBuilder>,
     definition: &CollectionDefinition,
+    factory: &dyn StorageFactory,
     options: RepositoryOptions,
     collection_count: usize,
     pool: &rayon::ThreadPool,
@@ -234,6 +236,7 @@ fn finish_stream_draft(
         pool,
         profile: None,
         observe_inference: true,
+        declared_orders: factory.declared_order_store(),
     })?;
     Ok((built.index, built.observation.map(Arc::new)))
 }
@@ -1146,8 +1149,12 @@ impl Repository {
             return Err(IndexError::Cancelled);
         }
         let mut expected = IndexRevision::INITIAL;
-        let mut scheduler =
-            SegmentBuildScheduler::new(pool.current_num_threads(), pending.len(), gate);
+        let mut scheduler = SegmentBuildScheduler::new(
+            pool.current_num_threads(),
+            pending.len(),
+            storage_factory.declared_order_store(),
+            gate,
+        );
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
         let mut shared = std::collections::BTreeMap::<Vec<CollectionId>, Vec<FileId>>::new();
         for entry in &discovered.files {
@@ -1761,6 +1768,7 @@ impl Repository {
                                 let built = finish_stream_draft(
                                     draft,
                                     &state.definition,
+                                    storage_factory.as_ref(),
                                     options,
                                     collection_count,
                                     &pool,
@@ -1778,6 +1786,7 @@ impl Repository {
                         let built = finish_stream_draft(
                             tail,
                             &pending[id.0 as usize].definition,
+                            storage_factory.as_ref(),
                             options,
                             collection_count,
                             &pool,
@@ -1872,6 +1881,7 @@ impl Repository {
                             pool: &pool,
                             profile: None,
                             observe_inference: true,
+                            declared_orders: storage_factory.declared_order_store(),
                         })?;
                         private_work.add_private_segment(&built.index);
                         builds.push((built.index, built.observation.map(Arc::new)));

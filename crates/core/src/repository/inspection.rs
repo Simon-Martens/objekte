@@ -195,14 +195,14 @@ impl Repository {
     /// Canonical logical-content digest for the adopted native segments.
     /// Segment grouping and local slots are normalized to logical record IDs,
     /// so a policy change does not masquerade as an index-content change.
-    pub fn native_index_signature(&self) -> String {
+    pub fn native_index_signature(&self) -> Result<String, crate::lifecycle::IndexError> {
         self.native_index_signature_for(&self.segments)
     }
 
     pub(crate) fn native_index_signature_for(
         &self,
         segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
-    ) -> String {
+    ) -> Result<String, crate::lifecycle::IndexError> {
         let mut hash = Sha256::new();
         for (collection_index, collection) in self.collections.iter().enumerate() {
             hash_field(&mut hash, collection.definition.name.as_bytes());
@@ -308,13 +308,20 @@ impl Repository {
                         }
                     }
                 }
-                for (path, column) in &segment.index.sorting.columns {
-                    for (slot, key) in column.keys.iter().enumerate() {
-                        let slot = RecordSlot(u32::try_from(slot).unwrap_or(u32::MAX));
-                        components
-                            .entry(format!("sort:{}", path.display()))
-                            .or_default()
-                            .push(format!("{}:{key:?}", record_id(slot)));
+                for column in segment.index.sorting.readers() {
+                    if column.key_count() == 0 {
+                        continue;
+                    }
+                    let label = format!("sort:{}", column.path().display());
+                    let entries = components.entry(label).or_default();
+                    for slot in 0..column.key_count() {
+                        let slot = RecordSlot(u32::try_from(slot).map_err(|_| {
+                            crate::lifecycle::IndexError::ResourceLimit(
+                                "signature sort slot out of range".into(),
+                            )
+                        })?);
+                        let key = column.key(slot)?;
+                        entries.push(format!("{}:{:?}", record_id(slot), key.as_ref()));
                     }
                 }
             }
@@ -341,7 +348,7 @@ impl Repository {
                 }
             }
         }
-        format!("{:x}", hash.finalize())
+        Ok(format!("{:x}", hash.finalize()))
     }
 
     pub(super) fn has_native_segments(&self) -> bool {

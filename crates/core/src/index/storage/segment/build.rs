@@ -1,5 +1,7 @@
 //! Ordered admission and finalization of worker contributions.
 
+use std::sync::Arc;
+
 use crate::construction::batch::BatchContribution;
 use crate::index::segment::IndexedCollectionSegment;
 use crate::model::CollectionId;
@@ -9,6 +11,7 @@ use crate::repository::statistics::{AdmissionBreakdown, IncrementalSegmentProfil
 use crate::source::registry::PreparedSource;
 
 use super::{RetainedBlock, SegmentId, SegmentPolicy};
+use crate::index::storage::order::DeclaredOrderStore;
 use crate::index::storage::transfer::StorageResult;
 
 pub(crate) struct FileSegmentBuild<'a> {
@@ -41,6 +44,7 @@ pub(crate) struct SegmentSeal<'a> {
     pub pool: &'a rayon::ThreadPool,
     pub profile: Option<&'a mut IncrementalSegmentProfile>,
     pub observe_inference: bool,
+    pub declared_orders: Option<Arc<dyn DeclaredOrderStore>>,
 }
 
 /// Finalization currently feeds the published native segment assembly.
