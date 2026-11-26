@@ -61,14 +61,49 @@ pub(crate) struct RecordMutation {
     pub(crate) kind: RecordMutationKind,
 }
 
+fn can_consolidate(
+    left: &dyn SegmentReader,
+    right: &dyn SegmentReader,
+) -> Result<bool, IndexError> {
+    let left_source = left.source();
+    let right_source = right.source();
+    if left_source.adapter != right_source.adapter
+        || left_source.version != right_source.version
+        || left_source.registration != right_source.registration
+        || left.backing_kind() != right.backing_kind()
+    {
+        return Ok(false);
+    }
+    let mut overlaps = false;
+    visit_segment_files(left, |file| {
+        if !overlaps {
+            overlaps = right.contains_file(file.id)?;
+        }
+        Ok::<_, IndexError>(())
+    })?;
+    if overlaps {
+        return Ok(false);
+    }
+    visit_record_headers(left, |headers| {
+        for record in headers {
+            if !overlaps && right.slot_for_record(record.id.0.as_ref())?.is_some() {
+                overlaps = true;
+                break;
+            }
+        }
+        Ok::<_, IndexError>(())
+    })?;
+    Ok(!overlaps)
+}
+
 fn cheapest_consolidation_pair(
     group: &[Arc<PublishedSegment>],
     target_records: usize,
-) -> Option<(usize, usize)> {
+) -> Result<Option<(usize, usize)>, IndexError> {
     let mut sized = group
         .iter()
         .enumerate()
-        .map(|(index, segment)| (segment.index.record_count(), index))
+        .map(|(index, segment)| (segment.descriptor().slots, index))
         .collect::<Vec<_>>();
     sized.sort_unstable();
     for (position, &(left_size, left)) in sized.iter().enumerate() {
@@ -76,39 +111,14 @@ fn cheapest_consolidation_pair(
             if left_size + right_size > target_records {
                 break;
             }
-            let left_index = &group[left].index;
-            let right_index = &group[right].index;
-            if left_index.source_id != right_index.source_id
-                || left_index.source_version != right_index.source_version
-                || !left_index.backing.compatible_with(&right_index.backing)
-            {
-                continue;
+            if can_consolidate(group[left].as_ref(), group[right].as_ref())? {
+                return Ok(Some((left.min(right), left.max(right))));
             }
-            let mut overlaps = false;
-            for file_number in 0..left_index.file_count() {
-                let file_id = left_index.files.get(file_number)?.entry.id;
-                if right_index.file_index.get(&file_id).copied().is_some() {
-                    overlaps = true;
-                    break;
-                }
-            }
-            if !overlaps {
-                for &slot in &left_index.identity_order {
-                    let id = left_index.record(slot)?.id.0.as_ref();
-                    if right_index.id_lookup.get(id).copied().is_some() {
-                        overlaps = true;
-                        break;
-                    }
-                }
-            }
-            if overlaps {
-                continue;
-            }
-            return Some((left.min(right), left.max(right)));
         }
     }
-    None
+    Ok(None)
 }
+
 impl PublishedIndex {
     fn live_route(
         &self,
@@ -462,7 +472,7 @@ impl PublishedIndex {
         let target_records = policy.target_records.get();
         let full_partitions = self.segments[number]
             .iter()
-            .filter(|segment| segment.index.record_count() >= target_records)
+            .filter(|segment| segment.descriptor().slots >= target_records)
             .count();
         let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
         let count_triggered = self.segments[number].len() >= admission_limit;
@@ -472,26 +482,23 @@ impl PublishedIndex {
             let old_count = group.len();
             let mut kept = Vec::with_capacity(group.len());
             for segment in group.drain(..) {
-                let mut current_file = false;
-                for file_number in 0..segment.index.file_count() {
-                    let file = segment
-                        .index
-                        .files
-                        .get(file_number)
-                        .map(|file| &file.entry)
-                        .ok_or_else(|| {
-                            IndexError::InvalidPublication("segment file row missing".into())
-                        })?;
-                    if self.catalog.file(file.id)?.is_some_and(|current| {
-                        current.revision == file.revision
-                            && current.created_ns == file.created_ns
-                            && current.collections.contains(&segment.index.collection)
-                    }) {
-                        current_file = true;
-                        break;
-                    }
+                if segment.active.len() != 0 {
+                    kept.push(segment);
+                    continue;
                 }
-                if segment.active.len() > 0 || current_file {
+                let mut current_file = false;
+                let collection = segment.descriptor().collection;
+                visit_segment_files(segment.as_ref(), |file| {
+                    if !current_file {
+                        current_file = self.catalog.file(file.id)?.is_some_and(|current| {
+                            current.revision == file.revision
+                                && current.created_ns == file.created_ns
+                                && current.collections.contains(&collection)
+                        });
+                    }
+                    Ok::<_, IndexError>(())
+                })?;
+                if current_file {
                     kept.push(segment);
                 }
             }
@@ -511,7 +518,7 @@ impl PublishedIndex {
                 .iter()
                 .enumerate()
                 .filter_map(|(index, segment)| {
-                    let total = segment.index.record_count();
+                    let total = segment.descriptor().slots;
                     let removed = total.saturating_sub(segment.active.len() as usize);
                     (total >= MIN_RETIREMENT_SLOTS
                         && total <= target_records
@@ -559,7 +566,7 @@ impl PublishedIndex {
         // allocator count; it only orders when size-triggered maintenance runs.
         let sparse_bytes = group
             .iter()
-            .filter(|segment| segment.index.record_count() < target_records)
+            .filter(|segment| segment.descriptor().slots < target_records)
             .map(|segment| segment.estimates().retained_bytes_estimated)
             .fold(0usize, usize::saturating_add);
         let size_triggered = sparse_bytes > sparse_byte_limit
@@ -572,7 +579,7 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(group, target_records) else {
+        let Some((left, right)) = cheapest_consolidation_pair(group, target_records)? else {
             return Ok(());
         };
         let merged = IndexedCollectionSegment::consolidate(

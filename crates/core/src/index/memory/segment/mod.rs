@@ -829,6 +829,10 @@ impl SegmentReader for IndexedCollectionSegment {
         })
     }
 
+    fn contains_file(&self, file: FileId) -> StorageResult<bool> {
+        Ok(self.file_index.contains_key(&file))
+    }
+
     fn file_metadata(
         &self,
         file: FileId,

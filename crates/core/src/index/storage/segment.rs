@@ -516,6 +516,10 @@ pub(crate) trait SegmentReader: Send + Sync {
         ))
     }
 
+    fn contains_file(&self, file: FileId) -> StorageResult<bool> {
+        Ok(self.file_metadata(file)?.is_some())
+    }
+
     fn file_metadata(&self, file: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>>;
 
     fn visit_file_slots(
@@ -700,6 +704,10 @@ impl<D: SegmentReaderDelegate> SegmentReader for D {
         entries: &mut Vec<Cow<'a, FileEntry>>,
     ) -> StorageResult<BatchStatus> {
         self.payload().read_file_batch(start, limit, entries)
+    }
+
+    fn contains_file(&self, file: FileId) -> StorageResult<bool> {
+        self.payload().contains_file(file)
     }
 
     fn file_metadata(&self, file: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>> {
