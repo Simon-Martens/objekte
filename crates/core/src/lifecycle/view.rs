@@ -1640,6 +1640,20 @@ impl IndexView {
                 }
             }
         };
+        if let Some(result) = crate::query_execution::runner::try_stream_identity_directory_page(
+            self.repository(),
+            query,
+            scope,
+            options,
+            context,
+            &self.0.active,
+            &self.0.record_routes,
+            &self.0.catalog,
+            self.revision(),
+            &mut remap_rows,
+        ) {
+            return result;
+        }
         let result = crate::query_execution::runner::search_stream_segmented_with_context_lifecycle(
             self.repository(),
             query,

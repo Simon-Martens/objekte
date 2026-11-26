@@ -5431,6 +5431,207 @@ pub(crate) fn search_stream_segmented_with_context(
     )
 }
 
+/// Stream a finite identity-ordered page directly from a directory that
+/// certifies that future placements cannot outrank an emitted record.
+pub(crate) fn try_stream_identity_directory_page(
+    repo: &Repository,
+    query: &Query,
+    scope: ResultScope,
+    options: StreamOptions,
+    context: &ExecutionContext,
+    base_active: &[ActiveRecords],
+    directories: &[crate::index::storage::segment_catalog::SegmentCatalogHandle],
+    catalog: &dyn FileCatalogReader,
+    revision: IndexRevision,
+    sink: &mut dyn for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
+) -> Option<Result<StreamOutcome, StreamError>> {
+    let ResultScope::Page { offset, limit } = scope else {
+        return None;
+    };
+    if query.options.count
+        || !query.options.sort.is_empty()
+        || options.mode != StreamMode::OrderedRows
+        || limit == 0
+        || base_active.iter().any(|active| active.len() != 0)
+    {
+        return None;
+    }
+    let scope = crate::query::prepared::segment_scope(repo, query);
+    let mut selected = scope
+        .into_iter()
+        .enumerate()
+        .filter(|(_, selected)| *selected);
+    let (collection, _) = selected.next()?;
+    let directory = directories.get(collection)?.as_ref();
+    if selected.next().is_some() || !directory.identity_ranges_in_placement_order() {
+        return None;
+    }
+    let invalid = |message| StreamError::Execution {
+        kind: ExecutionErrorKind::InvalidQuery,
+        message,
+        progress: Default::default(),
+    };
+    let mut run = || {
+        options.validate().map_err(invalid)?;
+        offset
+            .checked_add(limit)
+            .ok_or_else(|| invalid("page size overflow".into()))?;
+        let mut request = query.with_clock(context.clock.now).map_err(invalid)?;
+        let prepared = crate::query::prepared::prepare(repo, &request).map_err(invalid)?;
+        if prepared.collections.iter().any(|entry| {
+            entry.filter.as_ref().is_some_and(bound_expr_has_relations)
+                || entry
+                    .fts
+                    .as_ref()
+                    .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+        }) {
+            return Ok(None);
+        }
+        let bound = crate::query::sort_binding::BoundSort::bind(repo, &request).map_err(invalid)?;
+        let sort = ResolvedSort::from_bound(repo, &request, bound);
+        let cancellation = context.cancellation().cloned().unwrap_or_default();
+        let mut delivery = Delivery::new(options, &cancellation, sink);
+        if delivery.check().is_err() {
+            return Ok(Some(StreamOutcome::Cancelled(delivery.progress)));
+        }
+        if let Err(error) = context.enter() {
+            return segmented_stream_error(&mut delivery, context, error.message).map(Some);
+        }
+        let empty = Arc::new(Vec::new());
+        let mut groups = vec![Arc::clone(&empty); directories.len()];
+        let mut remaining_offset = offset;
+        let mut remaining_rows = limit;
+        let mut counters = WorkCounters {
+            match_count_complete: true,
+            ..Default::default()
+        };
+        let mut placements_left = directory.segment_count();
+        let read = crate::index::storage::segment_catalog::visit_placement_pages(
+            directory,
+            &mut |page| -> Result<bool, String> {
+                for placement in page {
+                    delivery.check()?;
+                    if placement.descriptor().collection.0 as usize != collection {
+                        return Err("placement belongs to another collection".into());
+                    }
+                    placements_left -= 1;
+                    request.options.offset = remaining_offset;
+                    request.options.limit = remaining_rows;
+                    groups[collection] = Arc::new(vec![Arc::clone(placement)]);
+                    let mut restriction_cache = SegmentRestrictionCache::new(&groups);
+                    let mut result = search_segmented_with_context_lifecycle_budget(
+                        repo,
+                        &request,
+                        base_active,
+                        &groups,
+                        catalog,
+                        revision,
+                        context,
+                        None,
+                        Some(options.max_buffered_bytes),
+                        Some((&sort, &prepared)),
+                        &mut restriction_cache,
+                        false,
+                    )
+                    .map_err(|error| error.message)?;
+                    remaining_offset =
+                        remaining_offset.saturating_sub(result.counters.total_matches as usize);
+                    remaining_rows -= result.hits.len();
+                    merge_identity_stream_work(&mut counters, result.counters);
+                    stamp_native_rows(repo, revision, &mut result.hits)?;
+                    let mut batch = 0;
+                    let mut bytes = 0usize;
+                    for (index, hit) in result.hits.iter().enumerate() {
+                        let size = crate::query_execution::streaming::hit_bytes(hit);
+                        if batch < index
+                            && (index - batch == options.batch_rows
+                                || bytes.saturating_add(size) > options.max_event_bytes)
+                        {
+                            delivery.ordered_batch(&result.hits[batch..index], &counters)?;
+                            batch = index;
+                            bytes = 0;
+                        }
+                        bytes = bytes.saturating_add(size);
+                    }
+                    delivery.ordered_batch(&result.hits[batch..], &counters)?;
+                    if remaining_rows == 0 {
+                        counters.match_count_complete &= placements_left == 0;
+                        return Ok(false);
+                    }
+                    groups[collection] = Arc::clone(&empty);
+                }
+                Ok(true)
+            },
+        );
+        if let Err(message) = read {
+            return segmented_stream_error(&mut delivery, context, message).map(Some);
+        }
+        if let Err(message) = delivery.check() {
+            return segmented_stream_error(&mut delivery, context, message).map(Some);
+        }
+        if delivery.progress.sequence == 0
+            && let Err(message) = delivery.progress_event(&counters)
+        {
+            return segmented_stream_error(&mut delivery, context, message).map(Some);
+        }
+        delivery.observe(&counters);
+        Ok(Some(StreamOutcome::Complete(Box::new(StreamSummary {
+            count: None,
+            returned_rows: delivery.progress.emitted_rows as usize,
+            final_sequence: delivery.last_page_sequence(),
+            counters,
+            progress: delivery.progress,
+        }))))
+    };
+    match run() {
+        Ok(outcome) => outcome.map(Ok),
+        Err(error) => Some(Err(error)),
+    }
+}
+
+fn merge_identity_stream_work(total: &mut WorkCounters, work: WorkCounters) {
+    macro_rules! add {
+        ($($field:ident),+ $(,)?) => {
+            $(total.$field = total.$field.saturating_add(work.$field);)+
+        };
+    }
+    add!(
+        file_restrictions_resolved,
+        file_restriction_matching_files,
+        file_membership_lists_probed,
+        file_restrictions_broad,
+        exact_posting_matches,
+        candidates,
+        scanned_records,
+        total_matches,
+        source_unavailable_events,
+        returned_records,
+        selected_payload_reads,
+        selected_payload_bytes,
+        files_opened,
+        distinct_files,
+        bytes_read,
+        record_parses,
+        raw_text_verifications,
+        residual_evaluations,
+    );
+    #[cfg(feature = "detailed-profiling")]
+    add!(preparation_ns, planning_ns);
+    total.peak_retained_payload_bytes = total
+        .peak_retained_payload_bytes
+        .max(work.peak_retained_payload_bytes);
+    total.peak_retained_sort_key_bytes = total
+        .peak_retained_sort_key_bytes
+        .max(work.peak_retained_sort_key_bytes);
+    total.match_count_complete &= work.match_count_complete;
+    let diagnostic_capacity = 32usize.saturating_sub(total.source_diagnostics.len());
+    total.source_diagnostics.extend(
+        work.source_diagnostics
+            .into_iter()
+            .take(diagnostic_capacity),
+    );
+}
+
 pub(crate) fn search_stream_segmented_with_context_lifecycle(
     repo: &Repository,
     query: &Query,

@@ -1277,6 +1277,89 @@ fn retained_and_provider_transfer_preserves_pinned_records_without_provider_read
 }
 
 #[test]
+fn unordered_finite_stream_stops_reading_identity_ordered_placements() {
+    use crate::query_execution::streaming::{
+        CancellationToken, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
+    };
+
+    let factory = Arc::new(TableFactory::default());
+    factory
+        .certify_placement_identity_ranges
+        .store(true, Ordering::Relaxed);
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let items = builder.collection("items", score_schema()).unwrap();
+    let registration = builder
+        .register_records(items, "directory-stream", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    for row in 0..24 {
+        let mut batch = writer.batch();
+        batch.insert(format!("row-{row:02}"), score(7)).unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+    }
+    let view = index.view().unwrap();
+    assert_eq!(view.0.record_routes[0].segment_count(), 24);
+    assert!(view.0.record_routes[0].identity_ranges_in_placement_order());
+
+    let mut query = score_query();
+    query.collections = vec!["items".into()];
+    query.options.sort.clear();
+    query.options.count = false;
+    query.options.evidence = false;
+    query.options.return_mode = ReturnMode::Locator;
+    query.options.limit = 1;
+    let read_ids = |query: &crate::query::Query| {
+        let mut ids = Vec::new();
+        let outcome = view.search_stream(
+            query,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    ids.extend(rows.iter().map(|hit| hit.record_id.to_owned()));
+                }
+                Ok(StreamControl::Continue)
+            },
+        );
+        (ids, outcome)
+    };
+
+    factory.placement_reads.store(0, Ordering::Relaxed);
+    factory.fail_directory_refill.store(true, Ordering::Relaxed);
+    let (ids, outcome) = read_ids(&query);
+    assert_eq!(ids, ["row-00"]);
+    assert!(
+        matches!(outcome.unwrap(), StreamOutcome::Complete(summary) if summary.count.is_none())
+    );
+    assert_eq!(factory.placement_reads.load(Ordering::Relaxed), 1);
+
+    query.options.count = true;
+    let (_, outcome) = read_ids(&query);
+    assert!(
+        outcome
+            .unwrap_err()
+            .to_string()
+            .contains("injected placement refill failure")
+    );
+    query.options.count = false;
+
+    factory
+        .fail_directory_refill
+        .store(false, Ordering::Relaxed);
+    factory.placement_reads.store(0, Ordering::Relaxed);
+    query.options.offset = 1;
+    query.options.limit = 2;
+    let (ids, outcome) = read_ids(&query);
+    outcome.unwrap();
+    assert_eq!(ids, ["row-01", "row-02"]);
+    assert_eq!(factory.placement_reads.load(Ordering::Relaxed), 3);
+    index.shutdown().unwrap();
+}
+
+#[test]
 fn scoped_queries_open_only_selected_and_reached_directories() {
     use crate::index::storage::segment_catalog::build_catalog;
     use crate::query_execution::streaming::{

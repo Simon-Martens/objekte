@@ -66,6 +66,13 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
         None
     }
 
+    /// Placement order follows non-overlapping ascending record-ID ranges,
+    /// and source file associations are disjoint between placements.
+    /// A reader can certify this from its pinned directory metadata.
+    fn identity_ranges_in_placement_order(&self) -> bool {
+        false
+    }
+
     fn read_placements(
         &self,
         start: usize,
@@ -168,14 +175,27 @@ pub(crate) fn pin_segment_group(
     if let Some(group) = directory.shared_placements() {
         return Ok(group);
     }
+    let mut placements = Vec::with_capacity(directory.segment_count().min(128));
+    visit_placement_pages(directory, &mut |page| {
+        placements.extend_from_slice(page);
+        Ok::<_, StorageError>(true)
+    })?;
+    Ok(Arc::new(placements))
+}
+
+/// Visit bounded pages of this pinned revision. Returning false leaves
+/// subsequent pages unread.
+pub(crate) fn visit_placement_pages<E: From<StorageError>>(
+    directory: &dyn SegmentCatalogReader,
+    visit: &mut impl FnMut(&[Arc<PublishedSegment>]) -> Result<bool, E>,
+) -> Result<(), E> {
     const OP: &str = "pin segment placement group";
     let total = directory.segment_count();
     let max = DESCRIPTOR_LIMIT.fixed_batch_len(OP, size_of::<Arc<PublishedSegment>>())?;
-    let mut placements = Vec::with_capacity(total.min(max));
+    let mut next = 0usize;
     loop {
-        let (page, status) = directory.read_placements(placements.len(), DESCRIPTOR_LIMIT)?;
-        let end = placements
-            .len()
+        let (page, status) = directory.read_placements(next, DESCRIPTOR_LIMIT)?;
+        let end = next
             .checked_add(page.len())
             .ok_or_else(|| StorageError::invalid(OP, "placement count overflow"))?;
         if page.len() > max
@@ -183,15 +203,12 @@ pub(crate) fn pin_segment_group(
             || (status == BatchStatus::Done) != (end == total)
             || (status == BatchStatus::More && page.is_empty())
         {
-            return Err(StorageError::invalid(OP, "invalid placement batch"));
+            return Err(StorageError::invalid(OP, "invalid placement batch").into());
         }
-        match page {
-            Cow::Borrowed(page) => placements.extend_from_slice(page),
-            Cow::Owned(page) => placements.extend(page),
+        if !visit(&page)? || status == BatchStatus::Done {
+            return Ok(());
         }
-        if status == BatchStatus::Done {
-            return Ok(Arc::new(placements));
-        }
+        next = end;
     }
 }
 

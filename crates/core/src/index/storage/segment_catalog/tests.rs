@@ -34,6 +34,7 @@ struct TableFactory {
     posting_block_reads: Arc<AtomicUsize>,
     posting_member_reads: Arc<AtomicUsize>,
     decode_placements: AtomicBool,
+    certify_placement_identity_ranges: AtomicBool,
     origins_until_failure: AtomicUsize,
     independent_applications: AtomicUsize,
     text_applications: AtomicUsize,
@@ -1793,11 +1794,29 @@ impl SegmentCatalogReader for TableDirectory {
             }))
     }
 
+    fn identity_ranges_in_placement_order(&self) -> bool {
+        self.control
+            .certify_placement_identity_ranges
+            .load(Ordering::Relaxed)
+            && self.files.values().all(|placements| placements.len() <= 1)
+            && self
+                .records
+                .values()
+                .map(|(id, _)| self.positions[id])
+                .is_sorted()
+    }
+
     fn read_placements(
         &self,
         start: usize,
         limit: BatchLimit,
     ) -> StorageResult<(Cow<'_, [Arc<PublishedSegment>]>, BatchStatus)> {
+        if start > 0 && self.control.fail_directory_refill.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "table directory",
+                "injected placement refill failure",
+            ));
+        }
         assert!(limit.accepts("table directory", 0, 0, size_of::<Arc<PublishedSegment>>())?);
         if start == self.segment_count() {
             return Ok((Cow::Borrowed(&[]), BatchStatus::Done));
