@@ -609,7 +609,10 @@ fn scan_inferred_segment(
         const OP: &str = "read inferred facet file slots";
         ranges.clear();
         visit_checked_file_slots(segment, file.id, &mut |slots| {
-            for &slot in slots.iter().filter(|slot| segment.active.contains(**slot)) {
+            for &slot in slots {
+                if !segment.active.contains(slot)? {
+                    continue;
+                }
                 let record = segment
                     .header(slot)?
                     .ok_or_else(|| StorageError::invalid(OP, "record header missing"))?;
@@ -952,7 +955,7 @@ pub(crate) fn select_exact_segmented(
                     break;
                 }
             } else {
-                segment.active.bitmap()
+                segment.active.bitmap()?
             };
             segment_members[segment_index] = members;
         }
@@ -984,7 +987,7 @@ pub(crate) fn select_exact_segmented(
     for hit in result.hits {
         let id = RecordId(hit.record_id.into());
         if let Some(slot) = state.base_slot_for_record(id.0.as_ref())?
-            && base_active[collection_index].contains(slot)
+            && base_active[collection_index].contains(slot)?
         {
             members.insert(slot.0);
             continue;
@@ -992,7 +995,7 @@ pub(crate) fn select_exact_segmented(
         let mut found = false;
         for (index, segment) in segments[collection_index].iter().enumerate() {
             if let Some(slot) = segment.slot_for_record(id.0.as_ref())?
-                && segment.active.contains(slot)
+                && segment.active.contains(slot)?
             {
                 if found {
                     return Err("duplicate active selection ID".into());
@@ -1172,7 +1175,7 @@ pub(crate) fn posting_values_segmented(
         visit_segment_files(segment.as_ref(), |file| {
             let mut live = false;
             visit_checked_file_slots(segment, file.id, &mut |slots| {
-                live |= slots.iter().any(|slot| segment.active.contains(*slot));
+                live |= segment.active.any(slots)?;
                 Ok(())
             })?;
             if live {
@@ -1247,9 +1250,9 @@ pub(crate) fn posting_values_segmented(
         None
     };
     let mut domains = Vec::with_capacity(resolved.len());
-    domains.push(base_active[collection_index].bitmap());
+    domains.push(base_active[collection_index].bitmap()?);
     for segment in segments[collection_index].iter() {
-        domains.push(segment.active.bitmap());
+        domains.push(segment.active.bitmap()?);
     }
     if let Some(selection) = selection {
         domains[0] &= &selection.members;
@@ -1662,7 +1665,9 @@ impl Repository {
         } else {
             None
         };
-        let live_domain = active.map(|domains| domains[collection_index].bitmap());
+        let live_domain = active
+            .map(|domains| domains[collection_index].bitmap())
+            .transpose()?;
         let selected_domain = match (selection, live_domain) {
             (Some(selection), Some(live)) => Some(&selection.members & &live),
             (Some(selection), None) => Some(selection.members.clone()),

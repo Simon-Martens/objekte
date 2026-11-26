@@ -55,7 +55,7 @@ impl PartitionRouting {
             }
             let mut slots = Vec::with_capacity(mask.len() as usize);
             let mut logical = 0u32;
-            for old in mask.bitmap().iter() {
+            for old in mask.bitmap()?.iter() {
                 let local = u32::try_from(slots.len()).map_err(|_| "partition slot overflow")?;
                 let location = locations
                     .get_mut(old as usize)

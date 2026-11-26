@@ -412,7 +412,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         }
         let restriction = match physical {
             SegmentPhysicalOperation::NativeFallback => {
-                let effective = input.bitmap_for_native();
+                let effective = input.bitmap_for_native()?;
                 let logical = effective.as_ref() & &self.segment.logical_records;
                 let fallback = effective.as_ref() - &self.segment.logical_records;
                 let bounds = native_segment_term_bounds(
@@ -430,14 +430,14 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     possible.operation_input(),
                     SlotSet::from_shared(bounds.must),
                 );
-                crate::query_access::contract::Restriction::bounds(possible, proven)
+                crate::query_access::contract::Restriction::bounds(possible, proven)?
             }
             SegmentPhysicalOperation::Posting {
                 access,
                 operation,
                 exact,
             } => {
-                let effective = input.bitmap_for_native();
+                let effective = input.bitmap_for_native()?;
                 let index = IndexCatalog::segment_with_bindings(
                     self.segment,
                     self.access.text.policy.schema,
@@ -631,7 +631,10 @@ mod tests {
                 &AccessExecution { context: None },
             )
             .unwrap();
-        assert_eq!(restriction.possible.iter().collect::<Vec<_>>(), [2]);
+        assert_eq!(
+            restriction.possible.iter().unwrap().collect::<Vec<_>>(),
+            [2]
+        );
         assert!(matches!(&restriction.proven, Proven::None));
 
         drop(view);
@@ -816,7 +819,7 @@ fn managed_queries_and_components_use_distinct_published_domains() {
     );
     let left_text = NativeSegmentTextProvider::new(left.id, left.native_payload(), collection);
     let right_text = NativeSegmentTextProvider::new(right.id, right.native_payload(), collection);
-    let mask = left.active.bitmap();
+    let mask = left.active.bitmap().unwrap();
     let BoundExpr::Term(term) =
         crate::query::binding::filter::bind_filter(&filter, &schema).unwrap()
     else {

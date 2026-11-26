@@ -345,19 +345,28 @@ impl crate::index::storage::liveness::LiveSlotReader for MemoryLiveSlots {
         self.len()
     }
 
-    fn contains(&self, slot: RecordSlot) -> bool {
-        self.contains(slot)
+    fn contains(&self, slot: RecordSlot) -> crate::index::storage::transfer::StorageResult<bool> {
+        Ok(self.contains(slot))
     }
 
     fn visit_blocks(
         &self,
-        visit: &mut dyn FnMut(u32, crate::query_access::membership::MembershipView<'_>),
-    ) {
+        visit: &mut crate::index::storage::liveness::VisitLiveBlock<'_>,
+    ) -> crate::index::storage::transfer::StorageResult<()> {
         for (group, chunk) in self.chunks.iter().enumerate() {
             visit(
                 group as u32 * ACTIVE_SLOT_CHUNK,
                 crate::query_access::membership::MembershipView::Borrowed(chunk),
-            );
+            )?;
+        }
+        Ok(())
+    }
+
+    fn borrowed_bitmap(&self) -> Option<&RoaringBitmap> {
+        if let [chunk] = self.chunks.as_slice() {
+            Some(chunk)
+        } else {
+            None
         }
     }
 

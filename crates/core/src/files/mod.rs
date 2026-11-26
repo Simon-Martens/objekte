@@ -223,7 +223,7 @@ impl<'a> FileCatalogView<'a> {
             .ok_or_else(|| LookupError::Query("file points to a missing collection".into()))?;
         state.visit_base_file_slots(id, &mut |slots| {
             for &slot in slots {
-                if self.view.0.active[number].contains(slot) {
+                if self.view.0.active[number].contains(slot)? {
                     let record = state.base_record(slot)?;
                     visit(&record.id);
                 }
@@ -233,7 +233,7 @@ impl<'a> FileCatalogView<'a> {
         self.view
             .visit_segment_file_slots(id, collection, &mut |reader, active, slots| {
                 for &slot in slots {
-                    if active.contains(slot) {
+                    if active.contains(slot)? {
                         let header = reader
                             .header(slot)?
                             .filter(|header| header.slot == slot)

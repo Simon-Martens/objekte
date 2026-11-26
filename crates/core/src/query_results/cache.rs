@@ -409,7 +409,7 @@ pub(crate) fn materialize_lifecycle_cached(
         }
         let (record, file, payload) = {
             let record = collection.base_record(RecordSlot(member.slot))?;
-            if !base_active[member.collection_index].contains(RecordSlot(member.slot)) {
+            if !base_active[member.collection_index].contains(RecordSlot(member.slot))? {
                 return Err("cached lifecycle base slot retired".into());
             }
             let file = catalog

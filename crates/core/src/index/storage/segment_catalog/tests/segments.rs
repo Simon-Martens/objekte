@@ -534,7 +534,7 @@ impl TableSegment {
         let mut old_to_new = vec![None; self.rows.len()];
         let mut output = Vec::new();
         for row in &self.rows {
-            if !active.contains(row.header.slot) {
+            if !active.contains(row.header.slot)? {
                 continue;
             }
             let mut row = row.clone();
@@ -588,10 +588,15 @@ impl SegmentReader for TableSegment {
         }
     }
 
-    fn active_fallback_count(&self, active: &ActiveRecords) -> u64 {
-        active
-            .len()
-            .saturating_sub(active.intersection_len(MembershipView::Sorted(&self.logical)))
+    fn total_fallback_count(&self) -> u64 {
+        (self.rows.len() - self.logical.len()) as u64
+    }
+
+    fn active_fallback_count(&self, active: &ActiveRecords) -> StorageResult<u64> {
+        if self.total_fallback_count() == 0 || active.len() == 0 {
+            return Ok(0);
+        }
+        Ok(active.len() - active.intersection_len(MembershipView::Sorted(&self.logical))?)
     }
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
@@ -1282,33 +1287,27 @@ impl IndexAccessProvider for ScoreAccess<'_> {
         self.check
             .independent_applications
             .fetch_add(1, Ordering::Relaxed);
-        let filtered: Arc<[u32]> = self
-            .slots(bound)
-            .iter()
-            .copied()
-            .filter(|&slot| input.contains(slot))
-            .collect();
+        let filtered: Arc<[u32]> = input
+            .filter_members(self.slots(bound).iter().copied())?
+            .into();
         let Some(covered) = &self.posting.covered else {
             return Ok(Restriction::exact(
                 input.replace_slots(SlotSet::from_sorted(filtered)?),
             ));
         };
         let possible = input
-            .iter()
+            .iter()?
             .filter(|slot| {
                 filtered.binary_search(slot).is_ok() || covered.binary_search(slot).is_err()
             })
             .collect();
         let proven = SlotInput::unrestricted(input.domain(), input.operation_input())
             .replace_slots(SlotSet::from_sorted(filtered)?);
-        Ok(Restriction::bounds(
-            input.replace_slots(SlotSet::from_sorted(possible)?),
-            proven,
-        ))
+        Restriction::bounds(input.replace_slots(SlotSet::from_sorted(possible)?), proven)
     }
 }
 
-fn score_schema() -> Schema {
+pub(super) fn score_schema() -> Schema {
     let mut schema = Schema::default();
     schema
         .register_field(crate::schema::FieldDefinition {
@@ -1324,7 +1323,7 @@ fn score_schema() -> Schema {
     schema
 }
 
-fn score(value: i64) -> Value {
+pub(super) fn score(value: i64) -> Value {
     Value::Object(BTreeMap::from([(
         SCORE.into(),
         Value::Number(crate::model::Number::Integer(value.into())),

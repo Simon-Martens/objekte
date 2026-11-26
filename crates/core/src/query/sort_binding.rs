@@ -1141,11 +1141,14 @@ impl SortTargetCache {
         slot: RecordSlot,
     ) -> Result<bool, String> {
         let state = cache.lock().map_err(|error| error.to_string())?;
-        Ok(state
+        match state
             .execution
             .as_ref()
             .and_then(|execution| execution.active_records())
-            .is_none_or(|domains| domains[collection.0 as usize].contains(slot)))
+        {
+            Some(domains) => Ok(domains[collection.0 as usize].contains(slot)?),
+            None => Ok(true),
+        }
     }
 
     fn edge(cache: &Mutex<Self>) -> Result<(), String> {
@@ -1194,13 +1197,11 @@ impl SortTargetCache {
         let record = collection.base_record(slot)?;
         let (cell, cancellation, execution) = {
             let mut state = cache.lock().map_err(|error| error.to_string())?;
-            if state
+            if let Some(domains) = state
                 .execution
                 .as_ref()
                 .and_then(|execution| execution.active_records())
-                .is_some_and(|domains| {
-                    !domains[collection.collection_id().0 as usize].contains(slot)
-                })
+                && !domains[collection.collection_id().0 as usize].contains(slot)?
             {
                 return Ok(None);
             }

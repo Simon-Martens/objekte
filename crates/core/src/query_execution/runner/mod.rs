@@ -21,9 +21,10 @@ use crate::index::storage::order::inferred_cache::InferredOrderKey;
 use crate::index::storage::ordered_slots::OrderedSlotCursor;
 use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::{
-    RecordBacking, RecordOrigin, SegmentReader, SegmentSlotFact, any_segment_file,
-    read_slot_members, visit_checked_file_slots,
+    RecordBacking, RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members,
 };
+#[cfg(test)]
+use crate::index::storage::segment::{any_segment_file, visit_checked_file_slots};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
@@ -584,7 +585,7 @@ pub(crate) fn segment_record_ref<'a, S: SegmentReader + ?Sized>(
     if active.slot_count() as usize != segment.descriptor().slots {
         return Err("segment active domain length mismatch".into());
     }
-    if !active.contains(slot) {
+    if !active.contains(slot)? {
         return Ok(None);
     }
     let record = read_file_range_record(segment, slot)?;
@@ -661,7 +662,7 @@ fn lookup_segment_record_by_id<S: SegmentReader + ?Sized>(
     let Some(slot) = segment.slot_for_record(record_id)? else {
         return Ok(DirectLookupResult::NotFound);
     };
-    if !active.contains(slot) {
+    if !active.contains(slot)? {
         return Ok(DirectLookupResult::NotFound);
     }
     read_direct_segment_slot(
@@ -687,7 +688,7 @@ pub(crate) fn get_cached_segment_record(
     slot: RecordSlot,
     mode: ReturnMode,
 ) -> Result<DirectLookupResult, String> {
-    if !segment.active.contains(slot) {
+    if !segment.active.contains(slot)? {
         return Ok(DirectLookupResult::NotFound);
     }
     read_direct_segment_slot(
@@ -999,9 +1000,7 @@ pub(crate) fn direct_lookup_segmented_counted(
     let base = if base_active[collection_index].len() == 0 {
         None
     } else {
-        collection
-            .base_slot_for_record(record_id)?
-            .filter(|slot| base_active[collection_index].contains(*slot))
+        base_active[collection_index].filter_slot(collection.base_slot_for_record(record_id)?)?
     };
     let selected_segment = if let Some(routes) = routes {
         if let Some(counters) = counters.as_deref_mut() {
@@ -1017,7 +1016,7 @@ pub(crate) fn direct_lookup_segmented_counted(
             }
             segment
                 .active
-                .contains(found.route.slot)
+                .contains(found.route.slot)?
                 .then_some((segment, found.route.slot))
         } else {
             None
@@ -1026,7 +1025,7 @@ pub(crate) fn direct_lookup_segmented_counted(
         let mut selected = None;
         for segment in segments[collection_index].iter() {
             if let Some(slot) = segment.slot_for_record(record_id)?
-                && segment.active.contains(slot)
+                && segment.active.contains(slot)?
             {
                 if base.is_some() || selected.is_some() {
                     return Err("duplicate active direct-lookup ID".into());
@@ -1651,7 +1650,7 @@ fn has_unavailable_active_source(
                 let mut file_size = None;
                 collection.visit_base_file_slots(file_id, &mut |slots| {
                     for &slot in slots {
-                        if failed || !base_active[index].contains(slot) {
+                        if failed || !base_active[index].contains(slot)? {
                             continue;
                         }
                         if !probed {
@@ -1683,7 +1682,7 @@ fn has_unavailable_active_source(
                 let mut failed = false;
                 visit_checked_file_slots(segment.as_ref(), file.id, &mut |slots| {
                     for &slot in slots {
-                        if failed || !segment.active.contains(slot) {
+                        if failed || !segment.active.contains(slot)? {
                             continue;
                         }
                         if !probed {
@@ -1820,7 +1819,7 @@ fn exact_or_branch_evidence_fields(
     else {
         return Ok(None);
     };
-    let input = active.bitmap();
+    let input = active.bitmap()?;
     let mut branches = Vec::with_capacity(parts.len());
     let mut may = RoaringBitmap::new();
     let mut must = RoaringBitmap::new();
@@ -1835,7 +1834,7 @@ fn exact_or_branch_evidence_fields(
             part,
             collection,
             Some(catalog),
-            &input,
+            Some(&input),
             Some(predicates),
             context,
             routed,
@@ -2201,7 +2200,7 @@ fn try_exact_segment_ordered_page(
                         filter,
                         collection,
                         Some(catalog),
-                        &published.active.bitmap(),
+                        None,
                         Some(&prepared.predicates),
                         context,
                         restriction_cache
@@ -2232,7 +2231,7 @@ fn try_exact_segment_ordered_page(
                 |members| members.view().intersect_bitmap(&bounds.must),
             )
         } else {
-            published.active.bitmap()
+            published.active.bitmap()?
         };
         let evidence = if query.options.evidence {
             if matches!(filter, Some(BoundExpr::And(_))) && candidates.len() <= 4 {
@@ -2785,7 +2784,7 @@ fn search_segmented_impl(
                 .is_some_and(excludes_raw_fallback)
                 .then(|| read_slot_members(segment, SegmentSlotFact::Logical))
                 .transpose()?;
-            let domain = published.active.bitmap();
+            let domain = published.active.bitmap()?;
             let text_term = entry.text_term;
             let text_estimate = fts
                 .as_ref()
@@ -2868,7 +2867,7 @@ fn search_segmented_impl(
                             filter,
                             collection,
                             Some(catalog),
-                            filter_input.as_ref(),
+                            Some(filter_input.as_ref()),
                             Some(&predicates),
                             context,
                             restriction_cache
@@ -3609,7 +3608,7 @@ fn search_segmented_impl(
                         if let Some(context) = context {
                             context.check_string()?;
                         }
-                        if !published.active.contains(RecordSlot(slot)) {
+                        if !published.active.contains(RecordSlot(slot))? {
                             return Err("inactive segment scan slot".into());
                         }
                         let record = read_file_range_record(segment, RecordSlot(slot))?;
@@ -4241,16 +4240,19 @@ fn stream_backing_for_hit(
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
 ) -> Result<StreamBacking, String> {
-    if repo.collections[collection_index]
-        .base_slot_for_record(hit.record_id.as_str())?
-        .is_some_and(|slot| base_active[collection_index].contains(slot))
+    if base_active[collection_index]
+        .filter_slot(
+            repo.collections[collection_index].base_slot_for_record(hit.record_id.as_str())?,
+        )?
+        .is_some()
     {
         return Ok(StreamBacking::File);
     }
     for published in segments[collection_index].iter() {
         if published
-            .slot_for_record(&hit.record_id)?
-            .is_some_and(|slot| published.active.contains(slot))
+            .active
+            .filter_slot(published.slot_for_record(&hit.record_id)?)?
+            .is_some()
         {
             return Ok(match published.backing_kind() {
                 RecordBacking::FileRange => StreamBacking::File,
@@ -4369,7 +4371,7 @@ fn push_lifecycle_order_cursor<'a>(
 ) -> Result<(), String> {
     let published = &segments[collection_index][segment_index];
     while let Some(slot) = order.next_slot().map_err(|error| error.to_string())? {
-        if !published.active.contains(slot)
+        if !published.active.contains(slot)?
             || candidates[collection_index][segment_index]
                 .as_ref()
                 .is_some_and(|may| !may.contains(slot.0))
@@ -4585,7 +4587,7 @@ fn try_lifecycle_ordered_stream(
                 filter
                     .as_ref()
                     .map(|filter| {
-                        let active = segment.active.bitmap();
+                        let active = segment.active.bitmap()?;
                         let bounds = segment_filter_bounds_with_routes(
                             segment.id,
                             segment.as_ref(),
@@ -4593,7 +4595,7 @@ fn try_lifecycle_ordered_stream(
                             filter,
                             collection,
                             Some(catalog),
-                            &active,
+                            Some(&active),
                             Some(&predicates),
                             Some(context),
                             restriction_cache
@@ -4603,7 +4605,7 @@ fn try_lifecycle_ordered_stream(
                         )?;
                         let logical = read_slot_members(segment, SegmentSlotFact::Logical)?
                             .view()
-                            .intersect_bitmap(&segment.active.bitmap());
+                            .intersect_bitmap(&segment.active.bitmap()?);
                         filter_exact[collection_index][segment_index] = bounds.may == bounds.must
                             || (excludes_raw_fallback(filter)
                                 && (bounds.may.as_ref() & &logical)
@@ -4626,7 +4628,7 @@ fn try_lifecycle_ordered_stream(
                 .as_ref()
                 .zip(entry.text_term)
                 .map(|(fts, term)| {
-                    let active = segment.active.bitmap();
+                    let active = segment.active.bitmap()?;
                     let input = filter_may
                         .as_ref()
                         .map_or(&active, |filter| filter.as_ref());
@@ -5830,11 +5832,11 @@ fn collection_domain(
     collection: &CollectionState,
     collection_index: usize,
     active: Option<&[ActiveRecords]>,
-) -> RoaringBitmap {
-    active.map_or_else(
-        || (0..collection.base_slot_count() as u32).collect(),
-        |domains| domains[collection_index].bitmap(),
-    )
+) -> Result<RoaringBitmap, String> {
+    match active {
+        Some(domains) => Ok(domains[collection_index].bitmap()?),
+        None => Ok((0..collection.base_slot_count() as u32).collect()),
+    }
 }
 
 #[cfg(test)]
@@ -7194,7 +7196,7 @@ fn search_impl_with_resolved_sort<'a>(
         let diagnostics = traces.is_some();
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
-        let domain = collection_domain(collection, collection_index, active);
+        let domain = collection_domain(collection, collection_index, active)?;
         let prepared_text_estimate = entry
             .text_term
             .map(|term| {

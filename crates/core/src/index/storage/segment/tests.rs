@@ -28,13 +28,19 @@ impl SegmentReader for RecordTable {
         }
     }
 
-    fn active_fallback_count(&self, active: &ActiveRecords) -> u64 {
+    fn total_fallback_count(&self) -> u64 {
         self.rows
             .iter()
-            .filter(|(header, _)| {
-                header.class == RecordClass::RawFallback && active.contains(header.slot)
-            })
+            .filter(|(header, _)| header.class == RecordClass::RawFallback)
             .count() as u64
+    }
+
+    fn active_fallback_count(&self, active: &ActiveRecords) -> StorageResult<u64> {
+        self.rows.iter().try_fold(0, |count, (header, _)| {
+            let fallback =
+                header.class == RecordClass::RawFallback && active.contains(header.slot)?;
+            Ok(count + u64::from(fallback))
+        })
     }
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {

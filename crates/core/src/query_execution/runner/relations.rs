@@ -226,7 +226,7 @@ fn collect_relation_target_ids(
         let Some(mut may) = target_candidates(published, target)? else {
             return Ok(None);
         };
-        may &= published.active.bitmap();
+        may = published.active.intersect_bitmap(&may)?;
         candidate_count += may.len();
         active_count += published.active.len();
         selections.push(may);
@@ -398,10 +398,10 @@ fn relation_source_candidates(
     } else {
         read_slot_members(published, SegmentSlotFact::Logical)?
             .view()
-            .subtract_from(&published.active.bitmap())
+            .subtract_from(&published.active.bitmap()?)
     };
     union_relation_matches(found.slots, &mut may, published.descriptor().slots)?;
-    may &= published.active.bitmap();
+    may = published.active.intersect_bitmap(&may)?;
     Ok(Some(Arc::new(may)))
 }
 
@@ -717,7 +717,7 @@ fn try_direct_relation_page(
             // logical source domain used by the relation reverse posting.
             let logical = read_slot_members(published, SegmentSlotFact::Logical)?
                 .view()
-                .intersect_bitmap(&published.active.bitmap());
+                .intersect_bitmap(&published.active.bitmap()?);
             let may = bounds.may.as_ref() & &logical;
             let must = bounds.must.as_ref() & &logical;
             if may != must {
@@ -811,11 +811,11 @@ fn try_direct_relation_page(
             }
             DirectRelationPredicate::Fts(local) => (
                 segment_fts_candidates(published.id, segment, target_collection, local)?
-                    .unwrap_or_else(|| published.active.bitmap()),
+                    .map_or_else(|| published.active.bitmap(), Ok)?,
                 None,
             ),
         };
-        let may = &may & &published.active.bitmap();
+        let may = &may & &published.active.bitmap()?;
         counters.relation_target_candidates += may.len();
         if let Some(context) = context {
             context.check_slots(counters.relation_target_candidates)?;
@@ -1109,7 +1109,7 @@ fn try_direct_relation_page(
             union_relation_matches(found.slots, &mut matches, published.descriptor().slots)?;
             matches
         };
-        may &= published.active.bitmap();
+        may = published.active.intersect_bitmap(&may)?;
         may = read_slot_members(published, SegmentSlotFact::Logical)?
             .view()
             .intersect_bitmap(&may);
@@ -1432,13 +1432,13 @@ fn try_semijoin_relation_page(
             )?;
             let logical = read_slot_members(published, SegmentSlotFact::Logical)?
                 .view()
-                .intersect_bitmap(&published.active.bitmap());
+                .intersect_bitmap(&published.active.bitmap()?);
             if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
                 return Ok(None);
             }
             bounds.must.as_ref() & &logical
         } else {
-            published.active.bitmap().clone()
+            published.active.bitmap()?.clone()
         };
         let may = read_slot_members(published, SegmentSlotFact::Logical)?
             .view()
@@ -1987,7 +1987,7 @@ fn try_parallel_relation_page(
             let mut selected_files = HashSet::new();
             for slot_number in candidates.iter() {
                 let slot = RecordSlot(slot_number);
-                if !published.active.contains(slot) {
+                if !published.active.contains(slot)? {
                     continue;
                 }
                 let record = super::read_file_range_record(published, slot)?;
@@ -2019,7 +2019,7 @@ fn try_parallel_relation_page(
             let mut multiple = false;
             visit_checked_file_slots(published, file.id, &mut |slots| {
                 for &slot in slots {
-                    if published.active.contains(slot)
+                    if published.active.contains(slot)?
                         && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
                         && selected.replace(slot).is_some()
                     {
@@ -2285,7 +2285,7 @@ fn native_truth_from_ids(
         let mut found = None;
         for (segment_index, published) in segments.iter().enumerate() {
             if let Some(slot) = published.slot_for_record(&id)?
-                && published.active.contains(slot)
+                && published.active.contains(slot)?
             {
                 if found.is_some() {
                     return Err("duplicate native relation source ID".into());
@@ -2313,12 +2313,11 @@ fn active_segment_ids(segments: &[Arc<PublishedSegment>]) -> Result<HashSet<Stri
     let mut ids = HashSet::new();
     for segment in segments {
         visit_record_headers(segment.as_ref(), |headers| {
-            ids.extend(
-                headers
-                    .iter()
-                    .filter(|record| segment.active.contains(record.slot))
-                    .map(|record| record.id.0.to_string()),
-            );
+            for record in headers {
+                if segment.active.contains(record.slot)? {
+                    ids.insert(record.id.0.to_string());
+                }
+            }
             Ok::<_, String>(())
         })?;
     }
@@ -2406,7 +2405,7 @@ fn native_multi_hop_truth(
         if hop.direction == crate::query::binding::relation::HopDirection::Forward {
             for published in segments[hop.from.0 as usize].iter() {
                 let relation = required_segment_relation(published.as_ref(), hop.relation.ordinal)?;
-                for slot in published.active.bitmap().iter() {
+                for slot in published.active.bitmap()?.iter() {
                     let record = published
                         .header(RecordSlot(slot))?
                         .ok_or("multi-hop source slot missing")?;
@@ -2424,7 +2423,7 @@ fn native_multi_hop_truth(
             let active_sources = active_segment_ids(&segments[hop.from.0 as usize])?;
             for published in segments[hop.to.0 as usize].iter() {
                 let relation = required_segment_relation(published.as_ref(), hop.relation.ordinal)?;
-                for slot in published.active.bitmap().iter() {
+                for slot in published.active.bitmap()?.iter() {
                     let record = published
                         .header(RecordSlot(slot))?
                         .ok_or("multi-hop backlink slot missing")?;
@@ -2508,7 +2507,7 @@ fn native_boolean_truth(
                 for published in segments[hop.from.0 as usize].iter() {
                     let relation =
                         required_segment_relation(published.as_ref(), hop.relation.ordinal)?;
-                    for slot in published.active.bitmap().iter() {
+                    for slot in published.active.bitmap()?.iter() {
                         let slot = RecordSlot(slot);
                         if relation.source_unavailable(slot)? {
                             return Ok(None);
@@ -2708,7 +2707,7 @@ fn try_exact_native_boolean_page(
     }
     let mut universe = NativeTruth::empty(segments[collection_index].len());
     for (segment_index, published) in segments[collection_index].iter().enumerate() {
-        for slot in published.active.bitmap().iter() {
+        for slot in published.active.bitmap()?.iter() {
             if let Some(context) = context {
                 context.check_string()?;
             }
@@ -2968,7 +2967,7 @@ fn try_native_relation_scan(
         };
         let projection = source_projection.as_ref().unwrap_or(&full_projection);
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
-            let active_bitmap = published.active.bitmap();
+            let active_bitmap = published.active.bitmap()?;
             let mut active_slots = active_bitmap.iter();
             loop {
                 let chunk = active_slots
@@ -3773,7 +3772,7 @@ pub(super) fn search_segmented_relations(
             let mut ranges = Vec::new();
             collection.visit_base_file_slots(file_id, &mut |slots| {
                 for &slot in slots {
-                    if base_active[collection_index].contains(slot) {
+                    if base_active[collection_index].contains(slot)? {
                         ranges.push((slot.0, collection.base_record(slot)?.range));
                     }
                 }
@@ -3865,7 +3864,7 @@ pub(super) fn search_segmented_relations(
                 ranges.clear();
                 visit_checked_file_slots(published.as_ref(), file, &mut |slots| {
                     for &slot in slots {
-                        if published.active.contains(slot)
+                        if published.active.contains(slot)?
                             && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
                         {
                             let range = published
@@ -3920,7 +3919,7 @@ pub(super) fn search_segmented_relations(
                 let mut selected = std::collections::BTreeSet::new();
                 for number in may.iter() {
                     let slot = RecordSlot(number);
-                    if !published.active.contains(slot) {
+                    if !published.active.contains(slot)? {
                         continue;
                     }
                     let locator = published
@@ -4352,7 +4351,7 @@ pub(crate) fn explain_segmented(
                             .view()
                             .intersection_len(
                                 crate::query_access::membership::MembershipView::Borrowed(
-                                    &published.active.bitmap(),
+                                    &published.active.bitmap()?,
                                 ),
                             ),
                     );

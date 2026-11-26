@@ -127,7 +127,7 @@ pub(crate) fn project_active_checked(
     }
     let mut used = roaring::RoaringBitmap::new();
     for (old, translated) in result.old_to_new.iter().enumerate() {
-        let live = active.contains(RecordSlot(old as u32));
+        let live = active.contains(RecordSlot(old as u32))?;
         match translated {
             Some(slot) if live && u64::from(slot.0) < active.len() && used.insert(slot.0) => {}
             None if !live => {}
@@ -177,7 +177,7 @@ pub(crate) fn translate_active(
             return Err(invalid("consolidation active-mask coverage mismatch"));
         }
         for slot in 0..mask.slot_count() {
-            if !mask.contains(RecordSlot(slot)) {
+            if !mask.contains(RecordSlot(slot))? {
                 retired.push(RecordSlot(
                     start
                         .checked_add(slot)

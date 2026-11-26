@@ -257,8 +257,8 @@ fn prepare_with_limits(
                 .ok_or("relation reader missing")?;
             let mut next = RoaringBitmap::new();
             for slot in current.iter() {
-                if active
-                    .is_some_and(|domains| !domains[hop.from.0 as usize].contains(RecordSlot(slot)))
+                if let Some(domains) = active
+                    && !domains[hop.from.0 as usize].contains(RecordSlot(slot))?
                 {
                     continue;
                 }
@@ -295,11 +295,11 @@ fn prepare_with_limits(
                             execution,
                         ));
                     }
-                    let target = repo.collections[hop.to.0 as usize]
-                        .base_slot_for_record(&target_id)?
-                        .filter(|slot| {
-                            active.is_none_or(|domains| domains[hop.to.0 as usize].contains(*slot))
-                        });
+                    let mut target =
+                        repo.collections[hop.to.0 as usize].base_slot_for_record(&target_id)?;
+                    if let Some(domains) = active {
+                        target = domains[hop.to.0 as usize].filter_slot(target)?;
+                    }
                     if let Some(target) = target
                         && next.insert(target.0)
                         && max_retained_bytes.is_some()
@@ -384,11 +384,8 @@ fn prepare_with_limits(
         let collection = &repo.collections[collection_id.0 as usize];
         let mut grouped = BTreeMap::<FileId, Vec<(u32, crate::inventory::ByteRange)>>::new();
         for slot in slots.iter() {
-            if execution
-                .and_then(ExecutionContext::active_records)
-                .is_some_and(|domains| {
-                    !domains[collection_id.0 as usize].contains(RecordSlot(slot))
-                })
+            if let Some(domains) = execution.and_then(ExecutionContext::active_records)
+                && !domains[collection_id.0 as usize].contains(RecordSlot(slot))?
             {
                 continue;
             }

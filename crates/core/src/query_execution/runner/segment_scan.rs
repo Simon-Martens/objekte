@@ -252,7 +252,7 @@ pub(super) fn scan_segment_file_parallel(
         let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
         result.bytes_read += bytes_read;
         for (slot, bytes) in read {
-            if !published.active.contains(RecordSlot(slot)) {
+            if !published.active.contains(RecordSlot(slot))? {
                 return Err("inactive segment scan slot".into());
             }
             let record = super::read_file_range_record(segment, RecordSlot(slot))?;

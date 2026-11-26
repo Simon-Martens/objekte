@@ -137,7 +137,7 @@ pub(super) fn verify_old_content_with_layout(
         base_owned |= collection.base_contains_file(handle.file_id)?;
         collection.visit_base_file_slots(handle.file_id, &mut |slots| {
             for &slot in slots {
-                if view.0.active[number].contains(slot) {
+                if view.0.active[number].contains(slot)? {
                     let record = collection.base_record(slot)?;
                     current.push((
                         *collection_id,
@@ -174,7 +174,7 @@ pub(super) fn verify_old_content_with_layout(
             let mut layout_known = true;
             visit_checked_file_slots(shard.as_ref().as_ref(), handle.file_id, &mut |slots| {
                 for &slot in slots {
-                    if !shard.active.contains(slot) {
+                    if !shard.active.contains(slot)? {
                         continue;
                     }
                     let header = shard.header(slot)?;
@@ -311,14 +311,14 @@ fn verified_slot_replacement(
     let Some(slot) = unique_file_slot(old, file)? else {
         return Ok(None);
     };
-    if !old.active.contains(slot) {
+    if !old.active.contains(slot)? {
         return Ok(None);
     }
     let group = next.segment_group(collection.0 as usize)?;
     let Some(old_position) = group.iter().position(|shard| shard.id == old.id) else {
         return Ok(None);
     };
-    if group[old_position].active.contains(slot) {
+    if group[old_position].active.contains(slot)? {
         return Ok(None);
     }
     let mut newest = None;
@@ -340,7 +340,7 @@ fn verified_slot_replacement(
     if replacement.descriptor().slots != 1
         || replacement.file_count() != 1
         || replacement.active.len() != 1
-        || !replacement.active.contains(new_slot)
+        || !replacement.active.contains(new_slot)?
         || old_source.adapter != new_source.adapter
         || old_source.version != new_source.version
         || unique_file_slot(replacement, file)? != Some(new_slot)

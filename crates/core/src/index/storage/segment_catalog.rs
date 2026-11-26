@@ -98,6 +98,7 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
 
     /// Observations from metadata captured in this immutable revision.
     fn record_counts(&self) -> SegmentRecordCounts;
+    fn active_fallback_count(&self) -> StorageResult<u64>;
     fn estimates(&self) -> DirectoryEstimates;
     fn visit_summaries(&self, visit: &mut dyn FnMut(NativeSegmentSummary));
     fn visit_index_families(
@@ -122,7 +123,6 @@ pub(crate) struct SegmentRecordCounts {
     pub slots: u64,
     pub live: u64,
     pub live_segments: u64,
-    pub fallback: u64,
 }
 
 impl SegmentRecordCounts {
@@ -134,7 +134,6 @@ impl SegmentRecordCounts {
             counts.slots += u64::from(segment.active.slot_count());
             counts.live += segment.active.len();
             counts.live_segments += u64::from(segment.active.len() != 0);
-            counts.fallback += segment.active_fallback_count(&segment.active);
         }
         counts
     }
@@ -247,7 +246,7 @@ pub(crate) fn visit_live_routes(
     visit_record_headers(reader, |headers| {
         let mut rows = SmallVec::<[_; 64]>::new();
         for header in headers {
-            if live.contains(header.slot) {
+            if live.contains(header.slot)? {
                 rows.push((&header.id, header.slot));
                 emitted += 1;
                 if rows.len() == rows.inline_size() {

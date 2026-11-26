@@ -164,8 +164,8 @@ fn consolidation_matches_direct_admission_without_source_files() {
         )
         .unwrap();
     assert_eq!(active.len(), 3);
-    assert!(!active.contains(RecordSlot(3)));
-    assert!(active.contains(RecordSlot(2)));
+    assert!(!active.contains(RecordSlot(3)).unwrap());
+    assert!(active.contains(RecordSlot(2)).unwrap());
     let merged = merged.index;
     assert_eq!(merged.records.len(), 4);
     assert_eq!(
@@ -397,10 +397,10 @@ fn consolidation_translates_independent_local_zero_slots() {
         .unwrap();
     assert_eq!(consolidated.offsets, [0, 2]);
     assert_eq!(active.len(), 3);
-    assert!(active.contains(RecordSlot(0)));
-    assert!(active.contains(RecordSlot(1)));
-    assert!(!active.contains(RecordSlot(2)));
-    assert!(active.contains(RecordSlot(3)));
+    assert!(active.contains(RecordSlot(0)).unwrap());
+    assert!(active.contains(RecordSlot(1)).unwrap());
+    assert!(!active.contains(RecordSlot(2)).unwrap());
+    assert!(active.contains(RecordSlot(3)).unwrap());
     assert_eq!(consolidated.index.records[0].id, first_ids[0]);
     assert_eq!(consolidated.index.records[1].id, first_ids[1]);
     assert_eq!(consolidated.index.records[2].id, second_ids[0]);

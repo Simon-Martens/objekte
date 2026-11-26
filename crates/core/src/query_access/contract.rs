@@ -65,6 +65,19 @@ impl fmt::Display for AccessError {
 
 impl std::error::Error for AccessError {}
 
+impl From<crate::index::storage::transfer::StorageError> for AccessError {
+    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
+        use crate::index::storage::transfer::StorageError;
+        match error {
+            StorageError::Cancelled => Self::Cancelled,
+            StorageError::ResourceLimit(message) => Self::Resource(message),
+            StorageError::OversizedItem { .. } => Self::Resource(error.to_string()),
+            StorageError::Unsupported { .. } => Self::CapabilityUnavailable,
+            StorageError::InvalidTransfer { .. } => Self::Io(error.to_string()),
+        }
+    }
+}
+
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub(crate) struct ProviderId(pub(crate) u32);
 
@@ -132,15 +145,15 @@ impl<'a> Restriction<'a> {
         }
     }
 
-    pub(crate) fn bounds(possible: SlotInput<'a>, proven: SlotInput<'a>) -> Self {
+    pub(crate) fn bounds(possible: SlotInput<'a>, proven: SlotInput<'a>) -> AccessResult<Self> {
         let proven = if proven.is_empty() {
             Proven::None
-        } else if proven.same_members(&possible).unwrap_or(false) {
+        } else if proven.same_members(&possible)? {
             Proven::All
         } else {
             Proven::Subset(proven)
         };
-        Self { possible, proven }
+        Ok(Self { possible, proven })
     }
 
     pub(crate) fn domain(&self) -> crate::query_access::membership::DomainId {
@@ -155,11 +168,11 @@ impl<'a> Restriction<'a> {
         self.possible.is_empty()
     }
 
-    pub(crate) fn contains(&self, slot: u32) -> bool {
+    pub(crate) fn contains(&self, slot: u32) -> AccessResult<bool> {
         self.possible.contains(slot)
     }
 
-    pub(crate) fn iter(&self) -> crate::query_access::membership::MembershipIter<'_> {
+    pub(crate) fn iter(&self) -> AccessResult<crate::query_access::membership::MembershipIter<'_>> {
         self.possible.iter()
     }
 

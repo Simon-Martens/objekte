@@ -599,7 +599,8 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
     }
 
     /// Poll counters using immutable, already captured slot information.
-    fn active_fallback_count(&self, active: &ActiveRecords) -> u64;
+    fn total_fallback_count(&self) -> u64;
+    fn active_fallback_count(&self, active: &ActiveRecords) -> StorageResult<u64>;
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>>;
 
@@ -902,7 +903,11 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
         self.payload().composite_orders()
     }
 
-    fn active_fallback_count(&self, active: &ActiveRecords) -> u64 {
+    fn total_fallback_count(&self) -> u64 {
+        self.payload().total_fallback_count()
+    }
+
+    fn active_fallback_count(&self, active: &ActiveRecords) -> StorageResult<u64> {
         self.payload().active_fallback_count(active)
     }
 

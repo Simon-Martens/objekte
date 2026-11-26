@@ -197,13 +197,14 @@ impl IndexAccessProvider for TableText<'_> {
             .iter()
             .min_by_key(|list| list.len())
             .expect("prepared grams");
-        let candidates: Arc<[u32]> = shortest
-            .iter()
-            .filter(|slot| {
-                input.contains(slot.0) && lists.iter().all(|list| list.binary_search(slot).is_ok())
-            })
-            .map(|slot| slot.0)
-            .collect();
+        let candidates: Arc<[u32]> = input
+            .filter_members(
+                shortest
+                    .iter()
+                    .filter(|slot| lists.iter().all(|list| list.binary_search(slot).is_ok()))
+                    .map(|slot| slot.0),
+            )?
+            .into();
         self.control
             .text_applications
             .fetch_add(1, Ordering::Relaxed);
@@ -1042,7 +1043,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     };
     assert_eq!(source.active.len(), 4);
     assert_eq!(source.descriptor().slots, 5);
-    assert!(!source.active.contains(RecordSlot(0)));
+    assert!(!source.active.contains(RecordSlot(0)).unwrap());
     let mut ordered_query = query.clone();
     ordered_query.options.sort = vec![SortField::simple("score", true)];
     ordered_query.options.limit = 2;
@@ -1128,6 +1129,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         let choices = published_table
             .active
             .bitmap()
+            .unwrap()
             .iter()
             .map(|slot| {
                 make_partition(
@@ -1229,7 +1231,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         crate::query_execution::restrictions::estimate_plan_expr(collection, &filter, 5).unwrap();
     assert!(estimate.exact);
     assert_eq!(estimate.candidates, 4);
-    let active = flat_pin.0.active[0].bitmap();
+    let active = flat_pin.0.active[0].bitmap().unwrap();
     let applications = factory.independent_applications.load(Ordering::Relaxed);
     let plan = crate::query_execution::restrictions::plan_expr_restricted(
         flat_pin.repository(),

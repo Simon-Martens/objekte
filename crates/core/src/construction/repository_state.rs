@@ -495,7 +495,7 @@ fn summarize_published_collection(
                     .map(|slot| base + slot),
             )
             .map_err(|_| "out of order structural facts")?;
-        let fallback_count = segment.active_fallback_count(&segment.active);
+        let fallback_count = segment.active_fallback_count(&segment.active)?;
         fallback += fallback_count as usize;
         if fallback_count == 0 {
             continue;

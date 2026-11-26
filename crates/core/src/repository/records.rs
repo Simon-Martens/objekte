@@ -64,7 +64,9 @@ impl Repository {
         let Some(slot) = collection.base_slot_for_record(record_id)? else {
             return Ok(None);
         };
-        if active.is_some_and(|domains| !domains[collection_index].contains(slot)) {
+        if let Some(domains) = active
+            && !domains[collection_index].contains(slot)?
+        {
             return Ok(None);
         }
         let record = collection.base_record(slot)?;
@@ -161,7 +163,7 @@ impl Repository {
                     .placement_at(found.position)?
                     .filter(|placement| placement.id == found.route.segment)
                     .ok_or("diagnostic route points to another segment")?;
-                if segment.active.contains(found.route.slot) {
+                if segment.active.contains(found.route.slot)? {
                     hit.remap_segment_diagnostic(
                         segment.as_ref().as_ref(),
                         &self.catalog,
@@ -173,7 +175,7 @@ impl Repository {
         }
         for segment in self.segment_groups()?[collection].iter() {
             if let Some(slot) = segment.slot_for_record(&hit.record_id)?
-                && segment.active.contains(slot)
+                && segment.active.contains(slot)?
             {
                 hit.remap_segment_diagnostic(segment.as_ref(), &self.catalog, slot)?;
                 break;

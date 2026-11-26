@@ -269,7 +269,7 @@ pub(crate) fn transfer_records(
             if cancelled() {
                 return Err(StorageError::Cancelled);
             }
-            let live = active.contains(header.slot);
+            let live = active.contains(header.slot)?;
             if matches!(layout, RecordLayout::Dense) && !live {
                 continue;
             }

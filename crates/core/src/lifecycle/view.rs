@@ -521,7 +521,7 @@ impl IndexView {
             .placement_at(found.position)?
             .filter(|segment| segment.id == found.route.segment)
             .ok_or("diagnostic route points to a missing segment")?;
-        if segment.active.contains(found.route.slot) {
+        if segment.active.contains(found.route.slot)? {
             hit.remap_segment_diagnostic(
                 segment.as_ref().as_ref(),
                 &self.0.catalog,
@@ -677,14 +677,11 @@ impl IndexView {
                 IndexError::InvalidPublication("file points to missing collection".into())
             })?;
             collection.visit_base_file_slots(file, &mut |slots| {
-                count += slots
-                    .iter()
-                    .filter(|slot| self.0.active[number].contains(**slot))
-                    .count() as u64;
+                count += self.0.active[number].count(slots)?;
                 Ok(())
             })?;
             self.visit_segment_file_slots(file, *collection_id, &mut |_, active, slots| {
-                count += slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
+                count += active.count(slots)?;
                 Ok(())
             })?;
         }
@@ -1001,14 +998,19 @@ impl IndexView {
             || query.options.offset != 0
             || query.options.count
             || self.0.record_routes.len() != previous.0.record_routes.len()
-            || self
-                .0
-                .active
-                .iter()
-                .zip(&previous.0.active)
-                .any(|(new, old)| new.bitmap() != old.bitmap())
         {
             return Ok(None);
+        }
+        for (new, old) in self.0.active.iter().zip(&previous.0.active) {
+            if new
+                .bitmap()
+                .map_err(|error| context.recorded_error(error.to_string()))?
+                != old
+                    .bitmap()
+                    .map_err(|error| context.recorded_error(error.to_string()))?
+            {
+                return Ok(None);
+            }
         }
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(

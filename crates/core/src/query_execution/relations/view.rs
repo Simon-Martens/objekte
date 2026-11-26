@@ -254,7 +254,7 @@ impl<'a> MergedRelationView<'a> {
         let published = self.segments[address.collection.0 as usize]
             .get(position)
             .ok_or("native segment position is outside the pinned view")?;
-        if !published.active.contains(address.slot) || published.header(address.slot)?.is_none() {
+        if !published.active.contains(address.slot)? || published.header(address.slot)?.is_none() {
             return Err("native segment address is not active in the pinned view".into());
         }
         Ok(MergedRecordSlot {
@@ -274,7 +274,7 @@ impl<'a> MergedRelationView<'a> {
         let published = self.segments[address.collection.0 as usize]
             .get(position)
             .ok_or("merged segment position is outside the pinned view")?;
-        if !published.active.contains(address.slot) || published.header(address.slot)?.is_none() {
+        if !published.active.contains(address.slot)? || published.header(address.slot)?.is_none() {
             return Err("merged segment address is not active in the pinned view".into());
         }
         Ok(Some(SegmentRecordAddress {
@@ -312,7 +312,7 @@ impl<'a> MergedRelationView<'a> {
             let published = self.segments[index]
                 .get(segment_index)
                 .ok_or("merged segment missing")?;
-            if !published.active.contains(address.slot) {
+            if !published.active.contains(address.slot)? {
                 return Ok(None);
             }
             return published
@@ -321,7 +321,7 @@ impl<'a> MergedRelationView<'a> {
                 .map(Some)
                 .ok_or_else(|| "merged segment slot missing".into());
         }
-        if !self.base_active[index].contains(address.slot) {
+        if !self.base_active[index].contains(address.slot)? {
             return Ok(None);
         }
         let record = self.repo.collections[index].base_record(address.slot)?;
@@ -383,7 +383,7 @@ impl<'a> MergedRelationView<'a> {
         let published = self.segments[address.collection.0 as usize]
             .get(position)
             .ok_or("native segment missing")?;
-        if !published.active.contains(address.slot) {
+        if !published.active.contains(address.slot)? {
             return Ok(None);
         }
         let segment = &published.index;
@@ -422,8 +422,10 @@ impl<'a> MergedRelationView<'a> {
         let published = self.segments[address.collection.0 as usize]
             .get(position)
             .ok_or("native provider segment missing")?;
-        if slots.iter().any(|slot| !published.active.contains(*slot)) {
-            return Err("native provider slot retired".into());
+        for &slot in slots {
+            if !published.active.contains(slot)? {
+                return Err("native provider slot retired".into());
+            }
         }
         crate::query_execution::runner::read_provider_batch(
             self.repo,
@@ -488,7 +490,7 @@ impl<'a> MergedRelationView<'a> {
                 })
             });
         }
-        if !self.base_active[index].contains(address.slot) {
+        if !self.base_active[index].contains(address.slot)? {
             return Ok(None);
         }
         let record = collection.base_record(address.slot)?;
@@ -520,7 +522,7 @@ impl<'a> MergedRelationView<'a> {
             .ok_or("merged target collection missing")?;
         let mut found = None;
         if let Some(slot) = state.base_slot_for_record(id)?
-            && self.base_active[index].contains(slot)
+            && self.base_active[index].contains(slot)?
         {
             found = Some(MergedRecordSlot {
                 collection,
@@ -530,7 +532,7 @@ impl<'a> MergedRelationView<'a> {
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
             if let Some(slot) = published.slot_for_record(id)?
-                && published.active.contains(slot)
+                && published.active.contains(slot)?
             {
                 if found.is_some() {
                     return Err("duplicate active merged record ID".into());
@@ -593,12 +595,10 @@ impl<'a> MergedRelationView<'a> {
                 let slots = slots
                     .explicit_view()
                     .ok_or("reverse relation membership missing")?;
-                for slot in slots
-                    .iter()
-                    .map(RecordSlot)
-                    .filter(|slot| self.base_active[index].contains(*slot))
-                {
-                    add(None, slot);
+                for slot in slots.iter().map(RecordSlot) {
+                    if self.base_active[index].contains(slot)? {
+                        add(None, slot);
+                    }
                 }
             }
         }
@@ -933,7 +933,7 @@ impl<'a> MergedRelationView<'a> {
         let base_count = state.base_slot_count();
         for slot in 0..base_count {
             let slot = RecordSlot(slot as u32);
-            if self.base_active[collection_index].contains(slot) {
+            if self.base_active[collection_index].contains(slot)? {
                 addresses.push(MergedRecordSlot {
                     collection,
                     segment: None,
@@ -944,7 +944,7 @@ impl<'a> MergedRelationView<'a> {
         for (segment, published) in self.segments[collection_index].iter().enumerate() {
             for slot in 0..published.descriptor().slots {
                 let slot = RecordSlot(slot as u32);
-                if published.active.contains(slot) {
+                if published.active.contains(slot)? {
                     addresses.push(MergedRecordSlot {
                         collection,
                         segment: Some(segment),
@@ -977,19 +977,17 @@ fn visit_reverse_sources(
         {
             return Err("reverse relation source is outside its domain".into());
         }
-        for slot in members
-            .iter()
-            .map(RecordSlot)
-            .filter(|&slot| active.contains(slot))
-        {
-            visit(slot);
+        for slot in members.iter().map(RecordSlot) {
+            if active.contains(slot)? {
+                visit(slot);
+            }
         }
         return Ok(());
     }
     let relation = source
         .relation(ordinal)?
         .ok_or("backlink relation reader missing")?;
-    for slot in active.bitmap().iter().map(RecordSlot) {
+    for slot in active.bitmap()?.iter().map(RecordSlot) {
         let mut found = false;
         relation.visit_targets(slot, &mut |id, _| {
             found = id == target_id;
@@ -1009,7 +1007,7 @@ pub(super) fn read_reference_value(
     work: &mut RelationWork,
 ) -> Result<Option<crate::model::Value>, String> {
     let collection = &repo.collections[collection_index];
-    if !work.is_active(collection.collection_id(), slot) {
+    if !work.is_active(collection.collection_id(), slot)? {
         return Ok(None);
     }
     let record = collection.base_record(slot)?;

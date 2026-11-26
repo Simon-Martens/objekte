@@ -250,7 +250,7 @@ fn segment_target_candidates(
     let collection = &repo.collections[target_index];
     let mut may = RoaringBitmap::new();
     for published in segments[target_index].iter() {
-        let domain = published.active.bitmap();
+        let domain = published.active.bitmap()?;
         let input = restricted.map_or_else(|| domain.clone(), |slots| &domain & slots);
         if input.is_empty() {
             continue;
@@ -296,7 +296,7 @@ fn segment_fts_target_candidates(
     let collection = &repo.collections[target_index];
     let mut may = RoaringBitmap::new();
     for published in segments[target_index].iter() {
-        let mut input = published.active.bitmap();
+        let mut input = published.active.bitmap()?;
         if let Some(restricted) = restricted {
             let mut mapped = RoaringBitmap::new();
             visit_record_headers(published.as_ref(), |headers| {
@@ -322,7 +322,7 @@ fn segment_fts_target_candidates(
             collection,
             fts,
         )?
-        .unwrap_or_else(|| published.active.bitmap());
+        .map_or_else(|| published.active.bitmap(), Ok)?;
         for slot in (&candidates & &input).iter() {
             let record = published
                 .header(RecordSlot(slot))?
@@ -393,9 +393,12 @@ fn segment_fts_estimate(
             published.as_ref(),
             collection,
             fts,
-        )?
-        .unwrap_or_else(|| published.active.bitmap().clone());
-        candidates = candidates.saturating_add((&may & published.active.bitmap()).len());
+        )?;
+        let count = match may {
+            Some(may) => published.active.intersect_bitmap(&may)?.len(),
+            None => published.active.len(),
+        };
+        candidates = candidates.saturating_add(count);
     }
     Ok(Some((candidates, candidates as f64 * 0.02)))
 }
@@ -566,7 +569,9 @@ fn reachable_targets(
         let target_collection = &repo.collections[hop.to.0 as usize];
         let mut next = RoaringBitmap::new();
         for slot in current.iter().map(RecordSlot) {
-            if source_active.is_some_and(|active| !active.contains(slot)) {
+            if let Some(active) = source_active
+                && !active.contains(slot)?
+            {
                 continue;
             }
             let row = index.forward(slot)?;
@@ -576,7 +581,10 @@ fn reachable_targets(
             for (id, _) in row.targets {
                 visit_edge(work, execution)?;
                 if let Some(target) = target_collection.base_slot_for_record(&id)?
-                    && target_active.is_none_or(|active| active.contains(target))
+                    && target_active
+                        .map(|active| active.contains(target))
+                        .transpose()?
+                        .unwrap_or(true)
                 {
                     next.insert(target.0);
                 }
@@ -604,7 +612,7 @@ fn verified_targets(
         Some(domains) => std::borrow::Cow::Owned(
             logical
                 .view()
-                .intersect_bitmap(&domains[target_index].bitmap()),
+                .intersect_bitmap(&domains[target_index].bitmap()?),
         ),
         None => logical.view().bitmap_for_set_algebra(),
     };
@@ -786,7 +794,7 @@ fn qualified_expression_candidates(
     let collection = &repo.collections[target.0 as usize];
     let mut candidates = SegmentRecordSet::default();
     for segment in view.segments(target)? {
-        let active = segment.active.bitmap();
+        let active = segment.active.bitmap()?;
         let input = if let Some(restricted) = restricted {
             let Some(local) = restricted.local(target, segment.id) else {
                 continue;
@@ -839,7 +847,7 @@ fn qualified_fts_candidates(
     let collection = &repo.collections[target.0 as usize];
     let mut candidates = SegmentRecordSet::default();
     for segment in view.segments(target)? {
-        let mut input = segment.active.bitmap();
+        let mut input = segment.active.bitmap()?;
         if let Some(restricted) = restricted {
             let Some(local) = restricted.local(target, segment.id) else {
                 continue;
@@ -859,7 +867,7 @@ fn qualified_fts_candidates(
             collection,
             fts,
         )?
-        .unwrap_or_else(|| segment.active.bitmap());
+        .map_or_else(|| segment.active.bitmap(), Ok)?;
         let mut local = SegmentRecordSet::default();
         for slot in (&may & &input).iter() {
             local.insert(SegmentRecordAddress {
@@ -1151,7 +1159,8 @@ fn reverse_sources(
         let active = execution.and_then(ExecutionContext::active_records);
         let mut next = RoaringBitmap::new();
         for slot in current.iter() {
-            if active.is_some_and(|domains| !domains[hop.to.0 as usize].contains(RecordSlot(slot)))
+            if let Some(domains) = active
+                && !domains[hop.to.0 as usize].contains(RecordSlot(slot))?
             {
                 continue;
             }
@@ -1169,7 +1178,7 @@ fn reverse_sources(
             ensure_slots(next.len(), execution)?;
         }
         if let Some(domains) = active {
-            next &= domains[hop.from.0 as usize].bitmap();
+            next &= domains[hop.from.0 as usize].bitmap()?;
         }
         current = next;
     }
@@ -1297,7 +1306,7 @@ pub(crate) fn fts_witnesses(
                 .bitmap_for_set_algebra()
                 .into_owned();
             if let Some(active) = execution.and_then(ExecutionContext::active_records) {
-                domain &= active[target_index].bitmap();
+                domain &= active[target_index].bitmap()?;
             }
             ensure_slots(domain.len(), execution)?;
             Some(domain)
@@ -1333,7 +1342,7 @@ pub(crate) fn fts_witnesses(
             let mut address = None;
             for published in segments[hops[0].from.0 as usize].iter() {
                 if let Some(slot) = published.slot_for_record(record.id.0.as_ref())?
-                    && published.active.contains(slot)
+                    && published.active.contains(slot)?
                 {
                     if address.is_some() {
                         return Err("relation source witness has duplicate active address".into());
@@ -1456,7 +1465,10 @@ pub(crate) fn restrict(
                 &AccessExecution { context: execution },
             )
             .map_err(|error| error.to_string())?;
-        current = restriction.possible.into_owned_members();
+        current = restriction
+            .possible
+            .into_owned_members()
+            .map_err(|error| error.to_string())?;
         let work = provider.take_work();
         plan.semijoin_work.add(work);
         plan.proofs.push(Proof {

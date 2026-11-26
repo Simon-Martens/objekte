@@ -36,7 +36,9 @@ use crate::query_access::contract::{
     Restriction,
 };
 use crate::query_access::contract::{PostingId, PostingOperation};
-use crate::query_access::membership::{DomainId, MembershipView, SlotInput, SlotSet};
+use crate::query_access::membership::{
+    DomainId, MembershipView, OperationInput, SlotInput, SlotSet,
+};
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_plan::selection::ordered_offer_ids;
 use crate::query_predicate::{PreparedPredicates, TermId};
@@ -229,12 +231,12 @@ impl RoutedFileRestrictions {
                         .ok_or("file route points to a missing segment")?;
                     prepared.membership_probes += 1;
                     visit_checked_file_slots(segment, file, &mut |slots| {
-                        by_segment.entry(id).or_default().extend(
-                            slots
-                                .iter()
-                                .filter(|slot| segment.active.contains(**slot))
-                                .map(|slot| slot.0),
-                        );
+                        let selected = by_segment.entry(id).or_default();
+                        for &slot in slots {
+                            if segment.active.contains(slot)? {
+                                selected.insert(slot.0);
+                            }
+                        }
                         Ok(())
                     })?;
                 }
@@ -493,28 +495,29 @@ impl<'a> SegmentPlanContext<'a> {
     fn execute_term(
         &mut self,
         term: &BoundTerm,
-        input: &RoaringBitmap,
+        input: OperationInput<'_>,
     ) -> Result<SegmentCandidateBounds, String> {
         let term_id = self.term_id(term);
         if let Some((routed, published_id)) = self.routed
             && let Some(selection) = routed.terms.get(&term_id)
         {
+            let input = input.bitmap().map_err(|error| error.to_string())?;
             let slots = match selection {
                 Some(by_segment) => by_segment
                     .get(&published_id)
-                    .map_or_else(RoaringBitmap::new, |slots| slots & input),
+                    .map_or_else(RoaringBitmap::new, |slots| slots & input.as_ref()),
                 None => {
                     let catalog = self
                         .access
                         .files
                         .expect("routed restriction uses a catalog");
-                    scan_routed_files(self.segment, catalog, term, input)?
+                    scan_routed_files(self.segment, catalog, term, input.as_ref())?
                 }
             };
             return Ok(SegmentCandidateBounds::exact(slots));
         }
         if !self.offers.contains_key(&term_id) {
-            let estimate = self.input_estimate(input.len());
+            let estimate = self.input_estimate(input.len() as u64);
             let offers = self
                 .catalog()
                 .propose(term_id, AccessRequest::Structured(term), estimate)
@@ -531,7 +534,12 @@ impl<'a> SegmentPlanContext<'a> {
                 .cloned()
         };
         let Some(choice) = choice else {
-            return Ok(SegmentCandidateBounds::candidate(input.clone()));
+            return Ok(SegmentCandidateBounds::candidate(
+                input
+                    .bitmap()
+                    .map_err(|error| error.to_string())?
+                    .into_owned(),
+            ));
         };
         let restriction = self
             .catalog()
@@ -554,18 +562,22 @@ impl<'a> SegmentPlanContext<'a> {
                     operator: term.operator,
                     value: format!("{:?}", term.literal),
                     segment: self.segment.descriptor().id.get(),
-                    input: input.iter().collect(),
+                    input: input
+                        .bitmap()
+                        .map_err(|error| error.to_string())?
+                        .iter()
+                        .collect(),
                 };
                 PREDICATE_APPLICATION_OBSERVATIONS
                     .with(|observations| observations.borrow_mut().push(observation));
             }
         }
         let possible = restriction.possible;
-        let may = shared_bitmap_from_slot_input(possible);
+        let may = shared_bitmap_from_slot_input(possible)?;
         let must = match restriction.proven {
             Proven::None => Arc::new(RoaringBitmap::new()),
             Proven::All => Arc::clone(&may),
-            Proven::Subset(proven) => shared_bitmap_from_slot_input(proven),
+            Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
         };
         Ok(SegmentCandidateBounds { may, must })
     }
@@ -592,16 +604,21 @@ impl<'a> SegmentPlanContext<'a> {
     }
 }
 
-fn shared_bitmap_from_slot_input(input: SlotInput<'_>) -> Arc<RoaringBitmap> {
+fn shared_bitmap_from_slot_input(input: SlotInput<'_>) -> Result<Arc<RoaringBitmap>, String> {
     let source = input.operation_input();
-    match input.into_slots() {
-        SlotSet::Unrestricted => Arc::new(source.clone()),
+    Ok(match input.into_slots() {
+        SlotSet::Unrestricted => Arc::new(
+            source
+                .bitmap()
+                .map_err(|error| error.to_string())?
+                .into_owned(),
+        ),
         SlotSet::Empty => Arc::new(RoaringBitmap::new()),
         SlotSet::Borrowed(slots) => Arc::new(slots.clone()),
         SlotSet::Owned(slots) => Arc::new(slots),
         SlotSet::Shared(slots) => slots,
         SlotSet::Sorted(slots) => Arc::new(slots.iter().copied().collect()),
-    }
+    })
 }
 
 impl SegmentCandidateBounds {
@@ -745,35 +762,15 @@ pub(crate) fn segment_filter_bounds_with_catalog(
     collection: &CollectionState,
     catalog: Option<&dyn FileCatalogReader>,
 ) -> Result<SegmentCandidateBounds, String> {
-    let domain = active.bitmap();
-    segment_filter_bounds_with_input_catalog(
+    segment_filter_bounds_with_routes(
         published_id,
         segment,
         active,
         expr,
         collection,
         catalog,
-        &domain,
-    )
-}
-
-pub(crate) fn segment_filter_bounds_with_input_catalog(
-    published_id: SegmentId,
-    segment: &dyn SegmentReader,
-    active: &ActiveRecords,
-    expr: &BoundExpr,
-    collection: &CollectionState,
-    catalog: Option<&dyn FileCatalogReader>,
-    input: &RoaringBitmap,
-) -> Result<SegmentCandidateBounds, String> {
-    segment_filter_bounds_with_input_catalog_and_predicates(
-        published_id,
-        segment,
-        active,
-        expr,
-        collection,
-        catalog,
-        input,
+        None,
+        None,
         None,
         None,
     )
@@ -797,7 +794,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
         expr,
         collection,
         catalog,
-        input,
+        Some(input),
         predicates,
         execution,
         None,
@@ -811,7 +808,7 @@ pub(crate) fn segment_filter_bounds_with_routes(
     expr: &BoundExpr,
     collection: &CollectionState,
     catalog: Option<&dyn FileCatalogReader>,
-    input: &RoaringBitmap,
+    input: Option<&RoaringBitmap>,
     predicates: Option<&PreparedPredicates>,
     execution: Option<&crate::query_execution::streaming::ExecutionContext>,
     routed: Option<(&RoutedFileRestrictions, SegmentId)>,
@@ -821,8 +818,9 @@ pub(crate) fn segment_filter_bounds_with_routes(
     if active.slot_count() as usize != segment.descriptor().slots {
         return Err("segment active domain length mismatch".into());
     }
-    let domain = active.bitmap();
-    if !input.is_subset(&domain) {
+    if let Some(input) = input
+        && !active.includes(input)?
+    {
         return Err("segment restriction exceeds its active domain".into());
     }
     let access = SegmentPredicateAccess {
@@ -835,7 +833,23 @@ pub(crate) fn segment_filter_bounds_with_routes(
         context.predicates = predicates;
         context.execution = execution;
         context.routed = routed;
-        segment_expr_bounds_with_context(expr, &domain, input, &mut context)
+        if let Some(input) = input {
+            return segment_expr_bounds_with_context(expr, active.len(), input, &mut context);
+        }
+        if let BoundExpr::Term(term) = expr
+            && active.borrowed_bitmap().is_none()
+            && active.len() != u64::from(active.slot_count())
+        {
+            return context.execute_term(term, OperationInput::Pinned(active));
+        }
+        let members;
+        let input = if let Some(bitmap) = active.borrowed_bitmap() {
+            bitmap
+        } else {
+            members = active.bitmap()?;
+            &members
+        };
+        segment_expr_bounds_with_context(expr, active.len(), input, &mut context)
     })
 }
 
@@ -1045,11 +1059,11 @@ pub(crate) fn segment_fts_bounds_with_term(
                 )
                 .map_err(|error| error.to_string())?;
             let possible = applied.possible;
-            let may = shared_bitmap_from_slot_input(possible);
+            let may = shared_bitmap_from_slot_input(possible)?;
             let must = match applied.proven {
                 Proven::None => Arc::new(RoaringBitmap::new()),
                 Proven::All => Arc::clone(&may),
-                Proven::Subset(proven) => shared_bitmap_from_slot_input(proven),
+                Proven::Subset(proven) => shared_bitmap_from_slot_input(proven)?,
             };
             Ok(SegmentCandidateBounds { may, must })
         },
@@ -1134,13 +1148,13 @@ fn with_segment_text_offer<T>(
 
 fn segment_expr_bounds_with_context(
     expr: &BoundExpr,
-    domain: &RoaringBitmap,
+    domain_len: u64,
     effective_input: &RoaringBitmap,
     context: &mut SegmentPlanContext<'_>,
 ) -> Result<SegmentCandidateBounds, String> {
     let catalog = context.access.files;
     Ok(match expr {
-        BoundExpr::Term(term) => context.execute_term(term, effective_input)?,
+        BoundExpr::Term(term) => context.execute_term(term, effective_input.into())?,
         BoundExpr::And(parts) => {
             let mut flattened = Vec::new();
             for part in parts {
@@ -1206,7 +1220,7 @@ fn segment_expr_bounds_with_context(
                     &fused_ids,
                     context.access.text.domain,
                     context.access.text.collection.0,
-                    domain.len() as u64,
+                    domain_len,
                     may.len() as u64,
                     must.len() as u64,
                     "fused_file_path_range",
@@ -1227,7 +1241,7 @@ fn segment_expr_bounds_with_context(
                     break;
                 }
                 let part = flattened[index];
-                let child = segment_expr_bounds_with_context(part, domain, &may, context)?;
+                let child = segment_expr_bounds_with_context(part, domain_len, &may, context)?;
                 must &= &*child.must;
                 may = child.may.as_ref().clone();
             }
@@ -1238,7 +1252,7 @@ fn segment_expr_bounds_with_context(
             let mut must = RoaringBitmap::new();
             for part in parts {
                 let child =
-                    segment_expr_bounds_with_context(part, domain, effective_input, context)?;
+                    segment_expr_bounds_with_context(part, domain_len, effective_input, context)?;
                 may |= &*child.may;
                 must |= &*child.must;
             }
@@ -1247,9 +1261,10 @@ fn segment_expr_bounds_with_context(
             SegmentCandidateBounds::bounds(may, must)
         }
         BoundExpr::Not(inner) => {
-            let child = segment_expr_bounds_with_context(inner, domain, effective_input, context)?;
-            let may = ((domain - &*child.must) & effective_input).clone();
-            let must = ((domain - &*child.may) & effective_input).clone();
+            let child =
+                segment_expr_bounds_with_context(inner, domain_len, effective_input, context)?;
+            let may = effective_input - &*child.must;
+            let must = effective_input - &*child.may;
             SegmentCandidateBounds::bounds(may, must)
         }
     })

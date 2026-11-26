@@ -929,7 +929,7 @@ fn visit_hop(
     if !work.is_active(
         repo.collections[collection_index].collection_id(),
         source_slot,
-    ) {
+    )? {
         merge_truth(truth, None, quantifier);
         return Ok(());
     }
@@ -1028,9 +1028,10 @@ fn visit_hop(
                     work.edge()?;
                     selected += 1;
                     let target_slot = if work.has_active_domains() {
-                        target_collection
-                            .base_slot_for_record(id.as_str())?
-                            .filter(|slot| work.is_active(hop.to, *slot))
+                        work.filter_slot(
+                            hop.to,
+                            target_collection.base_slot_for_record(id.as_str())?,
+                        )?
                     } else {
                         let mut target = None;
                         for local in 0..target_collection.base_slot_count() {
@@ -1077,7 +1078,7 @@ fn visit_hop(
                     source_collection.base_identity_order()?,
                 );
                 while let Some(candidate) = identity.next_slot()? {
-                    if !work.is_active(hop.to, candidate) {
+                    if !work.is_active(hop.to, candidate)? {
                         continue;
                     }
                     work.backlink_probe()?;
@@ -1141,9 +1142,10 @@ fn visit_hop(
                 }
                 work.edge()?;
                 selected += 1;
-                let target = repo.collections[hop.to.0 as usize]
-                    .base_slot_for_record(&target_id)?
-                    .filter(|slot| work.is_active(hop.to, *slot));
+                let target = work.filter_slot(
+                    hop.to,
+                    repo.collections[hop.to.0 as usize].base_slot_for_record(&target_id)?,
+                )?;
                 match target {
                     Some(target) => visit_hop(
                         config,
@@ -1184,7 +1186,7 @@ fn visit_hop(
                     // Without a numeric selector, Boolean truth is independent
                     // of identity-order rank. Visit only actual reverse hits.
                     for source in sources.iter() {
-                        if !work.is_active(hop.to, RecordSlot(source)) {
+                        if !work.is_active(hop.to, RecordSlot(source))? {
                             continue;
                         }
                         work.backlink_probe()?;
@@ -1211,7 +1213,7 @@ fn visit_hop(
                         source_collection.base_identity_order()?,
                     );
                     while let Some(source) = identity.next_slot()? {
-                        if !work.is_active(hop.to, source) {
+                        if !work.is_active(hop.to, source)? {
                             continue;
                         }
                         work.backlink_probe()?;

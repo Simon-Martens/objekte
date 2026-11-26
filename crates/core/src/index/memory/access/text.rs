@@ -232,7 +232,7 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
         let slots = {
             let result = native_fts_candidates(self.collection, fts)
                 .ok_or(AccessError::CapabilityUnavailable)?;
-            let input_ref = input.bitmap_for_native();
+            let input_ref = input.bitmap_for_native()?;
             SlotSet::from_owned(result & input_ref.as_ref())
         };
         #[cfg(test)]
@@ -335,7 +335,7 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         let AccessRequest::Text(fts) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
-        let input_ref = input.bitmap_for_native();
+        let input_ref = input.bitmap_for_native()?;
         #[cfg(test)]
         LAST_TEXT_INPUT.with(|value| value.set(input_ref.as_ref() as *const _ as usize));
         let slots = native_segment_fts_candidates_restricted(
@@ -419,7 +419,11 @@ pub(crate) fn prepared_text_candidates(
     if matches!(applied.slots(), SlotSet::Unrestricted) {
         return Ok(None);
     }
-    Ok(Some(applied.into_owned_members()))
+    Ok(Some(
+        applied
+            .into_owned_members()
+            .map_err(|error| error.to_string())?,
+    ))
 }
 
 #[cfg(test)]

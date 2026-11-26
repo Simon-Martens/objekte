@@ -184,11 +184,12 @@ impl RecordRoutes {
         &mut self,
         source: &PublishedSegment,
         payload: &super::segment::IndexedCollectionSegment,
-    ) {
+        all_live: bool,
+    ) -> StorageResult<()> {
         let segment = source.id;
         let shards = Arc::make_mut(&mut self.shards);
         for (id, &slot) in &payload.id_lookup {
-            if source.active.contains(slot) {
+            if all_live || source.active.contains(slot)? {
                 Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
                     .insert(id.clone(), RoutedSlot { segment, slot });
             }
@@ -201,6 +202,7 @@ impl RecordRoutes {
                 .or_default()
                 .push(segment);
         }
+        Ok(())
     }
 
     fn add_segment(
@@ -229,8 +231,11 @@ impl RecordRoutes {
         segment: SegmentId,
     ) -> StorageResult<()> {
         if let Some(payload) = super::segment::maintenance::native_segment(source.index.as_ref()) {
-            self.add_native_routes(source, payload);
-            return Ok(());
+            return self.add_native_routes(
+                source,
+                payload,
+                source.active.len() == u64::from(source.active.slot_count()),
+            );
         }
         let shards = Arc::make_mut(&mut self.shards);
         source.visit_live_records(&mut |rows| {
@@ -378,6 +383,12 @@ impl SegmentCatalogReader for RecordRoutes {
         SegmentRecordCounts::for_segments(self.placements.iter())
     }
 
+    fn active_fallback_count(&self) -> StorageResult<u64> {
+        self.placements.iter().try_fold(0, |sum, segment| {
+            Ok(sum + segment.active_fallback_count(&segment.active)?)
+        })
+    }
+
     fn estimates(&self) -> DirectoryEstimates {
         DirectoryEstimates::for_segments(self.placements.iter())
     }
@@ -420,11 +431,14 @@ impl SegmentCatalogReader for RecordRoutes {
         else {
             return false;
         };
-        if !self.can_append(source.descriptor(), position) {
+        if !self.can_append(source.descriptor(), position)
+            || source.active.len() != u64::from(source.active.slot_count())
+        {
             return false;
         }
         self.append_placement(source, position);
-        self.add_native_routes(source, payload);
+        self.add_native_routes(source, payload, true)
+            .expect("all slots live");
         true
     }
 }

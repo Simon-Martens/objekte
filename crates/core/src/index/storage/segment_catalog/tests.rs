@@ -55,6 +55,7 @@ struct TableFactory {
     order_rows: Arc<AtomicUsize>,
     fail_order_refill: Arc<AtomicBool>,
     liveness_visits: Arc<AtomicUsize>,
+    fail_live_refill: Arc<AtomicBool>,
     worker_calls: AtomicUsize,
     file_worker_calls: AtomicUsize,
     direct_seals: AtomicUsize,
@@ -260,6 +261,7 @@ impl StorageFactory for Arc<TableFactory> {
             count,
             live,
             visits: Arc::clone(&self.liveness_visits),
+            fail_refill: Arc::clone(&self.fail_live_refill),
         }))
     }
 
@@ -934,6 +936,20 @@ struct SortedLiveSlots {
     count: u32,
     live: Vec<u32>,
     visits: Arc<AtomicUsize>,
+    fail_refill: Arc<AtomicBool>,
+}
+
+impl SortedLiveSlots {
+    fn check_page(&self, page: usize) -> StorageResult<()> {
+        self.visits.fetch_add(1, Ordering::Relaxed);
+        if page == 1 && self.fail_refill.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "read sparse liveness",
+                "injected live refill failure",
+            ));
+        }
+        Ok(())
+    }
 }
 
 impl LiveSlotReader for SortedLiveSlots {
@@ -945,15 +961,31 @@ impl LiveSlotReader for SortedLiveSlots {
         self.live.len() as u64
     }
 
-    fn contains(&self, slot: RecordSlot) -> bool {
-        self.live.binary_search(&slot.0).is_ok()
+    fn contains(&self, slot: RecordSlot) -> StorageResult<bool> {
+        if self.live.is_empty() {
+            return Ok(false);
+        }
+        let page = self
+            .live
+            .binary_search(&slot.0)
+            .unwrap_or_else(|next| next.saturating_sub(1))
+            / 2;
+        self.check_page(page)?;
+        let start = page * 2;
+        Ok(self.live[start..(start + 2).min(self.live.len())]
+            .binary_search(&slot.0)
+            .is_ok())
     }
 
-    fn visit_blocks(&self, visit: &mut dyn FnMut(u32, MembershipView<'_>)) {
-        self.visits.fetch_add(1, Ordering::Relaxed);
-        for rows in self.live.chunks(2) {
-            visit(0, MembershipView::Sorted(rows));
+    fn visit_blocks(
+        &self,
+        visit: &mut crate::index::storage::liveness::VisitLiveBlock<'_>,
+    ) -> StorageResult<()> {
+        for (page, rows) in self.live.chunks(2).enumerate() {
+            self.check_page(page)?;
+            visit(0, MembershipView::Sorted(rows))?;
         }
+        Ok(())
     }
 
     fn retired(&self, slots: &[RecordSlot]) -> StorageResult<ActiveRecords> {
@@ -1018,6 +1050,94 @@ fn automatic_consolidation_tries_the_next_eligible_pair_after_decline() {
     }
     assert_eq!(prior.segments(collection).unwrap().len(), 3);
     compacted.shutdown().unwrap();
+    session.finish().unwrap();
+}
+
+#[test]
+fn sparse_paged_liveness_reads_only_the_required_pages() {
+    let factory = Arc::new(TableFactory::default());
+    factory.independent_segments.store(true, Ordering::Relaxed);
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let collection = builder
+        .collection("entries", segments::score_schema())
+        .unwrap();
+    let registration = builder
+        .register_records(collection, "paged-live", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    for slot in 0..8 {
+        batch
+            .insert(
+                format!("row-{slot}"),
+                segments::score(if slot == 0 { 7 } else { 9 }),
+            )
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let mut deletions = writer.batch();
+    for id in ["row-1", "row-3", "row-5", "row-7"] {
+        deletions.delete(id).unwrap();
+    }
+    writer.submit(deletions).unwrap().wait_published().unwrap();
+    let view = index.view().unwrap();
+    let group = view.segments(collection).unwrap();
+    let active = &group[0].active;
+    assert_eq!(active.len(), 4);
+
+    factory.liveness_visits.store(0, Ordering::Relaxed);
+    factory.fail_live_refill.store(true, Ordering::Relaxed);
+    assert!(
+        view.get_record("entries", "row-0", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert_eq!(factory.liveness_visits.load(Ordering::Relaxed), 1);
+    let filter = crate::query::parse_filter("score = 7").unwrap();
+    let collection_state = &view.repository().collections[collection.0 as usize];
+    let bound = crate::query::binding::relation::bind_filter_with_relations(
+        view.repository(),
+        collection.0 as usize,
+        &filter,
+        &mut std::collections::HashMap::new(),
+    )
+    .unwrap();
+    let before = factory.liveness_visits.load(Ordering::Relaxed);
+    let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+        group[0].id,
+        group[0].as_ref(),
+        active,
+        &bound,
+        collection_state,
+        Some(view.0.catalog.as_ref()),
+    )
+    .unwrap();
+    assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [0]);
+    assert_eq!(bounds.may, bounds.must);
+    assert_eq!(factory.liveness_visits.load(Ordering::Relaxed) - before, 1);
+    let required = view
+        .get_record("entries", "row-4", ReturnMode::Locator)
+        .unwrap_err();
+    assert!(required.contains("injected live refill failure"));
+    let before = factory.liveness_visits.load(Ordering::Relaxed);
+    let error = active.bitmap().unwrap_err();
+    assert!(error.to_string().contains("injected live refill failure"));
+    assert_eq!(factory.liveness_visits.load(Ordering::Relaxed) - before, 2);
+
+    factory.fail_live_refill.store(false, Ordering::Relaxed);
+    let native = crate::index::storage::test_factory()
+        .live_records(8, InitialLiveness::All)
+        .unwrap()
+        .retired(&[RecordSlot(1), RecordSlot(3), RecordSlot(5), RecordSlot(7)])
+        .unwrap();
+    assert_eq!(active.bitmap().unwrap(), native.bitmap().unwrap());
+    let denied = [0, 1, 4].into_iter().collect::<roaring::RoaringBitmap>();
+    let sparse = active.bitmap().unwrap() - &denied;
+    assert_eq!(sparse, native.bitmap().unwrap() - denied);
+    assert_eq!(sparse.iter().collect::<Vec<_>>(), [2, 6]);
     session.finish().unwrap();
 }
 
@@ -1182,6 +1302,15 @@ impl SegmentCatalogReader for TableDirectory {
                 .values()
                 .filter_map(|descriptor| self.placements.get(&descriptor.id)),
         )
+    }
+
+    fn active_fallback_count(&self) -> StorageResult<u64> {
+        self.descriptors
+            .values()
+            .filter_map(|descriptor| self.placements.get(&descriptor.id))
+            .try_fold(0, |sum, segment| {
+                Ok(sum + segment.active_fallback_count(&segment.active)?)
+            })
     }
 
     fn estimates(&self) -> DirectoryEstimates {

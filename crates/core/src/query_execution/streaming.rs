@@ -223,6 +223,7 @@ impl ExecutionContext {
     /// A query may recover from a stale-source read by returning an incomplete
     /// result. Clear that recovered failure so a later cancellation or budget
     /// failure in the same execution keeps its own typed error.
+    #[cfg(test)]
     pub(crate) fn clear_recovered_source_changed(&self) {
         if let Ok(mut failure) = self.accounting.first_failure.lock()
             && failure

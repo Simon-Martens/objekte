@@ -591,9 +591,9 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
             .iter()
             .any(|segment| segment.native_payload().records.len() == 192)
     );
-    assert_eq!(current.0.status().live_records, 193);
-    assert_eq!(maintained.0.status().live_records, 192);
-    assert_eq!(pinned.0.status().live_records, 256);
+    assert_eq!(current.0.status().unwrap().live_records, 193);
+    assert_eq!(maintained.0.status().unwrap().live_records, 192);
+    assert_eq!(pinned.0.status().unwrap().live_records, 256);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1263,8 +1263,8 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     assert_eq!(prepared.file.collections.len(), 2);
     assert!(prepared.file.fingerprint.is_some());
     let staged = index.stage_prepared_add(prepared).unwrap();
-    assert_eq!(staged.status().indexed_files, 2);
-    assert_eq!(staged.status().live_records, 6);
+    assert_eq!(staged.status().unwrap().indexed_files, 2);
+    assert_eq!(staged.status().unwrap().live_records, 6);
     assert_eq!(staged.segment_group(0).unwrap().len(), prior_segments + 1);
     assert_eq!(staged.segment_group(1).unwrap().len(), prior_segments + 1);
     assert_eq!(
@@ -1329,8 +1329,8 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     let prepared = index.prepare_replace_file(handle, &new_path).unwrap();
     let staged = index.stage_prepared_replace(prepared).unwrap();
     assert_eq!(staged.revision, before.revision.next().unwrap());
-    assert_eq!(staged.status().indexed_files, 1);
-    assert_eq!(staged.status().live_records, 2);
+    assert_eq!(staged.status().unwrap().indexed_files, 1);
+    assert_eq!(staged.status().unwrap().live_records, 2);
     assert_eq!(staged.active[0].len(), 0);
     assert_eq!(staged.active[1].len(), 0);
     assert_eq!(staged.segment_group(0).unwrap().len(), prior_segments + 1);

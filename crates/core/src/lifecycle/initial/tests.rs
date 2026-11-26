@@ -2125,7 +2125,7 @@ fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
                     let count = segment.native_payload().files[slot]
                         .records
                         .iter()
-                        .filter(|slot| live.contains(**slot))
+                        .filter(|slot| live.contains(**slot).unwrap())
                         .count();
                     (count != 0).then_some(count)
                 })

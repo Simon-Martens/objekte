@@ -10,6 +10,8 @@ use roaring::RoaringBitmap;
 use roaring::bitmap::Iter as RoaringIter;
 
 use super::contract::AccessError;
+use crate::index::storage::liveness::ActiveRecords;
+use crate::model::RecordSlot;
 
 /// The storage owner of a pinned local slot domain.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -219,6 +221,7 @@ impl<'a> MembershipView<'a> {
 pub(crate) enum MembershipIter<'a> {
     Empty,
     Bitmap(RoaringIter<'a>),
+    Owned(roaring::bitmap::IntoIter),
     Sorted(std::iter::Copied<std::slice::Iter<'a, u32>>),
 }
 
@@ -229,6 +232,7 @@ impl Iterator for MembershipIter<'_> {
         match self {
             Self::Empty => None,
             Self::Bitmap(iter) => iter.next(),
+            Self::Owned(iter) => iter.next(),
             Self::Sorted(iter) => iter.next(),
         }
     }
@@ -297,30 +301,89 @@ impl<'a> SlotSet<'a> {
     }
 }
 
+/// The operation's pinned or query-owned input membership.
+#[derive(Clone, Copy, Debug)]
+pub(crate) enum OperationInput<'a> {
+    Bitmap(&'a RoaringBitmap),
+    Pinned(&'a ActiveRecords),
+}
+
+impl<'a> From<&'a RoaringBitmap> for OperationInput<'a> {
+    fn from(bitmap: &'a RoaringBitmap) -> Self {
+        Self::Bitmap(bitmap)
+    }
+}
+
+impl<'a> OperationInput<'a> {
+    fn resident(self) -> Option<&'a RoaringBitmap> {
+        match self {
+            Self::Bitmap(bitmap) => Some(bitmap),
+            Self::Pinned(active) => active.borrowed_bitmap(),
+        }
+    }
+
+    fn same_handle(self, other: Self) -> bool {
+        match (self, other) {
+            (Self::Bitmap(a), Self::Bitmap(b)) => std::ptr::eq(a, b),
+            (Self::Pinned(a), Self::Pinned(b)) => std::ptr::eq(a, b),
+            _ => false,
+        }
+    }
+
+    pub(crate) fn bitmap(self) -> Result<Cow<'a, RoaringBitmap>, AccessError> {
+        if let Some(bitmap) = self.resident() {
+            return Ok(Cow::Borrowed(bitmap));
+        }
+        match self {
+            Self::Pinned(active) => Ok(Cow::Owned(active.bitmap()?)),
+            Self::Bitmap(_) => unreachable!("query bitmap is resident"),
+        }
+    }
+
+    pub(crate) fn len(self) -> usize {
+        match self {
+            Self::Bitmap(bitmap) => bitmap.len() as usize,
+            Self::Pinned(active) => active.len() as usize,
+        }
+    }
+
+    fn contains(self, slot: u32) -> Result<bool, AccessError> {
+        match self {
+            Self::Bitmap(bitmap) => Ok(bitmap.contains(slot)),
+            Self::Pinned(active) => Ok(active.contains(RecordSlot(slot))?),
+        }
+    }
+}
+
 /// A result paired with its pinned domain and the exact operation input.
 pub(crate) struct SlotInput<'a> {
     domain: DomainId,
-    input: &'a RoaringBitmap,
+    input: OperationInput<'a>,
     slots: SlotSet<'a>,
 }
 
 impl<'a> SlotInput<'a> {
-    pub(crate) fn unrestricted(domain: DomainId, input: &'a RoaringBitmap) -> Self {
+    pub(crate) fn unrestricted(domain: DomainId, input: impl Into<OperationInput<'a>>) -> Self {
         Self::new(domain, input, SlotSet::Unrestricted)
     }
 
-    pub(crate) fn empty(domain: DomainId, input: &'a RoaringBitmap) -> Self {
+    pub(crate) fn empty(domain: DomainId, input: impl Into<OperationInput<'a>>) -> Self {
         Self::new(domain, input, SlotSet::Empty)
     }
 
-    pub(crate) fn new(domain: DomainId, input: &'a RoaringBitmap, slots: SlotSet<'a>) -> Self {
+    pub(crate) fn new(
+        domain: DomainId,
+        input: impl Into<OperationInput<'a>>,
+        slots: SlotSet<'a>,
+    ) -> Self {
+        let input = input.into();
         debug_assert!(
-            match &slots {
+            input.resident().is_none_or(|input| match &slots {
                 SlotSet::Sorted(slots) => slots.iter().all(|&slot| input.contains(slot)),
                 _ => slots
                     .concrete()
                     .is_none_or(|members| members.is_subset(input)),
-            },
+            }),
             "effective members must be contained by the supplied input"
         );
         Self {
@@ -330,7 +393,7 @@ impl<'a> SlotInput<'a> {
         }
     }
 
-    fn new_algebra(domain: DomainId, input: &'a RoaringBitmap, slots: SlotSet<'a>) -> Self {
+    fn new_algebra(domain: DomainId, input: OperationInput<'a>, slots: SlotSet<'a>) -> Self {
         Self {
             domain,
             input,
@@ -342,37 +405,35 @@ impl<'a> SlotInput<'a> {
         self.domain
     }
 
-    pub(crate) fn effective(&self) -> MembershipView<'_> {
-        self.slots.explicit_view().unwrap_or_else(|| {
-            if self.input.is_empty() {
-                MembershipView::Empty
-            } else {
-                MembershipView::AllSlots(self.input)
-            }
+    fn effective_resident(&self) -> Option<MembershipView<'_>> {
+        self.slots.explicit_view().or_else(|| {
+            self.input.resident().map(|input| {
+                if input.is_empty() {
+                    MembershipView::Empty
+                } else {
+                    MembershipView::AllSlots(input)
+                }
+            })
         })
     }
 
     pub(crate) fn effective_bitmap(&self) -> Option<&RoaringBitmap> {
         match &self.slots {
-            SlotSet::Unrestricted => Some(self.input),
-            SlotSet::Empty | SlotSet::Sorted(_) => None,
-            SlotSet::Borrowed(bitmap) => Some(bitmap),
-            SlotSet::Owned(bitmap) => Some(bitmap),
-            SlotSet::Shared(bitmap) => Some(bitmap),
+            SlotSet::Unrestricted => self.input.resident(),
+            _ => self.slots.concrete(),
         }
     }
 
-    /// Native kernels can use a computed bitmap when handed an encoded result.
-    /// The common native path keeps borrowing the original membership.
-    pub(crate) fn bitmap_for_native(&self) -> Cow<'_, RoaringBitmap> {
-        if let Some(bitmap) = self.effective_bitmap() {
-            Cow::Borrowed(bitmap)
-        } else {
-            Cow::Owned(self.iter().collect())
+    /// Native kernels borrow resident membership and materialize only when
+    /// required for their bitmap operations.
+    pub(crate) fn bitmap_for_native(&self) -> Result<Cow<'_, RoaringBitmap>, AccessError> {
+        if let Some(resident) = self.effective_resident() {
+            return Ok(resident.bitmap_for_set_algebra());
         }
+        self.input.bitmap()
     }
 
-    pub(crate) fn operation_input(&self) -> &'a RoaringBitmap {
+    pub(crate) fn operation_input(&self) -> OperationInput<'a> {
         self.input
     }
 
@@ -384,15 +445,15 @@ impl<'a> SlotInput<'a> {
         self.slots
     }
 
-    pub(crate) fn into_owned_members(self) -> RoaringBitmap {
-        match self.slots {
-            SlotSet::Unrestricted => self.input.clone(),
+    pub(crate) fn into_owned_members(self) -> Result<RoaringBitmap, AccessError> {
+        Ok(match self.slots {
+            SlotSet::Unrestricted => self.input.bitmap()?.into_owned(),
             SlotSet::Empty => RoaringBitmap::new(),
             SlotSet::Borrowed(bitmap) => bitmap.clone(),
             SlotSet::Owned(bitmap) => bitmap,
             SlotSet::Shared(bitmap) => bitmap.as_ref().clone(),
             SlotSet::Sorted(slots) => slots.iter().copied().collect(),
-        }
+        })
     }
 
     pub(crate) fn replace_slots(self, slots: SlotSet<'a>) -> Self {
@@ -404,39 +465,100 @@ impl<'a> SlotInput<'a> {
     }
 
     pub(crate) fn len(&self) -> usize {
-        self.effective().len()
+        self.slots
+            .explicit_view()
+            .map_or_else(|| self.input.len(), MembershipView::len)
     }
 
     pub(crate) fn is_empty(&self) -> bool {
-        self.effective().is_empty()
+        self.len() == 0
     }
 
-    pub(crate) fn contains(&self, slot: u32) -> bool {
-        self.effective().contains(slot)
+    pub(crate) fn contains(&self, slot: u32) -> Result<bool, AccessError> {
+        match self.effective_resident() {
+            Some(members) => Ok(members.contains(slot)),
+            None => self.input.contains(slot),
+        }
     }
 
-    pub(crate) fn iter(&self) -> MembershipIter<'_> {
-        self.effective().iter()
+    pub(crate) fn filter_members(
+        &self,
+        candidates: impl IntoIterator<Item = u32>,
+    ) -> Result<Vec<u32>, AccessError> {
+        let mut matched = Vec::new();
+        for slot in candidates {
+            if self.contains(slot)? {
+                matched.push(slot);
+            }
+        }
+        Ok(matched)
+    }
+
+    pub(crate) fn iter(&self) -> Result<MembershipIter<'_>, AccessError> {
+        if let Some(members) = self.effective_resident() {
+            return Ok(members.iter());
+        }
+        Ok(MembershipIter::Owned(
+            self.input.bitmap()?.into_owned().into_iter(),
+        ))
     }
 
     pub(crate) fn same_members(&self, other: &Self) -> Result<bool, AccessError> {
         self.ensure_same_domain(other)?;
-        Ok(self.effective().same_members(other.effective()))
+        if self.is_same_unrestricted(other) {
+            return Ok(true);
+        }
+        Ok(self.len() == other.len() && self.is_subset(other)?)
     }
 
     pub(crate) fn is_disjoint(&self, other: &Self) -> Result<bool, AccessError> {
         self.ensure_same_domain(other)?;
-        Ok(self.effective().is_disjoint(other.effective()))
+        if self.is_empty() || other.is_empty() {
+            return Ok(true);
+        }
+        if let (Some(left), Some(right)) = (self.effective_resident(), other.effective_resident()) {
+            return Ok(left.is_disjoint(right));
+        }
+        let (first, second) = self.sparse_first(other);
+        for slot in first.iter()? {
+            if second.contains(slot)? {
+                return Ok(false);
+            }
+        }
+        Ok(true)
     }
 
     pub(crate) fn is_subset(&self, other: &Self) -> Result<bool, AccessError> {
         self.ensure_same_domain(other)?;
-        Ok(self.effective().is_subset(other.effective()))
+        if self.len() > other.len() {
+            return Ok(false);
+        }
+        if self.is_same_unrestricted(other) {
+            return Ok(true);
+        }
+        if let (Some(left), Some(right)) = (self.effective_resident(), other.effective_resident()) {
+            return Ok(left.is_subset(right));
+        }
+        for slot in self.iter()? {
+            if !other.contains(slot)? {
+                return Ok(false);
+            }
+        }
+        Ok(true)
     }
 
     pub(crate) fn intersection_len(&self, other: &Self) -> Result<u64, AccessError> {
         self.ensure_same_domain(other)?;
-        Ok(self.effective().intersection_len(other.effective()))
+        if self.is_same_unrestricted(other) {
+            return Ok(self.len() as u64);
+        }
+        if let (Some(left), Some(right)) = (self.effective_resident(), other.effective_resident()) {
+            return Ok(left.intersection_len(right));
+        }
+        let (first, second) = self.sparse_first(other);
+        first.iter()?.try_fold(0, |total, slot| {
+            Ok(total + u64::from(second.contains(slot)?))
+        })
     }
 
     fn ensure_same_domain(&self, other: &Self) -> Result<(), AccessError> {
@@ -447,299 +569,108 @@ impl<'a> SlotInput<'a> {
         }
     }
 
-    /// Intersection forwards unchanged operands and mutates an exclusively
-    /// owned left operand. The output input handle always comes from the left
-    /// operand; symbolic membership never acquires another operand's input.
+    fn is_same_unrestricted(&self, other: &Self) -> bool {
+        matches!(self.slots, SlotSet::Unrestricted)
+            && matches!(other.slots, SlotSet::Unrestricted)
+            && self.input.same_handle(other.input)
+    }
+
+    fn sparse_first<'b>(&'b self, other: &'b Self) -> (&'b Self, &'b Self) {
+        match (self.effective_resident(), other.effective_resident()) {
+            (Some(_), None) => (self, other),
+            (None, Some(_)) => (other, self),
+            _ if self.len() <= other.len() => (self, other),
+            _ => (other, self),
+        }
+    }
+
     pub(crate) fn intersect(self, other: Self) -> Result<Self, AccessError> {
         self.ensure_same_domain(&other)?;
-        if self.is_empty() {
+        if self.is_empty() || other.is_empty() {
             return Ok(Self::new_algebra(self.domain, self.input, SlotSet::Empty));
         }
-        if other.is_empty() {
-            return Ok(Self::new_algebra(self.domain, self.input, SlotSet::Empty));
+        if self.is_same_unrestricted(&other) {
+            return Ok(self);
         }
-        let mixed = match (&self.slots, &other.slots) {
-            (SlotSet::Sorted(slots), _) => Some((slots, &other)),
-            (_, SlotSet::Sorted(slots)) => Some((slots, &self)),
-            _ => None,
-        };
-        if let Some((slots, target)) = mixed {
-            let result = if slots.iter().all(|&slot| target.contains(slot)) {
-                SlotSet::Sorted(Arc::clone(slots))
-            } else {
-                SlotSet::Owned(
-                    slots
-                        .iter()
-                        .copied()
-                        .filter(|&slot| target.contains(slot))
-                        .collect(),
-                )
+        if let (Some(left), Some(right)) = (self.effective_bitmap(), other.effective_bitmap()) {
+            if left.len() <= right.len() && left.is_subset(right) {
+                return Ok(self);
+            }
+            if right.len() <= left.len()
+                && right.is_subset(left)
+                && !matches!(other.slots, SlotSet::Unrestricted)
+            {
+                return Ok(Self::new_algebra(self.domain, self.input, other.slots));
+            }
+            let result = match self.slots {
+                SlotSet::Owned(mut bitmap) => {
+                    bitmap &= right;
+                    bitmap
+                }
+                _ => left & right,
             };
-            return Ok(Self::new_algebra(self.domain, self.input, result));
+            return Ok(Self::new_algebra(
+                self.domain,
+                self.input,
+                SlotSet::Owned(result),
+            ));
         }
-        match (self.slots, other.slots) {
-            (SlotSet::Unrestricted, SlotSet::Unrestricted) => {
-                if std::ptr::eq(self.input, other.input) {
-                    Ok(Self::new_algebra(
-                        self.domain,
-                        self.input,
-                        SlotSet::Unrestricted,
-                    ))
-                } else {
-                    Ok(Self::new_algebra(
-                        self.domain,
-                        self.input,
-                        SlotSet::Owned(self.input & other.input),
-                    ))
-                }
-            }
-            (SlotSet::Unrestricted, slots) => {
-                let members = slots
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing intersection operand".into()))?;
-                if members.is_subset(self.input) {
-                    Ok(Self::new_algebra(self.domain, self.input, slots))
-                } else {
-                    Ok(Self::new_algebra(
-                        self.domain,
-                        self.input,
-                        SlotSet::Owned(self.input & members),
-                    ))
-                }
-            }
-            (slots, SlotSet::Unrestricted) => {
-                let members = slots
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing intersection operand".into()))?;
-                if members.is_subset(other.input) {
-                    Ok(Self::new_algebra(self.domain, self.input, slots))
-                } else {
-                    Ok(Self::new_algebra(
-                        self.domain,
-                        self.input,
-                        SlotSet::Owned(members & other.input),
-                    ))
-                }
-            }
-            (SlotSet::Owned(mut bitmap), other) => {
-                bitmap &= other
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing intersection operand".into()))?;
-                Ok(Self::new_algebra(
-                    self.domain,
-                    self.input,
-                    SlotSet::Owned(bitmap),
-                ))
-            }
-            (slots, other) => {
-                let left = slots
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing intersection operand".into()))?;
-                let right = other
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing intersection operand".into()))?;
-                Ok(Self::new_algebra(
-                    self.domain,
-                    self.input,
-                    SlotSet::Owned(left & right),
-                ))
+        let (first, second) = self.sparse_first(&other);
+        let mut result = RoaringBitmap::new();
+        for slot in first.iter()? {
+            if second.contains(slot)? {
+                result.insert(slot);
             }
         }
+        Ok(Self::new_algebra(
+            self.domain,
+            self.input,
+            SlotSet::Owned(result),
+        ))
     }
 
-    /// Union forwards full-range identity and mutates an exclusively owned left
-    /// operand where possible.
     pub(crate) fn union(self, other: Self) -> Result<Self, AccessError> {
         self.ensure_same_domain(&other)?;
-        match (&self.slots, &other.slots) {
-            (SlotSet::Unrestricted, SlotSet::Unrestricted) => {
-                return if std::ptr::eq(self.input, other.input) {
-                    Ok(self)
-                } else {
-                    Ok(Self::new_algebra(
-                        self.domain,
-                        self.input,
-                        SlotSet::Owned(self.input | other.input),
-                    ))
-                };
-            }
-            (SlotSet::Unrestricted, other_slots) => {
-                if let Some(members) = other_slots.concrete() {
-                    return if members.is_subset(self.input) {
-                        Ok(self)
-                    } else {
-                        Ok(Self::new_algebra(
-                            self.domain,
-                            self.input,
-                            SlotSet::Owned(self.input | members),
-                        ))
-                    };
-                }
-            }
-            (self_slots, SlotSet::Unrestricted) => {
-                if let Some(members) = self_slots.concrete() {
-                    return if members.is_subset(other.input) {
-                        Ok(other)
-                    } else {
-                        Ok(Self::new_algebra(
-                            other.domain,
-                            other.input,
-                            SlotSet::Owned(members | other.input),
-                        ))
-                    };
-                }
-            }
-            _ => {}
-        }
-        if self.is_empty() {
+        if self.is_empty() || self.is_subset(&other)? {
             return Ok(other);
         }
-        if other.is_empty() {
+        if other.is_empty() || other.is_subset(&self)? {
             return Ok(self);
         }
-        if matches!(self.slots, SlotSet::Sorted(_)) || matches!(other.slots, SlotSet::Sorted(_)) {
-            let domain = self.domain;
-            let input = self.input;
-            let (base, added) = if matches!(self.slots, SlotSet::Sorted(_)) {
-                (other, self)
-            } else {
-                (self, other)
-            };
-            if added.is_subset(&base)? {
-                return Ok(base);
-            }
-            let mut result = base.into_owned_members();
-            result.extend(added.iter());
-            return Ok(Self::new_algebra(domain, input, SlotSet::Owned(result)));
+        let domain = self.domain;
+        let input = self.input;
+        let mut result = self.into_owned_members()?;
+        match other.effective_bitmap() {
+            Some(bitmap) => result |= bitmap,
+            None => result.extend(other.iter()?),
         }
-        match (self.slots, other.slots) {
-            (SlotSet::Owned(mut bitmap), other) => {
-                bitmap |= other
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing union operand".into()))?;
-                Ok(Self::new_algebra(
-                    self.domain,
-                    self.input,
-                    SlotSet::Owned(bitmap),
-                ))
-            }
-            (slots, SlotSet::Owned(mut bitmap)) => {
-                bitmap |= slots
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing union operand".into()))?;
-                Ok(Self::new_algebra(
-                    self.domain,
-                    self.input,
-                    SlotSet::Owned(bitmap),
-                ))
-            }
-            (slots, other) => {
-                let left = slots
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing union operand".into()))?;
-                let right = other
-                    .concrete()
-                    .ok_or_else(|| AccessError::Internal("missing union operand".into()))?;
-                Ok(Self::new_algebra(
-                    self.domain,
-                    self.input,
-                    SlotSet::Owned(left | right),
-                ))
-            }
-        }
+        Ok(Self::new_algebra(domain, input, SlotSet::Owned(result)))
     }
 
-    /// Subtraction preserves left-to-right operand meaning and mutates an
-    /// exclusively owned left result in place.
     pub(crate) fn subtract(self, other: Self) -> Result<Self, AccessError> {
         self.ensure_same_domain(&other)?;
-        if self.is_empty() || matches!(other.slots, SlotSet::Empty) {
+        if self.is_empty() || other.is_empty() {
             return Ok(self);
         }
-        if let SlotSet::Sorted(slots) = &self.slots {
-            if self.is_disjoint(&other)? {
-                return Ok(self);
+        if self.is_same_unrestricted(&other) {
+            return Ok(Self::new_algebra(self.domain, self.input, SlotSet::Empty));
+        }
+        let domain = self.domain;
+        let input = self.input;
+        let result = if let Some(right) = other.effective_bitmap() {
+            let mut result = self.into_owned_members()?;
+            result -= right;
+            result
+        } else {
+            let mut result = RoaringBitmap::new();
+            for slot in self.iter()? {
+                if !other.contains(slot)? {
+                    result.insert(slot);
+                }
             }
-            let remaining = slots
-                .iter()
-                .copied()
-                .filter(|&slot| !other.contains(slot))
-                .collect();
-            return Ok(Self::new_algebra(
-                self.domain,
-                self.input,
-                SlotSet::Owned(remaining),
-            ));
-        }
-        if let SlotSet::Sorted(slots) = &other.slots {
-            if self.is_disjoint(&other)? {
-                return Ok(self);
-            }
-            let domain = self.domain;
-            let input = self.input;
-            let mut result = self.into_owned_members();
-            for &slot in slots.iter() {
-                result.remove(slot);
-            }
-            return Ok(Self::new_algebra(domain, input, SlotSet::Owned(result)));
-        }
-        if matches!(self.slots, SlotSet::Unrestricted)
-            && matches!(other.slots, SlotSet::Unrestricted)
-        {
-            return Ok(Self::new_algebra(
-                self.domain,
-                self.input,
-                if std::ptr::eq(self.input, other.input) {
-                    SlotSet::Empty
-                } else {
-                    SlotSet::Owned(self.input - other.input)
-                },
-            ));
-        }
-        if matches!(other.slots, SlotSet::Unrestricted) {
-            let members = self
-                .effective_bitmap()
-                .ok_or_else(|| AccessError::Internal("missing subtraction operand".into()))?;
-            return if members.is_disjoint(other.input) {
-                Ok(self)
-            } else {
-                Ok(Self::new_algebra(
-                    self.domain,
-                    self.input,
-                    SlotSet::Owned(members - other.input),
-                ))
-            };
-        }
-        let right = other
-            .slots
-            .concrete()
-            .ok_or_else(|| AccessError::Internal("missing subtraction operand".into()))?;
-        match self.slots {
-            SlotSet::Unrestricted => Ok(Self::new_algebra(
-                self.domain,
-                self.input,
-                SlotSet::Owned(self.input - right),
-            )),
-            SlotSet::Owned(mut bitmap) => {
-                bitmap -= right;
-                Ok(Self::new_algebra(
-                    self.domain,
-                    self.input,
-                    SlotSet::Owned(bitmap),
-                ))
-            }
-            SlotSet::Borrowed(bitmap) => Ok(Self::new_algebra(
-                self.domain,
-                self.input,
-                SlotSet::Owned(bitmap - right),
-            )),
-            SlotSet::Shared(bitmap) => Ok(Self::new_algebra(
-                self.domain,
-                self.input,
-                SlotSet::Owned(bitmap.as_ref() - right),
-            )),
-            SlotSet::Empty | SlotSet::Sorted(_) => unreachable!("handled above"),
-        }
+            result
+        };
+        Ok(Self::new_algebra(domain, input, SlotSet::Owned(result)))
     }
 }
 

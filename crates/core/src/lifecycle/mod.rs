@@ -349,7 +349,7 @@ impl Index {
     }
 
     pub fn status(&self) -> Result<IndexStatus, IndexError> {
-        let mut status = self.view()?.0.status();
+        let mut status = self.view()?.0.status()?;
         status.reconciliation = self
             .0
             .maintenance

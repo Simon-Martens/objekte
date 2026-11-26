@@ -7613,7 +7613,7 @@ fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
     .unwrap();
     let published = Arc::clone(&view.0.segment_group(0).unwrap()[0]);
     let collection = &view.repository().collections[0];
-    let active = published.active.bitmap();
+    let active = published.active.bitmap().unwrap();
     let full_bounds = segment_filter_bounds_with_input_catalog_and_predicates(
         published.id,
         &published.index,

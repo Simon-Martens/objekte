@@ -328,7 +328,7 @@ pub(super) fn posting_order_eligible(
         saw_segment = true;
         let logical = read_slot_members(segment, SegmentSlotFact::Logical)?
             .view()
-            .intersect_bitmap(&segment.active.bitmap());
+            .intersect_bitmap(&segment.active.bitmap()?);
         let bounds = segment_filter_bounds_with_catalog(
             segment.id,
             &segment.index,
@@ -570,13 +570,13 @@ pub(super) fn try_inferred_segment_order_page(
             )?;
             let logical = read_slot_members(segment, SegmentSlotFact::Logical)?
                 .view()
-                .intersect_bitmap(&segment.active.bitmap());
+                .intersect_bitmap(&segment.active.bitmap()?);
             if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
                 return Ok(None);
             }
             bounds.must.as_ref() & &logical
         } else {
-            segment.active.bitmap().clone()
+            segment.active.bitmap()?.clone()
         };
         candidate_count = candidate_count.saturating_add(candidates.len());
         input_records = input_records.saturating_add(segment.active.len());
@@ -847,7 +847,7 @@ pub(super) fn try_stored_order_page(
         let filter = entry.filter.as_ref();
         let fts = entry.fts.as_ref();
         let collection = &repo.collections[collection_index];
-        let domain = collection_domain(collection, collection_index, active);
+        let domain = collection_domain(collection, collection_index, active)?;
         let mut plan = filter
             .as_ref()
             .map(|expr| {
@@ -976,7 +976,7 @@ pub(super) fn try_stored_order_page(
                     .flatten()
                     .map(|estimate| estimate.0),
                 remaining_verification: entry.fts.is_some() || !entry.plan.exact,
-                input_records: collection_domain(collection, entry.collection_index, active).len(),
+                input_records: collection_domain(collection, entry.collection_index, active)?.len(),
                 fts_strategy: if collection.base_logical_count()?
                     != collection.base_slot_count() as u64
                     && entry.fts.is_some_and(|fts| fts.fields.is_empty())

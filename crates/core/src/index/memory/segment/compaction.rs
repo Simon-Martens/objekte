@@ -147,7 +147,7 @@ impl IndexedCollectionSegment {
             if record.slot.0 as usize != old_to_new.len() {
                 return Err("compaction record slots out of order".into());
             }
-            if active.contains(record.slot) {
+            if active.contains(record.slot)? {
                 old_to_new.push(Some(
                     new_slots
                         .map(|slots| slots[record.slot.0 as usize])

@@ -1762,7 +1762,11 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
         .filter(|record| record.id.0.as_ref() == "two")
         .map(|record| record.slot.0)
         .collect::<Vec<_>>();
-    assert!(expected_slots.iter().all(|slot| applied.contains(*slot)));
+    assert!(
+        expected_slots
+            .iter()
+            .all(|slot| applied.contains(*slot).unwrap())
+    );
 
     let chosen_a = chosen.id();
     let limited = std::iter::once(expected_slots[0]).collect::<RoaringBitmap>();
@@ -1776,7 +1780,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
         )
         .unwrap();
     assert_eq!(
-        limited_result.iter().collect::<Vec<_>>(),
+        limited_result.iter().unwrap().collect::<Vec<_>>(),
         [expected_slots[0]]
     );
 
@@ -1813,7 +1817,10 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             &AccessExecution { context: None },
         )
         .unwrap();
-    assert_eq!(replay_a.iter().collect::<Vec<_>>(), [expected_slots[0]]);
+    assert_eq!(
+        replay_a.iter().unwrap().collect::<Vec<_>>(),
+        [expected_slots[0]]
+    );
     assert!(matches!(
         provider.apply(
             TermId::new(8),

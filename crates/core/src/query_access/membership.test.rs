@@ -14,7 +14,7 @@ fn values(bitmap: &RoaringBitmap) -> BTreeSet<u32> {
 }
 
 fn effective_values(input: &SlotInput<'_>) -> BTreeSet<u32> {
-    input.iter().collect()
+    input.iter().unwrap().collect()
 }
 
 fn represented<'a>(
@@ -128,7 +128,7 @@ fn all_subset_representations_match_integer_set_oracle() {
                         expected_left.intersection(&expected_right).count() as u64
                     );
                     for slot in 0..5 {
-                        assert_eq!(left.contains(slot), expected_left.contains(&slot));
+                        assert_eq!(left.contains(slot).unwrap(), expected_left.contains(&slot));
                     }
 
                     let expected_union = expected_left
@@ -245,6 +245,7 @@ fn unrestricted_empty_backing_is_canonical_empty_for_every_representation() {
         assert_eq!(
             represented(left_rep, domain, &input, &members, &shared)
                 .iter()
+                .unwrap()
                 .collect::<Vec<_>>(),
             Vec::<u32>::new()
         );
@@ -325,7 +326,7 @@ fn shared_owner_survives_borrowed_input_and_can_outlive_it() {
     };
     let value = SlotInput::new(owner.domain(), &input, borrowed_owner);
     assert_eq!(value.len(), 2);
-    assert!(value.contains(8));
+    assert!(value.contains(8).unwrap());
     let SlotSet::Shared(shared) = value.into_slots() else {
         panic!("shared owner lost");
     };
@@ -342,7 +343,10 @@ fn sorted_membership_preserves_effective_input_and_rejects_invalid_slots() {
     let slots = SlotSet::from_sorted(Arc::from([1, 4])).unwrap();
     let narrowed = SlotInput::new(domain, &input, slots).replace_slots(SlotSet::Unrestricted);
     assert!(matches!(narrowed.slots(), SlotSet::Sorted(_)));
-    assert_eq!(narrowed.bitmap_for_native().as_ref(), &bitmap(&[1, 4]));
+    assert_eq!(
+        narrowed.bitmap_for_native().unwrap().as_ref(),
+        &bitmap(&[1, 4])
+    );
     for slots in [[4, 1], [1, 1]] {
         assert!(matches!(
             SlotSet::from_sorted(Arc::from(slots)),

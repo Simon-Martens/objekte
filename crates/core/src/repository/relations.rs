@@ -313,7 +313,8 @@ impl Repository {
         let slot = source
             .base_slot_for_record(source_id)?
             .ok_or("source ID not found")?;
-        if active.is_some_and(|domains| !domains[source.collection_id().0 as usize].contains(slot))
+        if let Some(domains) = active
+            && !domains[source.collection_id().0 as usize].contains(slot)?
         {
             return Err("source ID not found".into());
         }
@@ -326,9 +327,8 @@ impl Repository {
         let mut references = Vec::with_capacity(end - start);
         for edge in &edges[start..end] {
             let target_slot = if let Some(domains) = active {
-                target
-                    .base_slot_for_record(edge.target_id())?
-                    .filter(|slot| domains[relation.target_collection.0 as usize].contains(*slot))
+                domains[relation.target_collection.0 as usize]
+                    .filter_slot(target.base_slot_for_record(edge.target_id())?)?
             } else {
                 match &edge.target {
                     RelationTarget::Resolved(slot) => Some(*slot),
@@ -440,9 +440,9 @@ impl Repository {
         let target_slot = target
             .base_slot_for_record(target_id)?
             .ok_or("target ID not found")?;
-        if active.is_some_and(|domains| {
-            !domains[target.collection_id().0 as usize].contains(target_slot)
-        }) {
+        if let Some(domains) = active
+            && !domains[target.collection_id().0 as usize].contains(target_slot)?
+        {
             return Err("target ID not found".into());
         }
         let source = self
@@ -450,12 +450,12 @@ impl Repository {
             .get(relation.id.source.0 as usize)
             .ok_or("relation source collection missing")?;
         let posting = self.relation_reverse_sources(relation, target_id);
-        let visible = posting.map(|slots| {
-            active.map_or_else(
-                || slots.clone(),
-                |domains| slots & &domains[relation.id.source.0 as usize].bitmap(),
-            )
-        });
+        let visible = posting
+            .map(|slots| match active {
+                Some(domains) => domains[relation.id.source.0 as usize].intersect_bitmap(slots),
+                None => Ok(slots.clone()),
+            })
+            .transpose()?;
         let total = visible.as_ref().map_or(0, |slots| slots.len() as usize);
         let (start, end, next_offset) = page_bounds(total, offset, limit);
         let mut sources = Vec::with_capacity(end - start);
@@ -537,7 +537,7 @@ impl Repository {
                     let mut occurrences = 0usize;
                     let mut unresolved = 0u64;
                     let target_collection = &self.collections[target];
-                    for slot in domains[source].bitmap().iter() {
+                    for slot in domains[source].bitmap()?.iter() {
                         let edges = relation
                             .edges(RecordSlot(slot))
                             .ok_or("relation source slot missing")?;
@@ -545,9 +545,11 @@ impl Repository {
                             .checked_add(edges.len())
                             .ok_or("relation occurrence count overflow")?;
                         for edge in edges {
-                            if !target_collection
-                                .base_slot_for_record(edge.target_id())?
-                                .is_some_and(|slot| domains[target].contains(slot))
+                            if domains[target]
+                                .filter_slot(
+                                    target_collection.base_slot_for_record(edge.target_id())?,
+                                )?
+                                .is_none()
                             {
                                 unresolved = unresolved
                                     .checked_add(1)
@@ -767,7 +769,7 @@ pub(crate) fn collection_graph_segmented(
                 }
                 Ok(())
             };
-            for slot in base_active[source_index].bitmap().iter() {
+            for slot in base_active[source_index].bitmap()?.iter() {
                 visit(MergedRecordSlot {
                     collection: relation.id.source,
                     segment: None,
@@ -775,7 +777,7 @@ pub(crate) fn collection_graph_segmented(
                 })?;
             }
             for (index, segment) in segments[source_index].iter().enumerate() {
-                for slot in segment.active.bitmap().iter() {
+                for slot in segment.active.bitmap()?.iter() {
                     visit(MergedRecordSlot {
                         collection: relation.id.source,
                         segment: Some(index),

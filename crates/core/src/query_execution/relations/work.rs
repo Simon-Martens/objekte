@@ -50,10 +50,26 @@ impl RelationWork {
         self.active.is_some()
     }
 
-    pub(super) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
-        self.active
-            .as_ref()
-            .is_none_or(|domains| domains[collection.0 as usize].contains(slot))
+    pub(super) fn is_active(
+        &self,
+        collection: CollectionId,
+        slot: RecordSlot,
+    ) -> Result<bool, String> {
+        match &self.active {
+            Some(domains) => Ok(domains[collection.0 as usize].contains(slot)?),
+            None => Ok(true),
+        }
+    }
+
+    pub(super) fn filter_slot(
+        &self,
+        collection: CollectionId,
+        slot: Option<RecordSlot>,
+    ) -> Result<Option<RecordSlot>, String> {
+        match slot {
+            Some(slot) if self.is_active(collection, slot)? => Ok(Some(slot)),
+            _ => Ok(None),
+        }
     }
 
     pub(super) fn before_read(&self, bytes: u64, target: bool) -> Result<(), String> {

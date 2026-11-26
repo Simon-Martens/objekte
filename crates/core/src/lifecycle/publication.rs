@@ -137,7 +137,7 @@ impl PublishedIndex {
             })?;
         Ok(segment
             .active
-            .contains(found.route.slot)
+            .contains(found.route.slot)?
             .then_some((found.position, found.route.slot)))
     }
 
@@ -301,15 +301,25 @@ impl PublishedIndex {
         Ok(())
     }
 
-    pub(super) fn status(&self) -> IndexStatus {
+    pub(super) fn status(&self) -> Result<IndexStatus, IndexError> {
         let (segment_live, segment_fallback) =
             self.record_routes
                 .iter()
-                .fold((0, 0), |(live, fallback), directory| {
-                    let counts = directory.record_counts();
-                    (live + counts.live, fallback + counts.fallback)
-                });
-        IndexStatus {
+                .try_fold((0, 0), |(live, fallback), directory| {
+                    Ok::<_, IndexError>((
+                        live + directory.record_counts().live,
+                        fallback + directory.active_fallback_count()?,
+                    ))
+                })?;
+        let base_fallback = self.repository.collections().iter().enumerate().try_fold(
+            0,
+            |sum, (number, collection)| {
+                Ok::<_, IndexError>(
+                    sum + collection.active_base_fallback_count(&self.active[number])?,
+                )
+            },
+        )?;
+        Ok(IndexStatus {
             instance_id: self.instance_id,
             revision: self.revision,
             reconciliation: self.reconciliation,
@@ -319,18 +329,9 @@ impl PublishedIndex {
             build_parses: self.repository.build_parses(),
             build_source_reads: self.repository.startup().build_source_reads,
             build_source_bytes_read: self.repository.startup().build_source_bytes_read,
-            fallback_records: self
-                .repository
-                .collections()
-                .iter()
-                .enumerate()
-                .map(|(number, collection)| {
-                    collection.active_base_fallback_count(&self.active[number])
-                })
-                .sum::<u64>()
-                + segment_fallback,
+            fallback_records: base_fallback + segment_fallback,
             live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>() + segment_live,
-        }
+        })
     }
 
     /// Stage one fully indexed local segment in a private next root. The
@@ -429,9 +430,9 @@ impl PublishedIndex {
             for header in headers {
                 let id = &header.id;
                 let existing_duplicate = self.live_route(number, id.0.as_ref())?.is_some();
-                if collection
-                    .base_slot_for_record(id.0.as_ref())?
-                    .is_some_and(|slot| self.active[number].contains(slot))
+                if self.active[number]
+                    .filter_slot(collection.base_slot_for_record(id.0.as_ref())?)?
+                    .is_some()
                     || existing_duplicate
                 {
                     return Err(IndexError::DuplicateRecordId {
@@ -700,7 +701,11 @@ impl PublishedIndex {
             if active.len() != 0 {
                 let mut retire = Vec::new();
                 collection.visit_base_file_slots(file.id, &mut |slots| {
-                    retire.extend(slots.iter().copied().filter(|slot| active.contains(*slot)));
+                    for &slot in slots {
+                        if active.contains(slot)? {
+                            retire.push(slot);
+                        }
+                    }
                     Ok(())
                 })?;
                 retired_records += retire.len() as u64;
@@ -747,7 +752,7 @@ impl PublishedIndex {
                 visit_checked_file_slots(segment.as_ref(), file.id, &mut |slots| {
                     file_has_slots = true;
                     for &slot in slots {
-                        if segment.active.contains(slot) {
+                        if segment.active.contains(slot)? {
                             let header = segment
                                 .header(slot)?
                                 .filter(|record| record.slot == slot)
@@ -1119,16 +1124,15 @@ impl Index {
         let mut edited_placements =
             std::collections::HashMap::<usize, Arc<PublishedSegment>>::new();
         for change in changes {
-            let base = collection_state
-                .base_slot_for_record(change.id.0.as_ref())?
-                .filter(|slot| next.active[number].contains(*slot));
-            let found =
-                next.live_route(number, change.id.0.as_ref())?
-                    .filter(|(position, slot)| {
-                        edited_placements
-                            .get(position)
-                            .is_none_or(|placement| placement.active.contains(*slot))
-                    });
+            let base = next.active[number]
+                .filter_slot(collection_state.base_slot_for_record(change.id.0.as_ref())?)?;
+            let mut found = next.live_route(number, change.id.0.as_ref())?;
+            if let Some((position, slot)) = found
+                && let Some(placement) = edited_placements.get(&position)
+                && !placement.active.contains(slot)?
+            {
+                found = None;
+            }
             match change.kind {
                 RecordMutationKind::Insert => {
                     if base.is_some() || found.is_some() {

@@ -235,7 +235,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                         &bound,
                     )
                     .unwrap()
-                    .unwrap_or_else(|| segment.active.bitmap())
+                    .unwrap_or_else(|| segment.active.bitmap().unwrap())
                     .len()
                 })
                 .sum::<u64>(),
@@ -301,7 +301,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                 &bound,
             )
             .unwrap()
-            .unwrap_or_else(|| segment.active.bitmap().clone());
+            .unwrap_or_else(|| segment.active.bitmap().unwrap().clone());
             segment
                 .native_payload()
                 .records
@@ -636,7 +636,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
                         &bound,
                     )
                     .unwrap()
-                    .unwrap_or_else(|| segment.active.bitmap());
+                    .unwrap_or_else(|| segment.active.bitmap().unwrap());
                     (segment, candidates)
                 })
                 .collect::<Vec<_>>();

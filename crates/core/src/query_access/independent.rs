@@ -361,11 +361,8 @@ impl IndexAccessProvider for SortedBackingProvider {
             .lock()
             .expect("backing state poisoned")
             .applications += 1;
-        let observation_input = input.iter().collect::<Vec<_>>();
-        let output: Vec<_> = slots
-            .into_iter()
-            .filter(|&slot| input.contains(slot))
-            .collect();
+        let observation_input = input.iter()?.collect::<Vec<_>>();
+        let output = input.filter_members(slots)?;
         let output_len = output.len() as u64;
         let result = SlotSet::from_sorted(Arc::from(output.as_slice()))?;
         let observation_input_len = observation_input.len() as u64;
@@ -451,7 +448,7 @@ mod tests {
                 &AccessExecution { context: None },
             )
             .unwrap();
-        assert_eq!(applied.iter().collect::<Vec<_>>(), [0]);
+        assert_eq!(applied.iter().unwrap().collect::<Vec<_>>(), [0]);
 
         let fts = crate::query::FtsQuery {
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
@@ -485,9 +482,10 @@ mod tests {
                 &AccessExecution { context: None },
             )
             .unwrap();
-        assert_eq!(candidates.iter().collect::<Vec<_>>(), [0, 2]);
+        assert_eq!(candidates.iter().unwrap().collect::<Vec<_>>(), [0, 2]);
         let exact = candidates
             .iter()
+            .unwrap()
             .filter(|slot| records[*slot as usize].contains("alpha"))
             .collect::<Vec<_>>();
         assert_eq!(exact, [0, 2]);
@@ -572,7 +570,7 @@ mod tests {
             )
             .unwrap()
             .possible;
-        assert_eq!(restricted.iter().collect::<Vec<_>>(), [3]);
+        assert_eq!(restricted.iter().unwrap().collect::<Vec<_>>(), [3]);
 
         let mut reduced_offers = OfferList::new();
         provider
@@ -603,7 +601,7 @@ mod tests {
                 &AccessExecution { context: None },
             )
             .unwrap();
-        assert_eq!(result.iter().collect::<Vec<_>>(), [3]);
+        assert_eq!(result.iter().unwrap().collect::<Vec<_>>(), [3]);
         assert_eq!(restricted_len, 1);
         assert_eq!(result.len(), 1);
     }

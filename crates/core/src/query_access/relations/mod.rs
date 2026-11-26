@@ -277,7 +277,7 @@ impl IndexAccessProvider for NativeRelationProvider<'_> {
         let AccessRequest::Structured(bound) = request else {
             return Err(AccessError::CapabilityUnavailable);
         };
-        let current = input.bitmap_for_native();
+        let current = input.bitmap_for_native()?;
         let current_len = current.len() as u64;
         if current.is_empty() {
             return Ok(Restriction::exact(input));

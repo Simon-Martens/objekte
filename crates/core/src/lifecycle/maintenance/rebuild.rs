@@ -75,7 +75,7 @@ impl Index {
                                 let reader = source.reader.as_ref().ok_or_else(|| {
                                     IndexError::SourceUnavailable("provider reader missing".into())
                                 })?;
-                                for slot in segment.active.bitmap().iter() {
+                                for slot in segment.active.bitmap()?.iter() {
                                     if cancelled() {
                                         return Err(IndexError::Cancelled);
                                     }
@@ -141,9 +141,7 @@ impl Index {
                                         segment.as_ref(),
                                         file.id,
                                         &mut |slots| {
-                                            live |= slots
-                                                .iter()
-                                                .any(|&slot| segment.active.contains(slot));
+                                            live |= segment.active.any(slots)?;
                                             Ok(())
                                         },
                                     )?;

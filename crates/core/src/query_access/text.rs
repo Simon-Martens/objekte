@@ -157,6 +157,8 @@ pub(crate) fn prepared_text_candidates(
             .map_err(|error| error.to_string())?
             .possible;
         Ok((!matches!(applied.slots(), SlotSet::Unrestricted))
-            .then(|| applied.into_owned_members()))
+            .then(|| applied.into_owned_members())
+            .transpose()
+            .map_err(|error| error.to_string())?)
     })
 }

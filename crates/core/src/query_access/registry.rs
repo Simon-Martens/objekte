@@ -138,7 +138,7 @@ mod tests {
                 return Err(AccessError::Corrupt("injected failure".into()));
             }
             let slots = {
-                let input_ref = input.bitmap_for_native();
+                let input_ref = input.bitmap_for_native()?;
                 &self.output & input_ref.as_ref()
             };
             Ok(Restriction::exact(
@@ -267,7 +267,7 @@ mod tests {
             )
             .unwrap()
             .possible;
-        assert_eq!(result.iter().collect::<Vec<_>>(), [1]);
+        assert_eq!(result.iter().unwrap().collect::<Vec<_>>(), [1]);
     }
 
     #[test]
@@ -289,8 +289,10 @@ mod tests {
                 &AccessExecution { context: None },
             )
             .unwrap();
-        assert_eq!(result.iter().collect::<Vec<_>>(), [1]);
-        assert_eq!(result.possible.operation_input(), &original);
+        assert_eq!(result.iter().unwrap().collect::<Vec<_>>(), [1]);
+        assert!(
+            matches!(result.possible.operation_input(), crate::query_access::membership::OperationInput::Bitmap(bitmap) if std::ptr::eq(bitmap, &original))
+        );
     }
 
     #[test]

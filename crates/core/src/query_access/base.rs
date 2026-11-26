@@ -225,7 +225,7 @@ impl IndexAccessProvider for BaseCollectionProvider<'_> {
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
         let slots = {
-            let input_ref = input.effective().bitmap_for_set_algebra();
+            let input_ref = input.bitmap_for_native()?;
             let logical = self
                 .collection
                 .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)

@@ -265,24 +265,21 @@ impl CollectionState {
         RecordDirectoryEstimate::default()
     }
 
-    pub(crate) fn active_base_fallback_count(&self, active: &ActiveRecords) -> u64 {
+    pub(crate) fn active_base_fallback_count(&self, active: &ActiveRecords) -> StorageResult<u64> {
         if active.len() == 0 {
-            return 0;
+            return Ok(0);
         }
         if let Some(base) = &self.base_records {
             return base.active_fallback_count(active);
         }
         #[cfg(test)]
-        return self
-            .generation
-            .records
-            .iter()
-            .filter(|record| {
-                record.class == RecordClass::RawFallback && active.contains(record.slot)
-            })
-            .count() as u64;
+        return self.generation.records.iter().try_fold(0, |count, record| {
+            let fallback =
+                record.class == RecordClass::RawFallback && active.contains(record.slot)?;
+            Ok(count + u64::from(fallback))
+        });
         #[cfg(not(test))]
-        0
+        Ok(0)
     }
 
     pub(crate) fn base_slot_members(
@@ -473,9 +470,7 @@ impl CollectionState {
             return counts.fallback_records;
         }
         if let Some(base) = &self.base_records {
-            let all = ActiveRecords::full_selection(base.descriptor().slots)
-                .expect("sealed base local slot count");
-            return base.active_fallback_count(&all) as usize;
+            return base.total_fallback_count() as usize;
         }
         #[cfg(test)]
         return self
