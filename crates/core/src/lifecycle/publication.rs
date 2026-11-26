@@ -786,98 +786,52 @@ impl PublishedIndex {
             let positions = routes
                 .segments_for_file(file)?
                 .iter()
-                .map(|&id| routes.position(id))
+                .map(|&id| {
+                    routes
+                        .position(id)?
+                        .map(|position| (id, position))
+                        .ok_or_else(|| {
+                            StorageError::invalid(
+                                "refresh file routes",
+                                "missing segment placement",
+                            )
+                        })
+                })
                 .collect::<Result<Vec<_>, _>>()?;
-            if positions.is_empty() {
-                continue;
-            }
-            for position in positions.into_iter().flatten() {
-                let published = &self.segments[number][position];
-                let Some(file_index) = published.index.file_index.get(&file).copied() else {
+            for (id, position) in positions {
+                let published = self.segments[number]
+                    .get(position)
+                    .filter(|segment| segment.id == id)
+                    .ok_or_else(|| {
+                        IndexError::InvalidPublication("routed segment missing".into())
+                    })?;
+                let Some(edit) = published.index.relink_file(
+                    file,
+                    replacement,
+                    self.repository.repository_root(),
+                    &self.repository.collections()[number].definition.name,
+                )?
+                else {
                     continue;
                 };
-                if matches!(
-                    published.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                ) {
-                    continue;
+                let collection = published.descriptor().collection;
+                if edit.linked && !memberships.contains(&collection) {
+                    memberships.push(collection);
                 }
-                let old_entry = &published.index.files[file_index].entry;
-                let old_slots = &published.index.files[file_index].records;
-                let kept = old_slots
-                    .iter()
-                    .copied()
-                    .filter(|slot| {
-                        published
-                            .index
-                            .backing
-                            .file_locator(*slot)
-                            .is_some_and(|locator| {
-                                replacement.is_some_and(|entry| {
-                                    locator.range.is_none() || locator.revision == entry.revision
-                                })
-                            })
-                    })
-                    .collect::<Vec<_>>();
-                if !kept.is_empty() && !memberships.contains(&published.index.collection) {
-                    memberships.push(published.index.collection);
-                }
-                if replacement == Some(old_entry) && kept.len() == old_slots.len() {
-                    continue;
-                }
-                let group = Arc::make_mut(&mut self.segments[number]);
-                let published = group.get_mut(position).ok_or_else(|| {
-                    IndexError::InvalidPublication("routed segment missing".into())
-                })?;
-                let segment_id = published.id;
-                let segment = Arc::make_mut(published);
-                let index = Arc::make_mut(&mut segment.index);
-                let links = match &mut index.backing {
-                    crate::index::segment::SegmentBacking::Retained { links, .. }
-                    | crate::index::segment::SegmentBacking::Provider { links, .. } => links,
-                    crate::index::segment::SegmentBacking::FileRange { .. } => unreachable!(),
-                };
-                let old_slots = std::mem::take(&mut index.files[file_index].records);
-                for &slot in &old_slots {
-                    let Some(locator) = links[slot.0 as usize].as_mut() else {
-                        continue;
-                    };
-                    let preserve = replacement.is_some_and(|entry| {
-                        locator.range.is_none() || locator.revision == entry.revision
-                    });
-                    if preserve {
-                        locator.revision = replacement.expect("live replacement").revision;
-                    } else {
-                        links[slot.0 as usize] = None;
+                if let Some(index) = edit.updated {
+                    let group = Arc::make_mut(&mut self.segments[number]);
+                    Arc::make_mut(&mut group[position]).index = Arc::new(index);
+                    if !edit.linked {
+                        self.record_routes[number] = edited_catalog(
+                            &self.record_routes[number],
+                            SegmentDirectoryDelta::RetireFile {
+                                file,
+                                segment: id,
+                                records: &[],
+                            },
+                        )?;
                     }
                 }
-                if kept.is_empty() {
-                    index.files.remove(file_index);
-                    index.file_index.clear();
-                    for (position, file) in index.files.iter().enumerate() {
-                        index.file_index.insert(file.entry.id, position);
-                    }
-                    self.record_routes[number] = edited_catalog(
-                        &self.record_routes[number],
-                        SegmentDirectoryDelta::RetireFile {
-                            file,
-                            segment: segment_id,
-                            records: &[],
-                        },
-                    )?;
-                } else {
-                    index.files[file_index].entry =
-                        replacement.expect("kept links have replacement").clone();
-                    index.files[file_index].records = kept;
-                }
-                index
-                    .refresh_metadata_sort_slots(
-                        old_slots,
-                        self.repository.repository_root(),
-                        &self.repository.collections()[number].definition.name,
-                    )
-                    .map_err(IndexError::Build)?;
-                index.recompute_accounting();
             }
         }
         Ok(memberships)
@@ -1336,149 +1290,21 @@ impl Index {
         )?;
         for group in &mut next.segments {
             for published in Arc::make_mut(group).iter_mut() {
-                let mut needs_status_refresh = false;
-                visit_segment_files(published.index.as_ref(), |file| {
-                    if !needs_status_refresh {
-                        needs_status_refresh = next
-                            .catalog
-                            .file(file.id)?
-                            .is_some_and(|current| current.status != file.status);
-                    }
-                    Ok::<_, IndexError>(())
-                })?;
                 let decision = repository
                     .collections
-                    .get(published.index.collection.0 as usize)
+                    .get(published.descriptor().collection.0 as usize)
                     .and_then(|collection| collection.global_inference.as_ref());
-                let needs_inference_prune = decision.is_some_and(|decision| {
-                    published.index.inference.as_ref().is_some_and(|state| {
-                        state.indexes.iter().any(|(path, index)| {
-                            let field = decision
-                                .report
-                                .fields
-                                .iter()
-                                .find(|field| field.path == *path);
-                            if field.is_none_or(|field| {
-                                field.index_status != crate::inference::InferenceIndexStatus::Built
-                            }) {
-                                return true;
-                            }
-                            let diagnostic = decision
-                                .diagnostics
-                                .iter()
-                                .find(|diagnostic| diagnostic.path == *path);
-                            index.value_complete
-                                && !diagnostic
-                                    .is_some_and(|diagnostic| diagnostic.value_dictionary_complete)
-                                || index.length_complete
-                                    && !diagnostic
-                                        .is_some_and(|diagnostic| diagnostic.array_length_complete)
-                                || index.empty_string_complete
-                                    && !diagnostic
-                                        .is_some_and(|diagnostic| diagnostic.empty_string_exact)
-                        })
-                    })
-                });
-                if !needs_status_refresh && !needs_inference_prune {
-                    if published.observation.is_some() {
-                        *published = Arc::new(PublishedSegment {
-                            id: published.id,
-                            index: Arc::clone(&published.index),
-                            active: published.active.clone(),
-                            observation: None,
-                        });
-                    }
+                let revised = published
+                    .index
+                    .reconcile_final_metadata(&next.catalog, decision)?;
+                if revised.is_none() && published.observation.is_none() {
                     continue;
                 }
-                let mut index = (*published.index).clone();
-                for file in &mut index.files {
-                    if let Some(current) = next.catalog.file(file.entry.id)? {
-                        file.entry.status = current.status;
-                        file.entry.diagnostics = current.diagnostics.clone();
-                        file.entry.omitted_diagnostics = current.omitted_diagnostics;
-                    }
+                let placed = Arc::make_mut(published);
+                if let Some(index) = revised {
+                    placed.index = Arc::new(index);
                 }
-                let files = &index.files;
-                let positions = &index.file_index;
-                index
-                    .sorting
-                    .refresh_file_status_for_records(&index.records, |slot| {
-                        let file = index.backing.file_locator(slot)?.file;
-                        let status = positions
-                            .get(&file)
-                            .and_then(|&position| files.get(position))
-                            .map_or(FileStatus::Valid, |entry| entry.entry.status);
-                        Some(status.code())
-                    });
-                if let Some(decision) = decision {
-                    if let Some(inference) = index.inference.as_mut() {
-                        for field in &decision.report.fields {
-                            if matches!(
-                                field.index_status,
-                                crate::inference::InferenceIndexStatus::Redundant
-                                    | crate::inference::InferenceIndexStatus::ExplicitOptOut
-                            ) {
-                                inference.indexes.remove(&field.path);
-                                inference.short_string_coverage.remove(&field.path);
-                                continue;
-                            }
-                            let diagnostics = decision
-                                .diagnostics
-                                .iter()
-                                .find(|diagnostic| diagnostic.path == field.path);
-                            let general_values = diagnostics
-                                .is_some_and(|diagnostic| diagnostic.value_dictionary_complete);
-                            let short_values = diagnostics
-                                .is_some_and(|diagnostic| diagnostic.short_string_candidates);
-                            let empty_string_exact =
-                                diagnostics.is_some_and(|diagnostic| diagnostic.empty_string_exact);
-                            if let Some(posting) = inference.indexes.get_mut(&field.path) {
-                                let selected_null = posting
-                                    .values
-                                    .remove(&crate::index::posting::ScalarKey::Null);
-                                if !general_values && !short_values {
-                                    let empty = empty_string_exact.then(|| {
-                                        posting.values.remove(
-                                                &crate::index::posting::ScalarKey::String(
-                                                    String::new(),
-                                                ),
-                                            )
-                                    });
-                                    posting.values.clear();
-                                    if let Some(Some(slots)) = empty {
-                                        posting.values.insert(
-                                            crate::index::posting::ScalarKey::String(String::new()),
-                                            slots,
-                                        );
-                                    }
-                                    posting.values_indexed = empty_string_exact;
-                                }
-                                if let Some(slots) = selected_null {
-                                    posting
-                                        .values
-                                        .insert(crate::index::posting::ScalarKey::Null, slots);
-                                }
-                                posting.value_complete = general_values;
-                                posting.length_complete = diagnostics
-                                    .is_some_and(|diagnostic| diagnostic.array_length_complete);
-                                posting.empty_string_complete = empty_string_exact;
-                                if !posting.length_complete {
-                                    posting.lengths.clear();
-                                }
-                                posting.finish_stats();
-                            }
-                            if !short_values {
-                                inference.short_string_coverage.remove(&field.path);
-                            }
-                        }
-                    }
-                }
-                *published = Arc::new(PublishedSegment {
-                    id: published.id,
-                    index: Arc::new(index),
-                    active: published.active.clone(),
-                    observation: None,
-                });
+                placed.observation = None;
             }
         }
         next.processed_memberships.clear();

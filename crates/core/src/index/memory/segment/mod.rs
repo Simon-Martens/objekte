@@ -3,6 +3,7 @@
 pub(crate) mod admission;
 mod compaction;
 mod consolidation;
+mod finalize;
 mod projection;
 mod record_versions;
 pub(crate) mod statistics;

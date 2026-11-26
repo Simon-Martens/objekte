@@ -540,11 +540,7 @@ impl IndexView {
             .filter(|segment| segment.id == found.route.segment)
             .ok_or("diagnostic route points to a missing segment")?;
         if segment.active.contains(found.route.slot) {
-            hit.remap_segment_diagnostic(
-                segment.index.as_ref(),
-                &self.0.catalog,
-                found.route.slot,
-            )?;
+            hit.remap_segment_diagnostic(segment.as_ref(), &self.0.catalog, found.route.slot)?;
         }
         Ok(())
     }
