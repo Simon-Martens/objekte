@@ -50,7 +50,7 @@ pub(crate) struct SegmentSeal<'a> {
 /// Finalization currently feeds the published native segment assembly.
 pub(crate) struct BuiltSegment {
     pub index: IndexedCollectionSegment,
-    pub observation: Option<crate::index::memory::inference::InferenceObservation>,
+    pub observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
 }
 
 pub(crate) trait SegmentBuilder: Send {

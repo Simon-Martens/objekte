@@ -46,7 +46,7 @@ enum ScheduledBuildJob {
 
 type InitialSegment = (
     crate::index::segment::IndexedCollectionSegment,
-    Option<Arc<crate::index::memory::inference::InferenceObservation>>,
+    Option<crate::index::storage::inference::InferenceObservationHandle>,
 );
 
 struct StagedStreamBinding {
@@ -239,7 +239,7 @@ fn finish_stream_draft(
         observe_inference: true,
         declared_orders: factory.declared_order_store(),
     })?;
-    Ok((built.index, built.observation.map(Arc::new)))
+    Ok((built.index, built.observation))
 }
 
 fn partition_file_jobs<'a>(
@@ -1890,7 +1890,7 @@ impl Repository {
                             declared_orders: storage_factory.declared_order_store(),
                         })?;
                         private_work.add_private_segment(&built.index);
-                        builds.push((built.index, built.observation.map(Arc::new)));
+                        builds.push((built.index, built.observation));
                         Ok(())
                     };
                     let mut admit = |batch: BatchContribution| -> Result<(), String> {

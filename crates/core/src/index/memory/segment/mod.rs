@@ -571,7 +571,7 @@ pub(crate) struct PublishedSegment {
     pub id: SegmentId,
     pub index: Arc<IndexedCollectionSegment>,
     pub active: ActiveRecords,
-    pub(crate) observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
+    pub(crate) observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
 }
 
 impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment {

@@ -1492,7 +1492,9 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
             id: crate::index::segment::SegmentId::new(segments.len() as u64 + 1),
             active: ActiveRecords::all(index.record_count()).unwrap(),
             index: Arc::new(index),
-            observation: observation.map(Arc::new),
+            observation: observation.map(|value| {
+                Arc::new(value) as crate::index::storage::inference::InferenceObservationHandle
+            }),
         }));
     }
     assert_eq!(segments.len(), 2);

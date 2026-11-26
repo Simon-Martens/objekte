@@ -160,6 +160,14 @@ impl<'a> MembershipView<'a> {
         }
     }
 
+    pub(crate) fn union_into_bitmap(self, output: &mut RoaringBitmap) {
+        match self {
+            Self::Empty => {}
+            Self::Borrowed(slots) | Self::AllSlots(slots) => *output |= slots,
+            Self::Sorted(slots) => output.extend(slots.iter().copied()),
+        }
+    }
+
     pub(crate) fn intersect_bitmap(self, input: &RoaringBitmap) -> RoaringBitmap {
         match self {
             Self::Empty => RoaringBitmap::new(),

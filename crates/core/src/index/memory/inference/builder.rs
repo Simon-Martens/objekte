@@ -7,6 +7,9 @@ use roaring::RoaringBitmap;
 
 use super::InferenceState;
 use crate::index::posting::{PostingIndex, PostingStats, ScalarKey, SelectionSummary};
+use crate::index::storage::inference::{CompactFieldObservation, InferenceObservationReader};
+use crate::index::storage::segment::{SegmentReader, SegmentSlotFact, read_slot_members};
+use crate::index::storage::transfer::StorageResult;
 use crate::inference::{
     InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode,
     InferencePathDiagnostic, InferencePolicy, InferenceReport, InferredFieldReport,
@@ -14,6 +17,7 @@ use crate::inference::{
 };
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::query_access::membership::SlotSet;
 use crate::schema::Schema;
 
 /// Typed intern key; automatic observation visits field steps only, while
@@ -45,48 +49,50 @@ pub(crate) struct InferenceObservation {
     estimated_bytes: usize,
 }
 
-impl InferenceObservation {
-    pub(crate) fn estimated_bytes(&self) -> usize {
+impl InferenceObservationReader for InferenceObservation {
+    fn estimated_bytes(&self) -> usize {
         self.estimated_bytes
     }
-}
 
-#[derive(Clone)]
-struct CompactFieldObservation {
-    path: Vec<String>,
-    kinds: Vec<LogicalType>,
-    array_nesting: u8,
-    fractional_number: bool,
-    summary_complete: bool,
-    present_records: u64,
-    null_occurrence_records: u64,
-    exact_null_records: u64,
-    empty_array_records: u64,
-    empty_selection_records: u64,
-    value_occurrences: u64,
-    nonblank_occurrences: u64,
-    nonblank_records: u64,
-    scalar_records: u64,
-    array_records: u64,
-    object_records: u64,
-    through_array_records: u64,
-    direct_records: u64,
-    short_string_observed_occurrences: u64,
-    occurrence_count_status: OccurrenceCountStatus,
-    short_string_covered_records: u64,
-    short_seen_records: u64,
-    short_values_present: bool,
-    short_postings_present: bool,
-    short_domains_complete: bool,
-    short_dropped: bool,
-    short_summary_truncated: bool,
-    lengths_present: bool,
-    length_dropped: bool,
-    length_keys: BTreeSet<Number>,
-    values_present: bool,
-    dropped: bool,
-    distinct_nonblank: Option<HashSet<String>>,
-    short_distinct: Option<HashSet<String>>,
+    fn complete(&self) -> bool {
+        self.complete
+    }
+
+    fn omitted_paths(&self) -> u64 {
+        self.omitted_paths
+    }
+
+    fn visit_paths(
+        &self,
+        visit: &mut dyn FnMut(&[&[String]]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        for fields in self.fields.chunks(64) {
+            let paths = fields
+                .iter()
+                .map(|field| field.path.as_slice())
+                .collect::<smallvec::SmallVec<[_; 64]>>();
+            visit(&paths)?;
+        }
+        Ok(())
+    }
+
+    fn field(
+        &self,
+        path: &[String],
+    ) -> StorageResult<Option<std::borrow::Cow<'_, CompactFieldObservation>>> {
+        Ok(self
+            .fields
+            .binary_search_by(|field| field.path.as_slice().cmp(path))
+            .ok()
+            .map(|index| std::borrow::Cow::Borrowed(&self.fields[index])))
+    }
+
+    fn empty_ancestor_members(&self, prefix: &[String]) -> StorageResult<SlotSet<'_>> {
+        Ok(self
+            .empty_ancestors
+            .get(&typed_path(prefix))
+            .map_or(SlotSet::Empty, SlotSet::borrowed))
+    }
 }
 
 struct FieldAdmissionFacts<'a> {
@@ -273,12 +279,19 @@ pub(crate) fn aggregate_segment_inference(
     }
     let total_records = segments
         .iter()
-        .map(|segment| segment.index.record_count())
+        .map(|segment| segment.descriptor().slots)
         .try_fold(0usize, |total, count| total.checked_add(count))
         .ok_or("inference collection record count overflow")?;
-    let logical_records = segments
+    let counts = segments
         .iter()
-        .map(|segment| segment.index.logical_records.len())
+        .map(|segment| {
+            read_slot_members(segment, SegmentSlotFact::Logical)
+                .map(|members| members.view().len() as u64)
+        })
+        .collect::<StorageResult<Vec<_>>>()?;
+    let logical_records = counts
+        .iter()
+        .copied()
         .try_fold(0u64, |total, count| total.checked_add(count))
         .ok_or("inference collection logical count overflow")?;
     let unavailable_records = u64::try_from(total_records)
@@ -288,7 +301,7 @@ pub(crate) fn aggregate_segment_inference(
     let omitted_paths = segments
         .iter()
         .filter_map(|segment| segment.observation.as_deref())
-        .map(|observation| observation.omitted_paths)
+        .map(|observation| observation.omitted_paths())
         .try_fold(0u64, |total, count| total.checked_add(count))
         .ok_or("inference omitted path count overflow")?;
 
@@ -299,18 +312,18 @@ pub(crate) fn aggregate_segment_inference(
             complete = false;
             continue;
         };
-        complete &= observation.complete;
-        for field in &observation.fields {
-            paths.insert(field.path.clone());
-        }
+        complete &= observation.complete();
+        observation.visit_paths(&mut |batch| {
+            paths.extend(batch.iter().map(|path| path.to_vec()));
+            Ok(())
+        })?;
     }
 
     let mut fields = Vec::with_capacity(paths.len());
     let mut diagnostics = Vec::with_capacity(paths.len());
     for path in paths {
         let mut aggregate = AggregatedField::new();
-        for segment in segments {
-            let eligible = segment.index.logical_records.len();
+        for (segment, &eligible) in segments.iter().zip(&counts) {
             add_count(
                 &mut aggregate.eligible_records,
                 eligible,
@@ -320,34 +333,37 @@ pub(crate) fn aggregate_segment_inference(
                 aggregate.complete = false;
                 continue;
             };
-            aggregate.complete &= observation.complete;
-            if let Ok(field_index) = observation
-                .fields
-                .binary_search_by(|field| field.path.cmp(&path))
-            {
-                let field = &observation.fields[field_index];
-                aggregate.add_observation(field, config.policy)?;
+            aggregate.complete &= observation.complete();
+            if let Some(field) = observation.field(&path)? {
+                aggregate.add_observation(&field, config.policy)?;
             } else {
                 let mut empty = RoaringBitmap::new();
                 for depth in 0..path.len() {
-                    if let Some(ancestor) =
-                        observation.empty_ancestors.get(&typed_path(&path[..depth]))
-                    {
-                        empty |= ancestor;
-                    }
+                    let stored = observation.empty_ancestor_members(&path[..depth])?;
+                    let slots = stored
+                        .explicit_view()
+                        .ok_or("missing explicit ancestor membership")?;
+                    slots.union_into_bitmap(&mut empty);
                 }
-                empty &= &segment.index.logical_records;
+                let empty = if empty.is_empty() {
+                    0
+                } else {
+                    let logical = read_slot_members(segment, SegmentSlotFact::Logical)?;
+                    logical.view().intersection_len(
+                        crate::query_access::membership::MembershipView::Borrowed(&empty),
+                    )
+                };
                 add_count(
                     &mut aggregate.present_records,
-                    empty.len(),
+                    empty,
                     "inference present record count overflow",
                 )?;
                 add_count(
                     &mut aggregate.empty_selection_records,
-                    empty.len(),
+                    empty,
                     "inference empty selection count overflow",
                 )?;
-                aggregate.short_domains_complete &= empty.is_empty();
+                aggregate.short_domains_complete &= empty == 0;
             }
             if let Some(inference) = &segment.index.inference
                 && let Some(index) = inference.indexes.get(&path)

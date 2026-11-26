@@ -2,6 +2,7 @@
 
 pub(crate) mod component;
 pub(crate) mod file_catalog;
+pub(crate) mod inference;
 pub(crate) mod liveness;
 pub(crate) mod order;
 pub(crate) mod ordered_slots;

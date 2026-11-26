@@ -298,7 +298,7 @@ impl PublishedIndex {
     fn stage_segment(
         &mut self,
         payload: &mut Arc<IndexedCollectionSegment>,
-        observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
+        observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
     ) -> Result<(), IndexError> {
         self.stage_segment_payload(payload, observation, false)
     }
@@ -313,7 +313,7 @@ impl PublishedIndex {
     fn stage_segment_payload(
         &mut self,
         payload: &mut Arc<IndexedCollectionSegment>,
-        observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
+        observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
         allocate_id: bool,
     ) -> Result<(), IndexError> {
         let index = &**payload;
@@ -881,7 +881,7 @@ fn prepare_initial_segment(
     next: &mut PublishedIndex,
     segment: (
         IndexedCollectionSegment,
-        Option<Arc<crate::index::memory::inference::InferenceObservation>>,
+        Option<crate::index::storage::inference::InferenceObservationHandle>,
     ),
 ) -> Result<(), IndexError> {
     let (segment, observation) = segment;
@@ -1200,7 +1200,7 @@ impl Index {
         &self,
         expected: IndexRevision,
         segment: IndexedCollectionSegment,
-        observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
+        observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
         profile_phases: bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
         let prepare_started = crate::measurement::timer::start_if_enabled(profile_phases);
@@ -1243,7 +1243,7 @@ impl Index {
         expected: IndexRevision,
         segments: Vec<(
             IndexedCollectionSegment,
-            Option<Arc<crate::index::memory::inference::InferenceObservation>>,
+            Option<crate::index::storage::inference::InferenceObservationHandle>,
         )>,
         profile_phases: bool,
         cancelled: &impl Fn() -> bool,

@@ -809,7 +809,13 @@ impl CollectionSegment {
             index.sorting.place_columns(store)?;
             index.recompute_accounting();
         }
-        Ok(BuiltSegment { index, observation })
+        Ok(BuiltSegment {
+            index,
+            observation: observation.map(|value| {
+                std::sync::Arc::new(value)
+                    as crate::index::storage::inference::InferenceObservationHandle
+            }),
+        })
     }
 
     /// Admit one typed batch as an ordinary native segment. The logical
