@@ -83,11 +83,28 @@ impl Ord for MergedPageHit {
     }
 }
 
+#[derive(Clone, Copy)]
+pub(crate) struct WinnerBufferBudget<'a> {
+    pub limit: usize,
+    pub context: &'a ExecutionContext,
+    pub peak: Option<&'a std::cell::Cell<usize>>,
+}
+
+impl<'a> From<(usize, &'a ExecutionContext)> for WinnerBufferBudget<'a> {
+    fn from((limit, context): (usize, &'a ExecutionContext)) -> Self {
+        Self {
+            limit,
+            context,
+            peak: None,
+        }
+    }
+}
+
 pub(crate) fn offer_merged(
     winners: &mut BinaryHeap<MergedPageHit>,
     cap: usize,
     mut candidate: MergedPageHit,
-    budget: Option<(usize, &ExecutionContext)>,
+    budget: Option<WinnerBufferBudget<'_>>,
     used_bytes: &mut usize,
 ) -> Result<(), String> {
     if cap == 0 {
@@ -102,7 +119,12 @@ pub(crate) fn offer_merged(
     } else {
         return Ok(());
     };
-    if let Some((limit, context)) = budget {
+    if let Some(WinnerBufferBudget {
+        limit,
+        context,
+        peak,
+    }) = budget
+    {
         candidate.retained_bytes = std::mem::size_of::<MergedPageHit>()
             .saturating_add(usize::try_from(rank_key_bytes(&candidate.key)).unwrap_or(usize::MAX))
             .saturating_add(crate::query_execution::streaming::hit_bytes(&candidate.hit));
@@ -120,6 +142,9 @@ pub(crate) fn offer_merged(
                 ExecutionErrorKind::Resource,
                 "ordered result exceeds stream memory budget",
             ));
+        }
+        if let Some(peak) = peak {
+            peak.set(peak.get().max(next));
         }
         *used_bytes = next;
     }

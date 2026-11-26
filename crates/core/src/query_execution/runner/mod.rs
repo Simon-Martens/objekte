@@ -75,9 +75,10 @@ use crate::query_results::payload::{
     materialize, payload_from_bytes, payload_from_bytes_with_execution,
 };
 use crate::query_results::ranking::{
-    MergedPageHit, RankKey, ResolvedSort, Winner, offer, offer_merged, rank_key, rank_key_bytes,
-    rank_key_from_context, relation_rank_key_merged, segment_compare_to_rank, segment_rank_key,
-    segment_rank_key_owned_bytes, winner_bytes, would_enter_page, would_enter_rank_key_with,
+    MergedPageHit, RankKey, ResolvedSort, Winner, WinnerBufferBudget, offer, offer_merged,
+    rank_key, rank_key_bytes, rank_key_from_context, relation_rank_key_merged,
+    segment_compare_to_rank, segment_rank_key, segment_rank_key_owned_bytes, winner_bytes,
+    would_enter_page, would_enter_rank_key_with,
 };
 use crate::query_results::verified::{CachedMember, CachedResult, VerifiedCache};
 use crate::query_results::{Payload, SearchHit, SearchResult};
@@ -1571,7 +1572,7 @@ fn search_segmented_with_context_lifecycle_budget(
     revision: IndexRevision,
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
-    retained_budget: Option<usize>,
+    retained_budget: Option<WinnerBufferBudget<'_>>,
     bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
     restriction_cache: &mut SegmentRestrictionCache,
     ordered_already_declined: bool,
@@ -2404,7 +2405,7 @@ fn offer_admitted_segment_slot(
     cache_builder: Option<&mut LifecycleCacheBuilder>,
     winners: &mut BinaryHeap<MergedPageHit>,
     cap: usize,
-    winner_budget: Option<(usize, &ExecutionContext)>,
+    winner_budget: Option<WinnerBufferBudget<'_>>,
     winner_bytes: &mut usize,
 ) -> Result<(), String> {
     let enters_page = would_enter_rank_key_with(
@@ -2512,7 +2513,7 @@ fn search_segmented_impl(
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
-    retained_budget: Option<usize>,
+    retained_budget: Option<WinnerBufferBudget<'_>>,
     bound: Option<(&ResolvedSort<'_>, &crate::query::prepared::PreparedQuery)>,
     restriction_cache: &mut SegmentRestrictionCache,
     ordered_already_declined: bool,
@@ -2699,7 +2700,7 @@ fn search_segmented_impl(
             &prepared.collections,
             context,
             relation_cache.as_mut(),
-            retained_budget,
+            retained_budget.map(|budget| budget.limit),
             true,
             false,
         )?;
@@ -2734,7 +2735,7 @@ fn search_segmented_impl(
     }
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
-    let winner_budget = retained_budget.zip(context);
+    let winner_budget = retained_budget;
     if !has_direct_backing
         && context.is_none()
         && retained_budget.is_none()
@@ -5477,6 +5478,7 @@ pub(crate) fn try_stream_identity_directory_page(
             .checked_add(limit)
             .ok_or_else(|| invalid("page size overflow".into()))?;
         let mut request = query.with_clock(context.clock.now).map_err(invalid)?;
+        let output_mode = std::mem::replace(&mut request.options.return_mode, ReturnMode::Locator);
         let prepared = crate::query::prepared::prepare(repo, &request).map_err(invalid)?;
         if prepared.collections.iter().any(|entry| {
             entry.filter.as_ref().is_some_and(bound_expr_has_relations)
@@ -5519,7 +5521,9 @@ pub(crate) fn try_stream_identity_directory_page(
                     request.options.limit = remaining_rows;
                     groups[collection] = Arc::new(vec![Arc::clone(placement)]);
                     let mut restriction_cache = SegmentRestrictionCache::new(&groups);
-                    let mut result = search_segmented_with_context_lifecycle_budget(
+                    let peak = std::cell::Cell::new(0);
+                    // Keep the nested evaluation in its budget-aware locator path.
+                    let result = search_segmented_with_context_lifecycle_budget(
                         repo,
                         &request,
                         base_active,
@@ -5528,32 +5532,71 @@ pub(crate) fn try_stream_identity_directory_page(
                         revision,
                         context,
                         None,
-                        Some(options.max_buffered_bytes),
+                        Some(WinnerBufferBudget {
+                            limit: options.max_buffered_bytes,
+                            context,
+                            peak: Some(&peak),
+                        }),
                         Some((&sort, &prepared)),
                         &mut restriction_cache,
-                        false,
-                    )
-                    .map_err(|error| error.message)?;
-                    remaining_offset =
-                        remaining_offset.saturating_sub(result.counters.total_matches as usize);
-                    remaining_rows -= result.hits.len();
-                    merge_identity_stream_work(&mut counters, result.counters);
-                    stamp_native_rows(repo, revision, &mut result.hits)?;
-                    let mut batch = 0;
-                    let mut bytes = 0usize;
-                    for (index, hit) in result.hits.iter().enumerate() {
-                        let size = crate::query_execution::streaming::hit_bytes(hit);
-                        if batch < index
-                            && (index - batch == options.batch_rows
-                                || bytes.saturating_add(size) > options.max_event_bytes)
-                        {
-                            delivery.ordered_batch(&result.hits[batch..index], &counters)?;
-                            batch = index;
-                            bytes = 0;
+                        true,
+                    );
+                    delivery.check_buffer(peak.get())?;
+                    let SearchResult {
+                        mut hits,
+                        counters: work,
+                        ..
+                    } = result.map_err(|error| error.message)?;
+                    remaining_offset = remaining_offset.saturating_sub(work.total_matches as usize);
+                    // Reserve the whole locator page while moving rows out of it.
+                    let locator_bytes = hits.iter().fold(0usize, |bytes, hit| {
+                        bytes.saturating_add(crate::query_execution::streaming::hit_bytes(hit))
+                    });
+                    delivery.check_buffer(locator_bytes)?;
+                    merge_identity_stream_work(&mut counters, work);
+                    if output_mode == ReturnMode::Locator {
+                        stamp_native_rows(repo, revision, &mut hits)?;
+                        remaining_rows -= hits.len();
+                        let mut batch = 0;
+                        let mut bytes = 0usize;
+                        for (index, hit) in hits.iter().enumerate() {
+                            let size = crate::query_execution::streaming::hit_bytes(hit);
+                            if batch < index
+                                && (index - batch == options.batch_rows
+                                    || bytes.saturating_add(size) > options.max_event_bytes)
+                            {
+                                delivery.ordered_batch(&hits[batch..index], &counters)?;
+                                batch = index;
+                                bytes = 0;
+                            }
+                            bytes = bytes.saturating_add(size);
                         }
-                        bytes = bytes.saturating_add(size);
+                        delivery.ordered_batch(&hits[batch..], &counters)?;
+                    } else {
+                        for hit in hits {
+                            delivery.check()?;
+                            let mut hit = match materialize_identity_stream_hit(
+                                repo,
+                                hit,
+                                &output_mode,
+                                placement,
+                                base_active,
+                                &groups,
+                                catalog,
+                                revision,
+                                context,
+                                locator_bytes,
+                                &mut delivery,
+                                &mut counters,
+                            )? {
+                                Some(hit) => hit,
+                                None => continue,
+                            };
+                            repo.stamp_native_hit_at(&mut hit, revision)?;
+                            remaining_rows -= 1;
+                            delivery.ordered_batch(std::slice::from_ref(&hit), &counters)?;
+                        }
                     }
-                    delivery.ordered_batch(&result.hits[batch..], &counters)?;
                     if remaining_rows == 0 {
                         counters.match_count_complete &= placements_left == 0;
                         return Ok(false);
@@ -5586,6 +5629,95 @@ pub(crate) fn try_stream_identity_directory_page(
     match run() {
         Ok(outcome) => outcome.map(Ok),
         Err(error) => Some(Err(error)),
+    }
+}
+
+/// Materialize at most one payload while the locator page is live.
+fn materialize_identity_stream_hit(
+    repo: &Repository,
+    mut hit: SearchHit,
+    output_mode: &ReturnMode,
+    placement: &PublishedSegment,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &dyn FileCatalogReader,
+    revision: IndexRevision,
+    context: &ExecutionContext,
+    locator_bytes: usize,
+    delivery: &mut Delivery<'_>,
+    counters: &mut WorkCounters,
+) -> Result<Option<SearchHit>, String> {
+    use crate::query_execution::streaming::{hit_bytes, payload_bytes, value_bytes};
+
+    context.check_string()?;
+    let backing = placement.backing_kind();
+    if backing == RecordBacking::Retained {
+        hit.payload = Some(if *output_mode == ReturnMode::Logical {
+            let slot = placement
+                .active
+                .filter_slot(placement.slot_for_record(&hit.record_id)?)?
+                .ok_or("stream hit no longer resolves in pinned view")?;
+            placement
+                .header(slot)?
+                .filter(|header| header.slot == slot && header.id.0.as_ref() == hit.record_id)
+                .ok_or("stream route points to a different or missing record")?;
+            let body = placement
+                .retained_body(slot)?
+                .ok_or("retained record body missing")?;
+            let bytes = value_bytes(&body.value);
+            delivery.check_buffer(locator_bytes.saturating_add(bytes))?;
+            counters.peak_retained_payload_bytes =
+                counters.peak_retained_payload_bytes.max(bytes as u64);
+            Payload::Logical(match body {
+                std::borrow::Cow::Borrowed(body) => body.value.clone(),
+                std::borrow::Cow::Owned(body) => body.value,
+            })
+        } else {
+            Payload::OriginalBytesUnavailable
+        });
+        return Ok(Some(hit));
+    }
+    let source_len = if backing == RecordBacking::FileRange
+        && (*output_mode == ReturnMode::Bytes || hit.record_class == RecordClass::Logical)
+    {
+        usize::try_from(hit.source_range_len()).unwrap_or(usize::MAX)
+    } else {
+        0
+    };
+    delivery.check_buffer(locator_bytes.saturating_add(source_len))?;
+    let (materialized, _) = materialize_segmented_stream_hit(
+        repo,
+        hit,
+        output_mode.clone(),
+        base_active,
+        segments,
+        catalog,
+        revision,
+        context,
+    )?;
+    match materialized {
+        DirectLookupResult::Found(hit) => {
+            delivery.check_buffer(locator_bytes.saturating_add(hit_bytes(&hit)))?;
+            if backing == RecordBacking::Provider || source_len != 0 {
+                counters.selected_payload_reads += 1;
+                counters.selected_payload_bytes += if backing == RecordBacking::Provider {
+                    hit.payload.as_ref().map_or(0, payload_bytes) as u64
+                } else {
+                    source_len as u64
+                };
+            }
+            if source_len != 0 {
+                counters.files_opened += 1;
+                counters.record_parses += u64::from(*output_mode == ReturnMode::Logical);
+            }
+            Ok(Some(hit))
+        }
+        DirectLookupResult::SourceUnavailable(diagnostic) => {
+            counters.record_source_unavailable(diagnostic);
+            counters.returned_records = counters.returned_records.saturating_sub(1);
+            Ok(None)
+        }
+        DirectLookupResult::NotFound => Err("stream hit no longer resolves in pinned view".into()),
     }
 }
 
@@ -5857,7 +5989,11 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         revision,
         context,
         query_cache,
-        (all && !relation_scope).then(|| delivery.max_buffered_bytes() / 2),
+        (all && !relation_scope).then(|| WinnerBufferBudget {
+            limit: delivery.max_buffered_bytes() / 2,
+            context,
+            peak: None,
+        }),
         Some((&sort, &prepared)),
         &mut restriction_cache,
         true,

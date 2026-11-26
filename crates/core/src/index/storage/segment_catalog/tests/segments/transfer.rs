@@ -1342,9 +1342,8 @@ fn unordered_finite_stream_stops_reading_identity_ordered_placements() {
     factory.fail_directory_refill.store(true, Ordering::Relaxed);
     let (ids, outcome) = read_ids(&query);
     assert_eq!(ids, ["row-00"]);
-    assert!(
-        matches!(outcome.unwrap(), StreamOutcome::Complete(summary) if summary.count.is_none())
-    );
+    assert!(matches!(outcome.unwrap(), StreamOutcome::Complete(summary)
+            if summary.count.is_none() && summary.progress.peak_buffered_bytes > 0));
     assert_eq!(factory.placement_reads.load(Ordering::Relaxed), 1);
 
     query.options.count = true;
@@ -1367,6 +1366,120 @@ fn unordered_finite_stream_stops_reading_identity_ordered_placements() {
     outcome.unwrap();
     assert_eq!(ids, ["row-01", "row-02"]);
     assert_eq!(factory.placement_reads.load(Ordering::Relaxed), 3);
+    index.shutdown().unwrap();
+}
+
+#[test]
+fn certified_directory_stream_bounds_same_placement_payloads() {
+    use crate::query_execution::streaming::{
+        CancellationToken, StreamControl, StreamError, StreamEvent, StreamOptions, StreamOutcome,
+    };
+    use crate::query_results::Payload;
+
+    let factory = Arc::new(TableFactory::default());
+    factory
+        .certify_placement_identity_ranges
+        .store(true, Ordering::Relaxed);
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let items = builder.collection("items", score_schema()).unwrap();
+    let registration = builder
+        .register_records(items, "directory-stream-payloads", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    let payload = "x".repeat(48 * 1024);
+    for row in 0..4 {
+        let Value::Object(mut fields) = score(7) else {
+            unreachable!()
+        };
+        fields.insert("body".into(), Value::String(payload.clone()));
+        batch
+            .insert(format!("row-{row}"), Value::Object(fields))
+            .unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let view = index.view().unwrap();
+    let directory = &view.0.record_routes[0];
+    assert_eq!(directory.segment_count(), 1);
+    assert!(directory.identity_ranges_in_placement_order());
+    assert_eq!(view.segments(items).unwrap()[0].descriptor().slots, 4);
+
+    let mut query = score_query();
+    query.collections = vec!["items".into()];
+    query.options.sort.clear();
+    query.options.count = false;
+    query.options.evidence = false;
+    query.options.return_mode = ReturnMode::Logical;
+    query.options.limit = 4;
+    let stream = |max_buffered_bytes, max_event_bytes| {
+        let options = StreamOptions {
+            batch_rows: 1,
+            max_event_bytes,
+            max_buffered_bytes,
+            ..Default::default()
+        };
+        let mut ids = Vec::new();
+        let result = view.search_stream(&query, options, &CancellationToken::new(), &mut |event| {
+            if let StreamEvent::OrderedRows { rows, start, .. } = event {
+                assert_eq!(start, ids.len());
+                assert_eq!(rows.len(), 1);
+                for row in rows {
+                    let Some(Payload::Logical(Value::Object(fields))) = &row.payload else {
+                        panic!("expected logical payload");
+                    };
+                    assert!(matches!(&fields["body"], Value::String(body) if body == &payload));
+                    ids.push(row.record_id.clone());
+                }
+            }
+            Ok(StreamControl::Continue)
+        });
+        (ids, result)
+    };
+    let expected = ["row-0", "row-1", "row-2", "row-3"];
+    let low_budget = 96 * 1024;
+    let (ids, result) = stream(low_budget, 64 * 1024);
+    match result {
+        Ok(StreamOutcome::Complete(summary)) => {
+            assert_eq!(ids, expected);
+            assert_eq!(summary.returned_rows, 4);
+            assert!(
+                (48 * 1024..=low_budget).contains(&summary.progress.peak_buffered_bytes),
+                "low-budget peak was {}",
+                summary.progress.peak_buffered_bytes
+            );
+            eprintln!(
+                "certified directory low-budget peak {} bytes",
+                summary.progress.peak_buffered_bytes
+            );
+        }
+        Err(StreamError::Resource { progress, message }) => {
+            assert!(expected.starts_with(&ids.iter().map(String::as_str).collect::<Vec<_>>()));
+            eprintln!(
+                "certified directory resource error at peak {} bytes: {message}",
+                progress.peak_buffered_bytes
+            );
+        }
+        other => panic!("unexpected low-budget stream outcome: {other:?}"),
+    }
+    let high_budget = 512 * 1024;
+    let (ids, result) = stream(high_budget, 64 * 1024);
+    assert_eq!(ids, expected);
+    let StreamOutcome::Complete(summary) = result.unwrap() else {
+        panic!("high-budget stream cancelled")
+    };
+    assert_eq!(summary.returned_rows, 4);
+    assert!((48 * 1024..=high_budget).contains(&summary.progress.peak_buffered_bytes));
+    eprintln!(
+        "certified directory high-budget peak {} bytes",
+        summary.progress.peak_buffered_bytes
+    );
+    let (ids, result) = stream(48 * 1024, 48 * 1024);
+    assert!(ids.is_empty());
+    assert!(matches!(result, Err(StreamError::Resource { progress, .. })
+        if progress.peak_buffered_bytes > 48 * 1024));
     index.shutdown().unwrap();
 }
 

@@ -1286,7 +1286,7 @@ fn try_direct_relation_page(
                     record_address: None,
                     retained_bytes: 0,
                 },
-                retained_budget.zip(context),
+                retained_budget.zip(context).map(Into::into),
                 &mut winner_bytes,
             )?;
         }
@@ -2861,7 +2861,7 @@ fn try_exact_native_boolean_page(
                         record_address: None,
                         retained_bytes: 0,
                     },
-                    retained_budget.zip(context),
+                    retained_budget.zip(context).map(Into::into),
                     &mut winner_bytes,
                 )?;
             }
@@ -3186,7 +3186,7 @@ fn try_native_relation_scan(
                             record_address: None,
                             retained_bytes: 0,
                         },
-                        retained_budget.zip(context),
+                        retained_budget.zip(context).map(Into::into),
                         &mut winner_bytes,
                     )?;
                 }
@@ -3467,7 +3467,7 @@ pub(super) fn search_segmented_relations(
         .ok_or("page size overflow")?;
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
-    let winner_budget = retained_budget.zip(context);
+    let winner_budget = retained_budget.zip(context).map(Into::into);
     let mut counters = WorkCounters::default();
     let mut total = 0u64;
     let mut opened = HashSet::new();

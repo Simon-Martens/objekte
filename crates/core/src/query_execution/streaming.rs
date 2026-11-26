@@ -807,7 +807,7 @@ pub(crate) fn payload_bytes(payload: &Payload) -> usize {
     }
 }
 
-fn value_bytes(value: &crate::model::Value) -> usize {
+pub(crate) fn value_bytes(value: &crate::model::Value) -> usize {
     use crate::model::Value;
     match value {
         Value::String(text) | Value::Id(text) => text.len() + std::mem::size_of::<String>(),
