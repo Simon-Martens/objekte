@@ -739,6 +739,16 @@ impl IndexView {
         &self.0.repository
     }
 
+    fn segment_groups_for_query(
+        &self,
+        query: &Query,
+    ) -> crate::index::storage::transfer::StorageResult<
+        Vec<crate::index::storage::publication::SegmentGroup>,
+    > {
+        self.repository()
+            .query_segment_groups(query, Some(&self.0.record_routes))
+    }
+
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         if !self.initial_construction_complete() {
             return Err("initial index construction is incomplete; use search_available".into());
@@ -764,7 +774,9 @@ impl IndexView {
             self.repository(),
             resolved.as_ref(),
             &self.0.active,
-            &self.0.segment_groups().map_err(|error| error.to_string())?,
+            &self
+                .segment_groups_for_query(&resolved)
+                .map_err(|error| error.to_string())?,
             &self.0.catalog,
             self.revision(),
             cache,
@@ -845,8 +857,7 @@ impl IndexView {
             &resolved,
             &self.0.active,
             &self
-                .0
-                .segment_groups()
+                .segment_groups_for_query(&resolved)
                 .map_err(|error| context.recorded_error(error.to_string()))?,
             &self.0.catalog,
             self.revision(),
@@ -1224,7 +1235,9 @@ impl IndexView {
             self.repository(),
             query,
             &self.0.active,
-            &self.0.segment_groups().map_err(|error| error.to_string())?,
+            &self
+                .segment_groups_for_query(query)
+                .map_err(|error| error.to_string())?,
             &self.0.catalog,
             self.revision(),
         )
@@ -1380,7 +1393,9 @@ impl IndexView {
             self.repository(),
             resolved.as_ref(),
             &self.0.active,
-            &self.0.segment_groups().map_err(|error| error.to_string())?,
+            &self
+                .segment_groups_for_query(&resolved)
+                .map_err(|error| error.to_string())?,
             &self.0.catalog,
             self.revision(),
         )
@@ -1397,7 +1412,9 @@ impl IndexView {
             self.repository(),
             resolved.as_ref(),
             &self.0.active,
-            &self.0.segment_groups().map_err(|error| error.to_string())?,
+            &self
+                .segment_groups_for_query(&resolved)
+                .map_err(|error| error.to_string())?,
             self.revision(),
         )
     }
@@ -1585,8 +1602,7 @@ impl IndexView {
             context,
             &self.0.active,
             &self
-                .0
-                .segment_groups()
+                .segment_groups_for_query(query)
                 .map_err(|error| StreamError::Execution {
                     kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                     message: error.to_string(),

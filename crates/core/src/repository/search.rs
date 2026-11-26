@@ -15,7 +15,7 @@ impl Repository {
         if self.active.iter().any(|active| active.len() != 0) {
             return self.search_reference(&resolved);
         }
-        let groups = self.segment_groups()?;
+        let groups = self.segment_groups_for_query(&resolved)?;
         let cache = crate::query_execution::runner::LifecycleCacheScope {
             file_routes: self.lookup_segment_catalogs(),
             store: &self.verified,
@@ -93,7 +93,7 @@ impl Repository {
             &resolved,
             &self.active,
             &self
-                .segment_groups()
+                .segment_groups_for_query(&resolved)
                 .map_err(|error| context.recorded_error(error.to_string()))?,
             &self.catalog,
             self.revision,
@@ -264,7 +264,7 @@ impl Repository {
                 options,
                 context,
                 &self.active,
-                &self.segment_groups().map_err(|error| {
+                &self.segment_groups_for_query(query).map_err(|error| {
                     crate::query_execution::streaming::StreamError::Execution {
                         kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
                         message: error.to_string(),
@@ -424,7 +424,7 @@ impl Repository {
             self,
             resolved.as_ref(),
             &self.active,
-            &self.segment_groups()?,
+            &self.segment_groups_for_query(&resolved)?,
             self.revision,
         )
     }
@@ -453,7 +453,7 @@ impl Repository {
             self,
             resolved.as_ref(),
             &self.active,
-            &self.segment_groups()?,
+            &self.segment_groups_for_query(&resolved)?,
             &self.catalog,
             self.revision,
         )?;
@@ -476,7 +476,7 @@ impl Repository {
             self,
             query,
             domains,
-            &self.segment_groups()?,
+            &self.segment_groups_for_query(query)?,
             &self.catalog,
             self.revision,
         )?;

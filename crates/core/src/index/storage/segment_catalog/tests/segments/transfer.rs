@@ -613,6 +613,162 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
 }
 
 #[test]
+fn scoped_queries_open_only_selected_and_reached_directories() {
+    use crate::index::storage::segment_catalog::build_catalog;
+    use crate::query_execution::streaming::{
+        CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
+    };
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::schema::FieldDefinition;
+    use crate::schema::relations::RelationCardinality;
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root = std::env::temp_dir().join(format!("objekte-directory-scope-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("entries")).unwrap();
+    std::fs::create_dir_all(root.join("targets")).unwrap();
+    std::fs::write(
+        root.join("entries/source.rows"),
+        concat!(
+            "(\"id\"=\"left\",\"score\"=7,\"target\"=\"yes\")\n",
+            "(\"id\"=\"right\",\"score\"=7,\"target\"=\"no\")\n",
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("targets/target.rows"),
+        "(\"id\"=\"yes\",\"score\"=9)\n(\"id\"=\"no\",\"score\"=0)\n",
+    )
+    .unwrap();
+
+    let definition = |name| {
+        let mut result = CollectionDefinition::folder(name, name, line_format());
+        result.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        result.schema = score_schema();
+        result
+    };
+    let mut entries = definition("entries");
+    entries
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["target".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    entries
+        .schema
+        .register_relation(RelationDefinition {
+            path: vec!["target".into()],
+            target_collection: "targets".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: Some("sources".into()),
+        })
+        .unwrap();
+    let first_directory = Arc::new(TableFactory::default());
+    let second_directory = Arc::new(TableFactory::default());
+    let source = Index::start_build_with_factory(
+        &root,
+        vec![entries, definition("targets")],
+        RepositoryOptions {
+            verified_cache_bytes: 1024 * 1024,
+            ..Default::default()
+        },
+        fixture_registry(),
+        Arc::new(Arc::clone(&first_directory)),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let pinned = source.view().unwrap();
+    let mut revision = (*pinned.0).clone();
+    let second_group = pinned.segments(CollectionId(1)).unwrap();
+    revision.record_routes[1] = build_catalog(&second_directory, second_group.iter()).unwrap();
+    let index = Index::from_published(revision);
+    let view = index.view().unwrap();
+
+    second_directory
+        .fail_placement
+        .store(true, Ordering::Relaxed);
+    let mut query = score_query();
+    query.collections = vec!["entries".into()];
+    query.options.return_mode = ReturnMode::Locator;
+    let cold = view.search(&query).unwrap();
+    assert_eq!(cold.count, Some(2));
+    let warm = view.search(&query).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(cold.hits, warm.hits);
+    assert_eq!(view.explain(&query).unwrap().len(), 1);
+    let mut streamed = Vec::new();
+    let outcome = view
+        .search_stream_scoped(
+            &query,
+            ResultScope::All { offset: 0 },
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(summary) if summary.count == Some(2)));
+    assert_eq!(streamed, cold.hits);
+    assert!(
+        view.get_record("entries", "left", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    assert!(
+        view.get_record("entries", "absent", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert_eq!(second_directory.placement_reads.load(Ordering::Relaxed), 0);
+
+    query.filter = Some(crate::query::parse_filter("target.score = 9").unwrap());
+    let error = view.search(&query).unwrap_err();
+    assert!(error.contains("injected placement failure"), "{error}");
+    assert_eq!(second_directory.placement_reads.load(Ordering::Relaxed), 1);
+    second_directory
+        .fail_placement
+        .store(false, Ordering::Relaxed);
+    let related = view.search(&query).unwrap();
+    assert_eq!(related.count, Some(1));
+    assert_eq!(related.hits[0].record_id, "left");
+    query.collections = vec!["targets".into()];
+    query.filter = Some(crate::query::parse_filter("@backlinks.sources.score = 7").unwrap());
+    let backlinked = view.search(&query).unwrap();
+    assert_eq!(
+        backlinked
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["no", "yes"]
+    );
+    first_directory
+        .fail_placement
+        .store(true, Ordering::Relaxed);
+    assert!(
+        view.search(&query)
+            .unwrap_err()
+            .contains("injected placement failure")
+    );
+
+    index.shutdown().unwrap();
+    source.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     use crate::index::storage::publication::PublishedSegment;
     use crate::repository::configuration::{

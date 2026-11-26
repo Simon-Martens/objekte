@@ -4247,26 +4247,16 @@ fn stream_backing_for_hit(
     {
         return Ok(StreamBacking::File);
     }
-    let repository_group = if repo.has_native_segments() {
-        repo.segment_groups()?.get(collection_index).cloned()
-    } else {
-        None
-    };
-    for group in repository_group
-        .iter()
-        .chain(segments.get(collection_index))
-    {
-        for published in group.iter() {
-            if published
-                .slot_for_record(&hit.record_id)?
-                .is_some_and(|slot| published.active.contains(slot))
-            {
-                return Ok(match published.backing_kind() {
-                    RecordBacking::FileRange => StreamBacking::File,
-                    RecordBacking::Retained => StreamBacking::Retained,
-                    RecordBacking::Provider => StreamBacking::Provider,
-                });
-            }
+    for published in segments[collection_index].iter() {
+        if published
+            .slot_for_record(&hit.record_id)?
+            .is_some_and(|slot| published.active.contains(slot))
+        {
+            return Ok(match published.backing_kind() {
+                RecordBacking::FileRange => StreamBacking::File,
+                RecordBacking::Retained => StreamBacking::Retained,
+                RecordBacking::Provider => StreamBacking::Provider,
+            });
         }
     }
     Err("stream hit no longer resolves in pinned view".into())
@@ -5923,7 +5913,13 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
         );
     }
-    if posting_order_eligible(repo, query, None, &repo.segment_groups()?, &repo.catalog)? {
+    if posting_order_eligible(
+        repo,
+        query,
+        None,
+        &repo.segment_groups_for_query(query)?,
+        &repo.catalog,
+    )? {
         return search_impl(repo, query, None, None, None, None, None, None);
     }
     let budget = {
@@ -6083,7 +6079,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
     }
     let execution_query = &execution_query;
     let segment_groups = repo
-        .segment_groups()
+        .segment_groups_for_query(execution_query)
         .map_err(|error| StreamError::Execution {
             kind: ExecutionErrorKind::Execution,
             message: error.to_string(),
@@ -6830,7 +6826,7 @@ pub(crate) fn explain_with_active(
             .as_ref()
             .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
-    let segment_groups = repo.segment_groups()?;
+    let segment_groups = repo.segment_groups_for_query(query)?;
     let inferred_order = active.is_none()
         && !has_source_dependent
         && !has_related_fts
@@ -7184,7 +7180,7 @@ fn search_impl_with_resolved_sort<'a>(
         counters.planning_ns += rejected_order.planning_ns;
     }
     let mut reused_order = rejected_order.entries.into_iter();
-    let segment_groups = repo.segment_groups()?;
+    let segment_groups = repo.segment_groups_for_query(query)?;
     for entry in collections {
         let collection_index = entry.collection_index;
         let filter = entry.filter;

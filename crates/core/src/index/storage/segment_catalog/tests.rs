@@ -60,6 +60,7 @@ struct TableFactory {
     fail_seal: AtomicBool,
     fail_lookup: AtomicBool,
     fail_placement: AtomicBool,
+    placement_reads: AtomicUsize,
     wrong_slot: AtomicBool,
     fail_directory_refill: AtomicBool,
 }
@@ -1010,6 +1011,7 @@ impl SegmentCatalogReader for TableDirectory {
         &self,
         position: usize,
     ) -> StorageResult<Option<Cow<'_, Arc<PublishedSegment>>>> {
+        self.control.placement_reads.fetch_add(1, Ordering::Relaxed);
         if self.control.fail_placement.load(Ordering::Relaxed) {
             return Err(StorageError::invalid(
                 "pin test placement",
@@ -1022,6 +1024,28 @@ impl SegmentCatalogReader for TableDirectory {
             .and_then(|descriptor| self.placements.get(&descriptor.id))
             .cloned()
             .map(Cow::Owned))
+    }
+
+    fn read_placements(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [Arc<PublishedSegment>]>, BatchStatus)> {
+        assert!(limit.accepts("table directory", 0, 0, size_of::<Arc<PublishedSegment>>())?);
+        if start == self.segment_count() {
+            return Ok((Cow::Borrowed(&[]), BatchStatus::Done));
+        }
+        let placements = self
+            .placement_at(start)?
+            .map(Cow::into_owned)
+            .into_iter()
+            .collect::<Vec<_>>();
+        let status = if start + placements.len() == self.segment_count() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Owned(placements), status))
     }
 
     fn record_counts(&self) -> SegmentRecordCounts {

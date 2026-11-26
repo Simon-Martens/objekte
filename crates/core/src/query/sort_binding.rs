@@ -282,7 +282,7 @@ fn estimated_sort_value_bytes(value: &Value) -> usize {
     total
 }
 
-fn expression(field: &SortField) -> Result<SortExpression, String> {
+pub(crate) fn expression(field: &SortField) -> Result<SortExpression, String> {
     if let Some(expression) = &field.expression {
         return Ok(expression.clone());
     }

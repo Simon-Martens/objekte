@@ -445,7 +445,7 @@ pub(super) fn try_inferred_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
-    let segment_groups = repo.segment_groups()?;
+    let segment_groups = repo.segment_groups_for_query(query)?;
     if !posting_order_eligible(repo, query, Some(prepared), &segment_groups, &repo.catalog)? {
         return Ok(None);
     }
@@ -841,7 +841,7 @@ pub(super) fn try_stored_order_page(
     let diagnostics = traces.is_some();
     let mut plans = Vec::new();
     let mut candidate_total = 0u64;
-    let segment_groups = repo.segment_groups()?;
+    let segment_groups = repo.segment_groups_for_query(query)?;
     for entry in &prepared.collections {
         let collection_index = entry.collection_index;
         let filter = entry.filter.as_ref();

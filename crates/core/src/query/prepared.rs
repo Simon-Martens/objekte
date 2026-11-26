@@ -80,6 +80,79 @@ pub(crate) struct PreparedQuery {
     pub(crate) predicates: Arc<PreparedPredicates>,
 }
 
+/// Include the collections reached by the same path resolver used by filter,
+/// text and sort binding. Keep the directory positions stable for cached rows.
+pub(crate) fn segment_scope(repo: &Repository, query: &Query) -> Vec<bool> {
+    use crate::query::binding::relation::resolve_path;
+    use crate::query::path::QueryPath;
+    use crate::query::{FilterExpr, Operand};
+
+    fn visit_paths(expr: &FilterExpr, visit: &mut impl FnMut(&QueryPath)) {
+        match expr {
+            FilterExpr::Term(term) => {
+                visit(&term.path);
+                if let Operand::Field(field) = &term.operand {
+                    visit(&field.path);
+                }
+            }
+            FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+                for part in parts {
+                    visit_paths(part, visit);
+                }
+            }
+            FilterExpr::Not(inner) => visit_paths(inner, visit),
+        }
+    }
+
+    if query.collections.is_empty() {
+        return vec![true; repo.collections.len()];
+    }
+    let mut scope = vec![false; repo.collections.len()];
+    let has_relations = repo
+        .collections
+        .iter()
+        .any(|collection| !collection.definition.schema.relations().is_empty());
+    for (index, collection) in repo.collections.iter().enumerate() {
+        if !query.collections.contains(&collection.definition.name) {
+            continue;
+        }
+        scope[index] = true;
+        if !has_relations {
+            continue;
+        }
+        // The execution binder reports bad paths as query errors.
+        let mut visit = |path: &QueryPath| {
+            if let Ok(Some((hops, _))) = resolve_path(repo, index, path) {
+                for hop in hops {
+                    scope[hop.to.0 as usize] = true;
+                }
+            }
+        };
+        if let Some(filter) = &query.filter {
+            visit_paths(filter, &mut visit);
+        }
+        if let Some(fts) = &query.fts {
+            for field in &fts.fields {
+                let path = match field.query_path.as_deref() {
+                    Some(path) => QueryPath::parse(path),
+                    None => QueryPath::parse(&field.path.display()),
+                };
+                if let Ok(path) = path {
+                    visit(&path);
+                }
+            }
+        }
+        for field in &query.options.sort {
+            if let Ok(expression) = crate::query::sort_binding::expression(field)
+                && let Ok(path) = QueryPath::parse(&expression.path)
+            {
+                visit(&path);
+            }
+        }
+    }
+    scope
+}
+
 /// Bind one query against the selected collections on every request.
 pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<PreparedQuery, String> {
     #[cfg(test)]

@@ -98,6 +98,44 @@ impl Repository {
             .collect()
     }
 
+    pub(crate) fn query_segment_groups(
+        &self,
+        query: &crate::query::Query,
+        directories: Option<&[SegmentCatalogHandle]>,
+    ) -> StorageResult<Vec<SegmentGroup>> {
+        let scope = crate::query::prepared::segment_scope(self, query);
+        let mut empty = None;
+        scope
+            .into_iter()
+            .enumerate()
+            .map(|(index, selected)| {
+                if !selected {
+                    return Ok(Arc::clone(empty.get_or_insert_with(Arc::default)));
+                }
+                let Some(directories) = directories else {
+                    #[cfg(test)]
+                    return Ok(Arc::clone(&self.segments[index]));
+                    #[cfg(not(test))]
+                    unreachable!("production repository has segment directories");
+                };
+                let directory = directories.get(index).ok_or_else(|| {
+                    crate::index::storage::transfer::StorageError::invalid(
+                        "open query segment directories",
+                        "selected collection has no segment directory",
+                    )
+                })?;
+                pin_segment_group(directory.as_ref())
+            })
+            .collect()
+    }
+
+    pub(crate) fn segment_groups_for_query(
+        &self,
+        query: &crate::query::Query,
+    ) -> StorageResult<Vec<SegmentGroup>> {
+        self.query_segment_groups(query, self.lookup_segment_catalogs())
+    }
+
     pub(crate) fn lookup_segment_catalogs(&self) -> Option<&[SegmentCatalogHandle]> {
         #[cfg(test)]
         if self.segments.iter().any(|group| !group.is_empty()) {
