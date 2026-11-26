@@ -1,8 +1,12 @@
 //! Ranking, ordering, cache and delivery result units.
 
 use crate::files::RecordFileInfo;
+use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::SegmentReader;
+use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inventory::{DiagnosticRef, RecordClass};
 use crate::measurement::WorkCounters;
+use crate::model::RecordSlot;
 
 pub(crate) mod cache;
 pub(crate) mod delivery;
@@ -27,6 +31,51 @@ pub struct SearchHit {
 }
 
 impl SearchHit {
+    pub(crate) fn remap_segment_diagnostic(
+        &mut self,
+        reader: &dyn SegmentReader,
+        catalog: &dyn FileCatalogReader,
+        slot: RecordSlot,
+    ) -> StorageResult<()> {
+        let (Some(local), Some(file)) = (
+            self.diagnostic_ref.stored_index(),
+            self.file.as_ref().map(|origin| origin.file_id),
+        ) else {
+            return Ok(());
+        };
+        let header = reader
+            .header(slot)?
+            .filter(|header| header.slot == slot && header.id.0.as_ref() == self.record_id)
+            .ok_or_else(|| StorageError::invalid("map hit diagnostic", "invalid routed record"))?;
+        if reader
+            .origin(header.slot)?
+            .and_then(|origin| origin.file())
+            .is_none_or(|origin| origin.file != file)
+        {
+            return Ok(());
+        }
+        let Some(source) = reader.file_metadata(file)? else {
+            return Ok(());
+        };
+        let Some(diagnostic) = source.diagnostics.get(local) else {
+            return Ok(());
+        };
+        let Some(position) = catalog.file(file)?.and_then(|entry| {
+            entry
+                .diagnostics
+                .iter()
+                .position(|candidate| candidate == diagnostic)
+        }) else {
+            return Ok(());
+        };
+        let reference = DiagnosticRef((position + 1) as u32);
+        self.diagnostic_ref = reference;
+        if let Some(Payload::LogicalUnavailable { diagnostic_ref }) = &mut self.payload {
+            *diagnostic_ref = reference;
+        }
+        Ok(())
+    }
+
     pub fn source_range(&self) -> Option<crate::inventory::ByteRange> {
         self.file.as_ref()?.range
     }

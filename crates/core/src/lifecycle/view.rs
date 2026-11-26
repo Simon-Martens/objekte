@@ -5,8 +5,10 @@ use std::sync::{Arc, Weak};
 
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
+use crate::index::storage::segment::{SegmentReader, visit_checked_file_slots};
+use crate::index::storage::transfer::StorageResult;
 use crate::inventory::{ActiveRecords, FileEntry};
-use crate::model::{CollectionId, FileId, Value};
+use crate::model::{CollectionId, FileId, RecordSlot, Value};
 use crate::query::Query;
 use crate::query::options::ReturnMode;
 use crate::query_execution::streaming::{
@@ -505,9 +507,9 @@ impl IndexView {
     }
 
     fn remap_hit_diagnostic(&self, hit: &mut SearchHit) -> Result<(), String> {
-        let Some(local) = hit.diagnostic_ref.stored_index() else {
+        if hit.diagnostic_ref.stored_index().is_none() || hit.file.is_none() {
             return Ok(());
-        };
+        }
         let Some(collection) = self
             .repository()
             .collections()
@@ -516,46 +518,19 @@ impl IndexView {
         else {
             return Ok(());
         };
-        let Some(file) = hit.file.as_ref().map(|origin| origin.file_id) else {
+        let Some(found) = self.0.record_routes[collection].locate(&hit.record_id)? else {
             return Ok(());
         };
-        for segment in self.0.segments[collection].iter() {
-            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
-                continue;
-            };
-            if !segment.active.contains(slot)
-                || segment.index.record(slot).is_none_or(|_| {
-                    segment
-                        .index
-                        .backing
-                        .file_locator(slot)
-                        .is_none_or(|locator| locator.file != file)
-                })
-            {
-                continue;
-            }
-            let Some(source) = segment.index.file(file) else {
-                return Ok(());
-            };
-            let Some(diagnostic) = source.entry.diagnostics.get(local) else {
-                return Ok(());
-            };
-            let Some(position) = self.0.catalog.file(file)?.and_then(|entry| {
-                entry
-                    .diagnostics
-                    .iter()
-                    .position(|candidate| candidate == diagnostic)
-            }) else {
-                return Ok(());
-            };
-            let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
-            hit.diagnostic_ref = reference;
-            if let Some(crate::query_results::Payload::LogicalUnavailable { diagnostic_ref }) =
-                &mut hit.payload
-            {
-                *diagnostic_ref = reference;
-            }
-            return Ok(());
+        let segment = self.0.segments[collection]
+            .get(found.position)
+            .filter(|segment| segment.id == found.route.segment)
+            .ok_or("diagnostic route points to a missing segment")?;
+        if segment.active.contains(found.route.slot) {
+            hit.remap_segment_diagnostic(
+                segment.index.as_ref(),
+                &self.0.catalog,
+                found.route.slot,
+            )?;
         }
         Ok(())
     }
@@ -711,28 +686,53 @@ impl IndexView {
                     .filter(|slot| self.0.active[number].contains(**slot))
                     .count() as u64;
             }
-            let routes = self.0.record_routes.get(number).ok_or_else(|| {
-                IndexError::InvalidPublication("file points to missing collection".into())
+            self.visit_segment_file_slots(file, *collection_id, &mut |_, active, slots| {
+                count += slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
+                Ok(())
             })?;
-            let segments = self.0.segments.get(number).ok_or_else(|| {
-                IndexError::InvalidPublication("file points to missing collection".into())
-            })?;
-            for segment_id in routes.segments_for_file(file)?.iter() {
-                let segment = routes
-                    .position(*segment_id)?
-                    .and_then(|position| segments.get(position))
-                    .ok_or_else(|| {
-                        IndexError::InvalidPublication("file points to missing segment".into())
-                    })?;
-                if let Some(slots) = segment.index.file_records(file) {
-                    count += slots
-                        .iter()
-                        .filter(|slot| segment.active.contains(**slot))
-                        .count() as u64;
-                }
-            }
         }
         Ok(Some(count))
+    }
+
+    pub(crate) fn visit_segment_file_slots(
+        &self,
+        file: FileId,
+        collection: CollectionId,
+        visit: &mut dyn FnMut(
+            &dyn SegmentReader,
+            &ActiveRecords,
+            &[RecordSlot],
+        ) -> StorageResult<()>,
+    ) -> Result<(), IndexError> {
+        let number = collection.0 as usize;
+        let routes = self.0.record_routes.get(number).ok_or_else(|| {
+            IndexError::InvalidPublication("file points to missing collection".into())
+        })?;
+        let segments = self.0.segments.get(number).ok_or_else(|| {
+            IndexError::InvalidPublication("file points to missing collection".into())
+        })?;
+        for &id in routes.segments_for_file(file)?.iter() {
+            let segment = routes
+                .position(id)?
+                .and_then(|position| segments.get(position))
+                .filter(|segment| segment.id == id)
+                .ok_or_else(|| {
+                    IndexError::InvalidPublication("file points to missing segment".into())
+                })?;
+            let reader = segment.index.as_ref();
+            let descriptor = reader.descriptor();
+            if descriptor.collection != collection
+                || descriptor.slots != segment.active.slot_count() as usize
+            {
+                return Err(IndexError::InvalidPublication(
+                    "file route has an invalid slot domain".into(),
+                ));
+            }
+            visit_checked_file_slots(reader, file, &mut |slots| {
+                visit(reader, &segment.active, slots)
+            })?;
+        }
+        Ok(())
     }
 
     pub(crate) fn segments(&self, collection: CollectionId) -> Option<&[Arc<PublishedSegment>]> {

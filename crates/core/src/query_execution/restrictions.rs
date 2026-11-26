@@ -1,7 +1,7 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
 use crate::index::storage::segment::{
-    FILE_SLOT_LIMIT, SegmentPredicateAccess, SegmentReader, visit_segment_files,
+    SegmentPredicateAccess, SegmentReader, visit_checked_file_slots, visit_segment_files,
 };
 use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap};
@@ -225,17 +225,15 @@ impl RoutedFileRestrictions {
                         .filter(|segment| segment.id == id)
                         .ok_or("file route points to a missing segment")?;
                     prepared.membership_probes += 1;
-                    segment
-                        .index
-                        .visit_file_slots(file, FILE_SLOT_LIMIT, &mut |slots| {
-                            by_segment.entry(id).or_default().extend(
-                                slots
-                                    .iter()
-                                    .filter(|slot| segment.active.contains(**slot))
-                                    .map(|slot| slot.0),
-                            );
-                            Ok(())
-                        })?;
+                    visit_checked_file_slots(&segment.index, file, &mut |slots| {
+                        by_segment.entry(id).or_default().extend(
+                            slots
+                                .iter()
+                                .filter(|slot| segment.active.contains(**slot))
+                                .map(|slot| slot.0),
+                        );
+                        Ok(())
+                    })?;
                 }
             }
         }
@@ -785,7 +783,7 @@ fn append_file_members(
     file: FileId,
     matches: &mut RoaringBitmap,
 ) -> Result<(), StorageError> {
-    segment.visit_file_slots(file, FILE_SLOT_LIMIT, &mut |slots| {
+    visit_checked_file_slots(segment, file, &mut |slots| {
         matches.extend(slots.iter().map(|slot| slot.0));
         Ok(())
     })

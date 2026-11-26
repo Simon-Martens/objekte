@@ -251,6 +251,25 @@ pub(crate) fn visit_segment_files<E: From<StorageError>>(
     }
 }
 
+/// Enforce the local-slot and bounded-batch contract before publishing file
+/// membership to callers. Empty associations have no batches.
+pub(crate) fn visit_checked_file_slots<S: SegmentReader + ?Sized>(
+    segment: &S,
+    file: FileId,
+    visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
+) -> StorageResult<()> {
+    const OP: &str = "read segment file membership";
+    let end = segment.descriptor().slots;
+    let max = FILE_SLOT_LIMIT.fixed_batch_len(OP, size_of::<RecordSlot>())?;
+    segment.visit_file_slots(file, FILE_SLOT_LIMIT, &mut |slots| {
+        if slots.is_empty() || slots.len() > max || slots.iter().any(|slot| slot.0 as usize >= end)
+        {
+            return Err(StorageError::invalid(OP, "invalid file slot batch"));
+        }
+        visit(slots)
+    })
+}
+
 /// Logical provenance for a file-backed address or an optional direct link.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct FileRangeLocator {

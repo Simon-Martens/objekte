@@ -1,15 +1,13 @@
 //! Optional file registration, provenance, and pinned catalog reads.
 
-use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 
 use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
-use crate::index::storage::segment::SegmentReader;
-use crate::index::storage::transfer::{BatchLimit, StorageError};
+use crate::index::storage::transfer::StorageError;
 use crate::inventory::{ByteRange, FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::{FileCatalogueRow, IndexView};
-use crate::model::FileId;
 use crate::model::RecordId;
+use crate::model::{CollectionId, FileId};
 use crate::query::Operator;
 use crate::query::options::ReturnMode;
 use crate::records::RecordKey;
@@ -176,53 +174,11 @@ impl<'a> FileCatalogView<'a> {
     /// each participating segment's local file slot list.
     pub fn records_for_file(&self, id: FileId) -> Result<Vec<RecordKey>, LookupError> {
         let file = self.reader.file(id)?.ok_or(LookupError::FileNotFound)?;
-        const FILE_SLOT_LIMIT: BatchLimit = BatchLimit::new(
-            NonZeroUsize::new(256).unwrap(),
-            NonZeroUsize::new(1024).unwrap(),
-        );
         let mut keys = Vec::new();
-        for collection_id in &file.collections {
-            let number = collection_id.0 as usize;
-            let state = &self.view.0.repository.collections[number];
-            if let Some(slots) = state.generation.file_records.records_for(id) {
-                for &slot in slots {
-                    if self.view.0.active[number].contains(slot) {
-                        keys.push(RecordKey::new(
-                            *collection_id,
-                            state.generation.records[slot.0 as usize].id.clone(),
-                        ));
-                    }
-                }
-            }
-            for segment_id in self.view.0.record_routes[number]
-                .segments_for_file(id)
-                .map_err(|error| LookupError::Query(error.to_string()))?
-                .iter()
-            {
-                let position = self.view.0.record_routes[number]
-                    .position(*segment_id)
-                    .map_err(|error| LookupError::Query(error.to_string()))?
-                    .ok_or(LookupError::Query("file segment route is stale".into()))?;
-                let segment = self.view.0.segments[number]
-                    .get(position)
-                    .ok_or_else(|| LookupError::Query("file segment route is stale".into()))?;
-                segment
-                    .index
-                    .visit_file_slots(id, FILE_SLOT_LIMIT, &mut |slots| {
-                        for &slot in slots {
-                            if segment.active.contains(slot) {
-                                let record = segment.index.header(slot)?.ok_or_else(|| {
-                                    StorageError::invalid(
-                                        "read file records",
-                                        "routed slot is missing",
-                                    )
-                                })?;
-                                keys.push(RecordKey::new(*collection_id, record.id.clone()));
-                            }
-                        }
-                        Ok(())
-                    })?;
-            }
+        for &collection in &file.collections {
+            self.visit_live_file_records(id, collection, |record| {
+                keys.push(RecordKey::new(collection, record.clone()));
+            })?;
         }
         keys.sort();
         keys.dedup();
@@ -234,52 +190,67 @@ impl<'a> FileCatalogView<'a> {
         id: FileId,
         collection: &str,
     ) -> Result<Vec<RecordId>, LookupError> {
-        let collection_id = self
-            .view
-            .0
-            .repository
-            .collections
-            .iter()
-            .enumerate()
-            .find(|(_, state)| state.definition.name == collection)
-            .map(|(index, _)| crate::model::CollectionId(index as u32));
         let file = self.reader.file(id)?.ok_or(LookupError::FileNotFound)?;
-        let Some(collection_id) = collection_id else {
+        let repository = &self.view.0.repository;
+        let Some(collection) = file.collections.iter().copied().find(|id| {
+            repository
+                .collections()
+                .get(id.0 as usize)
+                .is_some_and(|state| state.definition.name == collection)
+        }) else {
             return Ok(Vec::new());
         };
-        if !file.collections.contains(&collection_id) {
-            return Ok(Vec::new());
-        }
-        let number = collection_id.0 as usize;
-        let state = &self.view.0.repository.collections[number];
         let mut records = Vec::new();
-        if let Some(slots) = state.generation.file_records.records_for(id) {
-            for &slot in slots {
-                if self.view.0.active[number].contains(slot) {
-                    records.push(state.generation.records[slot.0 as usize].id.clone());
-                }
-            }
-        }
-        for segment_id in self.view.0.record_routes[number]
-            .segments_for_file(id)
-            .map_err(|error| LookupError::Query(error.to_string()))?
-            .iter()
-        {
-            let position = self.view.0.record_routes[number]
-                .position(*segment_id)
-                .map_err(|error| LookupError::Query(error.to_string()))?
-                .ok_or(LookupError::Query("file segment route is stale".into()))?;
-            let segment = &self.view.0.segments[number][position];
-            if let Some(&file_index) = segment.index.file_index.get(&id) {
-                for &slot in &segment.index.files[file_index].records {
-                    if segment.active.contains(slot) {
-                        records.push(segment.index.records[slot.0 as usize].id.clone());
-                    }
-                }
-            }
-        }
+        self.visit_live_file_records(id, collection, |record| records.push(record.clone()))?;
         records.sort();
         records.dedup();
         Ok(records)
+    }
+
+    fn visit_live_file_records(
+        &self,
+        id: FileId,
+        collection: CollectionId,
+        mut visit: impl FnMut(&RecordId),
+    ) -> Result<(), LookupError> {
+        let number = collection.0 as usize;
+        let state = self
+            .view
+            .0
+            .repository
+            .collections()
+            .get(number)
+            .ok_or_else(|| LookupError::Query("file points to a missing collection".into()))?;
+        if let Some(slots) = state.generation.file_records.records_for(id) {
+            for &slot in slots {
+                if self.view.0.active[number].contains(slot) {
+                    let record =
+                        state
+                            .generation
+                            .records
+                            .get(slot.0 as usize)
+                            .ok_or_else(|| {
+                                LookupError::Query("file points to a missing base record".into())
+                            })?;
+                    visit(&record.id);
+                }
+            }
+        }
+        self.view
+            .visit_segment_file_slots(id, collection, &mut |reader, active, slots| {
+                for &slot in slots {
+                    if active.contains(slot) {
+                        let header = reader
+                            .header(slot)?
+                            .filter(|header| header.slot == slot)
+                            .ok_or_else(|| {
+                                StorageError::invalid("read file records", "invalid routed record")
+                            })?;
+                        visit(&header.id);
+                    }
+                }
+                Ok(())
+            })
+            .map_err(|error| LookupError::Query(error.to_string()))
     }
 }

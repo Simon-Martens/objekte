@@ -1,6 +1,6 @@
 //! Repository record lookup and hit stamping.
 
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::SegmentReader;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::RecordId;
@@ -143,54 +143,23 @@ impl Repository {
     }
 
     fn remap_native_diagnostic(&self, hit: &mut SearchHit) -> Result<(), String> {
-        let Some(local) = hit.diagnostic_ref.stored_index() else {
+        if hit.diagnostic_ref.stored_index().is_none() || hit.file.is_none() {
             return Ok(());
-        };
-        let Some(collection_index) = self
+        }
+        let Some(collection) = self
             .collections
             .iter()
             .position(|collection| collection.definition.name == hit.collection)
         else {
             return Ok(());
         };
-        let Some(file) = hit.file.as_ref().map(|origin| origin.file_id) else {
-            return Ok(());
-        };
-        for segment in self.segments[collection_index].iter() {
-            let Some(slot) = segment.index.id_lookup.get(hit.record_id.as_str()).copied() else {
-                continue;
-            };
-            if !segment.active.contains(slot)
-                || segment.index.record(slot).is_none_or(|_| {
-                    segment
-                        .index
-                        .backing
-                        .file_locator(slot)
-                        .is_none_or(|locator| locator.file != file)
-                })
+        for segment in self.segments[collection].iter() {
+            if let Some(slot) = segment.index.slot_for_record(&hit.record_id)?
+                && segment.active.contains(slot)
             {
-                continue;
+                hit.remap_segment_diagnostic(segment.index.as_ref(), &self.catalog, slot)?;
+                break;
             }
-            let Some(source) = segment.index.file(file) else {
-                return Ok(());
-            };
-            let Some(diagnostic) = source.entry.diagnostics.get(local) else {
-                return Ok(());
-            };
-            let Some(position) = self.catalog.file(file)?.and_then(|entry| {
-                entry
-                    .diagnostics
-                    .iter()
-                    .position(|candidate| candidate == diagnostic)
-            }) else {
-                return Ok(());
-            };
-            let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
-            hit.diagnostic_ref = reference;
-            if let Some(Payload::LogicalUnavailable { diagnostic_ref }) = &mut hit.payload {
-                *diagnostic_ref = reference;
-            }
-            return Ok(());
         }
         Ok(())
     }
