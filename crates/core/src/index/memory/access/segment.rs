@@ -3,12 +3,18 @@
 use std::sync::{Arc, Mutex};
 
 use crate::index::segment::IndexedCollectionSegment;
+#[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::SegmentPredicateAccess;
+#[cfg(test)]
+use crate::index::storage::text::SegmentTextAccess;
 use crate::query::binding::filter::BoundTerm;
 use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
+#[cfg(test)]
 use crate::query_execution::domain::domain_id;
-use crate::query_execution::restrictions::{AccessPathKind, segment_access_path_kind};
+use crate::query_execution::restrictions::AccessPathKind;
 use crate::query_predicate::TermId;
+#[cfg(test)]
 use crate::repository::state::CollectionState;
 
 use crate::query_access::contract::{
@@ -16,7 +22,14 @@ use crate::query_access::contract::{
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
     ProviderId, Restriction,
 };
-use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
+#[cfg(test)]
+use crate::query_access::membership::DomainId;
+use crate::query_access::membership::{SlotInput, SlotSet};
+
+mod predicate;
+
+pub(crate) use predicate::segment_text_estimate;
+use predicate::{native_segment_term_bounds, segment_access_path_kind};
 
 pub(crate) const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
 
@@ -53,39 +66,53 @@ struct PreparedSegmentOperation {
 }
 
 pub(crate) struct NativeSegmentProvider<'a> {
-    pub(crate) segment: &'a IndexedCollectionSegment,
-    pub(crate) collection: &'a CollectionState,
-    pub(crate) file_catalog: Option<&'a dyn FileCatalogReader>,
-    pub(crate) domain: DomainId,
-    pub(crate) instance_id: u64,
+    segment: &'a IndexedCollectionSegment,
+    access: SegmentPredicateAccess<'a>,
     operations: Mutex<Vec<PreparedSegmentOperation>>,
 }
 
 impl<'a> NativeSegmentProvider<'a> {
+    pub(crate) fn for_access(
+        segment: &'a IndexedCollectionSegment,
+        access: SegmentPredicateAccess<'a>,
+    ) -> Self {
+        Self {
+            segment,
+            access,
+            operations: Mutex::new(Vec::new()),
+        }
+    }
+
+    #[cfg(test)]
     pub(crate) fn new(
         published_id: crate::index::segment::SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
         file_catalog: Option<&'a dyn FileCatalogReader>,
     ) -> Self {
-        Self {
+        Self::for_access(
             segment,
-            collection,
-            file_catalog,
-            domain: domain_id(
-                collection.repository_instance,
-                collection.generation.collection.0,
-                collection.generation.generation,
-                Some(published_id.get()),
-            ),
-            instance_id: collection.repository_instance,
-            operations: Mutex::new(Vec::new()),
-        }
+            SegmentPredicateAccess {
+                text: SegmentTextAccess {
+                    domain: domain_id(
+                        collection.repository_instance,
+                        collection.generation.collection.0,
+                        collection.generation.generation,
+                        Some(published_id.get()),
+                    ),
+                    instance: collection.repository_instance,
+                    collection: collection.generation.collection,
+                    policy: collection.text_access_policy(),
+                },
+                collection_name: &collection.definition.name,
+                files: file_catalog,
+            },
+        )
     }
 
     #[cfg(test)]
     pub(crate) fn domain(&self) -> DomainId {
-        self.domain
+        self.access.text.domain
     }
 
     fn operation_id(
@@ -129,7 +156,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
-        if input.domain != self.domain {
+        if input.domain != self.access.text.domain {
             return Ok(());
         }
         let AccessRequest::Structured(bound) = request else {
@@ -152,7 +179,11 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     | crate::query::Operator::Lt
                     | crate::query::Operator::Le
             );
-        let index = IndexCatalog::segment(self.segment, self.collection);
+        let index = IndexCatalog::segment_with_bindings(
+            self.segment,
+            self.access.text.policy.schema,
+            self.access.text.policy.bindings,
+        );
         let domain = &self.segment.logical_records;
         let mut direct_output = None;
         for access in direct_posting_compatible
@@ -184,7 +215,8 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             direct_output = Some(
                 direct_output.map_or(proposal.output, |current: u64| current.min(proposal.output)),
             );
-            let access_kind = segment_access_path_kind(bound, self.segment, self.collection);
+            let access_kind =
+                segment_access_path_kind(bound, self.segment, self.access.text.policy);
             let operation = self.operation_id(term, bound, physical, access_kind);
             offers.push(AccessOffer::new(
                 AccessId {
@@ -217,7 +249,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             ));
         }
 
-        let source_kind = segment_access_path_kind(bound, self.segment, self.collection);
+        let source_kind = segment_access_path_kind(bound, self.segment, self.access.text.policy);
         let fallback_operation = self.operation_id(
             term,
             bound,
@@ -254,7 +286,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         execution: &AccessExecution<'_>,
     ) -> AccessResult<Restriction<'a>> {
         execution.check()?;
-        if choice.provider != NATIVE_SEGMENT_PROVIDER || input.domain() != self.domain {
+        if choice.provider != NATIVE_SEGMENT_PROVIDER || input.domain() != self.access.text.domain {
             return Err(AccessError::StaleHandle);
         }
         let AccessRequest::Structured(bound) = request else {
@@ -284,19 +316,18 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                 let effective = input.bitmap_for_native();
                 let logical = effective.as_ref() & &self.segment.logical_records;
                 let fallback = effective.as_ref() - &self.segment.logical_records;
-                let bounds = crate::query_execution::restrictions::segment_expr_bounds(
+                let bounds = native_segment_term_bounds(
                     self.segment,
-                    &crate::query::binding::filter::BoundExpr::Term(bound.clone()),
-                    self.collection,
+                    bound,
+                    self.access,
                     effective.as_ref(),
                     &logical,
                     &fallback,
-                    self.file_catalog,
                 )
                 .map_err(AccessError::Internal)?;
                 let possible = input.replace_slots(SlotSet::from_shared(bounds.may));
                 let proven = SlotInput::new(
-                    self.domain,
+                    self.access.text.domain,
                     possible.operation_input(),
                     SlotSet::from_shared(bounds.must),
                 );
@@ -308,7 +339,11 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                 exact,
             } => {
                 let effective = input.bitmap_for_native();
-                let index = IndexCatalog::segment(self.segment, self.collection);
+                let index = IndexCatalog::segment_with_bindings(
+                    self.segment,
+                    self.access.text.policy.schema,
+                    self.access.text.policy.bindings,
+                );
                 let access = index
                     .posting(
                         &bound.path.segments,
@@ -347,7 +382,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                         possible,
                         proven: if exact && !matches.is_empty() {
                             crate::query_access::contract::Proven::Subset(SlotInput::new(
-                                self.domain,
+                                self.access.text.domain,
                                 operation_input,
                                 SlotSet::from_shared(proven),
                             ))
@@ -360,11 +395,11 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         };
         crate::query_execution::request::record_observation_for_execution(
             execution,
-            self.instance_id,
+            self.access.text.instance,
             term,
-            self.domain,
+            self.access.text.domain,
             choice,
-            self.collection.generation.collection.0,
+            self.access.text.collection.0,
             input_len,
             restriction.possible.len() as u64,
             match &restriction.proven {

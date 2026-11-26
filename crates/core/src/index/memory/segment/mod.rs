@@ -820,12 +820,19 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(())
     }
 
+    fn with_predicate_access(
+        &self,
+        access: crate::index::storage::segment::SegmentPredicateAccess<'_>,
+        use_provider: &mut crate::index::storage::segment::UseAccessProvider<'_>,
+    ) -> StorageResult<()> {
+        let provider = super::access::segment::NativeSegmentProvider::for_access(self, access);
+        use_provider(Some(&provider))
+    }
+
     fn with_text_access(
         &self,
         access: crate::index::storage::text::SegmentTextAccess<'_>,
-        use_provider: &mut dyn FnMut(
-            Option<&dyn crate::query_access::contract::IndexAccessProvider>,
-        ) -> StorageResult<()>,
+        use_provider: &mut crate::index::storage::segment::UseAccessProvider<'_>,
     ) -> StorageResult<()> {
         let provider = super::access::text::NativeSegmentTextProvider::for_access(self, access);
         use_provider(Some(&provider))

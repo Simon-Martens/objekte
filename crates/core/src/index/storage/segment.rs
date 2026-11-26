@@ -158,6 +158,11 @@ pub(crate) struct SegmentSource<'a> {
     pub registration: Option<u32>,
 }
 
+pub(crate) const FILE_SLOT_LIMIT: BatchLimit = BatchLimit::new(
+    NonZeroUsize::new(256).unwrap(),
+    NonZeroUsize::new(1024).unwrap(),
+);
+
 const HEADER_LIMIT: BatchLimit = BatchLimit::new(
     NonZeroUsize::new(256).unwrap(),
     NonZeroUsize::new(16 * 1024 * 1024).unwrap(),
@@ -292,6 +297,16 @@ pub(crate) trait RetainedBlockReader: Send + Sync {
 
 pub(crate) type RetainedBlock = std::sync::Arc<dyn RetainedBlockReader>;
 
+#[derive(Clone, Copy)]
+pub(crate) struct SegmentPredicateAccess<'a> {
+    pub text: SegmentTextAccess<'a>,
+    pub collection_name: &'a str,
+    pub files: Option<&'a dyn super::file_catalog::FileCatalogReader>,
+}
+
+pub(crate) type UseAccessProvider<'a> =
+    dyn FnMut(Option<&dyn IndexAccessProvider>) -> StorageResult<()> + 'a;
+
 /// Reads from a pinned segment. Returned keys and headers can borrow the
 /// pinned representation or hold an owned value decoded by the reader.
 pub(crate) trait SegmentReader: Send + Sync {
@@ -348,12 +363,20 @@ pub(crate) trait SegmentReader: Send + Sync {
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()>;
 
+    fn with_predicate_access(
+        &self,
+        _access: SegmentPredicateAccess<'_>,
+        use_provider: &mut UseAccessProvider<'_>,
+    ) -> StorageResult<()> {
+        use_provider(None)
+    }
+
     /// Borrow provider state for this access request. Optional families can
     /// decline without opening index contents.
     fn with_text_access(
         &self,
         _access: SegmentTextAccess<'_>,
-        use_provider: &mut dyn FnMut(Option<&dyn IndexAccessProvider>) -> StorageResult<()>,
+        use_provider: &mut UseAccessProvider<'_>,
     ) -> StorageResult<()> {
         use_provider(None)
     }
@@ -471,10 +494,18 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         self.as_ref().visit_file_slots(file, limit, visit)
     }
 
+    fn with_predicate_access(
+        &self,
+        access: SegmentPredicateAccess<'_>,
+        use_provider: &mut UseAccessProvider<'_>,
+    ) -> StorageResult<()> {
+        self.as_ref().with_predicate_access(access, use_provider)
+    }
+
     fn with_text_access(
         &self,
         access: SegmentTextAccess<'_>,
-        use_provider: &mut dyn FnMut(Option<&dyn IndexAccessProvider>) -> StorageResult<()>,
+        use_provider: &mut UseAccessProvider<'_>,
     ) -> StorageResult<()> {
         self.as_ref().with_text_access(access, use_provider)
     }

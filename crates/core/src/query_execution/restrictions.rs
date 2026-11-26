@@ -1,6 +1,8 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
-use crate::index::storage::segment::SegmentReader;
+use crate::index::storage::segment::{
+    FILE_SLOT_LIMIT, SegmentPredicateAccess, SegmentReader, visit_segment_files,
+};
 use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
@@ -9,18 +11,13 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::index::segment::{IndexedCollectionSegment, PublishedSegment, SegmentId};
+use crate::index::segment::{PublishedSegment, SegmentId};
 use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
 use crate::index::storage::order::ScalarOrderPredicate;
 use crate::index::storage::text::SegmentTextAccess;
 use crate::index::storage::transfer::StorageError;
-use crate::inventory::{
-    ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
-    SharedPath, SourceRevision, relative_path_bounds,
-};
-use crate::model::{
-    FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
-};
+use crate::inventory::{ActiveRecords, relative_path_bounds};
+use crate::model::{FileId, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::binding::fts::BoundFts;
 use crate::query::semantics::record::RecordContext;
 use crate::query::{Operator, Quantifier};
@@ -38,7 +35,6 @@ use crate::query_access::contract::{
 use crate::query_access::membership::{DomainId, MembershipView, SlotInput, SlotSet};
 use crate::query_access::native::NativeCollectionProvider;
 use crate::query_access::registry::ProviderCatalog;
-use crate::query_access::segment::NativeSegmentProvider;
 use crate::query_plan::selection::ordered_offer_ids;
 use crate::query_predicate::{PreparedPredicates, TermId};
 use crate::reference::filter::eval_term;
@@ -48,7 +44,7 @@ use crate::schema::operation::Transform;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
 
-const MAX_INDEXED_PATH_SCAN: usize = 8192;
+pub(crate) const MAX_INDEXED_PATH_SCAN: usize = 8192;
 
 #[cfg(test)]
 thread_local! {
@@ -148,64 +144,6 @@ impl IndexAccessProvider for SourceVerificationProvider {
     }
 }
 
-pub(crate) fn segment_access_path_kind(
-    term: &BoundTerm,
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-) -> AccessPathKind {
-    if term.related.is_some() {
-        return AccessPathKind::RelationSourceRestricted;
-    }
-    if term.query_path.has_position {
-        return AccessPathKind::Posting;
-    }
-    match term.path.root {
-        PathRoot::Metadata(MetadataField::FilePath) => {
-            return AccessPathKind::FilePathIndex;
-        }
-        PathRoot::Metadata(_) => return AccessPathKind::Metadata,
-        PathRoot::Backlinks => return AccessPathKind::Scanner,
-        PathRoot::Data => {}
-    }
-    if term.path.root == PathRoot::Data
-        && matches!(
-            term.kind,
-            LogicalType::Number | LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime
-        )
-        && segment.sorting.column(&term.path.display()).is_ok()
-    {
-        return AccessPathKind::SortColumn;
-    }
-    if term.path.root == PathRoot::Data
-        && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
-        && matches!(term.operator, Operator::Contains | Operator::Eq)
-        && term.gram_request.is_some()
-        && custom_bigram_compatible(term)
-    {
-        return if matches!(term.binding_name.as_str(), "default" | "lower") {
-            AccessPathKind::RawBigram
-        } else {
-            AccessPathKind::CustomBigram
-        };
-    }
-    let index = IndexCatalog::segment(segment, collection);
-    if index
-        .field_postings(
-            &term.path.segments,
-            &term.binding_name,
-            term.operation.is_some(),
-        )
-        .into_iter()
-        .flatten()
-        .next()
-        .is_some()
-    {
-        AccessPathKind::Posting
-    } else {
-        AccessPathKind::Scanner
-    }
-}
-
 pub(crate) fn access_path_kind_name(kind: AccessPathKind) -> &'static str {
     match kind {
         AccessPathKind::Metadata => "metadata",
@@ -282,17 +220,22 @@ impl RoutedFileRestrictions {
                     else {
                         continue;
                     };
-                    let segment = &segments[leaf.collection_index][position];
+                    let segment = segments[leaf.collection_index]
+                        .get(position)
+                        .filter(|segment| segment.id == id)
+                        .ok_or("file route points to a missing segment")?;
                     prepared.membership_probes += 1;
-                    if let Some(slots) = segment.index.file_records(file) {
-                        let matches = by_segment.entry(id).or_default();
-                        matches.extend(
-                            slots
-                                .iter()
-                                .filter(|slot| segment.active.contains(**slot))
-                                .map(|slot| slot.0),
-                        );
-                    }
+                    segment
+                        .index
+                        .visit_file_slots(file, FILE_SLOT_LIMIT, &mut |slots| {
+                            by_segment.entry(id).or_default().extend(
+                                slots
+                                    .iter()
+                                    .filter(|slot| segment.active.contains(**slot))
+                                    .map(|slot| slot.0),
+                            );
+                            Ok(())
+                        })?;
                 }
             }
         }
@@ -365,8 +308,10 @@ fn routed_file_ids(
 }
 
 struct SegmentPlanContext<'a> {
-    published_id: SegmentId,
-    provider: NativeSegmentProvider<'a>,
+    segment: &'a dyn SegmentReader,
+    collection: &'a CollectionState,
+    access: SegmentPredicateAccess<'a>,
+    provider: Option<&'a dyn IndexAccessProvider>,
     test_providers: Vec<Arc<dyn IndexAccessProvider>>,
     predicates: Option<&'a PreparedPredicates>,
     routed: Option<(&'a RoutedFileRestrictions, SegmentId)>,
@@ -376,44 +321,99 @@ struct SegmentPlanContext<'a> {
     next_term: u32,
 }
 
+fn with_segment_predicate_access<T>(
+    segment: &dyn SegmentReader,
+    access: SegmentPredicateAccess<'_>,
+    select: impl FnOnce(Option<&dyn IndexAccessProvider>) -> Result<T, String>,
+) -> Result<T, String> {
+    let mut select = Some(select);
+    let mut result = None;
+    segment.with_predicate_access(access, &mut |provider| {
+        let select = select.take().ok_or_else(|| {
+            StorageError::invalid(
+                "open segment predicate access",
+                "provider callback repeated",
+            )
+        })?;
+        result = Some(select(provider));
+        Ok(())
+    })?;
+    result.ok_or_else(|| "segment predicate access omitted provider selection".to_owned())?
+}
+
+fn segment_text_access(
+    collection: &CollectionState,
+    published_id: SegmentId,
+) -> SegmentTextAccess<'_> {
+    let id = collection.generation.collection;
+    SegmentTextAccess {
+        policy: collection.text_access_policy(),
+        domain: crate::query_execution::domain::domain_id(
+            collection.repository_instance,
+            id.0,
+            collection.generation.generation,
+            Some(published_id.get()),
+        ),
+        instance: collection.repository_instance,
+        collection: id,
+    }
+}
+
 impl<'a> SegmentPlanContext<'a> {
     fn new(
-        published_id: SegmentId,
-        segment: &'a IndexedCollectionSegment,
+        segment: &'a dyn SegmentReader,
         collection: &'a CollectionState,
-        file_catalog: Option<&'a dyn FileCatalogReader>,
+        access: SegmentPredicateAccess<'a>,
+        provider: Option<&'a dyn IndexAccessProvider>,
     ) -> Self {
-        Self::new_with_predicates(published_id, segment, collection, file_catalog, None, None)
-    }
-
-    fn new_with_predicates(
-        published_id: SegmentId,
-        segment: &'a IndexedCollectionSegment,
-        collection: &'a CollectionState,
-        file_catalog: Option<&'a dyn FileCatalogReader>,
-        predicates: Option<&'a PreparedPredicates>,
-        execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
-    ) -> Self {
-        let test_providers = {
-            #[cfg(test)]
-            {
-                crate::query_execution::request::all_test_access_providers()
-            }
-            #[cfg(not(test))]
-            {
-                Vec::new()
-            }
-        };
+        #[cfg(test)]
+        let test_providers = crate::query_execution::request::all_test_access_providers();
+        #[cfg(not(test))]
+        let test_providers = Vec::new();
         Self {
-            published_id,
-            provider: NativeSegmentProvider::new(published_id, segment, collection, file_catalog),
+            segment,
+            collection,
+            access,
+            provider,
             test_providers,
-            predicates,
+            predicates: None,
             routed: None,
-            execution,
+            execution: None,
             offers: HashMap::new(),
             terms: Vec::new(),
             next_term: 0,
+        }
+    }
+
+    fn estimate(
+        &self,
+        term_id: TermId,
+        term: &BoundTerm,
+        input_len: u64,
+    ) -> Result<Option<(u64, f64)>, String> {
+        let offers = self
+            .catalog()
+            .propose(
+                term_id,
+                AccessRequest::Structured(term),
+                self.input_estimate(input_len),
+            )
+            .map_err(|error| error.to_string())?;
+        Ok(
+            crate::query_plan::selection::choose_offer(term_id, &offers, input_len)
+                .map_err(|error| error.to_string())?
+                .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
+        )
+    }
+
+    fn input_estimate(&self, input_len: u64) -> InputEstimate {
+        InputEstimate {
+            domain: self.access.text.domain,
+            domain_len: self.segment.descriptor().slots as u64,
+            input_len,
+            mean_record_bytes: self.collection.stats.mean_record_bytes(),
+            mean_records_per_file: self.collection.stats.mean_records_per_file(),
+            file_count: self.segment.file_count() as u64,
         }
     }
 
@@ -421,12 +421,12 @@ impl<'a> SegmentPlanContext<'a> {
         let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
         #[cfg(test)]
         let suppress_native = crate::query_execution::request::test_native_access_suppressed(
-            self.provider.instance_id,
+            self.access.text.instance,
         );
         #[cfg(not(test))]
         let suppress_native = false;
-        if !suppress_native {
-            providers.push(&self.provider);
+        if let Some(provider) = self.provider.filter(|_| !suppress_native) {
+            providers.push(provider);
         } else {
             providers.push(&SOURCE_VERIFICATION_PROVIDER);
         }
@@ -438,10 +438,8 @@ impl<'a> SegmentPlanContext<'a> {
 
     fn term_id(&mut self, term: &BoundTerm) -> TermId {
         if let Some(predicates) = self.predicates
-            && let Some(id) = predicates.term_for_bound_term(
-                self.provider.collection.generation.collection.0 as usize,
-                term,
-            )
+            && let Some(id) =
+                predicates.term_for_bound_term(self.access.text.collection.0 as usize, term)
         {
             return id;
         }
@@ -470,71 +468,22 @@ impl<'a> SegmentPlanContext<'a> {
         if let Some((routed, published_id)) = self.routed
             && let Some(selection) = routed.terms.get(&term_id)
         {
-            let segment = self.provider.segment;
             let slots = match selection {
                 Some(by_segment) => by_segment
                     .get(&published_id)
                     .map_or_else(RoaringBitmap::new, |slots| slots & input),
                 None => {
                     let catalog = self
-                        .provider
-                        .file_catalog
+                        .access
+                        .files
                         .expect("routed restriction uses a catalog");
-                    if let Some((operator, literal)) = indexed_file_path_term(term) {
-                        segment_file_path_matches(segment, input, catalog, operator, literal)?
-                    } else if let Some(matches) =
-                        segment_file_size_matches(segment, input, term, None)?
-                    {
-                        matches
-                    } else if let Some(matches) = segment_file_modified_matches(
-                        segment,
-                        self.provider.collection,
-                        input,
-                        term,
-                        None,
-                    )? {
-                        matches
-                    } else {
-                        // The only remaining routed shape is a creation-time comparison or null test.
-                        let mut matches = RoaringBitmap::new();
-                        for file in &segment.files {
-                            let Some(entry) = catalog
-                                .file(file.entry.id)
-                                .map_err(|error| error.to_string())?
-                            else {
-                                continue;
-                            };
-                            let selected = match (&term.derived, &term.literal) {
-                                (Derived::Null, _) => entry.created_ns.is_none(),
-                                (_, Value::Datetime(literal)) => {
-                                    entry.created_ns.is_some_and(|created| {
-                                        order_matches(
-                                            created.cmp(&literal.unix_timestamp_nanos()),
-                                            term.operator,
-                                        )
-                                    })
-                                }
-                                _ => false,
-                            };
-                            if selected {
-                                matches.extend(file.records.iter().map(|slot| slot.0));
-                            }
-                        }
-                        matches & input
-                    }
+                    scan_routed_files(self.segment, catalog, term, input)?
                 }
             };
             return Ok(SegmentCandidateBounds::exact(slots));
         }
         if !self.offers.contains_key(&term_id) {
-            let estimate = InputEstimate {
-                domain: self.provider.domain,
-                domain_len: self.provider.segment.record_count() as u64,
-                input_len: input.len() as u64,
-                mean_record_bytes: self.provider.collection.stats.mean_record_bytes(),
-                mean_records_per_file: self.provider.collection.stats.mean_records_per_file(),
-                file_count: self.provider.segment.file_count() as u64,
-            };
+            let estimate = self.input_estimate(input.len());
             let offers = self
                 .catalog()
                 .propose(term_id, AccessRequest::Structured(term), estimate)
@@ -559,7 +508,7 @@ impl<'a> SegmentPlanContext<'a> {
                 term_id,
                 AccessRequest::Structured(term),
                 choice.id(),
-                SlotInput::unrestricted(self.provider.domain, input),
+                SlotInput::unrestricted(self.access.text.domain, input),
                 &AccessExecution {
                     context: self.execution,
                 },
@@ -573,7 +522,7 @@ impl<'a> SegmentPlanContext<'a> {
                     field: term.path.display(),
                     operator: term.operator,
                     value: format!("{:?}", term.literal),
-                    segment: self.published_id.get(),
+                    segment: self.segment.descriptor().id.get(),
                     input: input.iter().collect(),
                 };
                 PREDICATE_APPLICATION_OBSERVATIONS
@@ -595,10 +544,10 @@ impl<'a> SegmentPlanContext<'a> {
             BoundExpr::Term(term) => {
                 let term_id = self.term_id(term);
                 crate::query_execution::request::record_skipped_observation(
-                    self.provider.instance_id,
+                    self.access.text.instance,
                     term_id,
-                    self.provider.domain,
-                    self.provider.collection.generation.collection.0,
+                    self.access.text.domain,
+                    self.access.text.collection.0,
                     0,
                 );
             }
@@ -625,14 +574,14 @@ fn shared_bitmap_from_slot_input(input: SlotInput<'_>) -> Arc<RoaringBitmap> {
 }
 
 impl SegmentCandidateBounds {
-    fn candidate(may: RoaringBitmap) -> Self {
+    pub(crate) fn candidate(may: RoaringBitmap) -> Self {
         Self {
             may: Arc::new(may),
             must: Arc::new(RoaringBitmap::new()),
         }
     }
 
-    fn exact(matches: RoaringBitmap) -> Self {
+    pub(crate) fn exact(matches: RoaringBitmap) -> Self {
         let matches = Arc::new(matches);
         Self {
             may: Arc::clone(&matches),
@@ -640,7 +589,7 @@ impl SegmentCandidateBounds {
         }
     }
 
-    fn bounds(may: RoaringBitmap, must: RoaringBitmap) -> Self {
+    pub(crate) fn bounds(may: RoaringBitmap, must: RoaringBitmap) -> Self {
         if may == must {
             Self::exact(may)
         } else {
@@ -651,14 +600,14 @@ impl SegmentCandidateBounds {
         }
     }
 
-    fn unknown(domain: &RoaringBitmap) -> Self {
+    pub(crate) fn unknown(domain: &RoaringBitmap) -> Self {
         Self::candidate(domain.clone())
     }
 }
 
 pub(crate) fn segment_filter_bounds(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
@@ -668,36 +617,27 @@ pub(crate) fn segment_filter_bounds(
 
 pub(crate) fn segment_filter_estimate_with_term(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     collection: &CollectionState,
     catalog: Option<&dyn FileCatalogReader>,
     term: &BoundTerm,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
-    let mut context = SegmentPlanContext::new(published_id, segment, collection, catalog);
-    let term_id = context.term_id(term);
-    let estimate = InputEstimate {
-        domain: context.provider.domain,
-        domain_len: segment.record_count() as u64,
-        input_len,
-        mean_record_bytes: collection.stats.mean_record_bytes(),
-        mean_records_per_file: collection.stats.mean_records_per_file(),
-        file_count: segment.file_count() as u64,
+    let access = SegmentPredicateAccess {
+        text: segment_text_access(collection, published_id),
+        collection_name: &collection.definition.name,
+        files: catalog,
     };
-    let offers = context
-        .catalog()
-        .propose(term_id, AccessRequest::Structured(term), estimate)
-        .map_err(|error| error.to_string())?;
-    Ok(
-        crate::query_plan::selection::choose_offer(term_id, &offers, input_len)
-            .map_err(|error| error.to_string())?
-            .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
-    )
+    with_segment_predicate_access(segment, access, |provider| {
+        let mut context = SegmentPlanContext::new(segment, collection, access, provider);
+        let term_id = context.term_id(term);
+        context.estimate(term_id, term, input_len)
+    })
 }
 
 pub(crate) fn segment_filter_estimate(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     collection: &CollectionState,
     catalog: Option<&dyn FileCatalogReader>,
     expr: &BoundExpr,
@@ -740,7 +680,7 @@ pub(crate) fn segment_filter_estimate(
 
 pub(crate) fn segment_filter_bounds_with_catalog(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
@@ -760,7 +700,7 @@ pub(crate) fn segment_filter_bounds_with_catalog(
 
 pub(crate) fn segment_filter_bounds_with_input_catalog(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
@@ -782,7 +722,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog(
 
 pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
@@ -807,7 +747,7 @@ pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
 
 pub(crate) fn segment_filter_bounds_with_routes(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     active: &ActiveRecords,
     expr: &BoundExpr,
     collection: &CollectionState,
@@ -819,37 +759,90 @@ pub(crate) fn segment_filter_bounds_with_routes(
 ) -> Result<SegmentCandidateBounds, String> {
     #[cfg(test)]
     PREDICATE_BOUNDS_CALLS.with(|calls| calls.set(calls.get() + 1));
-    if active.slot_count() as usize != segment.record_count() {
+    if active.slot_count() as usize != segment.descriptor().slots {
         return Err("segment active domain length mismatch".into());
     }
     let domain = active.bitmap();
     if !input.is_subset(&domain) {
         return Err("segment restriction exceeds its active domain".into());
     }
-    let logical_active = input & &segment.logical_records;
-    let fallback_active = input - &segment.logical_records;
-    let mut context = SegmentPlanContext::new_with_predicates(
-        published_id,
-        segment,
-        collection,
-        catalog,
-        predicates,
-        execution,
-    );
-    context.routed = routed;
-    segment_expr_bounds_with_context(
-        segment,
-        expr,
-        collection,
-        &domain,
-        &logical_active,
-        &fallback_active,
-        catalog,
-        &mut context,
-    )
+    let access = SegmentPredicateAccess {
+        text: segment_text_access(collection, published_id),
+        collection_name: &collection.definition.name,
+        files: catalog,
+    };
+    with_segment_predicate_access(segment, access, |provider| {
+        let mut context = SegmentPlanContext::new(segment, collection, access, provider);
+        context.predicates = predicates;
+        context.execution = execution;
+        context.routed = routed;
+        segment_expr_bounds_with_context(expr, &domain, input, &mut context)
+    })
 }
 
-fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
+fn append_file_members(
+    segment: &dyn SegmentReader,
+    file: FileId,
+    matches: &mut RoaringBitmap,
+) -> Result<(), StorageError> {
+    segment.visit_file_slots(file, FILE_SLOT_LIMIT, &mut |slots| {
+        matches.extend(slots.iter().map(|slot| slot.0));
+        Ok(())
+    })
+}
+
+fn scan_routed_files(
+    segment: &dyn SegmentReader,
+    catalog: &dyn FileCatalogReader,
+    term: &BoundTerm,
+    input: &RoaringBitmap,
+) -> Result<RoaringBitmap, String> {
+    let mut matches = RoaringBitmap::new();
+    let path_term = indexed_file_path_term(term);
+    visit_segment_files(segment, |file| {
+        let selected = if let Some((operator, literal)) = path_term {
+            catalog.file(file.id)?.is_some_and(|entry| {
+                let key = crate::model::path_representation::query_path(&entry.relative_path);
+                file_path_matches(&key, operator, literal)
+            })
+        } else {
+            match (&term.path.root, &term.derived, &term.literal) {
+                (PathRoot::Metadata(MetadataField::FileSize), _, Value::Number(limit)) => {
+                    order_matches(
+                        Number::integer(file.revision.size as i128).cmp(limit),
+                        term.operator,
+                    )
+                }
+                (PathRoot::Metadata(MetadataField::FileModified), _, Value::Datetime(limit)) => {
+                    let modified = file.revision.modified_ns;
+                    time::OffsetDateTime::from_unix_timestamp_nanos(modified)
+                        .map_err(|error| error.to_string())?;
+                    order_matches(modified.cmp(&limit.unix_timestamp_nanos()), term.operator)
+                }
+                (PathRoot::Metadata(MetadataField::FileCreated), derived, literal) => {
+                    let Some(entry) = catalog.file(file.id)? else {
+                        return Ok::<_, String>(());
+                    };
+                    match (derived, literal) {
+                        (Derived::Null, _) => entry.created_ns.is_none(),
+                        (_, Value::Datetime(limit)) => entry.created_ns.is_some_and(|created| {
+                            order_matches(created.cmp(&limit.unix_timestamp_nanos()), term.operator)
+                        }),
+                        _ => false,
+                    }
+                }
+                _ => return Err("unsupported routed file restriction".into()),
+            }
+        };
+        if selected {
+            append_file_members(segment, file.id, &mut matches)?;
+        }
+        Ok(())
+    })?;
+    Ok(matches & input)
+}
+
+pub(crate) fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
     if term.path.root != PathRoot::Metadata(MetadataField::FilePath)
         || term.transform != Transform::Identity
         || term.derived != Derived::None
@@ -874,7 +867,7 @@ fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
     .then_some((term.operator, literal.as_str()))
 }
 
-fn file_path_matches(value: &str, operator: Operator, literal: &str) -> bool {
+pub(crate) fn file_path_matches(value: &str, operator: Operator, literal: &str) -> bool {
     match operator {
         Operator::Eq => value == literal,
         Operator::Gt => value > literal,
@@ -1034,19 +1027,8 @@ fn with_segment_text_offer<T>(
     input_len: u64,
     selected: impl FnOnce(DomainId, &ProviderCatalog<'_>, Option<&AccessOffer>) -> Result<T, String>,
 ) -> Result<T, String> {
-    let collection_id = collection.generation.collection;
-    let domain = crate::query_execution::domain::domain_id(
-        collection.repository_instance,
-        collection_id.0,
-        collection.generation.generation,
-        Some(published_id.get()),
-    );
-    let access = SegmentTextAccess {
-        policy: collection.text_access_policy(),
-        domain,
-        instance: collection.repository_instance,
-        collection: collection_id,
-    };
+    let access = segment_text_access(collection, published_id);
+    let domain = access.domain;
     #[cfg(test)]
     let test_providers = crate::query_execution::request::all_test_access_providers();
     #[cfg(test)]
@@ -1091,611 +1073,15 @@ fn with_segment_text_offer<T>(
     result.ok_or_else(|| "segment text access omitted provider selection".to_owned())?
 }
 
-fn segment_text_candidates(
-    segment: &IndexedCollectionSegment,
-    term: &BoundTerm,
-    collection: &CollectionState,
-) -> Result<Option<RoaringBitmap>, String> {
-    if term.derived != Derived::None
-        || !matches!(term.operator, Operator::Contains | Operator::Eq)
-        || !custom_bigram_compatible(term)
-    {
-        return Ok(None);
-    }
-    let Value::String(literal) = &term.literal else {
-        return Ok(None);
-    };
-    if literal.contains(['%', '\\']) {
-        return Ok(None);
-    }
-    let indexes = IndexCatalog::segment(segment, collection);
-    let raw_compatible = matches!(term.transform, Transform::Identity | Transform::CaseFold)
-        && term.operation.is_none()
-        && term.matcher.is_none()
-        && segment_raw_covers_identity_field(segment, collection);
-    let Some(index) = indexes.field_text_for(
-        &collection.definition.schema,
-        &term.path.segments,
-        &term.binding_name,
-        term.operation.is_some(),
-        true,
-        raw_compatible,
-    ) else {
-        return Ok(None);
-    };
-    let Some(request) = term.gram_request.as_ref() else {
-        return Ok(None);
-    };
-    Ok(index.candidates_prepared(request))
-}
-
-pub(crate) fn segment_text_estimate(
-    segment: &IndexedCollectionSegment,
-    term: &BoundTerm,
-    collection: &CollectionState,
-) -> Option<u64> {
-    if term.derived != Derived::None
-        || !matches!(term.operator, Operator::Contains | Operator::Eq)
-        || !custom_bigram_compatible(term)
-    {
-        return None;
-    }
-    let Value::String(literal) = &term.literal else {
-        return None;
-    };
-    if literal.contains(['%', '\\']) {
-        return None;
-    }
-    let indexes = IndexCatalog::segment(segment, collection);
-    let raw_compatible = matches!(term.transform, Transform::Identity | Transform::CaseFold)
-        && term.operation.is_none()
-        && term.matcher.is_none()
-        && segment_raw_covers_identity_field(segment, collection);
-    let index = indexes.field_text_for(
-        &collection.definition.schema,
-        &term.path.segments,
-        &term.binding_name,
-        term.operation.is_some(),
-        true,
-        raw_compatible,
-    )?;
-    index.estimate_prepared(term.gram_request.as_ref()?)
-}
-
-fn extend_segment_file_slots(
-    segment: &IndexedCollectionSegment,
-    index: usize,
-    matches: &mut RoaringBitmap,
-) -> Result<(), String> {
-    segment.extend_file_slots(index, matches)
-}
-
-/// Only the selected scalar metadata field is read by these two fast paths.
-/// Reuse one context object while direct table access supplies its value.
-fn metadata_probe_file() -> FileEntry {
-    FileEntry {
-        id: FileId(0),
-        relative_path: SharedPath::from(""),
-        revision: SourceRevision {
-            modified_ns: 0,
-            size: 0,
-            object_id: None,
-        },
-        created_ns: None,
-        collections: Vec::new(),
-        status: FileStatus::Valid,
-        diagnostics: Vec::new(),
-        omitted_diagnostics: 0,
-    }
-}
-
-fn metadata_probe_record() -> RecordEntry {
-    RecordEntry {
-        slot: RecordSlot(0),
-        id: RecordId(Arc::from("")),
-        file: FileId(0),
-        range: ByteRange { start: 0, end: 0 },
-        revision: SourceRevision {
-            modified_ns: 0,
-            size: 0,
-            object_id: None,
-        },
-        class: RecordClass::Logical,
-        diagnostic_ref: DiagnosticRef(0),
-    }
-}
-
-fn segment_file_size_matches(
-    segment: &IndexedCollectionSegment,
-    domain: &RoaringBitmap,
-    term: &BoundTerm,
-    catalog: Option<&dyn FileCatalogReader>,
-) -> Result<Option<RoaringBitmap>, String> {
-    if term.path.root != PathRoot::Metadata(MetadataField::FileSize)
-        || term.transform != Transform::Identity
-        || term.derived != Derived::None
-        || term.period.is_some()
-        || term.rhs.is_some()
-    {
-        return Ok(None);
-    }
-    let Value::Number(literal) = &term.literal else {
-        return Ok(None);
-    };
-    if let Some(catalog) = catalog
-        && let Some(files) = catalog
-            .scalar_candidates(FileScalarPredicate::Size(term.operator, literal), 4096)
-            .map_err(|error| error.to_string())?
-    {
-        let mut matches = RoaringBitmap::new();
-        for file in files.iter().copied() {
-            if let Some(slots) = segment.file_records(file) {
-                matches.extend(slots.iter().map(|slot| slot.0));
-            }
-        }
-        matches &= domain;
-        return Ok(Some(matches));
-    }
-    let mut matches = RoaringBitmap::new();
-    for index in 0..segment.file_count() {
-        let revision = segment
-            .files
-            .get(index)
-            .map(|file| file.entry.revision)
-            .ok_or("segment file row missing")?;
-        let order = Number::integer(revision.size as i128).cmp(literal);
-        if order_matches(order, term.operator) {
-            extend_segment_file_slots(segment, index, &mut matches)?;
-        }
-    }
-    matches &= domain;
-    Ok(Some(matches))
-}
-
-fn segment_file_path_matches(
-    segment: &IndexedCollectionSegment,
-    domain: &RoaringBitmap,
-    catalog: &dyn FileCatalogReader,
-    operator: Operator,
-    literal: &str,
-) -> Result<RoaringBitmap, String> {
-    let mut matches = RoaringBitmap::new();
-    for index in 0..segment.file_count() {
-        let id = segment
-            .files
-            .get(index)
-            .map(|file| file.entry.id)
-            .ok_or("segment file row missing")?;
-        let Some(entry) = catalog.file(id).map_err(|error| error.to_string())? else {
-            continue;
-        };
-        let path = crate::model::path_representation::query_path(&entry.relative_path);
-        if file_path_matches(&path, operator, literal) {
-            extend_segment_file_slots(segment, index, &mut matches)?;
-        }
-    }
-    Ok(matches & domain)
-}
-
-fn segment_file_modified_matches(
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-    domain: &RoaringBitmap,
-    term: &BoundTerm,
-    catalog: Option<&dyn FileCatalogReader>,
-) -> Result<Option<RoaringBitmap>, String> {
-    if term.path.root != PathRoot::Metadata(MetadataField::FileModified)
-        || term.rhs.is_some()
-        || term.related.is_some()
-        || term.operation.is_some()
-    {
-        return Ok(None);
-    }
-    // Compatible moves retain the indexed revision; changed metadata takes
-    // the replacement route. The segment's immutable file revision is exact.
-    let empty = Value::Object(BTreeMap::new());
-    let mut file = metadata_probe_file();
-    let record = metadata_probe_record();
-    let direct_literal = if term.transform == Transform::Identity
-        && term.derived == Derived::None
-        && term.period.is_none()
-        && term.matcher.is_none()
-        && matches!(
-            term.operator,
-            Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
-        ) {
-        match &term.literal {
-            Value::Datetime(value) => Some(value.unix_timestamp_nanos()),
-            _ => None,
-        }
-    } else {
-        None
-    };
-    if let (Some(catalog), Some(literal)) = (catalog, direct_literal)
-        && let Some(files) = catalog
-            .scalar_candidates(FileScalarPredicate::Modified(term.operator, literal), 4096)
-            .map_err(|error| error.to_string())?
-    {
-        let mut matches = RoaringBitmap::new();
-        for file in files.iter().copied() {
-            if let Some(slots) = segment.file_records(file) {
-                matches.extend(slots.iter().map(|slot| slot.0));
-            }
-        }
-        matches &= domain;
-        return Ok(Some(matches));
-    }
-    let mut matches = RoaringBitmap::new();
-    for index in 0..segment.file_count() {
-        if segment
-            .files
-            .get(index)
-            .map(|file| file.records.len())
-            .ok_or("segment file row missing")?
-            == 0
-        {
-            continue;
-        }
-        file.revision = segment
-            .files
-            .get(index)
-            .map(|file| file.entry.revision)
-            .ok_or("segment file row missing")?;
-        let selected = if let Some(literal) = direct_literal {
-            let modified = file.revision.modified_ns;
-            time::OffsetDateTime::from_unix_timestamp_nanos(modified)
-                .map_err(|error| error.to_string())?;
-            order_matches(modified.cmp(&literal), term.operator)
-        } else {
-            let ctx = RecordContext {
-                value: &empty,
-                source_bytes: None,
-                record: &record,
-                range: (&record).record_range(),
-                file: Some(&file),
-                collection_name: &collection.definition.name,
-                repository_root: Some(std::path::Path::new("")),
-            };
-            eval_term(term, &ctx)?
-        };
-        if selected {
-            extend_segment_file_slots(segment, index, &mut matches)?;
-        }
-    }
-    matches &= domain;
-    Ok(Some(matches))
-}
-
-fn segment_file_created_matches(
-    segment: &IndexedCollectionSegment,
-    domain: &RoaringBitmap,
-    term: &BoundTerm,
-    catalog: Option<&dyn FileCatalogReader>,
-) -> Result<Option<RoaringBitmap>, String> {
-    if term.path.root != PathRoot::Metadata(MetadataField::FileCreated)
-        || term.transform != Transform::Identity
-        || term.period.is_some()
-        || term.rhs.is_some()
-        || term.related.is_some()
-        || term.matcher.is_some()
-        || term.operation.is_some()
-    {
-        return Ok(None);
-    }
-    let Some(catalog) = catalog else {
-        return Ok(None);
-    };
-    let predicate = if term.derived == Derived::Null {
-        let Value::Bool(literal) = &term.literal else {
-            return Ok(None);
-        };
-        let want_null = match term.operator {
-            Operator::Eq => *literal,
-            Operator::Ne => !*literal,
-            _ => return Ok(None),
-        };
-        if !want_null {
-            return Ok(None);
-        }
-        FileScalarPredicate::UnknownCreated
-    } else {
-        if term.derived != Derived::None {
-            return Ok(None);
-        }
-        let Value::Datetime(literal) = &term.literal else {
-            return Ok(None);
-        };
-        FileScalarPredicate::Created(term.operator, literal.unix_timestamp_nanos())
-    };
-    let Some(files) = catalog
-        .scalar_candidates(predicate, 4096)
-        .map_err(|error| error.to_string())?
-    else {
-        return Ok(None);
-    };
-    let mut matches = RoaringBitmap::new();
-    for file in files.iter().copied() {
-        if let Some(slots) = segment.file_records(file) {
-            matches.extend(slots.iter().map(|slot| slot.0));
-        }
-    }
-    matches &= domain;
-    Ok(Some(matches))
-}
-
-fn segment_record_range_matches(
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-    domain: &RoaringBitmap,
-    term: &BoundTerm,
-) -> Result<Option<RoaringBitmap>, String> {
-    if !matches!(
-        term.path.root,
-        PathRoot::Metadata(
-            MetadataField::RecordByteStart
-                | MetadataField::RecordByteEnd
-                | MetadataField::RecordByteLength
-        )
-    ) || term.rhs.is_some()
-        || term.related.is_some()
-        || term.operation.is_some()
-        || term.matcher.is_some()
-    {
-        return Ok(None);
-    }
-    let empty = Value::Object(BTreeMap::new());
-    let file = metadata_probe_file();
-    let record = metadata_probe_record();
-    let direct_literal = if term.transform == Transform::Identity
-        && term.derived == Derived::None
-        && term.period.is_none()
-        && matches!(
-            term.operator,
-            Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
-        ) {
-        match &term.literal {
-            Value::Number(value) => Some(value),
-            _ => None,
-        }
-    } else {
-        None
-    };
-    let mut matches = RoaringBitmap::new();
-    for slot in domain.iter() {
-        let range = segment
-            .backing
-            .file_locator(RecordSlot(slot))
-            .and_then(|locator| locator.range);
-        let selected = if let Some(literal) = direct_literal {
-            range.is_some_and(|range| {
-                let value = match term.path.root {
-                    PathRoot::Metadata(MetadataField::RecordByteStart) => range.start,
-                    PathRoot::Metadata(MetadataField::RecordByteEnd) => range.end,
-                    PathRoot::Metadata(MetadataField::RecordByteLength) => range.len(),
-                    _ => unreachable!("byte range field checked above"),
-                };
-                order_matches(Number::integer(value as i128).cmp(literal), term.operator)
-            })
-        } else {
-            let ctx = RecordContext {
-                value: &empty,
-                source_bytes: None,
-                record: &record,
-                range,
-                file: Some(&file),
-                collection_name: &collection.definition.name,
-                repository_root: Some(std::path::Path::new("")),
-            };
-            eval_term(term, &ctx)?
-        };
-        if selected {
-            matches.insert(slot);
-        }
-    }
-    Ok(Some(matches))
-}
-
-fn segment_sort_column_matches(
-    segment: &dyn SegmentReader,
-    logical_active: &RoaringBitmap,
-    term: &BoundTerm,
-    ordered_only: bool,
-) -> Result<Option<RoaringBitmap>, String> {
-    if term.derived != Derived::None
-        || term.period.is_some()
-        || term.multi
-        || term.transform != Transform::Identity
-        || term.operation.is_some()
-        || term.rhs.is_some()
-        || !matches!(
-            term.kind,
-            LogicalType::Number | LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime
-        )
-        || !matches!(
-            term.operator,
-            Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
-        )
-    {
-        return Ok(None);
-    }
-    let Some(predicate) = ScalarOrderPredicate::new(&term.literal, term.operator) else {
-        return Ok(None);
-    };
-    let Some(column) = segment.order_column(&term.path)? else {
-        return Ok(None);
-    };
-    if column.key_count() != segment.descriptor().slots {
-        return Err("sort column does not cover the segment".into());
-    }
-    Ok(column.match_scalar(
-        &predicate,
-        MembershipView::Borrowed(logical_active),
-        ordered_only,
-    )?)
-}
-
-fn segment_positional_eq_candidates(
-    segment: &IndexedCollectionSegment,
-    logical_active: &RoaringBitmap,
-    term: &BoundTerm,
-) -> Result<Option<RoaringBitmap>, String> {
-    if !term.query_path.has_position
-        || term.path.root != PathRoot::Data
-        || term.related.is_some()
-        || term.rhs.is_some()
-        || term.operation.is_some()
-        || term.derived != Derived::None
-        || term.period.is_some()
-        || term.transform != Transform::Identity
-        || term.operator != Operator::Eq
-    {
-        return Ok(None);
-    }
-    if term
-        .query_path
-        .steps
-        .iter()
-        .filter(|step| matches!(step, crate::query::path::PathStep::ArrayIndex(_)))
-        .take(2)
-        .count()
-        > 1
-    {
-        return Ok(None);
-    }
-    // A match at a particular array position must also occur in the
-    // unpositioned value posting. Position still requires source verification.
-    let Some(index) = segment.postings.fields.get(&term.path.segments) else {
-        return Ok(None);
-    };
-    Ok(index.exact_set_restricted(term, &segment.logical_records, logical_active))
-}
-
-fn segment_raw_covers_identity_field(
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-) -> bool {
-    crate::query_access::text::segment_raw_covers_identity_field(
-        segment,
-        collection.text_access_policy(),
-    )
-}
-
-/// Metadata is resident in the published record and file catalog. Evaluate it
-/// over the active slots, just as the base collection metadata access does,
-/// without reopening source files.
-fn segment_metadata_matches(
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-    domain: &RoaringBitmap,
-    term: &BoundTerm,
-    catalog: Option<&dyn FileCatalogReader>,
-) -> Result<Option<RoaringBitmap>, String> {
-    let PathRoot::Metadata(_) = term.path.root else {
-        return Ok(None);
-    };
-    if term.related.is_some()
-        || term
-            .rhs
-            .as_ref()
-            .is_some_and(|rhs| !matches!(rhs.path.root, PathRoot::Metadata(_)))
-        || term.matcher.is_some()
-        || term.operation.is_some()
-    {
-        return Ok(None);
-    }
-    let Some(catalog) = catalog else {
-        return Ok(None);
-    };
-    let empty = Value::Object(BTreeMap::new());
-    if term.rhs.is_none()
-        && term.transform == Transform::Identity
-        && matches!(
-            term.path.root,
-            PathRoot::Metadata(MetadataField::CollectionName | MetadataField::RepositoryRoot)
-        )
-    {
-        let Some(slot) = domain.iter().next() else {
-            return Ok(Some(RoaringBitmap::new()));
-        };
-        let record = segment
-            .record(crate::model::RecordSlot(slot))
-            .ok_or("segment record row missing")?;
-        let Some(file) = segment
-            .backing
-            .file_locator(crate::model::RecordSlot(slot))
-            .map(|locator| catalog.file(locator.file))
-            .transpose()
-            .map_err(|error| error.to_string())?
-            .flatten()
-        else {
-            return Ok(None);
-        };
-        let ctx = RecordContext {
-            value: &empty,
-            source_bytes: None,
-            record,
-            range: segment
-                .backing
-                .file_locator(record.slot)
-                .and_then(|locator| locator.range),
-            file: Some(file.as_ref()),
-            collection_name: &collection.definition.name,
-            repository_root: catalog.repository_root(),
-        };
-        return Ok(Some(if eval_term(term, &ctx)? {
-            domain.clone()
-        } else {
-            RoaringBitmap::new()
-        }));
-    }
-    let mut matches = RoaringBitmap::new();
-    for slot in domain.iter() {
-        let record = segment
-            .record(crate::model::RecordSlot(slot))
-            .ok_or("segment record row missing")?;
-        let Some(file) = segment
-            .backing
-            .file_locator(crate::model::RecordSlot(slot))
-            .map(|locator| catalog.file(locator.file))
-            .transpose()
-            .map_err(|error| error.to_string())?
-            .flatten()
-        else {
-            return Ok(None);
-        };
-        let ctx = RecordContext {
-            value: &empty,
-            source_bytes: None,
-            record,
-            range: segment
-                .backing
-                .file_locator(record.slot)
-                .and_then(|locator| locator.range),
-            file: Some(file.as_ref()),
-            collection_name: &collection.definition.name,
-            repository_root: catalog.repository_root(),
-        };
-        if eval_term(term, &ctx)? {
-            matches.insert(slot);
-        }
-    }
-    Ok(Some(matches))
-}
-
-#[allow(clippy::too_many_arguments)]
 fn segment_expr_bounds_with_context(
-    segment: &IndexedCollectionSegment,
     expr: &BoundExpr,
-    collection: &CollectionState,
     domain: &RoaringBitmap,
-    logical_active: &RoaringBitmap,
-    fallback_active: &RoaringBitmap,
-    catalog: Option<&dyn FileCatalogReader>,
+    effective_input: &RoaringBitmap,
     context: &mut SegmentPlanContext<'_>,
 ) -> Result<SegmentCandidateBounds, String> {
-    let effective_input = logical_active | fallback_active;
+    let catalog = context.access.files;
     Ok(match expr {
-        BoundExpr::Term(term) => context.execute_term(term, &effective_input)?,
+        BoundExpr::Term(term) => context.execute_term(term, effective_input)?,
         BoundExpr::And(parts) => {
             let mut flattened = Vec::new();
             for part in parts {
@@ -1707,7 +1093,7 @@ fn segment_expr_bounds_with_context(
                         .predicates
                         .and_then(|predicates| {
                             predicates.term_for_bound_term(
-                                collection.generation.collection.0 as usize,
+                                context.access.text.collection.0 as usize,
                                 term,
                             )
                         })
@@ -1718,35 +1104,30 @@ fn segment_expr_bounds_with_context(
             let path_range = catalog
                 .filter(|_| use_fused)
                 .and_then(|_| combined_file_path_bounds(&flattened));
-            if path_range.is_none() {
-                flattened.sort_by(|left, right| {
-                    let cost = |part: &BoundExpr| match part {
-                        BoundExpr::Term(term) => segment_filter_estimate_with_term(
-                            context.published_id,
-                            segment,
-                            collection,
-                            catalog,
-                            term,
-                            effective_input.len(),
-                        )
-                        .ok()
-                        .flatten()
-                        .map_or(f64::INFINITY, |(_, work)| work),
-                        _ => f64::INFINITY,
+            if path_range.is_none() && flattened.len() > 1 {
+                let mut ordered = Vec::with_capacity(flattened.len());
+                for part in flattened {
+                    let work = if let BoundExpr::Term(term) = part {
+                        let id = context.term_id(term);
+                        context
+                            .estimate(id, term, effective_input.len())?
+                            .map_or(f64::INFINITY, |(_, work)| work)
+                    } else {
+                        f64::INFINITY
                     };
-                    cost(left).total_cmp(&cost(right))
-                });
+                    ordered.push((work, part));
+                }
+                ordered.sort_by(|left, right| left.0.total_cmp(&right.0));
+                flattened = ordered.into_iter().map(|(_, part)| part).collect();
             }
             let mut may = effective_input.clone();
-            let mut must = effective_input;
+            let mut must = effective_input.clone();
             if let (Some(catalog), Some((bounds, indices))) = (catalog, &path_range) {
                 let mut matches = RoaringBitmap::new();
                 catalog
                     .visit_paths(bounds.clone(), &mut |files| {
                         for &file in files {
-                            if let Some(slots) = segment.file_records(file) {
-                                matches.extend(slots.iter().map(|slot| slot.0));
-                            }
+                            append_file_members(context.segment, file, &mut matches)?;
                         }
                         Ok(())
                     })
@@ -1764,8 +1145,8 @@ fn segment_expr_bounds_with_context(
                 crate::query_execution::request::record_fused_observation(
                     0,
                     &fused_ids,
-                    context.provider.domain,
-                    collection.generation.collection.0,
+                    context.access.text.domain,
+                    context.access.text.collection.0,
                     domain.len() as u64,
                     may.len() as u64,
                     must.len() as u64,
@@ -1787,18 +1168,7 @@ fn segment_expr_bounds_with_context(
                     break;
                 }
                 let part = flattened[index];
-                let child_logical = &may & &segment.logical_records;
-                let child_fallback = &may - &segment.logical_records;
-                let child = segment_expr_bounds_with_context(
-                    segment,
-                    part,
-                    collection,
-                    domain,
-                    &child_logical,
-                    &child_fallback,
-                    catalog,
-                    context,
-                )?;
+                let child = segment_expr_bounds_with_context(part, domain, &may, context)?;
                 must &= &*child.must;
                 may = child.may.as_ref().clone();
             }
@@ -1808,278 +1178,20 @@ fn segment_expr_bounds_with_context(
             let mut may = RoaringBitmap::new();
             let mut must = RoaringBitmap::new();
             for part in parts {
-                let child_logical = &effective_input & &segment.logical_records;
-                let child_fallback = &effective_input - &segment.logical_records;
-                let child = segment_expr_bounds_with_context(
-                    segment,
-                    part,
-                    collection,
-                    domain,
-                    &child_logical,
-                    &child_fallback,
-                    catalog,
-                    context,
-                )?;
+                let child =
+                    segment_expr_bounds_with_context(part, domain, effective_input, context)?;
                 may |= &*child.may;
                 must |= &*child.must;
             }
-            may &= &effective_input;
-            must &= &effective_input;
+            may &= effective_input;
+            must &= effective_input;
             SegmentCandidateBounds::bounds(may, must)
         }
         BoundExpr::Not(inner) => {
-            let child_logical = &effective_input & &segment.logical_records;
-            let child_fallback = &effective_input - &segment.logical_records;
-            let child = segment_expr_bounds_with_context(
-                segment,
-                inner,
-                collection,
-                domain,
-                &child_logical,
-                &child_fallback,
-                catalog,
-                context,
-            )?;
-            let may = ((domain - &*child.must) & &effective_input).clone();
-            let must = ((domain - &*child.may) & &effective_input).clone();
+            let child = segment_expr_bounds_with_context(inner, domain, effective_input, context)?;
+            let may = ((domain - &*child.must) & effective_input).clone();
+            let must = ((domain - &*child.may) & effective_input).clone();
             SegmentCandidateBounds::bounds(may, must)
-        }
-    })
-}
-
-pub(crate) fn segment_expr_bounds(
-    segment: &IndexedCollectionSegment,
-    expr: &BoundExpr,
-    collection: &CollectionState,
-    domain: &RoaringBitmap,
-    logical_active: &RoaringBitmap,
-    fallback_active: &RoaringBitmap,
-    catalog: Option<&dyn FileCatalogReader>,
-) -> Result<SegmentCandidateBounds, String> {
-    Ok(match expr {
-        BoundExpr::Term(term) => {
-            if term.query_path.has_position {
-                if let Some(matches) =
-                    segment_positional_eq_candidates(segment, logical_active, term)?
-                {
-                    return Ok(SegmentCandidateBounds::candidate(
-                        &matches | fallback_active,
-                    ));
-                }
-                return Ok(SegmentCandidateBounds::unknown(domain));
-            }
-            if term.related.is_some()
-                || (term.rhs.is_some()
-                    && !self_comparison_shape(term)
-                    && !term.rhs.as_ref().is_some_and(|rhs| {
-                        matches!(term.path.root, PathRoot::Metadata(_))
-                            && matches!(rhs.path.root, PathRoot::Metadata(_))
-                    }))
-                || (term.query_path.has_explicit_array_step
-                    && term.derived.state_predicate().is_none()
-                    && !self_comparison_shape(term))
-            {
-                return Ok(SegmentCandidateBounds::unknown(domain));
-            }
-            if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
-                && term.operator == Operator::Eq
-                && term.transform == crate::schema::operation::Transform::Identity
-                && let Value::Id(id) = &term.literal
-            {
-                let mut matches = RoaringBitmap::new();
-                if let Some(slot) = segment.id_lookup.get(id.as_str()).copied()
-                    && domain.contains(slot.0)
-                {
-                    matches.insert(slot.0);
-                }
-                return Ok(SegmentCandidateBounds::exact(matches));
-            }
-            if let Some(matches) = segment_file_size_matches(segment, domain, term, catalog)? {
-                return Ok(SegmentCandidateBounds::exact(matches));
-            }
-            if let Some((operator, literal)) = indexed_file_path_term(term)
-                && let Some(catalog) = catalog
-            {
-                let bounds = relative_path_bounds(operator, literal)
-                    .ok_or("invalid indexed path comparison")?;
-                let mut matches = if let Some(files) = catalog
-                    .path_candidates(bounds, MAX_INDEXED_PATH_SCAN)
-                    .map_err(|error| error.to_string())?
-                {
-                    let mut matches = RoaringBitmap::new();
-                    for file in files {
-                        if let Some(slots) = segment.file_records(file) {
-                            matches.extend(slots.iter().map(|slot| slot.0));
-                        }
-                    }
-                    matches
-                } else {
-                    segment_file_path_matches(segment, domain, catalog, operator, literal)?
-                };
-                matches &= domain;
-                return Ok(SegmentCandidateBounds::exact(matches));
-            }
-            if let Some(matches) =
-                segment_file_modified_matches(segment, collection, domain, term, catalog)?
-            {
-                return Ok(SegmentCandidateBounds::exact(matches));
-            }
-            if let Some(matches) = segment_file_created_matches(segment, domain, term, catalog)? {
-                return Ok(SegmentCandidateBounds::exact(matches));
-            }
-            if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)?
-            {
-                return Ok(SegmentCandidateBounds::exact(matches));
-            }
-            if let Some(matches) =
-                segment_metadata_matches(segment, collection, domain, term, catalog)?
-            {
-                return Ok(SegmentCandidateBounds::exact(matches));
-            }
-            if term.path.root != PathRoot::Data {
-                return Ok(SegmentCandidateBounds::unknown(domain));
-            }
-            if let Some(matches) = segment_sort_column_matches(segment, logical_active, term, true)?
-            {
-                return Ok(SegmentCandidateBounds::bounds(
-                    &matches | fallback_active,
-                    matches,
-                ));
-            }
-            let index_catalog = IndexCatalog::segment(segment, collection);
-            let selected = index_catalog
-                .field_postings(
-                    &term.path.segments,
-                    &term.binding_name,
-                    term.operation.is_some(),
-                )
-                .into_iter()
-                .flatten()
-                .map(|access| {
-                    access
-                        .assess(term, index_catalog.logical, &mut 0)
-                        .map(|proposal| proposal.map(|proposal| (access, proposal)))
-                })
-                .collect::<Result<Vec<_>, String>>()?
-                .into_iter()
-                .flatten()
-                .min_by(|(_, left), (_, right)| {
-                    let work = |proposal: &crate::query_access::catalog::PostingProposal| {
-                        proposal.lookup_work
-                            + proposal.output as f64 * if proposal.exact { 0.02 } else { 50.0 }
-                    };
-                    work(left).total_cmp(&work(right))
-                });
-            if let Some((access, proposal)) = selected
-                && let Some(matches) = access.execute(
-                    term,
-                    index_catalog.logical,
-                    logical_active,
-                    proposal.operation,
-                )?
-            {
-                return Ok(SegmentCandidateBounds::bounds(
-                    &matches | fallback_active,
-                    if proposal.exact {
-                        matches
-                    } else {
-                        RoaringBitmap::new()
-                    },
-                ));
-            }
-            {
-                if let Some(matches) =
-                    segment_sort_column_matches(segment, logical_active, term, false)?
-                {
-                    return Ok(SegmentCandidateBounds::bounds(
-                        &matches | fallback_active,
-                        matches,
-                    ));
-                }
-                if let Some(mut grams) = segment_text_candidates(segment, term, collection)? {
-                    if empty_selection_preservation(term) {
-                        grams |= &segment.empty_array_records;
-                    }
-                    SegmentCandidateBounds::candidate((&grams & domain) | fallback_active)
-                } else {
-                    SegmentCandidateBounds::unknown(domain)
-                }
-            }
-        }
-        BoundExpr::And(parts) => {
-            let mut flattened = Vec::new();
-            for part in parts {
-                flatten_and(part, &mut flattened);
-            }
-            let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
-            let mut may = domain.clone();
-            let mut must = domain.clone();
-            if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
-                let mut matches = RoaringBitmap::new();
-                catalog
-                    .visit_paths(bounds.clone(), &mut |files| {
-                        for &file in files {
-                            if let Some(slots) = segment.file_records(file) {
-                                matches.extend(slots.iter().map(|slot| slot.0));
-                            }
-                        }
-                        Ok(())
-                    })
-                    .map_err(|error| error.to_string())?;
-                matches &= domain;
-                may &= &matches;
-                must &= matches;
-            }
-            for (index, part) in flattened.into_iter().enumerate() {
-                if path_range
-                    .as_ref()
-                    .is_some_and(|(_, indices)| indices.contains(&index))
-                {
-                    continue;
-                }
-                let child = segment_expr_bounds(
-                    segment,
-                    part,
-                    collection,
-                    domain,
-                    logical_active,
-                    fallback_active,
-                    catalog,
-                )?;
-                may &= &*child.may;
-                must &= &*child.must;
-            }
-            SegmentCandidateBounds::bounds(may, must)
-        }
-        BoundExpr::Or(parts) => {
-            let mut may = RoaringBitmap::new();
-            let mut must = RoaringBitmap::new();
-            for part in parts {
-                let child = segment_expr_bounds(
-                    segment,
-                    part,
-                    collection,
-                    domain,
-                    logical_active,
-                    fallback_active,
-                    catalog,
-                )?;
-                may |= &*child.may;
-                must |= &*child.must;
-            }
-            SegmentCandidateBounds::bounds(may, must)
-        }
-        BoundExpr::Not(inner) => {
-            let child = segment_expr_bounds(
-                segment,
-                inner,
-                collection,
-                domain,
-                logical_active,
-                fallback_active,
-                catalog,
-            )?;
-            SegmentCandidateBounds::bounds(domain - &*child.must, domain - &*child.may)
         }
     })
 }
@@ -2676,7 +1788,7 @@ pub(crate) fn raw_covers_identity_field(collection: &CollectionState) -> Result<
     Ok(())
 }
 
-fn empty_selection_preservation(term: &BoundTerm) -> bool {
+pub(crate) fn empty_selection_preservation(term: &BoundTerm) -> bool {
     term.multi && term.quantifier != Quantifier::Any
 }
 
@@ -2899,7 +2011,7 @@ fn term_set(
     }
 }
 
-fn custom_bigram_compatible(term: &BoundTerm) -> bool {
+pub(crate) fn custom_bigram_compatible(term: &BoundTerm) -> bool {
     if term.operation.is_none() {
         // Registered built-in transforms map indexed text and scanned values
         // with the same Transform; they do not install an exact matcher.
@@ -3213,7 +2325,7 @@ fn estimate_from_offer(offer: &AccessOffer, input_len: u64) -> AccessPathEstimat
     }
 }
 
-fn order_matches(order: std::cmp::Ordering, op: Operator) -> bool {
+pub(crate) fn order_matches(order: std::cmp::Ordering, op: Operator) -> bool {
     match op {
         Operator::Eq => order.is_eq(),
         Operator::Ne => !order.is_eq(),

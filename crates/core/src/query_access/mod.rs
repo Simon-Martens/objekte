@@ -6,7 +6,7 @@
 )]
 
 // Transitional aliases for consumers that still construct the native adapters.
-pub(crate) use crate::index::memory::access::{catalog, native, segment, text};
+pub(crate) use crate::index::memory::access::{catalog, native, text};
 
 pub(crate) mod contract;
 pub(crate) mod membership;

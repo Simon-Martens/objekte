@@ -4338,7 +4338,7 @@ pub(crate) fn explain_segmented(
                 let mut structural = 0u64;
                 for published in segments[collection_index].iter() {
                     if let Some(estimated) =
-                        crate::query_execution::restrictions::segment_text_estimate(
+                        crate::index::memory::access::segment::segment_text_estimate(
                             &published.index,
                             term,
                             collection,
