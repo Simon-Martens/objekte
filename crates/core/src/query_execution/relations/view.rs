@@ -1037,10 +1037,8 @@ pub(super) fn read_reference_value(
     if record.class == RecordClass::RawFallback {
         return Ok(None);
     }
-    let path = repo
-        .files
-        .native_path(record.file)
-        .ok_or("reference relation path is missing")?;
+    let file = repo.base_file(record.file)?;
+    let path = repo.required_file_root().join(&file.relative_path);
     if record.range.len() > MAX_QUERY_RELATION_BYTES {
         return Err(format!(
             "relation source record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"

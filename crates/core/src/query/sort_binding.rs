@@ -1306,10 +1306,8 @@ impl SortTargetCache {
         };
         // Only callers for this target wait here; other targets can load in parallel.
         let result = cell.get_or_init(|| {
-            let path = repo
-                .files
-                .native_path(record.file)
-                .ok_or("sort target path is missing")?;
+            let file = repo.base_file(record.file)?;
+            let path = repo.required_file_root().join(&file.relative_path);
             let bytes = crate::source::access::read_record_range_for_search(
                 collection.required_file_reader().reader(),
                 &path,

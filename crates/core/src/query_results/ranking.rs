@@ -216,7 +216,7 @@ pub(crate) fn offer(
         record,
         matched_fields.to_vec(),
         payload,
-    );
+    )?;
     winners.push(Winner {
         key,
         collection_index,
@@ -844,12 +844,13 @@ pub(crate) fn rank_key_without_source(
 ) -> Result<RankKey, String> {
     let empty = Value::Object(Default::default());
     let collection = &repo.collections[collection_index];
+    let file = repo.base_file(record.file)?;
     let ctx = RecordContext {
         value: &empty,
         source_bytes: None,
         record,
         range: (record).record_range(),
-        file: Some(&repo.files.files[record.file.0 as usize]),
+        file: Some(&file),
         collection_name: &collection.definition.name,
         repository_root: Some(repo.required_file_root()),
     };

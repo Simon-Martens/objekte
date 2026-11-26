@@ -693,9 +693,9 @@ fn verify_target_records(
             let batch = access.read(file_id, chunk)?;
             work.target_file_opens += batch.opened;
             work.target_bytes_read += batch.bytes_read;
+            let file = repo.base_file(file_id)?;
             for (slot, bytes) in batch.records {
                 let record = &collection.generation.records[slot as usize];
-                let file = &repo.files.files[file_id.0 as usize];
                 let prepared = crate::source::preparation::prepare_query_record_with_execution(
                     record.class,
                     &collection.required_file_reader(),
@@ -710,7 +710,7 @@ fn verify_target_records(
                     source_bytes: Some(&bytes),
                     record,
                     range: (record).record_range(),
-                    file: Some(file),
+                    file: Some(&file),
                     collection_name: &collection.definition.name,
                     repository_root: Some(repo.required_file_root()),
                 };

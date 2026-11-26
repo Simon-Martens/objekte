@@ -1222,7 +1222,7 @@ pub(super) fn try_stored_order_page(
                             cursor.record,
                             matched_fields,
                             payload,
-                        ));
+                        )?);
                     }
                     counters.total_matches += 1;
                     if let Some(delivery) = delivery.as_deref_mut() {
@@ -1337,7 +1337,7 @@ pub(super) fn offer_cached_key(
             record,
             member.matched_fields.to_vec(),
             None,
-        ),
+        )?,
         retained_bytes: 0,
     });
     Ok(())

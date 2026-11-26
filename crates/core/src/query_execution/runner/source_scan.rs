@@ -29,11 +29,9 @@ pub(super) fn scan_file(
         execution.check_string()?;
     }
     let collection = &repo.collections[collection_index];
-    let path = repo
-        .files
-        .native_path(crate::model::FileId(file_id))
-        .ok_or("missing source path")?;
-    let revision = repo.files.files[file_id as usize].revision;
+    let file = repo.base_file(crate::model::FileId(file_id))?;
+    let path = repo.required_file_root().join(&file.relative_path);
+    let revision = file.revision;
     let mut outcome = ScannedFile::default();
     outcome.relation_work.attach(execution);
     let cap = query
@@ -137,7 +135,6 @@ pub(super) fn scan_file(
                 return Err("stream cancelled".into());
             }
             let record = &collection.generation.records[slot as usize];
-            let file = &repo.files.files[file_id as usize];
             let compared_to = |worst: &crate::query_results::ranking::RankKey| {
                 sort.compare_to_rank(collection_index, record, &collection.definition.name, worst)
                     .map(std::cmp::Ordering::is_lt)
@@ -216,7 +213,7 @@ pub(super) fn scan_file(
                 source_bytes: Some(&bytes),
                 record,
                 range: (record).record_range(),
-                file: Some(file),
+                file: Some(&file),
                 collection_name: &collection.definition.name,
                 repository_root: Some(repo.required_file_root()),
             };

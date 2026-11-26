@@ -945,13 +945,13 @@ fn visit_hop(
             target_values.and_then(|cache| cache.get(collection.generation.collection, source_slot))
         {
             work.target_cache_hits += 1;
-            let file = &repo.files.files[record.file.0 as usize];
+            let file = repo.base_file(record.file)?;
             let ctx = RecordContext {
                 value,
                 source_bytes: None,
                 record,
                 range: (record).record_range(),
-                file: Some(file),
+                file: Some(&file),
                 collection_name: &collection.definition.name,
                 repository_root: Some(repo.required_file_root()),
             };
@@ -962,11 +962,8 @@ fn visit_hop(
             );
             return Ok(());
         }
-        let file = &repo.files.files[record.file.0 as usize];
-        let path = repo
-            .files
-            .native_path(record.file)
-            .ok_or("missing target source path")?;
+        let file = repo.base_file(record.file)?;
+        let path = repo.required_file_root().join(&file.relative_path);
         if record.range.len() > MAX_QUERY_RELATION_BYTES {
             return Err(format!(
                 "relation target record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
@@ -995,7 +992,7 @@ fn visit_hop(
             source_bytes: Some(&bytes),
             record,
             range: (record).record_range(),
-            file: Some(file),
+            file: Some(&file),
             collection_name: &collection.definition.name,
             repository_root: Some(repo.required_file_root()),
         };

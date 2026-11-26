@@ -2,14 +2,16 @@
 
 use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
+use std::borrow::Cow;
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
 use crate::index::memory::inference::InferenceState;
 use crate::index::relation::RelationIndex;
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
-use crate::inventory::FileInventory;
-use crate::model::{CollectionId, RecordSlot};
+use crate::inventory::{FileEntry, FileInventory};
+use crate::model::{CollectionId, FileId, RecordSlot};
 
 use super::Repository;
 use super::configuration::RepositoryOptions;
@@ -24,6 +26,12 @@ fn hash_field(hash: &mut Sha256, value: &[u8]) {
 impl Repository {
     pub(crate) fn files(&self) -> &FileInventory {
         &self.files
+    }
+
+    pub(crate) fn base_file(&self, file: FileId) -> Result<Cow<'_, FileEntry>, String> {
+        self.catalog
+            .file(file)?
+            .ok_or_else(|| format!("source file {} is outside the base catalog", file.0))
     }
 
     /// Registered source root, when the repository has a file service.

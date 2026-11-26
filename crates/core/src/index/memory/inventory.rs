@@ -1,20 +1,22 @@
 //! Native file and record directories, version tokens, and liveness.
 
 use std::collections::{BTreeMap, HashMap};
-use std::ops::Bound;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
+#[cfg(test)]
+use crate::inventory::relative_path_bounds;
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, FileStorageDiagnostic, FileVersion,
     MAX_DIAGNOSTIC_CODE_BYTES, MAX_DIAGNOSTIC_MESSAGE_BYTES, MAX_DIAGNOSTIC_PATH_SEGMENTS,
     MAX_DIAGNOSTIC_SEGMENT_BYTES, MAX_DIAGNOSTICS_PER_FILE, RecordClass, RecordEntry, SharedPath,
-    SourceDiagnostic, SourceRevision, empty_path_bounds, relative_path_bounds,
+    SourceDiagnostic, SourceRevision,
 };
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
+#[cfg(test)]
 use crate::query::Operator;
 use crate::source::DiagnosticCategory;
 
@@ -697,19 +699,7 @@ impl FileInventory {
         self.by_path.get(path).copied()
     }
 
-    pub(crate) fn relative_path_ids_in_bounds(
-        &self,
-        bounds: (Bound<Arc<str>>, Bound<Arc<str>>),
-    ) -> Vec<FileId> {
-        if empty_path_bounds(&bounds) {
-            return Vec::new();
-        }
-        self.relative_paths
-            .range(bounds)
-            .map(|(_, id)| *id)
-            .collect()
-    }
-
+    #[cfg(test)]
     pub(crate) fn relative_path_ids_up_to(
         &self,
         operator: Operator,

@@ -88,13 +88,14 @@ impl Repository {
                 .0
             }
         };
-        Ok(Some(crate::query_execution::runner::make_hit(
+        crate::query_execution::runner::make_hit(
             self,
             collection_index,
             record,
             Vec::new(),
             payload,
-        )))
+        )
+        .map(Some)
     }
 
     pub(super) fn stamp_native_result(

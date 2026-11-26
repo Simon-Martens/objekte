@@ -461,13 +461,13 @@ fn inventory_fts_evidence(
     let mut matches = HashMap::new();
     for slot in input.iter() {
         let record = &collection.generation.records[slot as usize];
-        let file = &repo.files.files[record.file.0 as usize];
+        let file = repo.base_file(record.file)?;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
             record,
             range: (record).record_range(),
-            file: Some(file),
+            file: Some(&file),
             collection_name: &collection.definition.name,
             repository_root: Some(repo.required_file_root()),
         };
@@ -524,22 +524,22 @@ pub(crate) fn make_hit(
     record: &RecordEntry,
     mut matched_fields: Vec<String>,
     payload: Option<Payload>,
-) -> SearchHit {
+) -> Result<SearchHit, String> {
     matched_fields.sort();
-    let file = &repo.files.files[record.file.0 as usize];
-    SearchHit {
+    let file = repo.base_file(record.file)?;
+    Ok(SearchHit {
         collection: repo.collections[collection_index].definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: repo.collections[collection_index].generation.generation,
         file: Some(crate::files::RecordFileInfo::from_entry(
-            file,
+            &file,
             Some(record.range),
         )),
         matched_fields,
         record_class: record.class,
         diagnostic_ref: record.diagnostic_ref,
         payload,
-    }
+    })
 }
 
 /// A segment record has a local slot but retains a repository-global file ID.
@@ -6506,12 +6506,13 @@ fn materialize_computed_cached<'a>(
             });
             continue;
         }
+        let file = repo.base_file(record.file)?;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
             record,
             range: (record).record_range(),
-            file: Some(&repo.files.files[record.file.0 as usize]),
+            file: Some(&file),
             collection_name: &collection.definition.name,
             repository_root: Some(repo.required_file_root()),
         };
@@ -6577,6 +6578,7 @@ fn materialize_computed_cached<'a>(
             };
             counters.files_opened += read.opened;
             counters.bytes_read += read.bytes_read;
+            let file = repo.base_file(crate::model::FileId(file_id))?;
             for (index, bytes) in read.records {
                 let member = &cached.members[index as usize];
                 let record = &collection.generation.records[member.slot as usize];
@@ -6596,7 +6598,7 @@ fn materialize_computed_cached<'a>(
                     source_bytes: Some(&bytes),
                     record,
                     range: (record).record_range(),
-                    file: Some(&repo.files.files[file_id as usize]),
+                    file: Some(&file),
                     collection_name: &collection.definition.name,
                     repository_root: Some(repo.required_file_root()),
                 };

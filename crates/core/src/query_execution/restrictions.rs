@@ -2559,13 +2559,13 @@ fn fallback_truth(
                 let empty = Value::Object(BTreeMap::new());
                 for slot in input.iter() {
                     let record = &collection.generation.records[slot as usize];
-                    let file = &repo.files.files[record.file.0 as usize];
+                    let file = repo.base_file(record.file)?;
                     let ctx = RecordContext {
                         value: &empty,
                         source_bytes: None,
                         record,
                         range: (record).record_range(),
-                        file: Some(file),
+                        file: Some(&file),
                         collection_name: &collection.definition.name,
                         repository_root: Some(repo.required_file_root()),
                     };
@@ -2761,13 +2761,13 @@ fn term_set(
             let mut result = RoaringBitmap::new();
             for slot in domain.iter() {
                 let record = &collection.generation.records[slot as usize];
-                let file = &repo.files.files[record.file.0 as usize];
+                let file = repo.base_file(record.file)?;
                 let ctx = RecordContext {
                     value: &empty,
                     source_bytes: None,
                     record,
                     range: (record).record_range(),
-                    file: Some(file),
+                    file: Some(&file),
                     collection_name: &collection.definition.name,
                     repository_root: Some(repo.required_file_root()),
                 };
@@ -2789,7 +2789,7 @@ fn term_set(
                 return Ok(Some(result));
             }
         }
-        if field == MetadataField::FileCreated
+        let scalar = if field == MetadataField::FileCreated
             && term.derived == Derived::Null
             && term.transform == Transform::Identity
             && let Value::Bool(literal) = &term.literal
@@ -2797,62 +2797,38 @@ fn term_set(
             && ((*literal && term.operator == Operator::Eq)
                 || (!*literal && term.operator == Operator::Ne))
         {
-            let mut files = Vec::new();
-            if repo
-                .files
-                .scalar_index()
-                .unknown_created_ids(&mut files, 4096, None)
-            {
-                let mut result = RoaringBitmap::new();
-                for file in files {
-                    if let Some(slots) = collection.generation.file_records.records_for(file) {
-                        result.extend(slots.iter().map(|slot| slot.0));
-                    }
-                }
-                return Ok(Some(result & domain));
-            }
-        }
-        if term.transform == Transform::Identity
+            Some(FileScalarPredicate::UnknownCreated)
+        } else if term.transform == Transform::Identity
             && term.derived == Derived::None
             && term.period.is_none()
             && term.matcher.is_none()
             && term.operation.is_none()
         {
-            let mut files = Vec::new();
-            let indexed = match (field, &term.literal) {
-                (MetadataField::FileSize, Value::Number(literal)) => repo
-                    .files
-                    .scalar_index()
-                    .size_ids(term.operator, literal, &mut files, 4096, None),
-                (MetadataField::FileModified, Value::Datetime(literal)) => {
-                    repo.files.scalar_index().modified_ids(
-                        term.operator,
-                        literal.unix_timestamp_nanos(),
-                        &mut files,
-                        4096,
-                        None,
-                    )
+            match (field, &term.literal) {
+                (MetadataField::FileSize, Value::Number(literal)) => {
+                    Some(FileScalarPredicate::Size(term.operator, literal))
                 }
-                (MetadataField::FileCreated, Value::Datetime(literal)) => {
-                    repo.files.scalar_index().created_ids(
-                        term.operator,
-                        literal.unix_timestamp_nanos(),
-                        &mut files,
-                        4096,
-                        None,
-                    )
-                }
-                _ => false,
-            };
-            if indexed {
-                let mut result = RoaringBitmap::new();
-                for file in files {
-                    if let Some(slots) = collection.generation.file_records.records_for(file) {
-                        result.extend(slots.iter().map(|slot| slot.0));
-                    }
-                }
-                return Ok(Some(result & domain));
+                (MetadataField::FileModified, Value::Datetime(literal)) => Some(
+                    FileScalarPredicate::Modified(term.operator, literal.unix_timestamp_nanos()),
+                ),
+                (MetadataField::FileCreated, Value::Datetime(literal)) => Some(
+                    FileScalarPredicate::Created(term.operator, literal.unix_timestamp_nanos()),
+                ),
+                _ => None,
             }
+        } else {
+            None
+        };
+        if let Some(predicate) = scalar
+            && let Some(files) = repo.catalog.scalar_candidates(predicate, 4096)?
+        {
+            let mut result = RoaringBitmap::new();
+            for &file in files.iter() {
+                if let Some(slots) = collection.generation.file_records.records_for(file) {
+                    result.extend(slots.iter().map(|slot| slot.0));
+                }
+            }
+            return Ok(Some(result & domain));
         }
         if let Some((operator, literal)) = indexed_file_path_term(term) {
             let mut result = RoaringBitmap::new();
@@ -2860,21 +2836,26 @@ fn term_set(
                 let mut matched_files = HashMap::new();
                 for slot in input.iter() {
                     let file_id = collection.generation.records[slot as usize].file;
-                    let matches = *matched_files.entry(file_id).or_insert_with(|| {
-                        let file = &repo.files.files[file_id.0 as usize];
-                        let path =
-                            crate::model::path_representation::query_path(&file.relative_path);
-                        file_path_matches(&path, operator, literal)
-                    });
+                    let matches = match matched_files.entry(file_id) {
+                        std::collections::hash_map::Entry::Occupied(entry) => *entry.get(),
+                        std::collections::hash_map::Entry::Vacant(entry) => {
+                            let file = repo.base_file(file_id)?;
+                            let path =
+                                crate::model::path_representation::query_path(&file.relative_path);
+                            *entry.insert(file_path_matches(&path, operator, literal))
+                        }
+                    };
                     if matches {
                         result.insert(slot);
                     }
                 }
                 return Ok(Some(result));
             }
-            if let Some(files) =
-                repo.files
-                    .relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN)
+            let bounds =
+                relative_path_bounds(operator, literal).ok_or("invalid indexed path comparison")?;
+            if let Some(files) = repo
+                .catalog
+                .path_candidates(bounds, MAX_INDEXED_PATH_SCAN)?
             {
                 for file in files {
                     if let Some(slots) = collection.generation.file_records.records_for(file) {
@@ -2903,13 +2884,13 @@ fn term_set(
                     continue;
                 };
                 let record = &collection.generation.records[first.0 as usize];
-                let file = &repo.files.files[file_id.0 as usize];
+                let file = repo.base_file(*file_id)?;
                 let ctx = RecordContext {
                     value: &empty,
                     source_bytes: None,
                     record,
                     range: (record).record_range(),
-                    file: Some(file),
+                    file: Some(&file),
                     collection_name: &collection.definition.name,
                     repository_root: Some(repo.required_file_root()),
                 };
@@ -2924,13 +2905,13 @@ fn term_set(
             MetadataField::CollectionName | MetadataField::RepositoryRoot
         ) {
             if let Some(record) = collection.generation.records.first() {
-                let file = &repo.files.files[record.file.0 as usize];
+                let file = repo.base_file(record.file)?;
                 let ctx = RecordContext {
                     value: &empty,
                     source_bytes: None,
                     record,
                     range: (record).record_range(),
-                    file: Some(file),
+                    file: Some(&file),
                     collection_name: &collection.definition.name,
                     repository_root: Some(repo.required_file_root()),
                 };
@@ -2941,13 +2922,13 @@ fn term_set(
             return Ok(Some(result));
         }
         for record in &collection.generation.records {
-            let file = &repo.files.files[record.file.0 as usize];
+            let file = repo.base_file(record.file)?;
             let ctx = RecordContext {
                 value: &empty,
                 source_bytes: None,
                 record,
                 range: (record).record_range(),
-                file: Some(file),
+                file: Some(&file),
                 collection_name: &collection.definition.name,
                 repository_root: Some(repo.required_file_root()),
             };
@@ -3953,11 +3934,14 @@ fn plan_logical_expr<'a>(
             let mut choices = Vec::new();
             if let Some((bounds, fused_indices)) = combined_file_path_bounds(&remaining) {
                 let mut matches = RoaringBitmap::new();
-                for file in repo.files.relative_path_ids_in_bounds(bounds) {
-                    if let Some(slots) = collection.generation.file_records.records_for(file) {
-                        matches.extend(slots.iter().map(|slot| slot.0));
+                repo.catalog.visit_paths(bounds, &mut |files| {
+                    for &file in files {
+                        if let Some(slots) = collection.generation.file_records.records_for(file) {
+                            matches.extend(slots.iter().map(|slot| slot.0));
+                        }
                     }
-                }
+                    Ok(())
+                })?;
                 current &= matches;
                 let fused_terms = fused_indices
                     .iter()

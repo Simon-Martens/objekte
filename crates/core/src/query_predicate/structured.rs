@@ -80,13 +80,13 @@ pub(crate) fn proven_evidence(
         return Ok(proof_evidence(expr, record.slot.0, proofs).unwrap_or_default());
     }
     let empty = Value::Object(Default::default());
-    let file = &repo.files.files[record.file.0 as usize];
+    let file = repo.base_file(record.file)?;
     let ctx = RecordContext {
         value: &empty,
         source_bytes: None,
         record,
         range: (record).record_range(),
-        file: Some(file),
+        file: Some(&file),
         collection_name: &collection.definition.name,
         repository_root: Some(repo.required_file_root()),
     };

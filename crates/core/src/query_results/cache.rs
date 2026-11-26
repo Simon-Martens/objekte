@@ -563,7 +563,7 @@ pub(crate) fn materialize_cached_stream(
             record,
             member.matched_fields.to_vec(),
             payload,
-        );
+        )?;
         page_bytes = page_bytes.saturating_add(crate::query_execution::streaming::hit_bytes(&hit));
         page.push(hit);
         delivery.check_buffer(page_bytes)?;
@@ -617,7 +617,7 @@ pub(crate) fn materialize_cached(
     {
         let collection = &repo.collections[member.collection_index];
         let record = &collection.generation.records[member.slot as usize];
-        let file = &repo.files.files[record.file.0 as usize];
+        let file = repo.base_file(record.file)?;
         let index = hits.len() as u32;
         if query.options.return_mode == ReturnMode::Logical
             && record.class == RecordClass::RawFallback
@@ -630,7 +630,7 @@ pub(crate) fn materialize_cached(
                 Some(Payload::LogicalUnavailable {
                     diagnostic_ref: record.diagnostic_ref,
                 }),
-            ));
+            )?);
             continue;
         }
         if query.options.return_mode != ReturnMode::Locator {
@@ -644,7 +644,7 @@ pub(crate) fn materialize_cached(
             record_id: record.id.0.to_string(),
             generation: collection.generation.generation,
             file: Some(crate::files::RecordFileInfo::from_entry(
-                file,
+                &file,
                 Some(record.range),
             )),
             matched_fields: member.matched_fields.to_vec(),
