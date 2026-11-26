@@ -188,7 +188,7 @@ impl<'a> MemoryWorker<'a> {
                 (
                     key.clone(),
                     CustomPostingIndex {
-                        index: PostingIndex::new(&schema.fields[&key.0]),
+                        index: PostingIndex::new_named(&schema.fields[&key.0]),
                         complete: binding.operation.complete_coverage(),
                     },
                 )

@@ -217,6 +217,7 @@ pub(crate) struct PostingCoverage {
     pub length_complete: bool,
     pub empty_string_complete: bool,
     pub covered_records: u32,
+    /// Terminal observations use mapped values for a named binding.
     pub summary: Option<SelectionSummary>,
     pub legacy_present_equivalent: bool,
     pub legacy_null_equivalent: bool,

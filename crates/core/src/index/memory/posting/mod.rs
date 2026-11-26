@@ -250,6 +250,12 @@ impl PostingIndex {
         }
     }
 
+    pub(crate) fn new_named(field: &FieldDefinition) -> Self {
+        let mut index = Self::new(field);
+        index.summary = Some(SelectionSummary::default());
+        index
+    }
+
     fn structural(field: &FieldDefinition) -> Self {
         let mut index = Self::new(field);
         index.values_indexed = field.indexed;

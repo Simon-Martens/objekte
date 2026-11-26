@@ -241,7 +241,7 @@ fn initialize_empty_configured(
                 (
                     key.clone(),
                     CustomPostingIndex {
-                        index: PostingIndex::new(&definition.schema.fields[&key.0]),
+                        index: PostingIndex::new_named(&definition.schema.fields[&key.0]),
                         complete: binding.operation.complete_coverage(),
                     },
                 )
