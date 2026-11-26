@@ -6,9 +6,10 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use super::projection::{SlotMap, transfer_bigram, transfer_posting};
+use super::projection::{SlotMap, finish_projected_inference, transfer_bigram, transfer_posting};
 use super::{IndexedCollectionSegment, SegmentBacking, SegmentFile};
-use crate::index::memory::posting::PostingCollection;
+use crate::index::memory::inference::InferenceState;
+use crate::index::memory::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::memory::relation::RelationContribution;
 use crate::index::storage::component::ComponentKind;
 use crate::index::storage::segment::transfer::FileSegmentLayout;
@@ -38,6 +39,7 @@ pub(crate) fn import(
     let order_columns = source.order_columns()?;
     let composite_orders = source.composite_orders()?;
     let mut postings = Vec::new();
+    let mut named_postings = HashMap::new();
     let mut grams = Vec::new();
     let mut raw = false;
     let mut fallback = false;
@@ -54,13 +56,16 @@ pub(crate) fn import(
             return Err(invalid("component belongs to a different segment"));
         }
         match component.kind {
-            ComponentKind::DeclaredPosting => {
+            ComponentKind::DeclaredPosting
+            | ComponentKind::CustomPosting
+            | ComponentKind::InferredPosting => {
                 let reader = source
                     .posting(component)?
                     .ok_or_else(|| invalid("advertised posting missing"))?;
                 let posting = reader.descriptor();
                 if component.path.as_deref() != Some(posting.path)
                     || component.binding.is_some()
+                        != (component.kind == ComponentKind::CustomPosting)
                     || posting.coverage.covered_records as usize > source_logical.len()
                 {
                     return Err(invalid("posting descriptor mismatch"));
@@ -68,7 +73,7 @@ pub(crate) fn import(
                 if dense && posting.coverage.covered_records as usize != source_logical.len() {
                     return Ok(None);
                 }
-                postings.push(reader);
+                postings.push((component, reader));
             }
             ComponentKind::RawText | ComponentKind::FallbackText | ComponentKind::FieldText => {
                 let reader = source
@@ -98,7 +103,6 @@ pub(crate) fn import(
                 }
                 relation_family = true;
             }
-            ComponentKind::CustomPosting | ComponentKind::InferredPosting => return Ok(None),
         }
     }
     if !raw || !fallback {
@@ -109,6 +113,17 @@ pub(crate) fn import(
     }
     if source.relation_count() != 0 && !relation_family {
         return Err(invalid("missing relation descriptor"));
+    }
+    let mut inference = source.inference_report()?.map(|report| InferenceState {
+        report: report.into_owned(),
+        indexes: HashMap::new(),
+        short_string_coverage: HashMap::new(),
+    });
+    if let Some(state) = &inference
+        && (state.report.eligible_records != source_logical.len() as u64
+            || state.report.unavailable_records != (descriptor.slots - source_logical.len()) as u64)
+    {
+        return Err(invalid("inference report domain mismatch"));
     }
     let cancelled = RefCell::new(cancelled);
     let mut cancelled = || cancelled.borrow_mut()();
@@ -231,19 +246,76 @@ pub(crate) fn import(
         fields: HashMap::new(),
     };
     let mapping = SlotMap::Dense(&mapping);
-    for reader in postings {
+    for (component, reader) in postings {
         let covered_records = if dense {
             logical.len() as u32
         } else {
             reader.descriptor().coverage.covered_records
         };
         let column = transfer_posting(reader, &mapping, covered_records, None, &cancelled)?;
-        if declared
-            .fields
-            .insert(column.path.clone(), column)
-            .is_some()
-        {
-            return Err(invalid("duplicate declared posting"));
+        let path = column.path.clone();
+        let duplicate = match component.kind {
+            ComponentKind::DeclaredPosting => declared.fields.insert(path, column).is_some(),
+            ComponentKind::CustomPosting => {
+                let complete = source
+                    .named_posting_complete(component)?
+                    .ok_or_else(|| invalid("named posting completeness missing"))?;
+                let binding = component
+                    .binding
+                    .as_deref()
+                    .expect("checked binding")
+                    .to_owned();
+                named_postings
+                    .insert(
+                        (path, binding),
+                        CustomPostingIndex {
+                            index: column,
+                            complete,
+                        },
+                    )
+                    .is_some()
+            }
+            ComponentKind::InferredPosting => {
+                let state = inference
+                    .as_mut()
+                    .ok_or_else(|| invalid("inferred posting report missing"))?;
+                if let Some(covered) = source.inferred_short_string_members(&path)? {
+                    let slots = covered
+                        .explicit_view()
+                        .ok_or_else(|| invalid("unbounded short-string membership"))?;
+                    let mut projected = RoaringBitmap::new();
+                    for slot in slots.iter() {
+                        if cancelled() {
+                            return Err(StorageError::Cancelled);
+                        }
+                        if !source_logical.contains(slot) {
+                            return Err(invalid("short-string membership outside logical domain"));
+                        }
+                        if let Some(destination) = mapping.get(slot as usize).flatten() {
+                            projected.insert(destination.0);
+                        }
+                    }
+                    if !projected.is_empty() || !dense {
+                        state.short_string_coverage.insert(path.clone(), projected);
+                    }
+                }
+                state.indexes.insert(path, column).is_some()
+            }
+            _ => unreachable!("validated posting family"),
+        };
+        if duplicate {
+            return Err(invalid("duplicate posting binding"));
+        }
+    }
+    if let Some(state) = inference.as_mut() {
+        if state.report.admitted_paths != state.indexes.len() {
+            return Err(invalid(
+                "inference report describes a different dictionary set",
+            ));
+        }
+        if dense {
+            finish_projected_inference(state, logical.len(), records.len())
+                .map_err(|error| StorageError::invalid(OP, error))?;
         }
     }
     let mut raw = None;
@@ -296,8 +368,8 @@ pub(crate) fn import(
         id_lookup,
         identity_order,
         postings: declared.into(),
-        inference: None,
-        custom_postings: Default::default(),
+        inference,
+        custom_postings: named_postings,
         raw: raw.expect("required raw store").into(),
         fallback_text: fallback.expect("required fallback store").into(),
         custom_text,
@@ -312,3 +384,7 @@ pub(crate) fn import(
     segment.recompute_accounting();
     Ok(Some(Arc::new(segment)))
 }
+
+#[cfg(test)]
+#[path = "import.test.rs"]
+mod tests;

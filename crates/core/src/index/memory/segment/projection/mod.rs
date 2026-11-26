@@ -6,6 +6,7 @@ mod routing;
 mod sorting;
 mod text;
 
+pub(super) use inference::finish_projected_inference;
 pub(crate) use inference::project_inference;
 pub(crate) use postings::{PostingProjection, project_posting, transfer_posting};
 pub(crate) use routing::{PartitionRouting, SlotMap, project_bitmap};

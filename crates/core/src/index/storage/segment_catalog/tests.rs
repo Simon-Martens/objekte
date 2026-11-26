@@ -29,6 +29,7 @@ mod segments;
 #[derive(Default)]
 struct TableFactory {
     independent_segments: AtomicBool,
+    partial_score: AtomicBool,
     independent_applications: AtomicUsize,
     text_applications: AtomicUsize,
     text_candidates: AtomicUsize,

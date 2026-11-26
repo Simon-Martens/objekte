@@ -95,7 +95,7 @@ pub(crate) fn project_inference(
     Ok(Some(state))
 }
 
-fn finish_projected_inference(
+pub(in crate::index::memory::segment) fn finish_projected_inference(
     state: &mut InferenceState,
     eligible: u64,
     new_count: usize,

@@ -616,6 +616,40 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(reader.map(|reader| reader as &dyn crate::index::storage::posting::PostingReader))
     }
 
+    fn named_posting_complete(
+        &self,
+        component: &NativeComponentDescriptor<'_>,
+    ) -> StorageResult<Option<bool>> {
+        let (NativeComponentKind::CustomPosting, Some(path), Some(binding)) = (
+            component.kind,
+            component.path.as_deref(),
+            component.binding.as_deref(),
+        ) else {
+            return Ok(None);
+        };
+        Ok(self
+            .custom_postings
+            .get(&(path.to_vec(), binding.to_owned()))
+            .map(|index| index.complete))
+    }
+
+    fn inference_report(
+        &self,
+    ) -> StorageResult<Option<Cow<'_, crate::inference::InferenceReport>>> {
+        Ok(self
+            .inference
+            .as_ref()
+            .map(|state| Cow::Borrowed(&state.report)))
+    }
+
+    fn inferred_short_string_members(&self, path: &[String]) -> StorageResult<Option<SlotSet<'_>>> {
+        Ok(self
+            .inference
+            .as_ref()
+            .and_then(|state| state.short_string_coverage.get(path))
+            .map(SlotSet::borrowed))
+    }
+
     fn inferred_posting_diagnostic(
         &self,
         path: &[String],

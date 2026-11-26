@@ -441,6 +441,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
                     path: descriptor.path.to_vec(),
                     kind: descriptor.kind.clone(),
                     present: present.into(),
+                    covered: None,
                     keys: values
                         .into_iter()
                         .map(|(key, slots)| (key, slots.into()))

@@ -429,6 +429,7 @@ impl TableSegment {
         let mut by_id = BTreeMap::new();
         let mut logical = Vec::new();
         let mut empty_arrays = Vec::new();
+        let partial = control.partial_score.load(Ordering::Relaxed);
         let mut scores = BTreeMap::<_, Vec<u32>>::new();
         for (index, row) in rows.iter().enumerate() {
             if row.header.slot.0 as usize != index
@@ -444,7 +445,9 @@ impl TableSegment {
             if row.facts.empty_array {
                 empty_arrays.push(row.header.slot.0);
             }
-            if let Some(key) = &row.facts.score {
+            if let Some(key) = &row.facts.score
+                && (!partial || row.header.slot.0 % 2 == 0)
+            {
                 scores
                     .entry(key.clone())
                     .or_default()
@@ -452,21 +455,29 @@ impl TableSegment {
             }
         }
         let logical: Arc<[u32]> = logical.into();
+        let covered: Option<Arc<[u32]>> = partial.then(|| {
+            logical
+                .iter()
+                .copied()
+                .filter(|slot| slot % 2 == 0)
+                .collect()
+        });
         let score = score_indexed.then(|| TablePosting {
             path: vec![SCORE.into()],
             kind: LogicalType::Number,
-            present: Arc::clone(&logical),
+            present: Arc::clone(covered.as_ref().unwrap_or(&logical)),
             coverage: PostingCoverage {
                 multi: false,
                 values_indexed: true,
-                value_complete: true,
+                value_complete: covered.is_none(),
                 length_complete: false,
                 empty_string_complete: false,
-                covered_records: logical.len() as u32,
+                covered_records: covered.as_ref().unwrap_or(&logical).len() as u32,
                 summary: None,
                 legacy_present_equivalent: true,
                 legacy_null_equivalent: true,
             },
+            covered,
             keys: scores
                 .into_iter()
                 .map(|(key, slots)| (key, slots.into()))
@@ -1047,6 +1058,7 @@ struct TablePosting {
     kind: LogicalType,
     present: Arc<[u32]>,
     keys: BTreeMap<ScalarKey, Arc<[u32]>>,
+    covered: Option<Arc<[u32]>>,
     coverage: PostingCoverage,
 }
 
@@ -1178,16 +1190,32 @@ impl IndexAccessProvider for ScoreAccess<'_> {
             && let AccessRequest::Structured(bound) = request
             && self.accepts(bound)
         {
+            let (coverage, proof, uncovered) = self.posting.covered.as_ref().map_or(
+                (Coverage::Complete, ProofStrength::Exact, 0),
+                |covered| {
+                    (
+                        Coverage::Partial {
+                            covered: covered.len() as u32,
+                        },
+                        ProofStrength::Candidate,
+                        input.domain_len.saturating_sub(covered.len() as u64),
+                    )
+                },
+            );
             offers.push(AccessOffer::new(
                 AccessId {
                     provider: PROVIDER,
                     operation: OperationId(0),
                 },
                 term,
-                AccessKind::ExactMembership,
-                Coverage::Complete,
-                ProofStrength::Exact,
-                (self.slots(bound).len() as u64).min(input.input_len),
+                if proof == ProofStrength::Exact {
+                    AccessKind::ExactMembership
+                } else {
+                    AccessKind::CandidateMembership
+                },
+                coverage,
+                proof,
+                (self.slots(bound).len() as u64 + uncovered).min(input.input_len),
                 1.0,
                 0.0,
                 false,
@@ -1227,8 +1255,22 @@ impl IndexAccessProvider for ScoreAccess<'_> {
             .copied()
             .filter(|&slot| input.contains(slot))
             .collect();
-        Ok(Restriction::exact(
-            input.replace_slots(SlotSet::from_sorted(filtered)?),
+        let Some(covered) = &self.posting.covered else {
+            return Ok(Restriction::exact(
+                input.replace_slots(SlotSet::from_sorted(filtered)?),
+            ));
+        };
+        let possible = input
+            .iter()
+            .filter(|slot| {
+                filtered.binary_search(slot).is_ok() || covered.binary_search(slot).is_err()
+            })
+            .collect();
+        let proven = SlotInput::unrestricted(input.domain(), input.operation_input())
+            .replace_slots(SlotSet::from_sorted(filtered)?);
+        Ok(Restriction::bounds(
+            input.replace_slots(SlotSet::from_sorted(possible)?),
+            proven,
         ))
     }
 }
@@ -1390,6 +1432,77 @@ fn independent_and_native_segments_share_the_real_query_and_ingestion_path() {
             .is_none()
     );
     assert_eq!(current.search(&query).unwrap().count, actual.count);
+    session.finish().unwrap();
+}
+
+#[test]
+fn partial_score_coverage_and_stream_hold_the_original_revision() {
+    use crate::query_execution::streaming::{
+        CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
+    };
+
+    let factory = Arc::new(TableFactory::default());
+    factory.independent_segments.store(true, Ordering::Relaxed);
+    factory.partial_score.store(true, Ordering::Relaxed);
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let collection = builder.collection("entries", score_schema()).unwrap();
+    let registration = builder.register_records(collection, "scores", 1).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    for slot in 0..10 {
+        let value = if matches!(slot, 1 | 4) { 7 } else { 2 };
+        batch.insert(format!("r{slot:02}"), score(value)).unwrap();
+    }
+    writer.submit(batch).unwrap().wait_published().unwrap();
+    let old = index.view().unwrap();
+    let query = score_query();
+    let expected = old.search_reference(&query).unwrap();
+    let actual = old.search(&query).unwrap();
+    assert_eq!(actual.count, Some(2));
+    assert_eq!(actual.hits, expected.hits);
+    assert!(factory.independent_applications.load(Ordering::Relaxed) > 0);
+
+    let mut streamed = Vec::new();
+    let outcome = old
+        .search_stream_scoped(
+            &query,
+            ResultScope::All { offset: 0 },
+            StreamOptions {
+                batch_rows: 1,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    assert_eq!(rows.len(), 1);
+                    if streamed.is_empty() {
+                        let mut batch = writer.batch();
+                        batch.delete("r04").unwrap();
+                        batch.insert("new", score(7)).unwrap();
+                        writer.submit(batch).unwrap().wait_published().unwrap();
+                    }
+                    streamed.extend_from_slice(rows);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    assert!(matches!(outcome, StreamOutcome::Complete(summary) if summary.count == Some(2)));
+    assert_eq!(streamed, expected.hits);
+    let current = index.view().unwrap();
+    assert_ne!(current.revision(), old.revision());
+    let current = current.search(&query).unwrap();
+    assert_eq!(
+        current
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["new", "r01"]
+    );
     session.finish().unwrap();
 }
 

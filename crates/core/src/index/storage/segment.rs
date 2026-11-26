@@ -542,6 +542,26 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
         Ok(None)
     }
 
+    fn named_posting_complete(
+        &self,
+        _component: &ComponentDescriptor<'_>,
+    ) -> StorageResult<Option<bool>> {
+        Ok(None)
+    }
+
+    fn inference_report(
+        &self,
+    ) -> StorageResult<Option<Cow<'_, crate::inference::InferenceReport>>> {
+        Ok(None)
+    }
+
+    fn inferred_short_string_members(
+        &self,
+        _path: &[String],
+    ) -> StorageResult<Option<SlotSet<'_>>> {
+        Ok(None)
+    }
+
     fn inferred_posting_diagnostic(
         &self,
         _path: &[String],
@@ -811,6 +831,28 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
                 .posting(&self.payload_component(component, placement)?);
         }
         self.payload().posting(component)
+    }
+
+    fn named_posting_complete(
+        &self,
+        component: &ComponentDescriptor<'_>,
+    ) -> StorageResult<Option<bool>> {
+        if let Some(placement) = self.placement_id() {
+            return self
+                .payload()
+                .named_posting_complete(&self.payload_component(component, placement)?);
+        }
+        self.payload().named_posting_complete(component)
+    }
+
+    fn inference_report(
+        &self,
+    ) -> StorageResult<Option<Cow<'_, crate::inference::InferenceReport>>> {
+        self.payload().inference_report()
+    }
+
+    fn inferred_short_string_members(&self, path: &[String]) -> StorageResult<Option<SlotSet<'_>>> {
+        self.payload().inferred_short_string_members(path)
     }
 
     fn inferred_posting_diagnostic(
