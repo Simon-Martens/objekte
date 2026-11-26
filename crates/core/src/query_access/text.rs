@@ -20,12 +20,12 @@ pub(crate) use crate::index::memory::access::text::test_text_input;
 
 fn with_provider<T>(
     collection: &CollectionState,
-    instance: u64,
     read: impl FnOnce(&dyn IndexAccessProvider, DomainId) -> Result<Option<T>, String>,
 ) -> Result<Option<T>, String> {
     let Some(base) = &collection.base_records else {
         return Ok(None);
     };
+    let instance = collection.repository_instance;
     let domain = domain_id(
         instance,
         collection.collection_id().0,
@@ -79,42 +79,38 @@ pub(crate) fn base_text_estimate(
             crate::index::memory::access::text::native_estimate_fts_candidates(collection, fts),
         );
     }
-    with_provider(
-        collection,
-        collection.repository_instance,
-        |provider, domain| {
-            let term = TermId::new(0);
-            let input = collection.base_slot_count() as u64;
-            let mut offers = OfferList::new();
-            provider
-                .propose(
-                    term,
-                    AccessRequest::Text(fts),
-                    estimate(collection, domain, input),
-                    &mut offers,
-                )
-                .map_err(|error| error.to_string())?;
-            let chosen = crate::query_plan::selection::choose_offer(term, &offers, input)
-                .map_err(|error| error.to_string())?;
-            Ok(chosen.map(|offer| (offer.estimated_output(), offer.estimated_work(input))))
-        },
-    )
+    with_provider(collection, |provider, domain| {
+        let term = TermId::new(0);
+        let input = collection.base_slot_count() as u64;
+        let mut offers = OfferList::new();
+        provider
+            .propose(
+                term,
+                AccessRequest::Text(fts),
+                estimate(collection, domain, input),
+                &mut offers,
+            )
+            .map_err(|error| error.to_string())?;
+        let chosen = crate::query_plan::selection::choose_offer(term, &offers, input)
+            .map_err(|error| error.to_string())?;
+        Ok(chosen.map(|offer| (offer.estimated_output(), offer.estimated_work(input))))
+    })
 }
 
 pub(crate) fn prepared_text_estimate(
     predicates: &PreparedPredicates,
     term: TermId,
     collection: &CollectionState,
-    instance: u64,
+    _instance: u64,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
     #[cfg(test)]
     if collection.base_records.is_none() {
         return crate::index::memory::access::text::prepared_text_estimate(
-            predicates, term, collection, instance, input_len,
+            predicates, term, collection, _instance, input_len,
         );
     }
-    with_provider(collection, instance, |provider, domain| {
+    with_provider(collection, |provider, domain| {
         let catalog = ProviderCatalog::new([provider]);
         let offers = catalog
             .propose_prepared(predicates, term, estimate(collection, domain, input_len))
@@ -129,16 +125,16 @@ pub(crate) fn prepared_text_candidates(
     predicates: &PreparedPredicates,
     term: TermId,
     collection: &CollectionState,
-    instance: u64,
+    _instance: u64,
     input: &RoaringBitmap,
 ) -> Result<Option<RoaringBitmap>, String> {
     #[cfg(test)]
     if collection.base_records.is_none() {
         return crate::index::memory::access::text::prepared_text_candidates(
-            predicates, term, collection, instance, input,
+            predicates, term, collection, _instance, input,
         );
     }
-    with_provider(collection, instance, |provider, domain| {
+    with_provider(collection, |provider, domain| {
         let catalog = ProviderCatalog::new([provider]);
         let offers = catalog
             .propose_prepared(predicates, term, estimate(collection, domain, input.len()))

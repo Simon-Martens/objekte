@@ -400,6 +400,33 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     let collection = &flat_pin.repository().collections()[0];
     assert_eq!(collection.base_logical_count().unwrap(), 5);
     assert_eq!(flat_pin.0.active[0].len(), 4);
+    let filter = crate::query::binding::filter::bind_filter(
+        query.filter.as_ref().unwrap(),
+        &collection.definition.schema,
+    )
+    .unwrap();
+    let estimate =
+        crate::query_execution::restrictions::estimate_plan_expr(collection, &filter, 5).unwrap();
+    assert!(estimate.exact);
+    assert_eq!(estimate.candidates, 4);
+    let active = flat_pin.0.active[0].bitmap();
+    let applications = factory.independent_applications.load(Ordering::Relaxed);
+    let plan = crate::query_execution::restrictions::plan_expr_restricted(
+        flat_pin.repository(),
+        collection,
+        &flat_pin.repository().segment_groups().unwrap(),
+        &filter,
+        &active,
+        &active,
+        true,
+    )
+    .unwrap();
+    assert!(plan.exact);
+    assert_eq!(plan.candidates.unwrap().len(), 3);
+    assert_eq!(
+        factory.independent_applications.load(Ordering::Relaxed),
+        applications + 1,
+    );
     let mut order = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
         collection.base_identity_order().unwrap(),
     );

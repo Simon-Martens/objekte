@@ -54,7 +54,7 @@ impl<'a> BaseCollectionProvider<'a> {
             repo: Some(repo),
             collection,
             domain: domain_id(
-                repo.instance_id,
+                collection.repository_instance,
                 collection.collection_id().0,
                 collection.base_generation(),
                 segment_index.map(u64::from),
@@ -70,7 +70,7 @@ impl<'a> BaseCollectionProvider<'a> {
             repo: None,
             collection,
             domain: domain_id(
-                0,
+                collection.repository_instance,
                 collection.collection_id().0,
                 collection.base_generation(),
                 None,

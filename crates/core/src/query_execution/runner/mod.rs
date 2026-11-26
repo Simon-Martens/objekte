@@ -7246,13 +7246,12 @@ fn search_impl_with_resolved_sort<'a>(
             .transpose()?
             .flatten();
         let prepared_filter_estimate = match (filter.as_ref(), entry.filter_shape.as_ref()) {
-            (Some(BoundExpr::Term(term)), Some(PreparedExpr::Term(term_id))) => Some(
+            (Some(BoundExpr::Term(_)), Some(PreparedExpr::Term(term_id))) => Some(
                 crate::query_execution::restrictions::estimate_prepared_filter_term(
                     repo,
                     collection,
                     &predicates,
                     *term_id,
-                    term,
                     domain.len(),
                 ),
             )

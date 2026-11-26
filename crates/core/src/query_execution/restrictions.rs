@@ -342,6 +342,36 @@ fn with_segment_predicate_access<T>(
     result.ok_or_else(|| "segment predicate access omitted provider selection".to_owned())?
 }
 
+fn with_base_predicate_access<T>(
+    repo: Option<&Repository>,
+    collection: &CollectionState,
+    read: impl FnOnce(Option<&dyn IndexAccessProvider>) -> Result<T, String>,
+) -> Result<T, String> {
+    let Some(base) = &collection.base_records else {
+        return read(None);
+    };
+    let instance = collection.repository_instance;
+    let id = collection.collection_id();
+    let access = SegmentPredicateAccess {
+        text: SegmentTextAccess {
+            policy: collection.text_access_policy(),
+            domain: crate::query_execution::domain::domain_id(
+                instance,
+                id.0,
+                collection.base_generation(),
+                None,
+            ),
+            instance,
+            collection: id,
+        },
+        collection_name: &collection.definition.name,
+        files: repo
+            .filter(|repo| repo.repository_root().is_some())
+            .map(|repo| repo.catalog.as_ref() as &dyn FileCatalogReader),
+    };
+    with_segment_predicate_access(base.as_ref(), access, read)
+}
+
 fn segment_text_access(
     collection: &CollectionState,
     published_id: SegmentId,
@@ -1290,6 +1320,8 @@ pub struct PlanningCounters {
 
 struct PlanContext<'a> {
     provider: BaseCollectionProvider<'a>,
+    selected: Option<&'a dyn IndexAccessProvider>,
+    execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
     #[cfg(test)]
     instance_id: u64,
     offers: HashMap<TermId, OfferList>,
@@ -1307,6 +1339,8 @@ impl<'a> PlanContext<'a> {
         collection: &'a CollectionState,
         diagnostics: bool,
         predicates: Option<Arc<PreparedPredicates>>,
+        selected: Option<&'a dyn IndexAccessProvider>,
+        execution: Option<&'a crate::query_execution::streaming::ExecutionContext>,
     ) -> Self {
         let test_providers = {
             #[cfg(test)]
@@ -1325,6 +1359,8 @@ impl<'a> PlanContext<'a> {
                 collection.stats.record_count as u64,
                 None,
             ),
+            selected,
+            execution,
             #[cfg(test)]
             instance_id: repo.instance_id,
             offers: HashMap::new(),
@@ -1337,9 +1373,16 @@ impl<'a> PlanContext<'a> {
         }
     }
 
-    fn for_estimation(collection: &'a CollectionState, input_len: u64, diagnostics: bool) -> Self {
+    fn for_estimation(
+        collection: &'a CollectionState,
+        input_len: u64,
+        diagnostics: bool,
+        selected: Option<&'a dyn IndexAccessProvider>,
+    ) -> Self {
         Self {
             provider: BaseCollectionProvider::for_estimation(collection, input_len),
+            selected,
+            execution: None,
             #[cfg(test)]
             instance_id: collection.repository_instance,
             offers: HashMap::new(),
@@ -1370,10 +1413,13 @@ impl<'a> PlanContext<'a> {
             crate::query_execution::request::test_native_access_suppressed(self.instance_id);
         #[cfg(not(test))]
         let suppress_native = false;
-        if !suppress_native {
-            providers.push(&self.provider);
-        } else {
-            providers.push(&SOURCE_VERIFICATION_PROVIDER);
+        match (self.selected, suppress_native) {
+            (Some(provider), false) => {
+                providers.push(provider);
+                providers.push(&SOURCE_VERIFICATION_PROVIDER);
+            }
+            (None, false) => providers.push(&self.provider),
+            (_, true) => providers.push(&SOURCE_VERIFICATION_PROVIDER),
         }
         for provider in &self.test_providers {
             providers.push(provider.as_ref());
@@ -1458,13 +1504,11 @@ impl<'a> PlanContext<'a> {
 
     fn execute_base_term(
         &mut self,
-        repo: &Repository,
         collection: &CollectionState,
         term: &BoundTerm,
         input: &RoaringBitmap,
     ) -> Result<(Option<RoaringBitmap>, Option<AccessOffer>, Vec<AccessOffer>), String> {
         let term_id = self.term_id(collection, term);
-        let _ = repo;
         let diagnostics = self.diagnostics;
         let (chosen, alternatives) = {
             let offers = self.offers(collection, term, input.len())?;
@@ -1501,12 +1545,17 @@ impl<'a> PlanContext<'a> {
                 },
                 chosen.id(),
                 self.provider.input_for(input),
-                &AccessExecution { context: None },
+                &AccessExecution {
+                    context: self.execution,
+                },
             )
-            .map_err(|error| error.to_string())?
-            .possible;
-        let slots = match restricted.into_slots() {
-            crate::query_access::membership::SlotSet::Unrestricted => None,
+            .map_err(|error| error.to_string())?;
+        let exact = chosen.proof() == ProofStrength::Exact;
+        if exact && !matches!(restricted.proven, Proven::All) {
+            return Err("selected exact base access did not return a proof".into());
+        }
+        let slots = match restricted.possible.into_slots() {
+            crate::query_access::membership::SlotSet::Unrestricted => exact.then(|| input.clone()),
             crate::query_access::membership::SlotSet::Empty => Some(RoaringBitmap::new()),
             crate::query_access::membership::SlotSet::Owned(bitmap) => Some(bitmap),
             crate::query_access::membership::SlotSet::Borrowed(bitmap) => Some(bitmap & input),
@@ -1526,39 +1575,19 @@ impl<'a> PlanContext<'a> {
 
     fn estimate_prepared_term(
         &self,
-        repo: &Repository,
         collection: &CollectionState,
         predicates: &PreparedPredicates,
         term_id: TermId,
-        term: &BoundTerm,
         input_len: u64,
     ) -> Result<Option<(u64, f64)>, String> {
-        let provider = BaseCollectionProvider::new(repo, collection, input_len, None);
-        #[cfg(test)]
-        let test_providers =
-            crate::query_execution::request::test_access_providers(repo.instance_id);
-        let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
-        providers.push(&provider);
-        #[cfg(test)]
-        for test_provider in &test_providers {
-            providers.push(test_provider.as_ref());
-        }
-        let catalog = ProviderCatalog::new(providers);
+        let catalog = self.catalog();
         let offers = catalog
             .propose_prepared(
                 predicates,
                 term_id,
-                InputEstimate {
-                    domain: provider.domain(),
-                    domain_len: collection.stats.record_count as u64,
-                    input_len,
-                    mean_record_bytes: collection.stats.mean_record_bytes(),
-                    mean_records_per_file: collection.stats.mean_records_per_file(),
-                    file_count: collection.stats.file_count as u64,
-                },
+                self.proposal_input(collection, input_len),
             )
             .map_err(|error| error.to_string())?;
-        let _ = term;
         Ok(
             crate::query_plan::selection::choose_offer(term_id, &offers, input_len)
                 .map_err(|error| error.to_string())?
@@ -2407,12 +2436,14 @@ pub(crate) fn estimate_expr(
     expr: &BoundExpr,
     input_len: u64,
 ) -> Result<(f64, u64), String> {
-    estimate_expr_cached(
-        collection,
-        expr,
-        input_len,
-        &mut PlanContext::for_estimation(collection, input_len, false),
-    )
+    with_base_predicate_access(None, collection, |selected| {
+        estimate_expr_cached(
+            collection,
+            expr,
+            input_len,
+            &mut PlanContext::for_estimation(collection, input_len, false, selected),
+        )
+    })
 }
 
 /// An estimate-only physical decision. It has no candidate membership or
@@ -2436,13 +2467,15 @@ pub(crate) fn estimate_plan_expr(
     expr: &BoundExpr,
     input_len: u64,
 ) -> Result<EstimatedPlan, String> {
-    let mut context = PlanContext::for_estimation(collection, input_len, true);
-    let node = estimate_plan_node(collection, expr, input_len, &mut context)?;
-    Ok(EstimatedPlan {
-        candidates: node.candidates,
-        exact: node.exact,
-        choices: node.choices,
-        planning: context.counters,
+    with_base_predicate_access(None, collection, |selected| {
+        let mut context = PlanContext::for_estimation(collection, input_len, true, selected);
+        let node = estimate_plan_node(collection, expr, input_len, &mut context)?;
+        Ok(EstimatedPlan {
+            candidates: node.candidates,
+            exact: node.exact,
+            choices: node.choices,
+            planning: context.counters,
+        })
     })
 }
 
@@ -2451,11 +2484,12 @@ pub(crate) fn estimate_prepared_filter_term(
     collection: &CollectionState,
     predicates: &PreparedPredicates,
     term_id: TermId,
-    term: &BoundTerm,
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
-    PlanContext::new(repo, collection, false, None)
-        .estimate_prepared_term(repo, collection, predicates, term_id, term, input_len)
+    with_base_predicate_access(Some(repo), collection, |selected| {
+        PlanContext::new(repo, collection, false, None, selected, None)
+            .estimate_prepared_term(collection, predicates, term_id, input_len)
+    })
 }
 
 fn base_raw_gram_estimate(_collection: &CollectionState, _term: &BoundTerm) -> Option<u64> {
@@ -2787,20 +2821,29 @@ pub(crate) fn plan_expr_restricted_with_execution(
     if let Some(execution) = execution {
         execution.check_string()?;
     }
-    let mut context = PlanContext::new(repo, collection, diagnostics, predicates);
-    let mut plan = plan_expr_restricted_inner(
-        repo,
-        collection,
-        segments,
-        expr,
-        domain,
-        input,
-        evidence,
-        &mut context,
-        execution,
-    )?;
-    plan.planning = context.counters;
-    Ok(plan)
+    with_base_predicate_access(Some(repo), collection, |selected| {
+        let mut context = PlanContext::new(
+            repo,
+            collection,
+            diagnostics,
+            predicates,
+            selected,
+            execution,
+        );
+        let mut plan = plan_expr_restricted_inner(
+            repo,
+            collection,
+            segments,
+            expr,
+            domain,
+            input,
+            evidence,
+            &mut context,
+            execution,
+        )?;
+        plan.planning = context.counters;
+        Ok(plan)
+    })
 }
 
 fn plan_expr_restricted_inner<'a>(
@@ -2907,7 +2950,7 @@ fn plan_logical_expr<'a>(
         BoundExpr::Term(term) => {
             let term_id = context.term_id(collection, term);
             let (candidates, chosen, offered_alternatives) =
-                context.execute_base_term(repo, collection, term, input)?;
+                context.execute_base_term(collection, term, input)?;
             if chosen.as_ref().is_some_and(|choice| {
                 choice.kind() != crate::query_access::contract::AccessKind::SourceScan
             }) {
