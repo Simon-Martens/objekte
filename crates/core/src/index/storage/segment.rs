@@ -2,7 +2,11 @@
 
 pub(crate) mod build;
 
-use std::{borrow::Cow, fmt, num::NonZeroUsize};
+use std::{
+    borrow::Cow,
+    fmt,
+    num::{NonZeroU64, NonZeroUsize},
+};
 
 use serde::{Deserialize, Serialize};
 
@@ -112,6 +116,34 @@ pub(crate) struct SegmentDescriptor {
     pub(crate) id: SegmentId,
     pub(crate) collection: CollectionId,
     pub(crate) slots: usize,
+}
+
+/// Identity of one direct write in this index process. The same token follows
+/// a record when maintenance changes its segment or slot.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct RecordWriteVersion(NonZeroU64);
+
+impl RecordWriteVersion {
+    pub(crate) fn new(value: u64) -> Option<Self> {
+        NonZeroU64::new(value).map(Self)
+    }
+
+    pub(crate) fn allocate(count: usize) -> StorageResult<std::ops::Range<u64>> {
+        use std::sync::atomic::{AtomicU64, Ordering};
+        static NEXT: AtomicU64 = AtomicU64::new(1);
+        let count = u64::try_from(count)
+            .map_err(|_| StorageError::ResourceLimit("write version count overflow".into()))?;
+        let mut start = NEXT.load(Ordering::Relaxed);
+        loop {
+            let end = start.checked_add(count).ok_or_else(|| {
+                StorageError::ResourceLimit("record write versions exhausted".into())
+            })?;
+            match NEXT.compare_exchange_weak(start, end, Ordering::Relaxed, Ordering::Relaxed) {
+                Ok(_) => return Ok(start..end),
+                Err(current) => start = current,
+            }
+        }
+    }
 }
 
 /// Adapter identity captured when a segment is sealed.
@@ -229,6 +261,10 @@ pub(crate) trait SegmentReader: Send + Sync {
 
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>>;
 
+    fn write_version(&self, _slot: RecordSlot) -> StorageResult<Option<RecordWriteVersion>> {
+        Ok(None)
+    }
+
     fn header(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RecordHeader>>>;
 
     fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>>;
@@ -291,6 +327,10 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
 
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
         self.as_ref().slot_for_record(id)
+    }
+
+    fn write_version(&self, slot: RecordSlot) -> StorageResult<Option<RecordWriteVersion>> {
+        self.as_ref().write_version(slot)
     }
 
     fn header(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RecordHeader>>> {

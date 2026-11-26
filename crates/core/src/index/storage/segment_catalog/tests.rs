@@ -9,6 +9,7 @@ use crate::index::storage::order::{
     InferredOrderRows, OrderColumnReader, SortConfig, SortKey, SortOptions,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
+use crate::index::storage::segment::SegmentReader;
 use crate::index::storage::segment::build::{
     BuiltSegment, DirectSegmentBuild, FileSegmentBuild, SegmentBuilder, SegmentSeal,
 };
@@ -275,6 +276,15 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
     insert.insert("kept", kept.clone()).unwrap();
     writer.submit(insert).unwrap().wait_published().unwrap();
     let pinned = index.view().unwrap();
+    let write_version = |view: &crate::lifecycle::IndexView| {
+        let found = view.0.record_routes[0].locate("kept").unwrap().unwrap();
+        view.0.segments[0][found.position]
+            .index
+            .write_version(found.route.slot)
+            .unwrap()
+            .unwrap()
+    };
+    let first_write = write_version(&pinned);
     let before = pinned.0.record_routes[0].route("kept").unwrap().unwrap();
     assert_eq!(before.slot, RecordSlot(1));
     assert_eq!(factory.retained_builds.load(Ordering::Relaxed), 1);
@@ -315,6 +325,7 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
     let after = compacted.0.record_routes[0].route("kept").unwrap().unwrap();
     assert_ne!(after.segment, before.segment);
     assert_eq!(after.slot, RecordSlot(0));
+    assert_eq!(write_version(&compacted), first_write);
 
     factory.fail_retained_read.store(false, Ordering::Relaxed);
     for view in [&pinned, &compacted] {
@@ -335,6 +346,17 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
             .unwrap()
             .is_some()
     );
+    let mut replacement = writer.batch();
+    replacement
+        .replace("kept", Value::String("changed".into()))
+        .unwrap();
+    writer
+        .submit(replacement)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    assert_ne!(write_version(&index.view().unwrap()), first_write);
+    assert_eq!(write_version(&pinned), first_write);
 }
 
 struct TableOrder {

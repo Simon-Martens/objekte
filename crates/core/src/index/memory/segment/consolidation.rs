@@ -591,6 +591,10 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             backing,
+            write_versions: super::record_versions::RecordWriteVersions::concatenate(
+                shards,
+                total_records,
+            )?,
             raw_covers_logical_fields: shards.iter().all(|shard| shard.raw_covers_logical_fields),
             id_lookup,
             identity_order,

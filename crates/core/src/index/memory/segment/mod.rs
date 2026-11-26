@@ -4,6 +4,7 @@ pub(crate) mod admission;
 mod compaction;
 mod consolidation;
 mod projection;
+mod record_versions;
 
 pub(crate) use projection::PartitionRouting;
 
@@ -26,8 +27,8 @@ use crate::index::storage::file_catalog::FileCatalogHandle;
 use crate::index::storage::order::{InferredOrderRows, PostingOrderRequest, SortKey};
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::segment::{
-    RecordBacking, RecordOrigin, RetainedBlock, RetainedBlockReader, SegmentDescriptor,
-    SegmentReader, SegmentSource,
+    RecordBacking, RecordOrigin, RecordWriteVersion, RetainedBlock, RetainedBlockReader,
+    SegmentDescriptor, SegmentReader, SegmentSource,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
@@ -579,6 +580,7 @@ pub(crate) struct IndexedCollectionSegment {
     pub file_index: HashMap<FileId, usize>,
     pub records: Vec<crate::records::RecordHeader>,
     pub backing: SegmentBacking,
+    pub(crate) write_versions: record_versions::RecordWriteVersions,
     /// Every raw text contribution in this native shard was derived from its
     /// converted logical string fields. Explicit adapter text is independent.
     pub raw_covers_logical_fields: bool,
@@ -722,6 +724,10 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
         Ok(self.id_lookup.get(id).copied())
+    }
+
+    fn write_version(&self, slot: RecordSlot) -> StorageResult<Option<RecordWriteVersion>> {
+        Ok(self.write_versions.get(slot))
     }
 
     fn header(
@@ -1042,7 +1048,9 @@ impl IndexedCollectionSegment {
         if let Some(inference) = &self.inference {
             retained = retained.saturating_add(inference_bytes(inference));
         }
-        retained = retained.saturating_add(self.backing.estimated_storage_bytes());
+        retained = retained
+            .saturating_add(self.backing.estimated_storage_bytes())
+            .saturating_add(self.write_versions.resident_bytes());
         let source_bytes_estimated = self
             .files
             .iter()

@@ -1143,21 +1143,17 @@ impl Index {
                         )));
                     }
                     if expected != prepared_from.revision() {
-                        // Compaction relocates headers but shares the immutable ID
-                        // allocation. A new direct write creates a new allocation.
-                        let current = published.index.header(slot)?.ok_or_else(|| {
-                            IndexError::Storage("record route points to a missing header".into())
+                        let current = published.index.write_version(slot)?.ok_or_else(|| {
+                            IndexError::Storage("live direct record write version missing".into())
                         })?;
                         let original = prepared_from.0.live_route(number, change.id.0.as_ref())?;
                         let original = match original {
                             Some((position, slot)) => prepared_from.0.segments[number][position]
                                 .index
-                                .header(slot)?,
+                                .write_version(slot)?,
                             None => None,
                         };
-                        if !original
-                            .is_some_and(|original| Arc::ptr_eq(&current.id.0, &original.id.0))
-                        {
+                        if original != Some(current) {
                             return Err(IndexError::Build(format!(
                                 "record {} changed during preparation",
                                 change.id.0

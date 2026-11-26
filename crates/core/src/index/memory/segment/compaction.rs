@@ -385,6 +385,7 @@ impl IndexedCollectionSegment {
             file_index,
             records,
             backing,
+            write_versions: self.write_versions.project(slot_map, next as usize)?,
             raw_covers_logical_fields: self.raw_covers_logical_fields,
             id_lookup,
             identity_order,
