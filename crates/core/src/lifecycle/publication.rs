@@ -878,9 +878,10 @@ fn prepare_initial_segment(
 
 fn verify_initial_files(
     view: &IndexView,
-    segments: &[&IndexedCollectionSegment],
+    segments: &[&dyn SegmentReader],
 ) -> Result<(), IndexError> {
     use crate::construction::file_preparation::created_ns;
+    use crate::index::storage::segment::visit_segment_file_batches;
     use crate::inventory::{
         SourceRevision,
         discovery::{PreparedScanSelection, SymlinkPolicy, discover},
@@ -892,12 +893,13 @@ fn verify_initial_files(
     let mut selections = Vec::new();
     let mut by_collection = std::collections::HashMap::new();
     for segment in segments {
-        if by_collection.contains_key(&segment.collection) {
+        let collection_id = segment.descriptor().collection;
+        if by_collection.contains_key(&collection_id) {
             continue;
         }
         let collection = repository
             .collections()
-            .get(segment.collection.0 as usize)
+            .get(collection_id.0 as usize)
             .ok_or_else(|| IndexError::InvalidPublication("missing file collection".into()))?;
         let config = collection.required_file_source();
         let reader = collection.required_file_reader();
@@ -936,7 +938,7 @@ fn verify_initial_files(
                 position
             }
         };
-        by_collection.insert(segment.collection, position);
+        by_collection.insert(collection_id, position);
     }
     let verify = |entry: &FileEntry, position: usize| {
         let (_, _, _, selection, chosen_aliases) = &selections[position];
@@ -974,39 +976,45 @@ fn verify_initial_files(
         Ok(())
     };
     let workers = &repository.workers;
-    if let [segment] = segments {
-        let selection = by_collection[&segment.collection];
-        if segment.files.len() >= 256 && workers.current_num_threads() > 1 {
-            return workers.install(|| {
-                segment
-                    .files
-                    .par_iter()
-                    .try_for_each(|file| verify(&file.entry, selection))
-            });
-        }
-        return segment
-            .files
-            .iter()
-            .try_for_each(|file| verify(&file.entry, selection));
-    }
+    let unique_segment = segments.len() == 1;
     let mut checked = std::collections::HashSet::new();
-    let entries = segments
-        .iter()
-        .flat_map(|segment| {
-            let selection = by_collection[&segment.collection];
-            segment
-                .files
-                .iter()
-                .map(move |file| (&file.entry, selection))
-        })
-        .filter(|(entry, selection)| checked.insert((entry.id, *selection)))
-        .collect::<Vec<_>>();
-    let verify_entry = |(entry, selection): (&FileEntry, usize)| verify(entry, selection);
-    if entries.len() >= 256 && workers.current_num_threads() > 1 {
-        workers.install(|| entries.into_par_iter().try_for_each(verify_entry))
-    } else {
-        entries.into_iter().try_for_each(verify_entry)
+    let mut selected = Vec::new();
+    for &segment in segments {
+        let selection = by_collection[&segment.descriptor().collection];
+        visit_segment_file_batches(segment, |files| {
+            if unique_segment && files.len() < 256 || workers.current_num_threads() == 1 {
+                for file in files {
+                    if unique_segment || checked.insert((file.id, selection)) {
+                        verify(file, selection)?;
+                    }
+                }
+            } else if unique_segment {
+                workers.install(|| {
+                    files
+                        .par_iter()
+                        .try_for_each(|file| verify(file, selection))
+                })?;
+            } else {
+                selected.clear();
+                selected.extend(files.iter().enumerate().filter_map(|(index, file)| {
+                    checked.insert((file.id, selection)).then_some(index)
+                }));
+                if selected.len() >= 256 {
+                    workers.install(|| {
+                        selected
+                            .par_iter()
+                            .try_for_each(|&index| verify(&files[index], selection))
+                    })?;
+                } else {
+                    for &index in &selected {
+                        verify(&files[index], selection)?;
+                    }
+                }
+            }
+            Ok::<_, IndexError>(false)
+        })?;
     }
+    Ok(())
 }
 
 impl Index {
@@ -1234,7 +1242,7 @@ impl Index {
             &view,
             &segments
                 .iter()
-                .map(|(segment, _)| segment)
+                .map(|(segment, _)| segment as &dyn SegmentReader)
                 .collect::<Vec<_>>(),
         )?;
         let mut next = (*view.0).clone();

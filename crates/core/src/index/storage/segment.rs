@@ -295,6 +295,22 @@ pub(crate) fn any_segment_file<E: From<StorageError>>(
     reader: &dyn SegmentReader,
     mut matches: impl FnMut(&FileEntry) -> Result<bool, E>,
 ) -> Result<bool, E> {
+    visit_segment_file_batches(reader, |files| {
+        for file in files {
+            if matches(file)? {
+                return Ok(true);
+            }
+        }
+        Ok(false)
+    })
+}
+
+/// Check a bounded file page before passing its guarded rows to the caller.
+/// Returning true stops without opening another page.
+pub(crate) fn visit_segment_file_batches<E: From<StorageError>>(
+    reader: &dyn SegmentReader,
+    mut visit: impl FnMut(&[Cow<'_, FileEntry>]) -> Result<bool, E>,
+) -> Result<bool, E> {
     const OP: &str = "read segment file entries";
     let total = reader.file_count();
     if total == 0 {
@@ -311,8 +327,8 @@ pub(crate) fn any_segment_file<E: From<StorageError>>(
             return Err(StorageError::invalid(OP, "invalid batch progress").into());
         }
         let mut bytes = 0;
-        for (index, entry) in entries.drain(..).enumerate() {
-            let next_bytes = match &entry {
+        for (index, entry) in entries.iter().enumerate() {
+            let next_bytes = match entry {
                 Cow::Borrowed(_) => size_of::<Cow<'_, FileEntry>>(),
                 Cow::Owned(file) => FileTransferRow {
                     entry: Cow::Borrowed(file),
@@ -325,10 +341,11 @@ pub(crate) fn any_segment_file<E: From<StorageError>>(
                 return Err(StorageError::invalid(OP, "file batch exceeds its limits").into());
             }
             bytes += next_bytes;
-            if matches(&entry)? {
-                return Ok(true);
-            }
         }
+        if visit(&entries)? {
+            return Ok(true);
+        }
+        entries.clear();
         if status == BatchStatus::Done {
             return Ok(false);
         }
