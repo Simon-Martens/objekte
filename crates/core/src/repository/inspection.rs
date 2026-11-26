@@ -176,31 +176,22 @@ impl Repository {
         &self.startup
     }
 
-    pub(crate) fn native_snapshot(
-        &self,
-    ) -> crate::index::storage::publication::NativeSnapshotRef<'_> {
-        crate::index::storage::publication::NativeSnapshotRef {
-            active: &self.active,
-            segments: &self.segments,
-            catalog: &self.catalog,
-            revision: self.revision,
-        }
-    }
-
     /// Compact native segment inventory for benchmarks and diagnostics.
     pub fn segment_summaries(&self) -> Vec<crate::index::segment::NativeSegmentSummary> {
-        self.segment_summaries_for(&self.segments).collect()
-    }
-
-    pub(crate) fn segment_summaries_for<'a>(
-        &self,
-        segments: &'a [Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
-    ) -> impl Iterator<Item = crate::index::segment::NativeSegmentSummary> + 'a {
-        segments.iter().flat_map(|group| {
-            group
+        #[cfg(test)]
+        if self.lookup_segment_catalogs().is_none() {
+            return self
+                .segments
                 .iter()
+                .flat_map(|group| group.iter())
                 .map(|segment| segment.summary(segment.active.len() as usize))
-        })
+                .collect();
+        }
+        let mut summaries = Vec::new();
+        for directory in &self.segment_catalogs {
+            directory.visit_summaries(&mut |summary| summaries.push(summary));
+        }
+        summaries
     }
 
     /// Read logical descriptors for a published segment's available components.
@@ -212,19 +203,57 @@ impl Repository {
         Option<Vec<crate::index::segment::NativeComponentDescriptor<'_>>>,
         crate::lifecycle::IndexError,
     > {
-        self.segments
-            .get(collection.0 as usize)
-            .and_then(|group| group.iter().find(|candidate| candidate.id == segment))
-            .map(|candidate| candidate.components())
+        use crate::index::storage::component::ComponentDescriptor;
+        use std::borrow::Cow;
+        let placement = if let Some(directories) = self.lookup_segment_catalogs() {
+            let Some(directory) = directories.get(collection.0 as usize) else {
+                return Ok(None);
+            };
+            let Some(position) = directory.position(segment)? else {
+                return Ok(None);
+            };
+            Some(
+                directory
+                    .placement_at(position)?
+                    .filter(|placement| placement.id == segment)
+                    .ok_or_else(|| {
+                        crate::index::storage::transfer::StorageError::invalid(
+                            "inspect segment components",
+                            "segment placement mismatch",
+                        )
+                    })?
+                    .into_owned(),
+            )
+        } else {
+            self.segment_groups()?
+                .get(collection.0 as usize)
+                .and_then(|group| group.iter().find(|placement| placement.id == segment))
+                .cloned()
+        };
+        placement
+            .map(|placement| {
+                Ok(placement
+                    .components()?
+                    .into_iter()
+                    .map(|component| ComponentDescriptor {
+                        collection: component.collection,
+                        segment: component.segment,
+                        kind: component.kind,
+                        path: component.path.map(|path| Cow::Owned(path.into_owned())),
+                        binding: component
+                            .binding
+                            .map(|binding| Cow::Owned(binding.into_owned())),
+                    })
+                    .collect())
+            })
             .transpose()
-            .map_err(Into::into)
     }
 
     /// Canonical logical-content digest for the adopted native segments.
     /// Segment grouping and local slots are normalized to logical record IDs,
     /// so a policy change does not masquerade as an index-content change.
     pub fn native_index_signature(&self) -> Result<String, crate::lifecycle::IndexError> {
-        self.native_index_signature_for(&self.segments)
+        self.native_index_signature_for(&self.segment_groups()?)
     }
 
     pub(crate) fn native_index_signature_for(
@@ -394,7 +423,13 @@ impl Repository {
         Ok(format!("{:x}", hash.finalize()))
     }
 
-    pub(super) fn has_native_segments(&self) -> bool {
-        self.segments.iter().any(|segments| !segments.is_empty())
+    pub(crate) fn has_native_segments(&self) -> bool {
+        #[cfg(test)]
+        if self.segments.iter().any(|group| !group.is_empty()) {
+            return true;
+        }
+        self.segment_catalogs
+            .iter()
+            .any(|directory| directory.segment_count() != 0)
     }
 }

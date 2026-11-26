@@ -17,7 +17,7 @@ use crate::index::storage::segment::{
 };
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, build_catalog, edited_catalog, install_segment,
-    pin_segment_group,
+    pin_segment_group, visit_segment_descriptors,
 };
 use crate::index::storage::transfer::StorageError;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus};
@@ -170,13 +170,17 @@ impl PublishedIndex {
             collection.repository_instance = instance_id;
         }
         let active = std::mem::take(&mut repository.active);
-        let segments = std::mem::take(&mut repository.segments);
+        let directories = Self::repository_catalogs(&repository)?;
+        #[cfg(test)]
+        for group in &mut repository.segments {
+            *group = Arc::new(Vec::new());
+        }
         Self::from_repository_parts(
             instance_id,
             revision,
             Arc::new(repository),
             active,
-            segments,
+            directories,
         )
     }
 
@@ -185,13 +189,33 @@ impl PublishedIndex {
         revision: IndexRevision,
         repository: Arc<Repository>,
     ) -> Result<Self, IndexError> {
+        let directories = Self::repository_catalogs(&repository)?;
         Self::from_repository_parts(
             instance_id,
             revision,
             Arc::clone(&repository),
             repository.active.clone(),
-            repository.segments.clone(),
+            directories,
         )
+    }
+
+    fn repository_catalogs(
+        repository: &Repository,
+    ) -> Result<Vec<SegmentCatalogHandle>, IndexError> {
+        #[cfg(test)]
+        if repository.lookup_segment_catalogs().is_none() {
+            return repository
+                .segments
+                .iter()
+                .map(|group| {
+                    Ok(build_catalog(
+                        repository.storage_factory.as_ref(),
+                        group.iter(),
+                    )?)
+                })
+                .collect();
+        }
+        Ok(repository.segment_catalogs.clone())
     }
 
     fn from_repository_parts(
@@ -199,7 +223,7 @@ impl PublishedIndex {
         revision: IndexRevision,
         repository: Arc<Repository>,
         active: Vec<ActiveRecords>,
-        segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+        record_routes: Vec<SegmentCatalogHandle>,
     ) -> Result<Self, IndexError> {
         let configuration_identity = repository.configuration_identity;
         let catalog = if revision == repository.revision {
@@ -211,18 +235,19 @@ impl PublishedIndex {
             )?
         };
         let processed_files = catalog.live_count() as usize;
-        let next_segment_ordinal = segments
-            .iter()
-            .flat_map(|group| group.iter())
-            .map(|segment| segment.id.get())
-            .max()
-            .unwrap_or(0)
+        let mut greatest_ordinal = 0;
+        for directory in &record_routes {
+            if directory.segment_count() == 0 {
+                continue;
+            }
+            visit_segment_descriptors(directory.as_ref(), |_, descriptor| {
+                greatest_ordinal = greatest_ordinal.max(descriptor.id.get());
+                Ok(())
+            })?;
+        }
+        let next_segment_ordinal = greatest_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        let record_routes = segments
-            .iter()
-            .map(|group| build_catalog(repository.storage_factory.as_ref(), group.iter()))
-            .collect::<Result<Vec<_>, _>>()?;
         Ok(Self {
             instance_id,
             revision,

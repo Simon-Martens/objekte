@@ -343,6 +343,10 @@ fn initialize_empty_configured(
     let active = (0..collections.len())
         .map(|_| ActiveRecords::empty())
         .collect::<Vec<_>>();
+    let segment_catalogs = (0..collections.len())
+        .map(|_| storage_factory.segment_catalog()?.seal())
+        .collect::<crate::index::storage::transfer::StorageResult<Vec<_>>>()?;
+    #[cfg(test)]
     let segments = vec![Arc::new(Vec::new()); collections.len()];
     let instance_id = next_repository_instance();
     for collection in &mut collections {
@@ -358,6 +362,8 @@ fn initialize_empty_configured(
         base_fingerprints: Vec::new(),
         collections,
         active,
+        segment_catalogs,
+        #[cfg(test)]
         segments,
         catalog,
         configuration_identity,

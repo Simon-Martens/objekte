@@ -1377,14 +1377,14 @@ pub(crate) fn posting_values_segmented(
 
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
-        if self.segments.iter().any(|segments| !segments.is_empty()) {
+        if self.has_native_segments() {
             return select_exact_segmented(
                 self,
                 collection,
                 query,
                 self.revision,
                 &self.active,
-                &self.segments,
+                &self.segment_groups()?,
                 &self.catalog,
             );
         }
@@ -1440,13 +1440,13 @@ impl Repository {
         &self,
         request: &PostingValuesRequest,
     ) -> Result<PostingValuesPage, String> {
-        if self.segments.iter().any(|segments| !segments.is_empty()) {
+        if self.has_native_segments() {
             return posting_values_segmented(
                 self,
                 request,
                 self.revision,
                 &self.active,
-                &self.segments,
+                &self.segment_groups()?,
                 &self.catalog,
             );
         }

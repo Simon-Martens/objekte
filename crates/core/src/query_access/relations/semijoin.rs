@@ -471,7 +471,7 @@ pub(crate) fn planning_estimate(
     if eligible(repo, term).is_none() {
         return Err("relation term is not semijoin eligible".into());
     }
-    planning_estimate_with_segments(repo, &repo.segments, term, input_len)
+    planning_estimate_with_segments(repo, &repo.segment_groups()?, term, input_len)
 }
 
 pub(crate) fn planning_fts_strategies(
@@ -492,6 +492,7 @@ pub(crate) fn planning_fts_strategies(
     {
         return Ok(None);
     }
+    let segment_groups = repo.segment_groups()?;
     let mut strategies = Vec::with_capacity(fts.fields.len());
     for field in &fts.fields {
         let hops = field.related.as_ref().ok_or("relation FTS hop missing")?;
@@ -502,7 +503,7 @@ pub(crate) fn planning_fts_strategies(
         local_field.related = None;
         local.fields = vec![local_field];
         let (estimated_targets, lookup) =
-            segment_fts_estimate(repo, target_index, &repo.segments, &local)?.unwrap_or_else(
+            segment_fts_estimate(repo, target_index, &segment_groups, &local)?.unwrap_or_else(
                 || {
                     estimate_fts_candidates(target, &local)
                         .unwrap_or((target.logical_records.len() as u64, 0.0))

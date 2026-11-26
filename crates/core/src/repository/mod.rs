@@ -12,7 +12,9 @@ use crate::index::storage::StorageFactory;
 #[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogBase;
 use crate::index::storage::file_catalog::{EmptyFileCatalogBase, FileCatalogHandle};
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::storage::publication::SegmentGroup;
+use crate::index::storage::segment_catalog::{SegmentCatalogHandle, pin_segment_group};
+use crate::index::storage::transfer::StorageResult;
 use crate::inventory::ActiveRecords;
 #[cfg(test)]
 use crate::inventory::FileInventory;
@@ -63,7 +65,9 @@ pub struct Repository {
     pub(crate) base_fingerprints: Vec<Option<[u8; 32]>>,
     pub(crate) collections: Vec<CollectionState>,
     pub(crate) active: Vec<ActiveRecords>,
-    pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+    pub(crate) segment_catalogs: Vec<SegmentCatalogHandle>,
+    #[cfg(test)]
+    pub(crate) segments: Vec<SegmentGroup>,
     pub(crate) catalog: FileCatalogHandle,
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) programmatic: bool,
@@ -83,6 +87,25 @@ pub struct Repository {
         Mutex<crate::index::storage::order::inferred_cache::InferredOrderCache>,
 }
 impl Repository {
+    pub(crate) fn segment_groups(&self) -> StorageResult<Vec<SegmentGroup>> {
+        #[cfg(test)]
+        if self.segments.iter().any(|group| !group.is_empty()) {
+            return Ok(self.segments.clone());
+        }
+        self.segment_catalogs
+            .iter()
+            .map(|directory| pin_segment_group(directory.as_ref()))
+            .collect()
+    }
+
+    pub(crate) fn lookup_segment_catalogs(&self) -> Option<&[SegmentCatalogHandle]> {
+        #[cfg(test)]
+        if self.segments.iter().any(|group| !group.is_empty()) {
+            return None;
+        }
+        Some(&self.segment_catalogs)
+    }
+
     pub(crate) fn empty_file_catalog_base(&self) -> EmptyFileCatalogBase {
         EmptyFileCatalogBase {
             root: self.source_root.clone(),

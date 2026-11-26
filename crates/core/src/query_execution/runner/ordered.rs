@@ -449,7 +449,8 @@ pub(super) fn try_inferred_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
-    if !posting_order_eligible(repo, query, Some(prepared), &repo.segments, &repo.catalog)? {
+    let segment_groups = repo.segment_groups()?;
+    if !posting_order_eligible(repo, query, Some(prepared), &segment_groups, &repo.catalog)? {
         return Ok(None);
     }
     if active.is_some() {
@@ -457,7 +458,7 @@ pub(super) fn try_inferred_order_page(
         return Ok(None);
     }
     let Some((collection_index, column)) =
-        inferred_order_column(repo, query, prepared, &repo.segments, execution)?
+        inferred_order_column(repo, query, prepared, &segment_groups, execution)?
     else {
         return Ok(None);
     };
@@ -851,6 +852,7 @@ pub(super) fn try_stored_order_page(
     let diagnostics = traces.is_some();
     let mut plans = Vec::new();
     let mut candidate_total = 0u64;
+    let segment_groups = repo.segment_groups()?;
     for entry in &prepared.collections {
         let collection_index = entry.collection_index;
         let filter = entry.filter.as_ref();
@@ -863,7 +865,7 @@ pub(super) fn try_stored_order_page(
                 plan_expr_restricted_with_execution(
                     repo,
                     collection,
-                    &repo.segments,
+                    &segment_groups,
                     expr,
                     &domain,
                     &domain,

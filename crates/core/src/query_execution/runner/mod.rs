@@ -4262,10 +4262,13 @@ fn stream_backing_for_hit(
     {
         return Ok(StreamBacking::File);
     }
-    for group in repo
-        .segments
-        .get(collection_index)
-        .into_iter()
+    let repository_group = if repo.has_native_segments() {
+        repo.segment_groups()?.get(collection_index).cloned()
+    } else {
+        None
+    };
+    for group in repository_group
+        .iter()
         .chain(segments.get(collection_index))
     {
         for published in group.iter() {
@@ -5945,7 +5948,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
         );
     }
-    if posting_order_eligible(repo, query, None, &repo.segments, &repo.catalog)? {
+    if posting_order_eligible(repo, query, None, &repo.segment_groups()?, &repo.catalog)? {
         return search_impl(repo, query, None, None, None, None, None, None);
     }
     let budget = {
@@ -6104,8 +6107,15 @@ pub(crate) fn search_stream_scoped_with_context_active(
         execution_query.options.count = true;
     }
     let execution_query = &execution_query;
+    let segment_groups = repo
+        .segment_groups()
+        .map_err(|error| StreamError::Execution {
+            kind: ExecutionErrorKind::Execution,
+            message: error.to_string(),
+            progress: delivery.progress,
+        })?;
     let inferred_order =
-        posting_order_eligible(repo, execution_query, None, &repo.segments, &repo.catalog)
+        posting_order_eligible(repo, execution_query, None, &segment_groups, &repo.catalog)
             .map_err(|message| StreamError::Execution {
                 kind: ExecutionErrorKind::Execution,
                 message,
@@ -6841,12 +6851,13 @@ pub(crate) fn explain_with_active(
             .as_ref()
             .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
+    let segment_groups = repo.segment_groups()?;
     let inferred_order = active.is_none()
         && !has_source_dependent
         && !has_related_fts
         && prepared.collections.len() == 1
-        && posting_order_eligible(repo, query, Some(&prepared), &repo.segments, &repo.catalog)?
-        && inferred_order_path(repo, query, &repo.segments)?
+        && posting_order_eligible(repo, query, Some(&prepared), &segment_groups, &repo.catalog)?
+        && inferred_order_path(repo, query, &segment_groups)?
             .is_some_and(|(index, _)| prepared.collections[0].collection_index == index);
     let mut traces = Vec::new();
     let mut ordered_candidate_total = 0u64;
@@ -7186,6 +7197,7 @@ fn search_impl_with_resolved_sort<'a>(
         counters.planning_ns += rejected_order.planning_ns;
     }
     let mut reused_order = rejected_order.entries.into_iter();
+    let segment_groups = repo.segment_groups()?;
     for entry in collections {
         let collection_index = entry.collection_index;
         let filter = entry.filter;
@@ -7280,7 +7292,7 @@ fn search_impl_with_resolved_sort<'a>(
                     plan_expr_restricted_with_execution(
                         repo,
                         collection,
-                        &repo.segments,
+                        &segment_groups,
                         f,
                         &domain,
                         &input,
@@ -7334,7 +7346,7 @@ fn search_impl_with_resolved_sort<'a>(
             .map(|fts| {
                 crate::query_access::relations::semijoin::fts_witnesses(
                     repo,
-                    &repo.segments,
+                    &segment_groups,
                     fts,
                     &candidates,
                     execution,

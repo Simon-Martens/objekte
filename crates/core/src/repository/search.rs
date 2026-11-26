@@ -15,19 +15,19 @@ impl Repository {
         if self.active.iter().any(|active| active.len() != 0) {
             return self.search_reference(&resolved);
         }
-        let snapshot = self.native_snapshot();
+        let groups = self.segment_groups()?;
         let cache = crate::query_execution::runner::LifecycleCacheScope {
-            file_routes: None,
+            file_routes: self.lookup_segment_catalogs(),
             store: &self.verified,
             instance_id: self.instance_id,
         };
         let result = crate::query_execution::runner::search_segmented_lifecycle(
             self,
             resolved.as_ref(),
-            snapshot.active,
-            snapshot.segments,
-            snapshot.catalog,
-            snapshot.revision,
+            &self.active,
+            &groups,
+            &self.catalog,
+            self.revision,
             Some(cache),
         )?;
         self.stamp_native_query_result(query, result)
@@ -84,7 +84,7 @@ impl Repository {
                 .map_err(|message| context.recorded_error(message));
         }
         let cache = crate::query_execution::runner::LifecycleCacheScope {
-            file_routes: None,
+            file_routes: self.lookup_segment_catalogs(),
             store: &self.verified,
             instance_id: self.instance_id,
         };
@@ -92,7 +92,9 @@ impl Repository {
             self,
             &resolved,
             &self.active,
-            &self.segments,
+            &self
+                .segment_groups()
+                .map_err(|error| context.recorded_error(error.to_string()))?,
             &self.catalog,
             self.revision,
             context,
@@ -199,7 +201,7 @@ impl Repository {
         let cancellation = context.cancellation().cloned().unwrap_or_default();
         if active.is_none() {
             let cache = crate::query_execution::runner::LifecycleCacheScope {
-                file_routes: None,
+                file_routes: self.lookup_segment_catalogs(),
                 store: &self.verified,
                 instance_id: self.instance_id,
             };
@@ -262,7 +264,13 @@ impl Repository {
                 options,
                 context,
                 &self.active,
-                &self.segments,
+                &self.segment_groups().map_err(|error| {
+                    crate::query_execution::streaming::StreamError::Execution {
+                        kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
+                        message: error.to_string(),
+                        progress: crate::query_execution::streaming::StreamProgress::default(),
+                    }
+                })?,
                 &self.catalog,
                 self.revision,
                 &mut remap_rows,
@@ -416,7 +424,7 @@ impl Repository {
             self,
             resolved.as_ref(),
             &self.active,
-            &self.segments,
+            &self.segment_groups()?,
             self.revision,
         )
     }
@@ -445,7 +453,7 @@ impl Repository {
             self,
             resolved.as_ref(),
             &self.active,
-            &self.segments,
+            &self.segment_groups()?,
             &self.catalog,
             self.revision,
         )?;
@@ -468,7 +476,7 @@ impl Repository {
             self,
             query,
             domains,
-            &self.segments,
+            &self.segment_groups()?,
             &self.catalog,
             self.revision,
         )?;

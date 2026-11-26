@@ -2,10 +2,8 @@
 
 use std::sync::Arc;
 
-use crate::lifecycle::IndexRevision;
 use crate::model::{FileId, RecordSlot};
 
-use super::file_catalog::FileCatalogHandle;
 use super::liveness::ActiveRecords;
 use super::segment::{SegmentHandle, SegmentId, SegmentReader};
 use super::transfer::StorageResult;
@@ -56,13 +54,3 @@ impl PublishedSegment {
 /// One request's ordered segment placements. Native readers can share their
 /// sealed group. Other readers may collect the bounded pages needed by a request.
 pub(crate) type SegmentGroup = Arc<Vec<Arc<PublishedSegment>>>;
-
-/// Borrowed view of the metadata, liveness, and segment payloads that belong
-/// to one publication. Repository and lifecycle reads expose the same shape.
-#[derive(Clone, Copy)]
-pub(crate) struct NativeSnapshotRef<'a> {
-    pub active: &'a [ActiveRecords],
-    pub segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
-    pub catalog: &'a FileCatalogHandle,
-    pub revision: IndexRevision,
-}

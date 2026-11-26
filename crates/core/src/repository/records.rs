@@ -28,6 +28,12 @@ impl Repository {
         active: Option<&[ActiveRecords]>,
     ) -> Result<Option<SearchHit>, String> {
         if self.has_native_segments() {
+            let routes = self.lookup_segment_catalogs();
+            let groups = if routes.is_some() {
+                Vec::new()
+            } else {
+                self.segment_groups()?
+            };
             let domains = active.unwrap_or(&self.active);
             return match crate::query_execution::runner::direct_lookup_segmented(
                 self,
@@ -35,8 +41,8 @@ impl Repository {
                 record_id,
                 return_mode,
                 domains,
-                &self.segments,
-                None,
+                &groups,
+                routes,
                 &self.catalog,
                 self.revision,
             )? {
@@ -153,7 +159,24 @@ impl Repository {
         else {
             return Ok(());
         };
-        for segment in self.segments[collection].iter() {
+        if let Some(routes) = self.lookup_segment_catalogs() {
+            let route = &routes[collection];
+            if let Some(found) = route.locate(&hit.record_id)? {
+                let segment = route
+                    .placement_at(found.position)?
+                    .filter(|placement| placement.id == found.route.segment)
+                    .ok_or("diagnostic route points to another segment")?;
+                if segment.active.contains(found.route.slot) {
+                    hit.remap_segment_diagnostic(
+                        segment.as_ref().as_ref(),
+                        &self.catalog,
+                        found.route.slot,
+                    )?;
+                }
+            }
+            return Ok(());
+        }
+        for segment in self.segment_groups()?[collection].iter() {
             if let Some(slot) = segment.slot_for_record(&hit.record_id)?
                 && segment.active.contains(slot)
             {
