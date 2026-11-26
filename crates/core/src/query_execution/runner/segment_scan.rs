@@ -352,8 +352,23 @@ pub(super) fn scan_segment_file_parallel(
             let winner = SegmentLocalWinner {
                 key,
                 slot: RecordSlot(slot),
-                matched_fields,
-                source_bytes: lazy_evidence.then_some(bytes),
+                evidence: if lazy_evidence {
+                    SegmentWinnerEvidence::Source(bytes)
+                } else {
+                    // Unrestricted FTS can return a source-derived path for every
+                    // matching field. Include the vector and string allocations.
+                    let field_bytes = matched_fields.capacity() * size_of::<String>()
+                        + matched_fields.iter().map(String::capacity).sum::<usize>();
+                    if field_bytes <= MAX_DEFERRED_EVIDENCE_RECORD_BYTES as usize {
+                        SegmentWinnerEvidence::Fields(matched_fields)
+                    } else if bytes.capacity() <= MAX_DEFERRED_EVIDENCE_RECORD_BYTES as usize {
+                        SegmentWinnerEvidence::Source(bytes)
+                    } else {
+                        SegmentWinnerEvidence::Reread(
+                            record.record_range().ok_or("missing winner source range")?,
+                        )
+                    }
+                },
             };
             if local_winners.len() >= cap {
                 local_winners.pop();

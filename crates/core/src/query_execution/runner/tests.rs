@@ -7194,6 +7194,16 @@ fn indexed_or_file_layout_with_reader(
     format: SourceFormat,
     registry: crate::source::registry::SourceRegistry,
 ) -> (std::path::PathBuf, crate::lifecycle::Index) {
+    indexed_or_file_layout_with_fields(files, padding, "", format, registry)
+}
+
+fn indexed_or_file_layout_with_fields(
+    files: usize,
+    padding: &str,
+    extra_fields: &str,
+    format: SourceFormat,
+    registry: crate::source::registry::SourceRegistry,
+) -> (std::path::PathBuf, crate::lifecycle::Index) {
     let root = std::env::temp_dir().join(format!(
         "objekte-ordered-or-layout-{}-{}-{}-{:?}",
         files,
@@ -7218,7 +7228,7 @@ fn indexed_or_file_layout_with_reader(
         };
         let file = i * files / 260;
         sources[file].push_str(&format!(
-            r#"("id"="{i}","a"={a},"b"={b},"sort"={i},"note"="{note}{padding}")"#
+            r#"("id"="{i}","a"={a},"b"={b},"sort"={i},"note"="{note}{padding}"{extra_fields})"#
         ));
         sources[file].push('\n');
     }
@@ -7585,7 +7595,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
     );
     assert!(parallel_file_dispatches(view.instance_id()).1 >= 2);
     let bytes_before = range_bytes.load(Ordering::Relaxed);
-    let byte_limit = 128;
+    let byte_limit = MAX_DEFERRED_EVIDENCE_RECORD_BYTES * 2;
     let context = ExecutionContext::new(
         crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits {
@@ -7609,11 +7619,12 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         matches!(result, Err(StreamError::Resource { .. })),
         "{result:?}"
     );
-    assert!(range_bytes.load(Ordering::Relaxed) - bytes_before <= byte_limit as usize);
+    let consumed = range_bytes.load(Ordering::Relaxed) - bytes_before;
+    assert!((1..=byte_limit as usize).contains(&consumed));
     let (jobs, _) = parallel_file_dispatches(view.instance_id());
     assert!(
-        (1..=4).contains(&jobs),
-        "expected at most one dispatched chunk, got {jobs}"
+        (2..=5).contains(&jobs),
+        "expected one successful reservation and up to four failed jobs, got {jobs}"
     );
 
     for (files, limit) in [(1, 128), (260, 0)] {
@@ -7828,6 +7839,47 @@ fn verified_cache_finalization_merges_runs_and_observes_cancellation() {
         cancelled.recorded_error(error).kind,
         crate::query_execution::streaming::ExecutionErrorKind::Cancelled
     );
+}
+
+#[test]
+fn parallel_page_rereads_large_field_evidence_only_for_page_offers() {
+    let extra_fields = (0..320)
+        .map(|i| format!(r#","matching_field_{i:04}"="needle""#))
+        .collect::<String>();
+    let (root, index) = indexed_or_file_layout_with_fields(
+        260,
+        "",
+        &extra_fields,
+        crate::source::test_support::line_format(),
+        crate::source::test_support::fixture_registry(),
+    );
+    let view = index.view().unwrap();
+    let mut query = indexed_or_layout_query();
+    query.filter = None;
+    query.fts = Some(FtsQuery {
+        pattern_parameter: None,
+        mode: FtsMode::Literal,
+        case_sensitivity: CaseSensitivity::Sensitive,
+        literal: "needle".into(),
+        fields: vec![],
+    });
+    query.options.limit = 100;
+    query.options.offset = 0;
+    let reference = view.search_reference(&query).unwrap();
+    assert!(
+        reference
+            .hits
+            .iter()
+            .all(|hit| hit.matched_fields.len() >= 320)
+    );
+    let result = view.search(&query).unwrap();
+    assert_eq!(result.hits, reference.hits);
+    assert_eq!(result.count, reference.count);
+    assert!(parallel_file_dispatches(view.instance_id()).1 >= 259);
+    let rereads = result.counters.files_opened - result.counters.scanned_records;
+    assert!(rereads >= 100 && rereads < result.counters.scanned_records);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

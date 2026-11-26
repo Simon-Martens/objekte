@@ -1913,7 +1913,7 @@ fn exact_or_branch_evidence_fields(
     }))
 }
 
-// Both dispatch shapes can retain at most 2,048 deferred source buffers
+// Both dispatch shapes can retain at most 2,048 bounded evidence payloads
 // (2,048 single-record jobs or 32 jobs with up to 64 winners each).
 const MAX_DEFERRED_EVIDENCE_RECORD_BYTES: u64 = 8 * 1024;
 
@@ -1941,8 +1941,13 @@ struct SegmentFileScan {
 struct SegmentLocalWinner {
     key: RankKey,
     slot: RecordSlot,
-    matched_fields: Vec<String>,
-    source_bytes: Option<Vec<u8>>,
+    evidence: SegmentWinnerEvidence,
+}
+
+enum SegmentWinnerEvidence {
+    Fields(Vec<String>),
+    Source(Vec<u8>),
+    Reread(ByteRange),
 }
 
 impl PartialEq for SegmentLocalWinner {
@@ -3600,31 +3605,60 @@ fn search_segmented_impl(
                                 winner.slot,
                             )?
                             .ok_or("segment winner disappeared before merge")?;
-                            let matched_fields = if let Some(source_bytes) =
-                                winner.source_bytes.as_deref()
-                            {
-                                let (_, matched, evidence, _) = verify_local_segment_record(
-                                    repo,
-                                    collection,
-                                    &resolved.record,
-                                    resolved.file.as_ref(),
-                                    source_bytes,
-                                    filter.as_ref(),
-                                    fts.as_ref(),
-                                    direct_plan.as_ref(),
-                                    &projection,
-                                    filter_proof.as_deref(),
-                                    true,
-                                    context,
-                                )?;
-                                if !matched {
-                                    return Err(
-                                        "segment winner changed during evidence evaluation".into(),
+                            let verify_evidence =
+                                |source_bytes: &[u8]| -> Result<Vec<String>, String> {
+                                    let (_, matched, evidence, _) = verify_local_segment_record(
+                                        repo,
+                                        collection,
+                                        &resolved.record,
+                                        resolved.file.as_ref(),
+                                        source_bytes,
+                                        filter.as_ref(),
+                                        fts.as_ref(),
+                                        direct_plan.as_ref(),
+                                        &projection,
+                                        filter_proof.as_deref(),
+                                        true,
+                                        context,
+                                    )?;
+                                    if !matched {
+                                        return Err(
+                                            "segment winner changed during evidence evaluation"
+                                                .into(),
+                                        );
+                                    }
+                                    Ok(evidence.into_iter().collect())
+                                };
+                            let matched_fields = match winner.evidence {
+                                SegmentWinnerEvidence::Fields(fields) => fields,
+                                SegmentWinnerEvidence::Source(bytes) => verify_evidence(&bytes)?,
+                                SegmentWinnerEvidence::Reread(range) => {
+                                    if let Some(context) = context {
+                                        context.charge_reads(1)?;
+                                    }
+                                    let path = repo
+                                        .required_file_root()
+                                        .join(&resolved.file.relative_path);
+                                    let mut reader = RecordRangeReader::open_for_search(
+                                        &path,
+                                        resolved.file.revision,
+                                        context,
+                                    )?
+                                    .with_backend(
+                                        collection.required_file_reader().reader_handle(),
                                     );
+                                    let (read, count) = reader.read_with_byte_budget(
+                                        &[(winner.slot.0, range)],
+                                        context,
+                                    )?;
+                                    counters.files_opened += 1;
+                                    counters.bytes_read += count;
+                                    let (_, bytes) = read
+                                        .into_iter()
+                                        .next()
+                                        .ok_or("missing winner source range")?;
+                                    verify_evidence(&bytes)?
                                 }
-                                evidence.into_iter().collect()
-                            } else {
-                                winner.matched_fields
                             };
                             let hit =
                                 segment_locator_hit(collection, resolved, revision, matched_fields);
