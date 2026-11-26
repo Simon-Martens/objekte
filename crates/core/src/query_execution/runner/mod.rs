@@ -586,26 +586,34 @@ pub(crate) fn segment_record_ref<'a, S: SegmentReader + ?Sized>(
     if !active.contains(slot) {
         return Ok(None);
     }
-    let header = segment.header(slot)?.ok_or("segment record slot missing")?;
+    let record = read_file_range_record(segment, slot)?;
+    let file = segment_active_file(segment, active, catalog, record.file)?;
+    Ok(Some(SegmentRecordRef { record, file }))
+}
+
+fn read_file_range_record<S: SegmentReader + ?Sized>(
+    segment: &S,
+    slot: RecordSlot,
+) -> Result<RecordEntry, String> {
+    let header = segment
+        .header(slot)?
+        .filter(|header| header.slot == slot)
+        .ok_or("segment record slot missing")?;
     let Some(RecordOrigin::FileRange(locator)) = segment.origin(slot)? else {
         return Err("segment record has no file-range backing".into());
     };
     let range = locator
         .range
         .ok_or("file-backed segment record range missing")?;
-    let file = segment_active_file(segment, active, catalog, locator.file)?;
-    Ok(Some(SegmentRecordRef {
-        record: RecordEntry {
-            slot: header.slot,
-            id: header.id.clone(),
-            file: locator.file,
-            range,
-            revision: locator.revision,
-            class: header.class,
-            diagnostic_ref: header.diagnostic_ref,
-        },
-        file,
-    }))
+    Ok(RecordEntry {
+        slot,
+        id: header.id.clone(),
+        file: locator.file,
+        range,
+        revision: locator.revision,
+        class: header.class,
+        diagnostic_ref: header.diagnostic_ref,
+    })
 }
 
 /// Direct lookup for one indexed delta, using the active mask from the same pin.
@@ -2775,7 +2783,7 @@ fn search_segmented_impl(
             if published.index.collection != collection.generation.collection {
                 return Err("segment collection mismatch".into());
             }
-            let segment = &published.index;
+            let segment = published.as_ref();
             let logical = filter
                 .as_ref()
                 .is_some_and(excludes_raw_fallback)
@@ -2893,7 +2901,7 @@ fn search_segmented_impl(
                 .map_or(filter_input, |bounds| Arc::clone(&bounds.may));
             if let Some(logical) = logical.as_ref() {
                 let members = logical.view();
-                if members.len() != segment.record_count()
+                if members.len() != segment.descriptor().slots
                     && !MembershipView::Borrowed(&candidates).is_subset(members)
                 {
                     candidates = Arc::new(members.intersect_bitmap(candidates.as_ref()));
@@ -3095,7 +3103,7 @@ fn search_segmented_impl(
                     && context.is_none()
                     && cap < candidates.len() as usize
                     && let Some(mut order) =
-                        lifecycle_segment_order(segment.as_ref(), &sort, query, collection_index)?
+                        lifecycle_segment_order(segment, &sort, query, collection_index)?
                 {
                     total += candidates.len();
                     counters.exact_posting_matches += candidates.len();
@@ -3115,7 +3123,7 @@ fn search_segmented_impl(
                             repo,
                             &sort,
                             collection_index,
-                            segment.as_ref(),
+                            segment,
                             &resolved.record,
                             None,
                         )?;
@@ -3226,7 +3234,10 @@ fn search_segmented_impl(
                     if let Some(context) = context {
                         context.check_string()?;
                     }
-                    let record = segment.record(slot).ok_or("retained candidate missing")?;
+                    let record = segment
+                        .header(slot)?
+                        .filter(|header| header.slot == slot)
+                        .ok_or("retained candidate missing")?;
                     let retained_body = segment.retained_body(slot)?;
                     let value = provider_body
                         .as_ref()
@@ -3246,7 +3257,7 @@ fn search_segmented_impl(
                     let ctx = RecordContext {
                         value,
                         source_bytes: None,
-                        record,
+                        record: record.as_ref(),
                         file: origin.as_deref(),
                         range: locator.and_then(|locator| locator.range),
                         collection_name: &collection.definition.name,
@@ -3287,8 +3298,8 @@ fn search_segmented_impl(
                         repo,
                         &sort,
                         collection_index,
-                        segment.as_ref(),
-                        record,
+                        segment,
+                        record.as_ref(),
                         Some(&ctx),
                     )?;
                     let mut matched_fields = if query.options.evidence {
@@ -3312,7 +3323,7 @@ fn search_segmented_impl(
                         collection,
                         segment,
                         catalog,
-                        record,
+                        record.as_ref(),
                         revision,
                         matched_fields,
                     )?;
@@ -3352,13 +3363,10 @@ fn search_segmented_impl(
             let mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> = Vec::new();
             let mut ordered_files = true;
             for slot in candidates.iter() {
-                segment
-                    .record(RecordSlot(slot))
-                    .ok_or("segment candidate missing")?;
-                let locator = segment
-                    .backing
-                    .file_locator(RecordSlot(slot))
-                    .ok_or("segment candidate file locator missing")?;
+                let Some(RecordOrigin::FileRange(locator)) = segment.origin(RecordSlot(slot))?
+                else {
+                    return Err("segment candidate file locator missing".into());
+                };
                 let range = locator.range.ok_or("segment candidate range missing")?;
                 if let Some(context) = context
                     && range.len() > context.limits.source_record_bytes
@@ -3410,19 +3418,22 @@ fn search_segmented_impl(
                 && files
                     .iter()
                     .map(|(file_id, ranges)| {
-                        Ok::<_, String>(
-                            catalog
-                                .file(crate::model::FileId(*file_id))?
-                                .is_some_and(|file| {
-                                    file.relative_path.to_string_lossy().len() <= 4096
-                                })
-                                && ranges.iter().all(|(slot, range)| {
-                                    range.len() <= 1024 * 1024
-                                        && segment
-                                            .record(RecordSlot(*slot))
-                                            .is_some_and(|record| record.id.0.len() <= 1024)
-                                }),
-                        )
+                        let Some(file) = catalog.file(crate::model::FileId(*file_id))? else {
+                            return Ok::<_, String>(false);
+                        };
+                        if file.relative_path.to_string_lossy().len() > 4096 {
+                            return Ok(false);
+                        }
+                        for &(slot, range) in ranges {
+                            if range.len() > 1024 * 1024
+                                || segment
+                                    .header(RecordSlot(slot))?
+                                    .is_none_or(|header| header.id.0.len() > 1024)
+                            {
+                                return Ok(false);
+                            }
+                        }
+                        Ok(true)
                     })
                     .find(|result| !matches!(result, Ok(true)))
                     .unwrap_or(Ok(true))?;
@@ -3550,7 +3561,7 @@ fn search_segmented_impl(
                             repo.instance_id,
                             collection.generation.collection.0,
                             collection.generation.generation,
-                            Some(segment.id.get()),
+                            Some(published.id.get()),
                         ),
                         collection.generation.collection.0,
                         fused_scanned,
@@ -3605,14 +3616,8 @@ fn search_segmented_impl(
                         if !published.active.contains(RecordSlot(slot)) {
                             return Err("inactive segment scan slot".into());
                         }
-                        let record = segment
-                            .file_record(RecordSlot(slot))
-                            .ok_or("segment scan slot missing")?;
-                        if segment
-                            .backing
-                            .file_locator(RecordSlot(slot))
-                            .is_none_or(|locator| locator.file.0 != file_id)
-                        {
+                        let record = read_file_range_record(segment, RecordSlot(slot))?;
+                        if record.file.0 != file_id {
                             return Err("segment scan file ownership mismatch".into());
                         }
                         let resolved = SegmentRecordRef {
@@ -3672,7 +3677,7 @@ fn search_segmented_impl(
                             repo,
                             &sort,
                             collection_index,
-                            segment.as_ref(),
+                            segment,
                             record,
                             Some(&ctx),
                         )?;
@@ -3759,7 +3764,7 @@ fn search_segmented_impl(
                         repo.instance_id,
                         collection.generation.collection.0,
                         collection.generation.generation,
-                        Some(segment.id.get()),
+                        Some(published.id.get()),
                     ),
                     collection.generation.collection.0,
                     fused_scanned,
