@@ -8,9 +8,9 @@ use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::FileCatalog;
 use crate::index::storage::file_catalog::{
-    FileCatalogBase, FileCatalogDelta, FileCatalogEditor, FileCatalogHandle, FileCatalogReader,
-    FileCatalogRevision, FileCatalogSource, FilePathBounds, FileScalarPredicate, FileTransferRow,
-    transfer_files,
+    DiscoveredFile, FileCatalogBase, FileCatalogDelta, FileCatalogEditor, FileCatalogHandle,
+    FileCatalogReader, FileCatalogRevision, FileCatalogSource, FileDiscoveryBuilder,
+    FilePathBounds, FileScalarPredicate, FileTransferRow, transfer_files,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
@@ -22,6 +22,7 @@ struct OrderedFiles {
     rows: Vec<FileTransferRow<'static>>,
     paths: BTreeMap<Arc<str>, FileId>,
     reads: Arc<AtomicUsize>,
+    discovered_rows: Arc<AtomicUsize>,
     root: Option<Arc<PathBuf>>,
     complete: bool,
     fail_seal: Arc<AtomicBool>,
@@ -46,6 +47,7 @@ impl OrderedFiles {
             rows: Vec::new(),
             paths: BTreeMap::new(),
             reads: Arc::new(AtomicUsize::new(0)),
+            discovered_rows: Arc::new(AtomicUsize::new(0)),
             root: root.map(|root| Arc::new(root.to_path_buf())),
             complete: true,
             fail_seal,
@@ -282,7 +284,7 @@ impl FileCatalogRevision for OrderedFiles {
 }
 
 impl FileCatalogEditor for OrderedFiles {
-    fn apply(&mut self, delta: FileCatalogDelta<'_>) -> StorageResult<()> {
+    fn apply(&mut self, delta: FileCatalogDelta) -> StorageResult<()> {
         match delta {
             FileCatalogDelta::Append {
                 entry,
@@ -314,7 +316,12 @@ impl FileCatalogEditor for OrderedFiles {
             FileCatalogDelta::ResetVersions(version) => self.versions.fill(version),
             FileCatalogDelta::Rebase(base) => {
                 // This fixture has bounded size and a contiguous discovery base.
-                let next = Self::load(base, base.root(), Arc::clone(&self.fail_seal), &|| false)?;
+                let next = Self::load(
+                    base.as_ref(),
+                    base.root(),
+                    Arc::clone(&self.fail_seal),
+                    &|| false,
+                )?;
                 if next.allocated != self.allocated {
                     return Err(StorageError::invalid(
                         "test file catalog",
@@ -348,6 +355,56 @@ impl FileCatalogEditor for OrderedFiles {
 #[derive(Default)]
 struct OrderedFileFactory {
     fail_seal: Arc<AtomicBool>,
+    discovered_rows: Arc<AtomicUsize>,
+}
+
+impl FileDiscoveryBuilder for OrderedFiles {
+    fn register(
+        &mut self,
+        collection: CollectionId,
+        files: Vec<DiscoveredFile>,
+        members: &mut Vec<FileId>,
+    ) -> StorageResult<()> {
+        for file in files {
+            let id = if let Some(id) = self.id_for_path(&file.relative)? {
+                let row = self.position(id).map_err(|_| {
+                    StorageError::invalid("register test file", "invalid path route")
+                })?;
+                let entry = self.rows[row].entry.to_mut();
+                if entry.revision != file.revision {
+                    return Err(StorageError::invalid(
+                        "register test file",
+                        "inconsistent revision",
+                    ));
+                }
+                if !entry.collections.contains(&collection) {
+                    entry.collections.push(collection);
+                }
+                id
+            } else {
+                let id = FileId(self.allocated);
+                let entry = crate::inventory::FileEntry {
+                    id,
+                    relative_path: file.relative.into(),
+                    revision: file.revision,
+                    created_ns: file.created_ns,
+                    collections: vec![collection],
+                    status: crate::inventory::FileStatus::Valid,
+                    diagnostics: Vec::new(),
+                    omitted_diagnostics: 0,
+                };
+                self.write(entry, None, None, true)?;
+                id
+            };
+            self.discovered_rows.fetch_add(1, Ordering::Relaxed);
+            members.push(id);
+        }
+        Ok(())
+    }
+
+    fn seal(self: Box<Self>, _configuration: [u8; 32]) -> StorageResult<FileCatalogHandle> {
+        FileCatalogEditor::seal(self)
+    }
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
@@ -402,6 +459,18 @@ impl crate::index::storage::StorageFactory for OrderedFileFactory {
         crate::index::storage::default_factory().prepare_direct_records(batch)
     }
 
+    fn start_file_discovery(&self, root: PathBuf) -> StorageResult<Box<dyn FileDiscoveryBuilder>> {
+        let empty = crate::index::storage::file_catalog::EmptyFileCatalogBase {
+            root: None,
+            configuration: [0; 32],
+            collections: 0,
+        };
+        let mut table =
+            OrderedFiles::load(&empty, Some(&root), Arc::clone(&self.fail_seal), &|| false)?;
+        table.discovered_rows = Arc::clone(&self.discovered_rows);
+        Ok(Box::new(table))
+    }
+
     fn file_catalog(
         &self,
         base: &dyn FileCatalogBase,
@@ -410,7 +479,7 @@ impl crate::index::storage::StorageFactory for OrderedFileFactory {
         let mut catalog =
             OrderedFiles::load(base, base.root(), Arc::clone(&self.fail_seal), &|| false)?;
         catalog.versions.fill(version);
-        Box::new(catalog).seal()
+        FileCatalogEditor::seal(Box::new(catalog))
     }
 
     fn restore_file_catalog(
@@ -431,7 +500,7 @@ impl crate::index::storage::StorageFactory for OrderedFileFactory {
                 Ok(())
             },
         )?;
-        Box::new(catalog).seal()
+        FileCatalogEditor::seal(Box::new(catalog))
     }
 
     fn segment_catalog(
@@ -469,6 +538,7 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
     .unwrap()
     .wait_complete()
     .unwrap();
+    assert_eq!(factory.discovered_rows.load(Ordering::Relaxed), 1);
     let pinned = index.view().unwrap();
     let first = Path::new("data/first.rows");
     let second = Path::new("data/second.rows");

@@ -14,9 +14,14 @@ use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex}
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortBuilder;
 use crate::index::storage::StorageFactory;
+use crate::index::storage::file_catalog::{
+    DiscoveredFileRows, EmptyFileCatalogBase, FileCatalogHandle, FileCatalogSource, FileRows,
+};
 use crate::inference::InferenceBuildStats;
+#[cfg(test)]
+use crate::inventory::FileInventory;
 use crate::inventory::{
-    ActiveRecords, CollectionBuilder, CollectionGeneration, FileInventory, RecordClass,
+    ActiveRecords, CollectionBuilder, CollectionGeneration, FileEntry, RecordClass,
 };
 use crate::lifecycle::{IndexError, IndexRevision};
 use crate::model::{CollectionId, RecordId, RecordSlot};
@@ -37,14 +42,13 @@ struct EmptyCollectionInput {
 }
 
 pub(crate) fn finish_fresh_fingerprints(
-    files: &FileInventory,
+    files: &[FileEntry],
     mut bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
 ) -> Result<Vec<Option<[u8; 32]>>, String> {
-    if bindings.len() != files.files.len() {
+    if bindings.len() != files.len() {
         return Err("fresh digest inventory length mismatch".into());
     }
     files
-        .files
         .iter()
         .zip(&mut bindings)
         .map(|(file, reads)| {
@@ -178,6 +182,7 @@ fn initialize_empty_configured(
         std::thread::available_parallelism().ok(),
     )?;
     let source_root = root.as_deref().map(Arc::from);
+    #[cfg(test)]
     let files = Arc::new(match root {
         Some(root) => FileInventory::new(root),
         None => FileInventory::without_root(),
@@ -208,7 +213,7 @@ fn initialize_empty_configured(
         }
         let id = CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
         let generation =
-            CollectionBuilder::new(id, definition.name.clone(), 1, 0).finish(&files)?;
+            CollectionBuilder::new(id, definition.name.clone(), 1, 0).finish_empty()?;
         let postings = PostingCollection::new(&definition.schema);
         let inference = InferenceBuilder::for_collection(options.inference, collection_count)
             .map(|builder| builder.finish(&RoaringBitmap::new(), 0, &definition.schema))
@@ -324,7 +329,11 @@ fn initialize_empty_configured(
     crate::index::relation::validate_indexes(&collections)?;
     let workers = Repository::create_workers(options.query_workers)?;
     let catalog = storage_factory.file_catalog(
-        &files.catalog_base(Vec::new(), configuration_identity, collections.len()),
+        &EmptyFileCatalogBase {
+            root: source_root.clone(),
+            configuration: configuration_identity,
+            collections: collections.len(),
+        },
         crate::inventory::FileVersion::INITIAL,
     )?;
     let active = (0..collections.len())
@@ -335,7 +344,7 @@ fn initialize_empty_configured(
     for collection in &mut collections {
         collection.repository_instance = instance_id;
     }
-    let catalog_registered = !programmatic || files.root().is_some();
+    let catalog_registered = !programmatic || source_root.is_some();
     Ok(Repository {
         storage_factory,
         source_root,
@@ -416,10 +425,10 @@ fn segment_metadata_generation(
     collection: CollectionId,
     name: &str,
     segments: &[Arc<crate::index::segment::PublishedSegment>],
-    files: &mut FileInventory,
+    files: &mut [FileEntry],
     relations: &mut [RelationContribution],
 ) -> Result<SegmentMetadata, String> {
-    let mut builder = CollectionBuilder::new(collection, name.to_owned(), 1, files.files.len());
+    let mut builder = CollectionBuilder::new(collection, name.to_owned(), 1, files.len());
     let mut file_set = HashSet::new();
     let mut record_count = 0usize;
     let mut logical_records = RoaringBitmap::new();
@@ -464,7 +473,6 @@ fn segment_metadata_generation(
                 .range
                 .ok_or("file-backed record has no byte range")?;
             let file = files
-                .files
                 .get_mut(locator.file.0 as usize)
                 .ok_or("segment metadata file missing")?;
             if record.class == RecordClass::Logical {
@@ -544,7 +552,6 @@ fn segment_metadata_generation(
             .iter()
             .map(|file| {
                 files
-                    .files
                     .get(file.0 as usize)
                     .map_or(0, |entry| entry.revision.size)
             })
@@ -595,7 +602,7 @@ pub(crate) fn assemble_final_repository(
     sources: SourceRegistry,
     pool: &rayon::ThreadPool,
     index: &crate::lifecycle::Index,
-    discovered: Arc<FileInventory>,
+    discovered: FileCatalogHandle,
     digest_bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
     pending: &[FinalCollectionObservation],
     build_parses: u64,
@@ -611,17 +618,15 @@ pub(crate) fn assemble_final_repository(
     extraction_index_ns: u64,
     started: Instant,
     mut profile: Option<BuildProfileStats>,
-) -> Result<
-    (
-        Repository,
-        impl crate::index::storage::file_catalog::FileCatalogBase + use<>,
-    ),
-    crate::lifecycle::IndexError,
-> {
+) -> Result<(Repository, DiscoveredFileRows), IndexError> {
     let finalization_started = crate::measurement::timer::DetailedInstant::now();
     let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
+    let mut final_files = Vec::with_capacity(discovered.high_water_mark() as usize);
+    for row in FileRows::new(&discovered) {
+        final_files.push(row?.entry.into_owned());
+    }
     let base_fingerprints =
-        finish_fresh_fingerprints(&discovered, digest_bindings).map_err(IndexError::Build)?;
+        finish_fresh_fingerprints(&final_files, digest_bindings).map_err(IndexError::Build)?;
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
     }
@@ -640,9 +645,8 @@ pub(crate) fn assemble_final_repository(
     final_repository.build_failed_parses = failed_parses;
     let mut inference_build = InferenceBuildStats::default();
     let segment_view = index.view()?;
-    let mut final_files = (*discovered).clone();
     let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
-    for file in &mut final_files.files {
+    for file in &mut final_files {
         if let Some(current) = segment_view.file_entry(file.id)? {
             file.status = current.status;
             file.omitted_diagnostics = current.omitted_diagnostics;
@@ -726,17 +730,25 @@ pub(crate) fn assemble_final_repository(
     }
     crate::index::relation::validate_indexes(&final_repository.collections)
         .map_err(IndexError::Build)?;
-    let final_files = Arc::new(final_files);
+    let root = final_repository
+        .source_root
+        .clone()
+        .ok_or_else(|| IndexError::Build("missing discovered source root".into()))?;
     #[cfg(test)]
     {
-        final_repository.files = Arc::clone(&final_files);
+        final_repository.files = Arc::new(
+            FileInventory::from_restored_entries(root.to_path_buf(), final_files.clone())
+                .map_err(IndexError::Build)?,
+        );
         final_repository.base_fingerprints = base_fingerprints.clone();
     }
-    let file_base = final_files.catalog_base(
-        base_fingerprints,
-        final_repository.configuration_identity,
-        final_repository.collections.len(),
-    );
+    let file_base = DiscoveredFileRows {
+        root,
+        configuration: final_repository.configuration_identity,
+        collections: final_repository.collections.len(),
+        files: final_files,
+        fingerprints: base_fingerprints,
+    };
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         profile.finalize_generation_ns = started.elapsed().as_nanos() as u64;
         profile.finalization_rss_bytes = build_profile_rss_bytes();

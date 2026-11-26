@@ -1300,7 +1300,7 @@ impl Index {
         &self,
         expected: IndexRevision,
         mut repository: Repository,
-        file_base: &dyn FileCatalogBase,
+        file_base: Box<dyn FileCatalogBase>,
     ) -> Result<IndexRevision, IndexError> {
         let view = self.view()?;
         if view.revision() != expected {

@@ -35,7 +35,7 @@ fn bench_inventory_membership() -> Result<(), String> {
                 builder.add_record(file, id.clone(), 0, 1)?;
             }
             samples_ns.push(started.elapsed().as_nanos());
-            let generation = builder.finish(&inventory)?;
+            let generation = builder.finish(&inventory.files)?;
             assert_eq!(generation.records.len(), count);
         }
         println!("{{\"files\":{count},\"samples_ns\":{samples_ns:?}}}");

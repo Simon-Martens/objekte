@@ -62,6 +62,11 @@ pub(crate) trait StorageFactory: Send + Sync {
         batch: worker::DirectRecordBatch<'_>,
     ) -> StorageResult<worker::PreparedDirectBatch>;
 
+    fn start_file_discovery(
+        &self,
+        root: std::path::PathBuf,
+    ) -> StorageResult<Box<dyn file_catalog::FileDiscoveryBuilder>>;
+
     fn file_catalog(
         &self,
         base: &dyn FileCatalogBase,

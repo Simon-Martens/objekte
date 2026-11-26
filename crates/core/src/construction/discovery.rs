@@ -1,22 +1,17 @@
-//! Bounded discovery metadata and ordered physical inventory assembly.
+//! Bounded filesystem discovery metadata.
 
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 use rayon::prelude::*;
 
+use crate::index::storage::file_catalog::DiscoveredFile;
 use crate::inventory::SourceRevision;
-
-pub(crate) struct PreparedDiscoveredFile {
-    pub(crate) relative: PathBuf,
-    pub(crate) revision: SourceRevision,
-    pub(crate) created_ns: Option<i128>,
-}
 
 pub(crate) fn prepare_discovered_file(
     root: &Path,
     path: PathBuf,
-) -> Result<PreparedDiscoveredFile, String> {
+) -> Result<DiscoveredFile, String> {
     let relative = path
         .strip_prefix(root)
         .map_err(|error| error.to_string())?
@@ -28,7 +23,7 @@ pub(crate) fn prepare_discovered_file(
         .ok()
         .and_then(|time| time.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
         .map(|duration| duration.as_nanos() as i128);
-    Ok(PreparedDiscoveredFile {
+    Ok(DiscoveredFile {
         relative,
         revision,
         created_ns,
@@ -43,7 +38,7 @@ pub(crate) fn prepare_discovered_window(
     window: Vec<PathBuf>,
     profile: bool,
     peak_active: &AtomicUsize,
-) -> Vec<Result<PreparedDiscoveredFile, String>> {
+) -> Vec<Result<DiscoveredFile, String>> {
     let active = AtomicUsize::new(0);
     pool.install(|| {
         window

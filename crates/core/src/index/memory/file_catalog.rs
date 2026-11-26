@@ -18,9 +18,10 @@ use roaring::RoaringBitmap;
 
 use super::inventory::{FileInventory, FileVersions};
 use crate::index::storage::file_catalog::{
-    FILE_TRANSFER_LIMIT, FileCatalogBase, FileCatalogDelta, FileCatalogEditor, FileCatalogHandle,
-    FileCatalogReader, FileCatalogRevision, FileCatalogSource, FilePathBounds, FileScalarPredicate,
-    FileTransferRow, transfer_files,
+    DiscoveredFile, DiscoveredFileRows, FILE_TRANSFER_LIMIT, FileCatalogBase, FileCatalogDelta,
+    FileCatalogEditor, FileCatalogHandle, FileCatalogReader, FileCatalogRevision,
+    FileCatalogSource, FileDiscoveryBuilder, FilePathBounds, FileScalarPredicate, FileTransferRow,
+    transfer_files,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 #[cfg(test)]
@@ -30,7 +31,7 @@ use crate::inventory::relative_path_bounds;
 use crate::inventory::{FileEntry, FileVersion, SharedPath, empty_path_bounds};
 #[cfg(test)]
 use crate::lifecycle::reconciliation::scan::FileStamp;
-use crate::model::{FileId, Number};
+use crate::model::{CollectionId, FileId, Number};
 use crate::query::Operator;
 #[cfg(test)]
 use crate::repository::Repository;
@@ -95,6 +96,7 @@ pub(crate) struct FileCatalog {
 
 /// Native discoveries are retained by reference. Other representations can
 /// expose the same discovered base by reading its bounded row source.
+#[cfg(test)]
 struct DiscoveredFiles {
     inventory: Arc<FileInventory>,
     fingerprints: Arc<Vec<Option<[u8; 32]>>>,
@@ -102,6 +104,7 @@ struct DiscoveredFiles {
     collections: usize,
 }
 
+#[cfg(test)]
 impl FileInventory {
     pub(crate) fn catalog_base(
         self: &Arc<Self>,
@@ -118,6 +121,7 @@ impl FileInventory {
     }
 }
 
+#[cfg(test)]
 impl FileCatalogBase for DiscoveredFiles {
     fn root(&self) -> Option<&Path> {
         self.inventory.root()
@@ -132,6 +136,7 @@ impl FileCatalogBase for DiscoveredFiles {
     }
 }
 
+#[cfg(test)]
 impl FileCatalogSource for DiscoveredFiles {
     fn high_water_mark(&self) -> u32 {
         u32::try_from(self.inventory.files.len()).expect("checked file inventory length")
@@ -167,9 +172,38 @@ impl FileCatalogSource for DiscoveredFiles {
     }
 }
 
+impl FileDiscoveryBuilder for FileInventory {
+    fn register(
+        &mut self,
+        collection: CollectionId,
+        files: Vec<DiscoveredFile>,
+        members: &mut Vec<FileId>,
+    ) -> StorageResult<()> {
+        for file in files {
+            let id = self
+                .add(file.relative, file.revision, file.created_ns, collection)
+                .map_err(|error| StorageError::invalid("register discovered file", error))?;
+            members.push(id);
+        }
+        Ok(())
+    }
+
+    fn seal(self: Box<Self>, configuration: [u8; 32]) -> StorageResult<FileCatalogHandle> {
+        self.validate_diagnostics()
+            .map_err(|error| StorageError::invalid("seal discovered files", error))?;
+        Ok(Arc::new(FileCatalog::from_parts(
+            Arc::new(*self),
+            Arc::new(Vec::new()),
+            configuration,
+            FileVersion::INITIAL,
+        )))
+    }
+}
+
 fn native_base(
     base: &dyn FileCatalogBase,
 ) -> StorageResult<(Arc<FileInventory>, Arc<Vec<Option<[u8; 32]>>>)> {
+    #[cfg(test)]
     if let Some(base) = (base as &dyn std::any::Any).downcast_ref::<DiscoveredFiles>() {
         return Ok((Arc::clone(&base.inventory), Arc::clone(&base.fingerprints)));
     }
@@ -440,16 +474,28 @@ impl FileCatalog {
 
     /// Rebind an otherwise unchanged discovered inventory to final metadata
     /// (global inference and captured fingerprints) without copying paths.
-    fn rebase(&mut self, base: &dyn FileCatalogBase) -> StorageResult<()> {
-        let (files, fingerprints) = native_base(base)?;
-        if self.base_files.files.len() != files.files.len()
+    fn rebase(&mut self, base: Box<dyn FileCatalogBase>) -> StorageResult<()> {
+        if self.base_files.files.len() != base.high_water_mark() as usize
             || base.configuration() != self.base_configuration
+            || base.root() != self.base_files.root()
         {
             return Err(StorageError::invalid(
                 "rebase file catalog",
                 "discovered files or configuration changed",
             ));
         }
+        let (files, fingerprints) = if (&*base as &dyn std::any::Any).is::<DiscoveredFileRows>() {
+            let rows = (base as Box<dyn std::any::Any>)
+                .downcast::<DiscoveredFileRows>()
+                .expect("checked final discovery rows");
+            let files = self
+                .base_files
+                .rebased_entries(rows.files)
+                .map_err(|error| StorageError::invalid("rebase file catalog", error))?;
+            (Arc::new(files), Arc::new(rows.fingerprints))
+        } else {
+            native_base(base.as_ref())?
+        };
         if !self.construction_complete {
             // Initial diagnostic overlays precede final digest assembly. Give
             // them the same captured fingerprint as unchanged base entries.
@@ -901,7 +947,7 @@ impl FileCatalogRevision for FileCatalog {
 }
 
 impl FileCatalogEditor for FileCatalog {
-    fn apply(&mut self, delta: FileCatalogDelta<'_>) -> StorageResult<()> {
+    fn apply(&mut self, delta: FileCatalogDelta) -> StorageResult<()> {
         match delta {
             FileCatalogDelta::Append {
                 entry,

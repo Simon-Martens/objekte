@@ -653,6 +653,29 @@ impl FileInventory {
         Ok(())
     }
 
+    pub(crate) fn rebased_entries(&self, files: Vec<FileEntry>) -> Result<Self, String> {
+        if self.files.len() != files.len()
+            || self.files.iter().zip(&files).any(|(prior, current)| {
+                prior.id != current.id
+                    || prior.relative_path != current.relative_path
+                    || prior.revision != current.revision
+                    || prior.created_ns != current.created_ns
+                    || prior.collections != current.collections
+            })
+        {
+            return Err("discovered file identity or provenance changed".into());
+        }
+        let next = Self {
+            root: self.root.clone(),
+            files,
+            by_path: self.by_path.clone(),
+            relative_paths: self.relative_paths.clone(),
+            scalar: Arc::clone(&self.scalar),
+        };
+        next.validate_diagnostics()?;
+        Ok(next)
+    }
+
     pub fn rebuild_lookup(&mut self) -> Result<(), String> {
         if self.root.is_none() && !self.files.is_empty() {
             return Err("file entries require a registered catalog root".into());
@@ -762,23 +785,22 @@ pub struct CollectionGeneration {
 }
 
 impl CollectionGeneration {
-    pub fn validate(&self, inventory: &FileInventory) -> Result<(), String> {
+    pub fn validate(&self, files: &[FileEntry]) -> Result<(), String> {
         let mut included = std::collections::HashSet::new();
         for file_id in &self.files {
             if !included.insert(*file_id)
-                || inventory
-                    .files
+                || files
                     .get(file_id.0 as usize)
                     .is_none_or(|file| !file.collections.contains(&self.collection))
             {
                 return Err("invalid collection file membership".into());
             }
         }
-        if self.file_records.file_count as usize != inventory.files.len()
+        if self.file_records.file_count as usize != files.len()
             || (self.file_records.offsets.is_empty()
                 && (!self.records.is_empty() || !self.file_records.slots.is_empty()))
             || (!self.file_records.offsets.is_empty()
-                && (self.file_records.offsets.len() != inventory.files.len() + 1
+                && (self.file_records.offsets.len() != files.len() + 1
                     || self.file_records.offsets.first() != Some(&0)
                     || self.file_records.offsets.last().copied()
                         != Some(self.file_records.slots.len() as u32)))
@@ -804,7 +826,7 @@ impl CollectionGeneration {
                 {
                     return Err("file-record ownership mismatch".into());
                 }
-                let file = &inventory.files[file_idx];
+                let file = &files[file_idx];
                 if !file.collections.contains(&self.collection)
                     || entry.revision != file.revision
                     || (entry.range.start >= entry.range.end
@@ -955,7 +977,26 @@ impl CollectionBuilder {
         Ok(slot)
     }
 
-    pub fn finish(self, inventory: &FileInventory) -> Result<CollectionGeneration, String> {
+    pub(crate) fn finish_empty(self) -> Result<CollectionGeneration, String> {
+        if !self.records.is_empty() || !self.files.is_empty() {
+            return Err("empty collection generation already has members".into());
+        }
+        let file_count = u32::try_from(self.included_files.len()).map_err(|_| "too many files")?;
+        Ok(CollectionGeneration {
+            collection: self.collection,
+            name: self.name,
+            generation: self.generation,
+            files: self.files,
+            records: self.records,
+            file_records: FileRecordIndex {
+                file_count,
+                offsets: Vec::new(),
+                slots: Vec::new(),
+            },
+        })
+    }
+
+    pub fn finish(self, files: &[FileEntry]) -> Result<CollectionGeneration, String> {
         let file_count = u32::try_from(self.included_files.len()).map_err(|_| "too many files")?;
         if self.records.is_empty() {
             let result = CollectionGeneration {
@@ -970,7 +1011,7 @@ impl CollectionBuilder {
                     slots: Vec::new(),
                 },
             };
-            result.validate(inventory)?;
+            result.validate(files)?;
             return Ok(result);
         }
         let mut cursors = vec![0u32; self.included_files.len()];
@@ -1010,7 +1051,7 @@ impl CollectionBuilder {
                 slots,
             },
         };
-        result.validate(inventory)?;
+        result.validate(files)?;
         Ok(result)
     }
 }

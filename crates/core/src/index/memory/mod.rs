@@ -136,6 +136,15 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
         crate::construction::batch::prepare_direct_records(batch, worker)
     }
 
+    fn start_file_discovery(
+        &self,
+        root: std::path::PathBuf,
+    ) -> super::storage::transfer::StorageResult<
+        Box<dyn super::storage::file_catalog::FileDiscoveryBuilder>,
+    > {
+        Ok(Box::new(inventory::FileInventory::new(root)))
+    }
+
     fn file_catalog(
         &self,
         base: &dyn super::storage::file_catalog::FileCatalogBase,

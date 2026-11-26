@@ -20,10 +20,11 @@ use crate::construction::discovery::{prepare_discovered_file, prepare_discovered
 use crate::construction::scheduling::RepositoryFileJob;
 use crate::index::segment::SegmentId;
 use crate::index::storage::StorageFactory;
+use crate::index::storage::file_catalog::{FileCatalogSource, FileRows};
 use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
 use crate::index::storage::transfer::StorageResult;
 use crate::inventory::discovery::discover;
-use crate::inventory::{CollectionBuilder, FileInventory, append_shifted_bitmap};
+use crate::inventory::{CollectionBuilder, append_shifted_bitmap};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{CollectionId, FileId};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
@@ -988,7 +989,7 @@ impl Repository {
             profile.pool_init_ns = started.elapsed().as_nanos() as u64;
         }
         let discovery_started = Instant::now();
-        let mut files = FileInventory::new(root.clone());
+        let mut discovery_writer = storage_factory.start_file_discovery(root.clone())?;
         let mut selected = Vec::new();
         let metadata_window = build_workers.saturating_mul(64).max(1);
         let metadata_peak_active = AtomicUsize::new(0);
@@ -1054,14 +1055,11 @@ impl Repository {
                         .saturating_add(started.elapsed().as_nanos() as u64);
                 }
                 let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-                for entry in prepared {
-                    let entry = entry.map_err(IndexError::Build)?;
-                    members.push(
-                        files
-                            .add(entry.relative, entry.revision, entry.created_ns, id)
-                            .map_err(IndexError::Build)?,
-                    );
-                }
+                let prepared = prepared
+                    .into_iter()
+                    .collect::<Result<Vec<_>, _>>()
+                    .map_err(IndexError::Build)?;
+                discovery_writer.register(id, prepared, &mut members)?;
                 if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
                     profile.discovery_ordered_insert_ns = profile
                         .discovery_ordered_insert_ns
@@ -1070,7 +1068,6 @@ impl Repository {
             }
             selected.push((definition, id, source, members));
         }
-        files.validate_diagnostics().map_err(IndexError::Build)?;
         let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
         if let Some(profile) = profile.as_mut() {
             profile.discovery_catalogue_ns = discovery_ns;
@@ -1078,20 +1075,6 @@ impl Repository {
             profile.discovery_rss_bytes = build_profile_rss_bytes();
         }
         let setup_started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let discovered = Arc::new(files);
-        let source_files = Arc::new(
-            discovered
-                .files
-                .iter()
-                .map(SourceFileInput::from_entry)
-                .collect::<Vec<_>>(),
-        );
-        let source_size = |id: FileId| {
-            source_files
-                .get(id.0 as usize)
-                .map(|file| file.revision.size)
-                .ok_or_else(|| "missing scheduled source metadata".to_owned())
-        };
         let mut pending = selected
             .into_iter()
             .map(|(definition, id, source, members)| {
@@ -1114,26 +1097,59 @@ impl Repository {
             Arc::clone(&storage_factory),
         )
         .map_err(IndexError::Build)?;
-        let file_base = discovered.catalog_base(
-            Vec::new(),
-            repository.configuration_identity,
-            repository.collections.len(),
-        );
-        repository.catalog =
-            storage_factory.file_catalog(&file_base, crate::inventory::FileVersion::INITIAL)?;
-        #[cfg(test)]
-        {
-            repository.files = Arc::clone(&discovered);
+        let discovered = discovery_writer.seal(repository.configuration_identity)?;
+        let file_count = discovered.high_water_mark() as usize;
+        let mut source_files = Vec::with_capacity(file_count);
+        let mut membership_counts = Vec::with_capacity(file_count);
+        let mut shared = BTreeMap::<Vec<CollectionId>, Vec<FileId>>::new();
+        let mut registered_files = 0usize;
+        for row in FileRows::new(&discovered) {
+            let entry = row?.entry;
+            if entry.id.0 as usize != source_files.len()
+                || entry
+                    .collections
+                    .iter()
+                    .any(|id| id.0 as usize >= pending.len())
+            {
+                return Err(IndexError::Build(
+                    "invalid discovered file IDs or collection membership".into(),
+                ));
+            }
+            if entry.collections.len() > 1 {
+                shared
+                    .entry(entry.collections.clone())
+                    .or_default()
+                    .push(entry.id);
+            }
+            if registered_files < 2
+                && entry
+                    .collections
+                    .iter()
+                    .any(|id| pending[id.0 as usize].source.schedules_separate_file_jobs())
+            {
+                registered_files += 1;
+            }
+            membership_counts.push(entry.collections.len());
+            source_files.push(SourceFileInput::from_entry(&entry));
         }
+        if source_files.len() != file_count {
+            return Err(IndexError::Build(
+                "discovered file IDs contain holes".into(),
+            ));
+        }
+        let source_files = Arc::new(source_files);
+        let source_size = |id: FileId| {
+            source_files
+                .get(id.0 as usize)
+                .map(|file| file.revision.size)
+                .ok_or_else(|| "missing scheduled source metadata".to_owned())
+        };
+        repository.catalog = Arc::clone(&discovered);
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
-            collection.generation = CollectionBuilder::new(
-                state.id,
-                state.definition.name.clone(),
-                1,
-                discovered.files.len(),
-            )
-            .finish(&discovered)
-            .map_err(IndexError::Build)?;
+            collection.generation =
+                CollectionBuilder::new(state.id, state.definition.name.clone(), 1, file_count)
+                    .finish_empty()
+                    .map_err(IndexError::Build)?;
             collection.stats.file_count = state.member_files.len();
             collection.stats.total_file_bytes = state
                 .member_files
@@ -1165,26 +1181,7 @@ impl Repository {
             gate,
         );
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let mut shared = std::collections::BTreeMap::<Vec<CollectionId>, Vec<FileId>>::new();
-        for entry in &discovered.files {
-            if entry.collections.len() > 1 {
-                shared
-                    .entry(entry.collections.clone())
-                    .or_default()
-                    .push(entry.id);
-            }
-        }
         let mut stream_groups = Vec::new();
-        let registered_files = discovered
-            .files
-            .iter()
-            .filter(|file| {
-                file.collections
-                    .iter()
-                    .any(|id| pending[id.0 as usize].source.schedules_separate_file_jobs())
-            })
-            .take(2)
-            .count();
         let parallel_registered_files = registered_files > 1;
         let mut jobs = Vec::new();
         let mut large_jobs = Vec::new();
@@ -1197,7 +1194,7 @@ impl Repository {
                     .member_files
                     .iter()
                     .copied()
-                    .filter(|file| discovered.files[file.0 as usize].collections.len() == 1)
+                    .filter(|file| membership_counts[file.0 as usize] == 1)
                     .collect::<Vec<_>>();
                 &ordinary
             };
@@ -1378,7 +1375,7 @@ impl Repository {
             profile.job_scheduling_ns = started.elapsed().as_nanos() as u64;
         }
         let extraction_started = crate::measurement::timer::DetailedInstant::now();
-        let mut digest_bindings = vec![Vec::new(); discovered.files.len()];
+        let mut digest_bindings = vec![Vec::new(); file_count];
         let mut build_parses = 0u64;
         let mut failed_parses = 0u64;
         let mut source_reads = 0u64;
@@ -2060,7 +2057,7 @@ impl Repository {
         for collection in &mut final_repository.collections {
             collection.repository_instance = instance_id;
         }
-        index.finish_initial_construction(expected, final_repository, &file_base)?;
+        index.finish_initial_construction(expected, final_repository, Box::new(file_base))?;
         Ok(index)
     }
 }

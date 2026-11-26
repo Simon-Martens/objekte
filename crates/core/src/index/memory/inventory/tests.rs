@@ -143,7 +143,7 @@ fn file_record_mapping_in_both_directions() {
         .unwrap();
     a.add_record(&files.files[1], RecordId::intrinsic("two").unwrap(), 4, 10)
         .unwrap();
-    let generation = a.finish(&files).unwrap();
+    let generation = a.finish(&files.files).unwrap();
     assert_eq!(generation.file_records.records_for(f0).unwrap().len(), 0);
     assert_eq!(
         generation.file_records.records_for(f1).unwrap(),
@@ -160,7 +160,7 @@ fn file_record_mapping_in_both_directions() {
     )
     .unwrap();
     assert_eq!(
-        b.finish(&files)
+        b.finish(&files.files)
             .unwrap()
             .file_records
             .records_for(f1)
@@ -344,7 +344,7 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
         )
         .unwrap();
     inventory.files[broken.0 as usize].diagnostics[0].record = Some(fallback_slot);
-    let generation = builder.finish(&inventory).unwrap();
+    let generation = builder.finish(&inventory.files).unwrap();
     assert_eq!(generation.files, [empty, valid, broken]);
     assert_eq!(
         generation.file_records.records_for(empty),
@@ -382,7 +382,7 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
         })
         .collect();
     let empty = CollectionBuilder::new(CollectionId(0), "empty".into(), 1, files.len())
-        .finish(&inventory)
+        .finish(&inventory.files)
         .unwrap();
     assert_eq!(empty.file_records.file_count, 4);
     assert!(empty.file_records.offsets.is_empty());
@@ -412,7 +412,7 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
             )
             .unwrap();
     }
-    let generation = builder.finish(&inventory).unwrap();
+    let generation = builder.finish(&inventory.files).unwrap();
     let mut grouped = vec![Vec::new(); files.len()];
     for record in &generation.records {
         grouped[record.file.0 as usize].push(record.slot);

@@ -3,10 +3,12 @@
 use std::borrow::Cow;
 use std::num::NonZeroUsize;
 use std::ops::Bound;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
-use crate::inventory::{FileEntry, FileStorageDiagnostic, FileVersion, SourceDiagnostic};
+use crate::inventory::{
+    FileEntry, FileStorageDiagnostic, FileVersion, SourceDiagnostic, SourceRevision,
+};
 use crate::model::{CollectionId, FileId, Number};
 use crate::query::Operator;
 
@@ -169,6 +171,25 @@ pub(crate) trait FileCatalogReader: FileCatalogSource {
     ) -> StorageResult<Option<Arc<[FileId]>>>;
 }
 
+pub(crate) struct DiscoveredFile {
+    pub relative: PathBuf,
+    pub revision: SourceRevision,
+    pub created_ns: Option<i128>,
+}
+
+/// The initial discovery writer assigns stable IDs in input order and
+/// folds subsequent collection memberships into the same file entry.
+pub(crate) trait FileDiscoveryBuilder: Send {
+    fn register(
+        &mut self,
+        collection: CollectionId,
+        files: Vec<DiscoveredFile>,
+        members: &mut Vec<FileId>,
+    ) -> StorageResult<()>;
+
+    fn seal(self: Box<Self>, configuration: [u8; 32]) -> StorageResult<FileCatalogHandle>;
+}
+
 /// The discovered base is ordered by allocated ID and includes final
 /// fingerprints once initial construction is complete.
 pub(crate) trait FileCatalogBase: FileCatalogSource + std::any::Any {
@@ -217,6 +238,64 @@ impl FileCatalogBase for EmptyFileCatalogBase {
     }
 }
 
+/// Final construction metadata in assigned ID order.
+pub(crate) struct DiscoveredFileRows {
+    pub(crate) root: Arc<Path>,
+    pub(crate) configuration: [u8; 32],
+    pub(crate) collections: usize,
+    pub(crate) files: Vec<FileEntry>,
+    pub(crate) fingerprints: Vec<Option<[u8; 32]>>,
+}
+
+impl FileCatalogSource for DiscoveredFileRows {
+    fn high_water_mark(&self) -> u32 {
+        u32::try_from(self.files.len()).expect("checked discovery count")
+    }
+
+    fn live_count(&self) -> u64 {
+        self.high_water_mark() as u64
+    }
+
+    fn read_batch<'a>(
+        &'a self,
+        after: Option<FileId>,
+        limit: BatchLimit,
+        output: &mut Vec<FileTransferRow<'a>>,
+    ) -> StorageResult<BatchStatus> {
+        let start = after.map_or(0, |id| id.0 as usize + 1);
+        let mut bytes = 0;
+        for entry in self.files.iter().skip(start) {
+            let fingerprint = self.fingerprints[entry.id.0 as usize];
+            let row = FileTransferRow {
+                entry: Cow::Borrowed(entry),
+                fingerprint,
+                configuration: fingerprint.map(|_| self.configuration),
+            };
+            let size = row.bytes();
+            if !limit.accepts("read final discovered files", output.len(), bytes, size)? {
+                return Ok(BatchStatus::More);
+            }
+            bytes += size;
+            output.push(row);
+        }
+        Ok(BatchStatus::Done)
+    }
+}
+
+impl FileCatalogBase for DiscoveredFileRows {
+    fn root(&self) -> Option<&Path> {
+        Some(&self.root)
+    }
+
+    fn configuration(&self) -> [u8; 32] {
+        self.configuration
+    }
+
+    fn collection_count(&self) -> usize {
+        self.collections
+    }
+}
+
 pub(crate) type FileCatalogHandle = Arc<dyn FileCatalogRevision>;
 
 pub(crate) trait FileCatalogRevision: FileCatalogReader + std::any::Any {
@@ -243,7 +322,7 @@ pub(crate) trait FileCatalogRevision: FileCatalogReader + std::any::Any {
     fn edit(&self) -> StorageResult<Box<dyn FileCatalogEditor>>;
 }
 
-pub(crate) enum FileCatalogDelta<'a> {
+pub(crate) enum FileCatalogDelta {
     Append {
         entry: FileEntry,
         fingerprint: Option<[u8; 32]>,
@@ -257,18 +336,18 @@ pub(crate) enum FileCatalogDelta<'a> {
     Retire(FileId),
     AdvanceVersion(FileId),
     ResetVersions(FileVersion),
-    Rebase(&'a dyn FileCatalogBase),
+    Rebase(Box<dyn FileCatalogBase>),
     ConstructionComplete(bool),
 }
 
 pub(crate) trait FileCatalogEditor: Send {
-    fn apply(&mut self, delta: FileCatalogDelta<'_>) -> StorageResult<()>;
+    fn apply(&mut self, delta: FileCatalogDelta) -> StorageResult<()>;
     fn seal(self: Box<Self>) -> StorageResult<FileCatalogHandle>;
 }
 
-pub(crate) fn edit_file_catalog<'a>(
+pub(crate) fn edit_file_catalog(
     catalog: &dyn FileCatalogRevision,
-    changes: impl IntoIterator<Item = FileCatalogDelta<'a>>,
+    changes: impl IntoIterator<Item = FileCatalogDelta>,
 ) -> StorageResult<FileCatalogHandle> {
     let mut editor = catalog.edit()?;
     for change in changes {

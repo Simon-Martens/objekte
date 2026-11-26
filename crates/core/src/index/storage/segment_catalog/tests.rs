@@ -182,6 +182,13 @@ impl StorageFactory for Arc<TableFactory> {
         crate::index::storage::default_factory().prepare_direct_records(batch)
     }
 
+    fn start_file_discovery(
+        &self,
+        root: std::path::PathBuf,
+    ) -> StorageResult<Box<dyn crate::index::storage::file_catalog::FileDiscoveryBuilder>> {
+        crate::index::storage::test_factory().start_file_discovery(root)
+    }
+
     fn file_catalog(
         &self,
         base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
