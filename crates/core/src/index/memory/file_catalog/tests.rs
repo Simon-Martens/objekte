@@ -490,6 +490,7 @@ impl crate::index::storage::StorageFactory for OrderedFileFactory {
     ) -> StorageResult<FileCatalogHandle> {
         let mut catalog =
             OrderedFiles::load(source, base.root(), Arc::clone(&self.fail_seal), cancelled)?;
+        catalog.complete = source.construction_complete();
         catalog.versions.clear();
         crate::index::storage::file_catalog::transfer_versions(
             source,
@@ -632,6 +633,123 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
         native.version(initial.id).unwrap(),
         pinned.file_version(initial.id).unwrap()
     );
+}
+
+#[test]
+fn restored_construction_state_controls_search_and_completion() {
+    use crate::index::storage::{StorageFactory, test_factory};
+    use crate::lifecycle::Index;
+    use crate::query::options::ReturnMode;
+    use crate::query::{Query, QueryOptions};
+    use crate::repository::configuration::CollectionDefinition;
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-restore-construction-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let kept = Path::new("data/kept.rows");
+    let retired = Path::new("data/retired.rows");
+    std::fs::write(root.join(kept), b"kept\n").unwrap();
+    std::fs::write(root.join(retired), b"retired\n").unwrap();
+    let build = Index::start_build_with_factory(
+        &root,
+        vec![CollectionDefinition::folder(
+            "entries",
+            "data",
+            line_format(),
+        )],
+        RepositoryOptions::default(),
+        fixture_registry(),
+        Arc::clone(test_factory()),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let first = build.view().unwrap();
+    let kept = first.file_handle_for_path(kept).unwrap().unwrap();
+    let retired = first.file_handle_for_path(retired).unwrap().unwrap();
+    build.delete_file(retired).unwrap();
+    let ready = build.view().unwrap();
+    let mut paused = (*ready.0).clone();
+    paused.begin_initial_construction().unwrap();
+    // Model the pause after the last contribution, just before final assembly.
+    paused.processed_files = paused.catalog.live_count() as usize;
+
+    let base = ready.repository().file_catalog_base();
+    let query = Query {
+        collections: vec!["entries".into()],
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: false,
+        },
+    };
+    for snapshot in [&paused, ready.0.as_ref()] {
+        let ordered = OrderedFileFactory::default()
+            .restore_file_catalog(&base, snapshot.catalog.as_ref(), &|| false)
+            .unwrap();
+        for source in [snapshot.catalog.as_ref(), ordered.as_ref()] {
+            let restored = test_factory()
+                .restore_file_catalog(&base, source, &|| false)
+                .unwrap();
+            assert_eq!(
+                restored.construction_complete(),
+                snapshot.catalog.construction_complete()
+            );
+            assert_eq!(
+                restored.high_water_mark(),
+                snapshot.catalog.high_water_mark()
+            );
+            assert_eq!(
+                restored.file(kept.file_id).unwrap(),
+                snapshot.catalog.file(kept.file_id).unwrap()
+            );
+            assert_eq!(restored.version(kept.file_id).unwrap(), Some(kept.version));
+            assert!(restored.file(retired.file_id).unwrap().is_none());
+            assert_eq!(
+                restored.version(retired.file_id).unwrap(),
+                Some(retired.version.next().unwrap())
+            );
+            if !snapshot.catalog.construction_complete() {
+                let mut root = snapshot.clone();
+                root.catalog = restored;
+                let index = Index::from_published(root);
+                let pin = index.view().unwrap();
+                assert!(
+                    pin.search_strict(&query)
+                        .unwrap_err()
+                        .contains("incomplete")
+                );
+                let available = pin.search_available(&query).unwrap();
+                assert!(!available.complete);
+                assert_eq!(available.result.count, None);
+
+                let repository = pin.repository().empty_like().unwrap();
+                index
+                    .finish_initial_construction(
+                        pin.revision(),
+                        repository,
+                        Box::new(ready.repository().file_catalog_base()),
+                    )
+                    .unwrap();
+                let finished = index.view().unwrap();
+                assert!(finished.initial_construction_complete());
+                assert_eq!(finished.search_strict(&query).unwrap().count, Some(1));
+                assert!(!pin.initial_construction_complete());
+                assert!(!pin.search_available(&query).unwrap().complete);
+                index.shutdown().unwrap();
+            }
+        }
+    }
+    build.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 use crate::inventory::FileVersion;

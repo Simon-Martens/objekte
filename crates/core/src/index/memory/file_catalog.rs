@@ -294,6 +294,7 @@ impl FileCatalog {
         source: &dyn FileCatalogSource,
         cancelled: &dyn Fn() -> bool,
         versions: FileVersions,
+        construction_complete: bool,
     ) -> StorageResult<Self> {
         const OP: &str = "restore file catalog";
         let (base_files, base_fingerprints) = native_base(base)?;
@@ -387,7 +388,7 @@ impl FileCatalog {
         Ok(Self {
             base_files,
             base_fingerprints,
-            construction_complete: true,
+            construction_complete,
             base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
             changed_paths: Arc::new(changed_paths.into_iter().map(Arc::new).collect()),
@@ -410,7 +411,13 @@ impl FileCatalog {
             Some(source) => source.versions.clone(),
             None => FileVersions::from_catalog(source, cancelled)?,
         };
-        Self::restore_base(base, source, cancelled, versions)
+        Self::restore_base(
+            base,
+            source,
+            cancelled,
+            versions,
+            source.construction_complete(),
+        )
     }
 
     #[cfg(test)]
@@ -429,6 +436,7 @@ impl FileCatalog {
             source,
             cancelled,
             FileVersions::filled(source.high_water_mark() as usize, FileVersion::INITIAL),
+            true,
         )
     }
 
