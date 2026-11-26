@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the 150-sample iteration gate or the full 3,000-sample query gate."""
+"""Run the 300-sample iteration gate or the full 6,000-sample query gate."""
 
 from __future__ import annotations
 
@@ -18,6 +18,8 @@ from schema_evidence import canonical_registrations, compare_schema_identity, sc
 
 ROOT = Path(__file__).resolve().parent.parent
 JQ_COUNTS = ROOT / "bench/baselines/musenalm-jq-counts.json"
+DEFAULT_CASES = {f"Q{number:03}" for number in (*range(1, 151), *range(221, 371))}
+HISTORICAL_CASES = {f"Q{number:03}" for number in range(1, 151)}
 PROFILES = ("ascii-off", "ascii-warm", "unicode-off", "unicode-warm")
 
 
@@ -30,7 +32,7 @@ def rows(path: Path) -> dict[tuple[str, str], dict[str, str]]:
     return result
 
 
-def compatibility_failures(baseline: Path, current: Path, old: dict, new: dict) -> list[str]:
+def compatibility_failures(baseline: Path, current: Path, old: dict, new: dict, historical: bool = False) -> list[str]:
     failures = []
     for key in ("corpus_fingerprint", "compiler",
                 "source_cache_bytes", "query_workers"):
@@ -47,7 +49,10 @@ def compatibility_failures(baseline: Path, current: Path, old: dict, new: dict) 
         failures.append("selected cache/alphabet profiles differ from baseline")
     if canonical_registrations(old) != canonical_registrations(new):
         failures.append("semantic registrations differ from baseline")
-    if json.loads((baseline / "queries.json").read_text()) != json.loads((current / "queries.json").read_text()):
+    current_queries = json.loads((current / "queries.json").read_text())
+    if historical:
+        current_queries = [case for case in current_queries if case["id"] in HISTORICAL_CASES]
+    if json.loads((baseline / "queries.json").read_text()) != current_queries:
         failures.append("resolved query workload differs from baseline")
     if old["code_revision"] == new["code_revision"]:
         failures.append("baseline and current code revisions are identical")
@@ -63,8 +68,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("mode", choices=("quick", "full"))
     parser.add_argument("--result-dir", type=Path)
+    parser.add_argument("--root", type=Path, default=ROOT / "examples/musenalm", help="Musenalm corpus used for timing and confirmations")
     parser.add_argument("--baseline", type=Path, required=True, help="explicit completed baseline run directory")
-    parser.add_argument("--comparison", choices=("repair", "historical", "casefold", "parallel"), required=True)
+    parser.add_argument("--comparison", choices=("repair", "historical", "casefold", "parallel", "workload"), required=True)
     parser.add_argument("--verify-only", action="store_true", help="check an existing completed run")
     args = parser.parse_args()
     revision = subprocess.check_output(["git", "rev-parse", "--short=10", "HEAD"], cwd=ROOT, text=True).strip()
@@ -74,7 +80,7 @@ def main() -> int:
     repetitions = 5 if args.mode == "full" else 1
     command = [
         "cargo", "run", "--release", "--example", "bench_musenalm", "--",
-        "--profiles", ",".join(profiles), "--repetitions", str(repetitions),
+        "--root", str(args.root.resolve()), "--profiles", ",".join(profiles), "--repetitions", str(repetitions),
         "--result-dir", str(result_dir),
     ]
     if not args.verify_only:
@@ -89,15 +95,20 @@ def main() -> int:
     old_rows = rows(baseline / "query-results.csv")
     new_rows = rows(result_dir / "query-results.csv")
     jq_counts = json.loads(JQ_COUNTS.read_text())["counts"]
-    expected_keys = {(f"Q{index:03}", profile) for index in range(1, 151) for profile in profiles}
+    expected_keys = {(case, profile) for case in DEFAULT_CASES for profile in profiles}
+    historical = args.comparison != "workload"
+    timed_cases = HISTORICAL_CASES if historical else DEFAULT_CASES
+    timing_keys = {(case, profile) for case in timed_cases for profile in profiles}
     failures = []
     if set(new_rows) != expected_keys:
         failures.append(f"query row keys differ: missing={sorted(expected_keys - set(new_rows))}, extra={sorted(set(new_rows) - expected_keys)}")
-    if set(jq_counts) != {f"Q{index:03}" for index in range(1, 151)}:
-        failures.append("independent jq count baseline does not cover all 150 cases")
+    if timing_keys - old_rows.keys():
+        failures.append("baseline is missing timed cases for the selected profiles")
+    if set(jq_counts) != DEFAULT_CASES:
+        failures.append("independent jq count baseline does not cover all 300 cases")
     if new_manifest["repetitions"] != repetitions or new_manifest["failures"] != 0:
         failures.append("benchmark repetition or failure count invalid")
-    failures.extend(compatibility_failures(baseline, result_dir, old_manifest, new_manifest))
+    failures.extend(compatibility_failures(baseline, result_dir, old_manifest, new_manifest, historical))
     if args.comparison == "repair" and old_manifest["code_revision"] != "92cdb92b19200cb0005af23b66aeb3cd1b514c4b":
         failures.append("repair comparison must use the immediate foundation baseline revision")
     if args.comparison == "historical" and old_manifest["code_revision"] != "128a7601c2defec3fd9f5dbb851fb2a4303f7f9a":
@@ -111,6 +122,10 @@ def main() -> int:
                    or key.startswith("CARGO_PROFILE_RELEASE_")}
     if build_flags:
         failures.append(f"nondefault build flags are not recorded in the pre-repair baseline: {sorted(build_flags)}")
+    if not args.verify_only:
+        environment = {"governor": governor(), "affinity": sorted(os.sched_getaffinity(0))
+                       if hasattr(os, "sched_getaffinity") else None, "build_flags": build_flags}
+        (result_dir / "environment.json").write_text(json.dumps(environment, indent=2) + "\n")
     baseline_environment_path = baseline / "environment.json"
     baseline_environment = json.loads(baseline_environment_path.read_text()) if baseline_environment_path.exists() else {
         "governor": "performance" if args.comparison in ("casefold", "parallel") else "powersave",
@@ -122,8 +137,8 @@ def main() -> int:
     if baseline_environment["affinity"] != affinity:
         failures.append("CPU affinity differs from declared baseline environment")
     samples = [json.loads(line) for line in (result_dir / "measurements.jsonl").read_text().splitlines()]
-    if len(samples) != 150 * len(profiles) * repetitions:
-        failures.append(f"sample count {len(samples)} differs from {150 * len(profiles) * repetitions}")
+    if len(samples) != len(expected_keys) * repetitions:
+        failures.append(f"sample count {len(samples)} differs from {len(expected_keys) * repetitions}")
     groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for sample in samples:
         profile = sample["profile"]
@@ -134,13 +149,18 @@ def main() -> int:
     for key in expected_keys:
         if len(groups[key]) != repetitions:
             failures.append(f"{key}: expected {repetitions} samples, found {len(groups[key])}")
+    queries = {case["id"]: case for case in json.loads((result_dir / "queries.json").read_text())}
     for key in expected_keys & set(new_rows):
-        old = old_rows[key]
         new = new_rows[key]
+        case = queries[key[0]]
+        if key[0] in jq_counts:
+            expected_page = min(case["limit"], max(0, jq_counts[key[0]] - case["offset"]))
+            if int(new["returned_records"]) != expected_page:
+                failures.append(f"{key}: expected {expected_page} returned records")
         for field in ("status", "total_matches", "returned_records"):
-            if old[field] != new[field]:
-                failures.append(f"{key}: {field} baseline={old[field]} actual={new[field]}")
-        if int(new["total_matches"]) != jq_counts[key[0]]:
+            if key in timing_keys and key in old_rows and old_rows[key][field] != new[field]:
+                failures.append(f"{key}: {field} baseline={old_rows[key][field]} actual={new[field]}")
+        if key[0] in jq_counts and int(new["total_matches"]) != jq_counts[key[0]]:
             failures.append(f"{key}: count {new['total_matches']} differs from jq {jq_counts[key[0]]}")
     cpu_model = next(
         (line.split(":", 1)[1].strip() for line in Path("/proc/cpuinfo").read_text().splitlines() if line.startswith("model name")),
@@ -153,7 +173,8 @@ def main() -> int:
     absolute_ns = 2_000_000 if args.mode == "full" else 5_000_000
     slowdowns = []
     latency_failures = []
-    for key in sorted(expected_keys & set(new_rows)):
+    comparable_keys = timing_keys & old_rows.keys() & new_rows.keys()
+    for key in sorted(comparable_keys):
         old_ns = int(old_rows[key]["median_ns"])
         new_ns = int(new_rows[key]["median_ns"])
         slowdowns.append((new_ns / max(old_ns, 1), key, old_ns, new_ns))
@@ -165,7 +186,7 @@ def main() -> int:
         confirmation_csv = confirmation_dir / "query-results.csv"
         confirmation_command = [
             "cargo", "run", "--release", "--example", "bench_musenalm", "--",
-            "--cases", ",".join(key[0] for key, _, _ in latency_failures),
+            "--root", new_manifest["root"], "--cases", ",".join(key[0] for key, _, _ in latency_failures),
             "--profiles", "ascii-off", "--repetitions", "3",
             "--result-dir", str(confirmation_dir),
         ]
@@ -222,15 +243,16 @@ def main() -> int:
     else:
         for key, old_ns, new_ns in latency_failures:
             failures.append(f"{key}: {new_ns / 1e6:.3f} ms exceeds {old_ns / 1e6:.3f} ms baseline")
-    old_total = sum(int(old_rows[key]["median_ns"]) for key in expected_keys)
-    new_total = sum(int(new_rows[key]["median_ns"]) for key in expected_keys & set(new_rows))
+    old_total = sum(int(old_rows[key]["median_ns"]) for key in comparable_keys)
+    new_total = sum(int(new_rows[key]["median_ns"]) for key in comparable_keys)
     aggregate_limit = 1.25 if args.mode == "full" else 1.35
     if same_machine and new_total > old_total * aggregate_limit:
         failures.append(f"aggregate latency ratio {new_total / old_total:.3f} exceeds {aggregate_limit}")
     result = {
-        "mode": args.mode, "expected_samples": 150 * len(profiles) * repetitions,
+        "mode": args.mode, "expected_samples": len(expected_keys) * repetitions,
         "jq_count_baseline": str(JQ_COUNTS),
         "comparison": args.comparison,
+        "timed_case_count": len(timed_cases),
         "baseline_code_revision": old_manifest["code_revision"],
         "actual_code_revision": new_manifest["code_revision"],
         "build_flags": build_flags,
@@ -245,7 +267,7 @@ def main() -> int:
         "affinity": affinity,
         "actual_samples": len(samples), "baseline": str(baseline),
         "result_dir": str(result_dir), "same_machine": same_machine,
-        "aggregate_latency_ratio": new_total / old_total,
+        "aggregate_latency_ratio": new_total / old_total if old_total else None,
         "thresholds": {"per_case_relative": relative, "per_case_absolute_ns": absolute_ns, "aggregate_relative": aggregate_limit},
         "confirmations": confirmations,
         "worst_slowdowns": [
@@ -256,9 +278,8 @@ def main() -> int:
         "command": command,
     }
     (result_dir / "gate.json").write_text(json.dumps(result, indent=2) + "\n")
-    queries = {case["id"]: case for case in json.loads((result_dir / "queries.json").read_text())}
     comparison_rows = []
-    for case, profile in sorted(expected_keys & set(new_rows)):
+    for case, profile in sorted(comparable_keys):
         previous = old_rows[(case, profile)]
         current = new_rows[(case, profile)]
         old_ns = int(previous["median_ns"])
@@ -278,9 +299,10 @@ def main() -> int:
             "scanned_records": current["scanned_records"], "record_parses": current["record_parses"],
         })
     with (result_dir / "comparison.csv").open("w", newline="") as output:
-        writer = csv.DictWriter(output, fieldnames=list(comparison_rows[0]))
-        writer.writeheader()
-        writer.writerows(comparison_rows)
+        if comparison_rows:
+            writer = csv.DictWriter(output, fieldnames=list(comparison_rows[0]))
+            writer.writeheader()
+            writer.writerows(comparison_rows)
     table = [
         f"# {args.comparison} query timing comparison", "",
         f"Baseline: `{old_manifest['code_revision']}` at `{baseline}`. Current: `{new_manifest['code_revision']}`.",
@@ -300,7 +322,8 @@ def main() -> int:
     table_text = "\n".join(table) + "\n"
     (result_dir / "TIMING_TABLE.md").write_text(table_text)
     print(table_text, end="")
-    print(f"{args.mode}: {len(samples)} samples, aggregate ratio {new_total / old_total:.3f}, failures {len(failures)}")
+    ratio = f"{new_total / old_total:.3f}" if old_total else "unavailable"
+    print(f"{args.mode}: {len(samples)} samples, aggregate ratio {ratio}, failures {len(failures)}")
     print(f"Full table: {result_dir / 'TIMING_TABLE.md'}")
     for failure in failures[:20]:
         print(failure, file=sys.stderr)

@@ -4,6 +4,8 @@ use super::*;
 fn fixed_manifest_and_report_round_trip() {
     let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
     let cases = load_manifest(&path).unwrap();
+    assert_eq!(cases.len(), 300);
+    validate_manifest(&cases[..150]).unwrap();
     assert_eq!(cases[0].fts.as_deref(), Some("Almanach"));
     assert_eq!(
         cases[69].filter.as_deref(),
@@ -36,7 +38,9 @@ fn extended_manifest_preserves_the_fixed_150_and_binds_parameters() {
     let fixed = directory.join("musenalm_queries.json");
     let extended = directory.join("musenalm_queries_extended.json");
     let cases = load_extended_manifest(&fixed, &extended).unwrap();
-    assert_eq!(cases.len(), 220);
+    assert_eq!(cases.len(), 370);
+    assert_eq!(cases[220].id, "Q221");
+    assert_eq!(cases[369].id, "Q370");
     assert_eq!(cases[0].request, load_manifest(&fixed).unwrap()[0]);
     assert!(cases[..150].iter().all(|case| case.parameters.is_empty()));
     assert_eq!(

@@ -44,6 +44,24 @@ class CompatibilityTests(unittest.TestCase):
         current["root"] = "/different/checkout"
         return baseline, current
 
+    def test_historical_comparison_checks_the_original_requests(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            old_dir, new_dir = (Path(temporary) / name for name in ("before", "after"))
+            old, new = self.manifests()
+            for path in (old_dir, new_dir):
+                path.mkdir()
+                write_schemas(path, [entry("a"), entry("b")])
+            original = {"id": "Q001", "fts": "Almanach"}
+            added = {"id": "Q221", "filter": 'preferred_title ~ "Frühling"'}
+            (old_dir / "queries.json").write_text(json.dumps([original]))
+            (new_dir / "queries.json").write_text(json.dumps([original, added]))
+            self.assertEqual(compatibility_failures(old_dir, new_dir, old, new, historical=True), [])
+            self.assertIn("resolved query workload differs from baseline",
+                          compatibility_failures(old_dir, new_dir, old, new))
+            (new_dir / "queries.json").write_text(json.dumps([dict(original, fts="Wien"), added]))
+            self.assertIn("resolved query workload differs from baseline",
+                          compatibility_failures(old_dir, new_dir, old, new, historical=True))
+
     def test_missing_evidence_never_certifies_matching_schemas(self):
         with tempfile.TemporaryDirectory() as temporary:
             old_dir, new_dir = (Path(temporary) / name for name in ("before", "after"))

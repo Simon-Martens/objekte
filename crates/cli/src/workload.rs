@@ -200,12 +200,13 @@ pub fn load_extended_manifest(
     let baseline = load_manifest(baseline_path)?;
     let bytes = std::fs::read(extended_path)
         .map_err(|error| format!("{}: {error}", extended_path.display()))?;
-    let cases: Vec<BenchmarkCase> =
+    let mut cases: Vec<BenchmarkCase> =
         serde_json::from_slice(&bytes).map_err(|error| error.to_string())?;
-    if cases.len() <= baseline.len() {
-        return Err("extended workload has no additional cases".into());
+    let historical_len = 150;
+    if cases.len() != 220 {
+        return Err("expected 220 historical and extension cases".into());
     }
-    for (original, extended) in baseline.iter().zip(&cases) {
+    for (original, extended) in baseline[..historical_len].iter().zip(&cases) {
         if original != &extended.request
             || !extended.parameters.is_empty()
             || extended.clock_unix_seconds.is_some()
@@ -216,7 +217,7 @@ pub fn load_extended_manifest(
             ));
         }
     }
-    for (index, case) in cases.iter().enumerate().skip(baseline.len()) {
+    for (index, case) in cases.iter().enumerate().skip(historical_len) {
         if case.id != format!("Q{:03}", index + 1)
             || case.collection.is_empty()
             || (case.fts.is_none() && case.filter.is_none())
@@ -227,16 +228,28 @@ pub fn load_extended_manifest(
         case.query()
             .map_err(|error| format!("{}: {error}", case.id))?;
     }
+    cases.extend(
+        baseline
+            .into_iter()
+            .skip(historical_len)
+            .map(|request| BenchmarkCase {
+                request,
+                parameters: Default::default(),
+                clock_unix_seconds: None,
+            }),
+    );
     Ok(cases)
 }
 
 pub fn validate_manifest(cases: &[WorkloadCase]) -> Result<(), String> {
-    if cases.len() != 150 {
-        return Err(format!("expected 150 workload cases, got {}", cases.len()));
+    if !matches!(cases.len(), 150 | 300) {
+        return Err(format!("expected 150 historical or 300 current workload cases, got {}", cases.len()));
     }
     let mut seen = HashSet::new();
     for (i, case) in cases.iter().enumerate() {
-        let expected = format!("Q{:03}", i + 1);
+        // Q151–Q220 belong to the historical extended suite.
+        let number = if i < 150 { i + 1 } else { i + 71 };
+        let expected = format!("Q{number:03}");
         if case.id != expected || !seen.insert(&case.id) {
             return Err(format!("expected unique {expected}, got {}", case.id));
         }

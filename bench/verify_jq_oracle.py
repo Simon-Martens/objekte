@@ -14,7 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 
-CASES = tuple(f"Q{number:03}" for number in range(1, 151))
+CASES = tuple(f"Q{number:03}" for number in (*range(1, 151), *range(221, 371)))
 ROOT = Path(__file__).resolve().parent.parent
 PROGRAM = ROOT / "bench/oracle_musenalm.jq"
 
