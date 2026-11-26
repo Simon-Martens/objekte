@@ -3,12 +3,17 @@
 use std::io::{self, Write};
 use std::num::NonZeroUsize;
 
+use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::transfer::{BatchLimit, StorageError, StorageResult};
-use crate::inventory::ActiveRecords;
+use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::RecordSlot;
 use crate::records::RecordHeader;
 
-use super::{RecordBacking, RecordOrigin, RecordWriteVersion, SegmentReader, visit_record_headers};
+use super::maintenance::SegmentPartition;
+use super::{
+    RecordBacking, RecordOrigin, RecordWriteVersion, SegmentReader, visit_record_headers,
+    visit_segment_files,
+};
 
 const RECORD_LIMIT: BatchLimit = BatchLimit::new(
     NonZeroUsize::new(128).unwrap(),
@@ -23,6 +28,85 @@ const RETAINED_BODY_TRANSFER_VERSION: u32 = 1;
 pub(crate) enum RecordLayout {
     Identity,
     Dense,
+}
+
+/// The records and file associations to emit for a file-backed import.
+#[derive(Clone, Copy)]
+pub(crate) enum FileSegmentLayout<'a> {
+    #[cfg_attr(
+        not(test),
+        allow(
+            dead_code,
+            reason = "identity imports are exercised by backend conformance"
+        )
+    )]
+    Identity(&'a ActiveRecords),
+    Dense {
+        partition: &'a SegmentPartition,
+        catalog: &'a dyn FileCatalogReader,
+    },
+}
+
+impl FileSegmentLayout<'_> {
+    pub(crate) fn visit_records(
+        self,
+        source: &dyn SegmentReader,
+        cancelled: &mut dyn FnMut() -> bool,
+        visit: &mut dyn FnMut(&[RecordTransferRow<'_>]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        let (active, layout) = match self {
+            Self::Identity(active) => (active, RecordLayout::Identity),
+            Self::Dense { partition, .. } => (&partition.slots, RecordLayout::Dense),
+        };
+        visit_record_rows(source, active, layout, cancelled, visit)
+    }
+
+    pub(crate) fn visit_files(
+        self,
+        source: &dyn SegmentReader,
+        cancelled: &mut dyn FnMut() -> bool,
+        mut visit: impl FnMut(&FileEntry) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        let mut count = 0;
+        visit_segment_files(source, |file| {
+            if cancelled() {
+                return Err(StorageError::Cancelled);
+            }
+            match self {
+                Self::Identity(_) => visit(file)?,
+                Self::Dense { partition, catalog } => {
+                    if !partition.files.contains(&file.id) {
+                        return Ok(());
+                    }
+                    let current = catalog.file(file.id)?.ok_or_else(|| {
+                        StorageError::invalid("transfer file segment", "missing selected file")
+                    })?;
+                    if file.revision != current.revision || file.created_ns != current.created_ns {
+                        return Err(StorageError::invalid(
+                            "transfer file segment",
+                            "selected file metadata changed",
+                        ));
+                    }
+                    let mut file = file.clone();
+                    file.relative_path.clone_from(&current.relative_path);
+                    visit(&file)?;
+                }
+            }
+            count += 1;
+            Ok(())
+        })?;
+        let expected = match self {
+            Self::Identity(_) => source.file_count(),
+            Self::Dense { partition, .. } => partition.files.len(),
+        };
+        if count != expected {
+            return Err(StorageError::invalid(
+                "transfer file segment",
+                "file selection has incomplete coverage",
+            ));
+        }
+        Ok(())
+    }
 }
 
 pub(crate) struct RecordTransferRow<'a> {

@@ -7,10 +7,10 @@ mod sorting;
 mod text;
 
 pub(crate) use inference::project_inference;
-pub(crate) use postings::{PostingProjection, project_posting};
+pub(crate) use postings::{PostingProjection, project_posting, transfer_posting};
 pub(crate) use routing::{PartitionRouting, SlotMap, project_bitmap};
 pub(crate) use sorting::project_sorting;
-pub(crate) use text::{BigramProjection, project_bigram};
+pub(crate) use text::{BigramProjection, project_bigram, transfer_bigram};
 
 use super::IndexedCollectionSegment;
 use crate::index::relation::RelationContribution;

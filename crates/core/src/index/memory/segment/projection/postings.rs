@@ -100,6 +100,41 @@ pub(super) fn scatter_posting_partitions(
     Ok(parts)
 }
 
+pub(crate) fn transfer_posting(
+    reader: &dyn PostingReader,
+    slots: &SlotMap<'_>,
+    covered_records: u32,
+    bounds: Option<(u32, u32)>,
+    cancelled: &dyn Fn() -> bool,
+) -> crate::index::storage::transfer::StorageResult<PostingIndex> {
+    let mut projected = empty_projected_posting(reader.descriptor(), covered_records);
+    visit_posting_blocks(reader, slots.len(), cancelled, &mut |key, block| {
+        for &old in block {
+            if bounds.is_some_and(|(start, end)| old.0 < start || old.0 >= end) {
+                continue;
+            }
+            let Some(new) = slots.get(old.0 as usize).ok_or_else(|| {
+                StorageError::invalid("project posting blocks", "source slot outside the mapping")
+            })?
+            else {
+                continue;
+            };
+            match key {
+                PostingKey::Presence => {
+                    projected.presence.insert(new.0);
+                }
+                PostingKey::Value(key) => scatter_posting_key(&mut projected.values, key, new.0),
+                PostingKey::Length(length) => {
+                    scatter_posting_key(&mut projected.lengths, length, new.0)
+                }
+            }
+        }
+        Ok(())
+    })?;
+    projected.finish_stats();
+    Ok(projected)
+}
+
 pub(crate) fn project_posting(
     reader: &dyn PostingReader,
     slots: &SlotMap<'_>,
@@ -107,37 +142,8 @@ pub(crate) fn project_posting(
     bounds: Option<(u32, u32)>,
 ) -> Result<PostingIndex, String> {
     let Some(index) = (reader as &dyn std::any::Any).downcast_ref::<PostingIndex>() else {
-        let mut projected = empty_projected_posting(reader.descriptor(), logical_count);
-        visit_posting_blocks(reader, slots.len(), &|| false, &mut |key, block| {
-            for &old in block {
-                if bounds.is_some_and(|(start, end)| old.0 < start || old.0 >= end) {
-                    continue;
-                }
-                let Some(new) = slots.get(old.0 as usize).ok_or_else(|| {
-                    StorageError::invalid(
-                        "project posting blocks",
-                        "source slot outside the mapping",
-                    )
-                })?
-                else {
-                    continue;
-                };
-                match key {
-                    PostingKey::Presence => {
-                        projected.presence.insert(new.0);
-                    }
-                    PostingKey::Value(key) => {
-                        scatter_posting_key(&mut projected.values, key, new.0)
-                    }
-                    PostingKey::Length(length) => {
-                        scatter_posting_key(&mut projected.lengths, length, new.0)
-                    }
-                }
-            }
-            Ok(())
-        })?;
-        projected.finish_stats();
-        return Ok(projected);
+        return transfer_posting(reader, slots, logical_count, bounds, &|| false)
+            .map_err(String::from);
     };
     let mut projected = PostingIndex {
         values_indexed: index.values_indexed,

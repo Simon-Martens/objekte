@@ -36,6 +36,10 @@ use crate::repository::state::GlobalInferenceSummary;
 use crate::repository::statistics::BigramConstructionStats;
 use crate::source::{ExtractedRecord, TextDerivation};
 
+#[path = "segments/transfer.rs"]
+mod transfer;
+pub(super) use transfer::import_file_segment;
+
 const OP: &str = "independent segment table";
 const SCORE: &str = "score";
 const PROVIDER: ProviderId = ProviderId(191);
@@ -402,6 +406,8 @@ struct TableSegment {
     logical: Arc<[u32]>,
     empty_arrays: Arc<[u32]>,
     score: Option<TablePosting>,
+    grams: BTreeMap<transfer::GramBinding, transfer::TableGram>,
+    raw_covers_logical_fields: bool,
     control: Arc<TableFactory>,
 }
 
@@ -443,6 +449,17 @@ impl TableSegment {
         let score = score_indexed.then(|| TablePosting {
             path: vec![SCORE.into()],
             present: Arc::clone(&logical),
+            coverage: PostingCoverage {
+                multi: false,
+                values_indexed: true,
+                value_complete: true,
+                length_complete: false,
+                empty_string_complete: false,
+                covered_records: logical.len() as u32,
+                summary: None,
+                legacy_present_equivalent: true,
+                legacy_null_equivalent: true,
+            },
             keys: scores
                 .into_iter()
                 .map(|(key, slots)| (key, slots.into()))
@@ -457,6 +474,8 @@ impl TableSegment {
             logical,
             empty_arrays: empty_arrays.into(),
             score,
+            grams: BTreeMap::new(),
+            raw_covers_logical_fields: false,
             control,
         })
     }
@@ -466,6 +485,11 @@ impl TableSegment {
         active: &ActiveRecords,
         retain: &mut dyn FnMut(&FileEntry) -> bool,
     ) -> StorageResult<(Self, Vec<Option<RecordSlot>>)> {
+        if !self.grams.is_empty() {
+            return Err(invalid(
+                "use the target block importer for transferred grams",
+            ));
+        }
         if active.slot_count() as usize != self.rows.len() {
             return Err(invalid("projection mask covers another slot domain"));
         }
@@ -560,6 +584,10 @@ impl SegmentReader for TableSegment {
             version: self.metadata.version,
             registration: self.metadata.registration,
         }
+    }
+
+    fn raw_covers_logical_fields(&self) -> bool {
+        self.raw_covers_logical_fields
     }
 
     fn read_header_batch(
@@ -714,7 +742,7 @@ impl SegmentReader for TableSegment {
         &self,
     ) -> StorageResult<Vec<crate::index::storage::component::ComponentDescriptor<'_>>> {
         use crate::index::storage::component::{ComponentDescriptor, ComponentKind};
-        Ok(self
+        let mut components: Vec<_> = self
             .score
             .iter()
             .map(|posting| ComponentDescriptor {
@@ -724,7 +752,37 @@ impl SegmentReader for TableSegment {
                 path: Some(Cow::Borrowed(&posting.path)),
                 binding: None,
             })
-            .collect())
+            .collect();
+        components.extend(
+            self.grams
+                .keys()
+                .map(|key| key.component(self.descriptor())),
+        );
+        if !self.grams.is_empty() {
+            for kind in [ComponentKind::Sorting, ComponentKind::Relations] {
+                components.push(ComponentDescriptor {
+                    collection: self.metadata.collection,
+                    segment: self.metadata.id,
+                    kind,
+                    path: None,
+                    binding: None,
+                });
+            }
+        }
+        Ok(components)
+    }
+
+    fn grams(
+        &self,
+        component: &crate::index::storage::component::ComponentDescriptor<'_>,
+    ) -> StorageResult<Option<&dyn crate::index::storage::text::GramReader>> {
+        if component.collection != self.metadata.collection || component.segment != self.metadata.id
+        {
+            return Err(invalid("gram descriptor belongs to a different payload"));
+        }
+        Ok(transfer::GramBinding::from_component(component)?
+            .and_then(|key| self.grams.get(&key))
+            .map(|reader| reader as &dyn crate::index::storage::text::GramReader))
     }
 
     fn posting(
@@ -826,6 +884,11 @@ impl SegmentMaintenance for TableSegment {
     }
 
     fn remap_dense(&self, new_slots: &[RecordSlot]) -> StorageResult<SegmentHandle> {
+        if !self.grams.is_empty() {
+            return Err(invalid(
+                "use the target block importer for transferred grams",
+            ));
+        }
         if new_slots.len() != self.rows.len()
             || new_slots.iter().copied().collect::<BTreeSet<_>>().len() != self.rows.len()
             || new_slots
@@ -893,6 +956,7 @@ struct TablePosting {
     path: Vec<String>,
     present: Arc<[u32]>,
     keys: BTreeMap<ScalarKey, Arc<[u32]>>,
+    coverage: PostingCoverage,
 }
 
 impl PostingReader for TablePosting {
@@ -900,17 +964,7 @@ impl PostingReader for TablePosting {
         PostingDescriptor {
             path: &self.path,
             kind: &LogicalType::Number,
-            coverage: PostingCoverage {
-                multi: false,
-                values_indexed: true,
-                value_complete: true,
-                length_complete: false,
-                empty_string_complete: false,
-                covered_records: self.present.len() as u32,
-                summary: None,
-                legacy_present_equivalent: true,
-                legacy_null_equivalent: true,
-            },
+            coverage: self.coverage,
         }
     }
 

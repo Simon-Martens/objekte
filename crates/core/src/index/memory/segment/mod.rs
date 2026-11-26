@@ -4,6 +4,7 @@ pub(crate) mod admission;
 mod compaction;
 mod consolidation;
 mod finalize;
+pub(super) mod import;
 pub(super) mod maintenance;
 mod projection;
 mod record_versions;
@@ -580,6 +581,10 @@ pub use crate::index::storage::component::{
 };
 
 impl SegmentReader for IndexedCollectionSegment {
+    fn raw_covers_logical_fields(&self) -> bool {
+        self.raw_covers_logical_fields
+    }
+
     fn maintenance(
         &self,
     ) -> Option<&dyn crate::index::storage::segment::maintenance::SegmentMaintenance> {

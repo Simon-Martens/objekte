@@ -97,6 +97,15 @@ impl TableFactory {
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn import_file_segment(
+        &self,
+        source: &dyn SegmentReader,
+        layout: crate::index::storage::segment::transfer::FileSegmentLayout<'_>,
+        cancelled: &mut dyn FnMut() -> bool,
+    ) -> StorageResult<Option<crate::index::storage::segment::SegmentHandle>> {
+        segments::import_file_segment(source, layout, cancelled, Arc::clone(self))
+    }
+
     fn project_segment_partitions(
         &self,
         source: &dyn SegmentReader,

@@ -553,6 +553,10 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
 
     fn source(&self) -> SegmentSource<'_>;
 
+    fn raw_covers_logical_fields(&self) -> bool {
+        false
+    }
+
     /// Read records in slot order. Borrowed batches charge their row storage,
     /// and decoded batches also charge their owned IDs to the supplied limit.
     fn read_header_batch(
@@ -813,6 +817,10 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
 
     fn source(&self) -> SegmentSource<'_> {
         self.payload().source()
+    }
+
+    fn raw_covers_logical_fields(&self) -> bool {
+        self.payload().raw_covers_logical_fields()
     }
 
     fn read_header_batch(

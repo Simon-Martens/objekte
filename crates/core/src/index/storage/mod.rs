@@ -23,6 +23,17 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    /// Import a sealed file-backed segment via logical blocks. A factory can
+    /// decline a family it cannot preserve before beginning the import.
+    fn import_file_segment(
+        &self,
+        _source: &dyn segment::SegmentReader,
+        _layout: segment::transfer::FileSegmentLayout<'_>,
+        _cancelled: &mut dyn FnMut() -> bool,
+    ) -> StorageResult<Option<segment::SegmentHandle>> {
+        Ok(None)
+    }
+
     fn project_segment_partitions(
         &self,
         source: &dyn segment::SegmentReader,

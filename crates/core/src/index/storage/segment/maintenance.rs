@@ -35,7 +35,7 @@ pub(crate) struct RelinkedFile {
 
 /// Source-free edits of one sealed segment. Results remain private until the
 /// publication coordinator installs a successor revision.
-pub(crate) trait SegmentMaintenance: Send + Sync {
+pub(crate) trait SegmentMaintenance: std::any::Any + Send + Sync {
     fn project_active(
         &self,
         active: &ActiveRecords,

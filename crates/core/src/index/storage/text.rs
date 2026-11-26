@@ -73,6 +73,7 @@ impl GramChannel {
     }
 }
 
+#[derive(Clone, Copy)]
 pub(crate) struct GramDescriptor {
     pub alphabet: BigramAlphabet,
     pub version: u32,

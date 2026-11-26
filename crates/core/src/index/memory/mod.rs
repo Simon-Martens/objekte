@@ -17,6 +17,48 @@ mod worker;
 pub(crate) struct MemoryStorageFactory;
 
 impl super::storage::StorageFactory for MemoryStorageFactory {
+    fn import_file_segment(
+        &self,
+        source: &dyn super::storage::segment::SegmentReader,
+        layout: super::storage::segment::transfer::FileSegmentLayout<'_>,
+        cancelled: &mut dyn FnMut() -> bool,
+    ) -> super::storage::transfer::StorageResult<Option<super::storage::segment::SegmentHandle>>
+    {
+        segment::import::import(source, layout, cancelled)
+    }
+
+    fn project_segment_partitions(
+        &self,
+        source: &dyn super::storage::segment::SegmentReader,
+        partitions: &[super::storage::segment::maintenance::SegmentPartition],
+        catalog: &dyn super::storage::file_catalog::FileCatalogReader,
+        cancelled: &mut dyn FnMut() -> bool,
+    ) -> super::storage::transfer::StorageResult<Vec<super::storage::segment::SegmentHandle>> {
+        use super::storage::segment::transfer::FileSegmentLayout;
+
+        let editor = source.maintenance();
+        if let Some(native) = editor.and_then(|editor| {
+            (editor as &dyn std::any::Any).downcast_ref::<segment::IndexedCollectionSegment>()
+        }) {
+            use super::storage::segment::maintenance::SegmentMaintenance;
+            return SegmentMaintenance::project_partitions(native, partitions, catalog, cancelled);
+        }
+        let mut results = Vec::with_capacity(partitions.len());
+        for partition in partitions {
+            let Some(imported) = self.import_file_segment(
+                source,
+                FileSegmentLayout::Dense { partition, catalog },
+                cancelled,
+            )?
+            else {
+                return super::storage::segment::maintenance::require_maintenance(source)?
+                    .project_partitions(partitions, catalog, cancelled);
+            };
+            results.push(imported);
+        }
+        Ok(results)
+    }
+
     fn consolidate_segments(
         &self,
         segments: &[&dyn super::storage::segment::SegmentReader],

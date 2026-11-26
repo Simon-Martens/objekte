@@ -12,6 +12,40 @@ pub(crate) struct BigramProjection {
     pub(crate) custom: HashMap<(Vec<String>, String), BigramIndex>,
 }
 
+pub(crate) fn transfer_bigram(
+    reader: &dyn GramReader,
+    slots: &SlotMap<'_>,
+    covered_records: u32,
+    bounds: Option<(u32, u32)>,
+    cancelled: &dyn Fn() -> bool,
+) -> crate::index::storage::transfer::StorageResult<BigramIndex> {
+    let mut projected = BigramIndex::new(reader.descriptor().alphabet);
+    projected.record_count = covered_records;
+    visit_gram_blocks(
+        reader,
+        slots.len(),
+        cancelled,
+        &mut |channel, gram, block| {
+            let target = match channel {
+                GramChannel::Adjacent => &mut projected.normal,
+                GramChannel::Skip => &mut projected.skip,
+            };
+            for &old in block {
+                if bounds.is_some_and(|(start, end)| old.0 < start || old.0 >= end) {
+                    continue;
+                }
+                if let Some(new) = slots.get(old.0 as usize).ok_or_else(|| {
+                    StorageError::invalid("project gram blocks", "source slot outside the mapping")
+                })? {
+                    target.entry(gram).or_default().insert(new.0);
+                }
+            }
+            Ok(())
+        },
+    )?;
+    Ok(projected)
+}
+
 pub(crate) fn project_bigram(
     reader: &dyn GramReader,
     slots: &SlotMap<'_>,
@@ -19,34 +53,7 @@ pub(crate) fn project_bigram(
     bounds: Option<(u32, u32)>,
 ) -> Result<BigramIndex, String> {
     let Some(index) = (reader as &dyn std::any::Any).downcast_ref::<BigramIndex>() else {
-        let mut projected = BigramIndex::new(reader.descriptor().alphabet);
-        projected.record_count = new_count;
-        visit_gram_blocks(
-            reader,
-            slots.len(),
-            &|| false,
-            &mut |channel, gram, block| {
-                let target = match channel {
-                    GramChannel::Adjacent => &mut projected.normal,
-                    GramChannel::Skip => &mut projected.skip,
-                };
-                for &old in block {
-                    if bounds.is_some_and(|(start, end)| old.0 < start || old.0 >= end) {
-                        continue;
-                    }
-                    if let Some(new) = slots.get(old.0 as usize).ok_or_else(|| {
-                        StorageError::invalid(
-                            "project gram blocks",
-                            "source slot outside the mapping",
-                        )
-                    })? {
-                        target.entry(gram).or_default().insert(new.0);
-                    }
-                }
-                Ok(())
-            },
-        )?;
-        return Ok(projected);
+        return transfer_bigram(reader, slots, new_count, bounds, &|| false).map_err(String::from);
     };
     let mut projected = BigramIndex::new(index.alphabet);
     projected.record_count = new_count;
