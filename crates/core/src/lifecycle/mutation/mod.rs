@@ -339,7 +339,10 @@ impl Index {
                     let mut prepared = self.prepare_add_file(path)?;
                     let indexed_records = prepared.file.record_count();
                     let prepared_view = self.view()?;
-                    if prepared_view.configuration_identity() != prepared.configuration_identity {
+                    if prepared_view.configuration_identity() != prepared.configuration_identity
+                        || prepared_view.0.catalog.allocated_files()
+                            != prepared.file.source.id.0 as usize
+                    {
                         conflict = Some(IndexError::RevisionConflict {
                             expected: prepared.expected_revision,
                             actual: prepared_view.revision(),
@@ -394,7 +397,14 @@ impl Index {
                 }
                 Err(error @ IndexError::RevisionConflict { .. }) => {
                     conflict = Some(error);
-                    ready = Some((prepared, placement, indexed_records));
+                    // Another append claims the same next file ID. Its
+                    // successor needs fresh preparation for the new ID.
+                    let current = self.view()?;
+                    if current.configuration_identity() == prepared.configuration_identity
+                        && current.0.catalog.allocated_files() == file_id.0 as usize
+                    {
+                        ready = Some((prepared, placement, indexed_records));
+                    }
                 }
                 Err(error) => return Err(error),
             }
