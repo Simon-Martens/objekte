@@ -362,10 +362,10 @@ impl FileDiscoveryBuilder for OrderedFiles {
     fn register(
         &mut self,
         collection: CollectionId,
-        files: Vec<DiscoveredFile>,
+        files: &mut Vec<DiscoveredFile>,
         members: &mut Vec<FileId>,
     ) -> StorageResult<()> {
-        for file in files {
+        for file in files.drain(..) {
             let id = if let Some(id) = self.id_for_path(&file.relative)? {
                 let row = self.position(id).map_err(|_| {
                     StorageError::invalid("register test file", "invalid path route")

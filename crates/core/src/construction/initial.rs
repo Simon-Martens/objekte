@@ -16,7 +16,9 @@ use super::segment_jobs::{
     schedule_private_segment, schedule_segment,
 };
 use crate::construction::batch::{BatchContribution, SourceFileInput};
-use crate::construction::discovery::{prepare_discovered_file, prepare_discovered_window};
+use crate::construction::discovery::{
+    prepare_discovered_file, prepare_discovered_window, register_discovery_window,
+};
 use crate::construction::scheduling::RepositoryFileJob;
 use crate::index::segment::SegmentId;
 use crate::index::storage::StorageFactory;
@@ -1055,11 +1057,7 @@ impl Repository {
                         .saturating_add(started.elapsed().as_nanos() as u64);
                 }
                 let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-                let prepared = prepared
-                    .into_iter()
-                    .collect::<Result<Vec<_>, _>>()
-                    .map_err(IndexError::Build)?;
-                discovery_writer.register(id, prepared, &mut members)?;
+                register_discovery_window(discovery_writer.as_mut(), id, prepared, &mut members)?;
                 if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
                     profile.discovery_ordered_insert_ns = profile
                         .discovery_ordered_insert_ns

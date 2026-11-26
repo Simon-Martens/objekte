@@ -5,8 +5,13 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 use rayon::prelude::*;
 
-use crate::index::storage::file_catalog::DiscoveredFile;
+use crate::index::storage::file_catalog::{
+    DiscoveredFile, FILE_TRANSFER_LIMIT, FileDiscoveryBuilder,
+};
+use crate::index::storage::transfer::StorageError;
 use crate::inventory::SourceRevision;
+use crate::lifecycle::IndexError;
+use crate::model::{CollectionId, FileId};
 
 pub(crate) fn prepare_discovered_file(
     root: &Path,
@@ -56,6 +61,45 @@ pub(crate) fn prepare_discovered_window(
             })
             .collect()
     })
+}
+
+/// Feed the discovery editor bounded owned rows in metadata order.
+pub(crate) fn register_discovery_window(
+    writer: &mut dyn FileDiscoveryBuilder,
+    collection: CollectionId,
+    prepared: Vec<Result<DiscoveredFile, String>>,
+    members: &mut Vec<FileId>,
+) -> Result<(), IndexError> {
+    const OP: &str = "register discovered files";
+    let mut batch = Vec::new();
+    let mut bytes = 0;
+    let mut write = |batch: &mut Vec<DiscoveredFile>| {
+        let count = batch.len();
+        let previous = members.len();
+        writer.register(collection, batch, members)?;
+        if !batch.is_empty() || members.len().checked_sub(previous) != Some(count) {
+            return Err(StorageError::invalid(
+                OP,
+                "discovery register count mismatch",
+            ));
+        }
+        Ok(())
+    };
+    for row in prepared {
+        let row = row.map_err(IndexError::Build)?;
+        let row_bytes = size_of::<DiscoveredFile>().saturating_add(row.relative.as_os_str().len());
+        if !FILE_TRANSFER_LIMIT.accepts(OP, batch.len(), bytes, row_bytes)? {
+            write(&mut batch)?;
+            FILE_TRANSFER_LIMIT.accepts(OP, 0, 0, row_bytes)?;
+            bytes = 0;
+        }
+        batch.push(row);
+        bytes += row_bytes;
+    }
+    if !batch.is_empty() {
+        write(&mut batch)?;
+    }
+    Ok(())
 }
 
 #[cfg(test)]

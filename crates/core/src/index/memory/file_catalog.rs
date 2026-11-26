@@ -176,10 +176,10 @@ impl FileDiscoveryBuilder for FileInventory {
     fn register(
         &mut self,
         collection: CollectionId,
-        files: Vec<DiscoveredFile>,
+        files: &mut Vec<DiscoveredFile>,
         members: &mut Vec<FileId>,
     ) -> StorageResult<()> {
-        for file in files {
+        for file in files.drain(..) {
             let id = self
                 .add(file.relative, file.revision, file.created_ns, collection)
                 .map_err(|error| StorageError::invalid("register discovered file", error))?;

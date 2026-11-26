@@ -183,7 +183,7 @@ pub(crate) trait FileDiscoveryBuilder: Send {
     fn register(
         &mut self,
         collection: CollectionId,
-        files: Vec<DiscoveredFile>,
+        files: &mut Vec<DiscoveredFile>,
         members: &mut Vec<FileId>,
     ) -> StorageResult<()>;
 
