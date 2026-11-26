@@ -159,12 +159,19 @@ pub(crate) enum RelationFactKind {
     Target { id: String, positions: Vec<u32> },
 }
 
+#[cfg_attr(
+    not(test),
+    allow(dead_code, reason = "consumed by backend worker writers")
+)]
 pub(crate) struct RelationFact {
     pub slot: RecordSlot,
     pub kind: RelationFactKind,
 }
 
-pub(crate) trait RelationWriter: Send {
+pub(crate) trait RelationWriter: std::any::Any + Send {
+    /// Adopt a prepared local writer from the same store at its assigned slot base.
+    fn merge_worker(&mut self, base: u32, worker: Box<dyn RelationWriter>) -> StorageResult<()>;
+
     fn push(&mut self, base: u32, facts: &[RelationFact]) -> StorageResult<()>;
     fn seal(self: Box<Self>, slots: u32) -> StorageResult<std::sync::Arc<dyn RelationReader>>;
 }

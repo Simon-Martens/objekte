@@ -6,12 +6,16 @@ use crate::model::text::{fold, folded_chars};
 struct StreamCollector(String);
 
 impl FoldedSink for StreamCollector {
-    fn ascii(&mut self, byte: u8) {
+    type Error = std::convert::Infallible;
+
+    fn ascii(&mut self, byte: u8) -> Result<(), Self::Error> {
         self.0.push(char::from(byte));
+        Ok(())
     }
 
-    fn scalar(&mut self, scalar: char) {
+    fn scalar(&mut self, scalar: char) -> Result<(), Self::Error> {
         self.0.push(scalar);
+        Ok(())
     }
 }
 
@@ -53,7 +57,7 @@ fn direct_folded_stream_and_gram_windows_match_full_fold_oracle() {
     for sample in &samples {
         let oracle = folded_chars(sample).collect::<String>();
         let mut collected = StreamCollector::default();
-        walk_folded_scalar(sample, &mut collected);
+        walk_folded_scalar(sample, &mut collected).unwrap();
         assert_eq!(collected.0, oracle, "sample={sample:?}");
         for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
             let mut expected = Vec::new();

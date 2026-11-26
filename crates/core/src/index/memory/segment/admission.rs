@@ -11,7 +11,7 @@ use crate::index::memory::bigram::BigramAlphabet;
 use crate::index::memory::bigram::placement::{GramAggregate, PlacedGrams};
 use crate::index::memory::inference::InferenceBuilder;
 use crate::index::memory::inventory::append_shifted_bitmap;
-use crate::index::memory::posting::placement::{PostingBatches, PostingWriters};
+use crate::index::memory::posting::placement::PostingWriters;
 use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::memory::relation::placement::{PlacedRelations, RelationAggregate};
 use crate::index::memory::segment::{
@@ -103,7 +103,7 @@ impl SegmentAggregate {
         gram_store: Option<std::sync::Arc<dyn GramStore>>,
         relation_store: Option<std::sync::Arc<dyn RelationStore>>,
     ) -> Result<Self, String> {
-        let placed = PostingBatches::new(definition.schema(), posting_store);
+        let placed = PostingWriters::new(definition.schema(), posting_store)?;
         let custom_postings = definition
             .schema()
             .operations
@@ -149,7 +149,7 @@ impl SegmentAggregate {
             postings: PostingCollection::new_filtered(definition.schema(), |path| {
                 !placed.has(path, None)
             }),
-            placed_postings: PostingWriters::from_batch(&placed)?,
+            placed_postings: placed,
             postings_pristine: true,
             inference: InferenceBuilder::for_collection(inference_config, collection_count),
             custom_postings,
@@ -215,7 +215,7 @@ impl SegmentAggregate {
             relations: batch_relations,
             relation_store: _,
         } = *NativeIndexBatch::take(batch.indexes)?;
-        placed_postings.push(batch_placed, base, count)?;
+        placed_postings.push(batch_placed, base)?;
         let transfer_postings = base == 0 && *postings_pristine;
         if count != 0 {
             *postings_pristine = false;

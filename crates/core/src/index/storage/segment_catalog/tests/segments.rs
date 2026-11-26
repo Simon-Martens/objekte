@@ -1143,6 +1143,38 @@ struct TablePostingWriter {
 }
 
 impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
+    fn merge_worker(
+        &mut self,
+        base: u32,
+        worker: Box<dyn crate::index::storage::posting::PostingWriter>,
+    ) -> StorageResult<()> {
+        let worker: Box<dyn std::any::Any + Send> = worker;
+        let worker = worker
+            .downcast::<Self>()
+            .map_err(|_| invalid("wrong posting writer"))?;
+        if self.path != worker.path {
+            return Err(invalid("different posting paths"));
+        }
+        let shift = |slot: u32| {
+            base.checked_add(slot)
+                .ok_or_else(|| invalid("posting slot overflow"))
+        };
+        for slot in worker.present {
+            self.present.insert(shift(slot)?);
+        }
+        for (key, slots) in worker.keys {
+            let members = self.keys.entry(key).or_default();
+            for slot in slots {
+                members.insert(shift(slot)?);
+            }
+        }
+        self.covered_records = self
+            .covered_records
+            .checked_add(worker.covered_records)
+            .ok_or_else(|| invalid("posting coverage overflow"))?;
+        Ok(())
+    }
+
     fn push_facts(
         &mut self,
         base: u32,

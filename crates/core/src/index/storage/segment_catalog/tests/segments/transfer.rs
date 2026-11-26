@@ -129,15 +129,58 @@ struct TableGramWriter {
 }
 
 impl crate::index::storage::text::GramWriter for TableGramWriter {
+    fn observe_worker_pending(&mut self, facts: usize, bytes: usize) {
+        self.control
+            .gram_worker_peak_facts
+            .fetch_max(facts, Ordering::Relaxed);
+        self.control
+            .gram_worker_peak_bytes
+            .fetch_max(bytes, Ordering::Relaxed);
+    }
+
+    fn merge_worker(
+        &mut self,
+        base: u32,
+        worker: Box<dyn crate::index::storage::text::GramWriter>,
+    ) -> StorageResult<()> {
+        let worker: Box<dyn std::any::Any + Send> = worker;
+        let worker = worker
+            .downcast::<Self>()
+            .map_err(|_| invalid("wrong gram writer"))?;
+        if self.alphabet != worker.alphabet {
+            return Err(invalid("different gram alphabets"));
+        }
+        for (key, slots) in worker.rows {
+            let output = self.rows.entry(key).or_default();
+            for slot in slots {
+                output.insert(RecordSlot(
+                    base.checked_add(slot.0)
+                        .ok_or_else(|| invalid("gram slot overflow"))?,
+                ));
+            }
+        }
+        Ok(())
+    }
+
     fn push(
         &mut self,
         base: u32,
         facts: &[crate::index::storage::text::GramFact],
     ) -> StorageResult<()> {
         assert!(facts.len() <= 256);
-        self.control
+        let batch = self
+            .control
             .gram_fact_batches
-            .fetch_add(1, Ordering::Relaxed);
+            .fetch_add(1, Ordering::Relaxed)
+            + 1;
+        if self
+            .control
+            .cancel_gram_after_batches
+            .load(Ordering::Relaxed)
+            == batch
+        {
+            return Err(StorageError::Cancelled);
+        }
         for fact in facts {
             let slot = base
                 .checked_add(fact.slot.0)
@@ -331,6 +374,35 @@ struct TableRelationWriter {
 }
 
 impl crate::index::storage::relation::RelationWriter for TableRelationWriter {
+    fn merge_worker(
+        &mut self,
+        base: u32,
+        worker: Box<dyn crate::index::storage::relation::RelationWriter>,
+    ) -> StorageResult<()> {
+        let worker: Box<dyn std::any::Any + Send> = worker;
+        let worker = worker
+            .downcast::<Self>()
+            .map_err(|_| invalid("wrong relation writer"))?;
+        if self.declaration != worker.declaration {
+            return Err(invalid("different relation declarations"));
+        }
+        let shift = |slot: u32| {
+            base.checked_add(slot)
+                .ok_or_else(|| invalid("relation slot overflow"))
+        };
+        for (slot, facts) in worker.facts {
+            if self.facts.insert(shift(slot)?, facts).is_some() {
+                return Err(invalid("duplicate relation source row"));
+            }
+        }
+        for (slot, targets) in worker.targets {
+            if self.targets.insert(shift(slot)?, targets).is_some() {
+                return Err(invalid("duplicate relation target row"));
+            }
+        }
+        Ok(())
+    }
+
     fn push(
         &mut self,
         base: u32,
@@ -794,6 +866,126 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     table.grams = grams;
     table.raw_covers_logical_fields = source.raw_covers_logical_fields();
     Ok(Some(Arc::new(table)))
+}
+
+#[test]
+fn selected_gram_worker_bounds_pending_occurrences_and_aborts_failed_writes() {
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
+
+    let store = Arc::new(TableFactory::default());
+    store.store_grams.store(true, Ordering::Relaxed);
+    let build = |factory| {
+        let mut builder = Index::builder();
+        builder.use_storage_factory(factory);
+        let items = builder.collection("items", Schema::default()).unwrap();
+        let registration = builder.register_records(items, "gram-worker", 1).unwrap();
+        (builder.build().unwrap(), registration)
+    };
+    let (selected, selected_registration) = build(Arc::new(Arc::clone(&store)));
+    let (native, native_registration) = build(crate::index::storage::default_factory());
+    let selected_session = selected.ingestion();
+    let native_session = native.ingestion();
+    let selected_writer = selected_session.writer(selected_registration).unwrap();
+    let native_writer = native_session.writer(native_registration).unwrap();
+    let diversity = |length| {
+        let mut seed = 205u32;
+        (0..length)
+            .map(|_| {
+                seed = seed.wrapping_mul(1664525).wrapping_add(1013904223);
+                char::from(33 + ((seed >> 24) % 90) as u8)
+            })
+            .collect::<String>()
+    };
+    let read = || {
+        (
+            store.gram_worker_peak_facts.swap(0, Ordering::Relaxed),
+            store.gram_worker_peak_bytes.swap(0, Ordering::Relaxed),
+        )
+    };
+    let mut measurements = Vec::new();
+    let fixtures: [(&str, &dyn Fn(usize) -> String); 2] = [
+        ("repeated", &|length| "a".repeat(length)),
+        ("diverse", &diversity),
+    ];
+    for (kind, make_text) in fixtures {
+        for length in [64 * 1024, 640 * 1024] {
+            let id = format!("{kind}-{length}");
+            let text = format!("{} Marker {kind}", make_text(length));
+            for writer in [&selected_writer, &native_writer] {
+                let mut batch = writer.batch();
+                batch
+                    .insert(
+                        id.clone(),
+                        Value::Object(BTreeMap::from([(
+                            "title".into(),
+                            Value::String(text.clone()),
+                        )])),
+                    )
+                    .unwrap();
+                writer.submit(batch).unwrap().wait_published().unwrap();
+            }
+            let (pending, bytes) = read();
+            assert_eq!(pending, 256);
+            assert_eq!(
+                bytes,
+                256 * size_of::<crate::index::storage::text::GramFact>()
+            );
+            measurements.push((kind, length, pending, bytes));
+        }
+        let mut query = score_query();
+        query.collections = vec!["items".into()];
+        query.filter = None;
+        query.options.return_mode = ReturnMode::Locator;
+        query.fts = Some(FtsQuery {
+            literal: format!("Marker {kind}"),
+            mode: FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Insensitive,
+            fields: Vec::new(),
+            pattern_parameter: None,
+        });
+        let actual = selected.view().unwrap().search(&query).unwrap();
+        let expected = native.view().unwrap().search(&query).unwrap();
+        assert_eq!(actual.count, Some(2));
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| &hit.record_id)
+                .collect::<Vec<_>>(),
+            expected
+                .hits
+                .iter()
+                .map(|hit| &hit.record_id)
+                .collect::<Vec<_>>(),
+        );
+    }
+    eprintln!("alternate gram worker pending facts and bytes {measurements:?}");
+
+    let before = selected.view().unwrap().revision();
+    let next_batch = store.gram_fact_batches.load(Ordering::Relaxed) + 1;
+    store
+        .cancel_gram_after_batches
+        .store(next_batch, Ordering::Relaxed);
+    let mut batch = selected_writer.batch();
+    batch
+        .insert(
+            "cancelled",
+            Value::Object(BTreeMap::from([(
+                "title".into(),
+                Value::String("a".repeat(640 * 1024)),
+            )])),
+        )
+        .unwrap();
+    let error = selected_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap_err();
+    assert!(error.to_string().contains("cancelled"), "{error}");
+    assert_eq!(store.gram_fact_batches.load(Ordering::Relaxed), next_batch);
+    assert_eq!(selected.view().unwrap().revision(), before);
+    selected.shutdown().unwrap();
+    native.shutdown().unwrap();
 }
 
 #[test]

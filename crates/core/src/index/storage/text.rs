@@ -270,7 +270,13 @@ pub(crate) struct GramFact {
     pub key: u64,
 }
 
-pub(crate) trait GramWriter: Send {
+pub(crate) trait GramWriter: std::any::Any + Send {
+    #[cfg(test)]
+    fn observe_worker_pending(&mut self, _facts: usize, _bytes: usize) {}
+
+    /// Adopt a prepared local writer from the same store at its assigned slot base.
+    fn merge_worker(&mut self, base: u32, worker: Box<dyn GramWriter>) -> StorageResult<()>;
+
     fn push(&mut self, base: u32, facts: &[GramFact]) -> StorageResult<()>;
     fn seal(self: Box<Self>, slots: u32) -> StorageResult<std::sync::Arc<dyn GramReader>>;
 }

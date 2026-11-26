@@ -5,6 +5,7 @@ use std::sync::Arc;
 
 use crate::construction::batch::map_binding_value;
 use crate::index::memory::segment::projection::SlotMap;
+use crate::index::memory::worker::FactBuffer;
 use crate::index::storage::component::ComponentKind;
 use crate::index::storage::posting::{
     POSTING_BLOCK_LIMIT, PostingDefinition, PostingFact, PostingReader, PostingStore,
@@ -21,66 +22,85 @@ const OP: &str = "write selected posting";
 #[derive(Default)]
 pub(in crate::index::memory) struct PostingBatches {
     pub store: Option<Arc<dyn PostingStore>>,
-    definitions: HashMap<Binding, PostingDefinition>,
-    facts: HashMap<Binding, (Vec<PostingFact>, bool)>,
+    workers: HashMap<Binding, PostingWorker>,
+}
+
+struct PostingWorker {
+    facts: FactBuffer<PostingFact>,
+    writer: Box<dyn PostingWriter>,
+    complete: bool,
+}
+
+fn selected_definitions(
+    schema: &Schema,
+    store: &dyn PostingStore,
+) -> HashMap<Binding, (PostingDefinition, bool)> {
+    let mut definitions = HashMap::new();
+    let mut select = |field: &crate::schema::FieldDefinition, binding: Option<String>, complete| {
+        let mut definition = PostingDefinition {
+            field: field.clone(),
+            binding: binding.clone(),
+            inferred: false,
+            length_complete: field.multi,
+            empty_string_complete: field.kind == crate::model::LogicalType::String,
+        };
+        if !field.indexed && schema.is_auto_index_prohibited(&field.path) && binding.is_none() {
+            definition.length_complete = false;
+            definition.empty_string_complete = false;
+        }
+        if store.accepts(&definition) {
+            definitions.insert((field.path.clone(), binding), (definition, complete));
+        }
+    };
+    for field in schema.fields.values() {
+        select(field, None, true);
+    }
+    for ((path, binding), registered) in &schema.operations {
+        if registered.operation.posting() {
+            select(
+                &schema.fields[path],
+                Some(binding.clone()),
+                registered.operation.complete_coverage(),
+            );
+        }
+    }
+    definitions
+}
+
+fn has_binding<T>(bindings: &HashMap<Binding, T>, path: &[String], binding: Option<&str>) -> bool {
+    !bindings.is_empty() && bindings.contains_key(&(path.to_vec(), binding.map(str::to_owned)))
 }
 
 impl PostingBatches {
-    pub fn new(schema: &Schema, store: Option<Arc<dyn PostingStore>>) -> Self {
+    pub fn new(schema: &Schema, store: Option<Arc<dyn PostingStore>>) -> StorageResult<Self> {
         let Some(store) = store else {
-            return Self::default();
+            return Ok(Self::default());
         };
-        let mut definitions = HashMap::new();
-        let mut facts = HashMap::new();
-        let mut select = |field: &crate::schema::FieldDefinition,
-                          binding: Option<String>,
-                          complete| {
-            let mut definition = PostingDefinition {
-                field: field.clone(),
-                binding: binding.clone(),
-                inferred: false,
-                length_complete: field.multi,
-                empty_string_complete: field.kind == crate::model::LogicalType::String,
-            };
-            if !field.indexed && schema.is_auto_index_prohibited(&field.path) && binding.is_none() {
-                definition.length_complete = false;
-                definition.empty_string_complete = false;
-            }
-            if store.accepts(&definition) {
-                let key = (field.path.clone(), binding);
-                definitions.insert(key.clone(), definition);
-                facts.insert(key, (Vec::new(), complete));
-            }
-        };
-        for field in schema.fields.values() {
-            select(field, None, true);
-        }
-        for ((path, binding), registered) in &schema.operations {
-            if registered.operation.posting() {
-                select(
-                    &schema.fields[path],
-                    Some(binding.clone()),
-                    registered.operation.complete_coverage(),
-                );
-            }
-        }
-        Self {
+        let workers = selected_definitions(schema, store.as_ref())
+            .into_iter()
+            .map(|(key, (definition, complete))| {
+                Ok((
+                    key,
+                    PostingWorker {
+                        facts: FactBuffer::new(POSTING_BLOCK_LIMIT),
+                        writer: store.start(&definition)?,
+                        complete,
+                    },
+                ))
+            })
+            .collect::<StorageResult<_>>()?;
+        Ok(Self {
             store: Some(store),
-            definitions,
-            facts,
-        }
+            workers,
+        })
     }
 
     pub fn has(&self, path: &[String], binding: Option<&str>) -> bool {
-        if self.definitions.is_empty() {
-            return false;
-        }
-        self.definitions
-            .contains_key(&(path.to_vec(), binding.map(str::to_owned)))
+        has_binding(&self.workers, path, binding)
     }
 
-    pub fn add(&mut self, schema: &Schema, slot: RecordSlot, value: &Value) {
-        for (key @ (path, binding), (facts, complete)) in &mut self.facts {
+    pub fn add(&mut self, schema: &Schema, slot: RecordSlot, value: &Value) -> StorageResult<()> {
+        for (key @ (path, binding), worker) in &mut self.workers {
             let selected = data_values_small(value, path);
             let selected = if binding.is_some() {
                 let name = key.1.as_ref().expect("named binding");
@@ -91,15 +111,34 @@ impl PostingBatches {
                         .map(|value| map_binding_value(operation.as_ref(), value))
                         .collect();
                     if mapped.is_none() {
-                        *complete = false;
+                        worker.complete = false;
                     }
                     mapped
                 })
             } else {
                 selected.map(|values| values.iter().map(|value| (*value).clone()).collect())
             };
-            facts.push(PostingFact { slot, selected });
+            let bytes = selected
+                .iter()
+                .flatten()
+                .map(crate::ingestion::estimated_value_bytes)
+                .fold(size_of::<PostingFact>(), usize::saturating_add);
+            worker
+                .facts
+                .add(OP, PostingFact { slot, selected }, bytes, |batch| {
+                    worker.writer.push_facts(0, batch)
+                })?;
         }
+        Ok(())
+    }
+
+    pub fn finish(&mut self) -> StorageResult<()> {
+        for worker in self.workers.values_mut() {
+            worker
+                .facts
+                .flush(|batch| worker.writer.push_facts(0, batch))?;
+        }
+        Ok(())
     }
 }
 
@@ -109,66 +148,37 @@ pub(in crate::index::memory) struct PostingWriters {
 }
 
 impl PostingWriters {
-    pub fn from_batch(batch: &PostingBatches) -> StorageResult<Self> {
-        let entries = match &batch.store {
-            Some(store) => batch
-                .definitions
-                .iter()
-                .map(|(key, definition)| {
-                    Ok((
-                        key.clone(),
-                        (store.start(definition)?, definition.clone(), true),
-                    ))
+    pub fn new(schema: &Schema, store: Option<Arc<dyn PostingStore>>) -> StorageResult<Self> {
+        let entries = match &store {
+            Some(store) => selected_definitions(schema, store.as_ref())
+                .into_iter()
+                .map(|(key, (definition, complete))| {
+                    Ok((key, (store.start(&definition)?, definition, complete)))
                 })
                 .collect::<StorageResult<_>>()?,
             None => HashMap::new(),
         };
-        Ok(Self {
-            entries,
-            store: batch.store.clone(),
-        })
+        Ok(Self { entries, store })
     }
 
-    pub fn push(&mut self, batch: PostingBatches, base: u32, slots: u32) -> StorageResult<()> {
-        if batch.facts.len() != self.entries.len() {
+    pub fn has(&self, path: &[String], binding: Option<&str>) -> bool {
+        has_binding(&self.entries, path, binding)
+    }
+
+    pub fn push(&mut self, batch: PostingBatches, base: u32) -> StorageResult<()> {
+        if batch.workers.len() != self.entries.len() {
             return Err(StorageError::invalid(
                 OP,
                 "posting component coverage mismatch",
             ));
         }
-        for (key, (facts, complete)) in batch.facts {
+        for (key, worker) in batch.workers {
             let (writer, _, all_complete) = self
                 .entries
                 .get_mut(&key)
                 .ok_or_else(|| StorageError::invalid(OP, "missing selected posting"))?;
-            *all_complete &= complete;
-            if facts.last().is_some_and(|fact| fact.slot.0 >= slots) {
-                return Err(StorageError::invalid(
-                    OP,
-                    "posting facts outside batch slot domain",
-                ));
-            }
-            let mut start = 0;
-            let mut bytes = 0;
-            for (index, fact) in facts.iter().enumerate() {
-                let next = size_of::<PostingFact>()
-                    + fact
-                        .selected
-                        .iter()
-                        .flatten()
-                        .map(crate::ingestion::estimated_value_bytes)
-                        .sum::<usize>();
-                if !POSTING_BLOCK_LIMIT.accepts(OP, index - start, bytes, next)? {
-                    writer.push_facts(base, &facts[start..index])?;
-                    start = index;
-                    bytes = 0;
-                    POSTING_BLOCK_LIMIT.accepts(OP, 0, 0, next)?;
-                }
-                bytes += next;
-            }
-            if start < facts.len() {
-                writer.push_facts(base, &facts[start..])?;
-            }
+            *all_complete &= worker.complete;
+            writer.merge_worker(base, worker.writer)?;
         }
         Ok(())
     }

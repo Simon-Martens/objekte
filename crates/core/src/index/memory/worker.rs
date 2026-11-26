@@ -36,6 +36,65 @@ use crate::index::storage::relation::RelationStore;
 use crate::index::storage::text::{GramBinding, GramStore};
 use std::sync::Arc;
 
+/// Pending facts owned by extraction. A full buffer drains into a worker-local
+/// backend writer before the next fact is retained.
+pub(in crate::index::memory) struct FactBuffer<T> {
+    facts: Vec<T>,
+    bytes: usize,
+    limit: crate::index::storage::transfer::BatchLimit,
+    #[cfg(test)]
+    peak_pending: usize,
+}
+
+impl<T> FactBuffer<T> {
+    pub fn new(limit: crate::index::storage::transfer::BatchLimit) -> Self {
+        Self {
+            facts: Vec::new(),
+            bytes: 0,
+            limit,
+            #[cfg(test)]
+            peak_pending: 0,
+        }
+    }
+
+    #[cfg(test)]
+    pub fn peak_pending(&self) -> usize {
+        self.peak_pending
+    }
+
+    pub fn add(
+        &mut self,
+        operation: &'static str,
+        fact: T,
+        size: usize,
+        mut write: impl FnMut(&[T]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        if !self
+            .limit
+            .accepts(operation, self.facts.len(), self.bytes, size)?
+        {
+            self.flush(&mut write)?;
+            self.limit.accepts(operation, 0, 0, size)?;
+        }
+        self.bytes += size;
+        self.facts.push(fact);
+        #[cfg(test)]
+        {
+            self.peak_pending = self.peak_pending.max(self.facts.len());
+        }
+        Ok(())
+    }
+
+    pub fn flush(&mut self, write: impl FnOnce(&[T]) -> StorageResult<()>) -> StorageResult<()> {
+        if !self.facts.is_empty() {
+            write(&self.facts)?;
+            self.facts.clear();
+            self.bytes = 0;
+        }
+        Ok(())
+    }
+}
+
 pub(super) struct NativeIndexBatch {
     pub(super) postings: PostingCollection,
     pub(super) placed_postings: PostingBatches,
@@ -118,7 +177,7 @@ impl<'a> MemoryWorker<'a> {
         relation_store: Option<Arc<dyn RelationStore>>,
     ) -> Result<Self, String> {
         let schema = definition.schema();
-        let placed_postings = PostingBatches::new(schema, posting_store);
+        let placed_postings = PostingBatches::new(schema, posting_store)?;
         let custom_postings = schema
             .operations
             .iter()
@@ -153,10 +212,10 @@ impl<'a> MemoryWorker<'a> {
                     alphabet,
                     &GramBinding::Field(key.0.clone(), key.1.clone()),
                     gram_store.as_deref(),
-                );
-                (key, writer)
+                )?;
+                Ok((key, writer))
             })
-            .collect();
+            .collect::<StorageResult<_>>()?;
         Ok(Self {
             schema,
             collection_name: definition.name(),
@@ -166,8 +225,12 @@ impl<'a> MemoryWorker<'a> {
             placed_postings,
             inference: InferenceBuilder::with_job_count(inference, true, inference_jobs),
             custom_postings,
-            raw: GramWorker::new(alphabet, &GramBinding::Raw, gram_store.as_deref()),
-            fallback_text: GramWorker::new(alphabet, &GramBinding::Fallback, gram_store.as_deref()),
+            raw: GramWorker::new(alphabet, &GramBinding::Raw, gram_store.as_deref())?,
+            fallback_text: GramWorker::new(
+                alphabet,
+                &GramBinding::Fallback,
+                gram_store.as_deref(),
+            )?,
             gram_store,
             custom_text,
             logical_records: RoaringBitmap::new(),
@@ -183,7 +246,7 @@ impl<'a> MemoryWorker<'a> {
                 .relations()
                 .values()
                 .map(|definition| RelationWorker::new(definition, relation_store.as_deref()))
-                .collect(),
+                .collect::<StorageResult<_>>()?,
             relation_store,
         })
     }
@@ -220,7 +283,11 @@ impl<'a> MemoryWorker<'a> {
         Ok(())
     }
 
-    fn finish(self) -> Result<Box<dyn PreparedIndexes>, String> {
+    fn finish(mut self) -> Result<Box<dyn PreparedIndexes>, String> {
+        self.placed_postings.finish()?;
+        for relation in &mut self.relations {
+            relation.finish()?;
+        }
         let custom_text = self
             .custom_text
             .into_iter()
@@ -261,7 +328,7 @@ impl MemoryWorker<'_> {
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
         self.postings.add(slot, &extracted.value)?;
         self.placed_postings
-            .add(self.schema, slot, &extracted.value);
+            .add(self.schema, slot, &extracted.value)?;
         if let Some(started) = stage_started {
             profile.postings_ns += started.elapsed().as_nanos() as u64;
         }

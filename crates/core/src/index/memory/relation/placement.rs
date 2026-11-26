@@ -5,6 +5,7 @@ use std::sync::Arc;
 
 use super::{RelationContribution, visit_reference};
 use crate::index::memory::segment::projection::SlotMap;
+use crate::index::memory::worker::FactBuffer;
 use crate::index::storage::relation::{
     RelationBlock, RelationFact, RelationFactKind, RelationFacts, RelationReader, RelationStore,
     RelationWriter, visit_relation_blocks,
@@ -24,21 +25,28 @@ pub(in crate::index::memory) enum RelationWorker {
     Placed {
         definition: RelationDefinition,
         count: u32,
-        facts: Vec<RelationFact>,
+        facts: FactBuffer<RelationFact>,
+        writer: Box<dyn RelationWriter>,
     },
 }
 
 impl RelationWorker {
-    pub fn new(definition: &RelationDefinition, store: Option<&dyn RelationStore>) -> Self {
-        if store.is_some_and(|store| store.accepts(definition)) {
-            Self::Placed {
-                definition: definition.clone(),
-                count: 0,
-                facts: Vec::new(),
-            }
-        } else {
-            Self::Native(RelationContribution::empty(definition.clone()))
-        }
+    pub fn new(
+        definition: &RelationDefinition,
+        store: Option<&dyn RelationStore>,
+    ) -> StorageResult<Self> {
+        Ok(
+            if let Some(store) = store.filter(|store| store.accepts(definition)) {
+                Self::Placed {
+                    definition: definition.clone(),
+                    count: 0,
+                    facts: FactBuffer::new(LIMIT),
+                    writer: store.start(definition)?,
+                }
+            } else {
+                Self::Native(RelationContribution::empty(definition.clone()))
+            },
+        )
     }
 
     pub fn add_logical(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {
@@ -48,13 +56,16 @@ impl RelationWorker {
                 definition,
                 count,
                 facts,
+                writer,
             } => {
                 advance(count, slot)?;
-                let position = facts.len();
-                facts.push(RelationFact {
-                    slot,
-                    kind: RelationFactKind::Source(RelationFacts::default()),
-                });
+                let mut write = |kind| {
+                    let fact = RelationFact { slot, kind };
+                    let size = bytes(&fact);
+                    facts
+                        .add(OP, fact, size, |batch| writer.push(0, batch))
+                        .map_err(|error| error.to_string())
+                };
                 let mut null = false;
                 let mut empty = false;
                 let present = visit_reference(
@@ -64,22 +75,18 @@ impl RelationWorker {
                     &mut null,
                     &mut empty,
                     &mut |id, positions| {
-                        facts.push(RelationFact {
-                            slot,
-                            kind: RelationFactKind::Target {
-                                id: id.to_owned(),
-                                positions: positions.to_vec(),
-                            },
+                        write(RelationFactKind::Target {
+                            id: id.to_owned(),
+                            positions: positions.to_vec(),
                         })
                     },
                 )?;
-                facts[position].kind = RelationFactKind::Source(RelationFacts {
+                write(RelationFactKind::Source(RelationFacts {
                     present,
                     null,
                     empty,
                     unavailable: false,
-                });
-                Ok(())
+                }))
             }
         }
     }
@@ -87,18 +94,33 @@ impl RelationWorker {
     pub fn add_unavailable(&mut self, slot: RecordSlot) -> Result<(), String> {
         match self {
             Self::Native(native) => native.add_unavailable(slot),
-            Self::Placed { count, facts, .. } => {
+            Self::Placed {
+                count,
+                facts,
+                writer,
+                ..
+            } => {
                 advance(count, slot)?;
-                facts.push(RelationFact {
+                let fact = RelationFact {
                     slot,
                     kind: RelationFactKind::Source(RelationFacts {
                         unavailable: true,
                         ..Default::default()
                     }),
-                });
+                };
+                facts.add(OP, fact, size_of::<RelationFact>(), |batch| {
+                    writer.push(0, batch)
+                })?;
                 Ok(())
             }
         }
+    }
+
+    pub fn finish(&mut self) -> StorageResult<()> {
+        if let Self::Placed { facts, writer, .. } = self {
+            facts.flush(|batch| writer.push(0, batch))?;
+        }
+        Ok(())
     }
 }
 
@@ -151,17 +173,14 @@ impl RelationAggregate {
                 Self::Placed { writer, count, .. },
                 RelationWorker::Placed {
                     count: incoming,
-                    facts,
+                    writer: contribution,
                     ..
                 },
             ) => {
-                if base != *count
-                    || incoming != slots
-                    || facts.last().is_some_and(|fact| fact.slot.0 >= slots)
-                {
+                if base != *count || incoming != slots {
                     return Err("relation batch coverage mismatch".into());
                 }
-                push_bounded(writer.as_mut(), base, &facts)?;
+                writer.merge_worker(base, contribution)?;
                 *count = count
                     .checked_add(incoming)
                     .ok_or("relation slot count overflow")?;
@@ -202,29 +221,6 @@ fn bytes(fact: &RelationFact) -> usize {
             id.len().saturating_add(size_of_val(positions.as_slice()))
         }
     })
-}
-
-fn push_bounded(
-    writer: &mut dyn RelationWriter,
-    base: u32,
-    facts: &[RelationFact],
-) -> StorageResult<()> {
-    let mut start = 0;
-    let mut used = 0;
-    for (index, fact) in facts.iter().enumerate() {
-        let size = bytes(fact);
-        if !LIMIT.accepts(OP, index - start, used, size)? {
-            writer.push(base, &facts[start..index])?;
-            start = index;
-            used = 0;
-            LIMIT.accepts(OP, 0, 0, size)?;
-        }
-        used += size;
-    }
-    if start < facts.len() {
-        writer.push(base, &facts[start..])?;
-    }
-    Ok(())
 }
 
 fn check_reader(

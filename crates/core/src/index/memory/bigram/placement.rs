@@ -5,26 +5,33 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use super::{
-    BigramAlphabet, BigramBuilder, BigramContribution, BigramIndex, for_each_segment_gram,
+    BigramAlphabet, BigramBuilder, BigramContribution, BigramIndex, try_each_segment_gram,
 };
 use crate::index::memory::segment::projection::SlotMap;
+use crate::index::memory::worker::FactBuffer;
 use crate::index::storage::text::{
     BIGRAM_VERSION, BigramRequest, GramBinding, GramChannel, GramFact, GramReader, GramStore,
     GramWriter, visit_gram_blocks,
 };
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::storage::transfer::{BatchLimit, StorageError, StorageResult};
 use crate::model::RecordSlot;
 use crate::repository::statistics::BigramConstructionStats;
+use std::num::NonZeroUsize;
 
 const OP: &str = "write selected grams";
 const FACT_BATCH: usize = 256;
+const FACT_LIMIT: BatchLimit = BatchLimit::new(
+    NonZeroUsize::new(FACT_BATCH).unwrap(),
+    NonZeroUsize::new(FACT_BATCH * size_of::<GramFact>()).unwrap(),
+);
 
 pub(in crate::index::memory) enum GramWorker {
     Native(BigramBuilder),
     Placed {
         alphabet: BigramAlphabet,
         count: u32,
-        facts: Vec<GramFact>,
+        facts: FactBuffer<GramFact>,
+        writer: Box<dyn GramWriter>,
     },
 }
 
@@ -33,16 +40,19 @@ impl GramWorker {
         alphabet: BigramAlphabet,
         binding: &GramBinding,
         store: Option<&dyn GramStore>,
-    ) -> Self {
-        if store.is_some_and(|store| store.accepts(binding, alphabet)) {
-            Self::Placed {
-                alphabet,
-                count: 0,
-                facts: Vec::new(),
-            }
-        } else {
-            Self::Native(BigramBuilder::new(alphabet))
-        }
+    ) -> StorageResult<Self> {
+        Ok(
+            if let Some(store) = store.filter(|store| store.accepts(binding, alphabet)) {
+                Self::Placed {
+                    alphabet,
+                    count: 0,
+                    facts: FactBuffer::new(FACT_LIMIT),
+                    writer: store.start(binding, alphabet)?,
+                }
+            } else {
+                Self::Native(BigramBuilder::new(alphabet))
+            },
+        )
     }
 
     pub fn add_record<I, S>(&mut self, slot: RecordSlot, segments: I) -> Result<(), String>
@@ -71,25 +81,31 @@ impl GramWorker {
                 alphabet,
                 count,
                 facts,
+                writer,
             } => {
                 if slot.0 != *count {
                     return Err("gram slots out of order".into());
                 }
                 *count = count.checked_add(1).ok_or("gram slot count overflow")?;
+                let mut result = Ok(());
                 visit(&mut |text| {
-                    for_each_segment_gram(text, *alphabet, |skip, key| {
-                        facts.push(GramFact {
-                            slot,
-                            channel: if skip {
+                    if result.is_ok() {
+                        result = try_each_segment_gram(text, *alphabet, |skip, key| {
+                            let channel = if skip {
                                 GramChannel::Skip
                             } else {
                                 GramChannel::Adjacent
-                            },
-                            key,
+                            };
+                            facts.add(
+                                OP,
+                                GramFact { slot, channel, key },
+                                size_of::<GramFact>(),
+                                |batch| writer.push(0, batch),
+                            )
                         });
-                    })
+                    }
                 });
-                Ok(())
+                result.map_err(|error| error.to_string())
             }
         }
     }
@@ -104,14 +120,30 @@ impl GramWorker {
     pub fn finish_blocks(self) -> Result<GramBatch, String> {
         Ok(match self {
             Self::Native(native) => GramBatch::Native(native.finish_blocks()?),
-            Self::Placed { count, facts, .. } => GramBatch::Placed { count, facts },
+            Self::Placed {
+                count,
+                mut facts,
+                mut writer,
+                ..
+            } => {
+                #[cfg(test)]
+                writer.observe_worker_pending(
+                    facts.peak_pending(),
+                    facts.peak_pending() * size_of::<GramFact>(),
+                );
+                facts.flush(|batch| writer.push(0, batch))?;
+                GramBatch::Placed { count, writer }
+            }
         })
     }
 }
 
 pub(in crate::index::memory) enum GramBatch {
     Native(BigramContribution),
-    Placed { count: u32, facts: Vec<GramFact> },
+    Placed {
+        count: u32,
+        writer: Box<dyn GramWriter>,
+    },
 }
 
 impl GramBatch {
@@ -160,15 +192,13 @@ impl GramAggregate {
                 Self::Placed { writer, count, .. },
                 GramBatch::Placed {
                     count: batch_count,
-                    facts,
+                    writer: contribution,
                 },
             ) => {
-                if base != *count || facts.last().is_some_and(|fact| fact.slot.0 >= batch_count) {
+                if base != *count {
                     return Err("gram batch slot domain mismatch".into());
                 }
-                for facts in facts.chunks(FACT_BATCH) {
-                    writer.push(base, facts)?;
-                }
+                writer.merge_worker(base, contribution)?;
                 *count = count
                     .checked_add(batch_count)
                     .ok_or("gram slot count overflow")?;

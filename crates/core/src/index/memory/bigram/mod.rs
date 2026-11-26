@@ -29,8 +29,9 @@ use crate::index::storage::text::{ascii_pair, unicode_pair};
 /// Construction reads borrowed UTF-8 directly. ASCII bytes need no character
 /// iterator or re-encoding; only non-ASCII scalars enter the locked full fold.
 trait FoldedSink {
-    fn ascii(&mut self, byte: u8);
-    fn scalar(&mut self, scalar: char);
+    type Error;
+    fn ascii(&mut self, byte: u8) -> Result<(), Self::Error>;
+    fn scalar(&mut self, scalar: char) -> Result<(), Self::Error>;
 }
 
 struct AsciiGramSink<E> {
@@ -39,29 +40,33 @@ struct AsciiGramSink<E> {
     emit: E,
 }
 
-impl<E: FnMut(bool, u64)> AsciiGramSink<E> {
-    fn push(&mut self, byte: u8) {
+impl<E: FnMut(bool, u64) -> Result<(), T>, T> AsciiGramSink<E> {
+    fn push(&mut self, byte: u8) -> Result<(), T> {
         if let Some(key) = self.previous.and_then(|left| ascii_pair(left, byte)) {
-            (self.emit)(false, key);
+            (self.emit)(false, key)?;
         }
         if let Some(key) = self.before_previous.and_then(|left| ascii_pair(left, byte)) {
-            (self.emit)(true, key);
+            (self.emit)(true, key)?;
         }
         self.before_previous = self.previous;
         self.previous = Some(byte);
+        Ok(())
     }
 }
 
-impl<E: FnMut(bool, u64)> FoldedSink for AsciiGramSink<E> {
-    fn ascii(&mut self, byte: u8) {
-        self.push(byte);
+impl<E: FnMut(bool, u64) -> Result<(), T>, T> FoldedSink for AsciiGramSink<E> {
+    type Error = T;
+
+    fn ascii(&mut self, byte: u8) -> Result<(), T> {
+        self.push(byte)
     }
 
-    fn scalar(&mut self, scalar: char) {
+    fn scalar(&mut self, scalar: char) -> Result<(), T> {
         let mut bytes = [0; 4];
         for &byte in scalar.encode_utf8(&mut bytes).as_bytes() {
-            self.push(byte);
+            self.push(byte)?;
         }
+        Ok(())
     }
 }
 
@@ -71,26 +76,29 @@ struct UnicodeGramSink<E> {
     emit: E,
 }
 
-impl<E: FnMut(bool, u64)> UnicodeGramSink<E> {
-    fn push(&mut self, scalar: char) {
+impl<E: FnMut(bool, u64) -> Result<(), T>, T> UnicodeGramSink<E> {
+    fn push(&mut self, scalar: char) -> Result<(), T> {
         if let Some(left) = self.previous {
-            (self.emit)(false, unicode_pair(left, scalar));
+            (self.emit)(false, unicode_pair(left, scalar))?;
         }
         if let Some(left) = self.before_previous {
-            (self.emit)(true, unicode_pair(left, scalar));
+            (self.emit)(true, unicode_pair(left, scalar))?;
         }
         self.before_previous = self.previous;
         self.previous = Some(scalar);
+        Ok(())
     }
 }
 
-impl<E: FnMut(bool, u64)> FoldedSink for UnicodeGramSink<E> {
-    fn ascii(&mut self, byte: u8) {
-        self.push(char::from(byte));
+impl<E: FnMut(bool, u64) -> Result<(), T>, T> FoldedSink for UnicodeGramSink<E> {
+    type Error = T;
+
+    fn ascii(&mut self, byte: u8) -> Result<(), T> {
+        self.push(char::from(byte))
     }
 
-    fn scalar(&mut self, scalar: char) {
-        self.push(scalar);
+    fn scalar(&mut self, scalar: char) -> Result<(), T> {
+        self.push(scalar)
     }
 }
 
@@ -104,30 +112,46 @@ fn lower_ascii(byte: u8) -> u8 {
 }
 
 #[inline]
-fn fold_non_ascii(text: &str, offset: usize, sink: &mut impl FoldedSink) -> usize {
+fn fold_non_ascii<S: FoldedSink>(
+    text: &str,
+    offset: usize,
+    sink: &mut S,
+) -> Result<usize, S::Error> {
     // The caller advances by complete scalars, so this is always a UTF-8
     // boundary. Full case folding can expand one scalar into several.
     let scalar = text[offset..].chars().next().expect("non-ASCII scalar");
     for folded in scalar.case_fold_with(Variant::Full, Locale::NonTurkic) {
-        sink.scalar(folded);
+        sink.scalar(folded)?;
     }
-    offset + scalar.len_utf8()
+    Ok(offset + scalar.len_utf8())
 }
 
-fn walk_folded_scalar(text: &str, sink: &mut impl FoldedSink) {
+fn walk_folded_scalar<S: FoldedSink>(text: &str, sink: &mut S) -> Result<(), S::Error> {
     let bytes = text.as_bytes();
     let mut offset = 0;
     while offset < bytes.len() {
         if bytes[offset].is_ascii() {
-            sink.ascii(lower_ascii(bytes[offset]));
+            sink.ascii(lower_ascii(bytes[offset]))?;
             offset += 1;
         } else {
-            offset = fold_non_ascii(text, offset, sink);
+            offset = fold_non_ascii(text, offset, sink)?;
         }
     }
+    Ok(())
 }
 
 fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool, u64)) {
+    let Ok(()) = try_each_segment_gram(text, alphabet, |skip, key| {
+        emit(skip, key);
+        Ok::<_, std::convert::Infallible>(())
+    });
+}
+
+fn try_each_segment_gram<E>(
+    text: &str,
+    alphabet: BigramAlphabet,
+    mut emit: impl FnMut(bool, u64) -> Result<(), E>,
+) -> Result<(), E> {
     match alphabet {
         BigramAlphabet::Ascii => {
             let mut sink = AsciiGramSink {
@@ -135,7 +159,7 @@ fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl Fn
                 before_previous: None,
                 emit: &mut emit,
             };
-            walk_folded_scalar(text, &mut sink);
+            walk_folded_scalar(text, &mut sink)
         }
         BigramAlphabet::Unicode => {
             let mut sink = UnicodeGramSink {
@@ -143,7 +167,7 @@ fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl Fn
                 before_previous: None,
                 emit: &mut emit,
             };
-            walk_folded_scalar(text, &mut sink);
+            walk_folded_scalar(text, &mut sink)
         }
     }
 }

@@ -394,12 +394,19 @@ pub(crate) struct PostingDefinition {
     pub empty_string_complete: bool,
 }
 
+#[cfg_attr(
+    not(test),
+    allow(dead_code, reason = "consumed by backend worker writers")
+)]
 pub(crate) struct PostingFact {
     pub slot: RecordSlot,
     pub selected: Option<Vec<Value>>,
 }
 
-pub(crate) trait PostingWriter: Send {
+pub(crate) trait PostingWriter: std::any::Any + Send {
+    /// Adopt a prepared local writer from the same store at its assigned slot base.
+    fn merge_worker(&mut self, base: u32, worker: Box<dyn PostingWriter>) -> StorageResult<()>;
+
     fn push_facts(&mut self, base: u32, facts: &[PostingFact]) -> StorageResult<()>;
     fn push_members(&mut self, key: PostingKey<'_>, slots: &[RecordSlot]) -> StorageResult<()>;
     fn seal(

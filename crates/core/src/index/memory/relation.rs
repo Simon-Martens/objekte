@@ -771,6 +771,7 @@ impl RelationContribution {
                     target_id: target_id.to_owned(),
                     positions: positions.to_vec(),
                 });
+                Ok(())
             },
         )?;
         if found {
@@ -950,11 +951,11 @@ fn visit_reference(
     positions: &mut Vec<u32>,
     null: &mut bool,
     empty: &mut bool,
-    emit: &mut impl FnMut(&str, &[u32]),
+    emit: &mut impl FnMut(&str, &[u32]) -> Result<(), String>,
 ) -> Result<bool, String> {
     if path.is_empty() {
         match value {
-            Value::Id(id) => emit(id, positions),
+            Value::Id(id) => emit(id, positions)?,
             Value::Null => *null = true,
             Value::Array(array) => {
                 if array.values.is_empty() {
