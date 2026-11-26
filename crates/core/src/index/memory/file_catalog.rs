@@ -618,10 +618,16 @@ impl FileCatalog {
     }
 
     fn entry_for_path(&self, path: &Path) -> Option<&FileEntry> {
-        let id = self.changed_paths[shard(&path)]
-            .get(path)
-            .copied()
-            .or_else(|| self.base_files.id_for(path))?;
+        // When all live paths still belong to the base, metadata edits may
+        // remain but the path lookup can start in the base index.
+        let id = if self.changed_relative_paths.is_empty() {
+            self.base_files.id_for(path)
+        } else {
+            self.changed_paths[shard(&path)]
+                .get(path)
+                .copied()
+                .or_else(|| self.base_files.id_for(path))
+        }?;
         self.entry(id)
             .filter(|entry| entry.relative_path.as_path() == path)
     }
