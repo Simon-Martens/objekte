@@ -6298,7 +6298,7 @@ fn deliver_ranked_all(
     if result.hits.is_empty() {
         return Ok(());
     }
-    let mut source_access = SourceAccessSession::new(&repo.files);
+    let mut source_access = SourceAccessSession::new(&repo.catalog);
     source_access.configure_execution(execution);
     // `batch_rows` is caller-controlled; byte limits govern allocation growth.
     let mut batch = Vec::new();
@@ -6533,7 +6533,7 @@ fn materialize_computed_cached<'a>(
         }
     }
     reads.sort_unstable_by_key(|read| (read.collection_index, read.file_id, read.range.start));
-    let mut source_access = SourceAccessSession::new(&repo.files);
+    let mut source_access = SourceAccessSession::new(&repo.catalog);
     if let Some(execution) = execution {
         source_access.configure_execution(execution);
     }

@@ -666,7 +666,7 @@ fn verify_target_records(
                 .push((slot, record.range));
         }
     }
-    let mut access = SourceAccessSession::new(&repo.files);
+    let mut access = SourceAccessSession::new(&repo.catalog);
     if let Some(execution) = execution {
         access.configure_target_execution(execution);
     }
@@ -899,7 +899,7 @@ fn verify_qualified_targets(
                 .push((address, record.record.range));
         }
     }
-    let mut access = SourceAccessSession::from_catalog(view.repository_root(), view.catalog());
+    let mut access = SourceAccessSession::new(view.catalog());
     if let Some(execution) = execution {
         access.configure_target_execution(execution);
     }

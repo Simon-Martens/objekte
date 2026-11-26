@@ -48,7 +48,7 @@ pub(crate) fn materialize_winner_page(
                     .push((index as u32, record.range));
             }
         }
-        let mut source_access = SourceAccessSession::new(&repo.files);
+        let mut source_access = SourceAccessSession::new(&repo.catalog);
         if let Some(execution) = execution {
             source_access.configure_execution(execution);
         }

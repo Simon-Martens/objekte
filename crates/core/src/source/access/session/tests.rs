@@ -1,6 +1,17 @@
 use super::*;
-use crate::inventory::SourceRevision;
+use crate::index::storage::file_catalog::FileCatalogHandle;
+use crate::inventory::{FileInventory, FileVersion, SourceRevision};
 use crate::model::CollectionId;
+
+fn seal_catalog(inventory: FileInventory) -> FileCatalogHandle {
+    let inventory = Arc::new(inventory);
+    crate::index::storage::test_factory()
+        .file_catalog(
+            &inventory.catalog_base(Vec::new(), [0; 32], 1),
+            FileVersion::INITIAL,
+        )
+        .unwrap()
+}
 
 #[test]
 fn range_windows_are_bounded_and_handles_evict_at_budget() {
@@ -16,7 +27,8 @@ fn range_windows_are_bounded_and_handles_evict_at_budget() {
             .add(path.into(), revision, None, CollectionId(0))
             .unwrap();
     }
-    let mut session = SourceAccessSession::new(&files);
+    let catalog = seal_catalog(files);
+    let mut session = SourceAccessSession::new(&catalog);
     let first = session
         .read(FileId(0), &[(0, ByteRange { start: 0, end: 5 })])
         .unwrap();
@@ -72,7 +84,8 @@ fn window_hits_and_misses_keep_the_reader_at_the_actual_read_end() {
     files
         .add("source.txt".into(), revision, None, CollectionId(0))
         .unwrap();
-    let mut session = SourceAccessSession::new(&files);
+    let catalog = seal_catalog(files);
+    let mut session = SourceAccessSession::new(&catalog);
     for (start, expected_read, expected_seeks) in [
         (0, WINDOW_BYTES, 0),
         (17, 0, 0),
@@ -123,7 +136,8 @@ fn bounded_stream_reads_skip_lookahead_and_cap_spaced_range_windows() {
     files
         .add("spaced.rows".into(), revision, None, CollectionId(0))
         .unwrap();
-    let mut session = SourceAccessSession::new(&files);
+    let catalog = seal_catalog(files);
+    let mut session = SourceAccessSession::new(&catalog);
     let single = session.read_bounded(FileId(0), &ranges[..1], 8192).unwrap();
     assert_eq!(single.bytes_read, 80);
     assert!(session.open[0].window.is_empty());
@@ -167,7 +181,8 @@ fn buffered_hits_reuse_bytes_and_new_reads_trust_the_indexed_revision() {
     files
         .add("source.txt".into(), revision, None, CollectionId(0))
         .unwrap();
-    let mut session = SourceAccessSession::new(&files);
+    let catalog = seal_catalog(files);
+    let mut session = SourceAccessSession::new(&catalog);
     let range = |start| ByteRange {
         start,
         end: start + 1,

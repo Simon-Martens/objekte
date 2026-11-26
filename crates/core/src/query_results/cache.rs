@@ -530,7 +530,7 @@ pub(crate) fn materialize_cached_stream(
     }
     let mut page = Vec::new();
     let mut page_bytes = 0usize;
-    let mut source_access = SourceAccessSession::new(&repo.files);
+    let mut source_access = SourceAccessSession::new(&repo.catalog);
     if let Some(execution) = execution {
         source_access.configure_execution(execution);
     }
@@ -653,7 +653,7 @@ pub(crate) fn materialize_cached(
             payload: None,
         });
     }
-    let mut source_access = SourceAccessSession::new(&repo.files);
+    let mut source_access = SourceAccessSession::new(&repo.catalog);
     for ((collection_index, file_id), ranges) in files {
         let collection = &repo.collections[collection_index];
         source_access.select_backend(&collection.required_file_reader());

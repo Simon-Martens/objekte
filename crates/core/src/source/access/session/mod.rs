@@ -6,7 +6,7 @@ use std::{path::Path, sync::Arc};
 use crate::source::{SourceReader, registry::PreparedSource};
 
 use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::inventory::{ByteRange, FileInventory, SourceRevision};
+use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::FileId;
 
 use super::RecordRangeReader;
@@ -23,16 +23,9 @@ struct OpenSource {
     last_used: u64,
 }
 
-enum SourceFileTable<'a> {
-    Inventory(&'a FileInventory),
-    Catalog {
-        root: &'a Path,
-        catalog: &'a dyn FileCatalogReader,
-    },
-}
-
 pub(crate) struct SourceAccessSession<'a> {
-    source: SourceFileTable<'a>,
+    root: Option<&'a Path>,
+    catalog: &'a dyn FileCatalogReader,
     open: Vec<OpenSource>,
     backend: Option<Arc<dyn SourceReader>>,
     distinct: RoaringBitmap,
@@ -48,21 +41,10 @@ pub(crate) struct RangeBatch {
 }
 
 impl<'a> SourceAccessSession<'a> {
-    pub fn new(files: &'a FileInventory) -> Self {
+    pub fn new(catalog: &'a dyn FileCatalogReader) -> Self {
         Self {
-            source: SourceFileTable::Inventory(files),
-            open: Vec::new(),
-            backend: None,
-            distinct: RoaringBitmap::new(),
-            clock: 0,
-            execution: None,
-            record_limit: None,
-        }
-    }
-
-    pub(crate) fn from_catalog(root: &'a Path, catalog: &'a dyn FileCatalogReader) -> Self {
-        Self {
-            source: SourceFileTable::Catalog { root, catalog },
+            root: catalog.repository_root(),
+            catalog,
             open: Vec::new(),
             backend: None,
             distinct: RoaringBitmap::new(),
@@ -125,23 +107,12 @@ impl<'a> SourceAccessSession<'a> {
             self.open[index].last_used = self.clock;
             return Ok((index, 0));
         }
-        let (path, revision) = match &self.source {
-            SourceFileTable::Inventory(files) => {
-                let file = files
-                    .files
-                    .get(file_id.0 as usize)
-                    .ok_or("unknown source file")?;
-                let path = files.native_path(file_id).ok_or("missing source path")?;
-                (path, file.revision)
-            }
-            SourceFileTable::Catalog { root, catalog } => {
-                let file = catalog
-                    .file(file_id)
-                    .map_err(|error| error.to_string())?
-                    .ok_or("unknown source file")?;
-                (root.join(&file.relative_path), file.revision)
-            }
-        };
+        let file = self.catalog.file(file_id)?.ok_or("unknown source file")?;
+        let path = self
+            .root
+            .ok_or("source catalog root is missing")?
+            .join(&file.relative_path);
+        let revision = file.revision;
         let mut reader =
             RecordRangeReader::open_for_search(&path, revision, self.execution.as_ref())?;
         if let Some(backend) = &self.backend {

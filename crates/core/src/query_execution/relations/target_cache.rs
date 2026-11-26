@@ -364,7 +364,7 @@ fn prepare_with_limits(
     } else {
         0
     };
-    let mut access = SourceAccessSession::new(&repo.files);
+    let mut access = SourceAccessSession::new(&repo.catalog);
     if let Some(execution) = execution {
         access.configure_target_execution(execution);
     }

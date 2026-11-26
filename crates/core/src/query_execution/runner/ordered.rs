@@ -1065,7 +1065,7 @@ pub(super) fn try_stored_order_page(
     // the requested page has zero rows or this record lies before the offset.
     locator_query.options.limit = 1;
     locator_query.options.offset = 0;
-    let mut source_access = SourceAccessSession::new(&repo.files);
+    let mut source_access = SourceAccessSession::new(&repo.catalog);
     if let Some(execution) = execution {
         source_access.configure_execution(execution);
     }
