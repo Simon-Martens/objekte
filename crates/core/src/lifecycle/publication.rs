@@ -12,7 +12,7 @@ use crate::index::storage::file_catalog::{
 };
 use crate::index::storage::liveness::InitialLiveness;
 use crate::index::storage::segment::{
-    RecordBacking, SegmentReader, visit_checked_file_slots, visit_record_headers,
+    RecordBacking, SegmentReader, any_segment_file, visit_checked_file_slots, visit_record_headers,
     visit_segment_files,
 };
 use crate::index::storage::segment_catalog::{
@@ -78,16 +78,10 @@ fn can_consolidate(
     {
         return Ok(false);
     }
-    let mut overlaps = false;
-    visit_segment_files(left, |file| {
-        if !overlaps {
-            overlaps = right.contains_file(file.id)?;
-        }
-        Ok::<_, IndexError>(())
-    })?;
-    if overlaps {
+    if any_segment_file(left, |file| right.contains_file(file.id))? {
         return Ok(false);
     }
+    let mut overlaps = false;
     visit_record_headers(left, |headers| {
         for record in headers {
             if !overlaps && right.slot_for_record(record.id.0.as_ref())?.is_some() {
@@ -490,17 +484,13 @@ impl PublishedIndex {
                     kept.push(segment);
                     continue;
                 }
-                let mut current_file = false;
                 let collection = segment.descriptor().collection;
-                visit_segment_files(segment.as_ref(), |file| {
-                    if !current_file {
-                        current_file = self.catalog.file(file.id)?.is_some_and(|current| {
-                            current.revision == file.revision
-                                && current.created_ns == file.created_ns
-                                && current.collections.contains(&collection)
-                        });
-                    }
-                    Ok::<_, IndexError>(())
+                let current_file = any_segment_file(segment.as_ref(), |file| {
+                    Ok::<_, IndexError>(self.catalog.file(file.id)?.is_some_and(|current| {
+                        current.revision == file.revision
+                            && current.created_ns == file.created_ns
+                            && current.collections.contains(&collection)
+                    }))
                 })?;
                 if current_file {
                     kept.push(segment);

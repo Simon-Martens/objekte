@@ -2,7 +2,9 @@
 
 use super::*;
 use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
+use crate::index::storage::segment::{
+    SegmentSlotFact, any_segment_file, read_slot_members, visit_checked_file_slots,
+};
 use crate::records::RecordIdSlot;
 
 #[cfg(test)]
@@ -1929,7 +1931,9 @@ fn try_parallel_relation_page(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|published| !record_ranges_allow_parallel_scan(published.index.max_record_range_len()))
+        .any(|published| {
+            !record_ranges_allow_parallel_scan(published.estimates().max_record_range_len)
+        })
     {
         return Ok(None);
     }
@@ -1966,7 +1970,7 @@ fn try_parallel_relation_page(
         // collection. Resolve those slots directly instead of probing every
         // file in the segment to discover the same jobs.
         if let Some(candidates) = candidates.as_ref()
-            && candidates.len().saturating_mul(8) < published.index.file_count() as u64
+            && candidates.len().saturating_mul(8) < published.file_count() as u64
         {
             let mut selected_files = HashSet::new();
             for slot_number in candidates.iter() {
@@ -1974,30 +1978,21 @@ fn try_parallel_relation_page(
                 if !published.active.contains(slot) {
                     continue;
                 }
-                let record = published
-                    .index
-                    .record(slot)
-                    .ok_or("parallel relation slot missing")?;
-                let locator = published
-                    .index
-                    .backing
-                    .file_locator(slot)
-                    .ok_or("parallel relation locator missing")?;
-                let range = locator.range.ok_or("parallel relation range missing")?;
+                let record = super::read_file_range_record(published, slot)?;
+                let range = record.range;
                 let file = published
-                    .index
-                    .file(locator.file)
+                    .file_metadata(record.file)?
                     .ok_or("parallel relation file missing")?;
-                if !selected_files.insert(locator.file)
+                if !selected_files.insert(record.file)
                     || range.len() > 64 * 1024
                     || record.id.0.len() > 1024
-                    || file.entry.relative_path.to_string_lossy().len() > 4096
+                    || file.relative_path.to_string_lossy().len() > 4096
                 {
                     return Ok(None);
                 }
                 jobs.push(RelationFileJob {
                     segment_index,
-                    file_id: locator.file.0,
+                    file_id: record.file.0,
                     slot,
                     range,
                 });
@@ -2007,47 +2002,48 @@ fn try_parallel_relation_page(
             }
             continue;
         }
-        for file_index in 0..published.index.file_count() {
-            let file = published
-                .index
-                .files
-                .get(file_index)
-                .ok_or("parallel relation file missing")?;
-            let mut selected = file.records.iter().filter(|slot| {
-                published.active.contains(**slot)
-                    && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
-            });
-            let Some(slot) = selected.next().copied() else {
-                continue;
-            };
-            if selected.next().is_some() {
-                return Ok(None);
+        let cannot_parallelize = any_segment_file(published.as_ref(), |file| {
+            let mut selected = None;
+            let mut multiple = false;
+            visit_checked_file_slots(published, file.id, &mut |slots| {
+                for &slot in slots {
+                    if published.active.contains(slot)
+                        && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
+                        && selected.replace(slot).is_some()
+                    {
+                        multiple = true;
+                        break;
+                    }
+                }
+                Ok(())
+            })?;
+            if multiple {
+                return Ok::<_, String>(true);
             }
-            let record = published
-                .index
-                .record(slot)
-                .ok_or("parallel relation slot missing")?;
-            let range = published
-                .index
-                .backing
-                .file_locator(slot)
-                .and_then(|locator| locator.range)
-                .ok_or("parallel relation range missing")?;
+            let Some(slot) = selected else {
+                return Ok(false);
+            };
+            let record = super::read_file_range_record(published, slot)?;
+            if record.file != file.id {
+                return Err("parallel relation file ownership mismatch".into());
+            }
+            let range = record.range;
             if range.len() > 64 * 1024
                 || record.id.0.len() > 1024
-                || file.entry.relative_path.to_string_lossy().len() > 4096
+                || file.relative_path.to_string_lossy().len() > 4096
             {
-                return Ok(None);
+                return Ok(true);
             }
             jobs.push(RelationFileJob {
                 segment_index,
-                file_id: file.entry.id.0,
+                file_id: file.id.0,
                 slot,
                 range,
             });
-            if jobs.len() > 50_000 {
-                return Ok(None);
-            }
+            Ok(jobs.len() > 50_000)
+        })?;
+        if cannot_parallelize {
+            return Ok(None);
         }
     }
     let view = crate::query_execution::relations::view::MergedRelationView::new(
@@ -3000,7 +2996,7 @@ fn try_native_relation_scan(
                         Some(std::collections::VecDeque::from(
                             view.native_provider_batch(
                                 crate::query_execution::relations::view::MergedRecordSlot {
-                                    collection: published.index.collection,
+                                    collection: published.descriptor().collection,
                                     segment: Some(segment_index),
                                     slot: chunk[0],
                                 },
@@ -3017,7 +3013,7 @@ fn try_native_relation_scan(
                         context.check_slots(counters.candidates + 1)?;
                     }
                     let address = crate::query_execution::relations::view::MergedRecordSlot {
-                        collection: published.index.collection,
+                        collection: published.descriptor().collection,
                         segment: Some(segment_index),
                         slot,
                     };
@@ -3861,7 +3857,7 @@ pub(super) fn search_segmented_relations(
             // Locate their files directly instead of decoding every file row.
             let file_indices: Box<dyn Iterator<Item = usize>> = if let Some(may) =
                 candidates.as_ref()
-                && may.len().saturating_mul(8) < published.index.file_count() as u64
+                && may.len().saturating_mul(8) < published.file_count() as u64
             {
                 let mut selected = std::collections::BTreeSet::new();
                 for number in may.iter() {
@@ -3888,7 +3884,7 @@ pub(super) fn search_segmented_relations(
                 }
                 Box::new(selected.into_iter())
             } else {
-                Box::new(0..published.index.file_count())
+                Box::new(0..published.file_count())
             };
             for file_index in file_indices {
                 let file = published

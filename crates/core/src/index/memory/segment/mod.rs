@@ -1251,6 +1251,7 @@ impl IndexedCollectionSegment {
         self.backing.record_count()
     }
 
+    #[cfg(test)]
     pub(crate) fn max_record_range_len(&self) -> u64 {
         self.accounting.max_record_range_len
     }

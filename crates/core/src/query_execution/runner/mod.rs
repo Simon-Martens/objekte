@@ -21,7 +21,8 @@ use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::order::inferred_cache::InferredOrderKey;
 use crate::index::storage::ordered_slots::OrderedSlotCursor;
 use crate::index::storage::segment::{
-    RecordBacking, RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members,
+    RecordBacking, RecordOrigin, SegmentReader, SegmentSlotFact, any_segment_file,
+    read_slot_members, visit_checked_file_slots,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
@@ -1681,35 +1682,37 @@ fn has_unavailable_active_source(
             }
         }
         for segment in segments[index].iter() {
-            for file_index in 0..segment.index.file_count() {
-                let Some(file) = segment.index.files.get(file_index) else {
-                    return Ok(true);
+            let failed = any_segment_file(segment.as_ref(), |file| {
+                let Some(current) = catalog.file(file.id)? else {
+                    return Ok::<_, String>(false);
                 };
-                if file
-                    .records
-                    .iter()
-                    .any(|slot| segment.active.contains(*slot))
-                    && let Some(current) = catalog.file(file.entry.id)?
-                {
-                    if unavailable(&current)
-                        || file
-                            .records
-                            .iter()
-                            .filter(|slot| segment.active.contains(**slot))
-                            .any(|slot| {
-                                segment
-                                    .index
-                                    .backing
-                                    .file_locator(*slot)
-                                    .and_then(|locator| locator.range)
-                                    .is_none_or(|range| {
-                                        range.start > range.end || range.end > current.revision.size
-                                    })
-                            })
-                    {
-                        return Ok(true);
+                let mut probed = false;
+                let mut failed = false;
+                visit_checked_file_slots(segment.as_ref(), file.id, &mut |slots| {
+                    for &slot in slots {
+                        if failed || !segment.active.contains(slot) {
+                            continue;
+                        }
+                        if !probed {
+                            failed = unavailable(&current);
+                            probed = true;
+                        }
+                        if !failed {
+                            failed = segment
+                                .origin(slot)?
+                                .and_then(|origin| origin.file())
+                                .and_then(|file| file.range)
+                                .is_none_or(|range| {
+                                    range.start > range.end || range.end > current.revision.size
+                                });
+                        }
                     }
-                }
+                    Ok(())
+                })?;
+                Ok(failed)
+            })?;
+            if failed {
+                return Ok(true);
             }
         }
     }
@@ -2083,7 +2086,7 @@ fn exact_ordered_page(
             let mut matched_fields = selected[cursor.segment_index].1.clone();
             if let Some(evidence) = qualified_evidence {
                 let address = crate::index::segment::SegmentRecordAddress {
-                    collection: published.index.collection,
+                    collection: published.descriptor().collection,
                     segment: published.id,
                     slot: cursor.slot,
                 };
@@ -2780,7 +2783,7 @@ fn search_segmented_impl(
             if let Some(context) = context {
                 context.check_string()?;
             }
-            if published.index.collection != collection.generation.collection {
+            if published.descriptor().collection != collection.generation.collection {
                 return Err("segment collection mismatch".into());
             }
             let segment = published.as_ref();

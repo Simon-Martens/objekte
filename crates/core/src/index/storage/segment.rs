@@ -282,10 +282,21 @@ pub(crate) fn visit_segment_files<E: From<StorageError>>(
     reader: &dyn SegmentReader,
     mut visit: impl FnMut(&FileEntry) -> Result<(), E>,
 ) -> Result<(), E> {
+    any_segment_file(reader, |file| {
+        visit(file)?;
+        Ok::<_, E>(false)
+    })?;
+    Ok(())
+}
+
+pub(crate) fn any_segment_file<E: From<StorageError>>(
+    reader: &dyn SegmentReader,
+    mut matches: impl FnMut(&FileEntry) -> Result<bool, E>,
+) -> Result<bool, E> {
     const OP: &str = "read segment file entries";
     let total = reader.file_count();
     if total == 0 {
-        return Ok(());
+        return Ok(false);
     }
     let mut entries = Vec::new();
     let mut start = 0usize;
@@ -312,10 +323,12 @@ pub(crate) fn visit_segment_files<E: From<StorageError>>(
                 return Err(StorageError::invalid(OP, "file batch exceeds its limits").into());
             }
             bytes += next_bytes;
-            visit(&entry)?;
+            if matches(&entry)? {
+                return Ok(true);
+            }
         }
         if status == BatchStatus::Done {
-            return Ok(());
+            return Ok(false);
         }
         start = end;
     }
