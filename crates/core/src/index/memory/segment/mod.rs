@@ -28,7 +28,7 @@ use crate::index::storage::order::{
     InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
-use crate::index::storage::relation::RelationReader;
+use crate::index::storage::relation::{RelationMatches, RelationReader};
 use crate::index::storage::segment::{
     RecordBacking, RecordOrigin, RecordWriteVersion, RetainedBlock, RetainedBlockReader,
     SegmentDescriptor, SegmentReader, SegmentSource,
@@ -923,6 +923,26 @@ impl SegmentReader for IndexedCollectionSegment {
         let members =
             posting.value_posting(&crate::index::posting::ScalarKey::Id(target.to_owned()));
         Ok(Some(members.map_or(SlotSet::Empty, SlotSet::borrowed)))
+    }
+
+    fn reverse_relation_batch(
+        &self,
+        ordinal: usize,
+        targets: &std::collections::HashSet<String>,
+    ) -> StorageResult<Option<RelationMatches<'_>>> {
+        let relation = self
+            .relations
+            .get(ordinal)
+            .ok_or_else(|| StorageError::invalid("read native backlinks", "unknown relation"))?;
+        let Some(posting) = self.postings.fields.get(&relation.declaration().path) else {
+            return Ok(None);
+        };
+        let (slots, lists, members) = posting.union_id_postings(targets);
+        Ok(Some(RelationMatches {
+            slots: SlotSet::from_owned(slots),
+            lists,
+            members,
+        }))
     }
 
     fn order_column(

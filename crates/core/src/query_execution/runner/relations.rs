@@ -109,7 +109,7 @@ fn materialize_merged_address(
 
 #[derive(Clone)]
 struct RelationTargetPrune {
-    source_path: Vec<String>,
+    relation: usize,
     target_ids: HashSet<String>,
     exact: bool,
     evidence: Vec<String>,
@@ -231,19 +231,13 @@ fn collect_relation_target_ids(
     for (published, may) in segments[target_index].iter().zip(selections) {
         for slot in may.iter() {
             let record = published
-                .index
-                .record(RecordSlot(slot))
+                .header(RecordSlot(slot))?
                 .ok_or("relation target candidate missing")?;
             target_ids.insert(record.id.0.to_string());
         }
     }
-    let relation = repo
-        .collections
-        .get(hop.from.0 as usize)
-        .and_then(|collection| collection.relations.get(hop.relation.ordinal as usize))
-        .ok_or("relation source declaration missing")?;
     Ok(Some(RelationTargetPrune {
-        source_path: relation.declaration.path.clone(),
+        relation: hop.relation.ordinal as usize,
         target_ids,
         exact: false,
         evidence: Vec::new(),
@@ -291,8 +285,7 @@ fn exact_relation_source_plan(
         }
         for slot in bounds.must.iter() {
             let record = published
-                .index
-                .record(RecordSlot(slot))
+                .header(RecordSlot(slot))?
                 .ok_or("exact relation target slot missing")?;
             target_ids.insert(record.id.0.to_string());
             if target_ids.len() > 100_000 {
@@ -300,16 +293,12 @@ fn exact_relation_source_plan(
             }
         }
     }
-    let relation = repo.collections[hop.from.0 as usize]
-        .relations
-        .get(hop.relation.ordinal as usize)
-        .ok_or("exact relation declaration missing")?;
     let mut evidence = vec![term.query_path.display.clone()];
     evidence.push(term.related.as_ref().unwrap().evidence_path.clone());
     evidence.sort();
     evidence.dedup();
     Ok(Some(RelationTargetPrune {
-        source_path: relation.declaration.path.clone(),
+        relation: hop.relation.ordinal as usize,
         target_ids,
         exact: true,
         evidence,
@@ -364,11 +353,35 @@ fn relation_target_prune(
     Ok(None)
 }
 
+fn union_relation_matches(
+    slots: crate::query_access::membership::SlotSet<'_>,
+    output: &mut RoaringBitmap,
+    slot_count: usize,
+) -> Result<(), String> {
+    use crate::query_access::membership::SlotSet;
+
+    let members = slots
+        .explicit_view()
+        .ok_or("relation result did not supply its exact slots")?;
+    if members
+        .last()
+        .is_some_and(|slot| slot as usize >= slot_count)
+    {
+        return Err("relation result points outside its segment".into());
+    }
+    if let SlotSet::Owned(slots) = slots {
+        *output |= slots;
+    } else {
+        members.union_into_bitmap(output);
+    }
+    Ok(())
+}
+
 fn relation_source_candidates(
     published: &PublishedSegment,
     plan: &RelationTargetPrune,
 ) -> Result<Option<Arc<RoaringBitmap>>, String> {
-    let Some(posting) = published.index.postings.fields.get(&plan.source_path) else {
+    let Some(found) = published.reverse_relation_batch(plan.relation, &plan.target_ids)? else {
         return Ok(None);
     };
     let mut may = if plan.exact {
@@ -378,13 +391,7 @@ fn relation_source_candidates(
             .view()
             .subtract_from(&published.active.bitmap())
     };
-    for id in &plan.target_ids {
-        if let Some(slots) =
-            posting.value_posting(&crate::index::posting::ScalarKey::Id(id.clone()))
-        {
-            may |= slots;
-        }
-    }
+    union_relation_matches(found.slots, &mut may, published.descriptor().slots)?;
     may &= published.active.bitmap();
     Ok(Some(Arc::new(may)))
 }
@@ -761,7 +768,7 @@ fn try_direct_relation_page(
     } else {
         None
     };
-    let source_path = &source_relation.declaration.path;
+
     let mut target_ids = HashSet::new();
     let mut target_sort_keys = HashMap::new();
     let mut counters = WorkCounters::default();
@@ -1076,18 +1083,21 @@ fn try_direct_relation_page(
         let mut may = if hop.direction == crate::query::binding::relation::HopDirection::Backlink {
             let mut matches = RoaringBitmap::new();
             for id in &target_ids {
-                if let Some(slot) = published.index.id_lookup.get(id.as_str()) {
+                if let Some(slot) = published.slot_for_record(id)? {
                     matches.insert(slot.0);
                 }
             }
             matches
         } else {
-            let Some(posting) = published.index.postings.fields.get(source_path) else {
+            let Some(found) =
+                published.reverse_relation_batch(hop.relation.ordinal as usize, &target_ids)?
+            else {
                 return Ok(None);
             };
-            let (matches, lists, members) = posting.union_id_postings(&target_ids);
-            counters.relation_reverse_postings_visited += lists;
-            counters.relation_reverse_members_visited += members;
+            counters.relation_reverse_postings_visited += found.lists;
+            counters.relation_reverse_members_visited += found.members;
+            let mut matches = RoaringBitmap::new();
+            union_relation_matches(found.slots, &mut matches, published.descriptor().slots)?;
             matches
         };
         may &= published.active.bitmap();
@@ -1441,14 +1451,15 @@ fn try_semijoin_relation_page(
     let mut selected = Vec::with_capacity(segments[*collection_index].len());
     for published in segments[*collection_index].iter() {
         let mut matches = RoaringBitmap::new();
-        for (slot, record) in published.index.records.iter().enumerate() {
+        let descriptor = published.descriptor();
+        for slot in 0..descriptor.slots as u32 {
             let address = crate::index::segment::SegmentRecordAddress {
-                collection: published.index.collection,
-                segment: published.id,
-                slot: record.slot,
+                collection: descriptor.collection,
+                segment: descriptor.id,
+                slot: RecordSlot(slot),
             };
             if input.contains(address) && witnesses.qualified_evidence.contains_key(&address) {
-                matches.insert(slot as u32);
+                matches.insert(slot);
             }
         }
         let evidence = filter_evidence.clone().unwrap_or_default();
@@ -2265,8 +2276,8 @@ fn native_truth_from_ids(
     for (id, evidence) in ids {
         let mut found = None;
         for (segment_index, published) in segments.iter().enumerate() {
-            if let Some(slot) = published.index.id_lookup.get(id.as_str())
-                && published.active.contains(*slot)
+            if let Some(slot) = published.slot_for_record(&id)?
+                && published.active.contains(slot)
             {
                 if found.is_some() {
                     return Err("duplicate native relation source ID".into());

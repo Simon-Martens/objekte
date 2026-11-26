@@ -22,7 +22,7 @@ use super::component::ComponentDescriptor;
 use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
-use super::relation::RelationReader;
+use super::relation::{RelationMatches, RelationReader};
 use super::text::SegmentTextAccess;
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
@@ -576,6 +576,14 @@ pub(crate) trait SegmentReader: Send + Sync {
         Ok(None)
     }
 
+    fn reverse_relation_batch(
+        &self,
+        _ordinal: usize,
+        _targets: &HashSet<String>,
+    ) -> StorageResult<Option<RelationMatches<'_>>> {
+        Ok(None)
+    }
+
     fn order_column(&self, _path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {
         Ok(None)
     }
@@ -760,6 +768,14 @@ impl<D: SegmentReaderDelegate> SegmentReader for D {
 
     fn reverse_relation(&self, ordinal: usize, target: &str) -> StorageResult<Option<SlotSet<'_>>> {
         self.payload().reverse_relation(ordinal, target)
+    }
+
+    fn reverse_relation_batch(
+        &self,
+        ordinal: usize,
+        targets: &HashSet<String>,
+    ) -> StorageResult<Option<RelationMatches<'_>>> {
+        self.payload().reverse_relation_batch(ordinal, targets)
     }
 
     fn order_column(&self, path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {

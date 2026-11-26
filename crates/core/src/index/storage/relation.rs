@@ -5,6 +5,7 @@ use std::borrow::Cow;
 use serde::{Deserialize, Serialize};
 
 use crate::model::RecordSlot;
+use crate::query_access::membership::SlotSet;
 use crate::schema::relations::RelationDefinition;
 
 use super::transfer::StorageResult;
@@ -15,6 +16,13 @@ pub(crate) struct RelationRow<'a> {
     pub null: bool,
     pub empty: bool,
     pub unavailable: bool,
+}
+
+/// Exact reverse membership for a set of target IDs in one local domain.
+pub(crate) struct RelationMatches<'a> {
+    pub slots: SlotSet<'a>,
+    pub lists: u64,
+    pub members: u64,
 }
 
 pub(crate) trait RelationReader: Send + Sync {
