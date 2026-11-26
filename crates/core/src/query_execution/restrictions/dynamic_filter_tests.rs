@@ -148,10 +148,11 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                         {
                             let candidates = bounds.may;
                             for &id in expected {
-                                if let Some(slot) = segment
-                                    .index
-                                    .id_lookup
-                                    .get(&crate::model::RecordId(id.into()))
+                                if let Some(slot) =
+                                    crate::index::storage::segment::SegmentReader::slot_for_record(
+                                        segment, id,
+                                    )
+                                    .unwrap()
                                 {
                                     assert!(
                                         candidates.contains(slot.0),

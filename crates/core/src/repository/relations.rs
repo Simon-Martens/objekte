@@ -3,8 +3,8 @@
 use std::sync::Arc;
 
 use crate::index::relation::RelationTarget;
-use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::publication::PublishedSegment;
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::{CollectionId, FileId, RecordSlot};

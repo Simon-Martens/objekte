@@ -176,8 +176,10 @@ impl Repository {
         &self.startup
     }
 
-    pub(crate) fn native_snapshot(&self) -> crate::index::segment::NativeSnapshotRef<'_> {
-        crate::index::segment::NativeSnapshotRef {
+    pub(crate) fn native_snapshot(
+        &self,
+    ) -> crate::index::storage::publication::NativeSnapshotRef<'_> {
+        crate::index::storage::publication::NativeSnapshotRef {
             active: &self.active,
             segments: &self.segments,
             catalog: &self.catalog,
@@ -192,7 +194,7 @@ impl Repository {
 
     pub(crate) fn segment_summaries_for<'a>(
         &self,
-        segments: &'a [Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
+        segments: &'a [Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
     ) -> impl Iterator<Item = crate::index::segment::NativeSegmentSummary> + 'a {
         segments.iter().flat_map(|group| {
             group
@@ -227,7 +229,7 @@ impl Repository {
 
     pub(crate) fn native_index_signature_for(
         &self,
-        segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
+        segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
     ) -> Result<String, crate::lifecycle::IndexError> {
         let mut hash = Sha256::new();
         for (collection_index, collection) in self.collections.iter().enumerate() {

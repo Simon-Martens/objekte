@@ -7,7 +7,8 @@ use std::collections::HashMap;
 use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 
-use super::segment::{PublishedSegment, SegmentId};
+use super::segment::SegmentId;
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::SegmentDescriptor;
 use crate::index::storage::segment_catalog::{
     LocatedSlot, RoutedSlot, SegmentCatalogEditor, SegmentCatalogHandle, SegmentCatalogReader,
@@ -155,17 +156,21 @@ impl RecordRoutes {
         Arc::make_mut(&mut self.descriptors).push(descriptor);
     }
 
-    fn add_native_routes(&mut self, source: &PublishedSegment) {
+    fn add_native_routes(
+        &mut self,
+        source: &PublishedSegment,
+        payload: &super::segment::IndexedCollectionSegment,
+    ) {
         let segment = source.id;
         let shards = Arc::make_mut(&mut self.shards);
-        for (id, &slot) in &source.index.id_lookup {
+        for (id, &slot) in &payload.id_lookup {
             if source.active.contains(slot) {
                 Arc::make_mut(&mut shards[Self::shard(id.0.as_ref())])
                     .insert(id.clone(), RoutedSlot { segment, slot });
             }
         }
         let file_shards = Arc::make_mut(&mut self.file_shards);
-        for entry in &source.index.files {
+        for entry in &payload.files {
             let file = entry.entry.id;
             Arc::make_mut(&mut file_shards[file.0 as usize % RECORD_ROUTE_SHARDS])
                 .entry(file)
@@ -199,8 +204,11 @@ impl RecordRoutes {
         source: &dyn SegmentRouteSource,
         segment: SegmentId,
     ) -> StorageResult<()> {
-        if let Some(native) = (source as &dyn Any).downcast_ref::<PublishedSegment>() {
-            self.add_native_routes(native);
+        if let Some(placement) = (source as &dyn Any).downcast_ref::<PublishedSegment>()
+            && let Some(payload) =
+                super::segment::maintenance::native_segment(placement.index.as_ref())
+        {
+            self.add_native_routes(placement, payload);
             return Ok(());
         }
         let shards = Arc::make_mut(&mut self.shards);
@@ -351,11 +359,15 @@ impl SegmentCatalogReader for RecordRoutes {
         let Some(source) = (source as &dyn Any).downcast_ref::<PublishedSegment>() else {
             return false;
         };
+        let Some(payload) = super::segment::maintenance::native_segment(source.index.as_ref())
+        else {
+            return false;
+        };
         if !self.can_append(source.segment_descriptor(), position) {
             return false;
         }
         self.append_descriptor(source.segment_descriptor(), position);
-        self.add_native_routes(source);
+        self.add_native_routes(source, payload);
         true
     }
 }

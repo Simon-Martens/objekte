@@ -365,7 +365,7 @@ fn partial_short_values_do_not_override_failed_general_dictionary_admission() {
     assert_eq!(
         repo.segments[0]
             .iter()
-            .map(|segment| segment.index.records.len())
+            .map(|segment| segment.native_payload().records.len())
             .collect::<Vec<_>>(),
         [512, 1]
     );
@@ -387,20 +387,26 @@ fn partial_short_values_do_not_override_failed_general_dictionary_admission() {
     assert!(!diagnostic.value_dictionary_complete, "{diagnostic:?}");
     assert!(diagnostic.short_string_candidates, "{diagnostic:?}");
     assert!(repo.segments[0].iter().any(|segment| {
-        segment.index.inference.as_ref().is_some_and(|state| {
-            state
-                .short_string_coverage
-                .get(&path)
-                .is_some_and(|covered| !covered.is_empty())
-                && state.indexes.get(&path).is_some_and(|index| {
-                    index
-                        .values
-                        .contains_key(&crate::index::posting::ScalarKey::String("b".into()))
-                })
-        })
+        segment
+            .native_payload()
+            .inference
+            .as_ref()
+            .is_some_and(|state| {
+                state
+                    .short_string_coverage
+                    .get(&path)
+                    .is_some_and(|covered| !covered.is_empty())
+                    && state.indexes.get(&path).is_some_and(|index| {
+                        index
+                            .values
+                            .contains_key(&crate::index::posting::ScalarKey::String("b".into()))
+                    })
+            })
     }));
     for segment in repo.segments[0].iter() {
-        assert!(!segment.index.inference.as_ref().unwrap().indexes[&path].value_complete);
+        assert!(
+            !segment.native_payload().inference.as_ref().unwrap().indexes[&path].value_complete
+        );
     }
 
     for (filter, expected) in [("category = 'category_alpha'", 512), ("category = 'b'", 1)] {
@@ -471,7 +477,7 @@ fn complete_short_and_general_dictionaries_remain_exact_positive_controls() {
     assert!(short_diagnostic.value_dictionary_complete);
     assert!(short_diagnostic.short_string_candidates);
     for segment in short.segments[0].iter() {
-        assert!(segment.index.inference.as_ref().unwrap().indexes[&path].value_complete);
+        assert!(segment.native_payload().inference.as_ref().unwrap().indexes[&path].value_complete);
     }
     let mut request = query("category = 'b'");
     request.options.return_mode = ReturnMode::Locator;
@@ -595,7 +601,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     assert_eq!(
         repo.segments[0]
             .iter()
-            .map(|segment| segment.index.records.len())
+            .map(|segment| segment.native_payload().records.len())
             .collect::<Vec<_>>(),
         [512, 1]
     );
@@ -649,9 +655,9 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     assert_eq!(code.short_string_covered_records, records as u64);
     let segment_index = &repo.segments[0]
         .iter()
-        .find(|segment| segment.index.inference.is_some())
+        .find(|segment| segment.native_payload().inference.is_some())
         .unwrap()
-        .index
+        .native_payload()
         .inference
         .as_ref()
         .unwrap()
@@ -733,7 +739,7 @@ fn global_threshold_admits_a_field_when_each_segment_is_locally_below_it() {
     );
     assert!(report_only.segments[0].iter().all(|segment| {
         segment
-            .index
+            .native_payload()
             .inference
             .as_ref()
             .is_none_or(|inference| inference.indexes.is_empty())
@@ -827,7 +833,8 @@ fn global_distinct_limit_rejects_dictionaries_locally_admitted_in_both_segments(
     assert!(diagnostic.empty_string_exact);
     assert!(diagnostic.structural_facts);
     for segment in repo.segments[0].iter() {
-        let posting = &segment.index.inference.as_ref().unwrap().indexes[&vec!["category".into()]];
+        let posting =
+            &segment.native_payload().inference.as_ref().unwrap().indexes[&vec!["category".into()]];
         assert!(!posting.value_complete);
         assert!(posting.values.is_empty());
         assert!(!posting.presence.is_empty());
@@ -931,7 +938,7 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
     let mut saw_null = false;
     let mut saw_pruned_lengths = false;
     for segment in segments.iter() {
-        let Some(inference) = &segment.index.inference else {
+        let Some(inference) = &segment.native_payload().inference else {
             continue;
         };
         if let Some(posting) = inference.indexes.get(&vec!["items".into(), "value".into()]) {
@@ -950,8 +957,8 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
             }
             posting
                 .validate_eligible(
-                    segment.index.record_count(),
-                    segment.index.logical_records.len() as usize,
+                    segment.native_payload().record_count(),
+                    segment.native_payload().logical_records.len() as usize,
                 )
                 .unwrap();
             assert_eq!(posting.stats.distinct_count, posting.distinct_values());
@@ -962,8 +969,8 @@ fn publication_reconciles_pruned_values_lengths_and_statistics() {
             assert!(posting.lengths.is_empty());
             posting
                 .validate_eligible(
-                    segment.index.record_count(),
-                    segment.index.logical_records.len() as usize,
+                    segment.native_payload().record_count(),
+                    segment.native_payload().logical_records.len() as usize,
                 )
                 .unwrap();
         }
@@ -1191,7 +1198,7 @@ fn segmented_observation_overflow_uses_residual_scanning() {
     );
     assert!(repo.segments[0].iter().all(|segment| {
         segment
-            .index
+            .native_payload()
             .inference
             .as_ref()
             .is_none_or(|inference| inference.indexes.is_empty())
@@ -1319,7 +1326,11 @@ fn auto_index_retains_selected_null_after_value_admission_fails() {
         .unwrap()
     };
     let repo = make(4);
-    let inference = repo.segments[0][0].index.inference.as_ref().unwrap();
+    let inference = repo.segments[0][0]
+        .native_payload()
+        .inference
+        .as_ref()
+        .unwrap();
     let arr = &inference.indexes[&vec!["arr".into()]];
     let text = &inference.indexes[&vec!["text".into()]];
     assert!(arr.length_complete);
@@ -1407,9 +1418,9 @@ fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
     .map_err(|error| error.to_string())
     .unwrap();
     let path = vec!["score".into()];
-    let left = &declared.segments[0][0].index.postings.fields[&path];
+    let left = &declared.segments[0][0].native_payload().postings.fields[&path];
     let right = &observed.segments[0][0]
-        .index
+        .native_payload()
         .inference
         .as_ref()
         .unwrap()
@@ -2247,7 +2258,7 @@ fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
         assert_eq!(stats.merged_batches, 2);
         assert_eq!(stats.retained_manual_summary_bytes, 0);
         let indexes = &repo.segments[0][0]
-            .index
+            .native_payload()
             .inference
             .as_ref()
             .unwrap()
@@ -2333,7 +2344,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                 assert!(
                     repo.segments[0]
                         .iter()
-                        .all(|segment| segment.index.inference.is_none())
+                        .all(|segment| segment.native_payload().inference.is_none())
                 );
                 assert_eq!(repo.startup().inference_build.observed_records, 0);
                 assert_eq!(repo.startup().inference_build.merged_batches, 0);
@@ -2346,7 +2357,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                 assert_eq!(
                     report.admitted_paths,
                     repo.segments[0][0]
-                        .index
+                        .native_payload()
                         .inference
                         .as_ref()
                         .unwrap()
@@ -2360,7 +2371,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                 assert_eq!(
                     repo.segments[0].iter().all(|segment| {
                         segment
-                            .index
+                            .native_payload()
                             .inference
                             .as_ref()
                             .is_none_or(|inference| inference.indexes.is_empty())

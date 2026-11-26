@@ -8,9 +8,9 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use roaring::RoaringBitmap;
 
 use crate::index::posting::{PostingIndex, ScalarKey};
-use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::posting::{PostingKey, PostingReader};
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::{
     RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members, visit_checked_file_slots,
     visit_segment_files,

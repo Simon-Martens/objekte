@@ -11,9 +11,10 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::index::segment::{PublishedSegment, SegmentId};
+use crate::index::segment::SegmentId;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
 use crate::index::storage::order::ScalarOrderPredicate;
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::text::SegmentTextAccess;
 use crate::index::storage::transfer::StorageError;
 use crate::inventory::{ActiveRecords, relative_path_bounds};
@@ -611,6 +612,34 @@ pub(crate) fn segment_filter_bounds(
     collection: &CollectionState,
 ) -> Result<SegmentCandidateBounds, String> {
     segment_filter_bounds_with_catalog(published_id, segment, active, expr, collection, None)
+}
+
+pub(crate) fn segment_filter_explain_offers(
+    segment: &dyn SegmentReader,
+    collection: &CollectionState,
+    term: &BoundTerm,
+    input_len: u64,
+) -> Result<crate::query_access::contract::OfferList, String> {
+    let access = SegmentPredicateAccess {
+        text: segment_text_access(collection, segment.descriptor().id),
+        collection_name: &collection.definition.name,
+        files: None,
+    };
+    with_segment_predicate_access(segment, access, |provider| {
+        let mut offers = crate::query_access::contract::OfferList::new();
+        if let Some(provider) = provider {
+            let plan = SegmentPlanContext::new(segment, collection, access, Some(provider));
+            provider
+                .propose_explain(
+                    TermId::new(0),
+                    AccessRequest::Structured(term),
+                    plan.input_estimate(input_len),
+                    &mut offers,
+                )
+                .map_err(|error| error.to_string())?;
+        }
+        Ok(offers)
+    })
 }
 
 pub(crate) fn segment_filter_estimate_with_term(
@@ -2678,7 +2707,7 @@ fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
 pub(crate) fn plan_expr_restricted(
     repo: &Repository,
     collection: &CollectionState,
-    segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -2692,7 +2721,7 @@ pub(crate) fn plan_expr_restricted(
 pub(crate) fn plan_expr_restricted_with_execution(
     repo: &Repository,
     collection: &CollectionState,
-    segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -2723,7 +2752,7 @@ pub(crate) fn plan_expr_restricted_with_execution(
 fn plan_expr_restricted_inner<'a>(
     repo: &'a Repository,
     collection: &'a CollectionState,
-    segments: &[Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,

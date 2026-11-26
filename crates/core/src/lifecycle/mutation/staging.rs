@@ -1,8 +1,7 @@
 use crate::index::storage::file_catalog::FileCatalogReader;
-use std::sync::Arc;
 
 use crate::construction::file_preparation::PreparedFileBuild;
-use crate::index::segment::IndexedCollectionSegment;
+use crate::index::storage::segment::SegmentHandle;
 use crate::inventory::FileEntry;
 use crate::lifecycle::mutation::preparation::{
     PreparedAdd, PreparedReplacement, index_prepared_file,
@@ -11,7 +10,7 @@ use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView, 
 
 pub(super) struct IndexedFilePlacement {
     pub(super) entry: FileEntry,
-    segments: Vec<Arc<IndexedCollectionSegment>>,
+    segments: Vec<SegmentHandle>,
 }
 
 impl IndexedFilePlacement {
@@ -26,10 +25,7 @@ impl IndexedFilePlacement {
             0,
             view.repository().options().segment_policy,
         )?;
-        Ok(Self {
-            entry,
-            segments: segments.into_iter().map(Arc::new).collect(),
-        })
+        Ok(Self { entry, segments })
     }
 
     fn stage(&self, next: &mut PublishedIndex) -> Result<(), IndexError> {

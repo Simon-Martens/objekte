@@ -4,16 +4,16 @@ use std::sync::atomic::Ordering;
 
 use roaring::RoaringBitmap;
 
-use crate::index::segment::IndexedCollectionSegment;
-use crate::index::segment::{PublishedSegment, SegmentId};
+use crate::index::segment::SegmentId;
 use crate::index::storage::file_catalog::{
     FileCatalogBase, FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource,
     edit_file_catalog,
 };
 use crate::index::storage::liveness::InitialLiveness;
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::{
-    RecordBacking, SegmentReader, any_segment_file, visit_checked_file_slots, visit_record_headers,
-    visit_segment_files,
+    RecordBacking, SegmentHandle, SegmentReader, any_segment_file, visit_checked_file_slots,
+    visit_record_headers, visit_segment_files,
 };
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
@@ -299,16 +299,13 @@ impl PublishedIndex {
 
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
-    pub(crate) fn stage_owned_segment(
-        &mut self,
-        index: IndexedCollectionSegment,
-    ) -> Result<(), IndexError> {
-        self.stage_segment(&mut Arc::new(index), None)
+    pub(crate) fn stage_owned_segment(&mut self, index: SegmentHandle) -> Result<(), IndexError> {
+        self.stage_segment(&index, None)
     }
 
     fn stage_segment(
         &mut self,
-        payload: &mut Arc<IndexedCollectionSegment>,
+        payload: &SegmentHandle,
         observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
     ) -> Result<(), IndexError> {
         self.stage_segment_payload(payload, observation, false)
@@ -316,14 +313,14 @@ impl PublishedIndex {
 
     pub(crate) fn stage_reusable_file_segment(
         &mut self,
-        payload: &Arc<IndexedCollectionSegment>,
+        payload: &SegmentHandle,
     ) -> Result<(), IndexError> {
-        self.stage_segment_payload(&mut Arc::clone(payload), None, true)
+        self.stage_segment_payload(payload, None, true)
     }
 
     fn stage_segment_payload(
         &mut self,
-        payload: &mut Arc<IndexedCollectionSegment>,
+        payload: &SegmentHandle,
         observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
         allocate_id: bool,
     ) -> Result<(), IndexError> {
@@ -416,7 +413,7 @@ impl PublishedIndex {
             .live_records(descriptor.slots, InitialLiveness::All)?;
         let mut segment_id = descriptor.id;
         if allocate_id
-            || segment_id.get() == 1
+            || segment_id.get() <= 1
             || self.segments[number]
                 .iter()
                 .any(|segment| segment.id == segment_id)
@@ -429,11 +426,6 @@ impl PublishedIndex {
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
-        if !allocate_id && descriptor.id != segment_id {
-            Arc::get_mut(payload)
-                .expect("unpublished payload is uniquely owned before placement")
-                .id = segment_id;
-        }
         Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
             id: segment_id,
             index: Arc::clone(payload),
@@ -526,7 +518,7 @@ impl PublishedIndex {
             if let Some((_, index)) = retired {
                 let old = Arc::clone(&group[index]);
                 let replacements = crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy(
-                    &old.index,
+                    old.as_ref(),
                     &old.active,
                     &self.catalog,
                     policy,
@@ -541,12 +533,12 @@ impl PublishedIndex {
                     let active = self
                         .repository
                         .storage_factory
-                        .live_records(part.records.len(), InitialLiveness::All)?;
+                        .live_records(part.descriptor().slots, InitialLiveness::All)?;
                     group.insert(
                         index + offset,
                         Arc::new(PublishedSegment {
                             id: SegmentId::new(ordinal),
-                            index: Arc::new(part),
+                            index: part,
                             active,
                             observation: None,
                         }),
@@ -579,28 +571,27 @@ impl PublishedIndex {
         let Some((left, right)) = cheapest_consolidation_pair(group, target_records)? else {
             return Ok(());
         };
-        let merged = IndexedCollectionSegment::consolidate(
-            &[&group[left].index, &group[right].index],
+        let Some(merged) = self.repository.storage_factory.consolidate_segments(
+            &[group[left].index.as_ref(), group[right].index.as_ref()],
             target_records,
-        )
-        .map_err(IndexError::Build)?;
-        let active = merged
-            .translate_active(
-                self.repository.storage_factory.as_ref(),
-                &[&group[left].active, &group[right].active],
-            )
-            .map_err(IndexError::Build)?;
+        )?
+        else {
+            return Ok(());
+        };
+        let active = merged.translate_active(
+            self.repository.storage_factory.as_ref(),
+            &[&group[left].active, &group[right].active],
+        )?;
         let ordinal = self.next_segment_ordinal;
         self.next_segment_ordinal = self
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-        let merged_index = merged.index;
         let removed_right = group.remove(right);
         let removed_left = group.remove(left);
         group.push(Arc::new(PublishedSegment {
             id: SegmentId::new(ordinal),
-            index: Arc::new(merged_index),
+            index: merged.payload,
             active,
             observation: None,
         }));
@@ -808,7 +799,13 @@ impl PublishedIndex {
                     .ok_or_else(|| {
                         IndexError::InvalidPublication("routed segment missing".into())
                     })?;
-                let Some(edit) = published.index.relink_file(
+                if published.backing_kind() == RecordBacking::FileRange {
+                    continue;
+                }
+                let editor = crate::index::storage::segment::maintenance::require_maintenance(
+                    published.as_ref(),
+                )?;
+                let Some(edit) = editor.relink_file(
                     file,
                     replacement,
                     self.repository.repository_root(),
@@ -823,7 +820,7 @@ impl PublishedIndex {
                 }
                 if let Some(index) = edit.updated {
                     let group = Arc::make_mut(&mut self.segments[number]);
-                    Arc::make_mut(&mut group[position]).index = Arc::new(index);
+                    Arc::make_mut(&mut group[position]).index = index;
                     if !edit.linked {
                         self.record_routes[number] = edited_catalog(
                             &self.record_routes[number],
@@ -844,7 +841,7 @@ impl PublishedIndex {
 fn prepare_initial_segment(
     next: &mut PublishedIndex,
     segment: (
-        IndexedCollectionSegment,
+        SegmentHandle,
         Option<crate::index::storage::inference::InferenceObservationHandle>,
     ),
 ) -> Result<(), IndexError> {
@@ -873,7 +870,7 @@ fn prepare_initial_segment(
         next.catalog = next.catalog.replaced(merged, None, None)?;
         Ok::<_, IndexError>(())
     })?;
-    next.stage_segment(&mut Arc::new(segment), observation)
+    next.stage_segment(&segment, observation)
 }
 
 fn verify_initial_files(
@@ -1025,15 +1022,15 @@ impl Index {
         prepared_from: &IndexView,
         registration: crate::lifecycle::builder::RecordRegistration,
         changes: &[RecordMutation],
-        segments: impl IntoIterator<Item = IndexedCollectionSegment>,
+        segments: impl IntoIterator<Item = SegmentHandle>,
         publication_guard: impl Fn() -> Result<G, IndexError>,
     ) -> Result<IndexRevision, IndexError> {
-        let mut segments: Vec<_> = segments.into_iter().map(Arc::new).collect();
+        let segments: Vec<_> = segments.into_iter().collect();
         self.publish_prepared_record_batch(
             prepared_from,
             registration,
             changes,
-            &mut segments,
+            &segments,
             publication_guard,
         )
     }
@@ -1043,7 +1040,7 @@ impl Index {
         prepared_from: &IndexView,
         registration: crate::lifecycle::builder::RecordRegistration,
         changes: &[RecordMutation],
-        segments: &mut [Arc<IndexedCollectionSegment>],
+        segments: &[SegmentHandle],
         publication_guard: impl Fn() -> Result<G, IndexError>,
     ) -> Result<IndexRevision, IndexError> {
         // File mutation and direct ingestion share placement coordination.
@@ -1070,7 +1067,7 @@ impl Index {
         view: &IndexView,
         registration: crate::lifecycle::builder::RecordRegistration,
         changes: &[RecordMutation],
-        segments: &mut [Arc<IndexedCollectionSegment>],
+        segments: &[SegmentHandle],
     ) -> Result<PublishedIndex, IndexError> {
         let expected = view.revision();
         let collection = registration.collection;
@@ -1157,7 +1154,7 @@ impl Index {
             next.record_routes[number] = editor.seal()?;
         }
         for segment in segments {
-            if segment.collection != collection {
+            if segment.descriptor().collection != collection {
                 return Err(IndexError::ForeignInstance);
             }
             next.stage_segment(segment, None)?;
@@ -1171,7 +1168,7 @@ impl Index {
     pub(crate) fn publish_initial_segment(
         &self,
         expected: IndexRevision,
-        segment: IndexedCollectionSegment,
+        segment: SegmentHandle,
         observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
         profile_phases: bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
@@ -1188,7 +1185,7 @@ impl Index {
                 "initial construction already completed".into(),
             ));
         }
-        verify_initial_files(&view, &[&segment])?;
+        verify_initial_files(&view, &[segment.as_ref()])?;
         let mut next = (*view.0).clone();
         prepare_initial_segment(&mut next, (segment, observation))?;
         next.revision = expected.next()?;
@@ -1214,7 +1211,7 @@ impl Index {
         &self,
         expected: IndexRevision,
         segments: Vec<(
-            IndexedCollectionSegment,
+            SegmentHandle,
             Option<crate::index::storage::inference::InferenceObservationHandle>,
         )>,
         profile_phases: bool,
@@ -1242,7 +1239,7 @@ impl Index {
             &view,
             &segments
                 .iter()
-                .map(|(segment, _)| segment as &dyn SegmentReader)
+                .map(|(segment, _)| segment.as_ref())
                 .collect::<Vec<_>>(),
         )?;
         let mut next = (*view.0).clone();
@@ -1305,15 +1302,17 @@ impl Index {
                     .collections
                     .get(published.descriptor().collection.0 as usize)
                     .and_then(|collection| collection.global_inference.as_ref());
-                let revised = published
-                    .index
-                    .reconcile_final_metadata(&next.catalog, decision)?;
+                let revised = if let Some(editor) = published.maintenance() {
+                    editor.reconcile_final_metadata(&next.catalog, decision)?
+                } else {
+                    None
+                };
                 if revised.is_none() && published.observation.is_none() {
                     continue;
                 }
                 let placed = Arc::make_mut(published);
                 if let Some(index) = revised {
-                    placed.index = Arc::new(index);
+                    placed.index = index;
                 }
                 placed.observation = None;
             }

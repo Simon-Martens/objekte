@@ -428,7 +428,7 @@ struct SegmentMetadata {
 fn segment_metadata_generation(
     collection: CollectionId,
     name: &str,
-    segments: &[Arc<crate::index::segment::PublishedSegment>],
+    segments: &[Arc<crate::index::storage::publication::PublishedSegment>],
     files: &mut [FileEntry],
     relations: &mut [RelationContribution],
 ) -> Result<SegmentMetadata, String> {

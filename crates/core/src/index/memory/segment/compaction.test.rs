@@ -634,7 +634,7 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let complete = complete_repo.segments[0][0].index.as_ref();
+    let complete = complete_repo.segments[0][0].native_payload();
     let fresh_logical = RoaringBitmap::from_iter(0..3);
     let mut fresh_builder = InferenceBuilder::for_collection(
         InferenceConfig {
@@ -703,7 +703,7 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let mut interrupted = interrupted_repo.segments[0][0].index.as_ref().clone();
+    let mut interrupted = interrupted_repo.segments[0][0].native_payload().clone();
     assert!(!interrupted.inference.as_ref().unwrap().report.complete);
     assert!(
         !interrupted
@@ -830,7 +830,7 @@ fn projected_inference_masks_match_fresh_reports_across_shapes() {
     for fixture in fixtures {
         let root = projection_fixture_root(fixture.name);
         let repo = build_projection_fixture(&root, fixture.mode, fixture.files);
-        let segment = &repo.segments[0][0].index;
+        let segment = repo.segments[0][0].native_payload();
         assert_eq!(
             segment.record_count(),
             fixture.files.len(),
@@ -1011,7 +1011,7 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
         ("b3.row", r#"("other"=true)"#),
     ];
     let repo = build_projection_fixture(&root, InferenceMode::AutoIndex, &mixed_files);
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
@@ -1077,7 +1077,7 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
     let fresh = fresh_field_facts(
         repo.inference_report("data"),
         &["x"],
-        repo.segments[0][0].index.logical_records.len(),
+        repo.segments[0][0].native_payload().logical_records.len(),
     );
     facts.assert_matches_or_bounds(
         fresh,
@@ -1121,7 +1121,7 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
         InferenceMode::AutoIndex,
         &[("i0.row", r#"("x"=1.5)"#), ("i1.row", r#"("x"=7)"#)],
     );
-    let numeric_segment = &numeric_repo.segments[0][0].index;
+    let numeric_segment = numeric_repo.segments[0][0].native_payload();
     let numeric_empty = numeric_segment
         .compact_active(
             &crate::inventory::ActiveRecords::from_bitmap(
@@ -1173,7 +1173,10 @@ fn consolidated_projected_shards_preserve_bounds_and_numeric_evidence() {
     let numeric_fresh = fresh_field_facts(
         numeric_oracle.inference_report("data"),
         &["x"],
-        numeric_oracle.segments[0][0].index.logical_records.len(),
+        numeric_oracle.segments[0][0]
+            .native_payload()
+            .logical_records
+            .len(),
     );
     numeric_facts.assert_matches_or_bounds(
         numeric_fresh,
@@ -1211,7 +1214,7 @@ fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let length_segment = &length_repo.segments[0][0].index;
+    let length_segment = length_repo.segments[0][0].native_payload();
     let original = length_segment.inference.as_ref().unwrap();
     let original_field = original
         .report
@@ -1268,7 +1271,7 @@ fn projected_controls_preserve_occurrences_and_withdrawn_length_bounds() {
             ("o1.row", r#"("values"=["retired"])"#),
         ],
     );
-    let occurrence_segment = &occurrence_repo.segments[0][0].index;
+    let occurrence_segment = occurrence_repo.segments[0][0].native_payload();
     let occurrence = occurrence_segment
         .compact_active(
             &active_for_files(occurrence_segment, &["o0.row"]),
@@ -1317,7 +1320,7 @@ fn empty_unknown_array_proof_does_not_allow_nonempty_mismatches() {
             ("x3.row", r#"("other"=true)"#),
         ],
     );
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let empty = segment
         .compact_active(&active_for_files(segment, &["x3.row"]), 4, |_| true)
         .unwrap();
@@ -1380,7 +1383,7 @@ fn surviving_empty_arrays_do_not_retain_retired_empty_array_counts() {
             ("a2.row", r#"("x"=[7])"#),
         ],
     );
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let original = segment.inference.as_ref().unwrap();
     let original_field = original
         .report
@@ -1448,7 +1451,7 @@ fn mixed_training_shapes_retain_projected_shape_bounds() {
             ("b3.row", r#"("other"=true)"#),
         ],
     );
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let original = segment.inference.as_ref().unwrap();
     let original_field = original
         .report
@@ -1522,7 +1525,7 @@ fn report_only_projection_preserves_inherited_presence() {
             ("c1.row", r#"("other"=true)"#),
         ],
     );
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let original = segment.inference.as_ref().unwrap();
     let original_field = original
         .report
@@ -1859,7 +1862,7 @@ fn projected_inference_reports_keep_diagnostic_meaning_and_incompleteness() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let active = crate::inventory::ActiveRecords::all(segment.record_count())
         .unwrap()
         .retired(&[RecordSlot(0), RecordSlot(1)])
@@ -1972,7 +1975,7 @@ fn projected_empty_selection_bound_covers_ancestor_and_terminal_arrays() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let original = segment.inference.as_ref().unwrap();
     let original_field = original
         .report
@@ -2043,7 +2046,7 @@ fn projected_empty_short_string_coverage_is_removed_consistently() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     assert!(
         segment
             .inference
@@ -2120,7 +2123,7 @@ fn projected_terminal_scalar_counts_do_not_follow_path_multiplicity() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let active = crate::inventory::ActiveRecords::all(segment.record_count())
         .unwrap()
         .retired(&[RecordSlot(1)])
@@ -2229,7 +2232,7 @@ fn projected_numeric_report_recomputes_integer_only() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let active = crate::inventory::ActiveRecords::all(segment.record_count())
         .unwrap()
         .retired(&[RecordSlot(0)])
@@ -2310,7 +2313,7 @@ fn projected_numeric_report_with_no_survivors_does_not_retain_integer_only() {
     )
     .map_err(|error| error.to_string())
     .unwrap();
-    let segment = &repo.segments[0][0].index;
+    let segment = repo.segments[0][0].native_payload();
     let active = crate::inventory::ActiveRecords::all(segment.record_count())
         .unwrap()
         .retired(&[RecordSlot(0), RecordSlot(1)])

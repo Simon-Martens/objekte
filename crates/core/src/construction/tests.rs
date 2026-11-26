@@ -2738,11 +2738,25 @@ fn registered_streaming_reader_initial_build_dispatches_small_files_and_decodes_
         let pinned = index.view().unwrap();
         let segment = &pinned.0.segments[0][0].index;
         assert_eq!(
-            segment.file_record(RecordSlot(0)).unwrap().range,
+            segment
+                .origin(RecordSlot(0))
+                .unwrap()
+                .unwrap()
+                .file()
+                .unwrap()
+                .range
+                .unwrap(),
             ByteRange { start: 0, end: 12 }
         );
         assert_eq!(
-            segment.file_record(RecordSlot(1)).unwrap().range,
+            segment
+                .origin(RecordSlot(1))
+                .unwrap()
+                .unwrap()
+                .file()
+                .unwrap()
+                .range
+                .unwrap(),
             ByteRange { start: 13, end: 24 }
         );
         assert_eq!(index.status().unwrap().build_source_reads, 1);

@@ -12,8 +12,9 @@ use rayon::ThreadPool;
 use sha2::{Digest, Sha256};
 
 use crate::index::bigram::BigramAlphabet;
-use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::segment::SegmentId;
 use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
+use crate::index::storage::segment::{SegmentHandle, SegmentReader};
 use crate::index::storage::{
     StorageFactory,
     worker::{FileWorkerBatch, FileWorkerInput},
@@ -57,7 +58,7 @@ pub(crate) struct PreparedCollectionBuild {
     pub source_id: String,
     pub source_version: u32,
     pub contributions: Vec<BatchContribution>,
-    pub indexed: Vec<IndexedCollectionSegment>,
+    pub indexed: Vec<SegmentHandle>,
 }
 
 /// Private, complete per-file work. The coordinator must still validate the
@@ -133,7 +134,7 @@ impl PreparedFileBuild {
                     + collection
                         .indexed
                         .iter()
-                        .map(|index| index.record_count() as u64)
+                        .map(|index| index.descriptor().slots as u64)
                         .sum::<u64>()
             })
             .sum()
@@ -161,9 +162,16 @@ impl PreparedFileBuild {
                         })
                     })
                     .chain(collection.indexed.iter().flat_map(|index| {
-                        index.records.iter().filter_map(|header| {
-                            let record = index.file_record(header.slot)?;
-                            Some((collection.collection, record.id, record.range, record.class))
+                        (0..index.descriptor().slots).filter_map(|slot| {
+                            let slot = crate::model::RecordSlot(slot as u32);
+                            let record = index.header(slot).unwrap()?;
+                            let range = index.origin(slot).unwrap()?.file()?.range?;
+                            Some((
+                                collection.collection,
+                                record.id.clone(),
+                                range,
+                                record.class,
+                            ))
                         })
                     }))
             })
@@ -1312,7 +1320,7 @@ fn prepare_managed_stream(
     expected_bytes: Option<&[u8]>,
     hash: bool,
     private: &mut StreamUse,
-) -> Result<(Vec<IndexedCollectionSegment>, Option<[u8; 32]>), String> {
+) -> Result<(Vec<SegmentHandle>, Option<[u8; 32]>), String> {
     let options = repository.options();
     let pool = &repository.workers;
     let policy = options.segment_policy;
@@ -1328,7 +1336,7 @@ fn prepare_managed_stream(
     let mut seal = |draft: Box<dyn SegmentBuilder>| -> Result<(), String> {
         let segment = draft
             .seal(SegmentSeal {
-                id: SegmentId::new(2),
+                id: SegmentId::new(0),
                 definition: binding.definition,
                 options,
                 collection_count: repository.collections().len(),

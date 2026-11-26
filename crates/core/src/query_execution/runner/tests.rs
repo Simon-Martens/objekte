@@ -414,7 +414,7 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
     assert_eq!(split_segments.len(), 2);
     assert!(split_segments.iter().all(|segment| {
         segment
-            .index
+            .native_payload()
             .records
             .first()
             .is_some_and(|record| record.slot.0 == 0)
@@ -2439,7 +2439,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     direct_id.filter = Some(
         parse_filter(&format!(
             "@record.id = '{}'",
-            segments[0][0].index.records[0].id.0,
+            segments[0][0].native_payload().records[0].id.0,
         ))
         .unwrap(),
     );
@@ -3150,7 +3150,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         hit.file.as_ref().expect("file origin").path != std::path::Path::new("data/delta.rows")
             || hit.source_range().expect("file range").start
                 != retired_segments[0][1]
-                    .index
+                    .native_payload()
                     .file_record(RecordSlot(1))
                     .unwrap()
                     .range
@@ -3308,7 +3308,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         summary.counters.source_diagnostics[0].kind,
         crate::measurement::SourceUnavailableKind::Missing
     );
-    let delta_id = &retired_segments[0][1].index.records[2].id.0;
+    let delta_id = &retired_segments[0][1].native_payload().records[2].id.0;
     assert!(matches!(
         direct_lookup_segmented(
             &repo, "data", delta_id, ReturnMode::Bytes, &retired_base,
@@ -7131,13 +7131,15 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
         Arc::new(PublishedSegment {
             id: crate::index::segment::SegmentId::new(10),
             index: Arc::clone(&full.index),
-            active: ActiveRecords::from_bitmap(full.index.record_count(), first_active).unwrap(),
+            active: ActiveRecords::from_bitmap(full.native_payload().record_count(), first_active)
+                .unwrap(),
             observation: None,
         }),
         Arc::new(PublishedSegment {
             id: crate::index::segment::SegmentId::new(11),
             index: Arc::clone(&full.index),
-            active: ActiveRecords::from_bitmap(full.index.record_count(), second_active).unwrap(),
+            active: ActiveRecords::from_bitmap(full.native_payload().record_count(), second_active)
+                .unwrap(),
             observation: None,
         }),
     ])];
@@ -7876,11 +7878,11 @@ fn exact_stored_page_calculates_identical_segment_restrictions_once() {
     let first = Arc::clone(&repo.segments[0][0]);
     repo.segments[0] = Arc::new(vec![
         first,
-        Arc::new(crate::index::segment::PublishedSegment {
+        Arc::new(crate::index::storage::publication::PublishedSegment {
             id: crate::index::segment::SegmentId::new(4_294_967_298),
             index: Arc::clone(&repo.segments[0][0].index),
             active: ActiveRecords::from_bitmap(
-                repo.segments[0][0].index.record_count(),
+                repo.segments[0][0].native_payload().record_count(),
                 RoaringBitmap::new(),
             )
             .unwrap(),
@@ -8347,13 +8349,14 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
     }
     let segments = Arc::make_mut(&mut repo.segments[0]);
     let segment = Arc::make_mut(&mut segments[0]);
-    let index = Arc::make_mut(&mut segment.index);
+    let mut index = segment.native_payload().clone();
     index
         .postings
         .fields
         .get_mut(&vec!["kind".into()])
         .unwrap()
         .covered_records = 1;
+    segment.index = Arc::new(index);
     let query = Query {
         collections: vec![],
         fts: None,

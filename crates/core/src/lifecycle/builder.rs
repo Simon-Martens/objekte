@@ -458,7 +458,7 @@ mod tests {
                     id,
                     kind: crate::lifecycle::publication::RecordMutationKind::Insert,
                 }],
-                Some(segment),
+                Some(std::sync::Arc::new(segment) as crate::index::storage::segment::SegmentHandle),
                 || Ok(()),
             )
             .unwrap();

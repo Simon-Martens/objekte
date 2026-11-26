@@ -16,8 +16,8 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
     use crate::index::segment::IndexedCollectionSegment;
-    use crate::index::segment::PublishedSegment;
     use crate::index::segment::admission::SegmentAdmission;
+    use crate::index::storage::publication::PublishedSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -1455,7 +1455,7 @@ fn segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock() {
 #[test]
 fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contributions() {
     use crate::index::posting::ScalarKey;
-    use crate::index::segment::PublishedSegment;
+    use crate::index::storage::publication::PublishedSegment;
     use crate::model::CollectionId;
     use crate::schema::relations::RelationId;
 
@@ -1510,7 +1510,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
     let source_segments = pinned.0.segments[1]
         .iter()
         .map(|published| {
-            let mut index = (*published.index).clone();
+            let mut index = published.native_payload().clone();
             index.relations[relation_index].remove_references_to_for_test("A");
             if let Some(posting) = index.postings.fields.get_mut(&relation_path) {
                 posting.values.remove(&ScalarKey::Id("A".into()));
@@ -1626,7 +1626,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
 
 #[test]
 fn segmented_reference_first_last_ignores_unavailable_contribution() {
-    use crate::index::segment::PublishedSegment;
+    use crate::index::storage::publication::PublishedSegment;
     use crate::model::{CollectionId, Value};
     use crate::query_results::Payload;
 
@@ -1672,7 +1672,7 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
         pinned.0.segments[1]
             .iter()
             .map(|published| {
-                let mut segment = (*published.index).clone();
+                let mut segment = published.native_payload().clone();
                 if let Some(slot) = segment.id_lookup.get("m2").copied() {
                     segment.relations[relation_index].mark_unavailable_for_test(slot);
                 }
@@ -2968,7 +2968,7 @@ fn base_repository(root: &std::path::Path, definitions: Vec<CollectionDefinition
             1,
             "test fixture expects one native segment per collection"
         );
-        let segment = Arc::clone(&repo.segments[collection_index][0].index);
+        let segment = repo.segments[collection_index][0].native_payload().clone();
         let records = (0..segment.records.len())
             .map(|slot| {
                 segment

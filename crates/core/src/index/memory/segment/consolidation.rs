@@ -7,7 +7,9 @@ use crate::index::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
 use crate::index::sorting::compare_composite;
 use crate::inference::{InferenceIndexStatus, InferredFieldReport, OccurrenceCountStatus};
-use crate::inventory::{ActiveRecords, RecordClass, append_shifted_bitmap};
+#[cfg(test)]
+use crate::inventory::ActiveRecords;
+use crate::inventory::{RecordClass, append_shifted_bitmap};
 use crate::model::RecordSlot;
 
 /// The offsets translate old shard-local slots to the consolidated local
@@ -17,54 +19,19 @@ pub(crate) struct ConsolidatedSegment {
     pub offsets: Vec<u32>,
 }
 
+#[cfg(test)]
 impl ConsolidatedSegment {
-    /// Preserve retired local slots exactly when publishing the consolidated
-    /// shard. Call before replacing old shards in one immutable root.
     pub(crate) fn translate_active(
         &self,
         factory: &dyn crate::index::storage::StorageFactory,
         masks: &[&ActiveRecords],
-    ) -> Result<ActiveRecords, String> {
-        if masks.len() != self.offsets.len() {
-            return Err("consolidation active-mask count mismatch".into());
-        }
-        let mut retired = Vec::new();
-        for (index, mask) in masks.iter().enumerate() {
-            let start = self.offsets[index];
-            let end = self
-                .offsets
-                .get(index + 1)
-                .copied()
-                .unwrap_or(self.index.records.len() as u32);
-            if mask.slot_count() != end - start {
-                return Err("consolidation active-mask coverage mismatch".into());
-            }
-            for slot in 0..mask.slot_count() {
-                if !mask.contains(RecordSlot(slot)) {
-                    retired.push(RecordSlot(
-                        start
-                            .checked_add(slot)
-                            .ok_or("consolidation active slot overflow")?,
-                    ));
-                }
-            }
-        }
-        use crate::index::storage::liveness::InitialLiveness;
-        use crate::query_access::membership::MembershipView;
-
-        let count = self.index.records.len();
-        if retired.is_empty() {
-            return Ok(factory.live_records(count, InitialLiveness::All)?);
-        }
-        let mut live = RoaringBitmap::new();
-        live.insert_range(0..u32::try_from(count).map_err(|_| "too many consolidated slots")?);
-        for slot in retired {
-            live.remove(slot.0);
-        }
-        Ok(factory.live_records(
-            count,
-            InitialLiveness::Selected(MembershipView::Borrowed(&live)),
-        )?)
+    ) -> crate::index::storage::transfer::StorageResult<ActiveRecords> {
+        crate::index::storage::segment::maintenance::translate_active(
+            self.index.records.len(),
+            &self.offsets,
+            factory,
+            masks,
+        )
     }
 }
 

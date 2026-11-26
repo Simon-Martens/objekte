@@ -1059,11 +1059,11 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
             .collect::<Vec<_>>();
         let newly_parsed_records = new_shards
             .iter()
-            .map(|shard| shard.index.record_parses)
+            .map(|shard| shard.native_payload().record_parses)
             .sum::<u64>();
         let rewritten_posting_keys = new_shards
             .iter()
-            .flat_map(|shard| shard.index.postings.fields.values())
+            .flat_map(|shard| shard.native_payload().postings.fields.values())
             .map(|posting| posting.values.len())
             .sum::<usize>();
         let extraction_calls =
@@ -1151,10 +1151,13 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .segments(CollectionId(0))
         .unwrap()
         .iter()
-        .find(|shard| shard.index.file(handle.file_id).is_some())
+        .find(|shard| shard.native_payload().file(handle.file_id).is_some())
         .unwrap();
-    assert_eq!(old_shard.index.records.len(), 3);
-    let old_slot = old_shard.index.file_records(handle.file_id).unwrap()[0];
+    assert_eq!(old_shard.native_payload().records.len(), 3);
+    let old_slot = old_shard
+        .native_payload()
+        .file_records(handle.file_id)
+        .unwrap()[0];
     let old_ordinal = old_shard.id.get();
     std::fs::write(&middle, b"(\"id\"=\"middle\",\"name\"=\"after!\")\n").unwrap();
     let result = restored
@@ -1176,17 +1179,23 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .segments(CollectionId(0))
         .unwrap()
         .iter()
-        .find(|shard| shard.index.file(handle.file_id).is_some())
+        .find(|shard| shard.native_payload().file(handle.file_id).is_some())
         .unwrap();
     assert_eq!(new_shard.id.get(), old_ordinal);
     assert_eq!(
-        new_shard.index.file_records(handle.file_id).unwrap(),
+        new_shard
+            .native_payload()
+            .file_records(handle.file_id)
+            .unwrap(),
         [old_slot]
     );
-    assert_eq!(new_shard.index.records.len(), 3);
+    assert_eq!(new_shard.native_payload().records.len(), 3);
     assert_eq!(new_shard.active.len(), 3);
     assert_eq!(
-        old_shard.index.file_records(handle.file_id).unwrap(),
+        old_shard
+            .native_payload()
+            .file_records(handle.file_id)
+            .unwrap(),
         [old_slot]
     );
     let query = Query {
@@ -1558,10 +1567,10 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
         .segments(CollectionId(0))
         .unwrap()
         .iter()
-        .find(|shard| shard.index.files.len() > 1)
+        .find(|shard| shard.native_payload().files.len() > 1)
         .expect("segment consolidation should share a shard");
-    let target = shared.index.files[0].entry.id;
-    let sibling = shared.index.files[1].entry.id;
+    let target = shared.native_payload().files[0].entry.id;
+    let sibling = shared.native_payload().files[1].entry.id;
     let handle = before.file_handle(target).unwrap().unwrap();
     let path = root.join(&before.file_entry(target).unwrap().unwrap().relative_path);
     let old = std::fs::read(&path).unwrap();
@@ -2008,7 +2017,7 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
         let shards = current.segments(collection).unwrap();
         assert_eq!(shards.len(), 1);
         assert_eq!(shards[0].id.get(), ordinal);
-        assert_eq!(shards[0].index.records[0].slot, RecordSlot(0));
+        assert_eq!(shards[0].native_payload().records[0].slot, RecordSlot(0));
         assert_eq!(pinned.segments(collection).unwrap()[0].id.get(), ordinal);
     }
     assert_eq!(index.status().unwrap().live_records, 2);

@@ -11,7 +11,6 @@ use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::index::segment::PublishedSegment;
 #[cfg(test)]
 use crate::index::sorting::SortColumn;
 use crate::index::sorting::simple_composite_part;
@@ -20,6 +19,7 @@ use crate::index::sorting::{SortKey, SortOptions};
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::order::inferred_cache::InferredOrderKey;
 use crate::index::storage::ordered_slots::OrderedSlotCursor;
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::{
     RecordBacking, RecordOrigin, SegmentReader, SegmentSlotFact, any_segment_file,
     read_slot_members, visit_checked_file_slots,

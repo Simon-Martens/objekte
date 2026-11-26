@@ -810,7 +810,7 @@ impl CollectionSegment {
             index.recompute_accounting();
         }
         Ok(BuiltSegment {
-            index,
+            index: std::sync::Arc::new(index),
             observation: observation.map(|value| {
                 std::sync::Arc::new(value)
                     as crate::index::storage::inference::InferenceObservationHandle

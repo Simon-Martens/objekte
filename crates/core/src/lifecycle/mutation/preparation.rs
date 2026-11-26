@@ -7,7 +7,8 @@ use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
     FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_observed_file_build,
 };
-use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::segment::SegmentId;
+use crate::index::storage::segment::SegmentHandle;
 use crate::index::storage::segment::SegmentReader;
 use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
 use crate::inventory::discovery::selects_file;
@@ -91,7 +92,7 @@ pub(crate) fn index_prepared_file(
     collections: Vec<PreparedCollectionBuild>,
     first_segment_id: u64,
     policy: crate::index::segment::SegmentPolicy,
-) -> Result<(FileEntry, Vec<IndexedCollectionSegment>), IndexError> {
+) -> Result<(FileEntry, Vec<SegmentHandle>), IndexError> {
     let options = repository.options();
     let mut indexed = Vec::with_capacity(collections.len());
     let mut memberships = Vec::with_capacity(collections.len());
@@ -117,13 +118,7 @@ pub(crate) fn index_prepared_file(
         }
         if !collection.indexed.is_empty() {
             debug_assert!(collection.contributions.is_empty());
-            for mut segment in collection.indexed {
-                segment.id = SegmentId::new(next_segment_id);
-                next_segment_id = next_segment_id
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?;
-                indexed.push(segment);
-            }
+            indexed.extend(collection.indexed);
             continue;
         }
         let source = state.required_file_reader();

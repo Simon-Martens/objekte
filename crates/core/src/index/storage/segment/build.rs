@@ -3,14 +3,13 @@
 use std::sync::Arc;
 
 use crate::construction::batch::BatchContribution;
-use crate::index::segment::IndexedCollectionSegment;
 use crate::model::CollectionId;
 use crate::records::{RecordHeader, RecordVersion};
 use crate::repository::configuration::{CollectionPolicy, RepositoryOptions};
 use crate::repository::statistics::{AdmissionBreakdown, IncrementalSegmentProfile};
 use crate::source::registry::PreparedSource;
 
-use super::{RetainedBlock, SegmentId, SegmentPolicy};
+use super::{RetainedBlock, SegmentHandle, SegmentId, SegmentPolicy};
 use crate::index::storage::order::DeclaredOrderStore;
 use crate::index::storage::transfer::StorageResult;
 
@@ -47,9 +46,9 @@ pub(crate) struct SegmentSeal<'a> {
     pub declared_orders: Option<Arc<dyn DeclaredOrderStore>>,
 }
 
-/// Finalization currently feeds the published native segment assembly.
+/// A sealed payload and its optional provisional inference observation.
 pub(crate) struct BuiltSegment {
-    pub index: IndexedCollectionSegment,
+    pub index: SegmentHandle,
     pub observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
 }
 

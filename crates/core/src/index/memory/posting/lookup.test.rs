@@ -714,7 +714,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
         {
             use crate::query::{binding::filter::BoundExpr, binding::filter::bind_filter};
             let collection = &repo.collections()[0];
-            let segment = &repo.segments[0][0].index;
+            let segment = repo.segments[0][0].native_payload();
             let posting = &segment.postings.fields[&vec!["groups".into(), "tags".into()]];
             assert_eq!(posting.value_complete, indexed);
             assert!(posting.length_complete);

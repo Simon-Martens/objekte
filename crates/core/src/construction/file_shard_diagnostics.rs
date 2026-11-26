@@ -127,10 +127,10 @@ pub fn measure_direct_shard_build(
     let finalized = started.elapsed();
     let records = shards
         .iter()
-        .map(|shard| shard.records.len())
+        .map(|shard| shard.descriptor().slots)
         .sum::<usize>();
     assert_eq!(records, collection.generation.records.len());
-    assert!(shards.iter().all(|shard| shard.records.len() <= 2_048));
+    assert!(shards.iter().all(|shard| shard.descriptor().slots <= 2_048));
     eprintln!(
         "direct shard prototype files={} records={} shards={} extract_admit={extracted:?} finalize={finalized:?} jobs={} peak_active={}",
         collection.generation.files.len(),

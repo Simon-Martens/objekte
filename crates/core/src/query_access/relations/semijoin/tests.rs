@@ -689,8 +689,8 @@ fn relation_semijoin_distinguishes_repeated_local_slots_across_segments() {
         .unwrap();
     let source_segments = &repo.segments[source_index];
     assert_eq!(source_segments.len(), 2);
-    assert_eq!(source_segments[0].index.records[0].slot.0, 0);
-    assert_eq!(source_segments[1].index.records[0].slot.0, 0);
+    assert_eq!(source_segments[0].native_payload().records[0].slot.0, 0);
+    assert_eq!(source_segments[1].native_payload().records[0].slot.0, 0);
 
     let request = query("entry.title = 'Needle'");
     assert_eq!(ids(&repo, &request), ["S0"]);
@@ -830,21 +830,31 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         .unwrap();
     assert_eq!(repo.segments[target_index].len(), 2);
     assert_eq!(
-        repo.segments[target_index][0].index.records[0]
+        repo.segments[target_index][0].native_payload().records[0]
             .id
             .0
             .as_ref(),
         "T000"
     );
-    assert_eq!(repo.segments[target_index][0].index.records[0].slot.0, 0);
     assert_eq!(
-        repo.segments[target_index][1].index.records[0]
+        repo.segments[target_index][0].native_payload().records[0]
+            .slot
+            .0,
+        0
+    );
+    assert_eq!(
+        repo.segments[target_index][1].native_payload().records[0]
             .id
             .0
             .as_ref(),
         "T512"
     );
-    assert_eq!(repo.segments[target_index][1].index.records[0].slot.0, 0);
+    assert_eq!(
+        repo.segments[target_index][1].native_payload().records[0]
+            .slot
+            .0,
+        0
+    );
 
     let request = query("entry.title = 'Needle'");
     assert_eq!(ids(&repo, &request), ["S0"]);
@@ -884,7 +894,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
     for published in repo.segments[source_index].iter() {
         for slot in published.active.bitmap().iter() {
             input.insert(crate::index::segment::SegmentRecordAddress {
-                collection: published.index.collection,
+                collection: published.native_payload().collection,
                 segment: published.id,
                 slot: crate::model::RecordSlot(slot),
             });
@@ -900,7 +910,14 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
                 .iter()
                 .find(|segment| segment.id == address.segment)
                 .unwrap();
-            segment.index.record(address.slot).unwrap().id.0.as_ref() == "S0"
+            segment
+                .native_payload()
+                .record(address.slot)
+                .unwrap()
+                .id
+                .0
+                .as_ref()
+                == "S0"
         }));
         assert!(work.target_candidates >= 1);
     }
@@ -969,13 +986,13 @@ fn relation_fts_counts_distinct_local_slots_in_three_segments_once() {
     assert_eq!(
         source_segments
             .iter()
-            .map(|segment| segment.index.records.len())
+            .map(|segment| segment.native_payload().records.len())
             .collect::<Vec<_>>(),
         [512, 512, 1]
     );
     for segment in &source_segments[..2] {
-        assert_eq!(segment.index.records[0].slot.0, 0);
-        assert_eq!(segment.index.records[1].slot.0, 1);
+        assert_eq!(segment.native_payload().records[0].slot.0, 0);
+        assert_eq!(segment.native_payload().records[1].slot.0, 1);
     }
     assert_eq!(
         source_segments

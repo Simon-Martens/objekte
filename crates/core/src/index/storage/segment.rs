@@ -466,7 +466,13 @@ pub(crate) fn read_slot_members<S: SegmentReader + ?Sized>(
 
 /// Reads from a pinned segment. Returned keys and headers can borrow the
 /// pinned representation or hold an owned value decoded by the reader.
-pub(crate) trait SegmentReader: Send + Sync {
+pub(crate) type SegmentHandle = std::sync::Arc<dyn SegmentReader>;
+
+pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
+    fn maintenance(&self) -> Option<&dyn maintenance::SegmentMaintenance> {
+        None
+    }
+
     fn descriptor(&self) -> SegmentDescriptor;
 
     fn summary(&self, active_records: usize) -> NativeSegmentSummary {
@@ -684,7 +690,11 @@ impl<S: SegmentReader + ?Sized> SegmentReaderDelegate for std::sync::Arc<S> {
     }
 }
 
-impl<D: SegmentReaderDelegate> SegmentReader for D {
+impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
+    fn maintenance(&self) -> Option<&dyn maintenance::SegmentMaintenance> {
+        self.payload().maintenance()
+    }
+
     fn descriptor(&self) -> SegmentDescriptor {
         let mut descriptor = self.payload().descriptor();
         if let Some(id) = self.placement_id() {

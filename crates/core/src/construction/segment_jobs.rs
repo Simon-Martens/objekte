@@ -7,9 +7,10 @@ use crate::lifecycle::IndexError;
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::repository::statistics::IncrementalSegmentProfile;
 
-use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::segment::SegmentId;
 use crate::index::storage::order::DeclaredOrderStore;
 use crate::index::storage::segment::build::{SegmentBuilder, SegmentSeal};
+use crate::index::storage::segment::{SegmentHandle, SegmentReader};
 
 pub(crate) struct SegmentJobGate {
     state: std::sync::Mutex<SegmentJobGateState>,
@@ -297,7 +298,7 @@ impl SegmentJobGate {
     }
 }
 pub(super) struct IndexedSegmentBuild {
-    pub index: IndexedCollectionSegment,
+    pub index: SegmentHandle,
     pub observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
     pub profile: Option<IncrementalSegmentProfile>,
     pub build_ns: u64,
@@ -444,7 +445,7 @@ impl SegmentBuildScheduler {
                 }
             }
             debug_assert!(match result.as_ref() {
-                Ok(built) => built.index.collection == collection,
+                Ok(built) => built.index.descriptor().collection == collection,
                 Err(_) => true,
             });
             running.fetch_sub(1, Ordering::Relaxed);
@@ -597,7 +598,7 @@ impl PrivateSegmentGroup {
                     continue;
                 }
             };
-            if built.index.id.get() != segment_id {
+            if built.index.descriptor().id.get() != segment_id {
                 first_error
                     .get_or_insert_with(|| "private segment completion identity mismatch".into());
                 self.indexed.clear();

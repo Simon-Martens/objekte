@@ -28,7 +28,6 @@ use crate::query_execution::restrictions::{
 };
 use crate::records::RecordIdSlot;
 use crate::reference::filter::eval_term;
-use crate::repository::state::CollectionState;
 use crate::schema::operation::Transform;
 
 pub(crate) fn segment_access_path_kind(
@@ -130,7 +129,7 @@ fn segment_text_candidates(
 pub(crate) fn segment_text_estimate(
     segment: &IndexedCollectionSegment,
     term: &BoundTerm,
-    collection: &CollectionState,
+    policy: crate::index::storage::text::TextAccessPolicy<'_>,
 ) -> Option<u64> {
     if term.derived != Derived::None
         || !matches!(term.operator, Operator::Contains | Operator::Eq)
@@ -144,13 +143,13 @@ pub(crate) fn segment_text_estimate(
     if literal.contains(['%', '\\']) {
         return None;
     }
-    let indexes = IndexCatalog::segment(segment, collection);
+    let indexes = IndexCatalog::segment_with_bindings(segment, policy.schema, policy.bindings);
     let raw_compatible = matches!(term.transform, Transform::Identity | Transform::CaseFold)
         && term.operation.is_none()
         && term.matcher.is_none()
-        && segment_raw_covers_identity_field(segment, collection.text_access_policy());
+        && segment_raw_covers_identity_field(segment, policy);
     let index = indexes.field_text_for(
-        &collection.definition.schema,
+        policy.schema,
         &term.path.segments,
         &term.binding_name,
         term.operation.is_some(),

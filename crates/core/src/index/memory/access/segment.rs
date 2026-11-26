@@ -19,8 +19,8 @@ use crate::repository::state::CollectionState;
 
 use crate::query_access::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
-    Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
-    ProviderId, Restriction,
+    Coverage, ExplainAccess, IndexAccessProvider, InputEstimate, OfferList, OperationId,
+    ProofStrength, ProviderId, Restriction,
 };
 #[cfg(test)]
 use crate::query_access::membership::DomainId;
@@ -28,8 +28,7 @@ use crate::query_access::membership::{SlotInput, SlotSet};
 
 mod predicate;
 
-pub(crate) use predicate::segment_text_estimate;
-use predicate::{native_segment_term_bounds, segment_access_path_kind};
+use predicate::{native_segment_term_bounds, segment_access_path_kind, segment_text_estimate};
 
 pub(crate) const NATIVE_SEGMENT_PROVIDER: ProviderId = ProviderId(3);
 
@@ -277,6 +276,105 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         Ok(())
     }
 
+    fn propose_explain(
+        &self,
+        term: TermId,
+        request: AccessRequest<'_>,
+        input: InputEstimate,
+        offers: &mut OfferList,
+    ) -> AccessResult<()> {
+        if input.domain != self.access.text.domain {
+            return Ok(());
+        }
+        let AccessRequest::Structured(bound) = request else {
+            return Ok(());
+        };
+        let catalog = IndexCatalog::segment_with_bindings(
+            self.segment,
+            self.access.text.policy.schema,
+            self.access.text.policy.bindings,
+        );
+        for access in catalog
+            .field_postings(
+                &bound.path.segments,
+                &bound.binding_name,
+                bound.operation.is_some(),
+            )
+            .into_iter()
+            .flatten()
+        {
+            let Some(proposal) = access
+                .assess(bound, catalog.logical, &mut 0)
+                .map_err(AccessError::Internal)?
+            else {
+                continue;
+            };
+            if !proposal.exact {
+                continue;
+            }
+            let operation = self.operation_id(
+                term,
+                bound,
+                SegmentPhysicalOperation::Posting {
+                    access: proposal.id,
+                    operation: proposal.operation,
+                    exact: proposal.exact,
+                },
+                AccessPathKind::Posting,
+            );
+            offers.push(
+                AccessOffer::new(
+                    AccessId {
+                        provider: NATIVE_SEGMENT_PROVIDER,
+                        operation,
+                    },
+                    term,
+                    AccessKind::ExactMembership,
+                    Coverage::Partial {
+                        covered: proposal.coverage,
+                    },
+                    ProofStrength::Exact,
+                    proposal.output.min(input.input_len),
+                    proposal.lookup_work,
+                    0.0,
+                    true,
+                    false,
+                )
+                .with_explanation(ExplainAccess::Posting(proposal.id, proposal.operation)),
+            );
+        }
+        if offers.is_empty()
+            && let Some(output) =
+                segment_text_estimate(self.segment, bound, self.access.text.policy)
+        {
+            let operation = self.operation_id(
+                term,
+                bound,
+                SegmentPhysicalOperation::NativeFallback,
+                AccessPathKind::RawBigram,
+            );
+            offers.push(
+                AccessOffer::new(
+                    AccessId {
+                        provider: NATIVE_SEGMENT_PROVIDER,
+                        operation,
+                    },
+                    term,
+                    AccessKind::CandidateMembership,
+                    Coverage::CandidateOnly,
+                    ProofStrength::Candidate,
+                    output.min(input.input_len),
+                    output as f64,
+                    0.0,
+                    false,
+                    false,
+                )
+                .with_explanation(ExplainAccess::Bigram),
+            );
+        }
+        Ok(())
+    }
+
     fn apply<'a>(
         &self,
         term: TermId,
@@ -487,7 +585,7 @@ mod tests {
         };
         let provider = NativeSegmentProvider::new(
             published.id,
-            &published.index,
+            published.native_payload(),
             collection,
             Some(&view.0.catalog),
         );
@@ -703,12 +801,20 @@ fn managed_queries_and_components_use_distinct_published_domains() {
     let [left, right] = segments else {
         panic!("two independent placements")
     };
-    let left_structured =
-        NativeSegmentProvider::new(left.id, &left.index, collection, Some(&pinned.0.catalog));
-    let right_structured =
-        NativeSegmentProvider::new(right.id, &right.index, collection, Some(&pinned.0.catalog));
-    let left_text = NativeSegmentTextProvider::new(left.id, &left.index, collection);
-    let right_text = NativeSegmentTextProvider::new(right.id, &right.index, collection);
+    let left_structured = NativeSegmentProvider::new(
+        left.id,
+        left.native_payload(),
+        collection,
+        Some(&pinned.0.catalog),
+    );
+    let right_structured = NativeSegmentProvider::new(
+        right.id,
+        right.native_payload(),
+        collection,
+        Some(&pinned.0.catalog),
+    );
+    let left_text = NativeSegmentTextProvider::new(left.id, left.native_payload(), collection);
+    let right_text = NativeSegmentTextProvider::new(right.id, right.native_payload(), collection);
     let mask = left.active.bitmap();
     let BoundExpr::Term(term) =
         crate::query::binding::filter::bind_filter(&filter, &schema).unwrap()

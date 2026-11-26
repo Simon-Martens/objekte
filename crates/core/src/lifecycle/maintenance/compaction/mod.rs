@@ -1,16 +1,14 @@
 //! Active-only, source-free maintenance of the published index.
 
-use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
-use crate::index::segment::PublishedSegment;
-use crate::index::segment::{IndexedCollectionSegment, SegmentFile};
+use crate::index::storage::publication::PublishedSegment;
+use crate::index::storage::segment::SegmentReader;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::maintenance::MaintenancePhase;
 use crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
-use crate::repository::state::CollectionState;
 
 /// Dense maintenance result. Old pinned views may keep retired memory until
 /// their readers finish; the new root contains only active contributions.
@@ -66,73 +64,6 @@ fn source_budget_bytes(source: &dyn crate::index::storage::segment::SegmentReade
         .max(estimates.source_bytes_estimated)
 }
 
-pub(crate) fn base_as_segment(
-    collection: &CollectionState,
-    files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
-) -> Result<IndexedCollectionSegment, IndexError> {
-    let mut segment_files = Vec::new();
-    let mut file_index = HashMap::new();
-    for id in &collection.generation.files {
-        let entry = files
-            .file(*id)?
-            .ok_or_else(|| IndexError::InvalidPublication("base file missing".into()))?
-            .into_owned();
-        let records = collection
-            .generation
-            .file_records
-            .records_for(*id)
-            .ok_or_else(|| IndexError::InvalidPublication("base file ownership missing".into()))?
-            .to_vec();
-        file_index.insert(*id, segment_files.len());
-        segment_files.push(SegmentFile { entry, records });
-    }
-    let relations = collection
-        .relations
-        .iter()
-        .map(|relation| {
-            crate::index::relation::RelationContribution::from_resolved_index(
-                relation,
-                collection.generation.records.len(),
-            )
-            .map_err(IndexError::InvalidPublication)
-        })
-        .collect::<Result<Vec<_>, _>>()?;
-    let records = collection.generation.records.clone();
-    let backing = crate::index::segment::SegmentBacking::file_ranges(&records);
-    let mut segment = IndexedCollectionSegment {
-        id: crate::index::segment::SegmentId::new(1),
-        collection: collection.generation.collection,
-        source_id: collection.required_file_reader().id().into(),
-        source_version: collection.required_file_reader().version(),
-        files: segment_files,
-        file_index,
-        records: records
-            .iter()
-            .map(crate::records::RecordHeader::from)
-            .collect(),
-        backing,
-        write_versions: Default::default(),
-        raw_covers_logical_fields: true,
-        id_lookup: collection.id_lookup.clone(),
-        identity_order: collection.identity_order.clone(),
-        postings: collection.postings.clone().into(),
-        inference: collection.inference.clone(),
-        custom_postings: collection.custom_postings.clone(),
-        raw: collection.raw.clone().into(),
-        fallback_text: collection.fallback_text.clone().into(),
-        custom_text: collection.custom_text.clone(),
-        logical_records: collection.logical_records.clone(),
-        empty_array_records: collection.empty_array_records.clone(),
-        sorting: collection.sorting.clone().into(),
-        relations,
-        record_parses: 0,
-        failed_parses: 0,
-        accounting: Default::default(),
-    };
-    segment.recompute_accounting();
-    Ok(segment)
-}
-
 fn slot_count(root: &PublishedIndex) -> u64 {
     root.repository
         .collections()
@@ -142,7 +73,7 @@ fn slot_count(root: &PublishedIndex) -> u64 {
             root.active[number].slot_count() as u64
                 + root.segments[number]
                     .iter()
-                    .map(|segment| segment.index.record_count() as u64)
+                    .map(|segment| segment.descriptor().slots as u64)
                     .sum::<u64>()
         })
         .sum()
@@ -194,7 +125,7 @@ fn compact_published_with_budget(
             }
             if group
                 .iter()
-                .all(|segment| segment.active.len() == segment.index.record_count() as u64)
+                .all(|segment| segment.active.len() == segment.descriptor().slots as u64)
             {
                 continue;
             }
@@ -203,12 +134,12 @@ fn compact_published_with_budget(
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
-                if segment.active.len() == segment.index.record_count() as u64 {
+                if segment.active.len() == segment.descriptor().slots as u64 {
                     compacted.push(Arc::clone(segment));
                     continue;
                 }
-                let records = segment.index.record_count() as u64;
-                let input_bytes = source_budget_bytes(&segment.index);
+                let records = segment.descriptor().slots as u64;
+                let input_bytes = source_budget_bytes(segment.as_ref());
                 let temporary_bytes = input_bytes
                     .saturating_mul(3)
                     .saturating_add(records.saturating_mul(512));
@@ -228,7 +159,7 @@ fn compact_published_with_budget(
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
                 for part in compact_source_parts_with_policy(
-                    &segment.index,
+                    segment.as_ref(),
                     &segment.active,
                     &next.catalog,
                     next.repository.options().segment_policy,
@@ -242,12 +173,12 @@ fn compact_published_with_budget(
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
                     let active = next.repository.storage_factory.live_records(
-                        part.records.len(),
+                        part.descriptor().slots,
                         crate::index::storage::liveness::InitialLiveness::All,
                     )?;
                     compacted.push(Arc::new(PublishedSegment {
                         id: crate::index::segment::SegmentId::new(ordinal),
-                        index: Arc::new(part),
+                        index: part,
                         active,
                         observation: None,
                     }));
@@ -279,7 +210,7 @@ fn compact_published_with_budget(
             return Err(IndexError::Cancelled);
         }
         let mut compacted = Vec::new();
-        let mut compact_source = |source: &IndexedCollectionSegment,
+        let mut compact_source = |source: &dyn SegmentReader,
                                   active: &ActiveRecords|
          -> Result<Vec<Arc<PublishedSegment>>, IndexError> {
             if cancelled() {
@@ -301,12 +232,12 @@ fn compact_published_with_budget(
                     .checked_add(1)
                     .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
                 let active = next.repository.storage_factory.live_records(
-                    part.records.len(),
+                    part.descriptor().slots,
                     crate::index::storage::liveness::InitialLiveness::All,
                 )?;
                 replacements.push(Arc::new(PublishedSegment {
                     id: crate::index::segment::SegmentId::new(ordinal),
-                    index: Arc::new(part),
+                    index: part,
                     active,
                     observation: None,
                 }));
@@ -314,14 +245,17 @@ fn compact_published_with_budget(
             Ok(replacements)
         };
         if old.active[number].slot_count() != 0 {
-            let base = base_as_segment(collection, &old.repository.catalog)?;
-            compacted.extend(compact_source(&base, &old.active[number])?);
+            let base = old
+                .repository
+                .storage_factory
+                .base_segment(collection, old.repository.catalog.as_ref())?;
+            compacted.extend(compact_source(base.as_ref(), &old.active[number])?);
         }
         for segment in old.segments[number].iter() {
-            if segment.active.len() == segment.index.record_count() as u64 {
+            if segment.active.len() == segment.descriptor().slots as u64 {
                 compacted.push(Arc::clone(segment));
             } else {
-                compacted.extend(compact_source(&segment.index, &segment.active)?);
+                compacted.extend(compact_source(segment.as_ref(), &segment.active)?);
             }
         }
         drop(compact_source);

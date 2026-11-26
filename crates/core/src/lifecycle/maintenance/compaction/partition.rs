@@ -8,30 +8,29 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::segment::IndexedCollectionSegment;
-#[cfg(test)]
-use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::maintenance::SegmentPartition;
-use crate::index::storage::segment::{RecordBacking, SegmentReader, visit_segment_files};
+#[cfg(test)]
+use crate::index::storage::publication::PublishedSegment;
+use crate::index::storage::segment::maintenance::{SegmentPartition, require_maintenance};
+use crate::index::storage::segment::{
+    RecordBacking, SegmentHandle, SegmentReader, visit_segment_files,
+};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
 #[cfg(test)]
 use crate::lifecycle::PublishedIndex;
-#[cfg(test)]
-use crate::lifecycle::maintenance::compaction::base_as_segment;
 use crate::model::FileId;
 
 #[cfg(test)]
 pub(crate) const BASE_PARTITION_RECORDS: usize = 2_048;
 
 pub(crate) fn compact_source_parts_with_policy(
-    source: &IndexedCollectionSegment,
+    source: &dyn SegmentReader,
     active: &ActiveRecords,
     catalog: &dyn FileCatalogReader,
     policy: crate::index::segment::SegmentPolicy,
     cancelled: impl FnMut() -> bool,
-) -> Result<Vec<IndexedCollectionSegment>, IndexError> {
+) -> Result<Vec<SegmentHandle>, IndexError> {
     compact_source_parts_with_limits(
         source,
         active,
@@ -43,13 +42,13 @@ pub(crate) fn compact_source_parts_with_policy(
 }
 
 fn compact_source_parts_with_limits(
-    source: &IndexedCollectionSegment,
+    source: &dyn SegmentReader,
     active: &ActiveRecords,
     catalog: &dyn FileCatalogReader,
     max_records: usize,
     max_files: usize,
     mut cancelled: impl FnMut() -> bool,
-) -> Result<Vec<IndexedCollectionSegment>, IndexError> {
+) -> Result<Vec<SegmentHandle>, IndexError> {
     if max_records == 0 || max_files == 0 {
         return Err(IndexError::ResourceLimit(
             "compaction part limit must be positive".into(),
@@ -63,10 +62,11 @@ fn compact_source_parts_with_limits(
         max_files,
         &mut cancelled,
     )?;
-    let parts = source.project_partitions(&selections, catalog, &mut cancelled)?;
+    let parts =
+        require_maintenance(source)?.project_partitions(&selections, catalog, &mut cancelled)?;
     if parts
         .iter()
-        .map(IndexedCollectionSegment::record_count)
+        .map(|part| part.descriptor().slots)
         .sum::<usize>()
         != active.len() as usize
     {
@@ -227,7 +227,10 @@ fn partition_base_with_limits_inner(
         if collection.generation.files.is_empty() {
             continue;
         }
-        let source = base_as_segment(collection, &root.repository.catalog)?;
+        let source = root
+            .repository
+            .storage_factory
+            .base_segment(collection, root.repository.catalog.as_ref())?;
         let mut group = Arc::unwrap_or_clone(groups[number].clone());
         for part in compact_source_parts_with_limits(
             &source,
@@ -242,12 +245,12 @@ fn partition_base_with_limits_inner(
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
             let active = empty.storage_factory.live_records(
-                part.records.len(),
+                part.descriptor().slots,
                 crate::index::storage::liveness::InitialLiveness::All,
             )?;
             group.push(Arc::new(PublishedSegment {
                 id: crate::index::segment::SegmentId::new(ordinal),
-                index: Arc::new(part),
+                index: part,
                 active,
                 observation: None,
             }));

@@ -8,11 +8,11 @@ use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 
-use crate::index::segment::PublishedSegment;
 use crate::index::storage::StorageFactory;
 #[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogBase;
 use crate::index::storage::file_catalog::{EmptyFileCatalogBase, FileCatalogHandle};
+use crate::index::storage::publication::PublishedSegment;
 use crate::inventory::ActiveRecords;
 #[cfg(test)]
 use crate::inventory::FileInventory;

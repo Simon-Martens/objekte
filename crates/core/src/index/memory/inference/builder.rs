@@ -271,7 +271,7 @@ pub(crate) fn candidate_config(mut config: InferenceConfig) -> InferenceConfig {
 pub(crate) fn aggregate_segment_inference(
     config: InferenceConfig,
     schema: &Schema,
-    segments: &[Arc<crate::index::segment::PublishedSegment>],
+    segments: &[Arc<crate::index::storage::publication::PublishedSegment>],
     collection_name: &str,
 ) -> Result<Option<crate::repository::state::GlobalInferenceSummary>, String> {
     if config.mode == InferenceMode::Disabled {
@@ -365,7 +365,9 @@ pub(crate) fn aggregate_segment_inference(
                 )?;
                 aggregate.short_domains_complete &= empty == 0;
             }
-            if let Some(inference) = &segment.index.inference
+            if let Some(native) =
+                crate::index::memory::segment::maintenance::native_segment(segment.index.as_ref())
+                && let Some(inference) = &native.inference
                 && let Some(index) = inference.indexes.get(&path)
             {
                 aggregate.indexes.push(index);

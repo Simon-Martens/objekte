@@ -4,7 +4,7 @@ use std::sync::{Arc, Mutex};
 
 use roaring::RoaringBitmap;
 
-use crate::index::segment::PublishedSegment;
+use crate::index::storage::publication::PublishedSegment;
 use crate::inventory::ActiveRecords;
 use crate::model::CollectionId;
 use crate::query_access::contract::{

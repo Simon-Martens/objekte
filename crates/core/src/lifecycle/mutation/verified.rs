@@ -10,7 +10,7 @@ use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
     FilePreparationBinding, FileRecordLayout, reconstruct_file_layout,
 };
-use crate::index::segment::PublishedSegment;
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::{
     SegmentReader, visit_checked_file_slots, visit_segment_files,
 };
@@ -457,36 +457,39 @@ pub(crate) fn preserve_partition_record_slots(
             }
             Ok::<_, IndexError>(())
         })?;
-        let Ok(compacted) = found.old.index.compact_active(
+        let Some(editor) = found.old.maintenance() else {
+            return Ok(None);
+        };
+        let compacted = editor.project_active(
             &active_without_old,
             MAX_VERIFIED_SCANNED_RECORDS,
-            |entry| retained.contains(&entry.id),
-        ) else {
-            return Ok(None);
-        };
-        let Ok(consolidated) = crate::index::segment::IndexedCollectionSegment::consolidate(
-            &[&compacted.index, &found.replacement.index],
+            &mut |entry| retained.contains(&entry.id),
+        )?;
+        let Some(consolidated) = candidate.repository.storage_factory.consolidate_segments(
+            &[compacted.payload.as_ref(), found.replacement.index.as_ref()],
             MAX_VERIFIED_SCANNED_RECORDS,
-        ) else {
+        )?
+        else {
             return Ok(None);
         };
-        let mut remap = vec![found.slot; consolidated.index.record_count()];
+        let mut remap = vec![found.slot; consolidated.payload.descriptor().slots];
         for (original, projected) in compacted.old_to_new.iter().enumerate() {
             if let Some(projected) = projected {
                 remap[projected.0 as usize] = RecordSlot(original as u32);
             }
         }
-        let Ok(replacement) = consolidated.index.remap_dense(&remap) else {
+        let Some(editor) = consolidated.payload.maintenance() else {
             return Ok(None);
         };
+        let replacement = editor.remap_dense(&remap)?;
         let active = candidate.repository.storage_factory.live_records(
-            replacement.record_count(),
+            replacement.descriptor().slots,
             crate::index::storage::liveness::InitialLiveness::All,
         )?;
         let group = Arc::make_mut(&mut candidate.segments[collection.0 as usize]);
         group[found.old_position] = Arc::new(PublishedSegment {
             id: found.old.id,
-            index: Arc::new(replacement),
+            index: replacement,
             active,
             observation: None,
         });
@@ -559,13 +562,15 @@ pub(crate) fn remove_verified_old_shards(
                 }
                 Ok::<_, VerificationError>(())
             })?;
-            let compacted = shard
-                .index
-                .compact_active(&shard.active, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
-                    retained.contains(&entry.id)
-                })
-                .map_err(|_| VerifiedFallbackReason::CompactionUnavailable)?;
-            if compacted.index.record_count() == 0 {
+            let editor = shard
+                .maintenance()
+                .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
+            let compacted = editor.project_active(
+                &shard.active,
+                MAX_VERIFIED_SCANNED_RECORDS,
+                &mut |entry| retained.contains(&entry.id),
+            )?;
+            if compacted.payload.descriptor().slots == 0 {
                 group.remove(position);
             } else {
                 let ordinal = candidate
@@ -573,12 +578,12 @@ pub(crate) fn remove_verified_old_shards(
                     .checked_add(1)
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
                 let active = candidate.repository.storage_factory.live_records(
-                    compacted.index.record_count(),
+                    compacted.payload.descriptor().slots,
                     crate::index::storage::liveness::InitialLiveness::All,
                 )?;
                 group[position] = Arc::new(PublishedSegment {
                     id: crate::index::segment::SegmentId::new(candidate.next_segment_ordinal),
-                    index: Arc::new(compacted.index),
+                    index: compacted.payload,
                     active,
                     observation: None,
                 });

@@ -191,6 +191,34 @@ impl Default for InputEstimate {
     }
 }
 
+/// Logical dictionary family used in posting diagnostics.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum PostingId {
+    Declared,
+    Observed,
+    Named,
+}
+
+/// The same prepared operation is used by estimation, execution, and EXPLAIN.
+/// It contains no handle that could outlive its published owner.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum PostingOperation {
+    Exact,
+    SelfComparePresence,
+    EmptyStringExact,
+    ObservedScalarExact,
+    StringDictionaryExact,
+    ShortStringCandidates,
+    StateCandidates,
+    ValueCandidates,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ExplainAccess {
+    Posting(PostingId, PostingOperation),
+    Bigram,
+}
+
 #[derive(Clone, Debug)]
 pub(crate) struct AccessOffer {
     id: AccessId,
@@ -203,6 +231,7 @@ pub(crate) struct AccessOffer {
     input_work: f64,
     can_evidence: bool,
     can_order: bool,
+    explanation: Option<ExplainAccess>,
 }
 
 impl AccessOffer {
@@ -230,7 +259,17 @@ impl AccessOffer {
             input_work,
             can_evidence,
             can_order,
+            explanation: None,
         }
+    }
+
+    pub(crate) fn with_explanation(mut self, explanation: ExplainAccess) -> Self {
+        self.explanation = Some(explanation);
+        self
+    }
+
+    pub(crate) fn explanation(&self) -> Option<ExplainAccess> {
+        self.explanation
     }
 
     pub(crate) fn id(&self) -> AccessId {
@@ -311,6 +350,18 @@ pub(crate) trait IndexAccessProvider: Send + Sync {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()>;
+
+    /// Explain may request symbolic estimates for offers whose detailed
+    /// posting or text diagnostics are unnecessary for ordinary planning.
+    fn propose_explain(
+        &self,
+        term: TermId,
+        request: AccessRequest<'_>,
+        input: InputEstimate,
+        offers: &mut OfferList,
+    ) -> AccessResult<()> {
+        self.propose(term, request, input, offers)
+    }
 
     fn apply<'a>(
         &self,

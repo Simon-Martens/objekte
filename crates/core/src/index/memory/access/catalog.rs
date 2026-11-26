@@ -18,14 +18,7 @@ use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
 use crate::repository::state::CollectionState;
 use crate::schema::{Schema, operation::Transform};
 
-/// Physical identity is used only to resolve a selected borrowed access. It
-/// does not change applicability, proof, or cost.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum PostingId {
-    Declared,
-    Observed,
-    Named,
-}
+pub(crate) use crate::query_access::contract::{PostingId, PostingOperation};
 
 #[derive(Clone, Copy)]
 pub(crate) struct PostingAccess<'a> {
@@ -36,20 +29,6 @@ pub(crate) struct PostingAccess<'a> {
     /// domain. The index may still exist for diagnostics and rebuilds.
     pub admitted: bool,
     pub short_string_coverage: Option<&'a RoaringBitmap>,
-}
-
-/// The same prepared operation is used by estimation, execution, and EXPLAIN.
-/// It contains no handle that could outlive its published owner.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub(crate) enum PostingOperation {
-    Exact,
-    SelfComparePresence,
-    EmptyStringExact,
-    ObservedScalarExact,
-    StringDictionaryExact,
-    ShortStringCandidates,
-    StateCandidates,
-    ValueCandidates,
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -429,14 +408,6 @@ impl<'a> IndexCatalog<'a> {
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,
         }
-    }
-
-    pub fn segment(state: &'a IndexedCollectionSegment, collection: &'a CollectionState) -> Self {
-        Self::segment_with_bindings(
-            state,
-            &collection.definition.schema,
-            &collection.text_bindings,
-        )
     }
 
     pub(crate) fn segment_with_bindings(

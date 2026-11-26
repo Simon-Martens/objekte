@@ -107,7 +107,7 @@ fn compaction_reuses_unaffected_native_segment() {
     index.add_file(&kept).unwrap();
     let pinned = index.view().unwrap();
     let unchanged = pinned.0.segments[0].last().unwrap().clone();
-    let unchanged_accounting = unchanged.index.accounting;
+    let unchanged_accounting = unchanged.native_payload().accounting;
     assert!(unchanged_accounting.retained_bytes_estimated > 0);
     assert!(unchanged_accounting.source_bytes_estimated > 0);
     assert_eq!(
@@ -126,7 +126,10 @@ fn compaction_reuses_unaffected_native_segment() {
             .any(|segment| Arc::ptr_eq(segment, &unchanged))
     );
     assert_eq!(
-        unchanged.index.accounting.retained_bytes_estimated,
+        unchanged
+            .native_payload()
+            .accounting
+            .retained_bytes_estimated,
         unchanged_accounting.retained_bytes_estimated
     );
     assert_eq!(
@@ -373,7 +376,7 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     std::fs::write(&b, br#"("name"="bb")"#).unwrap();
     index.update_file(b_handle, &b).unwrap();
     let dense = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].clone();
-    assert!(dense.active.len() < dense.index.records.len() as u64);
+    assert!(dense.active.len() < dense.native_payload().records.len() as u64);
     for number in 0..70 {
         let path = root.join(format!("data/new-{number}.row"));
         std::fs::write(&path, format!("(\"name\"=\"new-{number}\")")).unwrap();

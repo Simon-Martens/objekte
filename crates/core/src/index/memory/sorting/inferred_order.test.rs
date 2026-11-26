@@ -217,7 +217,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         configured.iter().position(|id| id == "g").unwrap()
             < configured.iter().position(|id| id == "h").unwrap()
     );
-    let segment = &rebuilt.segments[0][0].index;
+    let segment = rebuilt.segments[0][0].native_payload();
     let column = segment.sorting.column("name").unwrap();
     let records = &segment.records;
     let g = records

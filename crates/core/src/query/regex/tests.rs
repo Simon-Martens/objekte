@@ -302,7 +302,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             .unwrap()
             .unwrap_or_else(|| segment.active.bitmap().clone());
             segment
-                .index
+                .native_payload()
                 .records
                 .iter()
                 .enumerate()
@@ -646,7 +646,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
                     "{alphabet:?}"
                 );
                 assert!(candidates.iter().any(|(segment, candidates)| {
-                    segment.index.records.iter().any(|record| {
+                    segment.native_payload().records.iter().any(|record| {
                         record.class == crate::inventory::RecordClass::RawFallback
                             && candidates.contains(record.slot.0)
                     })

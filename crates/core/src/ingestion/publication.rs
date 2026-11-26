@@ -1,11 +1,12 @@
 //! Typed batch preparation and one immutable lifecycle installation.
 
 use std::collections::HashSet;
+use std::sync::Mutex;
 use std::sync::atomic::{AtomicBool, Ordering};
-use std::sync::{Arc, Mutex};
 
-use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::segment::SegmentId;
 use crate::index::storage::segment::build::{DirectSegmentBodies, DirectSegmentBuild, SegmentSeal};
+use crate::index::storage::segment::{SegmentHandle, SegmentReader};
 use crate::index::storage::worker::{DirectRecordBatch, DirectRecordInput, PreparedDirectBatch};
 use crate::lifecycle::publication::{RecordMutation, RecordMutationKind};
 use crate::lifecycle::{Index, IndexError, IndexRevision, IndexView, RecordRegistration};
@@ -129,7 +130,7 @@ fn build_segment(
     registration: &crate::lifecycle::builder::RegisteredRecordSource,
     mut inputs: Vec<DirectRecordInput>,
     versions: Option<Vec<RecordVersion>>,
-) -> Result<IndexedCollectionSegment, IngestionError> {
+) -> Result<SegmentHandle, IngestionError> {
     build_segment_inputs(view, registration, &mut inputs, versions.as_deref(), &mut 0)
 }
 
@@ -139,7 +140,7 @@ fn build_segment_inputs(
     inputs: &mut [DirectRecordInput],
     versions: Option<&[RecordVersion]>,
     completed: &mut usize,
-) -> Result<IndexedCollectionSegment, IngestionError> {
+) -> Result<SegmentHandle, IngestionError> {
     let collection = registration.handle.collection();
     let declaration = &view.repository().collections[collection.0 as usize].definition;
     let options = view.repository().options();
@@ -170,7 +171,7 @@ fn build_segment_inputs(
                 .map_err(IngestionError::Index)?,
         )
     };
-    let mut segment = factory
+    let segment = factory
         .seal_direct_segment(
             DirectSegmentBuild {
                 collection,
@@ -196,7 +197,6 @@ fn build_segment_inputs(
         .map_err(IndexError::from)
         .map_err(IngestionError::Index)?
         .index;
-    segment.recompute_accounting();
     Ok(segment)
 }
 
@@ -311,7 +311,7 @@ pub(super) fn install_group(
             (!versions.is_empty()).then_some(versions.as_slice()),
             &mut completed,
         ) {
-            Ok(segment) => break Arc::new(segment),
+            Ok(segment) => break segment,
             Err(error) if completed < member.end => {
                 let invalid = members.partition_point(|member| member.end <= completed);
                 failure = Some((members[invalid].sequence, error));
@@ -331,7 +331,7 @@ pub(super) fn install_group(
             &view,
             handle,
             &changes[..prefix.end],
-            std::slice::from_mut(&mut segment),
+            std::slice::from_ref(&segment),
             || {
                 let guard = publication_decision
                     .lock()
@@ -374,8 +374,8 @@ pub(super) fn install_group(
                     };
                 };
                 match compact_prefix(&segment, prefix.end) {
-                    Ok(compacted) => segment = Arc::new(compacted),
-                    Err(error) => return reject(IngestionError::Index(IndexError::Build(error))),
+                    Ok(compacted) => segment = compacted,
+                    Err(error) => return reject(IngestionError::Index(error)),
                 }
             }
             Err(error) => return reject(IngestionError::Index(error)),
@@ -383,21 +383,26 @@ pub(super) fn install_group(
     }
 }
 
-fn compact_prefix(
-    segment: &IndexedCollectionSegment,
-    length: usize,
-) -> Result<IndexedCollectionSegment, String> {
+fn compact_prefix(segment: &SegmentHandle, length: usize) -> Result<SegmentHandle, IndexError> {
     let mut live = roaring::RoaringBitmap::new();
-    live.insert_range(0..u32::try_from(length).map_err(|_| "group record count overflow")?);
-    let active = crate::inventory::ActiveRecords::from_bitmap(segment.record_count(), live)?;
-    segment
-        .compact_active(&active, segment.record_count(), |_| false)
-        .map(|compacted| compacted.index)
+    live.insert_range(
+        0..u32::try_from(length)
+            .map_err(|_| IndexError::ResourceLimit("group record count overflow".into()))?,
+    );
+    let slots = segment.descriptor().slots;
+    let active = crate::inventory::ActiveRecords::from_bitmap(slots, live)
+        .map_err(IndexError::InvalidPublication)?;
+    let editor =
+        crate::index::storage::segment::maintenance::require_maintenance(segment.as_ref())?;
+    Ok(editor
+        .project_active(&active, slots, &mut |_| false)?
+        .payload)
 }
 
 #[cfg(test)]
 mod tests {
     use crate::index::segment::SegmentPolicy;
+    use crate::index::storage::segment::SegmentReader;
     use crate::lifecycle::Index;
     use crate::model::Value;
     use crate::repository::configuration::RepositoryOptions;
@@ -431,7 +436,7 @@ mod tests {
         assert_eq!(
             view.0.segments[0]
                 .iter()
-                .map(|segment| segment.index.record_count())
+                .map(|segment| segment.descriptor().slots)
                 .collect::<Vec<_>>(),
             vec![3, 3, 2]
         );

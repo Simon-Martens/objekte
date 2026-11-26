@@ -47,7 +47,7 @@ enum ScheduledBuildJob {
 }
 
 type InitialSegment = (
-    crate::index::segment::IndexedCollectionSegment,
+    crate::index::storage::segment::SegmentHandle,
     Option<crate::index::storage::inference::InferenceObservationHandle>,
 );
 
@@ -1799,13 +1799,6 @@ impl Repository {
                         sealed_tails.add_private_segment(&built.0);
                         segments.push(built);
                     }
-                }
-                let mut ordinal = index.view()?.0.next_segment_ordinal;
-                for (segment, _) in &mut segments {
-                    segment.id = SegmentId::new(ordinal);
-                    ordinal = ordinal.checked_add(1).ok_or_else(|| {
-                        IndexError::ResourceLimit("segment identity overflow".into())
-                    })?;
                 }
                 let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
                 let (revision, phases) = index.publish_initial_segments(

@@ -4,6 +4,7 @@ pub(crate) mod admission;
 mod compaction;
 mod consolidation;
 mod finalize;
+pub(super) mod maintenance;
 mod projection;
 mod record_versions;
 pub(crate) mod statistics;
@@ -22,7 +23,6 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
-use crate::index::storage::file_catalog::FileCatalogHandle;
 use crate::index::storage::order::{
     InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
 };
@@ -34,7 +34,6 @@ use crate::index::storage::segment::{
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
-use crate::lifecycle::IndexRevision;
 #[cfg(test)]
 use crate::model::Value;
 use crate::model::{CollectionId, FileId, Number, RecordSlot};
@@ -564,63 +563,16 @@ pub(crate) struct IndexedCollectionSegment {
     pub accounting: SegmentAccounting,
 }
 
-/// One published payload and its independently versioned local liveness.
-#[derive(Clone)]
-pub(crate) struct PublishedSegment {
-    pub id: SegmentId,
-    pub index: Arc<IndexedCollectionSegment>,
-    pub active: ActiveRecords,
-    pub(crate) observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
-}
+#[cfg(test)]
+use crate::index::storage::publication::PublishedSegment;
 
-impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment {
-    type Payload = IndexedCollectionSegment;
-
-    fn payload(&self) -> &Self::Payload {
-        &self.index
-    }
-
-    fn placement_id(&self) -> Option<SegmentId> {
-        Some(self.id)
-    }
-}
-
-impl crate::index::storage::segment_catalog::SegmentRouteSource for PublishedSegment {
-    fn segment_descriptor(&self) -> SegmentDescriptor {
-        self.descriptor()
-    }
-
-    fn visit_live_records(
-        &self,
-        visit: &mut dyn FnMut(&[(&crate::model::RecordId, RecordSlot)]) -> StorageResult<()>,
-    ) -> StorageResult<()> {
-        crate::index::storage::segment_catalog::visit_live_routes(self, &self.active, visit)
-    }
-
-    fn visit_files(
-        &self,
-        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
-    ) -> StorageResult<()> {
-        crate::index::storage::segment_catalog::visit_file_routes(self, visit)
-    }
-}
-
+#[cfg(test)]
 impl PublishedSegment {
-    pub(crate) fn construction_observation_bytes(&self) -> usize {
-        self.observation
-            .as_ref()
-            .map_or(0, |observation| observation.estimated_bytes())
+    pub(crate) fn native_payload(&self) -> &IndexedCollectionSegment {
+        (self.index.as_ref() as &dyn std::any::Any)
+            .downcast_ref()
+            .expect("fixture uses a memory segment")
     }
-}
-
-/// Borrowed view of the metadata, liveness, and segment payloads that belong
-/// to one publication. Repository and lifecycle reads expose the same shape.
-#[derive(Clone, Copy)]
-pub(crate) struct NativeSnapshotRef<'a> {
-    pub active: &'a [ActiveRecords],
-    pub segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
-    pub catalog: &'a FileCatalogHandle,
-    pub revision: IndexRevision,
 }
 
 pub use crate::index::storage::component::{
@@ -628,6 +580,12 @@ pub use crate::index::storage::component::{
 };
 
 impl SegmentReader for IndexedCollectionSegment {
+    fn maintenance(
+        &self,
+    ) -> Option<&dyn crate::index::storage::segment::maintenance::SegmentMaintenance> {
+        Some(self)
+    }
+
     fn summary(&self, active_records: usize) -> NativeSegmentSummary {
         let index = self;
         let bigrams = || {

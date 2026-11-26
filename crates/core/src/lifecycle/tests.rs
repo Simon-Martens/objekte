@@ -513,8 +513,8 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     let mut staged = (*index.view().unwrap().0).clone();
     assert_eq!(staged.segments[0].len(), 3);
     for segment in staged.segments[0].iter() {
-        assert!(segment.index.accounting.retained_bytes_estimated > 0);
-        assert!(segment.index.accounting.source_bytes_estimated > 0);
+        assert!(segment.native_payload().accounting.retained_bytes_estimated > 0);
+        assert!(segment.native_payload().accounting.source_bytes_estimated > 0);
     }
     staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
     assert_eq!(staged.segments[0].len(), 2);
@@ -567,9 +567,12 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     let maintained = index.view().unwrap();
     assert_eq!(maintained.0.segments[0].len(), 1);
     assert!(!Arc::ptr_eq(&old, &maintained.0.segments[0][0]));
-    assert_eq!(maintained.0.segments[0][0].index.records.len(), 192);
+    assert_eq!(
+        maintained.0.segments[0][0].native_payload().records.len(),
+        192
+    );
     assert_eq!(maintained.0.segments[0][0].active.len(), 192);
-    assert_eq!(old.index.records.len(), 256);
+    assert_eq!(old.native_payload().records.len(), 256);
     let added = root.join("data/added.row");
     std::fs::write(&added, br#"("name"="new item")"#).unwrap();
     index.add_file(&added).unwrap();
@@ -577,7 +580,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     assert!(
         current.0.segments[0]
             .iter()
-            .any(|segment| segment.index.records.len() == 192)
+            .any(|segment| segment.native_payload().records.len() == 192)
     );
     assert_eq!(current.0.status().live_records, 193);
     assert_eq!(maintained.0.status().live_records, 192);
@@ -1809,10 +1812,10 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         let group = Arc::make_mut(&mut next.segments[collection]);
         let segment = group
             .iter()
-            .position(|segment| segment.index.id_lookup.contains_key(record_id))
+            .position(|segment| segment.native_payload().id_lookup.contains_key(record_id))
             .unwrap();
         let segment = Arc::make_mut(&mut group[segment]);
-        let slot = segment.index.id_lookup[record_id];
+        let slot = segment.native_payload().id_lookup[record_id];
         segment.active = segment.active.retired(&[slot]).unwrap();
     }
     index.publish_prepared(old.revision(), next).unwrap();
@@ -1993,16 +1996,16 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
         view.segments(CollectionId(0))
             .unwrap()
             .iter()
-            .map(|segment| segment.index.accounting.retained_bytes_estimated)
+            .map(|segment| segment.native_payload().accounting.retained_bytes_estimated)
             .sum::<usize>()
     };
     let before = total(&view);
     assert!(before > 0);
     let first = view.segments(CollectionId(0)).unwrap()[0].clone();
-    assert!(first.index.accounting.index_family_bytes > 0);
+    assert!(first.native_payload().accounting.index_family_bytes > 0);
     assert_eq!(
-        first.index.accounting.max_record_range_len,
-        first.index.backing.max_file_range_len()
+        first.native_payload().accounting.max_record_range_len,
+        first.native_payload().backing.max_file_range_len()
     );
     std::fs::write(
         root.join("data/c.row"),
@@ -2028,12 +2031,15 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
         .find(|segment| segment.id == first.id)
         .expect("retired shard missing");
     assert_eq!(
-        retained.index.accounting.retained_bytes_estimated,
-        first.index.accounting.retained_bytes_estimated
+        retained
+            .native_payload()
+            .accounting
+            .retained_bytes_estimated,
+        first.native_payload().accounting.retained_bytes_estimated
     );
     assert_eq!(
-        retained.index.accounting.index_family_bytes,
-        first.index.accounting.index_family_bytes
+        retained.native_payload().accounting.index_family_bytes,
+        first.native_payload().accounting.index_family_bytes
     );
     assert!(retained.active.len() < first.active.len());
     index.compact().unwrap();
@@ -2046,8 +2052,8 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
             .unwrap()
             .iter()
             .all(|segment| {
-                segment.index.accounting.retained_bytes_estimated > 0
-                    && segment.index.accounting.index_family_bytes > 0
+                segment.native_payload().accounting.retained_bytes_estimated > 0
+                    && segment.native_payload().accounting.index_family_bytes > 0
             })
     );
     index.shutdown().unwrap();
@@ -2215,7 +2221,7 @@ fn record_range_scheduling_boundary_preserves_results_and_cancellation() {
             let view = index.view().unwrap();
             assert_eq!(
                 view.segments(CollectionId(0)).unwrap()[0]
-                    .index
+                    .native_payload()
                     .max_record_range_len(),
                 target as u64
             );

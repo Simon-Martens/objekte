@@ -7,6 +7,7 @@ pub(crate) mod liveness;
 pub(crate) mod order;
 pub(crate) mod ordered_slots;
 pub(crate) mod posting;
+pub(crate) mod publication;
 pub(crate) mod relation;
 pub(crate) mod segment;
 pub(crate) mod text;
@@ -22,6 +23,25 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn consolidate_segments(
+        &self,
+        _segments: &[&dyn segment::SegmentReader],
+        _max_records: usize,
+    ) -> StorageResult<Option<segment::maintenance::ConsolidatedSegment>> {
+        Ok(None)
+    }
+
+    fn base_segment(
+        &self,
+        _collection: &crate::repository::state::CollectionState,
+        _files: &dyn file_catalog::FileCatalogReader,
+    ) -> StorageResult<segment::SegmentHandle> {
+        Err(transfer::StorageError::invalid(
+            "project collection base",
+            "base projection unavailable",
+        ))
+    }
+
     fn declared_order_store(&self) -> Option<Arc<dyn order::DeclaredOrderStore>> {
         None
     }

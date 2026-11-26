@@ -17,6 +17,24 @@ mod worker;
 pub(crate) struct MemoryStorageFactory;
 
 impl super::storage::StorageFactory for MemoryStorageFactory {
+    fn consolidate_segments(
+        &self,
+        segments: &[&dyn super::storage::segment::SegmentReader],
+        max_records: usize,
+    ) -> super::storage::transfer::StorageResult<
+        Option<super::storage::segment::maintenance::ConsolidatedSegment>,
+    > {
+        segment::maintenance::consolidate(segments, max_records)
+    }
+
+    fn base_segment(
+        &self,
+        collection: &crate::repository::state::CollectionState,
+        files: &dyn super::storage::file_catalog::FileCatalogReader,
+    ) -> super::storage::transfer::StorageResult<super::storage::segment::SegmentHandle> {
+        segment::maintenance::base_segment(collection, files)
+    }
+
     fn start_file_segment(
         &self,
         input: super::storage::segment::build::FileSegmentBuild<'_>,

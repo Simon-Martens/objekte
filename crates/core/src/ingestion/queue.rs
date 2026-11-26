@@ -1927,7 +1927,6 @@ mod tests {
         let view = index.view().unwrap();
         let segment = &view.0.segments[0][0].index;
         let body = segment
-            .backing
             .retained_body(crate::model::RecordSlot(0))
             .unwrap()
             .unwrap();

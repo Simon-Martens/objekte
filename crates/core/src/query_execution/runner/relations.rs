@@ -2817,15 +2817,14 @@ fn try_exact_native_boolean_page(
                 .unwrap_or_default();
             let published = &segments[collection_index][segment_index];
             let record = published
-                .index
-                .record(slot)
+                .header(slot)?
                 .ok_or("native Boolean ranked slot missing")?;
             let key = segment_rank_key(
                 repo,
                 sort,
                 collection_index,
                 published.as_ref(),
-                record,
+                record.as_ref(),
                 None,
             )?;
             let hit = if matches!(published.backing_kind(), RecordBacking::FileRange) {
@@ -2843,7 +2842,7 @@ fn try_exact_native_boolean_page(
                     &repo.collections[collection_index],
                     &published.index,
                     catalog,
-                    record,
+                    record.as_ref(),
                     revision,
                     evidence,
                 )?
@@ -2979,16 +2978,15 @@ fn try_native_relation_scan(
                 }
                 let mut provider_values =
                     if matches!(published.backing_kind(), RecordBacking::Provider) {
-                        let readable = chunk
-                            .iter()
-                            .copied()
-                            .filter(|slot| {
-                                published
-                                    .index
-                                    .record(*slot)
-                                    .is_some_and(|record| record.class != RecordClass::RawFallback)
-                            })
-                            .collect::<Vec<_>>();
+                        let mut readable = Vec::new();
+                        for &slot in &chunk {
+                            let record = published
+                                .header(slot)?
+                                .ok_or("native relation source header missing")?;
+                            if record.class != RecordClass::RawFallback {
+                                readable.push(slot);
+                            }
+                        }
                         if let Some(context) = context {
                             context.check_string()?;
                             context.check_slots(
@@ -3021,9 +3019,9 @@ fn try_native_relation_scan(
                         slot,
                     };
                     let record = published
-                        .index
-                        .record(slot)
+                        .header(slot)?
                         .ok_or("native relation source slot missing")?;
+                    let record = record.as_ref();
                     if record.class == RecordClass::RawFallback {
                         continue;
                     }
@@ -4105,6 +4103,11 @@ pub(crate) fn explain_segmented(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     revision: IndexRevision,
 ) -> Result<Vec<QueryPlanTrace>, String> {
+    use crate::query_access::contract::{AccessKind, ExplainAccess, ProofStrength};
+    use crate::query_execution::restrictions::segment_filter_explain_offers;
+    let is_exact_posting = |offer: &crate::query_access::contract::AccessOffer| {
+        offer.kind() == AccessKind::ExactMembership && offer.proof() == ProofStrength::Exact
+    };
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment explanation collection count mismatch".into());
     }
@@ -4136,26 +4139,16 @@ pub(crate) fn explain_segmented(
             let mut candidates = filter
                 .map(|filter| match filter {
                     BoundExpr::Term(term) => {
-                        let catalog = crate::query_access::catalog::IndexCatalog::segment(
-                            &published.index,
+                        let exact = segment_filter_explain_offers(
+                            published.as_ref(),
                             collection,
-                        );
-                        let exact = catalog
-                            .field_postings(
-                                &term.path.segments,
-                                &term.binding_name,
-                                term.operation.is_some(),
-                            )
-                            .into_iter()
-                            .flatten()
-                            .filter_map(|access| {
-                                access.assess(term, catalog.logical, &mut 0).transpose()
-                            })
-                            .collect::<Result<Vec<_>, String>>()?
-                            .into_iter()
-                            .filter(|proposal| proposal.exact)
-                            .map(|proposal| proposal.output.min(published.active.len()))
-                            .min();
+                            term,
+                            published.active.len(),
+                        )?
+                        .iter()
+                        .filter(|offer| is_exact_posting(offer))
+                        .map(|offer| offer.estimated_output())
+                        .min();
                         exact.map_or_else(
                             || {
                                 estimate_expr(collection, filter, published.active.len())
@@ -4266,36 +4259,27 @@ pub(crate) fn explain_segmented(
             let mut work = 0.0;
             let mut exact_output = 0u64;
             for published in segments[collection_index].iter() {
-                let catalog = crate::query_access::catalog::IndexCatalog::segment(
-                    &published.index,
+                let selected = segment_filter_explain_offers(
+                    published.as_ref(),
                     collection,
-                );
-                let selected = catalog
-                    .field_postings(
-                        &term.path.segments,
-                        &term.binding_name,
-                        term.operation.is_some(),
-                    )
-                    .into_iter()
-                    .flatten()
-                    .filter_map(|access| access.assess(term, catalog.logical, &mut 0).transpose())
-                    .collect::<Result<Vec<_>, String>>()?
-                    .into_iter()
-                    .find(|proposal| proposal.exact);
+                    term,
+                    published.active.len(),
+                )?
+                .into_iter()
+                .find(is_exact_posting);
                 let Some(proposal) = selected else {
                     operation = None;
                     break;
                 };
-                if operation.is_some_and(|previous| previous != (proposal.id, proposal.operation)) {
+                if operation.is_some_and(|previous| previous != proposal.explanation()) {
                     operation = None;
                     break;
                 }
-                work += proposal.lookup_work;
-                exact_output =
-                    exact_output.saturating_add(proposal.output.min(published.active.len()));
-                operation = Some((proposal.id, proposal.operation));
+                work += proposal.estimated_work(published.active.len());
+                exact_output = exact_output.saturating_add(proposal.estimated_output());
+                operation = Some(proposal.explanation());
             }
-            if let Some((id, operation)) = operation {
+            if let Some(explanation) = operation {
                 let old = std::mem::replace(
                     &mut choice.selected,
                     crate::query_execution::restrictions::AccessPathEstimate {
@@ -4306,17 +4290,24 @@ pub(crate) fn explain_segmented(
                         estimated_work: work + delta_candidates as f64 * 0.02,
                         estimated_files: 0.0,
                         estimated_bytes: 0.0,
-                        posting: Some((
-                            id,
-                            operation,
-                            trace.input_records.min(u32::MAX as u64) as u32,
-                        )),
+                        posting: match explanation {
+                            Some(ExplainAccess::Posting(id, operation)) => Some((
+                                id,
+                                operation,
+                                trace.input_records.min(u32::MAX as u64) as u32,
+                            )),
+                            _ => None,
+                        },
                     },
                 );
                 choice.alternatives.push(old);
-                choice.reason = if operation
-                    == crate::query_access::catalog::PostingOperation::SelfComparePresence
-                {
+                choice.reason = if matches!(
+                    explanation,
+                    Some(ExplainAccess::Posting(
+                        _,
+                        crate::query_access::contract::PostingOperation::SelfComparePresence
+                    ))
+                ) {
                     "self-comparison reduced to path presence in indexed segments; estimate only"
                 } else {
                     "indexed segment posting offered for this predicate; estimate only"
@@ -4347,17 +4338,16 @@ pub(crate) fn explain_segmented(
                 let mut output = 0u64;
                 let mut structural = 0u64;
                 for published in segments[collection_index].iter() {
-                    if let Some(estimated) =
-                        crate::index::memory::access::segment::segment_text_estimate(
-                            &published.index,
-                            term,
-                            collection,
-                        )
-                    {
-                        output = output.saturating_add(estimated.min(published.active.len()));
-                    } else {
-                        output = output.saturating_add(published.active.len());
-                    }
+                    let estimate = segment_filter_explain_offers(
+                        published.as_ref(),
+                        collection,
+                        term,
+                        published.active.len(),
+                    )?
+                    .iter()
+                    .find(|offer| offer.explanation() == Some(ExplainAccess::Bigram))
+                    .map_or(published.active.len(), |offer| offer.estimated_output());
+                    output = output.saturating_add(estimate);
                     structural = structural.saturating_add(
                         read_slot_members(published, SegmentSlotFact::EmptyArray)?
                             .view()
@@ -4405,36 +4395,24 @@ pub(crate) fn explain_segmented(
                 let mut operation = None;
                 let mut output = 0u64;
                 for published in segments[collection_index].iter() {
-                    let catalog = crate::query_access::catalog::IndexCatalog::segment(
-                        &published.index,
+                    let proposal = segment_filter_explain_offers(
+                        published.as_ref(),
                         collection,
-                    );
-                    let proposal = catalog
-                        .field_postings(
-                            &term.path.segments,
-                            &term.binding_name,
-                            term.operation.is_some(),
-                        )
-                        .into_iter()
-                        .flatten()
-                        .filter_map(|access| {
-                            access.assess(term, catalog.logical, &mut 0).transpose()
-                        })
-                        .collect::<Result<Vec<_>, String>>()?
-                        .into_iter()
-                        .find(|proposal| proposal.exact);
+                        term,
+                        published.active.len(),
+                    )?
+                    .into_iter()
+                    .find(is_exact_posting);
                     let Some(proposal) = proposal else {
                         all_exact = false;
                         break;
                     };
-                    if operation
-                        .is_some_and(|previous| previous != (proposal.id, proposal.operation))
-                    {
+                    if operation.is_some_and(|previous| previous != proposal.explanation()) {
                         all_exact = false;
                         break;
                     }
-                    operation = Some((proposal.id, proposal.operation));
-                    output = output.saturating_add(proposal.output.min(published.active.len()));
+                    operation = Some(proposal.explanation());
+                    output = output.saturating_add(proposal.estimated_output());
                 }
                 if !all_exact {
                     break;
@@ -4444,7 +4422,7 @@ pub(crate) fn explain_segmented(
                     .terms
                     .iter_mut()
                     .find(|choice| choice.span == term.span)
-                    && let Some((id, operation)) = operation
+                    && let Some(explanation) = operation
                 {
                     choice.selected = crate::query_execution::restrictions::AccessPathEstimate {
                         kind: crate::query_execution::restrictions::AccessPathKind::Posting,
@@ -4454,11 +4432,14 @@ pub(crate) fn explain_segmented(
                         estimated_work: output as f64 * 0.02,
                         estimated_files: 0.0,
                         estimated_bytes: 0.0,
-                        posting: Some((
-                            id,
-                            operation,
-                            trace.input_records.min(u32::MAX as u64) as u32,
-                        )),
+                        posting: match explanation {
+                            Some(ExplainAccess::Posting(id, operation)) => Some((
+                                id,
+                                operation,
+                                trace.input_records.min(u32::MAX as u64) as u32,
+                            )),
+                            _ => None,
+                        },
                     };
                     choice.residual_verification = false;
                     choice.reason = "indexed segment posting offered; estimate only".into();

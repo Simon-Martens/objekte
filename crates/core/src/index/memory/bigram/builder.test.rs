@@ -653,7 +653,7 @@ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
         .map_err(|error| error.to_string())
         .unwrap();
         let collection = &repo.collections()[0];
-        let built = &repo.segments[0][0].index;
+        let built = repo.segments[0][0].native_payload();
         assert_eq!(collection.generation.records.len(), 4);
         let expected_raw = independent_index(&raw_records, alphabet, 0);
         let expected_fallback = independent_index(&fallback_records, alphabet, 0);

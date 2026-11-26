@@ -7,7 +7,7 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::{Payload, SearchHit, SearchResult};
-use crate::index::segment::PublishedSegment;
+use crate::index::storage::publication::PublishedSegment;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::measurement::WorkCounters;

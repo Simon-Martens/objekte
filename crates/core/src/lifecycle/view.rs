@@ -3,8 +3,8 @@ use std::num::NonZeroUsize;
 use std::path::Path;
 use std::sync::{Arc, Weak};
 
-use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::{
     SegmentReader, SegmentResourceUsage, visit_checked_file_slots,
 };

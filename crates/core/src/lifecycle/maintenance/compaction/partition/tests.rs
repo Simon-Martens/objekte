@@ -78,7 +78,7 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
     let before = index.view().unwrap();
     let full = before.0.segments[0]
         .iter()
-        .filter(|shard| shard.index.records.len() == super::BASE_PARTITION_RECORDS)
+        .filter(|shard| shard.native_payload().records.len() == super::BASE_PARTITION_RECORDS)
         .cloned()
         .collect::<Vec<_>>();
     assert_eq!(full.len(), 65);
@@ -164,7 +164,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
     assert!(
         partitioned.segments[0]
             .iter()
-            .all(|part| part.index.records.len() <= 2)
+            .all(|part| part.native_payload().records.len() <= 2)
     );
     let converted = Index::from_published(partitioned);
     let after = converted.view().unwrap().search(&query).unwrap();
@@ -238,12 +238,15 @@ fn compacts_one_large_file_in_source_free_parts() {
     let parts = compact_source_parts_with_limits(&source, &active, &view.0.catalog, 2, 2, || false)
         .unwrap();
     assert_eq!(parts.len(), 5);
-    assert!(parts.iter().all(|part| part.records.len() <= 2));
+    assert!(parts.iter().all(|part| part.descriptor().slots <= 2));
     assert_eq!(
-        parts.iter().map(|part| part.records.len()).sum::<usize>(),
+        parts
+            .iter()
+            .map(|part| part.descriptor().slots)
+            .sum::<usize>(),
         9
     );
-    assert!(parts.iter().all(|part| part.files.len() == 1));
+    assert!(parts.iter().all(|part| part.file_count() == 1));
     let retired = (0..7).map(crate::model::RecordSlot).collect::<Vec<_>>();
     let sparse = crate::inventory::ActiveRecords::all(9)
         .unwrap()
@@ -253,7 +256,7 @@ fn compacts_one_large_file_in_source_free_parts() {
         compact_source_parts_with_limits(&source, &sparse, &view.0.catalog, 2, 2, || false)
             .unwrap();
     assert_eq!(sparse_parts.len(), 1);
-    assert_eq!(sparse_parts[0].records.len(), 2);
+    assert_eq!(sparse_parts[0].descriptor().slots, 2);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -396,7 +396,7 @@ fn one_large_lines_file_can_produce_more_than_the_segment_job_window() {
     assert_eq!(
         segments
             .iter()
-            .map(|segment| segment.index.records.len())
+            .map(|segment| segment.native_payload().records.len())
             .sum::<usize>(),
         records
     );
@@ -1510,7 +1510,7 @@ fn direct_fixture_build_matches_static_inference_overlap_and_native_publication(
                 .segments(state.generation.collection)
                 .unwrap()
                 .iter()
-                .map(|segment| segment.index.records.len())
+                .map(|segment| segment.native_payload().records.len())
                 .sum::<usize>()
     }));
     assert_eq!(
@@ -2116,9 +2116,9 @@ fn whole_document_ranges_respect_segment_target_in_build_add_and_replace() {
                 .unwrap()
                 .iter()
                 .filter_map(|segment| {
-                    let slot = *segment.index.file_index.get(&file.id)?;
+                    let slot = *segment.native_payload().file_index.get(&file.id)?;
                     let live = &segment.active;
-                    let count = segment.index.files[slot]
+                    let count = segment.native_payload().files[slot]
                         .records
                         .iter()
                         .filter(|slot| live.contains(**slot))
@@ -2306,7 +2306,7 @@ fn registered_small_files_pack_into_shared_segments_and_publications() {
             view.segments(crate::model::CollectionId(0))
                 .unwrap()
                 .iter()
-                .map(|seg| seg.index.records.len())
+                .map(|seg| seg.native_payload().records.len())
                 .collect::<Vec<_>>(),
             vec![file_limit; 64 / file_limit]
         );
@@ -2508,7 +2508,7 @@ fn ordinary_many_file_job_respects_record_target_below_file_limit() {
         view.segments(crate::model::CollectionId(0))
             .unwrap()
             .iter()
-            .map(|segment| segment.index.record_count())
+            .map(|segment| segment.native_payload().record_count())
             .collect::<Vec<_>>(),
         [4, 4, 2]
     );
@@ -2871,7 +2871,7 @@ fn registered_empty_frames_keep_constant_unsealed_work() {
                 view.segments(crate::model::CollectionId(0))
                     .unwrap()
                     .iter()
-                    .all(|segment| !segment.index.file_index.contains_key(&file.id))
+                    .all(|segment| !segment.native_payload().file_index.contains_key(&file.id))
             );
         } else {
             terminal.unwrap();

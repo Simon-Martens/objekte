@@ -306,8 +306,8 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     check(&restored);
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-    use crate::index::segment::PublishedSegment;
     use crate::index::segment::admission::SegmentAdmission;
+    use crate::index::storage::publication::PublishedSegment;
     use crate::inventory::SourceRevision;
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -461,8 +461,8 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
 fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-    use crate::index::segment::PublishedSegment;
     use crate::index::segment::admission::SegmentAdmission;
+    use crate::index::storage::publication::PublishedSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -578,7 +578,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
         observation: None,
     });
     let mut catalog = FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
-    for file in &segment.index.files {
+    for file in &segment.native_payload().files {
         catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
     }
     std::fs::remove_file(&retired).unwrap();
@@ -805,7 +805,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
     {
         let group = Arc::make_mut(&mut opt_out_segments[0]);
         let published = Arc::make_mut(&mut group[0]);
-        let segment = Arc::make_mut(&mut published.index);
+        let mut segment = published.native_payload().clone();
         let mut posting = PostingIndex::new(&definition.schema.fields[&vec!["x".into()]]);
         posting
             .add(RecordSlot(0), &fixture_value!({ "x" => ("A") }))
@@ -817,6 +817,7 @@ fn finalized_non_value_inference_does_not_authorize_facets() {
             .unwrap()
             .indexes
             .insert(vec!["x".into()], posting);
+        published.index = Arc::new(segment);
     }
     assert!(
         posting_values_segmented(
@@ -1499,11 +1500,23 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
     }
     assert_eq!(segments.len(), 2);
     assert_eq!(
-        segments[0].index.inference.as_ref().unwrap().indexes[&vec!["x".into()]].kind,
+        segments[0]
+            .native_payload()
+            .inference
+            .as_ref()
+            .unwrap()
+            .indexes[&vec!["x".into()]]
+            .kind,
         LogicalType::Number
     );
     assert_eq!(
-        segments[1].index.inference.as_ref().unwrap().indexes[&vec!["x".into()]].kind,
+        segments[1]
+            .native_payload()
+            .inference
+            .as_ref()
+            .unwrap()
+            .indexes[&vec!["x".into()]]
+            .kind,
         LogicalType::String
     );
     let summarize = |ordered: &[Arc<PublishedSegment>]| {
@@ -1589,7 +1602,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
         assert!(!selected.coverage.value_counts_complete);
     }
 
-    let mut structural_index = (*segments[0].index).clone();
+    let mut structural_index = segments[0].native_payload().clone();
     let structural_posting = structural_index
         .inference
         .as_mut()
