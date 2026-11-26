@@ -24,7 +24,7 @@ use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
 use super::liveness::ActiveRecords;
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
-use super::posting::PostingReader;
+use super::posting::{FacetPosting, PostingReader};
 use super::relation::{RelationMatches, RelationReader};
 use super::text::{GramReader, SegmentTextAccess};
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
@@ -512,6 +512,14 @@ pub(crate) trait SegmentReader: Send + Sync {
         Ok(None)
     }
 
+    fn facet_posting(
+        &self,
+        _path: &FieldPath,
+        _binding: &str,
+    ) -> StorageResult<Option<FacetPosting<'_>>> {
+        Ok(None)
+    }
+
     fn grams(
         &self,
         _component: &ComponentDescriptor<'_>,
@@ -720,6 +728,14 @@ impl<D: SegmentReaderDelegate> SegmentReader for D {
         component: &ComponentDescriptor<'_>,
     ) -> StorageResult<Option<&dyn PostingReader>> {
         self.payload().posting(component)
+    }
+
+    fn facet_posting(
+        &self,
+        path: &FieldPath,
+        binding: &str,
+    ) -> StorageResult<Option<FacetPosting<'_>>> {
+        self.payload().facet_posting(path, binding)
     }
 
     fn grams(&self, component: &ComponentDescriptor<'_>) -> StorageResult<Option<&dyn GramReader>> {

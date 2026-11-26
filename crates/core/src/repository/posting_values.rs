@@ -8,17 +8,20 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use roaring::RoaringBitmap;
 
 use crate::index::posting::{PostingIndex, ScalarKey};
-use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::posting::{PostingKey, PostingReader};
-use crate::index::storage::segment::{SegmentReader, SegmentSlotFact, read_slot_members};
+use crate::index::storage::segment::{
+    RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members, visit_checked_file_slots,
+    visit_segment_files,
+};
+use crate::index::storage::transfer::StorageError;
 use crate::inference::{InferenceIndexStatus, InferenceMode};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;
-use crate::query_access::membership::MembershipView;
+use crate::query_access::membership::{MembershipView, SlotSet};
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
 use crate::schema::FieldDefinition;
@@ -156,7 +159,7 @@ struct ResolvedPosting<'a> {
     index: &'a dyn PostingReader,
     binding: String,
     binding_version: u32,
-    indexed_records: Option<&'a RoaringBitmap>,
+    indexed_records: Option<SlotSet<'a>>,
     native_prefix: bool,
 }
 
@@ -265,13 +268,14 @@ fn resolve_inferred_representative<'a>(
         if segment.active.len() == 0 {
             continue;
         }
-        let Ok(resolved) = resolve_segment(
+        let Some(resolved) = resolve_segment(
             collection,
-            &segment.index,
+            segment.as_ref(),
             path,
             "inferred",
-            policy.binding_version,
-        ) else {
+            Some(policy.binding_version),
+        )?
+        else {
             continue;
         };
         let compatible_family =
@@ -314,7 +318,10 @@ fn resolve<'a>(
             index,
             binding: "inferred".into(),
             binding_version: inference.report.policy.version,
-            indexed_records: inference.short_string_coverage.get(&path.segments),
+            indexed_records: inference
+                .short_string_coverage
+                .get(&path.segments)
+                .map(SlotSet::borrowed),
             native_prefix: true,
         });
     }
@@ -359,67 +366,43 @@ fn resolve<'a>(
 
 fn resolve_segment<'a>(
     collection: &CollectionState,
-    segment: &'a IndexedCollectionSegment,
+    segment: &'a dyn SegmentReader,
     path: &FieldPath,
     binding: &str,
-    binding_version: u32,
-) -> Result<ResolvedPosting<'a>, String> {
-    let (index, indexed_records) = if binding == "inferred" {
-        let inference = segment
-            .inference
-            .as_ref()
-            .filter(|state| state.report.mode == InferenceMode::AutoIndex && state.report.complete)
-            .ok_or("segment has no complete inferred posting index")?;
-        if inference.report.policy.version != binding_version {
-            return Err("segment inferred posting policy changed".into());
-        }
-        let index = inference
-            .indexes
-            .get(&path.segments)
-            .ok_or("segment inferred posting field missing")?;
-        if !index.value_complete && !inference.short_string_coverage.contains_key(&path.segments) {
-            return Err("segment inferred field has no general value posting coverage".into());
-        }
-        (index, inference.short_string_coverage.get(&path.segments))
-    } else if binding == "default" {
-        (
-            segment
-                .postings
-                .fields
-                .get(&path.segments)
-                .ok_or("segment posting field missing")?,
-            None,
-        )
-    } else {
-        let key = (path.segments.clone(), binding.to_owned());
-        let registration = collection
-            .definition
-            .schema
-            .operations
-            .get(&key)
-            .ok_or("segment posting binding missing")?;
-        if registration.version != binding_version {
-            return Err("segment posting binding version changed".into());
-        }
-        let custom = segment
-            .custom_postings
-            .get(&key)
-            .ok_or("segment custom posting missing")?;
-        if !custom.complete {
-            return Err("incomplete segment custom posting coverage".into());
-        }
-        (&custom.index, None)
+    binding_version: Option<u32>,
+) -> Result<Option<ResolvedPosting<'a>>, String> {
+    let Some(facet) = segment.facet_posting(path, binding)? else {
+        return Ok(None);
     };
-    if index.covered_records as u64 != segment.logical_records.len() {
-        return Err("incomplete segment posting logical coverage".into());
+    let actual_version = match binding {
+        "inferred" => facet
+            .inference_version
+            .ok_or("inferred facet policy version missing")?,
+        "default" => 0,
+        _ => {
+            collection
+                .definition
+                .schema
+                .operations
+                .get(&(path.segments.clone(), binding.to_owned()))
+                .ok_or("segment posting binding missing")?
+                .version
+        }
+    };
+    if binding_version.is_some_and(|expected| expected != actual_version) {
+        return Ok(None);
     }
-    Ok(ResolvedPosting {
-        index,
+    let logical = read_slot_members(segment, SegmentSlotFact::Logical)?;
+    if facet.reader.descriptor().coverage.covered_records as usize != logical.view().len() {
+        return Ok(None);
+    }
+    Ok(Some(ResolvedPosting {
+        index: facet.reader,
         binding: binding.to_owned(),
-        binding_version,
-        indexed_records,
+        binding_version: actual_version,
+        indexed_records: facet.short_strings.map(|(_, covered)| covered),
         native_prefix: binding == "default" || binding == "inferred",
-    })
+    }))
 }
 
 struct ScannedSegmentPosting {
@@ -463,42 +446,34 @@ fn scan_inferred_segment(
     };
     let mut index = PostingIndex::new(&field);
     let mut complete_values = RoaringBitmap::new();
-    for file_index in 0..segment.index.file_count() {
-        let file = segment
-            .index
-            .files
-            .get(file_index)
-            .ok_or("segment file row missing")?;
-        let ranges = file
-            .records
-            .iter()
-            .filter(|slot| segment.active.contains(**slot))
-            .map(|slot| {
+    let mut ranges = Vec::new();
+    visit_segment_files(segment, |file| {
+        const OP: &str = "read inferred facet file slots";
+        ranges.clear();
+        visit_checked_file_slots(segment, file.id, &mut |slots| {
+            for &slot in slots.iter().filter(|slot| segment.active.contains(**slot)) {
                 let record = segment
-                    .index
-                    .record(*slot)
-                    .ok_or("segment record row missing")?;
+                    .header(slot)?
+                    .ok_or_else(|| StorageError::invalid(OP, "record header missing"))?;
                 let range = segment
-                    .index
-                    .backing
-                    .file_locator(*slot)
+                    .origin(slot)?
+                    .and_then(RecordOrigin::file)
+                    .filter(|locator| locator.file == file.id)
                     .and_then(|locator| locator.range)
-                    .ok_or("segment record range missing")?;
-                Ok((record.class == RecordClass::Logical).then_some((slot.0, range)))
-            })
-            .collect::<Result<Vec<_>, String>>()?
-            .into_iter()
-            .flatten()
-            .collect::<Vec<_>>();
+                    .ok_or_else(|| StorageError::invalid(OP, "record range missing"))?;
+                if record.class == RecordClass::Logical {
+                    ranges.push((slot.0, range));
+                }
+            }
+            Ok(())
+        })?;
         if ranges.is_empty() {
-            continue;
+            return Ok::<_, String>(());
         }
         let current = catalog
-            .file(file.entry.id)?
+            .file(file.id)?
             .ok_or("active inferred segment file retired")?;
-        if current.relative_path != file.entry.relative_path
-            || current.revision != file.entry.revision
-        {
+        if current.relative_path != file.relative_path || current.revision != file.revision {
             return Err("active inferred segment file changed without retirement".into());
         }
         let mut reader = RecordRangeReader::open_for_search(
@@ -533,7 +508,8 @@ fn scan_inferred_segment(
                 }
             }
         }
-    }
+        Ok(())
+    })?;
     if let Some(limit) = max_short_string {
         index.values.retain(|key, _| {
             matches!(key, ScalarKey::Null)
@@ -666,6 +642,19 @@ fn posting_members(
         return Err("posting member outside the slot domain".into());
     }
     Ok(view.intersect_bitmap(domain))
+}
+
+fn coverage_members<'a>(
+    covered: &'a SlotSet<'_>,
+    slots: usize,
+) -> Result<MembershipView<'a>, String> {
+    let view = covered
+        .explicit_view()
+        .ok_or("invalid facet coverage membership")?;
+    if view.last().is_some_and(|slot| slot as usize >= slots) {
+        return Err("facet coverage outside the slot domain".into());
+    }
+    Ok(view)
 }
 
 fn key_kind(kind: &LogicalType) -> &LogicalType {
@@ -805,7 +794,7 @@ pub(crate) fn select_exact_segmented(
                 let bounds =
                     crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
                         segment.id,
-                        &segment.index,
+                        segment.as_ref(),
                         &segment.active,
                         filter,
                         state,
@@ -814,7 +803,7 @@ pub(crate) fn select_exact_segmented(
                 if bounds.may == bounds.must {
                     bounds.must.as_ref().clone()
                 } else if filter_excludes_raw_fallback(filter) {
-                    let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?;
+                    let logical = read_slot_members(segment, SegmentSlotFact::Logical)?;
                     if !crate::query_execution::runner::same_proven_members(&bounds, logical.view())
                     {
                         exact = false;
@@ -865,7 +854,7 @@ pub(crate) fn select_exact_segmented(
         }
         let mut found = false;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.id_lookup.get(id.0.as_ref()).copied()
+            if let Some(slot) = segment.slot_for_record(id.0.as_ref())?
                 && segment.active.contains(slot)
             {
                 if found {
@@ -943,17 +932,17 @@ pub(crate) fn posting_values_segmented(
     } else {
         None
     };
-    if let Some(policy) = &mut finalized_policy
-        && let Some(short) = segments[collection_index].iter().find_map(|segment| {
-            let inference = segment.index.inference.as_ref()?;
-            inference
-                .short_string_coverage
-                .contains_key(&path.segments)
-                .then_some(inference.report.policy.short_string_max_utf8_bytes)
-        })
-    {
-        policy.kind = LogicalType::String;
-        policy.short_string_limit = Some(short);
+    if let Some(policy) = &mut finalized_policy {
+        for segment in segments[collection_index].iter() {
+            if let Some((limit, _)) = segment
+                .facet_posting(&path, "inferred")?
+                .and_then(|facet| facet.short_strings)
+            {
+                policy.kind = LogicalType::String;
+                policy.short_string_limit = Some(limit);
+                break;
+            }
+        }
     }
     let metadata = if let Some(policy) = &finalized_policy {
         resolve_inferred_representative(collection, &segments[collection_index], &path, policy)
@@ -963,24 +952,18 @@ pub(crate) fn posting_values_segmented(
             Err(primary_error)
                 if base_active[collection_index].len() == 0 && effective_binding == "default" =>
             {
-                segments[collection_index]
+                let mut representative = None;
+                for segment in segments[collection_index]
                     .iter()
                     .filter(|segment| segment.active.len() != 0)
-                    .find_map(|segment| {
-                        let inference = segment.index.inference.as_ref()?;
-                        if !inference.indexes.contains_key(&path.segments) {
-                            return None;
-                        }
-                        resolve_segment(
-                            collection,
-                            &segment.index,
-                            &path,
-                            "inferred",
-                            inference.report.policy.version,
-                        )
-                        .ok()
-                    })
-                    .ok_or(primary_error)
+                {
+                    representative =
+                        resolve_segment(collection, segment.as_ref(), &path, "inferred", None)?;
+                    if representative.is_some() {
+                        break;
+                    }
+                }
+                representative.ok_or(primary_error)
             }
             Err(error) => Err(error),
         }
@@ -1001,11 +984,17 @@ pub(crate) fn posting_values_segmented(
     for segment in segments[collection_index].iter() {
         let missing = binding == "inferred"
             && segment.active.len() > 0
-            && resolve_segment(collection, &segment.index, &path, &binding, binding_version)
-                .map_or(true, |posting| {
-                    posting.index.descriptor().kind != base.index.descriptor().kind
-                        || !posting.index.descriptor().coverage.value_complete
-                });
+            && resolve_segment(
+                collection,
+                segment.as_ref(),
+                &path,
+                &binding,
+                Some(binding_version),
+            )?
+            .is_none_or(|posting| {
+                posting.index.descriptor().kind != base.index.descriptor().kind
+                    || !posting.index.descriptor().coverage.value_complete
+            });
         fallbacks.push(if missing {
             Some(scan_inferred_segment(
                 repo,
@@ -1038,39 +1027,38 @@ pub(crate) fn posting_values_segmented(
                 index: &fallback.index,
                 binding: binding.clone(),
                 binding_version,
-                indexed_records: Some(&fallback.complete_values),
+                indexed_records: Some(SlotSet::borrowed(&fallback.complete_values)),
                 native_prefix: true,
             });
             continue;
         }
-        for file_index in 0..segment.index.file_count() {
-            let file = segment
-                .index
-                .files
-                .get(file_index)
-                .ok_or("segment file row missing")?;
-            if file
-                .records
-                .iter()
-                .any(|slot| segment.active.contains(*slot))
-            {
+        visit_segment_files(segment.as_ref(), |file| {
+            let mut live = false;
+            visit_checked_file_slots(segment, file.id, &mut |slots| {
+                live |= slots.iter().any(|slot| segment.active.contains(*slot));
+                Ok(())
+            })?;
+            if live {
                 let current = catalog
-                    .file(file.entry.id)?
+                    .file(file.id)?
                     .ok_or("active segment posting file retired")?;
-                if current.relative_path != file.entry.relative_path
-                    || current.revision != file.entry.revision
+                if current.relative_path != file.relative_path || current.revision != file.revision
                 {
                     return Err("active segment posting file changed without retirement".into());
                 }
             }
-        }
-        resolved.push(resolve_segment(
-            collection,
-            &segment.index,
-            &path,
-            &binding,
-            binding_version,
-        )?);
+            Ok::<_, String>(())
+        })?;
+        resolved.push(
+            resolve_segment(
+                collection,
+                segment.as_ref(),
+                &path,
+                &binding,
+                Some(binding_version),
+            )?
+            .ok_or("segment has no complete posting coverage for the binding")?,
+        );
     }
     if resolved
         .iter()
@@ -1142,14 +1130,18 @@ pub(crate) fn posting_values_segmented(
         if domain.is_empty() {
             continue;
         }
-        let logical = if index == 0 {
-            &collection.logical_records
+        let logical_domain = if index == 0 {
+            domain & &collection.logical_records
         } else {
-            &segments[collection_index][index - 1].index.logical_records
+            read_slot_members(
+                segments[collection_index][index - 1].as_ref(),
+                SegmentSlotFact::Logical,
+            )?
+            .view()
+            .intersect_bitmap(domain)
         };
         selected_total += domain.len();
-        eligible += domain.intersection_len(logical);
-        let logical_domain = domain & logical;
+        eligible += logical_domain.len();
         let slot_count = if index == 0 {
             collection.generation.records.len()
         } else {
@@ -1178,30 +1170,29 @@ pub(crate) fn posting_values_segmented(
             } else {
                 &logical_domain - &presence
             };
-            let records_for = |candidates: &RoaringBitmap| {
-                if index == 0 {
-                    candidates
-                        .iter()
-                        .filter_map(|slot| {
-                            collection
-                                .generation
-                                .records
-                                .get(slot as usize)
-                                .map(|record| (slot, record.file, record.range, record.revision))
-                        })
-                        .collect::<Vec<_>>()
-                } else {
-                    let segment = &segments[collection_index][index - 1].index;
-                    candidates
-                        .iter()
-                        .filter_map(|slot| {
-                            let locator = segment
-                                .backing
-                                .file_locator(crate::model::RecordSlot(slot))?;
-                            Some((slot, locator.file, locator.range?, locator.revision))
-                        })
-                        .collect::<Vec<_>>()
+            let records_for = |candidates: &RoaringBitmap| -> Result<Vec<_>, String> {
+                let mut records = Vec::new();
+                for slot in candidates.iter() {
+                    if index == 0 {
+                        let record = collection
+                            .generation
+                            .records
+                            .get(slot as usize)
+                            .ok_or("legacy base facet record missing")?;
+                        records.push((slot, record.file, record.range, record.revision));
+                    } else {
+                        let segment = &segments[collection_index][index - 1];
+                        let origin = segment
+                            .origin(crate::model::RecordSlot(slot))?
+                            .ok_or("legacy facet record origin missing")?;
+                        if let Some(locator) = origin.file()
+                            && let Some(range) = locator.range
+                        {
+                            records.push((slot, locator.file, range, locator.revision));
+                        }
+                    }
                 }
+                Ok(records)
             };
             if !present_candidates.is_empty() {
                 let (verified_present, _) = verify_legacy_facts(
@@ -1210,7 +1201,7 @@ pub(crate) fn posting_values_segmented(
                     catalog,
                     &path.segments,
                     binding_operation,
-                    records_for(&present_candidates).into_iter(),
+                    records_for(&present_candidates)?.into_iter(),
                 )?;
                 present += verified_present;
             }
@@ -1221,15 +1212,16 @@ pub(crate) fn posting_values_segmented(
                     catalog,
                     &path.segments,
                     binding_operation,
-                    records_for(&selected_nulls).into_iter(),
+                    records_for(&selected_nulls)?.into_iter(),
                 )?;
                 nulls += verified_nulls;
             }
         }
-        indexed += shard.indexed_records.map_or_else(
-            || domain.intersection_len(logical),
-            |covered| domain.intersection_len(covered),
-        );
+        indexed += match &shard.indexed_records {
+            Some(covered) => coverage_members(covered, slot_count)?
+                .intersection_len(MembershipView::Borrowed(domain)),
+            None => logical_domain.len(),
+        };
     }
     let unresolved = eligible.saturating_sub(indexed);
     let coverage = PostingValuesCoverage {
@@ -1549,9 +1541,15 @@ impl Repository {
             domains[collection_index].len()
         });
         let unavailable = selected_total.unwrap_or(live_total) - eligible;
-        let indexed = indexed_records.map_or(eligible, |covered| {
-            selected_domain.map_or(covered.len(), |selected| selected.intersection_len(covered))
-        });
+        let indexed = match &indexed_records {
+            Some(covered) => {
+                let members = coverage_members(covered, collection.generation.records.len())?;
+                selected_domain.map_or(members.len() as u64, |selected| {
+                    members.intersection_len(MembershipView::Borrowed(selected))
+                })
+            }
+            None => eligible,
+        };
         let unresolved = eligible.saturating_sub(indexed);
         let logical_domain = selected_domain.map_or_else(
             || collection.logical_records.clone(),

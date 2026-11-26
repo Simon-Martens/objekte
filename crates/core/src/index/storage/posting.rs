@@ -228,6 +228,13 @@ impl PostingKey<'_> {
     }
 }
 
+/// A dictionary that can enumerate field values, with optional partial coverage.
+pub(crate) struct FacetPosting<'a> {
+    pub reader: &'a dyn PostingReader,
+    pub inference_version: Option<u32>,
+    pub short_strings: Option<(usize, SlotSet<'a>)>,
+}
+
 pub(crate) type VisitPostingBlock<'a> =
     dyn FnMut(PostingKey<'_>, &[RecordSlot]) -> StorageResult<()> + 'a;
 

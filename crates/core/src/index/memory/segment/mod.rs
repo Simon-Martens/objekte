@@ -718,6 +718,56 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(reader.map(|reader| reader as &dyn crate::index::storage::posting::PostingReader))
     }
 
+    fn facet_posting(
+        &self,
+        path: &crate::model::FieldPath,
+        binding: &str,
+    ) -> StorageResult<Option<crate::index::storage::posting::FacetPosting<'_>>> {
+        use crate::index::storage::posting::{FacetPosting, PostingReader};
+        use crate::inference::InferenceMode;
+
+        if binding == "inferred" {
+            let Some(state) = self.inference.as_ref().filter(|state| {
+                state.report.mode == InferenceMode::AutoIndex && state.report.complete
+            }) else {
+                return Ok(None);
+            };
+            let Some(reader) = state.indexes.get(&path.segments) else {
+                return Ok(None);
+            };
+            let short_strings = state
+                .short_string_coverage
+                .get(&path.segments)
+                .map(|covered| {
+                    (
+                        state.report.policy.short_string_max_utf8_bytes,
+                        SlotSet::borrowed(covered),
+                    )
+                });
+            if !reader.value_complete && short_strings.is_none() {
+                return Ok(None);
+            }
+            return Ok(Some(FacetPosting {
+                reader,
+                inference_version: Some(state.report.policy.version),
+                short_strings,
+            }));
+        }
+        let reader = if binding == "default" {
+            self.postings.fields.get(&path.segments)
+        } else {
+            self.custom_postings
+                .get(&(path.segments.clone(), binding.to_owned()))
+                .filter(|posting| posting.complete)
+                .map(|posting| &posting.index)
+        };
+        Ok(reader.map(|reader| FacetPosting {
+            reader: reader as &dyn PostingReader,
+            inference_version: None,
+            short_strings: None,
+        }))
+    }
+
     fn grams(
         &self,
         component: &NativeComponentDescriptor<'_>,
