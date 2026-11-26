@@ -16,7 +16,7 @@ use crate::query::Query;
 use crate::query::options::ReturnMode;
 use crate::query_diagnostics::trace::PlanActual;
 use crate::query_execution::runner::{
-    SegmentRecordRef, SourceHitLocator, direct_payload, get_segment_record_by_id, make_hit,
+    SegmentRecordRef, SourceHitLocator, direct_payload, get_cached_segment_record, make_hit,
     record_unavailable_hit, segment_locator_hit,
 };
 use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
@@ -192,35 +192,37 @@ pub(crate) fn materialize_lifecycle_cached(
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
-    let mut cached_by_domain = HashMap::<(usize, Option<usize>), u64>::new();
-    for member in &cached.members {
-        *cached_by_domain
-            .entry((member.collection_index, member.segment_index))
-            .or_default() += 1;
-    }
-    for ((collection_index, segment_index), output_records) in cached_by_domain {
-        let collection = repo
-            .collections
-            .get(collection_index)
-            .ok_or("cached lifecycle collection missing")?;
-        let segment = segment_index.and_then(|index| {
-            segments
+    if crate::query_execution::request::has_local_capture(repo.instance_id) {
+        let mut cached_by_domain = HashMap::<(usize, Option<usize>), u64>::new();
+        for member in &cached.members {
+            *cached_by_domain
+                .entry((member.collection_index, member.segment_index))
+                .or_default() += 1;
+        }
+        for ((collection_index, segment_index), output_records) in cached_by_domain {
+            let collection = repo
+                .collections
                 .get(collection_index)
-                .and_then(|group| group.get(index))
-                .map(|published| published.id.get())
-        });
-        crate::query_execution::request::record_cache_hit_observation(
-            repo.instance_id,
-            crate::query_execution::domain::domain_id(
+                .ok_or("cached lifecycle collection missing")?;
+            let segment = segment_index.and_then(|index| {
+                segments
+                    .get(collection_index)
+                    .and_then(|group| group.get(index))
+                    .map(|published| published.id.get())
+            });
+            crate::query_execution::request::record_cache_hit_observation(
                 repo.instance_id,
+                crate::query_execution::domain::domain_id(
+                    repo.instance_id,
+                    collection.collection_id().0,
+                    collection.base_generation(),
+                    segment,
+                ),
                 collection.collection_id().0,
-                collection.base_generation(),
-                segment,
-            ),
-            collection.collection_id().0,
-            cached.members.len() as u64,
-            output_records,
-        );
+                cached.members.len() as u64,
+                output_records,
+            );
+        }
     }
     let mut counters = WorkCounters {
         total_matches: cached.members.len() as u64,
@@ -231,52 +233,58 @@ pub(crate) fn materialize_lifecycle_cached(
     let mut hits = Vec::new();
     let mut files = HashSet::new();
     let mut validated_providers = HashMap::new();
-    for (position, member) in cached.members.iter().enumerate() {
-        let Some(segment_index) = member.segment_index else {
-            continue;
-        };
-        let segment = segments
-            .get(member.collection_index)
-            .and_then(|group| group.get(segment_index))
-            .ok_or("cached provider segment missing")?;
-        if !matches!(segment.backing_kind(), RecordBacking::Provider) {
-            continue;
-        }
-        if let Some(context) = context {
-            context.check_string()?;
-            context.charge_reads(1)?;
-        }
-        let record = segment
-            .header(RecordSlot(member.slot))?
-            .ok_or("cached provider record missing")?;
-        let hit = get_segment_record_by_id(
-            repo,
-            member.collection_index,
-            segment.as_ref(),
-            &segment.active,
-            catalog,
-            revision,
-            record.id.0.as_ref(),
-            ReturnMode::Logical,
-        )?
-        .ok_or("cached provider record retired")?;
-        if let Some(context) = context {
-            let bytes = hit.payload.as_ref().map_or(0, |payload| {
-                crate::query_execution::streaming::payload_bytes(payload) as u64
-            });
-            if bytes > context.limits.source_record_bytes {
-                return Err(context.fail(
-                    ExecutionErrorKind::Resource,
-                    "cached provider record exceeds source read allowance",
-                ));
+    if segments.iter().any(|group| {
+        group
+            .iter()
+            .any(|segment| segment.backing_kind() == RecordBacking::Provider)
+    }) {
+        for (position, member) in cached.members.iter().enumerate() {
+            let Some(segment_index) = member.segment_index else {
+                continue;
+            };
+            let segment = segments
+                .get(member.collection_index)
+                .and_then(|group| group.get(segment_index))
+                .ok_or("cached provider segment missing")?;
+            if !matches!(segment.backing_kind(), RecordBacking::Provider) {
+                continue;
             }
-            context.charge_bytes(bytes)?;
-        }
-        if query.options.return_mode == ReturnMode::Logical
-            && position >= query.options.offset
-            && position - query.options.offset < query.options.limit
-        {
-            validated_providers.insert(position, hit);
+            if let Some(context) = context {
+                context.check_string()?;
+                context.charge_reads(1)?;
+            }
+            let collection = repo
+                .collections
+                .get(member.collection_index)
+                .ok_or("cached provider collection missing")?;
+            let hit = get_cached_segment_record(
+                repo,
+                collection,
+                segment,
+                catalog,
+                revision,
+                RecordSlot(member.slot),
+                ReturnMode::Logical,
+            )?
+            .ok_or("cached provider record retired")?;
+            if let Some(context) = context {
+                let bytes = hit.payload.as_ref().map_or(0, |payload| {
+                    crate::query_execution::streaming::payload_bytes(payload) as u64
+                });
+                if bytes > context.limits.source_record_bytes {
+                    return Err(context.fail(
+                        ExecutionErrorKind::Resource,
+                        "cached provider record exceeds source read allowance",
+                    ));
+                }
+                context.charge_bytes(bytes)?;
+            }
+            if query.options.return_mode == ReturnMode::Logical
+                && position >= query.options.offset
+                && position - query.options.offset < query.options.limit
+            {
+                validated_providers.insert(position, hit);
+            }
         }
     }
     for (position, member) in cached
@@ -299,20 +307,13 @@ pub(crate) fn materialize_lifecycle_cached(
                 .and_then(|group| group.get(segment_index))
                 .ok_or("cached lifecycle segment missing")?;
             let slot = RecordSlot(member.slot);
-            if !segment.active.contains(slot) {
-                return Err("cached lifecycle segment slot retired".into());
-            }
-            let record = segment
-                .header(slot)?
-                .ok_or("cached lifecycle segment record missing")?;
-            let mut hit = get_segment_record_by_id(
+            let mut hit = get_cached_segment_record(
                 repo,
-                member.collection_index,
-                segment.as_ref(),
-                &segment.active,
+                collection,
+                segment,
                 catalog,
                 revision,
-                record.id.0.as_ref(),
+                slot,
                 ReturnMode::Locator,
             )?
             .ok_or("cached lifecycle segment locator missing")?;
@@ -339,14 +340,13 @@ pub(crate) fn materialize_lifecycle_cached(
                     if provider_backed && query.options.return_mode == ReturnMode::Logical {
                         Ok(validated_providers.remove(&position))
                     } else {
-                        get_segment_record_by_id(
+                        get_cached_segment_record(
                             repo,
-                            member.collection_index,
-                            segment.as_ref(),
-                            &segment.active,
+                            collection,
+                            segment,
                             catalog,
                             revision,
-                            record.id.0.as_ref(),
+                            slot,
                             query.options.return_mode.clone(),
                         )
                     };

@@ -646,8 +646,39 @@ pub(crate) fn get_segment_record_by_id<S: SegmentReader + ?Sized>(
         catalog,
         revision,
         slot,
-        record_id,
+        Some(record_id),
         return_mode,
+        false,
+    )? {
+        DirectLookupResult::Found(hit) => Ok(Some(hit)),
+        DirectLookupResult::NotFound => Ok(None),
+        DirectLookupResult::SourceUnavailable(diagnostic) => Err(diagnostic.message),
+    }
+}
+
+/// Cached addresses are scoped to the same publication as their segment group.
+pub(crate) fn get_cached_segment_record(
+    repo: &Repository,
+    collection: &CollectionState,
+    segment: &PublishedSegment,
+    catalog: &dyn FileCatalogReader,
+    revision: IndexRevision,
+    slot: RecordSlot,
+    mode: ReturnMode,
+) -> Result<Option<SearchHit>, String> {
+    if !segment.active.contains(slot) {
+        return Ok(None);
+    }
+    match read_direct_segment_slot(
+        repo,
+        collection,
+        segment,
+        &segment.active,
+        catalog,
+        revision,
+        slot,
+        None,
+        mode,
         false,
     )? {
         DirectLookupResult::Found(hit) => Ok(Some(hit)),
@@ -664,7 +695,7 @@ fn read_direct_segment_slot<S: SegmentReader + ?Sized>(
     catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     slot: RecordSlot,
-    record_id: &str,
+    record_id: Option<&str>,
     return_mode: ReturnMode,
     classify_source_failure: bool,
 ) -> Result<DirectLookupResult, String> {
@@ -676,7 +707,9 @@ fn read_direct_segment_slot<S: SegmentReader + ?Sized>(
     }
     let record = segment
         .header(slot)?
-        .filter(|header| header.slot == slot && header.id.0.as_ref() == record_id)
+        .filter(|header| {
+            header.slot == slot && record_id.is_none_or(|id| header.id.0.as_ref() == id)
+        })
         .ok_or("direct lookup route points to a different or missing record")?;
     let origin = segment
         .origin(slot)?
@@ -1058,7 +1091,7 @@ pub(crate) fn direct_lookup_segmented_counted(
             catalog,
             revision,
             slot,
-            record_id,
+            Some(record_id),
             return_mode,
             true,
         )?;

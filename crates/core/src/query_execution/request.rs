@@ -442,7 +442,7 @@ fn push_observation(instance_id: u64, mut observation: ExecutionObservation) {
     observations.push(observation);
 }
 
-fn has_local_capture(instance_id: u64) -> bool {
+pub(crate) fn has_local_capture(instance_id: u64) -> bool {
     if ACTIVE_CAPTURES.load(Ordering::Acquire) == 0 {
         return false;
     }

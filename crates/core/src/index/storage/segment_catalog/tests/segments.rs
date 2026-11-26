@@ -645,6 +645,9 @@ impl SegmentReader for TableSegment {
     }
 
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
+        self.control
+            .segment_id_lookups
+            .fetch_add(1, Ordering::Relaxed);
         Ok(self.by_id.get(id).copied())
     }
 
@@ -1432,6 +1435,39 @@ fn independent_and_native_segments_share_the_real_query_and_ingestion_path() {
             .is_none()
     );
     assert_eq!(current.search(&query).unwrap().count, actual.count);
+    session.finish().unwrap();
+}
+
+#[test]
+fn verified_cache_reads_pinned_slots_without_repeating_id_lookups() {
+    use crate::repository::configuration::RepositoryOptions;
+
+    let factory = Arc::new(TableFactory::default());
+    factory.independent_segments.store(true, Ordering::Relaxed);
+    let mut builder = Index::builder().with_options(RepositoryOptions {
+        verified_cache_bytes: 1024 * 1024,
+        ..Default::default()
+    });
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let collection = builder.collection("entries", score_schema()).unwrap();
+    let registration = builder.register_records(collection, "retained", 1).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    let mut batch = writer.batch();
+    batch.insert("first", score(7)).unwrap();
+    batch.insert("second", score(7)).unwrap();
+    writer.submit(batch).unwrap().wait_published().unwrap();
+
+    let view = index.view().unwrap();
+    let query = score_query();
+    let first = view.search(&query).unwrap();
+    assert!(!first.counters.verified_result_hit);
+    let before = factory.segment_id_lookups.load(Ordering::Relaxed);
+    let cached = view.search(&query).unwrap();
+    assert!(cached.counters.verified_result_hit);
+    assert_eq!(cached.hits, first.hits);
+    assert_eq!(factory.segment_id_lookups.load(Ordering::Relaxed), before);
     session.finish().unwrap();
 }
 
