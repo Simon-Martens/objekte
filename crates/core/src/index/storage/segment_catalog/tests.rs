@@ -22,8 +22,15 @@ use crate::query_access::membership::MembershipView;
 use crate::repository::statistics::AdmissionBreakdown;
 use crate::schema::Schema;
 
+#[path = "tests/segments.rs"]
+mod segments;
+
 #[derive(Default)]
 struct TableFactory {
+    independent_segments: AtomicBool,
+    independent_applications: AtomicUsize,
+    independent_projections: AtomicUsize,
+
     installs: AtomicUsize,
     retained_builds: AtomicUsize,
     retained_reads: Arc<AtomicUsize>,
@@ -87,6 +94,23 @@ impl TableFactory {
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn consolidate_segments(
+        &self,
+        segments: &[&dyn SegmentReader],
+        max_records: usize,
+    ) -> StorageResult<Option<crate::index::storage::segment::maintenance::ConsolidatedSegment>>
+    {
+        crate::index::storage::test_factory().consolidate_segments(segments, max_records)
+    }
+
+    fn base_segment(
+        &self,
+        collection: &crate::repository::state::CollectionState,
+        files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
+    ) -> StorageResult<crate::index::storage::segment::SegmentHandle> {
+        crate::index::storage::test_factory().base_segment(collection, files)
+    }
+
     fn declared_order_store(&self) -> Option<Arc<dyn DeclaredOrderStore>> {
         self.store_declared_order
             .load(Ordering::Relaxed)
@@ -97,6 +121,12 @@ impl StorageFactory for Arc<TableFactory> {
         &self,
         input: FileSegmentBuild<'_>,
     ) -> StorageResult<Box<dyn SegmentBuilder>> {
+        if self.independent_segments.load(Ordering::Relaxed) {
+            return Ok(Box::new(segments::TableBuilder::new(
+                input,
+                Arc::clone(self),
+            )));
+        }
         Ok(Box::new(FailureInjectingBuilder {
             inner: crate::index::storage::default_factory().start_file_segment(input)?,
             control: Arc::clone(self),
@@ -109,7 +139,11 @@ impl StorageFactory for Arc<TableFactory> {
         seal: SegmentSeal<'_>,
     ) -> StorageResult<BuiltSegment> {
         self.direct_seals.fetch_add(1, Ordering::Relaxed);
-        crate::index::storage::default_factory().seal_direct_segment(input, seal)
+        if self.independent_segments.load(Ordering::Relaxed) {
+            segments::seal_direct(input, seal, Arc::clone(self))
+        } else {
+            crate::index::storage::default_factory().seal_direct_segment(input, seal)
+        }
     }
 
     fn retain_record_bodies(
@@ -165,7 +199,12 @@ impl StorageFactory for Arc<TableFactory> {
         batch: crate::index::storage::worker::FileWorkerBatch<'_>,
     ) -> StorageResult<crate::construction::batch::BatchContribution> {
         self.file_worker_calls.fetch_add(1, Ordering::Relaxed);
-        let contribution = crate::index::storage::default_factory().prepare_file_records(batch)?;
+        let contribution = if self.independent_segments.load(Ordering::Relaxed) {
+            let worker = segments::TableWorker::new(&batch.definition.schema);
+            crate::construction::batch::prepare_file_records(batch, worker)?
+        } else {
+            crate::index::storage::default_factory().prepare_file_records(batch)?
+        };
         if self.fail_file_worker.swap(false, Ordering::Relaxed) {
             return Err(StorageError::invalid(
                 "test worker",
@@ -180,7 +219,12 @@ impl StorageFactory for Arc<TableFactory> {
         batch: crate::index::storage::worker::DirectRecordBatch<'_>,
     ) -> StorageResult<crate::index::storage::worker::PreparedDirectBatch> {
         self.worker_calls.fetch_add(1, Ordering::Relaxed);
-        crate::index::storage::default_factory().prepare_direct_records(batch)
+        if self.independent_segments.load(Ordering::Relaxed) {
+            let worker = segments::TableWorker::new(&batch.declaration.schema);
+            crate::construction::batch::prepare_direct_records(batch, worker)
+        } else {
+            crate::index::storage::default_factory().prepare_direct_records(batch)
+        }
     }
 
     fn start_file_discovery(
