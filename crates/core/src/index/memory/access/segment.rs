@@ -562,17 +562,18 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                     &input,
                     POSTING_BLOCK_LIMIT,
                     &mut |slots| {
+                        execution.check()?;
                         if slots.len() > limit || slots.windows(2).any(|pair| pair[0] >= pair[1]) {
                             return Err(AccessError::Corrupt(
                                 "invalid restricted posting block".into(),
                             ));
                         }
                         for &slot in slots {
-                            if slot.0 as usize >= self.segment.record_count()
+                            if !self.segment.logical_records.contains(slot.0)
                                 || !input.contains(slot.0)?
                             {
                                 return Err(AccessError::Corrupt(
-                                    "posting membership outside input".into(),
+                                    "posting membership outside logical input".into(),
                                 ));
                             }
                             matches.insert(slot.0);

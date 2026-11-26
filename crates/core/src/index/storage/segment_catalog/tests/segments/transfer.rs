@@ -919,7 +919,7 @@ fn selected_gram_worker_bounds_pending_occurrences_and_aborts_failed_writes() {
         ("diverse", &diversity),
     ];
     for (kind, make_text) in fixtures {
-        for length in [64 * 1024, 640 * 1024] {
+        for length in [1024 * 1024 / 10, 1024 * 1024] {
             let id = format!("{kind}-{length}");
             let text = format!("{} Marker {kind}", make_text(length));
             for writer in [&selected_writer, &native_writer] {
