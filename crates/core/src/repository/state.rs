@@ -327,10 +327,24 @@ impl CollectionState {
     pub(crate) fn relation_reader(
         &self,
         ordinal: usize,
-    ) -> Option<&dyn crate::index::storage::relation::RelationReader> {
-        self.relations
+    ) -> StorageResult<Option<&dyn crate::index::storage::relation::RelationReader>> {
+        if let Some(base) = &self.base_records {
+            let reader = base.relation(ordinal)?;
+            if reader.is_some_and(|reader| {
+                reader.source_slots() != base.descriptor().slots
+                    || self.relation_declaration(ordinal as u32) != Some(reader.declaration())
+            }) {
+                return Err(StorageError::invalid(
+                    "read base relation",
+                    "invalid declaration or slot coverage",
+                ));
+            }
+            return Ok(reader);
+        }
+        Ok(self
+            .relations
             .get(ordinal)
-            .map(|relation| relation as &dyn crate::index::storage::relation::RelationReader)
+            .map(|relation| relation as &dyn crate::index::storage::relation::RelationReader))
     }
 
     pub(crate) fn order_column(

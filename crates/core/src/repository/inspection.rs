@@ -386,11 +386,20 @@ impl Repository {
                     hash_field(&mut hash, id.as_bytes());
                 }
             }
-            for ordinal in 0..collection.relations.len() {
-                let relation = collection
-                    .relation_reader(ordinal)
-                    .expect("sealed relation");
-                hash_field(&mut hash, relation.declaration().path.join(".").as_bytes());
+            for (ordinal, declaration) in collection
+                .definition
+                .schema
+                .relations()
+                .values()
+                .enumerate()
+            {
+                hash_field(&mut hash, declaration.path.join(".").as_bytes());
+                if collection.base_slot_count() == 0 {
+                    continue;
+                }
+                let relation = collection.relation_reader(ordinal)?.ok_or_else(|| {
+                    StorageError::invalid("index signature", "missing base relation reader")
+                })?;
                 for slot in 0..collection.base_slot_count() {
                     let record = collection.base_record(RecordSlot(slot as u32))?;
                     for (target, positions) in relation.forward(record.slot)?.targets {

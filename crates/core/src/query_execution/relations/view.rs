@@ -210,8 +210,8 @@ impl<'a> MergedRelationView<'a> {
                         .ok_or("merged relation segment declaration missing")?;
                     if relation.source_slots() != descriptor.slots
                         || repo.collections[collection_index]
-                            .relation_reader(relation_index)
-                            .is_none_or(|base| base.declaration() != relation.declaration())
+                            .relation_declaration(relation_index as u32)
+                            != Some(relation.declaration())
                     {
                         return Err("merged relation segment declaration mismatch".into());
                     }
@@ -554,7 +554,7 @@ impl<'a> MergedRelationView<'a> {
         let relation = if let Some(position) = address.segment {
             self.segments[index][position].relation(ordinal)?
         } else {
-            self.repo.collections[index].relation_reader(ordinal)
+            self.repo.collections[index].relation_reader(ordinal)?
         }
         .ok_or("merged relation missing")?;
         Ok(relation.forward(address.slot)?)
@@ -571,64 +571,46 @@ impl<'a> MergedRelationView<'a> {
             .collections
             .get(index)
             .ok_or("backlink source missing")?;
-        let base = collection
-            .relations
-            .get(relation.ordinal as usize)
-            .ok_or("backlink relation missing")?;
+        let ordinal = relation.ordinal as usize;
         let mut sources = Vec::new();
-        if let Some(slots) = self.repo.relation_reverse_sources(base, target_id) {
-            for slot in slots.iter() {
-                let slot = RecordSlot(slot);
-                if self.base_active[index].contains(slot) {
-                    sources.push(MergedRecordSlot {
-                        collection: relation.source,
-                        segment: None,
-                        slot,
-                    });
+        let mut add = |segment, slot| {
+            sources.push(MergedRecordSlot {
+                collection: relation.source,
+                segment,
+                slot,
+            });
+        };
+        if let Some(base) = &collection.base_records {
+            visit_reverse_sources(
+                base.as_ref(),
+                &self.base_active[index],
+                ordinal,
+                target_id,
+                |slot| add(None, slot),
+            )?;
+        } else if self.base_active[index].len() != 0 {
+            let base = collection
+                .relations
+                .get(ordinal)
+                .ok_or("backlink relation missing")?;
+            if let Some(slots) = self.repo.relation_reverse_sources(base, target_id) {
+                for slot in slots
+                    .iter()
+                    .map(RecordSlot)
+                    .filter(|slot| self.base_active[index].contains(*slot))
+                {
+                    add(None, slot);
                 }
             }
         }
-        for (segment_index, published) in self.segments[index].iter().enumerate() {
-            let mut add = |slot| {
-                sources.push(MergedRecordSlot {
-                    collection: relation.source,
-                    segment: Some(segment_index),
-                    slot,
-                });
-            };
-            let ordinal = relation.ordinal as usize;
-            if let Some(members) = published.reverse_relation(ordinal, target_id)? {
-                let members = members
-                    .explicit_view()
-                    .ok_or("reverse relation returned an unrestricted domain")?;
-                if members
-                    .last()
-                    .is_some_and(|slot| slot >= published.active.slot_count())
-                {
-                    return Err("reverse relation source is outside its segment".into());
-                }
-                for slot in members
-                    .iter()
-                    .map(RecordSlot)
-                    .filter(|&slot| published.active.contains(slot))
-                {
-                    add(slot);
-                }
-            } else {
-                let reader = published
-                    .relation(ordinal)?
-                    .ok_or("backlink segment relation missing")?;
-                for slot in published.active.bitmap().iter().map(RecordSlot) {
-                    if reader
-                        .forward(slot)?
-                        .targets
-                        .iter()
-                        .any(|(id, _)| id == target_id)
-                    {
-                        add(slot);
-                    }
-                }
-            }
+        for (position, published) in self.segments[index].iter().enumerate() {
+            visit_reverse_sources(
+                published.as_ref(),
+                &published.active,
+                ordinal,
+                target_id,
+                |slot| add(Some(position), slot),
+            )?;
         }
         let mut keyed = Vec::with_capacity(sources.len());
         for address in sources {
@@ -974,6 +956,51 @@ impl<'a> MergedRelationView<'a> {
         }
         Ok(addresses)
     }
+}
+
+fn visit_reverse_sources(
+    source: &dyn SegmentReader,
+    active: &ActiveRecords,
+    ordinal: usize,
+    target_id: &str,
+    mut visit: impl FnMut(RecordSlot),
+) -> Result<(), String> {
+    if active.len() == 0 {
+        return Ok(());
+    }
+    if let Some(members) = source.reverse_relation(ordinal, target_id)? {
+        let members = members
+            .explicit_view()
+            .ok_or("reverse relation returned an unrestricted domain")?;
+        if members
+            .last()
+            .is_some_and(|slot| slot >= active.slot_count())
+        {
+            return Err("reverse relation source is outside its domain".into());
+        }
+        for slot in members
+            .iter()
+            .map(RecordSlot)
+            .filter(|&slot| active.contains(slot))
+        {
+            visit(slot);
+        }
+        return Ok(());
+    }
+    let relation = source
+        .relation(ordinal)?
+        .ok_or("backlink relation reader missing")?;
+    for slot in active.bitmap().iter().map(RecordSlot) {
+        let mut found = false;
+        relation.visit_targets(slot, &mut |id, _| {
+            found = id == target_id;
+            Ok(found)
+        })?;
+        if found {
+            visit(slot);
+        }
+    }
+    Ok(())
 }
 
 pub(super) fn read_reference_value(

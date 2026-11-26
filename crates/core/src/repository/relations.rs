@@ -243,6 +243,20 @@ impl Repository {
         offset: usize,
         limit: usize,
     ) -> Result<OutgoingReferencePage, String> {
+        if self.has_flat_base() || self.has_native_segments() {
+            return relation_outgoing_page_segmented(
+                self,
+                source_collection,
+                relation_path,
+                source_id,
+                offset,
+                limit,
+                self.revision,
+                &self.active,
+                &self.segment_groups()?,
+                &self.catalog,
+            );
+        }
         self.relation_outgoing_page_with_active(
             source_collection,
             relation_path,
@@ -353,6 +367,20 @@ impl Repository {
         offset: usize,
         limit: usize,
     ) -> Result<BacklinkPage, String> {
+        if self.has_flat_base() || self.has_native_segments() {
+            return relation_backlink_page_segmented(
+                self,
+                target_collection,
+                reverse_alias,
+                target_id,
+                offset,
+                limit,
+                self.revision,
+                &self.active,
+                &self.segment_groups()?,
+                &self.catalog,
+            );
+        }
         self.relation_backlink_page_with_active(
             target_collection,
             reverse_alias,
@@ -440,6 +468,15 @@ impl Repository {
 
     /// Inspect all declared collections and relation edges without source reads.
     pub fn collection_graph(&self) -> Result<CollectionGraph, String> {
+        if self.has_flat_base() || self.has_native_segments() {
+            return collection_graph_segmented(
+                self,
+                self.revision,
+                &self.active,
+                &self.segment_groups()?,
+                &self.catalog,
+            );
+        }
         self.collection_graph_with_active(None)
     }
 

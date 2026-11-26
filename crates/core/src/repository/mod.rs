@@ -144,6 +144,12 @@ impl Repository {
         Ok(())
     }
 
+    pub(crate) fn has_flat_base(&self) -> bool {
+        self.collections
+            .iter()
+            .any(|collection| collection.base_records.is_some())
+    }
+
     /// Construct zero-record indexes with the same configuration, without
     /// enumerating or opening any source file. Maintenance can then publish
     /// active-only compacted contributions as new segments.

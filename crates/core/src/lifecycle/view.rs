@@ -1288,7 +1288,7 @@ impl IndexView {
         limit: usize,
     ) -> Result<crate::repository::relations::OutgoingReferencePage, String> {
         self.ensure_initial_complete()?;
-        if self.has_segments() {
+        if self.has_segments() || self.repository().has_flat_base() {
             return crate::repository::relations::relation_outgoing_page_segmented(
                 self.repository(),
                 source_collection,
@@ -1321,7 +1321,7 @@ impl IndexView {
         limit: usize,
     ) -> Result<crate::repository::relations::BacklinkPage, String> {
         self.ensure_initial_complete()?;
-        if self.has_segments() {
+        if self.has_segments() || self.repository().has_flat_base() {
             return crate::repository::relations::relation_backlink_page_segmented(
                 self.repository(),
                 target_collection,
@@ -1349,7 +1349,7 @@ impl IndexView {
         &self,
     ) -> Result<crate::repository::relations::CollectionGraph, String> {
         self.ensure_initial_complete()?;
-        if self.has_segments() {
+        if self.has_segments() || self.repository().has_flat_base() {
             return crate::repository::relations::collection_graph_segmented(
                 self.repository(),
                 self.revision(),
