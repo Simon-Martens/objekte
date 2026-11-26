@@ -11,11 +11,15 @@ use crate::index::storage::file_catalog::{
     edit_file_catalog,
 };
 use crate::index::storage::liveness::InitialLiveness;
-use crate::index::storage::segment::{SegmentReader, visit_record_headers, visit_segment_files};
+use crate::index::storage::segment::{
+    RecordBacking, SegmentReader, visit_checked_file_slots, visit_record_headers,
+    visit_segment_files,
+};
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
     install_segment,
 };
+use crate::index::storage::transfer::StorageError;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus};
 use crate::model::{CollectionId, RecordId};
 use crate::repository::Repository;
@@ -649,17 +653,18 @@ impl PublishedIndex {
             let number = collection.0 as usize;
             let routes = &self.record_routes[number];
             for id in routes.segments_for_file(file.id)?.iter() {
-                let Some(position) = routes.position(*id)? else {
-                    continue;
-                };
-                let segment = &self.segments[number][position].index;
-                if matches!(
-                    &segment.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                ) && segment.file(file.id).is_some_and(|owned| {
-                    owned.entry.revision == file.revision
-                        && owned.entry.created_ns == file.created_ns
-                }) {
+                let segment = routes
+                    .position(*id)?
+                    .and_then(|position| self.segments[number].get(position))
+                    .filter(|segment| segment.id == *id)
+                    .ok_or_else(|| {
+                        IndexError::InvalidPublication("invalid import file route".into())
+                    })?;
+                if segment.backing_kind() == RecordBacking::FileRange
+                    && segment.file_metadata(file.id)?.is_some_and(|owned| {
+                        owned.revision == file.revision && owned.created_ns == file.created_ns
+                    })
+                {
                     imported.insert(*collection);
                     break;
                 }
@@ -697,7 +702,14 @@ impl PublishedIndex {
             let positions = routes
                 .segments_for_file(file.id)?
                 .iter()
-                .map(|&id| routes.position(id))
+                .map(|&id| {
+                    routes
+                        .position(id)?
+                        .map(|position| (id, position))
+                        .ok_or_else(|| {
+                            StorageError::invalid("retire file", "missing segment route")
+                        })
+                })
                 .collect::<Result<Vec<_>, _>>()?;
             if positions.is_empty() {
                 continue;
@@ -706,33 +718,43 @@ impl PublishedIndex {
                 IndexError::InvalidPublication("segment collection missing".into())
             })?;
             let group = Arc::make_mut(segments);
-            for position in positions.into_iter().flatten() {
-                let segment = group.get_mut(position).ok_or_else(|| {
-                    IndexError::InvalidPublication("routed segment missing".into())
-                })?;
-                if !matches!(
-                    &segment.index.backing,
-                    crate::index::segment::SegmentBacking::FileRange { .. }
-                ) {
+            for (id, position) in positions {
+                let segment = group
+                    .get_mut(position)
+                    .filter(|segment| segment.id == id)
+                    .ok_or_else(|| {
+                        IndexError::InvalidPublication("routed segment missing".into())
+                    })?;
+                if segment.backing_kind() != RecordBacking::FileRange {
                     continue;
                 }
-                let Some(file_index) = segment.index.file_index.get(&file.id).copied() else {
+                let Some(source) = segment.file_metadata(file.id)? else {
                     continue;
                 };
-                let source = &segment.index.files[file_index];
-                if source.entry.revision != file.revision
-                    || source.entry.created_ns != file.created_ns
-                {
+                if source.revision != file.revision || source.created_ns != file.created_ns {
                     continue;
                 }
-                let active_slots = source
-                    .records
-                    .iter()
-                    .copied()
-                    .filter(|slot| segment.active.contains(*slot))
-                    .collect::<Vec<_>>();
+                let mut file_has_slots = false;
+                let mut active_slots = Vec::new();
+                let mut route_keys = Vec::new();
+                visit_checked_file_slots(segment.as_ref(), file.id, &mut |slots| {
+                    file_has_slots = true;
+                    for &slot in slots {
+                        if segment.active.contains(slot) {
+                            let header = segment
+                                .header(slot)?
+                                .filter(|record| record.slot == slot)
+                                .ok_or_else(|| {
+                                    StorageError::invalid("retire file", "routed record missing")
+                                })?;
+                            active_slots.push(slot);
+                            route_keys.push((header.id.clone(), slot));
+                        }
+                    }
+                    Ok(())
+                })?;
                 if active_slots.is_empty() {
-                    if !source.records.is_empty() {
+                    if file_has_slots {
                         *routes = edited_catalog(
                             routes,
                             SegmentDirectoryDelta::RetireFile {
@@ -744,18 +766,6 @@ impl PublishedIndex {
                     }
                     continue;
                 }
-                let route_keys = active_slots
-                    .iter()
-                    .map(|slot| {
-                        segment
-                            .index
-                            .record(*slot)
-                            .map(|record| (record.id.clone(), *slot))
-                            .ok_or_else(|| {
-                                IndexError::InvalidPublication("routed record missing".into())
-                            })
-                    })
-                    .collect::<Result<Vec<_>, _>>()?;
                 let segment = Arc::make_mut(segment);
                 segment.active = segment.active.retired(&active_slots)?;
                 retired_records += active_slots.len() as u64;

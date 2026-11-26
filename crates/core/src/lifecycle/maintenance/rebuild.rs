@@ -1,8 +1,10 @@
 use std::time::{Duration, Instant};
 
-use crate::index::segment::SegmentBacking;
 use crate::index::storage::file_catalog::{
     FILE_TRANSFER_LIMIT, FileCatalogDelta, FileCatalogSource, edit_file_catalog, transfer_files,
+};
+use crate::index::storage::segment::{
+    RecordBacking, RecordOrigin, SegmentReader, visit_checked_file_slots, visit_segment_files,
 };
 use crate::inventory::FileVersion;
 use crate::lifecycle::initial::InitialBuildPhase;
@@ -56,16 +58,17 @@ impl Index {
                 // versioned external sources before publishing them again.
                 for group in &view.0.segments {
                     for segment in group.iter() {
-                        match &segment.index.backing {
-                            SegmentBacking::Retained { .. } => {}
-                            SegmentBacking::Provider {
-                                registration,
-                                versions,
-                                ..
-                            } => {
+                        let descriptor = segment.descriptor();
+                        match segment.backing_kind() {
+                            RecordBacking::Retained => {}
+                            RecordBacking::Provider => {
+                                let registration =
+                                    segment.source().registration.ok_or_else(|| {
+                                        IndexError::Build("provider registration missing".into())
+                                    })?;
                                 let source = repository
                                     .record_registrations
-                                    .get(*registration as usize)
+                                    .get(registration as usize)
                                     .ok_or_else(|| {
                                         IndexError::Build("provider registration missing".into())
                                     })?;
@@ -76,18 +79,30 @@ impl Index {
                                     if cancelled() {
                                         return Err(IndexError::Cancelled);
                                     }
+                                    let slot = crate::model::RecordSlot(slot);
                                     let record = segment
-                                        .index
-                                        .record(crate::model::RecordSlot(slot))
+                                        .header(slot)?
+                                        .filter(|record| record.slot == slot)
                                         .ok_or_else(|| {
                                             IndexError::Build("provider record missing".into())
                                         })?;
-                                    let expected =
-                                        *versions.get(slot as usize).ok_or_else(|| {
-                                            IndexError::Build("provider version missing".into())
-                                        })?;
+                                    let Some(RecordOrigin::Provider {
+                                        registration: owner,
+                                        version: expected,
+                                        ..
+                                    }) = segment.origin(slot)?
+                                    else {
+                                        return Err(IndexError::Build(
+                                            "provider version missing".into(),
+                                        ));
+                                    };
+                                    if owner != registration {
+                                        return Err(IndexError::InvalidPublication(
+                                            "provider registration changed".into(),
+                                        ));
+                                    }
                                     let key = crate::records::RecordKey::new(
-                                        segment.index.collection,
+                                        descriptor.collection,
                                         record.id.clone(),
                                     );
                                     let read = reader
@@ -106,36 +121,40 @@ impl Index {
                                     }
                                 }
                             }
-                            SegmentBacking::FileRange { .. } => {
-                                for file in &segment.index.files {
+                            RecordBacking::FileRange => {
+                                visit_segment_files(segment.as_ref(), |file| {
                                     if cancelled() {
                                         return Err(IndexError::Cancelled);
                                     }
-                                    let current = view.file_entry(file.entry.id)?;
-                                    let current_incarnation = if let Some(entry) = current {
-                                        entry.revision == file.entry.revision
-                                            && entry.created_ns == file.entry.created_ns
-                                            && view
-                                                .0
-                                                .imported_collections(&entry)?
-                                                .contains(&segment.index.collection)
-                                    } else {
-                                        false
-                                    };
-                                    if !current_incarnation {
-                                        if file
-                                            .records
-                                            .iter()
-                                            .any(|slot| segment.active.contains(*slot))
-                                        {
-                                            return Err(IndexError::InvalidPublication(
-                                                "obsolete file incarnation still has live records"
-                                                    .into(),
-                                            ));
-                                        }
-                                        continue;
+                                    if let Some(entry) = view.file_entry(file.id)?
+                                        && entry.revision == file.revision
+                                        && entry.created_ns == file.created_ns
+                                        && view
+                                            .0
+                                            .imported_collections(&entry)?
+                                            .contains(&descriptor.collection)
+                                    {
+                                        return Ok(());
                                     }
-                                }
+                                    let mut live = false;
+                                    visit_checked_file_slots(
+                                        segment.as_ref(),
+                                        file.id,
+                                        &mut |slots| {
+                                            live |= slots
+                                                .iter()
+                                                .any(|&slot| segment.active.contains(slot));
+                                            Ok(())
+                                        },
+                                    )?;
+                                    if live {
+                                        return Err(IndexError::InvalidPublication(
+                                            "obsolete file incarnation still has live records"
+                                                .into(),
+                                        ));
+                                    }
+                                    Ok(())
+                                })?;
                             }
                         }
                     }
