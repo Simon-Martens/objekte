@@ -160,6 +160,26 @@ impl<'a> MembershipView<'a> {
         }
     }
 
+    pub(crate) fn intersect_bitmap(self, input: &RoaringBitmap) -> RoaringBitmap {
+        match self {
+            Self::Empty => RoaringBitmap::new(),
+            Self::Sorted(slots) => slots
+                .iter()
+                .copied()
+                .filter(|slot| input.contains(*slot))
+                .collect(),
+            Self::Borrowed(slots) | Self::AllSlots(slots) => input & slots,
+        }
+    }
+
+    pub(crate) fn subtract_from(self, input: &RoaringBitmap) -> RoaringBitmap {
+        match self {
+            Self::Empty => input.clone(),
+            Self::Sorted(_) => input.iter().filter(|&slot| !self.contains(slot)).collect(),
+            Self::Borrowed(slots) | Self::AllSlots(slots) => input - slots,
+        }
+    }
+
     pub(crate) fn intersection_len(self, other: Self) -> u64 {
         match (self, other) {
             (Self::Empty, _) | (_, Self::Empty) => 0,

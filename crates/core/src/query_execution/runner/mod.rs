@@ -11,7 +11,6 @@ use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 #[cfg(test)]
 use crate::index::sorting::SortColumn;
@@ -21,7 +20,9 @@ use crate::index::sorting::{SortKey, SortOptions};
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::order::inferred_cache::InferredOrderKey;
 use crate::index::storage::ordered_slots::OrderedSlotCursor;
-use crate::index::storage::segment::{RecordBacking, RecordOrigin, SegmentReader};
+use crate::index::storage::segment::{
+    RecordBacking, RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members,
+};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
@@ -38,6 +39,7 @@ use crate::query::{Operator, Quantifier, Query};
 use crate::query::{
     binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
 };
+use crate::query_access::membership::MembershipView;
 use crate::query_diagnostics::trace::{PlanActual, QueryPlanTrace};
 pub(crate) use crate::query_diagnostics::trace::{
     attach_execution_observations, bound_term_diagnostics, finish_trace, fts_covered_target,
@@ -482,7 +484,7 @@ fn inventory_fts_evidence(
 fn segment_metadata_fts_evidence(
     repo: &Repository,
     collection: &CollectionState,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     active: &ActiveRecords,
     catalog: &dyn FileCatalogReader,
     fts: &BoundFts,
@@ -1188,7 +1190,7 @@ pub(crate) fn segment_locator_hit(
 
 fn retained_locator_hit(
     collection: &CollectionState,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     catalog: &dyn FileCatalogReader,
     record: &crate::records::RecordHeader,
     revision: IndexRevision,
@@ -1779,9 +1781,19 @@ struct OrRestrictionProbe {
     evidence: Option<Vec<(RoaringBitmap, Vec<String>)>>,
 }
 
+pub(crate) fn same_proven_members(
+    bounds: &crate::query_execution::restrictions::SegmentCandidateBounds,
+    members: MembershipView<'_>,
+) -> bool {
+    // Proof is a subset of possible membership, so equal counts within the
+    // selected domain prove the restricted sets equal.
+    members.intersection_len(MembershipView::Borrowed(&bounds.may))
+        == members.intersection_len(MembershipView::Borrowed(&bounds.must))
+}
+
 fn exact_or_branch_evidence_fields(
     published_id: crate::index::segment::SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     active: &ActiveRecords,
     filter: &BoundExpr,
     collection: &CollectionState,
@@ -1805,6 +1817,8 @@ fn exact_or_branch_evidence_fields(
     let mut may = RoaringBitmap::new();
     let mut must = RoaringBitmap::new();
     let mut all_exact = true;
+    let logical = read_slot_members(segment, SegmentSlotFact::Logical)?;
+    let logical = logical.view();
     for (part, fields) in parts.iter().zip(child_fields) {
         let bounds = segment_filter_bounds_with_routes(
             published_id,
@@ -1818,10 +1832,8 @@ fn exact_or_branch_evidence_fields(
             context,
             routed,
         )?;
-        let logical = &input & &segment.logical_records;
         let exact = bounds.may == bounds.must
-            || (excludes_raw_fallback(part)
-                && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+            || (excludes_raw_fallback(part) && same_proven_members(&bounds, logical));
         may |= bounds.may.as_ref();
         must |= bounds.must.as_ref();
         if exact {
@@ -2195,24 +2207,27 @@ fn try_exact_segment_ordered_page(
                 })
                 .transpose()?
         };
-        if !was_cached && let Some(bounds) = bounds.as_ref() {
-            let logical = &published.active.bitmap() & &published.index.logical_records;
-            let exact = bounds.may == bounds.must
-                || (filter.is_some_and(excludes_raw_fallback)
-                    && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
-            restriction_cache.insert(collection_index, segment_index, bounds.clone(), exact);
-        }
-        let candidates = match bounds.as_ref() {
-            Some(bounds) if bounds.may == bounds.must => bounds.may.as_ref().clone(),
-            Some(bounds)
-                if filter.is_some_and(excludes_raw_fallback)
-                    && (bounds.may.as_ref() & &published.index.logical_records)
-                        == (bounds.must.as_ref() & &published.index.logical_records) =>
-            {
-                bounds.must.as_ref() & &published.index.logical_records
+        let candidates = if let Some(bounds) = bounds.as_ref() {
+            let complete = bounds.may == bounds.must;
+            let logical = (!complete && filter.is_some_and(excludes_raw_fallback))
+                .then(|| read_slot_members(&published.index, SegmentSlotFact::Logical))
+                .transpose()?;
+            let exact = complete
+                || logical
+                    .as_ref()
+                    .is_some_and(|members| same_proven_members(bounds, members.view()));
+            if !was_cached {
+                restriction_cache.insert(collection_index, segment_index, bounds.clone(), exact);
             }
-            Some(_) => return Ok(None),
-            None => published.active.bitmap().clone(),
+            if !exact {
+                return Ok(None);
+            }
+            logical.as_ref().map_or_else(
+                || bounds.must.as_ref().clone(),
+                |members| members.view().intersect_bitmap(&bounds.must),
+            )
+        } else {
+            published.active.bitmap()
         };
         let evidence = if query.options.evidence {
             if matches!(filter, Some(BoundExpr::And(_))) && candidates.len() <= 4 {
@@ -2374,7 +2389,7 @@ fn offer_admitted_segment_slot(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
     collection: &CollectionState,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     published: &PublishedSegment,
     catalog: &dyn FileCatalogReader,
     collection_index: usize,
@@ -2415,16 +2430,23 @@ fn offer_admitted_segment_slot(
                 .ok_or("active segment candidate missing")?,
         )
     };
-    let key = segment_rank_key(
-        repo,
-        sort,
-        collection_index,
-        segment,
-        segment
-            .record(slot)
-            .ok_or("active segment candidate missing")?,
-        None,
-    )?;
+    let retained_header = if retained {
+        Some(
+            segment
+                .header(slot)?
+                .ok_or("active retained candidate missing")?,
+        )
+    } else {
+        None
+    };
+    let record: &dyn crate::records::RecordIdSlot = if let Some(resolved) = &resolved {
+        &resolved.record
+    } else {
+        retained_header
+            .as_deref()
+            .ok_or("active retained candidate missing")?
+    };
+    let key = segment_rank_key(repo, sort, collection_index, segment, record, None)?;
     let hit_fields = match cache_builder {
         Some(builder) => {
             if !builder.is_accepting() {
@@ -2455,8 +2477,8 @@ fn offer_admitted_segment_slot(
             collection,
             segment,
             catalog,
-            segment
-                .record(slot)
+            retained_header
+                .as_deref()
                 .ok_or("active retained candidate missing")?,
             revision,
             hit_fields,
@@ -2753,6 +2775,11 @@ fn search_segmented_impl(
                 return Err("segment collection mismatch".into());
             }
             let segment = &published.index;
+            let logical = filter
+                .as_ref()
+                .is_some_and(excludes_raw_fallback)
+                .then(|| read_slot_members(segment, SegmentSlotFact::Logical))
+                .transpose()?;
             let domain = published.active.bitmap();
             let text_term = entry.text_term;
             let text_estimate = fts
@@ -2849,12 +2876,12 @@ fn search_segmented_impl(
             };
             if !was_cached
                 && filter_input.as_ref() == &domain
-                && let (Some(filter), Some(bounds)) = (filter.as_ref(), bounds.as_ref())
+                && let Some(bounds) = bounds.as_ref()
             {
-                let logical = &published.active.bitmap() & &segment.logical_records;
                 let exact = bounds.may == bounds.must
-                    || (excludes_raw_fallback(filter)
-                        && (bounds.may.as_ref() & &logical) == (bounds.must.as_ref() & &logical));
+                    || logical
+                        .as_ref()
+                        .is_some_and(|members| same_proven_members(bounds, members.view()));
                 restriction_cache.insert(collection_index, segment_index, bounds.clone(), exact);
             }
             if matches!(filter.as_ref(), Some(BoundExpr::Or(_))) {
@@ -2863,11 +2890,13 @@ fn search_segmented_impl(
             let mut candidates = bounds
                 .as_ref()
                 .map_or(filter_input, |bounds| Arc::clone(&bounds.may));
-            if filter.as_ref().is_some_and(excludes_raw_fallback)
-                && segment.logical_records.len() != segment.record_count() as u64
-                && !candidates.is_subset(&segment.logical_records)
-            {
-                candidates = Arc::new(candidates.as_ref() & &segment.logical_records);
+            if let Some(logical) = logical.as_ref() {
+                let members = logical.view();
+                if members.len() != segment.record_count()
+                    && !MembershipView::Borrowed(&candidates).is_subset(members)
+                {
+                    candidates = Arc::new(members.intersect_bitmap(candidates.as_ref()));
+                }
             }
             let fts_bounds = if text_first {
                 text_first_bounds
@@ -3033,9 +3062,9 @@ fn search_segmented_impl(
                 && (fts.is_none() || metadata_evidence.is_some())
                 && bounds.as_ref().is_none_or(|bounds| {
                     bounds.may == bounds.must
-                        || (filter.as_ref().is_some_and(excludes_raw_fallback)
-                            && (bounds.may.as_ref() & &segment.logical_records)
-                                == (bounds.must.as_ref() & &segment.logical_records))
+                        || logical
+                            .as_ref()
+                            .is_some_and(|members| same_proven_members(bounds, members.view()))
                 });
             if index_exact {
                 let exact_fields = |slot: u32| {
@@ -4601,7 +4630,9 @@ fn try_lifecycle_ordered_stream(
                                 .as_ref()
                                 .map(|routes| (routes, segment.id)),
                         )?;
-                        let logical = &segment.active.bitmap() & &segment.index.logical_records;
+                        let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+                            .view()
+                            .intersect_bitmap(&segment.active.bitmap());
                         filter_exact[collection_index][segment_index] = bounds.may == bounds.must
                             || (excludes_raw_fallback(filter)
                                 && (bounds.may.as_ref() & &logical)

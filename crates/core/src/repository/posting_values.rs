@@ -11,6 +11,7 @@ use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
 use crate::inference::{InferenceIndexStatus, InferenceMode};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
@@ -777,26 +778,28 @@ pub(crate) fn select_exact_segmented(
         let mut exact = true;
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let members = if let Some(filter) = filter {
-                match crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
-                    segment.id,
-                    &segment.index,
-                    &segment.active,
-                    filter,
-                    state,
-                    Some(catalog),
-                ) {
-                    Ok(bounds) if bounds.may == bounds.must => bounds.must.as_ref().clone(),
-                    Ok(bounds)
-                        if filter_excludes_raw_fallback(filter)
-                            && (bounds.may.as_ref() & &segment.index.logical_records)
-                                == (bounds.must.as_ref() & &segment.index.logical_records) =>
+                let bounds =
+                    crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
+                        segment.id,
+                        &segment.index,
+                        &segment.active,
+                        filter,
+                        state,
+                        Some(catalog),
+                    )?;
+                if bounds.may == bounds.must {
+                    bounds.must.as_ref().clone()
+                } else if filter_excludes_raw_fallback(filter) {
+                    let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?;
+                    if !crate::query_execution::runner::same_proven_members(&bounds, logical.view())
                     {
-                        bounds.must.as_ref() & &segment.index.logical_records
-                    }
-                    _ => {
                         exact = false;
                         break;
                     }
+                    logical.view().intersect_bitmap(&bounds.must)
+                } else {
+                    exact = false;
+                    break;
                 }
             } else {
                 segment.active.bitmap()

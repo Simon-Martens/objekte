@@ -14,7 +14,7 @@ use crate::inventory::{ByteRange, FileEntry, SourceRevision};
 use crate::model::{CollectionId, FieldPath, FileId, RecordSlot};
 use crate::query::options::SortField;
 use crate::query_access::contract::IndexAccessProvider;
-use crate::query_access::membership::SlotSet;
+use crate::query_access::membership::{MembershipView, SlotSet};
 use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
 use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
@@ -307,10 +307,48 @@ pub(crate) struct SegmentPredicateAccess<'a> {
 pub(crate) type UseAccessProvider<'a> =
     dyn FnMut(Option<&dyn IndexAccessProvider>) -> StorageResult<()> + 'a;
 
+#[derive(Clone, Copy)]
+pub(crate) enum SegmentSlotFact {
+    Logical,
+    EmptyArray,
+}
+
+/// Guard around exact slot facts for one segment. The encoded data can
+/// borrow from storage, retain shared encoded slots, or own a decoded buffer.
+pub(crate) struct SegmentSlotMembers<'a>(SlotSet<'a>);
+
+impl SegmentSlotMembers<'_> {
+    pub(crate) fn view(&self) -> MembershipView<'_> {
+        self.0.explicit_view().expect("validated slot membership")
+    }
+}
+
+pub(crate) fn read_slot_members<S: SegmentReader + ?Sized>(
+    segment: &S,
+    fact: SegmentSlotFact,
+) -> StorageResult<SegmentSlotMembers<'_>> {
+    let slots = segment.slot_members(fact)?;
+    let view = slots.explicit_view().ok_or_else(|| {
+        StorageError::invalid("read segment slot facts", "missing explicit membership")
+    })?;
+    if view
+        .last()
+        .is_some_and(|slot| slot as usize >= segment.descriptor().slots)
+    {
+        return Err(StorageError::invalid(
+            "read segment slot facts",
+            "slot outside the segment",
+        ));
+    }
+    Ok(SegmentSlotMembers(slots))
+}
+
 /// Reads from a pinned segment. Returned keys and headers can borrow the
 /// pinned representation or hold an owned value decoded by the reader.
 pub(crate) trait SegmentReader: Send + Sync {
     fn descriptor(&self) -> SegmentDescriptor;
+
+    fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>>;
 
     fn source(&self) -> SegmentSource<'_>;
 
@@ -430,6 +468,10 @@ pub(crate) trait SegmentReader: Send + Sync {
 impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
     fn descriptor(&self) -> SegmentDescriptor {
         self.as_ref().descriptor()
+    }
+
+    fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
+        self.as_ref().slot_members(fact)
     }
 
     fn source(&self) -> SegmentSource<'_> {

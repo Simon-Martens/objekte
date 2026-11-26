@@ -1,5 +1,6 @@
 //! Bounded exact positive-witness semijoins for forward relation predicates.
 
+use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
 use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
@@ -793,7 +794,9 @@ fn qualified_expression_candidates(
         } else {
             &active
         };
-        let domain = &active & &segment.index.logical_records;
+        let domain = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+            .view()
+            .intersect_bitmap(&active);
         let input = input & &domain;
         if input.is_empty() {
             continue;
@@ -842,7 +845,9 @@ fn qualified_fts_candidates(
             };
             input &= local;
         }
-        input &= &segment.index.logical_records;
+        input = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+            .view()
+            .intersect_bitmap(&input);
         if input.is_empty() {
             continue;
         }

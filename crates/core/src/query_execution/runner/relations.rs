@@ -2,6 +2,7 @@
 
 use super::*;
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
 use crate::records::RecordIdSlot;
 
 #[cfg(test)]
@@ -373,7 +374,9 @@ fn relation_source_candidates(
     let mut may = if plan.exact {
         RoaringBitmap::new()
     } else {
-        &published.active.bitmap() - &published.index.logical_records
+        read_slot_members(&published.index, SegmentSlotFact::Logical)?
+            .view()
+            .subtract_from(&published.active.bitmap())
     };
     for id in &plan.target_ids {
         if let Some(slots) =
@@ -696,7 +699,9 @@ fn try_direct_relation_page(
             )?;
             // Data predicates cannot match a raw fallback. Prove only the
             // logical source domain used by the relation reverse posting.
-            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let logical = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+                .view()
+                .intersect_bitmap(&published.active.bitmap());
             let may = bounds.may.as_ref() & &logical;
             let must = bounds.must.as_ref() & &logical;
             if may != must {
@@ -1086,7 +1091,9 @@ fn try_direct_relation_page(
             matches
         };
         may &= published.active.bitmap();
-        may &= &published.index.logical_records;
+        may = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+            .view()
+            .intersect_bitmap(&may);
         if local_filter.is_some() {
             may &= &local_proofs[segment_index];
         }
@@ -1399,7 +1406,9 @@ fn try_semijoin_relation_page(
                 collection,
                 Some(catalog),
             )?;
-            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let logical = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+                .view()
+                .intersect_bitmap(&published.active.bitmap());
             if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
                 return Ok(None);
             }
@@ -1407,7 +1416,9 @@ fn try_semijoin_relation_page(
         } else {
             published.active.bitmap().clone()
         };
-        let may = &may & &published.index.logical_records;
+        let may = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+            .view()
+            .intersect_bitmap(&may);
         input.insert_local(source_collection, published.id, may);
     }
     let view = crate::query_execution::relations::view::MergedRelationView::new(
@@ -4349,7 +4360,13 @@ pub(crate) fn explain_segmented(
                         output = output.saturating_add(published.active.len());
                     }
                     structural = structural.saturating_add(
-                        (&published.index.empty_array_records & &published.active.bitmap()).len(),
+                        read_slot_members(&published.index, SegmentSlotFact::EmptyArray)?
+                            .view()
+                            .intersection_len(
+                                crate::query_access::membership::MembershipView::Borrowed(
+                                    &published.active.bitmap(),
+                                ),
+                            ),
                     );
                 }
                 if output < delta && structural < delta {

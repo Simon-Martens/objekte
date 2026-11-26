@@ -3,6 +3,7 @@
 use super::*;
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::order::OrderColumnReader;
+use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
 use crate::query_results::ranking::{RankKey, StoredRankKey};
 
 pub(super) struct LifecycleOrderCursor<'a> {
@@ -329,7 +330,9 @@ pub(super) fn posting_order_eligible(
             continue;
         }
         saw_segment = true;
-        let logical = &segment.active.bitmap() & &segment.index.logical_records;
+        let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+            .view()
+            .intersect_bitmap(&segment.active.bitmap());
         let bounds = segment_filter_bounds_with_catalog(
             segment.id,
             &segment.index,
@@ -569,7 +572,9 @@ pub(super) fn try_inferred_segment_order_page(
                 collection,
                 Some(catalog),
             )?;
-            let logical = &segment.active.bitmap() & &segment.index.logical_records;
+            let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+                .view()
+                .intersect_bitmap(&segment.active.bitmap());
             if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
                 return Ok(None);
             }

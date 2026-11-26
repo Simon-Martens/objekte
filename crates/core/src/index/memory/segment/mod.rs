@@ -684,6 +684,17 @@ impl SegmentReader for IndexedCollectionSegment {
         }
     }
 
+    fn slot_members(
+        &self,
+        fact: crate::index::storage::segment::SegmentSlotFact,
+    ) -> StorageResult<SlotSet<'_>> {
+        use crate::index::storage::segment::SegmentSlotFact::{EmptyArray, Logical};
+        Ok(SlotSet::borrowed(match fact {
+            Logical => &self.logical_records,
+            EmptyArray => &self.empty_array_records,
+        }))
+    }
+
     fn source(&self) -> SegmentSource<'_> {
         let registration = match &self.backing {
             SegmentBacking::FileRange { .. } => None,

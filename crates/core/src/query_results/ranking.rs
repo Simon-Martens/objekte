@@ -420,7 +420,7 @@ pub(crate) fn segment_rank_key<S: SegmentReader + ?Sized>(
     sort: &ResolvedSort<'_>,
     collection_index: usize,
     segment: &S,
-    record: &impl RecordIdSlot,
+    record: &(impl RecordIdSlot + ?Sized),
     ctx: Option<&RecordContext<'_>>,
 ) -> Result<RankKey, String> {
     #[cfg(test)]

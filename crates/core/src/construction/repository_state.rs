@@ -17,6 +17,7 @@ use crate::index::storage::StorageFactory;
 use crate::index::storage::file_catalog::{
     DiscoveredFileRows, EmptyFileCatalogBase, FileCatalogHandle, FileCatalogSource, FileRows,
 };
+use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
 use crate::inference::InferenceBuildStats;
 #[cfg(test)]
 use crate::inventory::FileInventory;
@@ -446,13 +447,19 @@ fn segment_metadata_generation(
         {
             global.merge_shifted(local, base, segment_count)?;
         }
-        for slot in &segment.index.logical_records {
+        for slot in read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+            .view()
+            .iter()
+        {
             logical_records.insert(
                 base.checked_add(slot)
                     .ok_or("logical record slot overflow")?,
             );
         }
-        for slot in &segment.index.empty_array_records {
+        for slot in read_slot_members(&segment.index, SegmentSlotFact::EmptyArray)?
+            .view()
+            .iter()
+        {
             empty_array_records.insert(
                 base.checked_add(slot)
                     .ok_or("empty-array record slot overflow")?,

@@ -28,6 +28,23 @@ impl SegmentReader for RecordTable {
         }
     }
 
+    fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
+        match fact {
+            SegmentSlotFact::Logical => {
+                let slots = self
+                    .rows
+                    .iter()
+                    .filter(|(header, _)| header.class == RecordClass::Logical)
+                    .map(|(header, _)| header.slot.0)
+                    .collect::<Vec<_>>();
+                SlotSet::from_sorted(slots.into()).map_err(|error| {
+                    StorageError::invalid("read table slot facts", error.to_string())
+                })
+            }
+            SegmentSlotFact::EmptyArray => Ok(SlotSet::Empty),
+        }
+    }
+
     fn source(&self) -> SegmentSource<'_> {
         SegmentSource {
             adapter: "fixture-record-table",
@@ -158,6 +175,9 @@ fn real_direct_lookup_supports_owned_record_rows_and_checked_payload_reads() {
         fail_read: AtomicBool::new(false),
         fail_header_after: None,
     };
+    let logical = read_slot_members(&segment, SegmentSlotFact::Logical).unwrap();
+    assert_eq!(logical.view().iter().collect::<Vec<_>>(), [slot.0]);
+
     let active = crate::index::storage::test_factory()
         .live_records(1, InitialLiveness::All)
         .unwrap();
