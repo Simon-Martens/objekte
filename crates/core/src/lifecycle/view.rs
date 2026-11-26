@@ -186,8 +186,7 @@ impl IndexView {
                 relation_edges: 0,
                 relation_heap_bytes: 0,
                 build_empty_array_bitmap_serialized_bytes: collection
-                    .empty_array_records
-                    .serialized_size(),
+                    .base_empty_array_membership_bytes(),
                 bigram_stores: 0,
                 distinct_gram_keys: 0,
                 bigram_heap_bytes: 0,

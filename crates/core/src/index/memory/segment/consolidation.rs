@@ -447,7 +447,7 @@ impl IndexedCollectionSegment {
                     return Err("relation segment coverage mismatch".into());
                 }
                 for (target, source) in relations.iter_mut().zip(&shard.relations) {
-                    target.merge_shifted(source.clone(), base, shard.record_count() as u32)?;
+                    target.merge_reader(source, base, shard.record_count() as u32)?;
                 }
                 if sorting.column_count() != shard.sorting.column_count()
                     || sorting.composites.len() != shard.sorting.composites.len()

@@ -23,16 +23,20 @@ use crate::index::storage::segment::{
 };
 use crate::inference::InferenceBuildStats;
 #[cfg(test)]
+use crate::inventory::CollectionGeneration;
+#[cfg(test)]
 use crate::inventory::FileInventory;
-use crate::inventory::{
-    ActiveRecords, CollectionBuilder, CollectionGeneration, FileEntry, RecordClass,
-};
+use crate::inventory::{ActiveRecords, CollectionBuilder, FileEntry, RecordClass};
 use crate::lifecycle::{IndexError, IndexRevision};
-use crate::model::{CollectionId, RecordId, RecordSlot};
+use crate::model::CollectionId;
+#[cfg(test)]
+use crate::model::{RecordId, RecordSlot};
 use crate::repository::configuration::{
     CollectionDeclaration, CollectionDefinition, FileSourceConfig, RepositoryOptions,
 };
-use crate::repository::state::{CollectionState, CollectionStats, GlobalInferenceSummary};
+use crate::repository::state::{
+    CollectionState, CollectionStats, GlobalInferenceSummary, InitialCollectionCounts,
+};
 use crate::repository::statistics::{BuildProfileStats, StartupStats, build_profile_rss_bytes};
 use crate::repository::{Repository, next_repository_instance};
 use crate::source::registry::PreparedSource;
@@ -307,6 +311,7 @@ fn initialize_empty_configured(
             index_family_bytes,
             id_lookup: HashMap::new(),
             identity_order: Vec::new(),
+            initial_counts: None,
             stats: CollectionStats {
                 file_count: 0,
                 record_count: 0,
@@ -422,15 +427,113 @@ mod programmatic_tests {
         assert_eq!(view.index_observation().unwrap().records, 0);
     }
 }
+/// Capture the collection counters and normalize diagnostic slot references
+/// while the sealed segments keep authoritative record and relation rows.
+fn summarize_published_collection(
+    segments: &[Arc<crate::index::storage::publication::PublishedSegment>],
+    files: &mut [FileEntry],
+) -> Result<(CollectionStats, InitialCollectionCounts), String> {
+    let mut file_ids = HashSet::new();
+    let mut records = 0u32;
+    let mut fallback = 0usize;
+    let mut arrays = RoaringBitmap::new();
+    for segment in segments {
+        let base = records;
+        let slots =
+            u32::try_from(segment.descriptor().slots).map_err(|_| "too many segment slots")?;
+        records = records
+            .checked_add(slots)
+            .ok_or("too many collection records")?;
+        visit_segment_files(segment.as_ref(), |file| {
+            file_ids.insert(file.id);
+            Ok::<_, String>(())
+        })?;
+        arrays
+            .append(
+                read_slot_members(segment, SegmentSlotFact::EmptyArray)?
+                    .view()
+                    .iter()
+                    .map(|slot| base + slot),
+            )
+            .map_err(|_| "out of order structural facts")?;
+        let fallback_count = segment.active_fallback_count(&segment.active);
+        fallback += fallback_count as usize;
+        if fallback_count == 0 {
+            continue;
+        }
+        visit_record_headers(segment.as_ref(), |headers| -> Result<(), String> {
+            for record in headers
+                .iter()
+                .filter(|record| record.class == RecordClass::RawFallback)
+            {
+                let Some(local) = record.diagnostic_ref.stored_index() else {
+                    continue;
+                };
+                let Some(RecordOrigin::FileRange(locator)) = segment.origin(record.slot)? else {
+                    return Err("file-backed segment has no locator for its fallback record".into());
+                };
+                let file = files
+                    .get_mut(locator.file.0 as usize)
+                    .ok_or("segment metadata file missing")?;
+                let metadata = segment
+                    .file_metadata(locator.file)?
+                    .ok_or("fallback segment file missing")?;
+                let diagnostic = metadata
+                    .diagnostics
+                    .get(local)
+                    .ok_or("fallback diagnostic missing")?;
+                let prior = file.diagnostics.iter_mut().find(|candidate| {
+                    let mut candidate = (*candidate).clone();
+                    candidate.record = None;
+                    let mut diagnostic = diagnostic.clone();
+                    diagnostic.record = None;
+                    candidate == diagnostic
+                });
+                let slot = crate::model::RecordSlot(base + record.slot.0);
+                if let Some(prior) = prior {
+                    prior.record = Some(slot);
+                } else if file.omitted_diagnostics == 0 {
+                    let mut diagnostic = diagnostic.clone();
+                    diagnostic.record = Some(slot);
+                    file.diagnostics.push(diagnostic);
+                }
+            }
+            Ok(())
+        })?;
+    }
+    let stats = CollectionStats {
+        file_count: file_ids.len(),
+        record_count: records as usize,
+        total_file_bytes: file_ids
+            .iter()
+            .map(|file| {
+                files
+                    .get(file.0 as usize)
+                    .map_or(0, |entry| entry.revision.size)
+            })
+            .sum(),
+    };
+    Ok((
+        stats,
+        InitialCollectionCounts {
+            fallback_records: fallback,
+            structural_membership_bytes: arrays.serialized_size(),
+        },
+    ))
+}
+
+/// Legacy base-only tests intentionally exercise coverage from a complete
+/// collection generation. Normal publication keeps records in its segments.
+#[cfg(test)]
 struct SegmentMetadata {
     generation: CollectionGeneration,
     id_lookup: HashMap<RecordId, RecordSlot>,
     identity_order: Vec<RecordSlot>,
-    stats: CollectionStats,
     logical_records: RoaringBitmap,
     empty_array_records: RoaringBitmap,
 }
 
+#[cfg(test)]
 fn segment_metadata_generation(
     collection: CollectionId,
     name: &str,
@@ -562,23 +665,10 @@ fn segment_metadata_generation(
             .id
             .cmp(&generation.records[right.0 as usize].id)
     });
-    let stats = CollectionStats {
-        file_count: file_set.len(),
-        record_count,
-        total_file_bytes: file_set
-            .iter()
-            .map(|file| {
-                files
-                    .get(file.0 as usize)
-                    .map_or(0, |entry| entry.revision.size)
-            })
-            .sum(),
-    };
     Ok(SegmentMetadata {
         generation,
         id_lookup,
         identity_order,
-        stats,
         logical_records,
         empty_array_records,
     })
@@ -586,7 +676,6 @@ fn segment_metadata_generation(
 
 pub(crate) struct FinalCollectionObservation {
     pub(crate) id: CollectionId,
-    pub(crate) definition: Arc<CollectionDefinition>,
     pub(crate) records: u64,
     pub(crate) observed_batches: u64,
 }
@@ -662,6 +751,7 @@ pub(crate) fn assemble_final_repository(
     final_repository.build_failed_parses = failed_parses;
     let mut inference_build = InferenceBuildStats::default();
     let segment_view = index.view()?;
+    #[cfg(test)]
     let mut pending_relations = Vec::with_capacity(final_repository.collections.len());
     for file in &mut final_files {
         if let Some(current) = segment_view.file_entry(file.id)? {
@@ -682,24 +772,30 @@ pub(crate) fn assemble_final_repository(
     }
     for (collection, state) in final_repository.collections.iter_mut().zip(pending) {
         let segments = segment_view.segments(state.id)?;
-        let mut relations = RelationContribution::for_schema(&state.definition.schema);
-        let metadata = crate::construction::repository_state::segment_metadata_generation(
-            state.id,
-            &state.definition.name,
-            &segments,
-            &mut final_files,
-            &mut relations,
-        )
-        .map_err(IndexError::Build)?;
-        collection.generation = metadata.generation;
-        collection.id_lookup = metadata.id_lookup;
-        collection.identity_order = metadata.identity_order;
-        collection.stats = metadata.stats;
-        collection.logical_records = metadata.logical_records;
-        collection.empty_array_records = metadata.empty_array_records;
-        // The empty sort columns already carry the declaration and collation
-        // metadata. Keep the finished keys and orders on their source segments.
-        pending_relations.push(relations);
+        let (stats, counts) = summarize_published_collection(&segments, &mut final_files)
+            .map_err(IndexError::Build)?;
+        collection.stats = stats;
+        collection.initial_counts = Some(counts);
+        #[cfg(test)]
+        {
+            let mut relations = RelationContribution::for_schema(&collection.definition.schema);
+            let metadata = crate::construction::repository_state::segment_metadata_generation(
+                state.id,
+                &collection.definition.name,
+                &segments,
+                &mut final_files,
+                &mut relations,
+            )
+            .map_err(IndexError::Build)?;
+            collection.generation = metadata.generation;
+            collection.id_lookup = metadata.id_lookup;
+            collection.identity_order = metadata.identity_order;
+            collection.logical_records = metadata.logical_records;
+            collection.empty_array_records = metadata.empty_array_records;
+            // The empty sort columns already carry the declaration and collation
+            // metadata. Keep the finished keys and orders on their source segments.
+            pending_relations.push(relations);
+        }
         let (_, stats) = state.finish_summary(options).map_err(IndexError::Build)?;
         collection.global_inference = crate::index::memory::inference::aggregate_segment_inference(
             options.inference,
@@ -710,41 +806,44 @@ pub(crate) fn assemble_final_repository(
         .map_err(IndexError::Build)?;
         inference_build.absorb(stats);
     }
-    for (source_index, contributions) in pending_relations.into_iter().enumerate() {
-        let source = final_repository.collections[source_index]
-            .generation
-            .collection;
-        for contribution in &contributions {
-            let logical_count = final_repository.collections[source_index]
-                .logical_records
-                .len() as u32;
-            if let Some(posting) = final_repository.collections[source_index]
-                .postings
-                .fields
-                .get_mut(&contribution.declaration().path)
-            {
-                posting.presence = contribution.presence().clone();
-                posting.values = contribution.reverse_postings();
-                posting.value_complete = true;
-                posting.covered_records = logical_count;
+    #[cfg(test)]
+    {
+        for (source_index, contributions) in pending_relations.into_iter().enumerate() {
+            let source = final_repository.collections[source_index]
+                .generation
+                .collection;
+            for contribution in &contributions {
+                let logical_count = final_repository.collections[source_index]
+                    .logical_records
+                    .len() as u32;
+                if let Some(posting) = final_repository.collections[source_index]
+                    .postings
+                    .fields
+                    .get_mut(&contribution.declaration().path)
+                {
+                    posting.presence = contribution.presence().clone();
+                    posting.values = contribution.reverse_postings();
+                    posting.value_complete = true;
+                    posting.covered_records = logical_count;
+                }
             }
+            let indexes = contributions
+                .into_iter()
+                .enumerate()
+                .map(|(ordinal, contribution)| {
+                    contribution.resolve(
+                        source,
+                        u32::try_from(ordinal).map_err(|_| "too many relations")?,
+                        &final_repository.collections,
+                    )
+                })
+                .collect::<Result<Vec<_>, _>>()
+                .map_err(IndexError::Build)?;
+            final_repository.collections[source_index].relations = indexes;
         }
-        let indexes = contributions
-            .into_iter()
-            .enumerate()
-            .map(|(ordinal, contribution)| {
-                contribution.resolve(
-                    source,
-                    u32::try_from(ordinal).map_err(|_| "too many relations")?,
-                    &final_repository.collections,
-                )
-            })
-            .collect::<Result<Vec<_>, _>>()
+        crate::index::relation::validate_indexes(&final_repository.collections)
             .map_err(IndexError::Build)?;
-        final_repository.collections[source_index].relations = indexes;
     }
-    crate::index::relation::validate_indexes(&final_repository.collections)
-        .map_err(IndexError::Build)?;
     let root = final_repository
         .source_root
         .clone()

@@ -331,10 +331,12 @@ impl RelationContribution {
         self.references.len()
     }
 
+    #[cfg(test)]
     pub(crate) fn presence(&self) -> &RoaringBitmap {
         &self.present
     }
 
+    #[cfg(test)]
     pub(crate) fn reverse_postings(&self) -> BTreeMap<ScalarKey, RoaringBitmap> {
         let mut postings = BTreeMap::<ScalarKey, RoaringBitmap>::new();
         for reference in &self.references {

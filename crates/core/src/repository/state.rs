@@ -22,6 +22,11 @@ pub(crate) struct GlobalInferenceSummary {
     pub(crate) diagnostics: Vec<InferencePathDiagnostic>,
 }
 
+pub(crate) struct InitialCollectionCounts {
+    pub fallback_records: usize,
+    pub structural_membership_bytes: usize,
+}
+
 pub struct CollectionState {
     /// Repository instance owning this pinned collection snapshot. Segment
     /// adapters use it to construct a full local-domain identity.
@@ -49,6 +54,7 @@ pub struct CollectionState {
     pub(crate) id_lookup: HashMap<RecordId, RecordSlot>,
     pub(crate) identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
+    pub(crate) initial_counts: Option<InitialCollectionCounts>,
     pub(crate) relations: Vec<RelationIndex>,
 }
 
@@ -84,14 +90,17 @@ impl CollectionState {
 
     /// Counts for the base collection before segment overlays.
     pub fn base_file_count(&self) -> usize {
-        self.generation.files.len()
+        self.stats.file_count
     }
 
     pub fn base_record_count(&self) -> usize {
-        self.generation.records.len()
+        self.stats.record_count
     }
 
     pub fn base_fallback_record_count(&self) -> usize {
+        if let Some(counts) = &self.initial_counts {
+            return counts.fallback_records;
+        }
         self.generation
             .records
             .iter()
@@ -101,7 +110,10 @@ impl CollectionState {
 
     #[doc(hidden)]
     pub fn base_empty_array_membership_bytes(&self) -> usize {
-        self.empty_array_records.serialized_size()
+        self.initial_counts.as_ref().map_or_else(
+            || self.empty_array_records.serialized_size(),
+            |counts| counts.structural_membership_bytes,
+        )
     }
 
     /// Field paths registered in the base collection's declared postings.

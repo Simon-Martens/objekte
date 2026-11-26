@@ -2009,7 +2009,6 @@ impl Repository {
             .map(
                 |state| crate::construction::repository_state::FinalCollectionObservation {
                     id: state.id,
-                    definition: Arc::clone(&state.definition),
                     records: state.records as u64,
                     observed_batches: state.observed_batches,
                 },
