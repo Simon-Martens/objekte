@@ -107,10 +107,10 @@ impl<'a> FileCatalogView<'a> {
     }
 
     pub fn file_by_path(&self, path: &Path) -> Result<Option<FileCatalogueRow<'a>>, LookupError> {
-        let Some(id) = self.reader.id_for_path(path)? else {
-            return Ok(None);
-        };
-        self.file(id).map(Some)
+        Ok(self
+            .reader
+            .file_by_path(path)?
+            .map(FileCatalogueRow::from_entry))
     }
 
     fn files_matching(

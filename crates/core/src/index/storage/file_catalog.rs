@@ -139,6 +139,16 @@ pub(crate) trait FileCatalogReader: FileCatalogSource {
 
     fn id_for_path(&self, path: &Path) -> StorageResult<Option<FileId>>;
 
+    fn file_by_path(&self, path: &Path) -> StorageResult<Option<Cow<'_, FileEntry>>> {
+        let Some(id) = self.id_for_path(path)? else {
+            return Ok(None);
+        };
+        let entry = self.file(id)?.ok_or_else(|| {
+            StorageError::invalid("read file by path", "path points to a missing file")
+        })?;
+        Ok(Some(entry))
+    }
+
     fn path_candidates(
         &self,
         bounds: FilePathBounds,
@@ -249,6 +259,10 @@ impl FileCatalogReader for FileCatalogHandle {
 
     fn id_for_path(&self, path: &Path) -> StorageResult<Option<FileId>> {
         self.as_ref().id_for_path(path)
+    }
+
+    fn file_by_path(&self, path: &Path) -> StorageResult<Option<Cow<'_, FileEntry>>> {
+        self.as_ref().file_by_path(path)
     }
 
     fn path_candidates(

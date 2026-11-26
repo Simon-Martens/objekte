@@ -614,21 +614,16 @@ impl FileCatalog {
     }
 
     pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {
+        self.entry_for_path(path).map(|entry| entry.id)
+    }
+
+    fn entry_for_path(&self, path: &Path) -> Option<&FileEntry> {
         let id = self.changed_paths[shard(&path)]
             .get(path)
             .copied()
             .or_else(|| self.base_files.id_for(path))?;
-        if !self.is_active(id) {
-            return None;
-        }
-        if let Some(changed) = self.changed[shard(&id)].get(&id) {
-            return (changed.entry.relative_path.as_path() == path).then_some(id);
-        }
-        self.base_files
-            .files
-            .get(id.0 as usize)
+        self.entry(id)
             .filter(|entry| entry.relative_path.as_path() == path)
-            .map(|_| id)
     }
 
     /// Exact file IDs for an ordered `@file.path` comparison in this pinned
@@ -951,6 +946,10 @@ impl FileCatalogReader for FileCatalog {
 
     fn id_for_path(&self, path: &Path) -> StorageResult<Option<FileId>> {
         Ok(self.id_for(path))
+    }
+
+    fn file_by_path(&self, path: &Path) -> StorageResult<Option<Cow<'_, FileEntry>>> {
+        Ok(self.entry_for_path(path).map(Cow::Borrowed))
     }
 
     fn path_candidates(
