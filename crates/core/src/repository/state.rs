@@ -11,6 +11,7 @@ use crate::index::bigram::BigramIndex;
 #[cfg(test)]
 use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
+#[cfg(test)]
 use crate::index::relation::RelationIndex;
 #[cfg(test)]
 use crate::index::sorting::SortCollection;
@@ -88,6 +89,7 @@ pub struct CollectionState {
     pub(crate) identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
     pub(crate) initial_counts: Option<InitialCollectionCounts>,
+    #[cfg(test)]
     pub(crate) relations: Vec<RelationIndex>,
 }
 
@@ -341,10 +343,13 @@ impl CollectionState {
             }
             return Ok(reader);
         }
-        Ok(self
+        #[cfg(test)]
+        return Ok(self
             .relations
             .get(ordinal)
-            .map(|relation| relation as &dyn crate::index::storage::relation::RelationReader))
+            .map(|relation| relation as &dyn crate::index::storage::relation::RelationReader));
+        #[cfg(not(test))]
+        Ok(None)
     }
 
     pub(crate) fn order_column(

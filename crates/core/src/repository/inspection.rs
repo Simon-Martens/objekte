@@ -6,6 +6,7 @@ use std::borrow::Cow;
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
+#[cfg(test)]
 use crate::index::relation::RelationIndex;
 use crate::index::storage::component::ComponentKind;
 use crate::index::storage::file_catalog::FileCatalogReader;
@@ -56,6 +57,7 @@ impl Repository {
     }
 
     /// Read one declared source relation without decoding source records.
+    #[cfg(test)]
     pub(crate) fn relation_index(
         &self,
         source_collection: &str,
@@ -72,6 +74,7 @@ impl Repository {
     }
 
     /// Resolve a reverse alias in its target collection's namespace.
+    #[cfg(test)]
     pub(crate) fn backlink_relation(
         &self,
         target_collection: &str,
@@ -91,6 +94,7 @@ impl Repository {
     }
 
     /// Borrow the existing typed posting for sources referencing this ID.
+    #[cfg(test)]
     pub(crate) fn relation_reverse_sources(
         &self,
         relation: &RelationIndex,
@@ -153,11 +157,14 @@ impl Repository {
             }
             return Ok((!matches.is_empty()).then(|| SlotSet::from_owned(matches)));
         }
-        Ok(source
+        #[cfg(test)]
+        return Ok(source
             .relations
             .get(ordinal)
             .and_then(|relation| self.relation_reverse_sources(relation, target_id))
-            .map(SlotSet::borrowed))
+            .map(SlotSet::borrowed));
+        #[cfg(not(test))]
+        Ok(None)
     }
 
     pub fn build_parses(&self) -> u64 {

@@ -2,6 +2,7 @@
 
 use std::sync::Arc;
 
+#[cfg(test)]
 use crate::index::relation::RelationTarget;
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::publication::PublishedSegment;
@@ -10,6 +11,7 @@ use crate::lifecycle::IndexRevision;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query_execution::relations::view::{MergedRecordSlot, MergedRelationView};
 use crate::repository::Repository;
+#[cfg(test)]
 use crate::repository::state::CollectionState;
 use crate::schema::relations::{RelationCardinality, RelationId};
 
@@ -129,6 +131,7 @@ fn page_bounds(total: usize, offset: usize, limit: usize) -> (usize, usize, Opti
     (start, end, (end < total).then_some(end))
 }
 
+#[cfg(test)]
 fn inspected_record(
     repository: &Repository,
     collection: &CollectionState,
@@ -243,30 +246,32 @@ impl Repository {
         offset: usize,
         limit: usize,
     ) -> Result<OutgoingReferencePage, String> {
-        if self.has_flat_base() || self.has_native_segments() {
-            return relation_outgoing_page_segmented(
-                self,
+        #[cfg(test)]
+        if !self.has_flat_base() && !self.has_native_segments() {
+            return self.relation_outgoing_page_with_active(
                 source_collection,
                 relation_path,
                 source_id,
                 offset,
                 limit,
-                self.revision,
-                &self.active,
-                &self.segment_groups()?,
-                &self.catalog,
+                None,
             );
         }
-        self.relation_outgoing_page_with_active(
+        relation_outgoing_page_segmented(
+            self,
             source_collection,
             relation_path,
             source_id,
             offset,
             limit,
-            None,
+            self.revision,
+            &self.active,
+            &self.segment_groups()?,
+            &self.catalog,
         )
     }
 
+    #[cfg(test)]
     pub(crate) fn relation_outgoing_page_for_view(
         &self,
         source_collection: &str,
@@ -286,6 +291,7 @@ impl Repository {
         )
     }
 
+    #[cfg(test)]
     fn relation_outgoing_page_with_active(
         &self,
         source_collection: &str,
@@ -367,30 +373,32 @@ impl Repository {
         offset: usize,
         limit: usize,
     ) -> Result<BacklinkPage, String> {
-        if self.has_flat_base() || self.has_native_segments() {
-            return relation_backlink_page_segmented(
-                self,
+        #[cfg(test)]
+        if !self.has_flat_base() && !self.has_native_segments() {
+            return self.relation_backlink_page_with_active(
                 target_collection,
                 reverse_alias,
                 target_id,
                 offset,
                 limit,
-                self.revision,
-                &self.active,
-                &self.segment_groups()?,
-                &self.catalog,
+                None,
             );
         }
-        self.relation_backlink_page_with_active(
+        relation_backlink_page_segmented(
+            self,
             target_collection,
             reverse_alias,
             target_id,
             offset,
             limit,
-            None,
+            self.revision,
+            &self.active,
+            &self.segment_groups()?,
+            &self.catalog,
         )
     }
 
+    #[cfg(test)]
     pub(crate) fn relation_backlink_page_for_view(
         &self,
         target_collection: &str,
@@ -410,6 +418,7 @@ impl Repository {
         )
     }
 
+    #[cfg(test)]
     fn relation_backlink_page_with_active(
         &self,
         target_collection: &str,
@@ -468,18 +477,20 @@ impl Repository {
 
     /// Inspect all declared collections and relation edges without source reads.
     pub fn collection_graph(&self) -> Result<CollectionGraph, String> {
-        if self.has_flat_base() || self.has_native_segments() {
-            return collection_graph_segmented(
-                self,
-                self.revision,
-                &self.active,
-                &self.segment_groups()?,
-                &self.catalog,
-            );
+        #[cfg(test)]
+        if !self.has_flat_base() && !self.has_native_segments() {
+            return self.collection_graph_with_active(None);
         }
-        self.collection_graph_with_active(None)
+        collection_graph_segmented(
+            self,
+            self.revision,
+            &self.active,
+            &self.segment_groups()?,
+            &self.catalog,
+        )
     }
 
+    #[cfg(test)]
     pub(crate) fn collection_graph_for_view(
         &self,
         active: &[ActiveRecords],
@@ -487,6 +498,7 @@ impl Repository {
         self.collection_graph_with_active(Some(active))
     }
 
+    #[cfg(test)]
     fn collection_graph_with_active(
         &self,
         active: Option<&[ActiveRecords]>,

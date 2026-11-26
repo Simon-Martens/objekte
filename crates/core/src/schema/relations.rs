@@ -1,6 +1,6 @@
 //! Relation declarations, identities and schema validation.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, HashSet};
 
 use serde::{Deserialize, Serialize};
 
@@ -119,29 +119,35 @@ fn valid_alias(alias: &str) -> bool {
 }
 
 pub(crate) fn validate_definitions(definitions: &[CollectionDefinition]) -> Result<(), String> {
-    let mut names = HashMap::new();
-    for (index, definition) in definitions.iter().enumerate() {
-        if names.insert(&definition.name, index).is_some() {
-            return Err(format!("duplicate collection: {}", definition.name));
+    validate_collection_schemas(
+        definitions
+            .iter()
+            .map(|definition| (definition.name.as_str(), &definition.schema)),
+    )
+}
+
+pub(crate) fn validate_collection_schemas<'a>(
+    collections: impl Iterator<Item = (&'a str, &'a Schema)> + Clone,
+) -> Result<(), String> {
+    let mut names = HashSet::new();
+    for (name, _) in collections.clone() {
+        if !names.insert(name) {
+            return Err(format!("duplicate collection: {name}"));
         }
     }
-    let mut aliases = HashMap::<(String, String), (String, Vec<String>)>::new();
-    for definition in definitions {
-        for relation in definition.schema.relations().values() {
-            if !names.contains_key(&relation.target_collection) {
+    let mut aliases = HashSet::new();
+    for (_, schema) in collections {
+        for relation in schema.relations().values() {
+            if !names.contains(relation.target_collection.as_str()) {
                 return Err(format!(
                     "relation target collection is unknown: {}",
                     relation.target_collection
                 ));
             }
-            if let Some(alias) = &relation.reverse_alias {
-                let key = (relation.target_collection.clone(), alias.clone());
-                if aliases
-                    .insert(key, (definition.name.clone(), relation.path.clone()))
-                    .is_some()
-                {
-                    return Err(format!("duplicate reverse relation alias: {alias}"));
-                }
+            if let Some(alias) = &relation.reverse_alias
+                && !aliases.insert((relation.target_collection.as_str(), alias.as_str()))
+            {
+                return Err(format!("duplicate reverse relation alias: {alias}"));
             }
         }
     }

@@ -12,6 +12,7 @@ use crate::index::bigram::BigramContribution;
 #[cfg(test)]
 use crate::index::memory::inference::InferenceBuilder;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+#[cfg(test)]
 use crate::index::relation::RelationContribution;
 #[cfg(test)]
 use crate::index::sorting::SortBuilder;
@@ -188,6 +189,11 @@ fn initialize_empty_configured(
     pool: Option<&rayon::ThreadPool>,
     storage_factory: Arc<dyn StorageFactory>,
 ) -> Result<Repository, String> {
+    crate::schema::relations::validate_collection_schemas(
+        inputs
+            .iter()
+            .map(|input| (input.declaration.name.as_str(), &input.declaration.schema)),
+    )?;
     let build_workers = crate::construction::scheduling::resolve_build_workers(
         options.build_workers,
         std::thread::available_parallelism().ok(),
@@ -213,15 +219,10 @@ fn initialize_empty_configured(
         .expect("empty construction pool is always available");
     let collection_count = inputs.len();
     let mut collections = Vec::with_capacity(collection_count);
+    #[cfg(test)]
     let mut pending_relations = Vec::with_capacity(collection_count);
     for (number, input) in inputs.into_iter().enumerate() {
         let definition = input.declaration;
-        if collections
-            .iter()
-            .any(|state: &CollectionState| state.definition.name == definition.name)
-        {
-            return Err(format!("duplicate collection: {}", definition.name));
-        }
         let id = CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
         let base_generation = IndexRevision::INITIAL.0;
         #[cfg(test)]
@@ -315,6 +316,7 @@ fn initialize_empty_configured(
             #[cfg(not(test))]
             None,
         );
+        #[cfg(test)]
         pending_relations.push(RelationContribution::for_schema(&definition.schema));
         collections.push(CollectionState {
             repository_instance: 0,
@@ -355,9 +357,11 @@ fn initialize_empty_configured(
                 record_count: 0,
                 total_file_bytes: 0,
             },
+            #[cfg(test)]
             relations: Vec::new(),
         });
     }
+    #[cfg(test)]
     for (source_index, contributions) in pending_relations.into_iter().enumerate() {
         let source = collections[source_index].collection_id();
         let indexes = contributions
@@ -373,6 +377,7 @@ fn initialize_empty_configured(
             .collect::<Result<Vec<_>, String>>()?;
         collections[source_index].relations = indexes;
     }
+    #[cfg(test)]
     crate::index::relation::validate_indexes(&collections)?;
     let workers = Repository::create_workers(options.query_workers)?;
     let catalog = storage_factory.file_catalog(

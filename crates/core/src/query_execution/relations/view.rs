@@ -589,11 +589,10 @@ impl<'a> MergedRelationView<'a> {
                 |slot| add(None, slot),
             )?;
         } else if self.base_active[index].len() != 0 {
-            let base = collection
-                .relations
-                .get(ordinal)
-                .ok_or("backlink relation missing")?;
-            if let Some(slots) = self.repo.relation_reverse_sources(base, target_id) {
+            if let Some(slots) = self.repo.base_reverse_sources(relation, target_id)? {
+                let slots = slots
+                    .explicit_view()
+                    .ok_or("reverse relation membership missing")?;
                 for slot in slots
                     .iter()
                     .map(RecordSlot)

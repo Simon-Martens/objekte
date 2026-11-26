@@ -144,6 +144,7 @@ impl Repository {
         Ok(())
     }
 
+    #[cfg(test)]
     pub(crate) fn has_flat_base(&self) -> bool {
         self.collections
             .iter()

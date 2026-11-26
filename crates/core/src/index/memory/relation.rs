@@ -1,16 +1,25 @@
 //! Declared, collection-scoped links and immutable forward reference access.
 
+#[cfg(test)]
 use std::collections::BTreeMap;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
+#[cfg(test)]
 use crate::index::posting::ScalarKey;
-use crate::inventory::{RecordClass, append_shifted_bitmap};
-use crate::model::{CollectionId, RecordSlot, Value};
+#[cfg(test)]
+use crate::inventory::RecordClass;
+use crate::inventory::append_shifted_bitmap;
+#[cfg(test)]
+use crate::model::CollectionId;
+use crate::model::{RecordSlot, Value};
+#[cfg(test)]
 use crate::repository::state::CollectionState;
 use crate::schema::Schema;
-use crate::schema::relations::{RelationDefinition, RelationId};
+use crate::schema::relations::RelationDefinition;
+#[cfg(test)]
+use crate::schema::relations::RelationId;
 
 #[cfg(test)]
 static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
@@ -24,6 +33,7 @@ use crate::index::storage::transfer::{StorageError, StorageResult};
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
 /// read from its `CollectionGeneration` record; no file ID is duplicated here.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[cfg(test)]
 pub struct RelationIndex {
     pub id: RelationId,
     pub declaration: RelationDefinition,
@@ -37,6 +47,7 @@ pub struct RelationIndex {
     unresolved_count: u64,
 }
 
+#[cfg(test)]
 impl RelationReader for RelationIndex {
     fn declaration(&self) -> &RelationDefinition {
         &self.declaration
@@ -98,6 +109,7 @@ impl RelationReader for RelationIndex {
     }
 }
 
+#[cfg(test)]
 impl RelationIndex {
     pub fn edges(&self, source: RecordSlot) -> Option<&[RelationEdge]> {
         let start = *self.offsets.get(source.0 as usize)? as usize;
@@ -781,6 +793,7 @@ impl RelationContribution {
         Ok(())
     }
 
+    #[cfg(test)]
     pub(crate) fn resolve(
         self,
         source: CollectionId,
@@ -895,6 +908,7 @@ fn visit_reference(
     }
 }
 
+#[cfg(test)]
 pub(crate) fn validate_indexes(collections: &[CollectionState]) -> Result<(), String> {
     for source in collections {
         if source.relations.len() != source.definition.schema.relations().len() {
