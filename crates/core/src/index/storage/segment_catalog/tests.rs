@@ -6,8 +6,8 @@ use crate::construction::batch::BatchContribution;
 use crate::index::storage::StorageFactory;
 use crate::index::storage::liveness::{ActiveRecords, InitialLiveness, LiveSlotReader};
 use crate::index::storage::order::{
-    DeclaredOrderRows, DeclaredOrderStore, InferredOrderRows, OrderColumnReader, SortConfig,
-    SortKey, SortOptions,
+    DeclaredOrderDefinition, DeclaredOrderStore, DeclaredOrderWriter, InferredOrderRows,
+    ORDER_KEY_BATCH_SIZE, OrderColumnReader, OrderIdentities, SortConfig, SortKey, SortOptions,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::publication::PublishedSegment;
@@ -49,7 +49,14 @@ struct TableFactory {
     retained_part_reads: Arc<AtomicUsize>,
     order_builds: AtomicUsize,
     store_declared_order: AtomicBool,
+    store_postings: AtomicBool,
+    store_grams: AtomicBool,
+    gram_fact_batches: AtomicUsize,
+    store_relations: AtomicBool,
+    relation_fact_batches: AtomicUsize,
+    posting_fact_batches: AtomicUsize,
     declared_order_builds: AtomicUsize,
+    declared_key_batches: AtomicUsize,
     key_batches: Arc<AtomicUsize>,
     fail_key_transfer: Arc<AtomicBool>,
     order_rows: Arc<AtomicUsize>,
@@ -76,20 +83,159 @@ impl DeclaredOrderStore for Arc<TableFactory> {
         path.segments == ["score"] && kind == &LogicalType::Number
     }
 
-    fn seal(&self, rows: DeclaredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>> {
-        self.declared_order_builds.fetch_add(1, Ordering::Relaxed);
+    fn start(
+        &self,
+        definition: DeclaredOrderDefinition,
+    ) -> StorageResult<Box<dyn DeclaredOrderWriter>> {
+        Ok(Box::new(TableOrderWriter {
+            control: Arc::clone(self),
+            definition,
+            keys: BTreeMap::new(),
+        }))
+    }
+}
+
+struct TableOrderWriter {
+    control: Arc<TableFactory>,
+    definition: DeclaredOrderDefinition,
+    keys: BTreeMap<usize, SortKey>,
+}
+
+impl DeclaredOrderWriter for TableOrderWriter {
+    fn push_keys(&mut self, base: RecordSlot, keys: &[SortKey]) -> StorageResult<()> {
+        assert!(keys.len() <= ORDER_KEY_BATCH_SIZE);
+        assert_eq!(base.0 as usize, self.keys.len());
+        self.control
+            .declared_key_batches
+            .fetch_add(1, Ordering::Relaxed);
+        self.keys.extend(
+            keys.iter()
+                .cloned()
+                .enumerate()
+                .map(|(index, key)| (base.0 as usize + index, key)),
+        );
+        Ok(())
+    }
+
+    fn seal(
+        self: Box<Self>,
+        identities: &dyn OrderIdentities,
+    ) -> StorageResult<Arc<dyn OrderColumnReader>> {
+        self.control
+            .declared_order_builds
+            .fetch_add(1, Ordering::Relaxed);
+        if self.keys.len() != identities.len() {
+            return Err(StorageError::invalid(
+                "seal table order",
+                "key count differs from identities",
+            ));
+        }
+        let make_order = |descending| {
+            let mut slots = (0..self.keys.len() as u32)
+                .map(RecordSlot)
+                .collect::<Vec<_>>();
+            slots.sort_unstable_by(|left, right| {
+                self.keys[&(left.0 as usize)]
+                    .compare_with(
+                        &self.keys[&(right.0 as usize)],
+                        descending,
+                        self.definition.config.options,
+                    )
+                    .then_with(|| identities.id(*left).cmp(identities.id(*right)))
+            });
+            Some(self.control.short_order(slots))
+        };
+        let directions = [make_order(false), make_order(true)];
         Ok(Arc::new(TableOrder {
-            path: rows.path,
-            kind: rows.kind,
-            collation_version: rows.collation_version,
-            config: rows.config,
-            keys: rows.keys.into_iter().enumerate().collect(),
-            key_batches: Arc::clone(&self.key_batches),
-            fail_key_transfer: Arc::clone(&self.fail_key_transfer),
-            directions: [
-                Some(self.short_order(rows.ascending)),
-                Some(self.short_order(rows.descending)),
-            ],
+            path: self.definition.path,
+            kind: self.definition.kind,
+            collation_version: self.definition.collation_version,
+            config: self.definition.config,
+            keys: self.keys,
+            key_batches: Arc::clone(&self.control.key_batches),
+            fail_key_transfer: Arc::clone(&self.control.fail_key_transfer),
+            directions,
+        }))
+    }
+}
+
+impl crate::index::storage::order::InferredOrderStore for Arc<TableFactory> {
+    fn start(
+        &self,
+        definition: DeclaredOrderDefinition,
+        descending: bool,
+    ) -> StorageResult<Box<dyn crate::index::storage::order::InferredOrderWriter>> {
+        Ok(Box::new(TableInferredOrderWriter {
+            control: Arc::clone(self),
+            definition,
+            descending,
+            keys: BTreeMap::new(),
+        }))
+    }
+}
+
+struct TableInferredOrderWriter {
+    control: Arc<TableFactory>,
+    definition: DeclaredOrderDefinition,
+    descending: bool,
+    keys: BTreeMap<usize, SortKey>,
+}
+
+impl crate::index::storage::order::InferredOrderWriter for TableInferredOrderWriter {
+    fn assign(&mut self, key: &SortKey, slots: &[RecordSlot]) -> StorageResult<()> {
+        assert!(slots.len() <= ORDER_KEY_BATCH_SIZE);
+        for &slot in slots {
+            if self.keys.insert(slot.0 as usize, key.clone()).is_some() {
+                return Err(StorageError::invalid(
+                    "write test inferred order",
+                    "duplicate slot",
+                ));
+            }
+        }
+        Ok(())
+    }
+
+    fn seal(
+        mut self: Box<Self>,
+        identities: &dyn OrderIdentities,
+    ) -> StorageResult<Arc<dyn OrderColumnReader>> {
+        self.control.order_builds.fetch_add(1, Ordering::Relaxed);
+        if self
+            .keys
+            .last_key_value()
+            .is_some_and(|(&slot, _)| slot >= identities.len())
+        {
+            return Err(StorageError::invalid(
+                "seal test inferred order",
+                "slot outside domain",
+            ));
+        }
+        for slot in 0..identities.len() {
+            self.keys.entry(slot).or_insert(SortKey::Missing);
+        }
+        let mut slots = (0..identities.len() as u32)
+            .map(RecordSlot)
+            .collect::<Vec<_>>();
+        slots.sort_unstable_by(|left, right| {
+            self.keys[&(left.0 as usize)]
+                .compare_with(
+                    &self.keys[&(right.0 as usize)],
+                    self.descending,
+                    self.definition.config.options,
+                )
+                .then_with(|| identities.id(*left).cmp(identities.id(*right)))
+        });
+        let mut directions = [None, None];
+        directions[usize::from(self.descending)] = Some(self.control.short_order(slots));
+        Ok(Arc::new(TableOrder {
+            path: self.definition.path,
+            kind: self.definition.kind,
+            collation_version: self.definition.collation_version,
+            config: self.definition.config,
+            keys: self.keys,
+            key_batches: Arc::clone(&self.control.key_batches),
+            fail_key_transfer: Arc::clone(&self.control.fail_key_transfer),
+            directions,
         }))
     }
 }
@@ -186,6 +332,24 @@ impl StorageFactory for Arc<TableFactory> {
             .then(|| Arc::new(Arc::clone(self)) as Arc<dyn DeclaredOrderStore>)
     }
 
+    fn posting_store(&self) -> Option<Arc<dyn crate::index::storage::posting::PostingStore>> {
+        self.store_postings.load(Ordering::Relaxed).then(|| {
+            Arc::new(Arc::clone(self)) as Arc<dyn crate::index::storage::posting::PostingStore>
+        })
+    }
+
+    fn gram_store(&self) -> Option<Arc<dyn crate::index::storage::text::GramStore>> {
+        self.store_grams
+            .load(Ordering::Relaxed)
+            .then(|| Arc::new(Arc::clone(self)) as Arc<dyn crate::index::storage::text::GramStore>)
+    }
+
+    fn relation_store(&self) -> Option<Arc<dyn crate::index::storage::relation::RelationStore>> {
+        self.store_relations.load(Ordering::Relaxed).then(|| {
+            Arc::new(Arc::clone(self)) as Arc<dyn crate::index::storage::relation::RelationStore>
+        })
+    }
+
     fn start_file_segment(
         &self,
         input: FileSegmentBuild<'_>,
@@ -228,6 +392,12 @@ impl StorageFactory for Arc<TableFactory> {
             })
             .collect::<StorageResult<Vec<_>>>()?;
         Ok(self.seal_retained_bytes(bodies))
+    }
+
+    fn inferred_order_store(
+        &self,
+    ) -> Option<&dyn crate::index::storage::order::InferredOrderStore> {
+        Some(self)
     }
 
     fn inferred_order(&self, rows: InferredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>> {
@@ -274,7 +444,7 @@ impl StorageFactory for Arc<TableFactory> {
             let worker = segments::TableWorker::new(&batch.definition.schema);
             crate::construction::batch::prepare_file_records(batch, worker)?
         } else {
-            crate::index::storage::default_factory().prepare_file_records(batch)?
+            crate::index::memory::prepare_file_with_components(batch, self)?
         };
         if self.fail_file_worker.swap(false, Ordering::Relaxed) {
             return Err(StorageError::invalid(
@@ -294,7 +464,7 @@ impl StorageFactory for Arc<TableFactory> {
             let worker = segments::TableWorker::new(&batch.declaration.schema);
             crate::construction::batch::prepare_direct_records(batch, worker)
         } else {
-            crate::index::storage::default_factory().prepare_direct_records(batch)
+            crate::index::memory::prepare_direct_with_components(batch, self)
         }
     }
 
@@ -845,6 +1015,243 @@ fn native_postings_and_an_independent_declared_order_share_a_segment() {
         pinned.search(&query).unwrap().hits[0].record_id,
         "path:063.row"
     );
+}
+
+#[test]
+fn component_writers_preserve_mixed_placement_across_compaction() {
+    use crate::query::options::SortField;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root = std::env::temp_dir().join(format!("objekte-mixed-placement-{}", std::process::id()));
+    let data = root.join("data");
+    std::fs::create_dir_all(&data).unwrap();
+    let retained = (0..320)
+        .map(|index| match index % 5 {
+            0 => "()\n",
+            1 | 2 => "(\"score\"=7)\n",
+            _ => "(\"score\"=9)\n",
+        })
+        .collect::<String>();
+    std::fs::write(data.join("keep.rows"), retained).unwrap();
+    std::fs::write(data.join("remove.rows"), "(\"score\"=7)\n").unwrap();
+    let mut definition = CollectionDefinition::folder("entries", "data", line_format());
+    definition.schema = segments::score_schema();
+    definition
+        .schema
+        .fields
+        .get_mut(&vec!["score".into()])
+        .unwrap()
+        .required = false;
+    let score = FieldPath::parse("score").unwrap();
+    definition.sort_fields.push(score.clone());
+    let build = |storage| {
+        Index::start_build_with_factory(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                verified_cache_bytes: 0,
+                ..Default::default()
+            },
+            fixture_registry(),
+            storage,
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap()
+    };
+    let stores_order = Arc::new(TableFactory::default());
+    stores_order
+        .store_declared_order
+        .store(true, Ordering::Relaxed);
+    let stores_postings = Arc::new(TableFactory::default());
+    stores_postings
+        .store_postings
+        .store(true, Ordering::Relaxed);
+    let ordered = build(Arc::new(Arc::clone(&stores_order)));
+    let posted = build(Arc::new(Arc::clone(&stores_postings)));
+    let memory = build(crate::index::storage::default_factory());
+    let names = |view: &crate::lifecycle::IndexView, query: &Query| {
+        view.search(query)
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>()
+    };
+    let verify = |after_compaction| {
+        let ordered_pin = ordered.view().unwrap();
+        let posted_pin = posted.view().unwrap();
+        let memory_pin = memory.view().unwrap();
+        let ordered_group = ordered_pin.segments(crate::model::CollectionId(0)).unwrap();
+        let posted_group = posted_pin.segments(crate::model::CollectionId(0)).unwrap();
+        assert_eq!(ordered_group.len(), 1);
+        assert_eq!(posted_group.len(), 1);
+        let order = ordered_group[0].native_payload();
+        let posting = posted_group[0].native_payload();
+        assert!(order.postings.fields.contains_key(&score.segments));
+        assert!(!order.sorting.columns.contains_key(&score));
+        assert!(!posting.postings.fields.contains_key(&score.segments));
+        assert!(posting.sorting.columns.contains_key(&score));
+        let descriptor = posted_group[0]
+            .components()
+            .unwrap()
+            .into_iter()
+            .find(|component| component.path.as_deref() == Some(score.segments.as_slice()))
+            .unwrap();
+        let reader = posted_group[0].posting(&descriptor).unwrap().unwrap();
+        assert!((reader as &dyn std::any::Any).is::<segments::TablePosting>());
+        for descending in [false, true] {
+            for filter in [None, Some(parse_filter("score = 7").unwrap())] {
+                let query = Query {
+                    collections: vec!["entries".into()],
+                    filter,
+                    fts: None,
+                    options: QueryOptions {
+                        count: true,
+                        limit: 400,
+                        offset: 0,
+                        return_mode: ReturnMode::Locator,
+                        evidence: false,
+                        sort: vec![SortField::simple("score", descending)],
+                    },
+                };
+                let expected = names(&memory_pin, &query);
+                assert!(!expected.is_empty());
+                for view in [&ordered_pin, &posted_pin] {
+                    assert_eq!(names(view, &query), expected);
+                    if query.filter.is_some() {
+                        assert!(view.search(&query).unwrap().counters.exact_posting_matches > 0);
+                    }
+                }
+                if query.filter.is_none() {
+                    assert_eq!(expected.len(), if after_compaction { 320 } else { 321 });
+                }
+            }
+        }
+    };
+    verify(false);
+    assert!(stores_order.declared_key_batches.load(Ordering::Relaxed) >= 3);
+    assert!(stores_postings.posting_fact_batches.load(Ordering::Relaxed) >= 2);
+    for index in [&ordered, &posted, &memory] {
+        let view = index.view().unwrap();
+        let retired = view
+            .file_handle_for_path(std::path::Path::new("data/remove.rows"))
+            .unwrap()
+            .unwrap();
+        index.delete_file(retired).unwrap();
+    }
+    std::fs::rename(&data, root.join("detached")).unwrap();
+    for index in [&ordered, &posted, &memory] {
+        assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    }
+    verify(true);
+    assert_eq!(
+        stores_order.declared_order_builds.load(Ordering::Relaxed),
+        2
+    );
+    assert!(stores_postings.posting_block_reads.load(Ordering::Relaxed) > 0);
+    for index in [&ordered, &posted, &memory] {
+        index.shutdown().unwrap();
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn a_late_inferred_posting_uses_the_selected_writer_and_survives_compaction() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root =
+        std::env::temp_dir().join(format!("objekte-placed-inference-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/first.rows"),
+        "(\"score\"=7)\n(\"score\"=9)\n",
+    )
+    .unwrap();
+    std::fs::write(root.join("data/second.rows"), "(\"score\"=7)\n").unwrap();
+    let factory = Arc::new(TableFactory::default());
+    factory.store_postings.store(true, Ordering::Relaxed);
+    let index = Index::start_build_with_factory(
+        &root,
+        vec![CollectionDefinition::folder(
+            "entries",
+            "data",
+            line_format(),
+        )],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+        fixture_registry(),
+        Arc::new(Arc::clone(&factory)),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let mut query = segments::score_query();
+    query.collections = vec!["entries".into()];
+    query.options.return_mode = ReturnMode::Locator;
+    query.options.evidence = false;
+    let path = FieldPath::parse("score").unwrap();
+    let verify_posting = |view: &crate::lifecycle::IndexView, count| {
+        let group = view.segments(crate::model::CollectionId(0)).unwrap();
+        let segment = &group[0];
+        assert!(
+            !segment
+                .native_payload()
+                .inference
+                .as_ref()
+                .unwrap()
+                .indexes
+                .contains_key(&path.segments)
+        );
+        let component = segment
+            .components()
+            .unwrap()
+            .into_iter()
+            .find(|component| {
+                component.kind == crate::index::storage::component::ComponentKind::InferredPosting
+                    && component.path.as_deref() == Some(path.segments.as_slice())
+            })
+            .unwrap();
+        let reader = segment.posting(&component).unwrap().unwrap();
+        assert!((reader as &dyn std::any::Any).is::<segments::TablePosting>());
+        assert!(reader.descriptor().coverage.value_complete);
+        use crate::index::storage::posting::{PostingKey, ScalarKey};
+        let key = ScalarKey::Number(crate::model::Number::Integer(7.into()));
+        let members = reader.members(PostingKey::Value(&key)).unwrap().unwrap();
+        assert_eq!(
+            segment
+                .active
+                .intersection_len(members.explicit_view().unwrap())
+                .unwrap(),
+            count
+        );
+    };
+    let before = index.view().unwrap();
+    verify_posting(&before, 2);
+    assert_eq!(before.search(&query).unwrap().count, Some(2));
+    let handle = before
+        .file_handle_for_path(std::path::Path::new("data/second.rows"))
+        .unwrap()
+        .unwrap();
+    index.delete_file(handle).unwrap();
+    std::fs::rename(root.join("data"), root.join("detached")).unwrap();
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    let after = index.view().unwrap();
+    verify_posting(&after, 1);
+    verify_posting(&before, 2);
+    std::fs::rename(root.join("detached"), root.join("data")).unwrap();
+    assert_eq!(after.search(&query).unwrap().count, Some(1));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

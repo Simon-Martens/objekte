@@ -14,6 +14,7 @@ use roaring::RoaringBitmap;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 mod builder;
+pub(crate) mod placement;
 
 pub(crate) use builder::{BigramBuilder, BigramContribution};
 
@@ -312,6 +313,7 @@ impl BigramIndex {
         self.candidates_prepared(&BigramRequest::new(literal))
     }
 
+    #[cfg(test)]
     pub(crate) fn candidates_prepared(&self, request: &BigramRequest) -> Option<RoaringBitmap> {
         self.candidates_prepared_restricted(request, None)
     }

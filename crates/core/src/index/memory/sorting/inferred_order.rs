@@ -257,6 +257,125 @@ pub(crate) fn build_inferred_order_rows(
     }))
 }
 
+pub(crate) fn write_inferred_order(
+    index: &PostingIndex,
+    records: &[impl RecordIdSlot],
+    request: crate::index::storage::order::PostingOrderRequest<'_>,
+    store: &dyn crate::index::storage::order::InferredOrderStore,
+) -> Result<Option<std::sync::Arc<dyn crate::index::storage::order::OrderColumnReader>>, String> {
+    use crate::index::storage::order::{
+        COLLATION_VERSION, DeclaredOrderDefinition, ORDER_KEY_BATCH_SIZE,
+    };
+    const MAX_BYTES: usize = 128 * 1024 * 1024;
+    let check_budget = |bytes| {
+        if let Some(context) = request.execution {
+            context.check_string()?;
+            if context.limits.inferred_order_bytes < MAX_BYTES
+                && bytes > context.limits.inferred_order_bytes
+            {
+                return Err(context.fail(
+                    crate::query_execution::streaming::ExecutionErrorKind::Resource,
+                    "inferred order exceeds retained-byte limit",
+                ));
+            }
+        }
+        Ok(bytes <= MAX_BYTES)
+    };
+    let mut estimate = records
+        .len()
+        .saturating_mul(size_of::<SortKey>() + 3 * size_of::<RecordSlot>());
+    if !check_budget(estimate)? {
+        return Ok(None);
+    }
+    let config = SortConfig {
+        locale: request.locale.to_owned(),
+        options: request.options,
+    };
+    let collator = (index.kind == LogicalType::String)
+        .then(|| make_collator(&config))
+        .transpose()?;
+    let mut writer = store.start(
+        DeclaredOrderDefinition {
+            path: request.path.clone(),
+            kind: index.kind.clone(),
+            config,
+            collation_version: COLLATION_VERSION.to_owned(),
+        },
+        request.descending,
+    )?;
+    let mut chunk = Vec::with_capacity(ORDER_KEY_BATCH_SIZE);
+    for record in records {
+        if record.record_class() == RecordClass::RawFallback {
+            chunk.push(record.record_slot());
+            if chunk.len() == ORDER_KEY_BATCH_SIZE {
+                writer.assign(&SortKey::Unavailable, &chunk)?;
+                chunk.clear();
+            }
+        }
+    }
+    if !chunk.is_empty() {
+        writer.assign(&SortKey::Unavailable, &chunk)?;
+        chunk.clear();
+    }
+    let mut assigned = RoaringBitmap::new();
+    for (scalar, members) in &index.values {
+        let key = match scalar {
+            ScalarKey::Null => SortKey::Null,
+            ScalarKey::Number(number) if index.kind == LogicalType::Number => {
+                SortKey::Number(number.clone())
+            }
+            ScalarKey::Bool(flag) if index.kind == LogicalType::Bool => SortKey::Bool(*flag),
+            ScalarKey::String(text) if index.kind == LogicalType::String => {
+                let mut bytes = Vec::new();
+                let Ok(()) = collator
+                    .as_ref()
+                    .expect("string collator")
+                    .write_sort_key_to(text, &mut bytes);
+                estimate =
+                    estimate.saturating_add(bytes.len().saturating_mul(members.len() as usize));
+                SortKey::String(bytes)
+            }
+            _ => return Err("inferred sort posting type mismatch".into()),
+        };
+        if !check_budget(estimate)? {
+            return Ok(None);
+        }
+        for slot in members.iter() {
+            if !records
+                .get(slot as usize)
+                .is_some_and(|record| record.record_class() == RecordClass::Logical)
+                || !assigned.insert(slot)
+            {
+                return Err("inferred sort value has invalid or overlapping slot".into());
+            }
+            chunk.push(RecordSlot(slot));
+            if chunk.len() == ORDER_KEY_BATCH_SIZE {
+                writer.assign(&key, &chunk)?;
+                chunk.clear();
+            }
+        }
+        if !chunk.is_empty() {
+            writer.assign(&key, &chunk)?;
+            chunk.clear();
+        }
+    }
+    if !index.presence.is_subset(&assigned) {
+        return Err("inferred sort presence lacks a scalar key".into());
+    }
+    let reader = writer.seal(&records)?;
+    if reader.key_count() != records.len()
+        || reader.path() != request.path
+        || reader.kind() != &index.kind
+        || reader.locale() != request.locale
+        || reader.options() != request.options
+        || reader.collation_version() != COLLATION_VERSION
+        || reader.slots(request.descending)?.len() != records.len()
+    {
+        return Err("incompatible inferred order returned".into());
+    }
+    Ok(Some(reader))
+}
+
 fn append_inferred_group(
     order: &mut Vec<RecordSlot>,
     slots: &RoaringBitmap,

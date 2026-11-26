@@ -23,22 +23,33 @@ use crate::repository::statistics::BigramConstructionStats;
 use crate::schema::Schema;
 use crate::source::{ExtractedRecord, TextDerivation, text::visit_logical_strings_and_empty};
 
-use super::bigram::{BigramAlphabet, BigramBuilder, BigramContribution};
+use super::bigram::{
+    BigramAlphabet,
+    placement::{GramBatch, GramWorker},
+};
+use super::posting::placement::PostingBatches;
 use super::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use super::relation::RelationContribution;
+use super::relation::placement::RelationWorker;
 use super::sorting::{SortBuilder, SortKey};
+use crate::index::storage::posting::PostingStore;
+use crate::index::storage::relation::RelationStore;
+use crate::index::storage::text::{GramBinding, GramStore};
+use std::sync::Arc;
 
 pub(super) struct NativeIndexBatch {
     pub(super) postings: PostingCollection,
+    pub(super) placed_postings: PostingBatches,
     pub(super) inference: Option<InferenceBuilder>,
     pub(super) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub(super) raw: BigramContribution,
-    pub(super) fallback_text: BigramContribution,
-    pub(super) custom_text: HashMap<(Vec<String>, String), BigramContribution>,
+    pub(super) raw: GramBatch,
+    pub(super) gram_store: Option<Arc<dyn GramStore>>,
+    pub(super) fallback_text: GramBatch,
+    pub(super) custom_text: HashMap<(Vec<String>, String), GramBatch>,
     pub(super) logical_records: RoaringBitmap,
     pub(super) empty_array_records: RoaringBitmap,
     pub(super) sort_keys: HashMap<FieldPath, Vec<SortKey>>,
-    pub(super) relations: Vec<RelationContribution>,
+    pub(super) relations: Vec<RelationWorker>,
+    pub(super) relation_store: Option<Arc<dyn RelationStore>>,
 }
 
 impl NativeIndexBatch {
@@ -51,6 +62,18 @@ impl NativeIndexBatch {
 }
 
 impl PreparedIndexes for NativeIndexBatch {
+    fn posting_store(&self) -> Option<Arc<dyn PostingStore>> {
+        self.placed_postings.store.clone()
+    }
+
+    fn gram_store(&self) -> Option<Arc<dyn GramStore>> {
+        self.gram_store.clone()
+    }
+
+    fn relation_store(&self) -> Option<Arc<dyn RelationStore>> {
+        self.relation_store.clone()
+    }
+
     fn logical_slots(&self) -> MembershipView<'_> {
         MembershipView::Borrowed(&self.logical_records)
     }
@@ -70,15 +93,18 @@ pub(super) struct MemoryWorker<'a> {
     schema: &'a Schema,
     collection_name: &'a str,
     postings: PostingCollection,
+    placed_postings: PostingBatches,
     inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    raw: BigramBuilder,
-    fallback_text: BigramBuilder,
-    custom_text: HashMap<(Vec<String>, String), BigramBuilder>,
+    raw: GramWorker,
+    gram_store: Option<Arc<dyn GramStore>>,
+    fallback_text: GramWorker,
+    custom_text: HashMap<(Vec<String>, String), GramWorker>,
     logical_records: RoaringBitmap,
     empty_array_records: RoaringBitmap,
     sorting: SortBuilder,
-    relations: Vec<RelationContribution>,
+    relations: Vec<RelationWorker>,
+    relation_store: Option<Arc<dyn RelationStore>>,
 }
 
 impl<'a> MemoryWorker<'a> {
@@ -87,12 +113,18 @@ impl<'a> MemoryWorker<'a> {
         alphabet: BigramAlphabet,
         inference: InferenceConfig,
         inference_jobs: usize,
+        posting_store: Option<Arc<dyn PostingStore>>,
+        gram_store: Option<Arc<dyn GramStore>>,
+        relation_store: Option<Arc<dyn RelationStore>>,
     ) -> Result<Self, String> {
         let schema = definition.schema();
+        let placed_postings = PostingBatches::new(schema, posting_store);
         let custom_postings = schema
             .operations
             .iter()
-            .filter(|(_, binding)| binding.operation.posting())
+            .filter(|(key, binding)| {
+                binding.operation.posting() && !placed_postings.has(&key.0, Some(&key.1))
+            })
             .map(|(key, binding)| {
                 (
                     key.clone(),
@@ -116,20 +148,27 @@ impl<'a> MemoryWorker<'a> {
                     .map(|(key, _)| key),
             )
             .map(|key| {
-                (
-                    canonical_custom_text_key(schema, &key.0, &key.1),
-                    BigramBuilder::new(alphabet),
-                )
+                let key = canonical_custom_text_key(schema, &key.0, &key.1);
+                let writer = GramWorker::new(
+                    alphabet,
+                    &GramBinding::Field(key.0.clone(), key.1.clone()),
+                    gram_store.as_deref(),
+                );
+                (key, writer)
             })
             .collect();
         Ok(Self {
             schema,
             collection_name: definition.name(),
-            postings: PostingCollection::new(schema),
+            postings: PostingCollection::new_filtered(schema, |path| {
+                !placed_postings.has(path, None)
+            }),
+            placed_postings,
             inference: InferenceBuilder::with_job_count(inference, true, inference_jobs),
             custom_postings,
-            raw: BigramBuilder::new(alphabet),
-            fallback_text: BigramBuilder::new(alphabet),
+            raw: GramWorker::new(alphabet, &GramBinding::Raw, gram_store.as_deref()),
+            fallback_text: GramWorker::new(alphabet, &GramBinding::Fallback, gram_store.as_deref()),
+            gram_store,
             custom_text,
             logical_records: RoaringBitmap::new(),
             empty_array_records: RoaringBitmap::new(),
@@ -140,7 +179,12 @@ impl<'a> MemoryWorker<'a> {
                 definition.sort_options(),
                 definition.sort_overrides(),
             )?,
-            relations: RelationContribution::for_schema(schema),
+            relations: schema
+                .relations()
+                .values()
+                .map(|definition| RelationWorker::new(definition, relation_store.as_deref()))
+                .collect(),
+            relation_store,
         })
     }
 
@@ -184,15 +228,18 @@ impl<'a> MemoryWorker<'a> {
             .collect::<Result<HashMap<_, _>, _>>()?;
         Ok(Box::new(NativeIndexBatch {
             postings: self.postings,
+            placed_postings: self.placed_postings,
             inference: self.inference,
             custom_postings: self.custom_postings,
             raw: self.raw.finish_blocks()?,
+            gram_store: self.gram_store,
             fallback_text: self.fallback_text.finish_blocks()?,
             custom_text,
             logical_records: self.logical_records,
             empty_array_records: self.empty_array_records,
             sort_keys: self.sorting.into_keys(),
             relations: self.relations,
+            relation_store: self.relation_store,
         }))
     }
 }
@@ -213,6 +260,8 @@ impl MemoryWorker<'_> {
     ) -> Result<(), String> {
         let stage_started = crate::measurement::timer::start_if_enabled(sample);
         self.postings.add(slot, &extracted.value)?;
+        self.placed_postings
+            .add(self.schema, slot, &extracted.value);
         if let Some(started) = stage_started {
             profile.postings_ns += started.elapsed().as_nanos() as u64;
         }

@@ -70,6 +70,18 @@ pub(crate) trait StorageFactory: Send + Sync {
         None
     }
 
+    fn posting_store(&self) -> Option<Arc<dyn posting::PostingStore>> {
+        None
+    }
+
+    fn gram_store(&self) -> Option<Arc<dyn text::GramStore>> {
+        None
+    }
+
+    fn relation_store(&self) -> Option<Arc<dyn relation::RelationStore>> {
+        None
+    }
+
     fn start_file_segment(
         &self,
         input: segment::build::FileSegmentBuild<'_>,
@@ -85,6 +97,10 @@ pub(crate) trait StorageFactory: Send + Sync {
         &self,
         bodies: Vec<crate::records::RetainedBody>,
     ) -> StorageResult<segment::RetainedBlock>;
+
+    fn inferred_order_store(&self) -> Option<&dyn order::InferredOrderStore> {
+        None
+    }
 
     fn inferred_order(
         &self,

@@ -26,6 +26,7 @@ impl IndexedCollectionSegment {
         let mut parts = (0..routing.selected.len())
             .map(|_| InferenceState {
                 report: source.report.clone(),
+                placed: Default::default(),
                 indexes: HashMap::with_capacity(source.indexes.len()),
                 short_string_coverage: HashMap::with_capacity(source.short_string_coverage.len()),
             })
@@ -49,6 +50,17 @@ impl IndexedCollectionSegment {
             }
         }
         for (number, part) in parts.iter_mut().enumerate() {
+            if !source.placed.is_empty() {
+                let mapping = SlotMap::Partition {
+                    routing,
+                    part: number,
+                };
+                part.placed = source.placed.project(
+                    &mapping,
+                    routing.selected[number].len(),
+                    domains[number].logical.len() as u32,
+                )?;
+            }
             finish_projected_inference(
                 part,
                 domains[number].logical.len(),
@@ -71,6 +83,9 @@ pub(crate) fn project_inference(
     };
     let mut state = InferenceState {
         report: source.report.clone(),
+        placed: source
+            .placed
+            .project(slots, new_count, logical.len() as u32)?,
         indexes: HashMap::new(),
         short_string_coverage: HashMap::new(),
     };
@@ -123,28 +138,42 @@ pub(in crate::index::memory::segment) fn finish_projected_inference(
         let old_nonblank_occurrences = field.nonblank_occurrences;
         let old_short_string_observed_occurrences = field.short_string_observed_occurrences;
         let incoming_occurrence_status = field.occurrence_count_status;
-        if let Some(index) = state.indexes.get(&field.path) {
+        let native = state.indexes.get(&field.path);
+        let placed = state.placed.get(&field.path, None);
+        if native.is_some() || placed.is_some() {
+            use crate::index::storage::posting::{PostingKey, PostingReader, ScalarKey};
+            let reader = native
+                .map(|index| index as &dyn PostingReader)
+                .or_else(|| placed.map(|placed| placed.reader.as_ref()))
+                .expect("known posting");
+            let descriptor = reader.descriptor();
             field.index_status = InferenceIndexStatus::Built;
-            let terminal = index.summary;
-            let terminal_records = index.presence.len();
-            let nulls = terminal.map(|_| {
-                index
-                    .values
-                    .get(&crate::index::memory::posting::ScalarKey::Null)
-                    .map_or(0, RoaringBitmap::len)
-            });
-            let terminal_empty = index.length_complete.then(|| {
-                index
-                    .lengths
-                    .get(&crate::model::Number::integer(0))
-                    .map_or(0, RoaringBitmap::len)
-            });
+            let terminal = descriptor.coverage.summary;
+            let member_len = |key| -> Result<u64, String> {
+                let Some(members) = reader.members(key)? else {
+                    return Ok(0);
+                };
+                Ok(members
+                    .explicit_view()
+                    .ok_or("unbounded inferred posting membership")?
+                    .len() as u64)
+            };
+            let terminal_records = member_len(PostingKey::Presence)?;
+            let nulls = terminal
+                .map(|_| member_len(PostingKey::Value(&ScalarKey::Null)))
+                .transpose()?;
+            let zero = crate::model::Number::integer(0);
+            let terminal_empty = descriptor
+                .coverage
+                .length_complete
+                .then(|| member_len(PostingKey::Length(&zero)))
+                .transpose()?;
             let exact_scalar = terminal.is_some_and(|summary| {
                 !summary.may_match_array()
                     && !summary.may_select_multiple()
                     && !summary.may_have_empty_traversal()
-            }) && index.value_complete
-                && index.kind != crate::model::LogicalType::String;
+            }) && descriptor.coverage.value_complete
+                && descriptor.kind != &crate::model::LogicalType::String;
             if exact_scalar {
                 let nulls = nulls.unwrap_or(0);
                 field.present_records = terminal_records;
@@ -155,15 +184,30 @@ pub(in crate::index::memory::segment) fn finish_projected_inference(
                 field.scalar_records = terminal_records;
                 field.array_records = 0;
                 field.object_records = 0;
-                field.integer_only = if index.kind == crate::model::LogicalType::Number {
-                    let fractional = index.values.keys().any(|key| {
-                        matches!(
-                            key,
-                            crate::index::memory::posting::ScalarKey::Number(
-                                crate::model::Number::Float(_)
-                            )
-                        )
-                    });
+                field.integer_only = if descriptor.kind == &crate::model::LogicalType::Number {
+                    let fractional = if let Some(index) = native {
+                        index.values.keys().any(|key| {
+                            matches!(key, ScalarKey::Number(crate::model::Number::Float(_)))
+                        })
+                    } else {
+                        let mut found = false;
+                        crate::index::storage::posting::visit_posting_blocks(
+                            reader,
+                            new_count,
+                            &|| false,
+                            &mut |key, members| {
+                                found |= !members.is_empty()
+                                    && matches!(
+                                        key,
+                                        PostingKey::Value(ScalarKey::Number(
+                                            crate::model::Number::Float(_)
+                                        ))
+                                    );
+                                Ok(())
+                            },
+                        )?;
+                        found
+                    };
                     if fractional {
                         Some(false)
                     } else if terminal_records > nulls {
@@ -267,7 +311,29 @@ pub(in crate::index::memory::segment) fn finish_projected_inference(
                 .get(&field.path)
                 .map_or(0, RoaringBitmap::len);
             field.short_string_distinct_values = if field.short_string_covered_records > 0 {
-                index.distinct_values()
+                match native {
+                    Some(index) => index.distinct_values(),
+                    None => {
+                        let mut distinct = 0;
+                        let mut previous = None;
+                        crate::index::storage::posting::visit_posting_blocks(
+                            reader,
+                            new_count,
+                            &|| false,
+                            &mut |key, members| {
+                                if let PostingKey::Value(key @ ScalarKey::String(_)) = key
+                                    && !members.is_empty()
+                                    && previous.as_ref() != Some(key)
+                                {
+                                    distinct += 1;
+                                    previous = Some(key.clone());
+                                }
+                                Ok(())
+                            },
+                        )?;
+                        distinct
+                    }
+                }
             } else {
                 0
             };
@@ -331,7 +397,7 @@ pub(in crate::index::memory::segment) fn finish_projected_inference(
             .summary_bytes_estimate
             .saturating_add(field.index_bytes_estimate);
     }
-    state.report.admitted_paths = state.indexes.len();
+    state.report.admitted_paths = state.indexes.len() + state.placed.len();
     state.report.dropped_paths = state
         .report
         .fields

@@ -171,6 +171,28 @@ struct Row {
     version: Option<RecordWriteVersion>,
 }
 
+impl crate::records::RecordIdSlot for Row {
+    fn record_slot(&self) -> RecordSlot {
+        self.header.slot
+    }
+
+    fn record_id(&self) -> &RecordId {
+        &self.header.id
+    }
+    fn record_class(&self) -> RecordClass {
+        self.header.class
+    }
+
+    fn record_range(&self) -> Option<ByteRange> {
+        match self.location {
+            Location::File(locator) => locator.range,
+            Location::Retained(_, link) | Location::Versioned(_, link) => {
+                link.and_then(|link| link.range)
+            }
+        }
+    }
+}
+
 #[derive(Clone)]
 struct FileRow {
     metadata: FileEntry,
@@ -1087,8 +1109,114 @@ impl SegmentMaintenance for TableSegment {
     }
 }
 
+impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
+    fn accepts(&self, definition: &crate::index::storage::posting::PostingDefinition) -> bool {
+        definition.binding.is_none()
+            && definition.field.path == [SCORE]
+            && definition.field.kind == LogicalType::Number
+            && definition.field.indexed
+            && !definition.field.multi
+    }
+
+    fn start(
+        &self,
+        _: &crate::index::storage::posting::PostingDefinition,
+    ) -> StorageResult<Box<dyn crate::index::storage::posting::PostingWriter>> {
+        Ok(Box::new(TablePostingWriter {
+            control: Arc::clone(self),
+            keys: BTreeMap::new(),
+            present: BTreeSet::new(),
+            covered_records: 0,
+        }))
+    }
+}
+
+struct TablePostingWriter {
+    control: Arc<TableFactory>,
+    keys: BTreeMap<ScalarKey, BTreeSet<u32>>,
+    present: BTreeSet<u32>,
+    covered_records: u32,
+}
+
+impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
+    fn push_facts(
+        &mut self,
+        base: u32,
+        facts: &[crate::index::storage::posting::PostingFact],
+    ) -> StorageResult<()> {
+        assert!(facts.len() <= 256);
+        self.control
+            .posting_fact_batches
+            .fetch_add(1, Ordering::Relaxed);
+        for fact in facts {
+            let slot = base
+                .checked_add(fact.slot.0)
+                .ok_or_else(|| invalid("posting slot overflow"))?;
+            self.covered_records += 1;
+            match fact.selected.as_deref() {
+                None | Some([]) => {}
+                Some([value]) => {
+                    let key = ScalarKey::from_value(value)
+                        .ok_or_else(|| invalid("expected scalar score"))?;
+                    self.present.insert(slot);
+                    self.keys.entry(key).or_default().insert(slot);
+                }
+                Some(_) => return Err(invalid("multiple values in scalar score")),
+            }
+        }
+        Ok(())
+    }
+
+    fn push_members(&mut self, key: PostingKey<'_>, slots: &[RecordSlot]) -> StorageResult<()> {
+        let target = match key {
+            PostingKey::Presence => &mut self.present,
+            PostingKey::Value(key) => self.keys.entry(key.clone()).or_default(),
+            PostingKey::Length(_) => return Err(invalid("unexpected scalar length")),
+        };
+        target.extend(slots.iter().map(|slot| slot.0));
+        Ok(())
+    }
+
+    fn seal(
+        self: Box<Self>,
+        slots: usize,
+        coverage: Option<PostingCoverage>,
+    ) -> StorageResult<Arc<dyn PostingReader>> {
+        if self
+            .present
+            .last()
+            .is_some_and(|&slot| slot as usize >= slots)
+        {
+            return Err(invalid("posting slot outside sealed domain"));
+        }
+        Ok(Arc::new(TablePosting {
+            block_reads: Arc::clone(&self.control.posting_block_reads),
+            path: vec![SCORE.into()],
+            kind: LogicalType::Number,
+            present: self.present.into_iter().collect(),
+            keys: self
+                .keys
+                .into_iter()
+                .map(|(key, slots)| (key, slots.into_iter().collect()))
+                .collect(),
+            covered: None,
+            coverage: coverage.unwrap_or(PostingCoverage {
+                multi: false,
+                values_indexed: true,
+                value_complete: true,
+                length_complete: false,
+                empty_string_complete: false,
+                covered_records: self.covered_records,
+                summary: None,
+                legacy_present_equivalent: true,
+                legacy_null_equivalent: true,
+            }),
+        }))
+    }
+}
+
 #[derive(Clone)]
-struct TablePosting {
+pub(super) struct TablePosting {
     block_reads: Arc<AtomicUsize>,
     path: Vec<String>,
     kind: LogicalType,
@@ -1330,7 +1458,7 @@ pub(super) fn score(value: i64) -> Value {
     )]))
 }
 
-fn score_query() -> crate::query::Query {
+pub(super) fn score_query() -> crate::query::Query {
     crate::query::Query {
         collections: Vec::new(),
         fts: None,

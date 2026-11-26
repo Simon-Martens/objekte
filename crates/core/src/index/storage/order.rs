@@ -120,29 +120,71 @@ pub(crate) struct InferredOrderRows {
     pub descending: bool,
 }
 
-/// Logical input for one complete declared scalar column.
-#[cfg_attr(
-    not(test),
-    allow(
-        dead_code,
-        reason = "the independent declared-order store is a conformance backend"
-    )
-)]
-pub(crate) struct DeclaredOrderRows {
+/// Metadata selected before any key contributions arrive.
+#[derive(Clone)]
+pub(crate) struct DeclaredOrderDefinition {
     pub path: FieldPath,
     pub kind: LogicalType,
     pub config: SortConfig,
     pub collation_version: String,
-    pub keys: Vec<SortKey>,
-    pub ascending: Vec<RecordSlot>,
-    pub descending: Vec<RecordSlot>,
+}
+
+/// Record IDs resolve stable ties using the segment's established slots.
+pub(crate) trait OrderIdentities {
+    fn len(&self) -> usize;
+    #[cfg_attr(
+        not(test),
+        allow(dead_code, reason = "consumed by the independent conformance writer")
+    )]
+    fn id(&self, slot: RecordSlot) -> &crate::model::RecordId;
+}
+
+impl<R: crate::records::RecordIdSlot> OrderIdentities for &[R] {
+    fn len(&self) -> usize {
+        <[R]>::len(self)
+    }
+
+    fn id(&self, slot: RecordSlot) -> &crate::model::RecordId {
+        self[slot.0 as usize].record_id()
+    }
+}
+
+pub(crate) trait DeclaredOrderWriter: Send {
+    fn push_keys(&mut self, base: RecordSlot, keys: &[SortKey]) -> StorageResult<()>;
+    fn seal(
+        self: Box<Self>,
+        identities: &dyn OrderIdentities,
+    ) -> StorageResult<Arc<dyn OrderColumnReader>>;
 }
 
 pub(crate) trait DeclaredOrderStore: Send + Sync {
     fn accepts(&self, path: &FieldPath, kind: &LogicalType) -> bool;
-    /// Preserve every key and the complete slot sequence in both directions.
-    fn seal(&self, rows: DeclaredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>>;
+    fn start(
+        &self,
+        definition: DeclaredOrderDefinition,
+    ) -> StorageResult<Box<dyn DeclaredOrderWriter>>;
 }
+
+/// Inferred columns receive assigned keys in dictionary order. Unassigned
+/// slots are missing. Writers retain the requested direction and break ties
+/// using the supplied segment identities.
+pub(crate) trait InferredOrderWriter: Send {
+    fn assign(&mut self, key: &SortKey, slots: &[RecordSlot]) -> StorageResult<()>;
+    fn seal(
+        self: Box<Self>,
+        identities: &dyn OrderIdentities,
+    ) -> StorageResult<Arc<dyn OrderColumnReader>>;
+}
+
+pub(crate) trait InferredOrderStore: Send + Sync {
+    fn start(
+        &self,
+        definition: DeclaredOrderDefinition,
+        descending: bool,
+    ) -> StorageResult<Box<dyn InferredOrderWriter>>;
+}
+
+pub(crate) const ORDER_KEY_BATCH_SIZE: usize = 128;
 
 pub const COLLATION_VERSION: &str =
     "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";

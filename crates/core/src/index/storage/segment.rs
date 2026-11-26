@@ -9,6 +9,7 @@ use std::{
     collections::HashSet,
     fmt,
     num::{NonZeroU64, NonZeroUsize},
+    sync::Arc,
 };
 
 use serde::{Deserialize, Serialize};
@@ -694,6 +695,14 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
         Ok(false)
     }
 
+    fn build_placed_posting_order(
+        &self,
+        _store: &dyn super::order::InferredOrderStore,
+        _request: super::order::PostingOrderRequest<'_>,
+    ) -> StorageResult<Option<Arc<dyn super::order::OrderColumnReader>>> {
+        Ok(None)
+    }
+
     fn build_posting_order(
         &self,
         _request: PostingOrderRequest<'_>,
@@ -1010,6 +1019,14 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
 
     fn supports_posting_order(&self, path: &FieldPath) -> StorageResult<bool> {
         self.payload().supports_posting_order(path)
+    }
+
+    fn build_placed_posting_order(
+        &self,
+        store: &dyn super::order::InferredOrderStore,
+        request: super::order::PostingOrderRequest<'_>,
+    ) -> StorageResult<Option<Arc<dyn super::order::OrderColumnReader>>> {
+        self.payload().build_placed_posting_order(store, request)
     }
 
     fn build_posting_order(

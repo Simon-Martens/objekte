@@ -20,6 +20,10 @@ pub(crate) struct RelationRow<'a> {
 }
 
 #[derive(Clone, Copy, Default)]
+#[cfg_attr(
+    not(test),
+    allow(dead_code, reason = "consumed by the independent conformance writer")
+)]
 pub(crate) struct RelationFacts {
     pub present: bool,
     pub null: bool,
@@ -53,6 +57,10 @@ pub(crate) trait RelationReader: std::any::Any + Send + Sync {
     fn edge_count(&self) -> usize {
         0
     }
+    fn reverse_members(&self, _target: &str) -> StorageResult<Option<SlotSet<'_>>> {
+        Ok(None)
+    }
+
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>>;
 
     fn source_facts(&self, source: RecordSlot) -> StorageResult<RelationFacts> {
@@ -140,4 +148,28 @@ impl RelationEdge {
     pub fn target_id(&self) -> &str {
         &self.target_id
     }
+}
+
+#[cfg_attr(
+    not(test),
+    allow(dead_code, reason = "consumed by the independent conformance writer")
+)]
+pub(crate) enum RelationFactKind {
+    Source(RelationFacts),
+    Target { id: String, positions: Vec<u32> },
+}
+
+pub(crate) struct RelationFact {
+    pub slot: RecordSlot,
+    pub kind: RelationFactKind,
+}
+
+pub(crate) trait RelationWriter: Send {
+    fn push(&mut self, base: u32, facts: &[RelationFact]) -> StorageResult<()>;
+    fn seal(self: Box<Self>, slots: u32) -> StorageResult<std::sync::Arc<dyn RelationReader>>;
+}
+
+pub(crate) trait RelationStore: Send + Sync {
+    fn accepts(&self, definition: &RelationDefinition) -> bool;
+    fn start(&self, definition: &RelationDefinition) -> StorageResult<Box<dyn RelationWriter>>;
 }

@@ -776,6 +776,7 @@ pub(crate) fn segment_filter_bounds_with_catalog(
     )
 }
 
+#[cfg(test)]
 pub(crate) fn segment_filter_bounds_with_input_catalog_and_predicates(
     published_id: SegmentId,
     segment: &dyn SegmentReader,
@@ -2116,14 +2117,17 @@ fn custom_text_index<'a>(
     path: &[String],
     name: &str,
 ) -> Option<&'a crate::index::bigram::BigramIndex> {
-    IndexCatalog::collection(collection).field_text_for(
+    match IndexCatalog::collection(collection).field_text_for(
         &collection.definition.schema,
         path,
         name,
         !matches!(name, "default" | "lower"),
         true,
         false,
-    )
+    )? {
+        crate::index::memory::bigram::placement::GramAccess::Native(index) => Some(index),
+        crate::index::memory::bigram::placement::GramAccess::Placed(_) => None,
+    }
 }
 
 pub(crate) fn enumerate_paths(

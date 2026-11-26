@@ -231,6 +231,29 @@ fn consolidate_inference(
             indexes.insert(path.clone(), index);
         }
     }
+    let placed = if first.placed.is_empty() {
+        Default::default()
+    } else {
+        let inputs = states
+            .iter()
+            .copied()
+            .zip(shards)
+            .zip(offsets)
+            .map(|((state, shard), &base)| (&state.placed, shard.record_count(), base))
+            .collect::<Vec<_>>();
+        for path in first.placed.paths() {
+            let mut short = RoaringBitmap::new();
+            for (state, base) in states.iter().zip(offsets) {
+                if let Some(covered) = state.short_string_coverage.get(path) {
+                    append_shifted_bitmap(&mut short, covered, *base)?;
+                }
+            }
+            if !short.is_empty() {
+                short_string_coverage.insert(path.to_vec(), short);
+            }
+        }
+        first.placed.consolidate(&inputs, record_count)?
+    };
     let eligible = logical.len();
     let unavailable = record_count as u64 - eligible;
     let mut fields = fields.into_values().collect::<Vec<_>>();
@@ -283,6 +306,13 @@ fn consolidate_inference(
             } else {
                 0
             };
+        } else if let Some(posting) = placed.get(&field.path, None) {
+            field.index_status = InferenceIndexStatus::Built;
+            let descriptor = posting.reader.descriptor();
+            field.complete &= descriptor.coverage.summary.is_some();
+            field.short_string_covered_records = short_string_coverage
+                .get(&field.path)
+                .map_or(0, RoaringBitmap::len);
         } else {
             field.index_status = InferenceIndexStatus::Incomplete;
             field.complete = false;
@@ -304,7 +334,7 @@ fn consolidate_inference(
     });
     report.complete = complete;
     report.observed_paths = fields.len();
-    report.admitted_paths = indexes.len();
+    report.admitted_paths = indexes.len() + placed.len();
     report.dropped_paths = fields
         .iter()
         .filter(|field| {
@@ -330,6 +360,7 @@ fn consolidate_inference(
     Ok(Some(InferenceState {
         report,
         indexes,
+        placed,
         short_string_coverage,
     }))
 }
@@ -364,7 +395,11 @@ impl IndexedCollectionSegment {
         let mut custom_text = first.custom_text.clone();
         let mut logical_records = RoaringBitmap::new();
         let mut empty_array_records = RoaringBitmap::new();
-        let (mut sorting, mut placed_orders) = first.sorting.consolidation_columns()?;
+        let sortings = shards
+            .iter()
+            .map(|shard| &*shard.sorting)
+            .collect::<Vec<_>>();
+        let (mut sorting, placed_orders) = first.sorting.consolidation_columns(&sortings);
         let mut relations = first.relations.clone();
         let mut record_parses = 0u64;
         let mut failed_parses = 0u64;
@@ -457,7 +492,7 @@ impl IndexedCollectionSegment {
                 {
                     return Err("sort segment coverage mismatch".into());
                 }
-                sorting.append_consolidation_columns(&shard.sorting, &mut placed_orders)?;
+                sorting.append_consolidation_columns(&shard.sorting, &placed_orders)?;
                 for (target, source) in sorting.composites.iter().zip(&shard.sorting.composites) {
                     if target.fields != source.fields {
                         return Err("composite sort representation mismatch".into());
@@ -534,7 +569,7 @@ impl IndexedCollectionSegment {
                     .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
         }
-        sorting.restore_placement(placed_orders)?;
+        sorting.consolidate_placed(placed_orders, &sortings, &records)?;
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;
@@ -543,6 +578,40 @@ impl IndexedCollectionSegment {
             .map(|shard| &shard.backing)
             .collect::<Vec<_>>();
         let backing = super::SegmentBacking::concatenate(&backings)?;
+        let placed_postings = if first.placed_postings.is_empty() {
+            Default::default()
+        } else {
+            let inputs = shards
+                .iter()
+                .zip(&offsets)
+                .map(|(shard, &base)| (&shard.placed_postings, shard.record_count(), base))
+                .collect::<Vec<_>>();
+            first.placed_postings.consolidate(&inputs, records.len())?
+        };
+        let placed_grams = if first.placed_grams.is_empty() {
+            Default::default()
+        } else {
+            let inputs = shards
+                .iter()
+                .zip(&offsets)
+                .map(|(shard, &base)| (&shard.placed_grams, shard.record_count(), base))
+                .collect::<Vec<_>>();
+            first
+                .placed_grams
+                .consolidate(&inputs, records.len() as u32)?
+        };
+        let placed_relations = if first.placed_relations.is_empty() {
+            Default::default()
+        } else {
+            let inputs = shards
+                .iter()
+                .zip(&offsets)
+                .map(|(shard, &base)| (&shard.placed_relations, shard.record_count(), base))
+                .collect::<Vec<_>>();
+            first
+                .placed_relations
+                .consolidate(&inputs, records.len() as u32)?
+        };
         let mut index = IndexedCollectionSegment {
             id: first.id,
             collection: first.collection,
@@ -560,15 +629,18 @@ impl IndexedCollectionSegment {
             id_lookup,
             identity_order,
             postings: postings.into(),
+            placed_postings,
             inference,
             custom_postings,
             raw: raw.into(),
+            placed_grams,
             fallback_text: fallback_text.into(),
             custom_text,
             logical_records,
             empty_array_records,
             sorting: sorting.into(),
             relations,
+            placed_relations,
             record_parses,
             failed_parses,
             accounting: SegmentAccounting::default(),

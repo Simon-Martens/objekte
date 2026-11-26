@@ -33,6 +33,7 @@ fn compact_observation_unions_short_keys_without_cloning_posting_maps() {
             1,
             &Schema::default(),
             true,
+            None,
         )
         .unwrap();
     let observation = observation.unwrap();
@@ -64,6 +65,7 @@ fn compact_observation_unions_short_keys_without_cloning_posting_maps() {
             1,
             &Schema::default(),
             true,
+            None,
         )
         .unwrap();
     assert_eq!(empty_observation.unwrap().fields[0].short_distinct, None);

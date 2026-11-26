@@ -26,12 +26,25 @@ pub(crate) use builder::{InferenceBuilder, InferenceObservation};
 pub(crate) struct InferenceState {
     pub report: InferenceReport,
     pub(crate) indexes: HashMap<Vec<String>, PostingIndex>,
+    pub(in crate::index::memory) placed: super::posting::placement::PlacedPostings,
     /// Records whose entire selected value stream is represented by the
     /// corresponding short-string posting dictionary.
     pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
 }
 
 impl InferenceState {
+    pub(in crate::index::memory) fn reader(
+        &self,
+        path: &[String],
+    ) -> Option<&dyn crate::index::storage::posting::PostingReader> {
+        if let Some(index) = self.indexes.get(path) {
+            return Some(index);
+        }
+        self.placed
+            .get(path, None)
+            .map(|placed| placed.reader.as_ref())
+    }
+
     #[cfg(test)]
     pub(crate) fn path_diagnostics(&self) -> Vec<InferencePathDiagnostic> {
         let mut fields = self.report.fields.iter().collect::<Vec<_>>();

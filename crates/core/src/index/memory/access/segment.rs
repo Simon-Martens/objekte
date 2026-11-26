@@ -6,6 +6,7 @@ use super::catalog::IndexCatalog;
 use crate::index::memory::segment::IndexedCollectionSegment;
 #[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::posting::{PostingKey, PostingReader, ScalarKey};
 use crate::index::storage::segment::SegmentPredicateAccess;
 #[cfg(test)]
 use crate::index::storage::text::SegmentTextAccess;
@@ -56,6 +57,7 @@ enum SegmentPhysicalOperation {
         exact: bool,
     },
     NativeFallback,
+    PlacedEquality,
 }
 
 struct PreparedSegmentOperation {
@@ -115,6 +117,113 @@ impl<'a> NativeSegmentProvider<'a> {
         self.access.text.domain
     }
 
+    fn placed_equality(&self, term: &BoundTerm) -> Option<(&dyn PostingReader, ScalarKey)> {
+        if term.path.root != crate::model::PathRoot::Data
+            || term.derived != crate::query::binding::filter::Derived::None
+            || term.related.is_some()
+            || term.rhs.is_some()
+            || term.operation.is_some()
+            || term.matcher.is_some()
+            || term.period.is_some()
+            || term.query_path.has_explicit_array_step
+            || term.transform != crate::schema::operation::Transform::Identity
+            || term.operator != crate::query::Operator::Eq
+            || !matches!(
+                term.quantifier,
+                crate::query::Quantifier::Any | crate::query::Quantifier::Default
+            )
+        {
+            return None;
+        }
+        let placed = self
+            .segment
+            .placed_postings
+            .get(&term.path.segments, None)
+            .or_else(|| {
+                self.segment
+                    .inference
+                    .as_ref()?
+                    .placed
+                    .get(&term.path.segments, None)
+            })?;
+        let descriptor = placed.reader.descriptor();
+        if !placed.complete
+            || !descriptor.coverage.values_indexed
+            || !descriptor.coverage.value_complete
+            || descriptor.coverage.multi
+            || (term.multi
+                && !descriptor.coverage.summary.is_some_and(|summary| {
+                    summary.only_matches_scalar_or_null() && !summary.may_select_multiple()
+                }))
+            || descriptor.coverage.covered_records as u64 != self.segment.logical_records.len()
+            || !matches!(
+                (descriptor.kind, &term.literal),
+                (
+                    crate::model::LogicalType::Number,
+                    crate::model::Value::Number(_)
+                ) | (
+                    crate::model::LogicalType::Bool,
+                    crate::model::Value::Bool(_)
+                ) | (
+                    crate::model::LogicalType::String,
+                    crate::model::Value::String(_)
+                ) | (crate::model::LogicalType::Id, crate::model::Value::Id(_))
+            )
+        {
+            return None;
+        }
+        Some((
+            placed.reader.as_ref(),
+            ScalarKey::from_value(&term.literal)?,
+        ))
+    }
+
+    fn propose_placed(
+        &self,
+        term: TermId,
+        bound: &BoundTerm,
+        input: InputEstimate,
+        offers: &mut OfferList,
+    ) {
+        if self.placed_equality(bound).is_none() {
+            return;
+        }
+        let complete = self.segment.logical_records.len() == self.segment.record_count() as u64;
+        let operation = self.operation_id(
+            term,
+            bound,
+            SegmentPhysicalOperation::PlacedEquality,
+            AccessPathKind::Posting,
+        );
+        offers.push(AccessOffer::new(
+            AccessId {
+                provider: NATIVE_SEGMENT_PROVIDER,
+                operation,
+            },
+            term,
+            if complete {
+                AccessKind::ExactMembership
+            } else {
+                AccessKind::CandidateMembership
+            },
+            if complete {
+                Coverage::Complete
+            } else {
+                Coverage::Input
+            },
+            if complete {
+                ProofStrength::Exact
+            } else {
+                ProofStrength::Candidate
+            },
+            input.input_len,
+            0.5,
+            0.0,
+            true,
+            false,
+        ));
+    }
+
     fn operation_id(
         &self,
         term: TermId,
@@ -162,6 +271,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         let AccessRequest::Structured(bound) = request else {
             return Ok(());
         };
+        self.propose_placed(term, bound, input, offers);
         let direct_posting_compatible = bound.path.root == crate::model::PathRoot::Data
             && bound.derived == crate::query::binding::filter::Derived::None
             && bound.related.is_none()
@@ -290,6 +400,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         let AccessRequest::Structured(bound) = request else {
             return Ok(());
         };
+        self.propose_placed(term, bound, input, offers);
         let catalog = IndexCatalog::segment_with_bindings(
             self.segment,
             self.access.text.policy.schema,
@@ -411,6 +522,42 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             return Ok(Restriction::exact(input));
         }
         let restriction = match physical {
+            SegmentPhysicalOperation::PlacedEquality => {
+                let (reader, key) = self
+                    .placed_equality(bound)
+                    .ok_or(AccessError::StaleHandle)?;
+                let members = reader.members(PostingKey::Value(&key))?;
+                let matches = match members.as_ref() {
+                    Some(members) => {
+                        let members = members.explicit_view().ok_or_else(|| {
+                            AccessError::Corrupt("unbounded posting membership".into())
+                        })?;
+                        if members
+                            .last()
+                            .is_some_and(|slot| slot as usize >= self.segment.record_count())
+                        {
+                            return Err(AccessError::Corrupt(
+                                "posting membership outside segment".into(),
+                            ));
+                        }
+                        input.filter_members(members.iter())?
+                    }
+                    None => Vec::new(),
+                };
+                let matches = SlotSet::from_sorted(matches.into())?;
+                if self.segment.logical_records.len() == self.segment.record_count() as u64 {
+                    Restriction::exact(input.replace_slots(matches))
+                } else {
+                    let mut fallback =
+                        input.bitmap_for_native()?.as_ref() - &self.segment.logical_records;
+                    matches
+                        .explicit_view()
+                        .expect("explicit matches")
+                        .union_into_bitmap(&mut fallback);
+                    let proven = SlotInput::new(input.domain(), input.operation_input(), matches);
+                    Restriction::bounds(input.replace_slots(SlotSet::from_owned(fallback)), proven)?
+                }
+            }
             SegmentPhysicalOperation::NativeFallback => {
                 let effective = input.bitmap_for_native()?;
                 let logical = effective.as_ref() & &self.segment.logical_records;

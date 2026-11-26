@@ -8,17 +8,21 @@ use roaring::RoaringBitmap;
 use crate::construction::batch::BatchContribution;
 use crate::construction::batch::canonical_custom_text_key;
 use crate::index::memory::bigram::BigramAlphabet;
-use crate::index::memory::bigram::BigramContribution;
+use crate::index::memory::bigram::placement::{GramAggregate, PlacedGrams};
 use crate::index::memory::inference::InferenceBuilder;
 use crate::index::memory::inventory::append_shifted_bitmap;
+use crate::index::memory::posting::placement::{PostingBatches, PostingWriters};
 use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use crate::index::memory::relation::RelationContribution;
+use crate::index::memory::relation::placement::{PlacedRelations, RelationAggregate};
 use crate::index::memory::segment::{
     IndexedCollectionSegment, SegmentAccounting, SegmentFile, SegmentId, SegmentPolicy,
 };
 use crate::index::memory::sorting::SortBuilder;
 use crate::index::memory::worker::NativeIndexBatch;
+use crate::index::storage::posting::PostingStore;
+use crate::index::storage::relation::RelationStore;
 use crate::index::storage::segment::build::{BuiltSegment, SegmentBuilder, SegmentSeal};
+use crate::index::storage::text::{GramBinding, GramStore};
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::InferenceConfig;
 use crate::inventory::{DiagnosticRef, FileStatus, RecordClass, RecordEntry};
@@ -77,15 +81,16 @@ pub(crate) struct SegmentBatch {
 struct SegmentAggregate {
     postings: PostingCollection,
     postings_pristine: bool,
+    placed_postings: PostingWriters,
     inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    raw: BigramContribution,
-    fallback_text: BigramContribution,
-    custom_text: HashMap<(Vec<String>, String), BigramContribution>,
+    raw: GramAggregate,
+    fallback_text: GramAggregate,
+    custom_text: HashMap<(Vec<String>, String), GramAggregate>,
     logical_records: RoaringBitmap,
     empty_array_records: RoaringBitmap,
     sorting: SortBuilder,
-    relations: Vec<RelationContribution>,
+    relations: Vec<RelationAggregate>,
 }
 
 impl SegmentAggregate {
@@ -94,12 +99,18 @@ impl SegmentAggregate {
         alphabet: BigramAlphabet,
         inference_config: InferenceConfig,
         collection_count: usize,
+        posting_store: Option<std::sync::Arc<dyn PostingStore>>,
+        gram_store: Option<std::sync::Arc<dyn GramStore>>,
+        relation_store: Option<std::sync::Arc<dyn RelationStore>>,
     ) -> Result<Self, String> {
+        let placed = PostingBatches::new(definition.schema(), posting_store);
         let custom_postings = definition
             .schema()
             .operations
             .iter()
-            .filter(|(_, binding)| binding.operation.posting())
+            .filter(|(key, binding)| {
+                binding.operation.posting() && !placed.has(&key.0, Some(&key.1))
+            })
             .map(|(key, binding)| {
                 (
                     key.clone(),
@@ -125,19 +136,29 @@ impl SegmentAggregate {
                     .map(|(key, _)| key),
             )
             .map(|key| {
-                (
-                    canonical_custom_text_key(definition.schema(), &key.0, &key.1),
-                    BigramContribution::new(alphabet),
-                )
+                let key = canonical_custom_text_key(definition.schema(), &key.0, &key.1);
+                let writer = GramAggregate::new(
+                    alphabet,
+                    GramBinding::Field(key.0.clone(), key.1.clone()),
+                    gram_store.as_ref(),
+                )?;
+                Ok((key, writer))
             })
-            .collect();
+            .collect::<StorageResult<_>>()?;
         Ok(Self {
-            postings: PostingCollection::new(definition.schema()),
+            postings: PostingCollection::new_filtered(definition.schema(), |path| {
+                !placed.has(path, None)
+            }),
+            placed_postings: PostingWriters::from_batch(&placed)?,
             postings_pristine: true,
             inference: InferenceBuilder::for_collection(inference_config, collection_count),
             custom_postings,
-            raw: BigramContribution::new(alphabet),
-            fallback_text: BigramContribution::new(alphabet),
+            raw: GramAggregate::new(alphabet, GramBinding::Raw, gram_store.as_ref())?,
+            fallback_text: GramAggregate::new(
+                alphabet,
+                GramBinding::Fallback,
+                gram_store.as_ref(),
+            )?,
             custom_text,
             logical_records: RoaringBitmap::new(),
             empty_array_records: RoaringBitmap::new(),
@@ -148,7 +169,12 @@ impl SegmentAggregate {
                 definition.sort_options(),
                 definition.sort_overrides(),
             )?,
-            relations: RelationContribution::for_schema(definition.schema()),
+            relations: definition
+                .schema()
+                .relations()
+                .values()
+                .map(|definition| RelationAggregate::new(definition, relation_store.as_ref()))
+                .collect::<StorageResult<_>>()?,
         })
     }
 
@@ -163,6 +189,7 @@ impl SegmentAggregate {
         let Self {
             postings,
             postings_pristine,
+            placed_postings,
             inference,
             custom_postings,
             raw,
@@ -175,16 +202,20 @@ impl SegmentAggregate {
         } = self;
         let NativeIndexBatch {
             postings: batch_postings,
+            placed_postings: batch_placed,
             inference: batch_inference,
             custom_postings: batch_custom_postings,
             raw: batch_raw,
+            gram_store: _,
             fallback_text: batch_fallback_text,
             custom_text: batch_custom_text,
             logical_records: batch_logical_records,
             empty_array_records: batch_empty_array_records,
             sort_keys: batch_sort_keys,
             relations: batch_relations,
+            relation_store: _,
         } = *NativeIndexBatch::take(batch.indexes)?;
+        placed_postings.push(batch_placed, base, count)?;
         let transfer_postings = base == 0 && *postings_pristine;
         if count != 0 {
             *postings_pristine = false;
@@ -608,7 +639,7 @@ impl SegmentBuilder for SegmentAdmission {
 impl CollectionSegment {
     pub(crate) fn seal(mut self, input: SegmentSeal<'_>) -> StorageResult<BuiltSegment> {
         self.id = input.id;
-        let (mut index, observation) = self
+        let (index, observation) = self
             .into_indexed_profiled_inner(
                 input.definition,
                 input.options.bigram_alphabet,
@@ -617,12 +648,9 @@ impl CollectionSegment {
                 input.pool,
                 input.profile,
                 input.observe_inference,
+                input.declared_orders,
             )
             .map_err(|error| StorageError::invalid("seal segment", error))?;
-        if let Some(store) = input.declared_orders {
-            index.sorting.place_columns(store)?;
-            index.recompute_accounting();
-        }
         Ok(BuiltSegment {
             index: std::sync::Arc::new(index),
             observation: observation.map(|value| {
@@ -782,6 +810,7 @@ impl CollectionSegment {
             pool,
             profile,
             false,
+            None,
         )
         .map(|(index, _)| index)
     }
@@ -810,6 +839,7 @@ impl CollectionSegment {
             pool,
             profile,
             true,
+            None,
         )
     }
 
@@ -822,6 +852,9 @@ impl CollectionSegment {
         pool: &ThreadPool,
         mut profile: Option<&mut IncrementalSegmentProfile>,
         capture_observation: bool,
+        declared_orders: Option<
+            std::sync::Arc<dyn crate::index::storage::order::DeclaredOrderStore>,
+        >,
     ) -> Result<
         (
             IndexedCollectionSegment,
@@ -830,8 +863,23 @@ impl CollectionSegment {
         String,
     > {
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let mut aggregate =
-            SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?;
+        let first_indexes = self
+            .batches
+            .first()
+            .map(|batch| batch.contribution.indexes.as_ref());
+        let posting_store = first_indexes.and_then(|indexes| indexes.posting_store());
+        let mut aggregate = SegmentAggregate::new(
+            definition,
+            alphabet,
+            inference_config,
+            collection_count,
+            posting_store.clone(),
+            first_indexes.and_then(|indexes| indexes.gram_store()),
+            first_indexes.and_then(|indexes| indexes.relation_store()),
+        )?;
+        if let Some(store) = declared_orders {
+            aggregate.sorting.select_store(store)?;
+        }
         for SegmentBatch {
             base,
             count,
@@ -846,6 +894,7 @@ impl CollectionSegment {
         let SegmentAggregate {
             mut postings,
             postings_pristine: _,
+            placed_postings,
             inference,
             mut custom_postings,
             raw,
@@ -856,6 +905,12 @@ impl CollectionSegment {
             sorting,
             relations,
         } = aggregate;
+        let mut placed_relations = PlacedRelations::default();
+        let relations = relations
+            .into_iter()
+            .enumerate()
+            .map(|(ordinal, relation)| relation.seal(ordinal, &mut placed_relations))
+            .collect::<StorageResult<_>>()?;
         let record_count = self.records.len();
         let logical_count = logical_records.len() as usize;
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
@@ -880,11 +935,16 @@ impl CollectionSegment {
             profile.postings_finish_validation_ns = started.elapsed().as_nanos() as u64;
         }
         let phase = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let raw = raw.into_index_in_pool(pool)?;
-        let fallback_text = fallback_text.into_index_in_pool(pool)?;
+        let mut placed_grams = PlacedGrams::default();
+        let raw = raw.seal(pool, &mut placed_grams)?;
+        let fallback_text = fallback_text.seal(pool, &mut placed_grams)?;
         let custom_text = custom_text
             .into_iter()
-            .map(|(key, index)| index.into_index_in_pool(pool).map(|index| (key, index)))
+            .map(|(key, index)| {
+                index
+                    .seal(pool, &mut placed_grams)
+                    .map(|index| (key, index))
+            })
             .collect::<Result<HashMap<_, _>, _>>()?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.bigram_finish_ns = started.elapsed().as_nanos() as u64;
@@ -933,6 +993,7 @@ impl CollectionSegment {
                     record_count,
                     definition.schema(),
                     capture_observation,
+                    posting_store.as_ref(),
                 )?;
                 (Some(state), observation)
             }
@@ -970,15 +1031,18 @@ impl CollectionSegment {
             id_lookup: self.id_lookup,
             identity_order,
             postings: postings.into(),
+            placed_postings: placed_postings.finish(record_count, logical_count as u64)?,
             inference,
             custom_postings,
             raw: raw.into(),
+            placed_grams,
             fallback_text: fallback_text.into(),
             custom_text,
             logical_records,
             empty_array_records,
             sorting: sorting.into(),
             relations,
+            placed_relations,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),

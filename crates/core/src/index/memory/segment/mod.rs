@@ -472,9 +472,11 @@ pub(crate) struct IndexedCollectionSegment {
     pub id_lookup: HashMap<crate::model::RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub postings: SharedColumn<PostingCollection>,
+    pub(in crate::index::memory) placed_postings: super::posting::placement::PlacedPostings,
     pub inference: Option<InferenceState>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: SharedColumn<BigramIndex>,
+    pub(in crate::index::memory) placed_grams: super::bigram::placement::PlacedGrams,
     pub fallback_text: SharedColumn<BigramIndex>,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub logical_records: RoaringBitmap,
@@ -483,6 +485,7 @@ pub(crate) struct IndexedCollectionSegment {
     /// Relation source references retain logical target IDs for merged-view
     /// resolution across segment and collection boundaries.
     pub relations: Vec<RelationContribution>,
+    pub(in crate::index::memory) placed_relations: super::relation::placement::PlacedRelations,
     pub record_parses: u64,
     pub failed_parses: u64,
     pub accounting: SegmentAccounting,
@@ -603,12 +606,18 @@ impl SegmentReader for IndexedCollectionSegment {
         let Some(path) = component.path.as_deref() else {
             return Ok(None);
         };
+        if matches!(
+            component.kind,
+            NativeComponentKind::DeclaredPosting | NativeComponentKind::CustomPosting
+        ) && let Some(placed) = self.placed_postings.get(path, component.binding.as_deref())
+        {
+            return Ok(Some(placed.reader.as_ref()));
+        }
+        if component.kind == NativeComponentKind::InferredPosting {
+            return Ok(self.inference.as_ref().and_then(|state| state.reader(path)));
+        }
         let reader = match component.kind {
             NativeComponentKind::DeclaredPosting => self.postings.fields.get(path),
-            NativeComponentKind::InferredPosting => self
-                .inference
-                .as_ref()
-                .and_then(|state| state.indexes.get(path)),
             NativeComponentKind::CustomPosting => {
                 let Some(binding) = component.binding.as_deref() else {
                     return Ok(None);
@@ -633,6 +642,9 @@ impl SegmentReader for IndexedCollectionSegment {
         ) else {
             return Ok(None);
         };
+        if let Some(placed) = self.placed_postings.get(path, Some(binding)) {
+            return Ok(Some(placed.complete));
+        }
         Ok(self
             .custom_postings
             .get(&(path.to_vec(), binding.to_owned()))
@@ -660,6 +672,53 @@ impl SegmentReader for IndexedCollectionSegment {
         &self,
         path: &[String],
     ) -> StorageResult<Option<crate::index::storage::inference::InferredPostingDiagnostic>> {
+        if let Some(state) = &self.inference
+            && let Some(placed) = state.placed.get(path, None)
+        {
+            use crate::index::storage::posting::{PostingKey, ScalarKey, visit_posting_blocks};
+            let reader = placed.reader.as_ref();
+            let descriptor = reader.descriptor();
+            let mut value_keys = 0;
+            let mut length_keys = 0;
+            let mut previous_value = None;
+            let mut previous_length = None;
+            visit_posting_blocks(reader, self.records.len(), &|| false, &mut |key, slots| {
+                if slots.is_empty() {
+                    return Ok(());
+                }
+                match key {
+                    PostingKey::Value(key)
+                        if key != &ScalarKey::Null && previous_value.as_ref() != Some(key) =>
+                    {
+                        previous_value = Some(key.clone());
+                        value_keys += 1;
+                    }
+                    PostingKey::Length(key) if previous_length.as_ref() != Some(key) => {
+                        previous_length = Some(key.clone());
+                        length_keys += 1;
+                    }
+                    _ => {}
+                }
+                Ok(())
+            })?;
+            return Ok(Some(
+                crate::index::storage::inference::InferredPostingDiagnostic {
+                    kind: descriptor.kind.clone(),
+                    multi: descriptor.coverage.multi,
+                    value_keys,
+                    length_keys,
+                    covered_records: descriptor.coverage.covered_records,
+                    value_complete: descriptor.coverage.value_complete,
+                    has_structural_facts: descriptor.coverage.summary.is_some(),
+                    estimated_bytes: state
+                        .report
+                        .fields
+                        .iter()
+                        .find(|field| field.path == path)
+                        .map_or(0, |field| field.index_bytes_estimate),
+                },
+            ));
+        }
         let Some(index) = self
             .inference
             .as_ref()
@@ -709,7 +768,7 @@ impl SegmentReader for IndexedCollectionSegment {
             }) else {
                 return Ok(None);
             };
-            let Some(reader) = state.indexes.get(&path.segments) else {
+            let Some(reader) = state.reader(&path.segments) else {
                 return Ok(None);
             };
             let short_strings = state
@@ -721,13 +780,24 @@ impl SegmentReader for IndexedCollectionSegment {
                         SlotSet::borrowed(covered),
                     )
                 });
-            if !reader.value_complete && short_strings.is_none() {
+            if !reader.descriptor().coverage.value_complete && short_strings.is_none() {
                 return Ok(None);
             }
             return Ok(Some(FacetPosting {
                 reader,
                 inference_version: Some(state.report.policy.version),
                 short_strings,
+            }));
+        }
+        if let Some(placed) = self
+            .placed_postings
+            .get(&path.segments, (binding != "default").then_some(binding))
+            .filter(|placed| placed.complete)
+        {
+            return Ok(Some(FacetPosting {
+                reader: placed.reader.as_ref(),
+                inference_version: None,
+                short_strings: None,
             }));
         }
         let reader = if binding == "default" {
@@ -749,6 +819,25 @@ impl SegmentReader for IndexedCollectionSegment {
         &self,
         component: &NativeComponentDescriptor<'_>,
     ) -> StorageResult<Option<&dyn crate::index::storage::text::GramReader>> {
+        use crate::index::storage::text::GramBinding;
+        if !self.placed_grams.is_empty() {
+            let binding = match component.kind {
+                NativeComponentKind::RawText => Some(GramBinding::Raw),
+                NativeComponentKind::FallbackText => Some(GramBinding::Fallback),
+                NativeComponentKind::FieldText => component
+                    .path
+                    .as_deref()
+                    .zip(component.binding.as_deref())
+                    .map(|(path, binding)| GramBinding::Field(path.to_vec(), binding.to_owned())),
+                _ => None,
+            };
+            if let Some(reader) = binding
+                .as_ref()
+                .and_then(|binding| self.placed_grams.get(binding))
+            {
+                return Ok(Some(reader));
+            }
+        }
         let reader = match component.kind {
             NativeComponentKind::RawText => Some(&*self.raw),
             NativeComponentKind::FallbackText => Some(&*self.fallback_text),
@@ -985,6 +1074,20 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(super::access::catalog::sortable_segment_posting(self, &path.segments).is_some())
     }
 
+    fn build_placed_posting_order(
+        &self,
+        store: &dyn crate::index::storage::order::InferredOrderStore,
+        request: PostingOrderRequest<'_>,
+    ) -> StorageResult<Option<Arc<dyn OrderColumnReader>>> {
+        let Some(index) =
+            super::access::catalog::sortable_segment_posting(self, &request.path.segments)
+        else {
+            return Ok(None);
+        };
+        super::sorting::inferred_order::write_inferred_order(index, &self.records, request, store)
+            .map_err(|error| StorageError::invalid("write inferred order", error))
+    }
+
     fn build_posting_order(
         &self,
         request: PostingOrderRequest<'_>,
@@ -1013,6 +1116,9 @@ impl SegmentReader for IndexedCollectionSegment {
     }
 
     fn relation(&self, ordinal: usize) -> StorageResult<Option<&dyn RelationReader>> {
+        if let Some(reader) = self.placed_relations.get(ordinal) {
+            return Ok(Some(reader));
+        }
         Ok(self
             .relations
             .get(ordinal)
@@ -1021,9 +1127,21 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn reverse_relation(&self, ordinal: usize, target: &str) -> StorageResult<Option<SlotSet<'_>>> {
         let relation = self
-            .relations
-            .get(ordinal)
+            .relation(ordinal)?
             .ok_or_else(|| StorageError::invalid("read native backlink", "unknown relation"))?;
+        if let Some(members) = relation.reverse_members(target)? {
+            return Ok(Some(members));
+        }
+        if let Some(placed) = self.placed_postings.get(&relation.declaration().path, None) {
+            use crate::index::storage::posting::{PostingKey, ScalarKey};
+            let key = ScalarKey::Id(target.to_owned());
+            return Ok(Some(
+                placed
+                    .reader
+                    .members(PostingKey::Value(&key))?
+                    .unwrap_or(SlotSet::Empty),
+            ));
+        }
         let Some(posting) = self.postings.fields.get(&relation.declaration().path) else {
             return Ok(None);
         };
@@ -1039,9 +1157,36 @@ impl SegmentReader for IndexedCollectionSegment {
         targets: &std::collections::HashSet<String>,
     ) -> StorageResult<Option<RelationMatches<'_>>> {
         let relation = self
-            .relations
-            .get(ordinal)
+            .relation(ordinal)?
             .ok_or_else(|| StorageError::invalid("read native backlinks", "unknown relation"))?;
+        if self.placed_relations.get(ordinal).is_some()
+            || self
+                .placed_postings
+                .get(&relation.declaration().path, None)
+                .is_some()
+        {
+            let mut slots = RoaringBitmap::new();
+            let mut members = 0;
+            let mut lists = 0;
+            for target in targets {
+                let Some(selected) = self.reverse_relation(ordinal, target)? else {
+                    return Ok(None);
+                };
+                let selected = selected.explicit_view().ok_or_else(|| {
+                    StorageError::invalid("read native backlinks", "unbounded relation membership")
+                })?;
+                if !selected.is_empty() {
+                    lists += 1;
+                    members += selected.len() as u64;
+                    selected.union_into_bitmap(&mut slots);
+                }
+            }
+            return Ok(Some(RelationMatches {
+                slots: SlotSet::from_owned(slots),
+                lists,
+                members,
+            }));
+        }
         let Some(posting) = self.postings.fields.get(&relation.declaration().path) else {
             return Ok(None);
         };
@@ -1142,11 +1287,24 @@ impl IndexedCollectionSegment {
                 binding: None,
             }
         }));
+        descriptors.extend(
+            self.placed_postings
+                .descriptors()
+                .map(|(kind, path, binding)| NativeComponentDescriptor {
+                    collection: self.collection,
+                    segment: published_id,
+                    kind,
+                    path: Some(path),
+                    binding,
+                }),
+        );
         if let Some(inference) = &self.inference {
             descriptors.extend(
                 inference
                     .indexes
                     .keys()
+                    .map(Vec::as_slice)
+                    .chain(inference.placed.paths())
                     .map(|path| NativeComponentDescriptor {
                         collection: self.collection,
                         segment: published_id,

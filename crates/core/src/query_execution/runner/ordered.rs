@@ -391,14 +391,17 @@ pub(super) fn inferred_order_column_for_segment(
         query.options.sort[0].descending,
     );
     let column = cached_inferred_order(&repo.inferred_orders, key, || {
-        let rows =
-            segment.build_posting_order(crate::index::storage::order::PostingOrderRequest {
-                path,
-                locale: &collection.definition.sort_locale,
-                options: collection.definition.sort_options,
-                descending: query.options.sort[0].descending,
-                execution,
-            })?;
+        let request = crate::index::storage::order::PostingOrderRequest {
+            path,
+            locale: &collection.definition.sort_locale,
+            options: collection.definition.sort_options,
+            descending: query.options.sort[0].descending,
+            execution,
+        };
+        if let Some(store) = repo.storage_factory.inferred_order_store() {
+            return Ok(segment.build_placed_posting_order(store, request)?);
+        }
+        let rows = segment.build_posting_order(request)?;
         rows.map(|rows| repo.storage_factory.inferred_order(rows))
             .transpose()
             .map_err(String::from)

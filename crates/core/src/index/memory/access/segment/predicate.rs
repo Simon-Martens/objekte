@@ -124,7 +124,7 @@ fn segment_text_candidates(
     let Some(request) = term.gram_request.as_ref() else {
         return Ok(None);
     };
-    Ok(index.candidates_prepared(request))
+    Ok(index.candidates(request, None)?)
 }
 
 pub(crate) fn segment_text_estimate(
@@ -157,7 +157,7 @@ pub(crate) fn segment_text_estimate(
         true,
         raw_compatible,
     )?;
-    index.estimate_prepared(term.gram_request.as_ref()?)
+    index.estimate(term.gram_request.as_ref()?)
 }
 
 fn extend_segment_file_slots(

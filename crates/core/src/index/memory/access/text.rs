@@ -524,7 +524,7 @@ pub(crate) fn segment_raw_covers_identity_field(
 /// compatibility and coverage assessment feeds estimation and execution;
 /// grams and regex conditions never claim positive field proof.
 struct TextProbe<'a, 'b> {
-    index: &'a crate::index::memory::bigram::BigramIndex,
+    index: crate::index::memory::bigram::placement::GramAccess<'a>,
     request: &'b crate::index::storage::text::BigramRequest,
 }
 
@@ -542,16 +542,16 @@ impl PreparedFtsAccess<'_, '_> {
         for probe in &self.probes {
             if let Some(condition) = self.regex {
                 let (next_count, next_work) =
-                    condition.estimate(u64::from(probe.index.record_count), &mut |request| {
+                    condition.estimate(u64::from(probe.index.record_count()), &mut |request| {
                         Some((
-                            probe.index.estimate_prepared(request)?,
-                            request.gram_count(probe.index.alphabet) as f64,
+                            probe.index.estimate(request)?,
+                            request.gram_count(probe.index.alphabet()) as f64,
                         ))
                     })?;
                 count = count.saturating_add(next_count);
                 work += next_work;
             } else {
-                count = count.saturating_add(probe.index.estimate_prepared(probe.request)?);
+                count = count.saturating_add(probe.index.estimate(probe.request)?);
             }
         }
         Some((count.min(self.max_count), work))
@@ -563,12 +563,10 @@ impl PreparedFtsAccess<'_, '_> {
         for probe in &self.probes {
             may |= if let Some(condition) = self.regex {
                 condition
-                    .candidates(&mut |request| {
-                        Ok::<_, std::convert::Infallible>(probe.index.candidates_prepared(request))
-                    })
+                    .candidates(&mut |request| probe.index.candidates(request, None))
                     .unwrap()?
             } else {
-                probe.index.candidates_prepared(probe.request)?
+                probe.index.candidates(probe.request, None).ok().flatten()?
             };
         }
         Some(may)
@@ -581,19 +579,9 @@ impl PreparedFtsAccess<'_, '_> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
             let next = if let Some(condition) = self.regex {
-                condition
-                    .candidates(&mut |request| {
-                        Ok::<_, std::convert::Infallible>(
-                            probe
-                                .index
-                                .candidates_prepared_restricted(request, Some(input)),
-                        )
-                    })
-                    .unwrap()
+                condition.candidates(&mut |request| probe.index.candidates(request, Some(input)))?
             } else {
-                probe
-                    .index
-                    .candidates_prepared_restricted(probe.request, Some(input))
+                probe.index.candidates(probe.request, Some(input))?
             };
             let Some(next) = next else {
                 return Ok(None);

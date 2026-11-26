@@ -1075,7 +1075,7 @@ impl InferenceBuilder {
         record_count: usize,
         schema: &Schema,
     ) -> Result<InferenceState, String> {
-        self.finish_with_observation(logical, record_count, schema, false)
+        self.finish_with_observation(logical, record_count, schema, false, None)
             .map(|(state, _)| state)
     }
 
@@ -1085,12 +1085,14 @@ impl InferenceBuilder {
         record_count: usize,
         schema: &Schema,
         capture_observation: bool,
+        posting_store: Option<&std::sync::Arc<dyn crate::index::storage::posting::PostingStore>>,
     ) -> Result<(InferenceState, Option<InferenceObservation>), String> {
         if self.eligible as u64 != logical.len() {
             return Err("inference logical coverage mismatch".into());
         }
         let mut report_fields = Vec::with_capacity(self.fields.len());
         let mut indexes = HashMap::new();
+        let mut placed = crate::index::memory::posting::placement::PlacedPostings::default();
         let mut short_string_coverage = HashMap::new();
         self.fields.sort_by(|a, b| a.path.cmp(&b.path));
         for field in &mut self.fields {
@@ -1236,31 +1238,13 @@ impl InferenceBuilder {
                 if !field.selected_null.is_empty() {
                     values.insert(ScalarKey::Null, std::mem::take(&mut field.selected_null));
                 }
-                let mut index = PostingIndex {
-                    path: field.path.clone(),
-                    kind,
-                    multi: !field.array_records.is_empty()
-                        || !field.through_array_records.is_empty(),
-                    presence: field.present.clone(),
-                    summary: Some(field.summary),
-                    values,
-                    lengths: field.lengths.take().unwrap_or_default(),
-                    values_indexed: true,
-                    value_complete,
-                    length_complete,
-                    empty_string_complete,
-                    covered_records: self.eligible,
-                    stats: PostingStats {
-                        legacy_present_equivalent,
-                        legacy_null_equivalent,
-                        ..Default::default()
-                    },
+                use crate::index::storage::posting::{
+                    PostingCoverage, PostingDefinition, PostingKey,
                 };
-                index.finish_stats();
-                index.validate_eligible(record_count, logical.len() as usize)?;
-                index.validate_domain(logical)?;
-                index_bytes = index
-                    .values
+                let lengths = field.lengths.take().unwrap_or_default();
+                let multi =
+                    !field.array_records.is_empty() || !field.through_array_records.is_empty();
+                index_bytes = values
                     .iter()
                     .map(|(key, slots)| {
                         128 + match key {
@@ -1269,15 +1253,89 @@ impl InferenceBuilder {
                         } + slots.serialized_size()
                     })
                     .sum::<usize>()
-                    + index
-                        .lengths
+                    + lengths
                         .values()
                         .map(|slots| 64 + slots.serialized_size())
                         .sum::<usize>();
+
+                let placement = posting_store.and_then(|store| {
+                    let definition = PostingDefinition {
+                        field: crate::schema::FieldDefinition {
+                            path: field.path.clone(),
+                            kind: kind.clone(),
+                            indexed: true,
+                            required: false,
+                            nullable: true,
+                            multi,
+                            element_nullable: Vec::new(),
+                        },
+                        binding: None,
+                        inferred: true,
+                        length_complete,
+                        empty_string_complete,
+                    };
+                    store.accepts(&definition).then_some((store, definition))
+                });
+                if let Some((store, definition)) = placement {
+                    let coverage = PostingCoverage {
+                        multi,
+                        values_indexed: true,
+                        value_complete,
+                        length_complete,
+                        empty_string_complete,
+                        covered_records: self.eligible,
+                        summary: Some(field.summary),
+                        legacy_present_equivalent,
+                        legacy_null_equivalent,
+                    };
+                    if values
+                        .values()
+                        .chain(lengths.values())
+                        .any(|slots| !slots.is_subset(logical))
+                    {
+                        return Err("inferred posting member outside logical slots".into());
+                    }
+                    let blocks = std::iter::once((PostingKey::Presence, &field.present))
+                        .chain(
+                            values
+                                .iter()
+                                .map(|(key, slots)| (PostingKey::Value(key), slots)),
+                        )
+                        .chain(
+                            lengths
+                                .iter()
+                                .map(|(key, slots)| (PostingKey::Length(key), slots)),
+                        );
+                    placed.place_inferred(store, definition, coverage, record_count, blocks)?;
+                } else {
+                    let mut index = PostingIndex {
+                        path: field.path.clone(),
+                        kind,
+                        multi,
+                        presence: field.present.clone(),
+                        summary: Some(field.summary),
+                        values,
+                        lengths,
+                        values_indexed: true,
+                        value_complete,
+                        length_complete,
+                        empty_string_complete,
+                        covered_records: self.eligible,
+                        stats: PostingStats {
+                            legacy_present_equivalent,
+                            legacy_null_equivalent,
+                            ..Default::default()
+                        },
+                    };
+
+                    index.finish_stats();
+                    index.validate_eligible(record_count, logical.len() as usize)?;
+                    index.validate_domain(logical)?;
+                    indexes.insert(field.path.clone(), index);
+                }
                 if has_short_values {
                     short_string_coverage.insert(field.path.clone(), short_covered);
                 }
-                indexes.insert(field.path.clone(), index);
             }
             let summary_bytes_estimate = 256
                 + field.path.iter().map(String::len).sum::<usize>()
@@ -1354,7 +1412,7 @@ impl InferenceBuilder {
             omitted_paths: self.omitted_paths,
             complete: self.complete,
             observed_paths: report_fields.len(),
-            admitted_paths: indexes.len(),
+            admitted_paths: indexes.len() + placed.len(),
             dropped_paths: report_fields
                 .iter()
                 .filter(|field| {
@@ -1381,6 +1439,7 @@ impl InferenceBuilder {
         let state = InferenceState {
             report,
             indexes,
+            placed,
             short_string_coverage,
         };
         let observation = capture_observation.then(|| {
@@ -1402,11 +1461,17 @@ impl InferenceBuilder {
         record_count: usize,
         schema: &Schema,
         capture_observation: bool,
+        posting_store: Option<&std::sync::Arc<dyn crate::index::storage::posting::PostingStore>>,
     ) -> Result<(InferenceState, Option<InferenceObservation>), String> {
         let published_config = self.config;
         self.config = candidate_config(self.config);
-        let (mut state, observation) =
-            self.finish_with_observation(logical, record_count, schema, capture_observation)?;
+        let (mut state, observation) = self.finish_with_observation(
+            logical,
+            record_count,
+            schema,
+            capture_observation,
+            posting_store,
+        )?;
         state.report.policy = published_config.policy;
         Ok((state, observation))
     }

@@ -31,6 +31,26 @@ pub(crate) fn consolidate(
     else {
         return Ok(None);
     };
+    if let Some(first) = native.first()
+        && native.iter().any(|segment| {
+            !first
+                .placed_postings
+                .is_compatible_with(&segment.placed_postings)
+                || !first.placed_grams.is_compatible_with(&segment.placed_grams)
+                || match (&first.inference, &segment.inference) {
+                    (Some(initial), Some(other)) => {
+                        !initial.placed.is_compatible_with(&other.placed)
+                    }
+                    (Some(state), None) | (None, Some(state)) => !state.placed.is_empty(),
+                    (None, None) => false,
+                }
+                || !first
+                    .placed_relations
+                    .is_compatible_with(&segment.placed_relations)
+        })
+    {
+        return Ok(None);
+    }
     let merged = IndexedCollectionSegment::consolidate(&native, max_records)
         .map_err(|error| StorageError::invalid("consolidate segments", error))?;
     Ok(Some(ConsolidatedSegment {
@@ -155,15 +175,18 @@ pub(crate) fn base_segment(
         id_lookup: collection.id_lookup.clone(),
         identity_order: collection.identity_order.clone(),
         postings: collection.postings.clone().into(),
+        placed_postings: Default::default(),
         inference: collection.inference.clone(),
         custom_postings: collection.custom_postings.clone(),
         raw: collection.raw.clone().into(),
+        placed_grams: Default::default(),
         fallback_text: collection.fallback_text.clone().into(),
         custom_text: collection.custom_text.clone(),
         logical_records: collection.logical_records.clone(),
         empty_array_records: collection.empty_array_records.clone(),
         sorting: collection.sorting.clone().into(),
         relations,
+        placed_relations: Default::default(),
         record_parses: 0,
         failed_parses: 0,
         accounting: Default::default(),

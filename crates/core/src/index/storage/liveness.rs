@@ -144,6 +144,14 @@ impl ActiveRecords {
         let mut previous = None;
         let mut count = 0u64;
         self.reader.visit_blocks(&mut |base, members| {
+            if let MembershipView::Sorted(slots) = members
+                && slots.windows(2).any(|pair| pair[0] >= pair[1])
+            {
+                return Err(StorageError::invalid(
+                    "read live slot blocks",
+                    "block slots are not strictly increasing",
+                ));
+            }
             if let Some(last) = members.last() {
                 let first = members
                     .iter()

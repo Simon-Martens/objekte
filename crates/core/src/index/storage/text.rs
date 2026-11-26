@@ -183,6 +183,17 @@ pub(crate) type VisitGramBlock<'a> =
 
 pub(crate) trait GramReader: std::any::Any + Send + Sync {
     fn descriptor(&self) -> GramDescriptor;
+    fn members(
+        &self,
+        _channel: GramChannel,
+        _key: u64,
+    ) -> StorageResult<crate::query_access::membership::SlotSet<'_>> {
+        Err(StorageError::invalid(
+            "read gram membership",
+            "point access unavailable",
+        ))
+    }
+
     fn visit_blocks(&self, limit: BatchLimit, visit: &mut VisitGramBlock<'_>) -> StorageResult<()>;
 }
 
@@ -239,4 +250,36 @@ pub(crate) fn visit_gram_blocks(
         previous = Some((channel, key, slots.last().copied()));
         visit(channel, key, slots)
     })
+}
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub(crate) enum GramBinding {
+    Raw,
+    Fallback,
+    Field(Vec<String>, String),
+}
+
+#[derive(Clone, Copy)]
+#[cfg_attr(
+    not(test),
+    allow(dead_code, reason = "consumed by the independent conformance writer")
+)]
+pub(crate) struct GramFact {
+    pub slot: RecordSlot,
+    pub channel: GramChannel,
+    pub key: u64,
+}
+
+pub(crate) trait GramWriter: Send {
+    fn push(&mut self, base: u32, facts: &[GramFact]) -> StorageResult<()>;
+    fn seal(self: Box<Self>, slots: u32) -> StorageResult<std::sync::Arc<dyn GramReader>>;
+}
+
+pub(crate) trait GramStore: Send + Sync {
+    fn accepts(&self, binding: &GramBinding, alphabet: BigramAlphabet) -> bool;
+    fn start(
+        &self,
+        binding: &GramBinding,
+        alphabet: BigramAlphabet,
+    ) -> StorageResult<Box<dyn GramWriter>>;
 }

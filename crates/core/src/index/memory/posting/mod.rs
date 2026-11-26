@@ -1,5 +1,7 @@
 //! Typed B-tree dictionaries with record-slot postings and special states.
 
+pub(in crate::index::memory) mod placement;
+
 use std::collections::{BTreeMap, HashMap, HashSet};
 
 use roaring::RoaringBitmap;
@@ -525,10 +527,19 @@ impl PostingCollection {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn new(schema: &Schema) -> Self {
+        Self::new_filtered(schema, |_| true)
+    }
+
+    pub(in crate::index::memory) fn new_filtered(
+        schema: &Schema,
+        include: impl Fn(&[String]) -> bool,
+    ) -> Self {
         let fields = schema
             .fields
             .values()
+            .filter(|field| include(&field.path))
             .map(|field| {
                 let mut index = PostingIndex::structural(field);
                 if !field.indexed && schema.is_auto_index_prohibited(&field.path) {

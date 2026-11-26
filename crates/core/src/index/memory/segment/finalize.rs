@@ -8,10 +8,39 @@ use crate::model::FileId;
 use crate::repository::state::GlobalInferenceSummary;
 
 use super::{IndexedCollectionSegment, SegmentBacking};
+use crate::index::memory::posting::placement::InferredCoverage;
 
 pub(crate) struct RelinkedFile {
     pub linked: bool,
     pub updated: Option<IndexedCollectionSegment>,
+}
+
+fn placed_coverage(decision: &GlobalInferenceSummary, path: &[String]) -> Option<InferredCoverage> {
+    use crate::inference::InferenceIndexStatus;
+
+    let field = decision
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == path);
+    if field.is_none_or(|field| {
+        matches!(
+            field.index_status,
+            InferenceIndexStatus::Redundant | InferenceIndexStatus::ExplicitOptOut
+        )
+    }) {
+        return None;
+    }
+    let diagnostics = decision
+        .diagnostics
+        .iter()
+        .find(|diagnostic| diagnostic.path == path);
+    Some(InferredCoverage {
+        general_values: diagnostics.is_some_and(|diagnostic| diagnostic.value_dictionary_complete),
+        short_values: diagnostics.is_some_and(|diagnostic| diagnostic.short_string_candidates),
+        length: diagnostics.is_some_and(|diagnostic| diagnostic.array_length_complete),
+        empty_string: diagnostics.is_some_and(|diagnostic| diagnostic.empty_string_exact),
+    })
 }
 
 impl IndexedCollectionSegment {
@@ -52,6 +81,15 @@ impl IndexedCollectionSegment {
                                 .is_some_and(|diagnostic| diagnostic.array_length_complete)
                         || index.empty_string_complete
                             && !diagnostic.is_some_and(|diagnostic| diagnostic.empty_string_exact)
+                }) || state.placed.paths().any(|path| {
+                    let descriptor = state
+                        .placed
+                        .get(path, None)
+                        .expect("placed posting path")
+                        .reader
+                        .descriptor();
+                    placed_coverage(decision, path)
+                        .is_none_or(|target| !target.compatible_with(descriptor.coverage))
                 })
             })
         });
@@ -80,6 +118,22 @@ impl IndexedCollectionSegment {
             });
         if let Some(decision) = decision {
             if let Some(inference) = index.inference.as_mut() {
+                if !inference.placed.is_empty() {
+                    let paths = inference
+                        .placed
+                        .paths()
+                        .map(<[String]>::to_vec)
+                        .collect::<Vec<_>>();
+                    for path in paths {
+                        let target = placed_coverage(decision, &path);
+                        inference
+                            .placed
+                            .update_inferred(&path, index.records.len(), target)?;
+                        if target.is_none_or(|coverage| !coverage.short_values) {
+                            inference.short_string_coverage.remove(&path);
+                        }
+                    }
+                }
                 for field in &decision.report.fields {
                     if matches!(
                         field.index_status,

@@ -2,6 +2,7 @@
 
 #[cfg(test)]
 use std::collections::BTreeMap;
+pub(in crate::index::memory) mod placement;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -16,6 +17,7 @@ use crate::model::CollectionId;
 use crate::model::{RecordSlot, Value};
 #[cfg(test)]
 use crate::repository::state::CollectionState;
+#[cfg(test)]
 use crate::schema::Schema;
 use crate::schema::relations::RelationDefinition;
 #[cfg(test)]
@@ -544,6 +546,7 @@ impl RelationContribution {
         })
     }
 
+    #[cfg(test)]
     pub(crate) fn declaration(&self) -> &RelationDefinition {
         &self.declaration
     }
@@ -734,6 +737,7 @@ impl RelationContribution {
         Ok(parts)
     }
 
+    #[cfg(test)]
     pub(crate) fn for_schema(schema: &Schema) -> Vec<Self> {
         schema
             .relations()

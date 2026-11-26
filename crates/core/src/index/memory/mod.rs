@@ -41,6 +41,20 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
             use super::storage::segment::maintenance::SegmentMaintenance;
             return SegmentMaintenance::project_partitions(native, partitions, catalog, cancelled);
         }
+        if let [partition] = partitions {
+            use super::storage::segment::transfer::FileSegmentLayout;
+
+            return self
+                .import_file_segment(
+                    source,
+                    FileSegmentLayout::Dense { partition, catalog },
+                    cancelled,
+                )?
+                .map(|part| vec![part])
+                .ok_or(super::storage::transfer::StorageError::Unsupported {
+                    operation: "import segment into memory partitions",
+                });
+        }
         segment::import::import_partitions(source, partitions, catalog, cancelled)
     }
 
@@ -155,32 +169,14 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
         batch: super::storage::worker::FileWorkerBatch<'_>,
     ) -> super::storage::transfer::StorageResult<crate::construction::batch::BatchContribution>
     {
-        let worker = worker::MemoryWorker::new(
-            batch.definition,
-            batch.alphabet,
-            batch.inference,
-            batch.inference_jobs,
-        )
-        .map_err(|error| {
-            super::storage::transfer::StorageError::invalid("start file worker", error)
-        })?;
-        crate::construction::batch::prepare_file_records(batch, worker)
+        prepare_file_with_components(batch, self)
     }
 
     fn prepare_direct_records(
         &self,
         batch: super::storage::worker::DirectRecordBatch<'_>,
     ) -> super::storage::transfer::StorageResult<super::storage::worker::PreparedDirectBatch> {
-        let worker = worker::MemoryWorker::new(
-            batch.declaration,
-            batch.options.bigram_alphabet,
-            batch.options.inference,
-            1,
-        )
-        .map_err(|error| {
-            super::storage::transfer::StorageError::invalid("start worker indexes", error)
-        })?;
-        crate::construction::batch::prepare_direct_records(batch, worker)
+        prepare_direct_with_components(batch, self)
     }
 
     fn start_file_discovery(
@@ -222,4 +218,40 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
     > {
         Ok(Box::new(segment_catalog::RecordRoutes::empty()))
     }
+}
+
+pub(crate) fn prepare_file_with_components(
+    batch: super::storage::worker::FileWorkerBatch<'_>,
+    factory: &dyn super::storage::StorageFactory,
+) -> super::storage::transfer::StorageResult<crate::construction::batch::BatchContribution> {
+    let worker = worker::MemoryWorker::new(
+        batch.definition,
+        batch.alphabet,
+        batch.inference,
+        batch.inference_jobs,
+        factory.posting_store(),
+        factory.gram_store(),
+        factory.relation_store(),
+    )
+    .map_err(|error| super::storage::transfer::StorageError::invalid("start file worker", error))?;
+    crate::construction::batch::prepare_file_records(batch, worker)
+}
+
+pub(crate) fn prepare_direct_with_components(
+    batch: super::storage::worker::DirectRecordBatch<'_>,
+    factory: &dyn super::storage::StorageFactory,
+) -> super::storage::transfer::StorageResult<super::storage::worker::PreparedDirectBatch> {
+    let worker = worker::MemoryWorker::new(
+        batch.declaration,
+        batch.options.bigram_alphabet,
+        batch.options.inference,
+        1,
+        factory.posting_store(),
+        factory.gram_store(),
+        factory.relation_store(),
+    )
+    .map_err(|error| {
+        super::storage::transfer::StorageError::invalid("start direct worker", error)
+    })?;
+    crate::construction::batch::prepare_direct_records(batch, worker)
 }

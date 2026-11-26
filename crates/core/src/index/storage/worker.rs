@@ -24,6 +24,18 @@ use crate::repository::statistics::BigramConstructionStats;
 /// can collect build statistics and a logical slot observation without
 /// accessing any of the component accumulators.
 pub(crate) trait PreparedIndexes: Any + Send {
+    fn posting_store(&self) -> Option<std::sync::Arc<dyn super::posting::PostingStore>> {
+        None
+    }
+
+    fn gram_store(&self) -> Option<std::sync::Arc<dyn super::text::GramStore>> {
+        None
+    }
+
+    fn relation_store(&self) -> Option<std::sync::Arc<dyn super::relation::RelationStore>> {
+        None
+    }
+
     fn logical_slots(&self) -> MembershipView<'_>;
     fn bigram_storage_stats(&self) -> BigramConstructionStats;
 }

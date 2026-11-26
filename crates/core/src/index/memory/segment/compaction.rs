@@ -446,6 +446,9 @@ impl IndexedCollectionSegment {
             index.validate(records.len())?;
         }
         let backing = self.project_backing(slot_map, next)?;
+        let placed_postings =
+            self.placed_postings
+                .project(slot_map, records.len(), logical_records.len() as u32)?;
         let mut index = IndexedCollectionSegment {
             id: self.id,
             collection: self.collection,
@@ -460,15 +463,18 @@ impl IndexedCollectionSegment {
             id_lookup,
             identity_order,
             postings: postings.into(),
+            placed_postings,
             inference,
             custom_postings,
             raw: raw.into(),
+            placed_grams: self.placed_grams.project(slot_map, next)?,
             fallback_text: fallback_text.into(),
             custom_text,
             logical_records,
             empty_array_records,
             sorting: sorting.into(),
             relations,
+            placed_relations: self.placed_relations.project(slot_map, next)?,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
             accounting: SegmentAccounting::default(),

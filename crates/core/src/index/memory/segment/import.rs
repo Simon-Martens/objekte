@@ -51,18 +51,6 @@ pub(crate) fn import_partitions(
     let unsupported = || StorageError::Unsupported {
         operation: "import segment into memory partitions",
     };
-    if partitions.len() == 1 {
-        return import(
-            source,
-            FileSegmentLayout::Dense {
-                partition: &partitions[0],
-                catalog,
-            },
-            cancelled,
-        )?
-        .map(|part| vec![part])
-        .ok_or_else(unsupported);
-    }
     if partitions.is_empty() {
         return Ok(Vec::new());
     }
@@ -234,6 +222,7 @@ fn import_with_routing(
     let mut inference = source.inference_report()?.map(|report| InferenceState {
         report: report.into_owned(),
         indexes: HashMap::new(),
+        placed: Default::default(),
         short_string_coverage: HashMap::new(),
     });
     if let Some(state) = &inference
@@ -575,15 +564,18 @@ fn import_with_routing(
         id_lookup,
         identity_order,
         postings: declared.into(),
+        placed_postings: Default::default(),
         inference,
         custom_postings: named_postings,
         raw: raw.unwrap_or_else(|| empty_grams(alphabet)).into(),
+        placed_grams: Default::default(),
         fallback_text: fallback.unwrap_or_else(|| empty_grams(alphabet)).into(),
         custom_text,
         logical_records: logical,
         empty_array_records: empty,
         sorting: sorting.into(),
         relations,
+        placed_relations: Default::default(),
         record_parses: 0,
         failed_parses: 0,
         accounting: Default::default(),

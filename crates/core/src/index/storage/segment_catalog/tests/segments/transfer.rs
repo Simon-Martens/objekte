@@ -4,7 +4,6 @@ use super::*;
 use crate::index::storage::component::{ComponentDescriptor, ComponentKind};
 use crate::index::storage::order::COLLATION_VERSION;
 use crate::index::storage::order::key_transfer::transfer_order_keys;
-use crate::index::storage::ordered_slots::OrderedSlotCursor;
 use crate::index::storage::posting::visit_posting_blocks;
 use crate::index::storage::relation::{
     RelationBlock, RelationFacts, RelationRow, VisitRelationTarget, visit_relation_blocks,
@@ -76,6 +75,14 @@ impl GramReader for TableGram {
         self.descriptor
     }
 
+    fn members(&self, channel: GramChannel, key: u64) -> StorageResult<SlotSet<'_>> {
+        let Some(slots) = self.rows.get(&(channel, key)) else {
+            return Ok(SlotSet::Empty);
+        };
+        SlotSet::from_sorted(slots.iter().map(|slot| slot.0).collect())
+            .map_err(|error| invalid(error.to_string()))
+    }
+
     fn visit_blocks(&self, limit: BatchLimit, visit: &mut VisitGramBlock<'_>) -> StorageResult<()> {
         let max = limit
             .fixed_batch_len_after(
@@ -90,6 +97,79 @@ impl GramReader for TableGram {
             }
         }
         Ok(())
+    }
+}
+
+impl crate::index::storage::text::GramStore for Arc<TableFactory> {
+    fn accepts(
+        &self,
+        binding: &crate::index::storage::text::GramBinding,
+        _: crate::index::storage::text::BigramAlphabet,
+    ) -> bool {
+        matches!(binding, crate::index::storage::text::GramBinding::Raw)
+    }
+
+    fn start(
+        &self,
+        _: &crate::index::storage::text::GramBinding,
+        alphabet: crate::index::storage::text::BigramAlphabet,
+    ) -> StorageResult<Box<dyn crate::index::storage::text::GramWriter>> {
+        Ok(Box::new(TableGramWriter {
+            control: Arc::clone(self),
+            alphabet,
+            rows: BTreeMap::new(),
+        }))
+    }
+}
+
+struct TableGramWriter {
+    control: Arc<TableFactory>,
+    alphabet: crate::index::storage::text::BigramAlphabet,
+    rows: BTreeMap<(GramChannel, u64), BTreeSet<RecordSlot>>,
+}
+
+impl crate::index::storage::text::GramWriter for TableGramWriter {
+    fn push(
+        &mut self,
+        base: u32,
+        facts: &[crate::index::storage::text::GramFact],
+    ) -> StorageResult<()> {
+        assert!(facts.len() <= 256);
+        self.control
+            .gram_fact_batches
+            .fetch_add(1, Ordering::Relaxed);
+        for fact in facts {
+            let slot = base
+                .checked_add(fact.slot.0)
+                .ok_or_else(|| invalid("gram slot overflow"))?;
+            self.rows
+                .entry((fact.channel, fact.key))
+                .or_default()
+                .insert(RecordSlot(slot));
+        }
+        Ok(())
+    }
+
+    fn seal(self: Box<Self>, slots: u32) -> StorageResult<Arc<dyn GramReader>> {
+        if self
+            .rows
+            .values()
+            .any(|members| members.last().is_some_and(|slot| slot.0 >= slots))
+        {
+            return Err(invalid("gram slot outside domain"));
+        }
+        Ok(Arc::new(TableGram {
+            descriptor: GramDescriptor {
+                alphabet: self.alphabet,
+                version: crate::index::storage::text::BIGRAM_VERSION,
+                covered_records: slots,
+            },
+            rows: self
+                .rows
+                .into_iter()
+                .map(|(key, slots)| (key, slots.into_iter().collect()))
+                .collect(),
+        }))
     }
 }
 
@@ -225,6 +305,100 @@ pub(super) struct TableRelation {
     edges: usize,
 }
 
+impl crate::index::storage::relation::RelationStore for Arc<TableFactory> {
+    fn accepts(&self, _: &RelationDefinition) -> bool {
+        true
+    }
+
+    fn start(
+        &self,
+        declaration: &RelationDefinition,
+    ) -> StorageResult<Box<dyn crate::index::storage::relation::RelationWriter>> {
+        Ok(Box::new(TableRelationWriter {
+            declaration: declaration.clone(),
+            control: Arc::clone(self),
+            facts: BTreeMap::new(),
+            targets: BTreeMap::new(),
+        }))
+    }
+}
+
+struct TableRelationWriter {
+    declaration: RelationDefinition,
+    control: Arc<TableFactory>,
+    facts: BTreeMap<u32, RelationFacts>,
+    targets: BTreeMap<u32, Vec<(String, Vec<u32>)>>,
+}
+
+impl crate::index::storage::relation::RelationWriter for TableRelationWriter {
+    fn push(
+        &mut self,
+        base: u32,
+        facts: &[crate::index::storage::relation::RelationFact],
+    ) -> StorageResult<()> {
+        use crate::index::storage::relation::RelationFactKind;
+
+        assert!(facts.len() <= 128);
+        self.control
+            .relation_fact_batches
+            .fetch_add(1, Ordering::Relaxed);
+        for fact in facts {
+            let slot = base
+                .checked_add(fact.slot.0)
+                .ok_or_else(|| invalid("relation slot overflow"))?;
+            match &fact.kind {
+                RelationFactKind::Source(facts) => {
+                    if self.facts.insert(slot, *facts).is_some() {
+                        return Err(invalid("duplicate relation source row"));
+                    }
+                }
+                RelationFactKind::Target { id, positions } => {
+                    self.targets
+                        .entry(slot)
+                        .or_default()
+                        .push((id.clone(), positions.clone()));
+                }
+            }
+        }
+        Ok(())
+    }
+
+    fn seal(mut self: Box<Self>, slots: u32) -> StorageResult<Arc<dyn RelationReader>> {
+        if self.facts.len() != slots as usize
+            || self
+                .targets
+                .last_key_value()
+                .is_some_and(|(&slot, _)| slot >= slots)
+        {
+            return Err(invalid("relation slot coverage mismatch"));
+        }
+        let mut reverse = BTreeMap::<String, BTreeSet<u32>>::new();
+        let mut edges = 0;
+        let mut rows = Vec::new();
+        for slot in 0..slots {
+            let facts = self
+                .facts
+                .remove(&slot)
+                .ok_or_else(|| invalid("relation row missing"))?;
+            let targets = self.targets.remove(&slot).unwrap_or_default();
+            edges += targets.len();
+            for (id, _) in &targets {
+                reverse.entry(id.clone()).or_default().insert(slot);
+            }
+            rows.push((facts, targets));
+        }
+        Ok(Arc::new(TableRelation {
+            declaration: self.declaration,
+            rows,
+            reverse: reverse
+                .into_iter()
+                .map(|(id, slots)| (id, slots.into_iter().collect()))
+                .collect(),
+            edges,
+        }))
+    }
+}
+
 impl TableRelation {
     fn import(
         reader: &dyn RelationReader,
@@ -330,6 +504,10 @@ impl RelationReader for TableRelation {
             }
         }
         Ok(())
+    }
+
+    fn reverse_members(&self, target: &str) -> StorageResult<Option<SlotSet<'_>>> {
+        self.sources(target).map(Some)
     }
 
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>> {
@@ -557,49 +735,36 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
         if reader.key_count() != domain.slots || reader.collation_version() != COLLATION_VERSION {
             return Err(invalid("order descriptor mismatch"));
         }
-        let mut keys = Vec::new();
+        let definition = DeclaredOrderDefinition {
+            path: reader.path().clone(),
+            kind: reader.kind().clone(),
+            config: SortConfig {
+                locale: reader.locale().to_owned(),
+                options: reader.options(),
+            },
+            collation_version: reader.collation_version().to_owned(),
+        };
+        let mut writer = control.start(definition)?;
+        let mut keys = Vec::with_capacity(ORDER_KEY_BATCH_SIZE);
+        let mut base = 0;
         transfer_order_keys(
             reader,
             (0..domain.slots as u32).map(|slot| Ok(RecordSlot(slot))),
             &cancelled,
             |key| {
                 keys.push(key);
+                if keys.len() == ORDER_KEY_BATCH_SIZE {
+                    writer.push_keys(RecordSlot(base), &keys)?;
+                    base += keys.len() as u32;
+                    keys.clear();
+                }
                 Ok(())
             },
         )?;
-        let order = |descending| -> StorageResult<Vec<RecordSlot>> {
-            let mut cursor = OrderedSlotCursor::new(reader.slots(descending)?);
-            let mut output = Vec::new();
-            let mut seen = BTreeSet::new();
-            while let Some(slot) = cursor.next_slot()? {
-                if cancelled() {
-                    return Err(StorageError::Cancelled);
-                }
-                if slot.0 as usize >= domain.slots || !seen.insert(slot) {
-                    return Err(invalid("invalid stored order slot"));
-                }
-                output.push(slot);
-            }
-            if output.len() != domain.slots {
-                return Err(invalid("incomplete stored order"));
-            }
-            Ok(output)
-        };
-        let reader = DeclaredOrderStore::seal(
-            &control,
-            DeclaredOrderRows {
-                path: reader.path().clone(),
-                kind: reader.kind().clone(),
-                config: SortConfig {
-                    locale: reader.locale().to_owned(),
-                    options: reader.options(),
-                },
-                collation_version: reader.collation_version().to_owned(),
-                keys,
-                ascending: order(false)?,
-                descending: order(true)?,
-            },
-        )?;
+        if !keys.is_empty() {
+            writer.push_keys(RecordSlot(base), &keys)?;
+        }
+        let reader = writer.seal(&rows.as_slice())?;
         if orders.insert(reader.path().clone(), reader).is_some() {
             return Err(invalid("duplicate order"));
         }
@@ -628,6 +793,132 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     table.grams = grams;
     table.raw_covers_logical_fields = source.raw_covers_logical_fields();
     Ok(Some(Arc::new(table)))
+}
+
+#[test]
+fn direct_workers_attach_independent_grams_and_relations() {
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
+    use crate::schema::FieldDefinition;
+    use crate::schema::relations::RelationCardinality;
+
+    let factory = Arc::new(TableFactory::default());
+    factory.store_grams.store(true, Ordering::Relaxed);
+    factory.store_postings.store(true, Ordering::Relaxed);
+    factory.store_relations.store(true, Ordering::Relaxed);
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let mut schema = score_schema();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["target".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_relation(RelationDefinition {
+            path: vec!["target".into()],
+            target_collection: "targets".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: Some("sources".into()),
+        })
+        .unwrap();
+    let entries = builder.collection("entries", schema).unwrap();
+    let targets = builder.collection("targets", score_schema()).unwrap();
+    let registration = builder
+        .register_records(entries, "direct-entries", 1)
+        .unwrap();
+    let targets_registration = builder
+        .register_records(targets, "direct-targets", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let entry_writer = session.writer(registration).unwrap();
+    let target_writer = session.writer(targets_registration).unwrap();
+    let mut batch = target_writer.batch();
+    batch.insert("target", score(9)).unwrap();
+    target_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let mut batch = entry_writer.batch();
+    for (id, name) in [("a", "scarlet velvet"), ("b", "blue canvas")] {
+        let mut row = score(7);
+        let Value::Object(fields) = &mut row else {
+            unreachable!()
+        };
+        fields.insert("title".into(), Value::String(name.into()));
+        fields.insert("target".into(), Value::Id("target".into()));
+        batch.insert(id, row).unwrap();
+    }
+    entry_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    let pin = index.view().unwrap();
+    let ids = |view: &crate::lifecycle::IndexView, query: &crate::query::Query| {
+        view.search(query)
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>()
+    };
+    let verify = |view: &crate::lifecycle::IndexView, related: &[&str]| {
+        let group = view.segments(entries).unwrap();
+        assert_eq!(group.len(), 1);
+        let payload = group[0].native_payload();
+        assert!(payload.raw.normal.is_empty());
+        assert!(payload.raw.skip.is_empty());
+        assert_eq!(payload.relations[0].edge_count(), 0);
+        let relation = group[0].relation(0).unwrap().unwrap();
+        assert!((relation as &dyn std::any::Any).is::<TableRelation>());
+        assert_eq!(relation.edge_count(), related.len());
+        let component = group[0]
+            .components()
+            .unwrap()
+            .into_iter()
+            .find(|component| component.kind == ComponentKind::RawText)
+            .unwrap();
+        let gram = group[0].grams(&component).unwrap().unwrap();
+        assert!((gram as &dyn std::any::Any).is::<TableGram>());
+        let mut query = score_query();
+        query.collections = vec!["entries".into()];
+        query.options.return_mode = ReturnMode::Locator;
+        query.filter = Some(crate::query::parse_filter("target.score = 9").unwrap());
+        assert_eq!(ids(view, &query), related);
+        query.filter = None;
+        query.fts = Some(FtsQuery {
+            literal: "scarlet velvet".into(),
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            fields: Vec::new(),
+            pattern_parameter: None,
+        });
+        assert_eq!(ids(view, &query), ["a"]);
+    };
+    verify(&pin, &["a", "b"]);
+    assert!(factory.gram_fact_batches.load(Ordering::Relaxed) > 0);
+    assert!(factory.posting_fact_batches.load(Ordering::Relaxed) > 0);
+    assert!(factory.relation_fact_batches.load(Ordering::Relaxed) > 0);
+
+    let mut batch = entry_writer.batch();
+    batch.delete("b").unwrap();
+    entry_writer
+        .submit(batch)
+        .unwrap()
+        .wait_published()
+        .unwrap();
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    verify(&index.view().unwrap(), &["a"]);
+    verify(&pin, &["a", "b"]);
+    session.finish().unwrap();
 }
 
 #[test]

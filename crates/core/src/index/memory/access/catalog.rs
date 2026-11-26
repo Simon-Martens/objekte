@@ -1,6 +1,8 @@
 //! Borrowed views of published search accesses. A catalogue never owns a
 //! posting, bitmap, or dictionary: the owning generation/segment retains them.
 
+use crate::index::memory::bigram::placement::{GramAccess, PlacedGrams};
+use crate::index::storage::text::GramBinding;
 use std::collections::HashMap;
 
 use roaring::RoaringBitmap;
@@ -362,8 +364,9 @@ pub(crate) struct IndexCatalog<'a> {
     text: &'a HashMap<(Vec<String>, String), BigramIndex>,
     text_bindings: &'a TextBindingCatalog,
     pub logical: &'a RoaringBitmap,
-    pub raw_text: &'a BigramIndex,
-    pub fallback_text: &'a BigramIndex,
+    pub raw_text: GramAccess<'a>,
+    placed_grams: Option<&'a PlacedGrams>,
+    pub fallback_text: GramAccess<'a>,
 }
 
 impl<'a> IndexCatalog<'a> {
@@ -377,8 +380,9 @@ impl<'a> IndexCatalog<'a> {
             text: &state.custom_text,
             text_bindings: &state.text_bindings,
             logical: &state.logical_records,
-            raw_text: &state.raw,
-            fallback_text: &state.fallback_text,
+            raw_text: GramAccess::Native(&state.raw),
+            fallback_text: GramAccess::Native(&state.fallback_text),
+            placed_grams: None,
         }
     }
 
@@ -395,8 +399,15 @@ impl<'a> IndexCatalog<'a> {
             text: &state.custom_text,
             text_bindings: bindings,
             logical: &state.logical_records,
-            raw_text: &state.raw,
-            fallback_text: &state.fallback_text,
+            raw_text: state
+                .placed_grams
+                .get(&GramBinding::Raw)
+                .map_or(GramAccess::Native(&state.raw), GramAccess::Placed),
+            fallback_text: state
+                .placed_grams
+                .get(&GramBinding::Fallback)
+                .map_or(GramAccess::Native(&state.fallback_text), GramAccess::Placed),
+            placed_grams: (!state.placed_grams.is_empty()).then_some(&state.placed_grams),
         }
     }
 
@@ -453,8 +464,15 @@ impl<'a> IndexCatalog<'a> {
             .find(|access| access.id == id)
     }
 
-    pub fn field_text(&self, path: &[String], binding: &str) -> Option<&'a BigramIndex> {
-        self.text.get(&(path.to_vec(), binding.to_owned()))
+    pub fn field_text(&self, path: &[String], binding: &str) -> Option<GramAccess<'a>> {
+        let key = (path.to_vec(), binding.to_owned());
+        if let Some(reader) = self
+            .placed_grams
+            .and_then(|grams| grams.get(&GramBinding::Field(key.0.clone(), key.1.clone())))
+        {
+            return Some(GramAccess::Placed(reader));
+        }
+        self.text.get(&key).map(GramAccess::Native)
     }
 
     /// Resolve a field text binding with the same representation/coverage rule
@@ -469,7 +487,7 @@ impl<'a> IndexCatalog<'a> {
         named_operation: bool,
         logical_text_complete: bool,
         raw_field_compatible: bool,
-    ) -> Option<&'a BigramIndex> {
+    ) -> Option<GramAccess<'a>> {
         let built_in = matches!(binding, "default" | "lower");
         let canonical = self.text_bindings.canonical.get(path);
         let name = if built_in

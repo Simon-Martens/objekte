@@ -4,12 +4,15 @@ use std::fmt;
 use std::sync::Arc;
 
 use crate::index::storage::order::key_transfer::transfer_order_keys;
-use crate::index::storage::order::{DeclaredOrderRows, DeclaredOrderStore, OrderColumnReader};
+use crate::index::storage::order::{
+    DeclaredOrderDefinition, DeclaredOrderStore, DeclaredOrderWriter, ORDER_KEY_BATCH_SIZE,
+    OrderColumnReader, OrderIdentities,
+};
 use crate::index::storage::transfer::{StorageError, StorageResult};
-use crate::model::{FieldPath, PathRoot, RecordSlot};
+use crate::model::{FieldPath, RecordSlot};
 use crate::records::RecordIdSlot;
 
-use super::{SortCollection, SortColumn, SortConfig, SortKey};
+use super::{SortCollection, SortConfig, SortKey};
 
 #[derive(Clone)]
 pub(in crate::index::memory) struct PlacedOrder {
@@ -27,57 +30,85 @@ impl fmt::Debug for PlacedOrder {
     }
 }
 
-impl PlacedOrder {
-    fn seal(store: Arc<dyn DeclaredOrderStore>, column: SortColumn) -> StorageResult<Self> {
-        let path = column.path;
-        let kind = column.kind;
-        let config = SortConfig {
-            locale: column.locale,
-            options: column.options,
-        };
-        let version = column.collation_version;
-        let count = column.keys.len();
-        let reader = store.seal(DeclaredOrderRows {
-            path: path.clone(),
-            kind: kind.clone(),
-            config: config.clone(),
-            collation_version: version.clone(),
-            keys: column.keys,
-            ascending: column.ascending,
-            descending: column.descending,
-        })?;
-        if reader.path() != &path
-            || reader.kind() != &kind
-            || reader.locale() != config.locale
-            || reader.options() != config.options
-            || reader.collation_version() != version
+pub(in crate::index::memory) struct PlacedOrderWriter {
+    store: Arc<dyn DeclaredOrderStore>,
+    definition: DeclaredOrderDefinition,
+    writer: Box<dyn DeclaredOrderWriter>,
+    keys: usize,
+}
+
+impl PlacedOrderWriter {
+    pub(super) fn new(
+        store: Arc<dyn DeclaredOrderStore>,
+        definition: DeclaredOrderDefinition,
+    ) -> StorageResult<Self> {
+        let writer = store.start(definition.clone())?;
+        Ok(Self {
+            store,
+            definition,
+            writer,
+            keys: 0,
+        })
+    }
+
+    pub(super) fn append(&mut self, base: u32, keys: &[SortKey]) -> StorageResult<()> {
+        if self.keys != base as usize {
+            return Err(StorageError::invalid(
+                "write declared order",
+                "keys are not in slot order",
+            ));
+        }
+        for batch in keys.chunks(ORDER_KEY_BATCH_SIZE) {
+            let base = u32::try_from(self.keys).map_err(|_| {
+                StorageError::invalid("write declared order", "slot count overflow")
+            })?;
+            self.writer.push_keys(RecordSlot(base), batch)?;
+            self.keys += batch.len();
+        }
+        Ok(())
+    }
+
+    pub(super) fn finish(self, records: &dyn OrderIdentities) -> StorageResult<PlacedOrder> {
+        const OP: &str = "seal declared sort column";
+        let definition = self.definition;
+        let count = self.keys;
+        if count != records.len() {
+            return Err(StorageError::invalid(OP, "key coverage mismatch"));
+        }
+        let reader = self.writer.seal(records)?;
+        if reader.path() != &definition.path
+            || reader.kind() != &definition.kind
+            || reader.locale() != definition.config.locale
+            || reader.options() != definition.config.options
+            || reader.collation_version() != definition.collation_version
             || reader.key_count() != count
             || reader.slots(false)?.len() != count
             || reader.slots(true)?.len() != count
         {
-            return Err(StorageError::invalid(
-                "seal declared sort column",
-                "incompatible order returned",
-            ));
+            return Err(StorageError::invalid(OP, "incompatible order returned"));
         }
-        Ok(Self { reader, store })
+        Ok(PlacedOrder {
+            reader,
+            store: self.store,
+        })
+    }
+}
+
+impl PlacedOrder {
+    fn definition(&self) -> DeclaredOrderDefinition {
+        DeclaredOrderDefinition {
+            path: self.reader.path().clone(),
+            kind: self.reader.kind().clone(),
+            config: SortConfig {
+                locale: self.reader.locale().to_owned(),
+                options: self.reader.options(),
+            },
+            collation_version: self.reader.collation_version().to_owned(),
+        }
     }
 
     fn reader(&self) -> &dyn OrderColumnReader {
         self.reader.as_ref()
-    }
-
-    fn column_with_keys(&self, keys: Vec<SortKey>) -> SortColumn {
-        SortColumn {
-            path: self.reader.path().clone(),
-            kind: self.reader.kind().clone(),
-            keys,
-            ascending: Vec::new(),
-            descending: Vec::new(),
-            locale: self.reader.locale().to_owned(),
-            options: self.reader.options(),
-            collation_version: self.reader.collation_version().to_owned(),
-        }
     }
 
     pub(in crate::index::memory) fn project(
@@ -90,50 +121,32 @@ impl PlacedOrder {
                 StorageError::invalid("project declared order", "original slot missing")
             })
         });
-        let mut keys = Vec::with_capacity(records.len());
-        self.append_keys(slots, &mut keys)?;
-        let mut column = self.column_with_keys(keys);
-        column.build_order(records)?;
-        Ok(Self::seal(Arc::clone(&self.store), column)?)
+        let mut writer = PlacedOrderWriter::new(Arc::clone(&self.store), self.definition())?;
+        writer.transfer(self.reader(), slots)?;
+        Ok(writer.finish(&records)?)
     }
+}
 
-    fn append_keys(
-        &self,
+impl PlacedOrderWriter {
+    fn transfer(
+        &mut self,
+        reader: &dyn OrderColumnReader,
         slots: impl IntoIterator<Item = StorageResult<RecordSlot>>,
-        keys: &mut Vec<SortKey>,
     ) -> StorageResult<()> {
-        transfer_order_keys(self.reader(), slots, &|| false, |key| {
+        let mut keys = Vec::with_capacity(ORDER_KEY_BATCH_SIZE);
+        transfer_order_keys(reader, slots, &|| false, |key| {
             keys.push(key);
+            if keys.len() == ORDER_KEY_BATCH_SIZE {
+                self.append(self.keys as u32, &keys)?;
+                keys.clear();
+            }
             Ok(())
-        })
-    }
-
-    fn append_all_keys(&self, keys: &mut Vec<SortKey>) -> StorageResult<()> {
-        let slots = (0..self.reader.key_count()).map(|slot| Ok(RecordSlot(slot as u32)));
-        self.append_keys(slots, keys)
+        })?;
+        self.append(self.keys as u32, &keys)
     }
 }
 
 impl SortCollection {
-    pub(in crate::index::memory) fn place_columns(
-        &mut self,
-        store: Arc<dyn DeclaredOrderStore>,
-    ) -> StorageResult<()> {
-        let place = self.columns.extract_if(|path, column| {
-            path.root == PathRoot::Data
-                && store.accepts(path, &column.kind)
-                && !self
-                    .composites
-                    .iter()
-                    .any(|order| order.fields.iter().any(|field| &field.path == path))
-        });
-        for (path, column) in place {
-            self.placed
-                .insert(path, PlacedOrder::seal(Arc::clone(&store), column)?);
-        }
-        Ok(())
-    }
-
     pub(crate) fn readers(&self) -> impl Iterator<Item = &dyn OrderColumnReader> {
         self.columns
             .values()
@@ -175,70 +188,74 @@ impl SortCollection {
 
     pub(in crate::index::memory) fn consolidation_columns(
         &self,
-    ) -> Result<(Self, HashMap<FieldPath, Arc<dyn DeclaredOrderStore>>), String> {
-        let mut sorting = Self {
-            columns: self.columns.clone(),
-            composites: self.composites.clone(),
-            placed: HashMap::new(),
-        };
-        let mut stores = HashMap::with_capacity(self.placed.len());
-        for (path, placed) in &self.placed {
-            let mut keys = Vec::with_capacity(placed.reader.key_count());
-            placed.append_all_keys(&mut keys)?;
-            sorting
-                .columns
-                .insert(path.clone(), placed.column_with_keys(keys));
-            stores.insert(path.clone(), Arc::clone(&placed.store));
+        shards: &[&Self],
+    ) -> (Self, HashMap<FieldPath, PlacedOrder>) {
+        let mut placed = HashMap::new();
+        for shard in shards {
+            for (path, order) in &shard.placed {
+                placed.entry(path.clone()).or_insert_with(|| order.clone());
+            }
         }
-        Ok((sorting, stores))
+        let columns = self
+            .columns
+            .iter()
+            .filter(|(path, _)| !placed.contains_key(*path))
+            .map(|(path, column)| (path.clone(), column.clone()))
+            .collect();
+        (
+            Self {
+                columns,
+                composites: self.composites.clone(),
+                placed: HashMap::new(),
+            },
+            placed,
+        )
     }
 
     pub(in crate::index::memory) fn append_consolidation_columns(
         &mut self,
         source: &Self,
-        stores: &mut HashMap<FieldPath, Arc<dyn DeclaredOrderStore>>,
+        placed: &HashMap<FieldPath, PlacedOrder>,
     ) -> Result<(), String> {
         for (path, column) in &source.columns {
-            self.check_consolidation_column(path, column)?
-                .keys
-                .extend_from_slice(&column.keys);
-        }
-        for (path, placed) in &source.placed {
-            let keys = &mut self.check_consolidation_column(path, placed.reader())?.keys;
-            placed.append_all_keys(keys)?;
-            stores
-                .entry(path.clone())
-                .or_insert_with(|| Arc::clone(&placed.store));
+            if placed.contains_key(path) {
+                continue;
+            }
+            let target = self.columns.get_mut(path).ok_or("sort column missing")?;
+            if column.kind != target.kind
+                || column.locale != target.locale
+                || column.options != target.options
+                || column.collation_version != target.collation_version
+            {
+                return Err("sort column representation mismatch".into());
+            }
+            target.keys.extend_from_slice(&column.keys);
         }
         Ok(())
     }
 
-    fn check_consolidation_column(
+    pub(in crate::index::memory) fn consolidate_placed(
         &mut self,
-        path: &FieldPath,
-        source: &dyn OrderColumnReader,
-    ) -> Result<&mut SortColumn, String> {
-        let column = self.columns.get_mut(path).ok_or("sort column missing")?;
-        if &column.kind != source.kind()
-            || column.locale != source.locale()
-            || column.options != source.options()
-            || column.collation_version != source.collation_version()
-        {
-            return Err("sort column representation mismatch".into());
-        }
-        Ok(column)
-    }
-
-    pub(in crate::index::memory) fn restore_placement(
-        &mut self,
-        stores: HashMap<FieldPath, Arc<dyn DeclaredOrderStore>>,
+        placed: HashMap<FieldPath, PlacedOrder>,
+        shards: &[&Self],
+        records: &[impl RecordIdSlot],
     ) -> Result<(), String> {
-        for (path, store) in stores {
-            let column = self
-                .columns
-                .remove(&path)
-                .ok_or("placed sort column missing")?;
-            self.placed.insert(path, PlacedOrder::seal(store, column)?);
+        for (path, order) in placed {
+            let mut writer = PlacedOrderWriter::new(Arc::clone(&order.store), order.definition())?;
+            for shard in shards {
+                let reader = shard.reader(&path).ok_or("placed sort column missing")?;
+                let canonical = order.reader();
+                if reader.kind() != canonical.kind()
+                    || reader.locale() != canonical.locale()
+                    || reader.options() != canonical.options()
+                    || reader.collation_version() != canonical.collation_version()
+                {
+                    return Err("sort column representation mismatch".into());
+                }
+                let slots = (0..reader.key_count()).map(|slot| Ok(RecordSlot(slot as u32)));
+                writer.transfer(reader, slots)?;
+            }
+            self.placed.insert(path, writer.finish(&records)?);
         }
         Ok(())
     }

@@ -3,6 +3,9 @@
 use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::collections::HashMap;
+use std::sync::Arc;
+
+use crate::index::storage::order::{DeclaredOrderDefinition, DeclaredOrderStore};
 
 use icu_collator::CollatorBorrowed;
 use roaring::RoaringBitmap;
@@ -24,7 +27,7 @@ use crate::records::RecordIdSlot;
 use crate::schema::Schema;
 
 pub(super) mod import;
-mod inferred_order;
+pub(super) mod inferred_order;
 mod placement;
 
 pub(super) use inferred_order::build_inferred_order_rows;
@@ -383,14 +386,54 @@ fn sort_key_from_value(
     })
 }
 
+struct SortKeyDraft {
+    definition: DeclaredOrderDefinition,
+    keys: Vec<SortKey>,
+}
+
+impl SortKeyDraft {
+    fn into_column(self) -> SortColumn {
+        SortColumn {
+            path: self.definition.path,
+            kind: self.definition.kind,
+            keys: self.keys,
+            ascending: Vec::new(),
+            descending: Vec::new(),
+            locale: self.definition.config.locale,
+            options: self.definition.config.options,
+            collation_version: self.definition.collation_version,
+        }
+    }
+}
+
 /// Mutable keys accumulated during index construction.
 pub struct SortBuilder {
-    columns: HashMap<FieldPath, SortColumn>,
+    columns: HashMap<FieldPath, SortKeyDraft>,
+    placed: HashMap<FieldPath, placement::PlacedOrderWriter>,
     collators: HashMap<FieldPath, CollatorBorrowed<'static>>,
     composites: Vec<Vec<CompositeSortPart>>,
 }
 
 impl SortBuilder {
+    pub(in crate::index::memory) fn select_store(
+        &mut self,
+        store: Arc<dyn DeclaredOrderStore>,
+    ) -> StorageResult<()> {
+        let selected = self.columns.extract_if(|path, column| {
+            path.root == PathRoot::Data
+                && store.accepts(path, &column.definition.kind)
+                && !self
+                    .composites
+                    .iter()
+                    .any(|order| order.iter().any(|field| &field.path == path))
+        });
+        for (path, column) in selected {
+            let writer = placement::PlacedOrderWriter::new(Arc::clone(&store), column.definition)?;
+            self.placed.insert(path, writer);
+        }
+        Ok(())
+    }
+
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
         self.columns
             .into_iter()
@@ -404,15 +447,22 @@ impl SortBuilder {
         base: u32,
         batch_count: u32,
     ) -> Result<(), String> {
-        if self.columns.len() != keys.len() {
+        if self.columns.len() + self.placed.len() != keys.len() {
             return Err("sort batch column coverage mismatch".into());
         }
         for (path, mut values) in keys {
+            if values.len() != batch_count as usize {
+                return Err("sort batch key coverage mismatch".into());
+            }
+            if let Some(writer) = self.placed.get_mut(&path) {
+                writer.append(base, &values)?;
+                continue;
+            }
             let column = self
                 .columns
                 .get_mut(&path)
                 .ok_or("sort batch column missing")?;
-            if column.keys.len() != base as usize || values.len() != batch_count as usize {
+            if column.keys.len() != base as usize {
                 return Err("sort batch key coverage mismatch".into());
             }
             column.keys.append(&mut values);
@@ -437,15 +487,14 @@ impl SortBuilder {
             if columns
                 .insert(
                     path.clone(),
-                    SortColumn {
-                        path: path.clone(),
-                        kind,
+                    SortKeyDraft {
+                        definition: DeclaredOrderDefinition {
+                            path: path.clone(),
+                            kind,
+                            config,
+                            collation_version: COLLATION_VERSION.into(),
+                        },
                         keys: Vec::new(),
-                        ascending: Vec::new(),
-                        descending: Vec::new(),
-                        locale: config.locale,
-                        options: config.options,
-                        collation_version: COLLATION_VERSION.into(),
                     },
                 )
                 .is_some()
@@ -456,6 +505,7 @@ impl SortBuilder {
         let composites = composite_orders(schema, |path| columns.contains_key(path))?;
         Ok(Self {
             columns,
+            placed: HashMap::new(),
             collators,
             composites,
         })
@@ -476,26 +526,26 @@ impl SortBuilder {
                 return Err("sort slots out of order".into());
             }
             let owned;
-            let selected = match column.path.root {
+            let selected = match column.definition.path.root {
                 PathRoot::Metadata(field) => {
                     owned =
                         metadata_value_for_record(field, id, class, file, collection_name, root)?;
                     owned.as_ref().map(|value| smallvec::smallvec![value])
                 }
-                PathRoot::Data => data_values_small(record, &column.path.segments),
+                PathRoot::Data => data_values_small(record, &column.definition.path.segments),
                 PathRoot::Backlinks => return Err("related sort field is not registered".into()),
             };
             let key = match selected {
                 Some(values) if values.len() > 1 => {
                     return Err(format!(
                         "multi-valued sort field: {}",
-                        column.path.display()
+                        column.definition.path.display()
                     ));
                 }
                 values => sort_key_from_value(
                     values.and_then(|values| values.first().copied()),
-                    &self.collators[&column.path],
-                    &column.path,
+                    &self.collators[&column.definition.path],
+                    &column.definition.path,
                 )?,
             };
             column.keys.push(key);
@@ -511,19 +561,25 @@ impl SortBuilder {
     /// Finalize a locally slotted incremental segment without constructing
     /// the dense per-file ownership table required by a base generation.
     pub(crate) fn finish_for_records(
-        mut self,
+        self,
         records: &[impl RecordIdSlot],
     ) -> Result<SortCollection, String> {
-        for column in self.columns.values_mut() {
-            column.build_order(records)?;
-        }
+        let columns = self
+            .columns
+            .into_iter()
+            .map(|(path, draft)| {
+                let mut column = draft.into_column();
+                column.build_order(records)?;
+                Ok((path, column))
+            })
+            .collect::<Result<HashMap<_, _>, String>>()?;
         let composites = self
             .composites
             .into_iter()
             .map(|fields| {
                 let columns: Vec<_> = fields
                     .iter()
-                    .map(|field| (&self.columns[&field.path], field.descending))
+                    .map(|field| (&columns[&field.path], field.descending))
                     .collect();
                 let mut order: Vec<_> = records.iter().map(|record| record.record_slot()).collect();
                 order.sort_by(|a, b| {
@@ -536,10 +592,15 @@ impl SortBuilder {
                 CompositeSortOrder { fields, order }
             })
             .collect();
+        let placed = self
+            .placed
+            .into_iter()
+            .map(|(path, writer)| Ok((path, writer.finish(&records)?)))
+            .collect::<Result<_, String>>()?;
         Ok(SortCollection {
-            columns: self.columns,
+            columns,
             composites,
-            placed: HashMap::new(),
+            placed,
         })
     }
 }

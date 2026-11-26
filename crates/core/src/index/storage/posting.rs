@@ -5,6 +5,7 @@ pub(crate) mod declared;
 
 use std::num::NonZeroUsize;
 use std::ops::Bound;
+use std::sync::Arc;
 
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
@@ -381,4 +382,34 @@ impl From<PostingKey<'_>> for OwnedPostingKey {
             PostingKey::Length(value) => Self::Length(value.clone()),
         }
     }
+}
+
+/// The schema and binding of an individual posting component.
+#[derive(Clone, Debug)]
+pub(crate) struct PostingDefinition {
+    pub field: crate::schema::FieldDefinition,
+    pub binding: Option<String>,
+    pub inferred: bool,
+    pub length_complete: bool,
+    pub empty_string_complete: bool,
+}
+
+pub(crate) struct PostingFact {
+    pub slot: RecordSlot,
+    pub selected: Option<Vec<Value>>,
+}
+
+pub(crate) trait PostingWriter: Send {
+    fn push_facts(&mut self, base: u32, facts: &[PostingFact]) -> StorageResult<()>;
+    fn push_members(&mut self, key: PostingKey<'_>, slots: &[RecordSlot]) -> StorageResult<()>;
+    fn seal(
+        self: Box<Self>,
+        slots: usize,
+        coverage: Option<PostingCoverage>,
+    ) -> StorageResult<Arc<dyn PostingReader>>;
+}
+
+pub(crate) trait PostingStore: Send + Sync {
+    fn accepts(&self, definition: &PostingDefinition) -> bool;
+    fn start(&self, definition: &PostingDefinition) -> StorageResult<Box<dyn PostingWriter>>;
 }
