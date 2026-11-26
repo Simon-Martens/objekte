@@ -1,9 +1,13 @@
 //! Typed posting keys and terminal selection facts.
 
+use std::num::NonZeroUsize;
+
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::model::{Number, Value};
+use crate::model::{LogicalType, Number, RecordSlot, Value};
+
+use super::transfer::{BatchLimit, StorageError, StorageResult};
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
@@ -178,5 +182,165 @@ impl SelectionSummary {
 
     pub(crate) fn may_have_empty_traversal(self) -> bool {
         self.empty_traversal
+    }
+}
+
+/// Captured semantics of a declared, inferred, or named dictionary.
+pub(crate) struct PostingDescriptor<'a> {
+    pub path: &'a [String],
+    pub kind: &'a LogicalType,
+    pub coverage: PostingCoverage,
+}
+
+#[derive(Clone, Copy)]
+pub(crate) struct PostingCoverage {
+    pub multi: bool,
+    pub values_indexed: bool,
+    pub value_complete: bool,
+    pub length_complete: bool,
+    pub empty_string_complete: bool,
+    pub covered_records: u32,
+    pub summary: Option<SelectionSummary>,
+    pub legacy_present_equivalent: bool,
+    pub legacy_null_equivalent: bool,
+}
+
+/// Terminal presence, explicit null, values and array length use distinct
+/// logical labels inside the local slot domain.
+#[derive(Clone, Copy, Debug, Eq, Ord, PartialEq, PartialOrd)]
+pub(crate) enum PostingKey<'a> {
+    Presence,
+    Value(&'a ScalarKey),
+    Length(&'a Number),
+}
+
+impl PostingKey<'_> {
+    pub(crate) fn bytes(self) -> usize {
+        let payload = match self {
+            Self::Value(ScalarKey::String(value) | ScalarKey::Id(value)) => value.len(),
+            Self::Value(ScalarKey::Number(Number::ExactDecimal(value)))
+            | Self::Length(Number::ExactDecimal(value)) => value.digits.len(),
+            Self::Presence | Self::Value(_) | Self::Length(_) => 0,
+        };
+        size_of::<ScalarKey>().saturating_add(payload)
+    }
+}
+
+pub(crate) type VisitPostingBlock<'a> =
+    dyn FnMut(PostingKey<'_>, &[RecordSlot]) -> StorageResult<()> + 'a;
+
+pub(crate) trait PostingReader: std::any::Any + Send + Sync {
+    fn descriptor(&self) -> PostingDescriptor<'_>;
+
+    /// A frequent key spans consecutive blocks. Within a key, slots are
+    /// strictly increasing. Presence is emitted even for a zero-row domain.
+    fn visit_blocks(
+        &self,
+        limit: BatchLimit,
+        visit: &mut VisitPostingBlock<'_>,
+    ) -> StorageResult<()>;
+}
+
+pub(crate) const POSTING_BLOCK_LIMIT: BatchLimit = BatchLimit::new(
+    NonZeroUsize::new(256).unwrap(),
+    NonZeroUsize::new(16 * 1024 * 1024).unwrap(),
+);
+
+pub(crate) fn visit_posting_blocks(
+    reader: &dyn PostingReader,
+    slot_count: usize,
+    cancelled: &dyn Fn() -> bool,
+    visit: &mut VisitPostingBlock<'_>,
+) -> StorageResult<()> {
+    const OP: &str = "read posting blocks";
+    if cancelled() {
+        return Err(StorageError::Cancelled);
+    }
+    if reader.descriptor().coverage.covered_records as usize > slot_count {
+        return Err(StorageError::invalid(
+            OP,
+            "coverage exceeds the slot domain",
+        ));
+    }
+    let mut latest = None;
+    let mut last_slot: Option<RecordSlot> = None;
+    reader.visit_blocks(POSTING_BLOCK_LIMIT, &mut |key, slots| {
+        if cancelled() {
+            return Err(StorageError::Cancelled);
+        }
+        let key_order = latest
+            .as_ref()
+            .map(|previous: &OwnedPostingKey| previous.key().cmp(&key));
+        if key_order.is_none() && key != PostingKey::Presence
+            || key_order == Some(std::cmp::Ordering::Greater)
+            || key_order == Some(std::cmp::Ordering::Equal)
+                && (last_slot.is_none() || slots.is_empty())
+            || slots.windows(2).any(|pair| pair[0] >= pair[1])
+        {
+            return Err(StorageError::invalid(
+                OP,
+                "invalid posting key or slot order",
+            ));
+        }
+        if key_order == Some(std::cmp::Ordering::Equal) {
+            if let (Some(last), Some(first)) = (last_slot, slots.first())
+                && last >= *first
+            {
+                return Err(StorageError::invalid(OP, "posting blocks overlap"));
+            }
+        } else {
+            latest = Some(OwnedPostingKey::from(key));
+        }
+        if slots
+            .last()
+            .is_some_and(|slot| slot.0 as usize >= slot_count)
+        {
+            return Err(StorageError::invalid(
+                OP,
+                "posting slot outside the segment",
+            ));
+        }
+        if slots.is_empty() {
+            POSTING_BLOCK_LIMIT.accepts(OP, 0, 0, key.bytes())?;
+        } else if slots.len()
+            > POSTING_BLOCK_LIMIT.fixed_batch_len_after(OP, key.bytes(), size_of::<RecordSlot>())?
+        {
+            return Err(StorageError::invalid(
+                OP,
+                "posting block exceeds its limits",
+            ));
+        }
+        last_slot = slots.last().copied();
+        visit(key, slots)
+    })?;
+    if latest.is_none() {
+        return Err(StorageError::invalid(OP, "missing presence block"));
+    }
+    Ok(())
+}
+
+enum OwnedPostingKey {
+    Presence,
+    Value(ScalarKey),
+    Length(Number),
+}
+
+impl OwnedPostingKey {
+    fn key(&self) -> PostingKey<'_> {
+        match self {
+            Self::Presence => PostingKey::Presence,
+            Self::Value(value) => PostingKey::Value(value),
+            Self::Length(number) => PostingKey::Length(number),
+        }
+    }
+}
+
+impl From<PostingKey<'_>> for OwnedPostingKey {
+    fn from(value: PostingKey<'_>) -> Self {
+        match value {
+            PostingKey::Presence => Self::Presence,
+            PostingKey::Value(value) => Self::Value(value.clone()),
+            PostingKey::Length(value) => Self::Length(value.clone()),
+        }
     }
 }

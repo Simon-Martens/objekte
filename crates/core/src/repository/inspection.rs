@@ -8,7 +8,11 @@ use std::sync::Arc;
 
 use crate::index::memory::inference::InferenceState;
 use crate::index::relation::RelationIndex;
+use crate::index::storage::component::ComponentKind;
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::posting::{PostingKey, ScalarKey, visit_posting_blocks};
+use crate::index::storage::segment::SegmentReader;
+use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
 use crate::inventory::FileEntry;
 #[cfg(test)]
@@ -189,9 +193,11 @@ impl Repository {
         &self,
         segments: &'a [Arc<Vec<Arc<crate::index::segment::PublishedSegment>>>],
     ) -> impl Iterator<Item = crate::index::segment::NativeSegmentSummary> + 'a {
-        segments
-            .iter()
-            .flat_map(|group| group.iter().map(|segment| segment.summary()))
+        segments.iter().flat_map(|group| {
+            group
+                .iter()
+                .map(|segment| segment.summary(segment.active.len() as usize))
+        })
     }
 
     /// Read logical descriptors for a published segment's available components.
@@ -203,8 +209,6 @@ impl Repository {
         Option<Vec<crate::index::segment::NativeComponentDescriptor<'_>>>,
         crate::lifecycle::IndexError,
     > {
-        use crate::index::storage::segment::SegmentReader;
-
         self.segments
             .get(collection.0 as usize)
             .and_then(|group| group.iter().find(|candidate| candidate.id == segment))
@@ -230,83 +234,89 @@ impl Repository {
             let records = &collection.generation.records;
             let mut components = BTreeMap::<String, Vec<String>>::new();
             for segment in segments[collection_index].iter() {
-                let record_id = |slot: RecordSlot| {
-                    segment
-                        .index
-                        .record(slot)
-                        .map(|record| record.id.0.to_string())
-                        .unwrap_or_else(|| format!("missing:{}", slot.0))
+                let record_id = |slot: RecordSlot| -> StorageResult<String> {
+                    let record = segment
+                        .header(slot)?
+                        .filter(|header| header.slot == slot)
+                        .ok_or_else(|| {
+                            StorageError::invalid("index signature", "missing segment header")
+                        })?;
+                    Ok(record.id.0.to_string())
                 };
                 let add_bitmap = |components: &mut BTreeMap<String, Vec<String>>,
                                   label: String,
-                                  bitmap: &RoaringBitmap| {
-                    components
-                        .entry(label)
-                        .or_default()
-                        .extend(bitmap.iter().map(|slot| record_id(RecordSlot(slot))));
+                                  bitmap: &RoaringBitmap|
+                 -> StorageResult<()> {
+                    let output = components.entry(label).or_default();
+                    for slot in bitmap.iter() {
+                        output.push(record_id(RecordSlot(slot))?);
+                    }
+                    Ok(())
                 };
-                for (path, posting) in &segment.index.postings.fields {
-                    let path = path.join(".");
-                    add_bitmap(
-                        &mut components,
-                        format!("declared:{path}:presence"),
-                        &posting.presence,
-                    );
-                    if let Some(nulls) = posting.null_posting() {
-                        add_bitmap(&mut components, format!("declared:{path}:nulls"), nulls);
+                for descriptor in segment.components()? {
+                    let kind = descriptor.kind;
+                    if !matches!(
+                        kind,
+                        ComponentKind::DeclaredPosting
+                            | ComponentKind::InferredPosting
+                            | ComponentKind::CustomPosting
+                    ) {
+                        continue;
                     }
-                    for (key, bitmap) in &posting.values {
-                        if matches!(key, crate::index::posting::ScalarKey::Null) {
-                            continue;
+                    let reader = segment.posting(&descriptor)?.ok_or_else(|| {
+                        StorageError::invalid("index signature", "advertised posting is missing")
+                    })?;
+                    let path = descriptor
+                        .path
+                        .as_deref()
+                        .ok_or_else(|| {
+                            StorageError::invalid("index signature", "missing posting path")
+                        })?
+                        .join(".");
+                    let prefix = match kind {
+                        ComponentKind::DeclaredPosting => format!("declared:{path}"),
+                        ComponentKind::InferredPosting => format!("inferred:{path}"),
+                        ComponentKind::CustomPosting => {
+                            let binding = descriptor.binding.as_deref().ok_or_else(|| {
+                                StorageError::invalid("index signature", "missing posting binding")
+                            })?;
+                            format!("custom:{path}:{binding}")
                         }
-                        add_bitmap(
-                            &mut components,
-                            format!("declared:{path}:value:{key:?}"),
-                            bitmap,
-                        );
-                    }
-                    for (key, bitmap) in &posting.lengths {
-                        add_bitmap(
-                            &mut components,
-                            format!("declared:{path}:length:{key:?}"),
-                            bitmap,
-                        );
-                    }
-                }
-                if let Some(inference) = &segment.index.inference {
-                    for (path, posting) in &inference.indexes {
-                        let path = path.join(".");
-                        add_bitmap(
-                            &mut components,
-                            format!("inferred:{path}:presence"),
-                            &posting.presence,
-                        );
-                        if let Some(nulls) = posting.null_posting() {
-                            add_bitmap(&mut components, format!("inferred:{path}:nulls"), nulls);
-                        }
-                        for (key, bitmap) in &posting.values {
-                            if matches!(key, crate::index::posting::ScalarKey::Null) {
-                                continue;
+                        _ => unreachable!("selected a posting family"),
+                    };
+                    visit_posting_blocks(
+                        reader,
+                        segment.descriptor().slots,
+                        &|| false,
+                        &mut |key, slots| {
+                            let label = match key {
+                                PostingKey::Presence if kind != ComponentKind::CustomPosting => {
+                                    format!("{prefix}:presence")
+                                }
+                                PostingKey::Value(ScalarKey::Null)
+                                    if kind != ComponentKind::CustomPosting =>
+                                {
+                                    format!("{prefix}:nulls")
+                                }
+                                PostingKey::Value(ScalarKey::Null) => return Ok(()),
+                                PostingKey::Value(key) if kind == ComponentKind::CustomPosting => {
+                                    format!("{prefix}:{key:?}")
+                                }
+                                PostingKey::Value(key) => format!("{prefix}:value:{key:?}"),
+                                PostingKey::Length(length)
+                                    if kind == ComponentKind::DeclaredPosting =>
+                                {
+                                    format!("{prefix}:length:{length:?}")
+                                }
+                                _ => return Ok(()),
+                            };
+                            let output = components.entry(label).or_default();
+                            for &slot in slots {
+                                output.push(record_id(slot)?);
                             }
-                            add_bitmap(
-                                &mut components,
-                                format!("inferred:{path}:value:{key:?}"),
-                                bitmap,
-                            );
-                        }
-                    }
-                }
-                for ((path, binding), posting) in &segment.index.custom_postings {
-                    for (key, bitmap) in &posting.index.values {
-                        if matches!(key, crate::index::posting::ScalarKey::Null) {
-                            continue;
-                        }
-                        add_bitmap(
-                            &mut components,
-                            format!("custom:{}:{binding}:{key:?}", path.join(".")),
-                            bitmap,
-                        );
-                    }
+                            Ok(())
+                        },
+                    )?;
                 }
                 for (label, index) in [
                     ("raw".to_owned(), &segment.index.raw),
@@ -314,7 +324,7 @@ impl Repository {
                 ] {
                     for (kind, map) in [("normal", &index.normal), ("skip", &index.skip)] {
                         for (key, bitmap) in map {
-                            add_bitmap(&mut components, format!("{label}:{kind}:{key}"), bitmap);
+                            add_bitmap(&mut components, format!("{label}:{kind}:{key}"), bitmap)?;
                         }
                     }
                 }
@@ -325,7 +335,7 @@ impl Repository {
                                 &mut components,
                                 format!("text:{}:{binding}:{kind}:{key}", path.join(".")),
                                 bitmap,
-                            );
+                            )?;
                         }
                     }
                 }
@@ -342,7 +352,7 @@ impl Repository {
                             )
                         })?);
                         let key = column.key(slot)?;
-                        entries.push(format!("{}:{:?}", record_id(slot), key.as_ref()));
+                        entries.push(format!("{}:{:?}", record_id(slot)?, key.as_ref()));
                     }
                 }
             }

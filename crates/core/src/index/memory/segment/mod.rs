@@ -607,10 +607,6 @@ impl crate::index::storage::segment_catalog::SegmentRouteSource for PublishedSeg
 }
 
 impl PublishedSegment {
-    pub(crate) fn summary(&self) -> NativeSegmentSummary {
-        SegmentReader::summary(self, self.active.len() as usize)
-    }
-
     pub(crate) fn construction_observation_bytes(&self) -> usize {
         self.observation
             .as_ref()
@@ -695,6 +691,32 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn components(&self) -> StorageResult<Vec<NativeComponentDescriptor<'_>>> {
         Ok(self.component_descriptors(self.id))
+    }
+
+    fn posting(
+        &self,
+        component: &NativeComponentDescriptor<'_>,
+    ) -> StorageResult<Option<&dyn crate::index::storage::posting::PostingReader>> {
+        let Some(path) = component.path.as_deref() else {
+            return Ok(None);
+        };
+        let reader = match component.kind {
+            NativeComponentKind::DeclaredPosting => self.postings.fields.get(path),
+            NativeComponentKind::InferredPosting => self
+                .inference
+                .as_ref()
+                .and_then(|state| state.indexes.get(path)),
+            NativeComponentKind::CustomPosting => {
+                let Some(binding) = component.binding.as_deref() else {
+                    return Ok(None);
+                };
+                self.custom_postings
+                    .get(&(path.to_vec(), binding.to_owned()))
+                    .map(|posting| &posting.index)
+            }
+            _ => None,
+        };
+        Ok(reader.map(|reader| reader as &dyn crate::index::storage::posting::PostingReader))
     }
 
     fn descriptor(&self) -> SegmentDescriptor {

@@ -4,6 +4,10 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 
 use roaring::RoaringBitmap;
 
+use crate::index::storage::posting::{
+    PostingCoverage, PostingDescriptor, PostingKey, PostingReader, VisitPostingBlock,
+};
+use crate::index::storage::transfer::{BatchLimit, StorageResult};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::record::data_values_small;
@@ -78,6 +82,62 @@ impl Default for PostingStats {
             legacy_present_equivalent: true,
             legacy_null_equivalent: true,
         }
+    }
+}
+
+impl PostingReader for PostingIndex {
+    fn descriptor(&self) -> PostingDescriptor<'_> {
+        PostingDescriptor {
+            path: &self.path,
+            kind: &self.kind,
+            coverage: PostingCoverage {
+                multi: self.multi,
+                values_indexed: self.values_indexed,
+                value_complete: self.value_complete,
+                length_complete: self.length_complete,
+                empty_string_complete: self.empty_string_complete,
+                covered_records: self.covered_records,
+                summary: self.summary,
+                legacy_present_equivalent: self.stats.legacy_present_equivalent,
+                legacy_null_equivalent: self.stats.legacy_null_equivalent,
+            },
+        }
+    }
+
+    fn visit_blocks(
+        &self,
+        limit: BatchLimit,
+        visit: &mut VisitPostingBlock<'_>,
+    ) -> StorageResult<()> {
+        let mut batch = smallvec::SmallVec::<[RecordSlot; 256]>::new();
+        let mut visit_key = |key: PostingKey<'_>, bits: &RoaringBitmap| -> StorageResult<()> {
+            const OP: &str = "read native posting blocks";
+            if bits.is_empty() {
+                limit.accepts(OP, 0, 0, key.bytes())?;
+                return visit(key, &[]);
+            }
+            let count = limit.fixed_batch_len_after(OP, key.bytes(), size_of::<RecordSlot>())?;
+            for slot in bits {
+                batch.push(RecordSlot(slot));
+                if batch.len() == count {
+                    visit(key, &batch)?;
+                    batch.clear();
+                }
+            }
+            if !batch.is_empty() {
+                visit(key, &batch)?;
+                batch.clear();
+            }
+            Ok(())
+        };
+        visit_key(PostingKey::Presence, &self.presence)?;
+        for (key, slots) in &self.values {
+            visit_key(PostingKey::Value(key), slots)?;
+        }
+        for (key, slots) in &self.lengths {
+            visit_key(PostingKey::Length(key), slots)?;
+        }
+        Ok(())
     }
 }
 

@@ -22,6 +22,7 @@ use super::component::ComponentDescriptor;
 use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
+use super::posting::PostingReader;
 use super::relation::{RelationMatches, RelationReader};
 use super::text::SegmentTextAccess;
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
@@ -472,6 +473,13 @@ pub(crate) trait SegmentReader: Send + Sync {
         Ok(Vec::new())
     }
 
+    fn posting(
+        &self,
+        _component: &ComponentDescriptor<'_>,
+    ) -> StorageResult<Option<&dyn PostingReader>> {
+        Ok(None)
+    }
+
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>>;
 
     fn source(&self) -> SegmentSource<'_>;
@@ -659,6 +667,13 @@ impl<D: SegmentReaderDelegate> SegmentReader for D {
             }
         }
         Ok(components)
+    }
+
+    fn posting(
+        &self,
+        component: &ComponentDescriptor<'_>,
+    ) -> StorageResult<Option<&dyn PostingReader>> {
+        self.payload().posting(component)
     }
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
