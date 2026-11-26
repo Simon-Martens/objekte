@@ -266,20 +266,23 @@ impl PublishedIndex {
                 .iter()
                 .enumerate()
                 .map(|(number, collection)| {
-                    let base = collection
-                        .generation
-                        .records
-                        .iter()
-                        .filter(|record| {
-                            record.class == crate::inventory::RecordClass::RawFallback
-                                && self.active[number].contains(record.slot)
-                        })
-                        .count() as u64;
+                    let active = &self.active[number];
+                    let base = if active.len() == 0 {
+                        0
+                    } else {
+                        collection
+                            .generation
+                            .records
+                            .iter()
+                            .filter(|record| {
+                                record.class == crate::inventory::RecordClass::RawFallback
+                                    && active.contains(record.slot)
+                            })
+                            .count() as u64
+                    };
                     let segments = self.segments[number]
                         .iter()
-                        .map(|segment| {
-                            (&segment.active.bitmap() - &segment.index.logical_records).len()
-                        })
+                        .map(|segment| segment.active_fallback_count(&segment.active))
                         .sum::<u64>();
                     base + segments
                 })

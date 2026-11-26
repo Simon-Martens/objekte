@@ -752,6 +752,13 @@ impl SegmentReader for IndexedCollectionSegment {
         }
     }
 
+    fn active_fallback_count(&self, active: &ActiveRecords) -> u64 {
+        active.len()
+            - active.intersection_len(crate::query_access::membership::MembershipView::Borrowed(
+                &self.logical_records,
+            ))
+    }
+
     fn slot_members(
         &self,
         fact: crate::index::storage::segment::SegmentSlotFact,

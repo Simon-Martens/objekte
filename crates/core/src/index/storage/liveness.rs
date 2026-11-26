@@ -77,6 +77,29 @@ impl ActiveRecords {
             && (self.live_count == u64::from(self.slot_count) || self.reader.contains(slot))
     }
 
+    /// Count a set of already validated local members without materializing
+    /// a bitmap of the pinned live domain.
+    pub(crate) fn intersection_len(&self, other: MembershipView<'_>) -> u64 {
+        if self.live_count == 0 || other.is_empty() {
+            return 0;
+        }
+        if self.live_count == u64::from(self.slot_count) {
+            return other.len() as u64;
+        }
+        let mut count = 0;
+        self.reader.visit_blocks(&mut |base, slots| {
+            count += if base == 0 {
+                slots.intersection_len(other)
+            } else {
+                slots
+                    .iter()
+                    .filter(|slot| other.contains(base + slot))
+                    .count() as u64
+            };
+        });
+        count
+    }
+
     pub(crate) fn retired(&self, slots: &[RecordSlot]) -> StorageResult<Self> {
         if slots.is_empty() {
             return Ok(self.clone());

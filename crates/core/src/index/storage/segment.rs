@@ -20,6 +20,7 @@ use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
 use super::component::ComponentDescriptor;
 use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
+use super::liveness::ActiveRecords;
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
 use super::posting::PostingReader;
@@ -504,6 +505,9 @@ pub(crate) trait SegmentReader: Send + Sync {
         Ok(Vec::new())
     }
 
+    /// Poll counters using immutable, already captured slot information.
+    fn active_fallback_count(&self, active: &ActiveRecords) -> u64;
+
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>>;
 
     fn source(&self) -> SegmentSource<'_>;
@@ -706,6 +710,10 @@ impl<D: SegmentReaderDelegate> SegmentReader for D {
 
     fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
         self.payload().order_columns()
+    }
+
+    fn active_fallback_count(&self, active: &ActiveRecords) -> u64 {
+        self.payload().active_fallback_count(active)
     }
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {

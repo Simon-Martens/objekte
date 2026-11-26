@@ -28,6 +28,15 @@ impl SegmentReader for RecordTable {
         }
     }
 
+    fn active_fallback_count(&self, active: &ActiveRecords) -> u64 {
+        self.rows
+            .iter()
+            .filter(|(header, _)| {
+                header.class == RecordClass::RawFallback && active.contains(header.slot)
+            })
+            .count() as u64
+    }
+
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
         match fact {
             SegmentSlotFact::Logical => {
