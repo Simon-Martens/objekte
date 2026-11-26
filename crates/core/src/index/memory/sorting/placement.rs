@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use std::fmt;
 use std::sync::Arc;
 
+use crate::index::storage::order::key_transfer::transfer_order_keys;
 use crate::index::storage::order::{DeclaredOrderRows, DeclaredOrderStore, OrderColumnReader};
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::model::{FieldPath, PathRoot, RecordSlot};
@@ -84,28 +85,32 @@ impl PlacedOrder {
         records: &[impl RecordIdSlot],
         previous_slot: impl Fn(RecordSlot) -> Option<RecordSlot>,
     ) -> Result<Self, String> {
-        let keys = records
-            .iter()
-            .map(|record| {
-                let previous =
-                    previous_slot(record.record_slot()).ok_or("original sort slot missing")?;
-                self.reader
-                    .key(previous)
-                    .map(|key| key.into_owned())
-                    .map_err(String::from)
+        let slots = records.iter().map(|record| {
+            previous_slot(record.record_slot()).ok_or_else(|| {
+                StorageError::invalid("project declared order", "original slot missing")
             })
-            .collect::<Result<Vec<_>, _>>()?;
+        });
+        let mut keys = Vec::with_capacity(records.len());
+        self.append_keys(slots, &mut keys)?;
         let mut column = self.column_with_keys(keys);
         column.build_order(records)?;
         Ok(Self::seal(Arc::clone(&self.store), column)?)
     }
 
-    fn keys(&self) -> impl Iterator<Item = StorageResult<SortKey>> {
-        (0..self.reader.key_count()).map(|slot| {
-            self.reader
-                .key(RecordSlot(slot as u32))
-                .map(Cow::into_owned)
+    fn append_keys(
+        &self,
+        slots: impl IntoIterator<Item = StorageResult<RecordSlot>>,
+        keys: &mut Vec<SortKey>,
+    ) -> StorageResult<()> {
+        transfer_order_keys(self.reader(), slots, &|| false, |key| {
+            keys.push(key);
+            Ok(())
         })
+    }
+
+    fn append_all_keys(&self, keys: &mut Vec<SortKey>) -> StorageResult<()> {
+        let slots = (0..self.reader.key_count()).map(|slot| Ok(RecordSlot(slot as u32)));
+        self.append_keys(slots, keys)
     }
 }
 
@@ -178,10 +183,11 @@ impl SortCollection {
         };
         let mut stores = HashMap::with_capacity(self.placed.len());
         for (path, placed) in &self.placed {
-            sorting.columns.insert(
-                path.clone(),
-                placed.column_with_keys(placed.keys().collect::<StorageResult<_>>()?),
-            );
+            let mut keys = Vec::with_capacity(placed.reader.key_count());
+            placed.append_all_keys(&mut keys)?;
+            sorting
+                .columns
+                .insert(path.clone(), placed.column_with_keys(keys));
             stores.insert(path.clone(), Arc::clone(&placed.store));
         }
         Ok((sorting, stores))
@@ -199,9 +205,7 @@ impl SortCollection {
         }
         for (path, placed) in &source.placed {
             let keys = &mut self.check_consolidation_column(path, placed.reader())?.keys;
-            for key in placed.keys() {
-                keys.push(key?);
-            }
+            placed.append_all_keys(keys)?;
             stores
                 .entry(path.clone())
                 .or_insert_with(|| Arc::clone(&placed.store));

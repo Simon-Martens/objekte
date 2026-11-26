@@ -31,6 +31,8 @@ struct TableFactory {
     order_builds: AtomicUsize,
     store_declared_order: AtomicBool,
     declared_order_builds: AtomicUsize,
+    key_batches: Arc<AtomicUsize>,
+    fail_key_transfer: Arc<AtomicBool>,
     order_rows: Arc<AtomicUsize>,
     fail_order_refill: Arc<AtomicBool>,
     liveness_visits: Arc<AtomicUsize>,
@@ -59,6 +61,8 @@ impl DeclaredOrderStore for Arc<TableFactory> {
             collation_version: rows.collation_version,
             config: rows.config,
             keys: rows.keys.into_iter().enumerate().collect(),
+            key_batches: Arc::clone(&self.key_batches),
+            fail_key_transfer: Arc::clone(&self.fail_key_transfer),
             directions: [
                 Some(self.short_order(rows.ascending)),
                 Some(self.short_order(rows.descending)),
@@ -131,6 +135,8 @@ impl StorageFactory for Arc<TableFactory> {
             collation_version: crate::index::storage::order::COLLATION_VERSION.into(),
             config: rows.config,
             keys: rows.keys.into_iter().enumerate().collect(),
+            key_batches: Arc::clone(&self.key_batches),
+            fail_key_transfer: Arc::clone(&self.fail_key_transfer),
             directions,
         }))
     }
@@ -407,6 +413,8 @@ struct TableOrder {
     collation_version: String,
     config: SortConfig,
     keys: BTreeMap<usize, SortKey>,
+    key_batches: Arc<AtomicUsize>,
+    fail_key_transfer: Arc<AtomicBool>,
     directions: [Option<ShortOrder>; 2],
 }
 
@@ -452,6 +460,31 @@ impl OrderColumnReader for TableOrder {
             .cloned()
             .map(Cow::Owned)
             .ok_or_else(|| StorageError::invalid("test order", "slot out of range"))
+    }
+
+    fn key_batch(
+        &self,
+        slots: &[RecordSlot],
+        limit: BatchLimit,
+    ) -> StorageResult<(Vec<Cow<'_, SortKey>>, BatchStatus)> {
+        let batch = self.key_batches.fetch_add(1, Ordering::Relaxed);
+        if batch != 0 && self.fail_key_transfer.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "read test key batch",
+                "injected order transfer failure",
+            ));
+        }
+        let keys = crate::index::storage::order::key_transfer::read_order_keys(
+            self,
+            &slots[..slots.len().min(2)],
+            limit,
+        )?;
+        let status = if keys.len() == slots.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((keys, status))
     }
 
     fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots> {
@@ -605,10 +638,22 @@ fn native_postings_and_an_independent_declared_order_share_a_segment() {
         index.delete_file(handle).unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
+    let before_compact = mixed.view().unwrap().revision();
+    factory.fail_key_transfer.store(true, Ordering::Relaxed);
+    let error = mixed.compact().unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("injected order transfer failure")
+    );
+    assert_eq!(factory.key_batches.load(Ordering::Relaxed), 2);
+    assert_eq!(mixed.view().unwrap().revision(), before_compact);
+    factory.fail_key_transfer.store(false, Ordering::Relaxed);
     for index in [&mixed, &memory] {
         assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
     }
     assert_eq!(factory.declared_order_builds.load(Ordering::Relaxed), 2);
+    assert_eq!(factory.key_batches.load(Ordering::Relaxed), 34);
     let mixed_after = mixed.view().unwrap();
     let memory_after = memory.view().unwrap();
     assert_eq!(

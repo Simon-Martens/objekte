@@ -1,6 +1,7 @@
 //! Sort configuration and comparison of logical order keys.
 
 pub(crate) mod inferred_cache;
+pub(crate) mod key_transfer;
 
 use std::borrow::Cow;
 use std::cmp::Ordering;
@@ -18,7 +19,7 @@ use crate::query::Operator;
 use crate::query_access::membership::MembershipView;
 
 use super::ordered_slots::OrderedSlots;
-use super::transfer::StorageResult;
+use super::transfer::{BatchLimit, BatchStatus, StorageResult};
 
 /// Keys and traversal for one pinned scalar sort specification.
 pub(crate) trait OrderColumnReader: Send + Sync {
@@ -42,6 +43,20 @@ pub(crate) trait OrderColumnReader: Send + Sync {
     }
 
     fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>>;
+    fn key_batch(
+        &self,
+        slots: &[RecordSlot],
+        limit: BatchLimit,
+    ) -> StorageResult<(Vec<Cow<'_, SortKey>>, BatchStatus)> {
+        let keys = key_transfer::read_order_keys(self, slots, limit)?;
+        let status = if keys.len() == slots.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((keys, status))
+    }
+
     fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots>;
 }
 
