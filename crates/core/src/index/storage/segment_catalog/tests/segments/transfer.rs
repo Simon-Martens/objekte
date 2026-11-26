@@ -3,11 +3,15 @@
 use super::*;
 use crate::index::storage::component::{ComponentDescriptor, ComponentKind};
 use crate::index::storage::posting::visit_posting_blocks;
+use crate::index::storage::relation::{
+    RelationBlock, RelationFacts, RelationRow, VisitRelationTarget, visit_relation_blocks,
+};
 use crate::index::storage::segment::transfer::FileSegmentLayout;
 use crate::index::storage::segment::{read_slot_members, visit_checked_file_slots};
 use crate::index::storage::text::{
     BigramRequest, GramChannel, GramDescriptor, GramReader, VisitGramBlock, visit_gram_blocks,
 };
+use crate::schema::relations::RelationDefinition;
 
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
 pub(super) enum GramBinding {
@@ -209,6 +213,144 @@ impl IndexAccessProvider for TableText<'_> {
     }
 }
 
+#[derive(Clone)]
+pub(super) struct TableRelation {
+    declaration: RelationDefinition,
+    rows: Vec<(RelationFacts, Vec<(String, Vec<u32>)>)>,
+    reverse: BTreeMap<String, Arc<[u32]>>,
+    edges: usize,
+}
+
+impl TableRelation {
+    fn import(
+        reader: &dyn RelationReader,
+        slots: usize,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<Self> {
+        if reader.source_slots() != slots {
+            return Err(invalid("wrong relation row count"));
+        }
+        let mut rows = Vec::new();
+        let mut reverse = BTreeMap::<String, Vec<u32>>::new();
+        let mut edges = 0;
+        for source in 0..slots as u32 {
+            let mut facts = RelationFacts::default();
+            let mut targets = Vec::new();
+            visit_relation_blocks(reader, RecordSlot(source), cancelled, &mut |block| {
+                match block {
+                    RelationBlock::Facts(row) => facts = row,
+                    RelationBlock::Target { id, positions } => {
+                        let sources = reverse.entry(id.to_owned()).or_default();
+                        if sources.last() != Some(&source) {
+                            sources.push(source);
+                        }
+                        targets.push((id.to_owned(), positions.to_vec()));
+                        edges += 1;
+                    }
+                }
+                Ok(())
+            })?;
+            rows.push((facts, targets));
+        }
+        Ok(Self {
+            declaration: reader.declaration().clone(),
+            rows,
+            reverse: reverse
+                .into_iter()
+                .map(|(id, slots)| (id, slots.into()))
+                .collect(),
+            edges,
+        })
+    }
+
+    pub(super) fn sources(&self, target: &str) -> StorageResult<SlotSet<'_>> {
+        let slots = self.reverse.get(target).cloned().unwrap_or_default();
+        SlotSet::from_sorted(slots).map_err(|error| invalid(error.to_string()))
+    }
+
+    pub(super) fn source_batch(
+        &self,
+        targets: &std::collections::HashSet<String>,
+    ) -> StorageResult<RelationMatches<'_>> {
+        let mut lists = 0;
+        let mut members = 0;
+        let mut slots = BTreeSet::new();
+        for target in targets {
+            if let Some(sources) = self.reverse.get(target) {
+                lists += 1;
+                members += sources.len() as u64;
+                slots.extend(sources.iter().copied());
+            }
+        }
+        Ok(RelationMatches {
+            slots: SlotSet::from_sorted(slots.into_iter().collect())
+                .map_err(|error| invalid(error.to_string()))?,
+            lists,
+            members,
+        })
+    }
+}
+
+impl RelationReader for TableRelation {
+    fn declaration(&self) -> &RelationDefinition {
+        &self.declaration
+    }
+
+    fn source_slots(&self) -> usize {
+        self.rows.len()
+    }
+
+    fn edge_count(&self) -> usize {
+        self.edges
+    }
+
+    fn source_facts(&self, source: RecordSlot) -> StorageResult<RelationFacts> {
+        self.rows
+            .get(source.0 as usize)
+            .map(|(facts, _)| *facts)
+            .ok_or_else(|| invalid("relation source outside table"))
+    }
+
+    fn visit_targets(
+        &self,
+        source: RecordSlot,
+        visit: &mut VisitRelationTarget<'_>,
+    ) -> StorageResult<()> {
+        let (_, targets) = self
+            .rows
+            .get(source.0 as usize)
+            .ok_or_else(|| invalid("relation source outside table"))?;
+        for (id, positions) in targets {
+            if visit(id, positions)? {
+                break;
+            }
+        }
+        Ok(())
+    }
+
+    fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>> {
+        let (facts, targets) = self
+            .rows
+            .get(source.0 as usize)
+            .ok_or_else(|| invalid("relation source outside table"))?;
+        Ok(RelationRow {
+            targets: targets
+                .iter()
+                .map(|(id, positions)| {
+                    (
+                        Cow::Borrowed(id.as_str()),
+                        Cow::Borrowed(positions.as_slice()),
+                    )
+                })
+                .collect(),
+            present: facts.present,
+            null: facts.null,
+            empty: facts.empty,
+            unavailable: facts.unavailable,
+        })
+    }
+}
+
 pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     source: &dyn SegmentReader,
     layout: FileSegmentLayout<'_>,
@@ -217,13 +359,13 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
 ) -> StorageResult<Option<SegmentHandle>> {
     if !matches!(layout, FileSegmentLayout::Identity(_))
         || source.backing_kind() != RecordBacking::FileRange
-        || source.relation_count() != 0
         || !source.order_columns()?.is_empty()
     {
         return Ok(None);
     }
     let domain = source.descriptor();
     let mut score = None;
+    let mut other_postings = BTreeMap::new();
     let mut grams = BTreeMap::new();
     let cell = std::cell::RefCell::new(cancelled);
     let mut cancelled = || cell.borrow_mut()();
@@ -258,21 +400,17 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
             continue;
         }
         match component.kind {
-            ComponentKind::DeclaredPosting
-                if component
-                    .path
-                    .as_deref()
-                    .is_some_and(|path| path == [SCORE])
-                    && component.binding.is_none() =>
-            {
+            ComponentKind::DeclaredPosting if component.binding.is_none() => {
                 let reader = source
                     .posting(&component)?
-                    .ok_or_else(|| invalid("missing score reader"))?;
+                    .ok_or_else(|| invalid("missing declared posting reader"))?;
                 let descriptor = reader.descriptor();
-                if descriptor.kind != &LogicalType::Number
+                if component.path.as_deref() != Some(descriptor.path) {
+                    return Err(invalid("posting component path mismatch"));
+                }
+                if !matches!(descriptor.kind, LogicalType::Number | LogicalType::Id)
                     || descriptor.coverage.multi
                     || !descriptor.coverage.value_complete
-                    || score.is_some()
                 {
                     return Ok(None);
                 }
@@ -281,28 +419,47 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
                 visit_posting_blocks(reader, domain.slots, &cancelled, &mut |key, slots| {
                     let output = match key {
                         PostingKey::Presence => &mut present,
-                        PostingKey::Value(value @ ScalarKey::Number(_)) => {
-                            values.entry(value.clone()).or_default()
-                        }
-                        _ => return Err(invalid("unsupported score key")),
+                        PostingKey::Value(
+                            value @ (ScalarKey::Number(_) | ScalarKey::Id(_) | ScalarKey::Null),
+                        ) => values.entry(value.clone()).or_default(),
+                        _ => return Err(invalid("unsupported fixture posting key")),
                     };
                     output.extend(slots.iter().map(|slot| slot.0));
                     Ok(())
                 })?;
-                score = Some(TablePosting {
+                let posting = TablePosting {
                     path: descriptor.path.to_vec(),
+                    kind: descriptor.kind.clone(),
                     present: present.into(),
                     keys: values
                         .into_iter()
                         .map(|(key, slots)| (key, slots.into()))
                         .collect(),
                     coverage: descriptor.coverage,
-                });
+                };
+                if posting.path == [SCORE] && posting.kind == LogicalType::Number {
+                    if score.replace(posting).is_some() {
+                        return Err(invalid("duplicate score dictionary"));
+                    }
+                } else if other_postings
+                    .insert(posting.path.clone(), posting)
+                    .is_some()
+                {
+                    return Err(invalid("duplicate declared dictionary"));
+                }
             }
             ComponentKind::Sorting | ComponentKind::Relations => {}
             _ => return Ok(None),
         }
     }
+    let relations = (0..source.relation_count())
+        .map(|ordinal| {
+            let reader = source
+                .relation(ordinal)?
+                .ok_or_else(|| invalid("missing relation reader"))?;
+            TableRelation::import(reader, domain.slots, &cancelled)
+        })
+        .collect::<StorageResult<Vec<_>>>()?;
     let mut scores = BTreeMap::new();
     if let Some(score) = &score {
         for (key, slots) in &score.keys {
@@ -383,6 +540,8 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
         control,
     )?;
     table.score = score;
+    table.other_postings = other_postings;
+    table.relations = relations;
     table.grams = grams;
     table.raw_covers_logical_fields = source.raw_covers_logical_fields();
     Ok(Some(Arc::new(table)))
@@ -391,7 +550,11 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
 #[test]
 fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     use crate::index::storage::publication::PublishedSegment;
-    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::schema::FieldDefinition;
+    use crate::schema::relations::RelationCardinality;
     use crate::source::test_support::{fixture_registry, line_format};
 
     let factory = Arc::new(TableFactory::default());
@@ -399,23 +562,59 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         "objekte-file-segment-round-trip-{}",
         std::process::id()
     ));
-    std::fs::create_dir_all(root.join("data")).unwrap();
-    let retired_path = Path::new("data/a.rows");
-    let kept_path = Path::new("data/b.rows");
+    std::fs::create_dir_all(root.join("data/entries")).unwrap();
+    std::fs::create_dir_all(root.join("data/targets")).unwrap();
+    let retired_path = Path::new("data/entries/a.rows");
+    let kept_path = Path::new("data/entries/b.rows");
     std::fs::write(
         root.join(retired_path),
-        "(\"score\"=7,\"name\"=\"first file\")\n",
+        "(\"score\"=7,\"name\"=\"first file\",\"entry\"=\"good\")\n",
     )
     .unwrap();
     std::fs::write(
         root.join(kept_path),
-        "(\"score\"=7,\"name\"=\"A FESTIVAL\")\n(\"score\"=7,\"name\"=\"a festival\")\n(\"score\"=7,\"name\"=\"a festival\")\n(\"score\"=9,\"name\"=\"last\")\n",
-    ).unwrap();
-    let mut definition = CollectionDefinition::folder("entries", "data", line_format());
+        concat!(
+            "(\"score\"=7,\"name\"=\"A FESTIVAL\",\"entry\"=\"good\")\n",
+            "(\"score\"=7,\"name\"=\"a festival\",\"entry\"=\"other\")\n",
+            "(\"score\"=7,\"name\"=\"a festival\",\"entry\"=\"missing\")\n",
+            "(\"score\"=9,\"name\"=\"last\",\"entry\"=null)\n",
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("data/targets/targets.rows"),
+        "(\"id\"=\"good\",\"score\"=9)\n(\"id\"=\"other\",\"score\"=0)\n",
+    )
+    .unwrap();
+    let mut definition = CollectionDefinition::folder("entries", "data/entries", line_format());
     definition.schema = score_schema();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["entry".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: true,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_relation(RelationDefinition {
+            path: vec!["entry".into()],
+            target_collection: "targets".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: Some("entries".into()),
+        })
+        .unwrap();
+    let mut targets = CollectionDefinition::folder("targets", "data/targets", line_format());
+    targets.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    targets.schema = score_schema();
     let index = Index::start_build_with_factory(
         &root,
-        vec![definition],
+        vec![definition, targets],
         RepositoryOptions::default(),
         fixture_registry(),
         Arc::new(Arc::clone(&factory)),
@@ -430,6 +629,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     let kept_id = kept.id;
     let kept_ids = catalogue.records_for_file(kept_id).unwrap();
     let mut query = score_query();
+    query.collections = vec!["entries".into()];
     query.options.return_mode = ReturnMode::Locator;
     assert_eq!(before.search(&query).unwrap().count, Some(4));
     index
@@ -443,6 +643,20 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     assert_eq!(source.active.len(), 4);
     assert_eq!(source.descriptor().slots, 5);
     assert!(!source.active.contains(RecordSlot(0)));
+    let mut relation_query = query.clone();
+    relation_query.filter = Some(crate::query::parse_filter("entry.score = 9").unwrap());
+    let expected_relation = pinned.search(&relation_query).unwrap();
+    assert_eq!(expected_relation.count, Some(1));
+    assert_eq!(
+        expected_relation.hits,
+        pinned.search_reference(&relation_query).unwrap().hits
+    );
+    let mut reverse_query = query.clone();
+    reverse_query.collections = vec!["targets".into()];
+    reverse_query.filter =
+        Some(crate::query::parse_filter("@backlinks.entries.score = 7").unwrap());
+    let expected_reverse = pinned.search(&reverse_query).unwrap();
+    assert_eq!(expected_reverse.count, Some(2));
     let signature = pinned.native_index_signature().unwrap();
     let expected = pinned.search(&query).unwrap();
     assert_eq!(expected.count, Some(3));
@@ -509,9 +723,25 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         assert_eq!(catalog.records_for_file(kept_id).unwrap(), kept_ids);
         assert!(catalog.file(retired_id).is_err());
     };
+    let equivalent_relations = |view: &crate::lifecycle::IndexView| {
+        for (query, expected) in [
+            (&relation_query, &expected_relation),
+            (&reverse_query, &expected_reverse),
+        ] {
+            let mut actual = view.search(query).unwrap();
+            assert_eq!(actual.count, expected.count);
+            let mut reference = view.search_reference(query).unwrap();
+            for hit in actual.hits.iter_mut().chain(&mut reference.hits) {
+                hit.generation = pinned.revision().0;
+            }
+            assert_eq!(actual.hits, reference.hits);
+            assert_eq!(actual.hits, expected.hits);
+        }
+    };
     for transferred in [&table_index, &restored] {
         let view = transferred.view().unwrap();
         equivalent(&view);
+        equivalent_relations(&view);
         assert_eq!(view.native_index_signature().unwrap(), signature);
         let segment = &view.segments(CollectionId(0)).unwrap()[0];
         assert_eq!(segment.active.len(), 4);
@@ -598,6 +828,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     std::fs::rename(&detached, &data).unwrap();
     let compacted = table_index.view().unwrap();
     equivalent(&compacted);
+    equivalent_relations(&compacted);
     let compacted_group = compacted.segments(CollectionId(0)).unwrap();
     assert_eq!(compacted_group[0].descriptor().slots, 4);
     assert!(!(compacted_group[0].index.as_ref() as &dyn std::any::Any).is::<TableSegment>());

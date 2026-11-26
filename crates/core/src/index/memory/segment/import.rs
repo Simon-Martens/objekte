@@ -9,6 +9,7 @@ use roaring::RoaringBitmap;
 use super::projection::{SlotMap, transfer_bigram, transfer_posting};
 use super::{IndexedCollectionSegment, SegmentBacking, SegmentFile};
 use crate::index::memory::posting::PostingCollection;
+use crate::index::memory::relation::RelationContribution;
 use crate::index::storage::component::ComponentKind;
 use crate::index::storage::segment::transfer::FileSegmentLayout;
 use crate::index::storage::segment::{
@@ -31,7 +32,6 @@ pub(crate) fn import(
 ) -> StorageResult<Option<SegmentHandle>> {
     if source.backing_kind() != RecordBacking::FileRange
         || source.source().registration.is_some()
-        || source.relation_count() != 0
         || !source.order_columns()?.is_empty()
     {
         return Ok(None);
@@ -42,6 +42,7 @@ pub(crate) fn import(
     let mut grams = Vec::new();
     let mut raw = false;
     let mut fallback = false;
+    let mut relation_family = false;
     let source_logical = read_slot_members(source, SegmentSlotFact::Logical)?;
     let source_logical = source_logical.view();
     let dense = matches!(layout, FileSegmentLayout::Dense { .. });
@@ -85,12 +86,21 @@ pub(crate) fn import(
                 }
                 grams.push((component, reader));
             }
-            ComponentKind::Sorting | ComponentKind::Relations => {}
+            ComponentKind::Sorting => {}
+            ComponentKind::Relations => {
+                if relation_family || component.path.is_some() || component.binding.is_some() {
+                    return Err(invalid("invalid relation descriptor"));
+                }
+                relation_family = true;
+            }
             ComponentKind::CustomPosting | ComponentKind::InferredPosting => return Ok(None),
         }
     }
     if !raw || !fallback {
         return Ok(None);
+    }
+    if source.relation_count() != 0 && !relation_family {
+        return Err(invalid("missing relation descriptor"));
     }
     let cancelled = RefCell::new(cancelled);
     let mut cancelled = || cancelled.borrow_mut()();
@@ -178,6 +188,15 @@ pub(crate) fn import(
         return Err(invalid("file membership has incomplete coverage"));
     }
 
+    let relations = (0..source.relation_count())
+        .map(|ordinal| {
+            let reader = source
+                .relation(ordinal)?
+                .ok_or_else(|| invalid("advertised relation missing"))?;
+            RelationContribution::transfer_reader(reader, &mapping, records.len(), &cancelled)
+        })
+        .collect::<StorageResult<Vec<_>>>()?;
+
     let mut declared = PostingCollection {
         fields: HashMap::new(),
     };
@@ -260,7 +279,7 @@ pub(crate) fn import(
             placed: HashMap::new(),
         }
         .into(),
-        relations: Vec::new(),
+        relations,
         record_parses: 0,
         failed_parses: 0,
         accounting: Default::default(),

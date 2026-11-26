@@ -1,6 +1,7 @@
 //! Logical relation endpoints and occurrences.
 
 use std::borrow::Cow;
+use std::num::NonZeroUsize;
 
 use serde::{Deserialize, Serialize};
 
@@ -8,7 +9,7 @@ use crate::model::RecordSlot;
 use crate::query_access::membership::SlotSet;
 use crate::schema::relations::RelationDefinition;
 
-use super::transfer::StorageResult;
+use super::transfer::{BatchLimit, StorageError, StorageResult};
 
 pub(crate) struct RelationRow<'a> {
     pub targets: Vec<(Cow<'a, str>, Cow<'a, [u32]>)>,
@@ -16,6 +17,19 @@ pub(crate) struct RelationRow<'a> {
     pub null: bool,
     pub empty: bool,
     pub unavailable: bool,
+}
+
+#[derive(Clone, Copy, Default)]
+pub(crate) struct RelationFacts {
+    pub present: bool,
+    pub null: bool,
+    pub empty: bool,
+    pub unavailable: bool,
+}
+
+pub(crate) enum RelationBlock<'a> {
+    Facts(RelationFacts),
+    Target { id: &'a str, positions: &'a [u32] },
 }
 
 /// Exact reverse membership for a set of target IDs in one local domain.
@@ -41,6 +55,16 @@ pub(crate) trait RelationReader: std::any::Any + Send + Sync {
     }
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>>;
 
+    fn source_facts(&self, source: RecordSlot) -> StorageResult<RelationFacts> {
+        let row = self.forward(source)?;
+        Ok(RelationFacts {
+            present: row.present,
+            null: row.null,
+            empty: row.empty,
+            unavailable: row.unavailable,
+        })
+    }
+
     fn source_unavailable(&self, source: RecordSlot) -> StorageResult<bool> {
         Ok(self.forward(source)?.unavailable)
     }
@@ -58,6 +82,42 @@ pub(crate) trait RelationReader: std::any::Any + Send + Sync {
         }
         Ok(())
     }
+}
+
+/// Transfer one source's facts and stream its ordered occurrences. Each
+/// occurrence is indivisible under the same oversized-item rule as other keys.
+pub(crate) fn visit_relation_blocks(
+    reader: &dyn RelationReader,
+    source: RecordSlot,
+    cancelled: &dyn Fn() -> bool,
+    visit: &mut dyn FnMut(RelationBlock<'_>) -> StorageResult<()>,
+) -> StorageResult<()> {
+    const OP: &str = "transfer relation rows";
+    const LIMIT: BatchLimit = BatchLimit::new(
+        NonZeroUsize::new(1).unwrap(),
+        NonZeroUsize::new(16 * 1024 * 1024).unwrap(),
+    );
+    if cancelled() {
+        return Err(StorageError::Cancelled);
+    }
+    if source.0 as usize >= reader.source_slots() {
+        return Err(StorageError::invalid(
+            OP,
+            "source is outside the relation domain",
+        ));
+    }
+    visit(RelationBlock::Facts(reader.source_facts(source)?))?;
+    reader.visit_targets(source, &mut |id, positions| {
+        if cancelled() {
+            return Err(StorageError::Cancelled);
+        }
+        let bytes = size_of::<RelationBlock<'_>>()
+            .saturating_add(id.len())
+            .saturating_add(size_of_val(positions));
+        LIMIT.accepts(OP, 0, 0, bytes)?;
+        visit(RelationBlock::Target { id, positions })?;
+        Ok(false)
+    })
 }
 
 /// Resolved target slot or an ID that has no target in its declared namespace.

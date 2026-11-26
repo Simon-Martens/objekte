@@ -11,6 +11,7 @@ use crate::index::storage::posting::{
     FacetPosting, PostingCoverage, PostingDescriptor, PostingKey, PostingReader,
     PostingValueCursor, ScalarKey, VisitPostingBlock,
 };
+use crate::index::storage::relation::{RelationMatches, RelationReader};
 use crate::index::storage::segment::maintenance::{
     ProjectedSegment, RelinkedFile, SegmentMaintenance, SegmentPartition,
 };
@@ -408,6 +409,8 @@ struct TableSegment {
     logical: Arc<[u32]>,
     empty_arrays: Arc<[u32]>,
     score: Option<TablePosting>,
+    other_postings: BTreeMap<Vec<String>, TablePosting>,
+    relations: Vec<transfer::TableRelation>,
     grams: BTreeMap<transfer::GramBinding, transfer::TableGram>,
     raw_covers_logical_fields: bool,
     control: Arc<TableFactory>,
@@ -450,6 +453,7 @@ impl TableSegment {
         let logical: Arc<[u32]> = logical.into();
         let score = score_indexed.then(|| TablePosting {
             path: vec![SCORE.into()],
+            kind: LogicalType::Number,
             present: Arc::clone(&logical),
             coverage: PostingCoverage {
                 multi: false,
@@ -478,6 +482,8 @@ impl TableSegment {
             logical,
             empty_arrays: empty_arrays.into(),
             score,
+            other_postings: BTreeMap::new(),
+            relations: Vec::new(),
             grams: BTreeMap::new(),
             raw_covers_logical_fields: false,
             control,
@@ -491,7 +497,7 @@ impl TableSegment {
     ) -> StorageResult<(Self, Vec<Option<RecordSlot>>)> {
         if !self.grams.is_empty() {
             return Err(invalid(
-                "use the target block importer for transferred grams",
+                "use the target block importer for transferred components",
             ));
         }
         if active.slot_count() as usize != self.rows.len() {
@@ -733,8 +739,9 @@ impl SegmentReader for TableSegment {
     ) -> StorageResult<Option<FacetPosting<'_>>> {
         Ok(self
             .score
-            .as_ref()
-            .filter(|posting| binding == "default" && posting.path == path.segments)
+            .iter()
+            .chain(self.other_postings.values())
+            .find(|posting| binding == "default" && posting.path == path.segments)
             .map(|reader| FacetPosting {
                 reader,
                 inference_version: None,
@@ -749,6 +756,7 @@ impl SegmentReader for TableSegment {
         let mut components: Vec<_> = self
             .score
             .iter()
+            .chain(self.other_postings.values())
             .map(|posting| ComponentDescriptor {
                 collection: self.metadata.collection,
                 segment: self.metadata.id,
@@ -800,12 +808,42 @@ impl SegmentReader for TableSegment {
         }
         Ok(self
             .score
-            .as_ref()
-            .filter(|posting| {
+            .iter()
+            .chain(self.other_postings.values())
+            .find(|posting| {
                 component.kind == ComponentKind::DeclaredPosting
                     && component.path.as_deref() == Some(&posting.path)
             })
             .map(|posting| posting as &dyn PostingReader))
+    }
+
+    fn relation_count(&self) -> usize {
+        self.relations.len()
+    }
+
+    fn relation(&self, ordinal: usize) -> StorageResult<Option<&dyn RelationReader>> {
+        Ok(self
+            .relations
+            .get(ordinal)
+            .map(|relation| relation as &dyn RelationReader))
+    }
+
+    fn reverse_relation(&self, ordinal: usize, target: &str) -> StorageResult<Option<SlotSet<'_>>> {
+        self.relations
+            .get(ordinal)
+            .map(|relation| relation.sources(target))
+            .transpose()
+    }
+
+    fn reverse_relation_batch(
+        &self,
+        ordinal: usize,
+        targets: &std::collections::HashSet<String>,
+    ) -> StorageResult<Option<RelationMatches<'_>>> {
+        self.relations
+            .get(ordinal)
+            .map(|relation| relation.source_batch(targets))
+            .transpose()
     }
 
     fn with_predicate_access(
@@ -915,7 +953,7 @@ impl SegmentMaintenance for TableSegment {
     fn remap_dense(&self, new_slots: &[RecordSlot]) -> StorageResult<SegmentHandle> {
         if !self.grams.is_empty() {
             return Err(invalid(
-                "use the target block importer for transferred grams",
+                "use the target block importer for transferred components",
             ));
         }
         if new_slots.len() != self.rows.len()
@@ -983,6 +1021,7 @@ impl SegmentMaintenance for TableSegment {
 #[derive(Clone)]
 struct TablePosting {
     path: Vec<String>,
+    kind: LogicalType,
     present: Arc<[u32]>,
     keys: BTreeMap<ScalarKey, Arc<[u32]>>,
     coverage: PostingCoverage,
@@ -992,7 +1031,7 @@ impl PostingReader for TablePosting {
     fn descriptor(&self) -> PostingDescriptor<'_> {
         PostingDescriptor {
             path: &self.path,
-            kind: &LogicalType::Number,
+            kind: &self.kind,
             coverage: self.coverage,
         }
     }

@@ -28,7 +28,10 @@ static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
 #[cfg(test)]
 pub use crate::index::storage::relation::{RelationEdge, RelationTarget};
 
-use crate::index::storage::relation::{RelationReader, RelationRow, VisitRelationTarget};
+use crate::index::storage::relation::{
+    RelationBlock, RelationFacts, RelationReader, RelationRow, VisitRelationTarget,
+    visit_relation_blocks,
+};
 use crate::index::storage::transfer::{StorageError, StorageResult};
 
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
@@ -317,6 +320,21 @@ impl RelationReader for RelationContribution {
         self.references.len()
     }
 
+    fn source_facts(&self, source: RecordSlot) -> StorageResult<RelationFacts> {
+        if source.0 >= self.record_count {
+            return Err(StorageError::invalid(
+                "read relation state",
+                "source outside its slot domain",
+            ));
+        }
+        Ok(RelationFacts {
+            present: self.present.contains(source.0),
+            null: self.nulls.contains(source.0),
+            empty: self.empty_arrays.contains(source.0),
+            unavailable: self.unavailable.contains(source.0),
+        })
+    }
+
     fn source_unavailable(&self, source: RecordSlot) -> StorageResult<bool> {
         if source.0 >= self.record_count {
             return Err(StorageError::invalid(
@@ -372,6 +390,76 @@ impl RelationReader for RelationContribution {
 }
 
 impl RelationContribution {
+    fn empty(declaration: RelationDefinition) -> Self {
+        Self {
+            declaration,
+            record_count: 0,
+            references: Vec::new(),
+            present: RoaringBitmap::new(),
+            nulls: RoaringBitmap::new(),
+            empty_arrays: RoaringBitmap::new(),
+            unavailable: RoaringBitmap::new(),
+        }
+    }
+
+    pub(crate) fn transfer_reader(
+        reader: &dyn RelationReader,
+        mapping: &[Option<RecordSlot>],
+        count: usize,
+        cancelled: &dyn Fn() -> bool,
+    ) -> StorageResult<Self> {
+        const OP: &str = "import relation";
+        if reader.source_slots() != mapping.len() {
+            return Err(StorageError::invalid(
+                OP,
+                "relation coverage does not match its segment",
+            ));
+        }
+        let mut result = Self::empty(reader.declaration().clone());
+        for (source, destination) in mapping.iter().enumerate() {
+            let Some(slot) = *destination else { continue };
+            if slot.0 != result.record_count {
+                return Err(StorageError::invalid(OP, "invalid destination order"));
+            }
+            let source = u32::try_from(source)
+                .map_err(|_| StorageError::invalid(OP, "source slot overflow"))?;
+            visit_relation_blocks(reader, RecordSlot(source), cancelled, &mut |block| {
+                match block {
+                    RelationBlock::Facts(facts) => {
+                        if facts.present {
+                            result.present.insert(slot.0);
+                        }
+                        if facts.null {
+                            result.nulls.insert(slot.0);
+                        }
+                        if facts.empty {
+                            result.empty_arrays.insert(slot.0);
+                        }
+                        if facts.unavailable {
+                            result.unavailable.insert(slot.0);
+                        }
+                    }
+                    RelationBlock::Target { id, positions } => {
+                        result.references.push(PendingReference {
+                            source: slot,
+                            target_id: id.to_owned(),
+                            positions: positions.to_vec(),
+                        });
+                    }
+                }
+                Ok(())
+            })?;
+            result.record_count = result
+                .record_count
+                .checked_add(1)
+                .ok_or_else(|| StorageError::invalid(OP, "destination slot overflow"))?;
+        }
+        if result.record_count as usize != count {
+            return Err(StorageError::invalid(OP, "incomplete destination coverage"));
+        }
+        Ok(result)
+    }
+
     pub(crate) fn edge_count(&self) -> usize {
         self.references.len()
     }
@@ -652,15 +740,7 @@ impl RelationContribution {
             .relations()
             .values()
             .cloned()
-            .map(|declaration| Self {
-                declaration,
-                record_count: 0,
-                references: Vec::new(),
-                present: RoaringBitmap::new(),
-                nulls: RoaringBitmap::new(),
-                empty_arrays: RoaringBitmap::new(),
-                unavailable: RoaringBitmap::new(),
-            })
+            .map(Self::empty)
             .collect()
     }
 
