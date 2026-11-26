@@ -276,9 +276,7 @@ impl<'a> MergedRelationView<'a> {
         let published = self.segments[address.collection.0 as usize]
             .get(position)
             .ok_or("merged segment position is outside the pinned view")?;
-        if !published.active.contains(address.slot)
-            || published.index.record(address.slot).is_none()
-        {
+        if !published.active.contains(address.slot) || published.header(address.slot)?.is_none() {
             return Err("merged segment address is not active in the pinned view".into());
         }
         Ok(Some(SegmentRecordAddress {
@@ -324,9 +322,8 @@ impl<'a> MergedRelationView<'a> {
                 return Ok(None);
             }
             return published
-                .index
-                .record(address.slot)
-                .cloned()
+                .header(address.slot)?
+                .map(std::borrow::Cow::into_owned)
                 .map(Some)
                 .ok_or_else(|| "merged segment slot missing".into());
         }
@@ -957,7 +954,7 @@ impl<'a> MergedRelationView<'a> {
             }
         }
         for segment in self.segments[collection_index].iter() {
-            if segment.index.collection != collection {
+            if segment.descriptor().collection != collection {
                 return Err("reference identity segment collection mismatch".into());
             }
         }
@@ -987,7 +984,7 @@ impl<'a> MergedRelationView<'a> {
             }
         }
         for (segment, published) in self.segments[collection_index].iter().enumerate() {
-            for slot in 0..published.index.record_count() {
+            for slot in 0..published.descriptor().slots {
                 let slot = RecordSlot(slot as u32);
                 if published.active.contains(slot) {
                     addresses.push(MergedRecordSlot {

@@ -1,6 +1,8 @@
 //! Bounded exact positive-witness semijoins for forward relation predicates.
 
-use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
+use crate::index::storage::segment::{
+    SegmentReader, SegmentSlotFact, read_slot_members, visit_record_headers,
+};
 use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
@@ -238,18 +240,11 @@ fn segment_target_candidates(
     let collection = &repo.collections[target_index];
     let mut may = RoaringBitmap::new();
     for published in segments[target_index].iter() {
-        let mut input = RoaringBitmap::new();
-        for (slot, record) in published.index.records.iter().enumerate() {
-            if published.active.contains(record.slot)
-                && restricted.is_none_or(|restricted| restricted.contains(record.slot.0))
-            {
-                input.insert(slot as u32);
-            }
-        }
+        let domain = published.active.bitmap();
+        let input = restricted.map_or_else(|| domain.clone(), |slots| &domain & slots);
         if input.is_empty() {
             continue;
         }
-        let domain = published.active.bitmap();
         let bounds = crate::query_execution::restrictions::segment_filter_bounds_with_catalog(
             published.id,
             published.as_ref(),
@@ -261,8 +256,7 @@ fn segment_target_candidates(
         advance_slots(work, execution, input.len())?;
         for slot in (bounds.may.as_ref() & domain & &input).iter() {
             let record = published
-                .index
-                .record(RecordSlot(slot))
+                .header(RecordSlot(slot))?
                 .ok_or("relation target candidate record missing")?;
             may.insert(
                 collection
@@ -296,15 +290,18 @@ fn segment_fts_target_candidates(
         let mut input = published.active.bitmap();
         if let Some(restricted) = restricted {
             let mut mapped = RoaringBitmap::new();
-            for (slot, record) in published.index.records.iter().enumerate() {
-                if collection
-                    .id_lookup
-                    .get(&record.id)
-                    .is_some_and(|global| restricted.contains(global.0))
-                {
-                    mapped.insert(slot as u32);
+            visit_record_headers(published.as_ref(), |headers| {
+                for record in headers {
+                    if collection
+                        .id_lookup
+                        .get(&record.id)
+                        .is_some_and(|global| restricted.contains(global.0))
+                    {
+                        mapped.insert(record.slot.0);
+                    }
                 }
-            }
+                Ok::<_, String>(())
+            })?;
             input &= mapped;
         }
         if input.is_empty() {
@@ -320,8 +317,7 @@ fn segment_fts_target_candidates(
         .unwrap_or_else(|| published.active.bitmap());
         for slot in (&candidates & &input).iter() {
             let record = published
-                .index
-                .record(RecordSlot(slot))
+                .header(RecordSlot(slot))?
                 .ok_or("relation FTS target candidate record missing")?;
             may.insert(
                 collection
@@ -1323,7 +1319,7 @@ pub(crate) fn fts_witnesses(
                 .ok_or("relation source witness slot missing")?;
             let mut address = None;
             for published in segments[hops[0].from.0 as usize].iter() {
-                if let Some(slot) = published.index.id_lookup.get(&record.id).copied()
+                if let Some(slot) = published.slot_for_record(record.id.0.as_ref())?
                     && published.active.contains(slot)
                 {
                     if address.is_some() {
@@ -1342,10 +1338,12 @@ pub(crate) fn fts_witnesses(
         ensure_slots(source_witnesses.len(), execution)?;
         for address in source_witnesses.iter() {
             let source_collection = &repo.collections[address.collection.0 as usize];
-            let record = segments[address.collection.0 as usize]
+            let segment = segments[address.collection.0 as usize]
                 .iter()
                 .find(|segment| segment.id == address.segment)
-                .and_then(|segment| segment.index.record(address.slot))
+                .ok_or("relation witness address no longer resolves")?;
+            let record = segment
+                .header(address.slot)?
                 .ok_or("relation witness address no longer resolves")?;
             let flat = source_collection
                 .id_lookup

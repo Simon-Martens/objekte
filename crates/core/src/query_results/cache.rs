@@ -257,7 +257,7 @@ pub(crate) fn materialize_lifecycle_cached(
             .get(member.collection_index)
             .and_then(|group| group.get(segment_index))
             .ok_or("cached provider segment missing")?;
-        if !matches!(segment.index.backing_kind(), RecordBacking::Provider) {
+        if !matches!(segment.backing_kind(), RecordBacking::Provider) {
             continue;
         }
         if let Some(context) = context {
@@ -265,13 +265,12 @@ pub(crate) fn materialize_lifecycle_cached(
             context.charge_reads(1)?;
         }
         let record = segment
-            .index
-            .record(RecordSlot(member.slot))
+            .header(RecordSlot(member.slot))?
             .ok_or("cached provider record missing")?;
         let hit = get_segment_record_by_id(
             repo,
             member.collection_index,
-            &segment.index,
+            segment.as_ref(),
             &segment.active,
             catalog,
             revision,
@@ -322,13 +321,12 @@ pub(crate) fn materialize_lifecycle_cached(
                 return Err("cached lifecycle segment slot retired".into());
             }
             let record = segment
-                .index
-                .record(slot)
+                .header(slot)?
                 .ok_or("cached lifecycle segment record missing")?;
             let mut hit = get_segment_record_by_id(
                 repo,
                 member.collection_index,
-                &segment.index,
+                segment.as_ref(),
                 &segment.active,
                 catalog,
                 revision,
@@ -338,9 +336,8 @@ pub(crate) fn materialize_lifecycle_cached(
             .ok_or("cached lifecycle segment locator missing")?;
             hit.matched_fields = member.matched_fields.to_vec();
             if query.options.return_mode != ReturnMode::Locator {
-                let file_backed = matches!(segment.index.backing_kind(), RecordBacking::FileRange);
-                let provider_backed =
-                    matches!(segment.index.backing_kind(), RecordBacking::Provider);
+                let file_backed = matches!(segment.backing_kind(), RecordBacking::FileRange);
+                let provider_backed = matches!(segment.backing_kind(), RecordBacking::Provider);
                 let source_bytes = hit.source_range_len();
                 if let Some(context) = context {
                     if file_backed {
@@ -363,7 +360,7 @@ pub(crate) fn materialize_lifecycle_cached(
                         get_segment_record_by_id(
                             repo,
                             member.collection_index,
-                            &segment.index,
+                            segment.as_ref(),
                             &segment.active,
                             catalog,
                             revision,

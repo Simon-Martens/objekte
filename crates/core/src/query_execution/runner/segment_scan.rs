@@ -214,7 +214,7 @@ pub(super) fn scan_segment_file_parallel(
     cap: usize,
 ) -> Result<SegmentFileScan, String> {
     let collection = &repo.collections[collection_index];
-    let segment = &published.index;
+    let segment = published;
     let file = segment_active_file(
         segment,
         &published.active,
@@ -255,14 +255,8 @@ pub(super) fn scan_segment_file_parallel(
             if !published.active.contains(RecordSlot(slot)) {
                 return Err("inactive segment scan slot".into());
             }
-            let record = segment
-                .file_record(RecordSlot(slot))
-                .ok_or("segment scan slot missing")?;
-            if segment
-                .backing
-                .file_locator(RecordSlot(slot))
-                .is_none_or(|locator| locator.file.0 != file_id)
-            {
+            let record = super::read_file_range_record(segment, RecordSlot(slot))?;
+            if record.file.0 != file_id {
                 return Err("segment scan file ownership mismatch".into());
             }
             result.record_parses += u64::from(
@@ -307,14 +301,7 @@ pub(super) fn scan_segment_file_parallel(
             };
             result.matches += 1;
             result.sort_key_evaluations += u64::from(sort.bound.has_computed);
-            let key = segment_rank_key(
-                repo,
-                sort,
-                collection_index,
-                segment.as_ref(),
-                &record,
-                Some(&ctx),
-            )?;
+            let key = segment_rank_key(repo, sort, collection_index, segment, &record, Some(&ctx))?;
             if cap == 0
                 || (local_winners.len() >= cap
                     && local_winners

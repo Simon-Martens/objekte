@@ -4271,10 +4271,8 @@ fn stream_backing_for_hit(
     {
         for published in group.iter() {
             if published
-                .index
-                .id_lookup
-                .get(hit.record_id.as_str())
-                .is_some_and(|slot| published.active.contains(*slot))
+                .slot_for_record(&hit.record_id)?
+                .is_some_and(|slot| published.active.contains(slot))
             {
                 return Ok(match published.backing_kind() {
                     RecordBacking::FileRange => StreamBacking::File,
@@ -4773,15 +4771,13 @@ fn try_lifecycle_ordered_stream(
                 let Some(selected) = selected else {
                     continue;
                 };
-                let segment = &segments[collection_index][segment_index].index;
+                let segment = &segments[collection_index][segment_index];
                 for slot in selected {
-                    segment
-                        .record(RecordSlot(slot))
-                        .ok_or("ordered candidate record missing")?;
-                    let locator = segment
-                        .backing
-                        .file_locator(RecordSlot(slot))
-                        .ok_or("ordered candidate file locator missing")?;
+                    let Some(RecordOrigin::FileRange(locator)) =
+                        segment.origin(RecordSlot(slot))?
+                    else {
+                        return Err("ordered candidate file locator missing".into());
+                    };
                     candidate_files.insert(locator.file);
                     if candidate_files.len() > 64 {
                         parallel_sources = true;

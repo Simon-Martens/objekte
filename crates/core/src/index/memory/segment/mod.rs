@@ -35,7 +35,9 @@ use crate::index::storage::segment::{
     SegmentDescriptor, SegmentReader, SegmentSource,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
-use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
+#[cfg(test)]
+use crate::inventory::RecordEntry;
+use crate::inventory::{ActiveRecords, ByteRange};
 use crate::lifecycle::IndexRevision;
 #[cfg(test)]
 use crate::model::Value;
@@ -1286,9 +1288,8 @@ impl IndexedCollectionSegment {
         self.records.get(slot.0 as usize)
     }
 
-    /// Reconstitute a file record for the legacy optimized file scanner.
-    /// This value is transient; native segment storage keeps source columns
-    /// separate from the common header.
+    /// Reconstitute a file record for native layout assertions.
+    #[cfg(test)]
     pub(crate) fn file_record(&self, slot: RecordSlot) -> Option<RecordEntry> {
         if !matches!(self.backing, SegmentBacking::FileRange { .. }) {
             return None;
