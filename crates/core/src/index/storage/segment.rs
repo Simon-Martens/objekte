@@ -251,6 +251,20 @@ pub(crate) fn visit_record_headers<E: From<StorageError>>(
                 StorageError::invalid(READ_HEADERS, "invalid header batch or slot order").into(),
             );
         }
+        if let Cow::Owned(rows) = &headers {
+            let mut bytes = 0;
+            for (items, header) in rows.iter().enumerate() {
+                let row_bytes = size_of::<RecordHeader>().saturating_add(header.id.0.len());
+                if !HEADER_LIMIT.accepts(READ_HEADERS, items, bytes, row_bytes)? {
+                    return Err(StorageError::invalid(
+                        READ_HEADERS,
+                        "header batch exceeds its limits",
+                    )
+                    .into());
+                }
+                bytes += row_bytes;
+            }
+        }
         if !headers.is_empty() {
             visit(&headers)?;
         }

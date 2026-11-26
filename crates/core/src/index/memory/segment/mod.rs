@@ -586,6 +586,26 @@ impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment 
     }
 }
 
+impl crate::index::storage::segment_catalog::SegmentRouteSource for PublishedSegment {
+    fn segment_id(&self) -> SegmentId {
+        self.id
+    }
+
+    fn visit_live_records(
+        &self,
+        visit: &mut dyn FnMut(&[(&crate::model::RecordId, RecordSlot)]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        crate::index::storage::segment_catalog::visit_live_routes(self, &self.active, visit)
+    }
+
+    fn visit_files(
+        &self,
+        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        crate::index::storage::segment_catalog::visit_file_routes(self, visit)
+    }
+}
+
 impl PublishedSegment {
     pub(crate) fn summary(&self) -> NativeSegmentSummary {
         SegmentReader::summary(self, self.active.len() as usize)

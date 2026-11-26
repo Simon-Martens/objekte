@@ -4,9 +4,12 @@ use std::any::Any;
 use std::borrow::Cow;
 use std::sync::Arc;
 
+use smallvec::SmallVec;
+
 use crate::model::{FileId, RecordId, RecordSlot};
 
-use super::segment::SegmentId;
+use super::liveness::ActiveRecords;
+use super::segment::{SegmentId, SegmentReader, visit_record_headers, visit_segment_files};
 use super::transfer::{StorageError, StorageResult};
 
 pub(crate) type SegmentCatalogHandle = Arc<dyn SegmentCatalogReader>;
@@ -64,6 +67,65 @@ pub(crate) trait SegmentRouteSource: Any + Send + Sync {
         &self,
         visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
     ) -> StorageResult<()>;
+}
+
+/// Transfer live identity rows using the placed reader and its liveness.
+pub(crate) fn visit_live_routes(
+    reader: &dyn SegmentReader,
+    live: &ActiveRecords,
+    visit: &mut dyn FnMut(&[(&RecordId, RecordSlot)]) -> StorageResult<()>,
+) -> StorageResult<()> {
+    if reader.descriptor().slots != live.slot_count() as usize {
+        return Err(StorageError::invalid(
+            "transfer record routes",
+            "invalid liveness domain",
+        ));
+    }
+    let mut emitted = 0u64;
+    visit_record_headers(reader, |headers| {
+        let mut rows = SmallVec::<[_; 64]>::new();
+        for header in headers {
+            if live.contains(header.slot) {
+                rows.push((&header.id, header.slot));
+                emitted += 1;
+                if rows.len() == rows.inline_size() {
+                    visit(&rows)?;
+                    rows.clear();
+                }
+            }
+        }
+        if !rows.is_empty() {
+            visit(&rows)?;
+        }
+        Ok::<_, StorageError>(())
+    })?;
+    if emitted != live.len() {
+        return Err(StorageError::invalid(
+            "transfer record routes",
+            "live membership count changed",
+        ));
+    }
+    Ok(())
+}
+
+/// File routing includes empty and path-only associations.
+pub(crate) fn visit_file_routes(
+    reader: &dyn SegmentReader,
+    visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
+) -> StorageResult<()> {
+    let mut batch = SmallVec::<[_; 64]>::new();
+    visit_segment_files(reader, |entry| {
+        batch.push(entry.id);
+        if batch.len() == batch.inline_size() {
+            visit(&batch)?;
+            batch.clear();
+        }
+        Ok::<_, StorageError>(())
+    })?;
+    if !batch.is_empty() {
+        visit(&batch)?;
+    }
+    Ok(())
 }
 
 pub(crate) enum SegmentDirectoryDelta<'a> {
