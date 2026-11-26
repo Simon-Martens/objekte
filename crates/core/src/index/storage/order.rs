@@ -1,5 +1,6 @@
 //! Sort configuration and comparison of logical order keys.
 
+pub(crate) mod declared;
 pub(crate) mod inferred_cache;
 pub(crate) mod key_transfer;
 
@@ -7,6 +8,12 @@ use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::sync::Arc;
 
+use icu_collator::{
+    CollatorBorrowed, CollatorPreferences,
+    options::{CollatorOptions, Strength},
+    preferences::CollationNumericOrdering,
+};
+use icu_locale_core::Locale;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
@@ -257,4 +264,28 @@ impl SortKey {
             order
         }
     }
+}
+
+/// Construct one ICU collator for a bound sort configuration.
+pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'static>, String> {
+    let parsed: Locale = config
+        .locale
+        .parse()
+        .map_err(|e| format!("invalid sort locale: {e}"))?;
+    let mut prefs: CollatorPreferences = parsed.into();
+    prefs.numeric_ordering = Some(if config.options.numeric {
+        CollationNumericOrdering::True
+    } else {
+        CollationNumericOrdering::False
+    });
+    let mut options = CollatorOptions::default();
+    options.strength = match config.options.strength {
+        CollationStrength::LocaleDefault => None,
+        CollationStrength::Primary => Some(Strength::Primary),
+        CollationStrength::Secondary => Some(Strength::Secondary),
+        CollationStrength::Tertiary => Some(Strength::Tertiary),
+        CollationStrength::Quaternary => Some(Strength::Quaternary),
+        CollationStrength::Identical => Some(Strength::Identical),
+    };
+    CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())
 }

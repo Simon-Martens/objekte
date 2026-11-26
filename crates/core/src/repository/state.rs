@@ -10,7 +10,9 @@ use crate::index::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
+#[cfg(test)]
 use crate::index::sorting::SortCollection;
+use crate::index::storage::order::declared::DeclaredOrders;
 #[cfg(test)]
 use crate::index::storage::segment::FILE_SLOT_LIMIT;
 use crate::index::storage::segment::{
@@ -67,6 +69,8 @@ pub struct CollectionState {
     pub(crate) empty_array_records: RoaringBitmap,
     pub(crate) custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub(crate) text_bindings: crate::index::storage::text::TextBindingCatalog,
+    pub(crate) declared_orders: DeclaredOrders,
+    #[cfg(test)]
     pub(crate) sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
@@ -298,9 +302,22 @@ impl CollectionState {
         Option<&dyn crate::index::storage::order::OrderColumnReader>,
     > {
         if let Some(base) = &self.base_records {
-            return base.order_column(path);
+            let column = base.order_column(path)?;
+            if column.is_some_and(|column| {
+                column.path() != path || column.key_count() != base.descriptor().slots
+            }) {
+                return Err(StorageError::invalid(
+                    "read base order column",
+                    "invalid path or slot coverage",
+                ));
+            }
+            return Ok(column);
         }
-        Ok(self.sorting.reader(path))
+        #[cfg(test)]
+        if let Some(order) = self.sorting.reader(path) {
+            return Ok(Some(order));
+        }
+        Ok(self.declared_orders.column(path))
     }
 
     pub(crate) fn base_identity_order(
@@ -310,9 +327,16 @@ impl CollectionState {
             if base.descriptor().slots == 0 {
                 return Ok(&crate::index::storage::ordered_slots::EMPTY_ORDER);
             }
-            return base.ordered_slots(&[], None)?.ok_or_else(|| {
+            let order = base.ordered_slots(&[], None)?.ok_or_else(|| {
                 StorageError::invalid("read base record order", "identity order missing")
-            });
+            })?;
+            if order.len() != base.descriptor().slots {
+                return Err(StorageError::invalid(
+                    "read base record order",
+                    "invalid slot coverage",
+                ));
+            }
+            return Ok(order);
         }
         #[cfg(test)]
         return Ok(&self.identity_order);
@@ -325,12 +349,36 @@ impl CollectionState {
         fields: &[crate::query::options::SortField],
     ) -> StorageResult<Option<&dyn crate::index::storage::ordered_slots::OrderedSlots>> {
         if let Some(base) = &self.base_records {
-            return base.ordered_slots(fields, None);
+            let order = base.ordered_slots(fields, None)?;
+            if order.is_some_and(|order| order.len() != base.descriptor().slots) {
+                return Err(StorageError::invalid(
+                    "read base composite order",
+                    "invalid slot coverage",
+                ));
+            }
+            return Ok(order);
         }
-        Ok(self
-            .sorting
-            .composite(fields)
-            .map(|order| &order.order as &dyn crate::index::storage::ordered_slots::OrderedSlots))
+        #[cfg(test)]
+        if let Some(order) = self.sorting.composite(fields) {
+            return Ok(Some(&order.order));
+        }
+        Ok(self.declared_orders.composite(fields))
+    }
+
+    pub(crate) fn base_index_family_estimate(&self) -> crate::lifecycle::IndexFamilyEstimate {
+        if let Some(base) = &self.base_records {
+            return base.index_family_estimate();
+        }
+        crate::index::memory::segment::statistics::index_family_estimate(
+            &self.raw,
+            &self.fallback_text,
+            &self.custom_text,
+            &self.postings,
+            #[cfg(test)]
+            Some(&self.sorting),
+            #[cfg(not(test))]
+            None,
+        )
     }
 
     /// Counts for the base collection before segment overlays.

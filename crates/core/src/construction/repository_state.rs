@@ -12,11 +12,13 @@ use crate::index::bigram::BigramContribution;
 use crate::index::memory::inference::InferenceBuilder;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
+#[cfg(test)]
 use crate::index::sorting::SortBuilder;
 use crate::index::storage::StorageFactory;
 use crate::index::storage::file_catalog::{
     DiscoveredFileRows, EmptyFileCatalogBase, FileCatalogHandle, FileCatalogSource, FileRows,
 };
+use crate::index::storage::order::declared::DeclaredOrders;
 use crate::index::storage::segment::{
     RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members, visit_record_headers,
     visit_segment_files,
@@ -274,6 +276,14 @@ fn initialize_empty_configured(
             .collect::<Result<HashMap<_, _>, _>>()?;
         let logical_records = RoaringBitmap::new();
         let empty_array_records = RoaringBitmap::new();
+        let declared_orders = DeclaredOrders::new(
+            &definition.sort_fields,
+            &definition.schema,
+            &definition.sort_locale,
+            definition.sort_options,
+            &definition.sort_overrides,
+        )?;
+        #[cfg(test)]
         let sort_builder = SortBuilder::new(
             &definition.sort_fields,
             &definition.schema,
@@ -281,6 +291,7 @@ fn initialize_empty_configured(
             definition.sort_options,
             &definition.sort_overrides,
         )?;
+        #[cfg(test)]
         let sorting = sort_builder.finish_for_records(&[] as &[crate::records::RecordHeader])?;
         let text_bindings =
             crate::index::storage::text::TextBindingCatalog::new(&definition.schema);
@@ -289,7 +300,10 @@ fn initialize_empty_configured(
             &fallback_text,
             &custom_text,
             &postings,
-            &sorting,
+            #[cfg(test)]
+            Some(&sorting),
+            #[cfg(not(test))]
+            None,
         );
         pending_relations.push(RelationContribution::for_schema(&definition.schema));
         collections.push(CollectionState {
@@ -313,6 +327,8 @@ fn initialize_empty_configured(
             empty_array_records,
             custom_text,
             text_bindings,
+            declared_orders,
+            #[cfg(test)]
             sorting,
             index_family_bytes,
             #[cfg(test)]

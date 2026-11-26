@@ -8,8 +8,8 @@ use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
 use crate::index::relation::RelationTarget;
-use crate::index::sorting::{SortConfig, SortKey, SortOptions, make_collator};
 use crate::index::storage::order::OrderColumnReader;
+use crate::index::storage::order::{SortConfig, SortKey, SortOptions, make_collator};
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;

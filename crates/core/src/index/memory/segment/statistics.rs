@@ -24,7 +24,7 @@ pub(crate) fn index_family_total(
     fallback: &crate::index::bigram::BigramIndex,
     custom: &std::collections::HashMap<(Vec<String>, String), crate::index::bigram::BigramIndex>,
     postings: &crate::index::posting::PostingCollection,
-    sorting: &crate::index::sorting::SortCollection,
+    sorting: Option<&crate::index::sorting::SortCollection>,
 ) -> usize {
     index_family_estimate(raw, fallback, custom, postings, sorting).total()
 }
@@ -37,7 +37,7 @@ pub(crate) fn index_family_estimate(
     fallback: &crate::index::bigram::BigramIndex,
     custom: &std::collections::HashMap<(Vec<String>, String), crate::index::bigram::BigramIndex>,
     postings: &crate::index::posting::PostingCollection,
-    sorting: &crate::index::sorting::SortCollection,
+    sorting: Option<&crate::index::sorting::SortCollection>,
 ) -> IndexFamilyEstimate {
     #[cfg(test)]
     INDEX_FAMILY_ESTIMATE_CALLS.with(|calls| calls.set(calls.get() + 1));
@@ -64,20 +64,22 @@ pub(crate) fn index_family_estimate(
                         .sum::<usize>()
             })
             .sum(),
-        sorting_bytes: sorting
-            .columns
-            .values()
-            .map(|column| {
-                column
-                    .keys
-                    .iter()
-                    .map(|key| match key {
-                        crate::index::sorting::SortKey::String(value) => value.len(),
-                        _ => 24,
-                    })
-                    .sum::<usize>()
-            })
-            .sum::<usize>()
-            .saturating_add(sorting.placed_bytes()),
+        sorting_bytes: sorting.map_or(0, |sorting| {
+            sorting
+                .columns
+                .values()
+                .map(|column| {
+                    column
+                        .keys
+                        .iter()
+                        .map(|key| match key {
+                            crate::index::sorting::SortKey::String(value) => value.len(),
+                            _ => 24,
+                        })
+                        .sum::<usize>()
+                })
+                .sum::<usize>()
+                .saturating_add(sorting.placed_bytes())
+        }),
     }
 }

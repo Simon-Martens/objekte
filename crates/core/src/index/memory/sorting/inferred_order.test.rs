@@ -1,3 +1,6 @@
+use icu_collator::options::CollatorOptions;
+use icu_locale_core::Locale;
+
 use super::super::*;
 
 #[test]

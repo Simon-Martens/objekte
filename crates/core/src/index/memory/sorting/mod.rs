@@ -4,12 +4,7 @@ use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::collections::HashMap;
 
-use icu_collator::{
-    CollatorBorrowed, CollatorPreferences,
-    options::{CollatorOptions, Strength},
-    preferences::CollationNumericOrdering,
-};
-use icu_locale_core::Locale;
+use icu_collator::CollatorBorrowed;
 use roaring::RoaringBitmap;
 
 use crate::index::storage::ordered_slots::OrderedSlots;
@@ -31,12 +26,17 @@ mod placement;
 
 pub(super) use inferred_order::build_inferred_order_rows;
 
+use crate::index::storage::order::declared::{
+    composite_orders, order_configuration, validate_overrides,
+};
 pub(crate) use crate::index::storage::order::simple_composite_part;
 pub use crate::index::storage::order::{
     COLLATION_VERSION, CollationStrength, CompositeSortPart, Placement, SortConfig, SortKey,
     SortOptions,
 };
-use crate::index::storage::order::{InferredOrderRows, OrderColumnReader, ScalarOrderPredicate};
+use crate::index::storage::order::{
+    InferredOrderRows, OrderColumnReader, ScalarOrderPredicate, make_collator,
+};
 
 impl OrderedSlots for Vec<RecordSlot> {
     fn len(&self) -> usize {
@@ -386,30 +386,6 @@ pub struct SortBuilder {
     composites: Vec<Vec<CompositeSortPart>>,
 }
 
-/// Construct one ICU collator for a bound sort configuration.
-pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'static>, String> {
-    let parsed: Locale = config
-        .locale
-        .parse()
-        .map_err(|e| format!("invalid sort locale: {e}"))?;
-    let mut prefs: CollatorPreferences = parsed.into();
-    prefs.numeric_ordering = Some(if config.options.numeric {
-        CollationNumericOrdering::True
-    } else {
-        CollationNumericOrdering::False
-    });
-    let mut options = CollatorOptions::default();
-    options.strength = match config.options.strength {
-        CollationStrength::LocaleDefault => None,
-        CollationStrength::Primary => Some(Strength::Primary),
-        CollationStrength::Secondary => Some(Strength::Secondary),
-        CollationStrength::Tertiary => Some(Strength::Tertiary),
-        CollationStrength::Quaternary => Some(Strength::Quaternary),
-        CollationStrength::Identical => Some(Strength::Identical),
-    };
-    CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())
-}
-
 impl SortBuilder {
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
         self.columns
@@ -449,29 +425,17 @@ impl SortBuilder {
     ) -> Result<Self, String> {
         let mut columns = HashMap::new();
         let mut collators = HashMap::new();
-        if overrides.keys().any(|path| !paths.contains(path)) {
-            return Err("sort override is not a configured sort field".into());
-        }
+        validate_overrides(paths, overrides)?;
         for path in paths {
-            let config = overrides.get(path).cloned().unwrap_or_else(|| SortConfig {
-                locale: locale.into(),
-                options: defaults,
-            });
-            let collator = make_collator(&config)?;
+            let (config, kind, collator) =
+                order_configuration(path, schema, locale, defaults, overrides)?;
             collators.insert(path.clone(), collator);
-            let field = schema.field(path)?;
-            if field.multi || matches!(field.kind, LogicalType::Object | LogicalType::Array(_)) {
-                return Err(format!(
-                    "array/object sort needs explicit reduction: {}",
-                    path.display()
-                ));
-            }
             if columns
                 .insert(
                     path.clone(),
                     SortColumn {
                         path: path.clone(),
-                        kind: field.kind,
+                        kind,
                         keys: Vec::new(),
                         ascending: Vec::new(),
                         descending: Vec::new(),
@@ -485,21 +449,7 @@ impl SortBuilder {
                 return Err("duplicate sort field".into());
             }
         }
-        let mut composites = Vec::new();
-        for fields in &schema.composite_sorts {
-            let parts = fields
-                .iter()
-                .map(simple_composite_part)
-                .collect::<Option<Vec<_>>>();
-            if fields.len() < 2
-                || parts
-                    .as_ref()
-                    .is_none_or(|parts| parts.iter().any(|part| !columns.contains_key(&part.path)))
-            {
-                return Err("composite sort requires configured resident scalar fields".into());
-            }
-            composites.push(parts.unwrap());
-        }
+        let composites = composite_orders(schema, |path| columns.contains_key(path))?;
         Ok(Self {
             columns,
             collators,

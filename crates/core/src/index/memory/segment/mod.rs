@@ -660,7 +660,7 @@ impl SegmentReader for IndexedCollectionSegment {
             &self.fallback_text,
             &self.custom_text,
             &self.postings,
-            &self.sorting,
+            Some(&self.sorting),
         )
     }
 
@@ -1312,7 +1312,7 @@ impl IndexedCollectionSegment {
                 &self.fallback_text,
                 &self.custom_text,
                 &self.postings,
-                &self.sorting,
+                Some(&self.sorting),
             ),
         };
     }

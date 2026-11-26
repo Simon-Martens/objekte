@@ -438,16 +438,7 @@ impl IndexView {
             .iter()
             .enumerate()
             .map(|(number, collection)| {
-                let mut parts = vec![(
-                    0,
-                    crate::index::memory::segment::statistics::index_family_estimate(
-                        &collection.raw,
-                        &collection.fallback_text,
-                        &collection.custom_text,
-                        &collection.postings,
-                        &collection.sorting,
-                    ),
-                )];
+                let mut parts = vec![(0, collection.base_index_family_estimate())];
                 self.0.record_routes[number]
                     .visit_index_families(&mut |id, estimate| parts.push((id, estimate)));
                 (collection.definition.name.clone(), parts)

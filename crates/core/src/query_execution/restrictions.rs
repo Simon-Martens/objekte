@@ -2230,7 +2230,7 @@ pub(crate) fn enumerate_paths(
                     | Operator::Le
             )
             && !matches!(term.literal, Value::Null)
-            && collection.sorting.column(&term.path.display()).is_ok()
+            && collection.order_column(&term.path)?.is_some()
         {
             add(
                 AccessPathKind::SortColumn,
