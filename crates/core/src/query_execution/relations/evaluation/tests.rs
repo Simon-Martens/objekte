@@ -146,12 +146,14 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap();
     let segments = vec![
         Arc::new(vec![Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(1),
             active: ActiveRecords::all(target.records.len()).unwrap(),
             index: Arc::new(target),
             observation: None,
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(2),
             active: ActiveRecords::all(source.records.len()).unwrap(),
             index: Arc::new(source),
@@ -1516,6 +1518,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
                 posting.values.remove(&ScalarKey::Id("A".into()));
             }
             Arc::new(PublishedSegment {
+                version: crate::index::storage::publication::PlacementVersion::new(),
                 id: published.id,
                 index: Arc::new(index),
                 active: published.active.clone(),
@@ -1680,6 +1683,7 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
                     segment.relations[relation_index].mark_unavailable_for_test(slot);
                 }
                 Arc::new(PublishedSegment {
+                    version: crate::index::storage::publication::PlacementVersion::new(),
                     id: published.id,
                     index: Arc::new(segment),
                     active: published.active.clone(),

@@ -272,6 +272,7 @@ fn partition_base_with_limits_inner(
                 crate::index::storage::liveness::InitialLiveness::All,
             )?;
             group.push(Arc::new(PublishedSegment {
+                version: crate::index::storage::publication::PlacementVersion::new(),
                 id: crate::index::segment::SegmentId::new(ordinal),
                 index: part,
                 active,

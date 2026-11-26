@@ -2367,6 +2367,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let mut segments = repo.segments.clone();
     let mut group = (*segments[0]).clone();
     group.push(Arc::new(PublishedSegment {
+        version: crate::index::storage::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(4_294_967_298),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
@@ -7129,6 +7130,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     second_active.extend([2, 3]);
     let two_segments = vec![Arc::new(vec![
         Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(10),
             index: Arc::clone(&full.index),
             active: ActiveRecords::from_bitmap(full.native_payload().record_count(), first_active)
@@ -7136,6 +7138,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
             observation: None,
         }),
         Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(11),
             index: Arc::clone(&full.index),
             active: ActiveRecords::from_bitmap(full.native_payload().record_count(), second_active)
@@ -7880,6 +7883,7 @@ fn exact_stored_page_calculates_identical_segment_restrictions_once() {
     repo.segments[0] = Arc::new(vec![
         first,
         Arc::new(crate::index::storage::publication::PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(4_294_967_298),
             index: Arc::clone(&repo.segments[0][0].index),
             active: ActiveRecords::from_bitmap(

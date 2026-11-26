@@ -384,6 +384,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap_or(0)
         + 1;
     first_group.push(Arc::new(PublishedSegment {
+        version: crate::index::storage::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(next_id),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
@@ -573,6 +574,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
         .retired(&[RecordSlot(2)])
         .unwrap();
     let segment = Arc::new(PublishedSegment {
+        version: crate::index::storage::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(1),
         active,
         index: Arc::new(segment),
@@ -700,6 +702,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
             )
             .unwrap();
         initial_segments.push(Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(initial_segments.len() as u64 + 1),
             active: ActiveRecords::all(index.record_count()).unwrap(),
             index: Arc::new(index),
@@ -1491,6 +1494,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
             )
             .unwrap();
         segments.push(Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(segments.len() as u64 + 1),
             active: ActiveRecords::all(index.record_count()).unwrap(),
             index: Arc::new(index),
@@ -1614,6 +1618,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
     structural_posting.values.clear();
     structural_posting.length_complete = true;
     let structural = Arc::new(PublishedSegment {
+        version: crate::index::storage::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(20),
         active: segments[0].active.clone(),
         index: Arc::new(structural_index),

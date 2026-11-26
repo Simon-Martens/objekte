@@ -887,6 +887,24 @@ fn empty_range(lower: &Bound<ScalarKey>, upper: &Bound<ScalarKey>) -> bool {
     }
 }
 
+pub(crate) fn select_exact_scope(repo: &Repository, collection: &str, query: &Query) -> Vec<bool> {
+    let mut request = query.clone();
+    request.collections = vec![collection.to_owned()];
+    request.options.sort.clear();
+    crate::query::prepared::segment_scope(repo, &request)
+}
+
+pub(crate) fn facet_collection(
+    repo: &Repository,
+    name: &str,
+) -> Result<crate::model::CollectionId, String> {
+    repo.collections
+        .iter()
+        .find(|collection| collection.definition.name == name)
+        .map(|collection| collection.collection_id())
+        .ok_or_else(|| "unknown collection".into())
+}
+
 pub(crate) fn select_exact_segmented(
     repo: &Repository,
     collection: &str,
@@ -1523,7 +1541,10 @@ impl Repository {
                 query,
                 self.revision,
                 &self.active,
-                &self.segment_groups()?,
+                &self.scoped_segment_groups(
+                    select_exact_scope(self, collection, query),
+                    self.lookup_segment_catalogs(),
+                )?,
                 &self.catalog,
             );
         }
@@ -1585,7 +1606,10 @@ impl Repository {
                 request,
                 self.revision,
                 &self.active,
-                &self.segment_groups()?,
+                &self.collection_segment_groups(
+                    &[facet_collection(self, &request.collection)?],
+                    self.lookup_segment_catalogs(),
+                )?,
                 &self.catalog,
             );
         }

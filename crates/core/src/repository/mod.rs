@@ -103,7 +103,29 @@ impl Repository {
         query: &crate::query::Query,
         directories: Option<&[SegmentCatalogHandle]>,
     ) -> StorageResult<Vec<SegmentGroup>> {
-        let scope = crate::query::prepared::segment_scope(self, query);
+        self.scoped_segment_groups(
+            crate::query::prepared::segment_scope(self, query),
+            directories,
+        )
+    }
+
+    pub(crate) fn collection_segment_groups(
+        &self,
+        collections: &[crate::model::CollectionId],
+        directories: Option<&[SegmentCatalogHandle]>,
+    ) -> StorageResult<Vec<SegmentGroup>> {
+        let scope = self
+            .collections
+            .iter()
+            .map(|collection| collections.contains(&collection.collection_id()));
+        self.scoped_segment_groups(scope, directories)
+    }
+
+    pub(crate) fn scoped_segment_groups(
+        &self,
+        scope: impl IntoIterator<Item = bool>,
+        directories: Option<&[SegmentCatalogHandle]>,
+    ) -> StorageResult<Vec<SegmentGroup>> {
         let mut empty = None;
         scope
             .into_iter()

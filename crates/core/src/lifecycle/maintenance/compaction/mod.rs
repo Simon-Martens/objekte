@@ -176,6 +176,7 @@ fn compact_published_with_budget(
                         crate::index::storage::liveness::InitialLiveness::All,
                     )?;
                     compacted.push(Arc::new(PublishedSegment {
+                        version: crate::index::storage::publication::PlacementVersion::new(),
                         id: crate::index::segment::SegmentId::new(ordinal),
                         index: part,
                         active,
@@ -235,6 +236,7 @@ fn compact_published_with_budget(
                     crate::index::storage::liveness::InitialLiveness::All,
                 )?;
                 replacements.push(Arc::new(PublishedSegment {
+                    version: crate::index::storage::publication::PlacementVersion::new(),
                     id: crate::index::segment::SegmentId::new(ordinal),
                     index: part,
                     active,

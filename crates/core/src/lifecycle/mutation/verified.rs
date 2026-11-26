@@ -391,6 +391,7 @@ pub(crate) fn preserve_single_record_slots(
         let mut group = candidate.segment_group(number)?;
         let group = Arc::make_mut(&mut group);
         group[replacement.old_position] = Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: replacement.old.id,
             index: Arc::clone(&replacement.replacement.index),
             active: replacement.replacement.active.clone(),
@@ -485,6 +486,7 @@ pub(crate) fn preserve_partition_record_slots(
         let mut group = candidate.segment_group(number)?;
         let group = Arc::make_mut(&mut group);
         group[found.old_position] = Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: found.old.id,
             index: replacement,
             active,
@@ -580,6 +582,7 @@ pub(crate) fn remove_verified_old_shards(
                     crate::index::storage::liveness::InitialLiveness::All,
                 )?;
                 group[position] = Arc::new(PublishedSegment {
+                    version: crate::index::storage::publication::PlacementVersion::new(),
                     id: crate::index::segment::SegmentId::new(candidate.next_segment_ordinal),
                     index: compacted.payload,
                     active,

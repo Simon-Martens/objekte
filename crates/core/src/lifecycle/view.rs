@@ -1001,17 +1001,6 @@ impl IndexView {
         {
             return Ok(None);
         }
-        for (new, old) in self.0.active.iter().zip(&previous.0.active) {
-            if new
-                .bitmap()
-                .map_err(|error| context.recorded_error(error.to_string()))?
-                != old
-                    .bitmap()
-                    .map_err(|error| context.recorded_error(error.to_string()))?
-            {
-                return Ok(None);
-            }
-        }
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(
                 crate::query_execution::streaming::ExecutionErrorKind::InvalidQuery,
@@ -1025,20 +1014,34 @@ impl IndexView {
                     message,
                 )
             })?;
-        let groups = self
-            .0
-            .segment_groups()
-            .map_err(|error| context.recorded_error(error.to_string()))?;
-        let previous_groups = previous
-            .0
-            .segment_groups()
-            .map_err(|error| context.recorded_error(error.to_string()))?;
+        let scope = crate::query::prepared::segment_scope(self.repository(), &resolved);
+        for ((new, old), selected) in self.0.active.iter().zip(&previous.0.active).zip(&scope) {
+            if !selected {
+                continue;
+            }
+            if new
+                .bitmap()
+                .map_err(|error| context.recorded_error(error.to_string()))?
+                != old
+                    .bitmap()
+                    .map_err(|error| context.recorded_error(error.to_string()))?
+            {
+                return Ok(None);
+            }
+        }
+        let open_groups = |view: &IndexView| {
+            view.repository()
+                .scoped_segment_groups(scope.iter().copied(), Some(&view.0.record_routes))
+                .map_err(|error| context.recorded_error(error.to_string()))
+        };
+        let groups = open_groups(self)?;
+        let previous_groups = open_groups(previous)?;
         for (current, old) in groups.iter().zip(&previous_groups) {
             if old.len() > current.len()
                 || old
                     .iter()
                     .zip(current.iter())
-                    .any(|(left, right)| !Arc::ptr_eq(left, right))
+                    .any(|(left, right)| !left.same_snapshot(right))
             {
                 return Ok(None);
             }
@@ -1267,7 +1270,17 @@ impl IndexView {
                 query,
                 self.revision(),
                 &self.0.active,
-                &self.0.segment_groups().map_err(|error| error.to_string())?,
+                &self
+                    .repository()
+                    .scoped_segment_groups(
+                        crate::repository::posting_values::select_exact_scope(
+                            self.repository(),
+                            collection,
+                            query,
+                        ),
+                        Some(&self.0.record_routes),
+                    )
+                    .map_err(|error| error.to_string())?,
                 &self.0.catalog,
             );
         }
@@ -1286,7 +1299,16 @@ impl IndexView {
                 request,
                 self.revision(),
                 &self.0.active,
-                &self.0.segment_groups().map_err(|error| error.to_string())?,
+                &self
+                    .repository()
+                    .collection_segment_groups(
+                        &[crate::repository::posting_values::facet_collection(
+                            self.repository(),
+                            &request.collection,
+                        )?],
+                        Some(&self.0.record_routes),
+                    )
+                    .map_err(|error| error.to_string())?,
                 &self.0.catalog,
             );
         }
@@ -1314,6 +1336,11 @@ impl IndexView {
                 &self.0.active,
             );
         }
+        let relation = crate::repository::relations::outgoing_relation(
+            self.repository(),
+            source_collection,
+            relation_path,
+        )?;
         crate::repository::relations::relation_outgoing_page_segmented(
             self.repository(),
             source_collection,
@@ -1323,7 +1350,13 @@ impl IndexView {
             limit,
             self.revision(),
             &self.0.active,
-            &self.0.segment_groups().map_err(|error| error.to_string())?,
+            &self
+                .repository()
+                .collection_segment_groups(
+                    &[relation.id.source, relation.target_collection],
+                    Some(&self.0.record_routes),
+                )
+                .map_err(|error| error.to_string())?,
             &self.0.catalog,
         )
     }
@@ -1348,6 +1381,11 @@ impl IndexView {
                 &self.0.active,
             );
         }
+        let relation = crate::repository::relations::backlink_relation(
+            self.repository(),
+            target_collection,
+            reverse_alias,
+        )?;
         crate::repository::relations::relation_backlink_page_segmented(
             self.repository(),
             target_collection,
@@ -1357,7 +1395,13 @@ impl IndexView {
             limit,
             self.revision(),
             &self.0.active,
-            &self.0.segment_groups().map_err(|error| error.to_string())?,
+            &self
+                .repository()
+                .collection_segment_groups(
+                    &[relation.id.source, relation.target_collection],
+                    Some(&self.0.record_routes),
+                )
+                .map_err(|error| error.to_string())?,
             &self.0.catalog,
         )
     }

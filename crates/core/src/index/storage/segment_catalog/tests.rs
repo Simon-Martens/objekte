@@ -33,6 +33,7 @@ struct TableFactory {
     segment_id_lookups: AtomicUsize,
     posting_block_reads: Arc<AtomicUsize>,
     posting_member_reads: Arc<AtomicUsize>,
+    decode_placements: AtomicBool,
     origins_until_failure: AtomicUsize,
     independent_applications: AtomicUsize,
     text_applications: AtomicUsize,
@@ -1780,8 +1781,13 @@ impl SegmentCatalogReader for TableDirectory {
             .descriptors
             .get(&position)
             .and_then(|descriptor| self.placements.get(&descriptor.id))
-            .cloned()
-            .map(Cow::Owned))
+            .map(|placement| {
+                if self.control.decode_placements.load(Ordering::Relaxed) {
+                    Cow::Owned(Arc::new(placement.as_ref().clone()))
+                } else {
+                    Cow::Borrowed(placement)
+                }
+            }))
     }
 
     fn read_placements(

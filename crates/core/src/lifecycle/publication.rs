@@ -461,6 +461,7 @@ impl PublishedIndex {
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
         let placement = Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: segment_id,
             index: Arc::clone(payload),
             active,
@@ -563,6 +564,7 @@ impl PublishedIndex {
                     group.insert(
                         index + offset,
                         Arc::new(PublishedSegment {
+                            version: crate::index::storage::publication::PlacementVersion::new(),
                             id: SegmentId::new(ordinal),
                             index: part,
                             active,
@@ -617,6 +619,7 @@ impl PublishedIndex {
         let removed_right = group.remove(right);
         let removed_left = group.remove(left);
         group.push(Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: SegmentId::new(ordinal),
             index: merged.payload,
             active,
@@ -780,7 +783,7 @@ impl PublishedIndex {
                     continue;
                 }
                 let changed = Arc::make_mut(&mut segment);
-                changed.active = changed.active.retired(&active_slots)?;
+                changed.retire(&active_slots)?;
                 retired_records += active_slots.len() as u64;
                 *routes = edited_catalog(
                     routes,
@@ -850,7 +853,7 @@ impl PublishedIndex {
                 }
                 if let Some(index) = edit.updated {
                     let mut placement = published.into_owned();
-                    Arc::make_mut(&mut placement).index = index;
+                    Arc::make_mut(&mut placement).replace_payload(index);
                     let delta = if edit.linked {
                         SegmentDirectoryDelta::RefreshPlacement(&placement)
                     } else {
@@ -1188,7 +1191,7 @@ impl Index {
                         }
                     }
                     let changed = Arc::make_mut(&mut published);
-                    changed.active = changed.active.retired(&[slot])?;
+                    changed.retire(&[slot])?;
                     if route_editor.is_none() {
                         route_editor = Some(next.record_routes[number].edit()?);
                     }
@@ -1367,7 +1370,7 @@ impl Index {
                 let mut published = Arc::clone(published);
                 let placed = Arc::make_mut(&mut published);
                 if let Some(index) = revised {
-                    placed.index = index;
+                    placed.replace_payload(index);
                 }
                 placed.observation = None;
                 if route_editor.is_none() {

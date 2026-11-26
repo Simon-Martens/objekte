@@ -1040,6 +1040,7 @@ fn retained_and_provider_transfer_preserves_pinned_records_without_provider_read
             .live_records(dense.descriptor().slots, InitialLiveness::All)
             .unwrap();
         projected.push(Arc::new(PublishedSegment {
+            version: crate::index::storage::publication::PlacementVersion::new(),
             id: original.id,
             index: dense,
             active,
@@ -1099,6 +1100,12 @@ fn scoped_queries_open_only_selected_and_reached_directories() {
     let root = std::env::temp_dir().join(format!("objekte-directory-scope-{}", std::process::id()));
     std::fs::create_dir_all(root.join("entries")).unwrap();
     std::fs::create_dir_all(root.join("targets")).unwrap();
+    std::fs::create_dir_all(root.join("unrelated")).unwrap();
+    std::fs::write(
+        root.join("unrelated/other.rows"),
+        "(\"id\"=\"other\",\"score\"=7)\n",
+    )
+    .unwrap();
     std::fs::write(
         root.join("entries/source.rows"),
         concat!(
@@ -1143,9 +1150,13 @@ fn scoped_queries_open_only_selected_and_reached_directories() {
         .unwrap();
     let first_directory = Arc::new(TableFactory::default());
     let second_directory = Arc::new(TableFactory::default());
+    let unrelated_directory = Arc::new(TableFactory::default());
+    first_directory
+        .decode_placements
+        .store(true, Ordering::Relaxed);
     let source = Index::start_build_with_factory(
         &root,
-        vec![entries, definition("targets")],
+        vec![entries, definition("targets"), definition("unrelated")],
         RepositoryOptions {
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
@@ -1160,6 +1171,12 @@ fn scoped_queries_open_only_selected_and_reached_directories() {
     let mut revision = (*pinned.0).clone();
     let second_group = pinned.segments(CollectionId(1)).unwrap();
     revision.record_routes[1] = build_catalog(&second_directory, second_group.iter()).unwrap();
+    let unrelated_group = pinned.segments(CollectionId(2)).unwrap();
+    revision.record_routes[2] =
+        build_catalog(&unrelated_directory, unrelated_group.iter()).unwrap();
+    unrelated_directory
+        .fail_placement
+        .store(true, Ordering::Relaxed);
     let index = Index::from_published(revision);
     let view = index.view().unwrap();
 
@@ -1202,18 +1219,87 @@ fn scoped_queries_open_only_selected_and_reached_directories() {
             .unwrap()
             .is_none()
     );
+    let selection = view.select_exact("entries", &query).unwrap();
+    let mut facet =
+        crate::repository::posting_values::PostingValuesRequest::new("entries", "score", 5);
+    facet.selection = Some(selection);
+    assert_eq!(view.posting_values(&facet).unwrap().values.len(), 1);
+    assert_eq!(second_directory.placement_reads.load(Ordering::Relaxed), 0);
+
+    let mut delta_query = query.clone();
+    delta_query.options.sort.clear();
+    delta_query.options.count = false;
+    let left = view.segments(CollectionId(0)).unwrap();
+    let right = view.segments(CollectionId(0)).unwrap();
+    assert!(!Arc::ptr_eq(&left[0], &right[0]));
+    assert!(left[0].same_snapshot(&right[0]));
+    let append = root.join("entries/append.rows");
+    std::fs::write(&append, r#"("id"="third","score"=7,"target"="yes")"#).unwrap();
+    index.add_file(&append).unwrap();
+    let updated = index.view().unwrap();
+    let delta = updated
+        .search_added_since(&view, &delta_query)
+        .unwrap()
+        .unwrap();
+    assert_eq!(delta.result.hits.len(), 1);
+    assert_eq!(delta.result.hits[0].record_id, "third");
+    assert_eq!(second_directory.placement_reads.load(Ordering::Relaxed), 0);
+
+    let replaced = view
+        .file_handle_for_path(std::path::Path::new("entries/source.rows"))
+        .unwrap()
+        .unwrap();
+    index.delete_file(replaced).unwrap();
+    let changed_prefix = index.view().unwrap();
+    assert!(
+        changed_prefix
+            .search_added_since(&view, &delta_query)
+            .unwrap()
+            .is_none()
+    );
     assert_eq!(second_directory.placement_reads.load(Ordering::Relaxed), 0);
 
     query.filter = Some(crate::query::parse_filter("target.score = 9").unwrap());
     let error = view.search(&query).unwrap_err();
     assert!(error.contains("injected placement failure"), "{error}");
     assert_eq!(second_directory.placement_reads.load(Ordering::Relaxed), 1);
+    assert!(
+        view.select_exact("entries", &query)
+            .unwrap_err()
+            .contains("injected placement failure")
+    );
+    assert!(
+        view.relation_outgoing_page("entries", &["target".into()], "left", 0, 5)
+            .unwrap_err()
+            .contains("injected placement failure")
+    );
+    assert!(
+        view.relation_backlink_page("targets", "sources", "yes", 0, 5)
+            .unwrap_err()
+            .contains("injected placement failure")
+    );
     second_directory
         .fail_placement
         .store(false, Ordering::Relaxed);
     let related = view.search(&query).unwrap();
     assert_eq!(related.count, Some(1));
     assert_eq!(related.hits[0].record_id, "left");
+    assert_eq!(
+        view.relation_outgoing_page("entries", &["target".into()], "left", 0, 5)
+            .unwrap()
+            .total_occurrences,
+        1
+    );
+    assert_eq!(
+        view.relation_backlink_page("targets", "sources", "yes", 0, 5)
+            .unwrap()
+            .total_sources,
+        1
+    );
+    assert_eq!(
+        unrelated_directory.placement_reads.load(Ordering::Relaxed),
+        0
+    );
     query.collections = vec!["targets".into()];
     query.filter = Some(crate::query::parse_filter("@backlinks.sources.score = 7").unwrap());
     let backlinked = view.search(&query).unwrap();
@@ -1374,6 +1460,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         .unwrap();
     assert!((table.as_ref() as &dyn std::any::Any).is::<TableSegment>());
     let published_table = Arc::new(PublishedSegment {
+        version: crate::index::storage::publication::PlacementVersion::new(),
         id: source.id,
         index: table,
         active: source.active.clone(),
@@ -1389,6 +1476,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         .unwrap();
     assert!(!(native.as_ref() as &dyn std::any::Any).is::<TableSegment>());
     let published_native = Arc::new(PublishedSegment {
+        version: crate::index::storage::publication::PlacementVersion::new(),
         id: source.id,
         index: native,
         active: source.active.clone(),

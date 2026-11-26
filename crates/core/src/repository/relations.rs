@@ -257,6 +257,7 @@ impl Repository {
                 None,
             );
         }
+        let relation = outgoing_relation(self, source_collection, relation_path)?;
         relation_outgoing_page_segmented(
             self,
             source_collection,
@@ -266,7 +267,10 @@ impl Repository {
             limit,
             self.revision,
             &self.active,
-            &self.segment_groups()?,
+            &self.collection_segment_groups(
+                &[relation.id.source, relation.target_collection],
+                self.lookup_segment_catalogs(),
+            )?,
             &self.catalog,
         )
     }
@@ -384,6 +388,7 @@ impl Repository {
                 None,
             );
         }
+        let relation = backlink_relation(self, target_collection, reverse_alias)?;
         relation_backlink_page_segmented(
             self,
             target_collection,
@@ -393,7 +398,10 @@ impl Repository {
             limit,
             self.revision,
             &self.active,
-            &self.segment_groups()?,
+            &self.collection_segment_groups(
+                &[relation.id.source, relation.target_collection],
+                self.lookup_segment_catalogs(),
+            )?,
             &self.catalog,
         )
     }
@@ -601,6 +609,34 @@ fn inspected_merged_record(
     })
 }
 
+pub(crate) fn outgoing_relation<'a>(
+    repo: &'a Repository,
+    source_collection: &str,
+    relation_path: &[String],
+) -> Result<crate::index::storage::relation::DeclaredRelation<'a>, String> {
+    let source = repo
+        .collections
+        .iter()
+        .find(|collection| collection.definition.name == source_collection)
+        .ok_or("source collection not found")?;
+    repo.declared_relation_by_path(source.collection_id(), relation_path)?
+        .ok_or_else(|| "relation not found in source collection".into())
+}
+
+pub(crate) fn backlink_relation<'a>(
+    repo: &'a Repository,
+    target_collection: &str,
+    reverse_alias: &str,
+) -> Result<crate::index::storage::relation::DeclaredRelation<'a>, String> {
+    let target = repo
+        .collections
+        .iter()
+        .find(|collection| collection.definition.name == target_collection)
+        .ok_or("target collection not found")?;
+    repo.declared_backlink(target.collection_id(), reverse_alias)?
+        .ok_or_else(|| "reverse relation alias not found".into())
+}
+
 pub(crate) fn relation_outgoing_page_segmented(
     repo: &Repository,
     source_collection: &str,
@@ -614,17 +650,10 @@ pub(crate) fn relation_outgoing_page_segmented(
     catalog: &dyn FileCatalogReader,
 ) -> Result<OutgoingReferencePage, String> {
     let limit = page_limit(limit)?;
-    let source = repo
-        .collections
-        .iter()
-        .find(|collection| collection.definition.name == source_collection)
-        .ok_or("source collection not found")?;
-    let relation = repo
-        .declared_relation_by_path(source.collection_id(), relation_path)?
-        .ok_or("relation not found in source collection")?;
+    let relation = outgoing_relation(repo, source_collection, relation_path)?;
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
     let source_address = view
-        .resolve_id(source.collection_id(), source_id)?
+        .resolve_id(relation.id.source, source_id)?
         .ok_or("source ID not found")?;
     let crate::index::storage::relation::RelationRow {
         targets: edges,
@@ -679,17 +708,10 @@ pub(crate) fn relation_backlink_page_segmented(
     catalog: &dyn FileCatalogReader,
 ) -> Result<BacklinkPage, String> {
     let limit = page_limit(limit)?;
-    let target = repo
-        .collections
-        .iter()
-        .find(|collection| collection.definition.name == target_collection)
-        .ok_or("target collection not found")?;
-    let relation = repo
-        .declared_backlink(target.collection_id(), reverse_alias)?
-        .ok_or("reverse relation alias not found")?;
+    let relation = backlink_relation(repo, target_collection, reverse_alias)?;
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
     let target_address = view
-        .resolve_id(target.collection_id(), target_id)?
+        .resolve_id(relation.target_collection, target_id)?
         .ok_or("target ID not found")?;
     let sources = view.backlink_sources(relation.id, target_id)?;
     let (start, end, next_offset) = page_bounds(sources.len(), offset, limit);
