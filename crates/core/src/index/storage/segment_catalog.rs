@@ -157,10 +157,11 @@ impl DirectoryEstimates {
         segments: impl Iterator<Item = &'a Arc<PublishedSegment>>,
     ) -> Self {
         let mut estimates = Self::default();
+        let mut resident = super::component::ResidentComponentCounter::default();
         for segment in segments {
             estimates.index_bytes = estimates
                 .index_bytes
-                .saturating_add(segment.estimates().index_family_bytes);
+                .saturating_add(segment.directory_index_bytes(&mut resident));
             estimates.construction_observation_bytes = estimates
                 .construction_observation_bytes
                 .saturating_add(segment.construction_observation_bytes());

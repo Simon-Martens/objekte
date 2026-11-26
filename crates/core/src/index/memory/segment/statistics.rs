@@ -19,6 +19,7 @@ pub(crate) fn reset_index_family_estimate_calls() {
 
 /// Cached narrow index-family total for one native contribution. It counts
 /// gram/posting bitmap payloads and sort keys only, not segment metadata.
+#[cfg(test)]
 pub(crate) fn index_family_total(
     raw: &crate::index::memory::bigram::BigramIndex,
     fallback: &crate::index::memory::bigram::BigramIndex,

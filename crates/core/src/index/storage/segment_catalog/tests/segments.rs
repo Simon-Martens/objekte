@@ -487,6 +487,10 @@ impl TableSegment {
         let score = score_indexed.then(|| TablePosting {
             block_reads: Arc::clone(&control.posting_block_reads),
             member_reads: Arc::clone(&control.posting_member_reads),
+            restricted_reads: Arc::clone(&control.restricted_posting_reads),
+            restricted_slots: Arc::clone(&control.restricted_posting_slots),
+            fail_whole: Arc::clone(&control.fail_whole_posting),
+            resident: super::test_resident_estimate(&control),
             path: vec![SCORE.into()],
             kind: LogicalType::Number,
             present: Arc::clone(covered.as_ref().unwrap_or(&logical)),
@@ -1228,6 +1232,10 @@ impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
         Ok(Arc::new(TablePosting {
             block_reads: Arc::clone(&self.control.posting_block_reads),
             member_reads: Arc::clone(&self.control.posting_member_reads),
+            restricted_reads: Arc::clone(&self.control.restricted_posting_reads),
+            restricted_slots: Arc::clone(&self.control.restricted_posting_slots),
+            fail_whole: Arc::clone(&self.control.fail_whole_posting),
+            resident: super::test_resident_estimate(&self.control),
             path: self.path,
             kind: LogicalType::Number,
             present: self.present.into_iter().collect(),
@@ -1240,7 +1248,7 @@ impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
             coverage: coverage.unwrap_or(PostingCoverage {
                 multi: false,
                 values_indexed: true,
-                value_complete: true,
+                value_complete: !self.control.partial_posting.load(Ordering::Relaxed),
                 length_complete: false,
                 empty_string_complete: false,
                 covered_records: self.covered_records,
@@ -1256,6 +1264,10 @@ impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
 pub(super) struct TablePosting {
     block_reads: Arc<AtomicUsize>,
     member_reads: Arc<AtomicUsize>,
+    restricted_reads: Arc<AtomicUsize>,
+    restricted_slots: Arc<AtomicUsize>,
+    fail_whole: Arc<AtomicBool>,
+    resident: crate::index::storage::component::ResidentComponentBytes,
     path: Vec<String>,
     kind: LogicalType,
     present: Arc<[u32]>,
@@ -1265,6 +1277,73 @@ pub(super) struct TablePosting {
 }
 
 impl PostingReader for TablePosting {
+    fn resident_bytes(&self) -> crate::index::storage::component::ResidentComponentBytes {
+        self.resident
+    }
+
+    fn supports_restriction(
+        &self,
+        _comparison: crate::index::storage::posting::PostingComparison,
+    ) -> bool {
+        true
+    }
+
+    fn visit_restricted(
+        &self,
+        comparison: crate::index::storage::posting::PostingComparison,
+        anchor: &ScalarKey,
+        within: &SlotInput<'_>,
+        limit: BatchLimit,
+        visit: &mut crate::index::storage::posting::VisitRestrictedPosting<'_>,
+    ) -> AccessResult<()> {
+        use crate::index::storage::posting::PostingComparison;
+        self.restricted_reads.fetch_add(1, Ordering::Relaxed);
+        let capacity = limit.fixed_batch_len(OP, size_of::<RecordSlot>())?.min(2);
+        let mut scratch = Vec::new();
+        let mut emit = |members: &[u32]| {
+            if within.len() < members.len() {
+                for slot in within.iter()? {
+                    self.restricted_slots.fetch_add(1, Ordering::Relaxed);
+                    if members.binary_search(&slot).is_ok() {
+                        scratch.push(RecordSlot(slot));
+                        if scratch.len() == capacity {
+                            visit(&scratch)?;
+                            scratch.clear();
+                        }
+                    }
+                }
+            } else {
+                for &slot in members {
+                    self.restricted_slots.fetch_add(1, Ordering::Relaxed);
+                    if within.contains(slot)? {
+                        scratch.push(RecordSlot(slot));
+                        if scratch.len() == capacity {
+                            visit(&scratch)?;
+                            scratch.clear();
+                        }
+                    }
+                }
+            }
+            if !scratch.is_empty() {
+                visit(&scratch)?;
+                scratch.clear();
+            }
+            Ok::<_, AccessError>(())
+        };
+        if comparison == PostingComparison::Equal {
+            if let Some(members) = self.keys.get(anchor) {
+                emit(members)?;
+            }
+        } else {
+            for (key, members) in &self.keys {
+                if comparison.matches(anchor, key) {
+                    emit(members)?;
+                }
+            }
+        }
+        Ok(())
+    }
+
     fn descriptor(&self) -> PostingDescriptor<'_> {
         PostingDescriptor {
             path: &self.path,
@@ -1275,6 +1354,9 @@ impl PostingReader for TablePosting {
 
     fn members(&self, key: PostingKey<'_>) -> StorageResult<Option<SlotSet<'_>>> {
         self.member_reads.fetch_add(1, Ordering::Relaxed);
+        if self.fail_whole.load(Ordering::Relaxed) {
+            return Err(invalid("whole posting disabled"));
+        }
         let slots = match key {
             PostingKey::Presence => Some(&self.present),
             PostingKey::Value(key) => self.keys.get(key),

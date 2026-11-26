@@ -6,7 +6,6 @@ use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
 use crate::index::memory::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
 use crate::index::memory::inventory::append_shifted_bitmap;
-use crate::index::memory::sorting::compare_composite;
 use crate::inference::{InferenceIndexStatus, InferredFieldReport, OccurrenceCountStatus};
 #[cfg(test)]
 use crate::inventory::ActiveRecords;
@@ -487,7 +486,7 @@ impl IndexedCollectionSegment {
                 for (target, source) in relations.iter_mut().zip(&shard.relations) {
                     target.merge_reader(source, base, shard.record_count() as u32)?;
                 }
-                if sorting.column_count() != shard.sorting.column_count()
+                if sorting.columns.len() + placed_orders.len() != shard.sorting.column_count()
                     || sorting.composites.len() != shard.sorting.composites.len()
                 {
                     return Err("sort segment coverage mismatch".into());
@@ -551,25 +550,8 @@ impl IndexedCollectionSegment {
                     .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
         }
-        for composite in &mut sorting.composites {
-            let columns = composite
-                .fields
-                .iter()
-                .map(|field| {
-                    sorting
-                        .columns
-                        .get(&field.path)
-                        .map(|column| (column, field.descending))
-                        .ok_or("composite sort column missing")
-                })
-                .collect::<Result<Vec<_>, _>>()?;
-            composite.order = records.iter().map(|record| record.slot).collect();
-            composite.order.sort_by(|a, b| {
-                compare_composite(&columns, *a, *b)
-                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
-            });
-        }
         sorting.consolidate_placed(placed_orders, &sortings, &records)?;
+        sorting.rebuild_composites(&records, |_| true)?;
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         let inference = consolidate_inference(shards, &logical_records, records.len(), &offsets)?;

@@ -66,11 +66,16 @@ impl GramBinding {
 
 #[derive(Clone)]
 pub(super) struct TableGram {
+    resident: crate::index::storage::component::ResidentComponentBytes,
     descriptor: GramDescriptor,
     rows: BTreeMap<(GramChannel, u64), Vec<RecordSlot>>,
 }
 
 impl GramReader for TableGram {
+    fn resident_bytes(&self) -> crate::index::storage::component::ResidentComponentBytes {
+        self.resident
+    }
+
     fn descriptor(&self) -> GramDescriptor {
         self.descriptor
     }
@@ -202,6 +207,7 @@ impl crate::index::storage::text::GramWriter for TableGramWriter {
             return Err(invalid("gram slot outside domain"));
         }
         Ok(Arc::new(TableGram {
+            resident: super::super::test_resident_estimate(&self.control),
             descriptor: GramDescriptor {
                 alphabet: self.alphabet,
                 version: crate::index::storage::text::BIGRAM_VERSION,
@@ -636,6 +642,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
                 .grams(&component)?
                 .ok_or_else(|| invalid("missing gram reader"))?;
             let mut table = TableGram {
+                resident: Default::default(),
                 descriptor: reader.descriptor(),
                 rows: BTreeMap::new(),
             };
@@ -687,6 +694,10 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
                 })?;
                 let posting = TablePosting {
                     member_reads: Arc::default(),
+                    restricted_reads: Arc::default(),
+                    restricted_slots: Arc::default(),
+                    fail_whole: Arc::default(),
+                    resident: Default::default(),
                     block_reads: Arc::clone(&control.posting_block_reads),
                     path: descriptor.path.to_vec(),
                     kind: descriptor.kind.clone(),

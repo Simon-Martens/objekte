@@ -11,7 +11,8 @@ use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
 use crate::model::{LogicalType, Number, RecordSlot, Value};
-use crate::query_access::membership::{MembershipView, SlotSet};
+use crate::query_access::contract::{AccessError, AccessResult};
+use crate::query_access::membership::{MembershipView, SlotInput, SlotSet};
 
 use super::transfer::{BatchLimit, StorageError, StorageResult};
 
@@ -248,8 +249,75 @@ pub(crate) trait PostingValueCursor: Send {
     fn next(&mut self) -> StorageResult<Option<(ScalarKey, u64)>>;
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum PostingComparison {
+    Equal,
+    NotEqual,
+    Greater,
+    GreaterOrEqual,
+    Less,
+    LessOrEqual,
+}
+
+impl PostingComparison {
+    pub(crate) fn for_operator(operator: crate::query::Operator) -> Option<Self> {
+        use crate::query::Operator;
+        Some(match operator {
+            Operator::Eq => Self::Equal,
+            Operator::Ne => Self::NotEqual,
+            Operator::Gt => Self::Greater,
+            Operator::Ge => Self::GreaterOrEqual,
+            Operator::Lt => Self::Less,
+            Operator::Le => Self::LessOrEqual,
+            _ => return None,
+        })
+    }
+
+    #[cfg(test)]
+    pub(crate) fn matches(self, anchor: &ScalarKey, candidate: &ScalarKey) -> bool {
+        use std::cmp::Ordering::*;
+        if std::mem::discriminant(anchor) != std::mem::discriminant(candidate) {
+            return false;
+        }
+        matches!(
+            (self, candidate.cmp(anchor)),
+            (Self::Equal, Equal)
+                | (Self::NotEqual, Less | Greater)
+                | (Self::Greater, Greater)
+                | (Self::GreaterOrEqual, Equal | Greater)
+                | (Self::Less, Less)
+                | (Self::LessOrEqual, Less | Equal)
+        )
+    }
+}
+
+pub(crate) type VisitRestrictedPosting<'a> = dyn FnMut(&[RecordSlot]) -> AccessResult<()> + 'a;
+
 pub(crate) trait PostingReader: std::any::Any + Send + Sync {
+    /// Resident bytes owned by this sealed component. Encoded backing file
+    /// lengths are excluded.
+    fn resident_bytes(&self) -> super::component::ResidentComponentBytes {
+        super::component::ResidentComponentBytes::default()
+    }
+
     fn descriptor(&self) -> PostingDescriptor<'_>;
+
+    fn supports_restriction(&self, _comparison: PostingComparison) -> bool {
+        false
+    }
+
+    /// Emit sorted, bounded blocks intersected with the effective input. Only
+    /// keys of the anchor's scalar type participate, including in inequality.
+    fn visit_restricted(
+        &self,
+        _comparison: PostingComparison,
+        _anchor: &ScalarKey,
+        _within: &SlotInput<'_>,
+        _limit: BatchLimit,
+        _visit: &mut VisitRestrictedPosting<'_>,
+    ) -> AccessResult<()> {
+        Err(AccessError::CapabilityUnavailable)
+    }
 
     fn members(&self, _key: PostingKey<'_>) -> StorageResult<Option<SlotSet<'_>>> {
         Err(StorageError::invalid(

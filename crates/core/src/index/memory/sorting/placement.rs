@@ -107,8 +107,29 @@ impl PlacedOrder {
         }
     }
 
-    fn reader(&self) -> &dyn OrderColumnReader {
+    pub(super) fn reader(&self) -> &dyn OrderColumnReader {
         self.reader.as_ref()
+    }
+
+    pub(super) fn rewrite<R: RecordIdSlot>(
+        &self,
+        records: &[R],
+        mut replacement: impl FnMut(&R) -> Result<Option<SortKey>, String>,
+    ) -> Result<Self, String> {
+        let mut writer = PlacedOrderWriter::new(Arc::clone(&self.store), self.definition())?;
+        let mut keys = Vec::with_capacity(ORDER_KEY_BATCH_SIZE);
+        for batch in records.chunks(ORDER_KEY_BATCH_SIZE) {
+            for record in batch {
+                let key = match replacement(record)? {
+                    Some(key) => key,
+                    None => self.reader.key(record.record_slot())?.into_owned(),
+                };
+                keys.push(key);
+            }
+            writer.append(writer.keys as u32, &keys)?;
+            keys.clear();
+        }
+        Ok(writer.finish(&records)?)
     }
 
     pub(in crate::index::memory) fn project(

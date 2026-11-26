@@ -981,7 +981,7 @@ impl CollectionSegment {
                     .find(|entry| entry.entry.id == file)
                     .map_or(FileStatus::Valid.code(), |entry| entry.entry.status.code()),
             )
-        });
+        })?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
         }

@@ -228,6 +228,15 @@ impl fmt::Debug for PlacedPostings {
 }
 
 impl PlacedPostings {
+    pub fn resident_bytes(
+        &self,
+        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+    ) -> usize {
+        self.0.values().fold(0usize, |total, placed| {
+            total.saturating_add(counter.charge(&placed.reader, placed.reader.resident_bytes()))
+        })
+    }
+
     pub fn paths(&self) -> impl Iterator<Item = &[String]> {
         self.0.keys().map(|(path, _)| path.as_slice())
     }

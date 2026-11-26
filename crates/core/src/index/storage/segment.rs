@@ -140,6 +140,8 @@ pub(crate) struct SegmentEstimates {
     pub source_bytes_estimated: u64,
     pub max_record_range_len: u64,
     pub index_family_bytes: usize,
+    pub independent_index_bytes: usize,
+    pub independent_retained_bytes: usize,
 }
 
 #[derive(Default)]
@@ -524,6 +526,20 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
         SegmentEstimates::default()
     }
 
+    fn maintenance_resident_bytes(
+        &self,
+        _counter: &mut super::component::ResidentComponentCounter,
+    ) -> usize {
+        self.estimates().retained_bytes_estimated
+    }
+
+    fn directory_index_bytes(
+        &self,
+        _counter: &mut super::component::ResidentComponentCounter,
+    ) -> usize {
+        self.estimates().index_family_bytes
+    }
+
     fn record_directory_estimate(&self) -> RecordDirectoryEstimate {
         RecordDirectoryEstimate::default()
     }
@@ -818,6 +834,20 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
 
     fn estimates(&self) -> SegmentEstimates {
         self.payload().estimates()
+    }
+
+    fn maintenance_resident_bytes(
+        &self,
+        counter: &mut super::component::ResidentComponentCounter,
+    ) -> usize {
+        self.payload().maintenance_resident_bytes(counter)
+    }
+
+    fn directory_index_bytes(
+        &self,
+        counter: &mut super::component::ResidentComponentCounter,
+    ) -> usize {
+        self.payload().directory_index_bytes(counter)
     }
 
     fn record_directory_estimate(&self) -> RecordDirectoryEstimate {

@@ -33,6 +33,11 @@ struct TableFactory {
     segment_id_lookups: AtomicUsize,
     posting_block_reads: Arc<AtomicUsize>,
     posting_member_reads: Arc<AtomicUsize>,
+    restricted_posting_reads: Arc<AtomicUsize>,
+    restricted_posting_slots: Arc<AtomicUsize>,
+    fail_whole_posting: Arc<AtomicBool>,
+    partial_posting: AtomicBool,
+    component_resident_estimate: AtomicUsize,
     decode_placements: AtomicBool,
     certify_placement_identity_ranges: AtomicBool,
     origins_until_failure: AtomicUsize,
@@ -84,9 +89,19 @@ struct TableFactory {
     fail_directory_refill: AtomicBool,
 }
 
+fn test_resident_estimate(
+    control: &TableFactory,
+) -> crate::index::storage::component::ResidentComponentBytes {
+    crate::index::storage::component::ResidentComponentBytes {
+        bytes: control.component_resident_estimate.load(Ordering::Relaxed),
+        shared_allocation: Some(std::ptr::from_ref(control).addr()),
+    }
+}
+
 impl DeclaredOrderStore for Arc<TableFactory> {
     fn accepts(&self, path: &FieldPath, kind: &LogicalType) -> bool {
-        path.segments == ["score"] && kind == &LogicalType::Number
+        (path.segments == ["score"] && kind == &LogicalType::Number)
+            || (path == &FieldPath::parse("@file.path").unwrap() && kind == &LogicalType::String)
     }
 
     fn start(
@@ -1165,6 +1180,280 @@ fn component_writers_preserve_mixed_placement_across_compaction() {
 }
 
 #[test]
+fn shared_component_residency_is_charged_once_for_inspection_and_maintenance() {
+    const KNOWN_BYTES: usize = 1024 * 1024;
+    let factory = Arc::new(TableFactory::default());
+    factory.store_postings.store(true, Ordering::Relaxed);
+    factory.store_grams.store(true, Ordering::Relaxed);
+    factory
+        .component_resident_estimate
+        .store(KNOWN_BYTES, Ordering::Relaxed);
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let collection = builder
+        .collection("items", segments::score_schema())
+        .unwrap();
+    let registration = builder
+        .register_records(collection, "resident-components", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    for (id, score) in [("first", 7), ("second", 9)] {
+        let mut batch = writer.batch();
+        batch.insert(id, segments::score(score)).unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+    }
+    let view = index.view().unwrap();
+    let group = view.segments(collection).unwrap();
+    assert_eq!(group.len(), 2);
+    assert_eq!(view.estimated_index_bytes(), KNOWN_BYTES);
+    for (segment, estimate) in view.index_family_breakdown().remove("items").unwrap() {
+        if segment != 0 {
+            assert_eq!(estimate.postings_bytes, KNOWN_BYTES);
+            assert_eq!(estimate.raw_bytes, 0);
+        }
+    }
+    let total_without_shared = group
+        .iter()
+        .map(|placement| {
+            let est = placement.estimates();
+            assert_eq!(est.independent_retained_bytes, KNOWN_BYTES);
+            est.retained_bytes_estimated - KNOWN_BYTES
+        })
+        .sum::<usize>();
+    let mut staged = (*view.0).clone();
+    staged
+        .make_room_for_segment_with_limits(0, total_without_shared + KNOWN_BYTES, 16)
+        .unwrap();
+    assert_eq!(
+        staged.segment_group(0).unwrap().len(),
+        2,
+        "shared bytes triggered a duplicate charge"
+    );
+    staged
+        .make_room_for_segment_with_limits(0, total_without_shared, 16)
+        .unwrap();
+    assert_eq!(
+        staged.segment_group(0).unwrap().len(),
+        1,
+        "shared bytes did not trigger consolidation"
+    );
+    assert_eq!(staged.last_size_maintenance_revision, staged.revision.0);
+    index.shutdown().unwrap();
+}
+
+#[test]
+fn composite_orders_read_placed_keys_and_refresh_moved_file_metadata() {
+    use crate::query::options::SortField;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-composite-placement-{}",
+        std::process::id()
+    ));
+    let data = root.join("data");
+    std::fs::create_dir_all(&data).unwrap();
+    std::fs::write(
+        data.join("a.rows"),
+        concat!(
+            r#"("id"="right","score"=7)"#,
+            "\n",
+            r#"("id"="left","score"=7)"#,
+            "\n",
+            r#"("id"="higher","score"=9)"#,
+            "\n",
+        ),
+    )
+    .unwrap();
+    std::fs::write(data.join("b.rows"), r#"("id"="center","score"=7)"#).unwrap();
+    let mut definition = CollectionDefinition::folder("items", "data", line_format());
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition.schema = segments::score_schema();
+    let score = FieldPath::parse("score").unwrap();
+    let file_path = FieldPath::parse("@file.path").unwrap();
+    definition.sort_fields = vec![score.clone(), file_path.clone()];
+    let sort = |descending| {
+        vec![
+            SortField::simple("score", descending),
+            SortField::simple("@file.path", descending),
+        ]
+    };
+    for direction in [false, true] {
+        definition
+            .schema
+            .register_composite_sort(sort(direction))
+            .unwrap();
+    }
+    let factory = Arc::new(TableFactory::default());
+    factory.store_declared_order.store(true, Ordering::Relaxed);
+    let index = Index::start_build_with_factory(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        fixture_registry(),
+        Arc::new(Arc::clone(&factory)),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let before = index.view().unwrap();
+    let groups = before.segments(crate::model::CollectionId(0)).unwrap();
+    let payload = groups[0].native_payload();
+    for path in [&score, &file_path] {
+        assert!(!payload.sorting.columns.contains_key(path));
+        let reader = payload.sorting.reader(path).unwrap();
+        assert_eq!(reader.key_count(), 4);
+    }
+    assert_eq!(payload.sorting.composites.len(), 2);
+    let ids = |pin: &crate::lifecycle::IndexView, descending| {
+        let mut query = segments::score_query();
+        query.collections = vec!["items".into()];
+        query.filter = None;
+        query.options.return_mode = ReturnMode::Locator;
+        query.options.sort = sort(descending);
+        query.options.evidence = false;
+        pin.search(&query)
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(ids(&before, false), ["left", "right", "center", "higher"]);
+    assert_eq!(ids(&before, true), ["higher", "center", "left", "right"]);
+    let file = before
+        .file_handle_for_path(&data.join("a.rows"))
+        .unwrap()
+        .unwrap();
+    std::fs::rename(data.join("a.rows"), data.join("z.rows")).unwrap();
+    index.move_file(file, &data.join("z.rows")).unwrap();
+    let after = index.view().unwrap();
+    assert_eq!(ids(&after, false), ["center", "left", "right", "higher"]);
+    assert_eq!(ids(&after, true), ["higher", "left", "right", "center"]);
+    assert_eq!(ids(&before, false), ["left", "right", "center", "higher"]);
+    assert!(factory.declared_order_builds.load(Ordering::Relaxed) > 2);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn placed_postings_restrict_numeric_ranges_and_frequent_keys_without_source_reads() {
+    use crate::query::options::SortField;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::schema::FieldDefinition;
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-placed-ordered-posting-{}",
+        std::process::id()
+    ));
+    let data = root.join("data");
+    std::fs::create_dir_all(&data).unwrap();
+    let rows = (0..320)
+        .map(|row| {
+            format!(
+                concat!(r#"("id"="row-{:03}","score"={},"tag"={})"#, "\n"),
+                row,
+                if row < 300 { 7 } else { 9 },
+                if row == 42 { 1 } else { 0 }
+            )
+        })
+        .collect::<String>();
+    std::fs::write(data.join("records.rows"), rows).unwrap();
+    let mut definition = CollectionDefinition::folder("items", "data", line_format());
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition.schema = segments::score_schema();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["tag".into()],
+            kind: crate::model::LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .sort_fields
+        .push(FieldPath::parse("tag").unwrap());
+    let build = |partial| {
+        let store = Arc::new(TableFactory::default());
+        store.store_postings.store(true, Ordering::Relaxed);
+        store.partial_posting.store(partial, Ordering::Relaxed);
+        let index = Index::start_build_with_factory(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                verified_cache_bytes: 0,
+                ..Default::default()
+            },
+            fixture_registry(),
+            Arc::new(Arc::clone(&store)),
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap();
+        (index, store)
+    };
+    let (complete, store) = build(false);
+    let (partial, partial_store) = build(true);
+    let mut query = segments::score_query();
+    query.collections = vec!["items".into()];
+    query.options.sort = vec![SortField::simple("tag", false)];
+    query.options.evidence = false;
+    query.options.return_mode = ReturnMode::Locator;
+    query.filter = Some(crate::query::parse_filter("score >= 9").unwrap());
+    let partial_view = partial.view().unwrap();
+    let partial_result = partial_view.search(&query).unwrap();
+    assert_eq!(partial_result.count, Some(20));
+    assert!(partial_result.counters.record_parses > 0);
+    assert_eq!(
+        partial_store
+            .restricted_posting_reads
+            .load(Ordering::Relaxed),
+        0
+    );
+    let expected = complete.view().unwrap().search_reference(&query).unwrap();
+
+    std::fs::rename(&data, root.join("detached")).unwrap();
+    store.fail_whole_posting.store(true, Ordering::Relaxed);
+    let view = complete.view().unwrap();
+    let result = view.search(&query).unwrap();
+    assert_eq!(result.count, Some(20));
+    assert_eq!(result.hits, expected.hits);
+    assert_eq!(result.counters.files_opened, 0);
+    assert!(store.restricted_posting_reads.load(Ordering::Relaxed) > 0);
+    assert_eq!(store.posting_member_reads.load(Ordering::Relaxed), 0);
+
+    store.restricted_posting_slots.store(0, Ordering::Relaxed);
+    query.filter = Some(crate::query::parse_filter("tag = 1 && score = 7").unwrap());
+    let result = view.search(&query).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.hits[0].record_id, "row-042");
+    assert_eq!(result.counters.files_opened, 0);
+    assert_eq!(store.posting_member_reads.load(Ordering::Relaxed), 0);
+    let probes = store.restricted_posting_slots.load(Ordering::Relaxed);
+    assert!(
+        (1..=2).contains(&probes),
+        "selective equality probed {probes} slots"
+    );
+    complete.shutdown().unwrap();
+    partial.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn placed_inferred_equality_preserves_empty_array_traversals() {
     use crate::inference::{InferenceConfig, InferenceMode};
     use crate::repository::configuration::RepositoryOptions;
@@ -1232,9 +1521,9 @@ fn placed_inferred_equality_preserves_empty_array_traversals() {
             query.options.return_mode = ReturnMode::Locator;
             query.options.evidence = false;
 
-            factory.posting_member_reads.store(0, Ordering::Relaxed);
+            factory.restricted_posting_reads.store(0, Ordering::Relaxed);
             let actual = view.search(&query).unwrap();
-            let reads = factory.posting_member_reads.load(Ordering::Relaxed);
+            let reads = factory.restricted_posting_reads.load(Ordering::Relaxed);
             let reference = view.search_reference(&query).unwrap();
             assert_eq!(actual.count, Some(count), "{filter}");
             assert_eq!(actual.count, reference.count, "{filter}");

@@ -242,10 +242,10 @@ pub struct IndexFamilyEstimate {
 impl IndexFamilyEstimate {
     pub fn total(self) -> usize {
         self.raw_bytes
-            + self.fallback_bytes
-            + self.custom_text_bytes
-            + self.postings_bytes
-            + self.sorting_bytes
+            .saturating_add(self.fallback_bytes)
+            .saturating_add(self.custom_text_bytes)
+            .saturating_add(self.postings_bytes)
+            .saturating_add(self.sorting_bytes)
     }
 }
 

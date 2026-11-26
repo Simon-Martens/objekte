@@ -182,6 +182,12 @@ pub(crate) type VisitGramBlock<'a> =
     dyn FnMut(GramChannel, u64, &[RecordSlot]) -> StorageResult<()> + 'a;
 
 pub(crate) trait GramReader: std::any::Any + Send + Sync {
+    /// Resident bytes owned by this sealed component. Encoded backing file
+    /// lengths are excluded.
+    fn resident_bytes(&self) -> super::component::ResidentComponentBytes {
+        super::component::ResidentComponentBytes::default()
+    }
+
     fn descriptor(&self) -> GramDescriptor;
     fn members(
         &self,

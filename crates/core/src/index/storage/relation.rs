@@ -52,6 +52,12 @@ pub(crate) struct DeclaredRelation<'a> {
 pub(crate) type VisitRelationTarget<'a> = dyn FnMut(&str, &[u32]) -> StorageResult<bool> + 'a;
 
 pub(crate) trait RelationReader: std::any::Any + Send + Sync {
+    /// Resident bytes owned by this sealed component. Encoded backing file
+    /// lengths are excluded.
+    fn resident_bytes(&self) -> super::component::ResidentComponentBytes {
+        super::component::ResidentComponentBytes::default()
+    }
+
     fn declaration(&self) -> &RelationDefinition;
     fn source_slots(&self) -> usize;
     fn edge_count(&self) -> usize {

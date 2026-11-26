@@ -578,10 +578,11 @@ impl PublishedIndex {
         }
         // Native retained-memory estimate, not an encoded length or a strict
         // allocator count; it only orders when size-triggered maintenance runs.
+        let mut resident = crate::index::storage::component::ResidentComponentCounter::default();
         let sparse_bytes = staged_group
             .iter()
             .filter(|segment| segment.descriptor().slots < target_records)
-            .map(|segment| segment.estimates().retained_bytes_estimated)
+            .map(|segment| segment.maintenance_resident_bytes(&mut resident))
             .fold(0usize, usize::saturating_add);
         let size_triggered = sparse_bytes > sparse_byte_limit
             && (self.last_size_maintenance_revision == 0

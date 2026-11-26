@@ -115,7 +115,8 @@ impl IndexedCollectionSegment {
                     .and_then(|&position| files.get(position))
                     .map_or(FileStatus::Valid, |entry| entry.entry.status);
                 Some(status.code())
-            });
+            })
+            .map_err(|error| StorageError::invalid("refresh file status order", error))?;
         if let Some(decision) = decision {
             if let Some(inference) = index.inference.as_mut() {
                 if !inference.placed.is_empty() {

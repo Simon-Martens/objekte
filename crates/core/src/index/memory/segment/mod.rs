@@ -525,6 +525,7 @@ impl SegmentReader for IndexedCollectionSegment {
                 .chain(std::iter::once(&*index.fallback_text))
                 .chain(index.custom_text.values())
         };
+        let resident = index.placed_component_estimate(&mut Default::default());
         NativeSegmentSummary {
             id: self.id,
             collection: index.collection,
@@ -532,24 +533,29 @@ impl SegmentReader for IndexedCollectionSegment {
             active_records: active_records,
             files: index.file_count(),
             source_bytes: index.accounting.source_bytes_estimated,
-            posting_fields: index.postings.fields.len(),
+            posting_fields: index.postings.fields.len() + index.placed_postings.len(),
             sort_columns: index.sorting.column_count(),
             relation_count: index.relations.len(),
             relation_edges: index
                 .relations
                 .iter()
                 .map(|relation| relation.edge_count())
-                .sum(),
+                .sum::<usize>()
+                .saturating_add(index.placed_relations.edge_count()),
             relation_heap_bytes: index
                 .relations
                 .iter()
                 .map(|relation| relation.estimated_bytes())
-                .sum(),
+                .sum::<usize>()
+                .saturating_add(resident.relations),
             bigram_stores: 2 + index.custom_text.len(),
             distinct_gram_keys: bigrams()
                 .map(|index| index.normal.len() + index.skip.len())
                 .sum(),
-            bigram_heap_bytes: bigrams().map(BigramIndex::estimated_heap_bytes).sum(),
+            bigram_heap_bytes: bigrams()
+                .map(BigramIndex::estimated_heap_bytes)
+                .sum::<usize>()
+                .saturating_add(resident.text_bytes()),
             index_family_bytes: index.accounting.index_family_bytes,
             active: active_records != 0,
         }
@@ -557,6 +563,34 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn estimates(&self) -> SegmentAccounting {
         self.accounting
+    }
+
+    fn maintenance_resident_bytes(
+        &self,
+        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+    ) -> usize {
+        let local = self.accounting.independent_retained_bytes;
+        if local == 0 {
+            return self.accounting.retained_bytes_estimated;
+        }
+        self.accounting
+            .retained_bytes_estimated
+            .saturating_sub(local)
+            .saturating_add(self.placed_component_estimate(counter).total())
+    }
+
+    fn directory_index_bytes(
+        &self,
+        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+    ) -> usize {
+        let local = self.accounting.independent_index_bytes;
+        if local == 0 {
+            return self.accounting.index_family_bytes;
+        }
+        self.accounting
+            .index_family_bytes
+            .saturating_sub(local)
+            .saturating_add(self.placed_component_estimate(counter).index_total())
     }
 
     fn record_directory_estimate(&self) -> crate::index::storage::segment::RecordDirectoryEstimate {
@@ -586,13 +620,16 @@ impl SegmentReader for IndexedCollectionSegment {
     }
 
     fn index_family_estimate(&self) -> crate::lifecycle::IndexFamilyEstimate {
-        statistics::index_family_estimate(
+        let mut estimate = statistics::index_family_estimate(
             &self.raw,
             &self.fallback_text,
             &self.custom_text,
             &self.postings,
             Some(&self.sorting),
-        )
+        );
+        self.placed_component_estimate(&mut Default::default())
+            .augment_index_families(&mut estimate);
+        estimate
     }
 
     fn components(&self) -> StorageResult<Vec<NativeComponentDescriptor<'_>>> {
@@ -1237,7 +1274,50 @@ impl SegmentReader for IndexedCollectionSegment {
     }
 }
 
+#[derive(Default)]
+struct PlacedComponentEstimate {
+    postings: usize,
+    text: [usize; 3],
+    relations: usize,
+}
+
+impl PlacedComponentEstimate {
+    fn augment_index_families(&self, estimate: &mut crate::lifecycle::IndexFamilyEstimate) {
+        estimate.postings_bytes = estimate.postings_bytes.saturating_add(self.postings);
+        estimate.raw_bytes = estimate.raw_bytes.saturating_add(self.text[0]);
+        estimate.fallback_bytes = estimate.fallback_bytes.saturating_add(self.text[1]);
+        estimate.custom_text_bytes = estimate.custom_text_bytes.saturating_add(self.text[2]);
+    }
+
+    fn text_bytes(&self) -> usize {
+        self.text.into_iter().fold(0, usize::saturating_add)
+    }
+
+    fn index_total(&self) -> usize {
+        self.postings.saturating_add(self.text_bytes())
+    }
+
+    fn total(&self) -> usize {
+        self.index_total().saturating_add(self.relations)
+    }
+}
+
 impl IndexedCollectionSegment {
+    fn placed_component_estimate(
+        &self,
+        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+    ) -> PlacedComponentEstimate {
+        let mut postings = self.placed_postings.resident_bytes(counter);
+        if let Some(inference) = &self.inference {
+            postings = postings.saturating_add(inference.placed.resident_bytes(counter));
+        }
+        PlacedComponentEstimate {
+            postings,
+            text: self.placed_grams.resident_bytes(counter),
+            relations: self.placed_relations.resident_bytes(counter),
+        }
+    }
+
     pub(crate) fn refresh_metadata_sort_slots(
         &mut self,
         slots: impl IntoIterator<Item = RecordSlot>,
@@ -1247,14 +1327,6 @@ impl IndexedCollectionSegment {
         let backing = &self.backing;
         let files = &self.files;
         let file_index = &self.file_index;
-        if !self
-            .sorting
-            .columns
-            .keys()
-            .any(|path| matches!(path.root, crate::model::PathRoot::Metadata(_)))
-        {
-            return Ok(());
-        }
         self.sorting.refresh_metadata_slots(
             &self.records,
             slots,
@@ -1452,17 +1524,22 @@ impl IndexedCollectionSegment {
             .map(|file| file.entry.revision.size)
             .fold(0u64, u64::saturating_add);
         let max_record_range_len = self.backing.max_file_range_len();
+        let placed = self.placed_component_estimate(&mut Default::default());
+        let mut families = statistics::index_family_estimate(
+            &self.raw,
+            &self.fallback_text,
+            &self.custom_text,
+            &self.postings,
+            Some(&self.sorting),
+        );
+        placed.augment_index_families(&mut families);
         self.accounting = SegmentAccounting {
-            retained_bytes_estimated: retained,
+            retained_bytes_estimated: retained.saturating_add(placed.total()),
             source_bytes_estimated,
             max_record_range_len,
-            index_family_bytes: statistics::index_family_total(
-                &self.raw,
-                &self.fallback_text,
-                &self.custom_text,
-                &self.postings,
-                Some(&self.sorting),
-            ),
+            index_family_bytes: families.total(),
+            independent_index_bytes: placed.index_total(),
+            independent_retained_bytes: placed.total(),
         };
     }
 

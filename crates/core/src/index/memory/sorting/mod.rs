@@ -258,6 +258,70 @@ impl SortCollection {
             .find(|entry| entry.fields == normalized)
     }
 
+    pub(in crate::index::memory) fn rebuild_composites(
+        &mut self,
+        records: &[impl RecordIdSlot],
+        affected: impl Fn(&[CompositeSortPart]) -> bool,
+    ) -> Result<(), String> {
+        for composite in &mut self.composites {
+            if !affected(&composite.fields) {
+                continue;
+            }
+            let mut order = records
+                .iter()
+                .map(RecordIdSlot::record_slot)
+                .collect::<Vec<_>>();
+            let by_id = |a: RecordSlot, b: RecordSlot| {
+                records[a.0 as usize]
+                    .record_id()
+                    .cmp(records[b.0 as usize].record_id())
+            };
+            if let Some(native) = composite
+                .fields
+                .iter()
+                .map(|field| {
+                    self.columns
+                        .get(&field.path)
+                        .map(|column| (column, field.descending))
+                })
+                .collect::<Option<Vec<_>>>()
+            {
+                order.sort_by(|&a, &b| compare_composite(&native, a, b).then_with(|| by_id(a, b)));
+            } else {
+                let columns = composite
+                    .fields
+                    .iter()
+                    .map(|field| {
+                        let column = self
+                            .columns
+                            .get(&field.path)
+                            .map(|column| column as &dyn OrderColumnReader)
+                            .or_else(|| {
+                                self.placed
+                                    .get(&field.path)
+                                    .map(placement::PlacedOrder::reader)
+                            })
+                            .ok_or("composite sort column missing")?;
+                        Ok((column, field.descending))
+                    })
+                    .collect::<Result<Vec<_>, String>>()?;
+                sort_slots_checked(&mut order, |a, b| {
+                    for &(column, descending) in &columns {
+                        let left = column.key(a)?;
+                        let right = column.key(b)?;
+                        let ordering = left.compare_with(&right, descending, column.options());
+                        if !ordering.is_eq() {
+                            return Ok(ordering);
+                        }
+                    }
+                    Ok(by_id(a, b))
+                })?;
+            }
+            composite.order = order;
+        }
+        Ok(())
+    }
+
     /// Refresh only the metadata columns affected by a changed native file
     /// association. The caller supplies the pinned catalog's file entry.
     pub(crate) fn refresh_metadata_slots<'a>(
@@ -274,7 +338,16 @@ impl SortCollection {
             .filter(|path| matches!(path.root, PathRoot::Metadata(_)))
             .cloned()
             .collect::<Vec<_>>();
-        if paths.is_empty() {
+        if paths.is_empty()
+            && !self
+                .placed
+                .keys()
+                .any(|path| matches!(path.root, PathRoot::Metadata(_)))
+        {
+            return Ok(());
+        }
+        let slots = slots.into_iter().collect::<Vec<_>>();
+        if slots.is_empty() {
             return Ok(());
         }
         let collators = paths
@@ -288,8 +361,7 @@ impl SortCollection {
                 .map(|collator| (path.clone(), collator))
             })
             .collect::<Result<HashMap<_, _>, _>>()?;
-        let mut changed = false;
-        for slot in slots {
+        for &slot in &slots {
             let record = records
                 .get(slot.0 as usize)
                 .ok_or("metadata sort slot missing")?;
@@ -317,10 +389,6 @@ impl SortCollection {
                     .ok_or("metadata sort key missing")?;
                 *target = key;
             }
-            changed = true;
-        }
-        if !changed {
-            return Ok(());
         }
         for path in &paths {
             let column = self
@@ -335,32 +403,72 @@ impl SortCollection {
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
-        for composite in &mut self.composites {
-            if !composite
-                .fields
-                .iter()
-                .any(|field| paths.contains(&field.path))
-            {
-                continue;
+        if !self.placed.is_empty() {
+            let changed = slots.iter().map(|slot| slot.0).collect::<RoaringBitmap>();
+            for (path, column) in &mut self.placed {
+                let PathRoot::Metadata(field) = path.root else {
+                    continue;
+                };
+                let collator = make_collator(&SortConfig {
+                    locale: column.reader().locale().to_owned(),
+                    options: column.reader().options(),
+                })?;
+                *column = column.rewrite(records, |record| {
+                    if !changed.contains(record.record_slot().0) {
+                        return Ok(None);
+                    }
+                    let value = metadata_value_for_record(
+                        field,
+                        record.record_id(),
+                        record.record_class(),
+                        origin(record.record_slot()),
+                        collection_name,
+                        root,
+                    )?;
+                    sort_key_from_value(value.as_ref(), &collator, path).map(Some)
+                })?;
             }
-            let columns = composite
-                .fields
-                .iter()
-                .map(|field| {
-                    self.columns
-                        .get(&field.path)
-                        .map(|column| (column, field.descending))
-                        .ok_or("composite metadata column missing")
-                })
-                .collect::<Result<Vec<_>, _>>()?;
-            composite.order = records.iter().map(|record| record.slot).collect();
-            composite.order.sort_by(|a, b| {
-                compare_composite(&columns, *a, *b)
-                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
-            });
         }
-        Ok(())
+        self.rebuild_composites(records, |fields| {
+            fields
+                .iter()
+                .any(|part| matches!(part.path.root, PathRoot::Metadata(_)))
+        })
     }
+}
+
+/// Merge sorted runs while allowing any reader comparison to fail.
+fn sort_slots_checked(
+    slots: &mut Vec<RecordSlot>,
+    mut compare: impl FnMut(RecordSlot, RecordSlot) -> StorageResult<Ordering>,
+) -> StorageResult<()> {
+    if slots.len() < 2 {
+        return Ok(());
+    }
+    let mut output = Vec::with_capacity(slots.len());
+    let mut width = 1usize;
+    while width < slots.len() {
+        output.clear();
+        for run in slots.chunks(width.saturating_mul(2)) {
+            let (left, right) = run.split_at(width.min(run.len()));
+            let mut a = 0;
+            let mut b = 0;
+            while a < left.len() && b < right.len() {
+                if compare(left[a], right[b])?.is_gt() {
+                    output.push(right[b]);
+                    b += 1;
+                } else {
+                    output.push(left[a]);
+                    a += 1;
+                }
+            }
+            output.extend_from_slice(&left[a..]);
+            output.extend_from_slice(&right[b..]);
+        }
+        std::mem::swap(slots, &mut output);
+        width = width.saturating_mul(2);
+    }
+    Ok(())
 }
 
 fn sort_key_from_value(
@@ -419,14 +527,9 @@ impl SortBuilder {
         &mut self,
         store: Arc<dyn DeclaredOrderStore>,
     ) -> StorageResult<()> {
-        let selected = self.columns.extract_if(|path, column| {
-            path.root == PathRoot::Data
-                && store.accepts(path, &column.definition.kind)
-                && !self
-                    .composites
-                    .iter()
-                    .any(|order| order.iter().any(|field| &field.path == path))
-        });
+        let selected = self
+            .columns
+            .extract_if(|path, column| store.accepts(path, &column.definition.kind));
         for (path, column) in selected {
             let writer = placement::PlacedOrderWriter::new(Arc::clone(&store), column.definition)?;
             self.placed.insert(path, writer);
@@ -573,35 +676,25 @@ impl SortBuilder {
                 Ok((path, column))
             })
             .collect::<Result<HashMap<_, _>, String>>()?;
-        let composites = self
-            .composites
-            .into_iter()
-            .map(|fields| {
-                let columns: Vec<_> = fields
-                    .iter()
-                    .map(|field| (&columns[&field.path], field.descending))
-                    .collect();
-                let mut order: Vec<_> = records.iter().map(|record| record.record_slot()).collect();
-                order.sort_by(|a, b| {
-                    compare_composite(&columns, *a, *b).then_with(|| {
-                        records[a.0 as usize]
-                            .record_id()
-                            .cmp(records[b.0 as usize].record_id())
-                    })
-                });
-                CompositeSortOrder { fields, order }
-            })
-            .collect();
         let placed = self
             .placed
             .into_iter()
             .map(|(path, writer)| Ok((path, writer.finish(&records)?)))
             .collect::<Result<_, String>>()?;
-        Ok(SortCollection {
+        let mut sorting = SortCollection {
             columns,
-            composites,
+            composites: self
+                .composites
+                .into_iter()
+                .map(|fields| CompositeSortOrder {
+                    fields,
+                    order: Vec::new(),
+                })
+                .collect(),
             placed,
-        })
+        };
+        sorting.rebuild_composites(records, |_| true)?;
+        Ok(sorting)
     }
 }
 
@@ -723,14 +816,14 @@ impl SortCollection {
         &mut self,
         generation: &CollectionGeneration,
         inventory: &FileInventory,
-    ) {
+    ) -> Result<(), String> {
         self.refresh_file_status_for_records(&generation.records, |slot| {
             let record = &generation.records[slot.0 as usize];
             inventory
                 .files
                 .get(record.file.0 as usize)
                 .map(|file| file.status.code())
-        });
+        })
     }
 
     /// Finalize status-dependent orders from a segment's local file table.
@@ -738,7 +831,7 @@ impl SortCollection {
         &mut self,
         records: &[impl crate::records::RecordIdSlot],
         status: impl Fn(RecordSlot) -> Option<u8>,
-    ) {
+    ) -> Result<(), String> {
         let mut refreshed = false;
         for column in self.columns.values_mut() {
             if column.path.root != PathRoot::Metadata(MetadataField::FileStatus) {
@@ -763,29 +856,27 @@ impl SortCollection {
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
+        if let Some(column) = self.placed.get_mut(&FieldPath {
+            root: PathRoot::Metadata(MetadataField::FileStatus),
+            segments: Vec::new(),
+        }) {
+            refreshed = true;
+            *column = column.rewrite(records, |record| {
+                Ok(Some(
+                    status(record.record_slot()).map_or(SortKey::Missing, |code| {
+                        SortKey::Number(Number::integer(code as i128))
+                    }),
+                ))
+            })?;
+        }
         if refreshed {
-            for composite in &mut self.composites {
-                if !composite
-                    .fields
+            self.rebuild_composites(records, |fields| {
+                fields
                     .iter()
                     .any(|field| field.path.root == PathRoot::Metadata(MetadataField::FileStatus))
-                {
-                    continue;
-                }
-                let columns = composite
-                    .fields
-                    .iter()
-                    .map(|field| (&self.columns[&field.path], field.descending))
-                    .collect::<Vec<_>>();
-                composite.order.sort_by(|a, b| {
-                    compare_composite(&columns, *a, *b).then_with(|| {
-                        records[a.0 as usize]
-                            .record_id()
-                            .cmp(records[b.0 as usize].record_id())
-                    })
-                });
-            }
+            })?;
         }
+        Ok(())
     }
 
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {

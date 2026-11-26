@@ -2,9 +2,7 @@ use std::collections::HashMap;
 
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap};
-use crate::index::memory::sorting::{
-    CompositeSortOrder, SortCollection, SortColumn, compare_composite,
-};
+use crate::index::memory::sorting::{CompositeSortOrder, SortCollection, SortColumn};
 use crate::model::RecordSlot;
 use crate::records::RecordIdSlot;
 
@@ -101,27 +99,7 @@ pub(crate) fn project_sorting(
             );
         }
     }
-    for composite in &mut sorting.composites {
-        let columns = composite
-            .fields
-            .iter()
-            .map(|part| {
-                sorting
-                    .columns
-                    .get(&part.path)
-                    .map(|column| (column, part.descending))
-                    .ok_or("composite sort column missing")
-            })
-            .collect::<Result<Vec<_>, _>>()?;
-        composite.order = records.iter().map(|record| record.record_slot()).collect();
-        composite.order.sort_by(|a, b| {
-            compare_composite(&columns, *a, *b).then_with(|| {
-                records[a.0 as usize]
-                    .record_id()
-                    .cmp(records[b.0 as usize].record_id())
-            })
-        });
-    }
+    sorting.rebuild_composites(records, |_| true)?;
     Ok(sorting)
 }
 
@@ -232,7 +210,7 @@ impl IndexedCollectionSegment {
                 || original
                     .fields
                     .iter()
-                    .any(|field| !self.sorting.columns.contains_key(&field.path))
+                    .any(|field| self.sorting.reader(&field.path).is_none())
             {
                 return Err("composite sort projection coverage mismatch".into());
             }

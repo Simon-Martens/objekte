@@ -3,10 +3,13 @@
 use std::sync::{Arc, Mutex};
 
 use super::catalog::IndexCatalog;
+use crate::index::memory::posting::value_membership_accounts_for_empty_traversals;
 use crate::index::memory::segment::IndexedCollectionSegment;
 #[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::posting::{PostingKey, PostingReader, ScalarKey};
+use crate::index::storage::posting::{
+    POSTING_BLOCK_LIMIT, PostingComparison, PostingReader, ScalarKey,
+};
 use crate::index::storage::segment::SegmentPredicateAccess;
 #[cfg(test)]
 use crate::index::storage::text::SegmentTextAccess;
@@ -57,7 +60,7 @@ enum SegmentPhysicalOperation {
         exact: bool,
     },
     NativeFallback,
-    PlacedEquality,
+    PlacedComparison,
 }
 
 struct PreparedSegmentOperation {
@@ -117,17 +120,22 @@ impl<'a> NativeSegmentProvider<'a> {
         self.access.text.domain
     }
 
-    fn placed_equality(&self, term: &BoundTerm) -> Option<(&dyn PostingReader, ScalarKey)> {
+    fn placed_comparison(
+        &self,
+        term: &BoundTerm,
+    ) -> Option<(&dyn PostingReader, PostingComparison, ScalarKey)> {
+        let comparison = PostingComparison::for_operator(term.operator)?;
         if term.path.root != crate::model::PathRoot::Data
             || term.derived != crate::query::binding::filter::Derived::None
             || term.related.is_some()
             || term.rhs.is_some()
-            || term.operation.is_some()
-            || term.matcher.is_some()
+            || term
+                .matcher
+                .as_ref()
+                .is_some_and(|matcher| !matcher.posting_compatible())
             || term.period.is_some()
             || term.query_path.has_explicit_array_step
             || term.transform != crate::schema::operation::Transform::Identity
-            || term.operator != crate::query::Operator::Eq
             || !matches!(
                 term.quantifier,
                 crate::query::Quantifier::Any | crate::query::Quantifier::Default
@@ -135,11 +143,15 @@ impl<'a> NativeSegmentProvider<'a> {
         {
             return None;
         }
+        let binding = term.operation.as_ref().map(|_| term.binding_name.as_str());
         let placed = self
             .segment
             .placed_postings
-            .get(&term.path.segments, None)
+            .get(&term.path.segments, binding)
             .or_else(|| {
+                if binding.is_some() {
+                    return None;
+                }
                 self.segment
                     .inference
                     .as_ref()?
@@ -148,10 +160,11 @@ impl<'a> NativeSegmentProvider<'a> {
             })?;
         let descriptor = placed.reader.descriptor();
         if !placed.complete
+            || !placed.reader.supports_restriction(comparison)
             || !descriptor.coverage.values_indexed
             || !descriptor.coverage.value_complete
             || descriptor.coverage.multi
-            || !crate::index::memory::posting::value_membership_accounts_for_empty_traversals(
+            || !value_membership_accounts_for_empty_traversals(
                 descriptor.coverage.summary,
                 term.quantifier,
             )
@@ -178,6 +191,7 @@ impl<'a> NativeSegmentProvider<'a> {
         }
         Some((
             placed.reader.as_ref(),
+            comparison,
             ScalarKey::from_value(&term.literal)?,
         ))
     }
@@ -188,15 +202,15 @@ impl<'a> NativeSegmentProvider<'a> {
         bound: &BoundTerm,
         input: InputEstimate,
         offers: &mut OfferList,
-    ) {
-        if self.placed_equality(bound).is_none() {
-            return;
-        }
+    ) -> bool {
+        let Some((_, comparison, _)) = self.placed_comparison(bound) else {
+            return false;
+        };
         let complete = self.segment.logical_records.len() == self.segment.record_count() as u64;
         let operation = self.operation_id(
             term,
             bound,
-            SegmentPhysicalOperation::PlacedEquality,
+            SegmentPhysicalOperation::PlacedComparison,
             AccessPathKind::Posting,
         );
         offers.push(AccessOffer::new(
@@ -221,11 +235,16 @@ impl<'a> NativeSegmentProvider<'a> {
                 ProofStrength::Candidate
             },
             input.input_len,
-            0.5,
-            0.0,
+            if comparison == PostingComparison::Equal {
+                0.5
+            } else {
+                1.0
+            },
+            0.02,
             true,
             false,
         ));
+        true
     }
 
     fn operation_id(
@@ -275,7 +294,7 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
         let AccessRequest::Structured(bound) = request else {
             return Ok(());
         };
-        self.propose_placed(term, bound, input, offers);
+        let placed = self.propose_placed(term, bound, input, offers);
         let direct_posting_compatible = bound.path.root == crate::model::PathRoot::Data
             && bound.derived == crate::query::binding::filter::Derived::None
             && bound.related.is_none()
@@ -384,7 +403,11 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
                 || source_kind_cost(source_kind),
                 |output| 1.0 + output as f64 * 0.01,
             ),
-            0.0,
+            if placed && source_kind == AccessPathKind::Scanner {
+                30.0
+            } else {
+                0.0
+            },
             false,
             source_kind == AccessPathKind::SortColumn,
         ));
@@ -526,29 +549,38 @@ impl IndexAccessProvider for NativeSegmentProvider<'_> {
             return Ok(Restriction::exact(input));
         }
         let restriction = match physical {
-            SegmentPhysicalOperation::PlacedEquality => {
-                let (reader, key) = self
-                    .placed_equality(bound)
+            SegmentPhysicalOperation::PlacedComparison => {
+                let (reader, comparison, key) = self
+                    .placed_comparison(bound)
                     .ok_or(AccessError::StaleHandle)?;
-                let members = reader.members(PostingKey::Value(&key))?;
-                let matches = match members.as_ref() {
-                    Some(members) => {
-                        let members = members.explicit_view().ok_or_else(|| {
-                            AccessError::Corrupt("unbounded posting membership".into())
-                        })?;
-                        if members
-                            .last()
-                            .is_some_and(|slot| slot as usize >= self.segment.record_count())
-                        {
+                let mut matches = roaring::RoaringBitmap::new();
+                let limit = POSTING_BLOCK_LIMIT
+                    .fixed_batch_len("restrict posting", size_of::<crate::model::RecordSlot>())?;
+                reader.visit_restricted(
+                    comparison,
+                    &key,
+                    &input,
+                    POSTING_BLOCK_LIMIT,
+                    &mut |slots| {
+                        if slots.len() > limit || slots.windows(2).any(|pair| pair[0] >= pair[1]) {
                             return Err(AccessError::Corrupt(
-                                "posting membership outside segment".into(),
+                                "invalid restricted posting block".into(),
                             ));
                         }
-                        input.filter_members(members.iter())?
-                    }
-                    None => Vec::new(),
-                };
-                let matches = SlotSet::from_sorted(matches.into())?;
+                        for &slot in slots {
+                            if slot.0 as usize >= self.segment.record_count()
+                                || !input.contains(slot.0)?
+                            {
+                                return Err(AccessError::Corrupt(
+                                    "posting membership outside input".into(),
+                                ));
+                            }
+                            matches.insert(slot.0);
+                        }
+                        Ok(())
+                    },
+                )?;
+                let matches = SlotSet::from_owned(matches);
                 if self.segment.logical_records.len() == self.segment.record_count() as u64 {
                     Restriction::exact(input.replace_slots(matches))
                 } else {

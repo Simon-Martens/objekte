@@ -264,6 +264,25 @@ fn check_reader(
 }
 
 impl PlacedGrams {
+    pub fn resident_bytes(
+        &self,
+        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+    ) -> [usize; 3] {
+        let mut bytes = [0usize; 3];
+        for (index, binding) in [GramBinding::Raw, GramBinding::Fallback].iter().enumerate() {
+            if let Some(placed) = self.0.get(binding) {
+                bytes[index] = counter.charge(&placed.reader, placed.reader.resident_bytes());
+            }
+        }
+        for (binding, placed) in &self.0 {
+            if matches!(binding, GramBinding::Field(..)) {
+                bytes[2] = bytes[2]
+                    .saturating_add(counter.charge(&placed.reader, placed.reader.resident_bytes()));
+            }
+        }
+        bytes
+    }
+
     pub fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
