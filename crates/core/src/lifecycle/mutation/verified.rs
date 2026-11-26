@@ -11,6 +11,9 @@ use crate::construction::file_preparation::{
     FilePreparationBinding, FileRecordLayout, reconstruct_file_layout,
 };
 use crate::index::segment::PublishedSegment;
+use crate::index::storage::segment::{
+    SegmentReader, visit_checked_file_slots, visit_segment_files,
+};
 use crate::lifecycle::mutation::VerifiedFallbackReason;
 use crate::lifecycle::{FileHandle, IndexError, IndexView, PublishedIndex};
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -165,33 +168,39 @@ pub(super) fn verify_old_content_with_layout(
             let shard = routes
                 .position(*id)?
                 .and_then(|position| shards.get(position))
+                .filter(|segment| segment.id == *id)
                 .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-            scanned = scanned.saturating_add(shard.index.record_count());
+            scanned = scanned.saturating_add(shard.descriptor().slots);
             if scanned > MAX_VERIFIED_SCANNED_RECORDS {
                 return Err(VerifiedFallbackReason::CompactionBudget.into());
             }
-            let Some(slots) = shard.index.file_records(handle.file_id) else {
+            if !shard.contains_file(handle.file_id)? {
                 continue;
-            };
+            }
             old_shards.push((*collection_id, shard.id.get()));
-            for slot in slots.iter() {
-                if shard.active.contains(*slot) {
-                    let record = shard
-                        .index
-                        .record(*slot)
-                        .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-                    current.push((
-                        *collection_id,
-                        record.id.clone(),
-                        shard
-                            .index
-                            .backing
-                            .file_locator(*slot)
-                            .and_then(|locator| locator.range)
-                            .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?,
-                        record.class,
-                    ));
+            let mut layout_known = true;
+            visit_checked_file_slots(shard, handle.file_id, &mut |slots| {
+                for &slot in slots {
+                    if !shard.active.contains(slot) {
+                        continue;
+                    }
+                    let header = shard.header(slot)?;
+                    let range = shard
+                        .origin(slot)?
+                        .and_then(|origin| origin.file())
+                        .filter(|locator| locator.file == handle.file_id)
+                        .and_then(|locator| locator.range);
+                    if let (Some(header), Some(range)) = (header, range) {
+                        layout_known &= header.slot == slot;
+                        current.push((*collection_id, header.id.clone(), range, header.class));
+                    } else {
+                        layout_known = false;
+                    }
                 }
+                Ok(())
+            })?;
+            if !layout_known {
+                return Err(VerifiedFallbackReason::IndexedLayoutChanged.into());
             }
         }
     }
@@ -520,26 +529,25 @@ pub(crate) fn remove_verified_old_shards(
         // The replacement is appended after any consolidation performed by
         // staging, so it has the highest ordinal for this FileId. Deletion
         // has no replacement and removes every historical shard of the file.
-        let replacement_ordinal = catalog
+        let mut replacement_ordinal = None;
+        if catalog
             .file(replaced_file)?
-            .filter(|entry| entry.collections.contains(&collection))
-            .and_then(|_| {
-                group
-                    .iter()
-                    .filter(|shard| shard.index.file(replaced_file).is_some())
-                    .map(|shard| shard.id.get())
-                    .max()
-            });
+            .is_some_and(|entry| entry.collections.contains(&collection))
+        {
+            for shard in group.iter() {
+                if shard.contains_file(replaced_file)? {
+                    replacement_ordinal = replacement_ordinal.max(Some(shard.id.get()));
+                }
+            }
+        }
         let mut position = 0;
         while position < group.len() {
             let shard = &group[position];
-            if Some(shard.id.get()) == replacement_ordinal
-                || shard.index.file(replaced_file).is_none()
-            {
+            if Some(shard.id.get()) == replacement_ordinal || !shard.contains_file(replaced_file)? {
                 position += 1;
                 continue;
             }
-            if shard.index.record_count() > MAX_VERIFIED_SCANNED_RECORDS {
+            if shard.descriptor().slots > MAX_VERIFIED_SCANNED_RECORDS {
                 return Err(VerifiedFallbackReason::CompactionBudget.into());
             }
             if shard.active.len() == 0 {
@@ -547,8 +555,7 @@ pub(crate) fn remove_verified_old_shards(
                 continue;
             }
             let mut retained = std::collections::HashSet::new();
-            for file in &shard.index.files {
-                let entry = &file.entry;
+            visit_segment_files(shard.as_ref(), |entry| {
                 if entry.id != replaced_file
                     && catalog.file(entry.id)?.is_some_and(|current| {
                         current.revision == entry.revision
@@ -558,7 +565,8 @@ pub(crate) fn remove_verified_old_shards(
                 {
                     retained.insert(entry.id);
                 }
-            }
+                Ok::<_, VerificationError>(())
+            })?;
             let compacted = shard
                 .index
                 .compact_active(&shard.active, MAX_VERIFIED_SCANNED_RECORDS, |entry| {
