@@ -3360,6 +3360,9 @@ fn search_segmented_impl(
             let mut files: Vec<(u32, SmallVec<[(u32, ByteRange); 1]>)> = Vec::new();
             let mut ordered_files = true;
             for slot in candidates.iter() {
+                if let Some(context) = context {
+                    context.check_string()?;
+                }
                 let Some(RecordOrigin::FileRange(locator)) = segment.origin(RecordSlot(slot))?
                 else {
                     return Err("segment candidate file locator missing".into());
@@ -3391,9 +3394,7 @@ fn search_segmented_impl(
                 && files
                     .iter()
                     .all(|(_, ranges)| ranges[0].1.len() <= 8 * 1024);
-            let parallel_scan = context.is_none()
-                && retained_budget.is_none()
-                && cache_builder.is_none()
+            let parallel_scan = retained_budget.is_none()
                 && (filter.is_some() || fts.is_some())
                 && (!sort.bound.has_computed
                     || (query.options.sort.len() <= 4 && small_single_record_files))
@@ -3415,6 +3416,9 @@ fn search_segmented_impl(
                 && files
                     .iter()
                     .map(|(file_id, ranges)| {
+                        if let Some(context) = context {
+                            context.check_string()?;
+                        }
                         let Some(file) = catalog.file(crate::model::FileId(*file_id))? else {
                             return Ok::<_, String>(false);
                         };
@@ -3447,7 +3451,13 @@ fn search_segmented_impl(
                 let mut fused_scanned = 0u64;
                 let mut fused_matches = 0u64;
                 let mut fused_residuals = 0u64;
+                // Workers share the request's cache budget. Admit complete
+                // membership before discarding records outside the page.
+                let cache_admission = cache_builder.as_mut().map(Mutex::new);
                 for chunk in jobs.chunks(batch_size) {
+                    if let Some(context) = context {
+                        context.check_string()?;
+                    }
                     let scans = repo.workers.install(|| {
                         chunk
                             .par_iter()
@@ -3469,6 +3479,10 @@ fn search_segmented_impl(
                                     *file_id,
                                     ranges,
                                     cap,
+                                    context,
+                                    cache_admission
+                                        .as_ref()
+                                        .map(|builder| (segment_index, builder)),
                                 )
                             })
                             .collect::<Vec<_>>()
@@ -3477,6 +3491,9 @@ fn search_segmented_impl(
                     // errors, counters and tie handling merge in file order.
                     for ((file_id, _), scan) in chunk.iter().zip(scans) {
                         let scan = scan?;
+                        if let Some(context) = context {
+                            context.check_string()?;
+                        }
                         fused_scanned += scan.scanned_records;
                         fused_matches += scan.matches;
                         fused_residuals += scan.residual_evaluations;
@@ -3518,7 +3535,7 @@ fn search_segmented_impl(
                                     &projection,
                                     filter_proof.as_deref(),
                                     true,
-                                    None,
+                                    context,
                                 )?;
                                 if !matched {
                                     return Err(

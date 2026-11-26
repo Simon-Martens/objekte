@@ -7180,6 +7180,18 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
 }
 
 fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle::Index) {
+    indexed_or_file_layout_with_reader(
+        files,
+        crate::source::test_support::line_format(),
+        crate::source::test_support::fixture_registry(),
+    )
+}
+
+fn indexed_or_file_layout_with_reader(
+    files: usize,
+    format: SourceFormat,
+    registry: crate::source::registry::SourceRegistry,
+) -> (std::path::PathBuf, crate::lifecycle::Index) {
     let root = std::env::temp_dir().join(format!(
         "objekte-ordered-or-layout-{}-{}-{:?}",
         files,
@@ -7251,7 +7263,7 @@ fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle
         vec![CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
-            format: crate::source::test_support::line_format(),
+            format,
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
@@ -7269,7 +7281,7 @@ fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle
             },
             ..Default::default()
         },
-        crate::source::test_support::fixture_registry(),
+        registry,
     )
     .and_then(|task| task.wait_complete())
     .map_err(|error| error.to_string())
@@ -7401,6 +7413,177 @@ fn assert_posted_a_only_once(
     assert_eq!(a[0].value, "Bool(true)");
     assert_eq!(a[0].segment, 1);
     assert_eq!(a[0].input, (0..260).collect::<Vec<_>>());
+}
+
+#[test]
+fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
+    use crate::query_execution::streaming::{ExecutionLimits, ResultScope};
+    use crate::source::test_support::LINE_READER;
+    use crate::source::{ExtractedRecord, ScanProjection, SourceReader};
+    use std::sync::atomic::{AtomicUsize, Ordering};
+    use std::sync::{Condvar, mpsc};
+    use std::time::Duration;
+
+    struct PausingReader {
+        reads: Arc<AtomicUsize>,
+        entered: mpsc::Sender<()>,
+        released: Arc<(Mutex<bool>, Condvar)>,
+    }
+
+    impl SourceReader for PausingReader {
+        fn name(&self) -> &'static str {
+            "pausing_parallel_fixture"
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            LINE_READER.frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            LINE_READER.parse(bytes)
+        }
+
+        fn parse_for_query(
+            &self,
+            bytes: &[u8],
+            projection: &ScanProjection,
+        ) -> Result<ExtractedRecord, String> {
+            let (lock, ready) = &*self.released;
+            if self.reads.fetch_add(1, Ordering::Relaxed) < 2 {
+                self.entered.send(()).unwrap();
+                let (released, _) = ready
+                    .wait_timeout_while(lock.lock().unwrap(), Duration::from_secs(10), |open| {
+                        !*open
+                    })
+                    .unwrap();
+                if !*released {
+                    return Err("test timed out waiting to release parallel readers".into());
+                }
+            }
+            LINE_READER.parse_for_query(bytes, projection)
+        }
+    }
+
+    let (entered, notifications) = mpsc::channel();
+    let released = Arc::new((Mutex::new(false), Condvar::new()));
+    let reads = Arc::new(AtomicUsize::new(0));
+    let mut registry = crate::source::registry::SourceRegistry::default();
+    registry
+        .register(
+            "pausing_parallel_fixture",
+            1,
+            "rows",
+            Arc::new(PausingReader {
+                reads: reads.clone(),
+                entered,
+                released: released.clone(),
+            }),
+        )
+        .unwrap();
+    let (root, index) = indexed_or_file_layout_with_reader(
+        65,
+        SourceFormat::registered("pausing_parallel_fixture"),
+        registry,
+    );
+    let view = index.view().unwrap();
+    let mut query = indexed_or_layout_query();
+    query.filter = Some(parse_filter("a = true || note = 'needle'").unwrap());
+    query.options.limit = 16;
+    query.options.return_mode = ReturnMode::Bytes;
+    query.options.evidence = true;
+    index.configure_verified_cache(1 << 20).unwrap();
+    let token = CancellationToken::new();
+    let options = StreamOptions {
+        mode: StreamMode::PageReplacements,
+        ..Default::default()
+    };
+    reset_parallel_file_dispatches(view.instance_id());
+    std::thread::scope(|scope| {
+        let worker = scope.spawn(|| {
+            view.search_stream(&query, options, &token, &mut |_| {
+                Ok(StreamControl::Continue)
+            })
+        });
+        let simultaneous =
+            (0..2).all(|_| notifications.recv_timeout(Duration::from_secs(5)).is_ok());
+        token.cancel();
+        *released.0.lock().unwrap() = true;
+        released.1.notify_all();
+        let result = worker.join().unwrap().unwrap();
+        assert!(simultaneous, "two scan workers must enter the reader");
+        assert!(matches!(result, StreamOutcome::Cancelled(_)));
+    });
+    assert!(reads.load(Ordering::Relaxed) < 260);
+    assert!(parallel_file_dispatches(view.instance_id()).1 >= 2);
+
+    let collect_page = |query: &Query| {
+        let mut page = Vec::new();
+        let result = view
+            .search_stream(query, options, &CancellationToken::new(), &mut |event| {
+                if let StreamEvent::PageReplacement { rows, .. } = event {
+                    page = rows.to_vec();
+                }
+                Ok(StreamControl::Continue)
+            })
+            .unwrap();
+        let StreamOutcome::Complete(summary) = result else {
+            panic!("expected a complete page");
+        };
+        let reference = view.search_reference(query).unwrap();
+        assert_eq!(page, reference.hits);
+        assert_eq!(summary.count, reference.count);
+        summary.counters
+    };
+    assert!(!collect_page(&query).verified_result_hit);
+    let mut later = query.clone();
+    later.options.offset = 32;
+    assert!(collect_page(&later).verified_result_hit);
+
+    index.configure_verified_cache(0).unwrap();
+    index.configure_verified_cache(1024).unwrap();
+    assert!(!collect_page(&query).verified_result_hit);
+    assert!(!collect_page(&query).verified_result_hit);
+
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            relation_reads: 2,
+            ..Default::default()
+        },
+        Some(CancellationToken::new()),
+    );
+    reset_parallel_file_dispatches(view.instance_id());
+    let result = view.search_stream_scoped_with_context(
+        &query,
+        ResultScope::Page {
+            offset: 0,
+            limit: 16,
+        },
+        options,
+        &context,
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(result, Err(StreamError::Resource { .. })),
+        "{result:?}"
+    );
+    assert!(parallel_file_dispatches(view.instance_id()).1 >= 2);
+    // The desktop stream holds a view pinned to the old source revision.
+    std::fs::write(root.join("data/000.rows"), "changed").unwrap();
+    let result = view.search_stream(&query, options, &CancellationToken::new(), &mut |_| {
+        Ok(StreamControl::Continue)
+    });
+    assert!(
+        matches!(
+            result,
+            Err(StreamError::Execution {
+                kind: crate::query_execution::streaming::ExecutionErrorKind::SourceChanged,
+                ..
+            })
+        ),
+        "{result:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

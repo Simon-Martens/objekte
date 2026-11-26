@@ -212,7 +212,13 @@ pub(super) fn scan_segment_file_parallel(
     file_id: u32,
     ranges: &[(u32, ByteRange)],
     cap: usize,
+    context: Option<&ExecutionContext>,
+    cache_admission: Option<(usize, &Mutex<&mut LifecycleCacheBuilder>)>,
 ) -> Result<SegmentFileScan, String> {
+    if let Some(context) = context {
+        context.check_string()?;
+        context.charge_reads(1)?;
+    }
     let collection = &repo.collections[collection_index];
     let segment = published;
     let file = segment_active_file(
@@ -223,7 +229,7 @@ pub(super) fn scan_segment_file_parallel(
     )?;
     let file = file.as_ref();
     let path = repo.required_file_root().join(&file.relative_path);
-    let mut reader = RecordRangeReader::open_for_search(&path, file.revision, None)?
+    let mut reader = RecordRangeReader::open_for_search(&path, file.revision, context)?
         .with_backend(collection.required_file_reader().reader_handle());
     let mut result = SegmentFileScan {
         bytes_read: 0,
@@ -236,9 +242,13 @@ pub(super) fn scan_segment_file_parallel(
         winners: Vec::new(),
     };
     let mut local_winners = BinaryHeap::new();
-    let lazy_evidence = query.options.evidence && direct_plan.is_some();
+    let lazy_evidence =
+        query.options.evidence && direct_plan.is_some() && cache_admission.is_none();
     let mut cursor = 0;
     while cursor < ranges.len() {
+        if let Some(context) = context {
+            context.check_string()?;
+        }
         let start = cursor;
         let mut batch_bytes = 0u64;
         while cursor < ranges.len() && cursor - start < 128 {
@@ -250,8 +260,14 @@ pub(super) fn scan_segment_file_parallel(
             cursor += 1;
         }
         let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
+        if let Some(context) = context {
+            context.charge_bytes(bytes_read)?;
+        }
         result.bytes_read += bytes_read;
         for (slot, bytes) in read {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
             if !published.active.contains(RecordSlot(slot))? {
                 return Err("inactive segment scan slot".into());
             }
@@ -283,7 +299,7 @@ pub(super) fn scan_segment_file_parallel(
                 projection,
                 filter_proof,
                 query.options.evidence && !lazy_evidence,
-                None,
+                context,
             )?;
             result.raw_text_verifications += u64::from(raw_checked);
             result.scanned_records += 1;
@@ -302,6 +318,24 @@ pub(super) fn scan_segment_file_parallel(
             result.matches += 1;
             result.sort_key_evaluations += u64::from(sort.bound.has_computed);
             let key = segment_rank_key(repo, sort, collection_index, segment, &record, Some(&ctx))?;
+            if sort.bound.has_computed {
+                check_execution_sort_budget(context, 0, rank_key_bytes(&key), 0)?;
+            }
+            let matched_fields: Vec<_> = evidence.into_iter().collect();
+            if let Some((segment_index, builder)) = cache_admission {
+                let mut builder = builder.lock().map_err(|error| error.to_string())?;
+                if builder.is_accepting() {
+                    builder.push(
+                        &key,
+                        CachedMember {
+                            collection_index,
+                            segment_index: Some(segment_index),
+                            slot,
+                            matched_fields: matched_fields.clone().into(),
+                        },
+                    );
+                }
+            }
             if cap == 0
                 || (local_winners.len() >= cap
                     && local_winners
@@ -313,7 +347,7 @@ pub(super) fn scan_segment_file_parallel(
             let winner = SegmentLocalWinner {
                 key,
                 slot: RecordSlot(slot),
-                matched_fields: evidence.into_iter().collect(),
+                matched_fields,
                 source_bytes: lazy_evidence.then_some(bytes),
             };
             if local_winners.len() >= cap {
