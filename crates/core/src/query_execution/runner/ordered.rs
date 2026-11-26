@@ -1,9 +1,9 @@
 //! Stored and inferred ordered traversal policies.
 
 use super::*;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::order::OrderColumnReader;
-use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::order::OrderColumnReader;
+use crate::index::traits::segment::{SegmentSlotFact, read_slot_members};
 use crate::query_results::ranking::{RankKey, StoredRankKey};
 
 pub(super) struct LifecycleOrderCursor<'a> {
@@ -391,7 +391,7 @@ pub(super) fn inferred_order_column_for_segment(
         query.options.sort[0].descending,
     );
     let column = cached_inferred_order(&repo.inferred_orders, key, || {
-        let request = crate::index::storage::order::PostingOrderRequest {
+        let request = crate::index::traits::order::PostingOrderRequest {
             path,
             locale: &collection.definition.sort_locale,
             options: collection.definition.sort_options,
@@ -419,7 +419,7 @@ pub(super) fn inferred_order_column_for_segment(
 }
 
 pub(super) fn cached_inferred_order(
-    cache: &Mutex<crate::index::storage::order::inferred_cache::InferredOrderCache>,
+    cache: &Mutex<crate::index::traits::order::inferred_cache::InferredOrderCache>,
     key: InferredOrderKey,
     build: impl FnOnce() -> Result<Option<Arc<dyn OrderColumnReader>>, String>,
 ) -> Result<Option<Arc<dyn OrderColumnReader>>, String> {
@@ -596,7 +596,7 @@ pub(super) fn try_inferred_segment_order_page(
     let mut orders = cursors
         .iter()
         .map(|(_, column, _)| {
-            Ok::<_, crate::index::storage::transfer::StorageError>(OrderedSlotCursor::new(
+            Ok::<_, crate::index::traits::transfer::StorageError>(OrderedSlotCursor::new(
                 column.slots(descending)?,
             ))
         })
@@ -1041,7 +1041,7 @@ pub(super) fn try_stored_order_page(
         let columns = sort.columns[entry.collection_index]
             .as_ref()
             .expect("selected collection");
-        let order: &dyn crate::index::storage::ordered_slots::OrderedSlots =
+        let order: &dyn crate::index::traits::ordered_slots::OrderedSlots =
             if query.options.sort.len() > 1 {
                 repo.collections[entry.collection_index]
                     .base_composite_order(&query.options.sort)?

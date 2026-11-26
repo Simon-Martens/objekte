@@ -8,13 +8,13 @@ use crate::index::memory::posting::{
 };
 use crate::index::memory::segment::IndexedCollectionSegment;
 #[cfg(test)]
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::posting::{
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::posting::{
     POSTING_BLOCK_LIMIT, PostingComparison, PostingReader, ScalarKey,
 };
-use crate::index::storage::segment::SegmentPredicateAccess;
+use crate::index::traits::segment::SegmentPredicateAccess;
 #[cfg(test)]
-use crate::index::storage::text::SegmentTextAccess;
+use crate::index::traits::text::SegmentTextAccess;
 use crate::query::binding::filter::BoundTerm;
 use crate::query_access::contract::{PostingId, PostingOperation};
 #[cfg(test)]
@@ -979,7 +979,7 @@ fn managed_queries_and_components_use_distinct_published_domains() {
         let segments = view.segments(crate::model::CollectionId(0)).unwrap();
         for segment in segments.iter() {
             assert!(
-                crate::index::storage::segment::SegmentReader::components(segment)
+                crate::index::traits::segment::SegmentReader::components(segment)
                     .unwrap()
                     .iter()
                     .all(|desc| desc.segment == segment.id)

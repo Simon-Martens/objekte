@@ -2,7 +2,7 @@ use std::collections::BTreeMap;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::*;
-use crate::index::storage::liveness::InitialLiveness;
+use crate::index::traits::liveness::InitialLiveness;
 use crate::inventory::{DiagnosticRef, RecordClass};
 use crate::model::{RecordId, Value};
 use crate::query::options::ReturnMode;
@@ -193,7 +193,7 @@ fn real_direct_lookup_supports_owned_record_rows_and_checked_payload_reads() {
     let logical = read_slot_members(&segment, SegmentSlotFact::Logical).unwrap();
     assert_eq!(logical.view().iter().collect::<Vec<_>>(), [slot.0]);
 
-    let active = crate::index::storage::test_factory()
+    let active = crate::index::traits::test_factory()
         .live_records(1, InitialLiveness::All)
         .unwrap();
     let lookup = |id: &str, mode| {

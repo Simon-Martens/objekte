@@ -1,7 +1,7 @@
 use std::borrow::Cow;
 use std::num::NonZeroUsize;
 
-use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::model::{Number, RecordSlot};
 
 use super::{OrderColumnReader, SortKey};

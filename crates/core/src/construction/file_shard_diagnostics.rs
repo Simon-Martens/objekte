@@ -5,7 +5,7 @@ use crate::construction::batch::{SourceFileInput, file_batches};
 use crate::construction::scheduling::{
     RepositoryFileJob, process_repository_file_batches_profiled,
 };
-use crate::index::storage::segment::build::{FileSegmentBuild, SegmentSeal};
+use crate::index::traits::segment::build::{FileSegmentBuild, SegmentSeal};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::source::registry::SourceRegistry;
 
@@ -39,7 +39,7 @@ pub fn measure_direct_shard_build(
     let source = collection.required_file_reader().clone();
     let mut source_files = Vec::new();
     let mut collection_files = Vec::new();
-    for row in crate::index::storage::file_catalog::FileRows::new(&repository.catalog) {
+    for row in crate::index::traits::file_catalog::FileRows::new(&repository.catalog) {
         let row = row.unwrap();
         let file = &row.entry;
         assert_eq!(file.id.0 as usize, source_files.len());

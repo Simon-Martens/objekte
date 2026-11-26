@@ -1,4 +1,4 @@
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::file_catalog::FileCatalogReader;
 use std::path::Path;
 use std::time::SystemTime;
 
@@ -8,9 +8,9 @@ use crate::construction::file_preparation::{
     FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_observed_file_build,
 };
 use crate::index::segment::SegmentId;
-use crate::index::storage::segment::SegmentHandle;
-use crate::index::storage::segment::SegmentReader;
-use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
+use crate::index::traits::segment::SegmentHandle;
+use crate::index::traits::segment::SegmentReader;
+use crate::index::traits::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
 use crate::inventory::discovery::selects_file;
 use crate::inventory::{FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::{FileHandle, Index, IndexError, IndexRevision, IndexView};

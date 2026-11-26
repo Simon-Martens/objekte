@@ -24,16 +24,16 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::memory::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::memory::relation::RelationContribution;
 use crate::index::memory::sorting::SortCollection;
-use crate::index::storage::order::{
+use crate::index::traits::order::{
     CompositeSortPart, InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
 };
-use crate::index::storage::ordered_slots::OrderedSlots;
-use crate::index::storage::relation::{RelationMatches, RelationReader};
-use crate::index::storage::segment::{
+use crate::index::traits::ordered_slots::OrderedSlots;
+use crate::index::traits::relation::{RelationMatches, RelationReader};
+use crate::index::traits::segment::{
     RecordBacking, RecordOrigin, RecordWriteVersion, RetainedBlock, RetainedBlockReader,
     SegmentDescriptor, SegmentReader, SegmentSource,
 };
-use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
 #[cfg(test)]
 use crate::model::Value;
@@ -69,8 +69,8 @@ impl<T: Clone> DerefMut for SharedColumn<T> {
 }
 
 #[cfg(test)]
-pub(crate) use crate::index::storage::segment::SegmentRecordAddress;
-pub use crate::index::storage::segment::{SegmentId, SegmentPolicy};
+pub(crate) use crate::index::traits::segment::SegmentRecordAddress;
+pub use crate::index::traits::segment::{SegmentId, SegmentPolicy};
 
 /// One physical file in a segment. File IDs remain repository-global; slots
 /// are local to the owning segment.
@@ -80,7 +80,7 @@ pub(crate) struct SegmentFile {
     pub records: Vec<RecordSlot>,
 }
 
-pub(crate) use crate::index::storage::segment::FileRangeLocator;
+pub(crate) use crate::index::traits::segment::FileRangeLocator;
 pub(crate) use crate::records::RetainedBody;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -451,8 +451,8 @@ mod backing_tests {
     }
 }
 
-pub use crate::index::storage::segment::NativeSegmentSummary;
-pub(crate) use crate::index::storage::segment::SegmentEstimates as SegmentAccounting;
+pub use crate::index::traits::segment::NativeSegmentSummary;
+pub(crate) use crate::index::traits::segment::SegmentEstimates as SegmentAccounting;
 
 /// Complete native search payload owned by one immutable segment.
 #[derive(Clone)]
@@ -492,7 +492,7 @@ pub(crate) struct IndexedCollectionSegment {
 }
 
 #[cfg(test)]
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::traits::publication::PublishedSegment;
 
 #[cfg(test)]
 impl PublishedSegment {
@@ -503,7 +503,7 @@ impl PublishedSegment {
     }
 }
 
-pub use crate::index::storage::component::{
+pub use crate::index::traits::component::{
     ComponentDescriptor as NativeComponentDescriptor, ComponentKind as NativeComponentKind,
 };
 
@@ -514,7 +514,7 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn maintenance(
         &self,
-    ) -> Option<&dyn crate::index::storage::segment::maintenance::SegmentMaintenance> {
+    ) -> Option<&dyn crate::index::traits::segment::maintenance::SegmentMaintenance> {
         Some(self)
     }
 
@@ -567,7 +567,7 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn maintenance_resident_bytes(
         &self,
-        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+        counter: &mut crate::index::traits::component::ResidentComponentCounter,
     ) -> usize {
         let local = self.accounting.independent_retained_bytes;
         if local == 0 {
@@ -581,7 +581,7 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn directory_index_bytes(
         &self,
-        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+        counter: &mut crate::index::traits::component::ResidentComponentCounter,
     ) -> usize {
         let local = self.accounting.independent_index_bytes;
         if local == 0 {
@@ -593,8 +593,8 @@ impl SegmentReader for IndexedCollectionSegment {
             .saturating_add(self.placed_component_estimate(counter).index_total())
     }
 
-    fn record_directory_estimate(&self) -> crate::index::storage::segment::RecordDirectoryEstimate {
-        crate::index::storage::segment::RecordDirectoryEstimate {
+    fn record_directory_estimate(&self) -> crate::index::traits::segment::RecordDirectoryEstimate {
+        crate::index::traits::segment::RecordDirectoryEstimate {
             record_table_capacity: self.records.capacity(),
             unique_id_payload_bytes: self
                 .records
@@ -610,7 +610,7 @@ impl SegmentReader for IndexedCollectionSegment {
         self.empty_array_records.serialized_size()
     }
 
-    fn observe_backing(&self, usage: &mut crate::index::storage::segment::SegmentResourceUsage) {
+    fn observe_backing(&self, usage: &mut crate::index::traits::segment::SegmentResourceUsage) {
         usage.add_backing_columns(self.backing.estimated_column_bytes());
         if let SegmentBacking::Retained { blocks, .. } = &self.backing {
             for block in blocks {
@@ -639,7 +639,7 @@ impl SegmentReader for IndexedCollectionSegment {
     fn posting(
         &self,
         component: &NativeComponentDescriptor<'_>,
-    ) -> StorageResult<Option<&dyn crate::index::storage::posting::PostingReader>> {
+    ) -> StorageResult<Option<&dyn crate::index::traits::posting::PostingReader>> {
         let Some(path) = component.path.as_deref() else {
             return Ok(None);
         };
@@ -665,7 +665,7 @@ impl SegmentReader for IndexedCollectionSegment {
             }
             _ => None,
         };
-        Ok(reader.map(|reader| reader as &dyn crate::index::storage::posting::PostingReader))
+        Ok(reader.map(|reader| reader as &dyn crate::index::traits::posting::PostingReader))
     }
 
     fn named_posting_complete(
@@ -708,11 +708,11 @@ impl SegmentReader for IndexedCollectionSegment {
     fn inferred_posting_diagnostic(
         &self,
         path: &[String],
-    ) -> StorageResult<Option<crate::index::storage::inference::InferredPostingDiagnostic>> {
+    ) -> StorageResult<Option<crate::index::traits::inference::InferredPostingDiagnostic>> {
         if let Some(state) = &self.inference
             && let Some(placed) = state.placed.get(path, None)
         {
-            use crate::index::storage::posting::{PostingKey, ScalarKey, visit_posting_blocks};
+            use crate::index::traits::posting::{PostingKey, ScalarKey, visit_posting_blocks};
             let reader = placed.reader.as_ref();
             let descriptor = reader.descriptor();
             let mut value_keys = 0;
@@ -739,7 +739,7 @@ impl SegmentReader for IndexedCollectionSegment {
                 Ok(())
             })?;
             return Ok(Some(
-                crate::index::storage::inference::InferredPostingDiagnostic {
+                crate::index::traits::inference::InferredPostingDiagnostic {
                     kind: descriptor.kind.clone(),
                     multi: descriptor.coverage.multi,
                     value_keys,
@@ -764,7 +764,7 @@ impl SegmentReader for IndexedCollectionSegment {
             return Ok(None);
         };
         Ok(Some(
-            crate::index::storage::inference::InferredPostingDiagnostic {
+            crate::index::traits::inference::InferredPostingDiagnostic {
                 kind: index.kind.clone(),
                 multi: index.multi,
                 value_keys: index.distinct_values(),
@@ -777,7 +777,7 @@ impl SegmentReader for IndexedCollectionSegment {
                     .iter()
                     .map(|(key, slots)| {
                         128 + match key {
-                            crate::index::storage::posting::ScalarKey::String(text) => text.len(),
+                            crate::index::traits::posting::ScalarKey::String(text) => text.len(),
                             _ => 0,
                         } + slots.serialized_size()
                     })
@@ -795,8 +795,8 @@ impl SegmentReader for IndexedCollectionSegment {
         &self,
         path: &crate::model::FieldPath,
         binding: &str,
-    ) -> StorageResult<Option<crate::index::storage::posting::FacetPosting<'_>>> {
-        use crate::index::storage::posting::{FacetPosting, PostingReader};
+    ) -> StorageResult<Option<crate::index::traits::posting::FacetPosting<'_>>> {
+        use crate::index::traits::posting::{FacetPosting, PostingReader};
         use crate::inference::InferenceMode;
 
         if binding == "inferred" {
@@ -855,8 +855,8 @@ impl SegmentReader for IndexedCollectionSegment {
     fn grams(
         &self,
         component: &NativeComponentDescriptor<'_>,
-    ) -> StorageResult<Option<&dyn crate::index::storage::text::GramReader>> {
-        use crate::index::storage::text::GramBinding;
+    ) -> StorageResult<Option<&dyn crate::index::traits::text::GramReader>> {
+        use crate::index::traits::text::GramBinding;
         if !self.placed_grams.is_empty() {
             let binding = match component.kind {
                 NativeComponentKind::RawText => Some(GramBinding::Raw),
@@ -888,7 +888,7 @@ impl SegmentReader for IndexedCollectionSegment {
             }
             _ => None,
         };
-        Ok(reader.map(|reader| reader as &dyn crate::index::storage::text::GramReader))
+        Ok(reader.map(|reader| reader as &dyn crate::index::traits::text::GramReader))
     }
 
     fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
@@ -928,9 +928,9 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn slot_members(
         &self,
-        fact: crate::index::storage::segment::SegmentSlotFact,
+        fact: crate::index::traits::segment::SegmentSlotFact,
     ) -> StorageResult<SlotSet<'_>> {
-        use crate::index::storage::segment::SegmentSlotFact::{EmptyArray, Logical};
+        use crate::index::traits::segment::SegmentSlotFact::{EmptyArray, Logical};
         Ok(SlotSet::borrowed(match fact {
             Logical => &self.logical_records,
             EmptyArray => &self.empty_array_records,
@@ -1000,7 +1000,7 @@ impl SegmentReader for IndexedCollectionSegment {
         }
         let file = self.backing.file_locator(slot);
         let corrupt = || {
-            crate::index::storage::transfer::StorageError::invalid(
+            crate::index::traits::transfer::StorageError::invalid(
                 "read record origin",
                 "origin is missing for an existing slot",
             )
@@ -1024,7 +1024,7 @@ impl SegmentReader for IndexedCollectionSegment {
         &self,
         slot: RecordSlot,
     ) -> StorageResult<
-        Option<Box<dyn crate::index::storage::segment::transfer::RetainedBodyBytes + '_>>,
+        Option<Box<dyn crate::index::traits::segment::transfer::RetainedBodyBytes + '_>>,
     > {
         match self.backing.retained_address(slot)? {
             Some((block, offset)) => block.body_bytes(offset),
@@ -1076,7 +1076,7 @@ impl SegmentReader for IndexedCollectionSegment {
     fn visit_file_slots(
         &self,
         file: FileId,
-        limit: crate::index::storage::transfer::BatchLimit,
+        limit: crate::index::traits::transfer::BatchLimit,
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()> {
         if let Some(file) = self.file(file) {
@@ -1091,8 +1091,8 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn with_predicate_access(
         &self,
-        access: crate::index::storage::segment::SegmentPredicateAccess<'_>,
-        use_provider: &mut crate::index::storage::segment::UseAccessProvider<'_>,
+        access: crate::index::traits::segment::SegmentPredicateAccess<'_>,
+        use_provider: &mut crate::index::traits::segment::UseAccessProvider<'_>,
     ) -> StorageResult<()> {
         let provider = super::access::segment::NativeSegmentProvider::for_access(self, access);
         use_provider(Some(&provider))
@@ -1100,8 +1100,8 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn with_text_access(
         &self,
-        access: crate::index::storage::text::SegmentTextAccess<'_>,
-        use_provider: &mut crate::index::storage::segment::UseAccessProvider<'_>,
+        access: crate::index::traits::text::SegmentTextAccess<'_>,
+        use_provider: &mut crate::index::traits::segment::UseAccessProvider<'_>,
     ) -> StorageResult<()> {
         let provider = super::access::text::NativeSegmentTextProvider::for_access(self, access);
         use_provider(Some(&provider))
@@ -1113,7 +1113,7 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn build_placed_posting_order(
         &self,
-        store: &dyn crate::index::storage::order::InferredOrderStore,
+        store: &dyn crate::index::traits::order::InferredOrderStore,
         request: PostingOrderRequest<'_>,
     ) -> StorageResult<Option<Arc<dyn OrderColumnReader>>> {
         let Some(index) =
@@ -1170,7 +1170,7 @@ impl SegmentReader for IndexedCollectionSegment {
             return Ok(Some(members));
         }
         if let Some(placed) = self.placed_postings.get(&relation.declaration().path, None) {
-            use crate::index::storage::posting::{PostingKey, ScalarKey};
+            use crate::index::traits::posting::{PostingKey, ScalarKey};
             let key = ScalarKey::Id(target.to_owned());
             return Ok(Some(
                 placed
@@ -1305,7 +1305,7 @@ impl PlacedComponentEstimate {
 impl IndexedCollectionSegment {
     fn placed_component_estimate(
         &self,
-        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+        counter: &mut crate::index::traits::component::ResidentComponentCounter,
     ) -> PlacedComponentEstimate {
         let mut postings = self.placed_postings.resident_bytes(counter);
         if let Some(inference) = &self.inference {

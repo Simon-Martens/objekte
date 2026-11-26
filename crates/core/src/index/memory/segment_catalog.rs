@@ -7,15 +7,15 @@ use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 
 use super::segment::SegmentId;
-use crate::index::storage::publication::{PublishedSegment, SegmentGroup};
-use crate::index::storage::segment::{
+use crate::index::traits::publication::{PublishedSegment, SegmentGroup};
+use crate::index::traits::segment::{
     NativeSegmentSummary, SegmentDescriptor, SegmentReader, SegmentResourceUsage,
 };
-use crate::index::storage::segment_catalog::{
+use crate::index::traits::segment_catalog::{
     DirectoryEstimates, LocatedSlot, RoutedSlot, SegmentCatalogEditor, SegmentCatalogHandle,
     SegmentCatalogReader, SegmentDirectoryDelta, SegmentRecordCounts,
 };
-use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::model::{FileId, RecordId, RecordSlot};
 
 const RECORD_ROUTE_SHARDS: usize = 64;
@@ -267,7 +267,7 @@ impl RecordRoutes {
     ) -> StorageResult<()> {
         let segment = replacement.id;
         if !positions.contains(&segment) {
-            return Err(crate::index::storage::transfer::StorageError::invalid(
+            return Err(crate::index::traits::transfer::StorageError::invalid(
                 "replace segment routes",
                 "replacement segment has no directory position",
             ));
@@ -333,7 +333,7 @@ impl SegmentCatalogReader for RecordRoutes {
             return Ok(None);
         };
         let position = self.position(route.segment).ok_or_else(|| {
-            crate::index::storage::transfer::StorageError::invalid(
+            crate::index::traits::transfer::StorageError::invalid(
                 "resolve native segment route",
                 "route points to an unlisted segment",
             )

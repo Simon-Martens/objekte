@@ -105,12 +105,12 @@ impl FileVersions {
     pub(super) fn read_batch(
         &self,
         start: FileId,
-        limit: crate::index::storage::transfer::BatchLimit,
-    ) -> crate::index::storage::transfer::StorageResult<(
+        limit: crate::index::traits::transfer::BatchLimit,
+    ) -> crate::index::traits::transfer::StorageResult<(
         std::borrow::Cow<'_, [FileVersion]>,
-        crate::index::storage::transfer::BatchStatus,
+        crate::index::traits::transfer::BatchStatus,
     )> {
-        use crate::index::storage::transfer::{BatchStatus, StorageError};
+        use crate::index::traits::transfer::{BatchStatus, StorageError};
         const OP: &str = "read native file versions";
         let start = start.0 as usize;
         if start == self.len {
@@ -133,10 +133,10 @@ impl FileVersions {
     }
 
     pub(super) fn from_catalog(
-        source: &dyn crate::index::storage::file_catalog::FileCatalogRevision,
+        source: &dyn crate::index::traits::file_catalog::FileCatalogRevision,
         cancelled: &dyn Fn() -> bool,
-    ) -> crate::index::storage::transfer::StorageResult<Self> {
-        use crate::index::storage::file_catalog::{FILE_TRANSFER_LIMIT, transfer_versions};
+    ) -> crate::index::traits::transfer::StorageResult<Self> {
+        use crate::index::traits::file_catalog::{FILE_TRANSFER_LIMIT, transfer_versions};
         let mut chunks = Vec::new();
         let mut current = Vec::new();
         transfer_versions(source, FILE_TRANSFER_LIMIT, cancelled, |mut versions| {
@@ -336,7 +336,7 @@ impl MemoryLiveSlots {
     }
 }
 
-impl crate::index::storage::liveness::LiveSlotReader for MemoryLiveSlots {
+impl crate::index::traits::liveness::LiveSlotReader for MemoryLiveSlots {
     fn slot_count(&self) -> u32 {
         self.slot_count()
     }
@@ -345,14 +345,14 @@ impl crate::index::storage::liveness::LiveSlotReader for MemoryLiveSlots {
         self.len()
     }
 
-    fn contains(&self, slot: RecordSlot) -> crate::index::storage::transfer::StorageResult<bool> {
+    fn contains(&self, slot: RecordSlot) -> crate::index::traits::transfer::StorageResult<bool> {
         Ok(self.contains(slot))
     }
 
     fn visit_blocks(
         &self,
-        visit: &mut crate::index::storage::liveness::VisitLiveBlock<'_>,
-    ) -> crate::index::storage::transfer::StorageResult<()> {
+        visit: &mut crate::index::traits::liveness::VisitLiveBlock<'_>,
+    ) -> crate::index::traits::transfer::StorageResult<()> {
         for (group, chunk) in self.chunks.iter().enumerate() {
             visit(
                 group as u32 * ACTIVE_SLOT_CHUNK,
@@ -373,13 +373,12 @@ impl crate::index::storage::liveness::LiveSlotReader for MemoryLiveSlots {
     fn retired(
         &self,
         slots: &[RecordSlot],
-    ) -> crate::index::storage::transfer::StorageResult<
-        crate::index::storage::liveness::ActiveRecords,
-    > {
+    ) -> crate::index::traits::transfer::StorageResult<crate::index::traits::liveness::ActiveRecords>
+    {
         self.retired(slots)
-            .map(crate::index::storage::liveness::ActiveRecords::new)
+            .map(crate::index::traits::liveness::ActiveRecords::new)
             .map_err(|error| {
-                crate::index::storage::transfer::StorageError::invalid("retire native slots", error)
+                crate::index::traits::transfer::StorageError::invalid("retire native slots", error)
             })
     }
 }

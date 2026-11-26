@@ -1,16 +1,16 @@
 //! Independent file-backed segment import and conformance.
 
 use super::*;
-use crate::index::storage::component::{ComponentDescriptor, ComponentKind};
-use crate::index::storage::order::COLLATION_VERSION;
-use crate::index::storage::order::key_transfer::transfer_order_keys;
-use crate::index::storage::posting::visit_posting_blocks;
-use crate::index::storage::relation::{
+use crate::index::traits::component::{ComponentDescriptor, ComponentKind};
+use crate::index::traits::order::COLLATION_VERSION;
+use crate::index::traits::order::key_transfer::transfer_order_keys;
+use crate::index::traits::posting::visit_posting_blocks;
+use crate::index::traits::relation::{
     RelationBlock, RelationFacts, RelationRow, VisitRelationTarget, visit_relation_blocks,
 };
-use crate::index::storage::segment::transfer::FileSegmentLayout;
-use crate::index::storage::segment::{read_slot_members, visit_checked_file_slots};
-use crate::index::storage::text::{
+use crate::index::traits::segment::transfer::FileSegmentLayout;
+use crate::index::traits::segment::{read_slot_members, visit_checked_file_slots};
+use crate::index::traits::text::{
     BigramRequest, GramChannel, GramDescriptor, GramReader, VisitGramBlock, visit_gram_blocks,
 };
 use crate::schema::relations::RelationDefinition;
@@ -66,13 +66,13 @@ impl GramBinding {
 
 #[derive(Clone)]
 pub(super) struct TableGram {
-    resident: crate::index::storage::component::ResidentComponentBytes,
+    resident: crate::index::traits::component::ResidentComponentBytes,
     descriptor: GramDescriptor,
     rows: BTreeMap<(GramChannel, u64), Vec<RecordSlot>>,
 }
 
 impl GramReader for TableGram {
-    fn resident_bytes(&self) -> crate::index::storage::component::ResidentComponentBytes {
+    fn resident_bytes(&self) -> crate::index::traits::component::ResidentComponentBytes {
         self.resident
     }
 
@@ -105,20 +105,20 @@ impl GramReader for TableGram {
     }
 }
 
-impl crate::index::storage::text::GramStore for Arc<TableFactory> {
+impl crate::index::traits::text::GramStore for Arc<TableFactory> {
     fn accepts(
         &self,
-        binding: &crate::index::storage::text::GramBinding,
-        _: crate::index::storage::text::BigramAlphabet,
+        binding: &crate::index::traits::text::GramBinding,
+        _: crate::index::traits::text::BigramAlphabet,
     ) -> bool {
-        matches!(binding, crate::index::storage::text::GramBinding::Raw)
+        matches!(binding, crate::index::traits::text::GramBinding::Raw)
     }
 
     fn start(
         &self,
-        _: &crate::index::storage::text::GramBinding,
-        alphabet: crate::index::storage::text::BigramAlphabet,
-    ) -> StorageResult<Box<dyn crate::index::storage::text::GramWriter>> {
+        _: &crate::index::traits::text::GramBinding,
+        alphabet: crate::index::traits::text::BigramAlphabet,
+    ) -> StorageResult<Box<dyn crate::index::traits::text::GramWriter>> {
         Ok(Box::new(TableGramWriter {
             control: Arc::clone(self),
             alphabet,
@@ -129,11 +129,11 @@ impl crate::index::storage::text::GramStore for Arc<TableFactory> {
 
 struct TableGramWriter {
     control: Arc<TableFactory>,
-    alphabet: crate::index::storage::text::BigramAlphabet,
+    alphabet: crate::index::traits::text::BigramAlphabet,
     rows: BTreeMap<(GramChannel, u64), BTreeSet<RecordSlot>>,
 }
 
-impl crate::index::storage::text::GramWriter for TableGramWriter {
+impl crate::index::traits::text::GramWriter for TableGramWriter {
     fn observe_worker_pending(&mut self, facts: usize, bytes: usize) {
         self.control
             .gram_worker_peak_facts
@@ -146,7 +146,7 @@ impl crate::index::storage::text::GramWriter for TableGramWriter {
     fn merge_worker(
         &mut self,
         base: u32,
-        worker: Box<dyn crate::index::storage::text::GramWriter>,
+        worker: Box<dyn crate::index::traits::text::GramWriter>,
     ) -> StorageResult<()> {
         let worker: Box<dyn std::any::Any + Send> = worker;
         let worker = worker
@@ -170,7 +170,7 @@ impl crate::index::storage::text::GramWriter for TableGramWriter {
     fn push(
         &mut self,
         base: u32,
-        facts: &[crate::index::storage::text::GramFact],
+        facts: &[crate::index::traits::text::GramFact],
     ) -> StorageResult<()> {
         assert!(facts.len() <= 256);
         let batch = self
@@ -210,7 +210,7 @@ impl crate::index::storage::text::GramWriter for TableGramWriter {
             resident: super::super::test_resident_estimate(&self.control),
             descriptor: GramDescriptor {
                 alphabet: self.alphabet,
-                version: crate::index::storage::text::BIGRAM_VERSION,
+                version: crate::index::traits::text::BIGRAM_VERSION,
                 covered_records: slots,
             },
             rows: self
@@ -354,7 +354,7 @@ pub(super) struct TableRelation {
     edges: usize,
 }
 
-impl crate::index::storage::relation::RelationStore for Arc<TableFactory> {
+impl crate::index::traits::relation::RelationStore for Arc<TableFactory> {
     fn accepts(&self, _: &RelationDefinition) -> bool {
         true
     }
@@ -362,7 +362,7 @@ impl crate::index::storage::relation::RelationStore for Arc<TableFactory> {
     fn start(
         &self,
         declaration: &RelationDefinition,
-    ) -> StorageResult<Box<dyn crate::index::storage::relation::RelationWriter>> {
+    ) -> StorageResult<Box<dyn crate::index::traits::relation::RelationWriter>> {
         Ok(Box::new(TableRelationWriter {
             declaration: declaration.clone(),
             control: Arc::clone(self),
@@ -379,11 +379,11 @@ struct TableRelationWriter {
     targets: BTreeMap<u32, Vec<(String, Vec<u32>)>>,
 }
 
-impl crate::index::storage::relation::RelationWriter for TableRelationWriter {
+impl crate::index::traits::relation::RelationWriter for TableRelationWriter {
     fn merge_worker(
         &mut self,
         base: u32,
-        worker: Box<dyn crate::index::storage::relation::RelationWriter>,
+        worker: Box<dyn crate::index::traits::relation::RelationWriter>,
     ) -> StorageResult<()> {
         let worker: Box<dyn std::any::Any + Send> = worker;
         let worker = worker
@@ -412,9 +412,9 @@ impl crate::index::storage::relation::RelationWriter for TableRelationWriter {
     fn push(
         &mut self,
         base: u32,
-        facts: &[crate::index::storage::relation::RelationFact],
+        facts: &[crate::index::traits::relation::RelationFact],
     ) -> StorageResult<()> {
-        use crate::index::storage::relation::RelationFactKind;
+        use crate::index::traits::relation::RelationFactKind;
 
         assert!(facts.len() <= 128);
         self.control
@@ -611,7 +611,7 @@ impl RelationReader for TableRelation {
     }
 }
 
-pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
+pub(in crate::index::traits::segment_catalog::tests) fn import_file_segment(
     source: &dyn SegmentReader,
     layout: FileSegmentLayout<'_>,
     cancelled: &mut dyn FnMut() -> bool,
@@ -756,7 +756,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
             let location = match record.origin {
                 RecordOrigin::FileRange(locator) => Location::File(locator),
                 RecordOrigin::Retained(link) => {
-                    let body = crate::index::storage::segment::transfer::read_retained_body(
+                    let body = crate::index::traits::segment::transfer::read_retained_body(
                         source,
                         record.header.slot,
                         &|| cell.borrow_mut()(),
@@ -893,7 +893,7 @@ fn selected_gram_worker_bounds_pending_occurrences_and_aborts_failed_writes() {
         (builder.build().unwrap(), registration)
     };
     let (selected, selected_registration) = build(Arc::new(Arc::clone(&store)));
-    let (native, native_registration) = build(crate::index::storage::default_factory());
+    let (native, native_registration) = build(crate::index::traits::default_factory());
     let selected_session = selected.ingestion();
     let native_session = native.ingestion();
     let selected_writer = selected_session.writer(selected_registration).unwrap();
@@ -939,7 +939,7 @@ fn selected_gram_worker_bounds_pending_occurrences_and_aborts_failed_writes() {
             assert_eq!(pending, 256);
             assert_eq!(
                 bytes,
-                256 * size_of::<crate::index::storage::text::GramFact>()
+                256 * size_of::<crate::index::traits::text::GramFact>()
             );
             measurements.push((kind, length, pending, bytes));
         }
@@ -1127,8 +1127,8 @@ fn direct_workers_attach_independent_grams_and_relations() {
 
 #[test]
 fn retained_and_provider_transfer_preserves_pinned_records_without_provider_reads() {
-    use crate::index::storage::publication::PublishedSegment;
-    use crate::index::storage::segment::maintenance::SegmentPartition;
+    use crate::index::traits::publication::PublishedSegment;
+    use crate::index::traits::segment::maintenance::SegmentPartition;
     use crate::query_results::Payload;
 
     let mut builder = Index::builder();
@@ -1169,7 +1169,7 @@ fn retained_and_provider_transfer_preserves_pinned_records_without_provider_read
     let pinned = index.view().unwrap();
     let group = pinned.segments(collection).unwrap();
     let factory = Arc::new(TableFactory::default());
-    let memory = crate::index::storage::test_factory();
+    let memory = crate::index::traits::test_factory();
     let mut projected = Vec::new();
 
     for original in group.iter() {
@@ -1243,7 +1243,7 @@ fn retained_and_provider_transfer_preserves_pinned_records_without_provider_read
             .live_records(dense.descriptor().slots, InitialLiveness::All)
             .unwrap();
         projected.push(Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: original.id,
             index: dense,
             active,
@@ -1485,8 +1485,8 @@ fn certified_directory_stream_bounds_same_placement_payloads() {
 
 #[test]
 fn certified_directory_file_payloads_continue_within_the_placement() {
-    use crate::index::storage::publication::PlacementVersion;
-    use crate::index::storage::segment::maintenance::SegmentPartition;
+    use crate::index::traits::publication::PlacementVersion;
+    use crate::index::traits::segment::maintenance::SegmentPartition;
     use crate::query_execution::streaming::{
         CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope,
         StreamControl, StreamError, StreamEvent, StreamOptions, StreamOutcome,
@@ -1553,7 +1553,7 @@ fn certified_directory_file_payloads_continue_within_the_placement() {
                 .unwrap(),
             })
             .collect::<Vec<_>>();
-        let projected = crate::index::storage::test_factory()
+        let projected = crate::index::traits::test_factory()
             .project_segment_partitions(
                 segment.as_ref(),
                 &partitions,
@@ -1565,8 +1565,8 @@ fn certified_directory_file_payloads_continue_within_the_placement() {
             .into_iter()
             .enumerate()
             .map(|(position, payload)| {
-                let id = crate::index::storage::segment::SegmentId::new(position as u64 + 1);
-                let active = crate::index::storage::test_factory()
+                let id = crate::index::traits::segment::SegmentId::new(position as u64 + 1);
+                let active = crate::index::traits::test_factory()
                     .live_records(payload.descriptor().slots, InitialLiveness::All)
                     .unwrap();
                 let payload = if layout_index == 2 {
@@ -1818,7 +1818,7 @@ fn certified_directory_file_payloads_continue_within_the_placement() {
 
 #[test]
 fn scoped_queries_open_only_selected_and_reached_directories() {
-    use crate::index::storage::segment_catalog::build_catalog;
+    use crate::index::traits::segment_catalog::build_catalog;
     use crate::query_execution::streaming::{
         CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
     };
@@ -2059,7 +2059,7 @@ fn scoped_queries_open_only_selected_and_reached_directories() {
 
 #[test]
 fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
-    use crate::index::storage::publication::PublishedSegment;
+    use crate::index::traits::publication::PublishedSegment;
     use crate::repository::configuration::{
         CollectionDefinition, IdentityPolicy, RepositoryOptions,
     };
@@ -2192,13 +2192,13 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         .unwrap();
     assert!((table.as_ref() as &dyn std::any::Any).is::<TableSegment>());
     let published_table = Arc::new(PublishedSegment {
-        version: crate::index::storage::publication::PlacementVersion::new(),
+        version: crate::index::traits::publication::PlacementVersion::new(),
         id: source.id,
         index: table,
         active: source.active.clone(),
         observation: None,
     });
-    let native = crate::index::storage::test_factory()
+    let native = crate::index::traits::test_factory()
         .import_file_segment(
             published_table.as_ref(),
             FileSegmentLayout::Identity(&published_table.active),
@@ -2208,16 +2208,16 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         .unwrap();
     assert!(!(native.as_ref() as &dyn std::any::Any).is::<TableSegment>());
     let published_native = Arc::new(PublishedSegment {
-        version: crate::index::storage::publication::PlacementVersion::new(),
+        version: crate::index::traits::publication::PlacementVersion::new(),
         id: source.id,
         index: native,
         active: source.active.clone(),
         observation: None,
     });
     {
-        use crate::index::storage::segment::maintenance::SegmentPartition;
+        use crate::index::traits::segment::maintenance::SegmentPartition;
 
-        let memory = crate::index::storage::test_factory();
+        let memory = crate::index::traits::test_factory();
         let make_partition = |slots: ActiveRecords| SegmentPartition {
             files: [kept_id].into_iter().collect(),
             slots,
@@ -2361,7 +2361,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         factory.independent_applications.load(Ordering::Relaxed),
         applications + 1,
     );
-    let mut order = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+    let mut order = crate::index::traits::ordered_slots::OrderedSlotCursor::new(
         collection.base_identity_order().unwrap(),
     );
     let mut ids = Vec::new();

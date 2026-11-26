@@ -9,8 +9,8 @@ use super::{
     COLLATION_VERSION, CompositeSortPart, OrderColumnReader, SortConfig, SortKey, SortOptions,
     make_collator, simple_composite_part,
 };
-use crate::index::storage::ordered_slots::{EMPTY_ORDER, OrderedSlots};
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::ordered_slots::{EMPTY_ORDER, OrderedSlots};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::model::{FieldPath, LogicalType, RecordSlot};
 use crate::query::options::SortField;
 use crate::schema::Schema;

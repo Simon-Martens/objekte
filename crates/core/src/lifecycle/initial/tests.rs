@@ -239,7 +239,7 @@ fn completed_generation_releases_provisional_inference_observation() {
             ..Default::default()
         },
         crate::source::test_support::fixture_registry(),
-        crate::index::storage::default_factory(),
+        crate::index::traits::default_factory(),
         |_| Ok(()),
         |index| {
             let view = index.view()?;
@@ -497,7 +497,7 @@ fn private_segment_window_is_bounded_for_one_and_multiple_workers() {
                 ..Default::default()
             },
             crate::source::test_support::fixture_registry(),
-            crate::index::storage::default_factory(),
+            crate::index::traits::default_factory(),
             |_| Ok(()),
             move |_| {
                 callback_publications.fetch_add(1, Ordering::Relaxed);
@@ -555,7 +555,7 @@ fn late_private_invalidation_and_worker_failure_publish_nothing() {
                 ..Default::default()
             },
             crate::source::test_support::fixture_registry(),
-            crate::index::storage::default_factory(),
+            crate::index::traits::default_factory(),
             |index| {
                 catalogue_tx.send(index.clone()).unwrap();
                 Ok(())
@@ -951,7 +951,7 @@ fn discovery_and_segments_publish_without_losing_records() {
                     ..RepositoryOptions::default()
                 },
                 crate::source::test_support::fixture_registry(),
-                crate::index::storage::default_factory(),
+                crate::index::traits::default_factory(),
                 |index| {
                     catalogue_tx.send(index.clone()).unwrap();
                     resume_rx.recv().unwrap();

@@ -2,7 +2,7 @@
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::transfer::StorageResult;
+use crate::index::traits::transfer::StorageResult;
 use crate::model::RecordSlot;
 
 pub(super) fn visit_bitmap_blocks(

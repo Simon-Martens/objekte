@@ -1,4 +1,4 @@
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::file_catalog::FileCatalogReader;
 use std::collections::BTreeMap;
 
 use super::{ScanChange, scan_sources_batched};

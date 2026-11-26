@@ -5,10 +5,10 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 use rayon::prelude::*;
 
-use crate::index::storage::file_catalog::{
+use crate::index::traits::file_catalog::{
     DiscoveredFile, FILE_TRANSFER_LIMIT, FileDiscoveryBuilder,
 };
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::transfer::StorageError;
 use crate::inventory::SourceRevision;
 use crate::lifecycle::IndexError;
 use crate::model::{CollectionId, FileId};

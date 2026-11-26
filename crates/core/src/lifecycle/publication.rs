@@ -5,21 +5,21 @@ use std::sync::atomic::Ordering;
 use roaring::RoaringBitmap;
 
 use crate::index::segment::SegmentId;
-use crate::index::storage::file_catalog::{
+use crate::index::traits::file_catalog::{
     FileCatalogBase, FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource,
     edit_file_catalog,
 };
-use crate::index::storage::liveness::InitialLiveness;
-use crate::index::storage::publication::{PublishedSegment, SegmentGroup};
-use crate::index::storage::segment::{
+use crate::index::traits::liveness::InitialLiveness;
+use crate::index::traits::publication::{PublishedSegment, SegmentGroup};
+use crate::index::traits::segment::{
     RecordBacking, SegmentHandle, SegmentReader, any_segment_file, visit_checked_file_slots,
     visit_record_headers, visit_segment_files,
 };
-use crate::index::storage::segment_catalog::{
+use crate::index::traits::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, build_catalog, edited_catalog, install_segment,
     pin_segment_group, visit_segment_descriptors,
 };
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::transfer::StorageError;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus};
 use crate::model::{CollectionId, RecordId};
 use crate::repository::Repository;
@@ -343,7 +343,7 @@ impl PublishedIndex {
     fn stage_segment(
         &mut self,
         payload: &SegmentHandle,
-        observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
+        observation: Option<crate::index::traits::inference::InferenceObservationHandle>,
     ) -> Result<(), IndexError> {
         self.stage_segment_payload(payload, observation, false)
     }
@@ -358,7 +358,7 @@ impl PublishedIndex {
     fn stage_segment_payload(
         &mut self,
         payload: &SegmentHandle,
-        observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
+        observation: Option<crate::index::traits::inference::InferenceObservationHandle>,
         allocate_id: bool,
     ) -> Result<(), IndexError> {
         let index = &**payload;
@@ -461,7 +461,7 @@ impl PublishedIndex {
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
         let placement = Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: segment_id,
             index: Arc::clone(payload),
             active,
@@ -564,7 +564,7 @@ impl PublishedIndex {
                     group.insert(
                         index + offset,
                         Arc::new(PublishedSegment {
-                            version: crate::index::storage::publication::PlacementVersion::new(),
+                            version: crate::index::traits::publication::PlacementVersion::new(),
                             id: SegmentId::new(ordinal),
                             index: part,
                             active,
@@ -578,7 +578,7 @@ impl PublishedIndex {
         }
         // Native retained-memory estimate, not an encoded length or a strict
         // allocator count; it only orders when size-triggered maintenance runs.
-        let mut resident = crate::index::storage::component::ResidentComponentCounter::default();
+        let mut resident = crate::index::traits::component::ResidentComponentCounter::default();
         let sparse_bytes = staged_group
             .iter()
             .filter(|segment| segment.descriptor().slots < target_records)
@@ -620,7 +620,7 @@ impl PublishedIndex {
         let removed_right = group.remove(right);
         let removed_left = group.remove(left);
         group.push(Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: SegmentId::new(ordinal),
             index: merged.payload,
             active,
@@ -836,7 +836,7 @@ impl PublishedIndex {
                 if published.backing_kind() == RecordBacking::FileRange {
                     continue;
                 }
-                let editor = crate::index::storage::segment::maintenance::require_maintenance(
+                let editor = crate::index::traits::segment::maintenance::require_maintenance(
                     published.as_ref(),
                 )?;
                 let Some(edit) = editor.relink_file(
@@ -878,7 +878,7 @@ fn prepare_initial_segment(
     next: &mut PublishedIndex,
     segment: (
         SegmentHandle,
-        Option<crate::index::storage::inference::InferenceObservationHandle>,
+        Option<crate::index::traits::inference::InferenceObservationHandle>,
     ),
 ) -> Result<(), IndexError> {
     let (segment, observation) = segment;
@@ -914,7 +914,7 @@ fn verify_initial_files(
     segments: &[&dyn SegmentReader],
 ) -> Result<(), IndexError> {
     use crate::construction::file_preparation::created_ns;
-    use crate::index::storage::segment::visit_segment_file_batches;
+    use crate::index::traits::segment::visit_segment_file_batches;
     use crate::inventory::{
         SourceRevision,
         discovery::{PreparedScanSelection, SymlinkPolicy, discover},
@@ -1226,7 +1226,7 @@ impl Index {
         &self,
         expected: IndexRevision,
         segment: SegmentHandle,
-        observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
+        observation: Option<crate::index::traits::inference::InferenceObservationHandle>,
         profile_phases: bool,
     ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
         let prepare_started = crate::measurement::timer::start_if_enabled(profile_phases);
@@ -1269,7 +1269,7 @@ impl Index {
         expected: IndexRevision,
         segments: Vec<(
             SegmentHandle,
-            Option<crate::index::storage::inference::InferenceObservationHandle>,
+            Option<crate::index::traits::inference::InferenceObservationHandle>,
         )>,
         profile_phases: bool,
         cancelled: &impl Fn() -> bool,

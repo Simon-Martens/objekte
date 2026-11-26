@@ -1,11 +1,11 @@
 use super::*;
-use crate::index::storage::file_catalog::FileCatalogHandle;
+use crate::index::traits::file_catalog::FileCatalogHandle;
 use crate::inventory::{FileInventory, FileVersion, SourceRevision};
 use crate::model::CollectionId;
 
 fn seal_catalog(inventory: FileInventory) -> FileCatalogHandle {
     let inventory = Arc::new(inventory);
-    crate::index::storage::test_factory()
+    crate::index::traits::test_factory()
         .file_catalog(
             &inventory.catalog_base(Vec::new(), [0; 32], 1),
             FileVersion::INITIAL,

@@ -6,11 +6,11 @@ use std::sync::Arc;
 use super::{RelationContribution, visit_reference};
 use crate::index::memory::segment::projection::SlotMap;
 use crate::index::memory::worker::FactBuffer;
-use crate::index::storage::relation::{
+use crate::index::traits::relation::{
     RelationBlock, RelationFact, RelationFactKind, RelationFacts, RelationReader, RelationStore,
     RelationWriter, visit_relation_blocks,
 };
-use crate::index::storage::transfer::{BatchLimit, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, StorageError, StorageResult};
 use crate::model::{RecordSlot, Value};
 use crate::schema::relations::RelationDefinition;
 
@@ -252,7 +252,7 @@ impl fmt::Debug for PlacedRelations {
 impl PlacedRelations {
     pub fn resident_bytes(
         &self,
-        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+        counter: &mut crate::index::traits::component::ResidentComponentCounter,
     ) -> usize {
         self.0.values().fold(0usize, |total, placed| {
             total.saturating_add(counter.charge(&placed.reader, placed.reader.resident_bytes()))

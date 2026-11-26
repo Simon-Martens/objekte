@@ -19,10 +19,10 @@ use crate::construction::discovery::{
 };
 use crate::construction::scheduling::RepositoryFileJob;
 use crate::index::segment::SegmentId;
-use crate::index::storage::StorageFactory;
-use crate::index::storage::file_catalog::{FileCatalogSource, FileRows};
-use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
-use crate::index::storage::transfer::StorageResult;
+use crate::index::traits::StorageFactory;
+use crate::index::traits::file_catalog::{FileCatalogSource, FileRows};
+use crate::index::traits::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
+use crate::index::traits::transfer::StorageResult;
 #[cfg(test)]
 use crate::inventory::CollectionBuilder;
 use crate::inventory::discovery::discover;
@@ -46,8 +46,8 @@ enum ScheduledBuildJob {
 }
 
 type InitialSegment = (
-    crate::index::storage::segment::SegmentHandle,
-    Option<crate::index::storage::inference::InferenceObservationHandle>,
+    crate::index::traits::segment::SegmentHandle,
+    Option<crate::index::traits::inference::InferenceObservationHandle>,
 );
 
 struct StagedStreamBinding {
@@ -143,7 +143,7 @@ impl StagedStreamBinding {
 
 fn stage_stream_file(
     pool: &rayon::ThreadPool,
-    factory: &Arc<dyn crate::index::storage::StorageFactory>,
+    factory: &Arc<dyn crate::index::traits::StorageFactory>,
     root: Arc<PathBuf>,
     bindings: &[StreamBinding],
     file: FileId,
@@ -297,7 +297,7 @@ fn group_stream_files(
 fn run_stream_groups(
     groups: Vec<StreamGroup>,
     pool: &Arc<rayon::ThreadPool>,
-    factory: &Arc<dyn crate::index::storage::StorageFactory>,
+    factory: &Arc<dyn crate::index::traits::StorageFactory>,
     root: Arc<PathBuf>,
     source_files: &Arc<Vec<SourceFileInput>>,
     options: RepositoryOptions,
@@ -906,7 +906,7 @@ impl Repository {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
-        storage_factory: Arc<dyn crate::index::storage::StorageFactory>,
+        storage_factory: Arc<dyn crate::index::traits::StorageFactory>,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
         cancelled: impl Fn() -> bool + Sync,
@@ -941,7 +941,7 @@ impl Repository {
             definitions,
             options,
             sources,
-            crate::index::storage::default_factory(),
+            crate::index::traits::default_factory(),
             on_catalogue,
             on_publication,
             cancelled,
@@ -955,7 +955,7 @@ impl Repository {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
-        storage_factory: Arc<dyn crate::index::storage::StorageFactory>,
+        storage_factory: Arc<dyn crate::index::traits::StorageFactory>,
         on_catalogue: impl FnOnce(&Index) -> Result<(), IndexError>,
         mut on_publication: impl FnMut(&Index) -> Result<(), IndexError>,
         cancelled: impl Fn() -> bool + Sync,

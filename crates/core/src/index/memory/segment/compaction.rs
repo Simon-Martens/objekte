@@ -11,9 +11,9 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::memory::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::memory::relation::RelationContribution;
 use crate::index::memory::sorting::SortCollection;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::maintenance::SegmentPartition;
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::segment::maintenance::SegmentPartition;
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileEntry, FileStatus, RecordClass};
 use crate::model::{FileId, RecordSlot};
 

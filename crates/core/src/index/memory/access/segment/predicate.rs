@@ -7,10 +7,10 @@ use roaring::RoaringBitmap;
 use super::super::catalog::{IndexCatalog, PostingProposal};
 use super::super::text::segment_raw_covers_identity_field;
 use crate::index::memory::segment::IndexedCollectionSegment;
-use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
-use crate::index::storage::order::ScalarOrderPredicate;
-use crate::index::storage::segment::{SegmentPredicateAccess, SegmentReader};
-use crate::index::storage::text::TextAccessPolicy;
+use crate::index::traits::file_catalog::{FileCatalogReader, FileScalarPredicate};
+use crate::index::traits::order::ScalarOrderPredicate;
+use crate::index::traits::segment::{SegmentPredicateAccess, SegmentReader};
+use crate::index::traits::text::TextAccessPolicy;
 use crate::inventory::{
     ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SharedPath,
     SourceRevision, relative_path_bounds,
@@ -130,7 +130,7 @@ fn segment_text_candidates(
 pub(crate) fn segment_text_estimate(
     segment: &IndexedCollectionSegment,
     term: &BoundTerm,
-    policy: crate::index::storage::text::TextAccessPolicy<'_>,
+    policy: crate::index::traits::text::TextAccessPolicy<'_>,
 ) -> Option<u64> {
     if term.derived != Derived::None
         || !matches!(term.operator, Operator::Contains | Operator::Eq)

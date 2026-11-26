@@ -6,7 +6,7 @@ use std::path::Path;
 use std::time::Instant;
 
 use crate::construction::file_preparation::verify_current_source;
-use crate::index::storage::file_catalog::{FileCatalogReader, FileRows};
+use crate::index::traits::file_catalog::{FileCatalogReader, FileRows};
 use crate::lifecycle::{Index, IndexError, IndexView};
 
 const MAX_RECONCILIATION_ISSUES: usize = 128;

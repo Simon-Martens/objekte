@@ -3,12 +3,12 @@ use std::collections::HashMap;
 use std::fmt;
 use std::sync::Arc;
 
-use crate::index::storage::order::key_transfer::transfer_order_keys;
-use crate::index::storage::order::{
+use crate::index::traits::order::key_transfer::transfer_order_keys;
+use crate::index::traits::order::{
     DeclaredOrderDefinition, DeclaredOrderStore, DeclaredOrderWriter, ORDER_KEY_BATCH_SIZE,
     OrderColumnReader, OrderIdentities,
 };
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::model::{FieldPath, RecordSlot};
 use crate::records::RecordIdSlot;
 

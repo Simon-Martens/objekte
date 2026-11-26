@@ -2,7 +2,7 @@ use roaring::RoaringBitmap;
 
 use super::{Placement, SortColumn, SortConfig, SortKey, SortOptions, make_collator};
 use crate::index::memory::posting::{PostingIndex, ScalarKey};
-use crate::index::storage::order::InferredOrderRows;
+use crate::index::traits::order::InferredOrderRows;
 use crate::inventory::RecordClass;
 use crate::model::{FieldPath, LogicalType, Number, RecordSlot};
 use crate::records::RecordIdSlot;
@@ -260,10 +260,10 @@ pub(crate) fn build_inferred_order_rows(
 pub(crate) fn write_inferred_order(
     index: &PostingIndex,
     records: &[impl RecordIdSlot],
-    request: crate::index::storage::order::PostingOrderRequest<'_>,
-    store: &dyn crate::index::storage::order::InferredOrderStore,
-) -> Result<Option<std::sync::Arc<dyn crate::index::storage::order::OrderColumnReader>>, String> {
-    use crate::index::storage::order::{
+    request: crate::index::traits::order::PostingOrderRequest<'_>,
+    store: &dyn crate::index::traits::order::InferredOrderStore,
+) -> Result<Option<std::sync::Arc<dyn crate::index::traits::order::OrderColumnReader>>, String> {
+    use crate::index::traits::order::{
         COLLATION_VERSION, DeclaredOrderDefinition, ORDER_KEY_BATCH_SIZE,
     };
     const MAX_BYTES: usize = 128 * 1024 * 1024;

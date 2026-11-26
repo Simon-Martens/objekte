@@ -4,8 +4,8 @@ use std::sync::Arc;
 
 #[cfg(test)]
 use crate::index::relation::RelationTarget;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::publication::PublishedSegment;
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -156,7 +156,7 @@ impl Repository {
     pub(crate) fn declared_relation(
         &self,
         id: crate::schema::relations::RelationId,
-    ) -> Result<crate::index::storage::relation::DeclaredRelation<'_>, String> {
+    ) -> Result<crate::index::traits::relation::DeclaredRelation<'_>, String> {
         let declaration = self
             .collections
             .get(id.source.0 as usize)
@@ -168,7 +168,7 @@ impl Repository {
             .find(|collection| collection.definition.name == declaration.target_collection)
             .ok_or("declared target collection missing")?
             .collection_id();
-        Ok(crate::index::storage::relation::DeclaredRelation {
+        Ok(crate::index::traits::relation::DeclaredRelation {
             id,
             declaration,
             target_collection,
@@ -179,7 +179,7 @@ impl Repository {
         &self,
         source: CollectionId,
         path: &[String],
-    ) -> Result<Option<crate::index::storage::relation::DeclaredRelation<'_>>, String> {
+    ) -> Result<Option<crate::index::traits::relation::DeclaredRelation<'_>>, String> {
         let collection = self
             .collections
             .get(source.0 as usize)
@@ -202,7 +202,7 @@ impl Repository {
         &self,
         target: CollectionId,
         alias: &str,
-    ) -> Result<Option<crate::index::storage::relation::DeclaredRelation<'_>>, String> {
+    ) -> Result<Option<crate::index::traits::relation::DeclaredRelation<'_>>, String> {
         let target_state = self
             .collections
             .get(target.0 as usize)
@@ -224,7 +224,7 @@ impl Repository {
                         source: collection.collection_id(),
                         ordinal,
                     };
-                    return Ok(Some(crate::index::storage::relation::DeclaredRelation {
+                    return Ok(Some(crate::index::traits::relation::DeclaredRelation {
                         id,
                         declaration,
                         target_collection: target,
@@ -613,7 +613,7 @@ pub(crate) fn outgoing_relation<'a>(
     repo: &'a Repository,
     source_collection: &str,
     relation_path: &[String],
-) -> Result<crate::index::storage::relation::DeclaredRelation<'a>, String> {
+) -> Result<crate::index::traits::relation::DeclaredRelation<'a>, String> {
     let source = repo
         .collections
         .iter()
@@ -627,7 +627,7 @@ pub(crate) fn backlink_relation<'a>(
     repo: &'a Repository,
     target_collection: &str,
     reverse_alias: &str,
-) -> Result<crate::index::storage::relation::DeclaredRelation<'a>, String> {
+) -> Result<crate::index::traits::relation::DeclaredRelation<'a>, String> {
     let target = repo
         .collections
         .iter()
@@ -655,7 +655,7 @@ pub(crate) fn relation_outgoing_page_segmented(
     let source_address = view
         .resolve_id(relation.id.source, source_id)?
         .ok_or("source ID not found")?;
-    let crate::index::storage::relation::RelationRow {
+    let crate::index::traits::relation::RelationRow {
         targets: edges,
         present,
         null,

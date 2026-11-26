@@ -1,13 +1,13 @@
 //! Segment relation planning and page execution.
 
 use super::*;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::relation::RelationReader;
-use crate::index::storage::segment::{
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::relation::RelationReader;
+use crate::index::traits::segment::{
     SegmentSlotFact, any_segment_file, read_slot_members, visit_checked_file_slots,
     visit_record_headers, visit_segment_files,
 };
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::transfer::StorageError;
 use crate::model::FileId;
 use crate::records::RecordIdSlot;
 

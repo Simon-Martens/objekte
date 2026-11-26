@@ -1,6 +1,6 @@
 //! Verified old-content admission and physical removal in an unpublished root.
 
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::file_catalog::FileCatalogReader;
 use std::collections::BTreeSet;
 use std::sync::Arc;
 
@@ -10,13 +10,9 @@ use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{
     FilePreparationBinding, FileRecordLayout, reconstruct_file_layout,
 };
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::maintenance::{
-    check_projection_source, project_active_checked,
-};
-use crate::index::storage::segment::{
-    SegmentReader, visit_checked_file_slots, visit_segment_files,
-};
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::maintenance::{check_projection_source, project_active_checked};
+use crate::index::traits::segment::{SegmentReader, visit_checked_file_slots, visit_segment_files};
 use crate::lifecycle::mutation::VerifiedFallbackReason;
 use crate::lifecycle::{FileHandle, IndexError, IndexView, PublishedIndex};
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -53,8 +49,8 @@ impl From<IndexError> for VerificationError {
     }
 }
 
-impl From<crate::index::storage::transfer::StorageError> for VerificationError {
-    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
+impl From<crate::index::traits::transfer::StorageError> for VerificationError {
+    fn from(error: crate::index::traits::transfer::StorageError) -> Self {
         Self::Storage(error.into())
     }
 }
@@ -391,7 +387,7 @@ pub(crate) fn preserve_single_record_slots(
         let mut group = candidate.segment_group(number)?;
         let group = Arc::make_mut(&mut group);
         group[replacement.old_position] = Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: replacement.old.id,
             index: Arc::clone(&replacement.replacement.index),
             active: replacement.replacement.active.clone(),
@@ -480,13 +476,13 @@ pub(crate) fn preserve_partition_record_slots(
         check_projection_source(found.old.as_ref(), replacement.as_ref(), remap.len())?;
         let active = candidate.repository.storage_factory.live_records(
             replacement.descriptor().slots,
-            crate::index::storage::liveness::InitialLiveness::All,
+            crate::index::traits::liveness::InitialLiveness::All,
         )?;
         let number = collection.0 as usize;
         let mut group = candidate.segment_group(number)?;
         let group = Arc::make_mut(&mut group);
         group[found.old_position] = Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: found.old.id,
             index: replacement,
             active,
@@ -579,10 +575,10 @@ pub(crate) fn remove_verified_old_shards(
                     .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
                 let active = candidate.repository.storage_factory.live_records(
                     compacted.payload.descriptor().slots,
-                    crate::index::storage::liveness::InitialLiveness::All,
+                    crate::index::traits::liveness::InitialLiveness::All,
                 )?;
                 group[position] = Arc::new(PublishedSegment {
-                    version: crate::index::storage::publication::PlacementVersion::new(),
+                    version: crate::index::traits::publication::PlacementVersion::new(),
                     id: crate::index::segment::SegmentId::new(candidate.next_segment_ordinal),
                     index: compacted.payload,
                     active,

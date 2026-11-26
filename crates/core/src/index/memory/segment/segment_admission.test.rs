@@ -351,7 +351,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
-        factory: crate::index::storage::test_factory(),
+        factory: crate::index::traits::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -527,13 +527,13 @@ fn same_physical_file_can_enter_two_collection_segments() {
         .unwrap();
     let bindings = [
         FilePreparationBinding {
-            factory: crate::index::storage::test_factory(),
+            factory: crate::index::traits::test_factory(),
             collection: CollectionId(0),
             definition: &definitions[0],
             source: &source,
         },
         FilePreparationBinding {
-            factory: crate::index::storage::test_factory(),
+            factory: crate::index::traits::test_factory(),
             collection: CollectionId(1),
             definition: &definitions[1],
             source: &source,
@@ -605,7 +605,7 @@ fn measure_single_file_segment_cost() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
-        factory: crate::index::storage::test_factory(),
+        factory: crate::index::traits::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,

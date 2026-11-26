@@ -7,17 +7,17 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::posting::{
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::posting::{
     PostingCoverage, PostingDescriptor, PostingKey, PostingReader, PostingValueCursor, ScalarKey,
     VisitPostingBlock,
 };
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::{
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::{
     RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members, visit_checked_file_slots,
     visit_segment_files,
 };
-use crate::index::storage::transfer::{BatchLimit, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, StorageError, StorageResult};
 use crate::inference::{InferenceIndexStatus, InferenceMode};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
@@ -1290,7 +1290,7 @@ pub(crate) fn posting_values_segmented(
         }
         let logical_domain = if index == 0 {
             collection
-                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+                .base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?
                 .view()
                 .intersect_bitmap(&domain)
         } else {
@@ -1700,7 +1700,7 @@ impl Repository {
         let selected_domain = selected_domain.as_ref();
         let selected_total = selection.map(|selection| selection.members.len());
         let logical = collection
-            .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?;
+            .base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?;
         let logical = logical.view();
         let eligible = selected_domain.map_or(logical.len() as u64, |selected| {
             logical.intersection_len(crate::query_access::membership::MembershipView::Borrowed(
@@ -1757,7 +1757,7 @@ impl Repository {
                     .iter()
                     .map(|slot| {
                         let record = collection.base_record(crate::model::RecordSlot(slot))?;
-                        Ok::<_, crate::index::storage::transfer::StorageError>((
+                        Ok::<_, crate::index::traits::transfer::StorageError>((
                             slot,
                             record.file,
                             record.range,

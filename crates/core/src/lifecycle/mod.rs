@@ -99,9 +99,9 @@ pub enum IndexError {
     LockPoisoned,
 }
 
-impl From<crate::index::storage::transfer::StorageError> for IndexError {
-    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
-        use crate::index::storage::transfer::StorageError;
+impl From<crate::index::traits::transfer::StorageError> for IndexError {
+    fn from(error: crate::index::traits::transfer::StorageError) -> Self {
+        use crate::index::traits::transfer::StorageError;
         match error {
             StorageError::Cancelled => Self::Cancelled,
             StorageError::ResourceLimit(message) => Self::ResourceLimit(message),

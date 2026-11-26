@@ -7,11 +7,11 @@ use serde::Serialize;
 
 use crate::construction::file_preparation::finish_build_record;
 use crate::index::bigram::BigramAlphabet;
-use crate::index::storage::StorageFactory;
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::StorageFactory;
+use crate::index::traits::transfer::{StorageError, StorageResult};
 #[cfg(test)]
-use crate::index::storage::worker::DirectRecordInput;
-use crate::index::storage::worker::{
+use crate::index::traits::worker::DirectRecordInput;
+use crate::index::traits::worker::{
     DirectRecordBatch, FileWorkerBatch, FileWorkerInput, PreparedDirectBatch, PreparedIndexes,
     WorkerWriter,
 };
@@ -448,7 +448,7 @@ pub(crate) fn build_retained_contribution(
     String,
 > {
     let batch =
-        crate::index::storage::default_factory().prepare_direct_records(DirectRecordBatch {
+        crate::index::traits::default_factory().prepare_direct_records(DirectRecordBatch {
             inputs: &mut inputs,
             declaration,
             options: *options,
@@ -586,7 +586,7 @@ mod retained_contribution_tests {
             0,
             true,
             headers,
-            crate::index::storage::test_factory()
+            crate::index::traits::test_factory()
                 .retain_record_bodies(bodies)
                 .unwrap(),
             contribution,
@@ -759,7 +759,7 @@ pub(crate) fn process_batch(
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
     process_batch_profiled(
-        crate::index::storage::default_factory().as_ref(),
+        crate::index::traits::default_factory().as_ref(),
         root,
         definition,
         collection,

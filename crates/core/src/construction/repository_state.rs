@@ -21,12 +21,12 @@ use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex}
 use crate::index::relation::RelationContribution;
 #[cfg(test)]
 use crate::index::sorting::SortBuilder;
-use crate::index::storage::StorageFactory;
-use crate::index::storage::file_catalog::{
+use crate::index::traits::StorageFactory;
+use crate::index::traits::file_catalog::{
     DiscoveredFileRows, EmptyFileCatalogBase, FileCatalogHandle, FileCatalogSource, FileRows,
 };
-use crate::index::storage::order::declared::DeclaredOrders;
-use crate::index::storage::segment::{
+use crate::index::traits::order::declared::DeclaredOrders;
+use crate::index::traits::segment::{
     RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members, visit_record_headers,
     visit_segment_files,
 };
@@ -220,7 +220,7 @@ fn initialize_empty_configured(
         let postings = PostingCollection::new(&definition.schema);
         #[cfg(not(test))]
         let declared_postings =
-            crate::index::storage::posting::declared::DeclaredPostings::new(&definition.schema);
+            crate::index::traits::posting::declared::DeclaredPostings::new(&definition.schema);
         #[cfg(test)]
         let inference = InferenceBuilder::for_collection(options.inference, collection_count)
             .map(|builder| builder.finish(&RoaringBitmap::new(), 0, &definition.schema))
@@ -294,8 +294,7 @@ fn initialize_empty_configured(
         )?;
         #[cfg(test)]
         let sorting = sort_builder.finish_for_records(&[] as &[crate::records::RecordHeader])?;
-        let text_bindings =
-            crate::index::storage::text::TextBindingCatalog::new(&definition.schema);
+        let text_bindings = crate::index::traits::text::TextBindingCatalog::new(&definition.schema);
         #[cfg(test)]
         let index_family_bytes = crate::index::memory::segment::statistics::index_family_total(
             &raw,
@@ -389,7 +388,7 @@ fn initialize_empty_configured(
         .collect::<Vec<_>>();
     let segment_catalogs = (0..collections.len())
         .map(|_| storage_factory.segment_catalog()?.seal())
-        .collect::<crate::index::storage::transfer::StorageResult<Vec<_>>>()?;
+        .collect::<crate::index::traits::transfer::StorageResult<Vec<_>>>()?;
     #[cfg(test)]
     let segments = vec![Arc::new(Vec::new()); collections.len()];
     let instance_id = next_repository_instance();
@@ -430,8 +429,8 @@ fn initialize_empty_configured(
         )),
         stream_budget: Default::default(),
         inferred_orders: Mutex::new(
-            crate::index::storage::order::inferred_cache::InferredOrderCache::new(
-                crate::index::storage::order::inferred_cache::INFERRED_ORDER_CACHE_BYTES,
+            crate::index::traits::order::inferred_cache::InferredOrderCache::new(
+                crate::index::traits::order::inferred_cache::INFERRED_ORDER_CACHE_BYTES,
             ),
         ),
     })
@@ -453,7 +452,7 @@ mod programmatic_tests {
             None,
             vec![None],
             &crate::source::test_support::fixture_registry(),
-            crate::index::storage::default_factory(),
+            crate::index::traits::default_factory(),
         )
         .unwrap();
         assert!(repository.files.root().is_none());
@@ -469,7 +468,7 @@ mod programmatic_tests {
 /// Capture the collection counters and normalize diagnostic slot references
 /// while the sealed segments keep authoritative record and relation rows.
 fn summarize_published_collection(
-    segments: &[Arc<crate::index::storage::publication::PublishedSegment>],
+    segments: &[Arc<crate::index::traits::publication::PublishedSegment>],
     files: &mut [FileEntry],
 ) -> Result<(CollectionStats, InitialCollectionCounts), String> {
     let mut file_ids = HashSet::new();
@@ -576,7 +575,7 @@ struct SegmentMetadata {
 fn segment_metadata_generation(
     collection: CollectionId,
     name: &str,
-    segments: &[Arc<crate::index::storage::publication::PublishedSegment>],
+    segments: &[Arc<crate::index::traits::publication::PublishedSegment>],
     files: &mut [FileEntry],
     relations: &mut [RelationContribution],
 ) -> Result<SegmentMetadata, String> {

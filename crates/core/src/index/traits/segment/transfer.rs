@@ -3,8 +3,8 @@
 use std::io::{self, Read, Write};
 use std::num::NonZeroUsize;
 
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::transfer::{BatchLimit, StorageError, StorageResult};
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::transfer::{BatchLimit, StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::RecordSlot;
 use crate::records::RecordHeader;

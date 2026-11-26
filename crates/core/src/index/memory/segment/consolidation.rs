@@ -23,10 +23,10 @@ pub(crate) struct ConsolidatedSegment {
 impl ConsolidatedSegment {
     pub(crate) fn translate_active(
         &self,
-        factory: &dyn crate::index::storage::StorageFactory,
+        factory: &dyn crate::index::traits::StorageFactory,
         masks: &[&ActiveRecords],
-    ) -> crate::index::storage::transfer::StorageResult<ActiveRecords> {
-        crate::index::storage::segment::maintenance::translate_active(
+    ) -> crate::index::traits::transfer::StorageResult<ActiveRecords> {
+        crate::index::traits::segment::maintenance::translate_active(
             self.index.records.len(),
             &self.offsets,
             factory,

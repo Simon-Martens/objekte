@@ -65,9 +65,9 @@ impl fmt::Display for AccessError {
 
 impl std::error::Error for AccessError {}
 
-impl From<crate::index::storage::transfer::StorageError> for AccessError {
-    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
-        use crate::index::storage::transfer::StorageError;
+impl From<crate::index::traits::transfer::StorageError> for AccessError {
+    fn from(error: crate::index::traits::transfer::StorageError) -> Self {
+        use crate::index::traits::transfer::StorageError;
         match error {
             StorageError::Cancelled => Self::Cancelled,
             StorageError::ResourceLimit(message) => Self::Resource(message),

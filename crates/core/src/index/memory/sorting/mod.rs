@@ -5,15 +5,15 @@ use std::cmp::Ordering;
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use crate::index::storage::order::{DeclaredOrderDefinition, DeclaredOrderStore};
+use crate::index::traits::order::{DeclaredOrderDefinition, DeclaredOrderStore};
 
 use icu_collator::CollatorBorrowed;
 use roaring::RoaringBitmap;
 
 #[cfg(test)]
 use crate::index::memory::inventory::{CollectionGeneration, FileInventory};
-use crate::index::storage::ordered_slots::OrderedSlots;
-use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
+use crate::index::traits::ordered_slots::OrderedSlots;
+use crate::index::traits::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::inventory::{ByteRange, FileEntry, RecordClass};
 use crate::model::{
     FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
@@ -33,15 +33,15 @@ mod placement;
 pub(super) use inferred_order::build_inferred_order_rows;
 
 #[cfg(test)]
-pub use crate::index::storage::order::CollationStrength;
-use crate::index::storage::order::declared::{
+pub use crate::index::traits::order::CollationStrength;
+use crate::index::traits::order::declared::{
     composite_orders, order_configuration, validate_overrides,
 };
-pub(crate) use crate::index::storage::order::simple_composite_part;
-pub use crate::index::storage::order::{
+pub(crate) use crate::index::traits::order::simple_composite_part;
+pub use crate::index::traits::order::{
     COLLATION_VERSION, CompositeSortPart, Placement, SortConfig, SortKey, SortOptions,
 };
-use crate::index::storage::order::{
+use crate::index::traits::order::{
     InferredOrderRows, OrderColumnReader, ScalarOrderPredicate, make_collator,
 };
 

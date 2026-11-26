@@ -1,6 +1,6 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
-use crate::index::storage::segment::{
+use crate::index::traits::segment::{
     SegmentPredicateAccess, SegmentReader, SegmentSlotFact, visit_checked_file_slots,
     visit_segment_files,
 };
@@ -15,11 +15,11 @@ use smallvec::SmallVec;
 #[cfg(test)]
 use crate::index::memory::access::catalog::IndexCatalog;
 use crate::index::segment::SegmentId;
-use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
-use crate::index::storage::order::ScalarOrderPredicate;
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::text::SegmentTextAccess;
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::file_catalog::{FileCatalogReader, FileScalarPredicate};
+use crate::index::traits::order::ScalarOrderPredicate;
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::text::SegmentTextAccess;
+use crate::index::traits::transfer::StorageError;
 use crate::inventory::{ActiveRecords, relative_path_bounds};
 use crate::model::{FileId, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::binding::fts::BoundFts;
@@ -191,7 +191,7 @@ impl RoutedFileRestrictions {
     pub(crate) fn prepare(
         predicates: &PreparedPredicates,
         catalog: &dyn FileCatalogReader,
-        routes: &[crate::index::storage::segment_catalog::SegmentCatalogHandle],
+        routes: &[crate::index::traits::segment_catalog::SegmentCatalogHandle],
         segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     ) -> Result<Self, String> {
         let mut prepared = Self::default();
@@ -2814,7 +2814,7 @@ fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
 pub(crate) fn plan_expr_restricted(
     repo: &Repository,
     collection: &CollectionState,
-    segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::traits::publication::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -2828,7 +2828,7 @@ pub(crate) fn plan_expr_restricted(
 pub(crate) fn plan_expr_restricted_with_execution(
     repo: &Repository,
     collection: &CollectionState,
-    segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::traits::publication::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
@@ -2868,7 +2868,7 @@ pub(crate) fn plan_expr_restricted_with_execution(
 fn plan_expr_restricted_inner<'a>(
     repo: &'a Repository,
     collection: &'a CollectionState,
-    segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
+    segments: &[Arc<Vec<Arc<crate::index::traits::publication::PublishedSegment>>>],
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,

@@ -639,7 +639,7 @@ fn visit_merged_hop(
                 }
                 return Ok(());
             }
-            let crate::index::storage::relation::RelationRow {
+            let crate::index::traits::relation::RelationRow {
                 targets: references,
                 present,
                 null,
@@ -1074,7 +1074,7 @@ fn visit_hop(
                 let target = &*repo.collections[collection_index].base_record(source_slot)?;
                 let mut seen = 0usize;
                 let mut selected = 0usize;
-                let mut identity = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+                let mut identity = crate::index::traits::ordered_slots::OrderedSlotCursor::new(
                     source_collection.base_identity_order()?,
                 );
                 while let Some(candidate) = identity.next_slot()? {
@@ -1209,7 +1209,7 @@ fn visit_hop(
                 } else {
                     // A positional backlink means rank among sources in
                     // identity order, so retain that ordering here.
-                    let mut identity = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+                    let mut identity = crate::index::traits::ordered_slots::OrderedSlotCursor::new(
                         source_collection.base_identity_order()?,
                     );
                     while let Some(source) = identity.next_slot()? {

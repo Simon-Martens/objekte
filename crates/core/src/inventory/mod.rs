@@ -18,7 +18,7 @@ pub mod discovery;
 pub(crate) use crate::index::memory::inventory::{
     CollectionBuilder, CollectionGeneration, FileInventory, FileRecordIndex,
 };
-pub(crate) use crate::index::storage::liveness::ActiveRecords;
+pub(crate) use crate::index::traits::liveness::ActiveRecords;
 
 pub const MAX_DIAGNOSTICS_PER_FILE: usize = 64;
 pub const MAX_DIAGNOSTIC_MESSAGE_BYTES: usize = 256;

@@ -6,12 +6,12 @@ use std::sync::Arc;
 use crate::construction::batch::map_binding_value;
 use crate::index::memory::segment::projection::SlotMap;
 use crate::index::memory::worker::FactBuffer;
-use crate::index::storage::component::ComponentKind;
-use crate::index::storage::posting::{
+use crate::index::traits::component::ComponentKind;
+use crate::index::traits::posting::{
     POSTING_BLOCK_LIMIT, PostingDefinition, PostingFact, PostingReader, PostingStore,
     PostingWriter, visit_posting_blocks,
 };
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::model::{RecordSlot, Value};
 use crate::query::semantics::record::data_values_small;
 use crate::schema::Schema;
@@ -230,7 +230,7 @@ impl fmt::Debug for PlacedPostings {
 impl PlacedPostings {
     pub fn resident_bytes(
         &self,
-        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+        counter: &mut crate::index::traits::component::ResidentComponentCounter,
     ) -> usize {
         self.0.values().fold(0usize, |total, placed| {
             total.saturating_add(counter.charge(&placed.reader, placed.reader.resident_bytes()))
@@ -251,7 +251,7 @@ impl PlacedPostings {
         slots: usize,
         target: Option<InferredCoverage>,
     ) -> StorageResult<()> {
-        use crate::index::storage::posting::{PostingKey, ScalarKey};
+        use crate::index::traits::posting::{PostingKey, ScalarKey};
 
         let identity = (path.to_vec(), None);
         let Some(placed) = self.0.get_mut(&identity) else {
@@ -287,7 +287,7 @@ impl PlacedPostings {
         )?;
         placed.reader = writer.seal(
             slots,
-            Some(crate::index::storage::posting::PostingCoverage {
+            Some(crate::index::traits::posting::PostingCoverage {
                 values_indexed: target.general_values || target.short_values || target.empty_string,
                 value_complete: target.general_values,
                 length_complete: target.length,
@@ -302,11 +302,11 @@ impl PlacedPostings {
         &mut self,
         store: &Arc<dyn PostingStore>,
         definition: PostingDefinition,
-        coverage: crate::index::storage::posting::PostingCoverage,
+        coverage: crate::index::traits::posting::PostingCoverage,
         slots: usize,
         blocks: impl Iterator<
             Item = (
-                crate::index::storage::posting::PostingKey<'a>,
+                crate::index::traits::posting::PostingKey<'a>,
                 &'a roaring::RoaringBitmap,
             ),
         >,
@@ -493,7 +493,7 @@ impl PlacedPostings {
                     writer.push_members(key, &scratch)
                 },
             )?;
-            let coverage = crate::index::storage::posting::PostingCoverage {
+            let coverage = crate::index::traits::posting::PostingCoverage {
                 covered_records: logical,
                 ..placed.reader.descriptor().coverage
             };
@@ -518,7 +518,7 @@ pub(in crate::index::memory) struct InferredCoverage {
 }
 
 impl InferredCoverage {
-    pub fn compatible_with(self, current: crate::index::storage::posting::PostingCoverage) -> bool {
+    pub fn compatible_with(self, current: crate::index::traits::posting::PostingCoverage) -> bool {
         current.value_complete == self.general_values
             && current.length_complete == self.length
             && current.empty_string_complete == self.empty_string

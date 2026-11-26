@@ -10,7 +10,7 @@ use roaring::RoaringBitmap;
 use roaring::bitmap::Iter as RoaringIter;
 
 use super::contract::AccessError;
-use crate::index::storage::liveness::ActiveRecords;
+use crate::index::traits::liveness::ActiveRecords;
 use crate::model::RecordSlot;
 
 /// The storage owner of a pinned local slot domain.

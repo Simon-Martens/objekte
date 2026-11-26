@@ -4,7 +4,7 @@ use std::sync::Arc;
 use crate::model::FieldPath;
 
 use super::{COLLATION_VERSION, OrderColumnReader, SortOptions};
-use crate::index::storage::segment::SegmentId;
+use crate::index::traits::segment::SegmentId;
 
 pub(crate) const INFERRED_ORDER_CACHE_BYTES: usize = 128 * 1024 * 1024;
 
@@ -172,7 +172,7 @@ impl InferredOrderCache {
 mod tests {
     use super::*;
     use crate::index::sorting::SortColumn;
-    use crate::index::storage::order::SortKey;
+    use crate::index::traits::order::SortKey;
     use crate::model::{LogicalType, RecordSlot};
 
     fn inferred_test_column(path: &str) -> SortColumn {

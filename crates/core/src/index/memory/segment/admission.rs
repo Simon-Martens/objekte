@@ -19,11 +19,11 @@ use crate::index::memory::segment::{
 };
 use crate::index::memory::sorting::SortBuilder;
 use crate::index::memory::worker::NativeIndexBatch;
-use crate::index::storage::posting::PostingStore;
-use crate::index::storage::relation::RelationStore;
-use crate::index::storage::segment::build::{BuiltSegment, SegmentBuilder, SegmentSeal};
-use crate::index::storage::text::{GramBinding, GramStore};
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::posting::PostingStore;
+use crate::index::traits::relation::RelationStore;
+use crate::index::traits::segment::build::{BuiltSegment, SegmentBuilder, SegmentSeal};
+use crate::index::traits::text::{GramBinding, GramStore};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inference::InferenceConfig;
 use crate::inventory::{DiagnosticRef, FileStatus, RecordClass, RecordEntry};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
@@ -655,7 +655,7 @@ impl CollectionSegment {
             index: std::sync::Arc::new(index),
             observation: observation.map(|value| {
                 std::sync::Arc::new(value)
-                    as crate::index::storage::inference::InferenceObservationHandle
+                    as crate::index::traits::inference::InferenceObservationHandle
             }),
         })
     }
@@ -670,7 +670,7 @@ impl CollectionSegment {
         registration: u32,
         raw_covers_logical_fields: bool,
         records: Vec<crate::records::RecordHeader>,
-        bodies: crate::index::storage::segment::RetainedBlock,
+        bodies: crate::index::traits::segment::RetainedBlock,
         contribution: BatchContribution,
     ) -> Result<Self, String> {
         if records.is_empty() || records.len() != bodies.len() {
@@ -853,7 +853,7 @@ impl CollectionSegment {
         mut profile: Option<&mut IncrementalSegmentProfile>,
         capture_observation: bool,
         declared_orders: Option<
-            std::sync::Arc<dyn crate::index::storage::order::DeclaredOrderStore>,
+            std::sync::Arc<dyn crate::index::traits::order::DeclaredOrderStore>,
         >,
     ) -> Result<
         (

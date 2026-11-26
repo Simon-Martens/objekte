@@ -1,6 +1,6 @@
 //! Repository record lookup and hit stamping.
 
-use crate::index::storage::segment::SegmentReader;
+use crate::index::traits::segment::SegmentReader;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::query::options::ReturnMode;

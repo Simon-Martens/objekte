@@ -67,7 +67,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
             created_ns: None,
         },
         &[FilePreparationBinding {
-            factory: crate::index::storage::test_factory(),
+            factory: crate::index::traits::test_factory(),
             collection: CollectionId(0),
             definition: &definition,
             source: &source,

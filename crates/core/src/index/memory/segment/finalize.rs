@@ -1,8 +1,8 @@
 //! Apply final catalogue status and global inference policy to one segment.
 
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::any_segment_file;
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::segment::any_segment_file;
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inventory::{FileEntry, FileStatus};
 use crate::model::FileId;
 use crate::repository::state::GlobalInferenceSummary;

@@ -17,7 +17,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
     use crate::index::segment::IndexedCollectionSegment;
     use crate::index::segment::admission::SegmentAdmission;
-    use crate::index::storage::publication::PublishedSegment;
+    use crate::index::traits::publication::PublishedSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -46,7 +46,7 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
                     .map(|duration| duration.as_nanos() as i128),
             },
             &[FilePreparationBinding {
-                factory: crate::index::storage::test_factory(),
+                factory: crate::index::traits::test_factory(),
                 collection: CollectionId(collection_index as u32),
                 definition: collection.required_file_definition(),
                 source: &collection.required_file_reader(),
@@ -146,14 +146,14 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .unwrap();
     let segments = vec![
         Arc::new(vec![Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(1),
             active: ActiveRecords::all(target.records.len()).unwrap(),
             index: Arc::new(target),
             observation: None,
         })]),
         Arc::new(vec![Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(2),
             active: ActiveRecords::all(source.records.len()).unwrap(),
             index: Arc::new(source),
@@ -1454,7 +1454,7 @@ fn segmented_reference_parity_with_retired_and_new_rows_and_parameter_clock() {
 #[test]
 fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contributions() {
     use crate::index::posting::ScalarKey;
-    use crate::index::storage::publication::PublishedSegment;
+    use crate::index::traits::publication::PublishedSegment;
     use crate::model::CollectionId;
     use crate::schema::relations::RelationId;
 
@@ -1518,7 +1518,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
                 posting.values.remove(&ScalarKey::Id("A".into()));
             }
             Arc::new(PublishedSegment {
-                version: crate::index::storage::publication::PlacementVersion::new(),
+                version: crate::index::traits::publication::PlacementVersion::new(),
                 id: published.id,
                 index: Arc::new(index),
                 active: published.active.clone(),
@@ -1629,7 +1629,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
 
 #[test]
 fn segmented_reference_first_last_ignores_unavailable_contribution() {
-    use crate::index::storage::publication::PublishedSegment;
+    use crate::index::traits::publication::PublishedSegment;
     use crate::model::{CollectionId, Value};
     use crate::query_results::Payload;
 
@@ -1683,7 +1683,7 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
                     segment.relations[relation_index].mark_unavailable_for_test(slot);
                 }
                 Arc::new(PublishedSegment {
-                    version: crate::index::storage::publication::PlacementVersion::new(),
+                    version: crate::index::traits::publication::PlacementVersion::new(),
                     id: published.id,
                     index: Arc::new(segment),
                     active: published.active.clone(),

@@ -16,15 +16,15 @@ use crate::index::sorting::SortColumn;
 use crate::index::sorting::simple_composite_part;
 #[cfg(test)]
 use crate::index::sorting::{SortKey, SortOptions};
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::order::inferred_cache::InferredOrderKey;
-use crate::index::storage::ordered_slots::OrderedSlotCursor;
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::{
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::order::inferred_cache::InferredOrderKey;
+use crate::index::traits::ordered_slots::OrderedSlotCursor;
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::{
     RecordBacking, RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members,
 };
 #[cfg(test)]
-use crate::index::storage::segment::{any_segment_file, visit_checked_file_slots};
+use crate::index::traits::segment::{any_segment_file, visit_checked_file_slots};
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
@@ -306,7 +306,7 @@ const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 pub(crate) struct LifecycleCacheScope<'a> {
     pub(crate) store: &'a Mutex<VerifiedCache>,
     pub(crate) file_routes:
-        Option<&'a [crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
+        Option<&'a [crate::index::traits::segment_catalog::SegmentCatalogHandle]>,
     pub(crate) instance_id: u64,
 }
 
@@ -955,7 +955,7 @@ pub(crate) fn direct_lookup_segmented(
     return_mode: ReturnMode,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    routes: Option<&[crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
+    routes: Option<&[crate::index::traits::segment_catalog::SegmentCatalogHandle]>,
     catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
 ) -> Result<DirectLookupResult, String> {
@@ -987,7 +987,7 @@ pub(crate) fn direct_lookup_segmented_counted(
     return_mode: ReturnMode,
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    routes: Option<&[crate::index::storage::segment_catalog::SegmentCatalogHandle]>,
+    routes: Option<&[crate::index::traits::segment_catalog::SegmentCatalogHandle]>,
     catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     mut counters: Option<&mut DirectRouteCounters>,
@@ -5550,7 +5550,7 @@ pub(crate) fn try_stream_identity_directory_page(
     options: StreamOptions,
     context: &ExecutionContext,
     base_active: &[ActiveRecords],
-    directories: &[crate::index::storage::segment_catalog::SegmentCatalogHandle],
+    directories: &[crate::index::traits::segment_catalog::SegmentCatalogHandle],
     catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     sink: &mut dyn for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
@@ -5617,7 +5617,7 @@ pub(crate) fn try_stream_identity_directory_page(
             ..Default::default()
         };
         let mut placements_left = directory.segment_count();
-        let read = crate::index::storage::segment_catalog::visit_placement_pages(
+        let read = crate::index::traits::segment_catalog::visit_placement_pages(
             directory,
             &mut |page| -> Result<bool, String> {
                 for placement in page {
@@ -7996,7 +7996,7 @@ fn search_impl_with_resolved_sort<'a>(
             // Fallback truth established from inventory metadata needs no
             // source verification, even when logical candidates still do.
             let fallback_proven = collection
-                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+                .base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?
                 .view()
                 .subtract_from(&(&candidates & &plan.proven_hits));
             for slot in fallback_proven.iter() {

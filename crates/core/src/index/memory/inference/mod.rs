@@ -36,7 +36,7 @@ impl InferenceState {
     pub(in crate::index::memory) fn reader(
         &self,
         path: &[String],
-    ) -> Option<&dyn crate::index::storage::posting::PostingReader> {
+    ) -> Option<&dyn crate::index::traits::posting::PostingReader> {
         if let Some(index) = self.indexes.get(path) {
             return Some(index);
         }

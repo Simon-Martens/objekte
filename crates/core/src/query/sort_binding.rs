@@ -7,8 +7,8 @@ use std::sync::{Arc, Mutex, OnceLock};
 use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
-use crate::index::storage::order::OrderColumnReader;
-use crate::index::storage::order::{SortConfig, SortKey, SortOptions, make_collator};
+use crate::index::traits::order::OrderColumnReader;
+use crate::index::traits::order::{SortConfig, SortKey, SortOptions, make_collator};
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;
@@ -880,7 +880,7 @@ impl ComputedSort {
                     }
                     return Ok(());
                 }
-                let crate::index::storage::relation::RelationRow {
+                let crate::index::traits::relation::RelationRow {
                     targets: edges,
                     null,
                     unavailable,
@@ -1622,7 +1622,7 @@ impl ComputedSort {
                     if has_position {
                         let mut seen = 0usize;
                         let mut identity =
-                            crate::index::storage::ordered_slots::OrderedSlotCursor::new(
+                            crate::index::traits::ordered_slots::OrderedSlotCursor::new(
                                 source_collection.base_identity_order()?,
                             );
                         while let Some(source) = identity.next_slot()? {

@@ -6,9 +6,9 @@ use roaring::RoaringBitmap;
 
 use super::catalog::IndexCatalog;
 use crate::index::memory::segment::IndexedCollectionSegment;
-use crate::index::storage::segment::{RecordBacking, SegmentReader};
-use crate::index::storage::text::SegmentTextAccess;
-use crate::index::storage::text::TextAccessPolicy;
+use crate::index::traits::segment::{RecordBacking, SegmentReader};
+use crate::index::traits::text::SegmentTextAccess;
+use crate::index::traits::text::TextAccessPolicy;
 use crate::model::PathRoot;
 use crate::query::{FtsMode, binding::fts::BoundFts};
 #[cfg(test)]
@@ -525,7 +525,7 @@ pub(crate) fn segment_raw_covers_identity_field(
 /// grams and regex conditions never claim positive field proof.
 struct TextProbe<'a, 'b> {
     index: crate::index::memory::bigram::placement::GramAccess<'a>,
-    request: &'b crate::index::storage::text::BigramRequest,
+    request: &'b crate::index::traits::text::BigramRequest,
 }
 
 struct PreparedFtsAccess<'a, 'b> {

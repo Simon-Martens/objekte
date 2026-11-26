@@ -5,9 +5,9 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicBool, Ordering};
 
 use crate::index::segment::SegmentId;
-use crate::index::storage::segment::build::{DirectSegmentBodies, DirectSegmentBuild, SegmentSeal};
-use crate::index::storage::segment::{SegmentHandle, SegmentReader};
-use crate::index::storage::worker::{DirectRecordBatch, DirectRecordInput, PreparedDirectBatch};
+use crate::index::traits::segment::build::{DirectSegmentBodies, DirectSegmentBuild, SegmentSeal};
+use crate::index::traits::segment::{SegmentHandle, SegmentReader};
+use crate::index::traits::worker::{DirectRecordBatch, DirectRecordInput, PreparedDirectBatch};
 use crate::lifecycle::publication::{RecordMutation, RecordMutationKind};
 use crate::lifecycle::{Index, IndexError, IndexRevision, IndexView, RecordRegistration};
 use crate::records::RecordVersion;
@@ -392,9 +392,7 @@ fn compact_prefix(segment: &SegmentHandle, length: usize) -> Result<SegmentHandl
     let slots = segment.descriptor().slots;
     let active = crate::inventory::ActiveRecords::from_bitmap(slots, live)
         .map_err(IndexError::InvalidPublication)?;
-    use crate::index::storage::segment::maintenance::{
-        project_active_checked, require_maintenance,
-    };
+    use crate::index::traits::segment::maintenance::{project_active_checked, require_maintenance};
     let reader = segment.as_ref();
     let editor = require_maintenance(reader)?;
     Ok(project_active_checked(reader, editor, &active, slots, &mut |_| false)?.payload)
@@ -403,7 +401,7 @@ fn compact_prefix(segment: &SegmentHandle, length: usize) -> Result<SegmentHandl
 #[cfg(test)]
 mod tests {
     use crate::index::segment::SegmentPolicy;
-    use crate::index::storage::segment::SegmentReader;
+    use crate::index::traits::segment::SegmentReader;
     use crate::lifecycle::Index;
     use crate::model::Value;
     use crate::repository::configuration::RepositoryOptions;

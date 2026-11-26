@@ -3,8 +3,8 @@ use std::collections::HashMap;
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
 use crate::index::memory::bigram::BigramIndex;
-use crate::index::storage::text::{GramChannel, GramReader, visit_gram_blocks};
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::text::{GramChannel, GramReader, visit_gram_blocks};
+use crate::index::traits::transfer::StorageError;
 
 pub(crate) struct BigramProjection {
     pub(crate) raw: BigramIndex,
@@ -16,7 +16,7 @@ pub(crate) fn transfer_bigram_partitions(
     reader: &dyn GramReader,
     routing: &PartitionRouting,
     cancelled: &dyn Fn() -> bool,
-) -> crate::index::storage::transfer::StorageResult<Vec<BigramIndex>> {
+) -> crate::index::traits::transfer::StorageResult<Vec<BigramIndex>> {
     let mut parts = routing
         .selected
         .iter()
@@ -53,7 +53,7 @@ pub(crate) fn transfer_bigram(
     covered_records: u32,
     bounds: Option<(u32, u32)>,
     cancelled: &dyn Fn() -> bool,
-) -> crate::index::storage::transfer::StorageResult<BigramIndex> {
+) -> crate::index::traits::transfer::StorageResult<BigramIndex> {
     let mut projected = BigramIndex::new(reader.descriptor().alphabet);
     projected.record_count = covered_records;
     visit_gram_blocks(
@@ -184,10 +184,10 @@ impl IndexedCollectionSegment {
 #[cfg(test)]
 mod transfer_tests {
     use super::*;
-    use crate::index::storage::text::{
+    use crate::index::traits::text::{
         BIGRAM_VERSION, BigramAlphabet, GramDescriptor, VisitGramBlock,
     };
-    use crate::index::storage::transfer::{BatchLimit, StorageResult};
+    use crate::index::traits::transfer::{BatchLimit, StorageResult};
     use crate::model::RecordSlot;
 
     struct GramTable {

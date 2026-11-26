@@ -308,7 +308,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
     use crate::index::segment::admission::SegmentAdmission;
-    use crate::index::storage::publication::PublishedSegment;
+    use crate::index::traits::publication::PublishedSegment;
     use crate::inventory::SourceRevision;
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -335,7 +335,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
                 created_ns: None,
             },
             &[FilePreparationBinding {
-                factory: crate::index::storage::test_factory(),
+                factory: crate::index::traits::test_factory(),
                 collection: CollectionId(0),
                 definition: state.required_file_definition(),
                 source: &state.required_file_reader(),
@@ -384,7 +384,7 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
         .unwrap_or(0)
         + 1;
     first_group.push(Arc::new(PublishedSegment {
-        version: crate::index::storage::publication::PlacementVersion::new(),
+        version: crate::index::traits::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(next_id),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
@@ -464,7 +464,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
     use crate::construction::batch::SourceFileInput;
     use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
     use crate::index::segment::admission::SegmentAdmission;
-    use crate::index::storage::publication::PublishedSegment;
+    use crate::index::traits::publication::PublishedSegment;
     use crate::inventory::{ActiveRecords, SourceRevision};
     use crate::lifecycle::IndexRevision;
     use crate::lifecycle::catalog::FileCatalog;
@@ -534,7 +534,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
                 created_ns: None,
             },
             &[FilePreparationBinding {
-                factory: crate::index::storage::test_factory(),
+                factory: crate::index::traits::test_factory(),
                 collection: CollectionId(0),
                 definition: state.required_file_definition(),
                 source: &state.required_file_reader(),
@@ -574,7 +574,7 @@ fn inferred_facet_fallback_uses_delta_local_slots_and_record_classes() {
         .retired(&[RecordSlot(2)])
         .unwrap();
     let segment = Arc::new(PublishedSegment {
-        version: crate::index::storage::publication::PlacementVersion::new(),
+        version: crate::index::traits::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(1),
         active,
         index: Arc::new(segment),
@@ -670,7 +670,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
             input.clone(),
             &[
                 crate::construction::file_preparation::FilePreparationBinding {
-                    factory: crate::index::storage::test_factory(),
+                    factory: crate::index::traits::test_factory(),
                     collection: crate::model::CollectionId(0),
                     definition: state.required_file_definition(),
                     source: &state.required_file_reader(),
@@ -702,7 +702,7 @@ fn segmented_inferred_facet_resolution_is_independent_of_segment_order() {
             )
             .unwrap();
         initial_segments.push(Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(initial_segments.len() as u64 + 1),
             active: ActiveRecords::all(index.record_count()).unwrap(),
             index: Arc::new(index),
@@ -1461,7 +1461,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
             input,
             &[
                 crate::construction::file_preparation::FilePreparationBinding {
-                    factory: crate::index::storage::test_factory(),
+                    factory: crate::index::traits::test_factory(),
                     collection: crate::model::CollectionId(0),
                     definition: state.required_file_definition(),
                     source: &state.required_file_reader(),
@@ -1494,12 +1494,12 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
             )
             .unwrap();
         segments.push(Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(segments.len() as u64 + 1),
             active: ActiveRecords::all(index.record_count()).unwrap(),
             index: Arc::new(index),
             observation: observation.map(|value| {
-                Arc::new(value) as crate::index::storage::inference::InferenceObservationHandle
+                Arc::new(value) as crate::index::traits::inference::InferenceObservationHandle
             }),
         }));
     }
@@ -1618,7 +1618,7 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
     structural_posting.values.clear();
     structural_posting.length_complete = true;
     let structural = Arc::new(PublishedSegment {
-        version: crate::index::storage::publication::PlacementVersion::new(),
+        version: crate::index::traits::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(20),
         active: segments[0].active.clone(),
         index: Arc::new(structural_index),

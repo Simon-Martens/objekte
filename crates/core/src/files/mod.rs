@@ -2,8 +2,8 @@
 
 use std::path::{Path, PathBuf};
 
-use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::file_catalog::{FileCatalogReader, FileScalarPredicate};
+use crate::index::traits::transfer::StorageError;
 use crate::inventory::{ByteRange, FileEntry, FileStatus, SourceRevision};
 use crate::lifecycle::{FileCatalogueRow, IndexView};
 use crate::model::RecordId;

@@ -7,9 +7,9 @@ use std::sync::Arc;
 
 use super::{Payload, SearchHit};
 use crate::index::sorting::{SortKey, SortOptions};
-use crate::index::storage::order::OrderColumnReader;
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::SegmentReader;
+use crate::index::traits::order::OrderColumnReader;
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::SegmentReader;
 use crate::inventory::RecordEntry;
 use crate::measurement::WorkCounters;
 use crate::model::Value;
@@ -324,7 +324,7 @@ impl<'a> StoredRankKey<'a> {
         columns: &[(&'a dyn OrderColumnReader, bool)],
         record: &Cow<'a, RecordEntry>,
         collection: &'a str,
-    ) -> crate::index::storage::transfer::StorageResult<Self> {
+    ) -> crate::index::traits::transfer::StorageResult<Self> {
         let parts = columns
             .iter()
             .map(|&(column, descending)| {
@@ -650,7 +650,7 @@ pub(crate) fn cached_filter_target_sort_key(
     {
         return Ok(None);
     }
-    let crate::index::storage::relation::RelationRow {
+    let crate::index::traits::relation::RelationRow {
         targets: edges,
         unavailable,
         ..
@@ -734,7 +734,7 @@ pub(crate) fn direct_related_target_sort_key(
     let Some(path) = computed.direct_related_target_column(hop) else {
         return Ok(None);
     };
-    let crate::index::storage::relation::RelationRow {
+    let crate::index::traits::relation::RelationRow {
         targets: edges,
         unavailable,
         ..
@@ -831,7 +831,7 @@ pub(crate) fn rank_key(
         .iter()
         .map(|(column, descending)| {
             let key = column.key(record.slot)?.into_owned();
-            Ok::<_, crate::index::storage::transfer::StorageError>((
+            Ok::<_, crate::index::traits::transfer::StorageError>((
                 key,
                 *descending,
                 column.options(),

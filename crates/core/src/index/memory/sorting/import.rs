@@ -3,11 +3,11 @@
 use std::collections::HashMap;
 use std::path::Path;
 
-use crate::index::storage::order::key_transfer::transfer_order_keys;
-use crate::index::storage::order::{
+use crate::index::traits::order::key_transfer::transfer_order_keys;
+use crate::index::traits::order::{
     COLLATION_VERSION, CompositeSortPart, OrderColumnReader, SortConfig, SortKey, make_collator,
 };
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::model::{LogicalType, MetadataField, PathRoot, RecordSlot, Value};
 use crate::records::RecordHeader;
 

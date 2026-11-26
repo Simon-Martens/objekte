@@ -10,8 +10,8 @@ use crate::construction::batch::{
     BuildWorkProfile, canonical_custom_text_key, map_binding_value, string_values,
 };
 use crate::index::memory::inference::InferenceBuilder;
-use crate::index::storage::transfer::{StorageError, StorageResult};
-use crate::index::storage::worker::{PreparedIndexes, WorkerWriter};
+use crate::index::traits::transfer::{StorageError, StorageResult};
+use crate::index::traits::worker::{PreparedIndexes, WorkerWriter};
 use crate::inference::InferenceConfig;
 use crate::inventory::{ByteRange, FileEntry, RecordClass};
 use crate::model::FieldPath;
@@ -31,9 +31,9 @@ use super::posting::placement::PostingBatches;
 use super::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use super::relation::placement::RelationWorker;
 use super::sorting::{SortBuilder, SortKey};
-use crate::index::storage::posting::PostingStore;
-use crate::index::storage::relation::RelationStore;
-use crate::index::storage::text::{GramBinding, GramStore};
+use crate::index::traits::posting::PostingStore;
+use crate::index::traits::relation::RelationStore;
+use crate::index::traits::text::{GramBinding, GramStore};
 use std::sync::Arc;
 
 /// Pending facts owned by extraction. A full buffer drains into a worker-local
@@ -41,13 +41,13 @@ use std::sync::Arc;
 pub(in crate::index::memory) struct FactBuffer<T> {
     facts: Vec<T>,
     bytes: usize,
-    limit: crate::index::storage::transfer::BatchLimit,
+    limit: crate::index::traits::transfer::BatchLimit,
     #[cfg(test)]
     peak_pending: usize,
 }
 
 impl<T> FactBuffer<T> {
-    pub fn new(limit: crate::index::storage::transfer::BatchLimit) -> Self {
+    pub fn new(limit: crate::index::traits::transfer::BatchLimit) -> Self {
         Self {
             facts: Vec::new(),
             bytes: 0,

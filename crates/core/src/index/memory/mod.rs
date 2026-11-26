@@ -16,33 +16,32 @@ mod worker;
 
 pub(crate) struct MemoryStorageFactory;
 
-impl super::storage::StorageFactory for MemoryStorageFactory {
+impl super::traits::StorageFactory for MemoryStorageFactory {
     fn import_file_segment(
         &self,
-        source: &dyn super::storage::segment::SegmentReader,
-        layout: super::storage::segment::transfer::FileSegmentLayout<'_>,
+        source: &dyn super::traits::segment::SegmentReader,
+        layout: super::traits::segment::transfer::FileSegmentLayout<'_>,
         cancelled: &mut dyn FnMut() -> bool,
-    ) -> super::storage::transfer::StorageResult<Option<super::storage::segment::SegmentHandle>>
-    {
+    ) -> super::traits::transfer::StorageResult<Option<super::traits::segment::SegmentHandle>> {
         segment::import::import(source, layout, cancelled)
     }
 
     fn project_segment_partitions(
         &self,
-        source: &dyn super::storage::segment::SegmentReader,
-        partitions: &[super::storage::segment::maintenance::SegmentPartition],
-        catalog: &dyn super::storage::file_catalog::FileCatalogReader,
+        source: &dyn super::traits::segment::SegmentReader,
+        partitions: &[super::traits::segment::maintenance::SegmentPartition],
+        catalog: &dyn super::traits::file_catalog::FileCatalogReader,
         cancelled: &mut dyn FnMut() -> bool,
-    ) -> super::storage::transfer::StorageResult<Vec<super::storage::segment::SegmentHandle>> {
+    ) -> super::traits::transfer::StorageResult<Vec<super::traits::segment::SegmentHandle>> {
         let editor = source.maintenance();
         if let Some(native) = editor.and_then(|editor| {
             (editor as &dyn std::any::Any).downcast_ref::<segment::IndexedCollectionSegment>()
         }) {
-            use super::storage::segment::maintenance::SegmentMaintenance;
+            use super::traits::segment::maintenance::SegmentMaintenance;
             return SegmentMaintenance::project_partitions(native, partitions, catalog, cancelled);
         }
         if let [partition] = partitions {
-            use super::storage::segment::transfer::FileSegmentLayout;
+            use super::traits::segment::transfer::FileSegmentLayout;
 
             return self
                 .import_file_segment(
@@ -51,7 +50,7 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
                     cancelled,
                 )?
                 .map(|part| vec![part])
-                .ok_or(super::storage::transfer::StorageError::Unsupported {
+                .ok_or(super::traits::transfer::StorageError::Unsupported {
                     operation: "import segment into memory partitions",
                 });
         }
@@ -60,10 +59,10 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
 
     fn consolidate_segments(
         &self,
-        segments: &[&dyn super::storage::segment::SegmentReader],
+        segments: &[&dyn super::traits::segment::SegmentReader],
         max_records: usize,
-    ) -> super::storage::transfer::StorageResult<
-        Option<super::storage::segment::maintenance::ConsolidatedSegment>,
+    ) -> super::traits::transfer::StorageResult<
+        Option<super::traits::segment::maintenance::ConsolidatedSegment>,
     > {
         segment::maintenance::consolidate(segments, max_records)
     }
@@ -72,16 +71,16 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
     fn base_segment(
         &self,
         collection: &crate::repository::state::CollectionState,
-        files: &dyn super::storage::file_catalog::FileCatalogReader,
-    ) -> super::storage::transfer::StorageResult<super::storage::segment::SegmentHandle> {
+        files: &dyn super::traits::file_catalog::FileCatalogReader,
+    ) -> super::traits::transfer::StorageResult<super::traits::segment::SegmentHandle> {
         segment::maintenance::base_segment(collection, files)
     }
 
     fn start_file_segment(
         &self,
-        input: super::storage::segment::build::FileSegmentBuild<'_>,
-    ) -> super::storage::transfer::StorageResult<
-        Box<dyn super::storage::segment::build::SegmentBuilder>,
+        input: super::traits::segment::build::FileSegmentBuild<'_>,
+    ) -> super::traits::transfer::StorageResult<
+        Box<dyn super::traits::segment::build::SegmentBuilder>,
     > {
         Ok(Box::new(
             segment::admission::SegmentAdmission::with_limits_and_id(
@@ -95,11 +94,11 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
 
     fn seal_direct_segment(
         &self,
-        input: super::storage::segment::build::DirectSegmentBuild<'_>,
-        seal: super::storage::segment::build::SegmentSeal<'_>,
-    ) -> super::storage::transfer::StorageResult<super::storage::segment::build::BuiltSegment> {
-        use super::storage::segment::build::DirectSegmentBodies;
-        use super::storage::transfer::StorageError;
+        input: super::traits::segment::build::DirectSegmentBuild<'_>,
+        seal: super::traits::segment::build::SegmentSeal<'_>,
+    ) -> super::traits::transfer::StorageResult<super::traits::segment::build::BuiltSegment> {
+        use super::traits::segment::build::DirectSegmentBodies;
+        use super::traits::transfer::StorageError;
         let draft = match input.bodies {
             DirectSegmentBodies::Versioned(versions) => {
                 segment::admission::CollectionSegment::from_provider(
@@ -135,15 +134,15 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
     fn retain_record_bodies(
         &self,
         bodies: Vec<crate::records::RetainedBody>,
-    ) -> super::storage::transfer::StorageResult<super::storage::segment::RetainedBlock> {
+    ) -> super::traits::transfer::StorageResult<super::traits::segment::RetainedBlock> {
         Ok(std::sync::Arc::new(segment::MemoryRetainedBlock(bodies)))
     }
 
     fn inferred_order(
         &self,
-        rows: super::storage::order::InferredOrderRows,
-    ) -> super::storage::transfer::StorageResult<
-        std::sync::Arc<dyn super::storage::order::OrderColumnReader>,
+        rows: super::traits::order::InferredOrderRows,
+    ) -> super::traits::transfer::StorageResult<
+        std::sync::Arc<dyn super::traits::order::OrderColumnReader>,
     > {
         Ok(std::sync::Arc::new(sorting::SortColumn::from(rows)))
     }
@@ -151,9 +150,9 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
     fn live_records(
         &self,
         slots: usize,
-        initial: super::storage::liveness::InitialLiveness<'_>,
-    ) -> super::storage::transfer::StorageResult<super::storage::liveness::ActiveRecords> {
-        use super::storage::liveness::{ActiveRecords, InitialLiveness};
+        initial: super::traits::liveness::InitialLiveness<'_>,
+    ) -> super::traits::transfer::StorageResult<super::traits::liveness::ActiveRecords> {
+        use super::traits::liveness::{ActiveRecords, InitialLiveness};
         match initial {
             InitialLiveness::All => inventory::MemoryLiveSlots::all(slots),
             InitialLiveness::Selected(members) => {
@@ -161,38 +160,37 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
             }
         }
         .map(ActiveRecords::new)
-        .map_err(super::storage::transfer::StorageError::ResourceLimit)
+        .map_err(super::traits::transfer::StorageError::ResourceLimit)
     }
 
     fn prepare_file_records(
         &self,
-        batch: super::storage::worker::FileWorkerBatch<'_>,
-    ) -> super::storage::transfer::StorageResult<crate::construction::batch::BatchContribution>
-    {
+        batch: super::traits::worker::FileWorkerBatch<'_>,
+    ) -> super::traits::transfer::StorageResult<crate::construction::batch::BatchContribution> {
         prepare_file_with_components(batch, self)
     }
 
     fn prepare_direct_records(
         &self,
-        batch: super::storage::worker::DirectRecordBatch<'_>,
-    ) -> super::storage::transfer::StorageResult<super::storage::worker::PreparedDirectBatch> {
+        batch: super::traits::worker::DirectRecordBatch<'_>,
+    ) -> super::traits::transfer::StorageResult<super::traits::worker::PreparedDirectBatch> {
         prepare_direct_with_components(batch, self)
     }
 
     fn start_file_discovery(
         &self,
         root: std::path::PathBuf,
-    ) -> super::storage::transfer::StorageResult<
-        Box<dyn super::storage::file_catalog::FileDiscoveryBuilder>,
+    ) -> super::traits::transfer::StorageResult<
+        Box<dyn super::traits::file_catalog::FileDiscoveryBuilder>,
     > {
         Ok(Box::new(inventory::FileInventory::new(root)))
     }
 
     fn file_catalog(
         &self,
-        base: &dyn super::storage::file_catalog::FileCatalogBase,
+        base: &dyn super::traits::file_catalog::FileCatalogBase,
         version: crate::inventory::FileVersion,
-    ) -> super::storage::transfer::StorageResult<super::storage::file_catalog::FileCatalogHandle>
+    ) -> super::traits::transfer::StorageResult<super::traits::file_catalog::FileCatalogHandle>
     {
         Ok(std::sync::Arc::new(file_catalog::FileCatalog::from_base(
             base, version,
@@ -201,10 +199,10 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
 
     fn restore_file_catalog(
         &self,
-        base: &dyn super::storage::file_catalog::FileCatalogBase,
-        source: &dyn super::storage::file_catalog::FileCatalogRevision,
+        base: &dyn super::traits::file_catalog::FileCatalogBase,
+        source: &dyn super::traits::file_catalog::FileCatalogRevision,
         cancelled: &dyn Fn() -> bool,
-    ) -> super::storage::transfer::StorageResult<super::storage::file_catalog::FileCatalogHandle>
+    ) -> super::traits::transfer::StorageResult<super::traits::file_catalog::FileCatalogHandle>
     {
         Ok(std::sync::Arc::new(
             file_catalog::FileCatalog::restore_revision(base, source, cancelled)?,
@@ -213,17 +211,17 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
 
     fn segment_catalog(
         &self,
-    ) -> super::storage::transfer::StorageResult<
-        Box<dyn super::storage::segment_catalog::SegmentCatalogEditor>,
+    ) -> super::traits::transfer::StorageResult<
+        Box<dyn super::traits::segment_catalog::SegmentCatalogEditor>,
     > {
         Ok(Box::new(segment_catalog::RecordRoutes::empty()))
     }
 }
 
 pub(crate) fn prepare_file_with_components(
-    batch: super::storage::worker::FileWorkerBatch<'_>,
-    factory: &dyn super::storage::StorageFactory,
-) -> super::storage::transfer::StorageResult<crate::construction::batch::BatchContribution> {
+    batch: super::traits::worker::FileWorkerBatch<'_>,
+    factory: &dyn super::traits::StorageFactory,
+) -> super::traits::transfer::StorageResult<crate::construction::batch::BatchContribution> {
     let worker = worker::MemoryWorker::new(
         batch.definition,
         batch.alphabet,
@@ -233,14 +231,14 @@ pub(crate) fn prepare_file_with_components(
         factory.gram_store(),
         factory.relation_store(),
     )
-    .map_err(|error| super::storage::transfer::StorageError::invalid("start file worker", error))?;
+    .map_err(|error| super::traits::transfer::StorageError::invalid("start file worker", error))?;
     crate::construction::batch::prepare_file_records(batch, worker)
 }
 
 pub(crate) fn prepare_direct_with_components(
-    batch: super::storage::worker::DirectRecordBatch<'_>,
-    factory: &dyn super::storage::StorageFactory,
-) -> super::storage::transfer::StorageResult<super::storage::worker::PreparedDirectBatch> {
+    batch: super::traits::worker::DirectRecordBatch<'_>,
+    factory: &dyn super::traits::StorageFactory,
+) -> super::traits::transfer::StorageResult<super::traits::worker::PreparedDirectBatch> {
     let worker = worker::MemoryWorker::new(
         batch.declaration,
         batch.options.bigram_alphabet,
@@ -251,7 +249,7 @@ pub(crate) fn prepare_direct_with_components(
         factory.relation_store(),
     )
     .map_err(|error| {
-        super::storage::transfer::StorageError::invalid("start direct worker", error)
+        super::traits::transfer::StorageError::invalid("start direct worker", error)
     })?;
     crate::construction::batch::prepare_direct_records(batch, worker)
 }

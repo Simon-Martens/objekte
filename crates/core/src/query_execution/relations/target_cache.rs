@@ -240,7 +240,7 @@ fn prepare_with_limits(
             continue;
         }
         let mut current = source
-            .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+            .base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?
             .view()
             .intersect_bitmap(candidates);
         for hop in &related.hops {

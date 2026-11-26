@@ -17,13 +17,13 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use super::inventory::{FileInventory, FileVersions};
-use crate::index::storage::file_catalog::{
+use crate::index::traits::file_catalog::{
     DiscoveredFile, DiscoveredFileRows, FILE_TRANSFER_LIMIT, FileCatalogBase, FileCatalogDelta,
     FileCatalogEditor, FileCatalogHandle, FileCatalogReader, FileCatalogRevision,
     FileCatalogSource, FileDiscoveryBuilder, FilePathBounds, FileScalarPredicate, FileTransferRow,
     transfer_files,
 };
-use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 #[cfg(test)]
 use crate::inventory::FileStatus;
 #[cfg(test)]

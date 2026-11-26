@@ -18,16 +18,16 @@ use crate::index::memory::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
 use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::memory::relation::RelationContribution;
-use crate::index::storage::component::ComponentKind;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::maintenance::SegmentPartition;
-use crate::index::storage::segment::transfer::{FileSegmentLayout, read_retained_body};
-use crate::index::storage::segment::{
+use crate::index::traits::component::ComponentKind;
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::segment::maintenance::SegmentPartition;
+use crate::index::traits::segment::transfer::{FileSegmentLayout, read_retained_body};
+use crate::index::traits::segment::{
     RecordBacking, RecordOrigin, SegmentHandle, SegmentReader, SegmentSlotFact, read_slot_members,
     visit_checked_file_slots,
 };
-use crate::index::storage::text::BigramAlphabet;
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::text::BigramAlphabet;
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inventory::RecordClass;
 
 const OP: &str = "import memory segment";

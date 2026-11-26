@@ -54,7 +54,7 @@ pub struct IndexBuilder {
     catalog_root: Option<PathBuf>,
     sources: SourceRegistry,
     options: RepositoryOptions,
-    storage_factory: std::sync::Arc<dyn crate::index::storage::StorageFactory>,
+    storage_factory: std::sync::Arc<dyn crate::index::traits::StorageFactory>,
 }
 
 impl Default for IndexBuilder {
@@ -67,7 +67,7 @@ impl Default for IndexBuilder {
             catalog_root: None,
             sources: SourceRegistry::default(),
             options: RepositoryOptions::default(),
-            storage_factory: crate::index::storage::default_factory(),
+            storage_factory: crate::index::traits::default_factory(),
         }
     }
 }
@@ -149,7 +149,7 @@ impl IndexBuilder {
     #[cfg(test)]
     pub(crate) fn use_storage_factory(
         &mut self,
-        storage_factory: std::sync::Arc<dyn crate::index::storage::StorageFactory>,
+        storage_factory: std::sync::Arc<dyn crate::index::traits::StorageFactory>,
     ) {
         self.storage_factory = storage_factory;
     }
@@ -435,7 +435,7 @@ mod tests {
             registration.ordinal,
             true,
             headers,
-            crate::index::storage::test_factory()
+            crate::index::traits::test_factory()
                 .retain_record_bodies(bodies)
                 .unwrap(),
             contribution,
@@ -458,7 +458,7 @@ mod tests {
                     id,
                     kind: crate::lifecycle::publication::RecordMutationKind::Insert,
                 }],
-                Some(std::sync::Arc::new(segment) as crate::index::storage::segment::SegmentHandle),
+                Some(std::sync::Arc::new(segment) as crate::index::traits::segment::SegmentHandle),
                 || Ok(()),
             )
             .unwrap();

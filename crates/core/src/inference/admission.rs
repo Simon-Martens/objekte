@@ -5,10 +5,10 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::inference::{CompactFieldObservation, InferredPostingDiagnostic};
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::{SegmentReader, SegmentSlotFact, read_slot_members};
-use crate::index::storage::transfer::StorageResult;
+use crate::index::traits::inference::{CompactFieldObservation, InferredPostingDiagnostic};
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::{SegmentReader, SegmentSlotFact, read_slot_members};
+use crate::index::traits::transfer::StorageResult;
 use crate::model::{LogicalType, Number};
 use crate::repository::state::GlobalInferenceSummary;
 use crate::schema::Schema;

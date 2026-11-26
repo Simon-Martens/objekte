@@ -8,8 +8,8 @@ use roaring::RoaringBitmap;
 use super::InferenceState;
 use crate::index::memory::inventory::append_shifted_bitmap;
 use crate::index::memory::posting::{PostingIndex, PostingStats, ScalarKey, SelectionSummary};
-use crate::index::storage::inference::{CompactFieldObservation, InferenceObservationReader};
-use crate::index::storage::transfer::StorageResult;
+use crate::index::traits::inference::{CompactFieldObservation, InferenceObservationReader};
+use crate::index::traits::transfer::StorageResult;
 use crate::inference::admission::{
     FieldAdmissionFacts, candidate_config, decide_field_admission, weakest_occurrence_status,
 };
@@ -1085,7 +1085,7 @@ impl InferenceBuilder {
         record_count: usize,
         schema: &Schema,
         capture_observation: bool,
-        posting_store: Option<&std::sync::Arc<dyn crate::index::storage::posting::PostingStore>>,
+        posting_store: Option<&std::sync::Arc<dyn crate::index::traits::posting::PostingStore>>,
     ) -> Result<(InferenceState, Option<InferenceObservation>), String> {
         if self.eligible as u64 != logical.len() {
             return Err("inference logical coverage mismatch".into());
@@ -1238,7 +1238,7 @@ impl InferenceBuilder {
                 if !field.selected_null.is_empty() {
                     values.insert(ScalarKey::Null, std::mem::take(&mut field.selected_null));
                 }
-                use crate::index::storage::posting::{
+                use crate::index::traits::posting::{
                     PostingCoverage, PostingDefinition, PostingKey,
                 };
                 let lengths = field.lengths.take().unwrap_or_default();
@@ -1461,7 +1461,7 @@ impl InferenceBuilder {
         record_count: usize,
         schema: &Schema,
         capture_observation: bool,
-        posting_store: Option<&std::sync::Arc<dyn crate::index::storage::posting::PostingStore>>,
+        posting_store: Option<&std::sync::Arc<dyn crate::index::traits::posting::PostingStore>>,
     ) -> Result<(InferenceState, Option<InferenceObservation>), String> {
         let published_config = self.config;
         self.config = candidate_config(self.config);

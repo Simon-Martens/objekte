@@ -1,9 +1,9 @@
 use std::time::{Duration, Instant};
 
-use crate::index::storage::file_catalog::{
+use crate::index::traits::file_catalog::{
     FILE_TRANSFER_LIMIT, FileCatalogDelta, FileCatalogSource, edit_file_catalog, transfer_files,
 };
-use crate::index::storage::segment::{
+use crate::index::traits::segment::{
     RecordBacking, RecordOrigin, SegmentReader, visit_checked_file_slots, visit_segment_files,
 };
 use crate::inventory::FileVersion;

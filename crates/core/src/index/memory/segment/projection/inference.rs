@@ -141,7 +141,7 @@ pub(in crate::index::memory::segment) fn finish_projected_inference(
         let native = state.indexes.get(&field.path);
         let placed = state.placed.get(&field.path, None);
         if native.is_some() || placed.is_some() {
-            use crate::index::storage::posting::{PostingKey, PostingReader, ScalarKey};
+            use crate::index::traits::posting::{PostingKey, PostingReader, ScalarKey};
             let reader = native
                 .map(|index| index as &dyn PostingReader)
                 .or_else(|| placed.map(|placed| placed.reader.as_ref()))
@@ -191,7 +191,7 @@ pub(in crate::index::memory::segment) fn finish_projected_inference(
                         })
                     } else {
                         let mut found = false;
-                        crate::index::storage::posting::visit_posting_blocks(
+                        crate::index::traits::posting::visit_posting_blocks(
                             reader,
                             new_count,
                             &|| false,
@@ -316,7 +316,7 @@ pub(in crate::index::memory::segment) fn finish_projected_inference(
                     None => {
                         let mut distinct = 0;
                         let mut previous = None;
-                        crate::index::storage::posting::visit_posting_blocks(
+                        crate::index::traits::posting::visit_posting_blocks(
                             reader,
                             new_count,
                             &|| false,

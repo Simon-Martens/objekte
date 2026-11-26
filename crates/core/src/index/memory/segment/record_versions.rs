@@ -1,7 +1,7 @@
 use std::ops::Range;
 use std::sync::Arc;
 
-use crate::index::storage::segment::RecordWriteVersion;
+use crate::index::traits::segment::RecordWriteVersion;
 use crate::model::RecordSlot;
 
 use super::IndexedCollectionSegment;

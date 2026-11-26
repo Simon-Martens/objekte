@@ -9,11 +9,11 @@ use super::{
 };
 use crate::index::memory::segment::projection::SlotMap;
 use crate::index::memory::worker::FactBuffer;
-use crate::index::storage::text::{
+use crate::index::traits::text::{
     BIGRAM_VERSION, BigramRequest, GramBinding, GramChannel, GramFact, GramReader, GramStore,
     GramWriter, visit_gram_blocks,
 };
-use crate::index::storage::transfer::{BatchLimit, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, StorageError, StorageResult};
 use crate::model::RecordSlot;
 use crate::repository::statistics::BigramConstructionStats;
 use std::num::NonZeroUsize;
@@ -266,7 +266,7 @@ fn check_reader(
 impl PlacedGrams {
     pub fn resident_bytes(
         &self,
-        counter: &mut crate::index::storage::component::ResidentComponentCounter,
+        counter: &mut crate::index::traits::component::ResidentComponentCounter,
     ) -> [usize; 3] {
         let mut bytes = [0usize; 3];
         for (index, binding) in [GramBinding::Raw, GramBinding::Fallback].iter().enumerate() {

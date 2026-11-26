@@ -7,10 +7,10 @@ use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
 use crate::index::memory::posting::{
     CustomPostingIndex, PostingCollection, PostingIndex, PostingStats,
 };
-use crate::index::storage::posting::{
+use crate::index::traits::posting::{
     PostingDescriptor, PostingKey, PostingReader, visit_posting_blocks,
 };
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::transfer::StorageError;
 use crate::model::RecordSlot;
 
 pub(crate) struct PostingProjection {
@@ -106,7 +106,7 @@ pub(crate) fn transfer_posting_partitions(
     reader: &dyn PostingReader,
     routing: &PartitionRouting,
     cancelled: &dyn Fn() -> bool,
-) -> crate::index::storage::transfer::StorageResult<Vec<PostingIndex>> {
+) -> crate::index::traits::transfer::StorageResult<Vec<PostingIndex>> {
     let mut parts = routing
         .logical_counts
         .iter()
@@ -148,7 +148,7 @@ pub(crate) fn transfer_posting(
     covered_records: u32,
     bounds: Option<(u32, u32)>,
     cancelled: &dyn Fn() -> bool,
-) -> crate::index::storage::transfer::StorageResult<PostingIndex> {
+) -> crate::index::traits::transfer::StorageResult<PostingIndex> {
     let mut projected = empty_projected_posting(reader.descriptor(), covered_records);
     visit_posting_blocks(reader, slots.len(), cancelled, &mut |key, block| {
         for &old in block {
@@ -259,10 +259,10 @@ impl IndexedCollectionSegment {
 #[cfg(test)]
 mod transfer_tests {
     use super::*;
-    use crate::index::storage::posting::{
+    use crate::index::traits::posting::{
         PostingCoverage, ScalarKey, SelectionSummary, VisitPostingBlock,
     };
-    use crate::index::storage::transfer::{BatchLimit, StorageResult};
+    use crate::index::traits::transfer::{BatchLimit, StorageResult};
     use crate::model::{LogicalType, Number, Value};
     use crate::schema::FieldDefinition;
 

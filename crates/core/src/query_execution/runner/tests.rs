@@ -2329,7 +2329,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
                 .map(|duration| duration.as_nanos() as i128),
         },
         &[FilePreparationBinding {
-            factory: crate::index::storage::test_factory(),
+            factory: crate::index::traits::test_factory(),
             collection: CollectionId(0),
             definition: collection.required_file_definition(),
             source: &collection.required_file_reader(),
@@ -2367,7 +2367,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let mut segments = repo.segments.clone();
     let mut group = (*segments[0]).clone();
     group.push(Arc::new(PublishedSegment {
-        version: crate::index::storage::publication::PlacementVersion::new(),
+        version: crate::index::traits::publication::PlacementVersion::new(),
         id: crate::index::segment::SegmentId::new(4_294_967_298),
         active: ActiveRecords::all(index.records.len()).unwrap(),
         index: Arc::new(index),
@@ -3410,7 +3410,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         &root,
         input,
         &[FilePreparationBinding {
-            factory: crate::index::storage::test_factory(),
+            factory: crate::index::traits::test_factory(),
             collection: CollectionId(0),
             definition: collection.required_file_definition(),
             source: &collection.required_file_reader(),
@@ -3692,7 +3692,7 @@ fn assert_concurrent_inferred_builds(same_key: bool) {
     use std::time::Duration;
 
     let cache = Arc::new(Mutex::new(
-        crate::index::storage::order::inferred_cache::InferredOrderCache::new(1024 * 1024),
+        crate::index::traits::order::inferred_cache::InferredOrderCache::new(1024 * 1024),
     ));
     let (entered_tx, entered_rx) = mpsc::channel();
     let (release_first_tx, release_first_rx) = mpsc::channel();
@@ -3895,7 +3895,7 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     context.cancel_on_check_for_test(3);
     let error = segment
         .index
-        .build_posting_order(crate::index::storage::order::PostingOrderRequest {
+        .build_posting_order(crate::index::traits::order::PostingOrderRequest {
             path: &FieldPath::parse("label").unwrap(),
             locale: &collection.definition.sort_locale,
             options: collection.definition.sort_options,
@@ -3974,7 +3974,7 @@ fn inferred_order_cache_reuses_pages_and_is_scoped_to_native_instance() {
             assert!(after.hits >= before.hits + 2, "{field} {descending}");
             assert!(
                 after.resident_bytes
-                    <= crate::index::storage::order::inferred_cache::INFERRED_ORDER_CACHE_BYTES
+                    <= crate::index::traits::order::inferred_cache::INFERRED_ORDER_CACHE_BYTES
             );
         }
     }
@@ -7130,7 +7130,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
     second_active.extend([2, 3]);
     let two_segments = vec![Arc::new(vec![
         Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(10),
             index: Arc::clone(&full.index),
             active: ActiveRecords::from_bitmap(full.native_payload().record_count(), first_active)
@@ -7138,7 +7138,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
             observation: None,
         }),
         Arc::new(PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(11),
             index: Arc::clone(&full.index),
             active: ActiveRecords::from_bitmap(full.native_payload().record_count(), second_active)
@@ -7882,8 +7882,8 @@ fn exact_stored_page_calculates_identical_segment_restrictions_once() {
     let first = Arc::clone(&repo.segments[0][0]);
     repo.segments[0] = Arc::new(vec![
         first,
-        Arc::new(crate::index::storage::publication::PublishedSegment {
-            version: crate::index::storage::publication::PlacementVersion::new(),
+        Arc::new(crate::index::traits::publication::PublishedSegment {
+            version: crate::index::traits::publication::PlacementVersion::new(),
             id: crate::index::segment::SegmentId::new(4_294_967_298),
             index: Arc::clone(&repo.segments[0][0].index),
             active: ActiveRecords::from_bitmap(

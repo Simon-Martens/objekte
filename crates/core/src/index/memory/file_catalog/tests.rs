@@ -7,12 +7,12 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::FileCatalog;
-use crate::index::storage::file_catalog::{
+use crate::index::traits::file_catalog::{
     DiscoveredFile, FileCatalogBase, FileCatalogDelta, FileCatalogEditor, FileCatalogHandle,
     FileCatalogReader, FileCatalogRevision, FileCatalogSource, FileDiscoveryBuilder,
     FilePathBounds, FileScalarPredicate, FileTransferRow, transfer_files,
 };
-use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 /// An independent catalog used in transfer tests. Store only ordered live
 /// rows, with no native inventory, index, masks, or lookup tables.
@@ -407,71 +407,71 @@ impl FileDiscoveryBuilder for OrderedFiles {
     }
 }
 
-impl crate::index::storage::StorageFactory for OrderedFileFactory {
+impl crate::index::traits::StorageFactory for OrderedFileFactory {
     fn project_segment_partitions(
         &self,
-        source: &dyn crate::index::storage::segment::SegmentReader,
-        partitions: &[crate::index::storage::segment::maintenance::SegmentPartition],
-        files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
+        source: &dyn crate::index::traits::segment::SegmentReader,
+        partitions: &[crate::index::traits::segment::maintenance::SegmentPartition],
+        files: &dyn crate::index::traits::file_catalog::FileCatalogReader,
         cancelled: &mut dyn FnMut() -> bool,
-    ) -> StorageResult<Vec<crate::index::storage::segment::SegmentHandle>> {
-        crate::index::storage::test_factory()
+    ) -> StorageResult<Vec<crate::index::traits::segment::SegmentHandle>> {
+        crate::index::traits::test_factory()
             .project_segment_partitions(source, partitions, files, cancelled)
     }
 
     fn start_file_segment(
         &self,
-        input: crate::index::storage::segment::build::FileSegmentBuild<'_>,
-    ) -> StorageResult<Box<dyn crate::index::storage::segment::build::SegmentBuilder>> {
-        crate::index::storage::default_factory().start_file_segment(input)
+        input: crate::index::traits::segment::build::FileSegmentBuild<'_>,
+    ) -> StorageResult<Box<dyn crate::index::traits::segment::build::SegmentBuilder>> {
+        crate::index::traits::default_factory().start_file_segment(input)
     }
 
     fn seal_direct_segment(
         &self,
-        input: crate::index::storage::segment::build::DirectSegmentBuild<'_>,
-        seal: crate::index::storage::segment::build::SegmentSeal<'_>,
-    ) -> StorageResult<crate::index::storage::segment::build::BuiltSegment> {
-        crate::index::storage::default_factory().seal_direct_segment(input, seal)
+        input: crate::index::traits::segment::build::DirectSegmentBuild<'_>,
+        seal: crate::index::traits::segment::build::SegmentSeal<'_>,
+    ) -> StorageResult<crate::index::traits::segment::build::BuiltSegment> {
+        crate::index::traits::default_factory().seal_direct_segment(input, seal)
     }
 
     fn retain_record_bodies(
         &self,
         bodies: Vec<crate::records::RetainedBody>,
-    ) -> StorageResult<crate::index::storage::segment::RetainedBlock> {
-        crate::index::storage::default_factory().retain_record_bodies(bodies)
+    ) -> StorageResult<crate::index::traits::segment::RetainedBlock> {
+        crate::index::traits::default_factory().retain_record_bodies(bodies)
     }
 
     fn inferred_order(
         &self,
-        rows: crate::index::storage::order::InferredOrderRows,
-    ) -> StorageResult<Arc<dyn crate::index::storage::order::OrderColumnReader>> {
-        crate::index::storage::test_factory().inferred_order(rows)
+        rows: crate::index::traits::order::InferredOrderRows,
+    ) -> StorageResult<Arc<dyn crate::index::traits::order::OrderColumnReader>> {
+        crate::index::traits::test_factory().inferred_order(rows)
     }
 
     fn live_records(
         &self,
         slots: usize,
-        initial: crate::index::storage::liveness::InitialLiveness<'_>,
-    ) -> StorageResult<crate::index::storage::liveness::ActiveRecords> {
-        crate::index::storage::test_factory().live_records(slots, initial)
+        initial: crate::index::traits::liveness::InitialLiveness<'_>,
+    ) -> StorageResult<crate::index::traits::liveness::ActiveRecords> {
+        crate::index::traits::test_factory().live_records(slots, initial)
     }
 
     fn prepare_file_records(
         &self,
-        batch: crate::index::storage::worker::FileWorkerBatch<'_>,
+        batch: crate::index::traits::worker::FileWorkerBatch<'_>,
     ) -> StorageResult<crate::construction::batch::BatchContribution> {
-        crate::index::storage::default_factory().prepare_file_records(batch)
+        crate::index::traits::default_factory().prepare_file_records(batch)
     }
 
     fn prepare_direct_records(
         &self,
-        batch: crate::index::storage::worker::DirectRecordBatch<'_>,
-    ) -> StorageResult<crate::index::storage::worker::PreparedDirectBatch> {
-        crate::index::storage::default_factory().prepare_direct_records(batch)
+        batch: crate::index::traits::worker::DirectRecordBatch<'_>,
+    ) -> StorageResult<crate::index::traits::worker::PreparedDirectBatch> {
+        crate::index::traits::default_factory().prepare_direct_records(batch)
     }
 
     fn start_file_discovery(&self, root: PathBuf) -> StorageResult<Box<dyn FileDiscoveryBuilder>> {
-        let empty = crate::index::storage::file_catalog::EmptyFileCatalogBase {
+        let empty = crate::index::traits::file_catalog::EmptyFileCatalogBase {
             root: None,
             configuration: [0; 32],
             collections: 0,
@@ -503,7 +503,7 @@ impl crate::index::storage::StorageFactory for OrderedFileFactory {
             OrderedFiles::load(source, base.root(), Arc::clone(&self.fail_seal), cancelled)?;
         catalog.complete = source.construction_complete();
         catalog.versions.clear();
-        crate::index::storage::file_catalog::transfer_versions(
+        crate::index::traits::file_catalog::transfer_versions(
             source,
             super::FILE_TRANSFER_LIMIT,
             cancelled,
@@ -517,8 +517,8 @@ impl crate::index::storage::StorageFactory for OrderedFileFactory {
 
     fn segment_catalog(
         &self,
-    ) -> StorageResult<Box<dyn crate::index::storage::segment_catalog::SegmentCatalogEditor>> {
-        crate::index::storage::default_factory().segment_catalog()
+    ) -> StorageResult<Box<dyn crate::index::traits::segment_catalog::SegmentCatalogEditor>> {
+        crate::index::traits::default_factory().segment_catalog()
     }
 }
 
@@ -545,7 +545,7 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
         )],
         RepositoryOptions::default(),
         fixture_registry(),
-        Arc::clone(&factory) as Arc<dyn crate::index::storage::StorageFactory>,
+        Arc::clone(&factory) as Arc<dyn crate::index::traits::StorageFactory>,
     )
     .unwrap()
     .wait_complete()
@@ -593,7 +593,7 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
         .unwrap();
     assert_ne!(published.id, published.index.descriptor().id);
     assert_eq!(
-        crate::index::storage::segment::SegmentReader::descriptor(published.as_ref()).id,
+        crate::index::traits::segment::SegmentReader::descriptor(published.as_ref()).id,
         published.id
     );
     assert_eq!(
@@ -632,7 +632,7 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
         2
     );
     let base = compacted.repository().file_catalog_base();
-    let native = crate::index::storage::default_factory()
+    let native = crate::index::traits::default_factory()
         .restore_file_catalog(&base, compacted.0.catalog.as_ref(), &|| false)
         .unwrap();
     assert_eq!(
@@ -648,7 +648,7 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
 
 #[test]
 fn restored_construction_state_controls_search_and_completion() {
-    use crate::index::storage::{StorageFactory, test_factory};
+    use crate::index::traits::{StorageFactory, test_factory};
     use crate::lifecycle::Index;
     use crate::query::options::ReturnMode;
     use crate::query::{Query, QueryOptions};

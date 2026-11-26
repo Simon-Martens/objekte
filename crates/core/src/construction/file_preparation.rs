@@ -13,9 +13,9 @@ use sha2::{Digest, Sha256};
 
 use crate::index::bigram::BigramAlphabet;
 use crate::index::segment::SegmentId;
-use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
-use crate::index::storage::segment::{SegmentHandle, SegmentReader};
-use crate::index::storage::{
+use crate::index::traits::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
+use crate::index::traits::segment::{SegmentHandle, SegmentReader};
+use crate::index::traits::{
     StorageFactory,
     worker::{FileWorkerBatch, FileWorkerInput},
 };
@@ -682,7 +682,7 @@ impl StreamBudget {
 impl StreamUse {
     pub(super) fn add_private_segment(
         &mut self,
-        segment: &dyn crate::index::storage::segment::SegmentReader,
+        segment: &dyn crate::index::traits::segment::SegmentReader,
     ) {
         self.set(
             self.count + 1,
@@ -1844,7 +1844,7 @@ pub(crate) fn process_framed_file_profiled(
 ) -> Result<BuildScheduleStats, String> {
     process_framed_file_with_budget(
         pool,
-        crate::index::storage::test_factory(),
+        crate::index::traits::test_factory(),
         root,
         definition,
         collection,
@@ -2307,7 +2307,7 @@ pub(crate) fn process_pull_framed_reader(
     let input = Arc::new(source_files[file_id.0 as usize].clone());
     process_pull_framed_input(
         pool,
-        crate::index::storage::test_factory(),
+        crate::index::traits::test_factory(),
         root,
         definition,
         collection,

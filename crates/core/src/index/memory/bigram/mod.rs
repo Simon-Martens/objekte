@@ -18,13 +18,13 @@ pub(crate) mod placement;
 
 pub(crate) use builder::{BigramBuilder, BigramContribution};
 
-pub use crate::index::storage::text::BigramAlphabet;
-pub(crate) use crate::index::storage::text::BigramRequest;
+pub use crate::index::traits::text::BigramAlphabet;
+pub(crate) use crate::index::traits::text::BigramRequest;
 #[cfg(test)]
-use crate::index::storage::text::for_each_gram;
+use crate::index::traits::text::for_each_gram;
 #[cfg(test)]
-pub use crate::index::storage::text::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
-use crate::index::storage::text::{ascii_pair, unicode_pair};
+pub use crate::index::traits::text::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
+use crate::index::traits::text::{ascii_pair, unicode_pair};
 
 /// Construction reads borrowed UTF-8 directly. ASCII bytes need no character
 /// iterator or re-encoding; only non-ASCII scalars enter the locked full fold.
@@ -181,21 +181,21 @@ pub struct BigramIndex {
     pub skip: HashMap<u64, RoaringBitmap>,
 }
 
-impl crate::index::storage::text::GramReader for BigramIndex {
-    fn descriptor(&self) -> crate::index::storage::text::GramDescriptor {
-        crate::index::storage::text::GramDescriptor {
+impl crate::index::traits::text::GramReader for BigramIndex {
+    fn descriptor(&self) -> crate::index::traits::text::GramDescriptor {
+        crate::index::traits::text::GramDescriptor {
             alphabet: self.alphabet,
-            version: crate::index::storage::text::BIGRAM_VERSION,
+            version: crate::index::traits::text::BIGRAM_VERSION,
             covered_records: self.record_count,
         }
     }
 
     fn visit_blocks(
         &self,
-        limit: crate::index::storage::transfer::BatchLimit,
-        visit: &mut crate::index::storage::text::VisitGramBlock<'_>,
-    ) -> crate::index::storage::transfer::StorageResult<()> {
-        use crate::index::storage::text::GramChannel;
+        limit: crate::index::traits::transfer::BatchLimit,
+        visit: &mut crate::index::traits::text::VisitGramBlock<'_>,
+    ) -> crate::index::traits::transfer::StorageResult<()> {
+        use crate::index::traits::text::GramChannel;
         let maximum = limit.fixed_batch_len_after(
             "read native gram blocks",
             size_of::<u64>() + size_of::<GramChannel>(),

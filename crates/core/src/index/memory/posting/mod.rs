@@ -7,11 +7,11 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use roaring::RoaringBitmap;
 
 use crate::index::memory::inventory::append_shifted_bitmap;
-use crate::index::storage::posting::{
+use crate::index::traits::posting::{
     PostingCoverage, PostingDescriptor, PostingKey, PostingReader, PostingValueCursor,
     VisitPostingBlock,
 };
-use crate::index::storage::transfer::{BatchLimit, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, StorageResult};
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::record::data_values_small;
 use crate::query_access::membership::{MembershipView, SlotSet};
@@ -23,7 +23,7 @@ mod lookup;
 
 const DIRECT_MULTIVALUE_LIMIT: usize = 8;
 
-pub use crate::index::storage::posting::{ScalarKey, SelectionSummary};
+pub use crate::index::traits::posting::{ScalarKey, SelectionSummary};
 
 /// Value membership cannot represent vacuous matches from empty traversals.
 pub(in crate::index::memory) fn value_membership_accounts_for_empty_traversals(

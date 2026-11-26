@@ -5,7 +5,7 @@ use std::ops::BitOrAssign;
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::segment::{SegmentId, SegmentRecordAddress};
+use crate::index::traits::segment::{SegmentId, SegmentRecordAddress};
 use crate::model::{CollectionId, RecordSlot};
 
 /// Compact membership spanning segments without merging local slot domains.

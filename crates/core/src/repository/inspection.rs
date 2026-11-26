@@ -8,12 +8,12 @@ use std::sync::Arc;
 
 #[cfg(test)]
 use crate::index::relation::RelationIndex;
-use crate::index::storage::component::ComponentKind;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::posting::{PostingKey, ScalarKey, visit_posting_blocks};
-use crate::index::storage::segment::SegmentReader;
-use crate::index::storage::text::visit_gram_blocks;
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::component::ComponentKind;
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::posting::{PostingKey, ScalarKey, visit_posting_blocks};
+use crate::index::traits::segment::SegmentReader;
+use crate::index::traits::text::visit_gram_blocks;
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
 use crate::inventory::FileEntry;
 #[cfg(test)]
@@ -240,7 +240,7 @@ impl Repository {
         Option<Vec<crate::index::segment::NativeComponentDescriptor<'_>>>,
         crate::lifecycle::IndexError,
     > {
-        use crate::index::storage::component::ComponentDescriptor;
+        use crate::index::traits::component::ComponentDescriptor;
         use std::borrow::Cow;
         let placement = if let Some(directories) = self.lookup_segment_catalogs() {
             let Some(directory) = directories.get(collection.0 as usize) else {
@@ -254,7 +254,7 @@ impl Repository {
                     .placement_at(position)?
                     .filter(|placement| placement.id == segment)
                     .ok_or_else(|| {
-                        crate::index::storage::transfer::StorageError::invalid(
+                        crate::index::traits::transfer::StorageError::invalid(
                             "inspect segment components",
                             "segment placement mismatch",
                         )
@@ -295,7 +295,7 @@ impl Repository {
 
     pub(crate) fn native_index_signature_for(
         &self,
-        segments: &[Arc<Vec<Arc<crate::index::storage::publication::PublishedSegment>>>],
+        segments: &[Arc<Vec<Arc<crate::index::traits::publication::PublishedSegment>>>],
     ) -> Result<String, crate::lifecycle::IndexError> {
         let mut hash = Sha256::new();
         for (collection_index, collection) in self.collections.iter().enumerate() {

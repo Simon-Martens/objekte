@@ -28,10 +28,10 @@ pub(crate) struct PublishedSegment {
     pub id: SegmentId,
     pub index: SegmentHandle,
     pub active: ActiveRecords,
-    pub(crate) observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
+    pub(crate) observation: Option<crate::index::traits::inference::InferenceObservationHandle>,
 }
 
-impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment {
+impl crate::index::traits::segment::SegmentReaderDelegate for PublishedSegment {
     type Payload = dyn SegmentReader;
 
     fn payload(&self) -> &Self::Payload {
@@ -63,14 +63,14 @@ impl PublishedSegment {
         &self,
         visit: &mut dyn FnMut(&[(&crate::model::RecordId, RecordSlot)]) -> StorageResult<()>,
     ) -> StorageResult<()> {
-        crate::index::storage::segment_catalog::visit_live_routes(self, &self.active, visit)
+        crate::index::traits::segment_catalog::visit_live_routes(self, &self.active, visit)
     }
 
     pub(crate) fn visit_files(
         &self,
         visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
     ) -> StorageResult<()> {
-        crate::index::storage::segment_catalog::visit_file_routes(self, visit)
+        crate::index::traits::segment_catalog::visit_file_routes(self, visit)
     }
 
     pub(crate) fn construction_observation_bytes(&self) -> usize {

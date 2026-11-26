@@ -2,7 +2,7 @@
 //! posting, bitmap, or dictionary: the owning generation/segment retains them.
 
 use crate::index::memory::bigram::placement::{GramAccess, PlacedGrams};
-use crate::index::storage::text::GramBinding;
+use crate::index::traits::text::GramBinding;
 use std::collections::HashMap;
 
 use roaring::RoaringBitmap;
@@ -12,7 +12,7 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::memory::posting::{ScalarKey, value_membership_accounts_for_empty_traversals};
 use crate::index::memory::segment::IndexedCollectionSegment;
-use crate::index::storage::text::TextBindingCatalog;
+use crate::index::traits::text::TextBindingCatalog;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
 use crate::query::semantics::self_comparison_shape;

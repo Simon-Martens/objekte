@@ -7,7 +7,7 @@ use super::{
     PostingCoverage, PostingDescriptor, PostingKey, PostingReader, PostingValueCursor, ScalarKey,
     VisitPostingBlock,
 };
-use crate::index::storage::transfer::{BatchLimit, StorageResult};
+use crate::index::traits::transfer::{BatchLimit, StorageResult};
 use crate::model::{FieldPath, LogicalType};
 use crate::query_access::membership::{MembershipView, SlotSet};
 use crate::schema::{FieldDefinition, Schema};

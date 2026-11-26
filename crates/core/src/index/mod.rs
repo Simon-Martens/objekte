@@ -24,7 +24,7 @@
 mod memory;
 #[cfg(test)]
 pub(crate) mod memory;
-pub(crate) mod storage;
+pub(crate) mod traits;
 
 #[cfg(feature = "test-hooks")]
 #[doc(hidden)]
@@ -35,32 +35,32 @@ pub use memory::{bigram, posting, relation, segment, sorting};
 
 #[cfg(not(test))]
 pub mod bigram {
-    pub use super::storage::text::{BIGRAM_VERSION, BigramAlphabet, FOLDED_REPRESENTATION};
+    pub use super::traits::text::{BIGRAM_VERSION, BigramAlphabet, FOLDED_REPRESENTATION};
 }
 
 #[cfg(not(test))]
 pub mod posting {
-    pub use super::storage::posting::{ScalarKey, SelectionSummary};
+    pub use super::traits::posting::{ScalarKey, SelectionSummary};
 }
 
 #[cfg(not(test))]
 pub mod relation {
-    pub use super::storage::relation::{RelationEdge, RelationTarget};
+    pub use super::traits::relation::{RelationEdge, RelationTarget};
 }
 
 #[cfg(not(test))]
 pub mod segment {
-    pub use super::storage::component::{
+    pub use super::traits::component::{
         ComponentDescriptor as NativeComponentDescriptor, ComponentKind as NativeComponentKind,
     };
-    pub(crate) use super::storage::segment::SegmentRecordAddress;
-    pub use super::storage::segment::{NativeSegmentSummary, SegmentId, SegmentPolicy};
+    pub(crate) use super::traits::segment::SegmentRecordAddress;
+    pub use super::traits::segment::{NativeSegmentSummary, SegmentId, SegmentPolicy};
 }
 
 #[cfg(not(test))]
 pub mod sorting {
-    pub(crate) use super::storage::order::simple_composite_part;
-    pub use super::storage::order::{
+    pub(crate) use super::traits::order::simple_composite_part;
+    pub use super::traits::order::{
         COLLATION_VERSION, CollationStrength, CompositeSortPart, Placement, SortConfig, SortKey,
         SortOptions,
     };

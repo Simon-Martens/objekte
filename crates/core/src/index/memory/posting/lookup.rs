@@ -7,8 +7,8 @@ use super::{
     PostingIndex, ScalarKey, SelectionSummary, mapped_text_keys_match_literal,
     value_membership_accounts_for_empty_traversals,
 };
-use crate::index::storage::posting::PostingValueCursor;
-use crate::index::storage::transfer::StorageResult;
+use crate::index::traits::posting::PostingValueCursor;
+use crate::index::traits::transfer::StorageResult;
 use crate::model::{LogicalType, Number, Value};
 use crate::query::{Operator, Quantifier};
 use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};

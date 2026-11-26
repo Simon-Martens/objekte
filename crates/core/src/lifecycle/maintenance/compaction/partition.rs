@@ -8,16 +8,16 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::StorageFactory;
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::StorageFactory;
+use crate::index::traits::file_catalog::FileCatalogReader;
 #[cfg(test)]
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::maintenance::{SegmentPartition, check_projection_source};
-use crate::index::storage::segment::transfer::{RecordLayout, visit_record_rows};
-use crate::index::storage::segment::{
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::maintenance::{SegmentPartition, check_projection_source};
+use crate::index::traits::segment::transfer::{RecordLayout, visit_record_rows};
+use crate::index::traits::segment::{
     RecordBacking, SegmentHandle, SegmentReader, visit_segment_files,
 };
-use crate::index::storage::transfer::StorageError;
+use crate::index::traits::transfer::StorageError;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
 #[cfg(test)]
@@ -269,10 +269,10 @@ fn partition_base_with_limits_inner(
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
             let active = empty.storage_factory.live_records(
                 part.descriptor().slots,
-                crate::index::storage::liveness::InitialLiveness::All,
+                crate::index::traits::liveness::InitialLiveness::All,
             )?;
             group.push(Arc::new(PublishedSegment {
-                version: crate::index::storage::publication::PlacementVersion::new(),
+                version: crate::index::traits::publication::PlacementVersion::new(),
                 id: crate::index::segment::SegmentId::new(ordinal),
                 index: part,
                 active,

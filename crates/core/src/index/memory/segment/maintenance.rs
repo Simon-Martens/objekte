@@ -4,12 +4,12 @@ use std::any::Any;
 use std::sync::Arc;
 
 use super::IndexedCollectionSegment;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::maintenance::{
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::segment::maintenance::{
     ConsolidatedSegment, ProjectedSegment, RelinkedFile, SegmentMaintenance, SegmentPartition,
 };
-use crate::index::storage::segment::{SegmentHandle, SegmentReader};
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::segment::{SegmentHandle, SegmentReader};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{FileId, RecordSlot};
 use crate::repository::state::GlobalInferenceSummary;
@@ -124,7 +124,7 @@ impl SegmentMaintenance for IndexedCollectionSegment {
 #[cfg(test)]
 pub(crate) fn base_segment(
     collection: &crate::repository::state::CollectionState,
-    files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
+    files: &dyn crate::index::traits::file_catalog::FileCatalogReader,
 ) -> StorageResult<SegmentHandle> {
     use super::{SegmentBacking, SegmentFile};
     use std::collections::HashMap;

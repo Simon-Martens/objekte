@@ -6,22 +6,22 @@ use std::path::Path;
 
 use super::*;
 use crate::construction::batch::BuildWorkProfile;
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::posting::{
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::posting::{
     FacetPosting, PostingCoverage, PostingDescriptor, PostingKey, PostingReader,
     PostingValueCursor, ScalarKey, VisitPostingBlock,
 };
-use crate::index::storage::relation::{RelationMatches, RelationReader};
-use crate::index::storage::segment::maintenance::{
+use crate::index::traits::relation::{RelationMatches, RelationReader};
+use crate::index::traits::segment::maintenance::{
     ProjectedSegment, RelinkedFile, SegmentMaintenance, SegmentPartition,
 };
-use crate::index::storage::segment::{
+use crate::index::traits::segment::{
     FileRangeLocator, RecordBacking, RecordOrigin, RecordWriteVersion, RetainedBlock,
     SegmentDescriptor, SegmentEstimates, SegmentHandle, SegmentPolicy, SegmentPredicateAccess,
     SegmentSlotFact, SegmentSource, UseAccessProvider,
 };
-use crate::index::storage::text::{GramReader, SegmentTextAccess};
-use crate::index::storage::worker::{PreparedIndexes, WorkerWriter};
+use crate::index::traits::text::{GramReader, SegmentTextAccess};
+use crate::index::traits::worker::{PreparedIndexes, WorkerWriter};
 use crate::inventory::{ByteRange, FileEntry, RecordClass};
 use crate::model::{CollectionId, RecordId, RecordSlot};
 use crate::query::binding::filter::{BoundTerm, Derived};
@@ -366,7 +366,7 @@ pub(super) fn seal_direct(
     seal: SegmentSeal<'_>,
     control: Arc<TableFactory>,
 ) -> StorageResult<BuiltSegment> {
-    use crate::index::storage::segment::build::DirectSegmentBodies;
+    use crate::index::traits::segment::build::DirectSegmentBodies;
     let facts = worker(input.contribution.indexes)?;
     let count = input.headers.len();
     let (block, versions, backing) = match input.bodies {
@@ -741,7 +741,7 @@ impl SegmentReader for TableSegment {
         &self,
         slot: RecordSlot,
     ) -> StorageResult<
-        Option<Box<dyn crate::index::storage::segment::transfer::RetainedBodyBytes + '_>>,
+        Option<Box<dyn crate::index::traits::segment::transfer::RetainedBodyBytes + '_>>,
     > {
         if let Some(row) = self.rows.get(slot.0 as usize)
             && let Location::Retained(offset, _) = row.location
@@ -826,8 +826,8 @@ impl SegmentReader for TableSegment {
 
     fn components(
         &self,
-    ) -> StorageResult<Vec<crate::index::storage::component::ComponentDescriptor<'_>>> {
-        use crate::index::storage::component::{ComponentDescriptor, ComponentKind};
+    ) -> StorageResult<Vec<crate::index::traits::component::ComponentDescriptor<'_>>> {
+        use crate::index::traits::component::{ComponentDescriptor, ComponentKind};
         let mut components: Vec<_> = self
             .score
             .iter()
@@ -861,22 +861,22 @@ impl SegmentReader for TableSegment {
 
     fn grams(
         &self,
-        component: &crate::index::storage::component::ComponentDescriptor<'_>,
-    ) -> StorageResult<Option<&dyn crate::index::storage::text::GramReader>> {
+        component: &crate::index::traits::component::ComponentDescriptor<'_>,
+    ) -> StorageResult<Option<&dyn crate::index::traits::text::GramReader>> {
         if component.collection != self.metadata.collection || component.segment != self.metadata.id
         {
             return Err(invalid("gram descriptor belongs to a different payload"));
         }
         Ok(transfer::GramBinding::from_component(component)?
             .and_then(|key| self.grams.get(&key))
-            .map(|reader| reader as &dyn crate::index::storage::text::GramReader))
+            .map(|reader| reader as &dyn crate::index::traits::text::GramReader))
     }
 
     fn posting(
         &self,
-        component: &crate::index::storage::component::ComponentDescriptor<'_>,
+        component: &crate::index::traits::component::ComponentDescriptor<'_>,
     ) -> StorageResult<Option<&dyn PostingReader>> {
-        use crate::index::storage::component::ComponentKind;
+        use crate::index::traits::component::ComponentKind;
         if component.collection != self.metadata.collection || component.segment != self.metadata.id
         {
             return Err(invalid("posting descriptor belongs to a different payload"));
@@ -992,7 +992,7 @@ impl SegmentReader for TableSegment {
                 .then(|| self.identity_order.as_ref() as &dyn OrderedSlots));
         }
         let [field] = fields else { return Ok(None) };
-        let Some(part) = crate::index::storage::order::simple_composite_part(field) else {
+        let Some(part) = crate::index::traits::order::simple_composite_part(field) else {
             return Ok(None);
         };
         self.orders
@@ -1115,8 +1115,8 @@ impl SegmentMaintenance for TableSegment {
     }
 }
 
-impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
-    fn accepts(&self, definition: &crate::index::storage::posting::PostingDefinition) -> bool {
+impl crate::index::traits::posting::PostingStore for Arc<TableFactory> {
+    fn accepts(&self, definition: &crate::index::traits::posting::PostingDefinition) -> bool {
         if definition.binding.as_deref() == Some("as_id") {
             return definition.field.path == ["code"]
                 && definition.field.kind == LogicalType::String
@@ -1133,8 +1133,8 @@ impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
 
     fn start(
         &self,
-        definition: &crate::index::storage::posting::PostingDefinition,
-    ) -> StorageResult<Box<dyn crate::index::storage::posting::PostingWriter>> {
+        definition: &crate::index::traits::posting::PostingDefinition,
+    ) -> StorageResult<Box<dyn crate::index::traits::posting::PostingWriter>> {
         Ok(Box::new(TablePostingWriter {
             control: Arc::clone(self),
             path: definition.field.path.clone(),
@@ -1155,11 +1155,11 @@ struct TablePostingWriter {
     covered_records: u32,
 }
 
-impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
+impl crate::index::traits::posting::PostingWriter for TablePostingWriter {
     fn merge_worker(
         &mut self,
         base: u32,
-        worker: Box<dyn crate::index::storage::posting::PostingWriter>,
+        worker: Box<dyn crate::index::traits::posting::PostingWriter>,
     ) -> StorageResult<()> {
         let worker: Box<dyn std::any::Any + Send> = worker;
         let worker = worker
@@ -1191,7 +1191,7 @@ impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
     fn push_facts(
         &mut self,
         base: u32,
-        facts: &[crate::index::storage::posting::PostingFact],
+        facts: &[crate::index::traits::posting::PostingFact],
     ) -> StorageResult<()> {
         assert!(facts.len() <= 256);
         self.control
@@ -1276,7 +1276,7 @@ pub(super) struct TablePosting {
     restricted_reads: Arc<AtomicUsize>,
     restricted_slots: Arc<AtomicUsize>,
     fail_whole: Arc<AtomicBool>,
-    resident: crate::index::storage::component::ResidentComponentBytes,
+    resident: crate::index::traits::component::ResidentComponentBytes,
     path: Vec<String>,
     kind: LogicalType,
     present: Arc<[u32]>,
@@ -1286,26 +1286,26 @@ pub(super) struct TablePosting {
 }
 
 impl PostingReader for TablePosting {
-    fn resident_bytes(&self) -> crate::index::storage::component::ResidentComponentBytes {
+    fn resident_bytes(&self) -> crate::index::traits::component::ResidentComponentBytes {
         self.resident
     }
 
     fn supports_restriction(
         &self,
-        _comparison: crate::index::storage::posting::PostingComparison,
+        _comparison: crate::index::traits::posting::PostingComparison,
     ) -> bool {
         true
     }
 
     fn visit_restricted(
         &self,
-        comparison: crate::index::storage::posting::PostingComparison,
+        comparison: crate::index::traits::posting::PostingComparison,
         anchor: &ScalarKey,
         within: &SlotInput<'_>,
         limit: BatchLimit,
-        visit: &mut crate::index::storage::posting::VisitRestrictedPosting<'_>,
+        visit: &mut crate::index::traits::posting::VisitRestrictedPosting<'_>,
     ) -> AccessResult<()> {
-        use crate::index::storage::posting::PostingComparison;
+        use crate::index::traits::posting::PostingComparison;
         self.restricted_reads.fetch_add(1, Ordering::Relaxed);
         let capacity = limit.fixed_batch_len(OP, size_of::<RecordSlot>())?.min(2);
         let mut scratch = Vec::new();

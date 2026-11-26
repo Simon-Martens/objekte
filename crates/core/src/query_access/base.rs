@@ -228,7 +228,7 @@ impl IndexAccessProvider for BaseCollectionProvider<'_> {
             let input_ref = input.bitmap_for_native()?;
             let logical = self
                 .collection
-                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)
+                .base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)
                 .map_err(|error| AccessError::Internal(error.to_string()))?;
             let domain = logical.view().bitmap_for_set_algebra();
             let result = execute_path(

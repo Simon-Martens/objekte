@@ -5,7 +5,7 @@ use std::{path::Path, sync::Arc};
 
 use crate::source::{SourceReader, registry::PreparedSource};
 
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::file_catalog::FileCatalogReader;
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::FileId;
 
@@ -57,8 +57,8 @@ impl From<&str> for RangeReadError {
     }
 }
 
-impl From<crate::index::storage::transfer::StorageError> for RangeReadError {
-    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
+impl From<crate::index::traits::transfer::StorageError> for RangeReadError {
+    fn from(error: crate::index::traits::transfer::StorageError) -> Self {
         Self::Other(error.to_string())
     }
 }

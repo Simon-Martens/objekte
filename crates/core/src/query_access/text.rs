@@ -2,8 +2,8 @@
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::segment::SegmentReader;
-use crate::index::storage::text::SegmentTextAccess;
+use crate::index::traits::segment::SegmentReader;
+use crate::index::traits::text::SegmentTextAccess;
 use crate::query::binding::fts::BoundFts;
 use crate::query_execution::domain::domain_id;
 use crate::query_predicate::{PreparedPredicates, TermId};
@@ -43,7 +43,7 @@ fn with_provider<T>(
         },
         &mut |provider| {
             let read = read.take().ok_or_else(|| {
-                crate::index::storage::transfer::StorageError::invalid(
+                crate::index::traits::transfer::StorageError::invalid(
                     "open base text provider",
                     "provider scope was entered twice",
                 )

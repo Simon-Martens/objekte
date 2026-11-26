@@ -12,8 +12,8 @@ pub(crate) struct SegmentPartition {
 }
 
 use super::{SegmentHandle, SegmentReader};
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inventory::FileEntry;
 use crate::model::RecordSlot;
 use crate::repository::state::GlobalInferenceSummary;
@@ -145,7 +145,7 @@ pub(crate) fn project_active_checked(
 impl ConsolidatedSegment {
     pub(crate) fn translate_active(
         &self,
-        factory: &dyn crate::index::storage::StorageFactory,
+        factory: &dyn crate::index::traits::StorageFactory,
         masks: &[&ActiveRecords],
     ) -> StorageResult<ActiveRecords> {
         translate_active(
@@ -160,7 +160,7 @@ impl ConsolidatedSegment {
 pub(crate) fn translate_active(
     count: usize,
     offsets: &[u32],
-    factory: &dyn crate::index::storage::StorageFactory,
+    factory: &dyn crate::index::traits::StorageFactory,
     masks: &[&ActiveRecords],
 ) -> StorageResult<ActiveRecords> {
     use roaring::RoaringBitmap;
@@ -186,7 +186,7 @@ pub(crate) fn translate_active(
             }
         }
     }
-    use crate::index::storage::liveness::InitialLiveness;
+    use crate::index::traits::liveness::InitialLiveness;
     use crate::query_access::membership::MembershipView;
 
     if retired.is_empty() {

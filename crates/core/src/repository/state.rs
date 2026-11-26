@@ -18,16 +18,16 @@ use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
 #[cfg(test)]
 use crate::index::sorting::SortCollection;
-use crate::index::storage::component::ComponentKind;
-use crate::index::storage::order::declared::DeclaredOrders;
-use crate::index::storage::posting::{PostingKey, ScalarKey, visit_posting_blocks};
+use crate::index::traits::component::ComponentKind;
+use crate::index::traits::order::declared::DeclaredOrders;
+use crate::index::traits::posting::{PostingKey, ScalarKey, visit_posting_blocks};
 #[cfg(test)]
-use crate::index::storage::segment::FILE_SLOT_LIMIT;
-use crate::index::storage::segment::{
+use crate::index::traits::segment::FILE_SLOT_LIMIT;
+use crate::index::traits::segment::{
     RecordDirectoryEstimate, RecordOrigin, SegmentHandle, SegmentReader, SegmentSlotFact,
     SegmentSlotMembers, any_segment_file, read_slot_members, visit_checked_file_slots,
 };
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
 #[cfg(test)]
 use crate::inventory::CollectionGeneration;
@@ -70,7 +70,7 @@ pub struct CollectionState {
     #[cfg(test)]
     pub(crate) postings: PostingCollection,
     #[cfg(not(test))]
-    pub(crate) declared_postings: crate::index::storage::posting::declared::DeclaredPostings,
+    pub(crate) declared_postings: crate::index::traits::posting::declared::DeclaredPostings,
     #[cfg(test)]
     pub(crate) inference: Option<InferenceState>,
     pub(crate) initial_inference_report: Option<InferenceReport>,
@@ -87,7 +87,7 @@ pub struct CollectionState {
     pub(crate) empty_array_records: RoaringBitmap,
     #[cfg(test)]
     pub(crate) custom_text: HashMap<(Vec<String>, String), BigramIndex>,
-    pub(crate) text_bindings: crate::index::storage::text::TextBindingCatalog,
+    pub(crate) text_bindings: crate::index::traits::text::TextBindingCatalog,
     pub(crate) declared_orders: DeclaredOrders,
     #[cfg(test)]
     pub(crate) sorting: SortCollection,
@@ -312,8 +312,8 @@ impl CollectionState {
             .len() as u64)
     }
 
-    pub(crate) fn text_access_policy(&self) -> crate::index::storage::text::TextAccessPolicy<'_> {
-        crate::index::storage::text::TextAccessPolicy {
+    pub(crate) fn text_access_policy(&self) -> crate::index::traits::text::TextAccessPolicy<'_> {
+        crate::index::traits::text::TextAccessPolicy {
             schema: &self.definition.schema,
             bindings: &self.text_bindings,
             logical_text_complete: self.source.as_ref().is_some_and(|source| {
@@ -337,7 +337,7 @@ impl CollectionState {
     pub(crate) fn relation_reader(
         &self,
         ordinal: usize,
-    ) -> StorageResult<Option<&dyn crate::index::storage::relation::RelationReader>> {
+    ) -> StorageResult<Option<&dyn crate::index::traits::relation::RelationReader>> {
         if let Some(base) = &self.base_records {
             let reader = base.relation(ordinal)?;
             if reader.is_some_and(|reader| {
@@ -355,7 +355,7 @@ impl CollectionState {
         return Ok(self
             .relations
             .get(ordinal)
-            .map(|relation| relation as &dyn crate::index::storage::relation::RelationReader));
+            .map(|relation| relation as &dyn crate::index::traits::relation::RelationReader));
         #[cfg(not(test))]
         Ok(None)
     }
@@ -363,8 +363,8 @@ impl CollectionState {
     pub(crate) fn order_column(
         &self,
         path: &crate::model::FieldPath,
-    ) -> crate::index::storage::transfer::StorageResult<
-        Option<&dyn crate::index::storage::order::OrderColumnReader>,
+    ) -> crate::index::traits::transfer::StorageResult<
+        Option<&dyn crate::index::traits::order::OrderColumnReader>,
     > {
         if let Some(base) = &self.base_records {
             let column = base.order_column(path)?;
@@ -387,10 +387,10 @@ impl CollectionState {
 
     pub(crate) fn base_identity_order(
         &self,
-    ) -> StorageResult<&dyn crate::index::storage::ordered_slots::OrderedSlots> {
+    ) -> StorageResult<&dyn crate::index::traits::ordered_slots::OrderedSlots> {
         if let Some(base) = &self.base_records {
             if base.descriptor().slots == 0 {
-                return Ok(&crate::index::storage::ordered_slots::EMPTY_ORDER);
+                return Ok(&crate::index::traits::ordered_slots::EMPTY_ORDER);
             }
             let order = base.ordered_slots(&[], None)?.ok_or_else(|| {
                 StorageError::invalid("read base record order", "identity order missing")
@@ -406,13 +406,13 @@ impl CollectionState {
         #[cfg(test)]
         return Ok(&self.identity_order);
         #[cfg(not(test))]
-        Ok(&crate::index::storage::ordered_slots::EMPTY_ORDER)
+        Ok(&crate::index::traits::ordered_slots::EMPTY_ORDER)
     }
 
     pub(crate) fn base_composite_order(
         &self,
         fields: &[crate::query::options::SortField],
-    ) -> StorageResult<Option<&dyn crate::index::storage::ordered_slots::OrderedSlots>> {
+    ) -> StorageResult<Option<&dyn crate::index::traits::ordered_slots::OrderedSlots>> {
         if let Some(base) = &self.base_records {
             let order = base.ordered_slots(fields, None)?;
             if order.is_some_and(|order| order.len() != base.descriptor().slots) {

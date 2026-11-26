@@ -10,8 +10,8 @@ use crate::repository::statistics::{AdmissionBreakdown, IncrementalSegmentProfil
 use crate::source::registry::PreparedSource;
 
 use super::{RetainedBlock, SegmentHandle, SegmentId, SegmentPolicy};
-use crate::index::storage::order::DeclaredOrderStore;
-use crate::index::storage::transfer::StorageResult;
+use crate::index::traits::order::DeclaredOrderStore;
+use crate::index::traits::transfer::StorageResult;
 
 pub(crate) struct FileSegmentBuild<'a> {
     pub collection: CollectionId,
@@ -49,7 +49,7 @@ pub(crate) struct SegmentSeal<'a> {
 /// A sealed payload and its optional provisional inference observation.
 pub(crate) struct BuiltSegment {
     pub index: SegmentHandle,
-    pub observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
+    pub observation: Option<crate::index::traits::inference::InferenceObservationHandle>,
 }
 
 pub(crate) trait SegmentBuilder: Send {

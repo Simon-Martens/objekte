@@ -3,8 +3,8 @@
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::SegmentReader;
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::SegmentReader;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::maintenance::MaintenancePhase;
 use crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy;
@@ -57,7 +57,7 @@ struct CompactionWork {
     temporary_bytes: u64,
 }
 
-fn source_budget_bytes(source: &dyn crate::index::storage::segment::SegmentReader) -> u64 {
+fn source_budget_bytes(source: &dyn crate::index::traits::segment::SegmentReader) -> u64 {
     let estimates = source.estimates();
     u64::try_from(estimates.retained_bytes_estimated)
         .unwrap_or(u64::MAX)
@@ -173,10 +173,10 @@ fn compact_published_with_budget(
                     })?;
                     let active = next.repository.storage_factory.live_records(
                         part.descriptor().slots,
-                        crate::index::storage::liveness::InitialLiveness::All,
+                        crate::index::traits::liveness::InitialLiveness::All,
                     )?;
                     compacted.push(Arc::new(PublishedSegment {
-                        version: crate::index::storage::publication::PlacementVersion::new(),
+                        version: crate::index::traits::publication::PlacementVersion::new(),
                         id: crate::index::segment::SegmentId::new(ordinal),
                         index: part,
                         active,
@@ -233,10 +233,10 @@ fn compact_published_with_budget(
                     .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
                 let active = next.repository.storage_factory.live_records(
                     part.descriptor().slots,
-                    crate::index::storage::liveness::InitialLiveness::All,
+                    crate::index::traits::liveness::InitialLiveness::All,
                 )?;
                 replacements.push(Arc::new(PublishedSegment {
-                    version: crate::index::storage::publication::PlacementVersion::new(),
+                    version: crate::index::traits::publication::PlacementVersion::new(),
                     id: crate::index::segment::SegmentId::new(ordinal),
                     index: part,
                     active,

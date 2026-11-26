@@ -4,7 +4,7 @@ use std::sync::{Arc, Mutex};
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::traits::publication::PublishedSegment;
 use crate::inventory::ActiveRecords;
 use crate::model::CollectionId;
 use crate::query_access::contract::{
@@ -158,9 +158,7 @@ impl<'a> NativeRelationProvider<'a> {
                 None => {
                     let state = &self.repo.collections[source.0 as usize];
                     if !state
-                        .base_slot_members(
-                            crate::index::storage::segment::SegmentSlotFact::Logical,
-                        )?
+                        .base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?
                         .view()
                         .contains(slot)
                     {

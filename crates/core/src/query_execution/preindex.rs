@@ -6,8 +6,8 @@ use std::path::Path;
 
 use crate::construction::discovery::{prepare_discovered_file, register_discovery_window};
 use crate::construction::file_preparation::finish_build_record;
-use crate::index::storage::file_catalog::{FileCatalogHandle, FileRows};
-use crate::index::storage::{StorageFactory, default_factory};
+use crate::index::traits::file_catalog::{FileCatalogHandle, FileRows};
+use crate::index::traits::{StorageFactory, default_factory};
 use crate::inventory::discovery::discover;
 use crate::inventory::{DiagnosticRef, FileEntry, RecordClass, RecordEntry, SourceDiagnostic};
 use crate::measurement::WorkCounters;

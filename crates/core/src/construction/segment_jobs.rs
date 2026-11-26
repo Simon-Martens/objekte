@@ -8,9 +8,9 @@ use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
 use crate::repository::statistics::IncrementalSegmentProfile;
 
 use crate::index::segment::SegmentId;
-use crate::index::storage::order::DeclaredOrderStore;
-use crate::index::storage::segment::build::{SegmentBuilder, SegmentSeal};
-use crate::index::storage::segment::{SegmentHandle, SegmentReader};
+use crate::index::traits::order::DeclaredOrderStore;
+use crate::index::traits::segment::build::{SegmentBuilder, SegmentSeal};
+use crate::index::traits::segment::{SegmentHandle, SegmentReader};
 
 pub(crate) struct SegmentJobGate {
     state: std::sync::Mutex<SegmentJobGateState>,
@@ -299,7 +299,7 @@ impl SegmentJobGate {
 }
 pub(super) struct IndexedSegmentBuild {
     pub index: SegmentHandle,
-    pub observation: Option<crate::index::storage::inference::InferenceObservationHandle>,
+    pub observation: Option<crate::index::traits::inference::InferenceObservationHandle>,
     pub profile: Option<IncrementalSegmentProfile>,
     pub build_ns: u64,
 }

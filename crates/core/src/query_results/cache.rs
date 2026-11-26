@@ -1,13 +1,13 @@
 //! Verified result-cache admission accounting.
 
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::{RecordBacking, SegmentReader};
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::segment::{RecordBacking, SegmentReader};
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::{Payload, SearchHit, SearchResult};
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::traits::publication::PublishedSegment;
 use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
 use crate::measurement::WorkCounters;

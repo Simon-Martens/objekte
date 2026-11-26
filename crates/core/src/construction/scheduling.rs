@@ -13,7 +13,7 @@ use rayon::ThreadPool;
 use serde::Serialize;
 
 use crate::index::bigram::BigramAlphabet;
-use crate::index::storage::StorageFactory;
+use crate::index::traits::StorageFactory;
 use crate::inference::InferenceConfig;
 use crate::measurement::bigram_storage_diagnostic_enabled;
 use crate::model::{CollectionId, FileId};
@@ -204,7 +204,7 @@ pub(crate) fn process_repository_file_batches(
 ) -> Result<BuildScheduleStats, String> {
     process_repository_file_batches_profiled(
         pool,
-        crate::index::storage::test_factory(),
+        crate::index::traits::test_factory(),
         root,
         jobs,
         source_files,

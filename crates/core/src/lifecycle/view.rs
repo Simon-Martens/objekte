@@ -3,13 +3,13 @@ use std::num::NonZeroUsize;
 use std::path::Path;
 use std::sync::{Arc, Weak};
 
-use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
-use crate::index::storage::publication::SegmentGroup;
-use crate::index::storage::segment::{
+use crate::index::traits::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
+use crate::index::traits::publication::SegmentGroup;
+use crate::index::traits::segment::{
     SegmentReader, SegmentResourceUsage, visit_checked_file_slots,
 };
-use crate::index::storage::segment_catalog::visit_segment_descriptors;
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::segment_catalog::visit_segment_descriptors;
+use crate::index::traits::transfer::{StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, RecordSlot, Value};
 use crate::query::Query;
@@ -355,7 +355,7 @@ impl IndexView {
         &self,
         mut visit: impl FnMut(&FileEntry) -> Result<(), IndexError>,
     ) -> Result<(), IndexError> {
-        use crate::index::storage::file_catalog::{FILE_TRANSFER_LIMIT, transfer_files};
+        use crate::index::traits::file_catalog::{FILE_TRANSFER_LIMIT, transfer_files};
         let catalog = &self.0.catalog;
         transfer_files(
             catalog,
@@ -739,8 +739,8 @@ impl IndexView {
     fn segment_groups_for_query(
         &self,
         query: &Query,
-    ) -> crate::index::storage::transfer::StorageResult<
-        Vec<crate::index::storage::publication::SegmentGroup>,
+    ) -> crate::index::traits::transfer::StorageResult<
+        Vec<crate::index::traits::publication::SegmentGroup>,
     > {
         self.repository()
             .query_segment_groups(query, Some(&self.0.record_routes))

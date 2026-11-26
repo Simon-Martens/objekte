@@ -302,7 +302,7 @@ impl Index {
             definitions,
             options,
             sources,
-            crate::index::storage::default_factory(),
+            crate::index::traits::default_factory(),
             |_| Ok(()),
             |_| Ok(()),
             || false,
@@ -324,7 +324,7 @@ impl Index {
             definitions,
             options,
             sources,
-            crate::index::storage::default_factory(),
+            crate::index::traits::default_factory(),
         )
     }
 
@@ -333,7 +333,7 @@ impl Index {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
-        storage_factory: std::sync::Arc<dyn crate::index::storage::StorageFactory>,
+        storage_factory: std::sync::Arc<dyn crate::index::traits::StorageFactory>,
     ) -> Result<InitialBuildTask, IndexError> {
         let root = root.into();
         let definitions = crate::repository::configuration::loader::prepare_source_definitions(

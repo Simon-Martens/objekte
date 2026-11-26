@@ -3,8 +3,8 @@
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::traits::file_catalog::FileCatalogReader;
+use crate::index::traits::publication::PublishedSegment;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexRevision;
 use crate::query::Query;

@@ -1,6 +1,6 @@
 use super::*;
 
-use crate::index::storage::segment::maintenance::SegmentPartition;
+use crate::index::traits::segment::maintenance::SegmentPartition;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::lifecycle::Index;
 use crate::model::{CollectionId, LogicalType, Value};
@@ -98,7 +98,7 @@ fn named_and_inferred_posting_metadata_survives_identity_and_dense_import() {
             ..Default::default()
         },
         fixture_registry(),
-        Arc::clone(crate::index::storage::test_factory()),
+        Arc::clone(crate::index::traits::test_factory()),
     )
     .unwrap()
     .wait_complete()

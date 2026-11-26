@@ -28,13 +28,13 @@ static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
     std::sync::atomic::AtomicUsize::new(0);
 
 #[cfg(test)]
-pub use crate::index::storage::relation::{RelationEdge, RelationTarget};
+pub use crate::index::traits::relation::{RelationEdge, RelationTarget};
 
-use crate::index::storage::relation::{
+use crate::index::traits::relation::{
     RelationBlock, RelationFacts, RelationReader, RelationRow, VisitRelationTarget,
     visit_relation_blocks,
 };
-use crate::index::storage::transfer::{StorageError, StorageResult};
+use crate::index::traits::transfer::{StorageError, StorageResult};
 
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
 /// read from its `CollectionGeneration` record; no file ID is duplicated here.
@@ -215,7 +215,7 @@ impl RelationIndex {
             }
         }
         let logical =
-            source.base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?;
+            source.base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?;
         if self.unavailable != fallback
             || !crate::query_access::membership::MembershipView::Borrowed(&self.present)
                 .is_subset(logical.view())
@@ -802,7 +802,7 @@ impl RelationContribution {
     /// contributions preserve the existing bitmap and edge merge.
     pub(crate) fn merge_reader(
         &mut self,
-        reader: &dyn crate::index::storage::relation::RelationReader,
+        reader: &dyn crate::index::traits::relation::RelationReader,
         base: u32,
         count: u32,
     ) -> Result<(), String> {

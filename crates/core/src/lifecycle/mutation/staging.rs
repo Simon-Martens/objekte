@@ -1,7 +1,7 @@
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::file_catalog::FileCatalogReader;
 
 use crate::construction::file_preparation::PreparedFileBuild;
-use crate::index::storage::segment::SegmentHandle;
+use crate::index::traits::segment::SegmentHandle;
 use crate::inventory::FileEntry;
 use crate::lifecycle::mutation::preparation::{
     PreparedAdd, PreparedReplacement, index_prepared_file,

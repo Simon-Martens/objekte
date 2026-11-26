@@ -73,7 +73,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
-        factory: crate::index::storage::test_factory(),
+        factory: crate::index::traits::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -159,7 +159,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
     let empty_active = crate::inventory::ActiveRecords::all(0).unwrap();
     let active = merged
         .translate_active(
-            crate::index::storage::test_factory().as_ref(),
+            crate::index::traits::test_factory().as_ref(),
             &[&first_active, &second_active, &empty_active],
         )
         .unwrap();
@@ -242,7 +242,7 @@ fn seventy_small_shards_consolidate_after_sources_are_removed() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
-        factory: crate::index::storage::test_factory(),
+        factory: crate::index::traits::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -326,7 +326,7 @@ fn consolidation_translates_independent_local_zero_slots() {
         .resolve(&crate::source::test_support::line_format())
         .unwrap();
     let binding = FilePreparationBinding {
-        factory: crate::index::storage::test_factory(),
+        factory: crate::index::traits::test_factory(),
         collection: CollectionId(0),
         definition: &definition,
         source: &source,
@@ -391,7 +391,7 @@ fn consolidation_translates_independent_local_zero_slots() {
         .unwrap();
     let active = consolidated
         .translate_active(
-            crate::index::storage::test_factory().as_ref(),
+            crate::index::traits::test_factory().as_ref(),
             &[&first_active, &second_active],
         )
         .unwrap();

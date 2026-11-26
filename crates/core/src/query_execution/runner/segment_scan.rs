@@ -1,7 +1,7 @@
 //! Segment source verification and scanning.
 
 use super::*;
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::file_catalog::FileCatalogReader;
 use crate::records::RecordIdSlot;
 
 /// Verify one local segment candidate with the narrow source or value consumer.

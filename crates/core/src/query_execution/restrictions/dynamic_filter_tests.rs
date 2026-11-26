@@ -149,7 +149,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
                             let candidates = bounds.may;
                             for &id in expected {
                                 if let Some(slot) =
-                                    crate::index::storage::segment::SegmentReader::slot_for_record(
+                                    crate::index::traits::segment::SegmentReader::slot_for_record(
                                         segment, id,
                                     )
                                     .unwrap()

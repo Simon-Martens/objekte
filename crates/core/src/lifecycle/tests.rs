@@ -1,4 +1,4 @@
-use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::traits::file_catalog::FileCatalogReader;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 

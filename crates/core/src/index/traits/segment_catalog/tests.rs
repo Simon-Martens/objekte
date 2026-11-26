@@ -3,19 +3,19 @@ use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
 use super::*;
 use crate::construction::batch::BatchContribution;
-use crate::index::storage::StorageFactory;
-use crate::index::storage::liveness::{ActiveRecords, InitialLiveness, LiveSlotReader};
-use crate::index::storage::order::{
+use crate::index::traits::StorageFactory;
+use crate::index::traits::liveness::{ActiveRecords, InitialLiveness, LiveSlotReader};
+use crate::index::traits::order::{
     DeclaredOrderDefinition, DeclaredOrderStore, DeclaredOrderWriter, InferredOrderRows,
     ORDER_KEY_BATCH_SIZE, OrderColumnReader, OrderIdentities, SortConfig, SortKey, SortOptions,
 };
-use crate::index::storage::ordered_slots::OrderedSlots;
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::build::{
+use crate::index::traits::ordered_slots::OrderedSlots;
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::build::{
     BuiltSegment, DirectSegmentBuild, FileSegmentBuild, SegmentBuilder, SegmentSeal,
 };
-use crate::index::storage::segment::{NativeSegmentSummary, SegmentReader, SegmentResourceUsage};
-use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError};
+use crate::index::traits::segment::{NativeSegmentSummary, SegmentReader, SegmentResourceUsage};
+use crate::index::traits::transfer::{BatchLimit, BatchStatus, StorageError};
 use crate::lifecycle::Index;
 use crate::model::{FieldPath, LogicalType, Value};
 use crate::query::options::ReturnMode;
@@ -92,8 +92,8 @@ struct TableFactory {
 
 fn test_resident_estimate(
     control: &TableFactory,
-) -> crate::index::storage::component::ResidentComponentBytes {
-    crate::index::storage::component::ResidentComponentBytes {
+) -> crate::index::traits::component::ResidentComponentBytes {
+    crate::index::traits::component::ResidentComponentBytes {
         bytes: control.component_resident_estimate.load(Ordering::Relaxed),
         shared_allocation: Some(std::ptr::from_ref(control).addr()),
     }
@@ -181,12 +181,12 @@ impl DeclaredOrderWriter for TableOrderWriter {
     }
 }
 
-impl crate::index::storage::order::InferredOrderStore for Arc<TableFactory> {
+impl crate::index::traits::order::InferredOrderStore for Arc<TableFactory> {
     fn start(
         &self,
         definition: DeclaredOrderDefinition,
         descending: bool,
-    ) -> StorageResult<Box<dyn crate::index::storage::order::InferredOrderWriter>> {
+    ) -> StorageResult<Box<dyn crate::index::traits::order::InferredOrderWriter>> {
         Ok(Box::new(TableInferredOrderWriter {
             control: Arc::clone(self),
             definition,
@@ -203,7 +203,7 @@ struct TableInferredOrderWriter {
     keys: BTreeMap<usize, SortKey>,
 }
 
-impl crate::index::storage::order::InferredOrderWriter for TableInferredOrderWriter {
+impl crate::index::traits::order::InferredOrderWriter for TableInferredOrderWriter {
     fn assign(&mut self, key: &SortKey, slots: &[RecordSlot]) -> StorageResult<()> {
         assert!(slots.len() <= ORDER_KEY_BATCH_SIZE);
         for &slot in slots {
@@ -266,7 +266,7 @@ impl TableFactory {
     fn seal_retained_bytes(
         &self,
         bodies: Vec<Vec<u8>>,
-    ) -> crate::index::storage::segment::RetainedBlock {
+    ) -> crate::index::traits::segment::RetainedBlock {
         Arc::new(TableBodies {
             bodies,
             reads: Arc::clone(&self.retained_reads),
@@ -293,20 +293,20 @@ impl StorageFactory for Arc<TableFactory> {
     fn import_file_segment(
         &self,
         source: &dyn SegmentReader,
-        layout: crate::index::storage::segment::transfer::FileSegmentLayout<'_>,
+        layout: crate::index::traits::segment::transfer::FileSegmentLayout<'_>,
         cancelled: &mut dyn FnMut() -> bool,
-    ) -> StorageResult<Option<crate::index::storage::segment::SegmentHandle>> {
+    ) -> StorageResult<Option<crate::index::traits::segment::SegmentHandle>> {
         segments::import_file_segment(source, layout, cancelled, Arc::clone(self))
     }
 
     fn project_segment_partitions(
         &self,
         source: &dyn SegmentReader,
-        partitions: &[crate::index::storage::segment::maintenance::SegmentPartition],
-        files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
+        partitions: &[crate::index::traits::segment::maintenance::SegmentPartition],
+        files: &dyn crate::index::traits::file_catalog::FileCatalogReader,
         cancelled: &mut dyn FnMut() -> bool,
-    ) -> StorageResult<Vec<crate::index::storage::segment::SegmentHandle>> {
-        use crate::index::storage::segment::maintenance::SegmentMaintenance;
+    ) -> StorageResult<Vec<crate::index::traits::segment::SegmentHandle>> {
+        use crate::index::traits::segment::maintenance::SegmentMaintenance;
         let local = source.maintenance().and_then(|editor| {
             (editor as &dyn std::any::Any).downcast_ref::<segments::TableSegment>()
         });
@@ -315,7 +315,7 @@ impl StorageFactory for Arc<TableFactory> {
         {
             local.project_partitions(partitions, files, cancelled)?
         } else {
-            crate::index::storage::test_factory()
+            crate::index::traits::test_factory()
                 .project_segment_partitions(source, partitions, files, cancelled)?
         };
         if self.omit_projection.swap(false, Ordering::Relaxed) {
@@ -328,7 +328,7 @@ impl StorageFactory for Arc<TableFactory> {
         &self,
         segments: &[&dyn SegmentReader],
         max_records: usize,
-    ) -> StorageResult<Option<crate::index::storage::segment::maintenance::ConsolidatedSegment>>
+    ) -> StorageResult<Option<crate::index::traits::segment::maintenance::ConsolidatedSegment>>
     {
         self.consolidation_attempts.fetch_add(1, Ordering::Relaxed);
         if self
@@ -337,15 +337,15 @@ impl StorageFactory for Arc<TableFactory> {
         {
             return Ok(None);
         }
-        crate::index::storage::test_factory().consolidate_segments(segments, max_records)
+        crate::index::traits::test_factory().consolidate_segments(segments, max_records)
     }
 
     fn base_segment(
         &self,
         collection: &crate::repository::state::CollectionState,
-        files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
-    ) -> StorageResult<crate::index::storage::segment::SegmentHandle> {
-        crate::index::storage::test_factory().base_segment(collection, files)
+        files: &dyn crate::index::traits::file_catalog::FileCatalogReader,
+    ) -> StorageResult<crate::index::traits::segment::SegmentHandle> {
+        crate::index::traits::test_factory().base_segment(collection, files)
     }
 
     fn declared_order_store(&self) -> Option<Arc<dyn DeclaredOrderStore>> {
@@ -354,21 +354,21 @@ impl StorageFactory for Arc<TableFactory> {
             .then(|| Arc::new(Arc::clone(self)) as Arc<dyn DeclaredOrderStore>)
     }
 
-    fn posting_store(&self) -> Option<Arc<dyn crate::index::storage::posting::PostingStore>> {
+    fn posting_store(&self) -> Option<Arc<dyn crate::index::traits::posting::PostingStore>> {
         self.store_postings.load(Ordering::Relaxed).then(|| {
-            Arc::new(Arc::clone(self)) as Arc<dyn crate::index::storage::posting::PostingStore>
+            Arc::new(Arc::clone(self)) as Arc<dyn crate::index::traits::posting::PostingStore>
         })
     }
 
-    fn gram_store(&self) -> Option<Arc<dyn crate::index::storage::text::GramStore>> {
+    fn gram_store(&self) -> Option<Arc<dyn crate::index::traits::text::GramStore>> {
         self.store_grams
             .load(Ordering::Relaxed)
-            .then(|| Arc::new(Arc::clone(self)) as Arc<dyn crate::index::storage::text::GramStore>)
+            .then(|| Arc::new(Arc::clone(self)) as Arc<dyn crate::index::traits::text::GramStore>)
     }
 
-    fn relation_store(&self) -> Option<Arc<dyn crate::index::storage::relation::RelationStore>> {
+    fn relation_store(&self) -> Option<Arc<dyn crate::index::traits::relation::RelationStore>> {
         self.store_relations.load(Ordering::Relaxed).then(|| {
-            Arc::new(Arc::clone(self)) as Arc<dyn crate::index::storage::relation::RelationStore>
+            Arc::new(Arc::clone(self)) as Arc<dyn crate::index::traits::relation::RelationStore>
         })
     }
 
@@ -383,7 +383,7 @@ impl StorageFactory for Arc<TableFactory> {
             )));
         }
         Ok(Box::new(FailureInjectingBuilder {
-            inner: crate::index::storage::default_factory().start_file_segment(input)?,
+            inner: crate::index::traits::default_factory().start_file_segment(input)?,
             control: Arc::clone(self),
         }))
     }
@@ -397,14 +397,14 @@ impl StorageFactory for Arc<TableFactory> {
         if self.independent_segments.load(Ordering::Relaxed) {
             segments::seal_direct(input, seal, Arc::clone(self))
         } else {
-            crate::index::storage::default_factory().seal_direct_segment(input, seal)
+            crate::index::traits::default_factory().seal_direct_segment(input, seal)
         }
     }
 
     fn retain_record_bodies(
         &self,
         bodies: Vec<crate::records::RetainedBody>,
-    ) -> StorageResult<crate::index::storage::segment::RetainedBlock> {
+    ) -> StorageResult<crate::index::traits::segment::RetainedBlock> {
         self.retained_builds.fetch_add(1, Ordering::Relaxed);
         let bodies = bodies
             .into_iter()
@@ -416,9 +416,7 @@ impl StorageFactory for Arc<TableFactory> {
         Ok(self.seal_retained_bytes(bodies))
     }
 
-    fn inferred_order_store(
-        &self,
-    ) -> Option<&dyn crate::index::storage::order::InferredOrderStore> {
+    fn inferred_order_store(&self) -> Option<&dyn crate::index::traits::order::InferredOrderStore> {
         Some(self)
     }
 
@@ -429,7 +427,7 @@ impl StorageFactory for Arc<TableFactory> {
         Ok(Arc::new(TableOrder {
             path: rows.path,
             kind: rows.kind,
-            collation_version: crate::index::storage::order::COLLATION_VERSION.into(),
+            collation_version: crate::index::traits::order::COLLATION_VERSION.into(),
             config: rows.config,
             keys: rows.keys.into_iter().enumerate().collect(),
             key_batches: Arc::clone(&self.key_batches),
@@ -459,7 +457,7 @@ impl StorageFactory for Arc<TableFactory> {
 
     fn prepare_file_records(
         &self,
-        batch: crate::index::storage::worker::FileWorkerBatch<'_>,
+        batch: crate::index::traits::worker::FileWorkerBatch<'_>,
     ) -> StorageResult<crate::construction::batch::BatchContribution> {
         self.file_worker_calls.fetch_add(1, Ordering::Relaxed);
         let contribution = if self.independent_segments.load(Ordering::Relaxed) {
@@ -479,8 +477,8 @@ impl StorageFactory for Arc<TableFactory> {
 
     fn prepare_direct_records(
         &self,
-        batch: crate::index::storage::worker::DirectRecordBatch<'_>,
-    ) -> StorageResult<crate::index::storage::worker::PreparedDirectBatch> {
+        batch: crate::index::traits::worker::DirectRecordBatch<'_>,
+    ) -> StorageResult<crate::index::traits::worker::PreparedDirectBatch> {
         self.worker_calls.fetch_add(1, Ordering::Relaxed);
         if self.independent_segments.load(Ordering::Relaxed) {
             let worker = segments::TableWorker::new(&batch.declaration.schema);
@@ -493,25 +491,25 @@ impl StorageFactory for Arc<TableFactory> {
     fn start_file_discovery(
         &self,
         root: std::path::PathBuf,
-    ) -> StorageResult<Box<dyn crate::index::storage::file_catalog::FileDiscoveryBuilder>> {
-        crate::index::storage::test_factory().start_file_discovery(root)
+    ) -> StorageResult<Box<dyn crate::index::traits::file_catalog::FileDiscoveryBuilder>> {
+        crate::index::traits::test_factory().start_file_discovery(root)
     }
 
     fn file_catalog(
         &self,
-        base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
+        base: &dyn crate::index::traits::file_catalog::FileCatalogBase,
         version: crate::inventory::FileVersion,
-    ) -> StorageResult<crate::index::storage::file_catalog::FileCatalogHandle> {
-        crate::index::storage::default_factory().file_catalog(base, version)
+    ) -> StorageResult<crate::index::traits::file_catalog::FileCatalogHandle> {
+        crate::index::traits::default_factory().file_catalog(base, version)
     }
 
     fn restore_file_catalog(
         &self,
-        base: &dyn crate::index::storage::file_catalog::FileCatalogBase,
-        source: &dyn crate::index::storage::file_catalog::FileCatalogRevision,
+        base: &dyn crate::index::traits::file_catalog::FileCatalogBase,
+        source: &dyn crate::index::traits::file_catalog::FileCatalogRevision,
         cancelled: &dyn Fn() -> bool,
-    ) -> StorageResult<crate::index::storage::file_catalog::FileCatalogHandle> {
-        crate::index::storage::default_factory().restore_file_catalog(base, source, cancelled)
+    ) -> StorageResult<crate::index::traits::file_catalog::FileCatalogHandle> {
+        crate::index::traits::default_factory().restore_file_catalog(base, source, cancelled)
     }
 
     fn segment_catalog(&self) -> StorageResult<Box<dyn SegmentCatalogEditor>> {
@@ -597,9 +595,9 @@ struct TableBodyParts<'a> {
     fail_part: &'a AtomicUsize,
 }
 
-impl crate::index::storage::segment::transfer::RetainedBodyBytes for TableBodyParts<'_> {
+impl crate::index::traits::segment::transfer::RetainedBodyBytes for TableBodyParts<'_> {
     fn read_part(&mut self, output: &mut [u8]) -> StorageResult<usize> {
-        use crate::index::storage::segment::transfer::BODY_PART_BYTES;
+        use crate::index::traits::segment::transfer::BODY_PART_BYTES;
 
         assert!(output.len() <= BODY_PART_BYTES);
         let read = self.reads.fetch_add(1, Ordering::Relaxed) + 1;
@@ -616,7 +614,7 @@ impl crate::index::storage::segment::transfer::RetainedBodyBytes for TableBodyPa
     }
 }
 
-impl crate::index::storage::segment::RetainedBlockReader for TableBodies {
+impl crate::index::traits::segment::RetainedBlockReader for TableBodies {
     fn len(&self) -> usize {
         self.bodies.len()
     }
@@ -642,7 +640,7 @@ impl crate::index::storage::segment::RetainedBlockReader for TableBodies {
         &self,
         offset: u32,
     ) -> StorageResult<
-        Option<Box<dyn crate::index::storage::segment::transfer::RetainedBodyBytes + '_>>,
+        Option<Box<dyn crate::index::traits::segment::transfer::RetainedBodyBytes + '_>>,
     > {
         let bytes = self
             .bodies
@@ -843,7 +841,7 @@ impl OrderColumnReader for TableOrder {
                 "injected order transfer failure",
             ));
         }
-        let keys = crate::index::storage::order::key_transfer::read_order_keys(
+        let keys = crate::index::traits::order::key_transfer::read_order_keys(
             self,
             &slots[..slots.len().min(2)],
             limit,
@@ -958,7 +956,7 @@ fn native_postings_and_an_independent_declared_order_share_a_segment() {
         .unwrap()
     };
     let mixed = build(Arc::new(Arc::clone(&factory)));
-    let memory = build(crate::index::storage::default_factory());
+    let memory = build(crate::index::traits::default_factory());
     let pinned = mixed.view().unwrap();
     let memory_before = memory.view().unwrap();
     let mut query = Query {
@@ -1093,7 +1091,7 @@ fn component_writers_preserve_mixed_placement_across_compaction() {
         .store(true, Ordering::Relaxed);
     let ordered = build(Arc::new(Arc::clone(&stores_order)));
     let posted = build(Arc::new(Arc::clone(&stores_postings)));
-    let memory = build(crate::index::storage::default_factory());
+    let memory = build(crate::index::traits::default_factory());
     let names = |view: &crate::lifecycle::IndexView, query: &Query| {
         view.search(query)
             .unwrap()
@@ -1535,9 +1533,9 @@ fn named_text_posting_comparison_agrees_with_the_mapped_matcher() {
     let indexes = [
         (
             "independent",
-            Arc::new(Arc::clone(&independent)) as Arc<dyn crate::index::storage::StorageFactory>,
+            Arc::new(Arc::clone(&independent)) as Arc<dyn crate::index::traits::StorageFactory>,
         ),
-        ("native", crate::index::storage::default_factory()),
+        ("native", crate::index::traits::default_factory()),
     ]
     .map(|(placement, factory)| {
         (
@@ -1573,7 +1571,7 @@ fn named_text_posting_comparison_agrees_with_the_mapped_matcher() {
             (reader as &dyn std::any::Any).is::<segments::TablePosting>(),
             placement == "independent"
         );
-        use crate::index::storage::posting::{PostingKey, ScalarKey};
+        use crate::index::traits::posting::{PostingKey, ScalarKey};
         assert!(
             reader
                 .members(PostingKey::Value(&ScalarKey::Id("A".into())))
@@ -1655,7 +1653,7 @@ fn placed_inferred_equality_preserves_empty_array_traversals() {
             .unwrap()
             .into_iter()
             .find(|component| {
-                component.kind == crate::index::storage::component::ComponentKind::InferredPosting
+                component.kind == crate::index::traits::component::ComponentKind::InferredPosting
                     && component.path.as_deref() == Some(path.segments.as_slice())
             })
             .unwrap();
@@ -1767,14 +1765,14 @@ fn a_late_inferred_posting_uses_the_selected_writer_and_survives_compaction() {
             .unwrap()
             .into_iter()
             .find(|component| {
-                component.kind == crate::index::storage::component::ComponentKind::InferredPosting
+                component.kind == crate::index::traits::component::ComponentKind::InferredPosting
                     && component.path.as_deref() == Some(path.segments.as_slice())
             })
             .unwrap();
         let reader = segment.posting(&component).unwrap().unwrap();
         assert!((reader as &dyn std::any::Any).is::<segments::TablePosting>());
         assert!(reader.descriptor().coverage.value_complete);
-        use crate::index::storage::posting::{PostingKey, ScalarKey};
+        use crate::index::traits::posting::{PostingKey, ScalarKey};
         let key = ScalarKey::Number(crate::model::Number::Integer(7.into()));
         let members = reader.members(PostingKey::Value(&key)).unwrap().unwrap();
         assert_eq!(
@@ -1848,7 +1846,7 @@ fn inferred_order_reads_independent_short_batches_through_search() {
     };
     let factory = Arc::new(TableFactory::default());
     let table = build(Arc::new(Arc::clone(&factory)));
-    let memory = build(crate::index::storage::default_factory());
+    let memory = build(crate::index::traits::default_factory());
     let mut query = Query {
         collections: vec!["data".into()],
         filter: None,
@@ -1936,7 +1934,7 @@ impl LiveSlotReader for SortedLiveSlots {
 
     fn visit_blocks(
         &self,
-        visit: &mut crate::index::storage::liveness::VisitLiveBlock<'_>,
+        visit: &mut crate::index::traits::liveness::VisitLiveBlock<'_>,
     ) -> StorageResult<()> {
         for (page, rows) in self.live.chunks(2).enumerate() {
             self.check_page(page)?;
@@ -2085,7 +2083,7 @@ fn sparse_paged_liveness_reads_only_the_required_pages() {
     assert_eq!(factory.liveness_visits.load(Ordering::Relaxed) - before, 2);
 
     factory.fail_live_refill.store(false, Ordering::Relaxed);
-    let native = crate::index::storage::test_factory()
+    let native = crate::index::traits::test_factory()
         .live_records(8, InitialLiveness::All)
         .unwrap()
         .retired(&[RecordSlot(1), RecordSlot(3), RecordSlot(5), RecordSlot(7)])

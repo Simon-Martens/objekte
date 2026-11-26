@@ -1,6 +1,6 @@
 //! Bounded exact positive-witness semijoins for forward relation predicates.
 
-use crate::index::storage::segment::{
+use crate::index::traits::segment::{
     SegmentReader, SegmentSlotFact, read_slot_members, visit_record_headers,
 };
 use crate::records::RecordIdSlot;
@@ -9,8 +9,8 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::SegmentRecordAddress;
+use crate::index::traits::publication::PublishedSegment;
+use crate::index::traits::segment::SegmentRecordAddress;
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query::Quantifier;
@@ -223,7 +223,7 @@ fn eligible<'a>(repo: &Repository, term: &'a BoundTerm) -> Option<&'a [BoundRela
 fn relation<'a>(
     repo: &'a Repository,
     hop: &BoundRelationHop,
-) -> Result<crate::index::storage::relation::DeclaredRelation<'a>, String> {
+) -> Result<crate::index::traits::relation::DeclaredRelation<'a>, String> {
     let binding = repo.declared_relation(hop.relation)?;
     if binding.target_collection != hop.to {
         return Err("relation semijoin declaration changed".into());
@@ -607,7 +607,7 @@ fn verified_targets(
 ) -> Result<RoaringBitmap, String> {
     let collection = &repo.collections[target_index];
     let logical =
-        collection.base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?;
+        collection.base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?;
     let domain = match execution.and_then(ExecutionContext::active_records) {
         Some(domains) => std::borrow::Cow::Owned(
             logical
@@ -753,7 +753,7 @@ fn qualified_reachable_targets(
                 execution.check_string()?;
             }
             let view_address = view.view_address(address)?;
-            let crate::index::storage::relation::RelationRow {
+            let crate::index::traits::relation::RelationRow {
                 targets: references,
                 unavailable,
                 ..
@@ -1301,7 +1301,7 @@ pub(crate) fn fts_witnesses(
             Some(reachable_targets(repo, hops, input, &mut work, execution)?)
         } else {
             let mut domain = target
-                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+                .base_slot_members(crate::index::traits::segment::SegmentSlotFact::Logical)?
                 .view()
                 .bitmap_for_set_algebra()
                 .into_owned();
