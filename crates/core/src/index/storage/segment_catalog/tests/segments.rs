@@ -19,6 +19,7 @@ use crate::index::storage::segment::{
     SegmentDescriptor, SegmentEstimates, SegmentHandle, SegmentPolicy, SegmentPredicateAccess,
     SegmentSlotFact, SegmentSource, UseAccessProvider,
 };
+use crate::index::storage::text::{GramReader, SegmentTextAccess};
 use crate::index::storage::worker::{PreparedIndexes, WorkerWriter};
 use crate::inventory::{ByteRange, FileEntry, RecordClass};
 use crate::model::{CollectionId, RecordId, RecordSlot};
@@ -817,6 +818,31 @@ impl SegmentReader for TableSegment {
                 domain: access.text.domain,
                 posting,
                 check: self.control.as_ref(),
+            };
+            use_provider(Some(&provider))
+        } else {
+            use_provider(None)
+        }
+    }
+
+    fn with_text_access(
+        &self,
+        access: SegmentTextAccess<'_>,
+        use_provider: &mut UseAccessProvider<'_>,
+    ) -> StorageResult<()> {
+        let raw = self
+            .grams
+            .get(&transfer::GramBinding::Raw)
+            .filter(|reader| {
+                access.policy.schema.raw.is_none()
+                    && self.logical.len() == self.rows.len()
+                    && reader.descriptor().covered_records as usize == self.rows.len()
+            });
+        if let Some(raw) = raw {
+            let provider = transfer::TableText {
+                raw,
+                domain: access.domain,
+                control: self.control.as_ref(),
             };
             use_provider(Some(&provider))
         } else {

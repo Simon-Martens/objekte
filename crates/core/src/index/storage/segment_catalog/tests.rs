@@ -30,6 +30,8 @@ mod segments;
 struct TableFactory {
     independent_segments: AtomicBool,
     independent_applications: AtomicUsize,
+    text_applications: AtomicUsize,
+    text_candidates: AtomicUsize,
     independent_projections: AtomicUsize,
     omit_projection: AtomicBool,
 

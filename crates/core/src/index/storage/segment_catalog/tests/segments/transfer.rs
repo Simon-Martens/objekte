@@ -6,7 +6,7 @@ use crate::index::storage::posting::visit_posting_blocks;
 use crate::index::storage::segment::transfer::FileSegmentLayout;
 use crate::index::storage::segment::{read_slot_members, visit_checked_file_slots};
 use crate::index::storage::text::{
-    GramChannel, GramDescriptor, GramReader, VisitGramBlock, visit_gram_blocks,
+    BigramRequest, GramChannel, GramDescriptor, GramReader, VisitGramBlock, visit_gram_blocks,
 };
 
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
@@ -83,6 +83,129 @@ impl GramReader for TableGram {
             }
         }
         Ok(())
+    }
+}
+
+const TEXT_PROVIDER: ProviderId = ProviderId(192);
+
+pub(super) struct TableText<'a> {
+    pub(super) raw: &'a TableGram,
+    pub(super) domain: DomainId,
+    pub(super) control: &'a TableFactory,
+}
+
+impl TableText<'_> {
+    fn request<'a>(&self, request: AccessRequest<'a>) -> Option<&'a BigramRequest> {
+        let AccessRequest::Text(fts) = request else {
+            return None;
+        };
+        (fts.fields.is_empty()
+            && fts.raw_operation.is_none()
+            && fts.raw_matcher.is_none()
+            && matches!(fts.mode, crate::query::FtsMode::Literal)
+            && !fts
+                .gram_request
+                .grams(self.raw.descriptor.alphabet)
+                .is_empty())
+        .then_some(&fts.gram_request)
+    }
+
+    fn lists<'a>(
+        &'a self,
+        request: &'a BigramRequest,
+    ) -> impl Iterator<Item = &'a [RecordSlot]> + 'a {
+        request
+            .grams(self.raw.descriptor.alphabet)
+            .iter()
+            .map(|&(skip, key)| {
+                let channel = if skip {
+                    GramChannel::Skip
+                } else {
+                    GramChannel::Adjacent
+                };
+                self.raw
+                    .rows
+                    .get(&(channel, key))
+                    .map(Vec::as_slice)
+                    .unwrap_or_default()
+            })
+    }
+}
+
+impl IndexAccessProvider for TableText<'_> {
+    fn provider_id(&self) -> ProviderId {
+        TEXT_PROVIDER
+    }
+
+    fn propose(
+        &self,
+        term: TermId,
+        request: AccessRequest<'_>,
+        input: InputEstimate,
+        offers: &mut OfferList,
+    ) -> AccessResult<()> {
+        if input.domain == self.domain
+            && let Some(request) = self.request(request)
+            && let Some(minimum) = self.lists(request).map(|list| list.len() as u64).min()
+        {
+            offers.push(AccessOffer::new(
+                AccessId {
+                    provider: TEXT_PROVIDER,
+                    operation: OperationId(0),
+                },
+                term,
+                AccessKind::CandidateMembership,
+                Coverage::CandidateOnly,
+                ProofStrength::Candidate,
+                minimum.min(input.input_len),
+                request.gram_count(self.raw.descriptor.alphabet) as f64,
+                0.0,
+                false,
+                false,
+            ));
+        }
+        Ok(())
+    }
+
+    fn apply<'a>(
+        &self,
+        _: TermId,
+        request: AccessRequest<'_>,
+        choice: AccessId,
+        input: SlotInput<'a>,
+        execution: &AccessExecution<'_>,
+    ) -> AccessResult<Restriction<'a>> {
+        execution.check()?;
+        if choice.provider != TEXT_PROVIDER || choice.operation != OperationId(0) {
+            return Err(AccessError::StaleHandle);
+        }
+        if input.domain() != self.domain {
+            return Err(AccessError::DomainMismatch);
+        }
+        let request = self
+            .request(request)
+            .ok_or(AccessError::CapabilityUnavailable)?;
+        let lists = self.lists(request).collect::<Vec<_>>();
+        let shortest = lists
+            .iter()
+            .min_by_key(|list| list.len())
+            .expect("prepared grams");
+        let candidates: Arc<[u32]> = shortest
+            .iter()
+            .filter(|slot| {
+                input.contains(slot.0) && lists.iter().all(|list| list.binary_search(slot).is_ok())
+            })
+            .map(|slot| slot.0)
+            .collect();
+        self.control
+            .text_applications
+            .fetch_add(1, Ordering::Relaxed);
+        self.control
+            .text_candidates
+            .fetch_add(candidates.len(), Ordering::Relaxed);
+        Ok(Restriction::candidate(
+            input.replace_slots(SlotSet::from_sorted(candidates)?),
+        ))
     }
 }
 
@@ -286,7 +409,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     .unwrap();
     std::fs::write(
         root.join(kept_path),
-        "(\"score\"=7,\"name\"=\"a festival\")\n(\"score\"=7,\"name\"=\"a festival\")\n(\"score\"=7,\"name\"=\"a festival\")\n(\"score\"=9,\"name\"=\"last\")\n",
+        "(\"score\"=7,\"name\"=\"A FESTIVAL\")\n(\"score\"=7,\"name\"=\"a festival\")\n(\"score\"=7,\"name\"=\"a festival\")\n(\"score\"=9,\"name\"=\"last\")\n",
     ).unwrap();
     let mut definition = CollectionDefinition::folder("entries", "data", line_format());
     definition.schema = score_schema();
@@ -395,6 +518,24 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         assert_eq!(segment.descriptor(), source.descriptor());
     }
     let table_pin = table_index.view().unwrap();
+    let text_query = crate::query::Query {
+        collections: Vec::new(),
+        fts: Some(crate::query::FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+            mode: crate::query::FtsMode::Literal,
+            literal: "FESTIVAL".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        }),
+        filter: None,
+        options: query.options.clone(),
+    };
+    let text = table_pin.search(&text_query).unwrap();
+    let text_reference = table_pin.search_reference(&text_query).unwrap();
+    assert_eq!(text.count, Some(1));
+    assert_eq!(text.hits, text_reference.hits);
+    assert!(factory.text_applications.load(Ordering::Relaxed) > 0);
+    assert!(factory.text_candidates.load(Ordering::Relaxed) > text.hits.len());
     let flat_pin = flat.view().unwrap();
     assert!(flat_pin.segments(CollectionId(0)).unwrap().is_empty());
     let collection = &flat_pin.repository().collections()[0];
