@@ -719,6 +719,30 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(reader.map(|reader| reader as &dyn crate::index::storage::posting::PostingReader))
     }
 
+    fn grams(
+        &self,
+        component: &NativeComponentDescriptor<'_>,
+    ) -> StorageResult<Option<&dyn crate::index::storage::text::GramReader>> {
+        let reader = match component.kind {
+            NativeComponentKind::RawText => Some(&*self.raw),
+            NativeComponentKind::FallbackText => Some(&*self.fallback_text),
+            NativeComponentKind::FieldText => {
+                let (Some(path), Some(binding)) =
+                    (component.path.as_deref(), component.binding.as_deref())
+                else {
+                    return Ok(None);
+                };
+                self.custom_text.get(&(path.to_vec(), binding.to_owned()))
+            }
+            _ => None,
+        };
+        Ok(reader.map(|reader| reader as &dyn crate::index::storage::text::GramReader))
+    }
+
+    fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
+        Ok(self.sorting.readers().collect())
+    }
+
     fn descriptor(&self) -> SegmentDescriptor {
         SegmentDescriptor {
             id: self.id,

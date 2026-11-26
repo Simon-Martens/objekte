@@ -12,6 +12,7 @@ use crate::index::storage::component::ComponentKind;
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::posting::{PostingKey, ScalarKey, visit_posting_blocks};
 use crate::index::storage::segment::SegmentReader;
+use crate::index::storage::text::visit_gram_blocks;
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
 use crate::inventory::FileEntry;
@@ -243,17 +244,8 @@ impl Repository {
                         })?;
                     Ok(record.id.0.to_string())
                 };
-                let add_bitmap = |components: &mut BTreeMap<String, Vec<String>>,
-                                  label: String,
-                                  bitmap: &RoaringBitmap|
-                 -> StorageResult<()> {
-                    let output = components.entry(label).or_default();
-                    for slot in bitmap.iter() {
-                        output.push(record_id(RecordSlot(slot))?);
-                    }
-                    Ok(())
-                };
-                for descriptor in segment.components()? {
+                let descriptors = segment.components()?;
+                for descriptor in &descriptors {
                     let kind = descriptor.kind;
                     if !matches!(
                         kind,
@@ -263,7 +255,7 @@ impl Repository {
                     ) {
                         continue;
                     }
-                    let reader = segment.posting(&descriptor)?.ok_or_else(|| {
+                    let reader = segment.posting(descriptor)?.ok_or_else(|| {
                         StorageError::invalid("index signature", "advertised posting is missing")
                     })?;
                     let path = descriptor
@@ -318,28 +310,46 @@ impl Repository {
                         },
                     )?;
                 }
-                for (label, index) in [
-                    ("raw".to_owned(), &segment.index.raw),
-                    ("fallback".to_owned(), &segment.index.fallback_text),
-                ] {
-                    for (kind, map) in [("normal", &index.normal), ("skip", &index.skip)] {
-                        for (key, bitmap) in map {
-                            add_bitmap(&mut components, format!("{label}:{kind}:{key}"), bitmap)?;
+                for descriptor in &descriptors {
+                    let label = match descriptor.kind {
+                        ComponentKind::RawText => "raw".to_owned(),
+                        ComponentKind::FallbackText => "fallback".to_owned(),
+                        ComponentKind::FieldText => {
+                            let (Some(path), Some(binding)) =
+                                (descriptor.path.as_deref(), descriptor.binding.as_deref())
+                            else {
+                                return Err(StorageError::invalid(
+                                    "index signature",
+                                    "missing field text binding",
+                                )
+                                .into());
+                            };
+                            format!("text:{}:{binding}", path.join("."))
                         }
-                    }
+                        _ => continue,
+                    };
+                    let reader = segment.grams(descriptor)?.ok_or_else(|| {
+                        StorageError::invalid(
+                            "index signature",
+                            "advertised gram component is missing",
+                        )
+                    })?;
+                    visit_gram_blocks(
+                        reader,
+                        segment.descriptor().slots,
+                        &|| false,
+                        &mut |channel, gram, slots| {
+                            let output = components
+                                .entry(format!("{label}:{}:{gram}", channel.name()))
+                                .or_default();
+                            for &slot in slots {
+                                output.push(record_id(slot)?);
+                            }
+                            Ok(())
+                        },
+                    )?;
                 }
-                for ((path, binding), index) in &segment.index.custom_text {
-                    for (kind, map) in [("normal", &index.normal), ("skip", &index.skip)] {
-                        for (key, bitmap) in map {
-                            add_bitmap(
-                                &mut components,
-                                format!("text:{}:{binding}:{kind}:{key}", path.join(".")),
-                                bitmap,
-                            )?;
-                        }
-                    }
-                }
-                for column in segment.index.sorting.readers() {
+                for column in segment.order_columns()? {
                     if column.key_count() == 0 {
                         continue;
                     }

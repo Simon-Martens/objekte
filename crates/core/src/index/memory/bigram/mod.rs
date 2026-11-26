@@ -233,6 +233,42 @@ pub struct BigramIndex {
     pub skip: HashMap<u64, RoaringBitmap>,
 }
 
+impl crate::index::storage::text::GramReader for BigramIndex {
+    fn descriptor(&self) -> crate::index::storage::text::GramDescriptor {
+        crate::index::storage::text::GramDescriptor {
+            alphabet: self.alphabet,
+            version: crate::index::storage::text::BIGRAM_VERSION,
+            covered_records: self.record_count,
+        }
+    }
+
+    fn visit_blocks(
+        &self,
+        limit: crate::index::storage::transfer::BatchLimit,
+        visit: &mut crate::index::storage::text::VisitGramBlock<'_>,
+    ) -> crate::index::storage::transfer::StorageResult<()> {
+        use crate::index::storage::text::GramChannel;
+        let maximum = limit.fixed_batch_len_after(
+            "read native gram blocks",
+            size_of::<u64>() + size_of::<GramChannel>(),
+            size_of::<crate::model::RecordSlot>(),
+        )?;
+        for (channel, map) in [
+            (GramChannel::Adjacent, &self.normal),
+            (GramChannel::Skip, &self.skip),
+        ] {
+            let mut keys = map.keys().collect::<Vec<_>>();
+            keys.sort_unstable();
+            for key in keys {
+                super::transfer::visit_bitmap_blocks(&map[key], maximum, |slots| {
+                    visit(channel, *key, slots)
+                })?;
+            }
+        }
+        Ok(())
+    }
+}
+
 impl BigramIndex {
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if self

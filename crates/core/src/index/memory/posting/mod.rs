@@ -109,26 +109,14 @@ impl PostingReader for PostingIndex {
         limit: BatchLimit,
         visit: &mut VisitPostingBlock<'_>,
     ) -> StorageResult<()> {
-        let mut batch = smallvec::SmallVec::<[RecordSlot; 256]>::new();
-        let mut visit_key = |key: PostingKey<'_>, bits: &RoaringBitmap| -> StorageResult<()> {
+        let mut visit_key = |key: PostingKey<'_>, bits: &RoaringBitmap| {
             const OP: &str = "read native posting blocks";
             if bits.is_empty() {
                 limit.accepts(OP, 0, 0, key.bytes())?;
                 return visit(key, &[]);
             }
-            let count = limit.fixed_batch_len_after(OP, key.bytes(), size_of::<RecordSlot>())?;
-            for slot in bits {
-                batch.push(RecordSlot(slot));
-                if batch.len() == count {
-                    visit(key, &batch)?;
-                    batch.clear();
-                }
-            }
-            if !batch.is_empty() {
-                visit(key, &batch)?;
-                batch.clear();
-            }
-            Ok(())
+            let maximum = limit.fixed_batch_len_after(OP, key.bytes(), size_of::<RecordSlot>())?;
+            super::transfer::visit_bitmap_blocks(bits, maximum, |slots| visit(key, slots))
         };
         visit_key(PostingKey::Presence, &self.presence)?;
         for (key, slots) in &self.values {

@@ -322,8 +322,8 @@ impl IndexedCollectionSegment {
         let (raw, fallback_text, custom_text) = if let Some(projected) = bigram_projection {
             (projected.raw, projected.fallback, projected.custom)
         } else {
-            let raw = project_bigram(&self.raw, slot_map, next, bounds)?;
-            let fallback = project_bigram(&self.fallback_text, slot_map, next, bounds)?;
+            let raw = project_bigram(&*self.raw, slot_map, next, bounds)?;
+            let fallback = project_bigram(&*self.fallback_text, slot_map, next, bounds)?;
             let custom = self
                 .custom_text
                 .iter()

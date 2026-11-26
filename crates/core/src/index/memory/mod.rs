@@ -11,6 +11,7 @@ pub mod relation;
 pub mod segment;
 pub(crate) mod segment_catalog;
 pub mod sorting;
+mod transfer;
 mod worker;
 
 pub(crate) struct MemoryStorageFactory;

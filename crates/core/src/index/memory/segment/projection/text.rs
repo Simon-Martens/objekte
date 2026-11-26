@@ -3,6 +3,8 @@ use std::collections::HashMap;
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
 use crate::index::bigram::BigramIndex;
+use crate::index::storage::text::{GramChannel, GramReader, visit_gram_blocks};
+use crate::index::storage::transfer::StorageError;
 
 pub(crate) struct BigramProjection {
     pub(crate) raw: BigramIndex,
@@ -11,11 +13,41 @@ pub(crate) struct BigramProjection {
 }
 
 pub(crate) fn project_bigram(
-    index: &BigramIndex,
+    reader: &dyn GramReader,
     slots: &SlotMap<'_>,
     new_count: u32,
     bounds: Option<(u32, u32)>,
 ) -> Result<BigramIndex, String> {
+    let Some(index) = (reader as &dyn std::any::Any).downcast_ref::<BigramIndex>() else {
+        let mut projected = BigramIndex::new(reader.descriptor().alphabet);
+        projected.record_count = new_count;
+        visit_gram_blocks(
+            reader,
+            slots.len(),
+            &|| false,
+            &mut |channel, gram, block| {
+                let target = match channel {
+                    GramChannel::Adjacent => &mut projected.normal,
+                    GramChannel::Skip => &mut projected.skip,
+                };
+                for &old in block {
+                    if bounds.is_some_and(|(start, end)| old.0 < start || old.0 >= end) {
+                        continue;
+                    }
+                    if let Some(new) = slots.get(old.0 as usize).ok_or_else(|| {
+                        StorageError::invalid(
+                            "project gram blocks",
+                            "source slot outside the mapping",
+                        )
+                    })? {
+                        target.entry(gram).or_default().insert(new.0);
+                    }
+                }
+                Ok(())
+            },
+        )?;
+        return Ok(projected);
+    };
     let mut projected = BigramIndex::new(index.alphabet);
     projected.record_count = new_count;
     index.for_each_normal(|key, bitmap| {
@@ -104,5 +136,74 @@ impl IndexedCollectionSegment {
                 custom,
             })
             .collect())
+    }
+}
+
+#[cfg(test)]
+mod transfer_tests {
+    use super::*;
+    use crate::index::storage::text::{
+        BIGRAM_VERSION, BigramAlphabet, GramDescriptor, VisitGramBlock,
+    };
+    use crate::index::storage::transfer::{BatchLimit, StorageResult};
+    use crate::model::RecordSlot;
+
+    struct GramTable {
+        version: u32,
+        rows: Vec<(GramChannel, u64, RecordSlot)>,
+    }
+
+    impl GramReader for GramTable {
+        fn descriptor(&self) -> GramDescriptor {
+            GramDescriptor {
+                alphabet: BigramAlphabet::Unicode,
+                version: self.version,
+                covered_records: 4,
+            }
+        }
+
+        fn visit_blocks(
+            &self,
+            limit: BatchLimit,
+            visit: &mut VisitGramBlock<'_>,
+        ) -> StorageResult<()> {
+            limit.fixed_batch_len_after(
+                "table gram",
+                size_of::<u64>() + size_of::<GramChannel>(),
+                size_of::<RecordSlot>(),
+            )?;
+            for &(channel, key, slot) in &self.rows {
+                visit(channel, key, &[slot])?;
+            }
+            Ok(())
+        }
+    }
+
+    #[test]
+    fn gram_projection_keeps_both_channels_with_independent_short_blocks() {
+        let mut source = BigramIndex::new(BigramAlphabet::Unicode);
+        source.record_count = 4;
+        source.normal.insert(8, [0, 1, 3].into_iter().collect());
+        source.skip.insert(7, [1, 3].into_iter().collect());
+        let mut table = GramTable {
+            version: BIGRAM_VERSION,
+            rows: Vec::new(),
+        };
+        visit_gram_blocks(&source, 4, &|| false, &mut |channel, key, slots| {
+            table
+                .rows
+                .extend(slots.iter().map(|&slot| (channel, key, slot)));
+            Ok(())
+        })
+        .unwrap();
+
+        let map = [Some(RecordSlot(1)), None, None, Some(RecordSlot(0))];
+        let projected = project_bigram(&table, &SlotMap::Dense(&map), 2, None).unwrap();
+        assert_eq!(projected.normal[&8], [0, 1].into_iter().collect());
+        assert_eq!(projected.skip[&7], [0].into_iter().collect());
+        assert_eq!(projected.alphabet, BigramAlphabet::Unicode);
+
+        table.version += 1;
+        assert!(project_bigram(&table, &SlotMap::Dense(&map), 2, None).is_err());
     }
 }

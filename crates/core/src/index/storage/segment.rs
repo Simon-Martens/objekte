@@ -24,7 +24,7 @@ use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, So
 use super::ordered_slots::OrderedSlots;
 use super::posting::PostingReader;
 use super::relation::{RelationMatches, RelationReader};
-use super::text::SegmentTextAccess;
+use super::text::{GramReader, SegmentTextAccess};
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 /// Deterministic soft target used by every ordinary segment-producing path.
@@ -480,6 +480,17 @@ pub(crate) trait SegmentReader: Send + Sync {
         Ok(None)
     }
 
+    fn grams(
+        &self,
+        _component: &ComponentDescriptor<'_>,
+    ) -> StorageResult<Option<&dyn GramReader>> {
+        Ok(None)
+    }
+
+    fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
+        Ok(Vec::new())
+    }
+
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>>;
 
     fn source(&self) -> SegmentSource<'_>;
@@ -674,6 +685,14 @@ impl<D: SegmentReaderDelegate> SegmentReader for D {
         component: &ComponentDescriptor<'_>,
     ) -> StorageResult<Option<&dyn PostingReader>> {
         self.payload().posting(component)
+    }
+
+    fn grams(&self, component: &ComponentDescriptor<'_>) -> StorageResult<Option<&dyn GramReader>> {
+        self.payload().grams(component)
+    }
+
+    fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
+        self.payload().order_columns()
     }
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
