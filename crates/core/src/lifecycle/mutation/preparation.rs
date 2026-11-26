@@ -8,6 +8,7 @@ use crate::construction::file_preparation::{
     FilePreparationBinding, PreparedCollectionBuild, PreparedFileBuild, prepare_observed_file_build,
 };
 use crate::index::segment::{IndexedCollectionSegment, SegmentId};
+use crate::index::storage::segment::SegmentReader;
 use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
 use crate::inventory::discovery::selects_file;
 use crate::inventory::{FileEntry, FileStatus, SourceRevision};
@@ -183,13 +184,13 @@ pub(crate) fn index_prepared_file(
     };
     for segment in &indexed {
         let file = segment
-            .file(source.id)
+            .file_metadata(source.id)?
             .ok_or_else(|| IndexError::InvalidPublication("segment file entry missing".into()))?;
-        entry.status = entry.status.max(file.entry.status);
+        entry.status = entry.status.max(file.status);
         entry.omitted_diagnostics = entry
             .omitted_diagnostics
-            .saturating_add(file.entry.omitted_diagnostics);
-        for diagnostic in &file.entry.diagnostics {
+            .saturating_add(file.omitted_diagnostics);
+        for diagnostic in &file.diagnostics {
             entry
                 .record_diagnostic(diagnostic.clone())
                 .map_err(IndexError::InvalidPublication)?;
@@ -332,7 +333,7 @@ pub(super) fn prepare_replacement_bytes(
         return Err(IndexError::DestinationExists);
     }
     let repository = view.repository();
-    let root = &repository.files().required_root();
+    let root = repository.required_file_root();
     let mut bindings = Vec::new();
     for collection in repository.collections() {
         if collection.file_source().is_none() {

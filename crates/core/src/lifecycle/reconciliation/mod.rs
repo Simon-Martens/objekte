@@ -122,7 +122,7 @@ impl Index {
             }
         };
         let repository = snapshot.repository();
-        let Some(root) = repository.files().root() else {
+        let Some(root) = repository.repository_root() else {
             report.duration = started.elapsed();
             on_progress(&report);
             return report;

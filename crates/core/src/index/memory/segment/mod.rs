@@ -767,6 +767,36 @@ impl SegmentReader for IndexedCollectionSegment {
         self.backing.retained_body(slot)
     }
 
+    fn file_count(&self) -> usize {
+        self.files.len()
+    }
+
+    fn read_file_batch<'a>(
+        &'a self,
+        start: usize,
+        limit: BatchLimit,
+        entries: &mut Vec<Cow<'a, crate::inventory::FileEntry>>,
+    ) -> StorageResult<BatchStatus> {
+        const OP: &str = "read native segment file entries";
+        let remaining = self
+            .files
+            .get(start..)
+            .ok_or_else(|| StorageError::invalid(OP, "start beyond last file"))?;
+        let len = remaining
+            .len()
+            .min(limit.fixed_batch_len(OP, size_of::<Cow<'_, crate::inventory::FileEntry>>())?);
+        entries.extend(
+            remaining[..len]
+                .iter()
+                .map(|file| Cow::Borrowed(&file.entry)),
+        );
+        Ok(if len == remaining.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        })
+    }
+
     fn file_metadata(
         &self,
         file: FileId,

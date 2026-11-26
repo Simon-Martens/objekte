@@ -28,7 +28,12 @@ impl Repository {
 
     /// Registered source root, when the repository has a file service.
     pub fn repository_root(&self) -> Option<&std::path::Path> {
-        self.files.root()
+        self.source_root.as_deref()
+    }
+
+    pub(crate) fn required_file_root(&self) -> &std::path::Path {
+        self.repository_root()
+            .expect("file adapter requires a registered catalog root")
     }
 
     pub fn collections(&self) -> &[CollectionState] {

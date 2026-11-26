@@ -10,7 +10,7 @@ use crate::index::storage::file_catalog::{
     FileCatalogDelta, FileCatalogHandle, FileCatalogReader, FileCatalogSource, edit_file_catalog,
 };
 use crate::index::storage::liveness::InitialLiveness;
-use crate::index::storage::segment::{SegmentReader, visit_record_headers};
+use crate::index::storage::segment::{SegmentReader, visit_record_headers, visit_segment_files};
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, SegmentRouteSource, build_catalog, edited_catalog,
     install_segment,
@@ -343,18 +343,38 @@ impl PublishedIndex {
                 "segment source registration changed".into(),
             ));
         }
-        for file in &index.files {
-            if self.catalog.file(file.entry.id)?.is_none_or(|current| {
-                !current.collections.contains(&index.collection)
-                    || current.relative_path != file.entry.relative_path
-                    || current.revision != file.entry.revision
-                    || current.created_ns != file.entry.created_ns
-            }) {
+        let constructing = !self.catalog.construction_complete();
+        visit_segment_files(index, |file| {
+            let current = self.catalog.file(file.id)?.ok_or_else(|| {
+                IndexError::InvalidPublication(
+                    "segment file is not active in its collection".into(),
+                )
+            })?;
+            if !current.collections.contains(&descriptor.collection)
+                || current.relative_path != file.relative_path
+                || current.revision != file.revision
+                || current.created_ns != file.created_ns
+            {
                 return Err(IndexError::InvalidPublication(
                     "segment file is not active in its collection".into(),
                 ));
             }
-        }
+            if constructing {
+                let members = self.processed_memberships.get_mut(number).ok_or_else(|| {
+                    IndexError::InvalidPublication("processed membership missing".into())
+                })?;
+                if Arc::make_mut(members).insert(file.id.0)
+                    && current.collections.iter().all(|collection| {
+                        self.processed_memberships
+                            .get(collection.0 as usize)
+                            .is_some_and(|covered| covered.contains(file.id.0))
+                    })
+                {
+                    self.processed_files += 1;
+                }
+            }
+            Ok(())
+        })?;
         visit_record_headers(index, |headers| {
             for header in headers {
                 let id = &header.id;
@@ -373,25 +393,6 @@ impl PublishedIndex {
             }
             Ok(())
         })?;
-        if !self.catalog.construction_complete() {
-            for file in &index.files {
-                let members = self.processed_memberships.get_mut(number).ok_or_else(|| {
-                    IndexError::InvalidPublication("processed membership missing".into())
-                })?;
-                if Arc::make_mut(members).insert(file.entry.id.0) {
-                    let catalogue_entry = self.catalog.file(file.entry.id)?.ok_or_else(|| {
-                        IndexError::InvalidPublication("processed file missing".into())
-                    })?;
-                    if catalogue_entry.collections.iter().all(|collection| {
-                        self.processed_memberships
-                            .get(collection.0 as usize)
-                            .is_some_and(|covered| covered.contains(file.entry.id.0))
-                    }) {
-                        self.processed_files += 1;
-                    }
-                }
-            }
-        }
         let active = self
             .repository
             .storage_factory
@@ -859,7 +860,7 @@ impl PublishedIndex {
                 index
                     .refresh_metadata_sort_slots(
                         old_slots,
-                        self.repository.files().root(),
+                        self.repository.repository_root(),
                         &self.repository.collections()[number].definition.name,
                     )
                     .map_err(IndexError::Build)?;
@@ -878,29 +879,30 @@ fn prepare_initial_segment(
     ),
 ) -> Result<(), IndexError> {
     let (segment, observation) = segment;
-    for file in &segment.files {
-        if file.entry.status == FileStatus::Valid
-            && file.entry.diagnostics.is_empty()
-            && file.entry.omitted_diagnostics == 0
+    visit_segment_files(&segment, |file| {
+        if file.status == FileStatus::Valid
+            && file.diagnostics.is_empty()
+            && file.omitted_diagnostics == 0
         {
-            continue;
+            return Ok(());
         }
         let mut merged = next
             .catalog
-            .file(file.entry.id)?
+            .file(file.id)?
             .ok_or(IndexError::UnknownFile)?
             .into_owned();
-        merged.status = merged.status.max(file.entry.status);
-        for diagnostic in &file.entry.diagnostics {
+        merged.status = merged.status.max(file.status);
+        for diagnostic in &file.diagnostics {
             merged
                 .record_diagnostic(diagnostic.clone())
                 .map_err(IndexError::InvalidPublication)?;
         }
         merged.omitted_diagnostics = merged
             .omitted_diagnostics
-            .saturating_add(file.entry.omitted_diagnostics);
+            .saturating_add(file.omitted_diagnostics);
         next.catalog = next.catalog.replaced(merged, None, None)?;
-    }
+        Ok::<_, IndexError>(())
+    })?;
     next.stage_segment(&mut Arc::new(segment), observation)
 }
 
@@ -916,7 +918,7 @@ fn verify_initial_files(
     use rayon::prelude::*;
 
     let repository = view.repository();
-    let root = repository.files().required_root();
+    let root = repository.required_file_root();
     let mut selections = Vec::new();
     let mut by_collection = std::collections::HashMap::new();
     for segment in segments {

@@ -74,7 +74,7 @@ fn materialize_merged_address(
             })
         }
         ReturnMode::Bytes | ReturnMode::Logical => {
-            let path = repo.files.required_root().join(&file.relative_path);
+            let path = repo.required_file_root().join(&file.relative_path);
             let bytes = crate::source::access::read_record_range_for_search(
                 resolved.collection.required_file_reader().reader(),
                 &path,
@@ -549,7 +549,7 @@ fn scan_direct_target_parallel(
         range: (resolved.record).record_range(),
         file: Some(resolved.file.as_ref()),
         collection_name: &target_collection.definition.name,
-        repository_root: Some(repo.files.required_root()),
+        repository_root: Some(repo.required_file_root()),
     };
     let matched = match predicate {
         DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
@@ -945,7 +945,7 @@ fn try_direct_relation_page(
                     range: locator.and_then(|link| link.range),
                     file: file.as_deref(),
                     collection_name: &target_collection.definition.name,
-                    repository_root: repo.files.root(),
+                    repository_root: repo.repository_root(),
                 };
                 match &predicate {
                     DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
@@ -1004,7 +1004,7 @@ fn try_direct_relation_page(
                     range: (resolved.record).record_range(),
                     file: Some(resolved.file.as_ref()),
                     collection_name: &target_collection.definition.name,
-                    repository_root: Some(repo.files.required_root()),
+                    repository_root: Some(repo.required_file_root()),
                 };
                 match &predicate {
                     DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
@@ -1645,7 +1645,7 @@ fn scan_relation_file_parallel(
         range: (record).record_range(),
         file: Some(&resolved.file),
         collection_name: &resolved.collection.definition.name,
-        repository_root: Some(repo.files.required_root()),
+        repository_root: Some(repo.required_file_root()),
     };
     let mut evidence = HashSet::new();
     let mut relation_work = crate::query_execution::relations::work::RelationWork::default();
@@ -3078,7 +3078,7 @@ fn try_native_relation_scan(
                         range,
                         file: file.as_deref(),
                         collection_name: &collection.definition.name,
-                        repository_root: repo.files.root(),
+                        repository_root: repo.repository_root(),
                     };
                     let mut relation_work =
                         crate::query_execution::relations::work::RelationWork::default();
@@ -3584,7 +3584,7 @@ pub(super) fn search_segmented_relations(
                 range: (record).record_range(),
                 file: Some(&resolved.file),
                 collection_name: &resolved.collection.definition.name,
-                repository_root: Some(repo.files.required_root()),
+                repository_root: Some(repo.required_file_root()),
             };
             let mut evidence = HashSet::new();
             let mut relation_work =

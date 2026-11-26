@@ -233,7 +233,7 @@ pub(super) fn verify_old_content_with_layout(
             #[cfg(test)]
             super::tests::reach_file_preparation_checkpoint("old-layout");
             let mut layout = reconstruct_file_layout(
-                repository.files().required_root(),
+                repository.required_file_root(),
                 &input,
                 old_bytes,
                 &bindings,

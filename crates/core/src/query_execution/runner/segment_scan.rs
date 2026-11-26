@@ -125,7 +125,7 @@ pub(super) fn verify_local_segment_record(
         range: (record).record_range(),
         file: Some(file),
         collection_name: &collection.definition.name,
-        repository_root: Some(repo.files.required_root()),
+        repository_root: Some(repo.required_file_root()),
     };
     let mut evidence = HashSet::new();
     let filter_matches = if let Some(fields) = filter_proof {
@@ -222,7 +222,7 @@ pub(super) fn scan_segment_file_parallel(
         crate::model::FileId(file_id),
     )?;
     let file = file.as_ref();
-    let path = repo.files.required_root().join(&file.relative_path);
+    let path = repo.required_file_root().join(&file.relative_path);
     let mut reader = RecordRangeReader::open_for_search(&path, file.revision, None)?
         .with_backend(collection.required_file_reader().reader_handle());
     let mut result = SegmentFileScan {
@@ -303,7 +303,7 @@ pub(super) fn scan_segment_file_parallel(
                 range: (record).record_range(),
                 file: Some(file),
                 collection_name: &collection.definition.name,
-                repository_root: Some(repo.files.required_root()),
+                repository_root: Some(repo.required_file_root()),
             };
             result.matches += 1;
             result.sort_key_evaluations += u64::from(sort.bound.has_computed);

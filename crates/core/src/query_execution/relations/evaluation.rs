@@ -472,7 +472,7 @@ fn visit_merged_hop(
                 collection_name: &view.repository().collections[address.collection.0 as usize]
                     .definition
                     .name,
-                repository_root: view.repository().files.root(),
+                repository_root: view.repository().repository_root(),
             };
             merge_truth(
                 truth,
@@ -953,7 +953,7 @@ fn visit_hop(
                 range: (record).record_range(),
                 file: Some(file),
                 collection_name: &collection.definition.name,
-                repository_root: Some(repo.files.required_root()),
+                repository_root: Some(repo.required_file_root()),
             };
             merge_truth(
                 truth,
@@ -997,7 +997,7 @@ fn visit_hop(
             range: (record).record_range(),
             file: Some(file),
             collection_name: &collection.definition.name,
-            repository_root: Some(repo.files.required_root()),
+            repository_root: Some(repo.required_file_root()),
         };
         merge_truth(
             truth,

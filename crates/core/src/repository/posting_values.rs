@@ -498,7 +498,7 @@ fn scan_inferred_segment(
             return Err("active inferred segment file changed without retirement".into());
         }
         let mut reader = RecordRangeReader::open_for_search(
-            &repo.files.required_root().join(&current.relative_path),
+            &repo.required_file_root().join(&current.relative_path),
             current.revision,
             None,
         )?
@@ -594,7 +594,7 @@ fn verify_legacy_facts(
             return Err("legacy count verification source revision changed".into());
         }
         let mut reader = RecordRangeReader::open_for_search(
-            &repo.files.required_root().join(&current.relative_path),
+            &repo.required_file_root().join(&current.relative_path),
             current.revision,
             None,
         )?

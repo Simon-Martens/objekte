@@ -48,6 +48,8 @@ pub mod statistics;
 /// ```
 pub struct Repository {
     pub(crate) storage_factory: Arc<dyn StorageFactory>,
+    /// Registered path for source access and locator interpretation.
+    pub(crate) source_root: Option<Arc<std::path::Path>>,
     pub(crate) files: Arc<FileInventory>,
     /// Whole-file SHA-256 captured during the fresh builder's indexed reads.
     /// A missing digest means at least one eligible binding could not read
@@ -110,7 +112,7 @@ impl Repository {
     pub(crate) fn empty_like(&self) -> Result<Self, String> {
         let mut empty = if !self.programmatic {
             crate::construction::repository_state::initialize_empty(
-                self.files.required_root().to_path_buf(),
+                self.required_file_root().to_path_buf(),
                 self.collections
                     .iter()
                     .map(|state| state.required_file_definition().clone())
@@ -129,7 +131,7 @@ impl Repository {
                     .collect(),
                 self.options,
                 &[],
-                self.files.root().map(|root| root.to_path_buf()),
+                self.repository_root().map(|root| root.to_path_buf()),
                 self.collections
                     .iter()
                     .map(|state| state.file_source.clone())

@@ -209,7 +209,7 @@ impl Index {
                 }
                 for (source, identity, fingerprint, backend) in observed {
                     crate::construction::file_preparation::verify_current_source(
-                        repository.files().required_root(),
+                        repository.required_file_root(),
                         &source,
                         identity,
                         fingerprint,
@@ -241,7 +241,7 @@ impl Index {
                 .map(|collection| collection.required_file_definition().clone())
                 .collect::<Vec<_>>();
             let task = Self::start_build_with_factory(
-                repository.files().required_root().to_path_buf(),
+                repository.required_file_root().to_path_buf(),
                 definitions,
                 repository.options(),
                 repository.sources.clone(),

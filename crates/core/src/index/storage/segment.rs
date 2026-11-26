@@ -16,6 +16,7 @@ use crate::query::options::SortField;
 use crate::query_access::membership::SlotSet;
 use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
+use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
 use super::relation::RelationReader;
@@ -198,6 +199,51 @@ pub(crate) fn visit_record_headers<E: From<StorageError>>(
     }
 }
 
+/// Visit the local file membership of a sealed segment. The buffer contains
+/// one bounded page and is reused across refills.
+pub(crate) fn visit_segment_files<E: From<StorageError>>(
+    reader: &dyn SegmentReader,
+    mut visit: impl FnMut(&FileEntry) -> Result<(), E>,
+) -> Result<(), E> {
+    const OP: &str = "read segment file entries";
+    let total = reader.file_count();
+    if total == 0 {
+        return Ok(());
+    }
+    let mut entries = Vec::new();
+    let mut start = 0usize;
+    loop {
+        let status = reader.read_file_batch(start, FILE_TRANSFER_LIMIT, &mut entries)?;
+        let end = start
+            .checked_add(entries.len())
+            .ok_or_else(|| StorageError::invalid(OP, "file count overflow"))?;
+        if end > total || (status == BatchStatus::Done) != (end == total) || entries.is_empty() {
+            return Err(StorageError::invalid(OP, "invalid batch progress").into());
+        }
+        let mut bytes = 0;
+        for (index, entry) in entries.drain(..).enumerate() {
+            let next_bytes = match &entry {
+                Cow::Borrowed(_) => size_of::<Cow<'_, FileEntry>>(),
+                Cow::Owned(file) => FileTransferRow {
+                    entry: Cow::Borrowed(file),
+                    fingerprint: None,
+                    configuration: None,
+                }
+                .bytes(),
+            };
+            if !FILE_TRANSFER_LIMIT.accepts(OP, index, bytes, next_bytes)? {
+                return Err(StorageError::invalid(OP, "file batch exceeds its limits").into());
+            }
+            bytes += next_bytes;
+            visit(&entry)?;
+        }
+        if status == BatchStatus::Done {
+            return Ok(());
+        }
+        start = end;
+    }
+}
+
 /// Logical provenance for a file-backed address or an optional direct link.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) struct FileRangeLocator {
@@ -272,6 +318,24 @@ pub(crate) trait SegmentReader: Send + Sync {
     fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>>;
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>>;
+
+    fn file_count(&self) -> usize {
+        0
+    }
+
+    /// Append a batch of metadata for the local file membership, without
+    /// reading records or original sources.
+    fn read_file_batch<'a>(
+        &'a self,
+        _start: usize,
+        _limit: BatchLimit,
+        _entries: &mut Vec<Cow<'a, FileEntry>>,
+    ) -> StorageResult<BatchStatus> {
+        Err(StorageError::invalid(
+            "read segment file entries",
+            "file access unavailable",
+        ))
+    }
 
     fn file_metadata(&self, file: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>>;
 
@@ -367,6 +431,19 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
         self.as_ref().retained_body(slot)
+    }
+
+    fn file_count(&self) -> usize {
+        self.as_ref().file_count()
+    }
+
+    fn read_file_batch<'a>(
+        &'a self,
+        start: usize,
+        limit: BatchLimit,
+        entries: &mut Vec<Cow<'a, FileEntry>>,
+    ) -> StorageResult<BatchStatus> {
+        self.as_ref().read_file_batch(start, limit, entries)
     }
 
     fn file_metadata(&self, file: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>> {

@@ -469,7 +469,7 @@ fn inventory_fts_evidence(
             range: (record).record_range(),
             file: Some(file),
             collection_name: &collection.definition.name,
-            repository_root: Some(repo.files.required_root()),
+            repository_root: Some(repo.required_file_root()),
         };
         let mut evidence = HashSet::new();
         if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
@@ -501,7 +501,7 @@ fn segment_metadata_fts_evidence(
             range: (resolved.record).record_range(),
             file: Some(resolved.file.as_ref()),
             collection_name: &collection.definition.name,
-            repository_root: Some(repo.files.required_root()),
+            repository_root: Some(repo.required_file_root()),
         };
         let mut evidence = HashSet::new();
         if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
@@ -1241,7 +1241,7 @@ pub(crate) fn record_unavailable_hit(
     let file = catalog
         .file(crate::model::FileId(hit.file_id))?
         .ok_or("materialized hit file missing from pinned catalog")?;
-    let path = repo.files.required_root().join(&file.relative_path);
+    let path = repo.required_file_root().join(&file.relative_path);
     let range = ByteRange {
         start: hit.byte_start,
         end: hit.byte_end,
@@ -1644,7 +1644,7 @@ fn has_unavailable_active_source(
     catalog: &dyn FileCatalogReader,
 ) -> Result<bool, String> {
     let unavailable = |file: &FileEntry| {
-        let path = repo.files.required_root().join(&file.relative_path);
+        let path = repo.required_file_root().join(&file.relative_path);
         probe_source_unavailable_for_search(&path, file.revision, None).is_some()
     };
     for (index, collection) in repo.collections.iter().enumerate() {
@@ -3220,7 +3220,7 @@ fn search_segmented_impl(
                         file: origin.as_deref(),
                         range: locator.and_then(|locator| locator.range),
                         collection_name: &collection.definition.name,
-                        repository_root: repo.files().root(),
+                        repository_root: repo.repository_root(),
                     };
                     counters.scanned_records += 1;
                     let mut evidence = HashSet::new();
@@ -3546,7 +3546,7 @@ fn search_segmented_impl(
                     catalog,
                     crate::model::FileId(file_id),
                 )?;
-                let path = repo.files.required_root().join(&file.relative_path);
+                let path = repo.required_file_root().join(&file.relative_path);
                 let mut reader = RecordRangeReader::open_for_search(&path, file.revision, context)?
                     .with_backend(collection.required_file_reader().reader_handle());
                 delta_opened.insert(file_id);
@@ -3634,7 +3634,7 @@ fn search_segmented_impl(
                             range: (record).record_range(),
                             file: Some(file.as_ref()),
                             collection_name: &collection.definition.name,
-                            repository_root: Some(repo.files.required_root()),
+                            repository_root: Some(repo.required_file_root()),
                         };
                         total += 1;
                         counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
@@ -6513,7 +6513,7 @@ fn materialize_computed_cached<'a>(
             range: (record).record_range(),
             file: Some(&repo.files.files[record.file.0 as usize]),
             collection_name: &collection.definition.name,
-            repository_root: Some(repo.files.required_root()),
+            repository_root: Some(repo.required_file_root()),
         };
         let key = rank_key_from_context(&sort, repo, member.collection_index, &ctx, None)?;
         counters.sort_key_evaluations += 1;
@@ -6598,7 +6598,7 @@ fn materialize_computed_cached<'a>(
                     range: (record).record_range(),
                     file: Some(&repo.files.files[file_id as usize]),
                     collection_name: &collection.definition.name,
-                    repository_root: Some(repo.files.required_root()),
+                    repository_root: Some(repo.required_file_root()),
                 };
                 let key = rank_key_from_context(&sort, repo, collection_index, &ctx, None)?;
                 offer_cached_key(

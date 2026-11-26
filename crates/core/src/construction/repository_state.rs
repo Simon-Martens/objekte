@@ -177,6 +177,7 @@ fn initialize_empty_configured(
         options.build_workers,
         std::thread::available_parallelism().ok(),
     )?;
+    let source_root = root.as_deref().map(Arc::from);
     let files = Arc::new(match root {
         Some(root) => FileInventory::new(root),
         None => FileInventory::without_root(),
@@ -337,6 +338,7 @@ fn initialize_empty_configured(
     let catalog_registered = !programmatic || files.root().is_some();
     Ok(Repository {
         storage_factory,
+        source_root,
         files,
         base_fingerprints: Vec::new(),
         collections,

@@ -34,7 +34,7 @@ fn verify_file_source(view: &IndexView, file: &PreparedFileBuild) -> Result<(), 
     #[cfg(not(test))]
     let identity = file.identity;
     verify_current_source(
-        view.repository().files().required_root(),
+        view.repository().required_file_root(),
         &file.source,
         identity,
         file.fingerprint,
@@ -176,7 +176,7 @@ fn collection_names(
 }
 
 fn relative_path(view: &IndexView, path: &Path) -> Result<PathBuf, IndexError> {
-    let root = &view.repository().files().required_root();
+    let root = view.repository().required_file_root();
     let relative = if path.is_absolute() {
         path.strip_prefix(root)
             .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?
@@ -207,7 +207,7 @@ fn path_independent_memberships(
         return Ok(false);
     }
     let repository = view.repository();
-    let root = &repository.files().required_root();
+    let root = repository.required_file_root();
     for collection in repository.collections() {
         if collection.file_source().is_none() {
             continue;
@@ -258,10 +258,10 @@ fn destination_has_importer(view: &IndexView, destination: &Path) -> Result<bool
             "move destination is in a generated index namespace".into(),
         ));
     }
-    let root =
-        view.repository().files().root().ok_or_else(|| {
-            IndexError::SourceUnavailable("file catalog is not registered".into())
-        })?;
+    let root = view
+        .repository()
+        .repository_root()
+        .ok_or_else(|| IndexError::SourceUnavailable("file catalog is not registered".into()))?;
     for collection in view.repository().collections() {
         let Some(source) = collection.file_source() else {
             continue;
@@ -620,7 +620,7 @@ impl Index {
         if !selected {
             if imported {
                 let relative = relative_path(&view, destination)?;
-                let root = view.repository().files().required_root();
+                let root = view.repository().required_file_root();
                 if !root.join(relative).is_file() {
                     return Err(IndexError::IncompatibleConfiguration(
                         "no configured collection selects this file".into(),
@@ -700,7 +700,7 @@ impl Index {
             if view.file_configuration(handle.file_id)? != Some(view.configuration_identity()) {
                 return Ok(None);
             }
-            let absolute = view.repository().files().required_root().join(&relative);
+            let absolute = view.repository().required_file_root().join(&relative);
             let Some(backend) = old.collections.iter().find_map(|id| {
                 view.repository()
                     .collections()

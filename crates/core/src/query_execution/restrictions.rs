@@ -2567,7 +2567,7 @@ fn fallback_truth(
                         range: (record).record_range(),
                         file: Some(file),
                         collection_name: &collection.definition.name,
-                        repository_root: Some(repo.files.required_root()),
+                        repository_root: Some(repo.required_file_root()),
                     };
                     if eval_term(term, &ctx)? {
                         yes.insert(slot);
@@ -2769,7 +2769,7 @@ fn term_set(
                     range: (record).record_range(),
                     file: Some(file),
                     collection_name: &collection.definition.name,
-                    repository_root: Some(repo.files.required_root()),
+                    repository_root: Some(repo.required_file_root()),
                 };
                 if eval_term(term, &ctx)? {
                     result.insert(slot);
@@ -2911,7 +2911,7 @@ fn term_set(
                     range: (record).record_range(),
                     file: Some(file),
                     collection_name: &collection.definition.name,
-                    repository_root: Some(repo.files.required_root()),
+                    repository_root: Some(repo.required_file_root()),
                 };
                 if eval_term(term, &ctx)? {
                     result.extend(slots.iter().map(|s| s.0));
@@ -2932,7 +2932,7 @@ fn term_set(
                     range: (record).record_range(),
                     file: Some(file),
                     collection_name: &collection.definition.name,
-                    repository_root: Some(repo.files.required_root()),
+                    repository_root: Some(repo.required_file_root()),
                 };
                 if eval_term(term, &ctx)? {
                     return Ok(Some(domain.clone()));
@@ -2949,7 +2949,7 @@ fn term_set(
                 range: (record).record_range(),
                 file: Some(file),
                 collection_name: &collection.definition.name,
-                repository_root: Some(repo.files.required_root()),
+                repository_root: Some(repo.required_file_root()),
             };
             if eval_term(term, &ctx)? {
                 result.insert(record.slot.0);
