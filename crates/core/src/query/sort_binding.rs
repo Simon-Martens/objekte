@@ -796,8 +796,9 @@ impl ComputedSort {
                     let mut positions = Vec::new();
                     visit_reference_occurrences(
                         value,
-                        &collection.relations[hop.relation.ordinal as usize]
-                            .declaration
+                        &collection
+                            .relation_declaration(hop.relation.ordinal)
+                            .ok_or("sort relation declaration missing")?
                             .path,
                         &mut positions,
                         &mut |id, positions| {
@@ -903,8 +904,9 @@ impl ComputedSort {
                     let mut positions = Vec::new();
                     visit_reference_occurrences(
                         value,
-                        &collection.relations[hop.relation.ordinal as usize]
-                            .declaration
+                        &collection
+                            .relation_declaration(hop.relation.ordinal)
+                            .ok_or("sort relation declaration missing")?
                             .path,
                         &mut positions,
                         &mut |id, positions| {

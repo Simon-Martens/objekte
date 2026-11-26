@@ -70,6 +70,17 @@ impl CollectionState {
         }
     }
 
+    pub(crate) fn relation_declaration(
+        &self,
+        ordinal: u32,
+    ) -> Option<&crate::schema::relations::RelationDefinition> {
+        self.definition
+            .schema
+            .relations()
+            .values()
+            .nth(ordinal as usize)
+    }
+
     pub(crate) fn relation_reader(
         &self,
         ordinal: usize,

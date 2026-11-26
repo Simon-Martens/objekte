@@ -276,15 +276,14 @@ fn bind_related_term(
             if first_hop.direction != HopDirection::Forward {
                 return Err("source-dependent multivalued field needs a forward shared [*] occurrence scope".into());
             }
-            let relation =
-                &repo.collections[collection_index].relations[first_hop.relation.ordinal as usize];
+            let declaration = repo.declared_relation(first_hop.relation)?.declaration;
             let relation_scopes = relation_source_scopes(
                 if target_is_lhs {
                     &term.path
                 } else {
                     &field.path
                 },
-                &relation.declaration.path,
+                &declaration.path,
             );
             if source_scopes.is_empty()
                 || !relation_scopes.starts_with(&source_scopes)
@@ -327,11 +326,9 @@ fn bind_related_term(
     outer.quantifier = term.quantifier;
     outer.multi |= hops.iter().any(|hop| {
         hop.direction == HopDirection::Backlink
-            || repo.collections[hop.relation.source.0 as usize].relations
-                [hop.relation.ordinal as usize]
-                .declaration
-                .cardinality
-                == RelationCardinality::Many
+            || repo.collections[hop.relation.source.0 as usize]
+                .relation_declaration(hop.relation.ordinal)
+                .is_some_and(|declaration| declaration.cardinality == RelationCardinality::Many)
     });
     outer.related = Some(Box::new(BoundRelationPath {
         hops,
@@ -399,7 +396,7 @@ pub(crate) fn resolve_path(
             return Err("backlink path requires an alias".into());
         };
         let relation = repo
-            .backlink_relation(&repo.collections[current].definition.name, alias)
+            .declared_backlink(repo.collections[current].generation.collection, alias)?
             .ok_or_else(|| format!("unknown backlink alias {alias}"))?;
         let mut consumed = 1;
         let mut selectors = Vec::new();
@@ -456,11 +453,12 @@ pub(crate) fn resolve_path(
                     .iter()
                     .any(|step| matches!(step, PathStep::Field(_)))
                 {
-                    let relation = repo.collections[current]
-                        .relations
-                        .iter()
-                        .find(|item| item.declaration.path == declaration.path)
-                        .ok_or("declared relation index is missing")?;
+                    let relation = repo
+                        .declared_relation_by_path(
+                            repo.collections[current].generation.collection,
+                            &declaration.path,
+                        )?
+                        .ok_or("declared relation has no target")?;
                     relation_at = Some((relation, consumed, selectors));
                     break;
                 }

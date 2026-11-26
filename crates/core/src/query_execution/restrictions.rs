@@ -2776,7 +2776,7 @@ fn plan_expr_restricted_inner<'a>(
     }
     if collection.logical_records.len() == collection.generation.records.len() as u64 {
         let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence, context)?;
-        if !collection.relations.is_empty() {
+        if !collection.definition.schema.relations().is_empty() {
             let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
             crate::query_access::relations::semijoin::restrict(
                 repo,
@@ -2823,7 +2823,7 @@ fn plan_expr_restricted_inner<'a>(
         logical.choices.extend(fallback.choices);
     }
     logical.candidates = Some(candidates);
-    if !collection.relations.is_empty() {
+    if !collection.definition.schema.relations().is_empty() {
         let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
         crate::query_access::relations::semijoin::restrict(
             repo,

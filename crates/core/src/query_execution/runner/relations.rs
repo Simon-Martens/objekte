@@ -145,17 +145,17 @@ fn eligible_one_hop_relation_term<'a>(
         return None;
     }
     let source = repo.collections.get(hop.from.0 as usize)?;
-    let relation = source.relations.get(hop.relation.ordinal as usize)?;
+    let relation = source.relation_declaration(hop.relation.ordinal)?;
     if term.quantifier == Quantifier::Default {
-        if relation.declaration.cardinality != crate::schema::relations::RelationCardinality::One {
+        if relation.cardinality != crate::schema::relations::RelationCardinality::One {
             return None;
         }
-        for depth in 1..relation.declaration.path.len() {
+        for depth in 1..relation.path.len() {
             let ancestor = source
                 .definition
                 .schema
                 .fields()
-                .get(&relation.declaration.path[..depth])?;
+                .get(&relation.path[..depth])?;
             if matches!(ancestor.kind, crate::model::LogicalType::Array(_)) {
                 return None;
             }
@@ -730,8 +730,7 @@ fn try_direct_relation_page(
         target_index
     };
     let source_relation = repo.collections[relation_owner]
-        .relations
-        .get(hop.relation.ordinal as usize)
+        .relation_declaration(hop.relation.ordinal)
         .ok_or("direct relation declaration missing")?;
     let direct_sort_column = if sort.bound.has_computed {
         if hop.direction == crate::query::binding::relation::HopDirection::Backlink {
@@ -746,9 +745,7 @@ fn try_direct_relation_page(
         let Some(path) = computed.direct_related_target_column(hop) else {
             return Ok(None);
         };
-        if source_relation.declaration.cardinality
-            != crate::schema::relations::RelationCardinality::One
-        {
+        if source_relation.cardinality != crate::schema::relations::RelationCardinality::One {
             return Ok(None);
         }
         let field = FieldPath::parse(path)?;
@@ -2344,20 +2341,17 @@ fn native_multi_hop_truth(
             }
             let source = &repo.collections[hop.from.0 as usize];
             let relation = source
-                .relations
-                .get(hop.relation.ordinal as usize)
+                .relation_declaration(hop.relation.ordinal)
                 .ok_or("multi-hop relation declaration missing")?;
-            if relation.declaration.cardinality
-                != crate::schema::relations::RelationCardinality::One
-            {
+            if relation.cardinality != crate::schema::relations::RelationCardinality::One {
                 return Ok(None);
             }
-            for depth in 1..relation.declaration.path.len() {
+            for depth in 1..relation.path.len() {
                 let ancestor = source
                     .definition
                     .schema
                     .fields()
-                    .get(&relation.declaration.path[..depth]);
+                    .get(&relation.path[..depth]);
                 if ancestor
                     .is_some_and(|field| matches!(field.kind, crate::model::LogicalType::Array(_)))
                 {

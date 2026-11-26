@@ -157,6 +157,91 @@ fn inspected_record(
 }
 
 impl Repository {
+    pub(crate) fn declared_relation(
+        &self,
+        id: crate::schema::relations::RelationId,
+    ) -> Result<crate::index::storage::relation::DeclaredRelation<'_>, String> {
+        let declaration = self
+            .collections
+            .get(id.source.0 as usize)
+            .and_then(|collection| collection.relation_declaration(id.ordinal))
+            .ok_or("relation declaration missing")?;
+        let target_collection = self
+            .collections
+            .iter()
+            .find(|collection| collection.definition.name == declaration.target_collection)
+            .ok_or("declared target collection missing")?
+            .generation
+            .collection;
+        Ok(crate::index::storage::relation::DeclaredRelation {
+            id,
+            declaration,
+            target_collection,
+        })
+    }
+
+    pub(crate) fn declared_relation_by_path(
+        &self,
+        source: CollectionId,
+        path: &[String],
+    ) -> Result<Option<crate::index::storage::relation::DeclaredRelation<'_>>, String> {
+        let collection = self
+            .collections
+            .get(source.0 as usize)
+            .ok_or("relation source collection missing")?;
+        let Some(ordinal) = collection
+            .definition
+            .schema
+            .relations()
+            .keys()
+            .position(|candidate| candidate == path)
+        else {
+            return Ok(None);
+        };
+        let ordinal = u32::try_from(ordinal).map_err(|_| "too many relation declarations")?;
+        self.declared_relation(crate::schema::relations::RelationId { source, ordinal })
+            .map(Some)
+    }
+
+    pub(crate) fn declared_backlink(
+        &self,
+        target: CollectionId,
+        alias: &str,
+    ) -> Result<Option<crate::index::storage::relation::DeclaredRelation<'_>>, String> {
+        let target_state = self
+            .collections
+            .get(target.0 as usize)
+            .ok_or("backlink target collection missing")?;
+        for collection in &self.collections {
+            for (ordinal, declaration) in collection
+                .definition
+                .schema
+                .relations()
+                .values()
+                .enumerate()
+            {
+                if declaration.target_collection == target_state.definition.name
+                    && declaration.reverse_alias.as_deref() == Some(alias)
+                {
+                    let ordinal =
+                        u32::try_from(ordinal).map_err(|_| "too many relation declarations")?;
+                    let id = crate::schema::relations::RelationId {
+                        source: collection.generation.collection,
+                        ordinal,
+                    };
+                    return Ok(Some(crate::index::storage::relation::DeclaredRelation {
+                        id,
+                        declaration,
+                        target_collection: target,
+                    }));
+                }
+            }
+        }
+        Ok(None)
+    }
+}
+
+impl Repository {
     /// Page one record's outgoing occurrences without opening source files.
     pub fn relation_outgoing_page(
         &self,
@@ -498,7 +583,7 @@ pub(crate) fn relation_outgoing_page_segmented(
         .find(|collection| collection.definition.name == source_collection)
         .ok_or("source collection not found")?;
     let relation = repo
-        .relation_index(source_collection, relation_path)
+        .declared_relation_by_path(source.generation.collection, relation_path)?
         .ok_or("relation not found in source collection")?;
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
     let source_address = view
@@ -563,7 +648,7 @@ pub(crate) fn relation_backlink_page_segmented(
         .find(|collection| collection.definition.name == target_collection)
         .ok_or("target collection not found")?;
     let relation = repo
-        .backlink_relation(target_collection, reverse_alias)
+        .declared_backlink(target.generation.collection, reverse_alias)?
         .ok_or("reverse relation alias not found")?;
     let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
     let target_address = view
@@ -616,7 +701,12 @@ pub(crate) fn collection_graph_segmented(
         .collect::<Vec<_>>();
     let mut edges = Vec::new();
     for (source_index, collection) in repo.collections.iter().enumerate() {
-        for relation in &collection.relations {
+        for ordinal in 0..collection.definition.schema.relations().len() {
+            let ordinal = u32::try_from(ordinal).map_err(|_| "too many relation declarations")?;
+            let relation = repo.declared_relation(crate::schema::relations::RelationId {
+                source: collection.generation.collection,
+                ordinal,
+            })?;
             let target_index = relation.target_collection.0 as usize;
             nodes[source_index].outgoing.push(relation.id);
             nodes[target_index].incoming.push(relation.id);

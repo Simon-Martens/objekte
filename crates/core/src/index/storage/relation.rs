@@ -25,6 +25,12 @@ pub(crate) struct RelationMatches<'a> {
     pub members: u64,
 }
 
+pub(crate) struct DeclaredRelation<'a> {
+    pub id: crate::schema::relations::RelationId,
+    pub declaration: &'a RelationDefinition,
+    pub target_collection: crate::model::CollectionId,
+}
+
 pub(crate) type VisitRelationTarget<'a> = dyn FnMut(&str, &[u32]) -> StorageResult<bool> + 'a;
 
 pub(crate) trait RelationReader: std::any::Any + Send + Sync {

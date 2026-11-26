@@ -182,10 +182,8 @@ impl<'a> MergedRelationView<'a> {
         relation: RelationId,
     ) -> Result<RelationCardinality, String> {
         Ok(self.repo.collections[relation.source.0 as usize]
-            .relations
-            .get(relation.ordinal as usize)
+            .relation_declaration(relation.ordinal)
             .ok_or("merged relation declaration missing")?
-            .declaration
             .cardinality)
     }
 
@@ -781,11 +779,9 @@ impl<'a> MergedRelationView<'a> {
             owned = value;
             &owned
         };
-        let declaration = &self.repo.collections[relation.source.0 as usize]
-            .relations
-            .get(relation.ordinal as usize)
-            .ok_or("reference relation declaration missing")?
-            .declaration;
+        let declaration = self.repo.collections[relation.source.0 as usize]
+            .relation_declaration(relation.ordinal)
+            .ok_or("reference relation declaration missing")?;
         logical_references(value, &declaration.path).map(Some)
     }
 
@@ -812,12 +808,9 @@ impl<'a> MergedRelationView<'a> {
                 complete: cached.complete,
             });
         }
-        let declaration = &self.repo.collections[relation.source.0 as usize]
-            .relations
-            .get(relation.ordinal as usize)
-            .ok_or("reference backlink declaration missing")?
-            .declaration
-            .clone();
+        let declaration = self.repo.collections[relation.source.0 as usize]
+            .relation_declaration(relation.ordinal)
+            .ok_or("reference backlink declaration missing")?;
         let mut keyed = self
             .visible_addresses(relation.source)?
             .into_iter()
