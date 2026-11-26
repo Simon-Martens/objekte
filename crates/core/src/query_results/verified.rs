@@ -16,9 +16,40 @@ pub(crate) struct CachedMember {
     pub matched_fields: Arc<[String]>,
 }
 
+impl CachedMember {
+    pub(crate) fn stored_bytes(&self) -> usize {
+        self.matched_fields
+            .iter()
+            .fold(std::mem::size_of::<Self>(), |bytes, field| {
+                bytes
+                    .saturating_add(std::mem::size_of::<String>())
+                    .saturating_add(field.len())
+            })
+    }
+}
+
 /// Complete membership set held in the result cache.
+#[derive(Debug)]
 pub(crate) struct CachedResult {
     pub members: Vec<CachedMember>,
+    member_bytes: usize,
+}
+
+impl CachedResult {
+    pub(crate) fn new(members: Vec<CachedMember>) -> Self {
+        let member_bytes = members
+            .iter()
+            .map(CachedMember::stored_bytes)
+            .fold(0, usize::saturating_add);
+        Self::with_member_bytes(members, member_bytes)
+    }
+
+    pub(crate) fn with_member_bytes(members: Vec<CachedMember>, member_bytes: usize) -> Self {
+        Self {
+            members,
+            member_bytes,
+        }
+    }
 }
 
 /// Result cache value together with its byte cost.
@@ -75,11 +106,6 @@ impl VerifiedCache {
         Some(result)
     }
 
-    /// The caller must drop displaced results after releasing its cache lock.
-    pub fn insert(&mut self, key: Vec<u8>, members: Vec<CachedMember>) -> Vec<Arc<CachedResult>> {
-        self.insert_shared(key, Arc::new(CachedResult { members }))
-    }
-
     /// Publish an existing immutable result without duplicating its membership
     /// vector. The cache retains one additional `Arc` handle.
     pub fn insert_shared(
@@ -87,21 +113,10 @@ impl VerifiedCache {
         key: Vec<u8>,
         result: Arc<CachedResult>,
     ) -> Vec<Arc<CachedResult>> {
-        let bytes = key.len().saturating_add(128).saturating_add(
-            result
-                .members
-                .iter()
-                .map(|member| {
-                    std::mem::size_of::<CachedMember>().saturating_add(
-                        member
-                            .matched_fields
-                            .iter()
-                            .map(|field| field.len().saturating_add(std::mem::size_of::<String>()))
-                            .fold(0usize, usize::saturating_add),
-                    )
-                })
-                .fold(0usize, usize::saturating_add),
-        );
+        let bytes = key
+            .len()
+            .saturating_add(128)
+            .saturating_add(result.member_bytes);
         let mut displaced = Vec::new();
         if bytes > self.budget {
             displaced.push(result);

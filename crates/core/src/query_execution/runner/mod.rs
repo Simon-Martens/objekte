@@ -1143,6 +1143,7 @@ fn direct_source_failure(
 struct LifecycleCacheBuilder {
     ranked: Option<Vec<(RankKey, CachedMember)>>,
     bytes: usize,
+    member_bytes: usize,
     budget: usize,
 }
 
@@ -1151,6 +1152,7 @@ impl LifecycleCacheBuilder {
         Self {
             ranked: Some(Vec::new()),
             bytes: 0,
+            member_bytes: 0,
             budget,
         }
     }
@@ -1163,45 +1165,95 @@ impl LifecycleCacheBuilder {
         let Some(ranked) = self.ranked.as_mut() else {
             return;
         };
-        let fields = member
-            .matched_fields
-            .iter()
-            .try_fold(0usize, |bytes, field| {
-                bytes.checked_add(field.len().saturating_add(std::mem::size_of::<String>()))
-            });
-        let cost = fields.and_then(|fields| {
-            fields
-                .checked_add(std::mem::size_of::<CachedMember>())
-                .and_then(|bytes| {
-                    usize::try_from(rank_key_bytes(key))
-                        .ok()
-                        .and_then(|rank| bytes.checked_add(rank))
-                })
-        });
+        let member_bytes = member.stored_bytes();
+        let cost = usize::try_from(rank_key_bytes(key))
+            .ok()
+            .and_then(|rank| member_bytes.checked_add(rank));
         let next = cost.and_then(|cost| self.bytes.checked_add(cost));
         if next.is_none_or(|next| next > self.budget) || ranked.try_reserve(1).is_err() {
             self.ranked = None;
             return;
         }
         self.bytes = next.unwrap();
+        self.member_bytes += member_bytes;
         ranked.push((key.clone(), member));
     }
 
-    fn finish(mut self, total: u64) -> Option<Vec<CachedMember>> {
-        let ranked = self.ranked.as_mut()?;
+    fn finish(
+        mut self,
+        total: u64,
+        context: Option<&ExecutionContext>,
+    ) -> Result<Option<CachedResult>, String> {
+        let Some(mut ranked) = self.ranked.take() else {
+            return Ok(None);
+        };
         if ranked.len() as u64 != total {
-            return None;
+            return Ok(None);
         }
-        ranked.sort_unstable_by(|left, right| left.0.cmp(&right.0));
-        Some(
-            self.ranked
-                .take()
-                .unwrap()
-                .into_iter()
-                .map(|(_, member)| member)
-                .collect(),
-        )
+
+        const SORT_RUN_SIZE: usize = 4096;
+        if context.is_none() || ranked.len() <= SORT_RUN_SIZE {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
+            ranked.sort_unstable_by(|left, right| left.0.cmp(&right.0));
+            return Ok(Some(CachedResult::with_member_bytes(
+                ranked.into_iter().map(|(_, member)| member).collect(),
+                self.member_bytes,
+            )));
+        }
+        let context = context.unwrap();
+
+        // Sort bounded runs and merge them with cancellation checks between runs
+        // and output batches. The heap only holds one key reference per run.
+        for run in ranked.chunks_mut(SORT_RUN_SIZE) {
+            context.check_string()?;
+            run.sort_unstable_by(|left, right| left.0.cmp(&right.0));
+        }
+        let mut heads = BinaryHeap::from(
+            ranked
+                .iter()
+                .enumerate()
+                .step_by(SORT_RUN_SIZE)
+                .map(|(index, (key, _))| Reverse((key, index)))
+                .collect::<Vec<_>>(),
+        );
+        let mut members = Vec::with_capacity(ranked.len());
+        while let Some(Reverse((_, index))) = heads.pop() {
+            if members.len().is_multiple_of(1024) {
+                context.check_string()?;
+            }
+            members.push(ranked[index].1.clone());
+            let next = index + 1;
+            if next < ranked.len() && !next.is_multiple_of(SORT_RUN_SIZE) {
+                heads.push(Reverse((&ranked[next].0, next)));
+            }
+        }
+        Ok(Some(CachedResult::with_member_bytes(
+            members,
+            self.member_bytes,
+        )))
     }
+}
+
+fn publish_verified_result(
+    store: &Mutex<VerifiedCache>,
+    key: Vec<u8>,
+    result: Arc<CachedResult>,
+    context: Option<&ExecutionContext>,
+) -> Result<(), String> {
+    if let Some(context) = context {
+        context.check_string()?;
+    }
+    let displaced = {
+        let mut cache = store.lock().map_err(|error| error.to_string())?;
+        if let Some(context) = context {
+            context.check_string()?;
+        }
+        cache.insert_shared(key, result)
+    };
+    drop(displaced);
+    Ok(())
 }
 
 pub(crate) fn segment_locator_hit(
@@ -1911,6 +1963,25 @@ impl Ord for SegmentLocalWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
+}
+
+fn parallel_ranges_eligible(
+    ranges: &[(u32, ByteRange)],
+    context: Option<&ExecutionContext>,
+    mut header_eligible: impl FnMut(RecordSlot) -> Result<bool, String>,
+) -> Result<bool, String> {
+    for (index, &(slot, range)) in ranges.iter().enumerate() {
+        if index != 0
+            && index.is_multiple_of(256)
+            && let Some(context) = context
+        {
+            context.check_string()?;
+        }
+        if range.len() > 1024 * 1024 || !header_eligible(RecordSlot(slot))? {
+            return Ok(false);
+        }
+    }
+    Ok(true)
 }
 
 fn order_segment_file_groups(
@@ -2717,17 +2788,9 @@ fn search_segmented_impl(
         )?;
         if result.counters.match_count_complete
             && let (Some(builder), Some((scope, key, _))) = (relation_cache, cache_key)
-            && let Some(members) = builder.finish(result.counters.total_matches)
+            && let Some(members) = builder.finish(result.counters.total_matches, context)?
         {
-            if let Some(context) = context {
-                context.check_string()?;
-            }
-            let displaced = scope
-                .store
-                .lock()
-                .map_err(|error| error.to_string())?
-                .insert(key, members);
-            drop(displaced);
+            publish_verified_result(scope.store, key, Arc::new(members), context)?;
         }
         return Ok(result);
     }
@@ -3435,16 +3498,11 @@ fn search_segmented_impl(
                         if file.relative_path.to_string_lossy().len() > 4096 {
                             return Ok(false);
                         }
-                        for &(slot, range) in ranges {
-                            if range.len() > 1024 * 1024
-                                || segment
-                                    .header(RecordSlot(slot))?
-                                    .is_none_or(|header| header.id.0.len() > 1024)
-                            {
-                                return Ok(false);
-                            }
-                        }
-                        Ok(true)
+                        parallel_ranges_eligible(ranges, context, |slot| {
+                            Ok(segment
+                                .header(slot)?
+                                .is_some_and(|header| header.id.0.len() <= 1024))
+                        })
                     })
                     .find(|result| !matches!(result, Ok(true)))
                     .unwrap_or(Ok(true))?;
@@ -3476,34 +3534,42 @@ fn search_segmented_impl(
                         context.check_string()?;
                     }
                     let scans = repo.workers.install(|| {
-                        chunk
-                            .par_iter()
-                            .map(|(file_id, ranges)| {
-                                #[cfg(test)]
-                                record_parallel_file_dispatch(repo.instance_id, *file_id);
-                                scan_segment_file_parallel(
-                                    repo,
-                                    query,
-                                    &sort,
-                                    collection_index,
-                                    published,
-                                    catalog,
-                                    filter.as_ref(),
-                                    fts.as_ref(),
-                                    direct_plan.as_ref(),
-                                    &projection,
-                                    filter_proof.as_deref(),
-                                    *file_id,
-                                    ranges,
-                                    cap,
-                                    context,
-                                    cache_admission.as_ref(),
-                                )
-                            })
-                            .collect::<Result<Vec<_>, _>>()
+                        let scan = |(file_id, ranges): &(u32, SmallVec<[(u32, ByteRange); 1]>)| {
+                            #[cfg(test)]
+                            record_parallel_file_dispatch(repo.instance_id, *file_id);
+                            scan_segment_file_parallel(
+                                repo,
+                                query,
+                                &sort,
+                                collection_index,
+                                published,
+                                catalog,
+                                filter.as_ref(),
+                                fts.as_ref(),
+                                direct_plan.as_ref(),
+                                &projection,
+                                filter_proof.as_deref(),
+                                *file_id,
+                                ranges,
+                                cap,
+                                context,
+                                cache_admission.as_ref(),
+                            )
+                        };
+                        if context.is_some() {
+                            chunk
+                                .par_iter()
+                                .map(|job| scan(job).map(Ok))
+                                .collect::<Result<Vec<_>, _>>()
+                        } else {
+                            // Preserve the indexed collector's direct writes into
+                            // the output vector for context-free searches.
+                            Ok(chunk.par_iter().map(scan).collect::<Vec<_>>())
+                        }
                     })?;
                     // Merge successful indexed results in file order.
                     for ((file_id, _), scan) in chunk.iter().zip(scans) {
+                        let scan = scan?;
                         if let Some(context) = context {
                             context.check_string()?;
                         }
@@ -3631,10 +3697,8 @@ fn search_segmented_impl(
                         batch_bytes = batch_bytes.saturating_add(next);
                         cursor += 1;
                     }
-                    let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
-                    if let Some(context) = context {
-                        context.charge_bytes(bytes_read)?;
-                    }
+                    let (read, bytes_read) =
+                        reader.read_with_byte_budget(&ranges[start..cursor], context)?;
                     counters.bytes_read += bytes_read;
                     for (slot, bytes) in read {
                         if let Some(context) = context {
@@ -3918,20 +3982,12 @@ fn search_segmented_impl(
     counters.distinct_files += delta_opened.len() as u64;
     if counters.match_count_complete {
         let members = if let Some(builder) = cache_builder {
-            builder.finish(total)
+            builder.finish(total, context)?
         } else {
             None
         };
         if let (Some(members), Some((scope, key, _))) = (members, cache_key) {
-            if let Some(context) = context {
-                context.check_string()?;
-            }
-            let displaced = scope
-                .store
-                .lock()
-                .map_err(|error| error.to_string())?
-                .insert(key, members);
-            drop(displaced);
+            publish_verified_result(scope.store, key, Arc::new(members), context)?;
         }
     }
     Ok(SearchResult {
@@ -5516,15 +5572,9 @@ fn try_lifecycle_ordered_stream(
     if !stopped_early
         && counters.source_unavailable_events == 0
         && let (Some(cache_builder), Some((scope, _, key))) = (cache_builder, cache_entry)
-        && let Some(members) = cache_builder.finish(counters.total_matches)
+        && let Some(members) = cache_builder.finish(counters.total_matches, Some(context))?
     {
-        context.check_string()?;
-        let displaced = scope
-            .store
-            .lock()
-            .map_err(|error| error.to_string())?
-            .insert(key, members);
-        drop(displaced);
+        publish_verified_result(scope.store, key, Arc::new(members), Some(context))?;
     }
     let progress = delivery
         .as_ref()
@@ -6290,17 +6340,10 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 progress: delivery.progress,
             })?
             .get(&key);
-        if let Some(cached) = cached {
-            let displaced = scope
-                .store
-                .lock()
-                .map_err(|error| StreamError::Execution {
-                    kind: ExecutionErrorKind::Execution,
-                    message: error.to_string(),
-                    progress: delivery.progress,
-                })?
-                .insert_shared(key, cached);
-            drop(displaced);
+        if let Some(cached) = cached
+            && let Err(message) = publish_verified_result(scope.store, key, cached, Some(context))
+        {
+            return segmented_stream_error(&mut delivery, context, message);
         }
     }
     Ok(StreamOutcome::Complete(Box::new(StreamSummary {
@@ -6462,12 +6505,12 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     )?;
     if tracker.complete() && Some(members.len()) == result.count {
         sort_cached_members(repo, &membership_query, &mut members)?;
-        let displaced = repo
-            .verified
-            .lock()
-            .map_err(|e| e.to_string())?
-            .insert(key, members);
-        drop(displaced);
+        publish_verified_result(
+            &repo.verified,
+            key,
+            Arc::new(CachedResult::new(members)),
+            None,
+        )?;
     }
     Ok(result)
 }
@@ -6775,6 +6818,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
     }
     if publish_cache {
         if let Some(key) = cache_key {
+            let cached = Arc::new(CachedResult::new(members));
             let displaced = repo
                 .verified
                 .lock()
@@ -6783,7 +6827,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
                     message: error.to_string(),
                     progress: delivery.progress,
                 })?
-                .insert(key, members);
+                .insert_shared(key, cached);
             drop(displaced);
         }
     }
@@ -7163,9 +7207,7 @@ fn materialize_computed_cached<'a>(
             matched_fields: winner.hit.matched_fields.into(),
         })
         .collect();
-    let page_cache = CachedResult {
-        members: page_members,
-    };
+    let page_cache = CachedResult::new(page_members);
     let payload_bytes =
         page_cache
             .members

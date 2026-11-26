@@ -7215,7 +7215,7 @@ fn indexed_or_file_layout_with_reader(
         } else {
             "needle"
         };
-        let file = if files == 1 { 0 } else { i / 4 };
+        let file = i * files / 260;
         sources[file].push_str(&format!(
             r#"("id"="{i}","a"={a},"b"={b},"sort"={i},"note"="{note}{padding}")"#
         ));
@@ -7498,7 +7498,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         65,
         "",
         SourceFormat::registered("pausing_parallel_fixture"),
-        registry,
+        registry.clone(),
     );
     let view = index.view().unwrap();
     let mut query = indexed_or_layout_query();
@@ -7615,6 +7615,52 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         "expected at most one dispatched chunk, got {jobs}"
     );
 
+    for (files, limit) in [(1, 128), (260, 0)] {
+        let (other_root, other_index) = indexed_or_file_layout_with_reader(
+            files,
+            "",
+            SourceFormat::registered("pausing_parallel_fixture"),
+            registry.clone(),
+        );
+        let other_view = other_index.view().unwrap();
+        reset_parallel_file_dispatches(other_view.instance_id());
+        let bytes_before = range_bytes.load(Ordering::Relaxed);
+        let context = ExecutionContext::new(
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits {
+                relation_bytes: limit,
+                ..Default::default()
+            },
+            Some(CancellationToken::new()),
+        );
+        let result = other_view.search_stream_scoped_with_context(
+            &query,
+            ResultScope::Page {
+                offset: 0,
+                limit: 16,
+            },
+            options,
+            &context,
+            &mut |_| Ok(StreamControl::Continue),
+        );
+        assert!(
+            matches!(result, Err(StreamError::Resource { .. })),
+            "{result:?}"
+        );
+        assert_eq!(range_bytes.load(Ordering::Relaxed), bytes_before);
+        let (jobs, _) = parallel_file_dispatches(other_view.instance_id());
+        if files == 1 {
+            assert_eq!(jobs, 0);
+        } else {
+            assert!(
+                (1..=4).contains(&jobs),
+                "dispatched {jobs} jobs after the first reservation failed"
+            );
+        }
+        other_index.shutdown().unwrap();
+        std::fs::remove_dir_all(other_root).unwrap();
+    }
+
     // The desktop stream holds a view pinned to the old source revision.
     std::fs::write(root.join("data/000.rows"), "changed").unwrap();
     let result = view.search_stream(&query, options, &CancellationToken::new(), &mut |_| {
@@ -7631,6 +7677,147 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         "{result:?}"
     );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn verified_cache_publication_honors_budget_and_cancellation_under_lock() {
+    use crate::query_execution::streaming::ExecutionLimits;
+    use std::time::{Duration, Instant};
+
+    let key = b"new".to_vec();
+    let mut builder = LifecycleCacheBuilder::new(4096);
+    builder.push(
+        &RankKey {
+            parts: Vec::new(),
+            collection: "data".into(),
+            id: "r1".into(),
+        },
+        CachedMember {
+            collection_index: 0,
+            segment_index: Some(0),
+            slot: 1,
+            matched_fields: vec!["title".into(), "author.name".into()].into(),
+        },
+    );
+    let result = Arc::new(builder.finish(1, None).unwrap().unwrap());
+    let budget = key.len()
+        + 128
+        + size_of::<CachedMember>()
+        + 2 * size_of::<String>()
+        + "title".len()
+        + "author.name".len();
+    let store = Mutex::new(VerifiedCache::new(budget - 1));
+    publish_verified_result(&store, key.clone(), result.clone(), None).unwrap();
+    let mut locked = store.lock().unwrap();
+    assert!(locked.get(&key).is_none());
+
+    locked.set_budget(budget);
+    locked.insert_shared(b"old".to_vec(), Arc::new(CachedResult::new(Vec::new())));
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(CancellationToken::new()),
+    );
+    // The first check allows the publisher to wait on the held lock. The
+    // second models cancellation at the publication boundary.
+    context.cancel_on_check_for_test(2);
+    std::thread::scope(|scope| {
+        let worker = scope
+            .spawn(|| publish_verified_result(&store, key.clone(), result.clone(), Some(&context)));
+        let start = Instant::now();
+        while context.checks_for_test() == 0 && start.elapsed() < Duration::from_secs(5) {
+            std::thread::yield_now();
+        }
+        let checked = context.checks_for_test();
+        drop(locked);
+        assert_eq!(checked, 1);
+        let error = worker.join().unwrap().unwrap_err();
+        assert_eq!(
+            context.recorded_error(error).kind,
+            ExecutionErrorKind::Cancelled
+        );
+    });
+
+    let mut locked = store.lock().unwrap();
+    assert!(locked.get(&key).is_none());
+    assert!(locked.get(b"old").is_some());
+    drop(locked);
+    publish_verified_result(&store, key.clone(), result, None).unwrap();
+    let mut locked = store.lock().unwrap();
+    assert_eq!(locked.used_bytes(), budget);
+    assert!(locked.get(&key).is_some());
+    assert!(locked.get(b"old").is_none());
+}
+
+#[test]
+fn parallel_eligibility_checks_cancellation_within_a_file() {
+    use crate::query_execution::streaming::ExecutionLimits;
+
+    let token = CancellationToken::new();
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(token.clone()),
+    );
+    let ranges = (0..1024)
+        .map(|slot| (slot, ByteRange { start: 0, end: 32 }))
+        .collect::<Vec<_>>();
+    let mut headers = 0;
+    let result = parallel_ranges_eligible(&ranges, Some(&context), |_| {
+        headers += 1;
+        if headers == 3 {
+            token.cancel();
+        }
+        Ok(true)
+    });
+    assert_eq!(headers, 256);
+    assert_eq!(
+        context.recorded_error(result.unwrap_err()).kind,
+        ExecutionErrorKind::Cancelled
+    );
+}
+
+#[test]
+fn verified_cache_finalization_merges_runs_and_observes_cancellation() {
+    use crate::query_execution::streaming::ExecutionLimits;
+
+    let build = || {
+        let mut builder = LifecycleCacheBuilder::new(8 << 20);
+        for slot in (0..8500).rev() {
+            builder.push(
+                &RankKey {
+                    parts: Vec::new(),
+                    collection: String::new(),
+                    id: format!("{slot:04}"),
+                },
+                CachedMember {
+                    collection_index: 0,
+                    segment_index: Some(0),
+                    slot,
+                    matched_fields: Vec::new().into(),
+                },
+            );
+        }
+        builder
+    };
+    let context = || {
+        ExecutionContext::new(
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            Some(CancellationToken::new()),
+        )
+    };
+    let members = build().finish(8500, Some(&context())).unwrap().unwrap();
+    assert!(members.members.iter().map(|member| member.slot).eq(0..8500));
+
+    let cancelled = context();
+    // Three sort runs finish before the merge checks the token.
+    cancelled.cancel_on_check_for_test(5);
+    let error = build().finish(8500, Some(&cancelled)).unwrap_err();
+    assert_eq!(
+        cancelled.recorded_error(error).kind,
+        crate::query_execution::streaming::ExecutionErrorKind::Cancelled
+    );
 }
 
 #[test]
@@ -8726,22 +8913,20 @@ fn computed_sort_combines_payload_key_and_target_budgets() {
             .unwrap_err()
             .contains("memory budget")
     );
-    let cached = CachedResult {
-        members: vec![
-            CachedMember {
-                collection_index: 0,
-                segment_index: None,
-                slot: 0,
-                matched_fields: vec!["title".into()].into(),
-            },
-            CachedMember {
-                collection_index: 0,
-                segment_index: None,
-                slot: 1,
-                matched_fields: vec![].into(),
-            },
-        ],
-    };
+    let cached = CachedResult::new(vec![
+        CachedMember {
+            collection_index: 0,
+            segment_index: None,
+            slot: 0,
+            matched_fields: vec!["title".into()].into(),
+        },
+        CachedMember {
+            collection_index: 0,
+            segment_index: None,
+            slot: 1,
+            matched_fields: vec![].into(),
+        },
+    ]);
     let without_reads = super::cached_sort_fixed_bytes(&cached, 0).unwrap();
     let with_reads = super::cached_sort_fixed_bytes(&cached, 2).unwrap();
     assert_eq!(
