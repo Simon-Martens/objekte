@@ -17,7 +17,10 @@ use crate::index::storage::StorageFactory;
 use crate::index::storage::file_catalog::{
     DiscoveredFileRows, EmptyFileCatalogBase, FileCatalogHandle, FileCatalogSource, FileRows,
 };
-use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
+use crate::index::storage::segment::{
+    RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members, visit_record_headers,
+    visit_segment_files,
+};
 use crate::inference::InferenceBuildStats;
 #[cfg(test)]
 use crate::inventory::FileInventory;
@@ -437,17 +440,17 @@ fn segment_metadata_generation(
     for segment in segments {
         let base = u32::try_from(record_count).map_err(|_| "too many segment records")?;
         let segment_count =
-            u32::try_from(segment.index.records.len()).map_err(|_| "too many segment records")?;
-        if relations.len() != segment.index.relations.len() {
+            u32::try_from(segment.descriptor().slots).map_err(|_| "too many segment records")?;
+        if relations.len() != segment.relation_count() {
             return Err("segment relation coverage mismatch".into());
         }
-        for (global, local) in relations
-            .iter_mut()
-            .zip(segment.index.relations.iter().cloned())
-        {
-            global.merge_shifted(local, base, segment_count)?;
+        for (ordinal, global) in relations.iter_mut().enumerate() {
+            let local = segment
+                .relation(ordinal)?
+                .ok_or("missing segment relation reader")?;
+            global.merge_reader(local, base, segment_count)?;
         }
-        for slot in read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+        for slot in read_slot_members(segment, SegmentSlotFact::Logical)?
             .view()
             .iter()
         {
@@ -456,7 +459,7 @@ fn segment_metadata_generation(
                     .ok_or("logical record slot overflow")?,
             );
         }
-        for slot in read_slot_members(&segment.index, SegmentSlotFact::EmptyArray)?
+        for slot in read_slot_members(segment, SegmentSlotFact::EmptyArray)?
             .view()
             .iter()
         {
@@ -465,76 +468,77 @@ fn segment_metadata_generation(
                     .ok_or("empty-array record slot overflow")?,
             );
         }
-        for segment_file in &segment.index.files {
-            if file_set.insert(segment_file.entry.id) {
-                builder.include_file(segment_file.entry.id)?;
+        visit_segment_files(segment.as_ref(), |file| {
+            if file_set.insert(file.id) {
+                builder.include_file(file.id)?;
             }
-        }
-        for record in &segment.index.records {
-            let locator = segment
-                .index
-                .backing
-                .file_locator(record.slot)
-                .ok_or("file-backed segment metadata has no file locator")?;
-            let range = locator
-                .range
-                .ok_or("file-backed record has no byte range")?;
-            let file = files
-                .get_mut(locator.file.0 as usize)
-                .ok_or("segment metadata file missing")?;
-            if record.class == RecordClass::Logical {
-                builder.add_record(file, record.id.clone(), range.start, range.end)?;
-            } else {
-                let segment_file = segment
-                    .index
-                    .file(locator.file)
-                    .ok_or("fallback segment file missing")?;
-                let Some(local) = record.diagnostic_ref.stored_index() else {
-                    builder.add_raw_fallback(
-                        file,
-                        record.id.clone(),
-                        range,
-                        record.diagnostic_ref,
-                    )?;
-                    record_count += 1;
-                    continue;
+            Ok::<_, String>(())
+        })?;
+        visit_record_headers(segment.as_ref(), |headers| {
+            for record in headers {
+                let Some(RecordOrigin::FileRange(locator)) = segment.origin(record.slot)? else {
+                    return Err("file-backed segment metadata has no file locator".to_owned());
                 };
-                let diagnostic = segment_file
-                    .entry
-                    .diagnostics
-                    .get(local)
-                    .ok_or("fallback diagnostic missing")?
-                    .clone();
-                let existing = file.diagnostics.iter().position(|candidate| {
-                    let mut candidate = candidate.clone();
-                    candidate.record = None;
-                    let mut diagnostic = diagnostic.clone();
-                    diagnostic.record = None;
-                    candidate == diagnostic
-                });
-                if existing.is_none() && file.omitted_diagnostics != 0 {
-                    builder.add_raw_fallback(
-                        file,
-                        record.id.clone(),
-                        range,
-                        crate::inventory::DiagnosticRef(u32::MAX),
-                    )?;
-                    record_count += 1;
-                    continue;
+                let range = locator
+                    .range
+                    .ok_or("file-backed record has no byte range")?;
+                let file = files
+                    .get_mut(locator.file.0 as usize)
+                    .ok_or("segment metadata file missing")?;
+                if record.class == RecordClass::Logical {
+                    builder.add_record(file, record.id.clone(), range.start, range.end)?;
+                } else {
+                    let Some(local) = record.diagnostic_ref.stored_index() else {
+                        builder.add_raw_fallback(
+                            file,
+                            record.id.clone(),
+                            range,
+                            record.diagnostic_ref,
+                        )?;
+                        record_count += 1;
+                        continue;
+                    };
+                    let segment_file = segment
+                        .file_metadata(locator.file)?
+                        .ok_or("fallback segment file missing")?;
+                    let diagnostic = segment_file
+                        .diagnostics
+                        .get(local)
+                        .ok_or("fallback diagnostic missing")?
+                        .clone();
+                    let existing = file.diagnostics.iter().position(|candidate| {
+                        let mut candidate = candidate.clone();
+                        candidate.record = None;
+                        let mut diagnostic = diagnostic.clone();
+                        diagnostic.record = None;
+                        candidate == diagnostic
+                    });
+                    if existing.is_none() && file.omitted_diagnostics != 0 {
+                        builder.add_raw_fallback(
+                            file,
+                            record.id.clone(),
+                            range,
+                            crate::inventory::DiagnosticRef(u32::MAX),
+                        )?;
+                        record_count += 1;
+                        continue;
+                    }
+                    let global = existing.unwrap_or_else(|| {
+                        let index = file.diagnostics.len();
+                        file.diagnostics.push(diagnostic);
+                        index
+                    });
+                    let reference = crate::inventory::DiagnosticRef(
+                        u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
+                    );
+                    let slot =
+                        builder.add_raw_fallback(file, record.id.clone(), range, reference)?;
+                    file.diagnostics[global].record = Some(slot);
                 }
-                let global = existing.unwrap_or_else(|| {
-                    let index = file.diagnostics.len();
-                    file.diagnostics.push(diagnostic);
-                    index
-                });
-                let reference = crate::inventory::DiagnosticRef(
-                    u32::try_from(global + 1).map_err(|_| "diagnostic index overflow")?,
-                );
-                let slot = builder.add_raw_fallback(file, record.id.clone(), range, reference)?;
-                file.diagnostics[global].record = Some(slot);
+                record_count += 1;
             }
-            record_count += 1;
-        }
+            Ok::<_, String>(())
+        })?;
     }
     let generation = builder.finish(files)?;
     let id_lookup = generation

@@ -25,7 +25,7 @@ pub(crate) struct RelationMatches<'a> {
     pub members: u64,
 }
 
-pub(crate) trait RelationReader: Send + Sync {
+pub(crate) trait RelationReader: std::any::Any + Send + Sync {
     fn declaration(&self) -> &RelationDefinition;
     fn source_slots(&self) -> usize;
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>>;

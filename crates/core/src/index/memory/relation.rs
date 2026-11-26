@@ -636,6 +636,54 @@ impl RelationContribution {
         Ok(())
     }
 
+    /// Consume logical forward rows from one sealed relation. Matching native
+    /// contributions preserve the existing bitmap and edge merge.
+    pub(crate) fn merge_reader(
+        &mut self,
+        reader: &dyn crate::index::storage::relation::RelationReader,
+        base: u32,
+        count: u32,
+    ) -> Result<(), String> {
+        if let Some(source) = (reader as &dyn std::any::Any).downcast_ref::<Self>() {
+            return self.merge_shifted(source.clone(), base, count);
+        }
+        if self.declaration != *reader.declaration()
+            || self.record_count != base
+            || reader.source_slots() != count as usize
+        {
+            return Err("relation reader representation or coverage mismatch".into());
+        }
+        let end = base.checked_add(count).ok_or("relation slot overflow")?;
+        for local in 0..count {
+            let slot = base + local;
+            let row = reader.forward(RecordSlot(local))?;
+            if row.present {
+                self.present.insert(slot);
+            }
+            if row.null {
+                self.nulls.insert(slot);
+            }
+            if row.empty {
+                self.empty_arrays.insert(slot);
+            }
+            if row.unavailable {
+                self.unavailable.insert(slot);
+            }
+            self.references
+                .extend(
+                    row.targets
+                        .into_iter()
+                        .map(|(target, positions)| PendingReference {
+                            source: RecordSlot(slot),
+                            target_id: target.into_owned(),
+                            positions: positions.into_owned(),
+                        }),
+                );
+        }
+        self.record_count = end;
+        Ok(())
+    }
+
     pub(crate) fn merge_shifted(
         &mut self,
         batch: Self,

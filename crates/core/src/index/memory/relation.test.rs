@@ -1,3 +1,5 @@
+use std::borrow::Cow;
+
 use super::*;
 use crate::model::LogicalType;
 use crate::repository::Repository;
@@ -994,3 +996,60 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
 }
 
 use crate::source::test_support::{FixtureText, fixture_value};
+
+#[test]
+fn merge_independent_relation_rows_preserves_occurrence_positions_and_state() {
+    struct RelationTable {
+        declaration: RelationDefinition,
+        rows: Vec<(String, Vec<u32>)>,
+    }
+
+    impl RelationReader for RelationTable {
+        fn declaration(&self) -> &RelationDefinition {
+            &self.declaration
+        }
+
+        fn source_slots(&self) -> usize {
+            self.rows.len() + 1
+        }
+
+        fn forward(&self, slot: RecordSlot) -> StorageResult<RelationRow<'_>> {
+            let row = self.rows.get(slot.0 as usize);
+            Ok(RelationRow {
+                targets: row
+                    .map(|(target, positions)| {
+                        vec![(Cow::Owned(target.clone()), Cow::Owned(positions.clone()))]
+                    })
+                    .unwrap_or_default(),
+                present: true,
+                null: row.is_none(),
+                empty: false,
+                unavailable: false,
+            })
+        }
+    }
+
+    let mut schema = Schema::default();
+    field(
+        &mut schema,
+        &["ref"],
+        LogicalType::Array(Box::new(LogicalType::Id)),
+        true,
+        true,
+    );
+    let declaration = relation(&["ref"], "targets", RelationCardinality::Many, "sources");
+    schema.register_relation(declaration.clone()).unwrap();
+    let mut contribution = RelationContribution::for_schema(&schema).remove(0);
+    let reader = RelationTable {
+        declaration,
+        rows: vec![("target".into(), vec![1, 2])],
+    };
+    contribution.merge_reader(&reader, 0, 2).unwrap();
+    contribution.merge_reader(&reader, 2, 2).unwrap();
+
+    let target = contribution.forward(RecordSlot(2)).unwrap();
+    assert_eq!(target.targets[0].0, "target");
+    assert_eq!(target.targets[0].1.as_ref(), [1, 2]);
+    let null = contribution.forward(RecordSlot(3)).unwrap();
+    assert!(null.present && null.null && null.targets.is_empty());
+}
