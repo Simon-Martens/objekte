@@ -389,7 +389,7 @@ impl IndexView {
         self.repository()
             .collections()
             .iter()
-            .map(|collection| collection.index_family_bytes)
+            .map(|collection| collection.base_estimated_index_bytes())
             .sum::<usize>()
             .saturating_add(
                 self.0

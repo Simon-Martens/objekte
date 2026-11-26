@@ -1735,7 +1735,7 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
         BoundExpr::Term(term) => {
             if term.related.is_some()
                 || (term.rhs.is_some()
-                    && !crate::query_access::catalog::self_comparison_shape(term)
+                    && !crate::query::semantics::self_comparison_shape(term)
                     && !term.rhs.as_ref().is_some_and(|rhs| {
                         matches!(term.path.root, PathRoot::Metadata(_))
                             && matches!(rhs.path.root, PathRoot::Metadata(_))
@@ -6905,7 +6905,7 @@ pub(crate) fn explain_with_active(
         traces.push(QueryPlanTrace {
             collection: collection.definition.name.clone(),
             generation: collection.base_generation(),
-            bigram_alphabet: collection.raw.alphabet,
+            bigram_alphabet: repo.options.bigram_alphabet,
             folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
             fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
             fts_mode: fts.as_ref().map(|fts| fts.mode),
@@ -7427,7 +7427,7 @@ fn search_impl_with_resolved_sort<'a>(
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
                 generation: collection.base_generation(),
-                bigram_alphabet: collection.raw.alphabet,
+                bigram_alphabet: repo.options.bigram_alphabet,
                 folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
                 fts_mode: fts.as_ref().map(|fts| fts.mode),

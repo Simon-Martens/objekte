@@ -12,6 +12,8 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
+#[cfg(test)]
+use crate::index::memory::access::catalog::IndexCatalog;
 use crate::index::segment::SegmentId;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
 use crate::index::storage::order::ScalarOrderPredicate;
@@ -22,20 +24,19 @@ use crate::inventory::{ActiveRecords, relative_path_bounds};
 use crate::model::{FileId, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::binding::fts::BoundFts;
 use crate::query::semantics::record::RecordContext;
+use crate::query::semantics::self_comparison_shape;
 use crate::query::{Operator, Quantifier};
 use crate::query::{
     binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
 };
-use crate::query_access::catalog::{
-    IndexCatalog, PostingId, PostingOperation, self_comparison_shape,
-};
+use crate::query_access::base::BaseCollectionProvider;
 use crate::query_access::contract::{
     AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, Coverage,
     IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength, Proven, ProviderId,
     Restriction,
 };
+use crate::query_access::contract::{PostingId, PostingOperation};
 use crate::query_access::membership::{DomainId, MembershipView, SlotInput, SlotSet};
-use crate::query_access::native::NativeCollectionProvider;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_plan::selection::ordered_offer_ids;
 use crate::query_predicate::{PreparedPredicates, TermId};
@@ -1288,7 +1289,7 @@ pub struct PlanningCounters {
 }
 
 struct PlanContext<'a> {
-    provider: NativeCollectionProvider<'a>,
+    provider: BaseCollectionProvider<'a>,
     #[cfg(test)]
     instance_id: u64,
     offers: HashMap<TermId, OfferList>,
@@ -1318,7 +1319,7 @@ impl<'a> PlanContext<'a> {
             }
         };
         Self {
-            provider: NativeCollectionProvider::new(
+            provider: BaseCollectionProvider::new(
                 repo,
                 collection,
                 collection.stats.record_count as u64,
@@ -1338,7 +1339,7 @@ impl<'a> PlanContext<'a> {
 
     fn for_estimation(collection: &'a CollectionState, input_len: u64, diagnostics: bool) -> Self {
         Self {
-            provider: NativeCollectionProvider::for_estimation(collection, input_len),
+            provider: BaseCollectionProvider::for_estimation(collection, input_len),
             #[cfg(test)]
             instance_id: collection.repository_instance,
             offers: HashMap::new(),
@@ -1455,7 +1456,7 @@ impl<'a> PlanContext<'a> {
         id
     }
 
-    fn execute_native_term(
+    fn execute_base_term(
         &mut self,
         repo: &Repository,
         collection: &CollectionState,
@@ -1532,7 +1533,7 @@ impl<'a> PlanContext<'a> {
         term: &BoundTerm,
         input_len: u64,
     ) -> Result<Option<(u64, f64)>, String> {
-        let provider = NativeCollectionProvider::new(repo, collection, input_len, None);
+        let provider = BaseCollectionProvider::new(repo, collection, input_len, None);
         #[cfg(test)]
         let test_providers =
             crate::query_execution::request::test_access_providers(repo.instance_id);
@@ -1792,16 +1793,14 @@ pub(crate) struct Plan {
 /// registration and raw binding versions are fixed by the collection's
 /// immutable generation and snapshot configuration.
 pub(crate) fn raw_covers_identity_field(collection: &CollectionState) -> Result<(), String> {
-    if collection
-        .required_file_reader()
-        .reader()
-        .logical_text_coverage()
-        != LogicalTextCoverage::AllStringFields
-    {
+    let Some(source) = &collection.source else {
+        return Err("collection has no file text representation".into());
+    };
+    if source.reader().logical_text_coverage() != LogicalTextCoverage::AllStringFields {
         return Err(format!(
             "source {}@{} does not cover every logical string field",
-            collection.required_file_reader().id(),
-            collection.required_file_reader().version()
+            source.id(),
+            source.version()
         ));
     }
     if let Some(binding) = &collection.definition.schema.raw {
@@ -1810,16 +1809,20 @@ pub(crate) fn raw_covers_identity_field(collection: &CollectionState) -> Result<
             binding.name, binding.version
         ));
     }
-    if collection.raw.record_count as usize != collection.base_slot_count() {
-        return Err("raw index has incomplete record coverage".into());
+    #[cfg(test)]
+    if collection.base_records.is_none()
+        && collection.raw.record_count as usize == collection.base_slot_count()
+    {
+        return Ok(());
     }
-    Ok(())
+    Err("base raw coverage was not advertised for this predicate".into())
 }
 
 pub(crate) fn empty_selection_preservation(term: &BoundTerm) -> bool {
     term.multi && term.quantifier != Quantifier::Any
 }
 
+#[cfg(test)]
 fn raw_bigram_candidates(
     collection: &CollectionState,
     term: &BoundTerm,
@@ -2049,19 +2052,7 @@ fn term_set(
         }
         return Ok(Some(result));
     }
-    if term.operation.is_some() {
-        Ok(collection
-            .custom_postings
-            .get(&(term.path.segments.clone(), term.binding_name.clone()))
-            .filter(|posting| posting.complete)
-            .and_then(|posting| posting.index.exact_set(term, domain)))
-    } else {
-        Ok(collection
-            .postings
-            .fields
-            .get(&term.path.segments)
-            .and_then(|index| index.exact_set(term, domain)))
-    }
+    Ok(None)
 }
 
 pub(crate) fn custom_bigram_compatible(term: &BoundTerm) -> bool {
@@ -2075,6 +2066,7 @@ pub(crate) fn custom_bigram_compatible(term: &BoundTerm) -> bool {
         .is_some_and(|matcher| matcher.bigram_compatible())
 }
 
+#[cfg(test)]
 fn custom_text_index<'a>(
     collection: &'a CollectionState,
     path: &[String],
@@ -2094,7 +2086,7 @@ pub(crate) fn enumerate_paths(
     collection: &CollectionState,
     term: &BoundTerm,
     input_len: u64,
-    dictionary_keys_visited: &mut u64,
+    _dictionary_keys_visited: &mut u64,
 ) -> Result<Vec<AccessPathEstimate>, String> {
     let stats = collection.stats;
     let source_unit = 30.0 + stats.mean_record_bytes() / 128.0;
@@ -2197,24 +2189,29 @@ pub(crate) fn enumerate_paths(
             None,
         );
     } else {
-        let catalog = IndexCatalog::collection(collection);
-        for access in catalog
-            .field_postings(
-                &term.path.segments,
-                &term.binding_name,
-                term.operation.is_some(),
-            )
-            .into_iter()
-            .flatten()
-        {
-            if let Some(proposal) = access.assess(term, catalog.logical, dictionary_keys_visited)? {
-                add(
-                    AccessPathKind::Posting,
-                    proposal.exact,
-                    proposal.lookup_work,
-                    proposal.output,
-                    Some((proposal.id, proposal.operation, proposal.coverage)),
-                );
+        #[cfg(test)]
+        if collection.base_records.is_none() {
+            let catalog = IndexCatalog::collection(collection);
+            for access in catalog
+                .field_postings(
+                    &term.path.segments,
+                    &term.binding_name,
+                    term.operation.is_some(),
+                )
+                .into_iter()
+                .flatten()
+            {
+                if let Some(proposal) =
+                    access.assess(term, catalog.logical, _dictionary_keys_visited)?
+                {
+                    add(
+                        AccessPathKind::Posting,
+                        proposal.exact,
+                        proposal.lookup_work,
+                        proposal.output,
+                        Some((proposal.id, proposal.operation, proposal.coverage)),
+                    );
+                }
             }
         }
         if term.derived == Derived::None
@@ -2250,7 +2247,9 @@ pub(crate) fn enumerate_paths(
                 None,
             );
         }
-        if term.derived == Derived::None
+        #[cfg(test)]
+        if collection.base_records.is_none()
+            && term.derived == Derived::None
             && matches!(term.operator, Operator::Contains | Operator::Eq)
             && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
         {
@@ -2331,6 +2330,7 @@ pub(crate) fn execute_path(
         AccessPathKind::Metadata | AccessPathKind::FilePathIndex => {
             term_set(repo, collection, term, domain, input)?.map(|set| &set & input)
         }
+        #[cfg(test)]
         AccessPathKind::Posting => {
             let (id, operation, _) = selected.posting.ok_or("missing prepared posting access")?;
             let catalog = IndexCatalog::collection(collection);
@@ -2344,8 +2344,14 @@ pub(crate) fn execute_path(
                 None => None,
             }
         }
+        #[cfg(test)]
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
+        #[cfg(test)]
         AccessPathKind::RawBigram => raw_bigram_candidates(collection, term)?,
+        #[cfg(not(test))]
+        AccessPathKind::Posting | AccessPathKind::CustomBigram | AccessPathKind::RawBigram => {
+            return Err("selected access did not originate from a base provider".into());
+        }
         AccessPathKind::SortColumn => {
             let column = collection
                 .order_column(&term.path)?
@@ -2452,6 +2458,17 @@ pub(crate) fn estimate_prepared_filter_term(
         .estimate_prepared_term(repo, collection, predicates, term_id, term, input_len)
 }
 
+fn base_raw_gram_estimate(_collection: &CollectionState, _term: &BoundTerm) -> Option<u64> {
+    #[cfg(test)]
+    if _collection.base_records.is_none() {
+        return _term
+            .gram_request
+            .as_ref()
+            .and_then(|request| _collection.raw.estimate_prepared(request));
+    }
+    None
+}
+
 fn estimate_plan_node<'a>(
     collection: &'a CollectionState,
     expr: &BoundExpr,
@@ -2463,11 +2480,7 @@ fn estimate_plan_node<'a>(
             let mut paths = context.paths(collection, term, input_len)?;
             let selected = paths.remove(0);
             let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
-                .then(|| {
-                    term.gram_request
-                        .as_ref()
-                        .and_then(|request| collection.raw.estimate_prepared(request))
-                })
+                .then(|| base_raw_gram_estimate(collection, term))
                 .flatten();
             let structural_candidates = if selected.kind == AccessPathKind::RawBigram
                 && empty_selection_preservation(term)
@@ -2894,7 +2907,7 @@ fn plan_logical_expr<'a>(
         BoundExpr::Term(term) => {
             let term_id = context.term_id(collection, term);
             let (candidates, chosen, offered_alternatives) =
-                context.execute_native_term(repo, collection, term, input)?;
+                context.execute_base_term(repo, collection, term, input)?;
             if chosen.as_ref().is_some_and(|choice| {
                 choice.kind() != crate::query_access::contract::AccessKind::SourceScan
             }) {
@@ -2947,11 +2960,7 @@ fn plan_logical_expr<'a>(
                     })
                     .collect();
                 let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
-                    .then(|| {
-                        term.gram_request
-                            .as_ref()
-                            .and_then(|request| collection.raw.estimate_prepared(request))
-                    })
+                    .then(|| base_raw_gram_estimate(collection, term))
                     .flatten();
                 let structural_candidates = if selected.kind == AccessPathKind::RawBigram
                     && empty_selection_preservation(term)
@@ -3016,10 +3025,7 @@ fn plan_logical_expr<'a>(
                         )
                     })
                     .unwrap_or_else(|| {
-                        if term.gram_request.is_none()
-                            || term.gram_request.as_ref().is_some_and(|request| {
-                                collection.raw.estimate_prepared(request).is_none()
-                            })
+                        if base_raw_gram_estimate(collection, term).is_none()
                         {
                             "raw bigram has no usable necessary grams; scanner selected".into()
                         } else {
@@ -3296,6 +3302,7 @@ fn record_skipped_expr<'a>(
     let _ = domain;
 }
 
+#[cfg(test)]
 fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
     if term.derived != Derived::None || !matches!(term.operator, Operator::Contains | Operator::Eq)
     {

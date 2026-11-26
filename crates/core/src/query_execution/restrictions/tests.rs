@@ -1637,10 +1637,10 @@ fn plan_expr(
 
 #[test]
 fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
+    use crate::query_access::base::BaseCollectionProvider;
     use crate::query_access::contract::{
         AccessExecution, AccessRequest, IndexAccessProvider, InputEstimate, OfferList,
     };
-    use crate::query_access::native::NativeCollectionProvider;
     use crate::query_plan::selection::choose_offer;
     use crate::query_predicate::TermId;
 
@@ -1718,7 +1718,7 @@ fn native_provider_prepares_and_applies_exactly_the_selected_offer() {
             .as_ref()
             .map(|state| state.indexes.keys().collect::<Vec<_>>())
     );
-    let provider = NativeCollectionProvider::new(&repo, collection, domain.len() as u64, None);
+    let provider = BaseCollectionProvider::new(&repo, collection, domain.len() as u64, None);
     let mut offers = OfferList::new();
     provider
         .propose(

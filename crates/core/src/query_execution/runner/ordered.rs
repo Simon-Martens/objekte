@@ -762,7 +762,7 @@ pub(super) fn try_inferred_segment_order_page(
         traces.push(QueryPlanTrace {
             collection: collection.definition.name.clone(),
             generation: revision.0,
-            bigram_alphabet: collection.raw.alphabet,
+            bigram_alphabet: repo.options.bigram_alphabet,
             folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
             fts_case_sensitivity: None,
             fts_mode: None,
@@ -969,7 +969,7 @@ pub(super) fn try_stored_order_page(
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
                 generation: collection.base_generation(),
-                bigram_alphabet: collection.raw.alphabet,
+                bigram_alphabet: repo.options.bigram_alphabet,
                 folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
                 fts_mode: entry.fts.map(|fts| fts.mode),

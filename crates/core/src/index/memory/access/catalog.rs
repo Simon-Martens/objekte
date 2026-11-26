@@ -13,8 +13,10 @@ use crate::index::segment::IndexedCollectionSegment;
 use crate::index::storage::text::TextBindingCatalog;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
+use crate::query::semantics::self_comparison_shape;
 use crate::query::{Operator, Quantifier};
 use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
+#[cfg(test)]
 use crate::repository::state::CollectionState;
 use crate::schema::{Schema, operation::Transform};
 
@@ -352,37 +354,6 @@ fn declared_path_has_equivalent_terminal_selection(schema: &Schema, term: &Bound
     matches!(steps.last(), Some(PathStep::Field(_)))
 }
 
-pub(crate) fn self_comparison_shape(term: &BoundTerm) -> bool {
-    let Some(rhs) = &term.rhs else { return false };
-    term.operator == Operator::Eq
-        && term.quantifier == Quantifier::Default
-        && term.derived == Derived::None
-        && rhs.derived == Derived::None
-        && term.path == rhs.path
-        && term.query_path == rhs.query_path
-        && term.kind == rhs.kind
-        && term.multi == rhs.multi
-        && !term.implicit_array
-        && !term.query_path.has_position
-        && matches!(
-            term.source_kind,
-            LogicalType::String
-                | LogicalType::Id
-                | LogicalType::Number
-                | LogicalType::Bool
-                | LogicalType::Date
-                | LogicalType::Datetime
-                | LogicalType::Unixtime
-        )
-        && term.transform == Transform::Identity
-        && rhs.transform == Transform::Identity
-        && term.operation.is_none()
-        && rhs.operation.is_none()
-        && term.matcher.is_none()
-        && term.related.is_none()
-        && term.period.is_none()
-}
-
 pub(crate) struct IndexCatalog<'a> {
     schema: &'a Schema,
     postings: &'a PostingCollection,
@@ -396,25 +367,16 @@ pub(crate) struct IndexCatalog<'a> {
 }
 
 impl<'a> IndexCatalog<'a> {
+    #[cfg(test)]
     pub fn collection(state: &'a CollectionState) -> Self {
         Self {
             schema: &state.definition.schema,
             postings: &state.postings,
-            #[cfg(test)]
             observed: state.inference.as_ref(),
-            #[cfg(not(test))]
-            observed: None,
             named: &state.custom_postings,
             text: &state.custom_text,
             text_bindings: &state.text_bindings,
-            #[cfg(test)]
             logical: &state.logical_records,
-            #[cfg(not(test))]
-            logical: {
-                static EMPTY: std::sync::LazyLock<RoaringBitmap> =
-                    std::sync::LazyLock::new(RoaringBitmap::new);
-                &EMPTY
-            },
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,
         }

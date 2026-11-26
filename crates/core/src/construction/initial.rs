@@ -1093,7 +1093,6 @@ impl Repository {
             definitions.clone(),
             options,
             &sources,
-            Some(&pool),
             Arc::clone(&storage_factory),
         )
         .map_err(IndexError::Build)?;
@@ -2029,7 +2028,6 @@ impl Repository {
                 definitions,
                 options,
                 sources,
-                &pool,
                 &index,
                 discovered,
                 digest_bindings,

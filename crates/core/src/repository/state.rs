@@ -1,15 +1,18 @@
 //! Assembled repository collection state.
 
 use std::borrow::Cow;
+#[cfg(test)]
 use std::collections::HashMap;
 
 #[cfg(test)]
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
+#[cfg(test)]
 use crate::index::bigram::BigramIndex;
 #[cfg(test)]
 use crate::index::memory::inference::InferenceState;
+#[cfg(test)]
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 #[cfg(test)]
 use crate::index::relation::RelationIndex;
@@ -64,6 +67,7 @@ pub struct CollectionState {
     pub(crate) base_records: Option<SegmentHandle>,
     #[cfg(test)]
     pub(crate) generation: CollectionGeneration,
+    #[cfg(test)]
     pub(crate) postings: PostingCollection,
     #[cfg(not(test))]
     pub(crate) declared_postings: crate::index::storage::posting::declared::DeclaredPostings,
@@ -71,19 +75,24 @@ pub struct CollectionState {
     pub(crate) inference: Option<InferenceState>,
     pub(crate) initial_inference_report: Option<InferenceReport>,
     pub(crate) global_inference: Option<GlobalInferenceSummary>,
+    #[cfg(test)]
     pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    #[cfg(test)]
     pub(crate) raw: BigramIndex,
+    #[cfg(test)]
     pub(crate) fallback_text: BigramIndex,
     #[cfg(test)]
     pub(crate) logical_records: RoaringBitmap,
     #[cfg(test)]
     pub(crate) empty_array_records: RoaringBitmap,
+    #[cfg(test)]
     pub(crate) custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub(crate) text_bindings: crate::index::storage::text::TextBindingCatalog,
     pub(crate) declared_orders: DeclaredOrders,
     #[cfg(test)]
     pub(crate) sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
+    #[cfg(test)]
     pub(crate) index_family_bytes: usize,
     #[cfg(test)]
     pub(crate) id_lookup: HashMap<RecordId, RecordSlot>,
@@ -428,16 +437,26 @@ impl CollectionState {
         if let Some(base) = &self.base_records {
             return base.index_family_estimate();
         }
-        crate::index::memory::segment::statistics::index_family_estimate(
+        #[cfg(test)]
+        return crate::index::memory::segment::statistics::index_family_estimate(
             &self.raw,
             &self.fallback_text,
             &self.custom_text,
             &self.postings,
-            #[cfg(test)]
             Some(&self.sorting),
-            #[cfg(not(test))]
-            None,
-        )
+        );
+        #[cfg(not(test))]
+        crate::lifecycle::IndexFamilyEstimate::default()
+    }
+
+    pub(crate) fn base_estimated_index_bytes(&self) -> usize {
+        if let Some(base) = &self.base_records {
+            return base.estimates().index_family_bytes;
+        }
+        #[cfg(test)]
+        return self.index_family_bytes;
+        #[cfg(not(test))]
+        0
     }
 
     /// Counts for the base collection before segment overlays.

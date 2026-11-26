@@ -26,3 +26,39 @@ pub mod record;
 pub(crate) mod state;
 #[cfg(test)]
 pub(crate) mod test_matcher;
+
+pub(crate) fn self_comparison_shape(term: &crate::query::binding::filter::BoundTerm) -> bool {
+    use crate::model::LogicalType;
+    use crate::query::binding::filter::Derived;
+    use crate::query::{Operator, Quantifier};
+    use crate::schema::operation::Transform;
+
+    let Some(rhs) = &term.rhs else { return false };
+    term.operator == Operator::Eq
+        && term.quantifier == Quantifier::Default
+        && term.derived == Derived::None
+        && rhs.derived == Derived::None
+        && term.path == rhs.path
+        && term.query_path == rhs.query_path
+        && term.kind == rhs.kind
+        && term.multi == rhs.multi
+        && !term.implicit_array
+        && !term.query_path.has_position
+        && matches!(
+            term.source_kind,
+            LogicalType::String
+                | LogicalType::Id
+                | LogicalType::Number
+                | LogicalType::Bool
+                | LogicalType::Date
+                | LogicalType::Datetime
+                | LogicalType::Unixtime
+        )
+        && term.transform == Transform::Identity
+        && rhs.transform == Transform::Identity
+        && term.operation.is_none()
+        && rhs.operation.is_none()
+        && term.matcher.is_none()
+        && term.related.is_none()
+        && term.period.is_none()
+}

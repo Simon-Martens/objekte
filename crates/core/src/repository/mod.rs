@@ -164,7 +164,6 @@ impl Repository {
                     .collect(),
                 self.options,
                 &self.sources,
-                None,
                 Arc::clone(&self.storage_factory),
             )?
         } else {

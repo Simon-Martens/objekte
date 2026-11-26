@@ -1,16 +1,21 @@
 //! Correctly configured empty repository state.
 
-use std::collections::{HashMap, HashSet};
+#[cfg(test)]
+use std::collections::HashMap;
+use std::collections::HashSet;
 use std::path::PathBuf;
 use std::sync::{Arc, Mutex};
 use std::time::Instant;
 
 use roaring::RoaringBitmap;
 
+#[cfg(test)]
 use crate::construction::batch::canonical_custom_text_key;
-use crate::index::bigram::BigramContribution;
+#[cfg(test)]
+use crate::index::bigram::BigramIndex;
 #[cfg(test)]
 use crate::index::memory::inference::InferenceBuilder;
+#[cfg(test)]
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 #[cfg(test)]
 use crate::index::relation::RelationContribution;
@@ -95,7 +100,6 @@ pub(crate) fn initialize_empty(
     definitions: Vec<CollectionDefinition>,
     options: RepositoryOptions,
     sources: &SourceRegistry,
-    pool: Option<&rayon::ThreadPool>,
     storage_factory: Arc<dyn StorageFactory>,
 ) -> Result<Repository, String> {
     let configuration_identity = crate::repository::configuration::identity::configuration_hash(
@@ -122,7 +126,6 @@ pub(crate) fn initialize_empty(
         sources,
         configuration_identity,
         false,
-        pool,
         storage_factory,
     )
 }
@@ -174,7 +177,6 @@ pub(crate) fn initialize_empty_programmatic(
         sources,
         configuration_identity,
         true,
-        None,
         storage_factory,
     )
 }
@@ -186,7 +188,6 @@ fn initialize_empty_configured(
     sources: &SourceRegistry,
     configuration_identity: [u8; 32],
     programmatic: bool,
-    pool: Option<&rayon::ThreadPool>,
     storage_factory: Arc<dyn StorageFactory>,
 ) -> Result<Repository, String> {
     crate::schema::relations::validate_collection_schemas(
@@ -204,19 +205,6 @@ fn initialize_empty_configured(
         Some(root) => FileInventory::new(root),
         None => FileInventory::without_root(),
     });
-    let fallback_pool = pool
-        .is_none()
-        .then(|| {
-            rayon::ThreadPoolBuilder::new()
-                .num_threads(1)
-                .thread_name(|index| format!("objekte-empty-{index}"))
-                .build()
-                .map_err(|error| error.to_string())
-        })
-        .transpose()?;
-    let empty_pool = pool
-        .or(fallback_pool.as_ref())
-        .expect("empty construction pool is always available");
     let collection_count = inputs.len();
     let mut collections = Vec::with_capacity(collection_count);
     #[cfg(test)]
@@ -228,6 +216,7 @@ fn initialize_empty_configured(
         #[cfg(test)]
         let generation = CollectionBuilder::new(id, definition.name.clone(), base_generation, 0)
             .finish_empty()?;
+        #[cfg(test)]
         let postings = PostingCollection::new(&definition.schema);
         #[cfg(not(test))]
         let declared_postings =
@@ -242,6 +231,7 @@ fn initialize_empty_configured(
             &[],
         )?
         .map(|summary| summary.report);
+        #[cfg(test)]
         let custom_postings: HashMap<_, _> = definition
             .schema
             .operations
@@ -257,10 +247,11 @@ fn initialize_empty_configured(
                 )
             })
             .collect();
-        let raw =
-            BigramContribution::new(options.bigram_alphabet).into_index_in_pool(empty_pool)?;
-        let fallback_text =
-            BigramContribution::new(options.bigram_alphabet).into_index_in_pool(empty_pool)?;
+        #[cfg(test)]
+        let raw = BigramIndex::new(options.bigram_alphabet);
+        #[cfg(test)]
+        let fallback_text = BigramIndex::new(options.bigram_alphabet);
+        #[cfg(test)]
         let custom_text = definition
             .schema
             .custom
@@ -276,16 +267,12 @@ fn initialize_empty_configured(
                     .map(|(key, _)| key),
             )
             .map(|key| {
-                BigramContribution::new(options.bigram_alphabet)
-                    .into_index_in_pool(empty_pool)
-                    .map(|index| {
-                        (
-                            canonical_custom_text_key(&definition.schema, &key.0, &key.1),
-                            index,
-                        )
-                    })
+                (
+                    canonical_custom_text_key(&definition.schema, &key.0, &key.1),
+                    BigramIndex::new(options.bigram_alphabet),
+                )
             })
-            .collect::<Result<HashMap<_, _>, _>>()?;
+            .collect();
         #[cfg(test)]
         let logical_records = RoaringBitmap::new();
         #[cfg(test)]
@@ -309,15 +296,13 @@ fn initialize_empty_configured(
         let sorting = sort_builder.finish_for_records(&[] as &[crate::records::RecordHeader])?;
         let text_bindings =
             crate::index::storage::text::TextBindingCatalog::new(&definition.schema);
+        #[cfg(test)]
         let index_family_bytes = crate::index::memory::segment::statistics::index_family_total(
             &raw,
             &fallback_text,
             &custom_text,
             &postings,
-            #[cfg(test)]
             Some(&sorting),
-            #[cfg(not(test))]
-            None,
         );
         #[cfg(test)]
         pending_relations.push(RelationContribution::for_schema(&definition.schema));
@@ -332,6 +317,7 @@ fn initialize_empty_configured(
             base_records: None,
             #[cfg(test)]
             generation,
+            #[cfg(test)]
             postings,
             #[cfg(not(test))]
             declared_postings,
@@ -339,18 +325,23 @@ fn initialize_empty_configured(
             inference,
             initial_inference_report,
             global_inference: None,
+            #[cfg(test)]
             custom_postings,
+            #[cfg(test)]
             raw,
+            #[cfg(test)]
             fallback_text,
             #[cfg(test)]
             logical_records,
             #[cfg(test)]
             empty_array_records,
+            #[cfg(test)]
             custom_text,
             text_bindings,
             declared_orders,
             #[cfg(test)]
             sorting,
+            #[cfg(test)]
             index_family_bytes,
             #[cfg(test)]
             id_lookup: HashMap::new(),
@@ -754,7 +745,6 @@ pub(crate) fn assemble_final_repository(
     definitions: Vec<CollectionDefinition>,
     options: RepositoryOptions,
     sources: SourceRegistry,
-    pool: &rayon::ThreadPool,
     index: &crate::lifecycle::Index,
     discovered: FileCatalogHandle,
     digest_bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
@@ -791,7 +781,6 @@ pub(crate) fn assemble_final_repository(
         definitions,
         options,
         &sources,
-        Some(pool),
         storage_factory,
     )
     .map_err(IndexError::Build)?;

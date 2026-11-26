@@ -4,7 +4,7 @@ use std::{collections::BTreeMap, sync::Arc};
 
 use roaring::RoaringBitmap;
 
-use super::super::catalog::{IndexCatalog, PostingProposal, self_comparison_shape};
+use super::super::catalog::{IndexCatalog, PostingProposal};
 use super::super::text::segment_raw_covers_identity_field;
 use crate::index::memory::segment::IndexedCollectionSegment;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
@@ -21,6 +21,7 @@ use crate::model::{
 use crate::query::Operator;
 use crate::query::binding::filter::{BoundTerm, Derived};
 use crate::query::semantics::record::RecordContext;
+use crate::query::semantics::self_comparison_shape;
 use crate::query_access::membership::MembershipView;
 use crate::query_execution::restrictions::{
     AccessPathKind, MAX_INDEXED_PATH_SCAN, SegmentCandidateBounds, custom_bigram_compatible,

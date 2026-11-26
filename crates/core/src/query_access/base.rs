@@ -1,4 +1,4 @@
-//! Native in-memory adapters for structured and text access.
+//! Structured query access to base metadata and stored order.
 
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -18,7 +18,7 @@ use crate::query_access::contract::{
 };
 use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
 
-pub(crate) const NATIVE_COLLECTION_PROVIDER: ProviderId = ProviderId(1);
+pub(crate) const BASE_COLLECTION_PROVIDER: ProviderId = ProviderId(1);
 
 #[derive(Default)]
 pub(crate) struct ProviderCounters {
@@ -27,25 +27,23 @@ pub(crate) struct ProviderCounters {
     pub(crate) dictionary_keys_visited: AtomicU64,
 }
 
-/// Adapter around the existing monomorphic native lookup kernels. The planner
-/// receives only `AccessOffer` values; concrete postings, bigrams and columns
-/// remain behind `apply`.
-pub(crate) struct NativeCollectionProvider<'a> {
+/// Supplies base metadata and stored-order offers through the query registry.
+pub(crate) struct BaseCollectionProvider<'a> {
     repo: Option<&'a Repository>,
     collection: &'a CollectionState,
     domain: DomainId,
     input_len: u64,
-    prepared: Mutex<PreparedNativePaths>,
+    prepared: Mutex<PreparedPaths>,
     counters: ProviderCounters,
 }
 
 #[derive(Default)]
-struct PreparedNativePaths {
+struct PreparedPaths {
     paths: Vec<AccessPathEstimate>,
     terms: Vec<TermId>,
 }
 
-impl<'a> NativeCollectionProvider<'a> {
+impl<'a> BaseCollectionProvider<'a> {
     pub(crate) fn new(
         repo: &'a Repository,
         collection: &'a CollectionState,
@@ -62,7 +60,7 @@ impl<'a> NativeCollectionProvider<'a> {
                 segment_index.map(u64::from),
             ),
             input_len: domain_len,
-            prepared: Mutex::new(PreparedNativePaths::default()),
+            prepared: Mutex::new(PreparedPaths::default()),
             counters: ProviderCounters::default(),
         }
     }
@@ -78,7 +76,7 @@ impl<'a> NativeCollectionProvider<'a> {
                 None,
             ),
             input_len: domain_len,
-            prepared: Mutex::new(PreparedNativePaths::default()),
+            prepared: Mutex::new(PreparedPaths::default()),
             counters: ProviderCounters::default(),
         }
     }
@@ -92,11 +90,11 @@ impl<'a> NativeCollectionProvider<'a> {
     }
 
     pub(crate) fn path_for(&self, id: AccessId) -> Option<AccessPathEstimate> {
-        (id.provider == NATIVE_COLLECTION_PROVIDER)
+        (id.provider == BASE_COLLECTION_PROVIDER)
             .then(|| {
                 self.prepared
                     .lock()
-                    .expect("native provider state poisoned")
+                    .expect("base provider state poisoned")
                     .paths
                     .get(id.operation.0 as usize)
                     .cloned()
@@ -105,11 +103,8 @@ impl<'a> NativeCollectionProvider<'a> {
     }
 
     fn path_for_term(&self, id: AccessId, term: TermId) -> Option<AccessPathEstimate> {
-        let prepared = self
-            .prepared
-            .lock()
-            .expect("native provider state poisoned");
-        if id.provider != NATIVE_COLLECTION_PROVIDER
+        let prepared = self.prepared.lock().expect("base provider state poisoned");
+        if id.provider != BASE_COLLECTION_PROVIDER
             || prepared.terms.get(id.operation.0 as usize) != Some(&term)
         {
             return None;
@@ -132,9 +127,9 @@ impl<'a> NativeCollectionProvider<'a> {
     }
 }
 
-impl IndexAccessProvider for NativeCollectionProvider<'_> {
+impl IndexAccessProvider for BaseCollectionProvider<'_> {
     fn provider_id(&self) -> ProviderId {
-        NATIVE_COLLECTION_PROVIDER
+        BASE_COLLECTION_PROVIDER
     }
 
     fn propose(
@@ -164,10 +159,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
             .fetch_add(visits, Ordering::Relaxed);
         let coverage_len = self.collection.stats.record_count as u64;
         let start = {
-            let mut prepared = self
-                .prepared
-                .lock()
-                .expect("native provider state poisoned");
+            let mut prepared = self.prepared.lock().expect("base provider state poisoned");
             let start = prepared.paths.len();
             prepared.paths.extend(paths.iter().cloned());
             prepared
@@ -183,7 +175,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
                 );
             offers.push(AccessOffer::new(
                 AccessId {
-                    provider: NATIVE_COLLECTION_PROVIDER,
+                    provider: BASE_COLLECTION_PROVIDER,
                     operation: OperationId((start + index) as u32),
                 },
                 term,
@@ -212,7 +204,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         input: SlotInput<'a>,
         execution: &AccessExecution<'_>,
     ) -> AccessResult<Restriction<'a>> {
-        if choice.provider != NATIVE_COLLECTION_PROVIDER {
+        if choice.provider != BASE_COLLECTION_PROVIDER {
             return Err(AccessError::StaleHandle);
         }
         if input.domain() != self.domain {
@@ -233,7 +225,7 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         #[cfg(test)]
         crate::query_access::contract::note_test_application();
         let slots = {
-            let input_ref = input.bitmap_for_native();
+            let input_ref = input.effective().bitmap_for_set_algebra();
             let logical = self
                 .collection
                 .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)

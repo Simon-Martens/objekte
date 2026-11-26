@@ -2,6 +2,7 @@
 
 use std::sync::{Arc, Mutex};
 
+use super::catalog::IndexCatalog;
 use crate::index::segment::IndexedCollectionSegment;
 #[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogReader;
@@ -9,7 +10,7 @@ use crate::index::storage::segment::SegmentPredicateAccess;
 #[cfg(test)]
 use crate::index::storage::text::SegmentTextAccess;
 use crate::query::binding::filter::BoundTerm;
-use crate::query_access::catalog::{IndexCatalog, PostingId, PostingOperation};
+use crate::query_access::contract::{PostingId, PostingOperation};
 #[cfg(test)]
 use crate::query_execution::domain::domain_id;
 use crate::query_execution::restrictions::AccessPathKind;
