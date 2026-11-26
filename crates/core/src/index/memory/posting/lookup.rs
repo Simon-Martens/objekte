@@ -3,7 +3,9 @@ use std::ops::Bound::{Excluded, Included, Unbounded};
 
 use roaring::RoaringBitmap;
 
-use super::{PostingIndex, ScalarKey, SelectionSummary};
+use super::{
+    PostingIndex, ScalarKey, SelectionSummary, value_membership_accounts_for_empty_traversals,
+};
 use crate::index::storage::posting::PostingValueCursor;
 use crate::index::storage::transfer::StorageResult;
 use crate::model::{LogicalType, Number, Value};
@@ -625,10 +627,7 @@ impl PostingIndex {
         }
         if term.derived == Derived::None
             && !matches!(term.literal, Value::Null)
-            && term.quantifier != Quantifier::Any
-            && self
-                .summary
-                .is_some_and(SelectionSummary::may_have_empty_traversal)
+            && !value_membership_accounts_for_empty_traversals(self.summary, term.quantifier)
         {
             return None;
         }
@@ -817,10 +816,7 @@ impl PostingIndex {
         }
         if term.derived == Derived::None
             && !matches!(term.literal, Value::Null)
-            && term.quantifier != Quantifier::Any
-            && self
-                .summary
-                .is_some_and(SelectionSummary::may_have_empty_traversal)
+            && !value_membership_accounts_for_empty_traversals(self.summary, term.quantifier)
         {
             return None;
         }
@@ -989,10 +985,7 @@ impl PostingIndex {
         }
         if term.derived == Derived::None
             && !matches!(term.literal, Value::Null)
-            && term.quantifier != Quantifier::Any
-            && self
-                .summary
-                .is_some_and(SelectionSummary::may_have_empty_traversal)
+            && !value_membership_accounts_for_empty_traversals(self.summary, term.quantifier)
         {
             return None;
         }

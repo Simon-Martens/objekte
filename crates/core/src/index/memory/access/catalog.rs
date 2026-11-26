@@ -9,8 +9,8 @@ use roaring::RoaringBitmap;
 
 use crate::index::memory::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
-use crate::index::memory::posting::ScalarKey;
 use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::index::memory::posting::{ScalarKey, value_membership_accounts_for_empty_traversals};
 use crate::index::memory::segment::IndexedCollectionSegment;
 use crate::index::storage::text::TextBindingCatalog;
 use crate::model::{LogicalType, PathRoot, Value};
@@ -145,9 +145,7 @@ impl PostingAccess<'_> {
         }
         let complete_scalar = index.value_complete
             && !index.multi
-            && index.summary.is_none_or(|summary| {
-                !summary.may_have_empty_traversal() || term.quantifier == Quantifier::Any
-            })
+            && value_membership_accounts_for_empty_traversals(index.summary, term.quantifier)
             && self.short_string_coverage.is_none_or(|covered| {
                 index.null_posting().map_or_else(
                     || index.presence.difference_len(covered) == 0,

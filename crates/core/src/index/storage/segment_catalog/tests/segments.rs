@@ -486,6 +486,7 @@ impl TableSegment {
         });
         let score = score_indexed.then(|| TablePosting {
             block_reads: Arc::clone(&control.posting_block_reads),
+            member_reads: Arc::clone(&control.posting_member_reads),
             path: vec![SCORE.into()],
             kind: LogicalType::Number,
             present: Arc::clone(covered.as_ref().unwrap_or(&logical)),
@@ -1112,7 +1113,8 @@ impl SegmentMaintenance for TableSegment {
 impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
     fn accepts(&self, definition: &crate::index::storage::posting::PostingDefinition) -> bool {
         definition.binding.is_none()
-            && definition.field.path == [SCORE]
+            && (definition.field.path == [SCORE]
+                || (definition.inferred && definition.field.path == ["items", "year"]))
             && definition.field.kind == LogicalType::Number
             && definition.field.indexed
             && !definition.field.multi
@@ -1120,10 +1122,11 @@ impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
 
     fn start(
         &self,
-        _: &crate::index::storage::posting::PostingDefinition,
+        definition: &crate::index::storage::posting::PostingDefinition,
     ) -> StorageResult<Box<dyn crate::index::storage::posting::PostingWriter>> {
         Ok(Box::new(TablePostingWriter {
             control: Arc::clone(self),
+            path: definition.field.path.clone(),
             keys: BTreeMap::new(),
             present: BTreeSet::new(),
             covered_records: 0,
@@ -1133,6 +1136,7 @@ impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
 
 struct TablePostingWriter {
     control: Arc<TableFactory>,
+    path: Vec<String>,
     keys: BTreeMap<ScalarKey, BTreeSet<u32>>,
     present: BTreeSet<u32>,
     covered_records: u32,
@@ -1191,7 +1195,8 @@ impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
         }
         Ok(Arc::new(TablePosting {
             block_reads: Arc::clone(&self.control.posting_block_reads),
-            path: vec![SCORE.into()],
+            member_reads: Arc::clone(&self.control.posting_member_reads),
+            path: self.path,
             kind: LogicalType::Number,
             present: self.present.into_iter().collect(),
             keys: self
@@ -1218,6 +1223,7 @@ impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
 #[derive(Clone)]
 pub(super) struct TablePosting {
     block_reads: Arc<AtomicUsize>,
+    member_reads: Arc<AtomicUsize>,
     path: Vec<String>,
     kind: LogicalType,
     present: Arc<[u32]>,
@@ -1236,6 +1242,7 @@ impl PostingReader for TablePosting {
     }
 
     fn members(&self, key: PostingKey<'_>) -> StorageResult<Option<SlotSet<'_>>> {
+        self.member_reads.fetch_add(1, Ordering::Relaxed);
         let slots = match key {
             PostingKey::Presence => Some(&self.present),
             PostingKey::Value(key) => self.keys.get(key),

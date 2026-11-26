@@ -151,6 +151,10 @@ impl<'a> NativeSegmentProvider<'a> {
             || !descriptor.coverage.values_indexed
             || !descriptor.coverage.value_complete
             || descriptor.coverage.multi
+            || !crate::index::memory::posting::value_membership_accounts_for_empty_traversals(
+                descriptor.coverage.summary,
+                term.quantifier,
+            )
             || (term.multi
                 && !descriptor.coverage.summary.is_some_and(|summary| {
                     summary.only_matches_scalar_or_null() && !summary.may_select_multiple()

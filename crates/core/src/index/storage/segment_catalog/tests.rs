@@ -32,6 +32,7 @@ struct TableFactory {
     partial_score: AtomicBool,
     segment_id_lookups: AtomicUsize,
     posting_block_reads: Arc<AtomicUsize>,
+    posting_member_reads: Arc<AtomicUsize>,
     origins_until_failure: AtomicUsize,
     independent_applications: AtomicUsize,
     text_applications: AtomicUsize,
@@ -1155,6 +1156,108 @@ fn component_writers_preserve_mixed_placement_across_compaction() {
     for index in [&ordered, &posted, &memory] {
         index.shutdown().unwrap();
     }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn placed_inferred_equality_preserves_empty_array_traversals() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::repository::configuration::RepositoryOptions;
+    use crate::source::test_support::{document_folder, fixture_registry};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-placed-empty-traversal-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, value) in [
+        ("a", r#"("items"=("year"=1800))"#),
+        ("b", r#"("items"=[])"#),
+        ("c", "()"),
+        ("retire", "()"),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.row")), value).unwrap();
+    }
+    let factory = Arc::new(TableFactory::default());
+    factory.store_postings.store(true, Ordering::Relaxed);
+    let index = Index::start_build_with_factory(
+        &root,
+        vec![document_folder("data", "data")],
+        RepositoryOptions {
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+        fixture_registry(),
+        Arc::new(Arc::clone(&factory)),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+
+    let check = |view: &crate::lifecycle::IndexView| {
+        let path = FieldPath::parse("items.year").unwrap();
+        let group = view.segments(crate::model::CollectionId(0)).unwrap();
+        assert_eq!(group.len(), 1);
+        let segment = &group[0];
+        let component = segment
+            .components()
+            .unwrap()
+            .into_iter()
+            .find(|component| {
+                component.kind == crate::index::storage::component::ComponentKind::InferredPosting
+                    && component.path.as_deref() == Some(path.segments.as_slice())
+            })
+            .unwrap();
+        let reader = segment.posting(&component).unwrap().unwrap();
+        assert!((reader as &dyn std::any::Any).is::<segments::TablePosting>());
+        let coverage = reader.descriptor().coverage;
+        assert!(coverage.value_complete);
+        assert!(coverage.summary.unwrap().may_have_empty_traversal());
+        for (filter, count, paths) in [
+            ("items.year = 1800", 2, &["a.row", "b.row"][..]),
+            ("items.year ?= 1800", 1, &["a.row"][..]),
+        ] {
+            let mut query = segments::score_query();
+            query.collections = vec!["data".into()];
+            query.filter = Some(crate::query::parse_filter(filter).unwrap());
+            query.options.return_mode = ReturnMode::Locator;
+            query.options.evidence = false;
+
+            factory.posting_member_reads.store(0, Ordering::Relaxed);
+            let actual = view.search(&query).unwrap();
+            let reads = factory.posting_member_reads.load(Ordering::Relaxed);
+            let reference = view.search_reference(&query).unwrap();
+            assert_eq!(actual.count, Some(count), "{filter}");
+            assert_eq!(actual.count, reference.count, "{filter}");
+            assert_eq!(actual.hits, reference.hits, "{filter}");
+            for (hit, path) in actual.hits.iter().zip(paths) {
+                assert!(hit.record_id.ends_with(path), "{}", hit.record_id);
+            }
+            if filter.contains("?=") {
+                assert!(
+                    reads > 0,
+                    "existential equality bypassed the placed posting"
+                );
+            } else {
+                assert_eq!(reads, 0, "default equality used an incomplete proof");
+            }
+        }
+    };
+
+    let before = index.view().unwrap();
+    check(&before);
+    let retired = before
+        .file_handle_for_path(std::path::Path::new("data/retire.row"))
+        .unwrap()
+        .unwrap();
+    index.delete_file(retired).unwrap();
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    check(&index.view().unwrap());
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

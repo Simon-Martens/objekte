@@ -614,6 +614,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
                     Ok(())
                 })?;
                 let posting = TablePosting {
+                    member_reads: Arc::default(),
                     block_reads: Arc::clone(&control.posting_block_reads),
                     path: descriptor.path.to_vec(),
                     kind: descriptor.kind.clone(),

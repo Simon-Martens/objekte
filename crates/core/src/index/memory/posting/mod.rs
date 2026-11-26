@@ -25,6 +25,15 @@ const DIRECT_MULTIVALUE_LIMIT: usize = 8;
 
 pub use crate::index::storage::posting::{ScalarKey, SelectionSummary};
 
+/// Value membership cannot represent vacuous matches from empty traversals.
+pub(in crate::index::memory) fn value_membership_accounts_for_empty_traversals(
+    summary: Option<SelectionSummary>,
+    quantifier: crate::query::Quantifier,
+) -> bool {
+    quantifier == crate::query::Quantifier::Any
+        || summary.is_none_or(|summary| !summary.may_have_empty_traversal())
+}
+
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug)]
 pub(crate) struct PostingIndex {
