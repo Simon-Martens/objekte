@@ -10,6 +10,7 @@ use icu_collator::{
     preferences::CollationNumericOrdering,
 };
 use icu_locale_core::Locale;
+use roaring::RoaringBitmap;
 
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
@@ -17,8 +18,10 @@ use crate::inventory::{ByteRange, CollectionGeneration, FileEntry, FileInventory
 use crate::model::{
     FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
+use crate::query::Operator;
 use crate::query::options::SortField;
 use crate::query::semantics::record::{data_values_small, metadata_value_for_record};
+use crate::query_access::membership::MembershipView;
 use crate::records::RecordHeader;
 use crate::records::RecordIdSlot;
 use crate::schema::Schema;
@@ -32,7 +35,7 @@ pub use crate::index::storage::order::{
     COLLATION_VERSION, CollationStrength, CompositeSortPart, Placement, SortConfig, SortKey,
     SortOptions,
 };
-use crate::index::storage::order::{InferredOrderRows, OrderColumnReader};
+use crate::index::storage::order::{InferredOrderRows, OrderColumnReader, ScalarOrderPredicate};
 
 impl OrderedSlots for Vec<RecordSlot> {
     fn len(&self) -> usize {
@@ -88,6 +91,92 @@ impl OrderColumnReader for SortColumn {
 
     fn retained_bytes(&self) -> usize {
         SortColumn::retained_bytes(self)
+    }
+
+    fn key_count(&self) -> usize {
+        self.keys.len()
+    }
+
+    fn match_scalar(
+        &self,
+        predicate: &ScalarOrderPredicate,
+        input: MembershipView<'_>,
+        ordered_only: bool,
+    ) -> StorageResult<Option<RoaringBitmap>> {
+        if input
+            .last()
+            .is_some_and(|last| last as usize >= self.keys.len())
+        {
+            return Err(StorageError::invalid(
+                "filter native sort column",
+                "slot outside column",
+            ));
+        }
+        // A typed numeric/temporal range is contiguous in the ascending
+        // sequence when the endpoints have the same type as the predicate.
+        if matches!(
+            predicate.operator,
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+        ) && self.ascending.len() == self.keys.len()
+            && let (Some(first), Some(last)) = (
+                self.ascending
+                    .first()
+                    .and_then(|slot| self.keys.get(slot.0 as usize)),
+                self.ascending
+                    .last()
+                    .and_then(|slot| self.keys.get(slot.0 as usize)),
+            )
+            && std::mem::discriminant(first) == std::mem::discriminant(&predicate.literal)
+            && std::mem::discriminant(last) == std::mem::discriminant(&predicate.literal)
+        {
+            if predicate.matches(first) && predicate.matches(last) {
+                let matches = match input {
+                    MembershipView::Borrowed(bitmap) | MembershipView::AllSlots(bitmap) => {
+                        bitmap.clone()
+                    }
+                    _ => input.iter().collect(),
+                };
+                return Ok(Some(matches));
+            }
+            let lower = self.ascending.partition_point(|slot| {
+                self.keys[slot.0 as usize]
+                    .compare(&predicate.literal, false)
+                    .is_lt()
+            });
+            let upper = self.ascending.partition_point(|slot| {
+                self.keys[slot.0 as usize]
+                    .compare(&predicate.literal, false)
+                    .is_le()
+            });
+            let selected = match predicate.operator {
+                Operator::Gt => &self.ascending[upper..],
+                Operator::Ge => &self.ascending[lower..],
+                Operator::Lt => &self.ascending[..lower],
+                Operator::Le => &self.ascending[..upper],
+                _ => unreachable!(),
+            };
+            let matches = match input {
+                MembershipView::Borrowed(bitmap) | MembershipView::AllSlots(bitmap) => {
+                    let mut matches: RoaringBitmap = selected.iter().map(|slot| slot.0).collect();
+                    matches &= bitmap;
+                    matches
+                }
+                _ => selected
+                    .iter()
+                    .filter_map(|slot| input.contains(slot.0).then_some(slot.0))
+                    .collect(),
+            };
+            return Ok(Some(matches));
+        }
+        if ordered_only {
+            return Ok(None);
+        }
+        Ok(Some(
+            input
+                .iter()
+                .filter(|&slot| predicate.matches(&self.keys[slot as usize]))
+                .collect(),
+        ))
     }
 
     fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>> {

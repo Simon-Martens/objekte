@@ -386,6 +386,10 @@ impl OrderColumnReader for TableOrder {
             + self.slots.rows.capacity() * size_of::<RecordSlot>()
     }
 
+    fn key_count(&self) -> usize {
+        self.keys.len()
+    }
+
     fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>> {
         self.keys
             .get(&(slot.0 as usize))

@@ -5,13 +5,16 @@ pub(crate) mod inferred_cache;
 use std::borrow::Cow;
 use std::cmp::Ordering;
 
+use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
 use crate::model::{FieldPath, Number};
 use crate::query::options::SortField;
 
-use crate::model::{LogicalType, RecordSlot};
+use crate::model::{LogicalType, RecordSlot, Value};
+use crate::query::Operator;
+use crate::query_access::membership::MembershipView;
 
 use super::ordered_slots::OrderedSlots;
 use super::transfer::StorageResult;
@@ -22,8 +25,54 @@ pub(crate) trait OrderColumnReader: Send + Sync {
     fn options(&self) -> SortOptions;
     fn locale(&self) -> &str;
     fn retained_bytes(&self) -> usize;
+    fn key_count(&self) -> usize;
+
+    /// Filters a query-owned input domain. A reader can decline an operation
+    /// it cannot prove. An error from an attempted read is propagated.
+    fn match_scalar(
+        &self,
+        _predicate: &ScalarOrderPredicate,
+        _input: MembershipView<'_>,
+        _ordered_only: bool,
+    ) -> StorageResult<Option<RoaringBitmap>> {
+        Ok(None)
+    }
+
     fn key(&self, slot: RecordSlot) -> StorageResult<Cow<'_, SortKey>>;
     fn slots(&self, descending: bool) -> StorageResult<&dyn OrderedSlots>;
+}
+
+pub(crate) struct ScalarOrderPredicate {
+    pub literal: SortKey,
+    pub operator: Operator,
+}
+
+impl ScalarOrderPredicate {
+    pub(crate) fn new(value: &Value, operator: Operator) -> Option<Self> {
+        let literal = match value {
+            Value::Number(value) => SortKey::Number(value.clone()),
+            Value::Date(value) => SortKey::Date(*value),
+            Value::Datetime(value) => SortKey::Datetime(*value),
+            Value::Unixtime(value) => SortKey::Unixtime(*value),
+            _ => return None,
+        };
+        Some(Self { literal, operator })
+    }
+
+    pub(crate) fn matches(&self, key: &SortKey) -> bool {
+        if matches!(key, SortKey::Missing | SortKey::Null) {
+            return false;
+        }
+        match self.operator {
+            Operator::Eq => key.compare(&self.literal, false).is_eq(),
+            Operator::Ne => key.compare(&self.literal, false).is_ne(),
+            Operator::Gt => key.compare(&self.literal, false).is_gt(),
+            Operator::Ge => key.compare(&self.literal, false).is_ge(),
+            Operator::Lt => key.compare(&self.literal, false).is_lt(),
+            Operator::Le => key.compare(&self.literal, false).is_le(),
+            _ => false,
+        }
+    }
 }
 
 /// A query-created scalar order requested against one pinned segment.

@@ -10,8 +10,8 @@ use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::index::segment::{IndexedCollectionSegment, PublishedSegment, SegmentId};
-use crate::index::sorting::SortKey;
 use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
+use crate::index::storage::order::ScalarOrderPredicate;
 use crate::inventory::{
     ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceRevision, relative_path_bounds,
@@ -33,7 +33,7 @@ use crate::query_access::contract::{
     IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength, Proven, ProviderId,
     Restriction,
 };
-use crate::query_access::membership::{SlotInput, SlotSet};
+use crate::query_access::membership::{MembershipView, SlotInput, SlotSet};
 use crate::query_access::native::NativeCollectionProvider;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::segment::NativeSegmentProvider;
@@ -1545,11 +1545,11 @@ fn segment_record_range_matches(
 }
 
 fn segment_sort_column_matches(
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     logical_active: &RoaringBitmap,
     term: &BoundTerm,
     ordered_only: bool,
-) -> Option<RoaringBitmap> {
+) -> Result<Option<RoaringBitmap>, String> {
     if term.derived != Derived::None
         || term.period.is_some()
         || term.multi
@@ -1565,69 +1565,22 @@ fn segment_sort_column_matches(
             Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
         )
     {
-        return None;
+        return Ok(None);
     }
-    let literal = sort_key(&term.literal)?;
-    let column = segment.sorting.column(&term.path.display()).ok()?;
-    if column.keys.len() != segment.record_count() {
-        return None;
+    let Some(predicate) = ScalarOrderPredicate::new(&term.literal, term.operator) else {
+        return Ok(None);
+    };
+    let Some(column) = segment.order_column(&term.path)? else {
+        return Ok(None);
+    };
+    if column.key_count() != segment.descriptor().slots {
+        return Err("sort column does not cover the segment".into());
     }
-    // A configured numeric/temporal order is already sorted by these keys.
-    // When every key has the literal's type, a range predicate is one slice
-    // of that order. Null/missing or mixed-type shards keep the slower proof.
-    if matches!(
-        term.operator,
-        Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
-    ) && column.ascending.len() == column.keys.len()
-        && let (Some(first), Some(last)) = (
-            column
-                .ascending
-                .first()
-                .and_then(|slot| column.keys.get(slot.0 as usize)),
-            column
-                .ascending
-                .last()
-                .and_then(|slot| column.keys.get(slot.0 as usize)),
-        )
-        && std::mem::discriminant(first) == std::mem::discriminant(&literal)
-        && std::mem::discriminant(last) == std::mem::discriminant(&literal)
-    {
-        if order_matches(first.compare(&literal, false), term.operator)
-            && order_matches(last.compare(&literal, false), term.operator)
-        {
-            return Some(logical_active.clone());
-        }
-        let lower = column.ascending.partition_point(|slot| {
-            column.keys[slot.0 as usize].compare(&literal, false) == std::cmp::Ordering::Less
-        });
-        let upper = column.ascending.partition_point(|slot| {
-            column.keys[slot.0 as usize].compare(&literal, false) != std::cmp::Ordering::Greater
-        });
-        let selected = match term.operator {
-            Operator::Gt => &column.ascending[upper..],
-            Operator::Ge => &column.ascending[lower..],
-            Operator::Lt => &column.ascending[..lower],
-            Operator::Le => &column.ascending[..upper],
-            _ => unreachable!(),
-        };
-        let mut matches = RoaringBitmap::new();
-        matches.extend(selected.iter().map(|slot| slot.0));
-        matches &= logical_active;
-        return Some(matches);
-    }
-    if ordered_only {
-        return None;
-    }
-    let mut matches = RoaringBitmap::new();
-    for slot in logical_active.iter() {
-        let key = &column.keys[slot as usize];
-        if !matches!(key, SortKey::Missing | SortKey::Null)
-            && order_matches(key.compare(&literal, false), term.operator)
-        {
-            matches.insert(slot);
-        }
-    }
-    Some(matches)
+    Ok(column.match_scalar(
+        &predicate,
+        MembershipView::Borrowed(logical_active),
+        ordered_only,
+    )?)
 }
 
 fn segment_positional_eq_candidates(
@@ -2040,7 +1993,7 @@ pub(crate) fn segment_expr_bounds(
             if term.path.root != PathRoot::Data {
                 return Ok(SegmentCandidateBounds::unknown(domain));
             }
-            if let Some(matches) = segment_sort_column_matches(segment, logical_active, term, true)
+            if let Some(matches) = segment_sort_column_matches(segment, logical_active, term, true)?
             {
                 return Ok(SegmentCandidateBounds::bounds(
                     &matches | fallback_active,
@@ -2090,7 +2043,7 @@ pub(crate) fn segment_expr_bounds(
             }
             {
                 if let Some(matches) =
-                    segment_sort_column_matches(segment, logical_active, term, false)
+                    segment_sort_column_matches(segment, logical_active, term, false)?
                 {
                     return Ok(SegmentCandidateBounds::bounds(
                         &matches | fallback_active,
@@ -3296,32 +3249,17 @@ pub(crate) fn execute_path(
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
         AccessPathKind::SortColumn => {
-            let column = collection.sorting.column(&term.path.display())?;
-            let literal = sort_key(&term.literal).ok_or("sort-column predicate is not scalar")?;
-            let mut result = RoaringBitmap::new();
-            for (slot, key) in column.keys.iter().enumerate() {
-                if !matches!(key, SortKey::Missing | SortKey::Null)
-                    && order_matches(key.compare(&literal, false), term.operator)
-                {
-                    result.insert(slot as u32);
-                }
-            }
-            Some(result)
+            let column = collection
+                .order_column(&term.path)?
+                .ok_or("selected sort column missing")?;
+            let predicate = ScalarOrderPredicate::new(&term.literal, term.operator)
+                .ok_or("sort-column predicate is not scalar")?;
+            column.match_scalar(&predicate, MembershipView::Borrowed(input), false)?
         }
         AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted => {
             return Err("relation strategy is selected after local planning".into());
         }
         AccessPathKind::Scanner => None,
-    })
-}
-
-fn sort_key(value: &Value) -> Option<SortKey> {
-    Some(match value {
-        Value::Number(n) => SortKey::Number(n.clone()),
-        Value::Date(d) => SortKey::Date(*d),
-        Value::Datetime(d) => SortKey::Datetime(*d),
-        Value::Unixtime(t) => SortKey::Unixtime(*t),
-        _ => return None,
     })
 }
 
