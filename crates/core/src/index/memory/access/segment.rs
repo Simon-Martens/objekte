@@ -3,7 +3,9 @@
 use std::sync::{Arc, Mutex};
 
 use super::catalog::IndexCatalog;
-use crate::index::memory::posting::value_membership_accounts_for_empty_traversals;
+use crate::index::memory::posting::{
+    mapped_text_keys_match_literal, value_membership_accounts_for_empty_traversals,
+};
 use crate::index::memory::segment::IndexedCollectionSegment;
 #[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogReader;
@@ -164,6 +166,7 @@ impl<'a> NativeSegmentProvider<'a> {
             || !descriptor.coverage.values_indexed
             || !descriptor.coverage.value_complete
             || descriptor.coverage.multi
+            || !mapped_text_keys_match_literal(term, descriptor.coverage.summary)
             || !value_membership_accounts_for_empty_traversals(
                 descriptor.coverage.summary,
                 term.quantifier,

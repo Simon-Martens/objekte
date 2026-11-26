@@ -1116,6 +1116,12 @@ impl SegmentMaintenance for TableSegment {
 
 impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
     fn accepts(&self, definition: &crate::index::storage::posting::PostingDefinition) -> bool {
+        if definition.binding.as_deref() == Some("as_id") {
+            return definition.field.path == ["code"]
+                && definition.field.kind == LogicalType::String
+                && definition.field.indexed
+                && !definition.field.multi;
+        }
         definition.binding.is_none()
             && (definition.field.path == [SCORE]
                 || (definition.inferred && definition.field.path == ["items", "year"]))
@@ -1131,6 +1137,7 @@ impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
         Ok(Box::new(TablePostingWriter {
             control: Arc::clone(self),
             path: definition.field.path.clone(),
+            kind: definition.field.kind.clone(),
             keys: BTreeMap::new(),
             present: BTreeSet::new(),
             covered_records: 0,
@@ -1141,6 +1148,7 @@ impl crate::index::storage::posting::PostingStore for Arc<TableFactory> {
 struct TablePostingWriter {
     control: Arc<TableFactory>,
     path: Vec<String>,
+    kind: LogicalType,
     keys: BTreeMap<ScalarKey, BTreeSet<u32>>,
     present: BTreeSet<u32>,
     covered_records: u32,
@@ -1237,7 +1245,7 @@ impl crate::index::storage::posting::PostingWriter for TablePostingWriter {
             fail_whole: Arc::clone(&self.control.fail_whole_posting),
             resident: super::test_resident_estimate(&self.control),
             path: self.path,
-            kind: LogicalType::Number,
+            kind: self.kind,
             present: self.present.into_iter().collect(),
             keys: self
                 .keys

@@ -101,6 +101,16 @@ impl SelectionSummary {
         self.kinds != 0
     }
 
+    /// Typed posting lookups use one dictionary variant. The scalar filter
+    /// comparator treats strings and IDs as the same textual domain.
+    pub(crate) fn uses_text_key_type(self, literal: &Value) -> bool {
+        match literal {
+            Value::String(_) => self.kinds & !(SUMMARY_STRING | SUMMARY_NULL) == 0,
+            Value::Id(_) => self.kinds & !(SUMMARY_ID | SUMMARY_NULL) == 0,
+            _ => false,
+        }
+    }
+
     pub(crate) fn may_match_string(self) -> bool {
         self.kinds & SUMMARY_STRING_OR_ID != 0
     }

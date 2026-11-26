@@ -1454,6 +1454,158 @@ fn placed_postings_restrict_numeric_ranges_and_frequent_keys_without_source_read
 }
 
 #[test]
+fn named_text_posting_comparison_agrees_with_the_mapped_matcher() {
+    use crate::model::{LogicalType, Value};
+    use crate::query::{Literal, Operator};
+    use crate::repository::configuration::RepositoryOptions;
+    use crate::schema::FieldDefinition;
+    use crate::schema::operation::{BindingOperation, RegisteredBinding};
+    use crate::source::test_support::{document_folder, fixture_registry};
+
+    #[derive(Debug)]
+    struct MapToId;
+
+    impl BindingOperation for MapToId {
+        fn accepts(&self, kind: &LogicalType, operator: Operator, multi: bool) -> bool {
+            *kind == LogicalType::String
+                && matches!(operator, Operator::Eq | Operator::Ne)
+                && !multi
+        }
+
+        fn prepare_literal(&self, literal: &Literal, _: &LogicalType) -> Result<Value, String> {
+            match literal {
+                Literal::String(text) => Ok(Value::String(text.clone())),
+                _ => Err("expected quoted code".into()),
+            }
+        }
+
+        fn map_value(&self, value: &Value) -> Option<Value> {
+            match value {
+                Value::String(text) => Some(Value::Id(text.clone())),
+                _ => None,
+            }
+        }
+
+        fn map_text(&self, text: &str) -> String {
+            text.to_owned()
+        }
+
+        fn posting(&self) -> bool {
+            true
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-mapped-text-posting-{}",
+        std::process::id()
+    ));
+    let data = root.join("data");
+    std::fs::create_dir_all(&data).unwrap();
+    for (name, record) in [("a.row", r#"("code"="A")"#), ("b.row", r#"("code"="B")"#)] {
+        std::fs::write(data.join(name), record).unwrap();
+    }
+    let mut definition = document_folder("data", "data");
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["code".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_operation(
+            vec!["code".into()],
+            RegisteredBinding {
+                name: "as_id".into(),
+                version: 1,
+                operation: Arc::new(MapToId),
+            },
+        )
+        .unwrap();
+
+    let independent = Arc::new(TableFactory::default());
+    independent.store_postings.store(true, Ordering::Relaxed);
+    let indexes = [
+        (
+            "independent",
+            Arc::new(Arc::clone(&independent)) as Arc<dyn crate::index::storage::StorageFactory>,
+        ),
+        ("native", crate::index::storage::default_factory()),
+    ]
+    .map(|(placement, factory)| {
+        (
+            placement,
+            Index::start_build_with_factory(
+                &root,
+                vec![definition.clone()],
+                RepositoryOptions {
+                    verified_cache_bytes: 0,
+                    ..Default::default()
+                },
+                fixture_registry(),
+                factory,
+            )
+            .unwrap()
+            .wait_complete()
+            .unwrap(),
+        )
+    });
+    for (placement, index) in indexes {
+        let view = index.view().unwrap();
+        let group = view.segments(crate::model::CollectionId(0)).unwrap();
+        assert_eq!(group.len(), 1);
+        let segment = &group[0];
+        let descriptor = segment
+            .components()
+            .unwrap()
+            .into_iter()
+            .find(|descriptor| descriptor.binding.as_deref() == Some("as_id"))
+            .unwrap();
+        let reader = segment.posting(&descriptor).unwrap().unwrap();
+        assert_eq!(
+            (reader as &dyn std::any::Any).is::<segments::TablePosting>(),
+            placement == "independent"
+        );
+        use crate::index::storage::posting::{PostingKey, ScalarKey};
+        assert!(
+            reader
+                .members(PostingKey::Value(&ScalarKey::Id("A".into())))
+                .unwrap()
+                .is_some()
+        );
+        assert!(
+            reader
+                .members(PostingKey::Value(&ScalarKey::String("A".into())))
+                .unwrap()
+                .is_none()
+        );
+
+        for (operator, expected_id) in [("=", "path:a.row"), ("!=", "path:b.row")] {
+            let mut query = segments::score_query();
+            query.collections = vec!["data".into()];
+            query.filter =
+                Some(crate::query::parse_filter(&format!("code:as_id {operator} 'A'")).unwrap());
+            query.options.return_mode = ReturnMode::Locator;
+            query.options.evidence = false;
+            let expected = view.search_reference(&query).unwrap();
+            let actual = view.search(&query).unwrap();
+            assert_eq!(actual.count, Some(1), "{placement} {operator}");
+            assert_eq!(actual.count, expected.count, "{placement} {operator}");
+            assert_eq!(actual.hits, expected.hits, "{placement} {operator}");
+            assert_eq!(actual.hits[0].record_id, expected_id);
+        }
+        index.shutdown().unwrap();
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn placed_inferred_equality_preserves_empty_array_traversals() {
     use crate::inference::{InferenceConfig, InferenceMode};
     use crate::repository::configuration::RepositoryOptions;

@@ -34,6 +34,21 @@ pub(in crate::index::memory) fn value_membership_accounts_for_empty_traversals(
         || summary.is_none_or(|summary| !summary.may_have_empty_traversal())
 }
 
+/// A registered operation can map a declared field to different key types.
+pub(in crate::index::memory) fn mapped_text_keys_match_literal(
+    term: &crate::query::binding::filter::BoundTerm,
+    summary: Option<SelectionSummary>,
+) -> bool {
+    use crate::query::Operator;
+    term.operation.is_none()
+        || !matches!(
+            term.operator,
+            Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+        )
+        || !matches!(term.literal, Value::String(_) | Value::Id(_))
+        || summary.is_some_and(|summary| summary.uses_text_key_type(&term.literal))
+}
+
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug)]
 pub(crate) struct PostingIndex {

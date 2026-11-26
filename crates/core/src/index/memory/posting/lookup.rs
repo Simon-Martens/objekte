@@ -4,7 +4,8 @@ use std::ops::Bound::{Excluded, Included, Unbounded};
 use roaring::RoaringBitmap;
 
 use super::{
-    PostingIndex, ScalarKey, SelectionSummary, value_membership_accounts_for_empty_traversals,
+    PostingIndex, ScalarKey, SelectionSummary, mapped_text_keys_match_literal,
+    value_membership_accounts_for_empty_traversals,
 };
 use crate::index::storage::posting::PostingValueCursor;
 use crate::index::storage::transfer::StorageResult;
@@ -613,6 +614,7 @@ impl PostingIndex {
             .matcher
             .as_ref()
             .is_some_and(|matcher| !matcher.posting_compatible())
+            || !mapped_text_keys_match_literal(term, self.summary)
         {
             return None;
         }
@@ -792,6 +794,7 @@ impl PostingIndex {
             .matcher
             .as_ref()
             .is_some_and(|matcher| !matcher.posting_compatible())
+            || !mapped_text_keys_match_literal(term, self.summary)
         {
             return None;
         }
@@ -971,6 +974,7 @@ impl PostingIndex {
             .matcher
             .as_ref()
             .is_some_and(|matcher| !matcher.posting_compatible())
+            || !mapped_text_keys_match_literal(term, self.summary)
         {
             return None;
         }
