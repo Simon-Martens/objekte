@@ -1,5 +1,7 @@
 //! Opt-in observations and complete inferred posting accelerators.
 
+pub(crate) mod admission;
+
 use serde::{Deserialize, Serialize};
 
 use crate::model::LogicalType;

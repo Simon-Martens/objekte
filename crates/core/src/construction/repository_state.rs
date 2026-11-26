@@ -797,11 +797,10 @@ pub(crate) fn assemble_final_repository(
             pending_relations.push(relations);
         }
         let (_, stats) = state.finish_summary(options).map_err(IndexError::Build)?;
-        collection.global_inference = crate::index::memory::inference::aggregate_segment_inference(
+        collection.global_inference = crate::inference::admission::aggregate_segment_inference(
             options.inference,
             &collection.definition.schema,
             &segments,
-            &collection.definition.name,
         )
         .map_err(IndexError::Build)?;
         inference_build.absorb(stats);

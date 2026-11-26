@@ -12,6 +12,19 @@ use super::transfer::StorageResult;
 
 pub(crate) type InferenceObservationHandle = Arc<dyn InferenceObservationReader>;
 
+/// Dictionary metadata used by the collection report. A backend can answer
+/// this without reading keys or their memberships.
+pub(crate) struct InferredPostingDiagnostic {
+    pub kind: LogicalType,
+    pub multi: bool,
+    pub value_keys: usize,
+    pub length_keys: usize,
+    pub covered_records: u32,
+    pub value_complete: bool,
+    pub has_structural_facts: bool,
+    pub estimated_bytes: usize,
+}
+
 pub(crate) trait InferenceObservationReader: Send + Sync {
     fn estimated_bytes(&self) -> usize;
     fn complete(&self) -> bool;

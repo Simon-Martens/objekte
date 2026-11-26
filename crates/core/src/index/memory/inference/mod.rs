@@ -17,7 +17,7 @@ use super::posting::PostingIndex;
 mod builder;
 #[cfg(test)]
 pub(crate) use builder::ObservedStep;
-pub(crate) use builder::{InferenceBuilder, InferenceObservation, aggregate_segment_inference};
+pub(crate) use builder::{InferenceBuilder, InferenceObservation};
 
 /// Published optional indexes and their descriptive report.
 #[derive(Clone, Debug)]

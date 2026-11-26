@@ -1520,11 +1520,10 @@ fn segmented_short_string_facet_family_is_independent_of_build_order() {
         LogicalType::String
     );
     let summarize = |ordered: &[Arc<PublishedSegment>]| {
-        crate::index::memory::inference::aggregate_segment_inference(
+        crate::inference::admission::aggregate_segment_inference(
             inference,
             &repo.collections()[0].definition.schema,
             ordered,
-            "data",
         )
         .unwrap()
         .unwrap()

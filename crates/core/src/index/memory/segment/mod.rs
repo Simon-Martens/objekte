@@ -676,6 +676,45 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(reader.map(|reader| reader as &dyn crate::index::storage::posting::PostingReader))
     }
 
+    fn inferred_posting_diagnostic(
+        &self,
+        path: &[String],
+    ) -> StorageResult<Option<crate::index::storage::inference::InferredPostingDiagnostic>> {
+        let Some(index) = self
+            .inference
+            .as_ref()
+            .and_then(|state| state.indexes.get(path))
+        else {
+            return Ok(None);
+        };
+        Ok(Some(
+            crate::index::storage::inference::InferredPostingDiagnostic {
+                kind: index.kind.clone(),
+                multi: index.multi,
+                value_keys: index.distinct_values(),
+                length_keys: index.distinct_lengths(),
+                covered_records: index.covered_records,
+                value_complete: index.value_complete,
+                has_structural_facts: index.summary.is_some(),
+                estimated_bytes: index
+                    .values
+                    .iter()
+                    .map(|(key, slots)| {
+                        128 + match key {
+                            crate::index::storage::posting::ScalarKey::String(text) => text.len(),
+                            _ => 0,
+                        } + slots.serialized_size()
+                    })
+                    .sum::<usize>()
+                    + index
+                        .lengths
+                        .values()
+                        .map(|slots| 64 + slots.serialized_size())
+                        .sum::<usize>(),
+            },
+        ))
+    }
+
     fn facet_posting(
         &self,
         path: &crate::model::FieldPath,

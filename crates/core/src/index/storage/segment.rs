@@ -22,6 +22,7 @@ use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
 use super::component::ComponentDescriptor;
 use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
+use super::inference::InferredPostingDiagnostic;
 use super::liveness::ActiveRecords;
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
@@ -519,6 +520,13 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
         Ok(None)
     }
 
+    fn inferred_posting_diagnostic(
+        &self,
+        _path: &[String],
+    ) -> StorageResult<Option<InferredPostingDiagnostic>> {
+        Ok(None)
+    }
+
     fn facet_posting(
         &self,
         _path: &FieldPath,
@@ -765,6 +773,13 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
                 .posting(&self.payload_component(component, placement)?);
         }
         self.payload().posting(component)
+    }
+
+    fn inferred_posting_diagnostic(
+        &self,
+        path: &[String],
+    ) -> StorageResult<Option<InferredPostingDiagnostic>> {
+        self.payload().inferred_posting_diagnostic(path)
     }
 
     fn facet_posting(
