@@ -223,7 +223,6 @@ impl ExecutionContext {
     /// A query may recover from a stale-source read by returning an incomplete
     /// result. Clear that recovered failure so a later cancellation or budget
     /// failure in the same execution keeps its own typed error.
-    #[cfg(test)]
     pub(crate) fn clear_recovered_source_changed(&self) {
         if let Ok(mut failure) = self.accounting.first_failure.lock()
             && failure
@@ -524,10 +523,21 @@ impl<'a> Delivery<'a> {
     }
 
     pub(crate) fn observe(&mut self, counters: &WorkCounters) {
+        self.observe_after(counters, None);
+    }
+
+    pub(crate) fn observe_after(&mut self, counters: &WorkCounters, prior: Option<&WorkCounters>) {
+        let earlier_candidates = prior.map_or(0, |work| {
+            work.scanned_records
+                .saturating_add(work.exact_posting_matches)
+        });
         self.progress.processed_candidates = counters
             .scanned_records
-            .saturating_add(counters.exact_posting_matches);
-        self.progress.observed_matches = counters.total_matches;
+            .saturating_add(counters.exact_posting_matches)
+            .saturating_add(earlier_candidates);
+        self.progress.observed_matches = counters
+            .total_matches
+            .saturating_add(prior.map_or(0, |work| work.total_matches));
     }
 
     pub(crate) fn max_buffered_bytes(&self) -> usize {
@@ -646,11 +656,20 @@ impl<'a> Delivery<'a> {
         Ok(())
     }
 
-    /// Publish one independent bounded batch from an all-results traversal.
+    /// Publish one independent bounded batch of final rows.
     pub(crate) fn ordered_batch(
         &mut self,
         rows: &[SearchHit],
         counters: &WorkCounters,
+    ) -> Result<(), String> {
+        self.ordered_batch_after(rows, counters, None)
+    }
+
+    pub(crate) fn ordered_batch_after(
+        &mut self,
+        rows: &[SearchHit],
+        counters: &WorkCounters,
+        prior: Option<&WorkCounters>,
     ) -> Result<(), String> {
         if rows.is_empty() {
             return Ok(());
@@ -659,7 +678,7 @@ impl<'a> Delivery<'a> {
             .iter()
             .fold(0usize, |total, row| total.saturating_add(hit_bytes(row)));
         self.check_event(bytes)?;
-        self.observe(counters);
+        self.observe_after(counters, prior);
         let mut progress = self.progress;
         progress.sequence = progress.sequence.saturating_add(1);
         let start = usize::try_from(progress.emitted_rows)

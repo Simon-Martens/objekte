@@ -988,7 +988,8 @@ impl SegmentReader for TableSegment {
         inferred: Option<(&FieldPath, bool)>,
     ) -> StorageResult<Option<&dyn OrderedSlots>> {
         if fields.is_empty() && inferred.is_none() {
-            return Ok(Some(self.identity_order.as_ref()));
+            return Ok((!self.control.omit_identity_order.load(Ordering::Relaxed))
+                .then(|| self.identity_order.as_ref() as &dyn OrderedSlots));
         }
         let [field] = fields else { return Ok(None) };
         let Some(part) = crate::index::storage::order::simple_composite_part(field) else {

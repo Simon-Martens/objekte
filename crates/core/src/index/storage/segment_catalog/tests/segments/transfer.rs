@@ -1484,6 +1484,339 @@ fn certified_directory_stream_bounds_same_placement_payloads() {
 }
 
 #[test]
+fn certified_directory_file_payloads_continue_within_the_placement() {
+    use crate::index::storage::publication::PlacementVersion;
+    use crate::index::storage::segment::maintenance::SegmentPartition;
+    use crate::query_execution::streaming::{
+        CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope,
+        StreamControl, StreamError, StreamEvent, StreamOptions, StreamOutcome,
+    };
+    use crate::query_results::Payload;
+    use crate::repository::configuration::{
+        CollectionDefinition, IdentityPolicy, RepositoryOptions,
+    };
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let layouts: [&[&[&str]]; 3] = [
+        &[&["A", "B"], &["C"]],
+        &[&["A"], &["B", "C"]],
+        &[&["A", "B", "C"]],
+    ];
+    for (layout_index, layout) in layouts.into_iter().enumerate() {
+        let factory = Arc::new(TableFactory::default());
+        factory
+            .certify_placement_identity_ranges
+            .store(true, Ordering::Relaxed);
+        let root = std::env::temp_dir().join(format!(
+            "objekte-directory-file-continuation-{}-{layout_index}",
+            std::process::id()
+        ));
+        std::fs::create_dir_all(root.join("entries")).unwrap();
+        let path = |id| std::path::PathBuf::from(format!("entries/{id}.rows"));
+        let row = |id| format!(r#"("id"="{id}","score"=7)"#);
+        for id in ["A", "B", "C"] {
+            std::fs::write(root.join(path(id)), row(id)).unwrap();
+        }
+        let mut definition = CollectionDefinition::folder("entries", "entries", line_format());
+        definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+        definition.schema = score_schema();
+        let source = Index::start_build_with_factory(
+            &root,
+            vec![definition],
+            RepositoryOptions {
+                verified_cache_bytes: 0,
+                ..Default::default()
+            },
+            fixture_registry(),
+            Arc::new(Arc::clone(&factory)),
+        )
+        .unwrap()
+        .wait_complete()
+        .unwrap();
+        let pinned = source.view().unwrap();
+        let segments = pinned.segments(CollectionId(0)).unwrap();
+        let [segment] = segments.as_slice() else {
+            panic!("expected one initial segment")
+        };
+        let catalog = pinned.file_catalog().unwrap();
+        let file = |id| catalog.file_by_path(&path(id)).unwrap().unwrap().id;
+        let partitions = layout
+            .iter()
+            .map(|ids| SegmentPartition {
+                files: ids.iter().map(|id| file(*id)).collect(),
+                slots: ActiveRecords::from_bitmap(
+                    segment.descriptor().slots,
+                    ids.iter()
+                        .map(|id| segment.slot_for_record(id).unwrap().unwrap().0)
+                        .collect(),
+                )
+                .unwrap(),
+            })
+            .collect::<Vec<_>>();
+        let projected = crate::index::storage::test_factory()
+            .project_segment_partitions(
+                segment.as_ref(),
+                &partitions,
+                pinned.0.catalog.as_ref(),
+                &mut || false,
+            )
+            .unwrap();
+        let placements = projected
+            .into_iter()
+            .enumerate()
+            .map(|(position, payload)| {
+                let id = crate::index::storage::segment::SegmentId::new(position as u64 + 1);
+                let active = crate::index::storage::test_factory()
+                    .live_records(payload.descriptor().slots, InitialLiveness::All)
+                    .unwrap();
+                let payload = if layout_index == 2 {
+                    // Exercise the same continuation when the backend has no stored identity order.
+                    factory.omit_identity_order.store(true, Ordering::Relaxed);
+                    factory
+                        .import_file_segment(
+                            payload.as_ref(),
+                            FileSegmentLayout::Identity(&active),
+                            &mut || false,
+                        )
+                        .unwrap()
+                        .unwrap()
+                } else {
+                    payload
+                };
+                Arc::new(PublishedSegment {
+                    version: PlacementVersion::new(),
+                    id,
+                    active,
+                    index: payload,
+                    observation: None,
+                })
+            })
+            .collect::<Vec<_>>();
+        let mut revision = (*pinned.0).clone();
+        revision.replace_segment_group(0, &placements).unwrap();
+        let index = Index::from_published(revision);
+        let view = index.view().unwrap();
+        let directory = &view.0.record_routes[0];
+        assert!(directory.identity_ranges_in_placement_order());
+        let actual = view
+            .segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .map(|placement| {
+                let mut ids = placement
+                    .active
+                    .bitmap()
+                    .unwrap()
+                    .iter()
+                    .map(|slot| {
+                        placement
+                            .header(RecordSlot(slot))
+                            .unwrap()
+                            .unwrap()
+                            .id
+                            .0
+                            .to_string()
+                    })
+                    .collect::<Vec<_>>();
+                ids.sort();
+                ids
+            })
+            .collect::<Vec<_>>();
+        assert_eq!(actual, layout);
+
+        let mut query = score_query();
+        query.collections = vec!["entries".into()];
+        query.options.sort.clear();
+        query.options.evidence = false;
+        query.options.count = false;
+        query.options.limit = 1;
+        let stream = |query: &crate::query::Query| {
+            factory.placement_reads.store(0, Ordering::Relaxed);
+            let mut hits = Vec::new();
+            let StreamOutcome::Complete(summary) = view
+                .search_stream(
+                    query,
+                    StreamOptions::default(),
+                    &CancellationToken::new(),
+                    &mut |event| {
+                        if let StreamEvent::OrderedRows {
+                            rows,
+                            start,
+                            progress,
+                            ..
+                        } = event
+                        {
+                            assert_eq!(start, hits.len());
+                            assert!(progress.processed_candidates >= progress.emitted_rows);
+                            hits.extend_from_slice(rows);
+                        }
+                        Ok(StreamControl::Continue)
+                    },
+                )
+                .unwrap()
+            else {
+                panic!("expected a complete stream")
+            };
+            (
+                hits,
+                summary,
+                factory.placement_reads.load(Ordering::Relaxed),
+            )
+        };
+
+        query.options.return_mode = ReturnMode::Bytes;
+        let (hits, healthy, visits) = stream(&query);
+        assert_eq!(hits[0].record_id, "A");
+        assert_eq!(hits.len(), 1);
+        assert!(
+            matches!(&hits[0].payload, Some(Payload::Bytes(bytes)) if bytes.as_slice() == row("A").as_bytes())
+        );
+        assert_eq!(visits, 1);
+        assert_eq!(healthy.counters.selected_payload_reads, 1);
+        assert_eq!(
+            healthy.counters.selected_payload_bytes,
+            row("A").len() as u64
+        );
+
+        std::fs::rename(root.join(path("A")), root.join("unavailable.rows")).unwrap();
+        query.options.return_mode = ReturnMode::Locator;
+        let (hits, locator, visits) = stream(&query);
+        assert_eq!(hits[0].record_id, "A");
+        assert_eq!(hits.len(), 1);
+        assert_eq!(visits, 1);
+        assert_eq!(locator.counters.source_unavailable_events, 0);
+        if layout_index == 0 {
+            factory.fail_directory_refill.store(true, Ordering::Relaxed);
+        }
+        for mode in [ReturnMode::Bytes, ReturnMode::Logical] {
+            query.options.return_mode = mode.clone();
+            let (hits, summary, visits) = stream(&query);
+            assert_eq!(
+                hits.iter()
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>(),
+                ["B"],
+                "{layout:?}, {mode:?}"
+            );
+            match (&mode, &hits[0].payload) {
+                (ReturnMode::Bytes, Some(Payload::Bytes(bytes))) => {
+                    assert_eq!(bytes.as_slice(), row("B").as_bytes())
+                }
+                (ReturnMode::Logical, Some(Payload::Logical(Value::Object(fields)))) => {
+                    assert_eq!(fields["id"], Value::String("B".into()));
+                }
+                other => panic!("unexpected payload {other:?}"),
+            }
+            assert_eq!(visits, if layout_index == 1 { 2 } else { 1 });
+            assert_eq!(summary.returned_rows, 1);
+            assert_eq!(summary.counters.candidates, 2);
+            assert_eq!(summary.counters.source_unavailable_events, 1);
+            let [diagnostic] = summary.counters.source_diagnostics.as_slice() else {
+                panic!("expected one diagnostic")
+            };
+            assert_eq!(diagnostic.file_id, file("A").0);
+            assert_eq!(diagnostic.file_path, path("A"));
+            assert!(!summary.counters.match_count_complete);
+            assert_eq!(summary.count, None);
+        }
+        query.options.offset = 1;
+        let (hits, summary, _) = stream(&query);
+        assert_eq!(hits.len(), 1);
+        assert_eq!(hits[0].record_id, "B");
+        assert_eq!(summary.counters.source_unavailable_events, 0);
+        query.options.offset = 0;
+
+        query.options.limit = 2;
+        factory.placement_reads.store(0, Ordering::Relaxed);
+        let cancelled = view
+            .search_stream(
+                &query,
+                StreamOptions::default(),
+                &CancellationToken::new(),
+                &mut |event| {
+                    if let StreamEvent::OrderedRows { rows, .. } = event {
+                        assert_eq!(rows.len(), 1);
+                        assert_eq!(rows[0].record_id, "B");
+                        return Ok(StreamControl::Cancel);
+                    }
+                    Ok(StreamControl::Continue)
+                },
+            )
+            .unwrap();
+        assert!(
+            matches!(cancelled, StreamOutcome::Cancelled(progress) if progress.emitted_rows == 1)
+        );
+        assert_eq!(
+            factory.placement_reads.load(Ordering::Relaxed),
+            if layout_index == 1 { 2 } else { 1 }
+        );
+
+        factory
+            .fail_directory_refill
+            .store(false, Ordering::Relaxed);
+        let (hits, summary, visits) = stream(&query);
+        assert_eq!(
+            hits.iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["B", "C"]
+        );
+        assert_eq!(summary.progress.processed_candidates, 3);
+        assert_eq!(summary.counters.distinct_files, 2);
+        assert_eq!(visits, layout.len());
+
+        // Skipping a missing source still uses one read from the request's allowance.
+        let context = ExecutionContext::new(
+            crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits {
+                relation_reads: 1,
+                ..Default::default()
+            },
+            None,
+        );
+        let error = view
+            .search_stream_scoped_with_context(
+                &query,
+                ResultScope::Page {
+                    offset: 0,
+                    limit: 1,
+                },
+                StreamOptions::default(),
+                &context,
+                &mut |_| panic!("read limit must be reached before delivery"),
+            )
+            .unwrap_err();
+        assert!(
+            matches!(&error, StreamError::Resource { message, .. } if message.contains("reads exceeds 1")),
+            "{layout:?}, {error:?}"
+        );
+        std::fs::write(root.join(path("A")), "replacement").unwrap();
+        let error = view
+            .search_stream(
+                &query,
+                StreamOptions::default(),
+                &CancellationToken::new(),
+                &mut |_| panic!("a stale revision must fail before delivery"),
+            )
+            .unwrap_err();
+        assert!(matches!(
+            error,
+            StreamError::Execution {
+                kind: ExecutionErrorKind::SourceChanged,
+                ..
+            }
+        ));
+
+        assert_eq!(healthy.counters.candidates, 1);
+        assert_eq!(healthy.counters.bytes_read, row("A").len() as u64);
+        assert_eq!(healthy.counters.distinct_files, 1);
+        index.shutdown().unwrap();
+        source.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
 fn scoped_queries_open_only_selected_and_reached_directories() {
     use crate::index::storage::segment_catalog::build_catalog;
     use crate::query_execution::streaming::{

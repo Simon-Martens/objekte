@@ -2353,6 +2353,7 @@ fn try_lifecycle_ordered_page(
         max_buffered_bytes,
         None,
         Some(&mut hits),
+        None,
     )?;
     let Some(crate::query_execution::streaming::StreamOutcome::Complete(summary)) = outcome else {
         return Ok(None);
@@ -4357,6 +4358,64 @@ fn lifecycle_segment_order<'a>(
         .map(OrderedSlotCursor::new))
 }
 
+/// A certified directory can expose a placement without a resident identity
+/// order. Sort that placement's live identities within the stream budget.
+fn buffered_identity_order(
+    placement: &PublishedSegment,
+    candidates: Option<&RoaringBitmap>,
+    delivery: &mut Delivery<'_>,
+    context: &ExecutionContext,
+) -> Result<Vec<RecordSlot>, String> {
+    use crate::model::RecordId;
+    use std::mem::size_of;
+
+    let count = candidates.map_or(placement.active.len(), RoaringBitmap::len) as usize;
+    let exceeds_budget = || {
+        context.fail(
+            ExecutionErrorKind::Resource,
+            "placement identity order exceeds stream memory budget",
+        )
+    };
+    let mut bytes = count
+        .checked_mul(size_of::<(RecordId, RecordSlot)>() + size_of::<RecordSlot>())
+        .ok_or_else(exceeds_budget)?;
+    delivery.check_buffer(bytes)?;
+    let mut identities = Vec::new();
+    identities
+        .try_reserve_exact(count)
+        .map_err(|_| exceeds_budget())?;
+    let slots = candidates.map_or_else(
+        || MembershipView::Empty.iter(),
+        |members| MembershipView::Borrowed(members).iter(),
+    );
+    let domain = 0..if candidates.is_none() {
+        placement.active.slot_count()
+    } else {
+        0
+    };
+    for slot in slots.chain(domain).map(RecordSlot) {
+        context.check_string()?;
+        if !placement.active.contains(slot)? {
+            continue;
+        }
+        let header = placement
+            .header(slot)?
+            .ok_or("placement identity missing")?;
+        bytes = bytes
+            .checked_add(header.id.0.len())
+            .ok_or_else(exceeds_budget)?;
+        delivery.check_buffer(bytes)?;
+        identities.push((header.id.clone(), slot));
+    }
+    identities.sort_unstable();
+    let mut slots = Vec::new();
+    slots
+        .try_reserve_exact(count)
+        .map_err(|_| exceeds_budget())?;
+    slots.extend(identities.into_iter().map(|(_, slot)| slot));
+    Ok(slots)
+}
+
 fn push_lifecycle_order_cursor<'a>(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
@@ -4452,7 +4511,9 @@ fn try_lifecycle_ordered_stream(
     max_buffered_bytes: usize,
     mut delivery: Option<&mut Delivery<'_>>,
     mut page_output: Option<&mut Vec<SearchHit>>,
+    prior_placement_work: Option<&WorkCounters>,
 ) -> Result<Option<StreamOutcome>, String> {
+    let certified_placement = prior_placement_work.is_some();
     // The ordered cursor below reads file ranges directly. Native records use
     // the shared segmented evaluator until that cursor supports their backing.
     if segments
@@ -4495,12 +4556,17 @@ fn try_lifecycle_ordered_stream(
     {
         return Ok(None);
     }
+    let mut missing_order = None;
     for entry in &prepared.collections {
         let collection_index = entry.collection_index;
-        for segment in segments[collection_index].iter() {
+        for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             if lifecycle_segment_order(segment.as_ref(), sort, request, collection_index)?.is_none()
             {
-                return Ok(None);
+                if !certified_placement {
+                    return Ok(None);
+                }
+                // The certified directory calls this traversal for one placement at a time.
+                missing_order = Some((collection_index, segment_index));
             }
         }
     }
@@ -4525,42 +4591,34 @@ fn try_lifecycle_ordered_stream(
         let fts = entry.fts.clone();
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
-            if request.options.evidence
+            let dynamic_evidence = request.options.evidence
                 && fts.is_none()
-                && filter.as_ref().is_some_and(|filter| {
-                    segment_static_evidence_fields(filter).is_none()
-                        && !matches!(filter, BoundExpr::Or(_))
-                })
-            {
-                return Ok(None);
-            }
-            let or_probe = if request.options.evidence
-                && fts.is_none()
-                && let Some(filter) = filter.as_ref()
-                && matches!(filter, BoundExpr::Or(_))
-                && segment_static_evidence_fields(filter).is_none()
-            {
-                let Some(probe) = exact_or_branch_evidence_fields(
-                    segment.id,
-                    segment.as_ref(),
-                    &segment.active,
-                    filter,
-                    collection,
-                    catalog,
-                    &predicates,
-                    Some(context),
-                    restriction_cache
-                        .routed
-                        .as_ref()
-                        .map(|routes| (routes, segment.id)),
-                )?
-                else {
-                    return Ok(None);
+                && filter
+                    .as_ref()
+                    .is_some_and(|filter| segment_static_evidence_fields(filter).is_none());
+            let or_probe =
+                if dynamic_evidence && let Some(filter @ BoundExpr::Or(_)) = filter.as_ref() {
+                    exact_or_branch_evidence_fields(
+                        segment.id,
+                        segment.as_ref(),
+                        &segment.active,
+                        filter,
+                        collection,
+                        catalog,
+                        &predicates,
+                        Some(context),
+                        restriction_cache
+                            .routed
+                            .as_ref()
+                            .map(|routes| (routes, segment.id)),
+                    )?
+                } else {
+                    None
                 };
-                Some(probe)
-            } else {
-                None
-            };
+            let verify_evidence = dynamic_evidence
+                && or_probe
+                    .as_ref()
+                    .is_none_or(|probe| probe.evidence.is_none());
             if let Some(probe) = or_probe.as_ref() {
                 let exact = probe.bounds.may == probe.bounds.must;
                 restriction_cache.insert(
@@ -4570,10 +4628,12 @@ fn try_lifecycle_ordered_stream(
                     exact,
                 );
             }
-            let filter_may = if let Some(probe) = or_probe {
-                let Some(branches) = probe.evidence else {
-                    return Ok(None);
-                };
+            if verify_evidence && !certified_placement {
+                return Ok(None);
+            }
+            let filter_may = if let Some(probe) = or_probe
+                && let Some(branches) = probe.evidence
+            {
                 filter_exact[collection_index][segment_index] = true;
                 evidence_branches[collection_index][segment_index] = Some(branches);
                 Some(probe.bounds.must)
@@ -4625,6 +4685,9 @@ fn try_lifecycle_ordered_stream(
                     })
                     .transpose()?
             };
+            if verify_evidence {
+                filter_exact[collection_index][segment_index] = false;
+            }
             let fts_may = fts
                 .as_ref()
                 .zip(entry.text_term)
@@ -4724,7 +4787,8 @@ fn try_lifecycle_ordered_stream(
             .zip(&filter_exact)
             .all(|(selected, exact)| selected.is_none() || exact.iter().all(|exact| *exact)))
     .then_some(candidate_total);
-    if candidate_total > 256
+    if !certified_placement
+        && candidate_total > 256
         && repo.options.query_workers > 1
         && filters.iter().any(|selected| {
             selected
@@ -4775,6 +4839,21 @@ fn try_lifecycle_ordered_stream(
             })
         })
         .collect::<Vec<_>>();
+    let fallback_order = if let Some((collection, segment)) = missing_order {
+        Some(buffered_identity_order(
+            &segments[collection][segment],
+            candidates[collection][segment].as_ref(),
+            delivery
+                .as_deref_mut()
+                .ok_or("certified placement delivery missing")?,
+            context,
+        )?)
+    } else {
+        None
+    };
+    let fallback_order_bytes = fallback_order.as_ref().map_or(0, |slots| {
+        slots.capacity() * std::mem::size_of::<RecordSlot>()
+    });
     let partition_count = filters
         .iter()
         .enumerate()
@@ -4794,6 +4873,7 @@ fn try_lifecycle_ordered_stream(
     let mut heap_bytes = partition_count
         .checked_mul(std::mem::size_of::<LifecycleOrderCursor>())
         .and_then(|bytes| bytes.checked_add(std::mem::size_of::<RecordRangeReader>()))
+        .and_then(|bytes| bytes.checked_add(fallback_order_bytes))
         .ok_or_else(|| {
             context.fail(
                 ExecutionErrorKind::Resource,
@@ -4820,6 +4900,11 @@ fn try_lifecycle_ordered_stream(
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             let order =
                 lifecycle_segment_order(published.as_ref(), sort, request, collection_index)?
+                    .or_else(|| {
+                        fallback_order
+                            .as_ref()
+                            .map(|slots| OrderedSlotCursor::new(slots))
+                    })
                     .ok_or("lifecycle stored order unavailable")?;
             push_lifecycle_order_cursor(
                 repo,
@@ -4856,6 +4941,9 @@ fn try_lifecycle_ordered_stream(
         ResultScope::Page { limit, .. } => Some(limit),
         ResultScope::All { .. } => None,
     };
+    let emitted_before = delivery
+        .as_ref()
+        .map_or(0, |delivery| delivery.progress.emitted_rows);
     let mut stopped_early = false;
     let mut page_captured = false;
     while let Some(Reverse(cursor)) = heap.pop() {
@@ -5013,10 +5101,10 @@ fn try_lifecycle_ordered_stream(
             ) {
                 Ok((read, opened)) => {
                     counters.files_opened += u64::from(opened);
-                    if opened {
+                    if opened || certified_placement {
                         opened_files.insert(file.id);
-                        files_since_checkpoint += 1;
                     }
+                    files_since_checkpoint += usize::from(opened);
                     read
                 }
                 Err(message) => {
@@ -5041,6 +5129,9 @@ fn try_lifecycle_ordered_stream(
                         message.clone(),
                         &mut counters,
                     )? {
+                        if certified_placement {
+                            context.clear_recovered_source_changed();
+                        }
                         continue;
                     }
                     return Err(message);
@@ -5217,17 +5308,24 @@ fn try_lifecycle_ordered_stream(
                                 message.clone(),
                                 &mut counters,
                             )? {
+                                if certified_placement {
+                                    context.clear_recovered_source_changed();
+                                }
                                 continue;
                             }
                             return Err(message);
                         }
                     };
                     counters.files_opened += u64::from(opened);
-                    if opened {
+                    if opened || certified_placement {
                         opened_files.insert(file.id);
-                        files_since_checkpoint += 1;
                     }
+                    files_since_checkpoint += usize::from(opened);
                     counters.bytes_read += read.len() as u64;
+                    if certified_placement {
+                        counters.selected_payload_reads += 1;
+                        counters.selected_payload_bytes += read.len() as u64;
+                    }
                     read
                 };
                 let (payload, parses) = payload_from_bytes_with_execution(
@@ -5284,6 +5382,17 @@ fn try_lifecycle_ordered_stream(
         if let Some(delivery) = delivery.as_deref_mut() {
             delivery.check_buffer(retained_with_cursors)?;
         }
+        if let Some(prior) = prior_placement_work {
+            let delivery = delivery
+                .as_deref_mut()
+                .ok_or("certified placement delivery missing")?;
+            delivery.ordered_batch_after(std::slice::from_ref(&hit), &counters, Some(prior))?;
+            if limit == Some((delivery.progress.emitted_rows - emitted_before) as usize) {
+                stopped_early = !heap.is_empty();
+                break;
+            }
+            continue;
+        }
         page_bytes = retained;
         page.push(hit);
         let delivery_cursor_bytes = live_heap_bytes
@@ -5329,7 +5438,7 @@ fn try_lifecycle_ordered_stream(
             }
         }
     }
-    if !page_captured {
+    if !page_captured && !certified_placement {
         if limit.is_none() {
             if let Some(delivery) = delivery.as_deref_mut() {
                 delivery.ordered_batch(&page, &counters)?;
@@ -5361,9 +5470,9 @@ fn try_lifecycle_ordered_stream(
     }
     let emitted_rows = page_output.as_deref().map_or_else(
         || {
-            delivery
-                .as_ref()
-                .map_or(0, |delivery| delivery.progress.emitted_rows)
+            delivery.as_ref().map_or(0, |delivery| {
+                delivery.progress.emitted_rows - emitted_before
+            })
         },
         |output| output.len() as u64,
     );
@@ -5371,7 +5480,7 @@ fn try_lifecycle_ordered_stream(
     counters.files_opened = counters.files_opened.max(opened_files.len() as u64);
     counters.distinct_files = opened_files.len() as u64;
     if let Some(delivery) = delivery.as_deref_mut() {
-        delivery.observe(&counters);
+        delivery.observe_after(&counters, prior_placement_work);
         delivery.check()?;
     }
     if !stopped_early
@@ -5521,6 +5630,46 @@ pub(crate) fn try_stream_identity_directory_page(
                     request.options.limit = remaining_rows;
                     groups[collection] = Arc::new(vec![Arc::clone(placement)]);
                     let mut restriction_cache = SegmentRestrictionCache::new(&groups);
+                    if placement.backing_kind() == RecordBacking::FileRange
+                        && output_mode != ReturnMode::Locator
+                    {
+                        let outcome = try_lifecycle_ordered_stream(
+                            repo,
+                            &request,
+                            &sort,
+                            &prepared,
+                            output_mode.clone(),
+                            ResultScope::Page {
+                                offset: remaining_offset,
+                                limit: remaining_rows,
+                            },
+                            base_active,
+                            &groups,
+                            catalog,
+                            revision,
+                            context,
+                            None,
+                            &mut restriction_cache,
+                            &options,
+                            options.max_buffered_bytes,
+                            Some(&mut delivery),
+                            None,
+                            Some(&counters),
+                        )?;
+                        let Some(StreamOutcome::Complete(summary)) = outcome else {
+                            return Err("certified file placement has no ordered traversal".into());
+                        };
+                        remaining_offset = remaining_offset
+                            .saturating_sub(summary.counters.total_matches as usize);
+                        remaining_rows -= summary.returned_rows;
+                        merge_identity_stream_work(&mut counters, summary.counters);
+                        if remaining_rows == 0 {
+                            counters.match_count_complete &= placements_left == 0;
+                            return Ok(false);
+                        }
+                        groups[collection] = Arc::clone(&empty);
+                        continue;
+                    }
                     let peak = std::cell::Cell::new(0);
                     // Keep the nested evaluation in its budget-aware locator path.
                     let result = search_segmented_with_context_lifecycle_budget(
@@ -5677,14 +5826,6 @@ fn materialize_identity_stream_hit(
         });
         return Ok(Some(hit));
     }
-    let source_len = if backing == RecordBacking::FileRange
-        && (*output_mode == ReturnMode::Bytes || hit.record_class == RecordClass::Logical)
-    {
-        usize::try_from(hit.source_range_len()).unwrap_or(usize::MAX)
-    } else {
-        0
-    };
-    delivery.check_buffer(locator_bytes.saturating_add(source_len))?;
     let (materialized, _) = materialize_segmented_stream_hit(
         repo,
         hit,
@@ -5698,18 +5839,8 @@ fn materialize_identity_stream_hit(
     match materialized {
         DirectLookupResult::Found(hit) => {
             delivery.check_buffer(locator_bytes.saturating_add(hit_bytes(&hit)))?;
-            if backing == RecordBacking::Provider || source_len != 0 {
-                counters.selected_payload_reads += 1;
-                counters.selected_payload_bytes += if backing == RecordBacking::Provider {
-                    hit.payload.as_ref().map_or(0, payload_bytes) as u64
-                } else {
-                    source_len as u64
-                };
-            }
-            if source_len != 0 {
-                counters.files_opened += 1;
-                counters.record_parses += u64::from(*output_mode == ReturnMode::Logical);
-            }
+            counters.selected_payload_reads += 1;
+            counters.selected_payload_bytes += hit.payload.as_ref().map_or(0, payload_bytes) as u64;
             Ok(Some(hit))
         }
         DirectLookupResult::SourceUnavailable(diagnostic) => {
@@ -5948,6 +6079,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         &options,
         options.max_buffered_bytes,
         Some(&mut delivery),
+        None,
         None,
     ) {
         Ok(Some(outcome)) => return Ok(outcome),

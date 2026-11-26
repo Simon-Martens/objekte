@@ -40,6 +40,7 @@ struct TableFactory {
     component_resident_estimate: AtomicUsize,
     decode_placements: AtomicBool,
     certify_placement_identity_ranges: AtomicBool,
+    omit_identity_order: AtomicBool,
     origins_until_failure: AtomicUsize,
     independent_applications: AtomicUsize,
     text_applications: AtomicUsize,
