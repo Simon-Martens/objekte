@@ -447,4 +447,6 @@ impl Write for BodyParts<'_> {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::transfer_tests!();
+}

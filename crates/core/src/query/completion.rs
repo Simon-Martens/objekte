@@ -319,4 +319,6 @@ pub fn insert(text: &str, replace: Range<usize>, completion: &str) -> Option<(St
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::completion_tests!();
+}

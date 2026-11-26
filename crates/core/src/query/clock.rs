@@ -102,5 +102,6 @@ impl ClockContext {
 }
 
 #[cfg(test)]
-#[path = "clock/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::clock_tests!();
+}

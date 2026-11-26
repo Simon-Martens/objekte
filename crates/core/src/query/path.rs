@@ -195,5 +195,6 @@ impl QueryPath {
 }
 
 #[cfg(test)]
-#[path = "path/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::path_tests!();
+}

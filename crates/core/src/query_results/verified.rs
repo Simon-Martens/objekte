@@ -197,5 +197,5 @@ pub(crate) fn lifecycle_key(
 }
 
 #[cfg(test)]
-#[path = "verified/tests.rs"]
+#[path = "tests.rs"]
 mod tests;

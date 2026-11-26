@@ -74,4 +74,6 @@ fn append_valid(output: &mut String, valid: &str) {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::path_representation_tests!();
+}

@@ -540,4 +540,6 @@ fn prepare_with_limits(
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::target_cache_tests!();
+}

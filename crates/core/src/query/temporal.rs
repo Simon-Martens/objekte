@@ -306,5 +306,6 @@ pub fn matches_ordering(start: Ordering, end: Ordering, operator: Operator) -> b
 }
 
 #[cfg(test)]
-#[path = "temporal/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::temporal_tests!();
+}

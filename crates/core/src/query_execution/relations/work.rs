@@ -192,4 +192,6 @@ pub(crate) fn check_query_work_budget(
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::work_tests!();
+}

@@ -1111,5 +1111,5 @@ impl FileCatalogSource for FileCatalog {
 }
 
 #[cfg(test)]
-#[path = "file_catalog/tests.rs"]
+#[path = "tests.rs"]
 mod tests;

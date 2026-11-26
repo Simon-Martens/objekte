@@ -83,4 +83,6 @@ fn read_hex_quad(chars: &mut std::str::Chars<'_>) -> Result<u32, String> {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::json_string_tests!();
+}

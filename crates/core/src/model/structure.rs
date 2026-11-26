@@ -3,7 +3,9 @@
 use crate::model::Value;
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::structure_tests!();
+}
 
 /// Whether a logical value contains any empty array, including an unrelated
 /// path. Such records may satisfy a universal comparison without a text witness.

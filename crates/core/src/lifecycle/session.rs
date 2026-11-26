@@ -199,5 +199,6 @@ impl Deref for IndexedRepository {
 }
 
 #[cfg(test)]
-#[path = "session/tests.rs"]
-mod tests;
+mod tests {
+    super::super::tests::session_tests!();
+}

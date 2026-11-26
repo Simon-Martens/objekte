@@ -2860,3 +2860,189 @@ fn registered_streaming_reader_callbacks_overlap_across_small_files() {
     assert_eq!(reader.frames.load(Ordering::Relaxed), 0);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+// Expand each suite in its original module so it can access private items.
+macro_rules! discovery_tests {
+    () => {
+        #[test]
+        fn parallel_metadata_preparation_keeps_order_revisions_and_overlapping_memberships() {
+            use crate::construction::discovery::{
+                prepare_discovered_file, prepare_discovered_window,
+            };
+            use crate::inventory::FileInventory;
+            use crate::model::CollectionId;
+            use std::sync::atomic::AtomicUsize;
+
+            let root = std::env::temp_dir().join(format!(
+                "objekte-metadata-parallel-{}-{}",
+                std::process::id(),
+                std::time::SystemTime::now()
+                    .duration_since(std::time::SystemTime::UNIX_EPOCH)
+                    .unwrap()
+                    .as_nanos()
+            ));
+            std::fs::create_dir(&root).unwrap();
+            let paths = (0..79)
+                .map(|index| {
+                    let path = root.join(format!("{index:03}.row"));
+                    std::fs::write(&path, b"(\"name\"=\"test\")").unwrap();
+                    path
+                })
+                .collect::<Vec<_>>();
+            let expected = paths
+                .iter()
+                .cloned()
+                .map(|path| prepare_discovered_file(&root, path).unwrap())
+                .collect::<Vec<_>>();
+            for workers in [1, 4] {
+                let pool = rayon::ThreadPoolBuilder::new()
+                    .num_threads(workers)
+                    .build()
+                    .unwrap();
+                let peak = AtomicUsize::new(0);
+                let prepared = prepare_discovered_window(&pool, &root, paths.clone(), true, &peak)
+                    .into_iter()
+                    .collect::<Result<Vec<_>, _>>()
+                    .unwrap();
+                assert_eq!(prepared.len(), expected.len());
+                for (actual, original) in prepared.iter().zip(&expected) {
+                    assert_eq!(actual.relative, original.relative);
+                    assert_eq!(actual.revision, original.revision);
+                    assert_eq!(actual.created_ns, original.created_ns);
+                }
+                let mut inventory = FileInventory::new(root.clone());
+                for collection in [CollectionId(0), CollectionId(1)] {
+                    for entry in &prepared {
+                        inventory
+                            .add(
+                                entry.relative.clone(),
+                                entry.revision,
+                                entry.created_ns,
+                                collection,
+                            )
+                            .unwrap();
+                    }
+                }
+                assert_eq!(inventory.files.len(), paths.len());
+                for (index, file) in inventory.files.iter().enumerate() {
+                    assert_eq!(file.id.0 as usize, index);
+                    assert_eq!(file.collections, [CollectionId(0), CollectionId(1)]);
+                    assert_eq!(file.revision, expected[index].revision);
+                }
+                assert!(peak.load(std::sync::atomic::Ordering::Relaxed) >= 1);
+            }
+            let pool = rayon::ThreadPoolBuilder::new()
+                .num_threads(4)
+                .build()
+                .unwrap();
+            let first_error = prepare_discovered_file(&root, std::env::temp_dir())
+                .err()
+                .unwrap();
+            let results = prepare_discovered_window(
+                &pool,
+                &root,
+                vec![std::env::temp_dir(), root.join("missing.row")],
+                false,
+                &AtomicUsize::new(0),
+            );
+            assert_eq!(
+                results.into_iter().collect::<Result<Vec<_>, _>>().err(),
+                Some(first_error)
+            );
+            std::fs::remove_dir_all(root).unwrap();
+        }
+    };
+}
+pub(super) use discovery_tests;
+
+macro_rules! file_preparation_tests {
+    () => {
+        use super::*;
+        use crate::model::{ArrayValue, Number, Value};
+        use crate::source::ExtractedRecord;
+        use std::collections::BTreeMap;
+
+        #[test]
+        fn build_rejects_non_finite_numbers_before_indexing_nested_values() {
+            for invalid in [f64::NAN, f64::NEG_INFINITY, f64::INFINITY] {
+                let mut record = ExtractedRecord {
+                    value: Value::Object(BTreeMap::from([(
+                        "items".into(),
+                        Value::Array(ArrayValue::from_unrestricted(vec![Value::Object(
+                            BTreeMap::from([(
+                                "score".into(),
+                                Value::Number(Number::Float(invalid)),
+                            )]),
+                        )])),
+                    )])),
+                    text: Vec::new(),
+                };
+                let error = finish_build_record(&Schema::default(), &mut record).unwrap_err();
+                assert!(error.contains("items: [0]: score: non-finite number"));
+            }
+
+            let mut valid = ExtractedRecord {
+                value: Value::Object(BTreeMap::from([(
+                    "score".into(),
+                    Value::Number(Number::Float(-0.0)),
+                )])),
+                text: Vec::new(),
+            };
+            finish_build_record(&Schema::default(), &mut valid).unwrap();
+        }
+    };
+}
+pub(super) use file_preparation_tests;
+
+macro_rules! repository_state_tests {
+    () => {
+        #[test]
+        fn fresh_fingerprints_require_every_shared_binding_to_agree() {
+            use super::finish_fresh_fingerprints;
+            use crate::inventory::{FileInventory, SourceRevision};
+            use crate::model::CollectionId;
+
+            let mut inventory = FileInventory::new(std::path::PathBuf::from("/tmp"));
+            let revision = SourceRevision {
+                modified_ns: 1,
+                size: 3,
+                object_id: None,
+            };
+            let file = inventory
+                .add("shared.row".into(), revision, None, CollectionId(0))
+                .unwrap();
+            assert_eq!(
+                inventory
+                    .add("shared.row".into(), revision, None, CollectionId(1))
+                    .unwrap(),
+                file
+            );
+            let digest = [7; 32];
+            assert_eq!(
+                finish_fresh_fingerprints(
+                    &inventory.files,
+                    vec![vec![
+                        (CollectionId(0), digest),
+                        (CollectionId(0), digest),
+                        (CollectionId(1), digest),
+                    ]],
+                )
+                .unwrap(),
+                [Some(digest)]
+            );
+            assert_eq!(
+                finish_fresh_fingerprints(&inventory.files, vec![vec![(CollectionId(0), digest)]])
+                    .unwrap(),
+                [None]
+            );
+            assert!(
+                finish_fresh_fingerprints(
+                    &inventory.files,
+                    vec![vec![(CollectionId(0), digest), (CollectionId(1), [8; 32])]],
+                )
+                .is_err()
+            );
+        }
+    };
+}
+pub(super) use repository_state_tests;

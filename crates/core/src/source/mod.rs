@@ -396,3 +396,6 @@ pub trait SourceReader: Send + Sync {
         self.parse_for_query(bytes, projection)
     }
 }
+
+#[cfg(test)]
+mod tests;

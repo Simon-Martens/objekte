@@ -843,4 +843,6 @@ pub(crate) fn value_bytes(value: &crate::model::Value) -> usize {
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::streaming_tests!();
+}

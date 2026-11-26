@@ -2128,7 +2128,9 @@ pub(super) fn process_framed_file_with_budget(
 }
 
 #[cfg(test)]
-mod tests;
+mod tests {
+    super::super::tests::file_preparation_tests!();
+}
 
 /// Streaming construction keeps only bounded chunks and admitted worker
 /// contributions alive. A single record larger than the normal chunk size is a
