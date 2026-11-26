@@ -51,12 +51,15 @@ fn run() -> Result<(), String> {
     let started = Instant::now();
     let result = scan.search(&query, &CancellationToken::new())?;
     let search_ns = started.elapsed().as_nanos();
+    let files = scan
+        .file_paths()
+        .try_fold(0, |count, path| path.map(|_| count + 1))?;
     println!(
         "{}",
         serde_json::json!({
             "root": scan.root(),
             "collections": scan.collections().count(),
-            "files": scan.file_paths().count(),
+            "files": files,
             "prepare_ns": prepare_ns,
             "search_ns": search_ns,
             "count": result.count,

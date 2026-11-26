@@ -67,7 +67,7 @@ pub(crate) fn prepare_discovered_window(
 pub(crate) fn register_discovery_window(
     writer: &mut dyn FileDiscoveryBuilder,
     collection: CollectionId,
-    prepared: Vec<Result<DiscoveredFile, String>>,
+    prepared: impl IntoIterator<Item = Result<DiscoveredFile, String>>,
     members: &mut Vec<FileId>,
 ) -> Result<(), IndexError> {
     const OP: &str = "register discovered files";

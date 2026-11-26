@@ -1,15 +1,15 @@
 //! Exact, bounded source search before a repository index is available.
 
-use crate::records::RecordIdSlot;
+use std::borrow::Cow;
 use std::collections::{BTreeMap, HashSet};
 use std::path::Path;
 
+use crate::construction::discovery::{prepare_discovered_file, register_discovery_window};
 use crate::construction::file_preparation::finish_build_record;
+use crate::index::storage::file_catalog::{FileCatalogHandle, FileRows};
+use crate::index::storage::{StorageFactory, default_factory};
 use crate::inventory::discovery::discover;
-use crate::inventory::{
-    DiagnosticRef, FileEntry, FileInventory, RecordClass, RecordEntry, SourceDiagnostic,
-    SourceRevision,
-};
+use crate::inventory::{DiagnosticRef, FileEntry, RecordClass, RecordEntry, SourceDiagnostic};
 use crate::measurement::WorkCounters;
 use crate::measurement::{SourceDiagnostic as QuerySourceDiagnostic, SourceUnavailableKind};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot, Value};
@@ -20,9 +20,10 @@ use crate::query::options::ReturnMode;
 use crate::query::semantics::record::RecordContext;
 use crate::query_execution::streaming::CancellationToken;
 use crate::query_results::{Payload, SearchHit, SearchResult};
+use crate::records::RecordIdSlot;
 use crate::reference::{eval_unavailable_filter, filter::eval_filter};
 use crate::reference::{fts::eval_bound_fts, raw_fallback_contains};
-use crate::repository::configuration::{CollectionDefinition, IdentityPolicy};
+use crate::repository::configuration::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::access::read_record_range_for_search;
 use crate::source::{
     ExtractedRecord, ReaderDiagnostic, SourceOutcome, extraction::extract_file_outcomes_for_search,
@@ -38,7 +39,7 @@ struct ScanCollection {
 /// A file inventory and schema prepared without parsing records or constructing
 /// postings. Each request scans the selected source files directly.
 pub struct SourceScan {
-    files: FileInventory,
+    files: FileCatalogHandle,
     collections: Vec<ScanCollection>,
 }
 
@@ -48,8 +49,22 @@ impl SourceScan {
         definitions: Vec<CollectionDefinition>,
         sources: SourceRegistry,
     ) -> Result<Self, String> {
+        Self::open_with_factory(root, definitions, sources, default_factory().as_ref())
+    }
+
+    pub(crate) fn open_with_factory(
+        root: &Path,
+        definitions: Vec<CollectionDefinition>,
+        sources: SourceRegistry,
+        factory: &dyn StorageFactory,
+    ) -> Result<Self, String> {
         let root = root.canonicalize().map_err(|error| error.to_string())?;
-        let mut files = FileInventory::new(root.clone());
+        let configuration = crate::repository::configuration::identity::configuration_hash(
+            &definitions,
+            RepositoryOptions::default(),
+            &sources,
+        )?;
+        let mut files = factory.start_file_discovery(root.clone())?;
         let mut collections = Vec::with_capacity(definitions.len());
         for (number, definition) in definitions.into_iter().enumerate() {
             if collections
@@ -62,35 +77,34 @@ impl SourceScan {
                 CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
             let source = sources.resolve(&definition.format)?;
             let mut members = Vec::new();
-            for path in discover(
+            let paths = discover(
                 &root,
                 &definition.source_path,
                 &definition.discovery,
                 &source,
-            )? {
-                let relative = path
-                    .strip_prefix(&root)
-                    .map_err(|error| error.to_string())?;
-                let metadata = std::fs::metadata(&path).map_err(|error| error.to_string())?;
-                let revision = SourceRevision::from_metadata(&metadata)?;
-                let created_ns = metadata
-                    .created()
-                    .ok()
-                    .and_then(|time| time.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
-                    .map(|duration| duration.as_nanos() as i128);
-                members.push(files.add(relative.to_owned(), revision, created_ns, collection)?);
-            }
+            )?;
+            let rows = paths
+                .into_iter()
+                .map(|path| prepare_discovered_file(&root, path));
+            register_discovery_window(files.as_mut(), collection, rows, &mut members)
+                .map_err(|error| error.to_string())?;
             collections.push(ScanCollection {
                 definition,
                 source,
                 files: members,
             });
         }
+        let files = files.seal(configuration)?;
+        if files.repository_root() != Some(root.as_path()) {
+            return Err("discovered source catalog has an inconsistent root".into());
+        }
         Ok(Self { files, collections })
     }
 
     pub fn root(&self) -> &Path {
-        &self.files.required_root()
+        self.files
+            .repository_root()
+            .expect("validated source scan root")
     }
 
     pub fn collections(&self) -> impl Iterator<Item = &str> {
@@ -99,19 +113,28 @@ impl SourceScan {
             .map(|collection| collection.definition.name.as_str())
     }
 
-    pub fn file_paths(&self) -> impl Iterator<Item = &Path> {
-        self.files
-            .files
-            .iter()
-            .map(|file| file.relative_path.as_path())
+    pub fn file_paths(&self) -> impl Iterator<Item = Result<Cow<'_, Path>, String>> + '_ {
+        FileRows::new(self.files.as_ref()).map(|row| Ok(file_path(row?.entry)))
     }
 
-    pub fn file_paths_for_collection(&self, name: &str) -> impl Iterator<Item = &Path> {
-        self.collections
+    pub fn file_paths_for_collection(
+        &self,
+        name: &str,
+    ) -> impl Iterator<Item = Result<Cow<'_, Path>, String>> + '_ {
+        let collection = self
+            .collections
             .iter()
-            .filter(move |collection| collection.definition.name == name)
-            .flat_map(|collection| collection.files.iter())
-            .map(|file| self.files.files[file.0 as usize].relative_path.as_path())
+            .find(|entry| entry.definition.name == name);
+        collection
+            .into_iter()
+            .flat_map(|entry| entry.files.iter())
+            .map(|&file| Ok(file_path(self.file(file)?)))
+    }
+
+    fn file(&self, id: FileId) -> Result<Cow<'_, FileEntry>, String> {
+        self.files
+            .file(id)?
+            .ok_or_else(|| format!("discovered file {id:?} is missing"))
     }
 
     pub fn search(
@@ -152,8 +175,8 @@ impl SourceScan {
                 if cancellation.is_cancelled() {
                     return Err("source scan cancelled".into());
                 }
-                let mut file = self.files.files[file_id.0 as usize].clone();
-                let path = self.files.required_root().join(&file.relative_path);
+                let mut file = self.file(file_id)?.into_owned();
+                let path = self.root().join(&file.relative_path);
                 counters.files_opened += 1;
                 counters.distinct_files += 1;
                 extract_file_outcomes_for_search(
@@ -236,7 +259,7 @@ impl SourceScan {
                         };
                         let id = if let Some(record) = &extracted {
                             record_id(
-                                &self.files.required_root(),
+                                self.root(),
                                 &collection.definition,
                                 &collection.source,
                                 &path,
@@ -289,7 +312,7 @@ impl SourceScan {
                             range: (&entry).record_range(),
                             file: Some(&file),
                             collection_name: &collection.definition.name,
-                            repository_root: Some(&self.files.required_root()),
+                            repository_root: Some(self.root()),
                         };
                         let mut evidence = HashSet::new();
                         let fts_match = match (&fts, &extracted) {
@@ -454,3 +477,10 @@ fn record_id(
 
 #[cfg(test)]
 mod tests;
+
+fn file_path(entry: Cow<'_, FileEntry>) -> Cow<'_, Path> {
+    match entry {
+        Cow::Borrowed(file) => Cow::Borrowed(file.relative_path.as_path()),
+        Cow::Owned(file) => Cow::Owned(file.relative_path.as_path().to_owned()),
+    }
+}

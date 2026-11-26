@@ -7,9 +7,11 @@ use std::collections::HashMap;
 use icu_collator::CollatorBorrowed;
 use roaring::RoaringBitmap;
 
+#[cfg(test)]
+use crate::index::memory::inventory::{CollectionGeneration, FileInventory};
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
-use crate::inventory::{ByteRange, CollectionGeneration, FileEntry, FileInventory, RecordClass};
+use crate::inventory::{ByteRange, FileEntry, RecordClass};
 use crate::model::{
     FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value,
 };
@@ -499,6 +501,7 @@ impl SortBuilder {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn finish(self, generation: &CollectionGeneration) -> Result<SortCollection, String> {
         self.finish_for_records(&generation.records)
     }
@@ -652,6 +655,7 @@ fn descending_order(
 impl SortCollection {
     /// Finalize status-dependent orders after all collections have contributed
     /// diagnostics to the shared file inventory.
+    #[cfg(test)]
     pub fn refresh_file_status(
         &mut self,
         generation: &CollectionGeneration,

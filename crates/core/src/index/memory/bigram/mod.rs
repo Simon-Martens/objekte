@@ -3,7 +3,7 @@
 use std::collections::{HashMap, HashSet};
 
 #[cfg(test)]
-use crate::inventory::append_shifted_bitmap;
+use crate::index::memory::inventory::append_shifted_bitmap;
 use crate::model::RecordSlot;
 use crate::model::text::fold;
 use crate::source::TextSegment;

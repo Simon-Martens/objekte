@@ -8,8 +8,6 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use std::time::Instant;
 
-use roaring::RoaringBitmap;
-
 use super::file_preparation::{StreamActivity, StreamUse};
 use super::segment_jobs::{
     IndexedSegmentBuild, PrivateSegmentGroup, SegmentBuildScheduler, SegmentJobGate,
@@ -27,7 +25,6 @@ use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, Se
 use crate::index::storage::transfer::StorageResult;
 #[cfg(test)]
 use crate::inventory::CollectionBuilder;
-use crate::inventory::append_shifted_bitmap;
 use crate::inventory::discovery::discover;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{CollectionId, FileId};
@@ -454,7 +451,6 @@ struct IncrementalCollection {
     factory: Arc<dyn StorageFactory>,
     records: u32,
     observed_batches: u64,
-    logical_records: RoaringBitmap,
     options: RepositoryOptions,
 }
 
@@ -482,7 +478,6 @@ impl IncrementalCollection {
             factory,
             records: 0,
             observed_batches: 0,
-            logical_records: RoaringBitmap::new(),
             options,
         })
     }
@@ -506,9 +501,6 @@ impl IncrementalCollection {
         if logical.last().is_some_and(|slot| slot >= count) {
             return Err("worker logical slot exceeds its batch".into());
         }
-        self.logical_records
-            .append(logical.iter().map(|slot| base + slot))
-            .map_err(|_| "observed logical slots overlap or are out of order")?;
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
         }
@@ -1740,12 +1732,6 @@ impl Repository {
                     for binding in bindings {
                         let id = binding.collection.id;
                         let state = &mut pending[id.0 as usize];
-                        append_shifted_bitmap(
-                            &mut state.logical_records,
-                            &binding.collection.logical_records,
-                            state.records,
-                        )
-                        .map_err(IndexError::Build)?;
                         state.records = state
                             .records
                             .checked_add(binding.collection.records)

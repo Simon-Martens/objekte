@@ -5,11 +5,12 @@ use roaring::RoaringBitmap;
 use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
 use crate::index::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
+use crate::index::memory::inventory::append_shifted_bitmap;
 use crate::index::sorting::compare_composite;
 use crate::inference::{InferenceIndexStatus, InferredFieldReport, OccurrenceCountStatus};
 #[cfg(test)]
 use crate::inventory::ActiveRecords;
-use crate::inventory::{RecordClass, append_shifted_bitmap};
+use crate::inventory::RecordClass;
 use crate::model::RecordSlot;
 
 /// The offsets translate old shard-local slots to the consolidated local

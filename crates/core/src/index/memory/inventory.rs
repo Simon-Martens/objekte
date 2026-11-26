@@ -9,13 +9,16 @@ use serde::{Deserialize, Serialize};
 
 #[cfg(test)]
 use crate::inventory::relative_path_bounds;
+#[cfg(test)]
+use crate::inventory::{ByteRange, DiagnosticRef, RecordClass, RecordEntry};
 use crate::inventory::{
-    ByteRange, DiagnosticRef, FileEntry, FileStatus, FileStorageDiagnostic, FileVersion,
-    MAX_DIAGNOSTIC_CODE_BYTES, MAX_DIAGNOSTIC_MESSAGE_BYTES, MAX_DIAGNOSTIC_PATH_SEGMENTS,
-    MAX_DIAGNOSTIC_SEGMENT_BYTES, MAX_DIAGNOSTICS_PER_FILE, RecordClass, RecordEntry, SharedPath,
-    SourceDiagnostic, SourceRevision,
+    FileEntry, FileStatus, FileStorageDiagnostic, FileVersion, MAX_DIAGNOSTIC_CODE_BYTES,
+    MAX_DIAGNOSTIC_MESSAGE_BYTES, MAX_DIAGNOSTIC_PATH_SEGMENTS, MAX_DIAGNOSTIC_SEGMENT_BYTES,
+    MAX_DIAGNOSTICS_PER_FILE, SharedPath, SourceDiagnostic, SourceRevision,
 };
-use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
+use crate::model::{CollectionId, FileId, RecordSlot};
+#[cfg(test)]
+use crate::model::{IdentitySet, RecordId};
 #[cfg(test)]
 use crate::query::Operator;
 use crate::source::DiagnosticCategory;
@@ -519,6 +522,7 @@ impl FileInventory {
         self.root.as_deref()
     }
 
+    #[cfg(test)]
     pub(crate) fn required_root(&self) -> &Path {
         self.root()
             .expect("file adapter requires a registered catalog root")
@@ -584,6 +588,7 @@ impl FileInventory {
         Ok(id)
     }
 
+    #[cfg(test)]
     pub fn record_diagnostic(
         &mut self,
         file: FileId,
@@ -596,6 +601,7 @@ impl FileInventory {
         entry.record_diagnostic(diagnostic)
     }
 
+    #[cfg(test)]
     pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<&SourceDiagnostic> {
         self.files
             .get(file.0 as usize)?
@@ -706,6 +712,7 @@ impl FileInventory {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn native_path(&self, id: FileId) -> Option<PathBuf> {
         let root = self.root()?;
         self.files
@@ -751,6 +758,7 @@ fn valid_relative_path(path: &Path) -> bool {
 
 /// Compact per-file offset table. `slots[offsets[f]..offsets[f+1]]` belongs
 /// exactly to file `f`; empty files have equal consecutive offsets.
+#[cfg(test)]
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileRecordIndex {
     /// Valid file-ID domain, including empty generations with no offsets.
@@ -759,6 +767,7 @@ pub struct FileRecordIndex {
     pub slots: Vec<RecordSlot>,
 }
 
+#[cfg(test)]
 impl FileRecordIndex {
     pub fn records_for(&self, file: FileId) -> Option<&[RecordSlot]> {
         if file.0 >= self.file_count {
@@ -774,6 +783,7 @@ impl FileRecordIndex {
 }
 
 /// Immutable record inventory for one published collection.
+#[cfg(test)]
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CollectionGeneration {
     pub collection: CollectionId,
@@ -784,6 +794,7 @@ pub struct CollectionGeneration {
     pub file_records: FileRecordIndex,
 }
 
+#[cfg(test)]
 impl CollectionGeneration {
     pub fn validate(&self, files: &[FileEntry]) -> Result<(), String> {
         let mut included = std::collections::HashSet::new();
@@ -862,6 +873,7 @@ impl CollectionGeneration {
 }
 
 /// Mutable accumulator used to construct a collection generation.
+#[cfg(test)]
 pub struct CollectionBuilder {
     collection: CollectionId,
     name: String,
@@ -872,20 +884,13 @@ pub struct CollectionBuilder {
     ids: IdentitySet,
 }
 
+#[cfg(test)]
 impl CollectionBuilder {
     #[allow(dead_code, reason = "used by retained collection-wide admission")]
     pub(crate) fn next_slot(&self) -> Result<RecordSlot, String> {
         Ok(RecordSlot(
             u32::try_from(self.records.len()).map_err(|_| "too many records")?,
         ))
-    }
-
-    pub fn collection_id(&self) -> CollectionId {
-        self.collection
-    }
-
-    pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
-        self.records.get(slot.0 as usize)
     }
 
     pub fn new(collection: CollectionId, name: String, generation: u64, file_count: usize) -> Self {

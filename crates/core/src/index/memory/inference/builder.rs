@@ -6,6 +6,7 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use super::InferenceState;
+use crate::index::memory::inventory::append_shifted_bitmap;
 use crate::index::posting::{PostingIndex, PostingStats, ScalarKey, SelectionSummary};
 use crate::index::storage::inference::{CompactFieldObservation, InferenceObservationReader};
 use crate::index::storage::transfer::StorageResult;
@@ -16,7 +17,6 @@ use crate::inference::{
     InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
     InferenceReport, InferredFieldReport, OccurrenceCountStatus,
 };
-use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query_access::membership::SlotSet;
 use crate::schema::Schema;

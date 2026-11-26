@@ -73,7 +73,7 @@ struct ChangedFile {
 /// path map, metadata and liveness after a new root is published.
 #[derive(Clone)]
 pub(crate) struct FileCatalog {
-    base_files: Arc<crate::inventory::FileInventory>,
+    base_files: Arc<FileInventory>,
     base_fingerprints: Arc<Vec<Option<[u8; 32]>>>,
     /// A fresh build can expose its discovered paths before every member is
     /// indexed. Pinned views retain this value across later publications.
@@ -433,7 +433,7 @@ impl FileCatalog {
     }
 
     fn from_parts(
-        files: Arc<crate::inventory::FileInventory>,
+        files: Arc<FileInventory>,
         fingerprints: Arc<Vec<Option<[u8; 32]>>>,
         base_configuration: [u8; 32],
         version: FileVersion,

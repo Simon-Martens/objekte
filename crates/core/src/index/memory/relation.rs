@@ -6,11 +6,11 @@ use std::collections::BTreeMap;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
+use crate::index::memory::inventory::append_shifted_bitmap;
 #[cfg(test)]
 use crate::index::posting::ScalarKey;
 #[cfg(test)]
 use crate::inventory::RecordClass;
-use crate::inventory::append_shifted_bitmap;
 #[cfg(test)]
 use crate::model::CollectionId;
 use crate::model::{RecordSlot, Value};

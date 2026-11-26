@@ -4,12 +4,12 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 
 use roaring::RoaringBitmap;
 
+use crate::index::memory::inventory::append_shifted_bitmap;
 use crate::index::storage::posting::{
     PostingCoverage, PostingDescriptor, PostingKey, PostingReader, PostingValueCursor,
     VisitPostingBlock,
 };
 use crate::index::storage::transfer::{BatchLimit, StorageResult};
-use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::record::data_values_small;
 use crate::query_access::membership::{MembershipView, SlotSet};

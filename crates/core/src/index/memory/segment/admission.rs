@@ -10,6 +10,7 @@ use crate::construction::batch::canonical_custom_text_key;
 use crate::index::bigram::BigramAlphabet;
 use crate::index::bigram::BigramContribution;
 use crate::index::memory::inference::InferenceBuilder;
+use crate::index::memory::inventory::append_shifted_bitmap;
 use crate::index::memory::worker::NativeIndexBatch;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
@@ -20,10 +21,7 @@ use crate::index::sorting::SortBuilder;
 use crate::index::storage::segment::build::{BuiltSegment, SegmentBuilder, SegmentSeal};
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::InferenceConfig;
-use crate::inventory::{
-    CollectionBuilder, DiagnosticRef, FileInventory, FileStatus, RecordClass, RecordEntry,
-    append_shifted_bitmap,
-};
+use crate::inventory::{DiagnosticRef, FileStatus, RecordClass, RecordEntry};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::repository::configuration::CollectionPolicy;
 use crate::repository::statistics::{AdmissionBreakdown, IncrementalSegmentProfile};
@@ -33,190 +31,6 @@ use crate::source::registry::PreparedSource;
 use crate::construction::batch::SourceFileInput;
 #[cfg(test)]
 use crate::construction::file_preparation::PreparedCollectionBuild;
-
-#[allow(
-    dead_code,
-    reason = "retained as the collection-wide admission reference path"
-)]
-pub(crate) struct CollectionAdmission<'a> {
-    pub inventory: &'a mut FileInventory,
-    pub builder: &'a mut CollectionBuilder,
-    pub postings: &'a mut PostingCollection,
-    pub inference: &'a mut Option<InferenceBuilder>,
-    pub custom_postings: &'a mut HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub raw: &'a mut BigramContribution,
-    pub fallback_text: &'a mut BigramContribution,
-    pub custom_text: &'a mut HashMap<(Vec<String>, String), BigramContribution>,
-    pub logical_records: &'a mut RoaringBitmap,
-    pub empty_array_records: &'a mut RoaringBitmap,
-    pub sorting: &'a mut SortBuilder,
-    pub relations: &'a mut Vec<RelationContribution>,
-}
-
-#[allow(
-    dead_code,
-    reason = "retained as the collection-wide admission reference path"
-)]
-impl CollectionAdmission<'_> {
-    pub(crate) fn admit_profiled(
-        &mut self,
-        batch: BatchContribution,
-        mut profile: Option<&mut AdmissionBreakdown>,
-    ) -> Result<(), String> {
-        if let Some(profile) = profile.as_deref_mut() {
-            profile.batches += 1;
-            profile.files += batch.files.len() as u64;
-            profile.records += batch.records.len() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        let base = self.builder.next_slot()?.0;
-        let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
-        base.checked_add(count).ok_or("record slot overflow")?;
-        let batch_indexes = NativeIndexBatch::take(batch.indexes)?;
-        let mut records = batch.records.into_iter();
-        for batch_file in batch.files {
-            let file_id = batch_file.entry.id;
-            let path = self
-                .inventory
-                .required_root()
-                .join(&batch_file.entry.relative_path);
-            if batch_file.first_range {
-                self.builder.include_file(file_id)?;
-            } else if !self.builder.contains_file(file_id) {
-                return Err("later record range precedes first file range".into());
-            }
-            let mut diagnostic_refs = Vec::with_capacity(batch_file.entry.diagnostics.len());
-            for mut diagnostic in batch_file.entry.diagnostics {
-                if let Some(local_slot) = diagnostic.record {
-                    diagnostic.record = Some(RecordSlot(
-                        base.checked_add(local_slot.0)
-                            .ok_or("diagnostic record slot overflow")?,
-                    ));
-                }
-                diagnostic_refs.push(self.inventory.record_diagnostic(file_id, diagnostic)?);
-            }
-            let file = &mut self.inventory.files[file_id.0 as usize];
-            file.status = file.status.max(batch_file.entry.status);
-            file.omitted_diagnostics = file
-                .omitted_diagnostics
-                .saturating_add(batch_file.entry.omitted_diagnostics);
-            for expected_slot in batch_file.records {
-                let local = records.next().ok_or("batch record range out of bounds")?;
-                if local.slot.0 as usize != expected_slot {
-                    return Err("batch record order mismatch".into());
-                }
-                if local.file != file_id {
-                    return Err("batch record file ownership mismatch".into());
-                }
-                let actual = if local.class == RecordClass::Logical {
-                    self.builder
-                        .add_record(file, local.id, local.range.start, local.range.end)
-                        .map_err(|error| {
-                            format!(
-                                "{}:{}..{}: {error}",
-                                path.display(),
-                                local.range.start,
-                                local.range.end,
-                            )
-                        })?
-                } else {
-                    let reference = match local.diagnostic_ref.stored_index() {
-                        Some(index) => *diagnostic_refs
-                            .get(index)
-                            .ok_or("batch diagnostic reference out of bounds")?,
-                        None => DiagnosticRef(u32::MAX),
-                    };
-                    self.builder
-                        .add_raw_fallback(file, local.id, local.range, reference)?
-                };
-                if actual.0 != base + local.slot.0 {
-                    return Err("batch record slot mapping mismatch".into());
-                }
-            }
-        }
-        if records.next().is_some() {
-            return Err("unadmitted batch records".into());
-        }
-        if self.builder.next_slot()?.0 != base + count {
-            return Err("incomplete batch record admission".into());
-        }
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        self.postings.merge_shifted(batch_indexes.postings, base)?;
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.postings_ns += started.elapsed().as_nanos() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        match (self.inference.as_mut(), batch_indexes.inference) {
-            (Some(global), Some(local)) => global.merge_shifted(local, base)?,
-            (None, None) => {}
-            _ => return Err("inference batch mode mismatch".into()),
-        }
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.inference_ns += started.elapsed().as_nanos() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        if self.relations.len() != batch_indexes.relations.len() {
-            return Err("relation batch coverage mismatch".into());
-        }
-        for (global, local) in self.relations.iter_mut().zip(batch_indexes.relations) {
-            global.merge_shifted(local, base, count)?;
-        }
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.relations_ns += started.elapsed().as_nanos() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        if self.custom_postings.len() != batch_indexes.custom_postings.len() {
-            return Err("custom posting batch coverage mismatch".into());
-        }
-        for (key, local) in batch_indexes.custom_postings {
-            let global = self
-                .custom_postings
-                .get_mut(&key)
-                .ok_or("custom posting batch missing")?;
-            global.index.merge_shifted(local.index, base)?;
-            global.complete &= local.complete;
-        }
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        self.raw.merge_shifted(batch_indexes.raw, base)?;
-        self.fallback_text
-            .merge_shifted(batch_indexes.fallback_text, base)?;
-        if self.custom_text.len() != batch_indexes.custom_text.len() {
-            return Err("custom bigram batch coverage mismatch".into());
-        }
-        for (key, index) in batch_indexes.custom_text {
-            self.custom_text
-                .get_mut(&key)
-                .ok_or("custom bigram batch missing")?
-                .merge_shifted(index, base)?;
-        }
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.bigrams_ns += started.elapsed().as_nanos() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        append_shifted_bitmap(self.logical_records, &batch_indexes.logical_records, base)?;
-        append_shifted_bitmap(
-            self.empty_array_records,
-            &batch_indexes.empty_array_records,
-            base,
-        )?;
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
-        }
-        let started = crate::measurement::timer::start_if_enabled(profile.is_some());
-        self.sorting
-            .append_keys(batch_indexes.sort_keys, base, count)?;
-        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
-            profile.sorting_ns += started.elapsed().as_nanos() as u64;
-        }
-        Ok(())
-    }
-}
 
 /// The preparation path can admit several files before sealing one segment.
 /// This avoids a permanent one-segment-per-file layout.
