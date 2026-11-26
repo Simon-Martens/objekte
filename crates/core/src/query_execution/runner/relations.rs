@@ -5,8 +5,10 @@ use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::relation::RelationReader;
 use crate::index::storage::segment::{
     SegmentSlotFact, any_segment_file, read_slot_members, visit_checked_file_slots,
-    visit_record_headers,
+    visit_record_headers, visit_segment_files,
 };
+use crate::index::storage::transfer::StorageError;
+use crate::model::FileId;
 use crate::records::RecordIdSlot;
 
 #[cfg(test)]
@@ -1304,7 +1306,7 @@ fn try_direct_relation_page(
                 let payload = get_segment_record_by_id(
                     repo,
                     collection_index,
-                    &published.index,
+                    published.as_ref(),
                     &published.active,
                     catalog,
                     revision,
@@ -2822,13 +2824,13 @@ fn try_exact_native_boolean_page(
                 repo,
                 sort,
                 collection_index,
-                published.index.as_ref(),
+                published.as_ref(),
                 record,
                 None,
             )?;
             let hit = if matches!(published.backing_kind(), RecordBacking::FileRange) {
                 let resolved =
-                    segment_record_ref(&published.index, &published.active, catalog, slot)?
+                    segment_record_ref(published.as_ref(), &published.active, catalog, slot)?
                         .ok_or("native Boolean file record retired")?;
                 segment_locator_hit(
                     &repo.collections[collection_index],
@@ -2875,7 +2877,7 @@ fn try_exact_native_boolean_page(
                 let mut payload = get_segment_record_by_id(
                     repo,
                     collection_index,
-                    &published.index,
+                    published.as_ref(),
                     &published.active,
                     catalog,
                     revision,
@@ -3204,7 +3206,7 @@ fn try_native_relation_scan(
             let mut payload = get_segment_record_by_id(
                 repo,
                 collection_index,
-                &published.index,
+                published.as_ref(),
                 &published.active,
                 catalog,
                 revision,
@@ -3856,64 +3858,29 @@ pub(super) fn search_segmented_relations(
             }
             // A posting may leave only a handful of slots in a large segment.
             // Locate their files directly instead of decoding every file row.
-            let file_indices: Box<dyn Iterator<Item = usize>> = if let Some(may) =
-                candidates.as_ref()
-                && may.len().saturating_mul(8) < published.file_count() as u64
-            {
-                let mut selected = std::collections::BTreeSet::new();
-                for number in may.iter() {
-                    let slot = RecordSlot(number);
-                    if !published.active.contains(slot) {
-                        continue;
-                    }
-                    published
-                        .index
-                        .record(slot)
-                        .ok_or("merged segment candidate missing")?;
-                    let locator = published
-                        .index
-                        .backing
-                        .file_locator(slot)
-                        .ok_or("merged segment candidate locator missing")?;
-                    let index = published
-                        .index
-                        .file_index
-                        .get(&locator.file)
-                        .copied()
-                        .ok_or("merged segment candidate file missing")?;
-                    selected.insert(index);
-                }
-                Box::new(selected.into_iter())
-            } else {
-                Box::new(0..published.file_count())
-            };
-            for file_index in file_indices {
-                let file = published
-                    .index
-                    .files
-                    .get(file_index)
-                    .ok_or("merged segment file missing")?;
+            let mut ranges = Vec::new();
+            let mut process_file = |file: FileId| -> Result<(), String> {
+                const OP: &str = "read merged relation source file slots";
                 if let Some(context) = context {
                     context.check_string()?;
                 }
-                let mut ranges = Vec::new();
-                for slot in &file.records {
-                    if published.active.contains(*slot)
-                        && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
-                    {
-                        published
-                            .index
-                            .record(*slot)
-                            .ok_or("merged segment record missing")?;
-                        let range = published
-                            .index
-                            .backing
-                            .file_locator(*slot)
-                            .and_then(|locator| locator.range)
-                            .ok_or("merged segment record range missing")?;
-                        ranges.push((slot.0, range));
+                ranges.clear();
+                visit_checked_file_slots(published.as_ref(), file, &mut |slots| {
+                    for &slot in slots {
+                        if published.active.contains(slot)
+                            && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
+                        {
+                            let range = published
+                                .origin(slot)?
+                                .and_then(RecordOrigin::file)
+                                .filter(|locator| locator.file == file)
+                                .and_then(|locator| locator.range)
+                                .ok_or_else(|| StorageError::invalid(OP, "record range missing"))?;
+                            ranges.push((slot.0, range));
+                        }
                     }
-                }
+                    Ok(())
+                })?;
                 if let Some(context) = context
                     && ranges
                         .iter()
@@ -3925,7 +3892,7 @@ pub(super) fn search_segmented_relations(
                     ));
                 }
                 if ranges.is_empty() {
-                    continue;
+                    return Ok(());
                 }
                 let first = crate::query_execution::relations::view::MergedRecordSlot {
                     collection: collection_id,
@@ -3947,7 +3914,31 @@ pub(super) fn search_segmented_relations(
                     &mut opened,
                     exact_filter_fields,
                     &mut process,
-                )?;
+                )
+            };
+            if let Some(may) = candidates.as_ref()
+                && may.len().saturating_mul(8) < published.file_count() as u64
+            {
+                let mut selected = std::collections::BTreeSet::new();
+                for number in may.iter() {
+                    let slot = RecordSlot(number);
+                    if !published.active.contains(slot) {
+                        continue;
+                    }
+                    let locator = published
+                        .origin(slot)?
+                        .and_then(RecordOrigin::file)
+                        .ok_or("merged segment candidate locator missing")?;
+                    selected.insert(locator.file);
+                }
+                for file in selected {
+                    if !published.contains_file(file)? {
+                        return Err("merged segment candidate file missing".into());
+                    }
+                    process_file(file)?;
+                }
+            } else {
+                visit_segment_files(published.as_ref(), |file| process_file(file.id))?;
             }
         }
     }
@@ -3972,7 +3963,7 @@ pub(super) fn search_segmented_relations(
                 get_segment_record_by_id(
                     repo,
                     collection_index,
-                    &published.index,
+                    published.as_ref(),
                     &published.active,
                     catalog,
                     revision,
@@ -4245,7 +4236,7 @@ pub(crate) fn explain_segmented(
                 .try_fold(true, |all, segment| {
                     Ok::<_, String>(
                         all && lifecycle_segment_order(
-                            segment.index.as_ref(),
+                            segment.as_ref(),
                             &resolved_sort,
                             query,
                             collection_index,
