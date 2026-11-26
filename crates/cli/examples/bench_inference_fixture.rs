@@ -74,8 +74,9 @@ fn run() -> Result<(), String> {
     let collection = &index.collections()[0];
     let view = index.index().view().map_err(|error| error.to_string())?;
     let report = index.inference_report("records");
-    let indexes = collection.base_inferred_postings().map(|postings| {
+    let indexes = collection.base_inferred_postings()?.map(|postings| {
         let mut summaries = postings
+            .into_iter()
             .map(|index| {
                 json!({
                     "path": index.path,

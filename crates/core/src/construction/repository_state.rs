@@ -9,6 +9,7 @@ use roaring::RoaringBitmap;
 
 use crate::construction::batch::canonical_custom_text_key;
 use crate::index::bigram::BigramContribution;
+#[cfg(test)]
 use crate::index::memory::inference::InferenceBuilder;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::relation::RelationContribution;
@@ -227,9 +228,16 @@ fn initialize_empty_configured(
         let generation = CollectionBuilder::new(id, definition.name.clone(), base_generation, 0)
             .finish_empty()?;
         let postings = PostingCollection::new(&definition.schema);
+        #[cfg(test)]
         let inference = InferenceBuilder::for_collection(options.inference, collection_count)
             .map(|builder| builder.finish(&RoaringBitmap::new(), 0, &definition.schema))
             .transpose()?;
+        let initial_inference_report = crate::inference::admission::aggregate_segment_inference(
+            options.inference,
+            &definition.schema,
+            &[],
+        )?
+        .map(|summary| summary.report);
         let custom_postings: HashMap<_, _> = definition
             .schema
             .operations
@@ -320,7 +328,9 @@ fn initialize_empty_configured(
             #[cfg(test)]
             generation,
             postings,
+            #[cfg(test)]
             inference,
+            initial_inference_report,
             global_inference: None,
             custom_postings,
             raw,

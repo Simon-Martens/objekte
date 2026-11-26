@@ -1068,6 +1068,7 @@ impl InferenceBuilder {
         Ok(())
     }
 
+    #[cfg(test)]
     pub(crate) fn finish(
         self,
         logical: &RoaringBitmap,

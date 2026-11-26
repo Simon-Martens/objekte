@@ -63,7 +63,9 @@ pub(crate) struct PostingStats {
     pub present_count: u64,
     pub null_count: u64,
     pub distinct_count: usize,
+    #[cfg(test)]
     pub min_key: Option<ScalarKey>,
+    #[cfg(test)]
     pub max_key: Option<ScalarKey>,
     /// Established posting-values meanings can use terminal presence when no
     /// successful zero-value traversal was observed in the build domain.
@@ -79,7 +81,9 @@ impl Default for PostingStats {
             present_count: 0,
             null_count: 0,
             distinct_count: 0,
+            #[cfg(test)]
             min_key: None,
+            #[cfg(test)]
             max_key: None,
             legacy_present_equivalent: true,
             legacy_null_equivalent: true,
@@ -230,11 +234,13 @@ impl PostingIndex {
 
     pub fn finish_stats(&mut self) {
         let null_count = self.value_cardinality(&ScalarKey::Null);
+        #[cfg(test)]
         let min_key = self
             .values
             .iter()
             .find(|(key, _)| !matches!(key, ScalarKey::Null))
             .map(|(key, _)| key.clone());
+        #[cfg(test)]
         let max_key = self
             .values
             .iter()
@@ -245,7 +251,9 @@ impl PostingIndex {
             present_count: self.presence.len(),
             null_count,
             distinct_count: self.distinct_values(),
+            #[cfg(test)]
             min_key,
+            #[cfg(test)]
             max_key,
             legacy_present_equivalent: self.stats.legacy_present_equivalent,
             legacy_null_equivalent: self.stats.legacy_null_equivalent,

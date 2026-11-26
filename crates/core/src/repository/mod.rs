@@ -185,15 +185,13 @@ impl Repository {
             empty
         };
         for (source, target) in self.collections.iter().zip(&mut empty.collections) {
-            target.global_inference = source.global_inference.clone().or_else(|| {
+            target.global_inference =
                 source
-                    .inference
-                    .as_ref()
-                    .map(|state| GlobalInferenceSummary {
-                        report: state.report.clone(),
-                        diagnostics: state.path_diagnostics(),
-                    })
-            });
+                    .inference_report()
+                    .map(|report| GlobalInferenceSummary {
+                        report: report.clone(),
+                        diagnostics: source.inference_diagnostics().unwrap_or_default(),
+                    });
             if let Some(summary) = target.global_inference.as_mut() {
                 summary.report.complete = false;
             }

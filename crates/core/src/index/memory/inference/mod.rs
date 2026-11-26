@@ -4,9 +4,11 @@ use std::collections::HashMap;
 
 use roaring::RoaringBitmap;
 
+use crate::inference::InferenceReport;
 #[cfg(test)]
-use crate::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
-use crate::inference::{InferencePathDiagnostic, InferenceReport};
+use crate::inference::{
+    InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePathDiagnostic,
+};
 #[cfg(test)]
 use crate::model::LogicalType;
 #[cfg(test)]
@@ -30,6 +32,7 @@ pub(crate) struct InferenceState {
 }
 
 impl InferenceState {
+    #[cfg(test)]
     pub(crate) fn path_diagnostics(&self) -> Vec<InferencePathDiagnostic> {
         let mut fields = self.report.fields.iter().collect::<Vec<_>>();
         fields.sort_unstable_by(|left, right| left.path.cmp(&right.path));

@@ -6,7 +6,6 @@ use std::borrow::Cow;
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
-use crate::index::memory::inference::InferenceState;
 use crate::index::relation::RelationIndex;
 use crate::index::storage::component::ComponentKind;
 use crate::index::storage::file_catalog::FileCatalogReader;
@@ -136,13 +135,7 @@ impl Repository {
         self.collections
             .iter()
             .find(|state| state.definition.name == collection)
-            .and_then(|state| {
-                state
-                    .global_inference
-                    .as_ref()
-                    .map(|summary| &summary.report)
-                    .or_else(|| state.inference.as_ref().map(|inference| &inference.report))
-            })
+            .and_then(CollectionState::inference_report)
     }
 
     /// Ordered-posting outcomes for every observed path, sorted by typed path.
@@ -154,18 +147,7 @@ impl Repository {
         self.collections
             .iter()
             .find(|state| state.definition.name == collection)
-            .and_then(|state| {
-                state
-                    .global_inference
-                    .as_ref()
-                    .map(|summary| summary.diagnostics.clone())
-                    .or_else(|| {
-                        state
-                            .inference
-                            .as_ref()
-                            .map(InferenceState::path_diagnostics)
-                    })
-            })
+            .and_then(CollectionState::inference_diagnostics)
     }
 
     pub fn verified_cache_budget(&self) -> Result<usize, String> {

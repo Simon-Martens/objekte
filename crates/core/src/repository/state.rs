@@ -8,12 +8,15 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
 use crate::index::bigram::BigramIndex;
+#[cfg(test)]
 use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
 #[cfg(test)]
 use crate::index::sorting::SortCollection;
+use crate::index::storage::component::ComponentKind;
 use crate::index::storage::order::declared::DeclaredOrders;
+use crate::index::storage::posting::{PostingKey, ScalarKey, visit_posting_blocks};
 #[cfg(test)]
 use crate::index::storage::segment::FILE_SLOT_LIMIT;
 use crate::index::storage::segment::{
@@ -61,7 +64,9 @@ pub struct CollectionState {
     #[cfg(test)]
     pub(crate) generation: CollectionGeneration,
     pub(crate) postings: PostingCollection,
+    #[cfg(test)]
     pub(crate) inference: Option<InferenceState>,
+    pub(crate) initial_inference_report: Option<InferenceReport>,
     pub(crate) global_inference: Option<GlobalInferenceSummary>,
     pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub(crate) raw: BigramIndex,
@@ -462,23 +467,104 @@ impl CollectionState {
         self.definition.schema.fields().keys().map(Vec::as_slice)
     }
 
-    /// Summaries of inferred dictionaries in the base collection.
-    pub fn base_inferred_postings(
-        &self,
-    ) -> Option<impl Iterator<Item = InferredPostingSummary<'_>> + '_> {
-        self.inference.as_ref().map(|state| {
-            state
-                .indexes
-                .iter()
-                .map(|(path, index)| InferredPostingSummary {
-                    path,
-                    keys: index.values.len(),
-                    memberships: index.values.values().map(|slots| slots.len()).sum(),
-                    covered_records: index.covered_records,
-                    min_key: index.stats.min_key.as_ref(),
-                    max_key: index.stats.max_key.as_ref(),
+    pub(crate) fn inference_report(&self) -> Option<&InferenceReport> {
+        if let Some(summary) = &self.global_inference {
+            return Some(&summary.report);
+        }
+        #[cfg(test)]
+        if let Some(inference) = &self.inference {
+            return Some(&inference.report);
+        }
+        self.initial_inference_report.as_ref()
+    }
+
+    pub(crate) fn inference_diagnostics(&self) -> Option<Vec<InferencePathDiagnostic>> {
+        if let Some(summary) = &self.global_inference {
+            return Some(summary.diagnostics.clone());
+        }
+        #[cfg(test)]
+        if let Some(inference) = &self.inference {
+            return Some(inference.path_diagnostics());
+        }
+        self.initial_inference_report.as_ref().map(|_| Vec::new())
+    }
+
+    /// Summaries of inferred dictionaries in the sealed base collection.
+    pub fn base_inferred_postings(&self) -> Result<Option<Vec<InferredPostingSummary>>, String> {
+        if let Some(base) = &self.base_records {
+            let summaries = base
+                .components()?
+                .into_iter()
+                .filter(|component| component.kind == ComponentKind::InferredPosting)
+                .map(|component| {
+                    let posting = base
+                        .posting(&component)?
+                        .ok_or("advertised base inferred posting missing")?;
+                    let descriptor = posting.descriptor();
+                    let mut summary = InferredPostingSummary {
+                        path: descriptor.path.to_vec(),
+                        keys: 0,
+                        memberships: 0,
+                        covered_records: descriptor.coverage.covered_records,
+                        min_key: None,
+                        max_key: None,
+                    };
+                    let mut previous = None;
+                    visit_posting_blocks(
+                        posting,
+                        base.descriptor().slots,
+                        &|| false,
+                        &mut |key, slots| {
+                            if let PostingKey::Value(key) = key {
+                                summary.memberships = summary
+                                    .memberships
+                                    .checked_add(slots.len() as u64)
+                                    .ok_or_else(|| {
+                                        StorageError::invalid(
+                                            "summarize inferred posting",
+                                            "membership count overflow",
+                                        )
+                                    })?;
+                                if previous.as_ref() != Some(key) {
+                                    summary.keys += 1;
+                                    if *key != ScalarKey::Null {
+                                        if summary.min_key.is_none() {
+                                            summary.min_key = Some(key.clone());
+                                        }
+                                        summary.max_key = Some(key.clone());
+                                    }
+                                    previous = Some(key.clone());
+                                }
+                            }
+                            Ok(())
+                        },
+                    )?;
+                    Ok::<_, String>(summary)
                 })
-        })
+                .collect::<Result<Vec<_>, _>>()?;
+            return Ok(
+                (!summaries.is_empty() || self.initial_inference_report.is_some())
+                    .then_some(summaries),
+            );
+        }
+        #[cfg(test)]
+        if let Some(state) = &self.inference {
+            return Ok(Some(
+                state
+                    .indexes
+                    .iter()
+                    .map(|(path, index)| InferredPostingSummary {
+                        path: path.clone(),
+                        keys: index.values.len(),
+                        memberships: index.values.values().map(|slots| slots.len()).sum(),
+                        covered_records: index.covered_records,
+                        min_key: index.stats.min_key.clone(),
+                        max_key: index.stats.max_key.clone(),
+                    })
+                    .collect(),
+            ));
+        }
+        Ok(self.initial_inference_report.as_ref().map(|_| Vec::new()))
     }
 
     /// File importer configuration, when this collection has one.
@@ -508,13 +594,13 @@ impl CollectionState {
 }
 
 /// Cardinalities for one inferred value dictionary.
-pub struct InferredPostingSummary<'a> {
-    pub path: &'a [String],
+pub struct InferredPostingSummary {
+    pub path: Vec<String>,
     pub keys: usize,
     pub memberships: u64,
     pub covered_records: u32,
-    pub min_key: Option<&'a crate::index::posting::ScalarKey>,
-    pub max_key: Option<&'a crate::index::posting::ScalarKey>,
+    pub min_key: Option<ScalarKey>,
+    pub max_key: Option<ScalarKey>,
 }
 
 /// Collection size summary used by query planning.

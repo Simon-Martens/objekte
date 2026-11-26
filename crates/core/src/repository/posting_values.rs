@@ -308,31 +308,40 @@ fn resolve<'a>(
             .ok_or_else(|| "base posting has no compatible value dictionary".into());
     }
     if binding == "default" && !field.is_some_and(|field| field.indexed) {
-        let inference = collection
-            .inference
-            .as_ref()
-            .filter(|state| state.report.mode == InferenceMode::AutoIndex && state.report.complete)
-            .ok_or("field has no admitted inferred posting index")?;
-        let index = inference
-            .indexes
-            .get(&path.segments)
-            .ok_or("field has no admitted inferred posting index")?;
-        if index.covered_records as u64 != collection.base_logical_count()? {
-            return Err("incomplete inferred posting logical coverage".into());
-        }
-        if !index.value_complete && !inference.short_string_coverage.contains_key(&path.segments) {
-            return Err("inferred field has no general value posting coverage".into());
-        }
-        return Ok(ResolvedPosting {
-            index,
-            binding: "inferred".into(),
-            binding_version: inference.report.policy.version,
-            indexed_records: inference
-                .short_string_coverage
+        #[cfg(test)]
+        {
+            let inference = collection
+                .inference
+                .as_ref()
+                .filter(|state| {
+                    state.report.mode == InferenceMode::AutoIndex && state.report.complete
+                })
+                .ok_or("field has no admitted inferred posting index")?;
+            let index = inference
+                .indexes
                 .get(&path.segments)
-                .map(SlotSet::borrowed),
-            native_prefix: true,
-        });
+                .ok_or("field has no admitted inferred posting index")?;
+            if index.covered_records as u64 != collection.base_logical_count()? {
+                return Err("incomplete inferred posting logical coverage".into());
+            }
+            if !index.value_complete
+                && !inference.short_string_coverage.contains_key(&path.segments)
+            {
+                return Err("inferred field has no general value posting coverage".into());
+            }
+            return Ok(ResolvedPosting {
+                index,
+                binding: "inferred".into(),
+                binding_version: inference.report.policy.version,
+                indexed_records: inference
+                    .short_string_coverage
+                    .get(&path.segments)
+                    .map(SlotSet::borrowed),
+                native_prefix: true,
+            });
+        }
+        #[cfg(not(test))]
+        return Err("field has no admitted inferred posting index".into());
     }
     let field = field.ok_or("posting values require a registered field")?;
     if binding == "default" {

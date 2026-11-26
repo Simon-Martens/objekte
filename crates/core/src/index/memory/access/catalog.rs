@@ -400,7 +400,10 @@ impl<'a> IndexCatalog<'a> {
         Self {
             schema: &state.definition.schema,
             postings: &state.postings,
+            #[cfg(test)]
             observed: state.inference.as_ref(),
+            #[cfg(not(test))]
+            observed: None,
             named: &state.custom_postings,
             text: &state.custom_text,
             text_bindings: &state.text_bindings,
