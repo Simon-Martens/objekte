@@ -8,8 +8,6 @@ mod projection;
 mod record_versions;
 pub(crate) mod statistics;
 
-pub(crate) use projection::PartitionRouting;
-
 use std::borrow::Cow;
 use std::collections::{BTreeMap, HashMap};
 #[cfg(test)]

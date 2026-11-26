@@ -11,6 +11,9 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
+use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::maintenance::SegmentPartition;
+use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileEntry, FileStatus, RecordClass};
 use crate::model::{FileId, RecordSlot};
 
@@ -31,6 +34,73 @@ impl IndexedCollectionSegment {
         retain_file: impl FnMut(&FileEntry) -> bool,
     ) -> Result<CompactedSegment, String> {
         self.compact_active_mapped(active, max_scanned_records, retain_file, None, None)
+    }
+
+    pub(crate) fn project_partitions(
+        &self,
+        selections: &[SegmentPartition],
+        catalog: &dyn FileCatalogReader,
+        cancelled: &mut dyn FnMut() -> bool,
+    ) -> StorageResult<Vec<Self>> {
+        let invalid = |detail| StorageError::invalid("project segment partitions", detail);
+        let masks = selections
+            .iter()
+            .map(|partition| partition.slots.clone())
+            .collect::<Vec<_>>();
+        let routing = PartitionRouting::new(self, &masks).map_err(invalid)?;
+        let projections = self
+            .project_postings_for_partitions(&routing)
+            .map_err(invalid)?;
+        let bigram_projections = self
+            .project_bigrams_for_partitions(&routing)
+            .map_err(invalid)?;
+        let relation_projections = self
+            .project_relations_for_partitions(&routing)
+            .map_err(invalid)?;
+        let sorting_projections = self
+            .project_sorting_for_partitions(&routing)
+            .map_err(invalid)?;
+        let domain_projections = self
+            .project_domains_for_partitions(&routing)
+            .map_err(invalid)?;
+        let inference_projections = self
+            .project_inference_for_partitions(&routing, &domain_projections)
+            .map_err(invalid)?;
+        let mut parts = Vec::with_capacity(selections.len());
+        for ((((((partition, projection), bigrams), relations), sorting), domains), inference) in
+            selections
+                .iter()
+                .zip(projections)
+                .zip(bigram_projections)
+                .zip(relation_projections)
+                .zip(sorting_projections)
+                .zip(domain_projections)
+                .zip(inference_projections)
+        {
+            if cancelled() {
+                return Err(StorageError::Cancelled);
+            }
+            let mut compacted = self
+                .compact_partition_with_postings(
+                    &routing,
+                    parts.len(),
+                    &partition.files,
+                    projection,
+                    bigrams,
+                    relations,
+                    sorting,
+                    domains,
+                    inference,
+                )
+                .map_err(invalid)?;
+            for file in &mut compacted.files {
+                if let Some(current) = catalog.file(file.entry.id)? {
+                    file.entry.relative_path = current.relative_path.clone();
+                }
+            }
+            parts.push(compacted);
+        }
+        Ok(parts)
     }
 
     /// Reorder a dense bounded shard without changing its physical slot count.

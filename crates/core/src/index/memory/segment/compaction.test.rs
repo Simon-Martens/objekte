@@ -1,4 +1,6 @@
-use super::projection::{SlotMap, project_bitmap, project_inference, project_sorting};
+use super::projection::{
+    PartitionRouting, SlotMap, project_bitmap, project_inference, project_sorting,
+};
 use super::*;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};

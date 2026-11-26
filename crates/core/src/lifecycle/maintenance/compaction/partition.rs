@@ -9,10 +9,11 @@ use std::sync::Arc;
 use roaring::RoaringBitmap;
 
 use crate::index::segment::IndexedCollectionSegment;
-use crate::index::segment::PartitionRouting;
 #[cfg(test)]
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::maintenance::SegmentPartition;
+use crate::index::storage::segment::{RecordBacking, SegmentReader, visit_segment_files};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
 #[cfg(test)]
@@ -54,12 +55,44 @@ fn compact_source_parts_with_limits(
             "compaction part limit must be positive".into(),
         ));
     }
-    let mut selections = Vec::<(HashSet<FileId>, ActiveRecords)>::new();
+    let selections = plan_partitions(
+        source,
+        active,
+        catalog,
+        max_records,
+        max_files,
+        &mut cancelled,
+    )?;
+    let parts = source.project_partitions(&selections, catalog, &mut cancelled)?;
+    if parts
+        .iter()
+        .map(IndexedCollectionSegment::record_count)
+        .sum::<usize>()
+        != active.len() as usize
+    {
+        return Err(IndexError::InvalidPublication(
+            "compaction output live count mismatch".into(),
+        ));
+    }
+    Ok(parts)
+}
+
+fn plan_partitions(
+    source: &dyn SegmentReader,
+    active: &ActiveRecords,
+    catalog: &dyn FileCatalogReader,
+    max_records: usize,
+    max_files: usize,
+    mut cancelled: impl FnMut() -> bool,
+) -> Result<Vec<SegmentPartition>, IndexError> {
+    let descriptor = source.descriptor();
+    let by_range = source.backing_kind() == RecordBacking::FileRange;
+    let mut selections = Vec::<SegmentPartition>::new();
     let mut files = HashSet::<FileId>::new();
     let mut slots = RoaringBitmap::new();
     let mut assigned = RoaringBitmap::new();
     let mut count = 0usize;
-    let seal = |selections: &mut Vec<(HashSet<FileId>, ActiveRecords)>,
+    let seal = |selections: &mut Vec<SegmentPartition>,
                 files: &mut HashSet<FileId>,
                 slots: &mut RoaringBitmap,
                 count: &mut usize|
@@ -67,14 +100,17 @@ fn compact_source_parts_with_limits(
         if files.is_empty() && *count == 0 {
             return Ok(());
         }
-        let selected = ActiveRecords::from_bitmap(source.record_count(), std::mem::take(slots))
+        let selected = ActiveRecords::from_bitmap(descriptor.slots, std::mem::take(slots))
             .map_err(IndexError::InvalidPublication)?;
-        selections.push((std::mem::take(files), selected));
+        selections.push(SegmentPartition {
+            files: std::mem::take(files),
+            slots: selected,
+        });
         *count = 0;
         Ok(())
     };
     let mut selected_files = HashSet::new();
-    for old in 0..source.record_count() {
+    for old in 0..descriptor.slots {
         if cancelled() {
             return Err(IndexError::Cancelled);
         }
@@ -82,24 +118,21 @@ fn compact_source_parts_with_limits(
         if !active.contains(slot) {
             continue;
         }
-        let link = source.backing.file_locator(slot);
+        let link = source
+            .origin(slot)?
+            .ok_or_else(|| IndexError::InvalidPublication("active record origin missing".into()))?
+            .file();
         if let Some(link) = link {
-            let file = source
-                .file_index
-                .get(&link.file)
-                .and_then(|index| source.files.get(*index))
-                .map(|file| &file.entry)
-                .ok_or_else(|| {
-                    IndexError::InvalidPublication("active record file row missing".into())
-                })?;
-            if matches!(
-                &source.backing,
-                crate::index::segment::SegmentBacking::FileRange { .. }
-            ) && !catalog.file(link.file)?.is_some_and(|current| {
-                current.revision == file.revision
-                    && current.created_ns == file.created_ns
-                    && current.collections.contains(&source.collection)
-            }) {
+            let file = source.file_metadata(link.file)?.ok_or_else(|| {
+                IndexError::InvalidPublication("active record file row missing".into())
+            })?;
+            if by_range
+                && !catalog.file(link.file)?.is_some_and(|current| {
+                    current.revision == file.revision
+                        && current.created_ns == file.created_ns
+                        && current.collections.contains(&descriptor.collection)
+                })
+            {
                 return Err(IndexError::InvalidPublication(
                     "active imported record has obsolete file".into(),
                 ));
@@ -124,100 +157,35 @@ fn compact_source_parts_with_limits(
     }
     // A successfully imported empty file remains in the catalog even when it
     // contributes no live slots to this segment.
-    for file in &source.files {
-        if selected_files.contains(&file.entry.id) {
-            continue;
+    visit_segment_files(source, |file| {
+        if cancelled() {
+            return Err(IndexError::Cancelled);
         }
-        let Some(current) = catalog.file(file.entry.id)? else {
-            continue;
+        if selected_files.contains(&file.id) {
+            return Ok(());
+        }
+        let Some(current) = catalog.file(file.id)? else {
+            return Ok(());
         };
-        if current.revision != file.entry.revision
-            || current.created_ns != file.entry.created_ns
-            || !current.collections.contains(&source.collection)
+        if current.revision != file.revision
+            || current.created_ns != file.created_ns
+            || !current.collections.contains(&descriptor.collection)
         {
-            continue;
+            return Ok(());
         }
         if files.len() >= max_files {
             seal(&mut selections, &mut files, &mut slots, &mut count)?;
         }
-        files.insert(file.entry.id);
-    }
+        files.insert(file.id);
+        Ok(())
+    })?;
     seal(&mut selections, &mut files, &mut slots, &mut count)?;
     if assigned.len() != active.len() {
         return Err(IndexError::InvalidPublication(
             "compaction did not conserve live slots".into(),
         ));
     }
-    let masks = selections
-        .iter()
-        .map(|(_, active)| active.clone())
-        .collect::<Vec<_>>();
-    let routing = PartitionRouting::new(source, &masks).map_err(IndexError::Build)?;
-    let projections = source
-        .project_postings_for_partitions(&routing)
-        .map_err(IndexError::Build)?;
-    let bigram_projections = source
-        .project_bigrams_for_partitions(&routing)
-        .map_err(IndexError::Build)?;
-    let relation_projections = source
-        .project_relations_for_partitions(&routing)
-        .map_err(IndexError::Build)?;
-    let sorting_projections = source
-        .project_sorting_for_partitions(&routing)
-        .map_err(IndexError::Build)?;
-    let domain_projections = source
-        .project_domains_for_partitions(&routing)
-        .map_err(IndexError::Build)?;
-    let inference_projections = source
-        .project_inference_for_partitions(&routing, &domain_projections)
-        .map_err(IndexError::Build)?;
-    let mut parts = Vec::with_capacity(selections.len());
-    for (
-        ((((((files, _selected), projection), bigrams), relations), sorting), domains),
-        inference,
-    ) in selections
-        .into_iter()
-        .zip(projections)
-        .zip(bigram_projections)
-        .zip(relation_projections)
-        .zip(sorting_projections)
-        .zip(domain_projections)
-        .zip(inference_projections)
-    {
-        if cancelled() {
-            return Err(IndexError::Cancelled);
-        }
-        let mut compacted = source
-            .compact_partition_with_postings(
-                &routing,
-                parts.len(),
-                &files,
-                projection,
-                bigrams,
-                relations,
-                sorting,
-                domains,
-                inference,
-            )
-            .map_err(IndexError::Build)?;
-        for file in &mut compacted.files {
-            if let Some(current) = catalog.file(file.entry.id)? {
-                file.entry.relative_path = current.relative_path.clone();
-            }
-        }
-        parts.push(compacted);
-    }
-    if parts
-        .iter()
-        .map(IndexedCollectionSegment::record_count)
-        .sum::<usize>()
-        != active.len() as usize
-    {
-        return Err(IndexError::InvalidPublication(
-            "compaction output live count mismatch".into(),
-        ));
-    }
-    Ok(parts)
+    Ok(selections)
 }
 
 #[cfg(test)]

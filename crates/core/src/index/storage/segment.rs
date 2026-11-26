@@ -1,6 +1,7 @@
 //! Segment identity, record addresses, and sizing policy.
 
 pub(crate) mod build;
+pub(crate) mod maintenance;
 
 use std::{
     borrow::Cow,
