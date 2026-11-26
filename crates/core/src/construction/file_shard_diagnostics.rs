@@ -37,13 +37,19 @@ pub fn measure_direct_shard_build(
     let id = collection.generation.collection;
     let definition = Arc::new(collection.required_file_definition().clone());
     let source = collection.required_file_reader().clone();
-    let source_files = Arc::new(
-        crate::index::storage::file_catalog::FileRows::new(&repository.catalog)
-            .map(|row| row.map(|row| SourceFileInput::from_entry(&row.entry)))
-            .collect::<Result<Vec<_>, _>>()
-            .unwrap(),
-    );
-    let jobs = file_batches(&collection.generation.files, |id| {
+    let mut source_files = Vec::new();
+    let mut collection_files = Vec::new();
+    for row in crate::index::storage::file_catalog::FileRows::new(&repository.catalog) {
+        let row = row.unwrap();
+        let file = &row.entry;
+        assert_eq!(file.id.0 as usize, source_files.len());
+        if file.collections.contains(&id) {
+            collection_files.push(file.id);
+        }
+        source_files.push(SourceFileInput::from_entry(file));
+    }
+    assert_eq!(collection_files.len(), collection.base_file_count());
+    let jobs = file_batches(&collection_files, |id| {
         source_files
             .get(id.0 as usize)
             .map(|file| file.revision.size)
@@ -84,7 +90,7 @@ pub fn measure_direct_shard_build(
         &repository.storage_factory,
         Arc::new(root.clone()),
         &jobs,
-        source_files,
+        Arc::new(source_files),
         options.bigram_alphabet,
         options.inference,
         false,
@@ -129,11 +135,11 @@ pub fn measure_direct_shard_build(
         .iter()
         .map(|shard| shard.descriptor().slots)
         .sum::<usize>();
-    assert_eq!(records, collection.generation.records.len());
+    assert_eq!(records, collection.base_record_count());
     assert!(shards.iter().all(|shard| shard.descriptor().slots <= 2_048));
     eprintln!(
         "direct shard prototype files={} records={} shards={} extract_admit={extracted:?} finalize={finalized:?} jobs={} peak_active={}",
-        collection.generation.files.len(),
+        collection_files.len(),
         records,
         shards.len(),
         jobs.len(),
