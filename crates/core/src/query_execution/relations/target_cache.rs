@@ -240,7 +240,10 @@ fn prepare_with_limits(
         {
             continue;
         }
-        let mut current = candidates & &source.logical_records;
+        let mut current = source
+            .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+            .view()
+            .intersect_bitmap(candidates);
         for hop in &related.hops {
             let active = execution.and_then(ExecutionContext::active_records);
             let collection = repo

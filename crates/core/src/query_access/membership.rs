@@ -114,6 +114,13 @@ impl<'a> MembershipView<'a> {
         }
     }
 
+    pub(crate) fn bitmap_for_set_algebra(self) -> std::borrow::Cow<'a, RoaringBitmap> {
+        match self.bitmap() {
+            Some(bitmap) => std::borrow::Cow::Borrowed(bitmap),
+            None => std::borrow::Cow::Owned(self.iter().collect()),
+        }
+    }
+
     pub(crate) fn same_members(self, other: Self) -> bool {
         match (self, other) {
             (Self::Sorted(left), Self::Sorted(right)) => left == right,
@@ -148,7 +155,7 @@ impl<'a> MembershipView<'a> {
     pub(crate) fn is_subset(self, other: Self) -> bool {
         match (self, other) {
             (Self::Empty, _) => true,
-            (_, Self::Empty) => false,
+            (left, Self::Empty) => left.is_empty(),
             (Self::Sorted(slots), right) => slots.iter().all(|&slot| right.contains(slot)),
             (left, Self::Sorted(slots)) => {
                 left.len() <= slots.len() && left.iter().all(|slot| other.contains(slot))

@@ -407,21 +407,20 @@ pub(crate) fn planning_estimate_with_segments(
         if let Some(estimate) = segment_expr_estimate(repo, terminal_index, segments, &terminal)? {
             estimate
         } else {
-            estimate_expr(target, &terminal, target.logical_records.len())?
+            estimate_expr(target, &terminal, target.base_logical_count()?)?
         };
     let source_count = repo.collections[related.hops[0].from.0 as usize]
-        .logical_records
-        .len()
+        .base_logical_count()?
         .max(1) as f64;
     let average_fanout = related.hops.iter().try_fold(1.0_f64, |fanout, hop| {
         let index = relation(repo, hop)?;
         let source = &repo.collections[hop.from.0 as usize];
         Ok::<_, String>(
-            (fanout * index.edge_count() as f64 / source.logical_records.len().max(1) as f64)
+            (fanout * index.edge_count() as f64 / source.base_logical_count()?.max(1) as f64)
                 .max(1.0),
         )
     })?;
-    let target_count = target.logical_records.len().max(1) as f64;
+    let target_count = target.base_logical_count()?.max(1) as f64;
     let reachable = (input_len as f64 * average_fanout).min(target_count);
     let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
     let reverse_degree = source_count * average_fanout / target_count;
@@ -499,35 +498,31 @@ pub(crate) fn planning_fts_strategies(
         let mut local_field = field.clone();
         local_field.related = None;
         local.fields = vec![local_field];
+        let target_count = target.base_logical_count()?;
         let (estimated_targets, lookup) =
-            segment_fts_estimate(repo, target_index, &segment_groups, &local)?.unwrap_or_else(
-                || {
-                    estimate_fts_candidates(target, &local)
-                        .unwrap_or((target.logical_records.len() as u64, 0.0))
-                },
-            );
+            segment_fts_estimate(repo, target_index, &segment_groups, &local)?
+                .or_else(|| estimate_fts_candidates(target, &local))
+                .unwrap_or((target_count, 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
             let index = relation(repo, hop)?;
             let source = &repo.collections[hop.from.0 as usize];
             Ok::<_, String>(
-                (fanout * index.edge_count() as f64 / source.logical_records.len().max(1) as f64)
+                (fanout * index.edge_count() as f64 / source.base_logical_count()?.max(1) as f64)
                     .max(1.0),
             )
         })?;
-        let reachable = (input_len as f64 * fanout).min(target.logical_records.len() as f64);
-        let reverse_degree = input_len as f64 * fanout / target.logical_records.len().max(1) as f64;
+        let reachable = (input_len as f64 * fanout).min(target_count as f64);
+        let reverse_degree = input_len as f64 * fanout / target_count.max(1) as f64;
         let source_work =
             input_len as f64 * fanout + reachable * (target_unit + reverse_degree * 0.25);
         let target_work = lookup + estimated_targets as f64 * (target_unit + reverse_degree * 0.25);
         let _ = (target_work, source_work, reachable);
-        strategies.push(
-            if input_len.saturating_mul(4) >= target.logical_records.len() {
-                Strategy::TargetFirst
-            } else {
-                Strategy::SourceRestricted
-            },
-        );
+        strategies.push(if input_len.saturating_mul(4) >= target_count {
+            Strategy::TargetFirst
+        } else {
+            Strategy::SourceRestricted
+        });
     }
     Ok(Some(strategies))
 }
@@ -593,12 +588,17 @@ fn verified_targets(
     execution: Option<&ExecutionContext>,
 ) -> Result<RoaringBitmap, String> {
     let collection = &repo.collections[target_index];
-    let active_domain = execution
-        .and_then(ExecutionContext::active_records)
-        .map(|domains| &collection.logical_records & &domains[target_index].bitmap());
-    let domain = active_domain
-        .as_ref()
-        .unwrap_or(&collection.logical_records);
+    let logical =
+        collection.base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?;
+    let domain = match execution.and_then(ExecutionContext::active_records) {
+        Some(domains) => std::borrow::Cow::Owned(
+            logical
+                .view()
+                .intersect_bitmap(&domains[target_index].bitmap()),
+        ),
+        None => logical.view().bitmap_for_set_algebra(),
+    };
+    let domain = domain.as_ref();
     if restricted.is_none() {
         ensure_slots(domain.len(), execution)?;
     }
@@ -1073,7 +1073,7 @@ pub(crate) fn qualified_fts_witnesses(
         let mut local_field = field.clone();
         local_field.related = None;
         local.fields = vec![local_field];
-        let strategy = if input.len().saturating_mul(4) >= target_state.logical_records.len() {
+        let strategy = if input.len().saturating_mul(4) >= target_state.base_logical_count()? {
             Strategy::TargetFirst
         } else {
             Strategy::SourceRestricted
@@ -1239,28 +1239,27 @@ pub(crate) fn fts_witnesses(
         let mut local_field = field.clone();
         local_field.related = None;
         local.fields = vec![local_field];
+        let target_count = target.base_logical_count()?;
         let (estimated_targets, lookup) =
-            segment_fts_estimate(repo, target_index, segments, &local)?.unwrap_or_else(|| {
-                estimate_fts_candidates(target, &local)
-                    .unwrap_or((target.logical_records.len() as u64, 0.0))
-            });
+            segment_fts_estimate(repo, target_index, segments, &local)?
+                .or_else(|| estimate_fts_candidates(target, &local))
+                .unwrap_or((target_count, 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
             let index = relation(repo, hop)?;
             let source = &repo.collections[hop.from.0 as usize];
             Ok::<_, String>(
-                (fanout * index.edge_count() as f64 / source.logical_records.len().max(1) as f64)
+                (fanout * index.edge_count() as f64 / source.base_logical_count()?.max(1) as f64)
                     .max(1.0),
             )
         })?;
-        let reachable = (input.len() as f64 * fanout).min(target.logical_records.len() as f64);
-        let reverse_degree =
-            input.len() as f64 * fanout / target.logical_records.len().max(1) as f64;
+        let reachable = (input.len() as f64 * fanout).min(target_count as f64);
+        let reverse_degree = input.len() as f64 * fanout / target_count.max(1) as f64;
         let source_work =
             input.len() as f64 * fanout + reachable * (target_unit + reverse_degree * 0.25);
         let target_work = lookup + estimated_targets as f64 * (target_unit + reverse_degree * 0.25);
         let _ = (target_work, source_work, reachable);
-        let strategy = if input.len().saturating_mul(4) >= target.logical_records.len() {
+        let strategy = if input.len().saturating_mul(4) >= target_count {
             Strategy::TargetFirst
         } else {
             Strategy::SourceRestricted
@@ -1269,7 +1268,11 @@ pub(crate) fn fts_witnesses(
         let restricted = if strategy == Strategy::SourceRestricted {
             Some(reachable_targets(repo, hops, input, &mut work, execution)?)
         } else {
-            let mut domain = target.logical_records.clone();
+            let mut domain = target
+                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+                .view()
+                .bitmap_for_set_algebra()
+                .into_owned();
             if let Some(active) = execution.and_then(ExecutionContext::active_records) {
                 domain &= active[target_index].bitmap();
             }

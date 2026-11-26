@@ -157,7 +157,13 @@ impl<'a> NativeRelationProvider<'a> {
                 }
                 None => {
                     let state = &self.repo.collections[source.0 as usize];
-                    if !state.logical_records.contains(slot) {
+                    if !state
+                        .base_slot_members(
+                            crate::index::storage::segment::SegmentSlotFact::Logical,
+                        )?
+                        .view()
+                        .contains(slot)
+                    {
                         continue;
                     }
                     return Ok(None);

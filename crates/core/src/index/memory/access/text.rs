@@ -669,36 +669,39 @@ fn prepare_fts_accesses<'a, 'b>(
     })
 }
 
-pub(crate) fn native_fts_candidates(
-    collection: &CollectionState,
-    fts: &BoundFts,
-) -> Option<RoaringBitmap> {
+fn prepare_native_base_fts<'a>(
+    collection: &'a CollectionState,
+    fts: &'a BoundFts,
+) -> Option<PreparedFtsAccess<'a, 'a>> {
+    if collection.base_records.is_some() {
+        return None;
+    }
     let indexes = IndexCatalog::collection(collection);
+    #[cfg(test)]
+    let contains_fallback = collection.logical_records.len() != collection.base_slot_count() as u64;
+    #[cfg(not(test))]
+    let contains_fallback = false;
     prepare_fts_accesses(
         &indexes,
         collection.text_access_policy(),
         fts,
         true,
-        collection.logical_records.len() != collection.base_slot_count() as u64,
+        contains_fallback,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
-    )?
-    .candidates()
+    )
+}
+
+pub(crate) fn native_fts_candidates(
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<RoaringBitmap> {
+    prepare_native_base_fts(collection, fts)?.candidates()
 }
 
 pub(crate) fn native_estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
-    let indexes = IndexCatalog::collection(collection);
-    prepare_fts_accesses(
-        &indexes,
-        collection.text_access_policy(),
-        fts,
-        true,
-        collection.logical_records.len() != collection.base_slot_count() as u64,
-        raw_covers_identity_field(collection).is_ok(),
-        collection.stats.record_count as u64,
-    )?
-    .estimate()
+    prepare_native_base_fts(collection, fts)?.estimate()
 }

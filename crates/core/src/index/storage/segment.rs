@@ -448,7 +448,24 @@ pub(crate) enum SegmentSlotFact {
 /// borrow from storage, retain shared encoded slots, or own a decoded buffer.
 pub(crate) struct SegmentSlotMembers<'a>(SlotSet<'a>);
 
-impl SegmentSlotMembers<'_> {
+impl<'a> SegmentSlotMembers<'a> {
+    pub(crate) fn empty() -> Self {
+        Self(SlotSet::Empty)
+    }
+
+    pub(crate) fn checked(slots: SlotSet<'a>, domain: usize) -> StorageResult<Self> {
+        let view = slots.explicit_view().ok_or_else(|| {
+            StorageError::invalid("read segment slot facts", "missing explicit membership")
+        })?;
+        if view.last().is_some_and(|slot| slot as usize >= domain) {
+            return Err(StorageError::invalid(
+                "read segment slot facts",
+                "slot outside the segment",
+            ));
+        }
+        Ok(Self(slots))
+    }
+
     pub(crate) fn view(&self) -> MembershipView<'_> {
         self.0.explicit_view().expect("validated slot membership")
     }
@@ -458,20 +475,7 @@ pub(crate) fn read_slot_members<S: SegmentReader + ?Sized>(
     segment: &S,
     fact: SegmentSlotFact,
 ) -> StorageResult<SegmentSlotMembers<'_>> {
-    let slots = segment.slot_members(fact)?;
-    let view = slots.explicit_view().ok_or_else(|| {
-        StorageError::invalid("read segment slot facts", "missing explicit membership")
-    })?;
-    if view
-        .last()
-        .is_some_and(|slot| slot as usize >= segment.descriptor().slots)
-    {
-        return Err(StorageError::invalid(
-            "read segment slot facts",
-            "slot outside the segment",
-        ));
-    }
-    Ok(SegmentSlotMembers(slots))
+    SegmentSlotMembers::checked(segment.slot_members(fact)?, segment.descriptor().slots)
 }
 
 /// Reads from a pinned segment. Returned keys and headers can borrow the
@@ -513,6 +517,10 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
 
     fn record_directory_estimate(&self) -> RecordDirectoryEstimate {
         RecordDirectoryEstimate::default()
+    }
+
+    fn empty_array_membership_bytes(&self) -> usize {
+        0
     }
 
     fn observe_backing(&self, _usage: &mut SegmentResourceUsage) {}
@@ -763,6 +771,10 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
 
     fn record_directory_estimate(&self) -> RecordDirectoryEstimate {
         self.payload().record_directory_estimate()
+    }
+
+    fn empty_array_membership_bytes(&self) -> usize {
+        self.payload().empty_array_membership_bytes()
     }
 
     fn observe_backing(&self, usage: &mut SegmentResourceUsage) {

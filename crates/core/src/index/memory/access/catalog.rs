@@ -404,7 +404,14 @@ impl<'a> IndexCatalog<'a> {
             named: &state.custom_postings,
             text: &state.custom_text,
             text_bindings: &state.text_bindings,
+            #[cfg(test)]
             logical: &state.logical_records,
+            #[cfg(not(test))]
+            logical: {
+                static EMPTY: std::sync::LazyLock<RoaringBitmap> =
+                    std::sync::LazyLock::new(RoaringBitmap::new);
+                &EMPTY
+            },
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,
         }

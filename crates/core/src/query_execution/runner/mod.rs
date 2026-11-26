@@ -6898,7 +6898,7 @@ pub(crate) fn explain_with_active(
             .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()));
         let filter_exact = estimated.as_ref().is_none_or(|plan| plan.exact)
             && (filter.is_none()
-                || collection.logical_records.len() == collection.base_slot_count() as u64);
+                || collection.base_logical_count()? == collection.base_slot_count() as u64);
         ordered_candidate_total = ordered_candidate_total.saturating_add(candidates);
         traces.push(QueryPlanTrace {
             collection: collection.definition.name.clone(),
@@ -6914,7 +6914,7 @@ pub(crate) fn explain_with_active(
             remaining_verification: fts.is_some() || !filter_exact,
             input_records: domain_len,
             fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
-                && collection.logical_records.len() != collection.base_slot_count() as u64
+                && collection.base_logical_count()? != collection.base_slot_count() as u64
             {
                 "logical text plus fallback source text"
             } else if related_fts {
@@ -7432,7 +7432,7 @@ fn search_impl_with_resolved_sort<'a>(
                 remaining_verification: needs_scan,
                 input_records: domain.len(),
                 fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
-                    && collection.logical_records.len() != collection.base_slot_count() as u64
+                    && collection.base_logical_count()? != collection.base_slot_count() as u64
                 {
                     "logical text plus fallback source text"
                 } else if fts.is_none() {
@@ -7552,11 +7552,14 @@ fn search_impl_with_resolved_sort<'a>(
         if !sort.bound.has_computed
             && fts.is_none()
             && query.options.evidence
-            && collection.logical_records.len() != collection.base_slot_count() as u64
+            && collection.base_logical_count()? != collection.base_slot_count() as u64
         {
             // Fallback truth established from inventory metadata needs no
             // source verification, even when logical candidates still do.
-            let fallback_proven = &(&candidates & &plan.proven_hits) - &collection.logical_records;
+            let fallback_proven = collection
+                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+                .view()
+                .subtract_from(&(&candidates & &plan.proven_hits));
             for slot in fallback_proven.iter() {
                 let record = &*collection.base_record(RecordSlot(slot))?;
                 let evidence = filter

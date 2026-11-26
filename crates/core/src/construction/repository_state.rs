@@ -274,7 +274,9 @@ fn initialize_empty_configured(
                     })
             })
             .collect::<Result<HashMap<_, _>, _>>()?;
+        #[cfg(test)]
         let logical_records = RoaringBitmap::new();
+        #[cfg(test)]
         let empty_array_records = RoaringBitmap::new();
         let declared_orders = DeclaredOrders::new(
             &definition.sort_fields,
@@ -323,7 +325,9 @@ fn initialize_empty_configured(
             custom_postings,
             raw,
             fallback_text,
+            #[cfg(test)]
             logical_records,
+            #[cfg(test)]
             empty_array_records,
             custom_text,
             text_bindings,

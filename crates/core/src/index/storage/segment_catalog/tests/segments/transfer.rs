@@ -398,6 +398,8 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     let flat_pin = flat.view().unwrap();
     assert!(flat_pin.segments(CollectionId(0)).unwrap().is_empty());
     let collection = &flat_pin.repository().collections()[0];
+    assert_eq!(collection.base_logical_count().unwrap(), 5);
+    assert_eq!(flat_pin.0.active[0].len(), 4);
     let mut order = crate::index::storage::ordered_slots::OrderedSlotCursor::new(
         collection.base_identity_order().unwrap(),
     );

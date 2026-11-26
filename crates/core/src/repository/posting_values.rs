@@ -308,7 +308,7 @@ fn resolve<'a>(
             .indexes
             .get(&path.segments)
             .ok_or("field has no admitted inferred posting index")?;
-        if index.covered_records as u64 != collection.logical_records.len() {
+        if index.covered_records as u64 != collection.base_logical_count()? {
             return Err("incomplete inferred posting logical coverage".into());
         }
         if !index.value_complete && !inference.short_string_coverage.contains_key(&path.segments) {
@@ -969,7 +969,7 @@ pub(crate) fn posting_values_segmented(
         }
     };
     let base = metadata?;
-    if base.index.descriptor().coverage.covered_records as u64 != collection.logical_records.len()
+    if base.index.descriptor().coverage.covered_records as u64 != collection.base_logical_count()?
         && base_active[collection_index].len() != 0
     {
         return Err("incomplete posting logical coverage".into());
@@ -1131,7 +1131,10 @@ pub(crate) fn posting_values_segmented(
             continue;
         }
         let logical_domain = if index == 0 {
-            domain & &collection.logical_records
+            collection
+                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?
+                .view()
+                .intersect_bitmap(&domain)
         } else {
             read_slot_members(
                 segments[collection_index][index - 1].as_ref(),
@@ -1487,7 +1490,7 @@ impl Repository {
             native_prefix,
         } = resolved;
         let descriptor = index.descriptor();
-        if descriptor.coverage.covered_records as u64 != collection.logical_records.len() {
+        if descriptor.coverage.covered_records as u64 != collection.base_logical_count()? {
             return Err("incomplete posting logical coverage".into());
         }
         let selection = request.selection.as_ref().map(|handle| &handle.0);
@@ -1530,8 +1533,13 @@ impl Repository {
         };
         let selected_domain = selected_domain.as_ref();
         let selected_total = selection.map(|selection| selection.members.len());
-        let eligible = selected_domain.map_or(collection.logical_records.len(), |selected| {
-            selected.intersection_len(&collection.logical_records)
+        let logical = collection
+            .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?;
+        let logical = logical.view();
+        let eligible = selected_domain.map_or(logical.len() as u64, |selected| {
+            logical.intersection_len(crate::query_access::membership::MembershipView::Borrowed(
+                selected,
+            ))
         });
         let live_total = active.map_or(collection.base_slot_count() as u64, |domains| {
             domains[collection_index].len()
@@ -1548,8 +1556,8 @@ impl Repository {
         };
         let unresolved = eligible.saturating_sub(indexed);
         let logical_domain = selected_domain.map_or_else(
-            || collection.logical_records.clone(),
-            |selected| selected & &collection.logical_records,
+            || logical.bitmap_for_set_algebra().into_owned(),
+            |selected| logical.intersect_bitmap(selected),
         );
         let slot_count = collection.base_slot_count();
         let presence = posting_members(index, PostingKey::Presence, slot_count, &logical_domain)?;

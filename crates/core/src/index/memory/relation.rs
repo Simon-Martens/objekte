@@ -166,8 +166,11 @@ impl RelationIndex {
                 fallback.insert(record.slot.0);
             }
         }
+        let logical =
+            source.base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)?;
         if self.unavailable != fallback
-            || !self.present.is_subset(&source.logical_records)
+            || !crate::query_access::membership::MembershipView::Borrowed(&self.present)
+                .is_subset(logical.view())
             || !self.nulls.is_subset(&self.present)
             || !self.empty_arrays.is_subset(&self.present)
         {

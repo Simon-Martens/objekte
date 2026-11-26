@@ -234,11 +234,16 @@ impl IndexAccessProvider for NativeCollectionProvider<'_> {
         crate::query_access::contract::note_test_application();
         let slots = {
             let input_ref = input.bitmap_for_native();
+            let logical = self
+                .collection
+                .base_slot_members(crate::index::storage::segment::SegmentSlotFact::Logical)
+                .map_err(|error| AccessError::Internal(error.to_string()))?;
+            let domain = logical.view().bitmap_for_set_algebra();
             let result = execute_path(
                 self.repo.ok_or(AccessError::CapabilityUnavailable)?,
                 self.collection,
                 bound,
-                &self.collection.logical_records,
+                domain.as_ref(),
                 input_ref.as_ref(),
                 &path,
             )

@@ -973,7 +973,7 @@ pub(super) fn try_stored_order_page(
                 }),
                 remaining_verification: entry.fts.is_some() || !entry.plan.exact,
                 input_records: collection_domain(collection, entry.collection_index, active).len(),
-                fts_strategy: if collection.logical_records.len()
+                fts_strategy: if collection.base_logical_count()?
                     != collection.base_slot_count() as u64
                     && entry.fts.is_some_and(|fts| fts.fields.is_empty())
                 {

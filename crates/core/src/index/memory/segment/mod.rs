@@ -645,6 +645,10 @@ impl SegmentReader for IndexedCollectionSegment {
         }
     }
 
+    fn empty_array_membership_bytes(&self) -> usize {
+        self.empty_array_records.serialized_size()
+    }
+
     fn observe_backing(&self, usage: &mut crate::index::storage::segment::SegmentResourceUsage) {
         usage.add_backing_columns(self.backing.estimated_column_bytes());
         if let SegmentBacking::Retained { blocks, .. } = &self.backing {

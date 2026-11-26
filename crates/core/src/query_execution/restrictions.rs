@@ -1,7 +1,8 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
 use crate::index::storage::segment::{
-    SegmentPredicateAccess, SegmentReader, visit_checked_file_slots, visit_segment_files,
+    SegmentPredicateAccess, SegmentReader, SegmentSlotFact, visit_checked_file_slots,
+    visit_segment_files,
 };
 use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap};
@@ -1819,15 +1820,26 @@ pub(crate) fn empty_selection_preservation(term: &BoundTerm) -> bool {
     term.multi && term.quantifier != Quantifier::Any
 }
 
-fn raw_bigram_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
-    let request = term.gram_request.as_ref()?;
-    let mut grams = collection.raw.candidates_prepared(request)?;
+fn raw_bigram_candidates(
+    collection: &CollectionState,
+    term: &BoundTerm,
+) -> Result<Option<RoaringBitmap>, String> {
+    let Some(mut grams) = term
+        .gram_request
+        .as_ref()
+        .and_then(|request| collection.raw.candidates_prepared(request))
+    else {
+        return Ok(None);
+    };
     if empty_selection_preservation(term) {
         // The universal comparison may be true on a present empty array with
         // no string witness. This bitmap is deliberately collection-wide.
-        grams |= &collection.empty_array_records;
+        collection
+            .base_slot_members(SegmentSlotFact::EmptyArray)?
+            .view()
+            .union_into_bitmap(&mut grams);
     }
-    Some(grams)
+    Ok(Some(grams))
 }
 
 fn term_set(
@@ -2087,6 +2099,7 @@ pub(crate) fn enumerate_paths(
     let stats = collection.stats;
     let source_unit = 30.0 + stats.mean_record_bytes() / 128.0;
     let mut paths = Vec::new();
+    let logical_count = collection.base_logical_count()? as u32;
     let mut add = |kind,
                    exact,
                    lookup: f64,
@@ -2105,10 +2118,7 @@ pub(crate) fn enumerate_paths(
                     | AccessPathKind::RawBigram
                     | AccessPathKind::CustomBigram
             ) {
-                posting.map_or(
-                    collection.logical_records.len() as u32,
-                    |(_, _, coverage)| coverage,
-                )
+                posting.map_or(logical_count, |(_, _, coverage)| coverage)
             } else {
                 stats.record_count as u32
             },
@@ -2257,8 +2267,16 @@ pub(crate) fn enumerate_paths(
                             .as_ref()
                             .and_then(|request| collection.raw.estimate_prepared(request))
                         {
-                            let structural_count = empty_selection_preservation(term)
-                                .then_some(collection.empty_array_records.len());
+                            let structural_count = if empty_selection_preservation(term) {
+                                Some(
+                                    collection
+                                        .base_slot_members(SegmentSlotFact::EmptyArray)?
+                                        .view()
+                                        .len() as u64,
+                                )
+                            } else {
+                                None
+                            };
                             let output = gram_count
                                 .saturating_add(structural_count.unwrap_or(0))
                                 .min(input_len);
@@ -2327,7 +2345,7 @@ pub(crate) fn execute_path(
             }
         }
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
-        AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
+        AccessPathKind::RawBigram => raw_bigram_candidates(collection, term)?,
         AccessPathKind::SortColumn => {
             let column = collection
                 .order_column(&term.path)?
@@ -2451,9 +2469,18 @@ fn estimate_plan_node<'a>(
                         .and_then(|request| collection.raw.estimate_prepared(request))
                 })
                 .flatten();
-            let structural_candidates = (selected.kind == AccessPathKind::RawBigram
-                && empty_selection_preservation(term))
-            .then_some(collection.empty_array_records.len());
+            let structural_candidates = if selected.kind == AccessPathKind::RawBigram
+                && empty_selection_preservation(term)
+            {
+                Some(
+                    collection
+                        .base_slot_members(SegmentSlotFact::EmptyArray)?
+                        .view()
+                        .len() as u64,
+                )
+            } else {
+                None
+            };
             let reason = if matches!(
                 selected.posting,
                 Some((_, PostingOperation::SelfComparePresence, _))
@@ -2788,7 +2815,9 @@ fn plan_expr_restricted_inner<'a>(
             planning: PlanningCounters::default(),
         });
     }
-    if collection.logical_records.len() == collection.base_slot_count() as u64 {
+    let logical_members = collection.base_slot_members(SegmentSlotFact::Logical)?;
+    let logical_members = logical_members.view();
+    if logical_members.len() == collection.base_slot_count() {
         let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence, context)?;
         if !collection.definition.schema.relations().is_empty() {
             let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
@@ -2804,9 +2833,9 @@ fn plan_expr_restricted_inner<'a>(
         }
         return Ok(plan);
     }
-    let logical_domain = domain & &collection.logical_records;
+    let logical_domain = logical_members.intersect_bitmap(domain);
     let logical_input = input & &logical_domain;
-    let fallback_input = input - &collection.logical_records;
+    let fallback_input = logical_members.subtract_from(input);
     let mut logical = if logical_input.is_empty() {
         Plan {
             candidates: Some(RoaringBitmap::new()),
@@ -2924,9 +2953,18 @@ fn plan_logical_expr<'a>(
                             .and_then(|request| collection.raw.estimate_prepared(request))
                     })
                     .flatten();
-                let structural_candidates = (selected.kind == AccessPathKind::RawBigram
-                    && empty_selection_preservation(term))
-                .then_some(collection.empty_array_records.len());
+                let structural_candidates = if selected.kind == AccessPathKind::RawBigram
+                    && empty_selection_preservation(term)
+                {
+                    Some(
+                        collection
+                            .base_slot_members(SegmentSlotFact::EmptyArray)?
+                            .view()
+                            .len() as u64,
+                    )
+                } else {
+                    None
+                };
                 let reason = if selected.kind == AccessPathKind::Posting {
                     if matches!(
                         selected.posting,

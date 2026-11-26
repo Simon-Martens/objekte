@@ -3,6 +3,7 @@
 use std::borrow::Cow;
 use std::collections::HashMap;
 
+#[cfg(test)]
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
@@ -16,8 +17,8 @@ use crate::index::storage::order::declared::DeclaredOrders;
 #[cfg(test)]
 use crate::index::storage::segment::FILE_SLOT_LIMIT;
 use crate::index::storage::segment::{
-    RecordDirectoryEstimate, RecordOrigin, SegmentHandle, SegmentReader, any_segment_file,
-    visit_checked_file_slots,
+    RecordDirectoryEstimate, RecordOrigin, SegmentHandle, SegmentReader, SegmentSlotFact,
+    SegmentSlotMembers, any_segment_file, read_slot_members, visit_checked_file_slots,
 };
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
@@ -65,7 +66,9 @@ pub struct CollectionState {
     pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub(crate) raw: BigramIndex,
     pub(crate) fallback_text: BigramIndex,
+    #[cfg(test)]
     pub(crate) logical_records: RoaringBitmap,
+    #[cfg(test)]
     pub(crate) empty_array_records: RoaringBitmap,
     pub(crate) custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub(crate) text_bindings: crate::index::storage::text::TextBindingCatalog,
@@ -264,6 +267,36 @@ impl CollectionState {
         0
     }
 
+    pub(crate) fn base_slot_members(
+        &self,
+        fact: SegmentSlotFact,
+    ) -> StorageResult<SegmentSlotMembers<'_>> {
+        if let Some(base) = &self.base_records {
+            return read_slot_members(base, fact);
+        }
+        #[cfg(test)]
+        {
+            let facts = match fact {
+                SegmentSlotFact::Logical => &self.logical_records,
+                SegmentSlotFact::EmptyArray => &self.empty_array_records,
+            };
+            if !facts.is_empty() {
+                return SegmentSlotMembers::checked(
+                    crate::query_access::membership::SlotSet::borrowed(facts),
+                    self.base_slot_count(),
+                );
+            }
+        }
+        Ok(SegmentSlotMembers::empty())
+    }
+
+    pub(crate) fn base_logical_count(&self) -> StorageResult<u64> {
+        Ok(self
+            .base_slot_members(SegmentSlotFact::Logical)?
+            .view()
+            .len() as u64)
+    }
+
     pub(crate) fn text_access_policy(&self) -> crate::index::storage::text::TextAccessPolicy<'_> {
         crate::index::storage::text::TextAccessPolicy {
             schema: &self.definition.schema,
@@ -412,10 +445,16 @@ impl CollectionState {
 
     #[doc(hidden)]
     pub fn base_empty_array_membership_bytes(&self) -> usize {
-        self.initial_counts.as_ref().map_or_else(
-            || self.empty_array_records.serialized_size(),
-            |counts| counts.structural_membership_bytes,
-        )
+        if let Some(counts) = &self.initial_counts {
+            return counts.structural_membership_bytes;
+        }
+        if let Some(base) = &self.base_records {
+            return base.empty_array_membership_bytes();
+        }
+        #[cfg(test)]
+        return self.empty_array_records.serialized_size();
+        #[cfg(not(test))]
+        0
     }
 
     /// Field paths registered in the base collection's declared postings.
