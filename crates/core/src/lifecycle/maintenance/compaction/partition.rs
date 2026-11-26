@@ -13,9 +13,11 @@ use crate::index::storage::file_catalog::FileCatalogReader;
 #[cfg(test)]
 use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::maintenance::{SegmentPartition, check_projection_source};
+use crate::index::storage::segment::transfer::{RecordLayout, visit_record_rows};
 use crate::index::storage::segment::{
     RecordBacking, SegmentHandle, SegmentReader, visit_segment_files,
 };
+use crate::index::storage::transfer::StorageError;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexError;
 #[cfg(test)]
@@ -116,51 +118,54 @@ fn plan_partitions(
         Ok(())
     };
     let mut selected_files = HashSet::new();
-    for old in 0..descriptor.slots {
-        if cancelled() {
-            return Err(IndexError::Cancelled);
-        }
-        let slot = crate::model::RecordSlot(old as u32);
-        if !active.contains(slot) {
-            continue;
-        }
-        let link = source
-            .origin(slot)?
-            .ok_or_else(|| IndexError::InvalidPublication("active record origin missing".into()))?
-            .file();
-        if let Some(link) = link {
-            let file = source.file_metadata(link.file)?.ok_or_else(|| {
-                IndexError::InvalidPublication("active record file row missing".into())
-            })?;
-            if by_range
-                && !catalog.file(link.file)?.is_some_and(|current| {
-                    current.revision == file.revision
-                        && current.created_ns == file.created_ns
-                        && current.collections.contains(&descriptor.collection)
-                })
+    let layout = if active.len() == u64::from(active.slot_count()) {
+        RecordLayout::Identity
+    } else {
+        RecordLayout::Dense
+    };
+    visit_record_rows(source, active, layout, &mut cancelled, &mut |records| {
+        const OP: &str = "plan projected segment records";
+        for record in records.iter().filter(|record| record.live) {
+            let slot = record.header.slot;
+            let link = record.origin.file();
+            if let Some(link) = link {
+                let file = source
+                    .file_metadata(link.file)?
+                    .ok_or_else(|| StorageError::invalid(OP, "active record file row missing"))?;
+                if by_range
+                    && !catalog.file(link.file)?.is_some_and(|current| {
+                        current.revision == file.revision
+                            && current.created_ns == file.created_ns
+                            && current.collections.contains(&descriptor.collection)
+                    })
+                {
+                    return Err(StorageError::invalid(
+                        OP,
+                        "active imported record has obsolete file",
+                    ));
+                }
+            }
+            if count == max_records
+                || link.is_some_and(|link| files.len() >= max_files && !files.contains(&link.file))
             {
-                return Err(IndexError::InvalidPublication(
-                    "active imported record has obsolete file".into(),
+                seal(&mut selections, &mut files, &mut slots, &mut count)
+                    .map_err(|error| StorageError::invalid(OP, error.to_string()))?;
+            }
+            if let Some(link) = link {
+                files.insert(link.file);
+                selected_files.insert(link.file);
+            }
+            if u64::from(record.destination.0) != assigned.len() || !assigned.insert(slot.0) {
+                return Err(StorageError::invalid(
+                    OP,
+                    "compaction transfer selected an invalid slot",
                 ));
             }
+            slots.insert(slot.0);
+            count += 1;
         }
-        if count == max_records
-            || link.is_some_and(|link| files.len() >= max_files && !files.contains(&link.file))
-        {
-            seal(&mut selections, &mut files, &mut slots, &mut count)?;
-        }
-        if let Some(link) = link {
-            files.insert(link.file);
-            selected_files.insert(link.file);
-        }
-        if !assigned.insert(slot.0) {
-            return Err(IndexError::InvalidPublication(
-                "compaction selected an active slot twice".into(),
-            ));
-        }
-        slots.insert(slot.0);
-        count += 1;
-    }
+        Ok(())
+    })?;
     // A successfully imported empty file remains in the catalog even when it
     // contributes no live slots to this segment.
     visit_segment_files(source, |file| {
@@ -237,10 +242,21 @@ fn partition_base_with_limits_inner(
             .repository
             .storage_factory
             .base_segment(collection, root.repository.catalog.as_ref())?;
+        let inactive_base;
+        let active = if root.active[number].slot_count() == 0 {
+            // Finalization fixtures can keep dormant base rows solely for
+            // compatibility inspection, with all live routes on segments.
+            inactive_base =
+                ActiveRecords::from_bitmap(source.descriptor().slots, Default::default())
+                    .map_err(IndexError::InvalidPublication)?;
+            &inactive_base
+        } else {
+            &root.active[number]
+        };
         let mut group = Arc::unwrap_or_clone(groups[number].clone());
         for part in compact_source_parts_with_limits(
             &source,
-            &root.active[number],
+            active,
             &catalog,
             empty.storage_factory.as_ref(),
             max_records,

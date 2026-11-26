@@ -2,6 +2,7 @@
 
 pub(crate) mod build;
 pub(crate) mod maintenance;
+pub(crate) mod transfer;
 
 use std::{
     borrow::Cow,
