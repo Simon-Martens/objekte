@@ -18,7 +18,7 @@ static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
 
 pub use crate::index::storage::relation::{RelationEdge, RelationTarget};
 
-use crate::index::storage::relation::{RelationReader, RelationRow};
+use crate::index::storage::relation::{RelationReader, RelationRow, VisitRelationTarget};
 use crate::index::storage::transfer::{StorageError, StorageResult};
 
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
@@ -272,6 +272,35 @@ impl RelationReader for RelationContribution {
         self.record_count as usize
     }
 
+    fn source_unavailable(&self, source: RecordSlot) -> StorageResult<bool> {
+        if source.0 >= self.record_count {
+            return Err(StorageError::invalid(
+                "read relation state",
+                "source outside its slot domain",
+            ));
+        }
+        Ok(self.unavailable.contains(source.0))
+    }
+
+    fn visit_targets(
+        &self,
+        source: RecordSlot,
+        visit: &mut VisitRelationTarget<'_>,
+    ) -> StorageResult<()> {
+        if source.0 >= self.record_count {
+            return Err(StorageError::invalid(
+                "read relation targets",
+                "source outside its slot domain",
+            ));
+        }
+        for (id, positions) in self.references_for_source(source) {
+            if visit(id, positions)? {
+                break;
+            }
+        }
+        Ok(())
+    }
+
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>> {
         if source.0 >= self.record_count {
             return Err(StorageError::invalid(
@@ -441,6 +470,7 @@ impl RelationContribution {
         &self.empty_arrays
     }
 
+    #[cfg(test)]
     pub(crate) fn unavailable(&self) -> &RoaringBitmap {
         &self.unavailable
     }

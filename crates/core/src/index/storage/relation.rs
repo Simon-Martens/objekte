@@ -25,10 +25,30 @@ pub(crate) struct RelationMatches<'a> {
     pub members: u64,
 }
 
+pub(crate) type VisitRelationTarget<'a> = dyn FnMut(&str, &[u32]) -> StorageResult<bool> + 'a;
+
 pub(crate) trait RelationReader: std::any::Any + Send + Sync {
     fn declaration(&self) -> &RelationDefinition;
     fn source_slots(&self) -> usize;
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>>;
+
+    fn source_unavailable(&self, source: RecordSlot) -> StorageResult<bool> {
+        Ok(self.forward(source)?.unavailable)
+    }
+
+    /// Visit ordered occurrences. A true callback result stops this read.
+    fn visit_targets(
+        &self,
+        source: RecordSlot,
+        visit: &mut VisitRelationTarget<'_>,
+    ) -> StorageResult<()> {
+        for (id, positions) in self.forward(source)?.targets {
+            if visit(&id, &positions)? {
+                break;
+            }
+        }
+        Ok(())
+    }
 }
 
 /// Resolved target slot or an ID that has no target in its declared namespace.

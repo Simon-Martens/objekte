@@ -35,9 +35,7 @@ use crate::index::storage::segment::{
     SegmentDescriptor, SegmentReader, SegmentSource,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
-#[cfg(test)]
-use crate::inventory::RecordEntry;
-use crate::inventory::{ActiveRecords, ByteRange};
+use crate::inventory::{ActiveRecords, ByteRange, RecordEntry};
 use crate::lifecycle::IndexRevision;
 #[cfg(test)]
 use crate::model::Value;

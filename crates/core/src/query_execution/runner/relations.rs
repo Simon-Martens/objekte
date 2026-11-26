@@ -2,8 +2,10 @@
 
 use super::*;
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::relation::RelationReader;
 use crate::index::storage::segment::{
     SegmentSlotFact, any_segment_file, read_slot_members, visit_checked_file_slots,
+    visit_record_headers,
 };
 use crate::records::RecordIdSlot;
 
@@ -789,7 +791,7 @@ fn try_direct_relation_page(
         true
     };
     for published in segments[target_index].iter() {
-        let segment = &published.index;
+        let segment = published.as_ref();
         let (may, must) = match &predicate {
             DirectRelationPredicate::Term(term) => {
                 let bounds = segment_filter_bounds_with_catalog(
@@ -831,7 +833,7 @@ fn try_direct_relation_page(
                     let slot = RecordSlot(slot);
                     Ok::<_, String>(
                         segment
-                            .record(slot)
+                            .header(slot)?
                             .is_some_and(|record| record.id.0.len() <= 1024)
                             && if let Some(locator) =
                                 segment.origin(slot)?.and_then(RecordOrigin::file)
@@ -895,7 +897,7 @@ fn try_direct_relation_page(
             }
             let address = RecordSlot(slot);
             let record = segment
-                .record(address)
+                .header(address)?
                 .ok_or("direct relation target retired")?;
             if record.class == RecordClass::RawFallback {
                 continue;
@@ -952,7 +954,7 @@ fn try_direct_relation_page(
                 let ctx = RecordContext {
                     value,
                     source_bytes: None,
-                    record,
+                    record: record.as_ref(),
                     range: locator.and_then(|link| link.range),
                     file: file.as_deref(),
                     collection_name: &target_collection.definition.name,
@@ -1028,17 +1030,20 @@ fn try_direct_relation_page(
             if matched {
                 counters.relation_target_matches += 1;
                 if hop.direction == crate::query::binding::relation::HopDirection::Backlink {
-                    let relation = segment
-                        .relations
-                        .get(hop.relation.ordinal as usize)
-                        .ok_or("backlink relation contribution missing")?;
-                    for (source_id, _) in relation.references_for_source(RecordSlot(slot)) {
+                    let relation = required_segment_relation(segment, hop.relation.ordinal)?;
+                    let mut within_budget = true;
+                    relation.visit_targets(RecordSlot(slot), &mut |source_id, _| {
                         if !target_ids.contains(source_id) {
                             if !reserve_route(source_id.len().saturating_add(64)) {
-                                return Ok(None);
+                                within_budget = false;
+                                return Ok(true);
                             }
                             target_ids.insert(source_id.to_owned());
                         }
+                        Ok(false)
+                    })?;
+                    if !within_budget {
+                        return Ok(None);
                     }
                     continue;
                 }
@@ -1194,23 +1199,22 @@ fn try_direct_relation_page(
                 context.check_string()?;
             }
             let record = published
-                .index
-                .record(RecordSlot(slot))
+                .header(RecordSlot(slot))?
                 .ok_or("direct relation source retired")?;
             let key = if direct_sort_column.is_some() {
-                let relation = published
-                    .index
-                    .relations
-                    .get(hop.relation.ordinal as usize)
-                    .ok_or("direct relation source contribution missing")?;
-                let mut references = relation.references_for_source(RecordSlot(slot));
-                let Some((target_id, _)) = references.next() else {
-                    return Ok(None);
-                };
-                if references.next().is_some() {
-                    return Ok(None);
-                }
-                let Some(target_key) = target_sort_keys.get(target_id) else {
+                let relation = required_segment_relation(published.as_ref(), hop.relation.ordinal)?;
+                let mut target_key = None;
+                let mut seen = false;
+                relation.visit_targets(RecordSlot(slot), &mut |id, _| {
+                    if seen {
+                        target_key = None;
+                        return Ok(true);
+                    }
+                    seen = true;
+                    target_key = target_sort_keys.get(id);
+                    Ok(false)
+                })?;
+                let Some(target_key) = target_key else {
                     return Ok(None);
                 };
                 let term = &sort.bound.terms[*source_index]
@@ -1226,8 +1230,8 @@ fn try_direct_relation_page(
                     repo,
                     sort,
                     *source_index,
-                    published.index.as_ref(),
-                    record,
+                    published.as_ref(),
+                    record.as_ref(),
                     None,
                 )?
             };
@@ -1254,7 +1258,7 @@ fn try_direct_relation_page(
                     &repo.collections[*source_index],
                     &published.index,
                     catalog,
-                    record,
+                    record.as_ref(),
                     revision,
                     evidence.clone(),
                 )?
@@ -2288,6 +2292,31 @@ fn native_truth_from_ids(
     Ok(truth)
 }
 
+fn required_segment_relation(
+    segment: &dyn SegmentReader,
+    ordinal: u32,
+) -> Result<&dyn RelationReader, String> {
+    segment
+        .relation(ordinal as usize)?
+        .ok_or("segment relation contribution missing".into())
+}
+
+fn active_segment_ids(segments: &[Arc<PublishedSegment>]) -> Result<HashSet<String>, String> {
+    let mut ids = HashSet::new();
+    for segment in segments {
+        visit_record_headers(segment.as_ref(), |headers| {
+            ids.extend(
+                headers
+                    .iter()
+                    .filter(|record| segment.active.contains(record.slot))
+                    .map(|record| record.id.0.to_string()),
+            );
+            Ok::<_, String>(())
+        })?;
+    }
+    Ok(ids)
+}
+
 fn native_multi_hop_truth(
     repo: &Repository,
     query: &Query,
@@ -2362,8 +2391,7 @@ fn native_multi_hop_truth(
         counters.relation_target_matches += bounds.must.len();
         for slot in bounds.must.iter() {
             let record = published
-                .index
-                .record(RecordSlot(slot))
+                .header(RecordSlot(slot))?
                 .ok_or("multi-hop target slot missing")?;
             matched.insert(record.id.0.to_string());
         }
@@ -2372,57 +2400,39 @@ fn native_multi_hop_truth(
         let mut sources = HashSet::new();
         if hop.direction == crate::query::binding::relation::HopDirection::Forward {
             for published in segments[hop.from.0 as usize].iter() {
-                let relation = published
-                    .index
-                    .relations
-                    .get(hop.relation.ordinal as usize)
-                    .ok_or("multi-hop forward contribution missing")?;
+                let relation = required_segment_relation(published.as_ref(), hop.relation.ordinal)?;
                 for slot in published.active.bitmap().iter() {
                     let record = published
-                        .index
-                        .record(RecordSlot(slot))
+                        .header(RecordSlot(slot))?
                         .ok_or("multi-hop source slot missing")?;
-                    for (target, _) in relation.references_for_source(RecordSlot(slot)) {
+                    relation.visit_targets(RecordSlot(slot), &mut |target, _| {
                         counters.relation_edge_visits += 1;
                         if matched.contains(target) {
                             sources.insert(record.id.0.to_string());
-                            break;
+                            return Ok(true);
                         }
-                    }
+                        Ok(false)
+                    })?;
                 }
             }
         } else {
-            let active_sources = segments[hop.from.0 as usize]
-                .iter()
-                .flat_map(|published| {
-                    published
-                        .index
-                        .id_lookup
-                        .iter()
-                        .filter(|(_, slot)| published.active.contains(**slot))
-                        .map(|(id, _)| id.0.to_string())
-                })
-                .collect::<HashSet<_>>();
+            let active_sources = active_segment_ids(&segments[hop.from.0 as usize])?;
             for published in segments[hop.to.0 as usize].iter() {
-                let relation = published
-                    .index
-                    .relations
-                    .get(hop.relation.ordinal as usize)
-                    .ok_or("multi-hop backlink contribution missing")?;
+                let relation = required_segment_relation(published.as_ref(), hop.relation.ordinal)?;
                 for slot in published.active.bitmap().iter() {
                     let record = published
-                        .index
-                        .record(RecordSlot(slot))
+                        .header(RecordSlot(slot))?
                         .ok_or("multi-hop backlink slot missing")?;
                     if !matched.contains(record.id.0.as_ref()) {
                         continue;
                     }
-                    for (source, _) in relation.references_for_source(RecordSlot(slot)) {
+                    relation.visit_targets(RecordSlot(slot), &mut |source, _| {
                         counters.relation_edge_visits += 1;
                         if active_sources.contains(source) {
                             sources.insert(source.to_owned());
                         }
-                    }
+                        Ok(false)
+                    })?;
                 }
             }
         }
@@ -2489,29 +2499,21 @@ fn native_boolean_truth(
                 )?));
             };
             if hop.direction == crate::query::binding::relation::HopDirection::Forward {
-                let target_ids = segments[hop.to.0 as usize]
-                    .iter()
-                    .flat_map(|published| {
-                        published
-                            .index
-                            .id_lookup
-                            .iter()
-                            .filter(|(_, slot)| published.active.contains(**slot))
-                            .map(|(id, _)| id.0.to_string())
-                    })
-                    .collect::<HashSet<_>>();
+                let target_ids = active_segment_ids(&segments[hop.to.0 as usize])?;
                 for published in segments[hop.from.0 as usize].iter() {
-                    let relation = published
-                        .index
-                        .relations
-                        .get(hop.relation.ordinal as usize)
-                        .ok_or("native relation contribution missing")?;
+                    let relation =
+                        required_segment_relation(published.as_ref(), hop.relation.ordinal)?;
                     for slot in published.active.bitmap().iter() {
-                        if relation.unavailable().contains(slot)
-                            || relation
-                                .references_for_source(RecordSlot(slot))
-                                .any(|(id, _)| !target_ids.contains(id))
-                        {
+                        let slot = RecordSlot(slot);
+                        if relation.source_unavailable(slot)? {
+                            return Ok(None);
+                        }
+                        let mut missing = false;
+                        relation.visit_targets(slot, &mut |id, _| {
+                            missing = !target_ids.contains(id);
+                            Ok(missing)
+                        })?;
+                        if missing {
                             return Ok(None);
                         }
                     }
@@ -2706,8 +2708,7 @@ fn try_exact_native_boolean_page(
                 context.check_string()?;
             }
             let record = published
-                .index
-                .record(RecordSlot(slot))
+                .header(RecordSlot(slot))?
                 .ok_or("native Boolean source slot missing")?;
             if record.class == RecordClass::Logical {
                 universe.insert(segment_index, slot, &[]);
