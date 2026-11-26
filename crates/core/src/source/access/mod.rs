@@ -478,6 +478,15 @@ impl RecordRangeReader {
         &mut self,
         ranges: &[(u32, ByteRange)],
     ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
+        self.read_with_byte_budget(ranges, None)
+    }
+
+    /// Charge each coalesced window before allocating or reading it.
+    pub(crate) fn read_with_byte_budget(
+        &mut self,
+        ranges: &[(u32, ByteRange)],
+        budget: Option<&ExecutionContext>,
+    ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
         if self.first_read {
             self.first_read = false;
         } else if self.check_freshness {
@@ -486,6 +495,9 @@ impl RecordRangeReader {
         if let [(slot, range)] = ranges {
             ByteRange::checked(range.start, range.end, self.revision.size)?;
             let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
+            if let Some(budget) = budget {
+                budget.charge_bytes(len as u64)?;
+            }
             #[cfg(test)]
             {
                 self.max_window_read = self.max_window_read.max(len);
@@ -520,6 +532,9 @@ impl RecordRangeReader {
                 next += 1;
             }
             let len = usize::try_from(end - start).map_err(|_| "read window too large")?;
+            if let Some(budget) = budget {
+                budget.charge_bytes(len as u64)?;
+            }
             #[cfg(test)]
             {
                 self.max_window_read = self.max_window_read.max(len);

@@ -3,6 +3,7 @@
 use super::*;
 use crate::index::traits::file_catalog::FileCatalogReader;
 use crate::records::RecordIdSlot;
+use std::sync::atomic::Ordering as AtomicOrdering;
 
 /// Verify one local segment candidate with the narrow source or value consumer.
 /// Relation and opaque binding requests stay on the established evaluator.
@@ -213,7 +214,7 @@ pub(super) fn scan_segment_file_parallel(
     ranges: &[(u32, ByteRange)],
     cap: usize,
     context: Option<&ExecutionContext>,
-    cache_admission: Option<(usize, &Mutex<&mut LifecycleCacheBuilder>)>,
+    cache_admission: Option<&ParallelCacheAdmission<'_>>,
 ) -> Result<SegmentFileScan, String> {
     if let Some(context) = context {
         context.check_string()?;
@@ -242,8 +243,6 @@ pub(super) fn scan_segment_file_parallel(
         winners: Vec::new(),
     };
     let mut local_winners = BinaryHeap::new();
-    let lazy_evidence =
-        query.options.evidence && direct_plan.is_some() && cache_admission.is_none();
     let mut cursor = 0;
     while cursor < ranges.len() {
         if let Some(context) = context {
@@ -259,10 +258,7 @@ pub(super) fn scan_segment_file_parallel(
             batch_bytes = batch_bytes.saturating_add(next);
             cursor += 1;
         }
-        let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
-        if let Some(context) = context {
-            context.charge_bytes(bytes_read)?;
-        }
+        let (read, bytes_read) = reader.read_with_byte_budget(&ranges[start..cursor], context)?;
         result.bytes_read += bytes_read;
         for (slot, bytes) in read {
             if let Some(context) = context {
@@ -287,6 +283,12 @@ pub(super) fn scan_segment_file_parallel(
                         })),
             );
             result.residual_evaluations += u64::from(filter.is_some() && filter_proof.is_none());
+            let admission =
+                cache_admission.filter(|cache| !cache.closed.load(AtomicOrdering::Relaxed));
+            let lazy_evidence = query.options.evidence
+                && direct_plan.is_some()
+                && admission.is_none()
+                && bytes.len() as u64 <= MAX_DEFERRED_EVIDENCE_RECORD_BYTES;
             let (extracted, matched, evidence, raw_checked) = verify_local_segment_record(
                 repo,
                 collection,
@@ -322,18 +324,21 @@ pub(super) fn scan_segment_file_parallel(
                 check_execution_sort_budget(context, 0, rank_key_bytes(&key), 0)?;
             }
             let matched_fields: Vec<_> = evidence.into_iter().collect();
-            if let Some((segment_index, builder)) = cache_admission {
-                let mut builder = builder.lock().map_err(|error| error.to_string())?;
+            if let Some(cache) = admission {
+                let mut builder = cache.builder.lock().map_err(|error| error.to_string())?;
                 if builder.is_accepting() {
                     builder.push(
                         &key,
                         CachedMember {
                             collection_index,
-                            segment_index: Some(segment_index),
+                            segment_index: Some(cache.segment_index),
                             slot,
                             matched_fields: matched_fields.clone().into(),
                         },
                     );
+                    if !builder.is_accepting() {
+                        cache.closed.store(true, AtomicOrdering::Relaxed);
+                    }
                 }
             }
             if cap == 0

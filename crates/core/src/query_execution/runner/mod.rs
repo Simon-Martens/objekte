@@ -1861,6 +1861,16 @@ fn exact_or_branch_evidence_fields(
     }))
 }
 
+// Both dispatch shapes can retain at most 2,048 deferred source buffers
+// (2,048 single-record jobs or 32 jobs with up to 64 winners each).
+const MAX_DEFERRED_EVIDENCE_RECORD_BYTES: u64 = 8 * 1024;
+
+struct ParallelCacheAdmission<'a> {
+    segment_index: usize,
+    builder: Mutex<&'a mut LifecycleCacheBuilder>,
+    closed: std::sync::atomic::AtomicBool,
+}
+
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
 struct SegmentFileScan {
@@ -3453,7 +3463,14 @@ fn search_segmented_impl(
                 let mut fused_residuals = 0u64;
                 // Workers share the request's cache budget. Admit complete
                 // membership before discarding records outside the page.
-                let cache_admission = cache_builder.as_mut().map(Mutex::new);
+                let cache_admission =
+                    cache_builder
+                        .as_mut()
+                        .map(|builder| ParallelCacheAdmission {
+                            segment_index,
+                            closed: std::sync::atomic::AtomicBool::new(!builder.is_accepting()),
+                            builder: Mutex::new(builder),
+                        });
                 for chunk in jobs.chunks(batch_size) {
                     if let Some(context) = context {
                         context.check_string()?;
@@ -3480,17 +3497,13 @@ fn search_segmented_impl(
                                     ranges,
                                     cap,
                                     context,
-                                    cache_admission
-                                        .as_ref()
-                                        .map(|builder| (segment_index, builder)),
+                                    cache_admission.as_ref(),
                                 )
                             })
-                            .collect::<Vec<_>>()
-                    });
-                    // Rayon preserves the order of this indexed iterator, so
-                    // errors, counters and tie handling merge in file order.
+                            .collect::<Result<Vec<_>, _>>()
+                    })?;
+                    // Merge successful indexed results in file order.
                     for ((file_id, _), scan) in chunk.iter().zip(scans) {
-                        let scan = scan?;
                         if let Some(context) = context {
                             context.check_string()?;
                         }

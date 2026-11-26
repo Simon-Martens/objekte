@@ -7182,6 +7182,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
 fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle::Index) {
     indexed_or_file_layout_with_reader(
         files,
+        "",
         crate::source::test_support::line_format(),
         crate::source::test_support::fixture_registry(),
     )
@@ -7189,6 +7190,7 @@ fn indexed_or_file_layout(files: usize) -> (std::path::PathBuf, crate::lifecycle
 
 fn indexed_or_file_layout_with_reader(
     files: usize,
+    padding: &str,
     format: SourceFormat,
     registry: crate::source::registry::SourceRegistry,
 ) -> (std::path::PathBuf, crate::lifecycle::Index) {
@@ -7215,7 +7217,7 @@ fn indexed_or_file_layout_with_reader(
         };
         let file = if files == 1 { 0 } else { i / 4 };
         sources[file].push_str(&format!(
-            r#"("id"="{i}","a"={a},"b"={b},"sort"={i},"note"="{note}")"#
+            r#"("id"="{i}","a"={a},"b"={b},"sort"={i},"note"="{note}{padding}")"#
         ));
         sources[file].push('\n');
     }
@@ -7426,6 +7428,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
 
     struct PausingReader {
         reads: Arc<AtomicUsize>,
+        range_bytes: Arc<AtomicUsize>,
         entered: mpsc::Sender<()>,
         released: Arc<(Mutex<bool>, Condvar)>,
     }
@@ -7441,6 +7444,15 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
             LINE_READER.parse(bytes)
+        }
+
+        fn read_range(
+            &self,
+            input: &mut dyn std::io::Read,
+            output: &mut [u8],
+        ) -> std::io::Result<()> {
+            self.range_bytes.fetch_add(output.len(), Ordering::Relaxed);
+            input.read_exact(output)
         }
 
         fn parse_for_query(
@@ -7467,6 +7479,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
     let (entered, notifications) = mpsc::channel();
     let released = Arc::new((Mutex::new(false), Condvar::new()));
     let reads = Arc::new(AtomicUsize::new(0));
+    let range_bytes = Arc::new(AtomicUsize::new(0));
     let mut registry = crate::source::registry::SourceRegistry::default();
     registry
         .register(
@@ -7475,6 +7488,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
             "rows",
             Arc::new(PausingReader {
                 reads: reads.clone(),
+                range_bytes: range_bytes.clone(),
                 entered,
                 released: released.clone(),
             }),
@@ -7482,6 +7496,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         .unwrap();
     let (root, index) = indexed_or_file_layout_with_reader(
         65,
+        "",
         SourceFormat::registered("pausing_parallel_fixture"),
         registry,
     );
@@ -7568,6 +7583,38 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         "{result:?}"
     );
     assert!(parallel_file_dispatches(view.instance_id()).1 >= 2);
+    let bytes_before = range_bytes.load(Ordering::Relaxed);
+    let byte_limit = 128;
+    let context = ExecutionContext::new(
+        crate::query::clock::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            relation_bytes: byte_limit,
+            ..Default::default()
+        },
+        Some(CancellationToken::new()),
+    );
+    reset_parallel_file_dispatches(view.instance_id());
+    let result = view.search_stream_scoped_with_context(
+        &query,
+        ResultScope::Page {
+            offset: 0,
+            limit: 16,
+        },
+        options,
+        &context,
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(result, Err(StreamError::Resource { .. })),
+        "{result:?}"
+    );
+    assert!(range_bytes.load(Ordering::Relaxed) - bytes_before <= byte_limit as usize);
+    let (jobs, _) = parallel_file_dispatches(view.instance_id());
+    assert!(
+        (1..=4).contains(&jobs),
+        "expected at most one dispatched chunk, got {jobs}"
+    );
+
     // The desktop stream holds a view pinned to the old source revision.
     std::fs::write(root.join("data/000.rows"), "changed").unwrap();
     let result = view.search_stream(&query, options, &CancellationToken::new(), &mut |_| {
@@ -7583,6 +7630,48 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         ),
         "{result:?}"
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn cancellable_parallel_page_scans_keep_evidence_for_large_records() {
+    let (root, index) = indexed_or_file_layout_with_reader(
+        65,
+        &"x".repeat(MAX_DEFERRED_EVIDENCE_RECORD_BYTES as usize),
+        crate::source::test_support::line_format(),
+        crate::source::test_support::fixture_registry(),
+    );
+    let view = index.view().unwrap();
+    let mut query = indexed_or_layout_query();
+    query.filter = Some(parse_filter("note ~ 'needle'").unwrap());
+    query.options.limit = 1;
+    let reference = view.search_reference(&query).unwrap();
+    assert!(!reference.hits[0].matched_fields.is_empty());
+
+    reset_parallel_file_dispatches(view.instance_id());
+    let mut page = Vec::new();
+    let result = view
+        .search_stream(
+            &query,
+            StreamOptions {
+                mode: StreamMode::PageReplacements,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::PageReplacement { rows, .. } = event {
+                    page = rows.to_vec();
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = result else {
+        panic!("expected a complete page");
+    };
+    assert!(parallel_file_dispatches(view.instance_id()).1 > 1);
+    assert_eq!(page, reference.hits);
+    assert_eq!(summary.count, reference.count);
     std::fs::remove_dir_all(root).unwrap();
 }
 
