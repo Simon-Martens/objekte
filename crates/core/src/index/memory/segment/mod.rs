@@ -25,7 +25,7 @@ use crate::index::memory::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::memory::relation::RelationContribution;
 use crate::index::memory::sorting::SortCollection;
 use crate::index::storage::order::{
-    InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
+    CompositeSortPart, InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::relation::{RelationMatches, RelationReader};
@@ -727,6 +727,15 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
         Ok(self.sorting.readers().collect())
+    }
+
+    fn composite_orders(&self) -> StorageResult<Vec<&[CompositeSortPart]>> {
+        Ok(self
+            .sorting
+            .composites
+            .iter()
+            .map(|order| order.fields.as_slice())
+            .collect())
     }
 
     fn descriptor(&self) -> SegmentDescriptor {

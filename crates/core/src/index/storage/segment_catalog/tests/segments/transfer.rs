@@ -2,6 +2,9 @@
 
 use super::*;
 use crate::index::storage::component::{ComponentDescriptor, ComponentKind};
+use crate::index::storage::order::COLLATION_VERSION;
+use crate::index::storage::order::key_transfer::transfer_order_keys;
+use crate::index::storage::ordered_slots::OrderedSlotCursor;
 use crate::index::storage::posting::visit_posting_blocks;
 use crate::index::storage::relation::{
     RelationBlock, RelationFacts, RelationRow, VisitRelationTarget, visit_relation_blocks,
@@ -359,11 +362,18 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
 ) -> StorageResult<Option<SegmentHandle>> {
     if !matches!(layout, FileSegmentLayout::Identity(_))
         || source.backing_kind() != RecordBacking::FileRange
-        || !source.order_columns()?.is_empty()
+        || !source.composite_orders()?.is_empty()
     {
         return Ok(None);
     }
     let domain = source.descriptor();
+    let order_readers = source.order_columns()?;
+    if order_readers
+        .iter()
+        .any(|reader| !control.accepts(reader.path(), reader.kind()))
+    {
+        return Ok(None);
+    }
     let mut score = None;
     let mut other_postings = BTreeMap::new();
     let mut grams = BTreeMap::new();
@@ -523,6 +533,59 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     if seen.len() != rows.len() {
         return Err(invalid("incomplete file membership"));
     }
+    let mut orders = HashMap::new();
+    for reader in order_readers {
+        if reader.key_count() != domain.slots || reader.collation_version() != COLLATION_VERSION {
+            return Err(invalid("order descriptor mismatch"));
+        }
+        let mut keys = Vec::new();
+        transfer_order_keys(
+            reader,
+            (0..domain.slots as u32).map(|slot| Ok(RecordSlot(slot))),
+            &cancelled,
+            |key| {
+                keys.push(key);
+                Ok(())
+            },
+        )?;
+        let order = |descending| -> StorageResult<Vec<RecordSlot>> {
+            let mut cursor = OrderedSlotCursor::new(reader.slots(descending)?);
+            let mut output = Vec::new();
+            let mut seen = BTreeSet::new();
+            while let Some(slot) = cursor.next_slot()? {
+                if cancelled() {
+                    return Err(StorageError::Cancelled);
+                }
+                if slot.0 as usize >= domain.slots || !seen.insert(slot) {
+                    return Err(invalid("invalid stored order slot"));
+                }
+                output.push(slot);
+            }
+            if output.len() != domain.slots {
+                return Err(invalid("incomplete stored order"));
+            }
+            Ok(output)
+        };
+        let reader = DeclaredOrderStore::seal(
+            &control,
+            DeclaredOrderRows {
+                path: reader.path().clone(),
+                kind: reader.kind().clone(),
+                config: SortConfig {
+                    locale: reader.locale().to_owned(),
+                    options: reader.options(),
+                },
+                collation_version: reader.collation_version().to_owned(),
+                keys,
+                ascending: order(false)?,
+                descending: order(true)?,
+            },
+        )?;
+        if orders.insert(reader.path().clone(), reader).is_some() {
+            return Err(invalid("duplicate order"));
+        }
+    }
+
     let metadata = source.source();
     let mut table = TableSegment::seal(
         Header {
@@ -542,6 +605,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     table.score = score;
     table.other_postings = other_postings;
     table.relations = relations;
+    table.orders = orders;
     table.grams = grams;
     table.raw_covers_logical_fields = source.raw_covers_logical_fields();
     Ok(Some(Arc::new(table)))
@@ -588,6 +652,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     .unwrap();
     let mut definition = CollectionDefinition::folder("entries", "data/entries", line_format());
     definition.schema = score_schema();
+    definition.sort_fields = vec![FieldPath::parse("score").unwrap()];
     definition
         .schema
         .register_field(FieldDefinition {
@@ -643,6 +708,12 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     assert_eq!(source.active.len(), 4);
     assert_eq!(source.descriptor().slots, 5);
     assert!(!source.active.contains(RecordSlot(0)));
+    let mut ordered_query = query.clone();
+    ordered_query.options.sort = vec![SortField::simple("score", true)];
+    ordered_query.options.limit = 2;
+    let expected_order = pinned.search(&ordered_query).unwrap();
+    assert_eq!(expected_order.count, Some(3));
+    assert_eq!(expected_order.hits.len(), 2);
     let mut relation_query = query.clone();
     relation_query.filter = Some(crate::query::parse_filter("entry.score = 9").unwrap());
     let expected_relation = pinned.search(&relation_query).unwrap();
@@ -727,6 +798,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         for (query, expected) in [
             (&relation_query, &expected_relation),
             (&reverse_query, &expected_reverse),
+            (&ordered_query, &expected_order),
         ] {
             let mut actual = view.search(query).unwrap();
             assert_eq!(actual.count, expected.count);
@@ -747,6 +819,7 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         assert_eq!(segment.active.len(), 4);
         assert_eq!(segment.descriptor(), source.descriptor());
     }
+    assert!(factory.declared_order_builds.load(Ordering::Relaxed) > 0);
     let table_pin = table_index.view().unwrap();
     let text_query = crate::query::Query {
         collections: Vec::new(),

@@ -24,7 +24,9 @@ use super::component::ComponentDescriptor;
 use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
 use super::inference::InferredPostingDiagnostic;
 use super::liveness::ActiveRecords;
-use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
+use super::order::{
+    CompositeSortPart, InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
+};
 use super::ordered_slots::OrderedSlots;
 use super::posting::{FacetPosting, PostingReader};
 use super::relation::{RelationMatches, RelationReader};
@@ -566,6 +568,10 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
         Ok(Vec::new())
     }
 
+    fn composite_orders(&self) -> StorageResult<Vec<&[CompositeSortPart]>> {
+        Ok(Vec::new())
+    }
+
     /// Poll counters using immutable, already captured slot information.
     fn active_fallback_count(&self, active: &ActiveRecords) -> u64;
 
@@ -833,6 +839,10 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
 
     fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
         self.payload().order_columns()
+    }
+
+    fn composite_orders(&self) -> StorageResult<Vec<&[CompositeSortPart]>> {
+        self.payload().composite_orders()
     }
 
     fn active_fallback_count(&self, active: &ActiveRecords) -> u64 {

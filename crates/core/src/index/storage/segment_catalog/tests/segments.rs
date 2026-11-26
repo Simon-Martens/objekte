@@ -1,7 +1,7 @@
 //! A small independently stored segment built by the same lifecycle producers.
 
 use std::borrow::Cow;
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap};
 use std::path::Path;
 
 use super::*;
@@ -411,6 +411,7 @@ struct TableSegment {
     score: Option<TablePosting>,
     other_postings: BTreeMap<Vec<String>, TablePosting>,
     relations: Vec<transfer::TableRelation>,
+    orders: HashMap<FieldPath, Arc<dyn OrderColumnReader>>,
     grams: BTreeMap<transfer::GramBinding, transfer::TableGram>,
     raw_covers_logical_fields: bool,
     control: Arc<TableFactory>,
@@ -484,6 +485,7 @@ impl TableSegment {
             score,
             other_postings: BTreeMap::new(),
             relations: Vec::new(),
+            orders: HashMap::new(),
             grams: BTreeMap::new(),
             raw_covers_logical_fields: false,
             control,
@@ -888,12 +890,23 @@ impl SegmentReader for TableSegment {
         }
     }
 
+    fn order_columns(&self) -> StorageResult<Vec<&dyn OrderColumnReader>> {
+        Ok(self.orders.values().map(Arc::as_ref).collect())
+    }
+
+    fn order_column(&self, path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {
+        Ok(self.orders.get(path).map(Arc::as_ref))
+    }
+
     fn stored_key(
         &self,
-        _path: &FieldPath,
-        _slot: RecordSlot,
+        path: &FieldPath,
+        slot: RecordSlot,
     ) -> StorageResult<Option<Cow<'_, SortKey>>> {
-        Ok(None)
+        self.orders
+            .get(path)
+            .map(|column| column.key(slot))
+            .transpose()
     }
 
     fn ordered_slots(
@@ -901,7 +914,17 @@ impl SegmentReader for TableSegment {
         fields: &[SortField],
         inferred: Option<(&FieldPath, bool)>,
     ) -> StorageResult<Option<&dyn OrderedSlots>> {
-        Ok((fields.is_empty() && inferred.is_none()).then_some(self.identity_order.as_ref()))
+        if fields.is_empty() && inferred.is_none() {
+            return Ok(Some(self.identity_order.as_ref()));
+        }
+        let [field] = fields else { return Ok(None) };
+        let Some(part) = crate::index::storage::order::simple_composite_part(field) else {
+            return Ok(None);
+        };
+        self.orders
+            .get(&part.path)
+            .map(|reader| reader.slots(part.descending))
+            .transpose()
     }
 }
 

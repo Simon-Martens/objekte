@@ -1,7 +1,7 @@
 //! Import checked file-backed segment blocks into native columns.
 
 use std::cell::RefCell;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
@@ -30,19 +30,19 @@ pub(crate) fn import(
     layout: FileSegmentLayout<'_>,
     cancelled: &mut dyn FnMut() -> bool,
 ) -> StorageResult<Option<SegmentHandle>> {
-    if source.backing_kind() != RecordBacking::FileRange
-        || source.source().registration.is_some()
-        || !source.order_columns()?.is_empty()
-    {
+    if source.backing_kind() != RecordBacking::FileRange || source.source().registration.is_some() {
         return Ok(None);
     }
     let descriptor = source.descriptor();
     let components = source.components()?;
+    let order_columns = source.order_columns()?;
+    let composite_orders = source.composite_orders()?;
     let mut postings = Vec::new();
     let mut grams = Vec::new();
     let mut raw = false;
     let mut fallback = false;
     let mut relation_family = false;
+    let mut sorting_family = false;
     let source_logical = read_slot_members(source, SegmentSlotFact::Logical)?;
     let source_logical = source_logical.view();
     let dense = matches!(layout, FileSegmentLayout::Dense { .. });
@@ -86,7 +86,12 @@ pub(crate) fn import(
                 }
                 grams.push((component, reader));
             }
-            ComponentKind::Sorting => {}
+            ComponentKind::Sorting => {
+                if sorting_family || component.path.is_some() || component.binding.is_some() {
+                    return Err(invalid("invalid sorting descriptor"));
+                }
+                sorting_family = true;
+            }
             ComponentKind::Relations => {
                 if relation_family || component.path.is_some() || component.binding.is_some() {
                     return Err(invalid("invalid relation descriptor"));
@@ -98,6 +103,9 @@ pub(crate) fn import(
     }
     if !raw || !fallback {
         return Ok(None);
+    }
+    if (!order_columns.is_empty() || !composite_orders.is_empty()) && !sorting_family {
+        return Err(invalid("missing sorting descriptor"));
     }
     if source.relation_count() != 0 && !relation_family {
         return Err(invalid("missing relation descriptor"));
@@ -142,6 +150,7 @@ pub(crate) fn import(
         Ok(())
     })?;
     let mut files = Vec::new();
+    let mut relocated = HashSet::new();
     let mut file_index = HashMap::new();
     let mut seen = RoaringBitmap::new();
     layout.visit_files(source, &mut cancelled, |file| {
@@ -170,6 +179,14 @@ pub(crate) fn import(
         }
         let mut entry = file.clone();
         if dense {
+            if !order_columns.is_empty() {
+                let previous = source
+                    .file_metadata(file.id)?
+                    .ok_or_else(|| invalid("missing sort file metadata"))?;
+                if previous.relative_path != file.relative_path {
+                    relocated.insert(file.id);
+                }
+            }
             for diagnostic in &mut entry.diagnostics {
                 if let Some(slot) = diagnostic.record {
                     diagnostic.record = *mapping
@@ -197,6 +214,19 @@ pub(crate) fn import(
         })
         .collect::<StorageResult<Vec<_>>>()?;
 
+    let sorting = crate::index::memory::sorting::import::transfer(
+        order_columns,
+        composite_orders,
+        &mapping,
+        &records,
+        |slot| {
+            let file = locators[slot.0 as usize].file;
+            relocated
+                .contains(&file)
+                .then(|| files[file_index[&file]].entry.relative_path.as_path())
+        },
+        &cancelled,
+    )?;
     let mut declared = PostingCollection {
         fields: HashMap::new(),
     };
@@ -273,12 +303,7 @@ pub(crate) fn import(
         custom_text,
         logical_records: logical,
         empty_array_records: empty,
-        sorting: crate::index::memory::sorting::SortCollection {
-            columns: HashMap::new(),
-            composites: Vec::new(),
-            placed: HashMap::new(),
-        }
-        .into(),
+        sorting: sorting.into(),
         relations,
         record_parses: 0,
         failed_parses: 0,

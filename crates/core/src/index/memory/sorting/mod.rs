@@ -23,6 +23,7 @@ use crate::records::RecordHeader;
 use crate::records::RecordIdSlot;
 use crate::schema::Schema;
 
+pub(super) mod import;
 mod inferred_order;
 mod placement;
 
