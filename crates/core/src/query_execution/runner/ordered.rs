@@ -684,7 +684,7 @@ pub(super) fn try_inferred_segment_order_page(
                     execution.charge_reads(1)?;
                 }
             }
-            let materialized = get_segment_record_by_id(
+            let mut materialized = match lookup_segment_record_by_id(
                 repo,
                 collection_index,
                 &segment.index,
@@ -693,21 +693,14 @@ pub(super) fn try_inferred_segment_order_page(
                 revision,
                 &hit.record_id,
                 query.options.return_mode.clone(),
-            );
-            let mut materialized = match materialized {
-                Ok(Some(materialized)) => materialized,
-                Ok(None) => return Err("selected segment record retired".into()),
-                Err(message) => {
-                    if record_unavailable_hit(
-                        repo,
-                        catalog,
-                        SourceHitLocator::from_hit(&hit),
-                        message.clone(),
-                        &mut counters,
-                    )? {
-                        continue;
-                    }
-                    return Err(message);
+            )? {
+                DirectLookupResult::Found(hit) => hit,
+                DirectLookupResult::NotFound => {
+                    return Err("selected segment record retired".into());
+                }
+                DirectLookupResult::SourceUnavailable(diagnostic) => {
+                    counters.record_source_unavailable(diagnostic);
+                    continue;
                 }
             };
             if (file_backed || provider_backed)

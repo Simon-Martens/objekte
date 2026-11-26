@@ -16,8 +16,8 @@ use crate::query::Query;
 use crate::query::options::ReturnMode;
 use crate::query_diagnostics::trace::PlanActual;
 use crate::query_execution::runner::{
-    SegmentRecordRef, SourceHitLocator, direct_payload, get_cached_segment_record, make_hit,
-    record_unavailable_hit, segment_locator_hit,
+    DirectLookupResult, SegmentRecordRef, SourceHitLocator, direct_payload,
+    get_cached_segment_record, make_hit, record_unavailable_hit, segment_locator_hit,
 };
 use crate::query_execution::streaming::{ExecutionContext, ExecutionErrorKind, StreamMode};
 use crate::query_results::payload::payload_from_bytes;
@@ -257,7 +257,7 @@ pub(crate) fn materialize_lifecycle_cached(
                 .collections
                 .get(member.collection_index)
                 .ok_or("cached provider collection missing")?;
-            let hit = get_cached_segment_record(
+            let hit = match get_cached_segment_record(
                 repo,
                 collection,
                 segment,
@@ -265,8 +265,11 @@ pub(crate) fn materialize_lifecycle_cached(
                 revision,
                 RecordSlot(member.slot),
                 ReturnMode::Logical,
-            )?
-            .ok_or("cached provider record retired")?;
+            )? {
+                DirectLookupResult::Found(hit) => hit,
+                DirectLookupResult::NotFound => return Err("cached provider record retired".into()),
+                DirectLookupResult::SourceUnavailable(diagnostic) => return Err(diagnostic.message),
+            };
             if let Some(context) = context {
                 let bytes = hit.payload.as_ref().map_or(0, |payload| {
                     crate::query_execution::streaming::payload_bytes(payload) as u64
@@ -307,7 +310,7 @@ pub(crate) fn materialize_lifecycle_cached(
                 .and_then(|group| group.get(segment_index))
                 .ok_or("cached lifecycle segment missing")?;
             let slot = RecordSlot(member.slot);
-            let mut hit = get_cached_segment_record(
+            let mut hit = match get_cached_segment_record(
                 repo,
                 collection,
                 segment,
@@ -315,8 +318,13 @@ pub(crate) fn materialize_lifecycle_cached(
                 revision,
                 slot,
                 ReturnMode::Locator,
-            )?
-            .ok_or("cached lifecycle segment locator missing")?;
+            )? {
+                DirectLookupResult::Found(hit) => hit,
+                DirectLookupResult::NotFound => {
+                    return Err("cached lifecycle segment locator missing".into());
+                }
+                DirectLookupResult::SourceUnavailable(diagnostic) => return Err(diagnostic.message),
+            };
             hit.matched_fields = member.matched_fields.to_vec();
             if query.options.return_mode != ReturnMode::Locator {
                 let file_backed = matches!(segment.backing_kind(), RecordBacking::FileRange);
@@ -338,7 +346,9 @@ pub(crate) fn materialize_lifecycle_cached(
                 }
                 let materialized =
                     if provider_backed && query.options.return_mode == ReturnMode::Logical {
-                        Ok(validated_providers.remove(&position))
+                        validated_providers
+                            .remove(&position)
+                            .map_or(DirectLookupResult::NotFound, DirectLookupResult::Found)
                     } else {
                         get_cached_segment_record(
                             repo,
@@ -348,22 +358,16 @@ pub(crate) fn materialize_lifecycle_cached(
                             revision,
                             slot,
                             query.options.return_mode.clone(),
-                        )
+                        )?
                     };
                 let materialized = match materialized {
-                    Ok(Some(materialized)) => materialized,
-                    Ok(None) => return Err("cached lifecycle record missing".into()),
-                    Err(message) => {
-                        if record_unavailable_hit(
-                            repo,
-                            catalog,
-                            SourceHitLocator::from_hit(&hit),
-                            message.clone(),
-                            &mut counters,
-                        )? {
-                            continue;
-                        }
-                        return Err(message);
+                    DirectLookupResult::Found(materialized) => materialized,
+                    DirectLookupResult::NotFound => {
+                        return Err("cached lifecycle record missing".into());
+                    }
+                    DirectLookupResult::SourceUnavailable(diagnostic) => {
+                        counters.record_source_unavailable(diagnostic);
+                        continue;
                     }
                 };
                 if file_backed || provider_backed {
@@ -423,15 +427,7 @@ pub(crate) fn materialize_lifecycle_cached(
                     record.range,
                     None,
                 )
-                .and_then(|bytes| {
-                    payload_from_bytes(
-                        record.class,
-                        Some(collection),
-                        &query.options.return_mode,
-                        bytes,
-                    )
-                })
-                .map(|(payload, _)| payload)
+                .map(|bytes| Some(bytes))
             };
             (record.into_owned(), file, payload)
         };
@@ -453,7 +449,16 @@ pub(crate) fn materialize_lifecycle_cached(
             files.insert(file.id.0);
         }
         match payload {
-            Ok(payload) => hit.payload = payload,
+            Ok(Some(bytes)) => {
+                hit.payload = payload_from_bytes(
+                    record.class,
+                    Some(collection),
+                    &query.options.return_mode,
+                    bytes,
+                )?
+                .0;
+            }
+            Ok(None) => {}
             Err(message) => {
                 if record_unavailable_hit(
                     repo,

@@ -9,7 +9,7 @@ use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::FileId;
 
-use super::RecordRangeReader;
+use super::{RecordRangeReader, probe_source_unavailable_for_search};
 
 const MAX_OPEN_HANDLES: usize = 8;
 const WINDOW_BYTES: u64 = 64 * 1024;
@@ -38,6 +38,37 @@ pub(crate) struct RangeBatch {
     pub records: Vec<(u32, Vec<u8>)>,
     pub opened: u64,
     pub bytes_read: u64,
+}
+
+enum RangeReadError {
+    Source(String),
+    Other(String),
+}
+
+impl From<String> for RangeReadError {
+    fn from(message: String) -> Self {
+        Self::Other(message)
+    }
+}
+
+impl From<&str> for RangeReadError {
+    fn from(message: &str) -> Self {
+        Self::Other(message.into())
+    }
+}
+
+impl From<crate::index::storage::transfer::StorageError> for RangeReadError {
+    fn from(error: crate::index::storage::transfer::StorageError) -> Self {
+        Self::Other(error.to_string())
+    }
+}
+
+impl From<RangeReadError> for String {
+    fn from(error: RangeReadError) -> Self {
+        match error {
+            RangeReadError::Source(message) | RangeReadError::Other(message) => message,
+        }
+    }
 }
 
 impl<'a> SourceAccessSession<'a> {
@@ -99,7 +130,7 @@ impl<'a> SourceAccessSession<'a> {
         Ok(())
     }
 
-    fn handle(&mut self, file_id: FileId) -> Result<(usize, u64), String> {
+    fn handle(&mut self, file_id: FileId) -> Result<(usize, u64), RangeReadError> {
         self.clock = self.clock.wrapping_add(1);
         if let Some(index) = self.open.iter().position(|entry| {
             entry.file_id == file_id && entry.reader.uses_backend(self.backend.as_ref())
@@ -114,7 +145,8 @@ impl<'a> SourceAccessSession<'a> {
             .join(&file.relative_path);
         let revision = file.revision;
         let mut reader =
-            RecordRangeReader::open_for_search(&path, revision, self.execution.as_ref())?;
+            RecordRangeReader::open_for_search(&path, revision, self.execution.as_ref())
+                .map_err(RangeReadError::Source)?;
         if let Some(backend) = &self.backend {
             reader = reader.with_backend(Arc::clone(backend));
         }
@@ -145,6 +177,43 @@ impl<'a> SourceAccessSession<'a> {
         file_id: FileId,
         ranges: &[(u32, ByteRange)],
     ) -> Result<RangeBatch, String> {
+        self.read_with_provenance(file_id, ranges)
+            .map_err(Into::into)
+    }
+
+    /// A semijoin may fall back to an availability-aware traversal if
+    /// opening or reading the source failed. Catalog errors remain fatal.
+    pub(crate) fn read_if_available(
+        &mut self,
+        file_id: FileId,
+        ranges: &[(u32, ByteRange)],
+    ) -> Result<Option<RangeBatch>, String> {
+        match self.read_with_provenance(file_id, ranges) {
+            Ok(batch) => Ok(Some(batch)),
+            Err(RangeReadError::Other(message)) => Err(message),
+            Err(RangeReadError::Source(message)) => {
+                if let Some(execution) = &self.execution {
+                    execution.check_string()?;
+                }
+                let file = self.catalog.file(file_id)?.ok_or("unknown source file")?;
+                let path = self
+                    .root
+                    .ok_or("source catalog root is missing")?
+                    .join(&file.relative_path);
+                if probe_source_unavailable_for_search(&path, file.revision, None).is_some() {
+                    Ok(None)
+                } else {
+                    Err(message)
+                }
+            }
+        }
+    }
+
+    fn read_with_provenance(
+        &mut self,
+        file_id: FileId,
+        ranges: &[(u32, ByteRange)],
+    ) -> Result<RangeBatch, RangeReadError> {
         self.check_execution_ranges(ranges)?;
         if ranges.is_empty() {
             return Ok(RangeBatch {
@@ -181,7 +250,10 @@ impl<'a> SourceAccessSession<'a> {
                     .max(range.end)
                     .min(source.revision.size);
                 let window = ByteRange::checked(range.start, end, source.revision.size)?;
-                let (mut bytes, bytes_read) = source.reader.read(&[(0, window)])?;
+                let (mut bytes, bytes_read) = source
+                    .reader
+                    .read(&[(0, window)])
+                    .map_err(RangeReadError::Source)?;
                 source.window_start = range.start;
                 source.window = bytes.pop().ok_or("source window missing")?.1;
                 let end = usize::try_from(range.len()).map_err(|_| "record range too large")?;
@@ -192,7 +264,7 @@ impl<'a> SourceAccessSession<'a> {
                 });
             }
         }
-        let (records, bytes_read) = source.reader.read(ranges)?;
+        let (records, bytes_read) = source.reader.read(ranges).map_err(RangeReadError::Source)?;
         Ok(RangeBatch {
             records,
             opened,

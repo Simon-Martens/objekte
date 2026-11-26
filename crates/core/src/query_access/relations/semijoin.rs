@@ -886,7 +886,7 @@ fn verify_qualified_targets(
     work: &mut SemijoinWork,
     execution: Option<&ExecutionContext>,
     evaluate: &mut impl FnMut(&RecordContext<'_>, &[TextSegment]) -> Result<bool, String>,
-) -> Result<SegmentRecordSet, String> {
+) -> Result<Option<SegmentRecordSet>, String> {
     if let Some(execution) = execution {
         execution.check_slots(candidates.len())?;
     }
@@ -933,7 +933,9 @@ fn verify_qualified_targets(
                 execution.charge_reads(chunk.len() as u64)?;
                 execution.charge_bytes(batch_bytes)?;
             }
-            let batch = access.read(file_id, &chunk)?;
+            let Some(batch) = access.read_if_available(file_id, &chunk)? else {
+                return Ok(None);
+            };
             work.target_file_opens += batch.opened;
             work.target_bytes_read += batch.bytes_read;
             for (local_index, bytes) in batch.records {
@@ -967,7 +969,7 @@ fn verify_qualified_targets(
         }
         let _ = collection;
     }
-    Ok(matched)
+    Ok(Some(matched))
 }
 
 fn qualified_reverse_sources(
@@ -1046,7 +1048,8 @@ pub(crate) fn qualified_candidates_with_strategy(
         &mut work,
         execution,
         &mut |ctx, _| eval_term(terminal, ctx),
-    )?;
+    )?
+    .ok_or("relation target source unavailable")?;
     work.target_matches = work.target_matches.saturating_add(matched.len());
     let sources = qualified_reverse_sources(view, hops, &matched, input, &mut work, execution)?;
     Ok((sources, work))
@@ -1100,7 +1103,7 @@ pub(crate) fn qualified_fts_witnesses(
             &mut work,
             execution,
         )?;
-        let matched = verify_qualified_targets(
+        let Some(matched) = verify_qualified_targets(
             view,
             &candidates,
             field.path.segments.first().map(String::as_str),
@@ -1108,7 +1111,10 @@ pub(crate) fn qualified_fts_witnesses(
             &mut work,
             execution,
             &mut |ctx, segments| eval_bound_fts_membership(&local, segments, ctx),
-        )?;
+        )?
+        else {
+            return Ok(None);
+        };
         work.target_matches = work.target_matches.saturating_add(matched.len());
         let sources = qualified_reverse_sources(view, hops, &matched, input, &mut work, execution)?;
         for address in sources.iter() {

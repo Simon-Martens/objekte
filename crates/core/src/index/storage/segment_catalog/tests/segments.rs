@@ -663,6 +663,14 @@ impl SegmentReader for TableSegment {
     }
 
     fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>> {
+        let countdown = self.control.origins_until_failure.try_update(
+            Ordering::Relaxed,
+            Ordering::Relaxed,
+            |remaining| remaining.checked_sub(1),
+        );
+        if countdown == Ok(1) {
+            return Err(invalid("injected payload origin read failure"));
+        }
         self.rows
             .get(slot.0 as usize)
             .map(|row| {
@@ -1469,6 +1477,58 @@ fn verified_cache_reads_pinned_slots_without_repeating_id_lookups() {
     assert_eq!(cached.hits, first.hits);
     assert_eq!(factory.segment_id_lookups.load(Ordering::Relaxed), before);
     session.finish().unwrap();
+}
+
+#[test]
+fn verified_cache_propagates_payload_storage_failure_when_source_is_missing() {
+    use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
+    use crate::source::test_support::{fixture_registry, line_format};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-cached-origin-failure-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let source = root.join("data/entry.rows");
+    std::fs::write(&source, "(\"score\"=7)\n").unwrap();
+    let factory = Arc::new(TableFactory::default());
+    factory.independent_segments.store(true, Ordering::Relaxed);
+    let mut definition = CollectionDefinition::folder("entries", "data", line_format());
+    definition.schema = score_schema();
+    let index = Index::start_build_with_factory(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            verified_cache_bytes: 1024 * 1024,
+            ..Default::default()
+        },
+        fixture_registry(),
+        Arc::new(Arc::clone(&factory)),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+
+    let view = index.view().unwrap();
+    let query = score_query();
+    assert_eq!(view.search(&query).unwrap().count, Some(1));
+    assert!(view.search(&query).unwrap().counters.verified_result_hit);
+    std::fs::remove_file(&source).unwrap();
+    // A cached hit first resolves its locator, then reads its payload.
+    factory.origins_until_failure.store(2, Ordering::Relaxed);
+    let error = view.search(&query).unwrap_err();
+    assert!(
+        error.contains("injected payload origin read failure"),
+        "{error}"
+    );
+    let missing = view.search(&query).unwrap();
+    assert!(missing.counters.verified_result_hit);
+    assert_eq!(missing.counters.source_unavailable_events, 1);
+    assert!(missing.hits.is_empty());
+    assert_eq!(missing.count, None);
+
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

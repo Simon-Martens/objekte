@@ -31,6 +31,7 @@ struct TableFactory {
     independent_segments: AtomicBool,
     partial_score: AtomicBool,
     segment_id_lookups: AtomicUsize,
+    origins_until_failure: AtomicUsize,
     independent_applications: AtomicUsize,
     text_applications: AtomicUsize,
     text_candidates: AtomicUsize,

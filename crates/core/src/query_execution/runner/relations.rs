@@ -67,9 +67,9 @@ fn materialize_merged_address(
     view: &crate::query_execution::relations::view::MergedRelationView<'_>,
     address: crate::query_execution::relations::view::MergedRecordSlot,
     return_mode: ReturnMode,
-) -> Result<Option<SearchHit>, String> {
+) -> Result<DirectLookupResult, String> {
     let Some(resolved) = view.record(address)? else {
-        return Ok(None);
+        return Ok(DirectLookupResult::NotFound);
     };
     let record = resolved.record;
     let file = &resolved.file;
@@ -82,13 +82,16 @@ fn materialize_merged_address(
         }
         ReturnMode::Bytes | ReturnMode::Logical => {
             let path = repo.required_file_root().join(&file.relative_path);
-            let bytes = crate::source::access::read_record_range_for_search(
+            let bytes = match read_record_range_for_search(
                 resolved.collection.required_file_reader().reader(),
                 &path,
                 file.revision,
                 record.range,
                 None,
-            )?;
+            ) {
+                Ok(bytes) => bytes,
+                Err(message) => return direct_source_failure(&path, file, record.range, message),
+            };
             super::payload_from_bytes(
                 record.class,
                 Some(&resolved.collection),
@@ -98,7 +101,7 @@ fn materialize_merged_address(
             .0
         }
     };
-    Ok(Some(SearchHit {
+    Ok(DirectLookupResult::Found(SearchHit {
         collection: resolved.collection.definition.name.clone(),
         record_id: record.id.0.to_string(),
         generation: address.collection.0 as u64,
@@ -1288,36 +1291,42 @@ fn try_direct_relation_page(
             )?;
         }
     }
-    let page = winners
+    let mut page = Vec::new();
+    for winner in winners
         .into_sorted_vec()
         .into_iter()
         .skip(query.options.offset)
         .take(query.options.limit)
-        .map(|winner| {
-            let mut hit = winner.hit;
-            if query.options.return_mode != ReturnMode::Locator {
-                let (collection_index, segment_index) = winner
-                    .segment
-                    .ok_or("direct relation winner segment missing")?;
-                let published = &segments[collection_index][segment_index];
-                let payload = get_segment_record_by_id(
-                    repo,
-                    collection_index,
-                    published.as_ref(),
-                    &published.active,
-                    catalog,
-                    revision,
-                    &hit.record_id,
-                    query.options.return_mode.clone(),
-                )?
-                .ok_or("direct relation winner retired")?;
-                hit.payload = payload.payload;
-            }
-            Ok::<_, String>(hit)
-        })
-        .collect::<Result<Vec<_>, _>>()?;
+    {
+        let mut hit = winner.hit;
+        if query.options.return_mode != ReturnMode::Locator {
+            let (collection_index, segment_index) = winner
+                .segment
+                .ok_or("direct relation winner segment missing")?;
+            let published = &segments[collection_index][segment_index];
+            let payload = match lookup_segment_record_by_id(
+                repo,
+                collection_index,
+                published.as_ref(),
+                &published.active,
+                catalog,
+                revision,
+                &hit.record_id,
+                query.options.return_mode.clone(),
+            )? {
+                DirectLookupResult::Found(hit) => hit.payload,
+                DirectLookupResult::NotFound => return Err("direct relation winner retired".into()),
+                DirectLookupResult::SourceUnavailable(diagnostic) => {
+                    counters.record_source_unavailable(diagnostic);
+                    continue;
+                }
+            };
+            hit.payload = payload;
+        }
+        page.push(hit);
+    }
     counters.total_matches = total;
-    counters.match_count_complete = true;
+    counters.match_count_complete = counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     if let Some(filter) = filter {
         let mut relation_terms = Vec::new();
@@ -3949,7 +3958,7 @@ pub(super) fn search_segmented_relations(
                 materialize_merged_address(repo, &view, address, query.options.return_mode.clone())
             } else if let Some((collection_index, segment_index)) = winner.segment {
                 let published = &segments[collection_index][segment_index];
-                get_segment_record_by_id(
+                lookup_segment_record_by_id(
                     repo,
                     collection_index,
                     published.as_ref(),
@@ -3960,27 +3969,26 @@ pub(super) fn search_segmented_relations(
                     query.options.return_mode.clone(),
                 )
             } else {
-                repo.get_record_with_active(
+                direct_lookup_segmented(
+                    repo,
                     &winner.hit.collection,
                     &winner.hit.record_id,
                     query.options.return_mode.clone(),
-                    Some(base_active),
+                    base_active,
+                    segments,
+                    None,
+                    catalog,
+                    revision,
                 )
-            };
+            }?;
             let mut payload_hit = match payload_hit {
-                Ok(Some(payload_hit)) => payload_hit,
-                Ok(None) => return Err("selected record retired in pinned view".into()),
-                Err(message) => {
-                    if record_unavailable_hit(
-                        repo,
-                        catalog,
-                        SourceHitLocator::from_hit(&winner.hit),
-                        message.clone(),
-                        &mut counters,
-                    )? {
-                        continue;
-                    }
-                    return Err(message);
+                DirectLookupResult::Found(hit) => hit,
+                DirectLookupResult::NotFound => {
+                    return Err("selected record retired in pinned view".into());
+                }
+                DirectLookupResult::SourceUnavailable(diagnostic) => {
+                    counters.record_source_unavailable(diagnostic);
+                    continue;
                 }
             };
             payload_hit.generation = revision.0;

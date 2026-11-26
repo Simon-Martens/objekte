@@ -628,17 +628,43 @@ pub(crate) fn get_segment_record_by_id<S: SegmentReader + ?Sized>(
     record_id: &str,
     return_mode: ReturnMode,
 ) -> Result<Option<SearchHit>, String> {
+    match lookup_segment_record_by_id(
+        repo,
+        collection_index,
+        segment,
+        active,
+        catalog,
+        revision,
+        record_id,
+        return_mode,
+    )? {
+        DirectLookupResult::Found(hit) => Ok(Some(hit)),
+        DirectLookupResult::NotFound => Ok(None),
+        DirectLookupResult::SourceUnavailable(diagnostic) => Err(diagnostic.message),
+    }
+}
+
+fn lookup_segment_record_by_id<S: SegmentReader + ?Sized>(
+    repo: &Repository,
+    collection_index: usize,
+    segment: &S,
+    active: &ActiveRecords,
+    catalog: &dyn FileCatalogReader,
+    revision: IndexRevision,
+    record_id: &str,
+    return_mode: ReturnMode,
+) -> Result<DirectLookupResult, String> {
     let collection = repo
         .collections
         .get(collection_index)
         .ok_or("segment collection missing")?;
     let Some(slot) = segment.slot_for_record(record_id)? else {
-        return Ok(None);
+        return Ok(DirectLookupResult::NotFound);
     };
     if !active.contains(slot) {
-        return Ok(None);
+        return Ok(DirectLookupResult::NotFound);
     }
-    match read_direct_segment_slot(
+    read_direct_segment_slot(
         repo,
         collection,
         segment,
@@ -648,12 +674,7 @@ pub(crate) fn get_segment_record_by_id<S: SegmentReader + ?Sized>(
         slot,
         Some(record_id),
         return_mode,
-        false,
-    )? {
-        DirectLookupResult::Found(hit) => Ok(Some(hit)),
-        DirectLookupResult::NotFound => Ok(None),
-        DirectLookupResult::SourceUnavailable(diagnostic) => Err(diagnostic.message),
-    }
+    )
 }
 
 /// Cached addresses are scoped to the same publication as their segment group.
@@ -665,11 +686,11 @@ pub(crate) fn get_cached_segment_record(
     revision: IndexRevision,
     slot: RecordSlot,
     mode: ReturnMode,
-) -> Result<Option<SearchHit>, String> {
+) -> Result<DirectLookupResult, String> {
     if !segment.active.contains(slot) {
-        return Ok(None);
+        return Ok(DirectLookupResult::NotFound);
     }
-    match read_direct_segment_slot(
+    read_direct_segment_slot(
         repo,
         collection,
         segment,
@@ -679,12 +700,7 @@ pub(crate) fn get_cached_segment_record(
         slot,
         None,
         mode,
-        false,
-    )? {
-        DirectLookupResult::Found(hit) => Ok(Some(hit)),
-        DirectLookupResult::NotFound => Ok(None),
-        DirectLookupResult::SourceUnavailable(diagnostic) => Err(diagnostic.message),
-    }
+    )
 }
 
 fn read_direct_segment_slot<S: SegmentReader + ?Sized>(
@@ -697,7 +713,6 @@ fn read_direct_segment_slot<S: SegmentReader + ?Sized>(
     slot: RecordSlot,
     record_id: Option<&str>,
     return_mode: ReturnMode,
-    classify_source_failure: bool,
 ) -> Result<DirectLookupResult, String> {
     let descriptor = segment.descriptor();
     if descriptor.collection != collection.collection_id()
@@ -734,23 +749,19 @@ fn read_direct_segment_slot<S: SegmentReader + ?Sized>(
                         .repository_root()
                         .ok_or("file-backed segment has no catalog root")?;
                     let path = root.join(&entry.relative_path);
-                    let decoded = read_record_range_for_search(
+                    let bytes = match read_record_range_for_search(
                         collection.required_file_reader().reader(),
                         &path,
                         entry.revision,
                         range,
                         None,
-                    )
-                    .and_then(|bytes| {
-                        payload_from_bytes(record.class, Some(collection), &return_mode, bytes)
-                    });
-                    match decoded {
-                        Ok((payload, _)) => payload,
-                        Err(message) if classify_source_failure => {
+                    ) {
+                        Ok(bytes) => bytes,
+                        Err(message) => {
                             return direct_source_failure(&path, &entry, range, message);
                         }
-                        Err(message) => return Err(message),
-                    }
+                    };
+                    payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
                 }
             };
             file = Some(crate::files::RecordFileInfo::from_entry(
@@ -1033,7 +1044,7 @@ pub(crate) fn direct_lookup_segmented_counted(
     {
         counters.route_segment_visits += 1;
     }
-    let (record, file, result) = if let Some(slot) = base {
+    if let Some(slot) = base {
         let record = collection.base_record(slot)?;
         let file = catalog
             .file(record.file)?
@@ -1042,46 +1053,49 @@ pub(crate) fn direct_lookup_segmented_counted(
             return Err("active base direct-lookup file lost collection membership".into());
         }
         let payload = match return_mode {
-            ReturnMode::Locator => Ok(None),
+            ReturnMode::Locator => None,
             ReturnMode::Logical if record.class == RecordClass::RawFallback => {
-                Ok(Some(Payload::LogicalUnavailable {
+                Some(Payload::LogicalUnavailable {
                     diagnostic_ref: record.diagnostic_ref,
-                }))
+                })
             }
             ReturnMode::Bytes | ReturnMode::Logical => {
                 let root = catalog
                     .repository_root()
                     .ok_or("base direct-lookup catalog has no root")?;
                 let path = root.join(&file.relative_path);
-                read_record_range_for_search(
+                let bytes = match read_record_range_for_search(
                     collection.required_file_reader().reader(),
                     &path,
                     file.revision,
                     record.range,
                     None,
-                )
-                .and_then(|bytes| {
-                    payload_from_bytes(record.class, Some(collection), &return_mode, bytes)
-                })
-                .map(|(payload, _)| payload)
+                ) {
+                    Ok(bytes) => bytes,
+                    Err(message) => {
+                        return direct_source_failure(&path, &file, record.range, message);
+                    }
+                };
+                payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
             }
         };
-        let result = payload.map(|payload| {
-            Some(SearchHit {
-                collection: collection.definition.name.clone(),
-                record_id: record.id.0.to_string(),
-                generation: revision.0,
-                file: Some(crate::files::RecordFileInfo::from_entry(
-                    &file,
-                    Some(record.range),
-                )),
-                matched_fields: Vec::new(),
-                record_class: record.class,
-                diagnostic_ref: record.diagnostic_ref,
-                payload,
-            })
-        });
-        (record.into_owned(), file, result)
+        let mut hit = SearchHit {
+            collection: collection.definition.name.clone(),
+            record_id: record.id.0.to_string(),
+            generation: revision.0,
+            file: Some(crate::files::RecordFileInfo::from_entry(
+                &file,
+                Some(record.range),
+            )),
+            matched_fields: Vec::new(),
+            record_class: record.class,
+            diagnostic_ref: record.diagnostic_ref,
+            payload,
+        };
+        if routes.is_none() {
+            repo.stamp_native_hit_at(&mut hit, revision)?;
+        }
+        Ok(DirectLookupResult::Found(hit))
     } else if let Some((segment, slot)) = selected_segment {
         let mut result = read_direct_segment_slot(
             repo,
@@ -1093,32 +1107,15 @@ pub(crate) fn direct_lookup_segmented_counted(
             slot,
             Some(record_id),
             return_mode,
-            true,
         )?;
         if routes.is_none()
             && let DirectLookupResult::Found(hit) = &mut result
         {
             repo.stamp_native_hit_at(hit, revision)?;
         }
-        return Ok(result);
+        Ok(result)
     } else {
-        return Ok(DirectLookupResult::NotFound);
-    };
-    match result {
-        Ok(Some(mut hit)) => {
-            if routes.is_none() {
-                repo.stamp_native_hit_at(&mut hit, revision)?;
-            }
-            Ok(DirectLookupResult::Found(hit))
-        }
-        Ok(None) => Err("active direct-lookup record disappeared".into()),
-        Err(message) => {
-            let root = catalog
-                .repository_root()
-                .ok_or("base direct-lookup catalog has no root")?;
-            let path = root.join(&file.relative_path);
-            direct_source_failure(&path, &file, record.range, message)
-        }
+        Ok(DirectLookupResult::NotFound)
     }
 }
 
@@ -1484,7 +1481,7 @@ pub(crate) fn search_segmented_lifecycle(
         return search_segmented_reference(repo, query, base_active, segments, catalog, revision);
     }
     let mut restriction_cache = SegmentRestrictionCache::new(segments);
-    let mut result = match search_segmented_impl(
+    let mut result = search_segmented_impl(
         repo,
         query,
         base_active,
@@ -1497,12 +1494,7 @@ pub(crate) fn search_segmented_lifecycle(
         None,
         &mut restriction_cache,
         false,
-    ) {
-        Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog)? => {
-            search_segmented_reference(repo, query, base_active, segments, catalog, revision)
-        }
-        result => result,
-    }?;
+    )?;
     if query.options.return_mode != ReturnMode::Locator
         && result.counters.source_unavailable_events > 0
     {
@@ -1590,7 +1582,7 @@ fn search_segmented_with_context_lifecycle_budget(
         return search_segmented_reference(repo, query, base_active, segments, catalog, revision)
             .map_err(|message| context.recorded_error(message));
     }
-    let result = search_segmented_impl(
+    search_segmented_impl(
         repo,
         query,
         base_active,
@@ -1603,50 +1595,8 @@ fn search_segmented_with_context_lifecycle_budget(
         bound,
         restriction_cache,
         ordered_already_declined,
-    );
-    match result {
-        Err(message) => {
-            let error = context.recorded_error(message);
-            if matches!(
-                error.kind,
-                ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
-            ) && has_unavailable_active_source(repo, base_active, segments, catalog)
-                .map_err(|message| context.recorded_error(message))?
-            {
-                context.clear_recovered_source_changed();
-                let owned_sort;
-                let owned_prepared;
-                let (sort, prepared) = if let Some((sort, prepared)) = bound {
-                    (sort, prepared)
-                } else {
-                    owned_sort = ResolvedSort::new(repo, query)
-                        .map_err(|message| context.recorded_error(message))?;
-                    owned_prepared = crate::query::prepared::prepare(repo, query)
-                        .map_err(|message| context.recorded_error(message))?;
-                    (&owned_sort, &owned_prepared)
-                };
-                search_segmented_relations(
-                    repo,
-                    query,
-                    base_active,
-                    segments,
-                    catalog,
-                    revision,
-                    sort,
-                    &prepared.collections,
-                    Some(context),
-                    None,
-                    None,
-                    false,
-                    false,
-                )
-                .map_err(|message| context.recorded_error(message))
-            } else {
-                Err(error)
-            }
-        }
-        Ok(result) => Ok(result),
-    }
+    )
+    .map_err(|message| context.recorded_error(message))
 }
 
 /// Preserve the base fast path when no segment is present, while letting a
@@ -1682,6 +1632,7 @@ pub(crate) fn search_active_available_lifecycle(
 
 /// Probe active files only after an optimized query failed. Ordinary queries
 /// keep their index/cache fast path without a per-file metadata pass.
+#[cfg(test)]
 fn has_unavailable_active_source(
     repo: &Repository,
     base_active: &[ActiveRecords],
@@ -3852,7 +3803,7 @@ fn search_segmented_impl(
                         context.charge_reads(1)?;
                     }
                 }
-                let materialized = get_segment_record_by_id(
+                let mut materialized = match lookup_segment_record_by_id(
                     repo,
                     collection_index,
                     &published.index,
@@ -3861,21 +3812,14 @@ fn search_segmented_impl(
                     revision,
                     &winner.hit.record_id,
                     query.options.return_mode.clone(),
-                );
-                let mut materialized = match materialized {
-                    Ok(Some(materialized)) => materialized,
-                    Ok(None) => return Err("selected segment record retired".into()),
-                    Err(message) => {
-                        if record_unavailable_hit(
-                            repo,
-                            catalog,
-                            SourceHitLocator::from_hit(&winner.hit),
-                            message.clone(),
-                            &mut counters,
-                        )? {
-                            continue;
-                        }
-                        return Err(message);
+                )? {
+                    DirectLookupResult::Found(hit) => hit,
+                    DirectLookupResult::NotFound => {
+                        return Err("selected segment record retired".into());
+                    }
+                    DirectLookupResult::SourceUnavailable(diagnostic) => {
+                        counters.record_source_unavailable(diagnostic);
+                        continue;
                     }
                 };
                 if (file_backed || provider_backed)
@@ -4337,9 +4281,9 @@ fn materialize_segmented_stream_hit(
     catalog: &dyn FileCatalogReader,
     revision: IndexRevision,
     context: &ExecutionContext,
-) -> Result<(SearchHit, StreamBacking), String> {
+) -> Result<(DirectLookupResult, StreamBacking), String> {
     if mode == ReturnMode::Locator {
-        return Ok((hit, StreamBacking::Retained));
+        return Ok((DirectLookupResult::Found(hit), StreamBacking::Retained));
     }
     context.check_string()?;
     let collection_index = repo
@@ -4363,34 +4307,25 @@ fn materialize_segmented_stream_hit(
         context.charge_reads(1)?;
         context.charge_bytes(bytes)?;
     }
-    let materialized = repo.get_record_with_active(
+    let mut materialized = match direct_lookup_segmented(
+        repo,
         &hit.collection,
         &hit.record_id,
-        mode.clone(),
-        Some(base_active),
-    )?;
-    let mut materialized = if let Some(materialized) = materialized {
-        materialized
-    } else {
-        let mut found = None;
-        for segment in segments[collection_index].iter() {
-            if let Some(value) = get_segment_record_by_id(
-                repo,
-                collection_index,
-                &segment.index,
-                &segment.active,
-                catalog,
-                revision,
-                &hit.record_id,
-                mode.clone(),
-            )? {
-                found = Some(value);
-                break;
-            }
+        mode,
+        base_active,
+        segments,
+        None,
+        catalog,
+        revision,
+    )? {
+        DirectLookupResult::Found(hit) => hit,
+        DirectLookupResult::NotFound => {
+            return Err("stream hit no longer resolves in pinned view".into());
         }
-        found.ok_or("stream hit no longer resolves in pinned view")?
+        unavailable @ DirectLookupResult::SourceUnavailable(_) => {
+            return Ok((unavailable, backing));
+        }
     };
-    repo.stamp_native_hit_at(&mut materialized, revision)?;
     materialized.matched_fields = std::mem::take(&mut hit.matched_fields);
     if matches!(backing, StreamBacking::Provider) {
         let bytes = materialized.payload.as_ref().map_or(0, |payload| {
@@ -4404,7 +4339,7 @@ fn materialize_segmented_stream_hit(
         }
         context.charge_bytes(bytes)?;
     }
-    Ok((materialized, backing))
+    Ok((DirectLookupResult::Found(materialized), backing))
 }
 
 fn lifecycle_segment_order<'a>(
@@ -5099,6 +5034,12 @@ fn try_lifecycle_ordered_stream(
                     {
                         return Err(message);
                     }
+                    if !matches!(
+                        context.recorded_error(message.clone()).kind,
+                        ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
+                    ) {
+                        return Err(message);
+                    }
                     let locator = segment_locator_hit(collection, resolved, revision, Vec::new());
                     if record_unavailable_hit(
                         repo,
@@ -5268,6 +5209,12 @@ fn try_lifecycle_ordered_stream(
                                     .as_ref()
                                     .is_some_and(|delivery| delivery.last_page_sequence() > 0)
                             {
+                                return Err(message);
+                            }
+                            if !matches!(
+                                context.recorded_error(message.clone()).kind,
+                                ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
+                            ) {
                                 return Err(message);
                             }
                             if record_unavailable_hit(
@@ -5750,7 +5697,6 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             if let Err(message) = delivery.check() {
                 return segmented_stream_error(&mut delivery, context, message);
             }
-            let locator = SourceHitLocator::from_hit(&hit);
             let (mut hit, backing) = match materialize_segmented_stream_hit(
                 repo,
                 hit,
@@ -5761,33 +5707,21 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 revision,
                 context,
             ) {
-                Ok(hit) => hit,
-                Err(message) => {
-                    if !matches!(
-                        context.recorded_error(message.clone()).kind,
-                        ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
-                    ) {
-                        return segmented_stream_error(&mut delivery, context, message);
-                    }
-                    match record_unavailable_hit(
-                        repo,
-                        catalog,
-                        locator,
-                        message.clone(),
-                        &mut result.counters,
-                    ) {
-                        Ok(true) => {
-                            result.count = None;
-                            result.counters.total_matches =
-                                result.counters.total_matches.saturating_sub(1);
-                            continue;
-                        }
-                        Ok(false) => {
-                            return segmented_stream_error(&mut delivery, context, message);
-                        }
-                        Err(error) => return segmented_stream_error(&mut delivery, context, error),
-                    }
+                Ok((DirectLookupResult::Found(hit), backing)) => (hit, backing),
+                Ok((DirectLookupResult::SourceUnavailable(diagnostic), _)) => {
+                    result.counters.record_source_unavailable(diagnostic);
+                    result.count = None;
+                    result.counters.total_matches = result.counters.total_matches.saturating_sub(1);
+                    continue;
                 }
+                Ok((DirectLookupResult::NotFound, _)) => {
+                    return segmented_stream_error(
+                        &mut delivery,
+                        context,
+                        "stream hit no longer resolves in pinned view".into(),
+                    );
+                }
+                Err(message) => return segmented_stream_error(&mut delivery, context, message),
             };
             if let Err(error) = repo.stamp_native_hit_at(&mut hit, revision) {
                 return segmented_stream_error(&mut delivery, context, error);
