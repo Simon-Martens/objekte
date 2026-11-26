@@ -23,10 +23,10 @@ use crate::index::storage::segment::{
 };
 use crate::inference::InferenceBuildStats;
 #[cfg(test)]
-use crate::inventory::CollectionGeneration;
-#[cfg(test)]
 use crate::inventory::FileInventory;
-use crate::inventory::{ActiveRecords, CollectionBuilder, FileEntry, RecordClass};
+use crate::inventory::{ActiveRecords, FileEntry, RecordClass};
+#[cfg(test)]
+use crate::inventory::{CollectionBuilder, CollectionGeneration};
 use crate::lifecycle::{IndexError, IndexRevision};
 use crate::model::CollectionId;
 #[cfg(test)]
@@ -221,6 +221,7 @@ fn initialize_empty_configured(
         }
         let id = CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
         let base_generation = IndexRevision::INITIAL.0;
+        #[cfg(test)]
         let generation = CollectionBuilder::new(id, definition.name.clone(), base_generation, 0)
             .finish_empty()?;
         let postings = PostingCollection::new(&definition.schema);
@@ -280,7 +281,7 @@ fn initialize_empty_configured(
             definition.sort_options,
             &definition.sort_overrides,
         )?;
-        let sorting = sort_builder.finish(&generation)?;
+        let sorting = sort_builder.finish_for_records(&[] as &[crate::records::RecordHeader])?;
         let text_bindings =
             crate::index::storage::text::TextBindingCatalog::new(&definition.schema);
         let index_family_bytes = crate::index::memory::segment::statistics::index_family_total(
@@ -299,6 +300,8 @@ fn initialize_empty_configured(
             file_source: input.file_source,
             file_definition: input.file_definition,
             source: input.source,
+            base_records: None,
+            #[cfg(test)]
             generation,
             postings,
             inference,
@@ -312,6 +315,7 @@ fn initialize_empty_configured(
             text_bindings,
             sorting,
             index_family_bytes,
+            #[cfg(test)]
             id_lookup: HashMap::new(),
             identity_order: Vec::new(),
             initial_counts: None,

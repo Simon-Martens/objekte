@@ -1963,7 +1963,7 @@ fn term_set(
                 | MetadataField::FileModified
         );
         if file_level {
-            for file_id in collection.base_file_ids() {
+            collection.any_base_file::<String>(|file_id| {
                 let mut matched = None;
                 collection.visit_base_file_slots(file_id, &mut |slots| {
                     let keep = if let Some(keep) = matched {
@@ -1993,7 +1993,8 @@ fn term_set(
                     }
                     Ok(())
                 })?;
-            }
+                Ok(false)
+            })?;
             return Ok(Some(result));
         }
         if matches!(

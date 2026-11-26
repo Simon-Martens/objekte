@@ -263,7 +263,6 @@ impl Repository {
         let mut hash = Sha256::new();
         for (collection_index, collection) in self.collections.iter().enumerate() {
             hash_field(&mut hash, collection.definition.name.as_bytes());
-            let records = &collection.generation.records;
             let mut components = BTreeMap::<String, Vec<String>>::new();
             for segment in segments[collection_index].iter() {
                 let record_id = |slot: RecordSlot| -> StorageResult<String> {
@@ -405,16 +404,18 @@ impl Repository {
                     hash_field(&mut hash, id.as_bytes());
                 }
             }
-            for relation in &collection.relations {
-                hash_field(&mut hash, relation.declaration.path.join(".").as_bytes());
-                for record in records {
-                    if let Some(edges) = relation.edges(record.slot) {
-                        for edge in edges {
-                            hash_field(&mut hash, record.id.0.as_bytes());
-                            hash_field(&mut hash, edge.target_id().as_bytes());
-                            for position in &edge.positions {
-                                hash_field(&mut hash, &position.to_le_bytes());
-                            }
+            for ordinal in 0..collection.relations.len() {
+                let relation = collection
+                    .relation_reader(ordinal)
+                    .expect("sealed relation");
+                hash_field(&mut hash, relation.declaration().path.join(".").as_bytes());
+                for slot in 0..collection.base_slot_count() {
+                    let record = collection.base_record(RecordSlot(slot as u32))?;
+                    for (target, positions) in relation.forward(record.slot)?.targets {
+                        hash_field(&mut hash, record.id.0.as_bytes());
+                        hash_field(&mut hash, target.as_bytes());
+                        for position in positions.iter() {
+                            hash_field(&mut hash, &position.to_le_bytes());
                         }
                     }
                 }

@@ -632,6 +632,19 @@ impl SegmentReader for IndexedCollectionSegment {
         self.accounting
     }
 
+    fn record_directory_estimate(&self) -> crate::index::storage::segment::RecordDirectoryEstimate {
+        crate::index::storage::segment::RecordDirectoryEstimate {
+            record_table_capacity: self.records.capacity(),
+            unique_id_payload_bytes: self
+                .records
+                .iter()
+                .map(|record| record.id.0.len() + 2 * size_of::<usize>())
+                .sum(),
+            identity_lookup_capacity: self.id_lookup.capacity(),
+            shared_id_references: self.id_lookup.len(),
+        }
+    }
+
     fn observe_backing(&self, usage: &mut crate::index::storage::segment::SegmentResourceUsage) {
         usage.add_backing_columns(self.backing.estimated_column_bytes());
         if let SegmentBacking::Retained { blocks, .. } = &self.backing {

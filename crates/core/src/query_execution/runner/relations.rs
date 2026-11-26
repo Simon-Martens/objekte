@@ -3757,7 +3757,7 @@ pub(super) fn search_segmented_relations(
             Ok(())
         };
         let collection = &repo.collections[collection_index];
-        for file_id in collection.base_file_ids() {
+        collection.any_base_file::<String>(|file_id| {
             if let Some(context) = context {
                 context.check_string()?;
             }
@@ -3781,7 +3781,7 @@ pub(super) fn search_segmented_relations(
                 ));
             }
             if ranges.is_empty() {
-                continue;
+                return Ok(false);
             }
             let first = crate::query_execution::relations::view::MergedRecordSlot {
                 collection: collection_id,
@@ -3804,7 +3804,8 @@ pub(super) fn search_segmented_relations(
                 None,
                 &mut process,
             )?;
-        }
+            Ok(false)
+        })?;
         let mut relation_prune: Option<Option<RelationTargetPrune>> =
             if let Some(plan) = exact_relation_plan.take() {
                 Some(Some(plan))

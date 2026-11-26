@@ -1661,7 +1661,7 @@ fn has_unavailable_active_source(
     };
     for (index, collection) in repo.collections.iter().enumerate() {
         if base_active[index].len() != 0 {
-            for file_id in collection.base_file_ids() {
+            let failed = collection.any_base_file::<String>(|file_id| {
                 let mut probed = false;
                 let mut failed = false;
                 let mut file_size = None;
@@ -1684,9 +1684,10 @@ fn has_unavailable_active_source(
                     }
                     Ok(())
                 })?;
-                if failed {
-                    return Ok(true);
-                }
+                Ok(failed)
+            })?;
+            if failed {
+                return Ok(true);
             }
         }
         for segment in segments[index].iter() {

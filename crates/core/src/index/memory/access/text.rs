@@ -76,14 +76,14 @@ impl<'a> NativeSegmentTextProvider<'a> {
         collection: &'a CollectionState,
     ) -> Self {
         let instance = collection.repository_instance;
-        let collection_id = collection.generation.collection;
+        let collection_id = collection.collection_id();
         Self::for_access(
             segment,
             SegmentTextAccess {
                 domain: domain_id(
                     instance,
                     collection_id.0,
-                    collection.generation.generation,
+                    collection.base_generation(),
                     Some(published_id.get()),
                 ),
                 instance,
@@ -118,8 +118,8 @@ impl<'a> NativeTextProvider<'a> {
             collection,
             domain: domain_id(
                 instance_id,
-                collection.generation.collection.0,
-                collection.generation.generation,
+                collection.collection_id().0,
+                collection.base_generation(),
                 segment_index.map(u64::from),
             ),
             instance_id,
@@ -235,7 +235,7 @@ impl IndexAccessProvider for NativeTextProvider<'_> {
             _term,
             self.domain,
             choice,
-            self.collection.generation.collection.0,
+            self.collection.collection_id().0,
             input_count,
             output_count,
             0,
@@ -679,7 +679,7 @@ pub(crate) fn native_fts_candidates(
         collection.text_access_policy(),
         fts,
         true,
-        collection.logical_records.len() != collection.generation.records.len() as u64,
+        collection.logical_records.len() != collection.base_slot_count() as u64,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
     )?
@@ -696,7 +696,7 @@ pub(crate) fn native_estimate_fts_candidates(
         collection.text_access_policy(),
         fts,
         true,
-        collection.logical_records.len() != collection.generation.records.len() as u64,
+        collection.logical_records.len() != collection.base_slot_count() as u64,
         raw_covers_identity_field(collection).is_ok(),
         collection.stats.record_count as u64,
     )?

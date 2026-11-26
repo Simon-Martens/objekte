@@ -69,6 +69,7 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
         segment::maintenance::consolidate(segments, max_records)
     }
 
+    #[cfg(test)]
     fn base_segment(
         &self,
         collection: &crate::repository::state::CollectionState,

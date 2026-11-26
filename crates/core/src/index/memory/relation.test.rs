@@ -609,7 +609,7 @@ fn publication_validation_still_rejects_broken_relation_state() {
         original
             .validate(&repo.collections[2], &repo.collections[0])
             .unwrap_err()
-            .contains("target slot mismatch")
+            .contains("record slot mismatch")
     );
     std::fs::remove_dir_all(root).unwrap();
 }

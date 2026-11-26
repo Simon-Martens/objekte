@@ -358,6 +358,11 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         active: source.active.clone(),
         observation: None,
     });
+    let mut flat = pinned.repository().empty_like().unwrap();
+    flat.catalog = Arc::clone(&pinned.0.catalog);
+    flat.collections[0].base_records = Some(Arc::clone(&published_table.index));
+    flat.active[0] = published_table.active.clone();
+    let flat = Index::from_repository(flat).unwrap();
     let make_index = |segment: Arc<PublishedSegment>| {
         let mut root = (*pinned.0).clone();
         root.replace_segment_group(0, &[segment]).unwrap();
@@ -390,12 +395,22 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         assert_eq!(segment.descriptor(), source.descriptor());
     }
     let table_pin = table_index.view().unwrap();
+    let flat_pin = flat.view().unwrap();
+    assert!(flat_pin.segments(CollectionId(0)).unwrap().is_empty());
+    equivalent(&flat_pin);
+    assert!(
+        flat_pin
+            .get_record("entries", &expected.hits[0].record_id, ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
     let old_route = table_pin.0.record_routes[0]
         .locate(&expected.hits[0].record_id)
         .unwrap()
         .unwrap();
     std::fs::rename(&data, &detached).unwrap();
     assert_eq!(table_index.compact().unwrap().retired_slots_removed, 1);
+    assert_eq!(flat.compact().unwrap().retired_slots_removed, 1);
     std::fs::rename(&detached, &data).unwrap();
     let compacted = table_index.view().unwrap();
     equivalent(&compacted);
@@ -408,6 +423,16 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         .unwrap();
     assert_eq!(old_route.route.slot.0, new_route.route.slot.0 + 1);
     equivalent(&table_pin);
+    equivalent(&flat_pin);
+    let flat_compacted = flat.view().unwrap();
+    equivalent(&flat_compacted);
+    assert_eq!(
+        flat_compacted.segments(CollectionId(0)).unwrap()[0]
+            .descriptor()
+            .slots,
+        4
+    );
+    flat.shutdown().unwrap();
     table_index.shutdown().unwrap();
     restored.shutdown().unwrap();
     index.shutdown().unwrap();

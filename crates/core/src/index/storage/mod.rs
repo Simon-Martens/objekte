@@ -53,6 +53,7 @@ pub(crate) trait StorageFactory: Send + Sync {
         Ok(None)
     }
 
+    #[cfg(test)]
     fn base_segment(
         &self,
         _collection: &crate::repository::state::CollectionState,

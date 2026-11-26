@@ -11,11 +11,22 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
 use crate::index::sorting::SortCollection;
+#[cfg(test)]
 use crate::index::storage::segment::FILE_SLOT_LIMIT;
+use crate::index::storage::segment::{
+    RecordDirectoryEstimate, RecordOrigin, SegmentHandle, SegmentReader, any_segment_file,
+    visit_checked_file_slots,
+};
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
-use crate::inventory::{CollectionGeneration, RecordEntry};
-use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
+#[cfg(test)]
+use crate::inventory::CollectionGeneration;
+#[cfg(test)]
+use crate::inventory::RecordClass;
+use crate::inventory::{ActiveRecords, RecordEntry};
+#[cfg(test)]
+use crate::model::RecordId;
+use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::source::registry::PreparedSource;
 
 use super::configuration::{CollectionDeclaration, CollectionDefinition, FileSourceConfig};
@@ -43,6 +54,8 @@ pub struct CollectionState {
     /// Compatibility boundary for the existing file preparation pipeline.
     pub(crate) file_definition: Option<CollectionDefinition>,
     pub(crate) source: Option<PreparedSource>,
+    pub(crate) base_records: Option<SegmentHandle>,
+    #[cfg(test)]
     pub(crate) generation: CollectionGeneration,
     pub(crate) postings: PostingCollection,
     pub(crate) inference: Option<InferenceState>,
@@ -57,6 +70,7 @@ pub struct CollectionState {
     pub(crate) sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
+    #[cfg(test)]
     pub(crate) id_lookup: HashMap<RecordId, RecordSlot>,
     pub(crate) identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
@@ -74,11 +88,26 @@ impl CollectionState {
     }
 
     pub(crate) fn base_slot_count(&self) -> usize {
-        self.generation.records.len()
+        if let Some(base) = &self.base_records {
+            return base.descriptor().slots;
+        }
+        #[cfg(test)]
+        return self.generation.records.len();
+        #[cfg(not(test))]
+        0
     }
 
     pub(crate) fn base_slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
-        let slot = self.id_lookup.get(id).copied();
+        let slot = if let Some(base) = &self.base_records {
+            base.slot_for_record(id)?
+        } else {
+            #[cfg(test)]
+            {
+                self.id_lookup.get(id).copied()
+            }
+            #[cfg(not(test))]
+            None
+        };
         if slot.is_some_and(|slot| slot.0 as usize >= self.base_slot_count()) {
             return Err(StorageError::invalid(
                 "read base record route",
@@ -89,20 +118,75 @@ impl CollectionState {
     }
 
     pub(crate) fn base_record(&self, slot: RecordSlot) -> StorageResult<Cow<'_, RecordEntry>> {
-        self.generation
-            .records
-            .get(slot.0 as usize)
-            .filter(|record| record.slot == slot)
-            .map(Cow::Borrowed)
-            .ok_or_else(|| StorageError::invalid("read base record", "invalid record slot"))
+        const OP: &str = "read base record";
+        let invalid_slot = || StorageError::invalid(OP, "invalid record slot");
+        let check_slot = |actual| {
+            if actual != slot {
+                return Err(StorageError::invalid(OP, "record slot mismatch"));
+            }
+            Ok(())
+        };
+        if let Some(base) = &self.base_records {
+            let header = base.header(slot)?.ok_or_else(invalid_slot)?;
+            check_slot(header.slot)?;
+            let Some(RecordOrigin::FileRange(file)) = base.origin(slot)? else {
+                return Err(StorageError::invalid(
+                    OP,
+                    "expected a file-backed base record",
+                ));
+            };
+            let range = file
+                .range
+                .ok_or_else(|| StorageError::invalid(OP, "record origin has no byte range"))?;
+            let header = header.into_owned();
+            return Ok(Cow::Owned(RecordEntry {
+                slot,
+                id: header.id,
+                file: file.file,
+                range,
+                revision: file.revision,
+                class: header.class,
+                diagnostic_ref: header.diagnostic_ref,
+            }));
+        }
+        #[cfg(test)]
+        {
+            let record = self
+                .generation
+                .records
+                .get(slot.0 as usize)
+                .ok_or_else(invalid_slot)?;
+            check_slot(record.slot)?;
+            return Ok(Cow::Borrowed(record));
+        }
+        #[cfg(not(test))]
+        Err(invalid_slot())
     }
 
     pub(crate) fn base_contains_file(&self, file: FileId) -> StorageResult<bool> {
-        Ok(self.generation.files.contains(&file))
+        if let Some(base) = &self.base_records {
+            return base.contains_file(file);
+        }
+        #[cfg(test)]
+        return Ok(self.generation.files.contains(&file));
+        #[cfg(not(test))]
+        Ok(false)
     }
 
-    pub(crate) fn base_file_ids(&self) -> impl Iterator<Item = FileId> + '_ {
-        self.generation.files.iter().copied()
+    pub(crate) fn any_base_file<E: From<StorageError>>(
+        &self,
+        mut matches: impl FnMut(FileId) -> Result<bool, E>,
+    ) -> Result<bool, E> {
+        if let Some(base) = &self.base_records {
+            return any_segment_file(base.as_ref(), |file| matches(file.id));
+        }
+        #[cfg(test)]
+        for &file in &self.generation.files {
+            if matches(file)? {
+                return Ok(true);
+            }
+        }
+        Ok(false)
     }
 
     pub(crate) fn visit_base_file_slots(
@@ -110,23 +194,69 @@ impl CollectionState {
         file: FileId,
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()> {
-        const OP: &str = "read base file membership";
-        let maximum = FILE_SLOT_LIMIT.fixed_batch_len(OP, size_of::<RecordSlot>())?;
-        if let Some(slots) = self.generation.file_records.records_for(file) {
-            for batch in slots.chunks(maximum) {
-                if batch
-                    .iter()
-                    .any(|slot| slot.0 as usize >= self.base_slot_count())
-                {
-                    return Err(StorageError::invalid(
-                        OP,
-                        "file slot outside the collection base",
-                    ));
+        if let Some(base) = &self.base_records {
+            return visit_checked_file_slots(base.as_ref(), file, visit);
+        }
+        #[cfg(test)]
+        {
+            const OP: &str = "read base file membership";
+            let maximum = FILE_SLOT_LIMIT.fixed_batch_len(OP, size_of::<RecordSlot>())?;
+            if let Some(slots) = self.generation.file_records.records_for(file) {
+                for batch in slots.chunks(maximum) {
+                    if batch
+                        .iter()
+                        .any(|slot| slot.0 as usize >= self.base_slot_count())
+                    {
+                        return Err(StorageError::invalid(
+                            OP,
+                            "file slot outside the collection base",
+                        ));
+                    }
+                    visit(batch)?;
                 }
-                visit(batch)?;
             }
         }
         Ok(())
+    }
+
+    pub(crate) fn base_record_estimate(&self) -> RecordDirectoryEstimate {
+        if let Some(base) = &self.base_records {
+            return base.record_directory_estimate();
+        }
+        #[cfg(test)]
+        return RecordDirectoryEstimate {
+            record_table_capacity: self.generation.records.capacity(),
+            unique_id_payload_bytes: self
+                .generation
+                .records
+                .iter()
+                .map(|record| record.id.0.len() + 2 * size_of::<usize>())
+                .sum(),
+            identity_lookup_capacity: self.id_lookup.capacity(),
+            shared_id_references: self.id_lookup.len(),
+        };
+        #[cfg(not(test))]
+        RecordDirectoryEstimate::default()
+    }
+
+    pub(crate) fn active_base_fallback_count(&self, active: &ActiveRecords) -> u64 {
+        if active.len() == 0 {
+            return 0;
+        }
+        if let Some(base) = &self.base_records {
+            return base.active_fallback_count(active);
+        }
+        #[cfg(test)]
+        return self
+            .generation
+            .records
+            .iter()
+            .filter(|record| {
+                record.class == RecordClass::RawFallback && active.contains(record.slot)
+            })
+            .count() as u64;
+        #[cfg(not(test))]
+        0
     }
 
     pub(crate) fn text_access_policy(&self) -> crate::index::storage::text::TextAccessPolicy<'_> {
@@ -182,11 +312,20 @@ impl CollectionState {
         if let Some(counts) = &self.initial_counts {
             return counts.fallback_records;
         }
-        self.generation
+        if let Some(base) = &self.base_records {
+            let all = ActiveRecords::full_selection(base.descriptor().slots)
+                .expect("sealed base local slot count");
+            return base.active_fallback_count(&all) as usize;
+        }
+        #[cfg(test)]
+        return self
+            .generation
             .records
             .iter()
-            .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
-            .count()
+            .filter(|record| record.class == RecordClass::RawFallback)
+            .count();
+        #[cfg(not(test))]
+        0
     }
 
     #[doc(hidden)]

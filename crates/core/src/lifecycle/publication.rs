@@ -226,6 +226,27 @@ impl PublishedIndex {
         record_routes: Vec<SegmentCatalogHandle>,
     ) -> Result<Self, IndexError> {
         let configuration_identity = repository.configuration_identity;
+        for (number, collection) in repository.collections().iter().enumerate() {
+            let Some(base) = &collection.base_records else {
+                continue;
+            };
+            let descriptor = base.descriptor();
+            let source = base.source();
+            if descriptor.collection != collection.collection_id()
+                || active
+                    .get(number)
+                    .is_none_or(|mask| mask.slot_count() as usize != descriptor.slots)
+                || base.backing_kind() != RecordBacking::FileRange
+                || source.registration.is_some()
+                || collection.source.as_ref().is_none_or(|adapter| {
+                    adapter.id() != source.adapter || adapter.version() != source.version
+                })
+            {
+                return Err(IndexError::InvalidPublication(
+                    "collection base descriptor mismatch".into(),
+                ));
+            }
+        }
         let catalog = if revision == repository.revision {
             Arc::clone(&repository.catalog)
         } else {
@@ -300,21 +321,7 @@ impl PublishedIndex {
                 .iter()
                 .enumerate()
                 .map(|(number, collection)| {
-                    let active = &self.active[number];
-                    let base = if active.len() == 0 {
-                        0
-                    } else {
-                        collection
-                            .generation
-                            .records
-                            .iter()
-                            .filter(|record| {
-                                record.class == crate::inventory::RecordClass::RawFallback
-                                    && active.contains(record.slot)
-                            })
-                            .count() as u64
-                    };
-                    base
+                    collection.active_base_fallback_count(&self.active[number])
                 })
                 .sum::<u64>()
                 + segment_fallback,

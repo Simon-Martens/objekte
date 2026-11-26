@@ -244,11 +244,22 @@ fn compact_published_with_budget(
             Ok(replacements)
         };
         if old.active[number].slot_count() != 0 {
-            let base = old
-                .repository
-                .storage_factory
-                .base_segment(collection, old.repository.catalog.as_ref())?;
-            compacted.extend(compact_source(base.as_ref(), &old.active[number])?);
+            if let Some(base) = &collection.base_records {
+                compacted.extend(compact_source(base.as_ref(), &old.active[number])?);
+            } else {
+                #[cfg(test)]
+                {
+                    let base = old
+                        .repository
+                        .storage_factory
+                        .base_segment(collection, old.repository.catalog.as_ref())?;
+                    compacted.extend(compact_source(base.as_ref(), &old.active[number])?);
+                }
+                #[cfg(not(test))]
+                return Err(IndexError::InvalidPublication(
+                    "active collection base is missing".into(),
+                ));
+            }
         }
         for segment in old.segment_group(number)?.iter() {
             if segment.active.len() == segment.descriptor().slots as u64 {

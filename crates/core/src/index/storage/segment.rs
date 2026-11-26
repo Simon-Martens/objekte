@@ -139,6 +139,14 @@ pub(crate) struct SegmentEstimates {
     pub index_family_bytes: usize,
 }
 
+#[derive(Default)]
+pub(crate) struct RecordDirectoryEstimate {
+    pub record_table_capacity: usize,
+    pub unique_id_payload_bytes: usize,
+    pub identity_lookup_capacity: usize,
+    pub shared_id_references: usize,
+}
+
 /// Public read-only summary of one segment for diagnostics.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 pub struct NativeSegmentSummary {
@@ -503,6 +511,10 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
         SegmentEstimates::default()
     }
 
+    fn record_directory_estimate(&self) -> RecordDirectoryEstimate {
+        RecordDirectoryEstimate::default()
+    }
+
     fn observe_backing(&self, _usage: &mut SegmentResourceUsage) {}
 
     fn index_family_estimate(&self) -> crate::lifecycle::IndexFamilyEstimate {
@@ -747,6 +759,10 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
 
     fn estimates(&self) -> SegmentEstimates {
         self.payload().estimates()
+    }
+
+    fn record_directory_estimate(&self) -> RecordDirectoryEstimate {
+        self.payload().record_directory_estimate()
     }
 
     fn observe_backing(&self, usage: &mut SegmentResourceUsage) {

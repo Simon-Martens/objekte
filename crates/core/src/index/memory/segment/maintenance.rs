@@ -101,6 +101,7 @@ impl SegmentMaintenance for IndexedCollectionSegment {
     }
 }
 
+#[cfg(test)]
 pub(crate) fn base_segment(
     collection: &crate::repository::state::CollectionState,
     files: &dyn crate::index::storage::file_catalog::FileCatalogReader,

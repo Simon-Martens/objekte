@@ -166,30 +166,28 @@ impl IndexView {
         let collections = self.repository().collections();
         let mut collection_parts = collections
             .iter()
-            .map(|collection| CollectionIndexObservation {
-                collection: collection.definition.name.clone(),
-                files: 0,
-                source_bytes: 0,
-                records: self.0.active[collection.collection_id().0 as usize].len() as usize,
-                record_table_capacity: collection.generation.records.capacity(),
-                unique_id_payload_bytes: collection
-                    .generation
-                    .records
-                    .iter()
-                    .map(|record| record.id.0.len() + 2 * std::mem::size_of::<usize>())
-                    .sum(),
-                identity_lookup_capacity: collection.id_lookup.capacity(),
-                shared_id_references: collection.id_lookup.len(),
-                posting_fields: 0,
-                sort_columns: 0,
-                relation_count: 0,
-                relation_edges: 0,
-                relation_heap_bytes: 0,
-                build_empty_array_bitmap_serialized_bytes: collection
-                    .base_empty_array_membership_bytes(),
-                bigram_stores: 0,
-                distinct_gram_keys: 0,
-                bigram_heap_bytes: 0,
+            .map(|collection| {
+                let estimate = collection.base_record_estimate();
+                CollectionIndexObservation {
+                    collection: collection.definition.name.clone(),
+                    files: 0,
+                    source_bytes: 0,
+                    records: self.0.active[collection.collection_id().0 as usize].len() as usize,
+                    record_table_capacity: estimate.record_table_capacity,
+                    unique_id_payload_bytes: estimate.unique_id_payload_bytes,
+                    identity_lookup_capacity: estimate.identity_lookup_capacity,
+                    shared_id_references: estimate.shared_id_references,
+                    posting_fields: 0,
+                    sort_columns: 0,
+                    relation_count: 0,
+                    relation_edges: 0,
+                    relation_heap_bytes: 0,
+                    build_empty_array_bitmap_serialized_bytes: collection
+                        .base_empty_array_membership_bytes(),
+                    bigram_stores: 0,
+                    distinct_gram_keys: 0,
+                    bigram_heap_bytes: 0,
+                }
             })
             .collect::<Vec<_>>();
 

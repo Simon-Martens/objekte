@@ -144,8 +144,8 @@ impl RelationIndex {
         source: &CollectionState,
         target: &CollectionState,
     ) -> Result<(), String> {
-        if self.id.source != source.generation.collection
-            || self.target_collection != target.generation.collection
+        if self.id.source != source.collection_id()
+            || self.target_collection != target.collection_id()
             || self.declaration.target_collection != target.definition.name
             || source
                 .definition
@@ -153,19 +153,19 @@ impl RelationIndex {
                 .relations()
                 .get(&self.declaration.path)
                 != Some(&self.declaration)
-            || self.offsets.len() != source.generation.records.len() + 1
+            || self.offsets.len() != source.base_slot_count() + 1
             || self.offsets.first() != Some(&0)
             || self.offsets.last().copied() != u32::try_from(self.edges.len()).ok()
         {
             return Err("relation identity or adjacency coverage mismatch".into());
         }
-        let fallback: RoaringBitmap = source
-            .generation
-            .records
-            .iter()
-            .filter(|record| record.class == RecordClass::RawFallback)
-            .map(|record| record.slot.0)
-            .collect();
+        let mut fallback = RoaringBitmap::new();
+        for slot in 0..source.base_slot_count() {
+            let record = source.base_record(RecordSlot(slot as u32))?;
+            if record.class == RecordClass::RawFallback {
+                fallback.insert(record.slot.0);
+            }
+        }
         if self.unavailable != fallback
             || !self.present.is_subset(&source.logical_records)
             || !self.nulls.is_subset(&self.present)
@@ -199,24 +199,19 @@ impl RelationIndex {
             for edge in &self.edges[start as usize..end as usize] {
                 let id = match &edge.target {
                     RelationTarget::Resolved(slot) => {
-                        let record = target
-                            .generation
-                            .records
-                            .get(slot.0 as usize)
-                            .ok_or("relation target slot out of bounds")?;
-                        if record.slot != *slot {
-                            return Err("relation target slot mismatch".into());
-                        }
+                        let record = target.base_record(*slot).map_err(|error| {
+                            format!("read relation target slot {}: {error}", slot.0)
+                        })?;
                         if edge.target_id() != record.id.0.as_ref() {
                             return Err("relation resolved target ID mismatch".into());
                         }
-                        record.id.0.as_ref()
+                        edge.target_id()
                     }
                     RelationTarget::Unresolved(id) => {
                         if edge.target_id() != id.as_str() {
                             return Err("relation unresolved target ID mismatch".into());
                         }
-                        if target.id_lookup.contains_key(id.as_str()) {
+                        if target.base_slot_for_record(id.as_str())?.is_some() {
                             return Err("relation unresolved target exists".into());
                         }
                         unresolved += 1;
@@ -379,6 +374,7 @@ impl RelationContribution {
             .saturating_add(self.unavailable.serialized_size())
     }
 
+    #[cfg(test)]
     pub(crate) fn from_resolved_index(
         index: &RelationIndex,
         record_count: usize,
@@ -757,7 +753,7 @@ impl RelationContribution {
         let source_state = collections
             .get(source.0 as usize)
             .ok_or("relation source collection missing")?;
-        if self.record_count as usize != source_state.generation.records.len() {
+        if self.record_count as usize != source_state.base_slot_count() {
             return Err("relation record coverage mismatch".into());
         }
         let target = collections
@@ -775,15 +771,16 @@ impl RelationContribution {
                 .is_some_and(|reference| reference.source.0 == slot)
             {
                 let reference = references.next().unwrap();
-                let target_ref =
-                    if let Some(target_slot) = target.id_lookup.get(reference.target_id.as_str()) {
-                        RelationTarget::Resolved(*target_slot)
-                    } else {
-                        unresolved_count = unresolved_count
-                            .checked_add(1)
-                            .ok_or("relation unresolved count overflow")?;
-                        RelationTarget::Unresolved(reference.target_id.clone())
-                    };
+                let target_ref = if let Some(target_slot) =
+                    target.base_slot_for_record(reference.target_id.as_str())?
+                {
+                    RelationTarget::Resolved(target_slot)
+                } else {
+                    unresolved_count = unresolved_count
+                        .checked_add(1)
+                        .ok_or("relation unresolved count overflow")?;
+                    RelationTarget::Unresolved(reference.target_id.clone())
+                };
                 edges.push(RelationEdge {
                     target: target_ref,
                     target_id: reference.target_id,
@@ -801,7 +798,7 @@ impl RelationContribution {
         Ok(RelationIndex {
             id: RelationId { source, ordinal },
             declaration: self.declaration,
-            target_collection: target.generation.collection,
+            target_collection: target.collection_id(),
             offsets,
             edges,
             present: self.present,
@@ -877,7 +874,7 @@ pub(crate) fn validate_indexes(collections: &[CollectionState]) -> Result<(), St
             if relation.declaration != *declaration
                 || relation.id
                     != (RelationId {
-                        source: source.generation.collection,
+                        source: source.collection_id(),
                         ordinal: u32::try_from(ordinal).map_err(|_| "too many relations")?,
                     })
             {

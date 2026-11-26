@@ -977,6 +977,7 @@ impl CollectionBuilder {
         Ok(slot)
     }
 
+    #[cfg(test)]
     pub(crate) fn finish_empty(self) -> Result<CollectionGeneration, String> {
         if !self.records.is_empty() || !self.files.is_empty() {
             return Err("empty collection generation already has members".into());
