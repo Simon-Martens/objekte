@@ -846,8 +846,8 @@ pub(crate) fn select_exact_segmented(
     let mut segment_members = vec![RoaringBitmap::new(); segments[collection_index].len()];
     for hit in result.hits {
         let id = RecordId(hit.record_id.into());
-        if let Some(slot) = state.id_lookup.get(&id)
-            && base_active[collection_index].contains(*slot)
+        if let Some(slot) = state.base_slot_for_record(id.0.as_ref())?
+            && base_active[collection_index].contains(slot)
         {
             members.insert(slot.0);
             continue;
@@ -1174,11 +1174,7 @@ pub(crate) fn posting_values_segmented(
                 let mut records = Vec::new();
                 for slot in candidates.iter() {
                     if index == 0 {
-                        let record = collection
-                            .generation
-                            .records
-                            .get(slot as usize)
-                            .ok_or("legacy base facet record missing")?;
+                        let record = collection.base_record(crate::model::RecordSlot(slot))?;
                         records.push((slot, record.file, record.range, record.revision));
                     } else {
                         let segment = &segments[collection_index][index - 1];
@@ -1585,14 +1581,16 @@ impl Repository {
             let records_for = |candidates: &RoaringBitmap| {
                 candidates
                     .iter()
-                    .filter_map(|slot| {
-                        collection
-                            .generation
-                            .records
-                            .get(slot as usize)
-                            .map(|record| (slot, record.file, record.range, record.revision))
+                    .map(|slot| {
+                        let record = collection.base_record(crate::model::RecordSlot(slot))?;
+                        Ok::<_, crate::index::storage::transfer::StorageError>((
+                            slot,
+                            record.file,
+                            record.range,
+                            record.revision,
+                        ))
                     })
-                    .collect::<Vec<_>>()
+                    .collect::<Result<Vec<_>, _>>()
             };
             if !descriptor.coverage.legacy_present_equivalent {
                 let candidates = &logical_domain - &presence;
@@ -1602,7 +1600,7 @@ impl Repository {
                     &self.catalog,
                     &path.segments,
                     binding_operation,
-                    records_for(&candidates).into_iter(),
+                    records_for(&candidates)?.into_iter(),
                 )?;
                 present_records += verified;
             }
@@ -1613,7 +1611,7 @@ impl Repository {
                     &self.catalog,
                     &path.segments,
                     binding_operation,
-                    records_for(&selected_nulls).into_iter(),
+                    records_for(&selected_nulls)?.into_iter(),
                 )?;
                 explicit_null_records = verified;
             }

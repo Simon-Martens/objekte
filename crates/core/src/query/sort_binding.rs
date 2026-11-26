@@ -1163,9 +1163,7 @@ impl SortTargetCache {
             .and_then(|execution| execution.active_records())
         {
             Ok(repo.collections[collection.0 as usize]
-                .id_lookup
-                .get(target_id)
-                .copied()
+                .base_slot_for_record(target_id)?
                 .filter(|slot| domains[collection.0 as usize].contains(*slot)))
         } else {
             Ok(match static_target {
@@ -1218,11 +1216,7 @@ impl SortTargetCache {
         slot: RecordSlot,
     ) -> Result<Option<Arc<Value>>, String> {
         let collection = &repo.collections[collection_index];
-        let record = collection
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("sort target slot is missing")?;
+        let record = collection.base_record(slot)?;
         let (cell, cancellation, execution) = {
             let mut state = cache.lock().map_err(|error| error.to_string())?;
             if state
@@ -1495,11 +1489,7 @@ impl ComputedSort {
             reduced.observe_unavailable()?;
             return Ok(());
         }
-        let record = collection
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("sort relation slot is missing")?;
+        let record = collection.base_record(slot)?;
         if record.class == RecordClass::RawFallback {
             reduced.observe_unavailable()?;
             return Ok(());
@@ -1580,10 +1570,8 @@ impl ComputedSort {
                             }
                             SortTargetCache::edge(cache)?;
                             if let Some(id) = id {
-                                if let Some(target) = repo.collections[hop.to.0 as usize]
-                                    .id_lookup
-                                    .get(id)
-                                    .copied()
+                                if let Some(target) =
+                                    repo.collections[hop.to.0 as usize].base_slot_for_record(id)?
                                 {
                                     if SortTargetCache::is_active(cache, hop.to, target)? {
                                         self.visit_related(

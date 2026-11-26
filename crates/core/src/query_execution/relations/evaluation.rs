@@ -936,7 +936,7 @@ fn visit_hop(
     }
     if depth == hops.len() {
         let collection = &repo.collections[collection_index];
-        let record = &collection.generation.records[source_slot.0 as usize];
+        let record = &*collection.base_record(source_slot)?;
         if record.class == RecordClass::RawFallback {
             merge_truth(truth, None, quantifier);
             return Ok(());
@@ -1024,7 +1024,6 @@ fn visit_hop(
                 let present = references.present;
                 let null = references.null;
                 let target_collection = &repo.collections[hop.to.0 as usize];
-                let targets = &target_collection.generation.records;
                 let mut selected = 0usize;
                 for (id, positions) in references.values {
                     if !positions_match(&hop.selectors, &positions) {
@@ -1034,15 +1033,18 @@ fn visit_hop(
                     selected += 1;
                     let target_slot = if work.has_active_domains() {
                         target_collection
-                            .id_lookup
-                            .get(id.as_str())
-                            .copied()
+                            .base_slot_for_record(id.as_str())?
                             .filter(|slot| work.is_active(hop.to, *slot))
                     } else {
-                        targets
-                            .iter()
-                            .find(|record| record.id.0.as_ref() == id.as_str())
-                            .map(|record| record.slot)
+                        let mut target = None;
+                        for local in 0..target_collection.base_slot_count() {
+                            let record = target_collection.base_record(RecordSlot(local as u32))?;
+                            if record.id.0.as_ref() == id.as_str() {
+                                target = Some(record.slot);
+                                break;
+                            }
+                        }
+                        target
                     };
                     if let Some(target_slot) = target_slot {
                         visit_hop(
@@ -1072,8 +1074,7 @@ fn visit_hop(
                 }
             }
             HopDirection::Backlink => {
-                let target =
-                    &repo.collections[collection_index].generation.records[source_slot.0 as usize];
+                let target = &*repo.collections[collection_index].base_record(source_slot)?;
                 let mut seen = 0usize;
                 let mut selected = 0usize;
                 for candidate in &source_collection.identity_order {
@@ -1142,9 +1143,7 @@ fn visit_hop(
                 selected += 1;
                 let target = if work.has_active_domains() {
                     repo.collections[hop.to.0 as usize]
-                        .id_lookup
-                        .get(edge.target_id())
-                        .copied()
+                        .base_slot_for_record(edge.target_id())?
                         .filter(|slot| work.is_active(hop.to, *slot))
                 } else if let RelationTarget::Resolved(target) = edge.target {
                     Some(target)
@@ -1181,8 +1180,7 @@ fn visit_hop(
             }
         }
         HopDirection::Backlink => {
-            let target =
-                &repo.collections[collection_index].generation.records[source_slot.0 as usize];
+            let target = &*repo.collections[collection_index].base_record(source_slot)?;
             let sources = repo.relation_reverse_sources(relation, &target.id.0);
             let mut seen = 0usize;
             let mut selected = 0usize;

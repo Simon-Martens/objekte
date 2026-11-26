@@ -177,7 +177,7 @@ impl<'a> NativeRelationProvider<'a> {
                 continue;
             };
             let collection = &self.repo.collections[address.collection.0 as usize];
-            if let Some(slot) = collection.id_lookup.get(&record.record.id) {
+            if let Some(slot) = collection.base_slot_for_record(record.record.id.0.as_ref())? {
                 matches.insert(slot.0);
             }
         }

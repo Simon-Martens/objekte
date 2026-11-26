@@ -295,9 +295,7 @@ fn prepare_with_limits(
                     }
                     let target = if let Some(domains) = active {
                         repo.collections[hop.to.0 as usize]
-                            .id_lookup
-                            .get(edge.target_id())
-                            .copied()
+                            .base_slot_for_record(edge.target_id())?
                             .filter(|slot| domains[hop.to.0 as usize].contains(*slot))
                     } else if let RelationTarget::Resolved(target) = edge.target {
                         Some(target)
@@ -396,11 +394,7 @@ fn prepare_with_limits(
             {
                 continue;
             }
-            let record = collection
-                .generation
-                .records
-                .get(slot as usize)
-                .ok_or("target prefetch slot missing")?;
+            let record = collection.base_record(crate::model::RecordSlot(slot))?;
             if record.class == RecordClass::RawFallback {
                 continue;
             }
@@ -505,7 +499,9 @@ fn prepare_with_limits(
                     }
                     let projected =
                         crate::source::preparation::prepare_query_record_with_execution(
-                            collection.generation.records[slot as usize].class,
+                            collection
+                                .base_record(crate::model::RecordSlot(slot))?
+                                .class,
                             &collection.required_file_reader(),
                             &collection.definition.schema,
                             &bytes,

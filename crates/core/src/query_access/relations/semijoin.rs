@@ -260,8 +260,7 @@ fn segment_target_candidates(
                 .ok_or("relation target candidate record missing")?;
             may.insert(
                 collection
-                    .id_lookup
-                    .get(&record.id)
+                    .base_slot_for_record(record.id.0.as_ref())?
                     .ok_or("relation target candidate has no collection route")?
                     .0,
             );
@@ -293,8 +292,7 @@ fn segment_fts_target_candidates(
             visit_record_headers(published.as_ref(), |headers| {
                 for record in headers {
                     if collection
-                        .id_lookup
-                        .get(&record.id)
+                        .base_slot_for_record(record.id.0.as_ref())?
                         .is_some_and(|global| restricted.contains(global.0))
                     {
                         mapped.insert(record.slot.0);
@@ -321,8 +319,7 @@ fn segment_fts_target_candidates(
                 .ok_or("relation FTS target candidate record missing")?;
             may.insert(
                 collection
-                    .id_lookup
-                    .get(&record.id)
+                    .base_slot_for_record(record.id.0.as_ref())?
                     .ok_or("relation FTS target candidate has no collection route")?
                     .0,
             );
@@ -569,8 +566,9 @@ fn reachable_targets(
             {
                 visit_edge(work, execution)?;
                 if let Some(active) = target_active {
-                    if let Some(target) = target_collection.id_lookup.get(edge.target_id())
-                        && active.contains(*target)
+                    if let Some(target) =
+                        target_collection.base_slot_for_record(edge.target_id())?
+                        && active.contains(target)
                     {
                         next.insert(target.0);
                     }
@@ -652,11 +650,7 @@ fn verify_target_records(
     let collection = &repo.collections[target_index];
     let mut grouped = BTreeMap::<FileId, Vec<(u32, crate::inventory::ByteRange)>>::new();
     for slot in candidates.iter() {
-        let record = collection
-            .generation
-            .records
-            .get(slot as usize)
-            .ok_or("relation target candidate slot missing")?;
+        let record = collection.base_record(crate::model::RecordSlot(slot))?;
         if record.class != RecordClass::RawFallback {
             grouped
                 .entry(record.file)
@@ -693,7 +687,7 @@ fn verify_target_records(
             work.target_bytes_read += batch.bytes_read;
             let file = repo.base_file(file_id)?;
             for (slot, bytes) in batch.records {
-                let record = &collection.generation.records[slot as usize];
+                let record = &*collection.base_record(crate::model::RecordSlot(slot))?;
                 let prepared = crate::source::preparation::prepare_query_record_with_execution(
                     record.class,
                     &collection.required_file_reader(),
@@ -1145,11 +1139,7 @@ fn reverse_sources(
             {
                 continue;
             }
-            let record = target
-                .generation
-                .records
-                .get(slot as usize)
-                .ok_or("relation reverse target slot missing")?;
+            let record = target.base_record(crate::model::RecordSlot(slot))?;
             if let Some(sources) = repo.relation_reverse_sources(index, &record.id.0) {
                 work.reverse_postings_visited += 1;
                 work.reverse_members_visited += sources.len();
@@ -1313,11 +1303,7 @@ pub(crate) fn fts_witnesses(
         let mut source_witnesses = SegmentRecordSet::default();
         for source_slot in sources.iter() {
             let source_collection = &repo.collections[hops[0].from.0 as usize];
-            let record = source_collection
-                .generation
-                .records
-                .get(source_slot as usize)
-                .ok_or("relation source witness slot missing")?;
+            let record = source_collection.base_record(crate::model::RecordSlot(source_slot))?;
             let mut address = None;
             for published in segments[hops[0].from.0 as usize].iter() {
                 if let Some(slot) = published.slot_for_record(record.id.0.as_ref())?
@@ -1347,8 +1333,7 @@ pub(crate) fn fts_witnesses(
                 .header(address.slot)?
                 .ok_or("relation witness address no longer resolves")?;
             let flat = source_collection
-                .id_lookup
-                .get(&record.id)
+                .base_slot_for_record(record.id.0.as_ref())?
                 .ok_or("relation witness has no flat source route")?;
             evidence
                 .entry(flat.0)

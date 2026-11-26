@@ -3757,23 +3757,19 @@ pub(super) fn search_segmented_relations(
             Ok(())
         };
         let collection = &repo.collections[collection_index];
-        for file_id in &collection.generation.files {
+        for file_id in collection.base_file_ids() {
             if let Some(context) = context {
                 context.check_string()?;
             }
-            let slots = collection
-                .generation
-                .file_records
-                .records_for(*file_id)
-                .ok_or("merged base file ownership missing")?;
-            let ranges = slots
-                .iter()
-                .filter(|slot| base_active[collection_index].contains(**slot))
-                .map(|slot| {
-                    let record = &collection.generation.records[slot.0 as usize];
-                    (slot.0, record.range)
-                })
-                .collect::<Vec<_>>();
+            let mut ranges = Vec::new();
+            collection.visit_base_file_slots(file_id, &mut |slots| {
+                for &slot in slots {
+                    if base_active[collection_index].contains(slot) {
+                        ranges.push((slot.0, collection.base_record(slot)?.range));
+                    }
+                }
+                Ok(())
+            })?;
             if let Some(context) = context
                 && ranges
                     .iter()

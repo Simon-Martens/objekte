@@ -25,8 +25,10 @@ use crate::index::storage::StorageFactory;
 use crate::index::storage::file_catalog::{FileCatalogSource, FileRows};
 use crate::index::storage::segment::build::{FileSegmentBuild, SegmentBuilder, SegmentSeal};
 use crate::index::storage::transfer::StorageResult;
+#[cfg(test)]
+use crate::inventory::CollectionBuilder;
+use crate::inventory::append_shifted_bitmap;
 use crate::inventory::discovery::discover;
-use crate::inventory::{CollectionBuilder, append_shifted_bitmap};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{CollectionId, FileId};
 use crate::repository::configuration::{CollectionDefinition, RepositoryOptions};
@@ -1144,10 +1146,17 @@ impl Repository {
         };
         repository.catalog = Arc::clone(&discovered);
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
-            collection.generation =
-                CollectionBuilder::new(state.id, state.definition.name.clone(), 1, file_count)
-                    .finish_empty()
-                    .map_err(IndexError::Build)?;
+            #[cfg(test)]
+            {
+                collection.generation = CollectionBuilder::new(
+                    state.id,
+                    state.definition.name.clone(),
+                    collection.base_generation(),
+                    file_count,
+                )
+                .finish_empty()
+                .map_err(IndexError::Build)?;
+            }
             collection.stats.file_count = state.member_files.len();
             collection.stats.total_file_bytes = state
                 .member_files

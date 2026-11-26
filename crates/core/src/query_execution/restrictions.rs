@@ -1643,7 +1643,7 @@ fn fallback_truth(
             if metadata {
                 let empty = Value::Object(BTreeMap::new());
                 for slot in input.iter() {
-                    let record = &collection.generation.records[slot as usize];
+                    let record = &*collection.base_record(crate::model::RecordSlot(slot))?;
                     let file = repo.base_file(record.file)?;
                     let ctx = RecordContext {
                         value: &empty,
@@ -1845,7 +1845,7 @@ fn term_set(
             let empty = Value::Object(BTreeMap::new());
             let mut result = RoaringBitmap::new();
             for slot in domain.iter() {
-                let record = &collection.generation.records[slot as usize];
+                let record = &*collection.base_record(crate::model::RecordSlot(slot))?;
                 let file = repo.base_file(record.file)?;
                 let ctx = RecordContext {
                     value: &empty,
@@ -1868,7 +1868,7 @@ fn term_set(
         {
             if let Value::Id(id) = &term.literal {
                 let mut result = RoaringBitmap::new();
-                if let Some(slot) = collection.id_lookup.get(id.as_str()) {
+                if let Some(slot) = collection.base_slot_for_record(id.as_str())? {
                     result.insert(slot.0);
                 }
                 return Ok(Some(result));
@@ -1909,9 +1909,10 @@ fn term_set(
         {
             let mut result = RoaringBitmap::new();
             for &file in files.iter() {
-                if let Some(slots) = collection.generation.file_records.records_for(file) {
+                collection.visit_base_file_slots(file, &mut |slots| {
                     result.extend(slots.iter().map(|slot| slot.0));
-                }
+                    Ok(())
+                })?;
             }
             return Ok(Some(result & domain));
         }
@@ -1920,7 +1921,7 @@ fn term_set(
             if input.len() <= 4096 {
                 let mut matched_files = HashMap::new();
                 for slot in input.iter() {
-                    let file_id = collection.generation.records[slot as usize].file;
+                    let file_id = collection.base_record(crate::model::RecordSlot(slot))?.file;
                     let matches = match matched_files.entry(file_id) {
                         std::collections::hash_map::Entry::Occupied(entry) => *entry.get(),
                         std::collections::hash_map::Entry::Vacant(entry) => {
@@ -1943,9 +1944,10 @@ fn term_set(
                 .path_candidates(bounds, MAX_INDEXED_PATH_SCAN)?
             {
                 for file in files {
-                    if let Some(slots) = collection.generation.file_records.records_for(file) {
+                    collection.visit_base_file_slots(file, &mut |slots| {
                         result.extend(slots.iter().map(|slot| slot.0));
-                    }
+                        Ok(())
+                    })?;
                 }
                 return Ok(Some(result & domain));
             }
@@ -1961,27 +1963,36 @@ fn term_set(
                 | MetadataField::FileModified
         );
         if file_level {
-            for file_id in &collection.generation.files {
-                let Some(slots) = collection.generation.file_records.records_for(*file_id) else {
-                    continue;
-                };
-                let Some(first) = slots.first() else {
-                    continue;
-                };
-                let record = &collection.generation.records[first.0 as usize];
-                let file = repo.base_file(*file_id)?;
-                let ctx = RecordContext {
-                    value: &empty,
-                    source_bytes: None,
-                    record,
-                    range: (record).record_range(),
-                    file: Some(&file),
-                    collection_name: &collection.definition.name,
-                    repository_root: Some(repo.required_file_root()),
-                };
-                if eval_term(term, &ctx)? {
-                    result.extend(slots.iter().map(|s| s.0));
-                }
+            for file_id in collection.base_file_ids() {
+                let mut matched = None;
+                collection.visit_base_file_slots(file_id, &mut |slots| {
+                    let keep = if let Some(keep) = matched {
+                        keep
+                    } else {
+                        let record = collection.base_record(slots[0])?;
+                        let file = repo.base_file(file_id).map_err(|error| {
+                            StorageError::invalid("read base filter file", error)
+                        })?;
+                        let ctx = RecordContext {
+                            value: &empty,
+                            source_bytes: None,
+                            record: record.as_ref(),
+                            range: record.record_range(),
+                            file: Some(&file),
+                            collection_name: &collection.definition.name,
+                            repository_root: Some(repo.required_file_root()),
+                        };
+                        let keep = eval_term(term, &ctx).map_err(|error| {
+                            StorageError::invalid("match base file metadata", error)
+                        })?;
+                        matched = Some(keep);
+                        keep
+                    };
+                    if keep {
+                        result.extend(slots.iter().map(|slot| slot.0));
+                    }
+                    Ok(())
+                })?;
             }
             return Ok(Some(result));
         }
@@ -1989,7 +2000,8 @@ fn term_set(
             field,
             MetadataField::CollectionName | MetadataField::RepositoryRoot
         ) {
-            if let Some(record) = collection.generation.records.first() {
+            if collection.base_slot_count() != 0 {
+                let record = &*collection.base_record(crate::model::RecordSlot(0))?;
                 let file = repo.base_file(record.file)?;
                 let ctx = RecordContext {
                     value: &empty,
@@ -2006,7 +2018,8 @@ fn term_set(
             }
             return Ok(Some(result));
         }
-        for record in &collection.generation.records {
+        for slot in 0..collection.base_slot_count() {
+            let record = &*collection.base_record(crate::model::RecordSlot(slot as u32))?;
             let file = repo.base_file(record.file)?;
             let ctx = RecordContext {
                 value: &empty,
@@ -3021,9 +3034,10 @@ fn plan_logical_expr<'a>(
                 let mut matches = RoaringBitmap::new();
                 repo.catalog.visit_paths(bounds, &mut |files| {
                     for &file in files {
-                        if let Some(slots) = collection.generation.file_records.records_for(file) {
+                        collection.visit_base_file_slots(file, &mut |slots| {
                             matches.extend(slots.iter().map(|slot| slot.0));
-                        }
+                            Ok(())
+                        })?;
                     }
                     Ok(())
                 })?;

@@ -134,7 +134,7 @@ pub(super) fn scan_file(
             if cancellation.is_some_and(CancellationToken::is_cancelled) {
                 return Err("stream cancelled".into());
             }
-            let record = &collection.generation.records[slot as usize];
+            let record = &*collection.base_record(crate::model::RecordSlot(slot))?;
             let compared_to = |worst: &crate::query_results::ranking::RankKey| {
                 sort.compare_to_rank(collection_index, record, &collection.definition.name, worst)
                     .map(std::cmp::Ordering::is_lt)

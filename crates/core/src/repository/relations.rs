@@ -290,9 +290,8 @@ impl Repository {
         let relation = self
             .relation_index(source_collection, relation_path)
             .ok_or("relation not found in source collection")?;
-        let slot = *source
-            .id_lookup
-            .get(source_id)
+        let slot = source
+            .base_slot_for_record(source_id)?
             .ok_or("source ID not found")?;
         if active.is_some_and(|domains| !domains[source.collection_id().0 as usize].contains(slot))
         {
@@ -308,9 +307,7 @@ impl Repository {
         for edge in &edges[start..end] {
             let target_slot = if let Some(domains) = active {
                 target
-                    .id_lookup
-                    .get(edge.target_id())
-                    .copied()
+                    .base_slot_for_record(edge.target_id())?
                     .filter(|slot| domains[relation.target_collection.0 as usize].contains(*slot))
             } else {
                 match &edge.target {
@@ -403,9 +400,8 @@ impl Repository {
         let relation = self
             .backlink_relation(target_collection, reverse_alias)
             .ok_or("reverse relation alias not found")?;
-        let target_slot = *target
-            .id_lookup
-            .get(target_id)
+        let target_slot = target
+            .base_slot_for_record(target_id)?
             .ok_or("target ID not found")?;
         if active.is_some_and(|domains| {
             !domains[target.collection_id().0 as usize].contains(target_slot)
@@ -501,9 +497,8 @@ impl Repository {
                             .ok_or("relation occurrence count overflow")?;
                         for edge in edges {
                             if !target_collection
-                                .id_lookup
-                                .get(edge.target_id())
-                                .is_some_and(|slot| domains[target].contains(*slot))
+                                .base_slot_for_record(edge.target_id())?
+                                .is_some_and(|slot| domains[target].contains(slot))
                             {
                                 unresolved = unresolved
                                     .checked_add(1)

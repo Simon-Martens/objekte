@@ -463,7 +463,7 @@ fn inventory_fts_evidence(
     let empty = Value::Object(Default::default());
     let mut matches = HashMap::new();
     for slot in input.iter() {
-        let record = &collection.generation.records[slot as usize];
+        let record = &*collection.base_record(RecordSlot(slot))?;
         let file = repo.base_file(record.file)?;
         let ctx = RecordContext {
             value: &empty,
@@ -1660,20 +1660,31 @@ fn has_unavailable_active_source(
         probe_source_unavailable_for_search(&path, file.revision, None).is_some()
     };
     for (index, collection) in repo.collections.iter().enumerate() {
-        for file_id in &collection.generation.files {
-            if let Some(slots) = collection.generation.file_records.records_for(*file_id)
-                && slots.iter().any(|slot| base_active[index].contains(*slot))
-                && let Some(file) = catalog.file(*file_id)?
-            {
-                if unavailable(&file)
-                    || slots
-                        .iter()
-                        .filter(|slot| base_active[index].contains(**slot))
-                        .any(|slot| {
-                            let range = collection.generation.records[slot.0 as usize].range;
-                            range.start > range.end || range.end > file.revision.size
-                        })
-                {
+        if base_active[index].len() != 0 {
+            for file_id in collection.base_file_ids() {
+                let mut probed = false;
+                let mut failed = false;
+                let mut file_size = None;
+                collection.visit_base_file_slots(file_id, &mut |slots| {
+                    for &slot in slots {
+                        if failed || !base_active[index].contains(slot) {
+                            continue;
+                        }
+                        if !probed {
+                            if let Some(file) = catalog.file(file_id)? {
+                                failed = unavailable(&file);
+                                file_size = Some(file.revision.size);
+                            }
+                            probed = true;
+                        }
+                        if !failed && let Some(size) = file_size {
+                            let range = collection.base_record(slot)?.range;
+                            failed = range.start > range.end || range.end > size;
+                        }
+                    }
+                    Ok(())
+                })?;
+                if failed {
                     return Ok(true);
                 }
             }
@@ -4253,9 +4264,8 @@ fn stream_backing_for_hit(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
 ) -> Result<StreamBacking, String> {
     if repo.collections[collection_index]
-        .id_lookup
-        .get(hit.record_id.as_str())
-        .is_some_and(|slot| base_active[collection_index].contains(*slot))
+        .base_slot_for_record(hit.record_id.as_str())?
+        .is_some_and(|slot| base_active[collection_index].contains(slot))
     {
         return Ok(StreamBacking::File);
     }
@@ -6516,17 +6526,15 @@ fn materialize_computed_cached<'a>(
     }
     let mut winners = BinaryHeap::new();
     let mut retained_key_bytes = 0u64;
-    let reads_needed = cached
-        .members
-        .iter()
-        .filter(|member| {
-            sort.bound.needs_source
-                && repo.collections[member.collection_index].generation.records
-                    [member.slot as usize]
-                    .class
-                    == RecordClass::Logical
-        })
-        .count();
+    let reads_needed = if sort.bound.needs_source {
+        cached.members.iter().try_fold(0, |count, member| {
+            let record =
+                repo.collections[member.collection_index].base_record(RecordSlot(member.slot))?;
+            Ok::<_, String>(count + usize::from(record.class == RecordClass::Logical))
+        })?
+    } else {
+        0
+    };
     let fixed_bytes = cached_sort_fixed_bytes(cached, reads_needed)?;
     check_computed_sort_budget(fixed_bytes, 0, 0)?;
     let mut reads = Vec::<CachedSortRead>::with_capacity(reads_needed);
@@ -6534,7 +6542,7 @@ fn materialize_computed_cached<'a>(
     let empty = Value::Object(Default::default());
     for (index, member) in cached.members.iter().enumerate() {
         let collection = &repo.collections[member.collection_index];
-        let record = &collection.generation.records[member.slot as usize];
+        let record = &*collection.base_record(RecordSlot(member.slot))?;
         if sort.bound.needs_source && record.class == RecordClass::Logical {
             reads.push(CachedSortRead {
                 collection_index: member.collection_index,
@@ -6619,7 +6627,7 @@ fn materialize_computed_cached<'a>(
             let file = repo.base_file(crate::model::FileId(file_id))?;
             for (index, bytes) in read.records {
                 let member = &cached.members[index as usize];
-                let record = &collection.generation.records[member.slot as usize];
+                let record = &*collection.base_record(RecordSlot(member.slot))?;
                 let extracted = prepare_query_record_with_execution(
                     record.class,
                     &collection.required_file_reader(),
@@ -6693,22 +6701,28 @@ fn materialize_computed_cached<'a>(
     let page_cache = CachedResult {
         members: page_members,
     };
-    let payload_bytes = page_cache
-        .members
-        .iter()
-        .try_fold(0u64, |total, member| {
-            let record =
-                &repo.collections[member.collection_index].generation.records[member.slot as usize];
-            let estimate = if query.options.return_mode == ReturnMode::Logical {
-                record.range.len().checked_mul(4)?
-            } else if query.options.return_mode == ReturnMode::Bytes {
-                record.range.len()
-            } else {
-                0
-            };
-            total.checked_add(estimate)
-        })
-        .ok_or("computed sort payload count overflow")?;
+    let payload_bytes =
+        page_cache
+            .members
+            .iter()
+            .try_fold(0u64, |total, member| -> Result<_, String> {
+                let record = repo.collections[member.collection_index]
+                    .base_record(RecordSlot(member.slot))?;
+                let estimate = if query.options.return_mode == ReturnMode::Logical {
+                    record
+                        .range
+                        .len()
+                        .checked_mul(4)
+                        .ok_or("computed sort payload count overflow")?
+                } else if query.options.return_mode == ReturnMode::Bytes {
+                    record.range.len()
+                } else {
+                    0
+                };
+                total
+                    .checked_add(estimate)
+                    .ok_or_else(|| "computed sort payload count overflow".into())
+            })?;
     check_computed_sort_budget(
         payload_bytes
             .checked_add(fixed_bytes)
@@ -6726,7 +6740,7 @@ fn materialize_computed_cached<'a>(
     };
     for member in &page_cache.members {
         let record =
-            &repo.collections[member.collection_index].generation.records[member.slot as usize];
+            &*repo.collections[member.collection_index].base_record(RecordSlot(member.slot))?;
         if query.options.return_mode != ReturnMode::Locator
             && !(query.options.return_mode == ReturnMode::Logical
                 && record.class == RecordClass::RawFallback)
@@ -7459,7 +7473,7 @@ fn search_impl_with_resolved_sort<'a>(
                 if let Some(delivery) = delivery.as_deref_mut() {
                     delivery.check()?;
                 }
-                let record = &collection.generation.records[slot as usize];
+                let record = &*collection.base_record(RecordSlot(slot))?;
                 let needs_evidence = query.options.evidence
                     && (cache_members.is_some()
                         || would_enter_page(repo, &sort, collection_index, record, &winners, cap)?);
@@ -7537,7 +7551,7 @@ fn search_impl_with_resolved_sort<'a>(
             // source verification, even when logical candidates still do.
             let fallback_proven = &(&candidates & &plan.proven_hits) - &collection.logical_records;
             for slot in fallback_proven.iter() {
-                let record = &collection.generation.records[slot as usize];
+                let record = &*collection.base_record(RecordSlot(slot))?;
                 let evidence = filter
                     .as_ref()
                     .map(|expr| proven_evidence(repo, collection, record, expr, &plan.proofs))
@@ -7570,7 +7584,7 @@ fn search_impl_with_resolved_sort<'a>(
                 collector.add_set(&proven, &mut counters);
             } else {
                 for slot in proven.iter() {
-                    let record = &collection.generation.records[slot as usize];
+                    let record = &*collection.base_record(RecordSlot(slot))?;
                     counters.exact_posting_matches += 1;
                     offer(
                         repo,
@@ -7641,7 +7655,7 @@ fn search_impl_with_resolved_sort<'a>(
         // Record slots are grouped by source file before opening any source.
         let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();
         for slot in candidates.iter() {
-            let record = &collection.generation.records[slot as usize];
+            let record = &*collection.base_record(RecordSlot(slot))?;
             files
                 .entry(record.file.0)
                 .or_default()
@@ -8014,7 +8028,7 @@ fn search_impl_with_resolved_sort<'a>(
                         members.extend(outcome.cache_members);
                     }
                     for matched in outcome.matches {
-                        let record = &collection.generation.records[matched.slot as usize];
+                        let record = &*collection.base_record(RecordSlot(matched.slot))?;
                         offer(
                             repo,
                             query,
@@ -8076,23 +8090,28 @@ fn search_impl_with_resolved_sort<'a>(
         .take(query.options.limit)
         .collect();
     if sort.bound.has_computed {
-        let page_payload = page
-            .iter()
-            .try_fold(0u64, |total, winner: &Winner| {
-                let record = &repo.collections[winner.collection_index].generation.records
-                    [winner.slot as usize];
-                let estimate = if all_offset.is_some() {
-                    0
-                } else if query.options.return_mode == ReturnMode::Logical {
-                    record.range.len().checked_mul(4)?
-                } else if query.options.return_mode == ReturnMode::Bytes {
-                    record.range.len()
-                } else {
-                    0
-                };
-                total.checked_add(estimate)
-            })
-            .ok_or("computed sort payload count overflow")?;
+        let page_payload =
+            page.iter()
+                .try_fold(0u64, |total, winner: &Winner| -> Result<_, String> {
+                    let record = repo.collections[winner.collection_index]
+                        .base_record(RecordSlot(winner.slot))?;
+                    let estimate = if all_offset.is_some() {
+                        0
+                    } else if query.options.return_mode == ReturnMode::Logical {
+                        record
+                            .range
+                            .len()
+                            .checked_mul(4)
+                            .ok_or("computed sort payload count overflow")?
+                    } else if query.options.return_mode == ReturnMode::Bytes {
+                        record.range.len()
+                    } else {
+                        0
+                    };
+                    total
+                        .checked_add(estimate)
+                        .ok_or_else(|| "computed sort payload count overflow".into())
+                })?;
         let targets = sort
             .target_cache
             .lock()
@@ -8107,23 +8126,19 @@ fn search_impl_with_resolved_sort<'a>(
     if let Some(delivery) = delivery.as_deref_mut()
         && all_offset.is_none()
     {
-        let anticipated = page
-            .iter()
-            .map(|winner| {
-                winner_bytes(winner).saturating_add(
-                    if winner.hit.payload.is_none()
-                        && query.options.return_mode != ReturnMode::Locator
-                    {
-                        repo.collections[winner.collection_index].generation.records
-                            [winner.slot as usize]
-                            .range
-                            .len() as usize
-                    } else {
-                        0
-                    },
-                )
-            })
-            .sum();
+        let anticipated = page.iter().try_fold(0usize, |total, winner| {
+            let range = if winner.hit.payload.is_none()
+                && query.options.return_mode != ReturnMode::Locator
+            {
+                repo.collections[winner.collection_index]
+                    .base_record(RecordSlot(winner.slot))?
+                    .range
+                    .len() as usize
+            } else {
+                0
+            };
+            Ok::<_, String>(total.saturating_add(winner_bytes(winner).saturating_add(range)))
+        })?;
         delivery.check_buffer(anticipated)?;
     }
     if all_offset.is_none() {

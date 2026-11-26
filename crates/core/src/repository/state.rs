@@ -101,6 +101,10 @@ impl CollectionState {
         Ok(self.generation.files.contains(&file))
     }
 
+    pub(crate) fn base_file_ids(&self) -> impl Iterator<Item = FileId> + '_ {
+        self.generation.files.iter().copied()
+    }
+
     pub(crate) fn visit_base_file_slots(
         &self,
         file: FileId,
