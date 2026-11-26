@@ -616,6 +616,18 @@ pub(crate) struct PublishedSegment {
     pub(crate) observation: Option<Arc<crate::index::memory::inference::InferenceObservation>>,
 }
 
+impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment {
+    type Payload = IndexedCollectionSegment;
+
+    fn payload(&self) -> &Self::Payload {
+        &self.index
+    }
+
+    fn placement_id(&self) -> Option<SegmentId> {
+        Some(self.id)
+    }
+}
+
 impl PublishedSegment {
     pub(crate) fn summary(&self) -> NativeSegmentSummary {
         let index = &self.index;

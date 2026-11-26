@@ -279,7 +279,7 @@ pub(super) fn inferred_order_path(
         if segment.active.len() == 0 {
             continue;
         }
-        if !segment.index.supports_posting_order(&part.path)? {
+        if !segment.supports_posting_order(&part.path)? {
             return Ok(None);
         }
         saw_segment = true;
@@ -330,7 +330,7 @@ pub(super) fn posting_order_eligible(
             continue;
         }
         saw_segment = true;
-        let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+        let logical = read_slot_members(segment, SegmentSlotFact::Logical)?
             .view()
             .intersect_bitmap(&segment.active.bitmap());
         let bounds = segment_filter_bounds_with_catalog(
@@ -395,15 +395,14 @@ pub(super) fn inferred_order_column_for_segment(
         query.options.sort[0].descending,
     );
     let column = cached_inferred_order(&repo.inferred_orders, key, || {
-        let rows = segment.index.build_posting_order(
-            crate::index::storage::order::PostingOrderRequest {
+        let rows =
+            segment.build_posting_order(crate::index::storage::order::PostingOrderRequest {
                 path,
                 locale: &collection.definition.sort_locale,
                 options: collection.definition.sort_options,
                 descending: query.options.sort[0].descending,
                 execution,
-            },
-        )?;
+            })?;
         rows.map(|rows| repo.storage_factory.inferred_order(rows))
             .transpose()
             .map_err(String::from)
@@ -572,7 +571,7 @@ pub(super) fn try_inferred_segment_order_page(
                 collection,
                 Some(catalog),
             )?;
-            let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+            let logical = read_slot_members(segment, SegmentSlotFact::Logical)?
                 .view()
                 .intersect_bitmap(&segment.active.bitmap());
             if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
@@ -607,10 +606,7 @@ pub(super) fn try_inferred_segment_order_page(
         while let Some(slot) = orders[index].next_slot()? {
             if candidates.contains(slot.0) {
                 let key = column.key(slot)?;
-                let record = segment
-                    .index
-                    .header(slot)?
-                    .ok_or("inferred order slot missing")?;
+                let record = segment.header(slot)?.ok_or("inferred order slot missing")?;
                 return Ok(Some((slot, key, record)));
             }
         }
@@ -674,8 +670,8 @@ pub(super) fn try_inferred_segment_order_page(
         let mut retained = Vec::with_capacity(page.len());
         for (cursor, mut hit) in page {
             let segment = cursors[cursor].0;
-            let file_backed = matches!(segment.index.backing_kind(), RecordBacking::FileRange);
-            let provider_backed = matches!(segment.index.backing_kind(), RecordBacking::Provider);
+            let file_backed = matches!(segment.backing_kind(), RecordBacking::FileRange);
+            let provider_backed = matches!(segment.backing_kind(), RecordBacking::Provider);
             if let Some(execution) = execution {
                 if file_backed {
                     let source_bytes = hit.source_range_len();

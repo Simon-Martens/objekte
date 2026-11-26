@@ -970,7 +970,7 @@ pub(crate) fn direct_lookup_segmented_counted(
     } else {
         let mut selected = None;
         for (index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(slot) = segment.index.slot_for_record(record_id)?
+            if let Some(slot) = segment.slot_for_record(record_id)?
                 && segment.active.contains(slot)
             {
                 if base.is_some() || selected.is_some() {
@@ -1047,7 +1047,7 @@ pub(crate) fn direct_lookup_segmented_counted(
         let mut result = read_direct_segment_slot(
             repo,
             collection,
-            &segment.index,
+            segment.as_ref(),
             &segment.active,
             catalog,
             revision,
@@ -1056,7 +1056,9 @@ pub(crate) fn direct_lookup_segmented_counted(
             return_mode,
             true,
         )?;
-        if let DirectLookupResult::Found(hit) = &mut result {
+        if routes.is_none()
+            && let DirectLookupResult::Found(hit) = &mut result
+        {
             repo.stamp_native_hit_at(hit, revision)?;
         }
         return Ok(result);
@@ -1065,7 +1067,9 @@ pub(crate) fn direct_lookup_segmented_counted(
     };
     match result {
         Ok(Some(mut hit)) => {
-            repo.stamp_native_hit_at(&mut hit, revision)?;
+            if routes.is_none() {
+                repo.stamp_native_hit_at(&mut hit, revision)?;
+            }
             Ok(DirectLookupResult::Found(hit))
         }
         Ok(None) => Err("active direct-lookup record disappeared".into()),
@@ -1302,7 +1306,7 @@ fn has_provider_relation_dependency(
         .map(|group| {
             group
                 .iter()
-                .any(|segment| matches!(segment.index.backing_kind(), RecordBacking::Provider))
+                .any(|segment| matches!(segment.backing_kind(), RecordBacking::Provider))
         })
         .collect::<Vec<_>>();
     if !provider_collections.iter().any(|provider| *provider) {
@@ -1937,15 +1941,14 @@ fn push_exact_order_cursor<'a>(
             continue;
         }
         let record = published
-            .index
-            .record(slot)
+            .header(slot)?
             .ok_or("exact ordered slot missing")?;
         let predicted_key_bytes = segment_rank_key_owned_bytes(
             repo,
             sort,
             collection_index,
-            published.index.as_ref(),
-            record,
+            published.as_ref(),
+            record.as_ref(),
         )?;
         let Some(bytes) = predicted_key_bytes
             .checked_add(std::mem::size_of::<LifecycleOrderCursor>())
@@ -1963,8 +1966,8 @@ fn push_exact_order_cursor<'a>(
             repo,
             sort,
             collection_index,
-            published.index.as_ref(),
-            record,
+            published.as_ref(),
+            record.as_ref(),
             None,
         )?;
         #[cfg(test)]
@@ -2175,9 +2178,7 @@ fn try_exact_segment_ordered_page(
         routed.count_work(&mut counters);
     }
     for (segment_index, published) in segments[collection_index].iter().enumerate() {
-        if lifecycle_segment_order(published.index.as_ref(), sort, query, collection_index)?
-            .is_none()
-        {
+        if lifecycle_segment_order(published.as_ref(), sort, query, collection_index)?.is_none() {
             return Ok(None);
         }
         let cached = restriction_cache
@@ -2191,7 +2192,7 @@ fn try_exact_segment_ordered_page(
                 .map(|filter| {
                     segment_filter_bounds_with_routes(
                         published.id,
-                        &published.index,
+                        published.as_ref(),
                         &published.active,
                         filter,
                         collection,
@@ -2210,7 +2211,7 @@ fn try_exact_segment_ordered_page(
         let candidates = if let Some(bounds) = bounds.as_ref() {
             let complete = bounds.may == bounds.must;
             let logical = (!complete && filter.is_some_and(excludes_raw_fallback))
-                .then(|| read_slot_members(&published.index, SegmentSlotFact::Logical))
+                .then(|| read_slot_members(published, SegmentSlotFact::Logical))
                 .transpose()?;
             let exact = complete
                 || logical
@@ -2535,9 +2536,9 @@ fn search_segmented_impl(
             || query
                 .collections
                 .contains(&repo.collections[number].definition.name))
-            && group.iter().any(|published| {
-                !matches!(published.index.backing_kind(), RecordBacking::FileRange)
-            })
+            && group
+                .iter()
+                .any(|published| !matches!(published.backing_kind(), RecordBacking::FileRange))
     });
     query
         .options
@@ -3783,10 +3784,8 @@ fn search_segmented_impl(
         for mut winner in page {
             if let Some((collection_index, segment_index)) = winner.segment {
                 let published = &segments[collection_index][segment_index];
-                let file_backed =
-                    matches!(published.index.backing_kind(), RecordBacking::FileRange);
-                let provider_backed =
-                    matches!(published.index.backing_kind(), RecordBacking::Provider);
+                let file_backed = matches!(published.backing_kind(), RecordBacking::FileRange);
+                let provider_backed = matches!(published.backing_kind(), RecordBacking::Provider);
                 if let Some(context) = context {
                     context.check_string()?;
                     if file_backed {
@@ -4269,7 +4268,7 @@ fn stream_backing_for_hit(
                 .get(hit.record_id.as_str())
                 .is_some_and(|slot| published.active.contains(*slot))
             {
-                return Ok(match published.index.backing_kind() {
+                return Ok(match published.backing_kind() {
                     RecordBacking::FileRange => StreamBacking::File,
                     RecordBacking::Retained => StreamBacking::Retained,
                     RecordBacking::Provider => StreamBacking::Provider,
@@ -4404,15 +4403,14 @@ fn push_lifecycle_order_cursor<'a>(
             continue;
         }
         let record = published
-            .index
-            .record(slot)
+            .header(slot)?
             .ok_or("lifecycle ordered slot missing")?;
         let key_bytes = segment_rank_key_owned_bytes(
             repo,
             sort,
             collection_index,
-            published.index.as_ref(),
-            record,
+            published.as_ref(),
+            record.as_ref(),
         )?;
         let bytes = key_bytes.saturating_add(order.owned_batch_bytes());
         let next = heap_bytes.checked_add(bytes).ok_or_else(|| {
@@ -4431,8 +4429,8 @@ fn push_lifecycle_order_cursor<'a>(
             repo,
             sort,
             collection_index,
-            published.index.as_ref(),
-            record,
+            published.as_ref(),
+            record.as_ref(),
             None,
         )?;
         #[cfg(test)]
@@ -4483,7 +4481,7 @@ fn try_lifecycle_ordered_stream(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|segment| !matches!(segment.index.backing_kind(), RecordBacking::FileRange))
+        .any(|segment| !matches!(segment.backing_kind(), RecordBacking::FileRange))
     {
         return Ok(None);
     }
@@ -4523,8 +4521,7 @@ fn try_lifecycle_ordered_stream(
     for entry in &prepared.collections {
         let collection_index = entry.collection_index;
         for segment in segments[collection_index].iter() {
-            if lifecycle_segment_order(segment.index.as_ref(), sort, request, collection_index)?
-                .is_none()
+            if lifecycle_segment_order(segment.as_ref(), sort, request, collection_index)?.is_none()
             {
                 return Ok(None);
             }
@@ -4568,7 +4565,7 @@ fn try_lifecycle_ordered_stream(
             {
                 let Some(probe) = exact_or_branch_evidence_fields(
                     segment.id,
-                    &segment.index,
+                    segment.as_ref(),
                     &segment.active,
                     filter,
                     collection,
@@ -4617,7 +4614,7 @@ fn try_lifecycle_ordered_stream(
                         let active = segment.active.bitmap();
                         let bounds = segment_filter_bounds_with_routes(
                             segment.id,
-                            &segment.index,
+                            segment.as_ref(),
                             &segment.active,
                             filter,
                             collection,
@@ -4630,7 +4627,7 @@ fn try_lifecycle_ordered_stream(
                                 .as_ref()
                                 .map(|routes| (routes, segment.id)),
                         )?;
-                        let logical = read_slot_members(&segment.index, SegmentSlotFact::Logical)?
+                        let logical = read_slot_members(segment, SegmentSlotFact::Logical)?
                             .view()
                             .intersect_bitmap(&segment.active.bitmap());
                         filter_exact[collection_index][segment_index] = bounds.may == bounds.must
@@ -4661,7 +4658,7 @@ fn try_lifecycle_ordered_stream(
                         .map_or(&active, |filter| filter.as_ref());
                     segment_fts_bounds_with_term(
                         segment.id,
-                        &segment.index,
+                        segment.as_ref(),
                         collection,
                         fts,
                         term,
@@ -4847,7 +4844,7 @@ fn try_lifecycle_ordered_stream(
         }
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             let order =
-                lifecycle_segment_order(published.index.as_ref(), sort, request, collection_index)?
+                lifecycle_segment_order(published.as_ref(), sort, request, collection_index)?
                     .ok_or("lifecycle stored order unavailable")?;
             push_lifecycle_order_cursor(
                 repo,

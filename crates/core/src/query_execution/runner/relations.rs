@@ -280,7 +280,7 @@ fn exact_relation_source_plan(
     for published in segments[hop.to.0 as usize].iter() {
         let bounds = segment_filter_bounds_with_catalog(
             published.id,
-            &published.index,
+            published.as_ref(),
             &published.active,
             &BoundExpr::Term(terminal.clone()),
             target,
@@ -332,7 +332,7 @@ fn relation_target_prune(
             |published, collection| {
                 segment_filter_bounds(
                     published.id,
-                    &published.index,
+                    published,
                     &published.active,
                     &BoundExpr::Term(terminal.clone()),
                     collection,
@@ -357,7 +357,7 @@ fn relation_target_prune(
             segments,
             hop,
             |published, collection| {
-                segment_fts_candidates(published.id, &published.index, collection, &local)
+                segment_fts_candidates(published.id, published, collection, &local)
             },
         );
     }
@@ -374,7 +374,7 @@ fn relation_source_candidates(
     let mut may = if plan.exact {
         RoaringBitmap::new()
     } else {
-        read_slot_members(&published.index, SegmentSlotFact::Logical)?
+        read_slot_members(published, SegmentSlotFact::Logical)?
             .view()
             .subtract_from(&published.active.bitmap())
     };
@@ -405,7 +405,7 @@ fn prune_relation_candidates(
         .map(|filter| {
             segment_filter_bounds_with_catalog(
                 published.id,
-                &published.index,
+                published,
                 &published.active,
                 filter,
                 collection,
@@ -415,7 +415,7 @@ fn prune_relation_candidates(
         })
         .transpose()?;
     let fts_may = fts
-        .map(|fts| segment_fts_candidates(published.id, &published.index, collection, fts))
+        .map(|fts| segment_fts_candidates(published.id, published, collection, fts))
         .transpose()?
         .flatten();
     let local_candidates = match (filter_may, fts_may) {
@@ -592,7 +592,7 @@ fn try_direct_relation_page(
             && segments
                 .iter()
                 .flat_map(|group| group.iter())
-                .all(|segment| matches!(segment.index.backing_kind(), RecordBacking::FileRange)))
+                .all(|segment| matches!(segment.backing_kind(), RecordBacking::FileRange)))
     {
         return Ok(None);
     }
@@ -674,7 +674,7 @@ fn try_direct_relation_page(
         && segments
             .iter()
             .flat_map(|group| group.iter())
-            .all(|segment| matches!(segment.index.backing_kind(), RecordBacking::FileRange))
+            .all(|segment| matches!(segment.backing_kind(), RecordBacking::FileRange))
     {
         return Ok(None);
     }
@@ -691,7 +691,7 @@ fn try_direct_relation_page(
         for published in segments[*source_index].iter() {
             let bounds = segment_filter_bounds_with_catalog(
                 published.id,
-                &published.index,
+                published.as_ref(),
                 &published.active,
                 local_filter,
                 &repo.collections[*source_index],
@@ -699,7 +699,7 @@ fn try_direct_relation_page(
             )?;
             // Data predicates cannot match a raw fallback. Prove only the
             // logical source domain used by the relation reverse posting.
-            let logical = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+            let logical = read_slot_members(published, SegmentSlotFact::Logical)?
                 .view()
                 .intersect_bitmap(&published.active.bitmap());
             let may = bounds.may.as_ref() & &logical;
@@ -750,7 +750,7 @@ fn try_direct_relation_page(
         }
         let config = computed.sort_config();
         for published in segments[target_index].iter() {
-            let Some(column) = published.index.order_column(&field)? else {
+            let Some(column) = published.order_column(&field)? else {
                 return Ok(None);
             };
             if !crate::query::sort_binding::stored_column_matches_config(column, config) {
@@ -1091,7 +1091,7 @@ fn try_direct_relation_page(
             matches
         };
         may &= published.active.bitmap();
-        may = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+        may = read_slot_members(published, SegmentSlotFact::Logical)?
             .view()
             .intersect_bitmap(&may);
         if local_filter.is_some() {
@@ -1110,7 +1110,7 @@ fn try_direct_relation_page(
     if query.options.return_mode == ReturnMode::Locator
         && segments[*source_index]
             .iter()
-            .all(|segment| matches!(segment.index.backing_kind(), RecordBacking::FileRange))
+            .all(|segment| matches!(segment.backing_kind(), RecordBacking::FileRange))
         && context.is_none()
         && cache_builder.is_none()
         && retained_budget.is_none()
@@ -1151,7 +1151,7 @@ fn try_direct_relation_page(
             && direct_sort_column.is_none()
             && cap < may.len() as usize
         {
-            lifecycle_segment_order(published.index.as_ref(), sort, query, *source_index)?
+            lifecycle_segment_order(published.as_ref(), sort, query, *source_index)?
         } else {
             None
         };
@@ -1223,7 +1223,7 @@ fn try_direct_relation_page(
                 total += 1;
                 counters.exact_posting_matches += 1;
             }
-            let hit = if matches!(published.index.backing_kind(), RecordBacking::FileRange) {
+            let hit = if matches!(published.backing_kind(), RecordBacking::FileRange) {
                 let resolved = segment_record_ref(
                     &published.index,
                     &published.active,
@@ -1400,13 +1400,13 @@ fn try_semijoin_relation_page(
         let may = if let Some(filter) = filter {
             let bounds = segment_filter_bounds_with_catalog(
                 published.id,
-                &published.index,
+                published.as_ref(),
                 &published.active,
                 filter,
                 collection,
                 Some(catalog),
             )?;
-            let logical = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+            let logical = read_slot_members(published, SegmentSlotFact::Logical)?
                 .view()
                 .intersect_bitmap(&published.active.bitmap());
             if (bounds.may.as_ref() & &logical) != (bounds.must.as_ref() & &logical) {
@@ -1416,7 +1416,7 @@ fn try_semijoin_relation_page(
         } else {
             published.active.bitmap().clone()
         };
-        let may = read_slot_members(&published.index, SegmentSlotFact::Logical)?
+        let may = read_slot_members(published, SegmentSlotFact::Logical)?
             .view()
             .intersect_bitmap(&may);
         input.insert_local(source_collection, published.id, may);
@@ -2342,7 +2342,7 @@ fn native_multi_hop_truth(
     for published in segments[terminal_collection].iter() {
         let bounds = segment_filter_bounds_with_catalog(
             published.id,
-            &published.index,
+            published.as_ref(),
             &published.active,
             &BoundExpr::Term((*related.terminal).clone()),
             &repo.collections[terminal_collection],
@@ -2565,7 +2565,7 @@ fn native_boolean_truth(
             for (segment_index, published) in segments[collection_index].iter().enumerate() {
                 let bounds = segment_filter_bounds_with_catalog(
                     published.id,
-                    &published.index,
+                    published.as_ref(),
                     &published.active,
                     expression,
                     &repo.collections[collection_index],
@@ -2818,7 +2818,7 @@ fn try_exact_native_boolean_page(
                 record,
                 None,
             )?;
-            let hit = if matches!(published.index.backing_kind(), RecordBacking::FileRange) {
+            let hit = if matches!(published.backing_kind(), RecordBacking::FileRange) {
                 let resolved =
                     segment_record_ref(&published.index, &published.active, catalog, slot)?
                         .ok_or("native Boolean file record retired")?;
@@ -2968,7 +2968,7 @@ fn try_native_relation_scan(
                     break;
                 }
                 let mut provider_values =
-                    if matches!(published.index.backing_kind(), RecordBacking::Provider) {
+                    if matches!(published.backing_kind(), RecordBacking::Provider) {
                         let readable = chunk
                             .iter()
                             .copied()
@@ -3243,7 +3243,7 @@ pub(super) fn search_segmented_relations(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|segment| !matches!(segment.index.backing_kind(), RecordBacking::FileRange))
+        .any(|segment| !matches!(segment.backing_kind(), RecordBacking::FileRange))
     {
         if !reference
             && let Some(result) = try_direct_relation_page(
@@ -4066,7 +4066,7 @@ pub(crate) fn search_segmented_reference_records(
     let sort = if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|segment| !matches!(segment.index.backing_kind(), RecordBacking::FileRange))
+        .any(|segment| !matches!(segment.backing_kind(), RecordBacking::FileRange))
     {
         ResolvedSort::new(repo, query)?
     } else {
@@ -4174,7 +4174,7 @@ pub(crate) fn explain_segmented(
                 if let Some((text, _)) =
                     crate::query_execution::restrictions::segment_fts_estimate_with_term(
                         published.id,
-                        &published.index,
+                        published.as_ref(),
                         collection,
                         fts,
                         crate::query_predicate::TermId::new(0),
@@ -4360,7 +4360,7 @@ pub(crate) fn explain_segmented(
                         output = output.saturating_add(published.active.len());
                     }
                     structural = structural.saturating_add(
-                        read_slot_members(&published.index, SegmentSlotFact::EmptyArray)?
+                        read_slot_members(published, SegmentSlotFact::EmptyArray)?
                             .view()
                             .intersection_len(
                                 crate::query_access::membership::MembershipView::Borrowed(

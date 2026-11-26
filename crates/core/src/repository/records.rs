@@ -154,10 +154,10 @@ impl Repository {
             return Ok(());
         };
         for segment in self.segments[collection].iter() {
-            if let Some(slot) = segment.index.slot_for_record(&hit.record_id)?
+            if let Some(slot) = segment.slot_for_record(&hit.record_id)?
                 && segment.active.contains(slot)
             {
-                hit.remap_segment_diagnostic(segment.index.as_ref(), &self.catalog, slot)?;
+                hit.remap_segment_diagnostic(segment.as_ref(), &self.catalog, slot)?;
                 break;
             }
         }

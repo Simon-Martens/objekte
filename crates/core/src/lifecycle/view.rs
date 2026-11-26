@@ -719,7 +719,7 @@ impl IndexView {
                 .ok_or_else(|| {
                     IndexError::InvalidPublication("file points to missing segment".into())
                 })?;
-            let reader = segment.index.as_ref();
+            let reader = segment.as_ref();
             let descriptor = reader.descriptor();
             if descriptor.collection != collection
                 || descriptor.slots != segment.active.slot_count() as usize

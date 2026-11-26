@@ -225,7 +225,7 @@ impl RoutedFileRestrictions {
                         .filter(|segment| segment.id == id)
                         .ok_or("file route points to a missing segment")?;
                     prepared.membership_probes += 1;
-                    visit_checked_file_slots(&segment.index, file, &mut |slots| {
+                    visit_checked_file_slots(segment, file, &mut |slots| {
                         by_segment.entry(id).or_default().extend(
                             slots
                                 .iter()

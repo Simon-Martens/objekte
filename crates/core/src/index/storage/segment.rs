@@ -484,17 +484,42 @@ pub(crate) trait SegmentReader: Send + Sync {
     ) -> StorageResult<Option<&dyn OrderedSlots>>;
 }
 
-impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
+/// A shared handle or a placed segment delegates data reads to its payload.
+/// Placing a reusable segment can assign an address independently of how the
+/// backend staged the data.
+pub(crate) trait SegmentReaderDelegate: Send + Sync {
+    type Payload: SegmentReader + ?Sized;
+
+    fn payload(&self) -> &Self::Payload;
+
+    fn placement_id(&self) -> Option<SegmentId> {
+        None
+    }
+}
+
+impl<S: SegmentReader + ?Sized> SegmentReaderDelegate for std::sync::Arc<S> {
+    type Payload = S;
+
+    fn payload(&self) -> &S {
+        self.as_ref()
+    }
+}
+
+impl<D: SegmentReaderDelegate> SegmentReader for D {
     fn descriptor(&self) -> SegmentDescriptor {
-        self.as_ref().descriptor()
+        let mut descriptor = self.payload().descriptor();
+        if let Some(id) = self.placement_id() {
+            descriptor.id = id;
+        }
+        descriptor
     }
 
     fn slot_members(&self, fact: SegmentSlotFact) -> StorageResult<SlotSet<'_>> {
-        self.as_ref().slot_members(fact)
+        self.payload().slot_members(fact)
     }
 
     fn source(&self) -> SegmentSource<'_> {
-        self.as_ref().source()
+        self.payload().source()
     }
 
     fn read_header_batch(
@@ -502,35 +527,35 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         start: usize,
         limit: BatchLimit,
     ) -> StorageResult<(Cow<'_, [RecordHeader]>, BatchStatus)> {
-        self.as_ref().read_header_batch(start, limit)
+        self.payload().read_header_batch(start, limit)
     }
 
     fn backing_kind(&self) -> RecordBacking {
-        self.as_ref().backing_kind()
+        self.payload().backing_kind()
     }
 
     fn slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
-        self.as_ref().slot_for_record(id)
+        self.payload().slot_for_record(id)
     }
 
     fn write_version(&self, slot: RecordSlot) -> StorageResult<Option<RecordWriteVersion>> {
-        self.as_ref().write_version(slot)
+        self.payload().write_version(slot)
     }
 
     fn header(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RecordHeader>>> {
-        self.as_ref().header(slot)
+        self.payload().header(slot)
     }
 
     fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>> {
-        self.as_ref().origin(slot)
+        self.payload().origin(slot)
     }
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
-        self.as_ref().retained_body(slot)
+        self.payload().retained_body(slot)
     }
 
     fn file_count(&self) -> usize {
-        self.as_ref().file_count()
+        self.payload().file_count()
     }
 
     fn read_file_batch<'a>(
@@ -539,11 +564,11 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         limit: BatchLimit,
         entries: &mut Vec<Cow<'a, FileEntry>>,
     ) -> StorageResult<BatchStatus> {
-        self.as_ref().read_file_batch(start, limit, entries)
+        self.payload().read_file_batch(start, limit, entries)
     }
 
     fn file_metadata(&self, file: FileId) -> StorageResult<Option<Cow<'_, FileEntry>>> {
-        self.as_ref().file_metadata(file)
+        self.payload().file_metadata(file)
     }
 
     fn visit_file_slots(
@@ -552,7 +577,7 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         limit: BatchLimit,
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()> {
-        self.as_ref().visit_file_slots(file, limit, visit)
+        self.payload().visit_file_slots(file, limit, visit)
     }
 
     fn with_predicate_access(
@@ -560,7 +585,7 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         access: SegmentPredicateAccess<'_>,
         use_provider: &mut UseAccessProvider<'_>,
     ) -> StorageResult<()> {
-        self.as_ref().with_predicate_access(access, use_provider)
+        self.payload().with_predicate_access(access, use_provider)
     }
 
     fn with_text_access(
@@ -568,34 +593,34 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         access: SegmentTextAccess<'_>,
         use_provider: &mut UseAccessProvider<'_>,
     ) -> StorageResult<()> {
-        self.as_ref().with_text_access(access, use_provider)
+        self.payload().with_text_access(access, use_provider)
     }
 
     fn supports_posting_order(&self, path: &FieldPath) -> StorageResult<bool> {
-        self.as_ref().supports_posting_order(path)
+        self.payload().supports_posting_order(path)
     }
 
     fn build_posting_order(
         &self,
         request: PostingOrderRequest<'_>,
     ) -> StorageResult<Option<InferredOrderRows>> {
-        self.as_ref().build_posting_order(request)
+        self.payload().build_posting_order(request)
     }
 
     fn relation_count(&self) -> usize {
-        self.as_ref().relation_count()
+        self.payload().relation_count()
     }
 
     fn relation(&self, ordinal: usize) -> StorageResult<Option<&dyn RelationReader>> {
-        self.as_ref().relation(ordinal)
+        self.payload().relation(ordinal)
     }
 
     fn reverse_relation(&self, ordinal: usize, target: &str) -> StorageResult<Option<SlotSet<'_>>> {
-        self.as_ref().reverse_relation(ordinal, target)
+        self.payload().reverse_relation(ordinal, target)
     }
 
     fn order_column(&self, path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {
-        self.as_ref().order_column(path)
+        self.payload().order_column(path)
     }
 
     fn stored_key(
@@ -603,7 +628,7 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         path: &FieldPath,
         slot: RecordSlot,
     ) -> StorageResult<Option<Cow<'_, SortKey>>> {
-        self.as_ref().stored_key(path, slot)
+        self.payload().stored_key(path, slot)
     }
 
     fn ordered_slots(
@@ -611,7 +636,7 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         sort: &[SortField],
         scalar: Option<(&FieldPath, bool)>,
     ) -> StorageResult<Option<&dyn OrderedSlots>> {
-        self.as_ref().ordered_slots(sort, scalar)
+        self.payload().ordered_slots(sort, scalar)
     }
 }
 
