@@ -134,14 +134,7 @@ fn inspected_record(
     collection: &CollectionState,
     slot: RecordSlot,
 ) -> Result<InspectedRecord, String> {
-    let record = collection
-        .generation
-        .records
-        .get(slot.0 as usize)
-        .ok_or("relation record slot out of bounds")?;
-    if record.slot != slot {
-        return Err("relation record slot mismatch".into());
-    }
+    let record = collection.base_record(slot)?;
     let file = repository.base_file(record.file)?;
     Ok(InspectedRecord {
         collection: collection.collection_id(),

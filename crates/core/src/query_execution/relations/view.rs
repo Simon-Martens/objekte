@@ -294,11 +294,7 @@ impl<'a> MergedRelationView<'a> {
             .collections
             .get(collection.0 as usize)
             .ok_or("flat address collection missing")?;
-        let record = state
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("flat address slot missing")?;
+        let record = state.base_record(slot)?;
         self.resolve_id(collection, &record.id.0)?
             .map(|address| {
                 self.native_address(address)?
@@ -328,13 +324,8 @@ impl<'a> MergedRelationView<'a> {
         if !self.base_active[index].contains(address.slot) {
             return Ok(None);
         }
-        self.repo.collections[index]
-            .generation
-            .records
-            .get(address.slot.0 as usize)
-            .map(crate::records::RecordHeader::from)
-            .map(Some)
-            .ok_or_else(|| "merged base slot missing".into())
+        let record = self.repo.collections[index].base_record(address.slot)?;
+        Ok(Some(crate::records::RecordHeader::from(record.as_ref())))
     }
 
     pub(crate) fn is_native(&self, address: MergedRecordSlot) -> bool {
@@ -500,11 +491,7 @@ impl<'a> MergedRelationView<'a> {
         if !self.base_active[index].contains(address.slot) {
             return Ok(None);
         }
-        let record = collection
-            .generation
-            .records
-            .get(address.slot.0 as usize)
-            .ok_or("merged base slot missing")?;
+        let record = collection.base_record(address.slot)?;
         let original_revision = self.repo.base_file(record.file)?.revision;
         let file = self
             .catalog
@@ -514,7 +501,7 @@ impl<'a> MergedRelationView<'a> {
             return Err("active merged record file changed without retirement".into());
         }
         Ok(Some(MergedRecord {
-            record: record.clone(),
+            record: record.into_owned(),
             file,
             collection,
         }))
@@ -532,7 +519,7 @@ impl<'a> MergedRelationView<'a> {
             .get(index)
             .ok_or("merged target collection missing")?;
         let mut found = None;
-        if let Some(slot) = state.id_lookup.get(id).copied()
+        if let Some(slot) = state.base_slot_for_record(id)?
             && self.base_active[index].contains(slot)
         {
             found = Some(MergedRecordSlot {
@@ -653,10 +640,7 @@ impl<'a> MergedRelationView<'a> {
                     .0
                     .to_string()
             } else {
-                collection.generation.records[address.slot.0 as usize]
-                    .id
-                    .0
-                    .to_string()
+                collection.base_record(address.slot)?.id.0.to_string()
             };
             keyed.push((id, address));
         }
@@ -1002,11 +986,7 @@ pub(super) fn read_reference_value(
     if !work.is_active(collection.collection_id(), slot) {
         return Ok(None);
     }
-    let record = collection
-        .generation
-        .records
-        .get(slot.0 as usize)
-        .ok_or("reference relation slot is missing")?;
+    let record = collection.base_record(slot)?;
     if record.class == RecordClass::RawFallback {
         return Ok(None);
     }

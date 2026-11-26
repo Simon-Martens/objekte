@@ -77,22 +77,6 @@ pub(crate) fn sort_cached_members(
     members: &mut [CachedMember],
 ) -> Result<(), String> {
     let sort = ResolvedSort::new(repo, query)?;
-    if query.options.sort.is_empty() {
-        members.sort_by(|a, b| {
-            let a_collection = &repo.collections[a.collection_index];
-            let b_collection = &repo.collections[b.collection_index];
-            (
-                &a_collection.definition.name,
-                &a_collection.generation.records[a.slot as usize].id.0,
-            )
-                .cmp(&(
-                    &b_collection.definition.name,
-                    &b_collection.generation.records[b.slot as usize].id.0,
-                ))
-        });
-        return Ok(());
-    }
-
     let mut error = None;
     members.sort_by_cached_key(|member| {
         if error.is_some() {
@@ -100,17 +84,15 @@ pub(crate) fn sort_cached_members(
         }
         let collection = &repo.collections[member.collection_index];
         let result = collection
-            .generation
-            .records
-            .get(member.slot as usize)
-            .ok_or_else(|| "cached rank slot missing".to_owned())
+            .base_record(RecordSlot(member.slot))
+            .map_err(String::from)
             .and_then(|record| {
                 let columns = sort.columns[member.collection_index]
                     .as_deref()
                     .ok_or("cached sort collection missing")?;
                 Ok(StoredRankKey::read(
                     columns,
-                    record,
+                    &record,
                     &collection.definition.name,
                 )?)
             });
@@ -422,18 +404,14 @@ pub(crate) fn materialize_lifecycle_cached(
             continue;
         }
         let (record, file, payload) = {
-            let record = collection
-                .generation
-                .records
-                .get(member.slot as usize)
-                .ok_or("cached lifecycle base slot missing")?;
+            let record = collection.base_record(RecordSlot(member.slot))?;
             if !base_active[member.collection_index].contains(RecordSlot(member.slot)) {
                 return Err("cached lifecycle base slot retired".into());
             }
             let file = catalog
                 .file(record.file)?
                 .ok_or("cached lifecycle base file missing")?;
-            charge_lifecycle_cached_payload(context, query, record)?;
+            charge_lifecycle_cached_payload(context, query, &record)?;
             let payload = if query.options.return_mode == ReturnMode::Locator {
                 Ok(None)
             } else {
@@ -455,7 +433,7 @@ pub(crate) fn materialize_lifecycle_cached(
                 })
                 .map(|(payload, _)| payload)
             };
-            (record.clone(), file, payload)
+            (record.into_owned(), file, payload)
         };
         let mut hit = segment_locator_hit(
             collection,
@@ -540,14 +518,14 @@ pub(crate) fn materialize_cached_stream(
     {
         delivery.check()?;
         let record =
-            &repo.collections[member.collection_index].generation.records[member.slot as usize];
+            repo.collections[member.collection_index].base_record(RecordSlot(member.slot))?;
         delivery.check_record_bytes(record.range.len() as usize)?;
         delivery.check_buffer(page_bytes.saturating_add(record.range.len() as usize))?;
         let payload = direct_payload(
             repo,
             query,
             member.collection_index,
-            record,
+            &record,
             &mut counters,
             &mut actual,
             &mut source_access,
@@ -557,7 +535,7 @@ pub(crate) fn materialize_cached_stream(
         let hit = make_hit(
             repo,
             member.collection_index,
-            record,
+            &record,
             member.matched_fields.to_vec(),
             payload,
         )?;
@@ -613,7 +591,7 @@ pub(crate) fn materialize_cached(
         .take(query.options.limit.min(cap))
     {
         let collection = &repo.collections[member.collection_index];
-        let record = &collection.generation.records[member.slot as usize];
+        let record = collection.base_record(RecordSlot(member.slot))?;
         let file = repo.base_file(record.file)?;
         let index = hits.len() as u32;
         if query.options.return_mode == ReturnMode::Logical
@@ -622,7 +600,7 @@ pub(crate) fn materialize_cached(
             hits.push(make_hit(
                 repo,
                 member.collection_index,
-                record,
+                &record,
                 member.matched_fields.to_vec(),
                 Some(Payload::LogicalUnavailable {
                     diagnostic_ref: record.diagnostic_ref,

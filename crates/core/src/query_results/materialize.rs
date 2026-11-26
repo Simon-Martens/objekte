@@ -32,8 +32,8 @@ pub(crate) fn materialize_winner_page(
         let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
         for (index, winner) in page.iter_mut().enumerate() {
             if winner.hit.payload.is_none() {
-                let record = &repo.collections[winner.collection_index].generation.records
-                    [winner.slot as usize];
+                let record = repo.collections[winner.collection_index]
+                    .base_record(crate::model::RecordSlot(winner.slot))?;
                 if query.options.return_mode == ReturnMode::Logical
                     && record.class == crate::inventory::RecordClass::RawFallback
                 {

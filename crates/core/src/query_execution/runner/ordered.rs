@@ -63,7 +63,7 @@ pub(super) struct StoredCursor<'a> {
     columns: &'a [(&'a dyn OrderColumnReader, bool)],
     rank: StoredRankKey<'a>,
     order: OrderedSlotCursor<'a>,
-    record: &'a RecordEntry,
+    record: std::borrow::Cow<'a, RecordEntry>,
     collection_index: usize,
     plan_index: usize,
 }
@@ -99,12 +99,8 @@ pub(super) fn stored_cursor<'a>(
         return Ok(None);
     };
     let collection = &repo.collections[collection_index];
-    let record = collection
-        .generation
-        .records
-        .get(slot.0 as usize)
-        .ok_or("base ordered slot missing")?;
-    let rank = StoredRankKey::read(columns, record, &collection.definition.name)?;
+    let record = collection.base_record(slot)?;
+    let rank = StoredRankKey::read(columns, &record, &collection.definition.name)?;
     Ok(Some(StoredCursor {
         columns,
         rank,
@@ -1105,7 +1101,7 @@ pub(super) fn try_stored_order_page(
                                 proven_evidence(
                                     repo,
                                     &repo.collections[entry.collection_index],
-                                    cursor.record,
+                                    &cursor.record,
                                     expr,
                                     &entry.plan.proofs,
                                 )
@@ -1119,15 +1115,15 @@ pub(super) fn try_stored_order_page(
                     {
                         if let Some(delivery) = delivery.as_deref_mut() {
                             if all_offset.is_some() {
-                                prepare_all_batch(delivery, &mut page, &counters, cursor.record)?;
+                                prepare_all_batch(delivery, &mut page, &counters, &cursor.record)?;
                             }
-                            check_stream_page_read(delivery, query, &page, cursor.record)?;
+                            check_stream_page_read(delivery, query, &page, &cursor.record)?;
                         }
                         payload = direct_payload(
                             repo,
                             query,
                             entry.collection_index,
-                            cursor.record,
+                            &cursor.record,
                             &mut counters,
                             actual,
                             &mut source_access,
@@ -1149,9 +1145,9 @@ pub(super) fn try_stored_order_page(
                     if std::ptr::eq(scan_query, query) {
                         if let Some(delivery) = delivery.as_deref_mut() {
                             if all_offset.is_some() {
-                                prepare_all_batch(delivery, &mut page, &counters, cursor.record)?;
+                                prepare_all_batch(delivery, &mut page, &counters, &cursor.record)?;
                             }
-                            check_stream_page_read(delivery, query, &page, cursor.record)?;
+                            check_stream_page_read(delivery, query, &page, &cursor.record)?;
                         }
                     }
                     let scanned = scan_file(
@@ -1222,7 +1218,7 @@ pub(super) fn try_stored_order_page(
                         page.push(make_hit(
                             repo,
                             entry.collection_index,
-                            cursor.record,
+                            &cursor.record,
                             matched_fields,
                             payload,
                         )?);
@@ -1328,8 +1324,7 @@ pub(super) fn offer_cached_key(
     }
     *peak_key_bytes = (*peak_key_bytes).max(*retained_key_bytes);
     let member = &cached.members[member_index];
-    let record =
-        &repo.collections[member.collection_index].generation.records[member.slot as usize];
+    let record = repo.collections[member.collection_index].base_record(RecordSlot(member.slot))?;
     winners.push(Winner {
         key,
         collection_index: member.collection_index,
@@ -1337,7 +1332,7 @@ pub(super) fn offer_cached_key(
         hit: make_hit(
             repo,
             member.collection_index,
-            record,
+            &record,
             member.matched_fields.to_vec(),
             None,
         )?,

@@ -1,5 +1,6 @@
 //! Stable ranking keys, resolved stored sort columns, and retained winners.
 
+use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::collections::{BinaryHeap, HashSet};
 use std::sync::Arc;
@@ -290,13 +291,13 @@ pub(crate) struct RankKey {
 pub(crate) struct StoredRankKey<'a> {
     parts: smallvec::SmallVec<[(std::borrow::Cow<'a, SortKey>, bool, SortOptions); 2]>,
     collection: &'a str,
-    id: &'a str,
+    id: Cow<'a, crate::model::RecordId>,
 }
 
 impl<'a> StoredRankKey<'a> {
     pub(crate) fn read(
         columns: &[(&'a dyn OrderColumnReader, bool)],
-        record: &'a RecordEntry,
+        record: &Cow<'a, RecordEntry>,
         collection: &'a str,
     ) -> crate::index::storage::transfer::StorageResult<Self> {
         let parts = columns
@@ -308,7 +309,10 @@ impl<'a> StoredRankKey<'a> {
         Ok(Self {
             parts,
             collection,
-            id: &record.id.0,
+            id: match record {
+                Cow::Borrowed(record) => Cow::Borrowed(&record.id),
+                Cow::Owned(record) => Cow::Owned(record.id.clone()),
+            },
         })
     }
 }
@@ -330,7 +334,7 @@ impl PartialOrd for StoredRankKey<'_> {
 impl Ord for StoredRankKey<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::query::sort_binding::compare_parts(&self.parts, &other.parts)
-            .then_with(|| (self.collection, self.id).cmp(&(other.collection, other.id)))
+            .then_with(|| (self.collection, &*self.id).cmp(&(other.collection, &*other.id)))
     }
 }
 
