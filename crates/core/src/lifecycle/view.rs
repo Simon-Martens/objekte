@@ -206,16 +206,10 @@ impl IndexView {
             }
         }
 
-        for (number, group) in self.0.segments.iter().enumerate() {
-            let directory = &self.0.record_routes[number];
-            if directory.segment_count() != group.len() {
-                return Err(IndexError::InvalidPublication(
-                    "segment directory count mismatch".into(),
-                ));
-            }
+        for directory in &self.0.record_routes {
             visit_segment_descriptors(directory.as_ref(), |position, descriptor| {
-                let placed = group
-                    .get(position)
+                let placed = directory
+                    .placement_at(position)?
                     .filter(|segment| segment.descriptor() == *descriptor)
                     .ok_or_else(|| {
                         StorageError::invalid(
@@ -718,18 +712,17 @@ impl IndexView {
         let routes = self.0.record_routes.get(number).ok_or_else(|| {
             IndexError::InvalidPublication("file points to missing collection".into())
         })?;
-        let segments = self.0.segments.get(number).ok_or_else(|| {
-            IndexError::InvalidPublication("file points to missing collection".into())
-        })?;
         for &id in routes.segments_for_file(file)?.iter() {
+            let position = routes.position(id)?.ok_or_else(|| {
+                IndexError::InvalidPublication("file points to missing segment".into())
+            })?;
             let segment = routes
-                .position(id)?
-                .and_then(|position| segments.get(position))
+                .placement_at(position)?
                 .filter(|segment| segment.id == id)
                 .ok_or_else(|| {
-                    IndexError::InvalidPublication("file points to missing segment".into())
+                    IndexError::InvalidPublication("file route points to another segment".into())
                 })?;
-            let reader = segment.as_ref();
+            let reader = segment.as_ref().as_ref();
             let descriptor = reader.descriptor();
             if descriptor.collection != collection
                 || descriptor.slots != segment.active.slot_count() as usize

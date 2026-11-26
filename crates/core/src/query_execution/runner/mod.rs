@@ -962,8 +962,8 @@ pub(crate) fn direct_lookup_segmented_counted(
             counters.route_key_probes += 1;
         }
         if let Some(found) = routes[collection_index].locate(record_id)? {
-            let segment = segments[collection_index]
-                .get(found.position)
+            let segment = routes[collection_index]
+                .placement_at(found.position)?
                 .filter(|segment| segment.id == found.route.segment)
                 .ok_or("record route points to a different segment")?;
             if found.route.slot.0 >= segment.active.slot_count() {
@@ -972,20 +972,20 @@ pub(crate) fn direct_lookup_segmented_counted(
             segment
                 .active
                 .contains(found.route.slot)
-                .then_some((found.position, found.route.slot))
+                .then_some((segment, found.route.slot))
         } else {
             None
         }
     } else {
         let mut selected = None;
-        for (index, segment) in segments[collection_index].iter().enumerate() {
+        for segment in segments[collection_index].iter() {
             if let Some(slot) = segment.slot_for_record(record_id)?
                 && segment.active.contains(slot)
             {
                 if base.is_some() || selected.is_some() {
                     return Err("duplicate active direct-lookup ID".into());
                 }
-                selected = Some((index, slot));
+                selected = Some((std::borrow::Cow::Borrowed(segment), slot));
             }
         }
         selected
@@ -1051,12 +1051,11 @@ pub(crate) fn direct_lookup_segmented_counted(
             })
         });
         (record.clone(), file, result)
-    } else if let Some((index, slot)) = selected_segment {
-        let segment = &segments[collection_index][index];
+    } else if let Some((segment, slot)) = selected_segment {
         let mut result = read_direct_segment_slot(
             repo,
             collection,
-            segment.as_ref(),
+            segment.as_ref().as_ref(),
             &segment.active,
             catalog,
             revision,

@@ -1,7 +1,6 @@
 //! Copy-on-write record and file routes for the native segment directory.
 
 use smallvec::SmallVec;
-use std::any::Any;
 use std::borrow::Cow;
 use std::collections::HashMap;
 use std::hash::{Hash, Hasher};
@@ -9,10 +8,10 @@ use std::sync::Arc;
 
 use super::segment::SegmentId;
 use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::SegmentDescriptor;
+use crate::index::storage::segment::{SegmentDescriptor, SegmentReader};
 use crate::index::storage::segment_catalog::{
     LocatedSlot, RoutedSlot, SegmentCatalogEditor, SegmentCatalogHandle, SegmentCatalogReader,
-    SegmentDirectoryDelta, SegmentRouteSource,
+    SegmentDirectoryDelta,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::model::{FileId, RecordId, RecordSlot};
@@ -26,6 +25,7 @@ pub(super) struct RecordRoutes {
     file_shards: Arc<Vec<Arc<HashMap<FileId, SmallVec<[SegmentId; 1]>>>>>,
     positions: Arc<HashMap<SegmentId, usize>>,
     descriptors: Arc<Vec<SegmentDescriptor>>,
+    placements: Arc<Vec<Arc<PublishedSegment>>>,
 }
 
 impl RecordRoutes {
@@ -88,6 +88,7 @@ impl RecordRoutes {
             ),
             positions: Arc::new(HashMap::new()),
             descriptors: Arc::new(Vec::new()),
+            placements: Arc::new(Vec::new()),
         }
     }
 
@@ -151,9 +152,25 @@ impl RecordRoutes {
         position == self.descriptors.len() && !self.positions.contains_key(&descriptor.id)
     }
 
-    fn append_descriptor(&mut self, descriptor: SegmentDescriptor, position: usize) {
+    fn append_placement(&mut self, placement: &Arc<PublishedSegment>, position: usize) {
+        let descriptor = placement.descriptor();
         Arc::make_mut(&mut self.positions).insert(descriptor.id, position);
         Arc::make_mut(&mut self.descriptors).push(descriptor);
+        Arc::make_mut(&mut self.placements).push(Arc::clone(placement));
+    }
+
+    fn refresh_placement(&mut self, placement: &Arc<PublishedSegment>) -> StorageResult<()> {
+        let position = self.position(placement.id).ok_or_else(|| {
+            StorageError::invalid("refresh segment placement", "segment is absent")
+        })?;
+        if self.descriptors[position] != placement.descriptor() {
+            return Err(StorageError::invalid(
+                "refresh segment placement",
+                "descriptor changed",
+            ));
+        }
+        Arc::make_mut(&mut self.placements)[position] = Arc::clone(placement);
+        Ok(())
     }
 
     fn add_native_routes(
@@ -181,34 +198,31 @@ impl RecordRoutes {
 
     fn add_segment(
         &mut self,
-        source: &dyn SegmentRouteSource,
+        source: &Arc<PublishedSegment>,
         position: usize,
     ) -> StorageResult<()> {
         if self.try_adopt(source, position) {
             return Ok(());
         }
-        let segment = source.segment_id();
-        let descriptor = source.segment_descriptor();
+        let segment = source.id;
+        let descriptor = source.descriptor();
         if !self.can_append(descriptor, position) {
             return Err(StorageError::invalid(
                 "install segment routes",
                 "invalid append position or repeated segment",
             ));
         }
-        self.append_descriptor(descriptor, position);
+        self.append_placement(source, position);
         self.add_routes(source, segment)
     }
 
     fn add_routes(
         &mut self,
-        source: &dyn SegmentRouteSource,
+        source: &Arc<PublishedSegment>,
         segment: SegmentId,
     ) -> StorageResult<()> {
-        if let Some(placement) = (source as &dyn Any).downcast_ref::<PublishedSegment>()
-            && let Some(payload) =
-                super::segment::maintenance::native_segment(placement.index.as_ref())
-        {
-            self.add_native_routes(placement, payload);
+        if let Some(payload) = super::segment::maintenance::native_segment(source.index.as_ref()) {
+            self.add_native_routes(source, payload);
             return Ok(());
         }
         let shards = Arc::make_mut(&mut self.shards);
@@ -235,31 +249,29 @@ impl RecordRoutes {
     /// several source segments into one replacement segment.
     fn replace_segments(
         &mut self,
-        removed: &[&dyn SegmentRouteSource],
-        replacement: &dyn SegmentRouteSource,
+        removed: &[&Arc<PublishedSegment>],
+        replacement: &Arc<PublishedSegment>,
         positions: &[SegmentId],
     ) -> StorageResult<()> {
-        let segment = replacement.segment_id();
+        let segment = replacement.id;
         if !positions.contains(&segment) {
             return Err(crate::index::storage::transfer::StorageError::invalid(
                 "replace segment routes",
                 "replacement segment has no directory position",
             ));
         }
-        let replacement_descriptor = replacement.segment_descriptor();
-        let mut descriptors = Vec::with_capacity(positions.len());
+        let mut placements = Vec::with_capacity(positions.len());
         for &id in positions {
-            if id == segment {
-                descriptors.push(replacement_descriptor);
+            let placement = if id == segment {
+                replacement
             } else {
-                let old = self
-                    .position(id)
-                    .and_then(|position| self.descriptors.get(position))
+                self.position(id)
+                    .and_then(|position| self.placements.get(position))
                     .ok_or_else(|| {
                         StorageError::invalid("replace segment routes", "unknown directory segment")
-                    })?;
-                descriptors.push(*old);
-            }
+                    })?
+            };
+            placements.push(Arc::clone(placement));
         }
         let indexed_positions = positions
             .iter()
@@ -267,10 +279,10 @@ impl RecordRoutes {
             .enumerate()
             .map(|(position, id)| (id, position))
             .collect::<HashMap<_, _>>();
-        if indexed_positions.len() != descriptors.len()
+        if indexed_positions.len() != placements.len()
             || removed
                 .iter()
-                .any(|source| indexed_positions.contains_key(&source.segment_id()))
+                .any(|source| indexed_positions.contains_key(&source.id))
         {
             return Err(StorageError::invalid(
                 "replace segment routes",
@@ -278,7 +290,7 @@ impl RecordRoutes {
             ));
         }
         for source in removed {
-            let segment = source.segment_id();
+            let segment = source.id;
             source.visit_live_records(&mut |rows| {
                 for &(id, slot) in rows {
                     self.remove_if_matches(id.0.as_ref(), segment, slot);
@@ -293,7 +305,8 @@ impl RecordRoutes {
             })?;
         }
         self.positions = Arc::new(indexed_positions);
-        self.descriptors = Arc::new(descriptors);
+        self.descriptors = Arc::new(placements.iter().map(SegmentReader::descriptor).collect());
+        self.placements = Arc::new(placements);
         self.add_routes(replacement, segment)
     }
 }
@@ -343,6 +356,13 @@ impl SegmentCatalogReader for RecordRoutes {
         Ok(RecordRoutes::position(self, segment))
     }
 
+    fn placement_at(
+        &self,
+        position: usize,
+    ) -> StorageResult<Option<Cow<'_, Arc<PublishedSegment>>>> {
+        Ok(self.placements.get(position).map(Cow::Borrowed))
+    }
+
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>> {
         Ok(Cow::Borrowed(RecordRoutes::segments_for_file(self, file)))
     }
@@ -355,18 +375,15 @@ impl SegmentCatalogReader for RecordRoutes {
         Ok(Box::new(self.clone()))
     }
 
-    fn try_adopt(&mut self, source: &dyn SegmentRouteSource, position: usize) -> bool {
-        let Some(source) = (source as &dyn Any).downcast_ref::<PublishedSegment>() else {
-            return false;
-        };
+    fn try_adopt(&mut self, source: &Arc<PublishedSegment>, position: usize) -> bool {
         let Some(payload) = super::segment::maintenance::native_segment(source.index.as_ref())
         else {
             return false;
         };
-        if !self.can_append(source.segment_descriptor(), position) {
+        if !self.can_append(source.descriptor(), position) {
             return false;
         }
-        self.append_descriptor(source.segment_descriptor(), position);
+        self.append_placement(source, position);
         self.add_native_routes(source, payload);
         true
     }
@@ -389,13 +406,21 @@ impl SegmentCatalogEditor for RecordRoutes {
                 file,
                 segment,
                 records,
+                placement,
             } => {
                 for (record, slot) in records {
                     self.remove_if_matches(record.0.as_ref(), segment, *slot);
                 }
                 self.remove_file_segment(file, segment);
+                self.refresh_placement(placement)?;
             }
-            SegmentDirectoryDelta::RetireRecord(id) => self.remove(id),
+            SegmentDirectoryDelta::RetireRecord { id, placement } => {
+                self.remove(id);
+                self.refresh_placement(placement)?;
+            }
+            SegmentDirectoryDelta::RefreshPlacement(placement) => {
+                self.refresh_placement(placement)?
+            }
         }
         Ok(())
     }

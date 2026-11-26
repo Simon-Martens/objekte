@@ -1,6 +1,5 @@
 //! Pinned routing within a collection's segment directory.
 
-use std::any::Any;
 use std::borrow::Cow;
 use std::num::NonZeroUsize;
 use std::sync::Arc;
@@ -10,6 +9,7 @@ use smallvec::SmallVec;
 use crate::model::{FileId, RecordId, RecordSlot};
 
 use super::liveness::ActiveRecords;
+use super::publication::PublishedSegment;
 use super::segment::{
     SegmentDescriptor, SegmentId, SegmentReader, visit_record_headers, visit_segment_files,
 };
@@ -55,34 +55,20 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
     ) -> StorageResult<(Cow<'_, [SegmentDescriptor]>, BatchStatus)>;
 
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>>;
+    fn placement_at(
+        &self,
+        position: usize,
+    ) -> StorageResult<Option<Cow<'_, Arc<PublishedSegment>>>>;
+
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>>;
     fn estimated_directory_bytes(&self) -> usize;
     fn edit(&self) -> StorageResult<Box<dyn SegmentCatalogEditor>>;
 
     /// Attempt an infallible install when the candidate has unique ownership.
     /// A backend that cannot adopt the contribution leaves this handle intact.
-    fn try_adopt(&mut self, _source: &dyn SegmentRouteSource, _position: usize) -> bool {
+    fn try_adopt(&mut self, _source: &Arc<PublishedSegment>, _position: usize) -> bool {
         false
     }
-}
-
-/// A sealed segment supplies route inputs without exposing its containers.
-pub(crate) trait SegmentRouteSource: Any + Send + Sync {
-    fn segment_descriptor(&self) -> SegmentDescriptor;
-
-    fn segment_id(&self) -> SegmentId {
-        self.segment_descriptor().id
-    }
-
-    fn visit_live_records(
-        &self,
-        visit: &mut dyn FnMut(&[(&RecordId, RecordSlot)]) -> StorageResult<()>,
-    ) -> StorageResult<()>;
-
-    fn visit_files(
-        &self,
-        visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
-    ) -> StorageResult<()>;
 }
 
 const DESCRIPTOR_LIMIT: BatchLimit = BatchLimit::new(
@@ -181,20 +167,25 @@ pub(crate) fn visit_file_routes(
 
 pub(crate) enum SegmentDirectoryDelta<'a> {
     Install {
-        source: &'a dyn SegmentRouteSource,
+        source: &'a Arc<PublishedSegment>,
         position: usize,
     },
     Replace {
-        removed: &'a [&'a dyn SegmentRouteSource],
-        replacement: &'a dyn SegmentRouteSource,
+        removed: &'a [&'a Arc<PublishedSegment>],
+        replacement: &'a Arc<PublishedSegment>,
         positions: &'a [SegmentId],
     },
     RetireFile {
         file: FileId,
         segment: SegmentId,
         records: &'a [(RecordId, RecordSlot)],
+        placement: &'a Arc<PublishedSegment>,
     },
-    RetireRecord(&'a str),
+    RetireRecord {
+        id: &'a str,
+        placement: &'a Arc<PublishedSegment>,
+    },
+    RefreshPlacement(&'a Arc<PublishedSegment>),
 }
 
 pub(crate) trait SegmentCatalogEditor: Send {
@@ -204,7 +195,7 @@ pub(crate) trait SegmentCatalogEditor: Send {
 
 pub(crate) fn install_segment(
     handle: &mut SegmentCatalogHandle,
-    source: &dyn SegmentRouteSource,
+    source: &Arc<PublishedSegment>,
     position: usize,
 ) -> StorageResult<()> {
     if Arc::get_mut(handle).is_some_and(|candidate| candidate.try_adopt(source, position)) {
@@ -223,9 +214,9 @@ pub(crate) fn edited_catalog(
     editor.seal()
 }
 
-pub(crate) fn build_catalog<'a, S: SegmentRouteSource>(
+pub(crate) fn build_catalog<'a>(
     factory: &dyn super::StorageFactory,
-    segments: impl IntoIterator<Item = &'a S>,
+    segments: impl IntoIterator<Item = &'a Arc<PublishedSegment>>,
 ) -> StorageResult<SegmentCatalogHandle> {
     let mut editor = factory.segment_catalog()?;
     for (position, segment) in segments.into_iter().enumerate() {

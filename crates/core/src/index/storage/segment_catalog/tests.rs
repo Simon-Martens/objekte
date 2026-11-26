@@ -10,6 +10,7 @@ use crate::index::storage::order::{
     SortKey, SortOptions,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
+use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::SegmentReader;
 use crate::index::storage::segment::build::{
     BuiltSegment, DirectSegmentBuild, FileSegmentBuild, SegmentBuilder, SegmentSeal,
@@ -52,6 +53,7 @@ struct TableFactory {
     fail_file_worker: AtomicBool,
     fail_seal: AtomicBool,
     fail_lookup: AtomicBool,
+    fail_placement: AtomicBool,
     wrong_slot: AtomicBool,
     fail_directory_refill: AtomicBool,
 }
@@ -257,6 +259,7 @@ impl StorageFactory for Arc<TableFactory> {
             files: BTreeMap::new(),
             positions: BTreeMap::new(),
             descriptors: BTreeMap::new(),
+            placements: BTreeMap::new(),
             control: Arc::clone(self),
         }))
     }
@@ -392,6 +395,14 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
     assert_eq!(factory.direct_seals.load(Ordering::Relaxed), 1);
     assert_eq!(factory.retained_reads.load(Ordering::Relaxed), 0);
 
+    factory.fail_placement.store(true, Ordering::Relaxed);
+    assert!(
+        pinned
+            .get_record("entries", "kept", ReturnMode::Locator)
+            .unwrap_err()
+            .contains("injected placement failure")
+    );
+    factory.fail_placement.store(false, Ordering::Relaxed);
     factory.wrong_slot.store(true, Ordering::Relaxed);
     assert!(
         pinned
@@ -909,6 +920,7 @@ struct TableDirectory {
     files: BTreeMap<u32, Vec<SegmentId>>,
     positions: BTreeMap<SegmentId, usize>,
     descriptors: BTreeMap<usize, SegmentDescriptor>,
+    placements: BTreeMap<SegmentId, Arc<PublishedSegment>>,
     control: Arc<TableFactory>,
 }
 
@@ -964,6 +976,24 @@ impl SegmentCatalogReader for TableDirectory {
         Ok(self.positions.get(&segment).copied())
     }
 
+    fn placement_at(
+        &self,
+        position: usize,
+    ) -> StorageResult<Option<Cow<'_, Arc<PublishedSegment>>>> {
+        if self.control.fail_placement.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "pin test placement",
+                "injected placement failure",
+            ));
+        }
+        Ok(self
+            .descriptors
+            .get(&position)
+            .and_then(|descriptor| self.placements.get(&descriptor.id))
+            .cloned()
+            .map(Cow::Owned))
+    }
+
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>> {
         Ok(Cow::Borrowed(
             self.files.get(&file.0).map_or(&[], Vec::as_slice),
@@ -983,10 +1013,10 @@ impl SegmentCatalogEditor for TableDirectory {
     fn apply(&mut self, delta: SegmentDirectoryDelta<'_>) -> StorageResult<()> {
         match delta {
             SegmentDirectoryDelta::Install { source, position } => {
-                let segment = source.segment_id();
+                let segment = source.id;
                 self.positions.insert(segment, position);
-                self.descriptors
-                    .insert(position, source.segment_descriptor());
+                self.placements.insert(segment, Arc::clone(source));
+                self.descriptors.insert(position, source.descriptor());
                 source.visit_live_records(&mut |rows| {
                     for &(id, slot) in rows {
                         self.records.insert(id.clone(), (segment, slot));
@@ -1001,14 +1031,20 @@ impl SegmentCatalogEditor for TableDirectory {
                 })?;
                 self.control.installs.fetch_add(1, Ordering::Relaxed);
             }
-            SegmentDirectoryDelta::RetireRecord(id) => {
+            SegmentDirectoryDelta::RetireRecord { id, placement } => {
                 self.records.remove(id);
+                self.placements.insert(placement.id, Arc::clone(placement));
+            }
+            SegmentDirectoryDelta::RefreshPlacement(placement) => {
+                self.placements.insert(placement.id, Arc::clone(placement));
             }
             SegmentDirectoryDelta::RetireFile {
                 file,
                 segment,
                 records,
+                placement,
             } => {
+                self.placements.insert(segment, Arc::clone(placement));
                 for (id, slot) in records {
                     if self.records.get(id) == Some(&(segment, *slot)) {
                         self.records.remove(id);
@@ -1024,7 +1060,8 @@ impl SegmentCatalogEditor for TableDirectory {
                 positions,
             } => {
                 for source in removed {
-                    let segment = source.segment_id();
+                    let segment = source.id;
+                    self.placements.remove(&segment);
                     self.records.retain(|_, (owner, _)| *owner != segment);
                     self.files
                         .values_mut()
@@ -1033,7 +1070,7 @@ impl SegmentCatalogEditor for TableDirectory {
                 let next_descriptors = positions
                     .iter()
                     .enumerate()
-                    .filter(|(_, id)| **id != replacement.segment_id())
+                    .filter(|(_, id)| **id != replacement.id)
                     .map(|(position, id)| (position, self.descriptors[&self.positions[id]]))
                     .collect();
                 self.descriptors = next_descriptors;
@@ -1043,7 +1080,7 @@ impl SegmentCatalogEditor for TableDirectory {
                     .enumerate()
                     .map(|(position, id)| (id, position))
                     .collect();
-                let position = self.positions[&replacement.segment_id()];
+                let position = self.positions[&replacement.id];
                 self.apply(SegmentDirectoryDelta::Install {
                     source: replacement,
                     position,

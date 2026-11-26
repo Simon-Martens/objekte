@@ -7,7 +7,7 @@ use crate::model::{FileId, RecordSlot};
 
 use super::file_catalog::FileCatalogHandle;
 use super::liveness::ActiveRecords;
-use super::segment::{SegmentDescriptor, SegmentHandle, SegmentId, SegmentReader};
+use super::segment::{SegmentHandle, SegmentId, SegmentReader};
 use super::transfer::StorageResult;
 
 /// One published payload and its independently versioned local liveness.
@@ -31,27 +31,21 @@ impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment 
     }
 }
 
-impl crate::index::storage::segment_catalog::SegmentRouteSource for PublishedSegment {
-    fn segment_descriptor(&self) -> SegmentDescriptor {
-        self.descriptor()
-    }
-
-    fn visit_live_records(
+impl PublishedSegment {
+    pub(crate) fn visit_live_records(
         &self,
         visit: &mut dyn FnMut(&[(&crate::model::RecordId, RecordSlot)]) -> StorageResult<()>,
     ) -> StorageResult<()> {
         crate::index::storage::segment_catalog::visit_live_routes(self, &self.active, visit)
     }
 
-    fn visit_files(
+    pub(crate) fn visit_files(
         &self,
         visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
     ) -> StorageResult<()> {
         crate::index::storage::segment_catalog::visit_file_routes(self, visit)
     }
-}
 
-impl PublishedSegment {
     pub(crate) fn construction_observation_bytes(&self) -> usize {
         self.observation
             .as_ref()

@@ -1618,6 +1618,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
             .retired(&retired)
             .unwrap();
     }
+    next.rebuild_record_routes(0).unwrap();
     index.publish_prepared(old.revision(), next).unwrap();
     let live = index.view().unwrap();
     assert_eq!(old.search(&all_records()).unwrap().count, Some(6));
@@ -1818,6 +1819,7 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         let slot = segment.native_payload().id_lookup[record_id];
         segment.active = segment.active.retired(&[slot]).unwrap();
     }
+    next.rebuild_all_record_routes().unwrap();
     index.publish_prepared(old.revision(), next).unwrap();
     let live = index.view().unwrap();
     let request = |collection: &str, filter: &str| Query {
