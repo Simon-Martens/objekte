@@ -7,7 +7,7 @@ use regex_syntax::ParserBuilder;
 use regex_syntax::hir::{Hir, HirKind, literal::Extractor};
 use roaring::RoaringBitmap;
 
-use crate::index::bigram::{BigramIndex, BigramRequest};
+use crate::index::storage::text::BigramRequest;
 use crate::query::{CaseSensitivity, RegexOptions};
 
 const MAX_PATTERN_BYTES: usize = 4 * 1024;
@@ -116,43 +116,16 @@ impl RegexCondition {
         Some(Self::Literal(BigramRequest::new(text)))
     }
 
-    #[cfg(test)]
-    pub fn candidates(&self, index: &BigramIndex) -> Option<RoaringBitmap> {
-        match self {
-            Self::Literal(request) => index.candidates_prepared(request),
-            Self::All(parts) => {
-                let mut result: Option<RoaringBitmap> = None;
-                for part in parts {
-                    if let Some(set) = part.candidates(index) {
-                        if let Some(result) = &mut result {
-                            *result &= set;
-                        } else {
-                            result = Some(set);
-                        }
-                    }
-                }
-                result
-            }
-            Self::Any(parts) => {
-                let mut result = RoaringBitmap::new();
-                for part in parts {
-                    result |= part.candidates(index)?;
-                }
-                Some(result)
-            }
-        }
-    }
-
-    pub(crate) fn candidates_checked(
+    pub(crate) fn candidates<E>(
         &self,
-        index: &BigramIndex,
-    ) -> Result<Option<RoaringBitmap>, String> {
+        lookup: &mut impl FnMut(&BigramRequest) -> Result<Option<RoaringBitmap>, E>,
+    ) -> Result<Option<RoaringBitmap>, E> {
         match self {
-            Self::Literal(request) => Ok(index.candidates_prepared(request)),
+            Self::Literal(request) => lookup(request),
             Self::All(parts) => {
                 let mut result: Option<RoaringBitmap> = None;
                 for part in parts {
-                    if let Some(set) = part.candidates_checked(index)? {
+                    if let Some(set) = part.candidates(lookup)? {
                         if let Some(result) = &mut result {
                             *result &= set;
                         } else {
@@ -165,7 +138,7 @@ impl RegexCondition {
             Self::Any(parts) => {
                 let mut result = RoaringBitmap::new();
                 for part in parts {
-                    let Some(set) = part.candidates_checked(index)? else {
+                    let Some(set) = part.candidates(lookup)? else {
                         return Ok(None);
                     };
                     result |= set;
@@ -175,16 +148,17 @@ impl RegexCondition {
         }
     }
 
-    pub fn estimate(&self, index: &BigramIndex) -> Option<(u64, f64)> {
+    pub(crate) fn estimate(
+        &self,
+        max_count: u64,
+        lookup: &mut impl FnMut(&BigramRequest) -> Option<(u64, f64)>,
+    ) -> Option<(u64, f64)> {
         match self {
-            Self::Literal(request) => Some((
-                index.estimate_prepared(request)?,
-                request.gram_count(index.alphabet) as f64,
-            )),
+            Self::Literal(request) => lookup(request),
             Self::All(parts) => {
                 let mut result: Option<(u64, f64)> = None;
                 for part in parts {
-                    if let Some((count, work)) = part.estimate(index) {
+                    if let Some((count, work)) = part.estimate(max_count, lookup) {
                         if let Some((current, total_work)) = &mut result {
                             *current = (*current).min(count);
                             *total_work += work;
@@ -199,11 +173,11 @@ impl RegexCondition {
                 let mut count = 0u64;
                 let mut work = 0.0;
                 for part in parts {
-                    let (branch_count, branch_work) = part.estimate(index)?;
+                    let (branch_count, branch_work) = part.estimate(max_count, lookup)?;
                     count = count.saturating_add(branch_count);
                     work += branch_work;
                 }
-                Some((count.min(index.record_count as u64), work))
+                Some((count.min(max_count), work))
             }
         }
     }

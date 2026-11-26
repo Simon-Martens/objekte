@@ -11,19 +11,19 @@ mod record_versions;
 pub(crate) mod statistics;
 
 use std::borrow::Cow;
-use std::collections::{BTreeMap, HashMap};
+use std::collections::HashMap;
 #[cfg(test)]
 use std::num::NonZeroUsize;
-use std::ops::{BitOrAssign, Deref, DerefMut};
+use std::ops::{Deref, DerefMut};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::bigram::BigramIndex;
+use crate::index::memory::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
-use crate::index::posting::{CustomPostingIndex, PostingCollection};
-use crate::index::relation::RelationContribution;
-use crate::index::sorting::SortCollection;
+use crate::index::memory::posting::{CustomPostingIndex, PostingCollection};
+use crate::index::memory::relation::RelationContribution;
+use crate::index::memory::sorting::SortCollection;
 use crate::index::storage::order::{
     InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
 };
@@ -68,91 +68,9 @@ impl<T: Clone> DerefMut for SharedColumn<T> {
     }
 }
 
+#[cfg(test)]
 pub(crate) use crate::index::storage::segment::SegmentRecordAddress;
 pub use crate::index::storage::segment::{SegmentId, SegmentPolicy};
-
-/// Compact membership spanning segments without merging local slot domains.
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
-pub(crate) struct SegmentRecordSet {
-    members: BTreeMap<(CollectionId, SegmentId), RoaringBitmap>,
-}
-
-impl SegmentRecordSet {
-    pub(crate) fn insert(&mut self, address: SegmentRecordAddress) -> bool {
-        self.members
-            .entry((address.collection, address.segment))
-            .or_default()
-            .insert(address.slot.0)
-    }
-
-    pub(crate) fn len(&self) -> u64 {
-        self.members
-            .values()
-            .fold(0u64, |total, slots| total.saturating_add(slots.len()))
-    }
-
-    pub(crate) fn is_empty(&self) -> bool {
-        self.members.values().all(RoaringBitmap::is_empty)
-    }
-
-    pub(crate) fn contains(&self, address: SegmentRecordAddress) -> bool {
-        self.members
-            .get(&(address.collection, address.segment))
-            .is_some_and(|slots| slots.contains(address.slot.0))
-    }
-
-    pub(crate) fn local(
-        &self,
-        collection: CollectionId,
-        segment: SegmentId,
-    ) -> Option<&RoaringBitmap> {
-        self.members.get(&(collection, segment))
-    }
-
-    pub(crate) fn insert_local(
-        &mut self,
-        collection: CollectionId,
-        segment: SegmentId,
-        slots: RoaringBitmap,
-    ) {
-        if slots.is_empty() {
-            return;
-        }
-        *self.members.entry((collection, segment)).or_default() |= slots;
-    }
-
-    pub(crate) fn intersect(&mut self, other: &Self) {
-        for (&(collection, segment), slots) in &mut self.members {
-            if let Some(other) = other.members.get(&(collection, segment)) {
-                *slots &= other;
-            } else {
-                slots.clear();
-            }
-        }
-        self.members.retain(|_, slots| !slots.is_empty());
-    }
-
-    pub(crate) fn union(&mut self, other: &Self) {
-        for (&(collection, segment), slots) in &other.members {
-            self.members
-                .entry((collection, segment))
-                .or_default()
-                .bitor_assign(slots);
-        }
-    }
-
-    pub(crate) fn iter(&self) -> impl Iterator<Item = SegmentRecordAddress> + '_ {
-        self.members
-            .iter()
-            .flat_map(|(&(collection, segment), slots)| {
-                slots.iter().map(move |slot| SegmentRecordAddress {
-                    collection,
-                    segment,
-                    slot: RecordSlot(slot),
-                })
-            })
-    }
-}
 
 /// One physical file in a segment. File IDs remain repository-global; slots
 /// are local to the owning segment.
@@ -1041,8 +959,9 @@ impl SegmentReader for IndexedCollectionSegment {
         let Some(posting) = self.postings.fields.get(&relation.declaration().path) else {
             return Ok(None);
         };
-        let members =
-            posting.value_posting(&crate::index::posting::ScalarKey::Id(target.to_owned()));
+        let members = posting.value_posting(&crate::index::memory::posting::ScalarKey::Id(
+            target.to_owned(),
+        ));
         Ok(Some(members.map_or(SlotSet::Empty, SlotSet::borrowed)))
     }
 
@@ -1389,16 +1308,16 @@ fn field_path_bytes(path: &crate::model::FieldPath) -> usize {
     path_bytes(&path.segments)
 }
 
-fn posting_bytes(index: &crate::index::posting::PostingIndex) -> usize {
+fn posting_bytes(index: &crate::index::memory::posting::PostingIndex) -> usize {
     let mut total = path_bytes(&index.path).saturating_add(ACCOUNTING_OVERHEAD);
     total = total.saturating_add(bitmap_bytes(&index.presence));
     total = total.saturating_add(index.values.len().saturating_mul(
-        ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::index::posting::ScalarKey>(),
+        ACCOUNTING_OVERHEAD + std::mem::size_of::<crate::index::memory::posting::ScalarKey>(),
     ));
     for (key, bitmap) in &index.values {
         total = total.saturating_add(bitmap_bytes(bitmap));
-        if let crate::index::posting::ScalarKey::String(value)
-        | crate::index::posting::ScalarKey::Id(value) = key
+        if let crate::index::memory::posting::ScalarKey::String(value)
+        | crate::index::memory::posting::ScalarKey::Id(value) = key
         {
             total = total.saturating_add(value.len());
         }
@@ -1435,7 +1354,8 @@ fn sort_bytes(sorting: &SortCollection) -> usize {
             .saturating_add(field_path_bytes(path))
             .saturating_add(ACCOUNTING_OVERHEAD)
             .saturating_add(
-                column.keys.capacity() * std::mem::size_of::<crate::index::sorting::SortKey>(),
+                column.keys.capacity()
+                    * std::mem::size_of::<crate::index::memory::sorting::SortKey>(),
             )
             .saturating_add(column.ascending.capacity() * std::mem::size_of::<RecordSlot>())
             .saturating_add(column.descending.capacity() * std::mem::size_of::<RecordSlot>())
@@ -1443,8 +1363,8 @@ fn sort_bytes(sorting: &SortCollection) -> usize {
             .saturating_add(column.collation_version.len());
         for key in &column.keys {
             total = total.saturating_add(match key {
-                crate::index::sorting::SortKey::String(value) => value.len(),
-                crate::index::sorting::SortKey::Id(value) => value.len(),
+                crate::index::memory::sorting::SortKey::String(value) => value.len(),
+                crate::index::memory::sorting::SortKey::Id(value) => value.len(),
                 _ => 0,
             });
         }
@@ -1453,7 +1373,7 @@ fn sort_bytes(sorting: &SortCollection) -> usize {
         total = total
             .saturating_add(
                 composite.fields.capacity()
-                    * std::mem::size_of::<crate::index::sorting::CompositeSortPart>(),
+                    * std::mem::size_of::<crate::index::memory::sorting::CompositeSortPart>(),
             )
             .saturating_add(composite.order.capacity() * std::mem::size_of::<RecordSlot>());
         for part in &composite.fields {

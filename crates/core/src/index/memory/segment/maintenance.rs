@@ -129,7 +129,7 @@ pub(crate) fn base_segment(
         .relations
         .iter()
         .map(|relation| {
-            crate::index::relation::RelationContribution::from_resolved_index(
+            crate::index::memory::relation::RelationContribution::from_resolved_index(
                 relation,
                 collection.generation.records.len(),
             )
@@ -139,7 +139,7 @@ pub(crate) fn base_segment(
     let records = collection.generation.records.clone();
     let backing = SegmentBacking::file_ranges(&records);
     let mut segment = IndexedCollectionSegment {
-        id: crate::index::segment::SegmentId::new(1),
+        id: crate::index::memory::segment::SegmentId::new(1),
         collection: collection.generation.collection,
         source_id: collection.required_file_reader().id().into(),
         source_version: collection.required_file_reader().version(),

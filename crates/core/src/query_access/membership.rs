@@ -1,5 +1,8 @@
 //! Domain-qualified query membership with explicit ownership.
 
+mod segments;
+pub(crate) use segments::SegmentRecordSet;
+
 use std::borrow::Cow;
 use std::sync::Arc;
 

@@ -9,8 +9,8 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::index::storage::publication::PublishedSegment;
+use crate::index::storage::segment::SegmentRecordAddress;
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query::Quantifier;
@@ -21,6 +21,7 @@ use crate::query::{
     binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::same_bound_term,
 };
 use crate::query_access::contract::{AccessExecution, AccessRequest, InputEstimate};
+use crate::query_access::membership::SegmentRecordSet;
 use crate::query_access::membership::SlotInput;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::relations::NativeRelationProvider;

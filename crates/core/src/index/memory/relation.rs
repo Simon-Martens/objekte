@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::index::memory::inventory::append_shifted_bitmap;
 #[cfg(test)]
-use crate::index::posting::ScalarKey;
+use crate::index::memory::posting::ScalarKey;
 #[cfg(test)]
 use crate::inventory::RecordClass;
 #[cfg(test)]
@@ -25,6 +25,7 @@ use crate::schema::relations::RelationId;
 static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
     std::sync::atomic::AtomicUsize::new(0);
 
+#[cfg(test)]
 pub use crate::index::storage::relation::{RelationEdge, RelationTarget};
 
 use crate::index::storage::relation::{RelationReader, RelationRow, VisitRelationTarget};

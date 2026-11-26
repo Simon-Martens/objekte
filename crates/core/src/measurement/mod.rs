@@ -257,3 +257,16 @@ fn source_diagnostics_remain_bounded_after_many_failures() {
             .all(|entry| entry.message.len() <= 256)
     );
 }
+
+pub(crate) fn bigram_storage_diagnostic_enabled() -> bool {
+    #[cfg(not(feature = "detailed-profiling"))]
+    {
+        return false;
+    }
+
+    #[cfg(feature = "detailed-profiling")]
+    {
+        static ENABLED: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
+        *ENABLED.get_or_init(|| std::env::var_os("OBJEKTE_BIGRAM_STORAGE_STATS").is_some())
+    }
+}

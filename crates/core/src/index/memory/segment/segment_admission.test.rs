@@ -3,8 +3,8 @@ use crate::construction::batch::{SourceFileInput, process_batch};
 use crate::construction::file_preparation::{
     FilePreparationBinding, PreparedFileBuild, prepare_file_build,
 };
-use crate::index::bigram::BigramAlphabet;
-use crate::index::posting::ScalarKey;
+use crate::index::memory::bigram::BigramAlphabet;
+use crate::index::memory::posting::ScalarKey;
 use crate::inference::InferenceConfig;
 use crate::inference::{InferenceMode, InferencePolicy};
 use crate::inventory::FileStatus;
@@ -364,7 +364,7 @@ fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     let mut limited = SegmentAdmission::with_limits(
         CollectionId(0),
         &source,
-        crate::index::segment::SegmentPolicy {
+        crate::index::memory::segment::SegmentPolicy {
             target_records: std::num::NonZeroUsize::new(16_384).unwrap(),
             max_files: std::num::NonZeroUsize::new(1).unwrap(),
         },

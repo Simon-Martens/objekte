@@ -1,4 +1,5 @@
 use super::*;
+use crate::index::posting::PostingIndex;
 
 use crate::index::bigram::BigramAlphabet;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};

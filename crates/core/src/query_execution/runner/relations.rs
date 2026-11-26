@@ -1396,7 +1396,7 @@ fn try_semijoin_relation_page(
         return Ok(None);
     }
     let collection = &repo.collections[*collection_index];
-    let mut input = crate::index::segment::SegmentRecordSet::default();
+    let mut input = crate::query_access::membership::SegmentRecordSet::default();
     let source_collection = collection.collection_id();
     let filter_evidence = if query.options.evidence {
         match filter {

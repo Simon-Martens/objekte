@@ -4,9 +4,9 @@ use super::projection::{
 use super::*;
 use crate::construction::batch::SourceFileInput;
 use crate::construction::file_preparation::{FilePreparationBinding, prepare_file_build};
-use crate::index::bigram::BigramAlphabet;
+use crate::index::memory::bigram::BigramAlphabet;
 use crate::index::memory::inference::InferenceBuilder;
-use crate::index::segment::admission::SegmentAdmission;
+use crate::index::memory::segment::admission::SegmentAdmission;
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::inventory::{DiagnosticRef, FileStatus, SourceRevision};
 use crate::model::{CollectionId, FieldPath, LogicalType};
@@ -719,7 +719,8 @@ fn interrupted_contributor_downgrades_combined_occurrence_status() {
     interrupted.files[0].entry.id = crate::model::FileId(10);
     interrupted.file_index.remove(&old_file);
     interrupted.file_index.insert(crate::model::FileId(10), 0);
-    if let crate::index::segment::SegmentBacking::FileRange { locators } = &mut interrupted.backing
+    if let crate::index::memory::segment::SegmentBacking::FileRange { locators } =
+        &mut interrupted.backing
     {
         for locator in locators {
             if locator.file == old_file {

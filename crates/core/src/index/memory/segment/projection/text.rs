@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
-use crate::index::bigram::BigramIndex;
+use crate::index::memory::bigram::BigramIndex;
 use crate::index::storage::text::{GramChannel, GramReader, visit_gram_blocks};
 use crate::index::storage::transfer::StorageError;
 

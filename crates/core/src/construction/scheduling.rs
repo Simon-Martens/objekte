@@ -13,9 +13,9 @@ use rayon::ThreadPool;
 use serde::Serialize;
 
 use crate::index::bigram::BigramAlphabet;
-use crate::index::bigram::storage_diagnostic_enabled;
 use crate::index::storage::StorageFactory;
 use crate::inference::InferenceConfig;
+use crate::measurement::bigram_storage_diagnostic_enabled;
 use crate::model::{CollectionId, FileId};
 use crate::repository::configuration::CollectionDefinition;
 use crate::source::registry::PreparedSource;
@@ -370,7 +370,7 @@ pub(crate) fn process_repository_file_batches_profiled(
             }
         }
         ready.insert(index, result);
-        if profile_build && storage_diagnostic_enabled() {
+        if profile_build && bigram_storage_diagnostic_enabled() {
             let ready_bytes = ready
                 .values()
                 .filter_map(|result| result.as_ref().ok())

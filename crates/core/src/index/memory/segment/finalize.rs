@@ -103,18 +103,19 @@ impl IndexedCollectionSegment {
                     if let Some(posting) = inference.indexes.get_mut(&field.path) {
                         let selected_null = posting
                             .values
-                            .remove(&crate::index::posting::ScalarKey::Null);
+                            .remove(&crate::index::memory::posting::ScalarKey::Null);
                         if !general_values && !short_values {
-                            let empty =
-                                empty_string_exact.then(|| {
-                                    posting.values.remove(
-                                        &crate::index::posting::ScalarKey::String(String::new()),
+                            let empty = empty_string_exact.then(|| {
+                                posting.values.remove(
+                                        &crate::index::memory::posting::ScalarKey::String(
+                                            String::new(),
+                                        ),
                                     )
-                                });
+                            });
                             posting.values.clear();
                             if let Some(Some(slots)) = empty {
                                 posting.values.insert(
-                                    crate::index::posting::ScalarKey::String(String::new()),
+                                    crate::index::memory::posting::ScalarKey::String(String::new()),
                                     slots,
                                 );
                             }
@@ -123,7 +124,7 @@ impl IndexedCollectionSegment {
                         if let Some(slots) = selected_null {
                             posting
                                 .values
-                                .insert(crate::index::posting::ScalarKey::Null, slots);
+                                .insert(crate::index::memory::posting::ScalarKey::Null, slots);
                         }
                         posting.value_complete = general_values;
                         posting.length_complete =

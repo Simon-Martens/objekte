@@ -5,7 +5,7 @@ use std::sync::Mutex;
 use roaring::RoaringBitmap;
 
 use super::catalog::IndexCatalog;
-use crate::index::segment::IndexedCollectionSegment;
+use crate::index::memory::segment::IndexedCollectionSegment;
 use crate::index::storage::segment::{RecordBacking, SegmentReader};
 use crate::index::storage::text::SegmentTextAccess;
 use crate::index::storage::text::TextAccessPolicy;
@@ -79,7 +79,7 @@ impl<'a> NativeSegmentTextProvider<'a> {
 
     #[cfg(test)]
     pub(crate) fn new(
-        published_id: crate::index::segment::SegmentId,
+        published_id: crate::index::memory::segment::SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
     ) -> Self {
@@ -520,8 +520,8 @@ pub(crate) fn segment_raw_covers_identity_field(
 /// compatibility and coverage assessment feeds estimation and execution;
 /// grams and regex conditions never claim positive field proof.
 struct TextProbe<'a, 'b> {
-    index: &'a crate::index::bigram::BigramIndex,
-    request: &'b crate::index::bigram::BigramRequest,
+    index: &'a crate::index::memory::bigram::BigramIndex,
+    request: &'b crate::index::storage::text::BigramRequest,
 }
 
 struct PreparedFtsAccess<'a, 'b> {
@@ -537,7 +537,13 @@ impl PreparedFtsAccess<'_, '_> {
         let mut work = self.literal_work;
         for probe in &self.probes {
             if let Some(condition) = self.regex {
-                let (next_count, next_work) = condition.estimate(probe.index)?;
+                let (next_count, next_work) =
+                    condition.estimate(u64::from(probe.index.record_count), &mut |request| {
+                        Some((
+                            probe.index.estimate_prepared(request)?,
+                            request.gram_count(probe.index.alphabet) as f64,
+                        ))
+                    })?;
                 count = count.saturating_add(next_count);
                 work += next_work;
             } else {
@@ -552,7 +558,11 @@ impl PreparedFtsAccess<'_, '_> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
             may |= if let Some(condition) = self.regex {
-                condition.candidates(probe.index)?
+                condition
+                    .candidates(&mut |request| {
+                        Ok::<_, std::convert::Infallible>(probe.index.candidates_prepared(request))
+                    })
+                    .unwrap()?
             } else {
                 probe.index.candidates_prepared(probe.request)?
             };
@@ -568,8 +578,14 @@ impl PreparedFtsAccess<'_, '_> {
         for probe in &self.probes {
             let next = if let Some(condition) = self.regex {
                 condition
-                    .candidates_checked(probe.index)?
-                    .map(|candidates| candidates & input)
+                    .candidates(&mut |request| {
+                        Ok::<_, std::convert::Infallible>(
+                            probe
+                                .index
+                                .candidates_prepared_restricted(request, Some(input)),
+                        )
+                    })
+                    .unwrap()
             } else {
                 probe
                     .index

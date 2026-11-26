@@ -1,26 +1,29 @@
 //! Read-only typed posting dictionaries and distinct record counts.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound::{self, Excluded, Included, Unbounded};
 use std::sync::Arc;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
-use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::posting::{PostingKey, PostingReader};
+use crate::index::storage::posting::{
+    PostingCoverage, PostingDescriptor, PostingKey, PostingReader, PostingValueCursor, ScalarKey,
+    VisitPostingBlock,
+};
 use crate::index::storage::publication::PublishedSegment;
 use crate::index::storage::segment::{
     RecordOrigin, SegmentReader, SegmentSlotFact, read_slot_members, visit_checked_file_slots,
     visit_segment_files,
 };
-use crate::index::storage::transfer::StorageError;
+use crate::index::storage::transfer::{BatchLimit, StorageError, StorageResult};
 use crate::inference::{InferenceIndexStatus, InferenceMode};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;
+use crate::query::semantics::record::data_values_small;
 use crate::query_access::membership::{MembershipView, SlotSet};
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
@@ -439,9 +442,123 @@ fn resolve_segment<'a>(
     }))
 }
 
+/// Query-local dictionary for segments where an inferred facet requires source verification.
 struct ScannedSegmentPosting {
-    index: PostingIndex,
+    path: Vec<String>,
+    kind: LogicalType,
+    coverage: PostingCoverage,
+    presence: RoaringBitmap,
+    values: BTreeMap<ScalarKey, RoaringBitmap>,
     complete_values: RoaringBitmap,
+}
+
+impl ScannedSegmentPosting {
+    fn add(&mut self, slot: u32, record: &Value, max_short_string: Option<usize>) {
+        self.coverage.covered_records += 1;
+        let Some(values) = data_values_small(record, &self.path) else {
+            if max_short_string.is_none() {
+                self.complete_values.insert(slot);
+            }
+            return;
+        };
+        if values.is_empty() {
+            self.coverage.legacy_present_equivalent = false;
+        } else {
+            self.presence.insert(slot);
+        }
+        if (max_short_string.is_none() || !values.is_empty())
+            && values
+                .iter()
+                .all(|value| fully_represented(value, max_short_string))
+        {
+            self.complete_values.insert(slot);
+        }
+        for value in &values {
+            match value {
+                Value::Null => {
+                    self.coverage.legacy_null_equivalent &= values.len() == 1;
+                    self.values.entry(ScalarKey::Null).or_default().insert(slot);
+                }
+                Value::Array(array) => {
+                    for item in &array.values {
+                        self.add_scalar(slot, item, max_short_string);
+                    }
+                }
+                value => self.add_scalar(slot, value, max_short_string),
+            }
+        }
+    }
+
+    fn add_scalar(&mut self, slot: u32, value: &Value, max_short_string: Option<usize>) {
+        if max_short_string
+            .is_none_or(|limit| matches!(value, Value::String(text) if text.len() <= limit))
+            && let Some(key) = ScalarKey::from_value(value)
+        {
+            self.values.entry(key).or_default().insert(slot);
+        }
+    }
+}
+
+struct ScannedValueCursor<'a> {
+    rows: Box<dyn Iterator<Item = (&'a ScalarKey, &'a RoaringBitmap)> + Send + 'a>,
+    within: Option<MembershipView<'a>>,
+}
+
+impl PostingValueCursor for ScannedValueCursor<'_> {
+    fn next(&mut self) -> StorageResult<Option<(ScalarKey, u64)>> {
+        let row = self.rows.find(|(key, _)| **key != ScalarKey::Null);
+        Ok(row.map(|(key, slots)| {
+            let count = self.within.map_or_else(
+                || slots.len(),
+                |within| within.intersection_len(MembershipView::Borrowed(slots)),
+            );
+            (key.clone(), count)
+        }))
+    }
+}
+
+impl PostingReader for ScannedSegmentPosting {
+    fn descriptor(&self) -> PostingDescriptor<'_> {
+        PostingDescriptor {
+            path: &self.path,
+            kind: &self.kind,
+            coverage: self.coverage,
+        }
+    }
+
+    fn members(&self, key: PostingKey<'_>) -> StorageResult<Option<SlotSet<'_>>> {
+        let slots = match key {
+            PostingKey::Presence => Some(&self.presence),
+            PostingKey::Value(value) => self.values.get(value),
+            PostingKey::Length(_) => None,
+        };
+        Ok(slots.map(SlotSet::borrowed))
+    }
+
+    fn values<'a>(
+        &'a self,
+        lower: Bound<ScalarKey>,
+        upper: Bound<ScalarKey>,
+        descending: bool,
+        within: Option<MembershipView<'a>>,
+    ) -> StorageResult<Box<dyn PostingValueCursor + 'a>> {
+        let range = self.values.range((lower, upper));
+        Ok(Box::new(ScannedValueCursor {
+            rows: if descending {
+                Box::new(range.rev())
+            } else {
+                Box::new(range)
+            },
+            within,
+        }))
+    }
+
+    fn visit_blocks(&self, _: BatchLimit, _: &mut VisitPostingBlock<'_>) -> StorageResult<()> {
+        Err(StorageError::invalid(
+            "transfer posting blocks",
+            "query-local facet dictionary is not a sealed index",
+        ))
+    }
 }
 
 fn fully_represented(value: &Value, max_short_string: Option<usize>) -> bool {
@@ -469,17 +586,24 @@ fn scan_inferred_segment(
     multi: bool,
     max_short_string: Option<usize>,
 ) -> Result<ScannedSegmentPosting, String> {
-    let field = FieldDefinition {
+    let mut posting = ScannedSegmentPosting {
         path: path.segments.clone(),
         kind: kind.clone(),
-        required: false,
-        nullable: true,
-        indexed: true,
-        multi,
-        element_nullable: Vec::new(),
+        coverage: PostingCoverage {
+            multi,
+            values_indexed: true,
+            value_complete: max_short_string.is_none(),
+            length_complete: false,
+            empty_string_complete: *kind == LogicalType::String && !multi,
+            covered_records: 0,
+            summary: None,
+            legacy_present_equivalent: true,
+            legacy_null_equivalent: true,
+        },
+        presence: RoaringBitmap::new(),
+        values: BTreeMap::new(),
+        complete_values: RoaringBitmap::new(),
     };
-    let mut index = PostingIndex::new(&field);
-    let mut complete_values = RoaringBitmap::new();
     let mut ranges = Vec::new();
     visit_segment_files(segment, |file| {
         const OP: &str = "read inferred facet file slots";
@@ -528,33 +652,12 @@ fn scan_inferred_segment(
                     None,
                 )?
                 .value;
-                index.add(crate::model::RecordSlot(slot), &value)?;
-                if crate::query::semantics::record::data_values(&value, &path.segments).map_or(
-                    max_short_string.is_none(),
-                    |values| {
-                        (max_short_string.is_none() || !values.is_empty())
-                            && values
-                                .iter()
-                                .all(|value| fully_represented(value, max_short_string))
-                    },
-                ) {
-                    complete_values.insert(slot);
-                }
+                posting.add(slot, &value, max_short_string);
             }
         }
         Ok(())
     })?;
-    if let Some(limit) = max_short_string {
-        index.values.retain(|key, _| {
-            matches!(key, ScalarKey::Null)
-                || matches!(key, ScalarKey::String(text) if text.len() <= limit)
-        });
-    }
-    index.finish_stats();
-    Ok(ScannedSegmentPosting {
-        index,
-        complete_values,
-    })
+    Ok(posting)
 }
 
 fn legacy_facts(value: &Value, path: &[String]) -> (bool, bool) {
@@ -1058,7 +1161,7 @@ pub(crate) fn posting_values_segmented(
         }
         if let Some(fallback) = &fallbacks[segment_index] {
             resolved.push(ResolvedPosting {
-                index: &fallback.index,
+                index: fallback,
                 binding: binding.clone(),
                 binding_version,
                 indexed_records: Some(SlotSet::borrowed(&fallback.complete_values)),

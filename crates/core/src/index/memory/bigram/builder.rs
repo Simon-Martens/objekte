@@ -1,13 +1,12 @@
 use std::collections::HashMap;
-#[cfg(feature = "detailed-profiling")]
-use std::sync::OnceLock;
 use std::time::Instant;
 
+use crate::measurement::bigram_storage_diagnostic_enabled;
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
 
 use super::{BigramIndex, for_each_segment_gram};
-use crate::index::bigram::BigramAlphabet;
+use crate::index::memory::bigram::BigramAlphabet;
 use crate::model::RecordSlot;
 use crate::repository::statistics::BigramConstructionStats;
 
@@ -42,19 +41,6 @@ struct PackedChunk {
     count: u32,
     normal: PackedColumns,
     skip: PackedColumns,
-}
-
-pub(crate) fn storage_diagnostic_enabled() -> bool {
-    #[cfg(not(feature = "detailed-profiling"))]
-    {
-        return false;
-    }
-
-    #[cfg(feature = "detailed-profiling")]
-    {
-        static ENABLED: OnceLock<bool> = OnceLock::new();
-        *ENABLED.get_or_init(|| std::env::var_os("OBJEKTE_BIGRAM_STORAGE_STATS").is_some())
-    }
 }
 
 fn diagnostic_elapsed_ns(started: Option<Instant>) -> u64 {
@@ -121,7 +107,8 @@ impl BigramContribution {
             worker_scratch_peak_capacity_bytes: 0,
             worker_scratch_after_flush_capacity_bytes: 0,
             pending_peak_capacity_bytes: 0,
-            work: storage_diagnostic_enabled().then(|| Box::new(BigramWorkCounters::default())),
+            work: bigram_storage_diagnostic_enabled()
+                .then(|| Box::new(BigramWorkCounters::default())),
         }
     }
 
@@ -184,7 +171,7 @@ impl BigramContribution {
 
     pub fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         let validation_started =
-            crate::measurement::timer::start_if_enabled(storage_diagnostic_enabled());
+            crate::measurement::timer::start_if_enabled(bigram_storage_diagnostic_enabled());
         if self.alphabet != batch.alphabet || self.record_count != base {
             return Err("bigram batch coverage or alphabet mismatch".into());
         }
@@ -197,7 +184,7 @@ impl BigramContribution {
         validate_chunks(&batch.chunks, batch.record_count)?;
         let validation_ns = diagnostic_elapsed_ns(validation_started);
         let merge_started =
-            crate::measurement::timer::start_if_enabled(storage_diagnostic_enabled());
+            crate::measurement::timer::start_if_enabled(bigram_storage_diagnostic_enabled());
         let admitted_chunks = batch.chunks.len() as u64;
         self.chunks.reserve(batch.chunks.len());
         for mut chunk in batch.chunks {
@@ -552,7 +539,7 @@ impl BigramBuilder {
             skip: GramWords::new(alphabet),
             chunk_start: 0,
             chunk_len: 0,
-            storage_diagnostic: storage_diagnostic_enabled(),
+            storage_diagnostic: bigram_storage_diagnostic_enabled(),
         }
     }
 

@@ -3,10 +3,10 @@ use std::collections::HashMap;
 use roaring::RoaringBitmap;
 
 use super::{IndexedCollectionSegment, SegmentAccounting, SegmentFile};
-use crate::index::bigram::BigramIndex;
+use crate::index::memory::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
 use crate::index::memory::inventory::append_shifted_bitmap;
-use crate::index::sorting::compare_composite;
+use crate::index::memory::sorting::compare_composite;
 use crate::inference::{InferenceIndexStatus, InferredFieldReport, OccurrenceCountStatus};
 #[cfg(test)]
 use crate::inventory::ActiveRecords;
@@ -248,12 +248,14 @@ fn consolidate_inference(
         {
             let nulls = index
                 .values
-                .get(&crate::index::posting::ScalarKey::Null)
+                .get(&crate::index::memory::posting::ScalarKey::Null)
                 .map_or(0, RoaringBitmap::len);
             field.integer_only = if index.values.keys().any(|key| {
                 matches!(
                     key,
-                    crate::index::posting::ScalarKey::Number(crate::model::Number::Float(_))
+                    crate::index::memory::posting::ScalarKey::Number(crate::model::Number::Float(
+                        _
+                    ))
                 )
             }) {
                 Some(false)

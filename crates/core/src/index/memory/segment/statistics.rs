@@ -20,11 +20,14 @@ pub(crate) fn reset_index_family_estimate_calls() {
 /// Cached narrow index-family total for one native contribution. It counts
 /// gram/posting bitmap payloads and sort keys only, not segment metadata.
 pub(crate) fn index_family_total(
-    raw: &crate::index::bigram::BigramIndex,
-    fallback: &crate::index::bigram::BigramIndex,
-    custom: &std::collections::HashMap<(Vec<String>, String), crate::index::bigram::BigramIndex>,
-    postings: &crate::index::posting::PostingCollection,
-    sorting: Option<&crate::index::sorting::SortCollection>,
+    raw: &crate::index::memory::bigram::BigramIndex,
+    fallback: &crate::index::memory::bigram::BigramIndex,
+    custom: &std::collections::HashMap<
+        (Vec<String>, String),
+        crate::index::memory::bigram::BigramIndex,
+    >,
+    postings: &crate::index::memory::posting::PostingCollection,
+    sorting: Option<&crate::index::memory::sorting::SortCollection>,
 ) -> usize {
     index_family_estimate(raw, fallback, custom, postings, sorting).total()
 }
@@ -33,11 +36,14 @@ pub(crate) fn index_family_total(
 /// posting and gram bitmap payloads plus estimated sort keys. It is not an
 /// allocator measurement or a strict peak bound; it orders maintenance.
 pub(crate) fn index_family_estimate(
-    raw: &crate::index::bigram::BigramIndex,
-    fallback: &crate::index::bigram::BigramIndex,
-    custom: &std::collections::HashMap<(Vec<String>, String), crate::index::bigram::BigramIndex>,
-    postings: &crate::index::posting::PostingCollection,
-    sorting: Option<&crate::index::sorting::SortCollection>,
+    raw: &crate::index::memory::bigram::BigramIndex,
+    fallback: &crate::index::memory::bigram::BigramIndex,
+    custom: &std::collections::HashMap<
+        (Vec<String>, String),
+        crate::index::memory::bigram::BigramIndex,
+    >,
+    postings: &crate::index::memory::posting::PostingCollection,
+    sorting: Option<&crate::index::memory::sorting::SortCollection>,
 ) -> IndexFamilyEstimate {
     #[cfg(test)]
     INDEX_FAMILY_ESTIMATE_CALLS.with(|calls| calls.set(calls.get() + 1));
@@ -73,7 +79,7 @@ pub(crate) fn index_family_estimate(
                         .keys
                         .iter()
                         .map(|key| match key {
-                            crate::index::sorting::SortKey::String(value) => value.len(),
+                            crate::index::memory::sorting::SortKey::String(value) => value.len(),
                             _ => 24,
                         })
                         .sum::<usize>()

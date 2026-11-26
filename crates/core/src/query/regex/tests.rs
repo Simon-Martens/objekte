@@ -1,5 +1,6 @@
 use super::*;
 use crate::index::bigram::BigramAlphabet;
+use crate::index::bigram::BigramIndex;
 use crate::model::{FieldPath, LogicalType, RecordSlot};
 use crate::query::binding::fts::bind_fts;
 use crate::query::options::ReturnMode;
@@ -443,10 +444,13 @@ fn generated_regex_matches_remain_inside_conservative_gram_candidates() {
                 let compiled =
                     CompiledRegex::compile(pattern, RegexOptions::default(), case_sensitivity)
                         .unwrap();
-                let Some(candidates) = compiled
-                    .condition()
-                    .and_then(|condition| condition.candidates(&index))
-                else {
+                let Some(candidates) = compiled.condition().and_then(|condition| {
+                    condition
+                        .candidates(&mut |request| {
+                            Ok::<_, std::convert::Infallible>(index.candidates_prepared(request))
+                        })
+                        .unwrap()
+                }) else {
                     continue;
                 };
                 let independent = regex::RegexBuilder::new(pattern)

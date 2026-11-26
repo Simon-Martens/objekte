@@ -130,7 +130,7 @@ fn finish_projected_inference(
             let nulls = terminal.map(|_| {
                 index
                     .values
-                    .get(&crate::index::posting::ScalarKey::Null)
+                    .get(&crate::index::memory::posting::ScalarKey::Null)
                     .map_or(0, RoaringBitmap::len)
             });
             let terminal_empty = index.length_complete.then(|| {
@@ -159,9 +159,9 @@ fn finish_projected_inference(
                     let fractional = index.values.keys().any(|key| {
                         matches!(
                             key,
-                            crate::index::posting::ScalarKey::Number(crate::model::Number::Float(
-                                _
-                            ))
+                            crate::index::memory::posting::ScalarKey::Number(
+                                crate::model::Number::Float(_)
+                            )
                         )
                     });
                     if fractional {

@@ -89,35 +89,7 @@ pub(crate) fn enter_file(path: &Path) -> Option<ActiveFile> {
 
 pub use crate::construction::file_shard_diagnostics::measure_direct_shard_build;
 
-/// Check that conversion and borrowed text admission agree with owned strings.
-pub fn assert_equivalent_logical_bigrams(
-    schema: &crate::schema::Schema,
-    record: &mut crate::source::ExtractedRecord,
-    expected: &[&str],
-) {
-    use crate::index::bigram::{BigramAlphabet, BigramBuilder};
-    use crate::model::RecordSlot;
-    use crate::source::text::visit_logical_strings;
-
-    crate::construction::file_preparation::finish_build_record(schema, record).unwrap();
-    let mut strings = Vec::new();
-    visit_logical_strings(&record.value, &mut |text| strings.push(text.to_owned()));
-    assert_eq!(strings, expected);
-    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        let mut borrowed = BigramBuilder::new(alphabet);
-        borrowed
-            .add_record_with(RecordSlot(0), |emit| {
-                visit_logical_strings(&record.value, emit)
-            })
-            .unwrap();
-        let borrowed = borrowed.finish().unwrap();
-        let mut owned = BigramBuilder::new(alphabet);
-        owned.add_record(RecordSlot(0), strings.iter()).unwrap();
-        let owned = owned.finish().unwrap();
-        assert_eq!(borrowed.normal, owned.normal);
-        assert_eq!(borrowed.skip, owned.skip);
-    }
-}
+pub use crate::index::assert_equivalent_logical_bigrams;
 
 /// A compiled text predicate for adapter scan tests.
 pub struct ScanTextBinding(crate::query::binding::fts::BoundFts);

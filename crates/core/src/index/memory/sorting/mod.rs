@@ -28,13 +28,14 @@ mod placement;
 
 pub(super) use inferred_order::build_inferred_order_rows;
 
+#[cfg(test)]
+pub use crate::index::storage::order::CollationStrength;
 use crate::index::storage::order::declared::{
     composite_orders, order_configuration, validate_overrides,
 };
 pub(crate) use crate::index::storage::order::simple_composite_part;
 pub use crate::index::storage::order::{
-    COLLATION_VERSION, CollationStrength, CompositeSortPart, Placement, SortConfig, SortKey,
-    SortOptions,
+    COLLATION_VERSION, CompositeSortPart, Placement, SortConfig, SortKey, SortOptions,
 };
 use crate::index::storage::order::{
     InferredOrderRows, OrderColumnReader, ScalarOrderPredicate, make_collator,
@@ -732,6 +733,7 @@ impl SortCollection {
             .ok_or_else(|| format!("sort field is not registered: {field}"))
     }
 
+    #[cfg(test)]
     pub fn key(&self, field: &str, slot: RecordSlot) -> Result<&SortKey, String> {
         self.column(field)?
             .keys
@@ -739,6 +741,7 @@ impl SortCollection {
             .ok_or("sort slot out of bounds".into())
     }
 
+    #[cfg(test)]
     pub fn validate_request(&self, fields: &[SortField]) -> Result<(), String> {
         for field in fields {
             self.key(&field.field, RecordSlot(0)).or_else(|e| {

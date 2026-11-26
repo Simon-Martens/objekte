@@ -1,60 +1,29 @@
 //! Conservative record-level bigram candidates over separate text segments.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
+#[cfg(test)]
+use std::collections::HashSet;
 
 #[cfg(test)]
 use crate::index::memory::inventory::append_shifted_bitmap;
+#[cfg(test)]
 use crate::model::RecordSlot;
-use crate::model::text::fold;
+#[cfg(test)]
 use crate::source::TextSegment;
 use roaring::RoaringBitmap;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 mod builder;
 
-pub(crate) use builder::{BigramBuilder, BigramContribution, storage_diagnostic_enabled};
+pub(crate) use builder::{BigramBuilder, BigramContribution};
 
-pub use crate::index::storage::text::{BIGRAM_VERSION, BigramAlphabet, FOLDED_REPRESENTATION};
-
-/// Emit windows over the folded stream without losing unsupported ASCII byte
-/// positions or joining independent reader-owned segments.
-fn for_each_gram(
-    chars: impl Iterator<Item = char>,
-    alphabet: BigramAlphabet,
-    mut emit: impl FnMut(bool, u64),
-) {
-    match alphabet {
-        BigramAlphabet::Ascii => {
-            let (mut previous, mut before_previous) = (None, None);
-            for scalar in chars {
-                let mut buffer = [0u8; 4];
-                for &byte in scalar.encode_utf8(&mut buffer).as_bytes() {
-                    if let Some(left) = previous.and_then(|left| ascii_pair(left, byte)) {
-                        emit(false, left);
-                    }
-                    if let Some(left) = before_previous.and_then(|left| ascii_pair(left, byte)) {
-                        emit(true, left);
-                    }
-                    before_previous = previous;
-                    previous = Some(byte);
-                }
-            }
-        }
-        BigramAlphabet::Unicode => {
-            let (mut previous, mut before_previous) = (None, None);
-            for scalar in chars {
-                if let Some(left) = previous {
-                    emit(false, unicode_pair(left, scalar));
-                }
-                if let Some(left) = before_previous {
-                    emit(true, unicode_pair(left, scalar));
-                }
-                before_previous = previous;
-                previous = Some(scalar);
-            }
-        }
-    }
-}
+pub use crate::index::storage::text::BigramAlphabet;
+pub(crate) use crate::index::storage::text::BigramRequest;
+#[cfg(test)]
+use crate::index::storage::text::for_each_gram;
+#[cfg(test)]
+pub use crate::index::storage::text::{BIGRAM_VERSION, FOLDED_REPRESENTATION};
+use crate::index::storage::text::{ascii_pair, unicode_pair};
 
 /// Construction reads borrowed UTF-8 directly. ASCII bytes need no character
 /// iterator or re-encoding; only non-ASCII scalars enter the locked full fold.
@@ -178,52 +147,6 @@ fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl Fn
     }
 }
 
-/// Both alphabets' necessary grams for one already prepared representation.
-/// Exact matching never reads these keys as a literal.
-#[derive(Clone, Debug)]
-pub(crate) struct BigramRequest {
-    ascii: Vec<(bool, u64)>,
-    unicode: Vec<(bool, u64)>,
-}
-
-impl BigramRequest {
-    pub fn from_folded(folded: &str) -> Self {
-        let collect = |alphabet| {
-            let mut grams = Vec::new();
-            for_each_gram(folded.chars(), alphabet, |skip, key| {
-                grams.push((skip, key))
-            });
-            grams.sort_unstable();
-            grams.dedup();
-            grams
-        };
-        Self {
-            ascii: collect(BigramAlphabet::Ascii),
-            unicode: collect(BigramAlphabet::Unicode),
-        }
-    }
-
-    pub fn new(literal: &str) -> Self {
-        Self::from_folded(&fold(literal))
-    }
-
-    pub(crate) fn grams(&self, alphabet: BigramAlphabet) -> &[(bool, u64)] {
-        match alphabet {
-            BigramAlphabet::Ascii => &self.ascii,
-            BigramAlphabet::Unicode => &self.unicode,
-        }
-    }
-
-    pub(crate) fn gram_count(&self, alphabet: BigramAlphabet) -> usize {
-        self.grams(alphabet).len()
-    }
-
-    pub(crate) fn retained_heap_bytes(&self) -> usize {
-        (self.ascii.capacity() + self.unicode.capacity())
-            .saturating_mul(std::mem::size_of::<(bool, u64)>())
-    }
-}
-
 /// Record-level bigram postings for one text binding.
 #[derive(Clone, Debug)]
 pub struct BigramIndex {
@@ -282,6 +205,7 @@ impl BigramIndex {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn new_ascii() -> Self {
         Self::new(BigramAlphabet::Ascii)
     }
@@ -319,6 +243,7 @@ impl BigramIndex {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn add_record(&mut self, slot: RecordSlot, segments: &[TextSegment]) -> Result<(), String> {
         if segments.is_empty() {
             return self.add_empty(slot);
@@ -350,6 +275,7 @@ impl BigramIndex {
         Ok(())
     }
 
+    #[cfg(test)]
     pub fn add_empty(&mut self, slot: RecordSlot) -> Result<(), String> {
         if slot.0 != self.record_count {
             return Err("bigram slots must be added in record order".into());
@@ -381,6 +307,7 @@ impl BigramIndex {
 
     /// `None` means no safe useful restriction; an empty bitmap is a proven
     /// absence of this necessary gram over complete index coverage.
+    #[cfg(test)]
     pub fn candidates(&self, literal: &str) -> Option<RoaringBitmap> {
         self.candidates_prepared(&BigramRequest::new(literal))
     }
@@ -424,6 +351,7 @@ impl BigramIndex {
         Some(result)
     }
 
+    #[cfg(test)]
     pub fn estimate_min_cardinality(&self, literal: &str) -> Option<u64> {
         self.estimate_prepared(&BigramRequest::new(literal))
     }
@@ -468,13 +396,32 @@ impl BigramIndex {
     }
 }
 
-fn ascii_pair(a: u8, b: u8) -> Option<u64> {
-    if !(32..=126).contains(&a) || !(32..=126).contains(&b) {
-        return None;
-    }
-    Some(((a as u64) << 8) | b as u64)
-}
+#[cfg(feature = "test-hooks")]
+/// Check that conversion and borrowed text admission agree with owned strings.
+pub fn assert_equivalent_logical_bigrams(
+    schema: &crate::schema::Schema,
+    record: &mut crate::source::ExtractedRecord,
+    expected: &[&str],
+) {
+    use crate::model::RecordSlot;
+    use crate::source::text::visit_logical_strings;
 
-fn unicode_pair(a: char, b: char) -> u64 {
-    ((a as u64) << 21) | b as u64
+    crate::construction::file_preparation::finish_build_record(schema, record).unwrap();
+    let mut strings = Vec::new();
+    visit_logical_strings(&record.value, &mut |text| strings.push(text.to_owned()));
+    assert_eq!(strings, expected);
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut borrowed = BigramBuilder::new(alphabet);
+        borrowed
+            .add_record_with(RecordSlot(0), |emit| {
+                visit_logical_strings(&record.value, emit)
+            })
+            .unwrap();
+        let borrowed = borrowed.finish().unwrap();
+        let mut owned = BigramBuilder::new(alphabet);
+        owned.add_record(RecordSlot(0), strings.iter()).unwrap();
+        let owned = owned.finish().unwrap();
+        assert_eq!(borrowed.normal, owned.normal);
+        assert_eq!(borrowed.skip, owned.skip);
+    }
 }

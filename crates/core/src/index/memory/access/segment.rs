@@ -3,7 +3,7 @@
 use std::sync::{Arc, Mutex};
 
 use super::catalog::IndexCatalog;
-use crate::index::segment::IndexedCollectionSegment;
+use crate::index::memory::segment::IndexedCollectionSegment;
 #[cfg(test)]
 use crate::index::storage::file_catalog::FileCatalogReader;
 use crate::index::storage::segment::SegmentPredicateAccess;
@@ -85,7 +85,7 @@ impl<'a> NativeSegmentProvider<'a> {
 
     #[cfg(test)]
     pub(crate) fn new(
-        published_id: crate::index::segment::SegmentId,
+        published_id: crate::index::memory::segment::SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
         file_catalog: Option<&'a dyn FileCatalogReader>,

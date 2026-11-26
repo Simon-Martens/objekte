@@ -4,7 +4,9 @@ use roaring::RoaringBitmap;
 
 use super::super::IndexedCollectionSegment;
 use super::routing::{PartitionRouting, SlotMap, project_bitmap_in_range};
-use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex, PostingStats};
+use crate::index::memory::posting::{
+    CustomPostingIndex, PostingCollection, PostingIndex, PostingStats,
+};
 use crate::index::storage::posting::{
     PostingDescriptor, PostingKey, PostingReader, visit_posting_blocks,
 };

@@ -5,11 +5,11 @@ use std::collections::HashMap;
 
 use roaring::RoaringBitmap;
 
-use crate::index::bigram::BigramIndex;
+use crate::index::memory::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
-use crate::index::posting::ScalarKey;
-use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use crate::index::segment::IndexedCollectionSegment;
+use crate::index::memory::posting::ScalarKey;
+use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::index::memory::segment::IndexedCollectionSegment;
 use crate::index::storage::text::TextBindingCatalog;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;

@@ -890,7 +890,7 @@ fn relation_target_match_in_second_segment_is_not_redirected_to_first() {
         &repo.catalog,
     )
     .unwrap();
-    let mut input = crate::index::segment::SegmentRecordSet::default();
+    let mut input = crate::query_access::membership::SegmentRecordSet::default();
     for published in repo.segments[source_index].iter() {
         for slot in published.active.bitmap().iter() {
             input.insert(crate::index::segment::SegmentRecordAddress {

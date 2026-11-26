@@ -1,7 +1,7 @@
 use roaring::RoaringBitmap;
 
 use super::{Placement, SortColumn, SortConfig, SortKey, SortOptions, make_collator};
-use crate::index::posting::{PostingIndex, ScalarKey};
+use crate::index::memory::posting::{PostingIndex, ScalarKey};
 use crate::index::storage::order::InferredOrderRows;
 use crate::inventory::RecordClass;
 use crate::model::{FieldPath, LogicalType, Number, RecordSlot};

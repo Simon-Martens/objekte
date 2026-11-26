@@ -7,17 +7,17 @@ use roaring::RoaringBitmap;
 
 use crate::construction::batch::BatchContribution;
 use crate::construction::batch::canonical_custom_text_key;
-use crate::index::bigram::BigramAlphabet;
-use crate::index::bigram::BigramContribution;
+use crate::index::memory::bigram::BigramAlphabet;
+use crate::index::memory::bigram::BigramContribution;
 use crate::index::memory::inference::InferenceBuilder;
 use crate::index::memory::inventory::append_shifted_bitmap;
-use crate::index::memory::worker::NativeIndexBatch;
-use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
-use crate::index::relation::RelationContribution;
-use crate::index::segment::{
+use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
+use crate::index::memory::relation::RelationContribution;
+use crate::index::memory::segment::{
     IndexedCollectionSegment, SegmentAccounting, SegmentFile, SegmentId, SegmentPolicy,
 };
-use crate::index::sorting::SortBuilder;
+use crate::index::memory::sorting::SortBuilder;
+use crate::index::memory::worker::NativeIndexBatch;
 use crate::index::storage::segment::build::{BuiltSegment, SegmentBuilder, SegmentSeal};
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::InferenceConfig;
@@ -59,7 +59,7 @@ pub(crate) struct CollectionSegment {
     pub files: Vec<SegmentFile>,
     pub file_index: HashMap<FileId, usize>,
     pub records: Vec<crate::records::RecordHeader>,
-    pub backing: crate::index::segment::SegmentBacking,
+    pub backing: crate::index::memory::segment::SegmentBacking,
     write_versions: super::record_versions::RecordWriteVersions,
     pub raw_covers_logical_fields: bool,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
@@ -536,7 +536,7 @@ impl SegmentAdmission {
         let mut records = Vec::with_capacity(self.records.len());
         let mut locators = Vec::with_capacity(self.records.len());
         for record in self.records {
-            locators.push(crate::index::segment::FileRangeLocator {
+            locators.push(crate::index::memory::segment::FileRangeLocator {
                 file: record.file,
                 range: Some(record.range),
                 revision: record.revision,
@@ -556,7 +556,7 @@ impl SegmentAdmission {
             files: self.files,
             file_index: self.file_index,
             records,
-            backing: crate::index::segment::SegmentBacking::FileRange { locators },
+            backing: crate::index::memory::segment::SegmentBacking::FileRange { locators },
             write_versions: Default::default(),
             raw_covers_logical_fields: true,
             id_lookup: self.id_lookup,
@@ -649,10 +649,10 @@ impl CollectionSegment {
             return Err("retained batch is empty or has mismatched body count".into());
         }
         let count = u32::try_from(records.len()).map_err(|_| "too many retained records")?;
-        let backing = crate::index::segment::SegmentBacking::Retained {
+        let backing = crate::index::memory::segment::SegmentBacking::Retained {
             blocks: vec![bodies],
             addresses: (0..count)
-                .map(|offset| crate::index::segment::RetainedAddress { block: 0, offset })
+                .map(|offset| crate::index::memory::segment::RetainedAddress { block: 0, offset })
                 .collect(),
             links: vec![None; count as usize],
             registration,
@@ -683,7 +683,7 @@ impl CollectionSegment {
         if records.is_empty() || records.len() != versions.len() {
             return Err("provider batch is empty or has mismatched version count".into());
         }
-        let backing = crate::index::segment::SegmentBacking::Provider {
+        let backing = crate::index::memory::segment::SegmentBacking::Provider {
             versions,
             links: vec![None; records.len()],
             registration,
@@ -707,7 +707,7 @@ impl CollectionSegment {
         source_version: u32,
         raw_covers_logical_fields: bool,
         records: Vec<crate::records::RecordHeader>,
-        backing: crate::index::segment::SegmentBacking,
+        backing: crate::index::memory::segment::SegmentBacking,
         contribution: BatchContribution,
     ) -> Result<Self, String> {
         let count = u32::try_from(records.len()).map_err(|_| "too many native records")?;

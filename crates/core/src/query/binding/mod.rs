@@ -4,7 +4,7 @@ pub(crate) use memchr::memmem::Finder;
 use std::collections::HashMap;
 pub(crate) use std::sync::Arc;
 
-pub(crate) use crate::index::bigram::BigramRequest;
+pub(crate) use crate::index::storage::text::BigramRequest;
 pub(crate) use crate::model::text::fold;
 pub(crate) use crate::model::{
     CollectionId, FieldPath, LogicalType, MetadataField, Number, PathRoot, Value,

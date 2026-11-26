@@ -193,7 +193,7 @@ impl InferenceState {
                 .ok_or("snapshot inferred field missing")?;
             let nulls = index
                 .values
-                .get(&crate::index::posting::ScalarKey::Null)
+                .get(&crate::index::memory::posting::ScalarKey::Null)
                 .map_or(0, RoaringBitmap::len);
             let empty_unknown_array = index.kind
                 == LogicalType::Array(Box::new(LogicalType::Unknown))
