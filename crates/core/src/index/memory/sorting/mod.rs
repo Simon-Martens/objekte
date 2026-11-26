@@ -661,6 +661,12 @@ impl SortCollection {
         }
     }
 
+    pub(crate) fn reader(&self, path: &FieldPath) -> Option<&dyn OrderColumnReader> {
+        self.columns
+            .get(path)
+            .map(|column| column as &dyn OrderColumnReader)
+    }
+
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {
         let path = FieldPath::parse(field)?;
         self.columns

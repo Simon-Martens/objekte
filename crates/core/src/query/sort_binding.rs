@@ -414,10 +414,8 @@ impl<'a> BoundSort<'a> {
                     && expression.binding.is_none()
                     && !path.has_explicit_array_step
                     && matches!(&transform, SortTransform::Identity);
-                let stored_candidate =
-                    simple_stored && collection.sorting.columns.contains_key(&path.field);
-                let column = if !reference && stored_candidate {
-                    collection.sorting.columns.get(&path.field)
+                let column = if !reference && simple_stored {
+                    collection.order_column(&path.field)?
                 } else {
                     None
                 };

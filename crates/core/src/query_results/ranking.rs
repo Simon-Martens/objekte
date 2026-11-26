@@ -715,31 +715,21 @@ pub(crate) fn direct_related_target_sort_key(
     };
     let config = computed.sort_config();
     let target_index = target.collection.0 as usize;
+    let path = crate::model::FieldPath::parse(path)?;
     let column = if let Some(segment_index) = target.segment {
-        let Ok(column) = segments[target_index][segment_index]
+        segments[target_index][segment_index]
             .index
-            .sorting
-            .column(path)
-        else {
-            return Ok(None);
-        };
-        column
+            .order_column(&path)?
     } else {
-        let Ok(column) = repo.collections[target_index].sorting.column(path) else {
-            return Ok(None);
-        };
-        column
+        repo.collections[target_index].order_column(&path)?
+    };
+    let Some(column) = column else {
+        return Ok(None);
     };
     if !crate::query::sort_binding::stored_column_matches_config(column, config) {
         return Ok(None);
     }
-    Ok(Some(
-        column
-            .keys
-            .get(target.slot.0 as usize)
-            .ok_or("direct related sort slot missing")?
-            .clone(),
-    ))
+    Ok(Some(column.key(target.slot)?.into_owned()))
 }
 
 impl PartialEq for RankKey {

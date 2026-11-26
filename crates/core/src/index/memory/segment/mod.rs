@@ -24,7 +24,9 @@ use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationContribution;
 use crate::index::sorting::SortCollection;
 use crate::index::storage::file_catalog::FileCatalogHandle;
-use crate::index::storage::order::{InferredOrderRows, PostingOrderRequest, SortKey};
+use crate::index::storage::order::{
+    InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
+};
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::segment::{
     RecordBacking, RecordOrigin, RecordWriteVersion, RetainedBlock, RetainedBlockReader,
@@ -811,6 +813,13 @@ impl SegmentReader for IndexedCollectionSegment {
             request.execution,
         )
         .map_err(|error| StorageError::invalid("build inferred order", error))
+    }
+
+    fn order_column(
+        &self,
+        path: &crate::model::FieldPath,
+    ) -> StorageResult<Option<&dyn OrderColumnReader>> {
+        Ok(self.sorting.reader(path))
     }
 
     fn stored_key(

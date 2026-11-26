@@ -748,14 +748,14 @@ fn try_direct_relation_page(
         }
         let config = computed.sort_config();
         for published in segments[target_index].iter() {
-            let Ok(column) = published.index.sorting.column(path) else {
+            let Some(column) = published.index.order_column(&field)? else {
                 return Ok(None);
             };
             if !crate::query::sort_binding::stored_column_matches_config(column, config) {
                 return Ok(None);
             }
         }
-        Some(path.to_owned())
+        Some(field)
     } else {
         None
     };
@@ -1035,8 +1035,11 @@ fn try_direct_relation_page(
                     continue;
                 }
                 if !target_ids.contains(record.id.0.as_ref()) {
-                    let sort_key = if let Some(path) = direct_sort_column.as_deref() {
-                        Some(segment.sorting.key(path, RecordSlot(slot))?.clone())
+                    let sort_key = if let Some(path) = direct_sort_column.as_ref() {
+                        let key = segment
+                            .stored_key(path, RecordSlot(slot))?
+                            .ok_or("direct related sort column or slot missing")?;
+                        Some(key.into_owned())
                     } else {
                         None
                     };

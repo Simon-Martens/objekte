@@ -53,6 +53,15 @@ pub struct CollectionState {
 }
 
 impl CollectionState {
+    pub(crate) fn order_column(
+        &self,
+        path: &crate::model::FieldPath,
+    ) -> crate::index::storage::transfer::StorageResult<
+        Option<&dyn crate::index::storage::order::OrderColumnReader>,
+    > {
+        Ok(self.sorting.reader(path))
+    }
+
     /// Counts for the base collection before segment overlays.
     pub fn base_file_count(&self) -> usize {
         self.generation.files.len()

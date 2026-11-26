@@ -15,7 +15,7 @@ use crate::model::{CollectionId, FieldPath, FileId, RecordSlot};
 use crate::query::options::SortField;
 use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
-use super::order::{InferredOrderRows, PostingOrderRequest, SortKey};
+use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
@@ -291,6 +291,10 @@ pub(crate) trait SegmentReader: Send + Sync {
         Ok(None)
     }
 
+    fn order_column(&self, _path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {
+        Ok(None)
+    }
+
     fn stored_key(
         &self,
         path: &FieldPath,
@@ -367,6 +371,10 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         request: PostingOrderRequest<'_>,
     ) -> StorageResult<Option<InferredOrderRows>> {
         self.as_ref().build_posting_order(request)
+    }
+
+    fn order_column(&self, path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {
+        self.as_ref().order_column(path)
     }
 
     fn stored_key(
