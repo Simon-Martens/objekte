@@ -408,6 +408,17 @@ impl FileDiscoveryBuilder for OrderedFiles {
 }
 
 impl crate::index::storage::StorageFactory for OrderedFileFactory {
+    fn project_segment_partitions(
+        &self,
+        source: &dyn crate::index::storage::segment::SegmentReader,
+        partitions: &[crate::index::storage::segment::maintenance::SegmentPartition],
+        files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
+        cancelled: &mut dyn FnMut() -> bool,
+    ) -> StorageResult<Vec<crate::index::storage::segment::SegmentHandle>> {
+        crate::index::storage::test_factory()
+            .project_segment_partitions(source, partitions, files, cancelled)
+    }
+
     fn start_file_segment(
         &self,
         input: crate::index::storage::segment::build::FileSegmentBuild<'_>,

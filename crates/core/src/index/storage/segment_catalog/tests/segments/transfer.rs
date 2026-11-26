@@ -360,10 +360,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     cancelled: &mut dyn FnMut() -> bool,
     control: Arc<TableFactory>,
 ) -> StorageResult<Option<SegmentHandle>> {
-    if !matches!(layout, FileSegmentLayout::Identity(_))
-        || source.backing_kind() != RecordBacking::FileRange
-        || !source.composite_orders()?.is_empty()
-    {
+    if !matches!(layout, FileSegmentLayout::Identity(_)) || !source.composite_orders()?.is_empty() {
         return Ok(None);
     }
     let domain = source.descriptor();
@@ -438,6 +435,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
                     Ok(())
                 })?;
                 let posting = TablePosting {
+                    block_reads: Arc::clone(&control.posting_block_reads),
                     path: descriptor.path.to_vec(),
                     kind: descriptor.kind.clone(),
                     present: present.into(),
@@ -488,10 +486,29 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     let empty_arrays = read_slot_members(source, SegmentSlotFact::EmptyArray)?;
     let logical = read_slot_members(source, SegmentSlotFact::Logical)?;
     let mut rows = Vec::new();
+    let mut retained = Vec::new();
+    let backing = source.backing_kind();
     layout.visit_records(source, &mut cancelled, &mut |block| {
         for record in block {
-            let RecordOrigin::FileRange(locator) = record.origin else {
-                return Err(invalid("file table requires file origins"));
+            let location = match record.origin {
+                RecordOrigin::FileRange(locator) => Location::File(locator),
+                RecordOrigin::Retained(link) => {
+                    let body = crate::index::storage::segment::transfer::read_retained_body(
+                        source,
+                        record.header.slot,
+                        &|| cell.borrow_mut()(),
+                    )?;
+                    retained.push(bincode::serialize(&(body.value, body.text)).map_err(
+                        |error| {
+                            StorageError::invalid(
+                                "encode independent retained body",
+                                error.to_string(),
+                            )
+                        },
+                    )?);
+                    Location::Retained(record.destination.0, link)
+                }
+                RecordOrigin::Provider { version, file, .. } => Location::Versioned(version, file),
             };
             let is_logical = record.header.class == RecordClass::Logical;
             if is_logical != logical.view().contains(record.destination.0)
@@ -501,7 +518,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
             }
             rows.push(Row {
                 header: record.header.clone(),
-                location: Location::File(locator),
+                location,
                 facts: RowFacts {
                     score: scores.remove(&record.destination.0),
                     empty_array: empty_arrays.view().contains(record.destination.0),
@@ -531,7 +548,7 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
         }
         Ok(())
     })?;
-    if seen.len() != rows.len() {
+    if backing == RecordBacking::FileRange && seen.len() != rows.len() {
         return Err(invalid("incomplete file membership"));
     }
     let mut orders = HashMap::new();
@@ -595,11 +612,11 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
             adapter: metadata.adapter.to_owned(),
             version: metadata.version,
             registration: metadata.registration,
-            backing: RecordBacking::FileRange,
+            backing,
         },
         rows,
         files,
-        None,
+        (backing == RecordBacking::Retained).then(|| control.seal_retained_bytes(retained)),
         false,
         control,
     )?;
@@ -610,6 +627,167 @@ pub(in crate::index::storage::segment_catalog::tests) fn import_file_segment(
     table.grams = grams;
     table.raw_covers_logical_fields = source.raw_covers_logical_fields();
     Ok(Some(Arc::new(table)))
+}
+
+#[test]
+fn retained_and_provider_transfer_preserves_pinned_records_without_provider_reads() {
+    use crate::index::storage::publication::PublishedSegment;
+    use crate::index::storage::segment::maintenance::SegmentPartition;
+    use crate::query_results::Payload;
+
+    let mut builder = Index::builder();
+    let collection = builder.collection("entries", score_schema()).unwrap();
+    let registration = builder
+        .register_records(collection, "retained-transfer", 1)
+        .unwrap();
+    let provider = builder
+        .register_records(collection, "provider-transfer", 1)
+        .unwrap();
+    let reader = Arc::new(Reader(AtomicUsize::new(0)));
+    builder.register_reader(provider, reader.clone()).unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let retained = session.writer(registration).unwrap();
+    let versioned = session.writer(provider).unwrap();
+    let mut batch = retained.batch();
+    batch.insert("retired", score(2)).unwrap();
+    let mut large = score(7);
+    let Value::Object(fields) = &mut large else {
+        unreachable!()
+    };
+    fields.insert(
+        "body".into(),
+        Value::String("retained contents".repeat(12_000)),
+    );
+    batch.insert("kept", large.clone()).unwrap();
+    retained.submit(batch).unwrap().wait_published().unwrap();
+    let mut batch = versioned.batch();
+    batch
+        .insert_from_reader("reader", score(7), RecordVersion::new(3))
+        .unwrap();
+    versioned.submit(batch).unwrap().wait_published().unwrap();
+    let prior = index.view().unwrap();
+    let mut batch = retained.batch();
+    batch.delete("retired").unwrap();
+    retained.submit(batch).unwrap().wait_published().unwrap();
+    let pinned = index.view().unwrap();
+    let group = pinned.segments(collection).unwrap();
+    let factory = Arc::new(TableFactory::default());
+    let memory = crate::index::storage::test_factory();
+    let mut projected = Vec::new();
+
+    for original in group.iter() {
+        let layout = FileSegmentLayout::Identity(&original.active);
+        let table = factory
+            .import_file_segment(original.as_ref(), layout, &mut || false)
+            .unwrap()
+            .unwrap();
+        assert!((table.as_ref() as &dyn std::any::Any).is::<TableSegment>());
+        if original.backing_kind() == RecordBacking::Retained {
+            let next_read = factory.retained_part_reads.load(Ordering::Relaxed) + 2;
+            factory
+                .fail_retained_part
+                .store(next_read, Ordering::Relaxed);
+            let error = memory.import_file_segment(table.as_ref(), layout, &mut || false);
+            assert!(
+                matches!(error, Err(error) if error.to_string().contains("injected retained part failure"))
+            );
+            let before = factory.retained_part_reads.load(Ordering::Relaxed);
+            let error = memory.import_file_segment(table.as_ref(), layout, &mut || {
+                factory.retained_part_reads.load(Ordering::Relaxed) > before
+            });
+            assert!(matches!(error, Err(StorageError::Cancelled)));
+            assert_eq!(index.view().unwrap().revision(), pinned.revision());
+        }
+
+        let restored = memory
+            .import_file_segment(table.as_ref(), layout, &mut || false)
+            .unwrap()
+            .unwrap();
+        assert!(!(restored.as_ref() as &dyn std::any::Any).is::<TableSegment>());
+        assert_eq!(restored.descriptor(), original.descriptor());
+        assert_eq!(
+            restored.source().registration,
+            original.source().registration
+        );
+        for slot in 0..original.descriptor().slots as u32 {
+            let slot = RecordSlot(slot);
+            let header = restored.header(slot).unwrap().unwrap();
+            let expected = original.header(slot).unwrap().unwrap();
+            assert_eq!(header.slot, expected.slot);
+            assert_eq!(header.id, expected.id);
+            assert_eq!(header.class, expected.class);
+            assert_eq!(header.diagnostic_ref, expected.diagnostic_ref);
+            assert_eq!(
+                restored.origin(slot).unwrap(),
+                original.origin(slot).unwrap()
+            );
+            assert_eq!(
+                restored.write_version(slot).unwrap(),
+                original.write_version(slot).unwrap()
+            );
+        }
+        let partition = SegmentPartition {
+            files: Default::default(),
+            slots: original.active.clone(),
+        };
+        let dense = memory
+            .project_segment_partitions(
+                table.as_ref(),
+                &[partition],
+                pinned.0.catalog.as_ref(),
+                &mut || false,
+            )
+            .unwrap()
+            .pop()
+            .unwrap();
+        assert!(!(dense.as_ref() as &dyn std::any::Any).is::<TableSegment>());
+        assert_eq!(dense.descriptor().slots, original.active.len() as usize);
+        let active = memory
+            .live_records(dense.descriptor().slots, InitialLiveness::All)
+            .unwrap();
+        projected.push(Arc::new(PublishedSegment {
+            id: original.id,
+            index: dense,
+            active,
+            observation: None,
+        }));
+    }
+
+    assert_eq!(reader.0.load(Ordering::Relaxed), 0);
+    assert_eq!(factory.retained_reads.load(Ordering::Relaxed), 0);
+    assert!(factory.retained_part_reads.load(Ordering::Relaxed) > 5);
+    let mut root = (*pinned.0).clone();
+    root.replace_segment_group(collection.0 as usize, &projected)
+        .unwrap();
+    let restored = Index::from_published(root);
+    let view = restored.view().unwrap();
+    assert_eq!(
+        view.get_record("entries", "kept", ReturnMode::Logical)
+            .unwrap()
+            .unwrap()
+            .payload,
+        Some(Payload::Logical(large)),
+    );
+    assert!(
+        view.get_record("entries", "retired", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        prior
+            .get_record("entries", "retired", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    let mut query = score_query();
+    query.options.return_mode = ReturnMode::Locator;
+    assert_eq!(
+        view.search(&query).unwrap().hits,
+        pinned.search(&query).unwrap().hits
+    );
+    restored.shutdown().unwrap();
+    session.finish().unwrap();
 }
 
 #[test]
@@ -923,6 +1101,47 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
         active: source.active.clone(),
         observation: None,
     });
+    {
+        use crate::index::storage::segment::maintenance::SegmentPartition;
+
+        let memory = crate::index::storage::test_factory();
+        let make_partition = |slots: ActiveRecords| SegmentPartition {
+            files: [kept_id].into_iter().collect(),
+            slots,
+        };
+        let project = |parts: &[SegmentPartition]| {
+            let before = factory.posting_block_reads.load(Ordering::Relaxed);
+            let projected = memory
+                .project_segment_partitions(
+                    published_table.as_ref(),
+                    parts,
+                    pinned.0.catalog.as_ref(),
+                    &mut || false,
+                )
+                .unwrap();
+            assert_eq!(projected.len(), parts.len());
+            let reads = factory.posting_block_reads.load(Ordering::Relaxed) - before;
+            assert!(reads > 0);
+            reads
+        };
+        let one = project(&[make_partition(published_table.active.clone())]);
+        let choices = published_table
+            .active
+            .bitmap()
+            .iter()
+            .map(|slot| {
+                make_partition(
+                    ActiveRecords::from_bitmap(
+                        published_table.descriptor().slots,
+                        [slot].into_iter().collect(),
+                    )
+                    .unwrap(),
+                )
+            })
+            .collect::<Vec<_>>();
+        assert_eq!(choices.len(), 4);
+        assert_eq!(project(&choices), one);
+    }
     let mut flat = pinned.repository().empty_like().unwrap();
     flat.catalog = Arc::clone(&pinned.0.catalog);
     flat.collections[0].base_records = Some(Arc::clone(&published_table.index));

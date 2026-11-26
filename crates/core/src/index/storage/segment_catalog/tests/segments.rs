@@ -159,8 +159,8 @@ fn worker(batch: Box<dyn PreparedIndexes>) -> StorageResult<TableWorker> {
 #[derive(Clone, Copy)]
 enum Location {
     File(FileRangeLocator),
-    Retained(u32),
-    Versioned(RecordVersion),
+    Retained(u32, Option<FileRangeLocator>),
+    Versioned(RecordVersion, Option<FileRangeLocator>),
 }
 
 #[derive(Clone)]
@@ -365,8 +365,8 @@ pub(super) fn seal_direct(
         .zip(facts.rows)
         .zip(RecordWriteVersion::allocate(count)?)
         .map(|((header, facts), version)| {
-            let location = versions.map_or(Location::Retained(header.slot.0), |versions| {
-                Location::Versioned(versions[header.slot.0 as usize])
+            let location = versions.map_or(Location::Retained(header.slot.0, None), |versions| {
+                Location::Versioned(versions[header.slot.0 as usize], None)
             });
             Row {
                 header,
@@ -399,7 +399,7 @@ pub(super) fn seal_direct(
 }
 
 #[derive(Clone)]
-struct TableSegment {
+pub(super) struct TableSegment {
     metadata: Header,
     rows: Vec<Row>,
     by_id: BTreeMap<RecordId, RecordSlot>,
@@ -463,6 +463,7 @@ impl TableSegment {
                 .collect()
         });
         let score = score_indexed.then(|| TablePosting {
+            block_reads: Arc::clone(&control.posting_block_reads),
             path: vec![SCORE.into()],
             kind: LogicalType::Number,
             present: Arc::clone(covered.as_ref().unwrap_or(&logical)),
@@ -676,14 +677,14 @@ impl SegmentReader for TableSegment {
             .map(|row| {
                 Ok(match row.location {
                     Location::File(locator) => RecordOrigin::FileRange(locator),
-                    Location::Retained(_) => RecordOrigin::Retained(None),
-                    Location::Versioned(version) => RecordOrigin::Provider {
+                    Location::Retained(_, file) => RecordOrigin::Retained(file),
+                    Location::Versioned(version, file) => RecordOrigin::Provider {
                         registration: self
                             .metadata
                             .registration
                             .ok_or_else(|| invalid("provider registration missing"))?,
                         version,
-                        file: None,
+                        file,
                     },
                 })
             })
@@ -692,7 +693,7 @@ impl SegmentReader for TableSegment {
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
         if let Some(row) = self.rows.get(slot.0 as usize)
-            && let Location::Retained(offset) = row.location
+            && let Location::Retained(offset, _) = row.location
         {
             return self
                 .retained
@@ -700,6 +701,24 @@ impl SegmentReader for TableSegment {
                 .ok_or_else(|| invalid("retained block missing"))?
                 .body(offset)
                 .map(Some);
+        }
+        Ok(None)
+    }
+
+    fn retained_body_bytes(
+        &self,
+        slot: RecordSlot,
+    ) -> StorageResult<
+        Option<Box<dyn crate::index::storage::segment::transfer::RetainedBodyBytes + '_>>,
+    > {
+        if let Some(row) = self.rows.get(slot.0 as usize)
+            && let Location::Retained(offset, _) = row.location
+        {
+            return self
+                .retained
+                .as_ref()
+                .ok_or_else(|| invalid("retained block missing"))?
+                .body_bytes(offset);
         }
         Ok(None)
     }
@@ -1065,6 +1084,7 @@ impl SegmentMaintenance for TableSegment {
 
 #[derive(Clone)]
 struct TablePosting {
+    block_reads: Arc<AtomicUsize>,
     path: Vec<String>,
     kind: LogicalType,
     present: Arc<[u32]>,
@@ -1119,6 +1139,7 @@ impl PostingReader for TablePosting {
         let mut write = |key: PostingKey<'_>, slots: &[u32]| {
             if slots.is_empty() {
                 limit.accepts(OP, 0, 0, key.bytes())?;
+                self.block_reads.fetch_add(1, Ordering::Relaxed);
                 return visit(key, &[]);
             }
             let maximum = limit
@@ -1128,6 +1149,7 @@ impl PostingReader for TablePosting {
             for chunk in slots.chunks(maximum) {
                 scratch.clear();
                 scratch.extend(chunk.iter().copied().map(RecordSlot));
+                self.block_reads.fetch_add(1, Ordering::Relaxed);
                 visit(key, &scratch)?;
             }
             Ok(())
@@ -1418,7 +1440,7 @@ fn independent_and_native_segments_share_the_real_query_and_ingestion_path() {
     retained.submit(batch).unwrap().wait_published().unwrap();
     assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
     assert_eq!(reader.0.load(Ordering::Relaxed), reads_before);
-    assert_eq!(factory.independent_projections.load(Ordering::Relaxed), 1);
+    assert_eq!(factory.independent_projections.load(Ordering::Relaxed), 0);
     let current = index.view().unwrap();
     let old_route = pinned.0.record_routes[0]
         .route("retained")
@@ -1429,6 +1451,12 @@ fn independent_and_native_segments_share_the_real_query_and_ingestion_path() {
         .unwrap()
         .unwrap();
     assert_eq!(old_route.slot, RecordSlot(1));
+    let compacted = current.segments(collection).unwrap();
+    let projected = compacted
+        .iter()
+        .find(|segment| segment.id == new_route.segment)
+        .unwrap();
+    assert!(!(projected.index.as_ref() as &dyn std::any::Any).is::<TableSegment>());
     assert_eq!(new_route.slot, RecordSlot(0));
     assert!(
         pinned

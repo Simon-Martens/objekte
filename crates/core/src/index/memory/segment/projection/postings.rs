@@ -102,6 +102,46 @@ pub(super) fn scatter_posting_partitions(
     Ok(parts)
 }
 
+pub(crate) fn transfer_posting_partitions(
+    reader: &dyn PostingReader,
+    routing: &PartitionRouting,
+    cancelled: &dyn Fn() -> bool,
+) -> crate::index::storage::transfer::StorageResult<Vec<PostingIndex>> {
+    let mut parts = routing
+        .logical_counts
+        .iter()
+        .map(|&count| empty_projected_posting(reader.descriptor(), count))
+        .collect::<Vec<_>>();
+    visit_posting_blocks(
+        reader,
+        routing.locations.len(),
+        cancelled,
+        &mut |key, block| {
+            for &old in block {
+                let Some((part, new)) = routing.locations[old.0 as usize] else {
+                    continue;
+                };
+                insert_posting_slot(&mut parts[part], key, new.0);
+            }
+            Ok(())
+        },
+    )?;
+    for part in &mut parts {
+        part.finish_stats();
+    }
+    Ok(parts)
+}
+
+fn insert_posting_slot(index: &mut PostingIndex, key: PostingKey<'_>, slot: u32) {
+    match key {
+        PostingKey::Presence => {
+            index.presence.insert(slot);
+        }
+        PostingKey::Value(key) => scatter_posting_key(&mut index.values, key, slot),
+        PostingKey::Length(length) => scatter_posting_key(&mut index.lengths, length, slot),
+    }
+}
+
 pub(crate) fn transfer_posting(
     reader: &dyn PostingReader,
     slots: &SlotMap<'_>,
@@ -121,15 +161,7 @@ pub(crate) fn transfer_posting(
             else {
                 continue;
             };
-            match key {
-                PostingKey::Presence => {
-                    projected.presence.insert(new.0);
-                }
-                PostingKey::Value(key) => scatter_posting_key(&mut projected.values, key, new.0),
-                PostingKey::Length(length) => {
-                    scatter_posting_key(&mut projected.lengths, length, new.0)
-                }
-            }
+            insert_posting_slot(&mut projected, key, new.0);
         }
         Ok(())
     })?;

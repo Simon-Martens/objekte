@@ -8,10 +8,14 @@ mod text;
 
 pub(super) use inference::finish_projected_inference;
 pub(crate) use inference::project_inference;
-pub(crate) use postings::{PostingProjection, project_posting, transfer_posting};
+pub(crate) use postings::{
+    PostingProjection, project_posting, transfer_posting, transfer_posting_partitions,
+};
 pub(crate) use routing::{PartitionRouting, SlotMap, project_bitmap};
 pub(crate) use sorting::project_sorting;
-pub(crate) use text::{BigramProjection, project_bigram, transfer_bigram};
+pub(crate) use text::{
+    BigramProjection, project_bigram, transfer_bigram, transfer_bigram_partitions,
+};
 
 use super::IndexedCollectionSegment;
 use crate::index::memory::relation::RelationContribution;

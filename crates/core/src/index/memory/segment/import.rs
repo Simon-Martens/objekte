@@ -1,4 +1,4 @@
-//! Import checked file-backed segment blocks into native columns.
+//! Import checked segment blocks into native columns.
 
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
@@ -6,24 +6,130 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use super::projection::{SlotMap, finish_projected_inference, transfer_bigram, transfer_posting};
-use super::{IndexedCollectionSegment, SegmentBacking, SegmentFile};
+use super::projection::{
+    PartitionRouting, SlotMap, finish_projected_inference, transfer_bigram,
+    transfer_bigram_partitions, transfer_posting, transfer_posting_partitions,
+};
+use super::record_versions::RecordWriteVersions;
+use super::{
+    IndexedCollectionSegment, MemoryRetainedBlock, RetainedAddress, SegmentBacking, SegmentFile,
+};
+use crate::index::memory::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
-use crate::index::memory::posting::{CustomPostingIndex, PostingCollection};
+use crate::index::memory::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::memory::relation::RelationContribution;
 use crate::index::storage::component::ComponentKind;
-use crate::index::storage::segment::transfer::FileSegmentLayout;
+use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::segment::maintenance::SegmentPartition;
+use crate::index::storage::segment::transfer::{FileSegmentLayout, read_retained_body};
 use crate::index::storage::segment::{
     RecordBacking, RecordOrigin, SegmentHandle, SegmentReader, SegmentSlotFact, read_slot_members,
     visit_checked_file_slots,
 };
+use crate::index::storage::text::BigramAlphabet;
 use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inventory::RecordClass;
 
-const OP: &str = "import memory file segment";
+const OP: &str = "import memory segment";
 
 fn invalid(detail: &'static str) -> StorageError {
     StorageError::invalid(OP, detail)
+}
+
+#[derive(Default)]
+struct ScatteredColumns {
+    postings: Vec<PostingIndex>,
+    grams: Vec<BigramIndex>,
+}
+
+pub(crate) fn import_partitions(
+    source: &dyn SegmentReader,
+    partitions: &[SegmentPartition],
+    catalog: &dyn FileCatalogReader,
+    cancelled: &mut dyn FnMut() -> bool,
+) -> StorageResult<Vec<SegmentHandle>> {
+    let unsupported = || StorageError::Unsupported {
+        operation: "import segment into memory partitions",
+    };
+    if partitions.len() == 1 {
+        return import(
+            source,
+            FileSegmentLayout::Dense {
+                partition: &partitions[0],
+                catalog,
+            },
+            cancelled,
+        )?
+        .map(|part| vec![part])
+        .ok_or_else(unsupported);
+    }
+    if partitions.is_empty() {
+        return Ok(Vec::new());
+    }
+    let cancel = RefCell::new(cancelled);
+    let check = || cancel.borrow_mut()();
+    let logical = read_slot_members(source, SegmentSlotFact::Logical)?;
+    let routing = PartitionRouting::from_masks(
+        source.descriptor().slots,
+        partitions.iter().map(|part| &part.slots),
+        |slot| logical.view().contains(slot),
+    )
+    .map_err(|error| StorageError::invalid(OP, error))?;
+    let mut columns = (0..partitions.len())
+        .map(|_| ScatteredColumns::default())
+        .collect::<Vec<_>>();
+    for component in source.components()? {
+        if check() {
+            return Err(StorageError::Cancelled);
+        }
+        match component.kind {
+            ComponentKind::DeclaredPosting
+            | ComponentKind::CustomPosting
+            | ComponentKind::InferredPosting => {
+                let reader = source
+                    .posting(&component)?
+                    .ok_or_else(|| invalid("advertised posting missing"))?;
+                if reader.descriptor().coverage.covered_records as usize != logical.view().len() {
+                    return Err(unsupported());
+                }
+                for (part, column) in columns
+                    .iter_mut()
+                    .zip(transfer_posting_partitions(reader, &routing, &check)?)
+                {
+                    part.postings.push(column);
+                }
+            }
+            ComponentKind::RawText | ComponentKind::FallbackText | ComponentKind::FieldText => {
+                let reader = source
+                    .grams(&component)?
+                    .ok_or_else(|| invalid("advertised gram store missing"))?;
+                if reader.descriptor().covered_records as usize != routing.locations.len() {
+                    return Err(unsupported());
+                }
+                for (part, column) in columns
+                    .iter_mut()
+                    .zip(transfer_bigram_partitions(reader, &routing, &check)?)
+                {
+                    part.grams.push(column);
+                }
+            }
+            ComponentKind::Relations | ComponentKind::Sorting => {}
+        }
+    }
+    partitions
+        .iter()
+        .zip(columns)
+        .enumerate()
+        .map(|(part, (partition, columns))| {
+            import_with_routing(
+                source,
+                FileSegmentLayout::Dense { partition, catalog },
+                &mut || check(),
+                Some((&routing, part, columns)),
+            )?
+            .ok_or_else(unsupported)
+        })
+        .collect()
 }
 
 pub(crate) fn import(
@@ -31,8 +137,19 @@ pub(crate) fn import(
     layout: FileSegmentLayout<'_>,
     cancelled: &mut dyn FnMut() -> bool,
 ) -> StorageResult<Option<SegmentHandle>> {
-    if source.backing_kind() != RecordBacking::FileRange || source.source().registration.is_some() {
-        return Ok(None);
+    import_with_routing(source, layout, cancelled, None)
+}
+
+fn import_with_routing(
+    source: &dyn SegmentReader,
+    layout: FileSegmentLayout<'_>,
+    cancelled: &mut dyn FnMut() -> bool,
+    scattered: Option<(&PartitionRouting, usize, ScatteredColumns)>,
+) -> StorageResult<Option<SegmentHandle>> {
+    let backing = source.backing_kind();
+    let adapter = source.source();
+    if (backing == RecordBacking::FileRange) != adapter.registration.is_none() {
+        return Err(invalid("record backing and source registration disagree"));
     }
     let descriptor = source.descriptor();
     let components = source.components()?;
@@ -105,7 +222,7 @@ pub(crate) fn import(
             }
         }
     }
-    if !raw || !fallback {
+    if backing == RecordBacking::FileRange && (!raw || !fallback) {
         return Ok(None);
     }
     if (!order_columns.is_empty() || !composite_orders.is_empty()) && !sorting_family {
@@ -126,29 +243,55 @@ pub(crate) fn import(
         return Err(invalid("inference report domain mismatch"));
     }
     let cancelled = RefCell::new(cancelled);
-    let mut cancelled = || cancelled.borrow_mut()();
+    let cancelled_body = &cancelled;
+    let mut cancelled = || cancelled_body.borrow_mut()();
     let empty_arrays = read_slot_members(source, SegmentSlotFact::EmptyArray)?;
     let empty_arrays = empty_arrays.view();
     let mut records = Vec::new();
     let mut locators = Vec::new();
+    let mut bodies = Vec::new();
+    let mut provider_versions = Vec::new();
+    let mut write_versions = Vec::new();
     let mut logical = RoaringBitmap::new();
     let mut empty = RoaringBitmap::new();
-    let mut mapping = vec![None; descriptor.slots];
+    let mut mapping = if scattered.is_none() {
+        vec![None; descriptor.slots]
+    } else {
+        Vec::new()
+    };
     let mut id_lookup = HashMap::new();
     layout.visit_records(source, &mut cancelled, &mut |rows| {
         for row in rows {
-            let RecordOrigin::FileRange(locator) = row.origin else {
-                return Err(invalid("expected file-backed origin"));
-            };
             let header = row.header;
             let is_logical = header.class == RecordClass::Logical;
-            if row.write_version.is_some()
-                || source_logical.contains(header.slot.0) != is_logical
+            match row.origin {
+                RecordOrigin::FileRange(_) if row.write_version.is_none() => {}
+                RecordOrigin::Retained(_) => {
+                    bodies.push(read_retained_body(source, header.slot, &|| {
+                        cancelled_body.borrow_mut()()
+                    })?);
+                }
+                RecordOrigin::Provider {
+                    registration,
+                    version,
+                    ..
+                } if adapter.registration == Some(registration) => {
+                    provider_versions.push(version);
+                }
+                _ => return Err(invalid("incompatible record origin")),
+            }
+            if backing != RecordBacking::FileRange {
+                write_versions.push(
+                    row.write_version
+                        .ok_or_else(|| invalid("direct write version missing"))?,
+                );
+            }
+            if source_logical.contains(header.slot.0) != is_logical
                 || id_lookup
                     .insert(header.id.clone(), row.destination)
                     .is_some()
             {
-                return Err(invalid("incompatible or duplicate file record"));
+                return Err(invalid("incompatible or duplicate record"));
             }
             if is_logical {
                 logical.insert(row.destination.0);
@@ -157,13 +300,30 @@ pub(crate) fn import(
                 empty.insert(row.destination.0);
             }
             let mut header = header.clone();
-            mapping[header.slot.0 as usize] = Some(row.destination);
+            if let Some((routing, part, _)) = &scattered {
+                if routing.locations[header.slot.0 as usize] != Some((*part, row.destination)) {
+                    return Err(invalid("record header and partition routing disagree"));
+                }
+            } else {
+                mapping[header.slot.0 as usize] = Some(row.destination);
+            }
             header.slot = row.destination;
             records.push(header);
-            locators.push(locator);
+            locators.push(row.origin.file());
         }
         Ok(())
     })?;
+    let (mapping, columns) = if let Some((routing, part, columns)) = scattered {
+        (SlotMap::Partition { routing, part }, Some(columns))
+    } else {
+        (SlotMap::Dense(&mapping), None)
+    };
+    let (mut scattered_postings, mut scattered_grams) = columns.map_or((None, None), |columns| {
+        (
+            Some(columns.postings.into_iter()),
+            Some(columns.grams.into_iter()),
+        )
+    });
     let mut files = Vec::new();
     let mut relocated = HashSet::new();
     let mut file_index = HashMap::new();
@@ -172,10 +332,11 @@ pub(crate) fn import(
         let mut slots = Vec::new();
         visit_checked_file_slots(source, file.id, &mut |batch| {
             for slot in batch {
-                let Some(destination) = mapping[slot.0 as usize] else {
+                let Some(destination) = mapping.get(slot.0 as usize).flatten() else {
                     continue;
                 };
-                let locator = locators[destination.0 as usize];
+                let locator = locators[destination.0 as usize]
+                    .ok_or_else(|| invalid("file membership has no record link"))?;
                 if locator.file != file.id
                     || locator.revision != file.revision
                     || slots
@@ -204,7 +365,7 @@ pub(crate) fn import(
             }
             for diagnostic in &mut entry.diagnostics {
                 if let Some(slot) = diagnostic.record {
-                    diagnostic.record = *mapping
+                    diagnostic.record = mapping
                         .get(slot.0 as usize)
                         .ok_or_else(|| invalid("diagnostic references an invalid slot"))?;
                 }
@@ -216,7 +377,7 @@ pub(crate) fn import(
         });
         Ok(())
     })?;
-    if seen.len() as usize != records.len() {
+    if backing == RecordBacking::FileRange && seen.len() as usize != records.len() {
         return Err(invalid("file membership has incomplete coverage"));
     }
 
@@ -235,7 +396,7 @@ pub(crate) fn import(
         &mapping,
         &records,
         |slot| {
-            let file = locators[slot.0 as usize].file;
+            let file = locators[slot.0 as usize]?.file;
             relocated
                 .contains(&file)
                 .then(|| files[file_index[&file]].entry.relative_path.as_path())
@@ -245,14 +406,19 @@ pub(crate) fn import(
     let mut declared = PostingCollection {
         fields: HashMap::new(),
     };
-    let mapping = SlotMap::Dense(&mapping);
     for (component, reader) in postings {
         let covered_records = if dense {
             logical.len() as u32
         } else {
             reader.descriptor().coverage.covered_records
         };
-        let column = transfer_posting(reader, &mapping, covered_records, None, &cancelled)?;
+        let column = if let Some(scattered) = &mut scattered_postings {
+            scattered
+                .next()
+                .ok_or_else(|| invalid("scattered posting column missing"))?
+        } else {
+            transfer_posting(reader, &mapping, covered_records, None, &cancelled)?
+        };
         let path = column.path.clone();
         let duplicate = match component.kind {
             ComponentKind::DeclaredPosting => declared.fields.insert(path, column).is_some(),
@@ -327,7 +493,13 @@ pub(crate) fn import(
         } else {
             reader.descriptor().covered_records
         };
-        let column = transfer_bigram(reader, &mapping, covered_records, None, &cancelled)?;
+        let column = if let Some(scattered) = &mut scattered_grams {
+            scattered
+                .next()
+                .ok_or_else(|| invalid("scattered gram column missing"))?
+        } else {
+            transfer_bigram(reader, &mapping, covered_records, None, &cancelled)?
+        };
         match component.kind {
             ComponentKind::RawText => raw = Some(column),
             ComponentKind::FallbackText => fallback = Some(column),
@@ -347,7 +519,42 @@ pub(crate) fn import(
             _ => unreachable!("validated gram family"),
         }
     }
-    let adapter = source.source();
+    let backing = match backing {
+        RecordBacking::FileRange => SegmentBacking::FileRange {
+            locators: locators
+                .into_iter()
+                .collect::<Option<Vec<_>>>()
+                .ok_or_else(|| invalid("missing file origin"))?,
+        },
+        RecordBacking::Retained => SegmentBacking::Retained {
+            registration: adapter.registration.expect("checked registration"),
+            addresses: (0..bodies.len() as u32)
+                .map(|offset| RetainedAddress { block: 0, offset })
+                .collect(),
+            blocks: vec![Arc::new(MemoryRetainedBlock(bodies))],
+            links: locators,
+        },
+        RecordBacking::Provider => SegmentBacking::Provider {
+            registration: adapter.registration.expect("checked registration"),
+            versions: provider_versions,
+            links: locators,
+        },
+    };
+    let versions = if matches!(backing, SegmentBacking::FileRange { .. }) {
+        RecordWriteVersions::Unversioned
+    } else {
+        RecordWriteVersions::Projected(write_versions.into())
+    };
+    let empty_grams = |alphabet| BigramIndex {
+        alphabet,
+        record_count: 0,
+        normal: HashMap::new(),
+        skip: HashMap::new(),
+    };
+    let alphabet = raw
+        .as_ref()
+        .or(fallback.as_ref())
+        .map_or(BigramAlphabet::Ascii, |column| column.alphabet);
     let mut identity_order = records.iter().map(|header| header.slot).collect::<Vec<_>>();
     identity_order.sort_unstable_by(|left, right| {
         records[left.0 as usize]
@@ -362,16 +569,16 @@ pub(crate) fn import(
         files,
         file_index,
         records,
-        backing: SegmentBacking::FileRange { locators },
-        write_versions: Default::default(),
+        backing,
+        write_versions: versions,
         raw_covers_logical_fields: source.raw_covers_logical_fields(),
         id_lookup,
         identity_order,
         postings: declared.into(),
         inference,
         custom_postings: named_postings,
-        raw: raw.expect("required raw store").into(),
-        fallback_text: fallback.expect("required fallback store").into(),
+        raw: raw.unwrap_or_else(|| empty_grams(alphabet)).into(),
+        fallback_text: fallback.unwrap_or_else(|| empty_grams(alphabet)).into(),
         custom_text,
         logical_records: logical,
         empty_array_records: empty,

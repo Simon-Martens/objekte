@@ -36,11 +36,21 @@ impl PartitionRouting {
         source: &IndexedCollectionSegment,
         masks: &[ActiveRecords],
     ) -> Result<Self, String> {
-        let mut locations = vec![None; source.record_count()];
+        Self::from_masks(source.record_count(), masks.iter(), |slot| {
+            source.logical_records.contains(slot)
+        })
+    }
+
+    pub(crate) fn from_masks<'a>(
+        source_slots: usize,
+        masks: impl ExactSizeIterator<Item = &'a ActiveRecords>,
+        is_logical: impl Fn(u32) -> bool,
+    ) -> Result<Self, String> {
+        let mut locations = vec![None; source_slots];
         let mut selected = Vec::with_capacity(masks.len());
         let mut logical_counts = Vec::with_capacity(masks.len());
-        for (part, mask) in masks.iter().enumerate() {
-            if mask.slot_count() as usize != source.record_count() {
+        for (part, mask) in masks.enumerate() {
+            if mask.slot_count() as usize != source_slots {
                 return Err("partition posting mask coverage mismatch".into());
             }
             let mut slots = Vec::with_capacity(mask.len() as usize);
@@ -54,7 +64,7 @@ impl PartitionRouting {
                     return Err("partition posting slot selected twice".into());
                 }
                 slots.push(old);
-                if source.logical_records.contains(old) {
+                if is_logical(old) {
                     logical = logical
                         .checked_add(1)
                         .ok_or("partition logical count overflow")?;
@@ -93,6 +103,22 @@ impl SlotMap<'_> {
             Self::Partition { routing, part } => routing.locations.get(old).map(|location| {
                 location.and_then(|(owner, slot)| (owner == *part).then_some(slot))
             }),
+        }
+    }
+
+    pub(crate) fn selected(&self) -> Box<dyn Iterator<Item = (usize, RecordSlot)> + '_> {
+        match self {
+            Self::Dense(slots) => Box::new(
+                slots
+                    .iter()
+                    .enumerate()
+                    .filter_map(|(source, destination)| destination.map(|slot| (source, slot))),
+            ),
+            Self::Partition { routing, part } => {
+                Box::new(routing.selected[*part].iter().enumerate().map(
+                    |(destination, &source)| (source as usize, RecordSlot(destination as u32)),
+                ))
+            }
         }
     }
 

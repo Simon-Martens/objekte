@@ -93,10 +93,11 @@ fn can_consolidate(
     Ok(!overlaps)
 }
 
-fn cheapest_consolidation_pair(
+fn consolidate_eligible_pair<T>(
     group: &[Arc<PublishedSegment>],
     target_records: usize,
-) -> Result<Option<(usize, usize)>, IndexError> {
+    mut merge: impl FnMut(usize, usize) -> Result<Option<T>, IndexError>,
+) -> Result<Option<(usize, usize, T)>, IndexError> {
     let mut sized = group
         .iter()
         .enumerate()
@@ -108,8 +109,11 @@ fn cheapest_consolidation_pair(
             if left_size + right_size > target_records {
                 break;
             }
-            if can_consolidate(group[left].as_ref(), group[right].as_ref())? {
-                return Ok(Some((left.min(right), left.max(right))));
+            let (left, right) = (left.min(right), left.max(right));
+            if can_consolidate(group[left].as_ref(), group[right].as_ref())?
+                && let Some(merged) = merge(left, right)?
+            {
+                return Ok(Some((left, right, merged)));
             }
         }
     }
@@ -480,7 +484,7 @@ impl PublishedIndex {
         )
     }
 
-    pub(super) fn make_room_for_segment_with_limits(
+    pub(crate) fn make_room_for_segment_with_limits(
         &mut self,
         number: usize,
         sparse_byte_limit: usize,
@@ -586,17 +590,16 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(&staged_group, target_records)?
-        else {
-            return Ok(());
-        };
-        let Some(merged) = self.repository.storage_factory.consolidate_segments(
-            &[
-                staged_group[left].index.as_ref(),
-                staged_group[right].index.as_ref(),
-            ],
-            target_records,
-        )?
+        let Some((left, right, merged)) =
+            consolidate_eligible_pair(&staged_group, target_records, |left, right| {
+                Ok(self.repository.storage_factory.consolidate_segments(
+                    &[
+                        staged_group[left].index.as_ref(),
+                        staged_group[right].index.as_ref(),
+                    ],
+                    target_records,
+                )?)
+            })?
         else {
             return Ok(());
         };

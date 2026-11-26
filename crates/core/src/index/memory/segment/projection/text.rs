@@ -12,6 +12,41 @@ pub(crate) struct BigramProjection {
     pub(crate) custom: HashMap<(Vec<String>, String), BigramIndex>,
 }
 
+pub(crate) fn transfer_bigram_partitions(
+    reader: &dyn GramReader,
+    routing: &PartitionRouting,
+    cancelled: &dyn Fn() -> bool,
+) -> crate::index::storage::transfer::StorageResult<Vec<BigramIndex>> {
+    let mut parts = routing
+        .selected
+        .iter()
+        .map(|selected| {
+            let mut index = BigramIndex::new(reader.descriptor().alphabet);
+            index.record_count = selected.len() as u32;
+            index
+        })
+        .collect::<Vec<_>>();
+    visit_gram_blocks(
+        reader,
+        routing.locations.len(),
+        cancelled,
+        &mut |channel, gram, block| {
+            for &old in block {
+                let Some((part, new)) = routing.locations[old.0 as usize] else {
+                    continue;
+                };
+                let target = match channel {
+                    GramChannel::Adjacent => &mut parts[part].normal,
+                    GramChannel::Skip => &mut parts[part].skip,
+                };
+                target.entry(gram).or_default().insert(new.0);
+            }
+            Ok(())
+        },
+    )?;
+    Ok(parts)
+}
+
 pub(crate) fn transfer_bigram(
     reader: &dyn GramReader,
     slots: &SlotMap<'_>,

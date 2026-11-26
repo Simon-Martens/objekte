@@ -34,8 +34,6 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
         catalog: &dyn super::storage::file_catalog::FileCatalogReader,
         cancelled: &mut dyn FnMut() -> bool,
     ) -> super::storage::transfer::StorageResult<Vec<super::storage::segment::SegmentHandle>> {
-        use super::storage::segment::transfer::FileSegmentLayout;
-
         let editor = source.maintenance();
         if let Some(native) = editor.and_then(|editor| {
             (editor as &dyn std::any::Any).downcast_ref::<segment::IndexedCollectionSegment>()
@@ -43,20 +41,7 @@ impl super::storage::StorageFactory for MemoryStorageFactory {
             use super::storage::segment::maintenance::SegmentMaintenance;
             return SegmentMaintenance::project_partitions(native, partitions, catalog, cancelled);
         }
-        let mut results = Vec::with_capacity(partitions.len());
-        for partition in partitions {
-            let Some(imported) = self.import_file_segment(
-                source,
-                FileSegmentLayout::Dense { partition, catalog },
-                cancelled,
-            )?
-            else {
-                return super::storage::segment::maintenance::require_maintenance(source)?
-                    .project_partitions(partitions, catalog, cancelled);
-            };
-            results.push(imported);
-        }
-        Ok(results)
+        segment::import::import_partitions(source, partitions, catalog, cancelled)
     }
 
     fn consolidate_segments(

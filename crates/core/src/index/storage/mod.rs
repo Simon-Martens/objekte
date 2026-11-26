@@ -23,7 +23,7 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
-    /// Import a sealed file-backed segment via logical blocks. A factory can
+    /// Import a sealed segment via logical blocks. A factory can
     /// decline a family it cannot preserve before beginning the import.
     fn import_file_segment(
         &self,
@@ -36,13 +36,14 @@ pub(crate) trait StorageFactory: Send + Sync {
 
     fn project_segment_partitions(
         &self,
-        source: &dyn segment::SegmentReader,
-        partitions: &[segment::maintenance::SegmentPartition],
-        files: &dyn file_catalog::FileCatalogReader,
-        cancelled: &mut dyn FnMut() -> bool,
+        _source: &dyn segment::SegmentReader,
+        _partitions: &[segment::maintenance::SegmentPartition],
+        _files: &dyn file_catalog::FileCatalogReader,
+        _cancelled: &mut dyn FnMut() -> bool,
     ) -> StorageResult<Vec<segment::SegmentHandle>> {
-        segment::maintenance::require_maintenance(source)?
-            .project_partitions(partitions, files, cancelled)
+        Err(transfer::StorageError::Unsupported {
+            operation: "project segment partitions",
+        })
     }
 
     fn consolidate_segments(

@@ -9,6 +9,9 @@ pub(crate) type StorageResult<T> = Result<T, StorageError>;
 pub(crate) enum StorageError {
     Cancelled,
     ResourceLimit(String),
+    Unsupported {
+        operation: &'static str,
+    },
     InvalidTransfer {
         operation: &'static str,
         detail: String,
@@ -34,6 +37,9 @@ impl fmt::Display for StorageError {
         match self {
             Self::Cancelled => f.write_str("storage transfer cancelled"),
             Self::ResourceLimit(message) => f.write_str(message),
+            Self::Unsupported { operation } => {
+                write!(f, "{operation}: unsupported by destination storage")
+            }
             Self::InvalidTransfer { operation, detail } => write!(f, "{operation}: {detail}"),
             Self::OversizedItem {
                 operation,

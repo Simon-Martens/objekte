@@ -31,17 +31,22 @@ struct TableFactory {
     independent_segments: AtomicBool,
     partial_score: AtomicBool,
     segment_id_lookups: AtomicUsize,
+    posting_block_reads: Arc<AtomicUsize>,
     origins_until_failure: AtomicUsize,
     independent_applications: AtomicUsize,
     text_applications: AtomicUsize,
     text_candidates: AtomicUsize,
     independent_projections: AtomicUsize,
     omit_projection: AtomicBool,
+    decline_first_consolidation: AtomicBool,
+    consolidation_attempts: AtomicUsize,
 
     installs: AtomicUsize,
     retained_builds: AtomicUsize,
     retained_reads: Arc<AtomicUsize>,
     fail_retained_read: Arc<AtomicBool>,
+    fail_retained_part: Arc<AtomicUsize>,
+    retained_part_reads: Arc<AtomicUsize>,
     order_builds: AtomicUsize,
     store_declared_order: AtomicBool,
     declared_order_builds: AtomicUsize,
@@ -89,6 +94,19 @@ impl DeclaredOrderStore for Arc<TableFactory> {
 }
 
 impl TableFactory {
+    fn seal_retained_bytes(
+        &self,
+        bodies: Vec<Vec<u8>>,
+    ) -> crate::index::storage::segment::RetainedBlock {
+        Arc::new(TableBodies {
+            bodies,
+            reads: Arc::clone(&self.retained_reads),
+            fail_read: Arc::clone(&self.fail_retained_read),
+            part_reads: Arc::clone(&self.retained_part_reads),
+            fail_part: Arc::clone(&self.fail_retained_part),
+        })
+    }
+
     fn short_order(&self, rows: Vec<RecordSlot>) -> ShortOrder {
         ShortOrder {
             blocks: rows
@@ -119,8 +137,18 @@ impl StorageFactory for Arc<TableFactory> {
         files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
         cancelled: &mut dyn FnMut() -> bool,
     ) -> StorageResult<Vec<crate::index::storage::segment::SegmentHandle>> {
-        let mut projected = crate::index::storage::test_factory()
-            .project_segment_partitions(source, partitions, files, cancelled)?;
+        use crate::index::storage::segment::maintenance::SegmentMaintenance;
+        let local = source.maintenance().and_then(|editor| {
+            (editor as &dyn std::any::Any).downcast_ref::<segments::TableSegment>()
+        });
+        let mut projected = if self.independent_segments.load(Ordering::Relaxed)
+            && let Some(local) = local
+        {
+            local.project_partitions(partitions, files, cancelled)?
+        } else {
+            crate::index::storage::test_factory()
+                .project_segment_partitions(source, partitions, files, cancelled)?
+        };
         if self.omit_projection.swap(false, Ordering::Relaxed) {
             projected.pop();
         }
@@ -133,6 +161,13 @@ impl StorageFactory for Arc<TableFactory> {
         max_records: usize,
     ) -> StorageResult<Option<crate::index::storage::segment::maintenance::ConsolidatedSegment>>
     {
+        self.consolidation_attempts.fetch_add(1, Ordering::Relaxed);
+        if self
+            .decline_first_consolidation
+            .swap(false, Ordering::Relaxed)
+        {
+            return Ok(None);
+        }
         crate::index::storage::test_factory().consolidate_segments(segments, max_records)
     }
 
@@ -184,13 +219,14 @@ impl StorageFactory for Arc<TableFactory> {
         bodies: Vec<crate::records::RetainedBody>,
     ) -> StorageResult<crate::index::storage::segment::RetainedBlock> {
         self.retained_builds.fetch_add(1, Ordering::Relaxed);
-        let count = bodies.len();
-        Ok(Arc::new(TableBodies {
-            count,
-            bodies: bodies.into_iter().enumerate().collect(),
-            reads: Arc::clone(&self.retained_reads),
-            fail_read: Arc::clone(&self.fail_retained_read),
-        }))
+        let bodies = bodies
+            .into_iter()
+            .map(|body| {
+                bincode::serialize(&(body.value, body.text))
+                    .map_err(|error| StorageError::invalid("encode test body", error.to_string()))
+            })
+            .collect::<StorageResult<Vec<_>>>()?;
+        Ok(self.seal_retained_bytes(bodies))
     }
 
     fn inferred_order(&self, rows: InferredOrderRows) -> StorageResult<Arc<dyn OrderColumnReader>> {
@@ -354,15 +390,41 @@ impl SegmentBuilder for FailureInjectingBuilder {
 }
 
 struct TableBodies {
-    count: usize,
-    bodies: BTreeMap<usize, crate::records::RetainedBody>,
+    bodies: Vec<Vec<u8>>,
     reads: Arc<AtomicUsize>,
     fail_read: Arc<AtomicBool>,
+    part_reads: Arc<AtomicUsize>,
+    fail_part: Arc<AtomicUsize>,
+}
+
+struct TableBodyParts<'a> {
+    bytes: &'a [u8],
+    reads: &'a AtomicUsize,
+    fail_part: &'a AtomicUsize,
+}
+
+impl crate::index::storage::segment::transfer::RetainedBodyBytes for TableBodyParts<'_> {
+    fn read_part(&mut self, output: &mut [u8]) -> StorageResult<usize> {
+        use crate::index::storage::segment::transfer::BODY_PART_BYTES;
+
+        assert!(output.len() <= BODY_PART_BYTES);
+        let read = self.reads.fetch_add(1, Ordering::Relaxed) + 1;
+        if read == self.fail_part.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "read test body",
+                "injected retained part failure",
+            ));
+        }
+        let count = self.bytes.len().min(output.len()).min(7 * 1024);
+        output[..count].copy_from_slice(&self.bytes[..count]);
+        self.bytes = &self.bytes[count..];
+        Ok(count)
+    }
 }
 
 impl crate::index::storage::segment::RetainedBlockReader for TableBodies {
     fn len(&self) -> usize {
-        self.count
+        self.bodies.len()
     }
 
     fn body(&self, offset: u32) -> StorageResult<Cow<'_, crate::records::RetainedBody>> {
@@ -373,19 +435,37 @@ impl crate::index::storage::segment::RetainedBlockReader for TableBodies {
                 "injected retained block failure",
             ));
         }
-        self.bodies
-            .get(&(offset as usize))
-            .cloned()
-            .map(Cow::Owned)
-            .ok_or_else(|| StorageError::invalid("read test body", "offset unavailable"))
+        let bytes = self
+            .bodies
+            .get(offset as usize)
+            .ok_or_else(|| StorageError::invalid("read test body", "offset unavailable"))?;
+        let (value, text) = bincode::deserialize(bytes)
+            .map_err(|error| StorageError::invalid("decode test body", error.to_string()))?;
+        Ok(Cow::Owned(crate::records::RetainedBody { value, text }))
+    }
+
+    fn body_bytes(
+        &self,
+        offset: u32,
+    ) -> StorageResult<
+        Option<Box<dyn crate::index::storage::segment::transfer::RetainedBodyBytes + '_>>,
+    > {
+        let bytes = self
+            .bodies
+            .get(offset as usize)
+            .ok_or_else(|| StorageError::invalid("read test body", "offset unavailable"))?;
+        Ok(Some(Box::new(TableBodyParts {
+            bytes,
+            reads: &self.part_reads,
+            fail_part: &self.fail_part,
+        })))
     }
 
     fn estimated_body_bytes(&self) -> usize {
-        self.bodies.values().fold(0, |total, body| {
-            total
-                .saturating_add(crate::ingestion::estimated_value_bytes(&body.value))
-                .saturating_add(crate::ingestion::estimated_text_bytes(&body.text))
-        })
+        self.bodies
+            .iter()
+            .map(Vec::capacity)
+            .fold(0, usize::saturating_add)
     }
 }
 
@@ -891,6 +971,54 @@ impl LiveSlotReader for SortedLiveSlots {
         }
         Ok(ActiveRecords::new(next))
     }
+}
+
+#[test]
+fn automatic_consolidation_tries_the_next_eligible_pair_after_decline() {
+    let factory = Arc::new(TableFactory::default());
+    let mut builder = Index::builder();
+    builder.use_storage_factory(Arc::new(Arc::clone(&factory)));
+    let collection = builder.collection("entries", Schema::default()).unwrap();
+    let registration = builder
+        .register_records(collection, "consolidation", 1)
+        .unwrap();
+    let index = builder.build().unwrap();
+    let session = index.ingestion();
+    let writer = session.writer(registration).unwrap();
+    for record_id in ["first", "second", "third"] {
+        let mut batch = writer.batch();
+        batch.insert(record_id, Value::Null).unwrap();
+        writer.submit(batch).unwrap().wait_published().unwrap();
+    }
+    let prior = index.view().unwrap();
+    let mut root = (*prior.0).clone();
+    let group = root.segment_group(0).unwrap();
+    assert_eq!(group.len(), 3);
+    let earlier = factory.consolidation_attempts.load(Ordering::Relaxed);
+    factory
+        .decline_first_consolidation
+        .store(true, Ordering::Relaxed);
+    root.make_room_for_segment_with_limits(0, 1, 0).unwrap();
+    assert_eq!(
+        factory.consolidation_attempts.load(Ordering::Relaxed) - earlier,
+        2
+    );
+    let merged = root.segment_group(0).unwrap();
+    assert_eq!(merged.len(), 2);
+    assert_eq!(merged[0].id, group[1].id);
+    assert_eq!(merged[1].descriptor().slots, 2);
+    let compacted = Index::from_published(root);
+    let view = compacted.view().unwrap();
+    for id in ["first", "second", "third"] {
+        assert!(
+            view.get_record("entries", id, ReturnMode::Locator)
+                .unwrap()
+                .is_some()
+        );
+    }
+    assert_eq!(prior.segments(collection).unwrap().len(), 3);
+    compacted.shutdown().unwrap();
+    session.finish().unwrap();
 }
 
 #[test]

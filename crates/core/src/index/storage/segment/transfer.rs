@@ -1,6 +1,6 @@
 //! Checked transfer of record metadata and retained bodies.
 
-use std::io::{self, Write};
+use std::io::{self, Read, Write};
 use std::num::NonZeroUsize;
 
 use crate::index::storage::file_catalog::FileCatalogReader;
@@ -19,8 +19,88 @@ const RECORD_LIMIT: BatchLimit = BatchLimit::new(
     NonZeroUsize::new(128).unwrap(),
     NonZeroUsize::new(16 * 1024 * 1024).unwrap(),
 );
-const BODY_PART_BYTES: usize = 64 * 1024;
-const RETAINED_BODY_TRANSFER_VERSION: u32 = 1;
+pub(crate) const BODY_PART_BYTES: usize = 64 * 1024;
+pub(crate) const RETAINED_BODY_TRANSFER_VERSION: u32 = 1;
+
+/// A sequential stream of the internal retained encoding. A successful
+/// zero-length read is EOF. The buffer bounds every backend read.
+pub(crate) trait RetainedBodyBytes {
+    fn read_part(&mut self, buffer: &mut [u8]) -> StorageResult<usize>;
+}
+
+pub(crate) fn read_retained_body(
+    source: &dyn SegmentReader,
+    slot: RecordSlot,
+    cancelled: &dyn Fn() -> bool,
+) -> StorageResult<crate::records::RetainedBody> {
+    const OP: &str = "read retained body for transfer";
+    if cancelled() {
+        return Err(StorageError::Cancelled);
+    }
+    let Some(parts) = source.retained_body_bytes(slot)? else {
+        return source
+            .retained_body(slot)?
+            .map(std::borrow::Cow::into_owned)
+            .ok_or_else(|| StorageError::invalid(OP, "retained body missing"));
+    };
+    struct Decoder<'a> {
+        parts: Box<dyn RetainedBodyBytes + 'a>,
+        cancelled: &'a dyn Fn() -> bool,
+        error: Option<StorageError>,
+    }
+    impl Read for Decoder<'_> {
+        fn read(&mut self, buffer: &mut [u8]) -> io::Result<usize> {
+            let result = if (self.cancelled)() {
+                Err(StorageError::Cancelled)
+            } else {
+                read_body_part(self.parts.as_mut(), buffer)
+            };
+            result.map_err(|error| {
+                self.error = Some(error);
+                io::Error::other("read retained transfer part failed")
+            })
+        }
+    }
+    let mut decoder = Decoder {
+        parts,
+        cancelled,
+        error: None,
+    };
+    let (value, text) = bincode::deserialize_from(&mut decoder).map_err(|error| {
+        decoder
+            .error
+            .take()
+            .unwrap_or_else(|| StorageError::invalid(OP, error.to_string()))
+    })?;
+    if decoder.read(&mut [0]).map_err(|error| {
+        decoder
+            .error
+            .take()
+            .unwrap_or_else(|| StorageError::invalid(OP, error.to_string()))
+    })? != 0
+    {
+        return Err(StorageError::invalid(
+            OP,
+            "trailing bytes after retained body",
+        ));
+    }
+    Ok(crate::records::RetainedBody { value, text })
+}
+
+fn read_body_part(parts: &mut dyn RetainedBodyBytes, buffer: &mut [u8]) -> StorageResult<usize> {
+    let limit = buffer.len().min(BODY_PART_BYTES);
+    if limit == 0 {
+        return Ok(0);
+    }
+    let bytes = parts.read_part(&mut buffer[..limit])?;
+    if bytes > limit {
+        return Err(StorageError::invalid(
+            "read retained transfer part",
+            "part exceeds buffer",
+        ));
+    }
+    Ok(bytes)
+}
 
 /// Identity transfer keeps retired slots and their liveness. Dense transfer
 /// writes only the selected slots, in their original order.
@@ -281,6 +361,25 @@ fn transfer_record_batch(
         }
         if cancelled() {
             return Err(StorageError::Cancelled);
+        }
+        if let Some(mut parts) = source.retained_body_bytes(row.header.slot)? {
+            let mut buffer = vec![0; BODY_PART_BYTES];
+            loop {
+                if cancelled() {
+                    return Err(StorageError::Cancelled);
+                }
+                let bytes = read_body_part(parts.as_mut(), &mut buffer)?;
+                sink.retained_part(
+                    row.destination,
+                    RETAINED_BODY_TRANSFER_VERSION,
+                    &buffer[..bytes],
+                    bytes == 0,
+                )?;
+                if bytes == 0 {
+                    break;
+                }
+            }
+            continue;
         }
         let body = source.retained_body(row.header.slot)?.ok_or_else(|| {
             StorageError::invalid(

@@ -20,7 +20,7 @@ const OP: &str = "import declared order";
 pub(in crate::index::memory) fn transfer<'a>(
     readers: Vec<&dyn OrderColumnReader>,
     composites: Vec<&[CompositeSortPart]>,
-    mapping: &[Option<RecordSlot>],
+    mapping: &crate::index::memory::segment::projection::SlotMap<'_>,
     records: &[RecordHeader],
     relocated_path: impl Fn(RecordSlot) -> Option<&'a Path>,
     cancelled: &dyn Fn() -> bool,
@@ -49,12 +49,10 @@ pub(in crate::index::memory) fn transfer<'a>(
             options: column.options,
         };
         let collator = make_collator(&config).map_err(|error| StorageError::invalid(OP, error))?;
-        let selected = mapping.iter().enumerate().filter_map(|(old, slot)| {
-            slot.map(|_| {
-                u32::try_from(old)
-                    .map(RecordSlot)
-                    .map_err(|_| StorageError::invalid(OP, "source slot overflow"))
-            })
+        let selected = mapping.selected().map(|(old, _)| {
+            u32::try_from(old)
+                .map(RecordSlot)
+                .map_err(|_| StorageError::invalid(OP, "source slot overflow"))
         });
         transfer_order_keys(reader, selected, cancelled, |mut key| {
             let slot = records

@@ -404,7 +404,7 @@ impl RelationContribution {
 
     pub(crate) fn transfer_reader(
         reader: &dyn RelationReader,
-        mapping: &[Option<RecordSlot>],
+        mapping: &crate::index::memory::segment::projection::SlotMap<'_>,
         count: usize,
         cancelled: &dyn Fn() -> bool,
     ) -> StorageResult<Self> {
@@ -416,8 +416,7 @@ impl RelationContribution {
             ));
         }
         let mut result = Self::empty(reader.declaration().clone());
-        for (source, destination) in mapping.iter().enumerate() {
-            let Some(slot) = *destination else { continue };
+        for (source, slot) in mapping.selected() {
             if slot.0 != result.record_count {
                 return Err(StorageError::invalid(OP, "invalid destination order"));
             }

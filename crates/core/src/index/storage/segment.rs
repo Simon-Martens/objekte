@@ -400,7 +400,7 @@ pub(crate) enum RecordBacking {
     Provider,
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum RecordOrigin {
     FileRange(FileRangeLocator),
     Retained(Option<FileRangeLocator>),
@@ -425,6 +425,12 @@ impl RecordOrigin {
 pub(crate) trait RetainedBlockReader: Send + Sync {
     fn len(&self) -> usize;
     fn body(&self, offset: u32) -> StorageResult<Cow<'_, RetainedBody>>;
+    fn body_bytes(
+        &self,
+        _offset: u32,
+    ) -> StorageResult<Option<Box<dyn transfer::RetainedBodyBytes + '_>>> {
+        Ok(None)
+    }
     fn estimated_body_bytes(&self) -> usize;
 }
 
@@ -624,6 +630,15 @@ pub(crate) trait SegmentReader: std::any::Any + Send + Sync {
     fn origin(&self, slot: RecordSlot) -> StorageResult<Option<RecordOrigin>>;
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>>;
+
+    /// Provide the version-one retained encoding directly when the backend
+    /// can read body bytes without decoding a complete logical value.
+    fn retained_body_bytes(
+        &self,
+        _slot: RecordSlot,
+    ) -> StorageResult<Option<Box<dyn transfer::RetainedBodyBytes + '_>>> {
+        Ok(None)
+    }
 
     fn file_count(&self) -> usize {
         0
@@ -933,6 +948,13 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
         self.payload().retained_body(slot)
+    }
+
+    fn retained_body_bytes(
+        &self,
+        slot: RecordSlot,
+    ) -> StorageResult<Option<Box<dyn transfer::RetainedBodyBytes + '_>>> {
+        self.payload().retained_body_bytes(slot)
     }
 
     fn file_count(&self) -> usize {

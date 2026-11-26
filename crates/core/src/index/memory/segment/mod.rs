@@ -6,7 +6,7 @@ mod consolidation;
 mod finalize;
 pub(super) mod import;
 pub(super) mod maintenance;
-mod projection;
+pub(in crate::index::memory) mod projection;
 mod record_versions;
 pub(crate) mod statistics;
 
@@ -335,10 +335,7 @@ impl SegmentBacking {
         }
     }
 
-    pub(crate) fn retained_body(
-        &self,
-        slot: RecordSlot,
-    ) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
+    fn retained_address(&self, slot: RecordSlot) -> StorageResult<Option<(&RetainedBlock, u32)>> {
         let Self::Retained {
             blocks, addresses, ..
         } = self
@@ -351,7 +348,16 @@ impl SegmentBacking {
         let block = blocks
             .get(address.block as usize)
             .ok_or_else(|| StorageError::invalid("read retained body", "retained block missing"))?;
-        block.body(address.offset).map(Some)
+        Ok(Some((block, address.offset)))
+    }
+
+    pub(crate) fn retained_body(
+        &self,
+        slot: RecordSlot,
+    ) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
+        self.retained_address(slot)?
+            .map(|(block, offset)| block.body(offset))
+            .transpose()
     }
 
     pub(crate) fn provider_version(&self, slot: RecordSlot) -> Option<RecordVersion> {
@@ -879,6 +885,18 @@ impl SegmentReader for IndexedCollectionSegment {
 
     fn retained_body(&self, slot: RecordSlot) -> StorageResult<Option<Cow<'_, RetainedBody>>> {
         self.backing.retained_body(slot)
+    }
+
+    fn retained_body_bytes(
+        &self,
+        slot: RecordSlot,
+    ) -> StorageResult<
+        Option<Box<dyn crate::index::storage::segment::transfer::RetainedBodyBytes + '_>>,
+    > {
+        match self.backing.retained_address(slot)? {
+            Some((block, offset)) => block.body_bytes(offset),
+            None => Ok(None),
+        }
     }
 
     fn file_count(&self) -> usize {
