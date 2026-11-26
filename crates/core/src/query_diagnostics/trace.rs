@@ -198,24 +198,26 @@ pub(crate) fn fts_covered_target(fts: Option<&BoundFts>) -> String {
 pub(crate) fn regex_prefilter_reason(
     collection: &CollectionState,
     fts: Option<&BoundFts>,
-) -> Option<String> {
-    let fts = fts?;
-    if !matches!(fts.mode, FtsMode::Regex(_)) {
-        return None;
-    }
+) -> Result<Option<String>, String> {
+    let Some(fts) = fts.filter(|fts| matches!(fts.mode, FtsMode::Regex(_))) else {
+        return Ok(None);
+    };
     if fts
         .fallback_regex
         .as_ref()
         .and_then(|regex| regex.condition())
         .is_none()
     {
-        return Some("regex has no bounded necessary literal; scanner fallback".into());
+        return Ok(Some(
+            "regex has no bounded necessary literal; scanner fallback".into(),
+        ));
     }
-    if estimate_fts_candidates(collection, fts).is_none() {
-        Some("regex has no usable grams or compatible index coverage; scanner fallback".into())
+    let reason = if estimate_fts_candidates(collection, fts)?.is_none() {
+        "regex has no usable grams or compatible index coverage; scanner fallback"
     } else {
-        Some("regex uses necessary folded grams; exact verification remains".into())
-    }
+        "regex uses necessary folded grams; exact verification remains"
+    };
+    Ok(Some(reason.into()))
 }
 
 pub(crate) fn finish_trace(

@@ -48,7 +48,7 @@ pub(crate) use crate::query_diagnostics::trace::{
 };
 use crate::query_execution::restrictions::{
     Plan, PlanningCounters, RoutedFileRestrictions, estimate_expr, estimate_fts_candidates,
-    estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
+    estimate_plan_expr, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_filter_bounds_with_catalog, segment_filter_bounds_with_routes, segment_filter_estimate,
     segment_fts_bounds_with_term, segment_fts_candidates, segment_fts_estimate_with_term,
 };
@@ -6887,7 +6887,9 @@ pub(crate) fn explain_with_active(
             .transpose()?;
         let fts_estimate = fts
             .as_ref()
-            .and_then(|fts| estimate_fts_candidates(collection, fts));
+            .map(|fts| estimate_fts_candidates(collection, fts))
+            .transpose()?
+            .flatten();
         let candidates = estimated
             .as_ref()
             .map_or(domain_len, |plan| plan.candidates)
@@ -6908,7 +6910,7 @@ pub(crate) fn explain_with_active(
             fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
             fts_mode: fts.as_ref().map(|fts| fts.mode),
             fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
-            fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
+            fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref())?,
             fts_covered_target: fts_covered_target(fts.as_ref()),
             fts_estimated_candidates: fts_estimate.map(|estimate| estimate.0.min(domain_len)),
             remaining_verification: fts.is_some() || !filter_exact,
@@ -7258,10 +7260,14 @@ fn search_impl_with_resolved_sort<'a>(
             .flatten(),
             _ => None,
         };
-        let text_estimate = prepared_text_estimate.or_else(|| {
-            fts.as_ref()
-                .and_then(|fts| estimate_fts_candidates(collection, fts))
-        });
+        let text_estimate = match prepared_text_estimate {
+            Some(estimate) => Some(estimate),
+            None => fts
+                .as_ref()
+                .map(|fts| estimate_fts_candidates(collection, fts))
+                .transpose()?
+                .flatten(),
+        };
         let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
         let (plan, mut candidates, text_first) = if let Some((mut plan, candidates)) =
             reused_order.next()
@@ -7426,7 +7432,7 @@ fn search_impl_with_resolved_sort<'a>(
                 fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
                 fts_mode: fts.as_ref().map(|fts| fts.mode),
                 fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
-                fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
+                fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref())?,
                 fts_covered_target: fts_covered_target(fts.as_ref()),
                 fts_estimated_candidates: text_estimate.map(|estimate| estimate.0),
                 remaining_verification: needs_scan,

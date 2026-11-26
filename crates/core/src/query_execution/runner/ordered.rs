@@ -883,8 +883,16 @@ pub(super) fn try_stored_order_page(
             });
         let mut candidates = plan.candidates.take().unwrap_or_else(|| domain.clone());
         candidates &= &domain;
-        if let Some(fts_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts)) {
-            candidates &= fts_candidates;
+        if let Some(term) = entry.text_term
+            && let Some(text) = crate::query_access::text::prepared_text_candidates(
+                &prepared.predicates,
+                term,
+                collection,
+                repo.instance_id,
+                &candidates,
+            )?
+        {
+            candidates &= text;
         }
         candidate_total += candidates.len();
         plans.push(OrderedPlan {
@@ -966,11 +974,14 @@ pub(super) fn try_stored_order_page(
                 fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
                 fts_mode: entry.fts.map(|fts| fts.mode),
                 fts_exact_literal: entry.fts.map(|fts| fts.source_literal.clone()),
-                fts_prefilter_reason: regex_prefilter_reason(collection, entry.fts),
+                fts_prefilter_reason: regex_prefilter_reason(collection, entry.fts)?,
                 fts_covered_target: fts_covered_target(entry.fts),
-                fts_estimated_candidates: entry.fts.and_then(|fts| {
-                    estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
-                }),
+                fts_estimated_candidates: entry
+                    .fts
+                    .map(|fts| estimate_fts_candidates(collection, fts))
+                    .transpose()?
+                    .flatten()
+                    .map(|estimate| estimate.0),
                 remaining_verification: entry.fts.is_some() || !entry.plan.exact,
                 input_records: collection_domain(collection, entry.collection_index, active).len(),
                 fts_strategy: if collection.base_logical_count()?

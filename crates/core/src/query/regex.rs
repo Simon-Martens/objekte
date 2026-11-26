@@ -116,6 +116,7 @@ impl RegexCondition {
         Some(Self::Literal(BigramRequest::new(text)))
     }
 
+    #[cfg(test)]
     pub fn candidates(&self, index: &BigramIndex) -> Option<RoaringBitmap> {
         match self {
             Self::Literal(request) => index.candidates_prepared(request),

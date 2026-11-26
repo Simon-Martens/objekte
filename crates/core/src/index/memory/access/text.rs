@@ -11,10 +11,14 @@ use crate::index::storage::text::SegmentTextAccess;
 use crate::index::storage::text::TextAccessPolicy;
 use crate::model::PathRoot;
 use crate::query::{FtsMode, binding::fts::BoundFts};
+#[cfg(test)]
 use crate::query_execution::domain::domain_id;
+#[cfg(test)]
 use crate::query_execution::restrictions::raw_covers_identity_field;
+#[cfg(test)]
 use crate::query_predicate::PreparedPredicates;
 use crate::query_predicate::TermId;
+#[cfg(test)]
 use crate::repository::state::CollectionState;
 use smallvec::SmallVec;
 
@@ -23,7 +27,10 @@ use crate::query_access::contract::{
     Coverage, IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength,
     ProviderId, Restriction,
 };
-use crate::query_access::membership::{DomainId, SlotInput, SlotSet};
+#[cfg(test)]
+use crate::query_access::membership::DomainId;
+use crate::query_access::membership::{SlotInput, SlotSet};
+#[cfg(test)]
 use crate::query_access::registry::ProviderCatalog;
 
 pub(crate) const NATIVE_TEXT_PROVIDER: ProviderId = ProviderId(2);
@@ -38,6 +45,7 @@ pub(crate) fn test_text_input() -> usize {
     LAST_TEXT_INPUT.with(std::cell::Cell::get)
 }
 
+#[cfg(test)]
 pub(crate) struct NativeTextProvider<'a> {
     collection: &'a CollectionState,
     domain: DomainId,
@@ -104,6 +112,7 @@ impl<'a> NativeSegmentTextProvider<'a> {
     }
 }
 
+#[cfg(test)]
 impl<'a> NativeTextProvider<'a> {
     pub(crate) fn new(collection: &'a CollectionState, segment_index: Option<u32>) -> Self {
         Self::with_instance(collection, segment_index, 0)
@@ -136,6 +145,7 @@ impl<'a> NativeTextProvider<'a> {
     }
 }
 
+#[cfg(test)]
 impl IndexAccessProvider for NativeTextProvider<'_> {
     fn provider_id(&self) -> ProviderId {
         NATIVE_TEXT_PROVIDER
@@ -357,6 +367,7 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
     }
 }
 
+#[cfg(test)]
 pub(crate) fn prepared_text_candidates(
     predicates: &PreparedPredicates,
     term: TermId,
@@ -365,19 +376,14 @@ pub(crate) fn prepared_text_candidates(
     input: &RoaringBitmap,
 ) -> Result<Option<RoaringBitmap>, String> {
     let provider = NativeTextProvider::with_instance(collection, None, instance_id);
-    #[cfg(test)]
     let test_providers = crate::query_execution::request::test_access_providers(instance_id);
     let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> =
         smallvec::SmallVec::new();
-    #[cfg(test)]
     let suppress_native =
         crate::query_execution::request::test_native_access_suppressed(instance_id);
-    #[cfg(not(test))]
-    let suppress_native = false;
     if !suppress_native {
         providers.push(&provider);
     }
-    #[cfg(test)]
     for test_provider in &test_providers {
         providers.push(test_provider.as_ref());
     }
@@ -416,6 +422,7 @@ pub(crate) fn prepared_text_candidates(
     Ok(Some(applied.into_owned_members()))
 }
 
+#[cfg(test)]
 pub(crate) fn prepared_text_estimate(
     predicates: &PreparedPredicates,
     term: TermId,
@@ -424,19 +431,14 @@ pub(crate) fn prepared_text_estimate(
     input_len: u64,
 ) -> Result<Option<(u64, f64)>, String> {
     let provider = NativeTextProvider::with_instance(collection, None, instance_id);
-    #[cfg(test)]
     let test_providers = crate::query_execution::request::test_access_providers(instance_id);
     let mut providers: smallvec::SmallVec<[&dyn IndexAccessProvider; 4]> =
         smallvec::SmallVec::new();
-    #[cfg(test)]
     let suppress_native =
         crate::query_execution::request::test_native_access_suppressed(instance_id);
-    #[cfg(not(test))]
-    let suppress_native = false;
     if !suppress_native {
         providers.push(&provider);
     }
-    #[cfg(test)]
     for test_provider in &test_providers {
         providers.push(test_provider.as_ref());
     }
@@ -545,6 +547,7 @@ impl PreparedFtsAccess<'_, '_> {
         Some((count.min(self.max_count), work))
     }
 
+    #[cfg(test)]
     fn candidates(&self) -> Option<RoaringBitmap> {
         let mut may = RoaringBitmap::new();
         for probe in &self.probes {
@@ -669,6 +672,7 @@ fn prepare_fts_accesses<'a, 'b>(
     })
 }
 
+#[cfg(test)]
 fn prepare_native_base_fts<'a>(
     collection: &'a CollectionState,
     fts: &'a BoundFts,
@@ -677,10 +681,7 @@ fn prepare_native_base_fts<'a>(
         return None;
     }
     let indexes = IndexCatalog::collection(collection);
-    #[cfg(test)]
     let contains_fallback = collection.logical_records.len() != collection.base_slot_count() as u64;
-    #[cfg(not(test))]
-    let contains_fallback = false;
     prepare_fts_accesses(
         &indexes,
         collection.text_access_policy(),
@@ -692,6 +693,7 @@ fn prepare_native_base_fts<'a>(
     )
 }
 
+#[cfg(test)]
 pub(crate) fn native_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
@@ -699,6 +701,7 @@ pub(crate) fn native_fts_candidates(
     prepare_native_base_fts(collection, fts)?.candidates()
 }
 
+#[cfg(test)]
 pub(crate) fn native_estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,

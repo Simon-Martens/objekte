@@ -509,7 +509,10 @@ pub(crate) fn planning_fts_strategies(
         let target_count = target.base_logical_count()?;
         let (estimated_targets, lookup) =
             segment_fts_estimate(repo, target_index, &segment_groups, &local)?
-                .or_else(|| estimate_fts_candidates(target, &local))
+                .map_or_else(
+                    || estimate_fts_candidates(target, &local),
+                    |estimate| Ok(Some(estimate)),
+                )?
                 .unwrap_or((target_count, 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
@@ -1253,7 +1256,10 @@ pub(crate) fn fts_witnesses(
         let target_count = target.base_logical_count()?;
         let (estimated_targets, lookup) =
             segment_fts_estimate(repo, target_index, segments, &local)?
-                .or_else(|| estimate_fts_candidates(target, &local))
+                .map_or_else(
+                    || estimate_fts_candidates(target, &local),
+                    |estimate| Ok(Some(estimate)),
+                )?
                 .unwrap_or((target_count, 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {

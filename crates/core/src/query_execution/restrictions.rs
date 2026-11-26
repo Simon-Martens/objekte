@@ -3317,16 +3317,17 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
 pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
-) -> Option<(u64, f64)> {
-    crate::query_access::text::native_estimate_fts_candidates(collection, fts)
+) -> Result<Option<(u64, f64)>, String> {
+    crate::query_access::text::base_text_estimate(collection, fts)
 }
 
+#[cfg(test)]
 pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
+    use crate::index::memory::access::text::NativeTextProvider;
     use crate::query_access::contract::{AccessExecution, IndexAccessProvider, InputEstimate};
-    use crate::query_access::text::NativeTextProvider;
 
     let provider = NativeTextProvider::new(collection, None);
     let mut offers = crate::query_access::contract::OfferList::new();

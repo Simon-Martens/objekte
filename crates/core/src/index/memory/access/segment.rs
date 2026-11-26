@@ -668,11 +668,11 @@ fn source_kind_cost(kind: AccessPathKind) -> f64 {
 #[cfg(test)]
 #[test]
 fn managed_queries_and_components_use_distinct_published_domains() {
+    use crate::index::memory::access::text::NativeSegmentTextProvider;
     use crate::lifecycle::{Index, IndexView};
     use crate::query::binding::{filter::BoundExpr, fts::bind_fts};
     use crate::query::options::ReturnMode;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
-    use crate::query_access::text::NativeSegmentTextProvider;
     use crate::query_diagnostics::trace::ObservationStatus;
     use crate::repository::configuration::{IdentityPolicy, RepositoryOptions};
 
