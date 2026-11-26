@@ -1584,7 +1584,7 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
         .unwrap()
         .expect("segmented m2 remains visible");
     let optimized_forward = view.forward_edges(m2, relation_index).unwrap();
-    assert!(optimized_forward.0.is_empty());
+    assert!(optimized_forward.targets.is_empty());
     let reference_forward = view
         .reference_forward_edges(m2, relation, None)
         .unwrap()
@@ -1691,7 +1691,12 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
         .resolve_id(CollectionId(1), "m2")
         .unwrap()
         .unwrap();
-    assert!(diagnostic_view.forward_edges(m2, relation_index).unwrap().4);
+    assert!(
+        diagnostic_view
+            .forward_edges(m2, relation_index)
+            .unwrap()
+            .unavailable
+    );
     drop(diagnostic_view);
 
     for (reducer, expected) in [("FIRST", ["m3", "m2"]), ("LAST", ["m2", "m3"])] {

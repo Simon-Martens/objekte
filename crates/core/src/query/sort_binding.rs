@@ -880,8 +880,12 @@ impl ComputedSort {
                     }
                     return Ok(());
                 }
-                let (edges, _present, null, _empty, unavailable) =
-                    view.forward_edges(address, hop.relation.ordinal as usize)?;
+                let crate::index::storage::relation::RelationRow {
+                    targets: edges,
+                    null,
+                    unavailable,
+                    ..
+                } = view.forward_edges(address, hop.relation.ordinal as usize)?;
                 if unavailable {
                     reduced.observe_unavailable()?;
                     return Ok(());
@@ -938,11 +942,11 @@ impl ComputedSort {
                         if *unverifiable {
                             return Ok(());
                         }
-                        if !positions_match(&hop.selectors, positions) {
+                        if !positions_match(&hop.selectors, &positions) {
                             continue;
                         }
                         cache.edge()?;
-                        if let Some(target) = view.resolve_id(hop.to, id)? {
+                        if let Some(target) = view.resolve_id(hop.to, &id)? {
                             self.visit_related_merged(
                                 view,
                                 hops,

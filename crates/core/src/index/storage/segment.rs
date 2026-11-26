@@ -13,10 +13,12 @@ use serde::{Deserialize, Serialize};
 use crate::inventory::{ByteRange, FileEntry, SourceRevision};
 use crate::model::{CollectionId, FieldPath, FileId, RecordSlot};
 use crate::query::options::SortField;
+use crate::query_access::membership::SlotSet;
 use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
+use super::relation::RelationReader;
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 /// Deterministic soft target used by every ordinary segment-producing path.
@@ -291,6 +293,24 @@ pub(crate) trait SegmentReader: Send + Sync {
         Ok(None)
     }
 
+    fn relation_count(&self) -> usize {
+        0
+    }
+
+    fn relation(&self, _ordinal: usize) -> StorageResult<Option<&dyn RelationReader>> {
+        Ok(None)
+    }
+
+    /// Return exact sources of an ID within the pinned relation. An absent
+    /// reverse access is distinct from a present access with no matches.
+    fn reverse_relation(
+        &self,
+        _ordinal: usize,
+        _target: &str,
+    ) -> StorageResult<Option<SlotSet<'_>>> {
+        Ok(None)
+    }
+
     fn order_column(&self, _path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {
         Ok(None)
     }
@@ -371,6 +391,18 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         request: PostingOrderRequest<'_>,
     ) -> StorageResult<Option<InferredOrderRows>> {
         self.as_ref().build_posting_order(request)
+    }
+
+    fn relation_count(&self) -> usize {
+        self.as_ref().relation_count()
+    }
+
+    fn relation(&self, ordinal: usize) -> StorageResult<Option<&dyn RelationReader>> {
+        self.as_ref().relation(ordinal)
+    }
+
+    fn reverse_relation(&self, ordinal: usize, target: &str) -> StorageResult<Option<SlotSet<'_>>> {
+        self.as_ref().reverse_relation(ordinal, target)
     }
 
     fn order_column(&self, path: &FieldPath) -> StorageResult<Option<&dyn OrderColumnReader>> {

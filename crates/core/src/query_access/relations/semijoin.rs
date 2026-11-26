@@ -743,17 +743,20 @@ fn qualified_reachable_targets(
                 execution.check_string()?;
             }
             let view_address = view.view_address(address)?;
-            let (references, _, _, _, unavailable) =
-                view.forward_edges(view_address, hop.relation.ordinal as usize)?;
+            let crate::index::storage::relation::RelationRow {
+                targets: references,
+                unavailable,
+                ..
+            } = view.forward_edges(view_address, hop.relation.ordinal as usize)?;
             if unavailable {
                 continue;
             }
             for (target_id, positions) in references {
-                if !positions_match(&hop.selectors, positions) {
+                if !positions_match(&hop.selectors, &positions) {
                     continue;
                 }
                 visit_edge(work, execution)?;
-                if let Some(target) = view.resolve_id(hop.to, target_id)?
+                if let Some(target) = view.resolve_id(hop.to, &target_id)?
                     && let Some(target) = view.native_address(target)?
                 {
                     next.insert(target);

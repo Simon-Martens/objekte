@@ -28,6 +28,7 @@ use crate::index::storage::order::{
     InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey,
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
+use crate::index::storage::relation::RelationReader;
 use crate::index::storage::segment::{
     RecordBacking, RecordOrigin, RecordWriteVersion, RetainedBlock, RetainedBlockReader,
     SegmentDescriptor, SegmentReader, SegmentSource,
@@ -38,6 +39,7 @@ use crate::lifecycle::IndexRevision;
 #[cfg(test)]
 use crate::model::Value;
 use crate::model::{CollectionId, FileId, Number, RecordSlot};
+use crate::query_access::membership::SlotSet;
 use crate::records::RecordVersion;
 
 const ACCOUNTING_OVERHEAD: usize = 48;
@@ -813,6 +815,30 @@ impl SegmentReader for IndexedCollectionSegment {
             request.execution,
         )
         .map_err(|error| StorageError::invalid("build inferred order", error))
+    }
+
+    fn relation_count(&self) -> usize {
+        self.relations.len()
+    }
+
+    fn relation(&self, ordinal: usize) -> StorageResult<Option<&dyn RelationReader>> {
+        Ok(self
+            .relations
+            .get(ordinal)
+            .map(|relation| relation as &dyn RelationReader))
+    }
+
+    fn reverse_relation(&self, ordinal: usize, target: &str) -> StorageResult<Option<SlotSet<'_>>> {
+        let relation = self
+            .relations
+            .get(ordinal)
+            .ok_or_else(|| StorageError::invalid("read native backlink", "unknown relation"))?;
+        let Some(posting) = self.postings.fields.get(&relation.declaration().path) else {
+            return Ok(None);
+        };
+        let members =
+            posting.value_posting(&crate::index::posting::ScalarKey::Id(target.to_owned()));
+        Ok(Some(members.map_or(SlotSet::Empty, SlotSet::borrowed)))
     }
 
     fn order_column(

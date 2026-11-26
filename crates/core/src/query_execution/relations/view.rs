@@ -1,13 +1,13 @@
 //! Pinned relation lookup over one immutable base-plus-delta publication.
 
 use crate::index::storage::file_catalog::FileCatalogReader;
+use crate::index::storage::relation::RelationRow;
 use crate::index::storage::segment::{RecordBacking, RecordOrigin, SegmentReader};
 use std::borrow::Cow;
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
-use crate::index::posting::ScalarKey;
 use crate::index::segment::PublishedSegment;
 use crate::index::segment::{SegmentId, SegmentRecordAddress};
 use crate::inventory::{ActiveRecords, RecordClass};
@@ -200,17 +200,21 @@ impl<'a> MergedRelationView<'a> {
         }
         for (collection_index, shards) in segments.iter().enumerate() {
             for published in shards.iter() {
-                if published.index.collection.0 as usize != collection_index
-                    || published.active.slot_count() as usize != published.index.record_count()
+                let descriptor = published.index.descriptor();
+                if descriptor.collection.0 as usize != collection_index
+                    || published.active.slot_count() as usize != descriptor.slots
                 {
                     return Err("merged relation segment scope mismatch".into());
                 }
-                for (relation_index, relation) in published.index.relations.iter().enumerate() {
-                    if relation.record_count() as usize != published.index.record_count()
+                for relation_index in 0..published.index.relation_count() {
+                    let relation = published
+                        .index
+                        .relation(relation_index)?
+                        .ok_or("merged relation segment declaration missing")?;
+                    if relation.source_slots() != descriptor.slots
                         || repo.collections[collection_index]
-                            .relations
-                            .get(relation_index)
-                            .is_none_or(|base| base.declaration != *relation.declaration())
+                            .relation_reader(relation_index)
+                            .is_none_or(|base| base.declaration() != relation.declaration())
                     {
                         return Err("merged relation segment declaration mismatch".into());
                     }
@@ -254,7 +258,7 @@ impl<'a> MergedRelationView<'a> {
             .get(position)
             .ok_or("native segment position is outside the pinned view")?;
         if !published.active.contains(address.slot)
-            || published.index.record(address.slot).is_none()
+            || published.index.header(address.slot)?.is_none()
         {
             return Err("native segment address is not active in the pinned view".into());
         }
@@ -556,7 +560,7 @@ impl<'a> MergedRelationView<'a> {
             });
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            if let Some(slot) = published.index.id_lookup.get(id).copied()
+            if let Some(slot) = published.index.slot_for_record(id)?
                 && published.active.contains(slot)
             {
                 if found.is_some() {
@@ -575,41 +579,16 @@ impl<'a> MergedRelationView<'a> {
     pub(crate) fn forward_edges(
         &self,
         address: MergedRecordSlot,
-        relation_index: usize,
-    ) -> Result<(Vec<(&str, &[u32])>, bool, bool, bool, bool), String> {
+        ordinal: usize,
+    ) -> Result<RelationRow<'a>, String> {
         let index = address.collection.0 as usize;
-        if let Some(segment_index) = address.segment {
-            let published = &self.segments[index][segment_index];
-            let contribution = published
-                .index
-                .relations
-                .get(relation_index)
-                .ok_or("merged segment relation missing")?;
-            Ok((
-                contribution.references_for_source(address.slot).collect(),
-                contribution.present().contains(address.slot.0),
-                contribution.nulls().contains(address.slot.0),
-                contribution.empty_arrays().contains(address.slot.0),
-                contribution.unavailable().contains(address.slot.0),
-            ))
+        let relation = if let Some(position) = address.segment {
+            self.segments[index][position].index.relation(ordinal)?
         } else {
-            let relation = self.repo.collections[index]
-                .relations
-                .get(relation_index)
-                .ok_or("merged base relation missing")?;
-            Ok((
-                relation
-                    .edges(address.slot)
-                    .ok_or("merged base relation slot missing")?
-                    .iter()
-                    .map(|edge| (edge.target_id(), edge.positions.as_slice()))
-                    .collect(),
-                relation.present().contains(address.slot.0),
-                relation.nulls().contains(address.slot.0),
-                relation.empty_arrays().contains(address.slot.0),
-                relation.unavailable().contains(address.slot.0),
-            ))
+            self.repo.collections[index].relation_reader(ordinal)
         }
+        .ok_or("merged relation missing")?;
+        Ok(relation.forward(address.slot)?)
     }
 
     pub(crate) fn backlink_sources(
@@ -641,29 +620,44 @@ impl<'a> MergedRelationView<'a> {
             }
         }
         for (segment_index, published) in self.segments[index].iter().enumerate() {
-            let relation_contribution = published
-                .index
-                .relations
-                .get(relation.ordinal as usize)
-                .ok_or("backlink segment relation missing")?;
-            if let Some(field) = published
-                .index
-                .postings
-                .fields
-                .get(&relation_contribution.declaration().path)
-            {
-                let Some(posting) = field.value_posting(&ScalarKey::Id(target_id.to_owned()))
-                else {
-                    continue;
-                };
-                for slot in posting.iter() {
-                    let slot = RecordSlot(slot);
-                    if published.active.contains(slot) {
-                        sources.push(MergedRecordSlot {
-                            collection: relation.source,
-                            segment: Some(segment_index),
-                            slot,
-                        });
+            let mut add = |slot| {
+                sources.push(MergedRecordSlot {
+                    collection: relation.source,
+                    segment: Some(segment_index),
+                    slot,
+                });
+            };
+            let ordinal = relation.ordinal as usize;
+            if let Some(members) = published.index.reverse_relation(ordinal, target_id)? {
+                let members = members
+                    .explicit_view()
+                    .ok_or("reverse relation returned an unrestricted domain")?;
+                if members
+                    .last()
+                    .is_some_and(|slot| slot >= published.active.slot_count())
+                {
+                    return Err("reverse relation source is outside its segment".into());
+                }
+                for slot in members
+                    .iter()
+                    .map(RecordSlot)
+                    .filter(|&slot| published.active.contains(slot))
+                {
+                    add(slot);
+                }
+            } else {
+                let reader = published
+                    .index
+                    .relation(ordinal)?
+                    .ok_or("backlink segment relation missing")?;
+                for slot in published.active.bitmap().iter().map(RecordSlot) {
+                    if reader
+                        .forward(slot)?
+                        .targets
+                        .iter()
+                        .any(|(id, _)| id == target_id)
+                    {
+                        add(slot);
                     }
                 }
             }
@@ -673,9 +667,10 @@ impl<'a> MergedRelationView<'a> {
             let id = if let Some(segment_index) = address.segment {
                 self.segments[index][segment_index]
                     .index
-                    .record(address.slot)
-                    .map(|record| record.id.0.as_ref())
+                    .header(address.slot)?
                     .ok_or("backlink segment slot missing")?
+                    .id
+                    .0
                     .to_string()
             } else {
                 collection.generation.records[address.slot.0 as usize]

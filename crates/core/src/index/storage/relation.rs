@@ -1,8 +1,27 @@
 //! Logical relation endpoints and occurrences.
 
+use std::borrow::Cow;
+
 use serde::{Deserialize, Serialize};
 
 use crate::model::RecordSlot;
+use crate::schema::relations::RelationDefinition;
+
+use super::transfer::StorageResult;
+
+pub(crate) struct RelationRow<'a> {
+    pub targets: Vec<(Cow<'a, str>, Cow<'a, [u32]>)>,
+    pub present: bool,
+    pub null: bool,
+    pub empty: bool,
+    pub unavailable: bool,
+}
+
+pub(crate) trait RelationReader: Send + Sync {
+    fn declaration(&self) -> &RelationDefinition;
+    fn source_slots(&self) -> usize;
+    fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>>;
+}
 
 /// Resolved target slot or an ID that has no target in its declared namespace.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]

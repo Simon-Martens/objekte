@@ -621,8 +621,11 @@ pub(crate) fn cached_filter_target_sort_key(
     {
         return Ok(None);
     }
-    let (edges, _present, _null, _empty, unavailable) =
-        view.forward_edges(address, hop.relation.ordinal as usize)?;
+    let crate::index::storage::relation::RelationRow {
+        targets: edges,
+        unavailable,
+        ..
+    } = view.forward_edges(address, hop.relation.ordinal as usize)?;
     if unavailable {
         return Ok(None);
     }
@@ -702,8 +705,11 @@ pub(crate) fn direct_related_target_sort_key(
     let Some(path) = computed.direct_related_target_column(hop) else {
         return Ok(None);
     };
-    let (edges, _present, _null, _empty, unavailable) =
-        view.forward_edges(address, hop.relation.ordinal as usize)?;
+    let crate::index::storage::relation::RelationRow {
+        targets: edges,
+        unavailable,
+        ..
+    } = view.forward_edges(address, hop.relation.ordinal as usize)?;
     if unavailable {
         return Ok(None);
     }

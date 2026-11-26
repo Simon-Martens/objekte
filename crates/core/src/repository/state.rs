@@ -53,6 +53,15 @@ pub struct CollectionState {
 }
 
 impl CollectionState {
+    pub(crate) fn relation_reader(
+        &self,
+        ordinal: usize,
+    ) -> Option<&dyn crate::index::storage::relation::RelationReader> {
+        self.relations
+            .get(ordinal)
+            .map(|relation| relation as &dyn crate::index::storage::relation::RelationReader)
+    }
+
     pub(crate) fn order_column(
         &self,
         path: &crate::model::FieldPath,

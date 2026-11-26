@@ -234,6 +234,21 @@ impl<'a> SlotSet<'a> {
         })
     }
 
+    pub(crate) fn explicit_view(&self) -> Option<MembershipView<'_>> {
+        match self {
+            Self::Unrestricted => None,
+            Self::Empty => Some(MembershipView::Empty),
+            Self::Sorted(slots) => Some(MembershipView::Sorted(slots)),
+            _ => self.concrete().map(|bitmap| {
+                if bitmap.is_empty() {
+                    MembershipView::Empty
+                } else {
+                    MembershipView::Borrowed(bitmap)
+                }
+            }),
+        }
+    }
+
     fn concrete(&self) -> Option<&RoaringBitmap> {
         match self {
             Self::Borrowed(bitmap) => Some(bitmap),
@@ -290,38 +305,13 @@ impl<'a> SlotInput<'a> {
     }
 
     pub(crate) fn effective(&self) -> MembershipView<'_> {
-        match &self.slots {
-            SlotSet::Unrestricted => {
-                if self.input.is_empty() {
-                    MembershipView::Empty
-                } else {
-                    MembershipView::AllSlots(self.input)
-                }
+        self.slots.explicit_view().unwrap_or_else(|| {
+            if self.input.is_empty() {
+                MembershipView::Empty
+            } else {
+                MembershipView::AllSlots(self.input)
             }
-            SlotSet::Empty => MembershipView::Empty,
-            SlotSet::Sorted(slots) => MembershipView::Sorted(slots),
-            SlotSet::Borrowed(bitmap) => {
-                if bitmap.is_empty() {
-                    MembershipView::Empty
-                } else {
-                    MembershipView::Borrowed(bitmap)
-                }
-            }
-            SlotSet::Owned(bitmap) => {
-                if bitmap.is_empty() {
-                    MembershipView::Empty
-                } else {
-                    MembershipView::Borrowed(bitmap)
-                }
-            }
-            SlotSet::Shared(bitmap) => {
-                if bitmap.is_empty() {
-                    MembershipView::Empty
-                } else {
-                    MembershipView::Borrowed(bitmap)
-                }
-            }
-        }
+        })
     }
 
     pub(crate) fn effective_bitmap(&self) -> Option<&RoaringBitmap> {

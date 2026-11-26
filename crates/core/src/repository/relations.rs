@@ -508,8 +508,13 @@ pub(crate) fn relation_outgoing_page_segmented(
     let source_address = view
         .resolve_id(source.generation.collection, source_id)?
         .ok_or("source ID not found")?;
-    let (edges, present, null, empty, unavailable) =
-        view.forward_edges(source_address, relation.id.ordinal as usize)?;
+    let crate::index::storage::relation::RelationRow {
+        targets: edges,
+        present,
+        null,
+        empty,
+        unavailable,
+    } = view.forward_edges(source_address, relation.id.ordinal as usize)?;
     let (start, end, next_offset) = page_bounds(edges.len(), offset, limit);
     let mut references = Vec::with_capacity(end - start);
     for (target_id, positions) in &edges[start..end] {
@@ -519,7 +524,7 @@ pub(crate) fn relation_outgoing_page_segmented(
             .transpose()?;
         references.push(OutgoingReference {
             positions: positions.to_vec(),
-            target_id: (*target_id).to_owned(),
+            target_id: target_id.as_ref().to_owned(),
             resolved,
         });
     }
@@ -623,14 +628,15 @@ pub(crate) fn collection_graph_segmented(
             let mut unresolved = 0u64;
             let mut visit = |address| -> Result<(), String> {
                 view.record(address)?.ok_or("active graph source retired")?;
-                let (references, _, _, _, _) =
-                    view.forward_edges(address, relation.id.ordinal as usize)?;
+                let references = view
+                    .forward_edges(address, relation.id.ordinal as usize)?
+                    .targets;
                 occurrences = occurrences
                     .checked_add(references.len())
                     .ok_or("relation occurrence count overflow")?;
                 for (target_id, _) in references {
                     if view
-                        .resolve_id(relation.target_collection, target_id)?
+                        .resolve_id(relation.target_collection, target_id.as_ref())?
                         .is_none()
                     {
                         unresolved = unresolved

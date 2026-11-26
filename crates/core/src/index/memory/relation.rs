@@ -18,6 +18,9 @@ static REVERSE_RECONSTRUCTIONS: std::sync::atomic::AtomicUsize =
 
 pub use crate::index::storage::relation::{RelationEdge, RelationTarget};
 
+use crate::index::storage::relation::{RelationReader, RelationRow};
+use crate::index::storage::transfer::{StorageError, StorageResult};
+
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
 /// read from its `CollectionGeneration` record; no file ID is duplicated here.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -32,6 +35,37 @@ pub struct RelationIndex {
     empty_arrays: RoaringBitmap,
     unavailable: RoaringBitmap,
     unresolved_count: u64,
+}
+
+impl RelationReader for RelationIndex {
+    fn declaration(&self) -> &RelationDefinition {
+        &self.declaration
+    }
+
+    fn source_slots(&self) -> usize {
+        self.offsets.len().saturating_sub(1)
+    }
+
+    fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>> {
+        let edges = self.edges(source).ok_or_else(|| {
+            StorageError::invalid("read base relation", "source slot outside relation")
+        })?;
+        Ok(RelationRow {
+            targets: edges
+                .iter()
+                .map(|edge| {
+                    (
+                        std::borrow::Cow::Borrowed(edge.target_id()),
+                        std::borrow::Cow::Borrowed(edge.positions.as_slice()),
+                    )
+                })
+                .collect(),
+            present: self.present.contains(source.0),
+            null: self.nulls.contains(source.0),
+            empty: self.empty_arrays.contains(source.0),
+            unavailable: self.unavailable.contains(source.0),
+        })
+    }
 }
 
 impl RelationIndex {
@@ -229,6 +263,40 @@ pub(crate) struct RelationContribution {
     unavailable: RoaringBitmap,
 }
 
+impl RelationReader for RelationContribution {
+    fn declaration(&self) -> &RelationDefinition {
+        &self.declaration
+    }
+
+    fn source_slots(&self) -> usize {
+        self.record_count as usize
+    }
+
+    fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>> {
+        if source.0 >= self.record_count {
+            return Err(StorageError::invalid(
+                "read segment relation",
+                "source slot outside relation",
+            ));
+        }
+        Ok(RelationRow {
+            targets: self
+                .references_for_source(source)
+                .map(|(id, positions)| {
+                    (
+                        std::borrow::Cow::Borrowed(id),
+                        std::borrow::Cow::Borrowed(positions),
+                    )
+                })
+                .collect(),
+            present: self.present.contains(source.0),
+            null: self.nulls.contains(source.0),
+            empty: self.empty_arrays.contains(source.0),
+            unavailable: self.unavailable.contains(source.0),
+        })
+    }
+}
+
 impl RelationContribution {
     pub(crate) fn edge_count(&self) -> usize {
         self.references.len()
@@ -358,14 +426,17 @@ impl RelationContribution {
             .map(|reference| (reference.target_id.as_str(), reference.positions.as_slice()))
     }
 
+    #[cfg(test)]
     pub(crate) fn present(&self) -> &RoaringBitmap {
         &self.present
     }
 
+    #[cfg(test)]
     pub(crate) fn nulls(&self) -> &RoaringBitmap {
         &self.nulls
     }
 
+    #[cfg(test)]
     pub(crate) fn empty_arrays(&self) -> &RoaringBitmap {
         &self.empty_arrays
     }

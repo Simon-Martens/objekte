@@ -640,20 +640,25 @@ fn visit_merged_hop(
                 }
                 return Ok(());
             }
-            let (references, present, null, _, unavailable) =
-                view.forward_edges(address, relation_index)?;
+            let crate::index::storage::relation::RelationRow {
+                targets: references,
+                present,
+                null,
+                unavailable,
+                ..
+            } = view.forward_edges(address, relation_index)?;
             if unavailable {
                 merge_truth(truth, None, quantifier);
                 return Ok(());
             }
             let mut selected = 0usize;
             for (target_id, positions) in references {
-                if !positions_match(&hop.selectors, positions) {
+                if !positions_match(&hop.selectors, &positions) {
                     continue;
                 }
                 work.edge()?;
                 selected += 1;
-                if let Some(target) = view.resolve_id(hop.to, target_id)? {
+                if let Some(target) = view.resolve_id(hop.to, &target_id)? {
                     visit_merged_hop(
                         view,
                         hops,
@@ -667,7 +672,7 @@ fn visit_merged_hop(
                         work,
                         reference,
                         if depth == 0 {
-                            positions
+                            &positions
                         } else {
                             source_positions
                         },
