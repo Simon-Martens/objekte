@@ -4,13 +4,16 @@ use std::ops::Bound::{Excluded, Included, Unbounded};
 use roaring::RoaringBitmap;
 
 use super::{PostingIndex, ScalarKey, SelectionSummary};
+use crate::index::storage::posting::PostingValueCursor;
+use crate::index::storage::transfer::StorageResult;
 use crate::model::{LogicalType, Number, Value};
 use crate::query::{Operator, Quantifier};
 use crate::query::{binding::filter::BoundTerm, binding::filter::Derived};
+use crate::query_access::membership::MembershipView;
 use crate::schema::operation::Transform;
 
 /// Borrowed ordered traversal over one posting dictionary's values.
-pub(crate) enum PostingValueCursor<'a> {
+enum ValueRange<'a> {
     Forward(std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>),
     Reverse(std::iter::Rev<std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>>),
 }
@@ -34,38 +37,52 @@ enum StateCandidateOperation {
     AllLengths,
 }
 
-impl<'a> PostingValueCursor<'a> {
-    pub(crate) fn next(&mut self) -> Option<(ScalarKey, &'a RoaringBitmap)> {
+pub(super) struct NativePostingValueCursor<'a> {
+    range: ValueRange<'a>,
+    within: Option<MembershipView<'a>>,
+}
+
+impl<'a> NativePostingValueCursor<'a> {
+    pub(super) fn new(
+        values: &'a BTreeMap<ScalarKey, RoaringBitmap>,
+        lower: std::ops::Bound<ScalarKey>,
+        upper: std::ops::Bound<ScalarKey>,
+        descending: bool,
+        within: Option<MembershipView<'a>>,
+    ) -> Self {
+        let range = values.range((lower, upper));
+        let range = if descending {
+            ValueRange::Reverse(range.rev())
+        } else {
+            ValueRange::Forward(range)
+        };
+        Self { range, within }
+    }
+}
+
+impl PostingValueCursor for NativePostingValueCursor<'_> {
+    fn next(&mut self) -> StorageResult<Option<(ScalarKey, u64)>> {
         loop {
-            let next = match self {
-                Self::Forward(range) => range.next(),
-                Self::Reverse(range) => range.next(),
+            let next = match &mut self.range {
+                ValueRange::Forward(range) => range.next(),
+                ValueRange::Reverse(range) => range.next(),
             };
             match next {
                 Some((ScalarKey::Null, _)) => continue,
-                Some((key, posting)) => return Some((key.clone(), posting)),
-                None => return None,
+                Some((key, posting)) => {
+                    let count = self.within.map_or_else(
+                        || posting.len(),
+                        |selected| selected.intersection_len(MembershipView::Borrowed(posting)),
+                    );
+                    return Ok(Some((key.clone(), count)));
+                }
+                None => return Ok(None),
             }
         }
     }
 }
 
 impl PostingIndex {
-    /// Borrow the ordered value keys of this posting index. The native
-    /// B-tree is the completed query representation; callers never decode it.
-    pub(crate) fn value_range(
-        &self,
-        lower: std::ops::Bound<ScalarKey>,
-        upper: std::ops::Bound<ScalarKey>,
-        descending: bool,
-    ) -> PostingValueCursor<'_> {
-        if descending {
-            PostingValueCursor::Reverse(self.values.range((lower, upper)).rev())
-        } else {
-            PostingValueCursor::Forward(self.values.range((lower, upper)))
-        }
-    }
-
     pub(crate) fn value_cardinality(&self, key: &ScalarKey) -> u64 {
         self.values.get(key).map_or(0, RoaringBitmap::len)
     }

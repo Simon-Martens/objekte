@@ -1,11 +1,13 @@
 //! Typed posting keys and terminal selection facts.
 
 use std::num::NonZeroUsize;
+use std::ops::Bound;
 
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::query_access::membership::{MembershipView, SlotSet};
 
 use super::transfer::{BatchLimit, StorageError, StorageResult};
 
@@ -229,8 +231,34 @@ impl PostingKey<'_> {
 pub(crate) type VisitPostingBlock<'a> =
     dyn FnMut(PostingKey<'_>, &[RecordSlot]) -> StorageResult<()> + 'a;
 
+/// One ordered value key and its distinct-record count in the selected domain.
+/// A backend may intersect the posting incrementally to produce the count.
+pub(crate) trait PostingValueCursor: Send {
+    fn next(&mut self) -> StorageResult<Option<(ScalarKey, u64)>>;
+}
+
 pub(crate) trait PostingReader: std::any::Any + Send + Sync {
     fn descriptor(&self) -> PostingDescriptor<'_>;
+
+    fn members(&self, _key: PostingKey<'_>) -> StorageResult<Option<SlotSet<'_>>> {
+        Err(StorageError::invalid(
+            "read posting membership",
+            "membership access unavailable",
+        ))
+    }
+
+    fn values<'a>(
+        &'a self,
+        _lower: Bound<ScalarKey>,
+        _upper: Bound<ScalarKey>,
+        _descending: bool,
+        _within: Option<MembershipView<'a>>,
+    ) -> StorageResult<Box<dyn PostingValueCursor + 'a>> {
+        Err(StorageError::invalid(
+            "open posting values",
+            "ordered access unavailable",
+        ))
+    }
 
     /// A frequent key spans consecutive blocks. Within a key, slots are
     /// strictly increasing. Presence is emitted even for a zero-row domain.

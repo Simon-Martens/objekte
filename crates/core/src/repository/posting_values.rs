@@ -11,12 +11,14 @@ use crate::index::posting::{PostingIndex, ScalarKey};
 use crate::index::segment::IndexedCollectionSegment;
 use crate::index::segment::PublishedSegment;
 use crate::index::storage::file_catalog::FileCatalogReader;
-use crate::index::storage::segment::{SegmentSlotFact, read_slot_members};
+use crate::index::storage::posting::{PostingKey, PostingReader};
+use crate::index::storage::segment::{SegmentReader, SegmentSlotFact, read_slot_members};
 use crate::inference::{InferenceIndexStatus, InferenceMode};
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::query::Query;
+use crate::query_access::membership::MembershipView;
 use crate::repository::Repository;
 use crate::repository::state::CollectionState;
 use crate::schema::FieldDefinition;
@@ -151,7 +153,7 @@ pub struct PostingValuesPage {
 }
 
 struct ResolvedPosting<'a> {
-    index: &'a PostingIndex,
+    index: &'a dyn PostingReader,
     binding: String,
     binding_version: u32,
     indexed_records: Option<&'a RoaringBitmap>,
@@ -272,11 +274,12 @@ fn resolve_inferred_representative<'a>(
         ) else {
             continue;
         };
-        let compatible_family = key_kind(&resolved.index.kind) == key_kind(&policy.kind);
+        let compatible_family =
+            key_kind(resolved.index.descriptor().kind) == key_kind(&policy.kind);
         let enumerable = if policy.short_string_limit.is_some() {
             resolved.indexed_records.is_some()
         } else {
-            resolved.index.value_complete
+            resolved.index.descriptor().coverage.value_complete
         };
         if compatible_family && enumerable {
             return Ok(resolved);
@@ -644,6 +647,27 @@ fn verify_legacy_facts(
     Ok((present, singleton_null))
 }
 
+fn posting_members(
+    reader: &dyn PostingReader,
+    key: PostingKey<'_>,
+    slot_count: usize,
+    domain: &RoaringBitmap,
+) -> Result<RoaringBitmap, String> {
+    let Some(members) = reader.members(key)? else {
+        if key == PostingKey::Presence {
+            return Err("posting presence membership missing".into());
+        }
+        return Ok(RoaringBitmap::new());
+    };
+    let view = members
+        .explicit_view()
+        .ok_or("invalid posting membership")?;
+    if view.last().is_some_and(|slot| slot as usize >= slot_count) {
+        return Err("posting member outside the slot domain".into());
+    }
+    Ok(view.intersect_bitmap(domain))
+}
+
 fn key_kind(kind: &LogicalType) -> &LogicalType {
     match kind {
         LogicalType::Array(inner) => key_kind(inner),
@@ -962,7 +986,7 @@ pub(crate) fn posting_values_segmented(
         }
     };
     let base = metadata?;
-    if base.index.covered_records as u64 != collection.logical_records.len()
+    if base.index.descriptor().coverage.covered_records as u64 != collection.logical_records.len()
         && base_active[collection_index].len() != 0
     {
         return Err("incomplete posting logical coverage".into());
@@ -971,7 +995,7 @@ pub(crate) fn posting_values_segmented(
     let binding_version = base.binding_version;
     let short_limit = (binding == "inferred"
         && base.indexed_records.is_some()
-        && key_kind(&base.index.kind) == &LogicalType::String)
+        && key_kind(base.index.descriptor().kind) == &LogicalType::String)
         .then_some(repo.options.inference.policy.short_string_max_utf8_bytes);
     let mut fallbacks = Vec::with_capacity(segments[collection_index].len());
     for segment in segments[collection_index].iter() {
@@ -979,7 +1003,8 @@ pub(crate) fn posting_values_segmented(
             && segment.active.len() > 0
             && resolve_segment(collection, &segment.index, &path, &binding, binding_version)
                 .map_or(true, |posting| {
-                    posting.index.kind != base.index.kind || !posting.index.value_complete
+                    posting.index.descriptor().kind != base.index.descriptor().kind
+                        || !posting.index.descriptor().coverage.value_complete
                 });
         fallbacks.push(if missing {
             Some(scan_inferred_segment(
@@ -988,8 +1013,8 @@ pub(crate) fn posting_values_segmented(
                 segment,
                 catalog,
                 &path,
-                &base.index.kind,
-                base.index.multi,
+                base.index.descriptor().kind,
+                base.index.descriptor().coverage.multi,
                 short_limit,
             )?)
         } else {
@@ -1049,7 +1074,7 @@ pub(crate) fn posting_values_segmented(
     }
     if resolved
         .iter()
-        .any(|shard| shard.index.kind != resolved[0].index.kind)
+        .any(|shard| shard.index.descriptor().kind != resolved[0].index.descriptor().kind)
     {
         return Err("segment posting key type changed".into());
     }
@@ -1074,12 +1099,12 @@ pub(crate) fn posting_values_segmented(
         return Err("exact selection scope mismatch".into());
     }
     for bound in [&request.lower, &request.upper].into_iter().flatten() {
-        if !compatible(&resolved[0].index.kind, &bound.value) {
+        if !compatible(resolved[0].index.descriptor().kind, &bound.value) {
             return Err("posting value bound has incompatible type".into());
         }
     }
     let prepared_prefix = if let Some(prefix) = &request.prefix {
-        if key_kind(&resolved[0].index.kind) != &LogicalType::String {
+        if key_kind(resolved[0].index.descriptor().kind) != &LogicalType::String {
             return Err("posting prefix requires a string field".into());
         }
         if resolved[0].native_prefix {
@@ -1113,28 +1138,45 @@ pub(crate) fn posting_values_segmented(
     let mut indexed = 0u64;
     let mut selected_total = 0u64;
     for (index, shard) in resolved.iter().enumerate() {
+        let domain = &domains[index];
+        if domain.is_empty() {
+            continue;
+        }
         let logical = if index == 0 {
             &collection.logical_records
         } else {
             &segments[collection_index][index - 1].index.logical_records
         };
-        let domain = &domains[index];
         selected_total += domain.len();
         eligible += domain.intersection_len(logical);
-        let presence = domain & logical & &shard.index.presence;
+        let logical_domain = domain & logical;
+        let slot_count = if index == 0 {
+            collection.generation.records.len()
+        } else {
+            segments[collection_index][index - 1].descriptor().slots
+        };
+        let presence = posting_members(
+            shard.index,
+            PostingKey::Presence,
+            slot_count,
+            &logical_domain,
+        )?;
         present += presence.len();
-        let null_posting = shard.index.null_posting();
-        let selected_nulls =
-            null_posting.map_or_else(RoaringBitmap::new, |nulls| domain & logical & nulls);
-        if shard.index.stats.legacy_null_equivalent {
+        let selected_nulls = posting_members(
+            shard.index,
+            PostingKey::Value(&ScalarKey::Null),
+            slot_count,
+            &logical_domain,
+        )?;
+        let coverage = shard.index.descriptor().coverage;
+        if coverage.legacy_null_equivalent {
             nulls += selected_nulls.len();
         }
-        if !shard.index.stats.legacy_present_equivalent || !shard.index.stats.legacy_null_equivalent
-        {
-            let present_candidates = if shard.index.stats.legacy_present_equivalent {
+        if !coverage.legacy_present_equivalent || !coverage.legacy_null_equivalent {
+            let present_candidates = if coverage.legacy_present_equivalent {
                 RoaringBitmap::new()
             } else {
-                domain & logical - &presence
+                &logical_domain - &presence
             };
             let records_for = |candidates: &RoaringBitmap| {
                 if index == 0 {
@@ -1172,7 +1214,7 @@ pub(crate) fn posting_values_segmented(
                 )?;
                 present += verified_present;
             }
-            if !shard.index.stats.legacy_null_equivalent && !selected_nulls.is_empty() {
+            if !coverage.legacy_null_equivalent && !selected_nulls.is_empty() {
                 let (_, verified_nulls) = verify_legacy_facts(
                     repo,
                     collection,
@@ -1255,16 +1297,26 @@ pub(crate) fn posting_values_segmented(
     }
     let mut iterators = resolved
         .iter()
-        .map(|shard| {
+        .zip(&domains)
+        .map(|(shard, domain)| {
+            if domain.is_empty() {
+                return Ok(None);
+            }
             shard
                 .index
-                .value_range(lower.clone(), upper.clone(), request.descending)
+                .values(
+                    lower.clone(),
+                    upper.clone(),
+                    request.descending,
+                    Some(MembershipView::Borrowed(domain)),
+                )
+                .map(Some)
         })
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, _>>()?;
     let mut heads = iterators
         .iter_mut()
-        .map(|iterator| iterator.next())
-        .collect::<Vec<_>>();
+        .map(|iterator| iterator.as_mut().map_or(Ok(None), |cursor| cursor.next()))
+        .collect::<Result<Vec<_>, _>>()?;
     let mut values = Vec::new();
     let mut visited_keys = 0;
     let mut has_more = false;
@@ -1288,8 +1340,11 @@ pub(crate) fn posting_values_segmented(
                 .as_ref()
                 .is_some_and(|(candidate, _)| *candidate == key)
             {
-                count += head.as_ref().unwrap().1.intersection_len(&domains[index]);
-                *head = iterators[index].next();
+                count += head.as_ref().unwrap().1;
+                *head = iterators[index]
+                    .as_mut()
+                    .expect("head belongs to a cursor")
+                    .next()?;
             }
         }
         if count == 0 {
@@ -1443,7 +1498,8 @@ impl Repository {
             indexed_records,
             native_prefix,
         } = resolved;
-        if index.covered_records as u64 != collection.logical_records.len() {
+        let descriptor = index.descriptor();
+        if descriptor.coverage.covered_records as u64 != collection.logical_records.len() {
             return Err("incomplete posting logical coverage".into());
         }
         let selection = request.selection.as_ref().map(|handle| &handle.0);
@@ -1456,12 +1512,12 @@ impl Repository {
             return Err("exact selection scope mismatch".into());
         }
         for bound in [&request.lower, &request.upper].into_iter().flatten() {
-            if !compatible(&index.kind, &bound.value) {
+            if !compatible(descriptor.kind, &bound.value) {
                 return Err("posting value bound has incompatible type".into());
             }
         }
         let prepared_prefix = if let Some(prefix) = &request.prefix {
-            if key_kind(&index.kind) != &LogicalType::String {
+            if key_kind(descriptor.kind) != &LogicalType::String {
                 return Err("posting prefix requires a string field".into());
             }
             if native_prefix {
@@ -1501,12 +1557,16 @@ impl Repository {
             || collection.logical_records.clone(),
             |selected| selected & &collection.logical_records,
         );
-        let presence = &logical_domain & &index.presence;
-        let selected_nulls = index
-            .null_posting()
-            .map_or_else(RoaringBitmap::new, |nulls| &logical_domain & nulls);
+        let slot_count = collection.generation.records.len();
+        let presence = posting_members(index, PostingKey::Presence, slot_count, &logical_domain)?;
+        let selected_nulls = posting_members(
+            index,
+            PostingKey::Value(&ScalarKey::Null),
+            slot_count,
+            &logical_domain,
+        )?;
         let mut present_records = presence.len();
-        let mut explicit_null_records = if index.stats.legacy_null_equivalent {
+        let mut explicit_null_records = if descriptor.coverage.legacy_null_equivalent {
             selected_nulls.len()
         } else {
             0
@@ -1521,7 +1581,9 @@ impl Repository {
                     .map(|registration| registration.operation.as_ref())
             })
             .flatten();
-        if !index.stats.legacy_present_equivalent || !index.stats.legacy_null_equivalent {
+        if !descriptor.coverage.legacy_present_equivalent
+            || !descriptor.coverage.legacy_null_equivalent
+        {
             let records_for = |candidates: &RoaringBitmap| {
                 candidates
                     .iter()
@@ -1534,7 +1596,7 @@ impl Repository {
                     })
                     .collect::<Vec<_>>()
             };
-            if !index.stats.legacy_present_equivalent {
+            if !descriptor.coverage.legacy_present_equivalent {
                 let candidates = &logical_domain - &presence;
                 let (verified, _) = verify_legacy_facts(
                     self,
@@ -1546,7 +1608,7 @@ impl Repository {
                 )?;
                 present_records += verified;
             }
-            if !index.stats.legacy_null_equivalent && !selected_nulls.is_empty() {
+            if !descriptor.coverage.legacy_null_equivalent && !selected_nulls.is_empty() {
                 let (_, verified) = verify_legacy_facts(
                     self,
                     collection,
@@ -1621,28 +1683,28 @@ impl Repository {
                 visited_keys: 0,
             });
         }
-        let mut iterator = index.value_range(lower, upper, request.descending);
+        let mut iterator = index.values(
+            lower,
+            upper,
+            request.descending,
+            selected_domain.map(MembershipView::Borrowed),
+        )?;
         let mut values = Vec::new();
         let mut visited_keys = 0;
         while values.len() < request.limit {
-            let Some((value, posting)) = iterator.next() else {
+            let Some((value, count)) = iterator.next()? else {
                 break;
             };
             visited_keys += 1;
-            let count = selected_domain
-                .map_or(posting.len(), |selected| posting.intersection_len(selected));
             if count > 0 {
                 values.push(PostingValueCount { value, count });
             }
         }
         let mut has_more = false;
         if values.len() == request.limit {
-            while let Some((_, posting)) = iterator.next() {
+            while let Some((_, count)) = iterator.next()? {
                 visited_keys += 1;
-                if selected_domain
-                    .map_or(posting.len(), |selected| posting.intersection_len(selected))
-                    > 0
-                {
+                if count > 0 {
                     has_more = true;
                     break;
                 }

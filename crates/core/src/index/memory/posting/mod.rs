@@ -5,12 +5,14 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use roaring::RoaringBitmap;
 
 use crate::index::storage::posting::{
-    PostingCoverage, PostingDescriptor, PostingKey, PostingReader, VisitPostingBlock,
+    PostingCoverage, PostingDescriptor, PostingKey, PostingReader, PostingValueCursor,
+    VisitPostingBlock,
 };
 use crate::index::storage::transfer::{BatchLimit, StorageResult};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::semantics::record::data_values_small;
+use crate::query_access::membership::{MembershipView, SlotSet};
 use crate::schema::{FieldDefinition, Schema};
 
 #[cfg(test)]
@@ -102,6 +104,31 @@ impl PostingReader for PostingIndex {
                 legacy_null_equivalent: self.stats.legacy_null_equivalent,
             },
         }
+    }
+
+    fn members(&self, key: PostingKey<'_>) -> StorageResult<Option<SlotSet<'_>>> {
+        let posting = match key {
+            PostingKey::Presence => Some(&self.presence),
+            PostingKey::Value(value) => self.values.get(value),
+            PostingKey::Length(length) => self.lengths.get(length),
+        };
+        Ok(posting.map(SlotSet::borrowed))
+    }
+
+    fn values<'a>(
+        &'a self,
+        lower: std::ops::Bound<ScalarKey>,
+        upper: std::ops::Bound<ScalarKey>,
+        descending: bool,
+        within: Option<MembershipView<'a>>,
+    ) -> StorageResult<Box<dyn PostingValueCursor + 'a>> {
+        Ok(Box::new(lookup::NativePostingValueCursor::new(
+            &self.values,
+            lower,
+            upper,
+            descending,
+            within,
+        )))
     }
 
     fn visit_blocks(
