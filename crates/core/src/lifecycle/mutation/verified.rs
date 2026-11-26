@@ -134,21 +134,11 @@ pub(super) fn verify_old_content_with_layout(
             .collections()
             .get(number)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        if collection.generation.files.contains(&handle.file_id) {
-            base_owned = true;
-        }
-        if let Some(slots) = collection
-            .generation
-            .file_records
-            .records_for(handle.file_id)
-        {
-            for slot in slots.iter() {
-                if view.0.active[number].contains(*slot) {
-                    let record = collection
-                        .generation
-                        .records
-                        .get(slot.0 as usize)
-                        .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
+        base_owned |= collection.base_contains_file(handle.file_id)?;
+        collection.visit_base_file_slots(handle.file_id, &mut |slots| {
+            for &slot in slots {
+                if view.0.active[number].contains(slot) {
+                    let record = collection.base_record(slot)?;
                     current.push((
                         *collection_id,
                         record.id.clone(),
@@ -158,7 +148,8 @@ pub(super) fn verify_old_content_with_layout(
                     has_active_base = true;
                 }
             }
-        }
+            Ok(())
+        })?;
         let routes = view
             .0
             .record_routes

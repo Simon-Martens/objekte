@@ -419,9 +419,8 @@ impl PublishedIndex {
                 let id = &header.id;
                 let existing_duplicate = self.live_route(number, id.0.as_ref())?.is_some();
                 if collection
-                    .id_lookup
-                    .get(id)
-                    .is_some_and(|slot| self.active[number].contains(*slot))
+                    .base_slot_for_record(id.0.as_ref())?
+                    .is_some_and(|slot| self.active[number].contains(slot))
                     || existing_duplicate
                 {
                     return Err(IndexError::DuplicateRecordId {
@@ -642,9 +641,7 @@ impl PublishedIndex {
         {
             for collection in &base.collections {
                 if self.repository.collections()[collection.0 as usize]
-                    .generation
-                    .files
-                    .contains(&file.id)
+                    .base_contains_file(file.id)?
                 {
                     imported.insert(*collection);
                 }
@@ -690,12 +687,14 @@ impl PublishedIndex {
                 .active
                 .get_mut(collection_id.0 as usize)
                 .ok_or_else(|| IndexError::InvalidPublication("active domain missing".into()))?;
-            if active.slot_count() != 0
-                && let Some(slots) = collection.generation.file_records.records_for(file.id)
-            {
-                retired_records +=
-                    slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
-                *active = active.retired(slots)?;
+            if active.len() != 0 {
+                let mut retire = Vec::new();
+                collection.visit_base_file_slots(file.id, &mut |slots| {
+                    retire.extend(slots.iter().copied().filter(|slot| active.contains(*slot)));
+                    Ok(())
+                })?;
+                retired_records += retire.len() as u64;
+                *active = active.retired(&retire)?;
             }
             let number = collection_id.0 as usize;
             let routes = self
@@ -1111,9 +1110,7 @@ impl Index {
             std::collections::HashMap::<usize, Arc<PublishedSegment>>::new();
         for change in changes {
             let base = collection_state
-                .id_lookup
-                .get(&change.id)
-                .copied()
+                .base_slot_for_record(change.id.0.as_ref())?
                 .filter(|slot| next.active[number].contains(*slot));
             let found =
                 next.live_route(number, change.id.0.as_ref())?

@@ -220,7 +220,7 @@ fn path_independent_memberships(
             destination,
         )
         .map_err(IndexError::Build)?;
-        if selected != old.collections.contains(&collection.generation.collection) {
+        if selected != old.collections.contains(&collection.collection_id()) {
             return Ok(false);
         }
         if selected

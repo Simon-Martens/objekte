@@ -1,17 +1,21 @@
 //! Assembled repository collection state.
 
+use std::borrow::Cow;
+use std::collections::HashMap;
+
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
 
 use crate::index::bigram::BigramIndex;
 use crate::index::memory::inference::InferenceState;
 use crate::index::posting::{CustomPostingIndex, PostingCollection};
 use crate::index::relation::RelationIndex;
 use crate::index::sorting::SortCollection;
+use crate::index::storage::segment::FILE_SLOT_LIMIT;
+use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
-use crate::inventory::CollectionGeneration;
-use crate::model::{RecordId, RecordSlot};
+use crate::inventory::{CollectionGeneration, RecordEntry};
+use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::source::registry::PreparedSource;
 
 use super::configuration::{CollectionDeclaration, CollectionDefinition, FileSourceConfig};
@@ -31,6 +35,8 @@ pub struct CollectionState {
     /// Repository instance owning this pinned collection snapshot. Segment
     /// adapters use it to construct a full local-domain identity.
     pub(crate) repository_instance: u64,
+    pub(crate) id: CollectionId,
+    pub(crate) base_generation: u64,
     pub definition: CollectionDeclaration,
     /// Present only when this collection has a configured file importer.
     pub(crate) file_source: Option<FileSourceConfig>,
@@ -59,6 +65,66 @@ pub struct CollectionState {
 }
 
 impl CollectionState {
+    pub(crate) fn collection_id(&self) -> CollectionId {
+        self.id
+    }
+
+    pub(crate) fn base_generation(&self) -> u64 {
+        self.base_generation
+    }
+
+    pub(crate) fn base_slot_count(&self) -> usize {
+        self.generation.records.len()
+    }
+
+    pub(crate) fn base_slot_for_record(&self, id: &str) -> StorageResult<Option<RecordSlot>> {
+        let slot = self.id_lookup.get(id).copied();
+        if slot.is_some_and(|slot| slot.0 as usize >= self.base_slot_count()) {
+            return Err(StorageError::invalid(
+                "read base record route",
+                "record ID points outside the collection base",
+            ));
+        }
+        Ok(slot)
+    }
+
+    pub(crate) fn base_record(&self, slot: RecordSlot) -> StorageResult<Cow<'_, RecordEntry>> {
+        self.generation
+            .records
+            .get(slot.0 as usize)
+            .filter(|record| record.slot == slot)
+            .map(Cow::Borrowed)
+            .ok_or_else(|| StorageError::invalid("read base record", "invalid record slot"))
+    }
+
+    pub(crate) fn base_contains_file(&self, file: FileId) -> StorageResult<bool> {
+        Ok(self.generation.files.contains(&file))
+    }
+
+    pub(crate) fn visit_base_file_slots(
+        &self,
+        file: FileId,
+        visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        const OP: &str = "read base file membership";
+        let maximum = FILE_SLOT_LIMIT.fixed_batch_len(OP, size_of::<RecordSlot>())?;
+        if let Some(slots) = self.generation.file_records.records_for(file) {
+            for batch in slots.chunks(maximum) {
+                if batch
+                    .iter()
+                    .any(|slot| slot.0 as usize >= self.base_slot_count())
+                {
+                    return Err(StorageError::invalid(
+                        OP,
+                        "file slot outside the collection base",
+                    ));
+                }
+                visit(batch)?;
+            }
+        }
+        Ok(())
+    }
+
     pub(crate) fn text_access_policy(&self) -> crate::index::storage::text::TextAccessPolicy<'_> {
         crate::index::storage::text::TextAccessPolicy {
             schema: &self.definition.schema,

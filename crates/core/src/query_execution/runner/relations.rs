@@ -1332,15 +1332,15 @@ fn try_direct_relation_page(
                 term_id,
                 crate::query_execution::domain::domain_id(
                     repo.instance_id,
-                    collection.generation.collection.0,
-                    collection.generation.generation,
+                    collection.collection_id().0,
+                    collection.base_generation(),
                     None,
                 ),
                 crate::query_access::contract::AccessId {
                     provider: crate::query_access::contract::ProviderId(4),
                     operation: crate::query_access::contract::OperationId(0),
                 },
-                collection.generation.collection.0,
+                collection.collection_id().0,
                 counters.candidates,
                 counters.total_matches,
                 counters.total_matches,
@@ -1397,7 +1397,7 @@ fn try_semijoin_relation_page(
     }
     let collection = &repo.collections[*collection_index];
     let mut input = crate::index::segment::SegmentRecordSet::default();
-    let source_collection = collection.generation.collection;
+    let source_collection = collection.collection_id();
     let filter_evidence = if query.options.evidence {
         match filter {
             Some(filter) => {
@@ -1548,7 +1548,7 @@ fn scan_relation_file_parallel(
         winner: None,
     };
     let address = crate::query_execution::relations::view::MergedRecordSlot {
-        collection: repo.collections[collection_index].generation.collection,
+        collection: repo.collections[collection_index].collection_id(),
         segment: Some(job.segment_index),
         slot: job.slot,
     };
@@ -2132,15 +2132,15 @@ fn try_parallel_relation_page(
                 term_id,
                 crate::query_execution::domain::domain_id(
                     repo.instance_id,
-                    collection.generation.collection.0,
-                    collection.generation.generation,
+                    collection.collection_id().0,
+                    collection.base_generation(),
                     None,
                 ),
                 crate::query_access::contract::AccessId {
                     provider: crate::query_access::contract::ProviderId(4),
                     operation: crate::query_access::contract::OperationId(1),
                 },
-                collection.generation.collection.0,
+                collection.collection_id().0,
                 counters.candidates,
                 counters.total_matches,
                 counters.total_matches,
@@ -2178,16 +2178,16 @@ fn record_source_candidates(
         crate::query_predicate::TermId::new(u32::MAX),
         crate::query_execution::domain::domain_id(
             repo.instance_id,
-            collection.generation.collection.0,
-            collection.generation.generation,
+            collection.collection_id().0,
+            collection.base_generation(),
             None,
         ),
         crate::query_access::contract::AccessId {
             provider: crate::query_access::contract::ProviderId(4),
             operation: crate::query_access::contract::OperationId(99),
         },
-        collection.generation.collection.0,
-        collection.generation.records.len() as u64,
+        collection.collection_id().0,
+        collection.base_slot_count() as u64,
         candidates,
         0,
         Some("source_candidates"),
@@ -3321,16 +3321,16 @@ pub(super) fn search_segmented_relations(
                     term_id,
                     crate::query_execution::domain::domain_id(
                         repo.instance_id,
-                        collection.generation.collection.0,
-                        collection.generation.generation,
+                        collection.collection_id().0,
+                        collection.base_generation(),
                         None,
                     ),
                     crate::query_access::contract::AccessId {
                         provider: crate::query_access::contract::ProviderId(4),
                         operation: crate::query_access::contract::OperationId(2),
                     },
-                    collection.generation.collection.0,
-                    collection.generation.records.len() as u64,
+                    collection.collection_id().0,
+                    collection.base_slot_count() as u64,
                     0,
                     0,
                     Some(if has_local {
@@ -3358,16 +3358,16 @@ pub(super) fn search_segmented_relations(
                 term_id,
                 crate::query_execution::domain::domain_id(
                     repo.instance_id,
-                    collection.generation.collection.0,
-                    collection.generation.generation,
+                    collection.collection_id().0,
+                    collection.base_generation(),
                     None,
                 ),
                 crate::query_access::contract::AccessId {
                     provider: crate::query_access::contract::ProviderId(4),
                     operation: crate::query_access::contract::OperationId(3),
                 },
-                collection.generation.collection.0,
-                collection.generation.records.len() as u64,
+                collection.collection_id().0,
+                collection.base_slot_count() as u64,
                 0,
                 0,
                 Some(if has_local {
@@ -3470,7 +3470,7 @@ pub(super) fn search_segmented_relations(
         let collection_index = entry.collection_index;
         let filter = &entry.filter;
         let fts = &entry.fts;
-        let collection_id = repo.collections[collection_index].generation.collection;
+        let collection_id = repo.collections[collection_index].collection_id();
         let collection_plan = &repo.collections[collection_index];
         let direct_plan = (!reference && prune_segments)
             .then(|| {

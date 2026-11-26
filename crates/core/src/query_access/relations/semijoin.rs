@@ -1327,7 +1327,7 @@ pub(crate) fn fts_witnesses(
                         return Err("relation source witness has duplicate active address".into());
                     }
                     address = Some(SegmentRecordAddress {
-                        collection: source_collection.generation.collection,
+                        collection: source_collection.collection_id(),
                         segment: published.id,
                         slot,
                     });

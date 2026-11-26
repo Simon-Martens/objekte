@@ -170,7 +170,7 @@ impl IndexView {
                 collection: collection.definition.name.clone(),
                 files: 0,
                 source_bytes: 0,
-                records: self.0.active[collection.generation.collection.0 as usize].len() as usize,
+                records: self.0.active[collection.collection_id().0 as usize].len() as usize,
                 record_table_capacity: collection.generation.records.capacity(),
                 unique_id_payload_bytes: collection
                     .generation
@@ -604,7 +604,7 @@ impl IndexView {
             .collections()
             .iter()
             .find(|collection| collection.definition.name == name)
-            .map(|collection| collection.generation.collection);
+            .map(|collection| collection.collection_id());
         collection_id.into_iter().flat_map(move |id| {
             self.catalogue_rows().filter_map(move |row| match row {
                 Ok(row) => row
@@ -687,12 +687,13 @@ impl IndexView {
             let collection = self.repository().collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("file points to missing collection".into())
             })?;
-            if let Some(slots) = collection.generation.file_records.records_for(file) {
+            collection.visit_base_file_slots(file, &mut |slots| {
                 count += slots
                     .iter()
                     .filter(|slot| self.0.active[number].contains(**slot))
                     .count() as u64;
-            }
+                Ok(())
+            })?;
             self.visit_segment_file_slots(file, *collection_id, &mut |_, active, slots| {
                 count += slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
                 Ok(())

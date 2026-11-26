@@ -344,13 +344,13 @@ fn segment_text_access(
     collection: &CollectionState,
     published_id: SegmentId,
 ) -> SegmentTextAccess<'_> {
-    let id = collection.generation.collection;
+    let id = collection.collection_id();
     SegmentTextAccess {
         policy: collection.text_access_policy(),
         domain: crate::query_execution::domain::domain_id(
             collection.repository_instance,
             id.0,
-            collection.generation.generation,
+            collection.base_generation(),
             Some(published_id.get()),
         ),
         instance: collection.repository_instance,
@@ -1430,11 +1430,11 @@ impl<'a> PlanContext<'a> {
     fn term_id(&mut self, collection: &CollectionState, term: &BoundTerm) -> TermId {
         if let Some(predicates) = &self.predicates
             && let Some(id) =
-                predicates.term_for_bound_term(collection.generation.collection.0 as usize, term)
+                predicates.term_for_bound_term(collection.collection_id().0 as usize, term)
         {
             return id;
         }
-        let collection_id = collection.generation.collection.0;
+        let collection_id = collection.collection_id().0;
         if let Some((_, _, id)) =
             self.term_ids
                 .iter()
@@ -1809,7 +1809,7 @@ pub(crate) fn raw_covers_identity_field(collection: &CollectionState) -> Result<
             binding.name, binding.version
         ));
     }
-    if collection.raw.record_count as usize != collection.generation.records.len() {
+    if collection.raw.record_count as usize != collection.base_slot_count() {
         return Err("raw index has incomplete record coverage".into());
     }
     Ok(())
@@ -2774,7 +2774,7 @@ fn plan_expr_restricted_inner<'a>(
             planning: PlanningCounters::default(),
         });
     }
-    if collection.logical_records.len() == collection.generation.records.len() as u64 {
+    if collection.logical_records.len() == collection.base_slot_count() as u64 {
         let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence, context)?;
         if !collection.definition.schema.relations().is_empty() {
             let mut term_id = |term: &BoundTerm| context.term_id(collection, term);
@@ -3043,7 +3043,7 @@ fn plan_logical_expr<'a>(
                     repo.instance_id,
                     &fused_ids,
                     context.provider.domain(),
-                    collection.generation.collection.0,
+                    collection.collection_id().0,
                     input.len() as u64,
                     current.len() as u64,
                     current.len() as u64,
@@ -3227,7 +3227,7 @@ fn record_skipped_expr<'a>(
                 repo.instance_id,
                 term_id,
                 context.provider.domain(),
-                collection.generation.collection.0,
+                collection.collection_id().0,
                 0,
             );
         }

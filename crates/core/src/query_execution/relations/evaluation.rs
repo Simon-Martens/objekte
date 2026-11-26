@@ -928,7 +928,7 @@ fn visit_hop(
         return Ok(());
     }
     if !work.is_active(
-        repo.collections[collection_index].generation.collection,
+        repo.collections[collection_index].collection_id(),
         source_slot,
     ) {
         merge_truth(truth, None, quantifier);
@@ -942,7 +942,7 @@ fn visit_hop(
             return Ok(());
         }
         if let Some(value) =
-            target_values.and_then(|cache| cache.get(collection.generation.collection, source_slot))
+            target_values.and_then(|cache| cache.get(collection.collection_id(), source_slot))
         {
             work.target_cache_hits += 1;
             let file = repo.base_file(record.file)?;

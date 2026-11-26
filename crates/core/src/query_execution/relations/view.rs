@@ -965,7 +965,7 @@ impl<'a> MergedRelationView<'a> {
             .get(collection_index)
             .ok_or("reference collection missing")?;
         let mut addresses = Vec::new();
-        let base_count = state.generation.records.len();
+        let base_count = state.base_slot_count();
         for slot in 0..base_count {
             let slot = RecordSlot(slot as u32);
             if self.base_active[collection_index].contains(slot) {
@@ -999,7 +999,7 @@ pub(super) fn read_reference_value(
     work: &mut RelationWork,
 ) -> Result<Option<crate::model::Value>, String> {
     let collection = &repo.collections[collection_index];
-    if !work.is_active(collection.generation.collection, slot) {
+    if !work.is_active(collection.collection_id(), slot) {
         return Ok(None);
     }
     let record = collection

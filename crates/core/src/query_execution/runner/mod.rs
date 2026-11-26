@@ -533,7 +533,7 @@ pub(crate) fn make_hit(
     Ok(SearchHit {
         collection: repo.collections[collection_index].definition.name.clone(),
         record_id: record.id.0.to_string(),
-        generation: repo.collections[collection_index].generation.generation,
+        generation: repo.collections[collection_index].base_generation(),
         file: Some(crate::files::RecordFileInfo::from_entry(
             &file,
             Some(record.range),
@@ -669,7 +669,7 @@ fn read_direct_segment_slot<S: SegmentReader + ?Sized>(
     classify_source_failure: bool,
 ) -> Result<DirectLookupResult, String> {
     let descriptor = segment.descriptor();
-    if descriptor.collection != collection.generation.collection
+    if descriptor.collection != collection.collection_id()
         || active.slot_count() as usize != descriptor.slots
     {
         return Err("segment collection or slot domain mismatch".into());
@@ -952,11 +952,13 @@ pub(crate) fn direct_lookup_segmented_counted(
         .position(|collection| collection.definition.name == collection_name)
         .ok_or("unknown collection")?;
     let collection = &repo.collections[collection_index];
-    let base = collection
-        .id_lookup
-        .get(record_id)
-        .copied()
-        .filter(|slot| base_active[collection_index].contains(*slot));
+    let base = if base_active[collection_index].len() == 0 {
+        None
+    } else {
+        collection
+            .base_slot_for_record(record_id)?
+            .filter(|slot| base_active[collection_index].contains(*slot))
+    };
     let selected_segment = if let Some(routes) = routes {
         if let Some(counters) = counters.as_deref_mut() {
             counters.route_key_probes += 1;
@@ -999,15 +1001,11 @@ pub(crate) fn direct_lookup_segmented_counted(
         counters.route_segment_visits += 1;
     }
     let (record, file, result) = if let Some(slot) = base {
-        let record = collection
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("base direct-lookup slot missing")?;
+        let record = collection.base_record(slot)?;
         let file = catalog
             .file(record.file)?
             .ok_or("active base direct-lookup file retired")?;
-        if !file.collections.contains(&collection.generation.collection) {
+        if !file.collections.contains(&collection.collection_id()) {
             return Err("active base direct-lookup file lost collection membership".into());
         }
         let payload = match return_mode {
@@ -1050,7 +1048,7 @@ pub(crate) fn direct_lookup_segmented_counted(
                 payload,
             })
         });
-        (record.clone(), file, result)
+        (record.into_owned(), file, result)
     } else if let Some((segment, slot)) = selected_segment {
         let mut result = read_direct_segment_slot(
             repo,
@@ -2782,7 +2780,7 @@ fn search_segmented_impl(
             if let Some(context) = context {
                 context.check_string()?;
             }
-            if published.descriptor().collection != collection.generation.collection {
+            if published.descriptor().collection != collection.collection_id() {
                 return Err("segment collection mismatch".into());
             }
             let segment = published.as_ref();
@@ -3561,11 +3559,11 @@ fn search_segmented_impl(
                         terms,
                         crate::query_execution::domain::domain_id(
                             repo.instance_id,
-                            collection.generation.collection.0,
-                            collection.generation.generation,
+                            collection.collection_id().0,
+                            collection.base_generation(),
                             Some(published.id.get()),
                         ),
-                        collection.generation.collection.0,
+                        collection.collection_id().0,
                         fused_scanned,
                         fused_matches,
                         fused_matches,
@@ -3764,11 +3762,11 @@ fn search_segmented_impl(
                     terms,
                     crate::query_execution::domain::domain_id(
                         repo.instance_id,
-                        collection.generation.collection.0,
-                        collection.generation.generation,
+                        collection.collection_id().0,
+                        collection.base_generation(),
                         Some(published.id.get()),
                     ),
-                    collection.generation.collection.0,
+                    collection.collection_id().0,
                     fused_scanned,
                     fused_matches,
                     fused_matches,
@@ -4131,7 +4129,7 @@ pub(crate) fn search_analyze_segmented(
         .map(|collection| {
             let actual = observations
                 .iter()
-                .filter(|observation| observation.collection == collection.generation.collection.0)
+                .filter(|observation| observation.collection == collection.collection_id().0)
                 .fold(PlanActual::default(), |mut actual, observation| {
                     actual.index_proven_matches = actual
                         .index_proven_matches
@@ -4162,7 +4160,7 @@ pub(crate) fn search_analyze_segmented(
             .collections
             .iter()
             .find(|collection| collection.definition.name == trace.collection)
-            .map(|collection| collection.generation.collection.0);
+            .map(|collection| collection.collection_id().0);
         trace.actual = Some(PlanActual {
             files_opened: counters.files_opened,
             bytes_read: counters.bytes_read,
@@ -4194,8 +4192,7 @@ pub(crate) fn search_analyze_segmented(
             .collections
             .iter()
             .find(|collection| collection.definition.name == trace.collection)
-            && let Some(candidates) =
-                collection_candidate_counts.get(&collection.generation.collection.0)
+            && let Some(candidates) = collection_candidate_counts.get(&collection.collection_id().0)
         {
             trace.candidates = *candidates;
             trace.candidates_estimated = false;
@@ -5867,7 +5864,7 @@ fn collection_domain(
     active: Option<&[ActiveRecords]>,
 ) -> RoaringBitmap {
     active.map_or_else(
-        || (0..collection.generation.records.len() as u32).collect(),
+        || (0..collection.base_slot_count() as u32).collect(),
         |domains| domains[collection_index].bitmap(),
     )
 }
@@ -6095,7 +6092,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
             .iter()
             .enumerate()
             .try_fold(0usize, |total, (index, collection)| {
-                let records = active.map_or(collection.generation.records.len(), |domains| {
+                let records = active.map_or(collection.base_slot_count(), |domains| {
                     domains[index].len() as usize
                 });
                 total.checked_add(records)
@@ -6866,7 +6863,7 @@ pub(crate) fn explain_with_active(
         let filter = entry.filter;
         let fts = entry.fts;
         let collection = &repo.collections[collection_index];
-        let domain_len = active.map_or(collection.generation.records.len() as u64, |domains| {
+        let domain_len = active.map_or(collection.base_slot_count() as u64, |domains| {
             domains[collection_index].len()
         });
         let estimated = filter
@@ -6886,11 +6883,11 @@ pub(crate) fn explain_with_active(
             .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()));
         let filter_exact = estimated.as_ref().is_none_or(|plan| plan.exact)
             && (filter.is_none()
-                || collection.logical_records.len() == collection.generation.records.len() as u64);
+                || collection.logical_records.len() == collection.base_slot_count() as u64);
         ordered_candidate_total = ordered_candidate_total.saturating_add(candidates);
         traces.push(QueryPlanTrace {
             collection: collection.definition.name.clone(),
-            generation: collection.generation.generation,
+            generation: collection.base_generation(),
             bigram_alphabet: collection.raw.alphabet,
             folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
             fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
@@ -6902,7 +6899,7 @@ pub(crate) fn explain_with_active(
             remaining_verification: fts.is_some() || !filter_exact,
             input_records: domain_len,
             fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
-                && collection.logical_records.len() != collection.generation.records.len() as u64
+                && collection.logical_records.len() != collection.base_slot_count() as u64
             {
                 "logical text plus fallback source text"
             } else if related_fts {
@@ -7402,7 +7399,7 @@ fn search_impl_with_resolved_sort<'a>(
         if let Some(traces) = traces.as_deref_mut() {
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
-                generation: collection.generation.generation,
+                generation: collection.base_generation(),
                 bigram_alphabet: collection.raw.alphabet,
                 folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
@@ -7414,8 +7411,7 @@ fn search_impl_with_resolved_sort<'a>(
                 remaining_verification: needs_scan,
                 input_records: domain.len(),
                 fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
-                    && collection.logical_records.len()
-                        != collection.generation.records.len() as u64
+                    && collection.logical_records.len() != collection.base_slot_count() as u64
                 {
                     "logical text plus fallback source text"
                 } else if fts.is_none() {
@@ -7535,7 +7531,7 @@ fn search_impl_with_resolved_sort<'a>(
         if !sort.bound.has_computed
             && fts.is_none()
             && query.options.evidence
-            && collection.logical_records.len() != collection.generation.records.len() as u64
+            && collection.logical_records.len() != collection.base_slot_count() as u64
         {
             // Fallback truth established from inventory metadata needs no
             // source verification, even when logical candidates still do.
@@ -7987,11 +7983,11 @@ fn search_impl_with_resolved_sort<'a>(
                         terms,
                         crate::query_execution::domain::domain_id(
                             repo.instance_id,
-                            collection.generation.collection.0,
-                            collection.generation.generation,
+                            collection.collection_id().0,
+                            collection.base_generation(),
                             None,
                         ),
-                        collection.generation.collection.0,
+                        collection.collection_id().0,
                         outcome.scanned_records,
                         outcome.match_count,
                         outcome.match_count,

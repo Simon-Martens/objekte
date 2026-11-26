@@ -438,7 +438,7 @@ pub(crate) fn prepare_residual<'a>(
     match expr {
         BoundExpr::Term(term) => {
             let term_id = predicates
-                .term_for_bound_term(collection.generation.collection.0 as usize, term)
+                .term_for_bound_term(collection.collection_id().0 as usize, term)
                 .expect("prepared residual term ID");
             Residual::Term(
                 term,

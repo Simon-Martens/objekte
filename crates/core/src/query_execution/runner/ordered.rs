@@ -387,7 +387,7 @@ pub(super) fn inferred_order_column_for_segment(
     let collection = &repo.collections[collection_index];
     let key = InferredOrderKey::new(
         collection_index,
-        collection.generation.generation,
+        collection.base_generation(),
         segment.id,
         path.clone(),
         &collection.definition.sort_locale,
@@ -964,7 +964,7 @@ pub(super) fn try_stored_order_page(
             let collection = &repo.collections[entry.collection_index];
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
-                generation: collection.generation.generation,
+                generation: collection.base_generation(),
                 bigram_alphabet: collection.raw.alphabet,
                 folded_representation: crate::index::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
@@ -978,7 +978,7 @@ pub(super) fn try_stored_order_page(
                 remaining_verification: entry.fts.is_some() || !entry.plan.exact,
                 input_records: collection_domain(collection, entry.collection_index, active).len(),
                 fts_strategy: if collection.logical_records.len()
-                    != collection.generation.records.len() as u64
+                    != collection.base_slot_count() as u64
                     && entry.fts.is_some_and(|fts| fts.fields.is_empty())
                 {
                     "stored order: logical text plus fallback source text"

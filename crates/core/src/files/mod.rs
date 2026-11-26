@@ -221,21 +221,15 @@ impl<'a> FileCatalogView<'a> {
             .collections()
             .get(number)
             .ok_or_else(|| LookupError::Query("file points to a missing collection".into()))?;
-        if let Some(slots) = state.generation.file_records.records_for(id) {
+        state.visit_base_file_slots(id, &mut |slots| {
             for &slot in slots {
                 if self.view.0.active[number].contains(slot) {
-                    let record =
-                        state
-                            .generation
-                            .records
-                            .get(slot.0 as usize)
-                            .ok_or_else(|| {
-                                LookupError::Query("file points to a missing base record".into())
-                            })?;
+                    let record = state.base_record(slot)?;
                     visit(&record.id);
                 }
             }
-        }
+            Ok(())
+        })?;
         self.view
             .visit_segment_file_slots(id, collection, &mut |reader, active, slots| {
                 for &slot in slots {

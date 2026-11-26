@@ -824,7 +824,7 @@ pub(crate) fn select_exact_segmented(
                 id: NEXT_SELECTION_ID.fetch_add(1, Ordering::Relaxed),
                 instance_id: repo.instance_id,
                 collection_index,
-                generation: state.generation.generation,
+                generation: state.base_generation(),
                 revision: Some(revision),
                 members: RoaringBitmap::new(),
                 segment_members,
@@ -872,7 +872,7 @@ pub(crate) fn select_exact_segmented(
         id: NEXT_SELECTION_ID.fetch_add(1, Ordering::Relaxed),
         instance_id: repo.instance_id,
         collection_index,
-        generation: state.generation.generation,
+        generation: state.base_generation(),
         revision: Some(revision),
         members,
         segment_members,
@@ -1080,7 +1080,7 @@ pub(crate) fn posting_values_segmented(
     if selection.is_some_and(|selection| {
         selection.instance_id != repo.instance_id
             || selection.collection_index != collection_index
-            || selection.generation != collection.generation.generation
+            || selection.generation != collection.base_generation()
             || selection.revision != Some(revision)
             || selection.segment_members.len() != segments[collection_index].len()
     }) {
@@ -1143,7 +1143,7 @@ pub(crate) fn posting_values_segmented(
         selected_total += domain.len();
         eligible += logical_domain.len();
         let slot_count = if index == 0 {
-            collection.generation.records.len()
+            collection.base_slot_count()
         } else {
             segments[collection_index][index - 1].descriptor().slots
         };
@@ -1237,7 +1237,7 @@ pub(crate) fn posting_values_segmented(
     let last = if let Some(cursor) = &request.continuation {
         if cursor.instance_id != repo.instance_id
             || cursor.collection_index != collection_index
-            || cursor.generation != collection.generation.generation
+            || cursor.generation != collection.base_generation()
             || cursor.revision != Some(revision)
             || cursor.field != path.segments
             || cursor.binding != binding
@@ -1352,7 +1352,7 @@ pub(crate) fn posting_values_segmented(
         values.last().map(|entry| PostingValuesCursor {
             instance_id: repo.instance_id,
             collection_index,
-            generation: collection.generation.generation,
+            generation: collection.base_generation(),
             revision: Some(revision),
             field: path.segments,
             binding,
@@ -1429,7 +1429,7 @@ impl Repository {
             id: NEXT_SELECTION_ID.fetch_add(1, Ordering::Relaxed),
             instance_id: self.instance_id,
             collection_index,
-            generation: state.generation.generation,
+            generation: state.base_generation(),
             revision,
             members,
             segment_members: Vec::new(),
@@ -1498,7 +1498,7 @@ impl Repository {
         if selection.is_some_and(|selection| {
             selection.instance_id != self.instance_id
                 || selection.collection_index != collection_index
-                || selection.generation != collection.generation.generation
+                || selection.generation != collection.base_generation()
                 || selection.revision != revision
         }) {
             return Err("exact selection scope mismatch".into());
@@ -1537,13 +1537,13 @@ impl Repository {
         let eligible = selected_domain.map_or(collection.logical_records.len(), |selected| {
             selected.intersection_len(&collection.logical_records)
         });
-        let live_total = active.map_or(collection.generation.records.len() as u64, |domains| {
+        let live_total = active.map_or(collection.base_slot_count() as u64, |domains| {
             domains[collection_index].len()
         });
         let unavailable = selected_total.unwrap_or(live_total) - eligible;
         let indexed = match &indexed_records {
             Some(covered) => {
-                let members = coverage_members(covered, collection.generation.records.len())?;
+                let members = coverage_members(covered, collection.base_slot_count())?;
                 selected_domain.map_or(members.len() as u64, |selected| {
                     members.intersection_len(MembershipView::Borrowed(selected))
                 })
@@ -1555,7 +1555,7 @@ impl Repository {
             || collection.logical_records.clone(),
             |selected| selected & &collection.logical_records,
         );
-        let slot_count = collection.generation.records.len();
+        let slot_count = collection.base_slot_count();
         let presence = posting_members(index, PostingKey::Presence, slot_count, &logical_domain)?;
         let selected_nulls = posting_members(
             index,
@@ -1631,7 +1631,7 @@ impl Repository {
         let last = if let Some(cursor) = &request.continuation {
             if cursor.instance_id != self.instance_id
                 || cursor.collection_index != collection_index
-                || cursor.generation != collection.generation.generation
+                || cursor.generation != collection.base_generation()
                 || cursor.revision != revision
                 || cursor.field != path.segments
                 || cursor.binding != binding
@@ -1712,7 +1712,7 @@ impl Repository {
             values.last().map(|entry| PostingValuesCursor {
                 instance_id: self.instance_id,
                 collection_index,
-                generation: collection.generation.generation,
+                generation: collection.base_generation(),
                 revision,
                 field: path.segments.clone(),
                 binding,

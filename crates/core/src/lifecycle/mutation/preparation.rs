@@ -108,7 +108,7 @@ pub(crate) fn index_prepared_file(
             .collections()
             .get(collection.collection.0 as usize)
             .ok_or_else(|| IndexError::InvalidPublication("collection missing".into()))?;
-        if collection.collection != state.generation.collection
+        if collection.collection != state.collection_id()
             || collection.source_id != state.required_file_reader().id()
             || collection.source_version != state.required_file_reader().version()
         {
@@ -242,7 +242,7 @@ pub(crate) fn prepare_file_at(
         {
             bindings.push(FilePreparationBinding {
                 factory: &repository.storage_factory,
-                collection: collection.generation.collection,
+                collection: collection.collection_id(),
                 definition: collection.required_file_definition(),
                 source: &collection.required_file_reader(),
             });
@@ -344,7 +344,7 @@ pub(super) fn prepare_replacement_bytes(
         {
             bindings.push(FilePreparationBinding {
                 factory: &repository.storage_factory,
-                collection: collection.generation.collection,
+                collection: collection.collection_id(),
                 definition: collection.required_file_definition(),
                 source: &collection.required_file_reader(),
             });

@@ -211,7 +211,7 @@ impl Repository {
                         .collections
                         .iter()
                         .find(|collection| collection.definition.name == hit.collection)
-                        .is_none_or(|collection| collection.generation.generation != hit.generation)
+                        .is_none_or(|collection| collection.base_generation() != hit.generation)
             };
             let mut remap_rows = |event: crate::query_execution::streaming::StreamEvent<'_>| -> Result<
                 crate::query_execution::streaming::StreamControl,
@@ -315,7 +315,7 @@ impl Repository {
                     .collections
                     .iter()
                     .find(|collection| collection.definition.name == hit.collection)
-                    .is_none_or(|collection| collection.generation.generation != hit.generation)
+                    .is_none_or(|collection| collection.base_generation() != hit.generation)
         };
         let mut remap_rows = |event: crate::query_execution::streaming::StreamEvent<'_>| -> Result<
             crate::query_execution::streaming::StreamControl,

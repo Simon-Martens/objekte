@@ -60,8 +60,8 @@ impl<'a> NativeRelationProvider<'a> {
             collection,
             domain: domain_id(
                 repo.instance_id,
-                state.generation.collection.0,
-                state.generation.generation,
+                state.collection_id().0,
+                state.base_generation(),
                 None,
             ),
             operations: Mutex::new(Vec::new()),

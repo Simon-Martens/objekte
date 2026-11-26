@@ -1230,7 +1230,7 @@ impl SortTargetCache {
                 .as_ref()
                 .and_then(|execution| execution.active_records())
                 .is_some_and(|domains| {
-                    !domains[collection.generation.collection.0 as usize].contains(slot)
+                    !domains[collection.collection_id().0 as usize].contains(slot)
                 })
             {
                 return Ok(None);
@@ -1491,7 +1491,7 @@ impl ComputedSort {
         reduced: &mut SortAccumulator,
     ) -> Result<(), String> {
         let collection = &repo.collections[collection_index];
-        if !SortTargetCache::is_active(cache, collection.generation.collection, slot)? {
+        if !SortTargetCache::is_active(cache, collection.collection_id(), slot)? {
             reduced.observe_unavailable()?;
             return Ok(());
         }
@@ -1508,7 +1508,7 @@ impl ComputedSort {
             let external = match (source_value, terminal.steps.first()) {
                 (None, Some(PathStep::Field(field))) if terminal.field.root == PathRoot::Data => {
                     external_targets.and_then(|targets| {
-                        targets.get_projected_field(collection.generation.collection, slot, field)
+                        targets.get_projected_field(collection.collection_id(), slot, field)
                     })
                 }
                 _ => None,

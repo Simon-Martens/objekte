@@ -34,7 +34,7 @@ pub fn measure_direct_shard_build(
         .iter()
         .find(|collection| collection.definition.name == collection_name)
         .unwrap();
-    let id = collection.generation.collection;
+    let id = collection.collection_id();
     let definition = Arc::new(collection.required_file_definition().clone());
     let source = collection.required_file_reader().clone();
     let mut source_files = Vec::new();

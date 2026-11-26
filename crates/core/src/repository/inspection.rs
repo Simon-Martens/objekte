@@ -86,7 +86,7 @@ impl Repository {
             .iter()
             .flat_map(|source| &source.relations)
             .find(|relation| {
-                relation.target_collection == target.generation.collection
+                relation.target_collection == target.collection_id()
                     && relation.declaration.reverse_alias.as_deref() == Some(alias)
             })
     }

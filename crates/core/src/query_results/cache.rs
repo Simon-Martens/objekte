@@ -140,11 +140,11 @@ pub(crate) fn record_base_cache_hits(repo: &Repository, cached: &CachedResult) {
             repo.instance_id,
             crate::query_execution::domain::domain_id(
                 repo.instance_id,
-                collection.generation.collection.0,
-                collection.generation.generation,
+                collection.collection_id().0,
+                collection.base_generation(),
                 None,
             ),
-            collection.generation.collection.0,
+            collection.collection_id().0,
             cached.members.len() as u64,
             output_records,
         );
@@ -231,11 +231,11 @@ pub(crate) fn materialize_lifecycle_cached(
             repo.instance_id,
             crate::query_execution::domain::domain_id(
                 repo.instance_id,
-                collection.generation.collection.0,
-                collection.generation.generation,
+                collection.collection_id().0,
+                collection.base_generation(),
                 segment,
             ),
-            collection.generation.collection.0,
+            collection.collection_id().0,
             cached.members.len() as u64,
             output_records,
         );
@@ -639,7 +639,7 @@ pub(crate) fn materialize_cached(
         hits.push(SearchHit {
             collection: collection.definition.name.clone(),
             record_id: record.id.0.to_string(),
-            generation: collection.generation.generation,
+            generation: collection.base_generation(),
             file: Some(crate::files::RecordFileInfo::from_entry(
                 &file,
                 Some(record.range),

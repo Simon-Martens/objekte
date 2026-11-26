@@ -3,7 +3,6 @@
 use crate::index::storage::segment::SegmentReader;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
-use crate::model::RecordId;
 use crate::query::options::ReturnMode;
 use crate::query_results::{Payload, SearchHit, SearchResult};
 use crate::source::access::SourceAccessSession;
@@ -62,17 +61,13 @@ impl Repository {
             .position(|collection| collection.definition.name == collection_name)
             .ok_or("unknown collection")?;
         let collection = &self.collections[collection_index];
-        let Some(slot) = collection.id_lookup.get(&RecordId(record_id.into())) else {
+        let Some(slot) = collection.base_slot_for_record(record_id)? else {
             return Ok(None);
         };
-        if active.is_some_and(|domains| !domains[collection_index].contains(*slot)) {
+        if active.is_some_and(|domains| !domains[collection_index].contains(slot)) {
             return Ok(None);
         }
-        let record = collection
-            .generation
-            .records
-            .get(slot.0 as usize)
-            .ok_or("record ID points outside generation")?;
+        let record = collection.base_record(slot)?;
         let payload = match return_mode {
             ReturnMode::Locator => None,
             ReturnMode::Logical if record.class == RecordClass::RawFallback => {
@@ -97,7 +92,7 @@ impl Repository {
         crate::query_execution::runner::make_hit(
             self,
             collection_index,
-            record,
+            &record,
             Vec::new(),
             payload,
         )
@@ -134,7 +129,7 @@ impl Repository {
             .iter()
             .find(|collection| collection.definition.name == hit.collection)
         {
-            hit.generation = collection.generation.generation;
+            hit.generation = collection.base_generation();
         }
         self.remap_native_diagnostic(hit)
     }

@@ -396,7 +396,7 @@ pub(crate) fn resolve_path(
             return Err("backlink path requires an alias".into());
         };
         let relation = repo
-            .declared_backlink(repo.collections[current].generation.collection, alias)?
+            .declared_backlink(repo.collections[current].collection_id(), alias)?
             .ok_or_else(|| format!("unknown backlink alias {alias}"))?;
         let mut consumed = 1;
         let mut selectors = Vec::new();
@@ -419,7 +419,7 @@ pub(crate) fn resolve_path(
             relation: relation.id,
             direction: HopDirection::Backlink,
             selectors,
-            from: repo.collections[current].generation.collection,
+            from: repo.collections[current].collection_id(),
             to,
         });
         current = to.0 as usize;
@@ -455,7 +455,7 @@ pub(crate) fn resolve_path(
                 {
                     let relation = repo
                         .declared_relation_by_path(
-                            repo.collections[current].generation.collection,
+                            repo.collections[current].collection_id(),
                             &declaration.path,
                         )?
                         .ok_or("declared relation has no target")?;
@@ -475,7 +475,7 @@ pub(crate) fn resolve_path(
             relation: relation.id,
             direction: HopDirection::Forward,
             selectors,
-            from: repo.collections[current].generation.collection,
+            from: repo.collections[current].collection_id(),
             to: target,
         });
         current = target.0 as usize;

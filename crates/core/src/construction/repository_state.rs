@@ -220,8 +220,9 @@ fn initialize_empty_configured(
             return Err(format!("duplicate collection: {}", definition.name));
         }
         let id = CollectionId(u32::try_from(number).map_err(|_| "too many collections")?);
-        let generation =
-            CollectionBuilder::new(id, definition.name.clone(), 1, 0).finish_empty()?;
+        let base_generation = IndexRevision::INITIAL.0;
+        let generation = CollectionBuilder::new(id, definition.name.clone(), base_generation, 0)
+            .finish_empty()?;
         let postings = PostingCollection::new(&definition.schema);
         let inference = InferenceBuilder::for_collection(options.inference, collection_count)
             .map(|builder| builder.finish(&RoaringBitmap::new(), 0, &definition.schema))
@@ -292,6 +293,8 @@ fn initialize_empty_configured(
         pending_relations.push(RelationContribution::for_schema(&definition.schema));
         collections.push(CollectionState {
             repository_instance: 0,
+            id,
+            base_generation,
             definition,
             file_source: input.file_source,
             file_definition: input.file_definition,
@@ -321,7 +324,7 @@ fn initialize_empty_configured(
         });
     }
     for (source_index, contributions) in pending_relations.into_iter().enumerate() {
-        let source = collections[source_index].generation.collection;
+        let source = collections[source_index].collection_id();
         let indexes = contributions
             .into_iter()
             .enumerate()
@@ -808,9 +811,7 @@ pub(crate) fn assemble_final_repository(
     #[cfg(test)]
     {
         for (source_index, contributions) in pending_relations.into_iter().enumerate() {
-            let source = final_repository.collections[source_index]
-                .generation
-                .collection;
+            let source = final_repository.collections[source_index].collection_id();
             for contribution in &contributions {
                 let logical_count = final_repository.collections[source_index]
                     .logical_records
