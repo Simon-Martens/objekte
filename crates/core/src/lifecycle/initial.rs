@@ -120,14 +120,9 @@ impl InitialBuildTask {
         state.status.processed_records = status.live_records;
         state.status.searchable_batches = view
             .0
-            .segments
+            .record_routes
             .iter()
-            .map(|group| {
-                group
-                    .iter()
-                    .filter(|segment| segment.active.len() > 0)
-                    .count() as u64
-            })
+            .map(|directory| directory.record_counts().live_segments)
             .sum();
         if state.status.searchable_batches > 0 {
             state

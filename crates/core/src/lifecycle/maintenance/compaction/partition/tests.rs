@@ -76,7 +76,10 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
     .and_then(|task| task.wait_complete())
     .unwrap();
     let before = index.view().unwrap();
-    let full = before.0.segments[0]
+    let full = before
+        .0
+        .segment_group(0)
+        .unwrap()
         .iter()
         .filter(|shard| shard.native_payload().records.len() == super::BASE_PARTITION_RECORDS)
         .cloned()
@@ -87,8 +90,11 @@ fn full_partitions_leave_a_bounded_sparse_update_allowance() {
         std::fs::write(&small, format!("(\"name\"=\"small-{update}\")\n")).unwrap();
         handle = index.update_file(handle, &small).unwrap().file;
         let current = index.view().unwrap();
-        assert!(current.0.segments[0].len() <= 65 + crate::lifecycle::MAX_SEGMENTS_PER_COLLECTION);
-        for (original, shard) in full.iter().zip(current.0.segments[0].iter()) {
+        assert!(
+            current.0.segment_group(0).unwrap().len()
+                <= 65 + crate::lifecycle::MAX_SEGMENTS_PER_COLLECTION
+        );
+        for (original, shard) in full.iter().zip(current.0.segment_group(0).unwrap().iter()) {
             assert!(Arc::ptr_eq(original, shard));
         }
     }
@@ -160,11 +166,13 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
             .len(),
         0
     );
-    assert!(partitioned.segments[0].len() >= 4);
+    assert!(partitioned.segment_group(0).unwrap().len() >= 4);
     assert!(
-        partitioned.segments[0]
-            .iter()
-            .all(|part| part.native_payload().records.len() <= 2)
+        partitioned.segment_group(0).unwrap().iter().all(|part| part
+            .native_payload()
+            .records
+            .len()
+            <= 2)
     );
     let converted = Index::from_published(partitioned);
     let after = converted.view().unwrap().search(&query).unwrap();
@@ -320,7 +328,7 @@ fn partition_and_native_publication_keep_global_inference_diagnostics() {
     )
     .unwrap();
     let partitioned = partition_base_with_limits(published, 2, 2).unwrap();
-    assert!(partitioned.segments[0].len() >= 4);
+    assert!(partitioned.segment_group(0).unwrap().len() >= 4);
     let index = Index::from_published(partitioned);
     let check = |index: &Index| {
         let view = index.view().unwrap();

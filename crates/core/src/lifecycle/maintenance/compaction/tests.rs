@@ -106,7 +106,7 @@ fn compaction_reuses_unaffected_native_segment() {
     index.add_file(&removed).unwrap();
     index.add_file(&kept).unwrap();
     let pinned = index.view().unwrap();
-    let unchanged = pinned.0.segments[0].last().unwrap().clone();
+    let unchanged = pinned.0.segment_group(0).unwrap().last().unwrap().clone();
     let unchanged_accounting = unchanged.native_payload().accounting;
     assert!(unchanged_accounting.retained_bytes_estimated > 0);
     assert!(unchanged_accounting.source_bytes_estimated > 0);
@@ -121,7 +121,10 @@ fn compaction_reuses_unaffected_native_segment() {
     index.compact().unwrap();
     let current = index.view().unwrap();
     assert!(
-        current.0.segments[0]
+        current
+            .0
+            .segment_group(0)
+            .unwrap()
             .iter()
             .any(|segment| Arc::ptr_eq(segment, &unchanged))
     );

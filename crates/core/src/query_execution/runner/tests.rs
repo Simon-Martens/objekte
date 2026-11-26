@@ -292,12 +292,12 @@ fn gate_a_public_search_selects_either_provider_in_either_order() {
         segmented.instance_id(),
         "collection snapshot must carry its repository instance"
     );
-    assert_eq!(segmented.0.segments[0].len(), 1);
+    assert_eq!(segmented.0.segment_group(0).unwrap().len(), 1);
     let segment_domain = crate::query_execution::domain::domain_id(
         segmented.instance_id(),
         segmented_collection.generation.collection.0,
         segmented_collection.generation.generation,
-        Some(segmented.0.segments[0][0].id.get()),
+        Some(segmented.0.segment_group(0).unwrap()[0].id.get()),
     );
     let segmented_title = std::sync::Arc::new(
         SortedBackingProvider::from_field_fixture(segment_domain, "title", &title_values)
@@ -785,7 +785,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
         view.repository(),
         &filter_first,
         &view.0.active,
-        &view.0.segments,
+        &view.0.segment_groups().unwrap(),
         &view.0.catalog,
         view.revision(),
     )
@@ -815,7 +815,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
         view.repository(),
         &compound,
         &view.0.active,
-        &view.0.segments,
+        &view.0.segment_groups().unwrap(),
         &view.0.catalog,
         view.revision(),
     )
@@ -881,7 +881,7 @@ fn native_segment_selects_posting_or_text_first_for_4096_records() {
         view.repository(),
         &text_first,
         &view.0.active,
-        &view.0.segments,
+        &view.0.segment_groups().unwrap(),
         &view.0.catalog,
         view.revision(),
     )
@@ -7122,7 +7122,7 @@ fn ordered_exact_or_cache_preserves_per_record_branch_evidence() {
         view.search_reference(&ordinary_request).unwrap().hits
     );
 
-    let full = Arc::clone(&view.0.segments[0][0]);
+    let full = Arc::clone(&view.0.segment_group(0).unwrap()[0]);
     let mut first_active = RoaringBitmap::new();
     first_active.extend([0, 1]);
     let mut second_active = RoaringBitmap::new();
@@ -7611,7 +7611,7 @@ fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
         },
     )
     .unwrap();
-    let published = &view.0.segments[0][0];
+    let published = Arc::clone(&view.0.segment_group(0).unwrap()[0]);
     let collection = &view.repository().collections[0];
     let active = published.active.bitmap();
     let full_bounds = segment_filter_bounds_with_input_catalog_and_predicates(
@@ -7626,7 +7626,8 @@ fn ordered_exact_multi_file_or_does_not_reapply_restrictions_in_fallback() {
         None,
     )
     .unwrap();
-    let mut restriction_cache = SegmentRestrictionCache::new(&view.0.segments);
+    let groups = view.0.segment_groups().unwrap();
+    let mut restriction_cache = SegmentRestrictionCache::new(&groups);
     let exact = full_bounds.may == full_bounds.must;
     restriction_cache.insert(0, 0, full_bounds, exact);
     let mut narrow = RoaringBitmap::new();
@@ -7891,7 +7892,7 @@ fn exact_stored_page_calculates_identical_segment_restrictions_once() {
     ]);
     let index = crate::lifecycle::Index::from_repository(repo).unwrap();
     let view = index.view().unwrap();
-    assert_eq!(view.0.segments[0].len(), 2);
+    assert_eq!(view.0.segment_group(0).unwrap().len(), 2);
     let query = Query {
         collections: vec!["data".into()],
         fts: None,

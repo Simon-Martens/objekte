@@ -4,7 +4,7 @@ use std::path::Path;
 use std::sync::{Arc, Weak};
 
 use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, FileRows};
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::storage::publication::SegmentGroup;
 use crate::index::storage::segment::{
     SegmentReader, SegmentResourceUsage, visit_checked_file_slots,
 };
@@ -140,9 +140,11 @@ impl IndexView {
     }
 
     pub fn segment_summaries(&self) -> Vec<crate::index::segment::NativeSegmentSummary> {
-        self.repository()
-            .segment_summaries_for(&self.0.segments)
-            .collect()
+        let mut summaries = Vec::new();
+        for directory in &self.0.record_routes {
+            directory.visit_summaries(&mut |summary| summaries.push(summary));
+        }
+        summaries
     }
 
     /// Aggregate logical and physical facts pinned to this publication.
@@ -348,7 +350,7 @@ impl IndexView {
 
     pub fn native_index_signature(&self) -> Result<String, IndexError> {
         self.repository()
-            .native_index_signature_for(&self.0.segments)
+            .native_index_signature_for(&self.0.segment_groups()?)
     }
 
     /// Visit live source metadata in file-ID order through bounded reads.
@@ -394,10 +396,9 @@ impl IndexView {
             .sum::<usize>()
             .saturating_add(
                 self.0
-                    .segments
+                    .record_routes
                     .iter()
-                    .flat_map(|group| group.iter())
-                    .map(|segment| segment.estimates().index_family_bytes)
+                    .map(|directory| directory.estimates().index_bytes)
                     .sum::<usize>(),
             )
             .saturating_add(self.estimated_construction_observation_bytes())
@@ -405,8 +406,8 @@ impl IndexView {
 
     pub fn native_storage_estimate(&self) -> NativeStorageEstimate {
         let mut usage = SegmentResourceUsage::default();
-        for segment in self.0.segments.iter().flat_map(|group| group.iter()) {
-            segment.observe_backing(&mut usage);
+        for directory in &self.0.record_routes {
+            directory.observe_backing(&mut usage);
         }
         NativeStorageEstimate {
             backing_column_bytes: usage.backing_column_bytes,
@@ -423,10 +424,9 @@ impl IndexView {
     /// Temporary provisional-build observation estimate. Completed views hold 0.
     pub fn estimated_construction_observation_bytes(&self) -> usize {
         self.0
-            .segments
+            .record_routes
             .iter()
-            .flat_map(|group| group.iter())
-            .map(|segment| segment.construction_observation_bytes())
+            .map(|directory| directory.estimates().construction_observation_bytes)
             .sum()
     }
 
@@ -451,11 +451,8 @@ impl IndexView {
                         &collection.sorting,
                     ),
                 )];
-                parts.extend(
-                    self.0.segments[number]
-                        .iter()
-                        .map(|segment| (segment.id.get(), segment.index_family_estimate())),
-                );
+                self.0.record_routes[number]
+                    .visit_index_families(&mut |id, estimate| parts.push((id, estimate)));
                 (collection.definition.name.clone(), parts)
             })
             .collect()
@@ -466,7 +463,10 @@ impl IndexView {
     }
 
     fn has_segments(&self) -> bool {
-        self.0.segments.iter().any(|group| !group.is_empty())
+        self.0
+            .record_routes
+            .iter()
+            .any(|directory| directory.segment_count() != 0)
     }
 
     fn ensure_initial_complete(&self) -> Result<(), String> {
@@ -529,12 +529,16 @@ impl IndexView {
         let Some(found) = self.0.record_routes[collection].locate(&hit.record_id)? else {
             return Ok(());
         };
-        let segment = self.0.segments[collection]
-            .get(found.position)
+        let segment = self.0.record_routes[collection]
+            .placement_at(found.position)?
             .filter(|segment| segment.id == found.route.segment)
             .ok_or("diagnostic route points to a missing segment")?;
         if segment.active.contains(found.route.slot) {
-            hit.remap_segment_diagnostic(segment.as_ref(), &self.0.catalog, found.route.slot)?;
+            hit.remap_segment_diagnostic(
+                segment.as_ref().as_ref(),
+                &self.0.catalog,
+                found.route.slot,
+            )?;
         }
         Ok(())
     }
@@ -738,11 +742,8 @@ impl IndexView {
         Ok(())
     }
 
-    pub(crate) fn segments(&self, collection: CollectionId) -> Option<&[Arc<PublishedSegment>]> {
-        self.0
-            .segments
-            .get(collection.0 as usize)
-            .map(|segments| segments.as_slice())
+    pub(crate) fn segments(&self, collection: CollectionId) -> Result<SegmentGroup, IndexError> {
+        self.0.segment_group(collection.0 as usize)
     }
 
     pub(crate) fn repository(&self) -> &Repository {
@@ -774,7 +775,7 @@ impl IndexView {
             self.repository(),
             resolved.as_ref(),
             &self.0.active,
-            &self.0.segments,
+            &self.0.segment_groups().map_err(|error| error.to_string())?,
             &self.0.catalog,
             self.revision(),
             cache,
@@ -854,7 +855,10 @@ impl IndexView {
             self.repository(),
             &resolved,
             &self.0.active,
-            &self.0.segments,
+            &self
+                .0
+                .segment_groups()
+                .map_err(|error| context.recorded_error(error.to_string()))?,
             &self.0.catalog,
             self.revision(),
             context,
@@ -988,7 +992,7 @@ impl IndexView {
         previous: &IndexView,
         query: &Query,
         context: &ExecutionContext,
-    ) -> Result<Option<Query>, ExecutionError> {
+    ) -> Result<Option<(Query, Vec<SegmentGroup>, Vec<SegmentGroup>)>, ExecutionError> {
         context.enter()?;
         if self.instance_id() != previous.instance_id()
             || self.revision() <= previous.revision()
@@ -996,7 +1000,7 @@ impl IndexView {
             || !query.options.sort.is_empty()
             || query.options.offset != 0
             || query.options.count
-            || self.0.segments.len() != previous.0.segments.len()
+            || self.0.record_routes.len() != previous.0.record_routes.len()
             || self
                 .0
                 .active
@@ -1019,7 +1023,15 @@ impl IndexView {
                     message,
                 )
             })?;
-        for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
+        let groups = self
+            .0
+            .segment_groups()
+            .map_err(|error| context.recorded_error(error.to_string()))?;
+        let previous_groups = previous
+            .0
+            .segment_groups()
+            .map_err(|error| context.recorded_error(error.to_string()))?;
+        for (current, old) in groups.iter().zip(&previous_groups) {
             if old.len() > current.len()
                 || old
                     .iter()
@@ -1029,7 +1041,7 @@ impl IndexView {
                 return Ok(None);
             }
         }
-        Ok(Some(resolved))
+        Ok(Some((resolved, groups, previous_groups)))
     }
 
     fn search_added_since_with_context_limit(
@@ -1039,12 +1051,14 @@ impl IndexView {
         context: &ExecutionContext,
         limit: Option<NonZeroUsize>,
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
-        let Some(resolved) = self.delta_query_if_appendable(previous, query, context)? else {
+        let Some((resolved, groups, previous_groups)) =
+            self.delta_query_if_appendable(previous, query, context)?
+        else {
             return Ok(None);
         };
-        let mut added = Vec::with_capacity(self.0.segments.len());
+        let mut added = Vec::with_capacity(groups.len());
         let mut added_records = 0usize;
-        for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
+        for (current, old) in groups.iter().zip(&previous_groups) {
             let next = current[old.len()..].to_vec();
             added_records = added_records.saturating_add(
                 next.iter()
@@ -1170,7 +1184,7 @@ impl IndexView {
             record_id,
             return_mode,
             &self.0.active,
-            &self.0.segments,
+            &[],
             Some(&self.0.record_routes),
             &self.0.catalog,
             self.revision(),
@@ -1202,7 +1216,7 @@ impl IndexView {
             record_id,
             return_mode,
             &self.0.active,
-            &self.0.segments,
+            &[],
             Some(&self.0.record_routes),
             &self.0.catalog,
             self.revision(),
@@ -1221,7 +1235,7 @@ impl IndexView {
             self.repository(),
             query,
             &self.0.active,
-            &self.0.segments,
+            &self.0.segment_groups().map_err(|error| error.to_string())?,
             &self.0.catalog,
             self.revision(),
         )
@@ -1249,7 +1263,7 @@ impl IndexView {
                 query,
                 self.revision(),
                 &self.0.active,
-                &self.0.segments,
+                &self.0.segment_groups().map_err(|error| error.to_string())?,
                 &self.0.catalog,
             );
         }
@@ -1268,7 +1282,7 @@ impl IndexView {
                 request,
                 self.revision(),
                 &self.0.active,
-                &self.0.segments,
+                &self.0.segment_groups().map_err(|error| error.to_string())?,
                 &self.0.catalog,
             );
         }
@@ -1295,7 +1309,7 @@ impl IndexView {
                 limit,
                 self.revision(),
                 &self.0.active,
-                &self.0.segments,
+                &self.0.segment_groups().map_err(|error| error.to_string())?,
                 &self.0.catalog,
             );
         }
@@ -1328,7 +1342,7 @@ impl IndexView {
                 limit,
                 self.revision(),
                 &self.0.active,
-                &self.0.segments,
+                &self.0.segment_groups().map_err(|error| error.to_string())?,
                 &self.0.catalog,
             );
         }
@@ -1351,7 +1365,7 @@ impl IndexView {
                 self.repository(),
                 self.revision(),
                 &self.0.active,
-                &self.0.segments,
+                &self.0.segment_groups().map_err(|error| error.to_string())?,
                 &self.0.catalog,
             );
         }
@@ -1374,7 +1388,7 @@ impl IndexView {
             self.repository(),
             resolved.as_ref(),
             &self.0.active,
-            &self.0.segments,
+            &self.0.segment_groups().map_err(|error| error.to_string())?,
             &self.0.catalog,
             self.revision(),
         )
@@ -1391,7 +1405,7 @@ impl IndexView {
             self.repository(),
             resolved.as_ref(),
             &self.0.active,
-            &self.0.segments,
+            &self.0.segment_groups().map_err(|error| error.to_string())?,
             self.revision(),
         )
     }
@@ -1578,7 +1592,14 @@ impl IndexView {
             options,
             context,
             &self.0.active,
-            &self.0.segments,
+            &self
+                .0
+                .segment_groups()
+                .map_err(|error| StreamError::Execution {
+                    kind: crate::query_execution::streaming::ExecutionErrorKind::Execution,
+                    message: error.to_string(),
+                    progress: crate::query_execution::streaming::StreamProgress::default(),
+                })?,
             &self.0.catalog,
             self.revision(),
             &mut remap_rows,

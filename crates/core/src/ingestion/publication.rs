@@ -434,7 +434,9 @@ mod tests {
         writer.submit(batch).unwrap().wait_published().unwrap();
         let view = index.view().unwrap();
         assert_eq!(
-            view.0.segments[0]
+            view.0
+                .segment_group(0)
+                .unwrap()
                 .iter()
                 .map(|segment| segment.descriptor().slots)
                 .collect::<Vec<_>>(),

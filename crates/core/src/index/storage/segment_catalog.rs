@@ -9,9 +9,10 @@ use smallvec::SmallVec;
 use crate::model::{FileId, RecordId, RecordSlot};
 
 use super::liveness::ActiveRecords;
-use super::publication::PublishedSegment;
+use super::publication::{PublishedSegment, SegmentGroup};
 use super::segment::{
-    SegmentDescriptor, SegmentId, SegmentReader, visit_record_headers, visit_segment_files,
+    NativeSegmentSummary, SegmentDescriptor, SegmentId, SegmentReader, SegmentResourceUsage,
+    visit_record_headers, visit_segment_files,
 };
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
@@ -60,6 +61,51 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
         position: usize,
     ) -> StorageResult<Option<Cow<'_, Arc<PublishedSegment>>>>;
 
+    /// A resident backend may share its sealed placement order with one request.
+    fn shared_placements(&self) -> Option<SegmentGroup> {
+        None
+    }
+
+    fn read_placements(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [Arc<PublishedSegment>]>, BatchStatus)> {
+        const OP: &str = "read segment placements";
+        let total = self.segment_count();
+        if start > total {
+            return Err(StorageError::invalid(OP, "start beyond last placement"));
+        }
+        let end = start
+            .saturating_add(limit.fixed_batch_len(OP, size_of::<Arc<PublishedSegment>>())?)
+            .min(total);
+        let mut placements = Vec::with_capacity(end - start);
+        for position in start..end {
+            let placement = self
+                .placement_at(position)?
+                .ok_or_else(|| StorageError::invalid(OP, "missing placement in batch"))?;
+            placements.push(placement.into_owned());
+        }
+        Ok((
+            Cow::Owned(placements),
+            if end == total {
+                BatchStatus::Done
+            } else {
+                BatchStatus::More
+            },
+        ))
+    }
+
+    /// Observations from metadata captured in this immutable revision.
+    fn record_counts(&self) -> SegmentRecordCounts;
+    fn estimates(&self) -> DirectoryEstimates;
+    fn visit_summaries(&self, visit: &mut dyn FnMut(NativeSegmentSummary));
+    fn visit_index_families(
+        &self,
+        visit: &mut dyn FnMut(u64, crate::lifecycle::IndexFamilyEstimate),
+    );
+    fn observe_backing(&self, usage: &mut SegmentResourceUsage);
+
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>>;
     fn estimated_directory_bytes(&self) -> usize;
     fn edit(&self) -> StorageResult<Box<dyn SegmentCatalogEditor>>;
@@ -68,6 +114,85 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
     /// A backend that cannot adopt the contribution leaves this handle intact.
     fn try_adopt(&mut self, _source: &Arc<PublishedSegment>, _position: usize) -> bool {
         false
+    }
+}
+
+#[derive(Default)]
+pub(crate) struct SegmentRecordCounts {
+    pub slots: u64,
+    pub live: u64,
+    pub live_segments: u64,
+    pub fallback: u64,
+}
+
+impl SegmentRecordCounts {
+    pub(crate) fn for_segments<'a>(
+        segments: impl Iterator<Item = &'a Arc<PublishedSegment>>,
+    ) -> Self {
+        let mut counts = Self::default();
+        for segment in segments {
+            counts.slots += u64::from(segment.active.slot_count());
+            counts.live += segment.active.len();
+            counts.live_segments += u64::from(segment.active.len() != 0);
+            counts.fallback += segment.active_fallback_count(&segment.active);
+        }
+        counts
+    }
+}
+
+#[derive(Default)]
+pub(crate) struct DirectoryEstimates {
+    pub index_bytes: usize,
+    pub construction_observation_bytes: usize,
+}
+
+impl DirectoryEstimates {
+    pub(crate) fn for_segments<'a>(
+        segments: impl Iterator<Item = &'a Arc<PublishedSegment>>,
+    ) -> Self {
+        let mut estimates = Self::default();
+        for segment in segments {
+            estimates.index_bytes = estimates
+                .index_bytes
+                .saturating_add(segment.estimates().index_family_bytes);
+            estimates.construction_observation_bytes = estimates
+                .construction_observation_bytes
+                .saturating_add(segment.construction_observation_bytes());
+        }
+        estimates
+    }
+}
+
+pub(crate) fn pin_segment_group(
+    directory: &dyn SegmentCatalogReader,
+) -> StorageResult<SegmentGroup> {
+    if let Some(group) = directory.shared_placements() {
+        return Ok(group);
+    }
+    const OP: &str = "pin segment placement group";
+    let total = directory.segment_count();
+    let max = DESCRIPTOR_LIMIT.fixed_batch_len(OP, size_of::<Arc<PublishedSegment>>())?;
+    let mut placements = Vec::with_capacity(total.min(max));
+    loop {
+        let (page, status) = directory.read_placements(placements.len(), DESCRIPTOR_LIMIT)?;
+        let end = placements
+            .len()
+            .checked_add(page.len())
+            .ok_or_else(|| StorageError::invalid(OP, "placement count overflow"))?;
+        if page.len() > max
+            || end > total
+            || (status == BatchStatus::Done) != (end == total)
+            || (status == BatchStatus::More && page.is_empty())
+        {
+            return Err(StorageError::invalid(OP, "invalid placement batch"));
+        }
+        match page {
+            Cow::Borrowed(page) => placements.extend_from_slice(page),
+            Cow::Owned(page) => placements.extend(page),
+        }
+        if status == BatchStatus::Done {
+            return Ok(Arc::new(placements));
+        }
     }
 }
 

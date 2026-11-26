@@ -10,13 +10,14 @@ use crate::index::storage::file_catalog::{
     edit_file_catalog,
 };
 use crate::index::storage::liveness::InitialLiveness;
-use crate::index::storage::publication::PublishedSegment;
+use crate::index::storage::publication::{PublishedSegment, SegmentGroup};
 use crate::index::storage::segment::{
     RecordBacking, SegmentHandle, SegmentReader, any_segment_file, visit_checked_file_slots,
     visit_record_headers, visit_segment_files,
 };
 use crate::index::storage::segment_catalog::{
     SegmentCatalogHandle, SegmentDirectoryDelta, build_catalog, edited_catalog, install_segment,
+    pin_segment_group,
 };
 use crate::index::storage::transfer::StorageError;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus};
@@ -38,7 +39,6 @@ pub(crate) struct PublishedIndex {
     pub(crate) repository: Arc<Repository>,
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) active: Vec<ActiveRecords>,
-    pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     pub(crate) record_routes: Vec<SegmentCatalogHandle>,
     pub(crate) next_segment_ordinal: u64,
     /// Hysteresis for byte-triggered coalescing; count and retirement remain
@@ -125,8 +125,8 @@ impl PublishedIndex {
         let Some(found) = self.record_routes[number].locate(id)? else {
             return Ok(None);
         };
-        let segment = self.segments[number]
-            .get(found.position)
+        let segment = self.record_routes[number]
+            .placement_at(found.position)?
             .filter(|segment| segment.id == found.route.segment)
             .ok_or_else(|| {
                 IndexError::Storage("record route points to a different segment".into())
@@ -137,18 +137,27 @@ impl PublishedIndex {
             .then_some((found.position, found.route.slot)))
     }
 
-    pub(crate) fn rebuild_record_routes(&mut self, number: usize) -> Result<(), IndexError> {
-        self.record_routes[number] = build_catalog(
-            self.repository.storage_factory.as_ref(),
-            self.segments[number].iter(),
-        )?;
-        Ok(())
+    pub(crate) fn segment_group(&self, number: usize) -> Result<SegmentGroup, IndexError> {
+        let directory = self.record_routes.get(number).ok_or_else(|| {
+            IndexError::InvalidPublication("segment directory collection missing".into())
+        })?;
+        Ok(pin_segment_group(directory.as_ref())?)
     }
 
-    pub(crate) fn rebuild_all_record_routes(&mut self) -> Result<(), IndexError> {
-        for number in 0..self.segments.len() {
-            self.rebuild_record_routes(number)?;
-        }
+    pub(crate) fn segment_groups(&self) -> Result<Vec<SegmentGroup>, IndexError> {
+        self.record_routes
+            .iter()
+            .map(|directory| Ok(pin_segment_group(directory.as_ref())?))
+            .collect()
+    }
+
+    pub(crate) fn replace_segment_group(
+        &mut self,
+        number: usize,
+        group: &[Arc<PublishedSegment>],
+    ) -> Result<(), IndexError> {
+        self.record_routes[number] =
+            build_catalog(self.repository.storage_factory.as_ref(), group.iter())?;
         Ok(())
     }
 
@@ -220,7 +229,6 @@ impl PublishedIndex {
             repository,
             configuration_identity,
             active,
-            segments,
             record_routes,
             next_segment_ordinal,
             last_size_maintenance_revision: 0,
@@ -244,6 +252,13 @@ impl PublishedIndex {
     }
 
     pub(super) fn status(&self) -> IndexStatus {
+        let (segment_live, segment_fallback) =
+            self.record_routes
+                .iter()
+                .fold((0, 0), |(live, fallback), directory| {
+                    let counts = directory.record_counts();
+                    (live + counts.live, fallback + counts.fallback)
+                });
         IndexStatus {
             instance_id: self.instance_id,
             revision: self.revision,
@@ -274,20 +289,11 @@ impl PublishedIndex {
                             })
                             .count() as u64
                     };
-                    let segments = self.segments[number]
-                        .iter()
-                        .map(|segment| segment.active_fallback_count(&segment.active))
-                        .sum::<u64>();
-                    base + segments
+                    base
                 })
-                .sum(),
-            live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>()
-                + self
-                    .segments
-                    .iter()
-                    .flat_map(|segments| segments.iter())
-                    .map(|segment| segment.active.len())
-                    .sum::<u64>(),
+                .sum::<u64>()
+                + segment_fallback,
+            live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>() + segment_live,
         }
     }
 
@@ -321,7 +327,7 @@ impl PublishedIndex {
         let index = &**payload;
         let descriptor = index.descriptor();
         let number = descriptor.collection.0 as usize;
-        if number >= self.segments.len() {
+        if number >= self.record_routes.len() {
             return Err(IndexError::InvalidPublication(
                 "segment collection missing".into(),
             ));
@@ -408,9 +414,7 @@ impl PublishedIndex {
         let mut segment_id = descriptor.id;
         if allocate_id
             || segment_id.get() <= 1
-            || self.segments[number]
-                .iter()
-                .any(|segment| segment.id == segment_id)
+            || self.record_routes[number].position(segment_id)?.is_some()
         {
             segment_id = SegmentId::new(self.next_segment_ordinal);
         }
@@ -420,18 +424,14 @@ impl PublishedIndex {
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment identity overflow".into()))?,
         );
-        Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
+        let placement = Arc::new(PublishedSegment {
             id: segment_id,
             index: Arc::clone(payload),
             active,
             observation,
-        }));
-        let group = &self.segments[number];
-        install_segment(
-            &mut self.record_routes[number],
-            group.last().expect("new segment"),
-            group.len() - 1,
-        )?;
+        });
+        let position = self.record_routes[number].segment_count();
+        install_segment(&mut self.record_routes[number], &placement, position)?;
         if self.next_segment_ordinal == 0 {
             self.next_segment_ordinal = 1;
         }
@@ -457,20 +457,19 @@ impl PublishedIndex {
     ) -> Result<(), IndexError> {
         let policy = self.repository.options().segment_policy;
         let target_records = policy.target_records.get();
-        let full_partitions = self.segments[number]
+        let mut staged_group = self.segment_group(number)?;
+        let full_partitions = staged_group
             .iter()
             .filter(|segment| segment.descriptor().slots >= target_records)
             .count();
         let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
-        let count_triggered = self.segments[number].len() >= admission_limit;
-        let group = Arc::make_mut(&mut self.segments[number]);
+        let count_triggered = staged_group.len() >= admission_limit;
         if count_triggered {
             // A current zero-record file still owns its catalogue contribution.
-            let old_count = group.len();
-            let mut kept = Vec::with_capacity(group.len());
-            for segment in group.drain(..) {
+            let mut kept = Vec::with_capacity(staged_group.len());
+            for segment in staged_group.iter() {
                 if segment.active.len() != 0 {
-                    kept.push(segment);
+                    kept.push(Arc::clone(segment));
                     continue;
                 }
                 let collection = segment.descriptor().collection;
@@ -482,20 +481,17 @@ impl PublishedIndex {
                     }))
                 })?;
                 if current_file {
-                    kept.push(segment);
+                    kept.push(Arc::clone(segment));
                 }
             }
-            if kept.len() != old_count {
-                *group = kept;
-                self.record_routes[number] =
-                    build_catalog(self.repository.storage_factory.as_ref(), group.iter())?;
-            } else {
-                *group = kept;
+            if kept.len() != staged_group.len() {
+                self.replace_segment_group(number, &kept)?;
+                staged_group = Arc::new(kept);
             }
         }
-        let count_triggered = group.len() >= admission_limit;
+        let count_triggered = staged_group.len() >= admission_limit;
         if !count_triggered {
-            let retired = group
+            let retired = staged_group
                 .iter()
                 .enumerate()
                 .filter_map(|(index, segment)| {
@@ -508,7 +504,7 @@ impl PublishedIndex {
                 })
                 .max();
             if let Some((_, index)) = retired {
-                let old = Arc::clone(&group[index]);
+                let old = &staged_group[index];
                 let replacements = crate::lifecycle::maintenance::compaction::partition::compact_source_parts_with_policy(
                     old.as_ref(),
                     &old.active,
@@ -516,6 +512,7 @@ impl PublishedIndex {
                     policy,
                     || false,
                 )?;
+                let group = Arc::make_mut(&mut staged_group);
                 group.remove(index);
                 for (offset, part) in replacements.into_iter().enumerate() {
                     let ordinal = self.next_segment_ordinal;
@@ -536,14 +533,13 @@ impl PublishedIndex {
                         }),
                     );
                 }
-                self.record_routes[number] =
-                    build_catalog(self.repository.storage_factory.as_ref(), group.iter())?;
+                self.replace_segment_group(number, group)?;
                 return Ok(());
             }
         }
         // Native retained-memory estimate, not an encoded length or a strict
         // allocator count; it only orders when size-triggered maintenance runs.
-        let sparse_bytes = group
+        let sparse_bytes = staged_group
             .iter()
             .filter(|segment| segment.descriptor().slots < target_records)
             .map(|segment| segment.estimates().retained_bytes_estimated)
@@ -558,11 +554,15 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(group, target_records)? else {
+        let Some((left, right)) = cheapest_consolidation_pair(&staged_group, target_records)?
+        else {
             return Ok(());
         };
         let Some(merged) = self.repository.storage_factory.consolidate_segments(
-            &[group[left].index.as_ref(), group[right].index.as_ref()],
+            &[
+                staged_group[left].index.as_ref(),
+                staged_group[right].index.as_ref(),
+            ],
             target_records,
         )?
         else {
@@ -570,13 +570,14 @@ impl PublishedIndex {
         };
         let active = merged.translate_active(
             self.repository.storage_factory.as_ref(),
-            &[&group[left].active, &group[right].active],
+            &[&staged_group[left].active, &staged_group[right].active],
         )?;
         let ordinal = self.next_segment_ordinal;
         self.next_segment_ordinal = self
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        let group = Arc::make_mut(&mut staged_group);
         let removed_right = group.remove(right);
         let removed_left = group.remove(left);
         group.push(Arc::new(PublishedSegment {
@@ -627,9 +628,11 @@ impl PublishedIndex {
             let number = collection.0 as usize;
             let routes = &self.record_routes[number];
             for id in routes.segments_for_file(file.id)?.iter() {
+                let position = routes.position(*id)?.ok_or_else(|| {
+                    IndexError::InvalidPublication("missing import file placement".into())
+                })?;
                 let segment = routes
-                    .position(*id)?
-                    .and_then(|position| self.segments[number].get(position))
+                    .placement_at(position)?
                     .filter(|segment| segment.id == *id)
                     .ok_or_else(|| {
                         IndexError::InvalidPublication("invalid import file route".into())
@@ -688,17 +691,12 @@ impl PublishedIndex {
             if positions.is_empty() {
                 continue;
             }
-            let segments = self.segments.get_mut(number).ok_or_else(|| {
-                IndexError::InvalidPublication("segment collection missing".into())
-            })?;
-            let group = Arc::make_mut(segments);
             for (id, position) in positions {
-                let segment = group
-                    .get_mut(position)
+                let mut segment = routes
+                    .placement_at(position)?
                     .filter(|segment| segment.id == id)
-                    .ok_or_else(|| {
-                        IndexError::InvalidPublication("routed segment missing".into())
-                    })?;
+                    .ok_or_else(|| IndexError::InvalidPublication("routed segment missing".into()))?
+                    .into_owned();
                 if segment.backing_kind() != RecordBacking::FileRange {
                     continue;
                 }
@@ -735,13 +733,13 @@ impl PublishedIndex {
                                 file: file.id,
                                 segment: segment.id,
                                 records: &[],
-                                placement: segment,
+                                placement: &segment,
                             },
                         )?;
                     }
                     continue;
                 }
-                let changed = Arc::make_mut(segment);
+                let changed = Arc::make_mut(&mut segment);
                 changed.active = changed.active.retired(&active_slots)?;
                 retired_records += active_slots.len() as u64;
                 *routes = edited_catalog(
@@ -750,7 +748,7 @@ impl PublishedIndex {
                         file: file.id,
                         segment: segment.id,
                         records: &route_keys,
-                        placement: segment,
+                        placement: &segment,
                     },
                 )?;
             }
@@ -767,7 +765,7 @@ impl PublishedIndex {
         replacement: Option<&FileEntry>,
     ) -> Result<Vec<CollectionId>, IndexError> {
         let mut memberships = Vec::new();
-        for number in 0..self.segments.len() {
+        for number in 0..self.record_routes.len() {
             let routes = &self.record_routes[number];
             let positions = routes
                 .segments_for_file(file)?
@@ -785,8 +783,8 @@ impl PublishedIndex {
                 })
                 .collect::<Result<Vec<_>, _>>()?;
             for (id, position) in positions {
-                let published = self.segments[number]
-                    .get(position)
+                let published = self.record_routes[number]
+                    .placement_at(position)?
                     .filter(|segment| segment.id == id)
                     .ok_or_else(|| {
                         IndexError::InvalidPublication("routed segment missing".into())
@@ -811,16 +809,16 @@ impl PublishedIndex {
                     memberships.push(collection);
                 }
                 if let Some(index) = edit.updated {
-                    let group = Arc::make_mut(&mut self.segments[number]);
-                    Arc::make_mut(&mut group[position]).index = index;
+                    let mut placement = published.into_owned();
+                    Arc::make_mut(&mut placement).index = index;
                     let delta = if edit.linked {
-                        SegmentDirectoryDelta::RefreshPlacement(&group[position])
+                        SegmentDirectoryDelta::RefreshPlacement(&placement)
                     } else {
                         SegmentDirectoryDelta::RetireFile {
                             file,
                             segment: id,
                             records: &[],
-                            placement: &group[position],
+                            placement: &placement,
                         }
                     };
                     self.record_routes[number] =
@@ -1083,13 +1081,21 @@ impl Index {
             })?;
         let mut next = (*view.0).clone();
         let mut route_editor = None;
+        let mut edited_placements =
+            std::collections::HashMap::<usize, Arc<PublishedSegment>>::new();
         for change in changes {
             let base = collection_state
                 .id_lookup
                 .get(&change.id)
                 .copied()
                 .filter(|slot| next.active[number].contains(*slot));
-            let found = next.live_route(number, change.id.0.as_ref())?;
+            let found =
+                next.live_route(number, change.id.0.as_ref())?
+                    .filter(|(position, slot)| {
+                        edited_placements
+                            .get(position)
+                            .is_none_or(|placement| placement.active.contains(*slot))
+                    });
             match change.kind {
                 RecordMutationKind::Insert => {
                     if base.is_some() || found.is_some() {
@@ -1106,7 +1112,15 @@ impl Index {
                             change.id.0
                         ))
                     })?;
-                    let published = &next.segments[number][index];
+                    let mut published = match edited_placements.remove(&index) {
+                        Some(staged) => staged,
+                        None => next.record_routes[number]
+                            .placement_at(index)?
+                            .ok_or_else(|| {
+                                IndexError::InvalidPublication("record placement missing".into())
+                            })?
+                            .into_owned(),
+                    };
                     if published.index.source().registration != Some(registration.ordinal) {
                         return Err(IndexError::Build(format!(
                             "record {} belongs to another registrar",
@@ -1119,8 +1133,13 @@ impl Index {
                         })?;
                         let original = prepared_from.0.live_route(number, change.id.0.as_ref())?;
                         let original = match original {
-                            Some((position, slot)) => prepared_from.0.segments[number][position]
-                                .index
+                            Some((position, slot)) => prepared_from.0.record_routes[number]
+                                .placement_at(position)?
+                                .ok_or_else(|| {
+                                    IndexError::InvalidPublication(
+                                        "prepared record placement missing".into(),
+                                    )
+                                })?
                                 .write_version(slot)?,
                             None => None,
                         };
@@ -1131,9 +1150,8 @@ impl Index {
                             )));
                         }
                     }
-                    let group = Arc::make_mut(&mut next.segments[number]);
-                    let published = Arc::make_mut(&mut group[index]);
-                    published.active = published.active.retired(&[slot])?;
+                    let changed = Arc::make_mut(&mut published);
+                    changed.active = changed.active.retired(&[slot])?;
                     if route_editor.is_none() {
                         route_editor = Some(next.record_routes[number].edit()?);
                     }
@@ -1142,8 +1160,9 @@ impl Index {
                         .expect("initialized route editor")
                         .apply(SegmentDirectoryDelta::RetireRecord {
                             id: change.id.0.as_ref(),
-                            placement: &group[index],
+                            placement: &published,
                         })?;
+                    edited_placements.insert(index, published);
                 }
             }
         }
@@ -1293,9 +1312,9 @@ impl Index {
                 FileCatalogDelta::ConstructionComplete(true),
             ],
         )?;
-        for (number, group) in next.segments.iter_mut().enumerate() {
+        for number in 0..next.record_routes.len() {
             let mut route_editor = None;
-            for published in Arc::make_mut(group).iter_mut() {
+            for published in next.segment_group(number)?.iter() {
                 let decision = repository
                     .collections
                     .get(published.descriptor().collection.0 as usize)
@@ -1308,7 +1327,8 @@ impl Index {
                 if revised.is_none() && published.observation.is_none() {
                     continue;
                 }
-                let placed = Arc::make_mut(published);
+                let mut published = Arc::clone(published);
+                let placed = Arc::make_mut(&mut published);
                 if let Some(index) = revised {
                     placed.index = index;
                 }
@@ -1319,7 +1339,7 @@ impl Index {
                 route_editor
                     .as_mut()
                     .expect("initialized route editor")
-                    .apply(SegmentDirectoryDelta::RefreshPlacement(published))?;
+                    .apply(SegmentDirectoryDelta::RefreshPlacement(&published))?;
             }
             if let Some(editor) = route_editor {
                 next.record_routes[number] = editor.seal()?;

@@ -926,7 +926,7 @@ impl Index {
                                 (next, FileMutationStrategy::AppendReplacement, Some(reason))
                             }
                         }
-                    } else if let Some(mut preserved) =
+                    } else if let Some(preserved) =
                         match preserve_single_record_slots(&view, &next, &plan, handle.file_id)? {
                             Some(candidate) => Some(candidate),
                             None => preserve_partition_record_slots(
@@ -937,7 +937,6 @@ impl Index {
                             )?,
                         }
                     {
-                        preserved.rebuild_all_record_routes()?;
                         (
                             preserved,
                             FileMutationStrategy::VerifiedSlotPreserving,

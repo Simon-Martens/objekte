@@ -161,13 +161,12 @@ pub(super) fn verify_old_content_with_layout(
             .record_routes
             .get(number)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        let shards = view
-            .segments(*collection_id)
-            .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
         for id in routes.segments_for_file(handle.file_id)?.iter() {
-            let shard = routes
+            let position = routes
                 .position(*id)?
-                .and_then(|position| shards.get(position))
+                .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
+            let shard = routes
+                .placement_at(position)?
                 .filter(|segment| segment.id == *id)
                 .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
             scanned = scanned.saturating_add(shard.descriptor().slots);
@@ -179,7 +178,7 @@ pub(super) fn verify_old_content_with_layout(
             }
             old_shards.push((*collection_id, shard.id.get()));
             let mut layout_known = true;
-            visit_checked_file_slots(shard, handle.file_id, &mut |slots| {
+            visit_checked_file_slots(shard.as_ref().as_ref(), handle.file_id, &mut |slots| {
                 for &slot in slots {
                     if !shard.active.contains(slot) {
                         continue;
@@ -262,9 +261,9 @@ pub(super) fn verify_old_content_with_layout(
     })
 }
 
-struct VerifiedSlotReplacement<'a> {
-    old: &'a PublishedSegment,
-    replacement: &'a PublishedSegment,
+struct VerifiedSlotReplacement {
+    old: Arc<PublishedSegment>,
+    replacement: Arc<PublishedSegment>,
     slot: RecordSlot,
     old_position: usize,
     new_position: usize,
@@ -285,14 +284,14 @@ fn unique_file_slot(
     Ok(slot.filter(|_| !multiple))
 }
 
-fn verified_slot_replacement<'a>(
-    view: &'a IndexView,
-    next: &'a PublishedIndex,
+fn verified_slot_replacement(
+    view: &IndexView,
+    next: &PublishedIndex,
     plan: &VerifiedPlan,
     file: FileId,
     collection: CollectionId,
     slots: std::ops::RangeInclusive<usize>,
-) -> Result<Option<VerifiedSlotReplacement<'a>>, IndexError> {
+) -> Result<Option<VerifiedSlotReplacement>, IndexError> {
     let mut ordinals = plan
         .old_shards
         .iter()
@@ -304,10 +303,8 @@ fn verified_slot_replacement<'a>(
     if ordinals.next().is_some() {
         return Ok(None);
     }
-    let Some(old) = view
-        .segments(collection)
-        .and_then(|group| group.iter().find(|shard| shard.id.get() == old_ordinal))
-    else {
+    let old_group = view.segments(collection)?;
+    let Some(old) = old_group.iter().find(|shard| shard.id.get() == old_ordinal) else {
         return Ok(None);
     };
     let old_slots = old.descriptor().slots;
@@ -323,9 +320,7 @@ fn verified_slot_replacement<'a>(
     if !old.active.contains(slot) {
         return Ok(None);
     }
-    let Some(group) = next.segments.get(collection.0 as usize) else {
-        return Ok(None);
-    };
+    let group = next.segment_group(collection.0 as usize)?;
     let Some(old_position) = group.iter().position(|shard| shard.id == old.id) else {
         return Ok(None);
     };
@@ -365,8 +360,8 @@ fn verified_slot_replacement<'a>(
         return Ok(None);
     }
     Ok(Some(VerifiedSlotReplacement {
-        old,
-        replacement,
+        old: Arc::clone(old),
+        replacement: Arc::clone(replacement),
         slot,
         old_position,
         new_position,
@@ -398,7 +393,9 @@ pub(crate) fn preserve_single_record_slots(
         else {
             return Ok(None);
         };
-        let group = Arc::make_mut(&mut candidate.segments[collection.0 as usize]);
+        let number = collection.0 as usize;
+        let mut group = candidate.segment_group(number)?;
+        let group = Arc::make_mut(&mut group);
         group[replacement.old_position] = Arc::new(PublishedSegment {
             id: replacement.old.id,
             index: Arc::clone(&replacement.replacement.index),
@@ -406,6 +403,7 @@ pub(crate) fn preserve_single_record_slots(
             observation: None,
         });
         group.remove(replacement.new_position);
+        candidate.replace_segment_group(number, group)?;
     }
     Ok(Some(candidate))
 }
@@ -445,7 +443,7 @@ pub(crate) fn preserve_partition_record_slots(
         };
         let active_without_old = found.old.active.retired(&[found.slot])?;
         let mut retained = BTreeSet::new();
-        visit_segment_files(found.old, |entry| {
+        visit_segment_files(found.old.as_ref(), |entry| {
             if entry.id != file
                 && next.catalog.file(entry.id)?.is_some_and(|current| {
                     current.revision == entry.revision
@@ -486,7 +484,9 @@ pub(crate) fn preserve_partition_record_slots(
             replacement.descriptor().slots,
             crate::index::storage::liveness::InitialLiveness::All,
         )?;
-        let group = Arc::make_mut(&mut candidate.segments[collection.0 as usize]);
+        let number = collection.0 as usize;
+        let mut group = candidate.segment_group(number)?;
+        let group = Arc::make_mut(&mut group);
         group[found.old_position] = Arc::new(PublishedSegment {
             id: found.old.id,
             index: replacement,
@@ -494,6 +494,7 @@ pub(crate) fn preserve_partition_record_slots(
             observation: None,
         });
         group.remove(found.new_position);
+        candidate.replace_segment_group(number, group)?;
     }
     Ok(Some(candidate))
 }
@@ -516,11 +517,9 @@ pub(crate) fn remove_verified_old_shards(
         .map(|(collection, _)| *collection)
         .collect::<BTreeSet<_>>();
     for collection in collections {
-        let group = candidate
-            .segments
-            .get_mut(collection.0 as usize)
-            .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
-        let group = Arc::make_mut(group);
+        let number = collection.0 as usize;
+        let mut group = candidate.segment_group(number)?;
+        let group = Arc::make_mut(&mut group);
         // The replacement is appended after any consolidation performed by
         // staging, so it has the highest ordinal for this FileId. Deletion
         // has no replacement and removes every historical shard of the file.
@@ -591,7 +590,7 @@ pub(crate) fn remove_verified_old_shards(
                 position += 1;
             }
         }
-        candidate.rebuild_record_routes(collection.0 as usize)?;
+        candidate.replace_segment_group(number, group)?;
     }
     Ok(candidate)
 }

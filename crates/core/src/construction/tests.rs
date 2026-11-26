@@ -2736,7 +2736,7 @@ fn registered_streaming_reader_initial_build_dispatches_small_files_and_decodes_
             }
         );
         let pinned = index.view().unwrap();
-        let segment = &pinned.0.segments[0][0].index;
+        let segment = Arc::clone(&pinned.0.segment_group(0).unwrap()[0].index);
         assert_eq!(
             segment
                 .origin(RecordSlot(0))

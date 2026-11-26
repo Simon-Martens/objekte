@@ -45,11 +45,12 @@ impl Index {
         let published = Arc::try_unwrap(published).map_err(|_| {
             IndexError::InvalidPublication("published index has other owners".into())
         })?;
+        let segments = published.segment_groups()?;
         let mut repository = Arc::try_unwrap(published.repository).map_err(|_| {
             IndexError::InvalidPublication("repository snapshot has other owners".into())
         })?;
         repository.active = published.active;
-        repository.segments = published.segments;
+        repository.segments = segments;
         repository.catalog = published.catalog;
         repository.revision = published.revision;
         Ok(repository)

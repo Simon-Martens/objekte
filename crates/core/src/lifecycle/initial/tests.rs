@@ -254,7 +254,7 @@ fn completed_generation_releases_provisional_inference_observation() {
     let provisional = provisional.expect("initial publication exposed no provisional view");
     let provisional_bytes = provisional.estimated_construction_observation_bytes();
     assert!(provisional_bytes > 0);
-    let published = &provisional.0.segments[0][0];
+    let published = Arc::clone(&provisional.0.segment_group(0).unwrap()[0]);
     let payload = Arc::clone(&published.index);
     let weak_observation = Arc::downgrade(
         published
@@ -262,10 +262,14 @@ fn completed_generation_releases_provisional_inference_observation() {
             .as_ref()
             .expect("provisional segment lost its observation"),
     );
+    drop(published);
 
     let completed = index.view().unwrap();
     assert_eq!(completed.estimated_construction_observation_bytes(), 0);
-    assert!(Arc::ptr_eq(&completed.0.segments[0][0].index, &payload));
+    assert!(Arc::ptr_eq(
+        &completed.0.segment_group(0).unwrap()[0].index,
+        &payload
+    ));
     drop(provisional);
     assert!(weak_observation.upgrade().is_none());
     drop(completed);

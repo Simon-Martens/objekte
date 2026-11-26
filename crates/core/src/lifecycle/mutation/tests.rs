@@ -631,7 +631,7 @@ fn compatible_move_keeps_index_contributions_and_advances_file_version() {
     let before = index.view().unwrap();
     let handle = before.file_handle_for_path(&original).unwrap().unwrap();
     let fingerprint = before.file_fingerprint(handle.file_id).unwrap();
-    let prior_segments = before.0.segments.clone();
+    let prior_segments = before.0.segment_groups().unwrap();
     let prior_repository = std::sync::Arc::clone(&before.0.repository);
     let destination = root.join("data/renamed.rows");
     std::fs::rename(&original, &destination).unwrap();
@@ -652,7 +652,10 @@ fn compatible_move_keeps_index_contributions_and_advances_file_version() {
         &prior_repository,
         &after.0.repository
     ));
-    for (old, new) in prior_segments.iter().zip(&after.0.segments) {
+    for (old, new) in prior_segments
+        .iter()
+        .zip(&after.0.segment_groups().unwrap())
+    {
         assert!(std::sync::Arc::ptr_eq(old, new));
     }
     assert!(matches!(
@@ -1035,7 +1038,7 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
         .unwrap();
         let before = index.view().unwrap();
         let handle = before.file_handle_for_path(&original).unwrap().unwrap();
-        let old_shards = Arc::clone(&before.0.segments[0]);
+        let old_shards = Arc::clone(&before.0.segment_group(0).unwrap());
         let destination = root.join("data/moved.rows");
         if compatible {
             std::fs::rename(&original, &destination).unwrap();
@@ -1053,9 +1056,13 @@ fn large_compatible_move_skips_extraction_and_posting_rewrites() {
         let moved = index.move_file(handle, &destination).unwrap();
         let elapsed = started.elapsed();
         let after = index.view().unwrap();
-        let new_shards = after.0.segments[0]
+        let new_shards = after
+            .0
+            .segment_group(0)
+            .unwrap()
             .iter()
             .filter(|candidate| !old_shards.iter().any(|old| Arc::ptr_eq(candidate, old)))
+            .cloned()
             .collect::<Vec<_>>();
         let newly_parsed_records = new_shards
             .iter()
@@ -1152,6 +1159,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .unwrap()
         .iter()
         .find(|shard| shard.native_payload().file(handle.file_id).is_some())
+        .cloned()
         .unwrap();
     assert_eq!(old_shard.native_payload().records.len(), 3);
     let old_slot = old_shard
@@ -1180,6 +1188,7 @@ fn shared_partition_verified_update_preserves_its_record_slot() {
         .unwrap()
         .iter()
         .find(|shard| shard.native_payload().file(handle.file_id).is_some())
+        .cloned()
         .unwrap();
     assert_eq!(new_shard.id.get(), old_ordinal);
     assert_eq!(
@@ -1568,6 +1577,7 @@ fn verified_removal_compacts_a_shared_shard_without_losing_siblings() {
         .unwrap()
         .iter()
         .find(|shard| shard.native_payload().files.len() > 1)
+        .cloned()
         .expect("segment consolidation should share a shard");
     let target = shared.native_payload().files[0].entry.id;
     let sibling = shared.native_payload().files[1].entry.id;
@@ -2123,7 +2133,7 @@ fn multisegment_managed_file_has_one_membership_per_collection() {
             768
         );
     }
-    for collection in &pinned.0.segments {
+    for collection in &pinned.0.segment_groups().unwrap() {
         assert_eq!(
             collection
                 .iter()

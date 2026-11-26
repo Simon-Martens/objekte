@@ -56,7 +56,7 @@ impl Index {
                 // file catalog. Their immutable indexed segments already hold
                 // the retained input needed by a new publication. Validate
                 // versioned external sources before publishing them again.
-                for group in &view.0.segments {
+                for group in view.0.segment_groups()? {
                     for segment in group.iter() {
                         let descriptor = segment.descriptor();
                         match segment.backing_kind() {

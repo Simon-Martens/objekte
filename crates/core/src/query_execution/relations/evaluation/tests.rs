@@ -1041,13 +1041,10 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
     };
     let prepared = crate::query::prepared::prepare(view.repository(), &projected).unwrap();
     let filter = prepared.collections[0].filter().unwrap();
-    let merged = MergedRelationView::new(
-        view.repository(),
-        &view.0.active,
-        &view.0.segments,
-        &view.0.catalog,
-    )
-    .unwrap();
+    let groups = view.0.segment_groups().unwrap();
+    let merged =
+        MergedRelationView::new(view.repository(), &view.0.active, &groups, &view.0.catalog)
+            .unwrap();
     let address = merged.resolve_id(CollectionId(1), "m1").unwrap().unwrap();
     let value = merged.reference_value(address, None).unwrap().unwrap();
     let resolved = merged.record(address).unwrap().unwrap();
@@ -1089,7 +1086,7 @@ fn scalar_relation_wildcards_do_not_reuse_selector_free_sort_keys() {
         crate::query_results::ranking::direct_related_target_sort_key(
             view.repository(),
             &merged,
-            &view.0.segments,
+            &view.0.segment_groups().unwrap(),
             address,
             computed,
         )
@@ -1506,8 +1503,11 @@ fn segmented_reference_relations_ignore_perturbed_forward_and_backlink_contribut
         .path
         .clone();
     let source = CollectionId(1);
-    let mut perturbed = pinned.0.segments.clone();
-    let source_segments = pinned.0.segments[1]
+    let mut perturbed = pinned.0.segment_groups().unwrap();
+    let source_segments = pinned
+        .0
+        .segment_group(1)
+        .unwrap()
         .iter()
         .map(|published| {
             let mut index = published.native_payload().clone();
@@ -1667,9 +1667,12 @@ fn segmented_reference_first_last_ignores_unavailable_contribution() {
         .iter()
         .position(|relation| relation.declaration.path == ["items", "entry"])
         .expect("items.entry relation");
-    let mut perturbed = pinned.0.segments.clone();
+    let mut perturbed = pinned.0.segment_groups().unwrap();
     perturbed[1] = Arc::new(
-        pinned.0.segments[1]
+        pinned
+            .0
+            .segment_group(1)
+            .unwrap()
             .iter()
             .map(|published| {
                 let mut segment = published.native_payload().clone();
@@ -1845,8 +1848,17 @@ fn adopted_base_view_reference_search_uses_pinned_publication() {
     let index = crate::lifecycle::Index::from_repository(repo).unwrap();
     let view = index.view().unwrap();
     assert!(view.0.active.iter().all(|active| active.len() > 0));
-    assert_eq!(view.0.segments.len(), view.repository().collections.len());
-    assert!(view.0.segments.iter().all(|segments| segments.is_empty()));
+    assert_eq!(
+        view.0.segment_groups().unwrap().len(),
+        view.repository().collections.len()
+    );
+    assert!(
+        view.0
+            .segment_groups()
+            .unwrap()
+            .iter()
+            .all(|segments| segments.is_empty())
+    );
 
     let locator = view.search_reference(&request).unwrap();
     assert_eq!(locator.count, Some(2));
@@ -2320,10 +2332,11 @@ fn reference_backlink_sort_streams_discovery_without_target_cache_budget() {
         false,
     );
 
+    let groups = pinned.0.segment_groups().unwrap();
     let view = MergedRelationView::new(
         pinned.repository(),
         &pinned.0.active,
-        &pinned.0.segments,
+        &groups,
         &pinned.0.catalog,
     )
     .unwrap();
@@ -2594,10 +2607,11 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
         None,
         false,
     );
+    let groups = pinned.0.segment_groups().unwrap();
     let owner_view = MergedRelationView::new(
         pinned.repository(),
         &pinned.0.active,
-        &pinned.0.segments,
+        &groups,
         &pinned.0.catalog,
     )
     .unwrap();
@@ -2627,7 +2641,7 @@ fn incomplete_backlink_discovery_stops_before_target_sort_cache_work() {
         pinned.repository(),
         &owner_sort,
         &owner_view,
-        &pinned.0.segments,
+        &pinned.0.segment_groups().unwrap(),
         owner_address,
         &owner_ctx,
         &mut owner_cache,

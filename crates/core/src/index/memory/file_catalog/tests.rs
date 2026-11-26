@@ -573,10 +573,15 @@ fn selected_file_catalog_edits_pin_with_segments_and_abort_on_seal_failure() {
 
     let added = index.add_file(second).unwrap();
     let after_add = index.view().unwrap();
-    let published = after_add.segments(CollectionId(0)).unwrap().last().unwrap();
+    let published = after_add
+        .segments(CollectionId(0))
+        .unwrap()
+        .last()
+        .cloned()
+        .unwrap();
     assert_ne!(published.id, published.index.descriptor().id);
     assert_eq!(
-        crate::index::storage::segment::SegmentReader::descriptor(published).id,
+        crate::index::storage::segment::SegmentReader::descriptor(published.as_ref()).id,
         published.id
     );
     assert_eq!(

@@ -7,11 +7,13 @@ use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 
 use super::segment::SegmentId;
-use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::{SegmentDescriptor, SegmentReader};
+use crate::index::storage::publication::{PublishedSegment, SegmentGroup};
+use crate::index::storage::segment::{
+    NativeSegmentSummary, SegmentDescriptor, SegmentReader, SegmentResourceUsage,
+};
 use crate::index::storage::segment_catalog::{
-    LocatedSlot, RoutedSlot, SegmentCatalogEditor, SegmentCatalogHandle, SegmentCatalogReader,
-    SegmentDirectoryDelta,
+    DirectoryEstimates, LocatedSlot, RoutedSlot, SegmentCatalogEditor, SegmentCatalogHandle,
+    SegmentCatalogReader, SegmentDirectoryDelta, SegmentRecordCounts,
 };
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::model::{FileId, RecordId, RecordSlot};
@@ -63,6 +65,11 @@ impl RecordRoutes {
                 self.descriptors
                     .capacity()
                     .saturating_mul(size_of::<SegmentDescriptor>()),
+            )
+            .saturating_add(
+                self.placements
+                    .capacity()
+                    .saturating_mul(size_of::<Arc<PublishedSegment>>()),
             )
             .saturating_add(
                 self.positions
@@ -361,6 +368,39 @@ impl SegmentCatalogReader for RecordRoutes {
         position: usize,
     ) -> StorageResult<Option<Cow<'_, Arc<PublishedSegment>>>> {
         Ok(self.placements.get(position).map(Cow::Borrowed))
+    }
+
+    fn shared_placements(&self) -> Option<SegmentGroup> {
+        Some(Arc::clone(&self.placements))
+    }
+
+    fn record_counts(&self) -> SegmentRecordCounts {
+        SegmentRecordCounts::for_segments(self.placements.iter())
+    }
+
+    fn estimates(&self) -> DirectoryEstimates {
+        DirectoryEstimates::for_segments(self.placements.iter())
+    }
+
+    fn visit_summaries(&self, visit: &mut dyn FnMut(NativeSegmentSummary)) {
+        for segment in self.placements.iter() {
+            visit(segment.summary(segment.active.len() as usize));
+        }
+    }
+
+    fn visit_index_families(
+        &self,
+        visit: &mut dyn FnMut(u64, crate::lifecycle::IndexFamilyEstimate),
+    ) {
+        for segment in self.placements.iter() {
+            visit(segment.id.get(), segment.index_family_estimate());
+        }
+    }
+
+    fn observe_backing(&self, usage: &mut SegmentResourceUsage) {
+        for segment in self.placements.iter() {
+            segment.observe_backing(usage);
+        }
     }
 
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>> {

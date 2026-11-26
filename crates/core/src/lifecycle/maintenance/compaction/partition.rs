@@ -222,7 +222,7 @@ fn partition_base_with_limits_inner(
         root.catalog.as_ref(),
         &|| false,
     )?;
-    let mut groups = root.segments.clone();
+    let mut groups = root.segment_groups()?;
     for (number, collection) in root.repository.collections().iter().enumerate() {
         if collection.generation.files.is_empty() {
             continue;
@@ -264,8 +264,9 @@ fn partition_base_with_limits_inner(
         .iter()
         .map(|_| ActiveRecords::empty())
         .collect::<Vec<_>>();
-    root.segments = groups;
-    root.rebuild_all_record_routes()?;
+    for (number, group) in groups.iter().enumerate() {
+        root.replace_segment_group(number, group)?;
+    }
     Ok(root)
 }
 

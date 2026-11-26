@@ -786,7 +786,7 @@ fn managed_queries_and_components_use_distinct_published_domains() {
             assert_eq!(actual, expected);
         }
         let segments = view.segments(crate::model::CollectionId(0)).unwrap();
-        for segment in segments {
+        for segment in segments.iter() {
             assert!(
                 crate::index::storage::segment::SegmentReader::components(segment)
                     .unwrap()
@@ -798,7 +798,7 @@ fn managed_queries_and_components_use_distinct_published_domains() {
     assert_view(&pinned, ["first", "second"]);
     let collection = &pinned.repository().collections()[0];
     let segments = pinned.segments(crate::model::CollectionId(0)).unwrap();
-    let [left, right] = segments else {
+    let [left, right] = segments.as_slice() else {
         panic!("two independent placements")
     };
     let left_structured = NativeSegmentProvider::new(

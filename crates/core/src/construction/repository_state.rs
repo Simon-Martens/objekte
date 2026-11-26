@@ -675,14 +675,12 @@ pub(crate) fn assemble_final_repository(
         }
     }
     for (collection, state) in final_repository.collections.iter_mut().zip(pending) {
-        let segments = segment_view
-            .segments(state.id)
-            .ok_or_else(|| IndexError::Build("segment collection missing".into()))?;
+        let segments = segment_view.segments(state.id)?;
         let mut relations = RelationContribution::for_schema(&state.definition.schema);
         let metadata = crate::construction::repository_state::segment_metadata_generation(
             state.id,
             &state.definition.name,
-            segments,
+            &segments,
             &mut final_files,
             &mut relations,
         )
@@ -700,7 +698,7 @@ pub(crate) fn assemble_final_repository(
         collection.global_inference = crate::index::memory::inference::aggregate_segment_inference(
             options.inference,
             &collection.definition.schema,
-            segments,
+            &segments,
             &collection.definition.name,
         )
         .map_err(IndexError::Build)?;

@@ -53,6 +53,10 @@ impl PublishedSegment {
     }
 }
 
+/// One request's ordered segment placements. Native readers can share their
+/// sealed group. Other readers may collect the bounded pages needed by a request.
+pub(crate) type SegmentGroup = Arc<Vec<Arc<PublishedSegment>>>;
+
 /// Borrowed view of the metadata, liveness, and segment payloads that belong
 /// to one publication. Repository and lifecycle reads expose the same shape.
 #[derive(Clone, Copy)]

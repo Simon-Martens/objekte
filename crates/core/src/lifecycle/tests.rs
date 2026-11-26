@@ -511,16 +511,16 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
         index.add_file(&path).unwrap();
     }
     let mut staged = (*index.view().unwrap().0).clone();
-    assert_eq!(staged.segments[0].len(), 3);
-    for segment in staged.segments[0].iter() {
+    assert_eq!(staged.segment_group(0).unwrap().len(), 3);
+    for segment in staged.segment_group(0).unwrap().iter() {
         assert!(segment.native_payload().accounting.retained_bytes_estimated > 0);
         assert!(segment.native_payload().accounting.source_bytes_estimated > 0);
     }
     staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
-    assert_eq!(staged.segments[0].len(), 2);
+    assert_eq!(staged.segment_group(0).unwrap().len(), 2);
     assert_eq!(staged.last_size_maintenance_revision, staged.revision.0);
     staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
-    assert_eq!(staged.segments[0].len(), 2);
+    assert_eq!(staged.segment_group(0).unwrap().len(), 2);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -552,7 +552,7 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     .and_then(|task| task.wait_complete())
     .unwrap();
     let pinned = index.view().unwrap();
-    let old = pinned.0.segments[0][0].clone();
+    let old = pinned.0.segment_group(0).unwrap()[0].clone();
     for number in 0..64 {
         let path = root.join(format!("data/{number:03}.row"));
         let handle = index
@@ -565,20 +565,29 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
         std::fs::remove_file(path).unwrap();
     }
     let maintained = index.view().unwrap();
-    assert_eq!(maintained.0.segments[0].len(), 1);
-    assert!(!Arc::ptr_eq(&old, &maintained.0.segments[0][0]));
+    assert_eq!(maintained.0.segment_group(0).unwrap().len(), 1);
+    assert!(!Arc::ptr_eq(
+        &old,
+        &maintained.0.segment_group(0).unwrap()[0]
+    ));
     assert_eq!(
-        maintained.0.segments[0][0].native_payload().records.len(),
+        maintained.0.segment_group(0).unwrap()[0]
+            .native_payload()
+            .records
+            .len(),
         192
     );
-    assert_eq!(maintained.0.segments[0][0].active.len(), 192);
+    assert_eq!(maintained.0.segment_group(0).unwrap()[0].active.len(), 192);
     assert_eq!(old.native_payload().records.len(), 256);
     let added = root.join("data/added.row");
     std::fs::write(&added, br#"("name"="new item")"#).unwrap();
     index.add_file(&added).unwrap();
     let current = index.view().unwrap();
     assert!(
-        current.0.segments[0]
+        current
+            .0
+            .segment_group(0)
+            .unwrap()
             .iter()
             .any(|segment| segment.native_payload().records.len() == 192)
     );
@@ -1235,7 +1244,7 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     .and_then(|task| task.wait_complete())
     .unwrap();
     let before_view = index.view().unwrap();
-    let prior_segments = before_view.0.segments[0].len();
+    let prior_segments = before_view.0.segment_group(0).unwrap().len();
     let next_ordinal = before_view.0.next_segment_ordinal;
     let before = index.status().unwrap();
     assert!(matches!(
@@ -1256,11 +1265,14 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     let staged = index.stage_prepared_add(prepared).unwrap();
     assert_eq!(staged.status().indexed_files, 2);
     assert_eq!(staged.status().live_records, 6);
-    assert_eq!(staged.segments[0].len(), prior_segments + 1);
-    assert_eq!(staged.segments[1].len(), prior_segments + 1);
-    assert_eq!(staged.segments[0].last().unwrap().id.get(), next_ordinal);
+    assert_eq!(staged.segment_group(0).unwrap().len(), prior_segments + 1);
+    assert_eq!(staged.segment_group(1).unwrap().len(), prior_segments + 1);
     assert_eq!(
-        staged.segments[1].last().unwrap().id.get(),
+        staged.segment_group(0).unwrap().last().unwrap().id.get(),
+        next_ordinal
+    );
+    assert_eq!(
+        staged.segment_group(1).unwrap().last().unwrap().id.get(),
         next_ordinal + 1
     );
     assert_eq!(
@@ -1304,7 +1316,7 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     )
     .and_then(|task| task.wait_complete())
     .unwrap();
-    let prior_segments = index.view().unwrap().0.segments[0].len();
+    let prior_segments = index.view().unwrap().0.segment_group(0).unwrap().len();
     let before = index.status().unwrap();
     let handle = index
         .view()
@@ -1321,8 +1333,8 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     assert_eq!(staged.status().live_records, 2);
     assert_eq!(staged.active[0].len(), 0);
     assert_eq!(staged.active[1].len(), 0);
-    assert_eq!(staged.segments[0].len(), prior_segments + 1);
-    assert_eq!(staged.segments[1].len(), prior_segments + 1);
+    assert_eq!(staged.segment_group(0).unwrap().len(), prior_segments + 1);
+    assert_eq!(staged.segment_group(1).unwrap().len(), prior_segments + 1);
     assert_eq!(
         staged
             .catalog
@@ -1513,7 +1525,7 @@ fn many_small_additions_and_replacements_stay_within_segment_budget() {
         index.view().unwrap().search(&all_records()).unwrap().count,
         Some(70)
     );
-    assert!(index.view().unwrap().0.segments[0].len() <= 64);
+    assert!(index.view().unwrap().0.segment_group(0).unwrap().len() <= 64);
 
     let relative = std::path::Path::new("data/file-0.rows");
     for number in 0..70 {
@@ -1533,7 +1545,7 @@ fn many_small_additions_and_replacements_stay_within_segment_budget() {
         index.view().unwrap().search(&all_records()).unwrap().count,
         Some(70)
     );
-    assert!(index.view().unwrap().0.segments[0].len() <= 64);
+    assert!(index.view().unwrap().0.segment_group(0).unwrap().len() <= 64);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1611,14 +1623,15 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
     )
     .unwrap();
     {
-        let group = Arc::make_mut(&mut next.segments[0]);
+        let mut group = next.segment_group(0).unwrap();
+        let group = Arc::make_mut(&mut group);
         let segment = Arc::make_mut(&mut group[0]);
         segment.active = old.segments(crate::model::CollectionId(0)).unwrap()[0]
             .active
             .retired(&retired)
             .unwrap();
+        next.replace_segment_group(0, group).unwrap();
     }
-    next.rebuild_record_routes(0).unwrap();
     index.publish_prepared(old.revision(), next).unwrap();
     let live = index.view().unwrap();
     assert_eq!(old.search(&all_records()).unwrap().count, Some(6));
@@ -1810,7 +1823,8 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
     )
     .unwrap();
     for (collection, record_id) in [(0, "A"), (1, "s2")] {
-        let group = Arc::make_mut(&mut next.segments[collection]);
+        let mut group = next.segment_group(collection).unwrap();
+        let group = Arc::make_mut(&mut group);
         let segment = group
             .iter()
             .position(|segment| segment.native_payload().id_lookup.contains_key(record_id))
@@ -1818,8 +1832,8 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         let segment = Arc::make_mut(&mut group[segment]);
         let slot = segment.native_payload().id_lookup[record_id];
         segment.active = segment.active.retired(&[slot]).unwrap();
+        next.replace_segment_group(collection, group).unwrap();
     }
-    next.rebuild_all_record_routes().unwrap();
     index.publish_prepared(old.revision(), next).unwrap();
     let live = index.view().unwrap();
     let request = |collection: &str, filter: &str| Query {
@@ -2031,6 +2045,7 @@ fn native_accounting_grows_with_postings_and_survives_retirement() {
         .unwrap()
         .iter()
         .find(|segment| segment.id == first.id)
+        .cloned()
         .expect("retired shard missing");
     assert_eq!(
         retained

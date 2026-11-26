@@ -11,10 +11,10 @@ use crate::index::storage::order::{
 };
 use crate::index::storage::ordered_slots::OrderedSlots;
 use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::SegmentReader;
 use crate::index::storage::segment::build::{
     BuiltSegment, DirectSegmentBuild, FileSegmentBuild, SegmentBuilder, SegmentSeal,
 };
+use crate::index::storage::segment::{NativeSegmentSummary, SegmentReader, SegmentResourceUsage};
 use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError};
 use crate::lifecycle::Index;
 use crate::model::{FieldPath, LogicalType, Value};
@@ -382,7 +382,7 @@ fn retained_blocks_survive_publication_and_source_free_slot_remapping() {
     let pinned = index.view().unwrap();
     let write_version = |view: &crate::lifecycle::IndexView| {
         let found = view.0.record_routes[0].locate("kept").unwrap().unwrap();
-        view.0.segments[0][found.position]
+        view.0.segment_group(0).unwrap()[found.position]
             .index
             .write_version(found.route.slot)
             .unwrap()
@@ -992,6 +992,55 @@ impl SegmentCatalogReader for TableDirectory {
             .and_then(|descriptor| self.placements.get(&descriptor.id))
             .cloned()
             .map(Cow::Owned))
+    }
+
+    fn record_counts(&self) -> SegmentRecordCounts {
+        SegmentRecordCounts::for_segments(
+            self.descriptors
+                .values()
+                .filter_map(|descriptor| self.placements.get(&descriptor.id)),
+        )
+    }
+
+    fn estimates(&self) -> DirectoryEstimates {
+        DirectoryEstimates::for_segments(
+            self.descriptors
+                .values()
+                .filter_map(|descriptor| self.placements.get(&descriptor.id)),
+        )
+    }
+
+    fn visit_summaries(&self, visit: &mut dyn FnMut(NativeSegmentSummary)) {
+        for segment in self
+            .descriptors
+            .values()
+            .filter_map(|descriptor| self.placements.get(&descriptor.id))
+        {
+            visit(segment.summary(segment.active.len() as usize));
+        }
+    }
+
+    fn visit_index_families(
+        &self,
+        visit: &mut dyn FnMut(u64, crate::lifecycle::IndexFamilyEstimate),
+    ) {
+        for segment in self
+            .descriptors
+            .values()
+            .filter_map(|descriptor| self.placements.get(&descriptor.id))
+        {
+            visit(segment.id.get(), segment.index_family_estimate());
+        }
+    }
+
+    fn observe_backing(&self, usage: &mut SegmentResourceUsage) {
+        for segment in self
+            .descriptors
+            .values()
+            .filter_map(|descriptor| self.placements.get(&descriptor.id))
+        {
+            segment.observe_backing(usage);
+        }
     }
 
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>> {

@@ -65,18 +65,24 @@ fn source_budget_bytes(source: &dyn crate::index::storage::segment::SegmentReade
 }
 
 fn slot_count(root: &PublishedIndex) -> u64 {
-    root.repository
-        .collections()
+    root.active
         .iter()
-        .enumerate()
-        .map(|(number, _collection)| {
-            root.active[number].slot_count() as u64
-                + root.segments[number]
-                    .iter()
-                    .map(|segment| segment.descriptor().slots as u64)
-                    .sum::<u64>()
-        })
-        .sum()
+        .map(|active| u64::from(active.slot_count()))
+        .sum::<u64>()
+        + root
+            .record_routes
+            .iter()
+            .map(|directory| directory.record_counts().slots)
+            .sum::<u64>()
+}
+
+fn live_count(root: &PublishedIndex) -> u64 {
+    root.active.iter().map(ActiveRecords::len).sum::<u64>()
+        + root
+            .record_routes
+            .iter()
+            .map(|directory| directory.record_counts().live)
+            .sum::<u64>()
 }
 
 /// Rebuild one staged publication from its active contributions. The caller
@@ -87,13 +93,7 @@ pub(crate) fn compact_published(
 ) -> Result<PublishedIndex, IndexError> {
     let (next, _) =
         compact_published_with_budget(old, next_revision, || false, CompactionBudget::DEFAULT)?;
-    let live = old.active.iter().map(ActiveRecords::len).sum::<u64>()
-        + old
-            .segments
-            .iter()
-            .flat_map(|group| group.iter())
-            .map(|segment| segment.active.len())
-            .sum::<u64>();
+    let live = live_count(old);
     if slot_count(&next) > live {
         return Err(IndexError::ResourceLimit(
             "verified compaction exceeded its work budget".into(),
@@ -119,16 +119,15 @@ fn compact_published_with_budget(
         let mut work = CompactionWork::default();
         let mut next = old.clone();
         next.revision = next_revision;
-        'collections: for (number, group) in old.segments.iter().enumerate() {
+        'collections: for number in 0..old.record_routes.len() {
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
-            if group
-                .iter()
-                .all(|segment| segment.active.len() == segment.descriptor().slots as u64)
-            {
+            let counts = old.record_routes[number].record_counts();
+            if counts.live == counts.slots {
                 continue;
             }
+            let group = old.segment_group(number)?;
             let mut compacted = Vec::with_capacity(group.len());
             for (position, segment) in group.iter().enumerate() {
                 if cancelled() {
@@ -151,8 +150,7 @@ fn compact_published_with_budget(
                         || started.elapsed() >= budget.elapsed)
                 {
                     compacted.extend(group[position..].iter().cloned());
-                    next.segments[number] = Arc::new(compacted);
-                    next.rebuild_record_routes(number)?;
+                    next.replace_segment_group(number, &compacted)?;
                     break 'collections;
                 }
                 work.records = work.records.saturating_add(records);
@@ -184,8 +182,7 @@ fn compact_published_with_budget(
                     }));
                 }
             }
-            next.segments[number] = Arc::new(compacted);
-            next.rebuild_record_routes(number)?;
+            next.replace_segment_group(number, &compacted)?;
         }
         return Ok((next, work));
     }
@@ -251,7 +248,7 @@ fn compact_published_with_budget(
                 .base_segment(collection, old.repository.catalog.as_ref())?;
             compacted.extend(compact_source(base.as_ref(), &old.active[number])?);
         }
-        for segment in old.segments[number].iter() {
+        for segment in old.segment_group(number)?.iter() {
             if segment.active.len() == segment.descriptor().slots as u64 {
                 compacted.push(Arc::clone(segment));
             } else {
@@ -259,8 +256,7 @@ fn compact_published_with_budget(
             }
         }
         drop(compact_source);
-        next.segments[number] = Arc::new(compacted);
-        next.rebuild_record_routes(number)?;
+        next.replace_segment_group(number, &compacted)?;
     }
     Ok((next, CompactionWork::default()))
 }
@@ -289,13 +285,7 @@ impl Index {
             let view = self.view()?;
             let before = slot_count(&view.0);
             let old = &view.0;
-            let live = old.active.iter().map(ActiveRecords::len).sum::<u64>()
-                + old
-                    .segments
-                    .iter()
-                    .flat_map(|group| group.iter())
-                    .map(|segment| segment.active.len())
-                    .sum::<u64>();
+            let live = live_count(old);
             if before == live {
                 return Ok(CompactionReport {
                     revision: view.revision(),
