@@ -46,6 +46,7 @@ struct TableFactory {
     fail_seal: AtomicBool,
     fail_lookup: AtomicBool,
     wrong_slot: AtomicBool,
+    fail_directory_refill: AtomicBool,
 }
 
 impl DeclaredOrderStore for Arc<TableFactory> {
@@ -211,6 +212,7 @@ impl StorageFactory for Arc<TableFactory> {
             records: BTreeMap::new(),
             files: BTreeMap::new(),
             positions: BTreeMap::new(),
+            descriptors: BTreeMap::new(),
             control: Arc::clone(self),
         }))
     }
@@ -862,6 +864,7 @@ struct TableDirectory {
     records: BTreeMap<RecordId, (SegmentId, RecordSlot)>,
     files: BTreeMap<u32, Vec<SegmentId>>,
     positions: BTreeMap<SegmentId, usize>,
+    descriptors: BTreeMap<usize, SegmentDescriptor>,
     control: Arc<TableFactory>,
 }
 
@@ -881,6 +884,36 @@ impl SegmentCatalogReader for TableDirectory {
                 slot
             },
         }))
+    }
+
+    fn segment_count(&self) -> usize {
+        self.descriptors.len()
+    }
+
+    fn read_descriptors(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [SegmentDescriptor]>, BatchStatus)> {
+        if start > 0 && self.control.fail_directory_refill.load(Ordering::Relaxed) {
+            return Err(StorageError::invalid(
+                "table directory",
+                "injected descriptor refill failure",
+            ));
+        }
+        assert!(limit.accepts("table directory", 0, 0, size_of::<SegmentDescriptor>())?);
+        let rows = self
+            .descriptors
+            .get(&start)
+            .copied()
+            .into_iter()
+            .collect::<Vec<_>>();
+        let status = if start + rows.len() == self.descriptors.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Owned(rows), status))
     }
 
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>> {
@@ -908,6 +941,8 @@ impl SegmentCatalogEditor for TableDirectory {
             SegmentDirectoryDelta::Install { source, position } => {
                 let segment = source.segment_id();
                 self.positions.insert(segment, position);
+                self.descriptors
+                    .insert(position, source.segment_descriptor());
                 source.visit_live_records(&mut |rows| {
                     for &(id, slot) in rows {
                         self.records.insert(id.clone(), (segment, slot));
@@ -951,6 +986,13 @@ impl SegmentCatalogEditor for TableDirectory {
                         .values_mut()
                         .for_each(|ids| ids.retain(|&owner| owner != segment));
                 }
+                let next_descriptors = positions
+                    .iter()
+                    .enumerate()
+                    .filter(|(_, id)| **id != replacement.segment_id())
+                    .map(|(position, id)| (position, self.descriptors[&self.positions[id]]))
+                    .collect();
+                self.descriptors = next_descriptors;
                 self.positions = positions
                     .iter()
                     .copied()
@@ -1152,6 +1194,22 @@ fn alternate_directory_keeps_managed_file_rows_and_routes_atomic() {
 
     let added = index.add_file(relative).unwrap();
     let current = index.view().unwrap();
+    let mut summaries = 0;
+    factory.fail_directory_refill.store(true, Ordering::Relaxed);
+    let error = current
+        .index_observation_with_segments(|_| summaries += 1)
+        .unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("injected descriptor refill failure")
+    );
+    assert_eq!(summaries, 1);
+    factory
+        .fail_directory_refill
+        .store(false, Ordering::Relaxed);
+    assert_eq!(current.index_observation().unwrap().records, 4);
+    assert_eq!(pinned.index_observation().unwrap().records, 2);
     let catalog = current.file_catalog().unwrap();
     assert_eq!(
         catalog.file_by_path(relative).unwrap().unwrap().id,

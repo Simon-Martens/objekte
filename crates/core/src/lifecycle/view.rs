@@ -8,7 +8,8 @@ use crate::index::storage::file_catalog::{FileCatalogReader, FileCatalogSource, 
 use crate::index::storage::segment::{
     SegmentReader, SegmentResourceUsage, visit_checked_file_slots,
 };
-use crate::index::storage::transfer::StorageResult;
+use crate::index::storage::segment_catalog::visit_segment_descriptors;
+use crate::index::storage::transfer::{StorageError, StorageResult};
 use crate::inventory::{ActiveRecords, FileEntry};
 use crate::model::{CollectionId, FileId, RecordSlot, Value};
 use crate::query::Query;
@@ -205,25 +206,47 @@ impl IndexView {
             }
         }
 
-        for segment in self.repository().segment_summaries_for(&self.0.segments) {
-            visit(&segment);
-            if let Some(part) = collection_parts.get_mut(segment.collection.0 as usize) {
-                part.records = part.records.saturating_add(segment.active_records);
-                part.posting_fields = part.posting_fields.saturating_add(segment.posting_fields);
-                part.sort_columns = part.sort_columns.saturating_add(segment.sort_columns);
-                part.relation_count = part.relation_count.saturating_add(segment.relation_count);
-                part.relation_edges = part.relation_edges.saturating_add(segment.relation_edges);
-                part.relation_heap_bytes = part
-                    .relation_heap_bytes
-                    .saturating_add(segment.relation_heap_bytes);
-                part.bigram_stores = part.bigram_stores.saturating_add(segment.bigram_stores);
-                part.distinct_gram_keys = part
-                    .distinct_gram_keys
-                    .saturating_add(segment.distinct_gram_keys);
-                part.bigram_heap_bytes = part
-                    .bigram_heap_bytes
-                    .saturating_add(segment.bigram_heap_bytes);
+        for (number, group) in self.0.segments.iter().enumerate() {
+            let directory = &self.0.record_routes[number];
+            if directory.segment_count() != group.len() {
+                return Err(IndexError::InvalidPublication(
+                    "segment directory count mismatch".into(),
+                ));
             }
+            visit_segment_descriptors(directory.as_ref(), |position, descriptor| {
+                let placed = group
+                    .get(position)
+                    .filter(|segment| segment.descriptor() == *descriptor)
+                    .ok_or_else(|| {
+                        StorageError::invalid(
+                            "inspect segment directory",
+                            "segment descriptor mismatch",
+                        )
+                    })?;
+                let segment = placed.summary(placed.active.len() as usize);
+                visit(&segment);
+                if let Some(part) = collection_parts.get_mut(segment.collection.0 as usize) {
+                    part.records = part.records.saturating_add(segment.active_records);
+                    part.posting_fields =
+                        part.posting_fields.saturating_add(segment.posting_fields);
+                    part.sort_columns = part.sort_columns.saturating_add(segment.sort_columns);
+                    part.relation_count =
+                        part.relation_count.saturating_add(segment.relation_count);
+                    part.relation_edges =
+                        part.relation_edges.saturating_add(segment.relation_edges);
+                    part.relation_heap_bytes = part
+                        .relation_heap_bytes
+                        .saturating_add(segment.relation_heap_bytes);
+                    part.bigram_stores = part.bigram_stores.saturating_add(segment.bigram_stores);
+                    part.distinct_gram_keys = part
+                        .distinct_gram_keys
+                        .saturating_add(segment.distinct_gram_keys);
+                    part.bigram_heap_bytes = part
+                        .bigram_heap_bytes
+                        .saturating_add(segment.bigram_heap_bytes);
+                }
+                Ok(())
+            })?;
         }
         let (base_inventory_heap_bytes, diagnostic_heap_bytes) = self.0.catalog.base_heap_bytes();
         let inventory_heap_bytes =

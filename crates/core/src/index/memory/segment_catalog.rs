@@ -8,11 +8,12 @@ use std::hash::{Hash, Hasher};
 use std::sync::Arc;
 
 use super::segment::{PublishedSegment, SegmentId};
+use crate::index::storage::segment::SegmentDescriptor;
 use crate::index::storage::segment_catalog::{
     LocatedSlot, RoutedSlot, SegmentCatalogEditor, SegmentCatalogHandle, SegmentCatalogReader,
     SegmentDirectoryDelta, SegmentRouteSource,
 };
-use crate::index::storage::transfer::StorageResult;
+use crate::index::storage::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 use crate::model::{FileId, RecordId, RecordSlot};
 
 const RECORD_ROUTE_SHARDS: usize = 64;
@@ -23,6 +24,7 @@ pub(super) struct RecordRoutes {
     shards: Arc<Vec<Arc<HashMap<RecordId, RoutedSlot>>>>,
     file_shards: Arc<Vec<Arc<HashMap<FileId, SmallVec<[SegmentId; 1]>>>>>,
     positions: Arc<HashMap<SegmentId, usize>>,
+    descriptors: Arc<Vec<SegmentDescriptor>>,
 }
 
 impl RecordRoutes {
@@ -57,6 +59,11 @@ impl RecordRoutes {
         id_routes
             .saturating_add(file_routes)
             .saturating_add(
+                self.descriptors
+                    .capacity()
+                    .saturating_mul(size_of::<SegmentDescriptor>()),
+            )
+            .saturating_add(
                 self.positions
                     .capacity()
                     .saturating_mul(std::mem::size_of::<(SegmentId, usize)>() + 16),
@@ -79,6 +86,7 @@ impl RecordRoutes {
                     .collect(),
             ),
             positions: Arc::new(HashMap::new()),
+            descriptors: Arc::new(Vec::new()),
         }
     }
 
@@ -138,9 +146,17 @@ impl RecordRoutes {
         self.positions.get(&segment).copied()
     }
 
-    fn add_native_segment(&mut self, source: &PublishedSegment, position: usize) {
+    fn can_append(&self, descriptor: SegmentDescriptor, position: usize) -> bool {
+        position == self.descriptors.len() && !self.positions.contains_key(&descriptor.id)
+    }
+
+    fn append_descriptor(&mut self, descriptor: SegmentDescriptor, position: usize) {
+        Arc::make_mut(&mut self.positions).insert(descriptor.id, position);
+        Arc::make_mut(&mut self.descriptors).push(descriptor);
+    }
+
+    fn add_native_routes(&mut self, source: &PublishedSegment) {
         let segment = source.id;
-        Arc::make_mut(&mut self.positions).insert(segment, position);
         let shards = Arc::make_mut(&mut self.shards);
         for (id, &slot) in &source.index.id_lookup {
             if source.active.contains(slot) {
@@ -167,7 +183,26 @@ impl RecordRoutes {
             return Ok(());
         }
         let segment = source.segment_id();
-        Arc::make_mut(&mut self.positions).insert(segment, position);
+        let descriptor = source.segment_descriptor();
+        if !self.can_append(descriptor, position) {
+            return Err(StorageError::invalid(
+                "install segment routes",
+                "invalid append position or repeated segment",
+            ));
+        }
+        self.append_descriptor(descriptor, position);
+        self.add_routes(source, segment)
+    }
+
+    fn add_routes(
+        &mut self,
+        source: &dyn SegmentRouteSource,
+        segment: SegmentId,
+    ) -> StorageResult<()> {
+        if let Some(native) = (source as &dyn Any).downcast_ref::<PublishedSegment>() {
+            self.add_native_routes(native);
+            return Ok(());
+        }
         let shards = Arc::make_mut(&mut self.shards);
         source.visit_live_records(&mut |rows| {
             for &(id, slot) in rows {
@@ -197,18 +232,42 @@ impl RecordRoutes {
         positions: &[SegmentId],
     ) -> StorageResult<()> {
         let segment = replacement.segment_id();
-        let Some(position) = positions.iter().position(|&id| id == segment) else {
+        if !positions.contains(&segment) {
             return Err(crate::index::storage::transfer::StorageError::invalid(
                 "replace segment routes",
                 "replacement segment has no directory position",
             ));
-        };
-        let directory = Arc::make_mut(&mut self.positions);
-        for source in removed {
-            directory.remove(&source.segment_id());
         }
-        for (position, &segment) in positions.iter().enumerate() {
-            directory.insert(segment, position);
+        let replacement_descriptor = replacement.segment_descriptor();
+        let mut descriptors = Vec::with_capacity(positions.len());
+        for &id in positions {
+            if id == segment {
+                descriptors.push(replacement_descriptor);
+            } else {
+                let old = self
+                    .position(id)
+                    .and_then(|position| self.descriptors.get(position))
+                    .ok_or_else(|| {
+                        StorageError::invalid("replace segment routes", "unknown directory segment")
+                    })?;
+                descriptors.push(*old);
+            }
+        }
+        let indexed_positions = positions
+            .iter()
+            .copied()
+            .enumerate()
+            .map(|(position, id)| (id, position))
+            .collect::<HashMap<_, _>>();
+        if indexed_positions.len() != descriptors.len()
+            || removed
+                .iter()
+                .any(|source| indexed_positions.contains_key(&source.segment_id()))
+        {
+            return Err(StorageError::invalid(
+                "replace segment routes",
+                "duplicate or removed segment placement",
+            ));
         }
         for source in removed {
             let segment = source.segment_id();
@@ -225,7 +284,9 @@ impl RecordRoutes {
                 Ok(())
             })?;
         }
-        self.add_segment(replacement, position)
+        self.positions = Arc::new(indexed_positions);
+        self.descriptors = Arc::new(descriptors);
+        self.add_routes(replacement, segment)
     }
 }
 
@@ -245,6 +306,29 @@ impl SegmentCatalogReader for RecordRoutes {
             )
         })?;
         Ok(Some(LocatedSlot { route, position }))
+    }
+
+    fn segment_count(&self) -> usize {
+        self.descriptors.len()
+    }
+
+    fn read_descriptors(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [SegmentDescriptor]>, BatchStatus)> {
+        let remaining = self.descriptors.get(start..).ok_or_else(|| {
+            StorageError::invalid("read native directory", "start beyond last descriptor")
+        })?;
+        let count = remaining
+            .len()
+            .min(limit.fixed_batch_len("read native directory", size_of::<SegmentDescriptor>())?);
+        let status = if count == remaining.len() {
+            BatchStatus::Done
+        } else {
+            BatchStatus::More
+        };
+        Ok((Cow::Borrowed(&remaining[..count]), status))
     }
 
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>> {
@@ -267,7 +351,11 @@ impl SegmentCatalogReader for RecordRoutes {
         let Some(source) = (source as &dyn Any).downcast_ref::<PublishedSegment>() else {
             return false;
         };
-        self.add_native_segment(source, position);
+        if !self.can_append(source.segment_descriptor(), position) {
+            return false;
+        }
+        self.append_descriptor(source.segment_descriptor(), position);
+        self.add_native_routes(source);
         true
     }
 }

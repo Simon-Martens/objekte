@@ -2,6 +2,7 @@
 
 use std::any::Any;
 use std::borrow::Cow;
+use std::num::NonZeroUsize;
 use std::sync::Arc;
 
 use smallvec::SmallVec;
@@ -9,8 +10,10 @@ use smallvec::SmallVec;
 use crate::model::{FileId, RecordId, RecordSlot};
 
 use super::liveness::ActiveRecords;
-use super::segment::{SegmentId, SegmentReader, visit_record_headers, visit_segment_files};
-use super::transfer::{StorageError, StorageResult};
+use super::segment::{
+    SegmentDescriptor, SegmentId, SegmentReader, visit_record_headers, visit_segment_files,
+};
+use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 pub(crate) type SegmentCatalogHandle = Arc<dyn SegmentCatalogReader>;
 
@@ -42,6 +45,15 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
         Ok(Some(LocatedSlot { route, position }))
     }
 
+    fn segment_count(&self) -> usize;
+
+    /// Read descriptors by directory position, in placement order.
+    fn read_descriptors(
+        &self,
+        start: usize,
+        limit: BatchLimit,
+    ) -> StorageResult<(Cow<'_, [SegmentDescriptor]>, BatchStatus)>;
+
     fn position(&self, segment: SegmentId) -> StorageResult<Option<usize>>;
     fn segments_for_file(&self, file: FileId) -> StorageResult<Cow<'_, [SegmentId]>>;
     fn estimated_directory_bytes(&self) -> usize;
@@ -56,7 +68,11 @@ pub(crate) trait SegmentCatalogReader: Send + Sync {
 
 /// A sealed segment supplies route inputs without exposing its containers.
 pub(crate) trait SegmentRouteSource: Any + Send + Sync {
-    fn segment_id(&self) -> SegmentId;
+    fn segment_descriptor(&self) -> SegmentDescriptor;
+
+    fn segment_id(&self) -> SegmentId {
+        self.segment_descriptor().id
+    }
 
     fn visit_live_records(
         &self,
@@ -67,6 +83,41 @@ pub(crate) trait SegmentRouteSource: Any + Send + Sync {
         &self,
         visit: &mut dyn FnMut(&[FileId]) -> StorageResult<()>,
     ) -> StorageResult<()>;
+}
+
+const DESCRIPTOR_LIMIT: BatchLimit = BatchLimit::new(
+    NonZeroUsize::new(128).unwrap(),
+    NonZeroUsize::new(16 * 1024).unwrap(),
+);
+
+pub(crate) fn visit_segment_descriptors(
+    directory: &dyn SegmentCatalogReader,
+    mut visit: impl FnMut(usize, &SegmentDescriptor) -> StorageResult<()>,
+) -> StorageResult<()> {
+    const OP: &str = "read segment directory descriptors";
+    let total = directory.segment_count();
+    let maximum = DESCRIPTOR_LIMIT.fixed_batch_len(OP, size_of::<SegmentDescriptor>())?;
+    let mut start = 0usize;
+    loop {
+        let (rows, status) = directory.read_descriptors(start, DESCRIPTOR_LIMIT)?;
+        let end = start
+            .checked_add(rows.len())
+            .ok_or_else(|| StorageError::invalid(OP, "directory position overflow"))?;
+        if rows.len() > maximum
+            || end > total
+            || (status == BatchStatus::Done) != (end == total)
+            || (status == BatchStatus::More && rows.is_empty())
+        {
+            return Err(StorageError::invalid(OP, "invalid descriptor batch"));
+        }
+        for (offset, row) in rows.iter().enumerate() {
+            visit(start + offset, row)?;
+        }
+        if status == BatchStatus::Done {
+            return Ok(());
+        }
+        start = end;
+    }
 }
 
 /// Transfer live identity rows using the placed reader and its liveness.

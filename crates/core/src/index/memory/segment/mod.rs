@@ -587,8 +587,8 @@ impl crate::index::storage::segment::SegmentReaderDelegate for PublishedSegment 
 }
 
 impl crate::index::storage::segment_catalog::SegmentRouteSource for PublishedSegment {
-    fn segment_id(&self) -> SegmentId {
-        self.id
+    fn segment_descriptor(&self) -> SegmentDescriptor {
+        self.descriptor()
     }
 
     fn visit_live_records(
