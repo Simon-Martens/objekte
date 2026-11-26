@@ -3464,22 +3464,20 @@ fn search_segmented_impl(
                 files.push((locator.file.0, SmallVec::from_buf([(slot, range)])));
             }
             let files = order_segment_file_groups(files, ordered_files);
-            // Local residual verification is independent by source file. Limit the
-            // parallel route to small ordered pages and bounded source rows;
-            // all other plans keep the existing serial, cache-aware path.
             let single_record_files = files.iter().all(|(_, ranges)| ranges.len() == 1);
             let parallel_scan = retained_budget.is_none()
                 && (filter.is_some() || fts.is_some())
                 && (!sort.bound.has_computed
-                    || (query.options.sort.len() <= 4
+                    || (cap <= 256
+                        && query.options.sort.len() <= 4
                         && single_record_files
                         && files.iter().all(|(_, ranges)| {
                             ranges[0].1.len() <= MAX_DEFERRED_EVIDENCE_RECORD_BYTES
                         })))
                 && repo.options.query_workers > 1
                 && files.len() > 1
-                // A single-record job yields at most one winner at any page size.
-                && (cap <= 64 || (cap <= 256 && single_record_files))
+                // Bound the local winners per file. A single candidate already bounds itself.
+                && (single_record_files || cap <= 64)
                 && collection.definition.name.len() <= 1024
                 && filter.as_ref().is_none_or(|filter| {
                     segment_filter_evidence_bytes(filter).is_some_and(|bytes| bytes <= 1024)

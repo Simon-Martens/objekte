@@ -7894,8 +7894,9 @@ fn cancellable_parallel_page_scans_keep_evidence_for_large_records() {
     for (offset, limit, fts, computed_sort, expect_parallel) in [
         (0, 100, false, false, true),
         (0, 100, true, false, true),
-        (156, 100, true, false, true),
-        (157, 100, true, false, false),
+        (200, 100, true, false, true),
+        (200, 100, false, false, true),
+        (0, 1000, true, false, true),
         (0, 100, false, true, false),
     ] {
         let mut query = indexed_or_layout_query();
