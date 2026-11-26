@@ -66,7 +66,7 @@ fn fixture() -> std::path::PathBuf {
 }
 
 #[test]
-fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
+fn dynamic_grams_preserve_empty_equality_and_require_a_contains_match() {
     let root = fixture();
     let definition = || {
         let mut definition = crate::source::test_support::document_folder("data", "data");
@@ -74,21 +74,21 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
         definition
     };
     let cases: &[(&str, &[&str])] = &[
-        ("title ~ 'Goethe'", &["a", "d", "j", "p"]),
+        ("title ~ 'Goethe'", &["a", "j", "p"]),
         ("title = 'Goethe'", &["a", "d", "j", "p"]),
         ("title ?~ 'Goethe'", &["a", "i", "j", "k", "p"]),
         ("title ?= 'Goethe'", &["a", "i", "j", "k", "p"]),
-        ("title:lower ~ 'GOETHE'", &["a", "b", "d", "j", "p"]),
+        ("title:lower ~ 'GOETHE'", &["a", "b", "j", "p"]),
         ("items.title = 'Goethe'", &["a", "e", "p"]),
         ("items[*].title = 'Goethe'", &["a", "e", "p"]),
         ("items[0].title = 'Goethe'", &["a", "p"]),
-        ("title ~ 'Müller'", &["d", "m"]),
-        ("title:lower ~ 'MÜLLER'", &["d", "m", "n"]),
-        ("title ~ 'ü'", &["d", "m"]),
+        ("title ~ 'Müller'", &["m"]),
+        ("title:lower ~ 'MÜLLER'", &["m", "n"]),
+        ("title ~ 'ü'", &["m"]),
         ("title ~ 'Goethe' && items[0].title ~ 'Goethe'", &["a", "p"]),
         (
             "title ~ 'Goethe' || title ~ 'Müller'",
-            &["a", "d", "j", "m", "p"],
+            &["a", "j", "m", "p"],
         ),
     ];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
@@ -168,7 +168,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             let combined = repo.search(&fallback_or).unwrap();
             let reference = repo.search_reference(&fallback_or).unwrap();
             assert_eq!(combined.hits, reference.hits);
-            assert_eq!(combined.count, Some(5));
+            assert_eq!(combined.count, Some(4));
             assert_eq!(
                 combined
                     .hits
@@ -209,10 +209,10 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             let universal_plan = repo.explain(&query("title ~ 'Goethe'")).unwrap();
             let selected = &universal_plan[0].terms[0];
             assert_eq!(selected.selected.kind, AccessPathKind::RawBigram);
-            assert_eq!(selected.structural_candidates, Some(3));
+            assert_eq!(selected.structural_candidates, None);
             assert!(selected.actual_output.is_none());
             let analyzed = repo.explain_analyze(&query("title ~ 'Goethe'")).unwrap().1;
-            assert!(analyzed[0].terms[0].actual_output.unwrap() >= 4);
+            assert_eq!(analyzed[0].terms[0].actual_output, Some(3));
             for (expression, structural) in [
                 ("items[0].title = 'Goethe'", None),
                 ("items[*].title = 'Goethe'", Some(3)),
@@ -244,7 +244,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
 }
 
 #[test]
-fn broad_structural_superset_makes_scanning_cheaper() {
+fn unrelated_empty_arrays_do_not_widen_contains_candidates() {
     let root = std::env::temp_dir().join(format!("objekte-dynamic-broad-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -273,9 +273,10 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     assert_eq!(repo.collections[0].empty_array_records.len(), 64);
     let universal = query("title ~ 'needle'");
     let plan = repo.explain(&universal).unwrap();
-    assert_eq!(plan[0].terms[0].selected.kind, AccessPathKind::Scanner);
+    assert_eq!(plan[0].terms[0].selected.kind, AccessPathKind::RawBigram);
     let answer = repo.search(&universal).unwrap();
     assert_eq!(ids(&answer), ["000"]);
+    assert_eq!(answer.counters.scanned_records, 1);
     assert_eq!(answer.hits, repo.search_reference(&universal).unwrap().hits);
     let any = query("title ?~ 'needle'");
     assert!(!repo.explain(&any).unwrap()[0].terms.is_empty());

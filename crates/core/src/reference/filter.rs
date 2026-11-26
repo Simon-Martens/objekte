@@ -96,6 +96,9 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     {
         return Ok(false);
     }
+    if values.is_empty() && matches!(term.operator, Operator::Contains | Operator::NotContains) {
+        return Ok(false);
+    }
     let record_token = (term.path.root == PathRoot::Data).then_some((
         ctx.record as *const dyn crate::records::RecordIdSlot as *const () as usize,
         ctx.value as *const Value as usize,

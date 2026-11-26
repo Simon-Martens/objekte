@@ -91,14 +91,11 @@ impl FixtureReader {
             let TextSegment { path, text } = event.segment;
             if let Some(filter) = query.filter
                 && event.visible
-                && (path == filter.path() || event.empty_array && filter.path().starts_with(&path))
+                && !event.empty_array
+                && path == filter.path()
             {
                 selected = true;
-                let matched = if event.empty_array {
-                    filter.is_multi() && !filter.matches_any()
-                } else {
-                    event.string && filter.matches(&text)
-                };
+                let matched = event.string && filter.matches(&text);
                 any_filter |= matched;
                 all_filter &= matched;
             }

@@ -4334,6 +4334,9 @@ pub(crate) fn explain_segmented(
                 && term.gram_request.is_some()
             {
                 let mut output = 0u64;
+                let preserve_empty =
+                    crate::query_execution::restrictions::empty_selection_preservation(term)
+                        && !term.query_path.has_position;
                 let mut structural = 0u64;
                 for published in segments[collection_index].iter() {
                     let estimate = segment_filter_explain_offers(
@@ -4346,15 +4349,17 @@ pub(crate) fn explain_segmented(
                     .find(|offer| offer.explanation() == Some(ExplainAccess::Bigram))
                     .map_or(published.active.len(), |offer| offer.estimated_output());
                     output = output.saturating_add(estimate);
-                    structural = structural.saturating_add(
-                        read_slot_members(published, SegmentSlotFact::EmptyArray)?
-                            .view()
-                            .intersection_len(
-                                crate::query_access::membership::MembershipView::Borrowed(
-                                    &published.active.bitmap()?,
+                    if preserve_empty {
+                        structural = structural.saturating_add(
+                            read_slot_members(published, SegmentSlotFact::EmptyArray)?
+                                .view()
+                                .intersection_len(
+                                    crate::query_access::membership::MembershipView::Borrowed(
+                                        &published.active.bitmap()?,
+                                    ),
                                 ),
-                            ),
-                    );
+                        );
+                    }
                 }
                 if output < delta && structural < delta {
                     choice.selected = crate::query_execution::restrictions::AccessPathEstimate {
@@ -4372,8 +4377,7 @@ pub(crate) fn explain_segmented(
                         posting: None,
                     };
                     choice.gram_candidates = Some(output);
-                    choice.structural_candidates =
-                        (!term.query_path.has_position).then_some(structural);
+                    choice.structural_candidates = preserve_empty.then_some(structural);
                     choice.residual_verification = true;
                     choice.reason =
                         "segment bigram index offers a residual candidate set; estimate only"

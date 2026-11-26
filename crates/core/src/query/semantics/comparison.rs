@@ -456,6 +456,9 @@ pub(crate) fn eval_field_term(
         };
         results.push(compare(a.as_deref(), b.as_deref()));
     }
+    if results.is_empty() && matches!(term.operator, Operator::Contains | Operator::NotContains) {
+        return Ok(false);
+    }
     Ok(if term.quantifier == Quantifier::Any {
         results.into_iter().any(|result| result)
     } else {
@@ -566,6 +569,9 @@ pub(crate) fn eval_cross_record_field_term(
             target.operator,
             Transform::Identity,
         ));
+    }
+    if answers.is_empty() && matches!(target.operator, Operator::Contains | Operator::NotContains) {
+        return Ok(false);
     }
     Ok(if target.quantifier == Quantifier::Any {
         answers.into_iter().any(|answer| answer)

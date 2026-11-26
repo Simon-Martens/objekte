@@ -336,19 +336,6 @@ impl<'a> ScalarWalker<'a> {
                 self.pos += 1;
                 self.whitespace();
                 if self.bytes.get(self.pos) == Some(&b']') {
-                    if selected_multi_array
-                        || (!suppress_filter
-                            && query.filter.is_some_and(|term| {
-                                term.is_multi() && path_prefix(path, term.path())
-                            }))
-                    {
-                        events.push(BorrowedEvent {
-                            visible: true,
-                            filter_selected: true,
-                            filter_hit: query.filter.is_some_and(|term| !term.matches_any()),
-                            ..Default::default()
-                        });
-                    }
                     self.pos += 1;
                     return Ok(());
                 }

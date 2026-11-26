@@ -1864,7 +1864,7 @@ pub(crate) fn raw_covers_identity_field(collection: &CollectionState) -> Result<
 }
 
 pub(crate) fn empty_selection_preservation(term: &BoundTerm) -> bool {
-    term.multi && term.quantifier != Quantifier::Any
+    term.multi && term.quantifier != Quantifier::Any && term.operator != Operator::Contains
 }
 
 #[cfg(test)]

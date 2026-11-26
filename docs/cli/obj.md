@@ -58,7 +58,7 @@ items[*]:null = true
 year >= 1800 && year < 1900 SORT BY year DESC
 ```
 
-`@root` denotes the JSON document itself. `@root.title` is equivalent to `title` for an object root; `@root["a.b"]` addresses a literal key containing a dot. A real property named `@root` can be addressed with a quoted key step. Structured predicates keep their type rules: a numeric JSON value does not equal a string containing the same characters. Default universal array comparisons retain the core's vacuous-empty-array rule; use `?=` for existential array matching.
+`@root` denotes the JSON document itself. `@root.title` is equivalent to `title` for an object root; `@root["a.b"]` addresses a literal key containing a dot. A real property named `@root` can be addressed with a quoted key step. Structured predicates keep their type rules: a numeric JSON value does not equal a string containing the same characters. Substring comparisons (`~`, `!~`, and their existential variants) require at least one selected value. Default universal equality matches an empty array. Use `?=` for existential equality.
 
 ## Collection and text rules
 

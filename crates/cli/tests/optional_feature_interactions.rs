@@ -213,7 +213,7 @@ fn unrelated_empty_array_does_not_fabricate_universal_hit_or_lose_fallback_or() 
         let universal = repo
             .search(&query("title ~ 'needle'", vec![], ReturnMode::Locator))
             .unwrap();
-        assert_eq!(ids(&universal), ["r01", "r03"]);
+        assert_eq!(ids(&universal), ["r01"]);
         assert!(!ids(&universal).contains(&"r02".to_owned()));
         let existential = repo
             .search(&query("title ?~ 'needle'", vec![], ReturnMode::Locator))

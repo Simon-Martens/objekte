@@ -195,7 +195,8 @@ fn borrowed_source_filter_preserves_string_runtime_rules_and_wildcards() {
         (br#"{"name":"ab","name":null}"#, "name ~ ''", false),
         (br#"{"name":["Ada","Ada"]}"#, "name ~ 'A%a'", true),
         (br#"{"name":["Ada","Bob"]}"#, "name ~ 'A%a'", false),
-        (br#"{"name":[]}"#, "name ~ 'A%a'", true),
+        (br#"{"name":[]}"#, "name ~ 'A%a'", false),
+        (br#"{"name":[]}"#, "name !~ 'x'", false),
         (br#"{"name":[]}"#, "name ?~ 'A%a'", false),
         (br#"{"name":["Bob","Ada"]}"#, "name ?~ 'A%a'", true),
     ] {

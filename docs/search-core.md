@@ -171,7 +171,7 @@ array, and empty string are distinct. Bindings validate all branches before
 execution, including branches a Boolean expression may short-circuit. For a
 multi-valued path, the default comparison is universal across its elements;
 `?` operators are existential. `:each` explicitly requires a multi-valued
-field and uses universal comparison. An empty present array satisfies a
+field and uses universal comparison. Contains predicates (`~` and `!~`) require at least one selected element. For other comparisons, an empty present array satisfies a
 universal comparison but not an existential one; a missing path satisfies
 neither. `:exists` tests path presence, `:null` tests an explicit null, and
 `:length` compares an array's length. Boolean field tests `:?`, `:string`,
