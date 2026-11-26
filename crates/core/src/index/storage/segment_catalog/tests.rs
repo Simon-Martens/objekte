@@ -31,6 +31,7 @@ struct TableFactory {
     independent_segments: AtomicBool,
     independent_applications: AtomicUsize,
     independent_projections: AtomicUsize,
+    omit_projection: AtomicBool,
 
     installs: AtomicUsize,
     retained_builds: AtomicUsize,
@@ -96,6 +97,21 @@ impl TableFactory {
 }
 
 impl StorageFactory for Arc<TableFactory> {
+    fn project_segment_partitions(
+        &self,
+        source: &dyn SegmentReader,
+        partitions: &[crate::index::storage::segment::maintenance::SegmentPartition],
+        files: &dyn crate::index::storage::file_catalog::FileCatalogReader,
+        cancelled: &mut dyn FnMut() -> bool,
+    ) -> StorageResult<Vec<crate::index::storage::segment::SegmentHandle>> {
+        let mut projected = crate::index::storage::test_factory()
+            .project_segment_partitions(source, partitions, files, cancelled)?;
+        if self.omit_projection.swap(false, Ordering::Relaxed) {
+            projected.pop();
+        }
+        Ok(projected)
+    }
+
     fn consolidate_segments(
         &self,
         segments: &[&dyn SegmentReader],

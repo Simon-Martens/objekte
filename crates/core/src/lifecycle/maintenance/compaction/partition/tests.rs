@@ -243,8 +243,16 @@ fn compacts_one_large_file_in_source_free_parts() {
         .active
         .clone();
     std::fs::remove_file(&path).unwrap();
-    let parts = compact_source_parts_with_limits(&source, &active, &view.0.catalog, 2, 2, || false)
-        .unwrap();
+    let parts = compact_source_parts_with_limits(
+        &source,
+        &active,
+        &view.0.catalog,
+        view.repository().storage_factory.as_ref(),
+        2,
+        2,
+        || false,
+    )
+    .unwrap();
     assert_eq!(parts.len(), 5);
     assert!(parts.iter().all(|part| part.descriptor().slots <= 2));
     assert_eq!(
@@ -260,9 +268,16 @@ fn compacts_one_large_file_in_source_free_parts() {
         .unwrap()
         .retired(&retired)
         .unwrap();
-    let sparse_parts =
-        compact_source_parts_with_limits(&source, &sparse, &view.0.catalog, 2, 2, || false)
-            .unwrap();
+    let sparse_parts = compact_source_parts_with_limits(
+        &source,
+        &sparse,
+        &view.0.catalog,
+        view.repository().storage_factory.as_ref(),
+        2,
+        2,
+        || false,
+    )
+    .unwrap();
     assert_eq!(sparse_parts.len(), 1);
     assert_eq!(sparse_parts[0].descriptor().slots, 2);
     index.shutdown().unwrap();

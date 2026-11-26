@@ -11,6 +11,9 @@ use crate::construction::file_preparation::{
     FilePreparationBinding, FileRecordLayout, reconstruct_file_layout,
 };
 use crate::index::storage::publication::PublishedSegment;
+use crate::index::storage::segment::maintenance::{
+    check_projection_source, project_active_checked,
+};
 use crate::index::storage::segment::{
     SegmentReader, visit_checked_file_slots, visit_segment_files,
 };
@@ -458,7 +461,9 @@ pub(crate) fn preserve_partition_record_slots(
         let Some(editor) = found.old.maintenance() else {
             return Ok(None);
         };
-        let compacted = editor.project_active(
+        let compacted = project_active_checked(
+            found.old.as_ref(),
+            editor,
             &active_without_old,
             MAX_VERIFIED_SCANNED_RECORDS,
             &mut |entry| retained.contains(&entry.id),
@@ -480,6 +485,7 @@ pub(crate) fn preserve_partition_record_slots(
             return Ok(None);
         };
         let replacement = editor.remap_dense(&remap)?;
+        check_projection_source(found.old.as_ref(), replacement.as_ref(), remap.len())?;
         let active = candidate.repository.storage_factory.live_records(
             replacement.descriptor().slots,
             crate::index::storage::liveness::InitialLiveness::All,
@@ -564,7 +570,9 @@ pub(crate) fn remove_verified_old_shards(
             let editor = shard
                 .maintenance()
                 .ok_or(VerifiedFallbackReason::CompactionUnavailable)?;
-            let compacted = editor.project_active(
+            let compacted = project_active_checked(
+                shard.as_ref(),
+                editor,
                 &shard.active,
                 MAX_VERIFIED_SCANNED_RECORDS,
                 &mut |entry| retained.contains(&entry.id),

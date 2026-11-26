@@ -1320,6 +1320,20 @@ fn independent_initial_and_managed_files_publish_and_compact_without_source_read
         .delete_file(index.view().unwrap().file_handle(a.id).unwrap().unwrap())
         .unwrap();
     std::fs::remove_file(root.join("data/b.rows")).unwrap();
+    let before_compaction = index.view().unwrap();
+    factory.omit_projection.store(true, Ordering::Relaxed);
+    assert!(
+        index
+            .compact()
+            .unwrap_err()
+            .to_string()
+            .contains("partition count mismatch")
+    );
+    assert_eq!(
+        index.view().unwrap().revision(),
+        before_compaction.revision()
+    );
+    assert_eq!(before_compaction.file_record_count(b.id).unwrap(), Some(2));
     assert_eq!(index.compact().unwrap().retired_slots_removed, 2);
     assert!(factory.independent_projections.load(Ordering::Relaxed) > 0);
     let current = index.view().unwrap();

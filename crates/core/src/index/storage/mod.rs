@@ -23,6 +23,17 @@ use segment_catalog::SegmentCatalogEditor;
 use transfer::StorageResult;
 
 pub(crate) trait StorageFactory: Send + Sync {
+    fn project_segment_partitions(
+        &self,
+        source: &dyn segment::SegmentReader,
+        partitions: &[segment::maintenance::SegmentPartition],
+        files: &dyn file_catalog::FileCatalogReader,
+        cancelled: &mut dyn FnMut() -> bool,
+    ) -> StorageResult<Vec<segment::SegmentHandle>> {
+        segment::maintenance::require_maintenance(source)?
+            .project_partitions(partitions, files, cancelled)
+    }
+
     fn consolidate_segments(
         &self,
         _segments: &[&dyn segment::SegmentReader],

@@ -392,11 +392,12 @@ fn compact_prefix(segment: &SegmentHandle, length: usize) -> Result<SegmentHandl
     let slots = segment.descriptor().slots;
     let active = crate::inventory::ActiveRecords::from_bitmap(slots, live)
         .map_err(IndexError::InvalidPublication)?;
-    let editor =
-        crate::index::storage::segment::maintenance::require_maintenance(segment.as_ref())?;
-    Ok(editor
-        .project_active(&active, slots, &mut |_| false)?
-        .payload)
+    use crate::index::storage::segment::maintenance::{
+        project_active_checked, require_maintenance,
+    };
+    let reader = segment.as_ref();
+    let editor = require_maintenance(reader)?;
+    Ok(project_active_checked(reader, editor, &active, slots, &mut |_| false)?.payload)
 }
 
 #[cfg(test)]

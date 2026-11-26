@@ -160,6 +160,7 @@ fn compact_published_with_budget(
                     segment.as_ref(),
                     &segment.active,
                     &next.catalog,
+                    next.repository.storage_factory.as_ref(),
                     next.repository.options().segment_policy,
                     &cancelled,
                 )? {
@@ -218,6 +219,7 @@ fn compact_published_with_budget(
                 source,
                 active,
                 &next.catalog,
+                next.repository.storage_factory.as_ref(),
                 next.repository.options().segment_policy,
                 &cancelled,
             )? {

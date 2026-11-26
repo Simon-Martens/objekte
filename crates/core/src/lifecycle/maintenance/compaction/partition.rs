@@ -8,10 +8,11 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
+use crate::index::storage::StorageFactory;
 use crate::index::storage::file_catalog::FileCatalogReader;
 #[cfg(test)]
 use crate::index::storage::publication::PublishedSegment;
-use crate::index::storage::segment::maintenance::{SegmentPartition, require_maintenance};
+use crate::index::storage::segment::maintenance::{SegmentPartition, check_projection_source};
 use crate::index::storage::segment::{
     RecordBacking, SegmentHandle, SegmentReader, visit_segment_files,
 };
@@ -28,6 +29,7 @@ pub(crate) fn compact_source_parts_with_policy(
     source: &dyn SegmentReader,
     active: &ActiveRecords,
     catalog: &dyn FileCatalogReader,
+    target: &dyn StorageFactory,
     policy: crate::index::segment::SegmentPolicy,
     cancelled: impl FnMut() -> bool,
 ) -> Result<Vec<SegmentHandle>, IndexError> {
@@ -35,6 +37,7 @@ pub(crate) fn compact_source_parts_with_policy(
         source,
         active,
         catalog,
+        target,
         policy.target_records.get(),
         policy.max_files.get(),
         cancelled,
@@ -45,6 +48,7 @@ fn compact_source_parts_with_limits(
     source: &dyn SegmentReader,
     active: &ActiveRecords,
     catalog: &dyn FileCatalogReader,
+    target: &dyn StorageFactory,
     max_records: usize,
     max_files: usize,
     mut cancelled: impl FnMut() -> bool,
@@ -62,17 +66,19 @@ fn compact_source_parts_with_limits(
         max_files,
         &mut cancelled,
     )?;
-    let parts =
-        require_maintenance(source)?.project_partitions(&selections, catalog, &mut cancelled)?;
-    if parts
-        .iter()
-        .map(|part| part.descriptor().slots)
-        .sum::<usize>()
-        != active.len() as usize
-    {
+    let parts = target.project_segment_partitions(source, &selections, catalog, &mut cancelled)?;
+    if parts.len() != selections.len() {
         return Err(IndexError::InvalidPublication(
-            "compaction output live count mismatch".into(),
+            "compaction output partition count mismatch".into(),
         ));
+    }
+    for (part, partition) in parts.iter().zip(&selections) {
+        check_projection_source(source, part.as_ref(), partition.slots.len() as usize)?;
+        if part.file_count() != partition.files.len() {
+            return Err(IndexError::InvalidPublication(
+                "compaction output file count mismatch".into(),
+            ));
+        }
     }
     Ok(parts)
 }
@@ -236,6 +242,7 @@ fn partition_base_with_limits_inner(
             &source,
             &root.active[number],
             &catalog,
+            empty.storage_factory.as_ref(),
             max_records,
             max_files,
             || false,

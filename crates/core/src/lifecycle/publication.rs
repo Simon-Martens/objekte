@@ -534,6 +534,7 @@ impl PublishedIndex {
                     old.as_ref(),
                     &old.active,
                     &self.catalog,
+                    self.repository.storage_factory.as_ref(),
                     policy,
                     || false,
                 )?;
