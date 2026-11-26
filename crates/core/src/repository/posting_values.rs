@@ -298,6 +298,15 @@ fn resolve<'a>(
     path: &FieldPath,
 ) -> Result<ResolvedPosting<'a>, String> {
     let field = collection.definition.schema.fields.get(&path.segments);
+    if let Some(base) = &collection.base_records {
+        let binding = if binding == "default" && !field.is_some_and(|field| field.indexed) {
+            "inferred"
+        } else {
+            binding
+        };
+        return resolve_segment(collection, base.as_ref(), path, binding, None)?
+            .ok_or_else(|| "base posting has no compatible value dictionary".into());
+    }
     if binding == "default" && !field.is_some_and(|field| field.indexed) {
         let inference = collection
             .inference

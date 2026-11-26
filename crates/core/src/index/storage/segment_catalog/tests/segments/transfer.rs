@@ -409,6 +409,10 @@ fn file_segment_round_trip_and_compaction_transfer_logical_blocks() {
     }
     assert_eq!(ids.len(), 5);
     assert!(ids.is_sorted());
+    let facet = crate::repository::posting_values::PostingValuesRequest::new("entries", "score", 5);
+    let values = flat_pin.posting_values(&facet).unwrap();
+    assert_eq!(values.values[0].count, 3);
+    assert_eq!(values.values[1].count, 1);
     equivalent(&flat_pin);
     assert!(
         flat_pin

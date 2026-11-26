@@ -459,7 +459,7 @@ impl CollectionState {
 
     /// Field paths registered in the base collection's declared postings.
     pub fn declared_posting_paths(&self) -> impl Iterator<Item = &[String]> + '_ {
-        self.postings.fields.keys().map(Vec::as_slice)
+        self.definition.schema.fields().keys().map(Vec::as_slice)
     }
 
     /// Summaries of inferred dictionaries in the base collection.
