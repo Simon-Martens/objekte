@@ -732,6 +732,10 @@ impl SegmentReader for TableSegment {
         component: &crate::index::storage::component::ComponentDescriptor<'_>,
     ) -> StorageResult<Option<&dyn PostingReader>> {
         use crate::index::storage::component::ComponentKind;
+        if component.collection != self.metadata.collection || component.segment != self.metadata.id
+        {
+            return Err(invalid("posting descriptor belongs to a different payload"));
+        }
         Ok(self
             .score
             .as_ref()
@@ -1278,6 +1282,11 @@ fn independent_initial_and_managed_files_publish_and_compact_without_source_read
     let group = pinned.segments(CollectionId(0)).unwrap();
     assert_eq!(group.len(), 1);
     assert!((group[0].index.as_ref() as &dyn std::any::Any).is::<TableSegment>());
+    let mut descriptor = group[0].components().unwrap().pop().unwrap();
+    assert_eq!(descriptor.segment, group[0].id);
+    assert!(group[0].posting(&descriptor).unwrap().is_some());
+    descriptor.segment = SegmentId::new(u64::MAX);
+    assert!(group[0].posting(&descriptor).is_err());
     let failing = root.join("data/new.rows");
     std::fs::write(&failing, "(\"score\"=7)\n(\"score\"=9)\n").unwrap();
     factory
@@ -1300,6 +1309,16 @@ fn independent_initial_and_managed_files_publish_and_compact_without_source_read
             .is_none()
     );
     index.add_file(&failing).unwrap();
+    let managed = index.view().unwrap().segments(CollectionId(0)).unwrap();
+    assert!(
+        managed
+            .iter()
+            .any(|segment| segment.id != segment.index.descriptor().id)
+    );
+    for segment in managed.iter() {
+        let component = segment.components().unwrap().pop().unwrap();
+        assert!(segment.posting(&component).unwrap().is_some());
+    }
     assert_eq!(
         index.view().unwrap().search(&score_query()).unwrap().count,
         Some(3)

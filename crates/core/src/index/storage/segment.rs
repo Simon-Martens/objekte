@@ -681,6 +681,27 @@ pub(crate) trait SegmentReaderDelegate: Send + Sync {
     fn placement_id(&self) -> Option<SegmentId> {
         None
     }
+
+    fn payload_component<'a>(
+        &self,
+        component: &'a ComponentDescriptor<'_>,
+        placement: SegmentId,
+    ) -> StorageResult<ComponentDescriptor<'a>> {
+        let payload = self.payload().descriptor();
+        if component.collection != payload.collection || component.segment != placement {
+            return Err(StorageError::invalid(
+                "open placed component",
+                "component belongs to a different segment",
+            ));
+        }
+        Ok(ComponentDescriptor {
+            collection: component.collection,
+            segment: payload.id,
+            kind: component.kind,
+            path: component.path.as_deref().map(Cow::Borrowed),
+            binding: component.binding.as_deref().map(Cow::Borrowed),
+        })
+    }
 }
 
 impl<S: SegmentReader + ?Sized> SegmentReaderDelegate for std::sync::Arc<S> {
@@ -738,6 +759,11 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
         &self,
         component: &ComponentDescriptor<'_>,
     ) -> StorageResult<Option<&dyn PostingReader>> {
+        if let Some(placement) = self.placement_id() {
+            return self
+                .payload()
+                .posting(&self.payload_component(component, placement)?);
+        }
         self.payload().posting(component)
     }
 
@@ -750,6 +776,11 @@ impl<D: SegmentReaderDelegate + 'static> SegmentReader for D {
     }
 
     fn grams(&self, component: &ComponentDescriptor<'_>) -> StorageResult<Option<&dyn GramReader>> {
+        if let Some(placement) = self.placement_id() {
+            return self
+                .payload()
+                .grams(&self.payload_component(component, placement)?);
+        }
         self.payload().grams(component)
     }
 
