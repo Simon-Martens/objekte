@@ -346,10 +346,16 @@ fn resolve<'a>(
     let field = field.ok_or("posting values require a registered field")?;
     if binding == "default" {
         debug_assert!(field.indexed);
+        #[cfg(test)]
         let index = collection
             .postings
             .fields
             .get(&path.segments)
+            .ok_or("posting index missing")?;
+        #[cfg(not(test))]
+        let index = collection
+            .declared_postings
+            .facet(path, binding)
             .ok_or("posting index missing")?;
         return Ok(ResolvedPosting {
             index,
@@ -366,15 +372,25 @@ fn resolve<'a>(
         .operations
         .get(&key)
         .ok_or("binding has no registered posting operation")?;
-    let custom = collection
-        .custom_postings
-        .get(&key)
-        .ok_or("binding has no posting index")?;
-    if !custom.complete {
+    if !registration.operation.posting() {
+        return Err("binding has no posting index".into());
+    }
+    if !registration.operation.complete_coverage() {
         return Err("incomplete custom posting coverage".into());
     }
+    #[cfg(test)]
+    let index = &collection
+        .custom_postings
+        .get(&key)
+        .ok_or("binding has no posting index")?
+        .index;
+    #[cfg(not(test))]
+    let index = collection
+        .declared_postings
+        .facet(path, binding)
+        .ok_or("binding has no posting index")?;
     Ok(ResolvedPosting {
-        index: &custom.index,
+        index,
         binding: binding.to_owned(),
         binding_version: registration.version,
         indexed_records: None,

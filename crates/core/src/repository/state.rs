@@ -65,6 +65,8 @@ pub struct CollectionState {
     #[cfg(test)]
     pub(crate) generation: CollectionGeneration,
     pub(crate) postings: PostingCollection,
+    #[cfg(not(test))]
+    pub(crate) declared_postings: crate::index::storage::posting::declared::DeclaredPostings,
     #[cfg(test)]
     pub(crate) inference: Option<InferenceState>,
     pub(crate) initial_inference_report: Option<InferenceReport>,

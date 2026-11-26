@@ -229,6 +229,9 @@ fn initialize_empty_configured(
         let generation = CollectionBuilder::new(id, definition.name.clone(), base_generation, 0)
             .finish_empty()?;
         let postings = PostingCollection::new(&definition.schema);
+        #[cfg(not(test))]
+        let declared_postings =
+            crate::index::storage::posting::declared::DeclaredPostings::new(&definition.schema);
         #[cfg(test)]
         let inference = InferenceBuilder::for_collection(options.inference, collection_count)
             .map(|builder| builder.finish(&RoaringBitmap::new(), 0, &definition.schema))
@@ -330,6 +333,8 @@ fn initialize_empty_configured(
             #[cfg(test)]
             generation,
             postings,
+            #[cfg(not(test))]
+            declared_postings,
             #[cfg(test)]
             inference,
             initial_inference_report,

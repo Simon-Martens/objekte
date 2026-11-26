@@ -1,5 +1,8 @@
 //! Typed posting keys and terminal selection facts.
 
+#[cfg(not(test))]
+pub(crate) mod declared;
+
 use std::num::NonZeroUsize;
 use std::ops::Bound;
 
