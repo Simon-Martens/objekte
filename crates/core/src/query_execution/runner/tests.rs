@@ -7195,8 +7195,9 @@ fn indexed_or_file_layout_with_reader(
     registry: crate::source::registry::SourceRegistry,
 ) -> (std::path::PathBuf, crate::lifecycle::Index) {
     let root = std::env::temp_dir().join(format!(
-        "objekte-ordered-or-layout-{}-{}-{:?}",
+        "objekte-ordered-or-layout-{}-{}-{}-{:?}",
         files,
+        padding.len(),
         std::process::id(),
         std::thread::current().id(),
     ));
@@ -7495,15 +7496,15 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         )
         .unwrap();
     let (root, index) = indexed_or_file_layout_with_reader(
-        65,
-        "",
+        260,
+        &"x".repeat(MAX_DEFERRED_EVIDENCE_RECORD_BYTES as usize),
         SourceFormat::registered("pausing_parallel_fixture"),
         registry.clone(),
     );
     let view = index.view().unwrap();
     let mut query = indexed_or_layout_query();
     query.filter = Some(parse_filter("a = true || note = 'needle'").unwrap());
-    query.options.limit = 16;
+    query.options.limit = 100;
     query.options.return_mode = ReturnMode::Bytes;
     query.options.evidence = true;
     index.configure_verified_cache(1 << 20).unwrap();
@@ -7572,7 +7573,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         &query,
         ResultScope::Page {
             offset: 0,
-            limit: 16,
+            limit: 100,
         },
         options,
         &context,
@@ -7598,7 +7599,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
         &query,
         ResultScope::Page {
             offset: 0,
-            limit: 16,
+            limit: 100,
         },
         options,
         &context,
@@ -7637,7 +7638,7 @@ fn cancellable_parallel_page_scans_preserve_complete_cache_membership() {
             &query,
             ResultScope::Page {
                 offset: 0,
-                limit: 16,
+                limit: 100,
             },
             options,
             &context,
@@ -7778,6 +7779,15 @@ fn parallel_eligibility_checks_cancellation_within_a_file() {
 }
 
 #[test]
+fn parallel_eligibility_rejects_source_ranges_over_one_mib() {
+    let eligible = |end| {
+        parallel_ranges_eligible(&[(0, ByteRange { start: 0, end })], None, |_| Ok(true)).unwrap()
+    };
+    assert!(eligible(1024 * 1024));
+    assert!(!eligible(1024 * 1024 + 1));
+}
+
+#[test]
 fn verified_cache_finalization_merges_runs_and_observes_cancellation() {
     use crate::query_execution::streaming::ExecutionLimits;
 
@@ -7823,42 +7833,78 @@ fn verified_cache_finalization_merges_runs_and_observes_cancellation() {
 #[test]
 fn cancellable_parallel_page_scans_keep_evidence_for_large_records() {
     let (root, index) = indexed_or_file_layout_with_reader(
-        65,
+        260,
         &"x".repeat(MAX_DEFERRED_EVIDENCE_RECORD_BYTES as usize),
         crate::source::test_support::line_format(),
         crate::source::test_support::fixture_registry(),
     );
     let view = index.view().unwrap();
-    let mut query = indexed_or_layout_query();
-    query.filter = Some(parse_filter("note ~ 'needle'").unwrap());
-    query.options.limit = 1;
-    let reference = view.search_reference(&query).unwrap();
-    assert!(!reference.hits[0].matched_fields.is_empty());
+    for (offset, limit, fts, computed_sort, expect_parallel) in [
+        (0, 100, false, false, true),
+        (0, 100, true, false, true),
+        (156, 100, true, false, true),
+        (157, 100, true, false, false),
+        (0, 100, false, true, false),
+    ] {
+        let mut query = indexed_or_layout_query();
+        query.filter = (!fts).then(|| parse_filter("note ~ 'needle'").unwrap());
+        query.fts = fts.then(|| FtsQuery {
+            pattern_parameter: None,
+            mode: FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "needle".into(),
+            fields: vec![],
+        });
+        query.options.offset = offset;
+        query.options.limit = limit;
+        if computed_sort {
+            query.options.sort = vec![SortField {
+                field: "note".into(),
+                descending: false,
+                expression: Some(crate::query::options::SortExpression {
+                    path: "note".into(),
+                    binding: Some("lower".into()),
+                    reducer: None,
+                }),
+            }];
+        }
+        let reference = view.search_reference(&query).unwrap();
+        assert!(!reference.hits[0].matched_fields.is_empty());
 
-    reset_parallel_file_dispatches(view.instance_id());
-    let mut page = Vec::new();
-    let result = view
-        .search_stream(
-            &query,
-            StreamOptions {
-                mode: StreamMode::PageReplacements,
-                ..Default::default()
-            },
-            &CancellationToken::new(),
-            &mut |event| {
-                if let StreamEvent::PageReplacement { rows, .. } = event {
-                    page = rows.to_vec();
-                }
-                Ok(StreamControl::Continue)
-            },
-        )
-        .unwrap();
-    let StreamOutcome::Complete(summary) = result else {
-        panic!("expected a complete page");
-    };
-    assert!(parallel_file_dispatches(view.instance_id()).1 > 1);
-    assert_eq!(page, reference.hits);
-    assert_eq!(summary.count, reference.count);
+        reset_parallel_file_dispatches(view.instance_id());
+        let mut page = Vec::new();
+        let result = view
+            .search_stream(
+                &query,
+                StreamOptions {
+                    mode: StreamMode::PageReplacements,
+                    ..Default::default()
+                },
+                &CancellationToken::new(),
+                &mut |event| {
+                    if let StreamEvent::PageReplacement { rows, .. } = event {
+                        page = rows.to_vec();
+                    }
+                    Ok(StreamControl::Continue)
+                },
+            )
+            .unwrap();
+        let StreamOutcome::Complete(summary) = result else {
+            panic!("expected a complete page");
+        };
+        let (_, dispatched_files) = parallel_file_dispatches(view.instance_id());
+        if expect_parallel {
+            assert!(
+                dispatched_files >= 259,
+                "dispatched {dispatched_files} files"
+            );
+        } else {
+            assert_eq!(dispatched_files, 0);
+        }
+        assert_eq!(page, reference.hits);
+        assert_eq!(summary.count, reference.count);
+    }
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

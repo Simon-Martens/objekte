@@ -3463,17 +3463,18 @@ fn search_segmented_impl(
             // parallel route to small ordered pages and bounded source rows;
             // all other plans keep the existing serial, cache-aware path.
             let single_record_files = files.iter().all(|(_, ranges)| ranges.len() == 1);
-            let small_single_record_files = single_record_files
-                && files
-                    .iter()
-                    .all(|(_, ranges)| ranges[0].1.len() <= 8 * 1024);
             let parallel_scan = retained_budget.is_none()
                 && (filter.is_some() || fts.is_some())
                 && (!sort.bound.has_computed
-                    || (query.options.sort.len() <= 4 && small_single_record_files))
+                    || (query.options.sort.len() <= 4
+                        && single_record_files
+                        && files.iter().all(|(_, ranges)| {
+                            ranges[0].1.len() <= MAX_DEFERRED_EVIDENCE_RECORD_BYTES
+                        })))
                 && repo.options.query_workers > 1
                 && files.len() > 1
-                && (cap <= 64 || (cap <= 256 && small_single_record_files))
+                // A single-record job yields at most one winner at any page size.
+                && (cap <= 64 || (cap <= 256 && single_record_files))
                 && collection.definition.name.len() <= 1024
                 && filter.as_ref().is_none_or(|filter| {
                     segment_filter_evidence_bytes(filter).is_some_and(|bytes| bytes <= 1024)
