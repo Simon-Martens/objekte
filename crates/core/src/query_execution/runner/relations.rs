@@ -4161,11 +4161,14 @@ pub(crate) fn explain_segmented(
                 .unwrap_or(published.active.len());
             if let Some(fts) = fts {
                 if let Some((text, _)) =
-                    crate::query_execution::restrictions::native_segment_estimate_fts_candidates(
+                    crate::query_execution::restrictions::segment_fts_estimate_with_term(
+                        published.id,
                         &published.index,
                         collection,
                         fts,
-                    )
+                        crate::query_predicate::TermId::new(0),
+                        published.active.len(),
+                    )?
                 {
                     let text = text.min(published.active.len());
                     delta_fts_candidates = delta_fts_candidates.saturating_add(text);

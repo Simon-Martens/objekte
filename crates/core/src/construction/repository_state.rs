@@ -273,7 +273,7 @@ fn initialize_empty_configured(
         )?;
         let sorting = sort_builder.finish(&generation)?;
         let text_bindings =
-            crate::query_access::catalog::TextBindingCatalog::new(&definition.schema);
+            crate::index::storage::text::TextBindingCatalog::new(&definition.schema);
         let index_family_bytes = crate::lifecycle::index_family_total(
             &raw,
             &fallback_text,

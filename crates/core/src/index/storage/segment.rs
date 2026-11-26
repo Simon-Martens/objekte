@@ -13,6 +13,7 @@ use serde::{Deserialize, Serialize};
 use crate::inventory::{ByteRange, FileEntry, SourceRevision};
 use crate::model::{CollectionId, FieldPath, FileId, RecordSlot};
 use crate::query::options::SortField;
+use crate::query_access::contract::IndexAccessProvider;
 use crate::query_access::membership::SlotSet;
 use crate::records::{RecordHeader, RecordVersion, RetainedBody};
 
@@ -20,6 +21,7 @@ use super::file_catalog::{FILE_TRANSFER_LIMIT, FileTransferRow};
 use super::order::{InferredOrderRows, OrderColumnReader, PostingOrderRequest, SortKey};
 use super::ordered_slots::OrderedSlots;
 use super::relation::RelationReader;
+use super::text::SegmentTextAccess;
 use super::transfer::{BatchLimit, BatchStatus, StorageError, StorageResult};
 
 /// Deterministic soft target used by every ordinary segment-producing path.
@@ -346,6 +348,16 @@ pub(crate) trait SegmentReader: Send + Sync {
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()>;
 
+    /// Borrow provider state for this access request. Optional families can
+    /// decline without opening index contents.
+    fn with_text_access(
+        &self,
+        _access: SegmentTextAccess<'_>,
+        use_provider: &mut dyn FnMut(Option<&dyn IndexAccessProvider>) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        use_provider(None)
+    }
+
     fn supports_posting_order(&self, _path: &FieldPath) -> StorageResult<bool> {
         Ok(false)
     }
@@ -457,6 +469,14 @@ impl<S: SegmentReader + ?Sized> SegmentReader for std::sync::Arc<S> {
         visit: &mut dyn FnMut(&[RecordSlot]) -> StorageResult<()>,
     ) -> StorageResult<()> {
         self.as_ref().visit_file_slots(file, limit, visit)
+    }
+
+    fn with_text_access(
+        &self,
+        access: SegmentTextAccess<'_>,
+        use_provider: &mut dyn FnMut(Option<&dyn IndexAccessProvider>) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        self.as_ref().with_text_access(access, use_provider)
     }
 
     fn supports_posting_order(&self, path: &FieldPath) -> StorageResult<bool> {

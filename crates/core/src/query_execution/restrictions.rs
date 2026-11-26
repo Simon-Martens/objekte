@@ -1,6 +1,6 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
-use crate::index::storage::segment::{RecordBacking, SegmentReader};
+use crate::index::storage::segment::SegmentReader;
 use crate::records::RecordIdSlot;
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
@@ -12,6 +12,8 @@ use smallvec::SmallVec;
 use crate::index::segment::{IndexedCollectionSegment, PublishedSegment, SegmentId};
 use crate::index::storage::file_catalog::{FileCatalogReader, FileScalarPredicate};
 use crate::index::storage::order::ScalarOrderPredicate;
+use crate::index::storage::text::SegmentTextAccess;
+use crate::index::storage::transfer::StorageError;
 use crate::inventory::{
     ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
     SharedPath, SourceRevision, relative_path_bounds,
@@ -21,7 +23,7 @@ use crate::model::{
 };
 use crate::query::binding::fts::BoundFts;
 use crate::query::semantics::record::RecordContext;
-use crate::query::{FtsMode, Operator, Quantifier};
+use crate::query::{Operator, Quantifier};
 use crate::query::{
     binding::filter::BoundExpr, binding::filter::BoundTerm, binding::filter::Derived,
 };
@@ -33,7 +35,7 @@ use crate::query_access::contract::{
     IndexAccessProvider, InputEstimate, OfferList, OperationId, ProofStrength, Proven, ProviderId,
     Restriction,
 };
-use crate::query_access::membership::{MembershipView, SlotInput, SlotSet};
+use crate::query_access::membership::{DomainId, MembershipView, SlotInput, SlotSet};
 use crate::query_access::native::NativeCollectionProvider;
 use crate::query_access::registry::ProviderCatalog;
 use crate::query_access::segment::NativeSegmentProvider;
@@ -942,78 +944,13 @@ fn combined_file_path_bounds(
     (path_parts.len() >= 2).then_some(((lower, upper), path_parts))
 }
 
-/// Conservative local bigram candidates for a lifecycle segment. `None`
-/// means the caller must keep the whole active domain.
-#[allow(
-    dead_code,
-    reason = "retained as the unrestricted form of the active FTS candidate path"
-)]
-pub(crate) fn native_segment_fts_candidates(
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-    fts: &BoundFts,
-) -> Result<Option<RoaringBitmap>, String> {
-    let indexes = IndexCatalog::segment(segment, collection);
-    let Some(prepared) = prepare_fts_accesses(
-        &indexes,
-        collection,
-        fts,
-        segment.raw.record_count as usize == segment.record_count(),
-        segment.logical_records.len() != segment.record_count() as u64,
-        segment_raw_covers_identity_field(segment, collection),
-        segment.record_count() as u64,
-    ) else {
-        return Ok(None);
-    };
-    prepared.candidates_checked()
-}
-
-pub(crate) fn native_segment_fts_candidates_restricted(
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-    fts: &BoundFts,
-    input: &RoaringBitmap,
-) -> Result<Option<RoaringBitmap>, String> {
-    let indexes = IndexCatalog::segment(segment, collection);
-    let Some(prepared) = prepare_fts_accesses(
-        &indexes,
-        collection,
-        fts,
-        segment.raw.record_count as usize == segment.record_count(),
-        segment.logical_records.len() != segment.record_count() as u64,
-        segment_raw_covers_identity_field(segment, collection),
-        segment.record_count() as u64,
-    ) else {
-        return Ok(None);
-    };
-    prepared.candidates_checked_restricted(input)
-}
-
-pub(crate) fn native_segment_estimate_fts_candidates(
-    segment: &IndexedCollectionSegment,
-    collection: &CollectionState,
-    fts: &BoundFts,
-) -> Option<(u64, f64)> {
-    let indexes = IndexCatalog::segment(segment, collection);
-    prepare_fts_accesses(
-        &indexes,
-        collection,
-        fts,
-        segment.raw.record_count as usize == segment.record_count(),
-        segment.logical_records.len() != segment.record_count() as u64,
-        segment_raw_covers_identity_field(segment, collection),
-        segment.record_count() as u64,
-    )?
-    .estimate()
-}
-
 pub(crate) fn segment_fts_candidates(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Result<Option<RoaringBitmap>, String> {
-    let input = (0..segment.record_count() as u32).collect::<RoaringBitmap>();
+    let input = (0..segment.descriptor().slots as u32).collect::<RoaringBitmap>();
     let bounds = segment_fts_bounds_with_term(
         published_id,
         segment,
@@ -1028,7 +965,7 @@ pub(crate) fn segment_fts_candidates(
 
 pub(crate) fn segment_fts_bounds_with_term(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     collection: &CollectionState,
     fts: &BoundFts,
     term: TermId,
@@ -1042,7 +979,7 @@ pub(crate) fn segment_fts_bounds_with_term(
         fts,
         term,
         input.len() as u64,
-        |provider, catalog, chosen| {
+        |domain, catalog, chosen| {
             let Some(chosen) = chosen else {
                 return Ok(SegmentCandidateBounds::candidate(input.clone()));
             };
@@ -1051,7 +988,7 @@ pub(crate) fn segment_fts_bounds_with_term(
                     term,
                     AccessRequest::Text(fts),
                     chosen.id(),
-                    provider.input_for(input),
+                    SlotInput::unrestricted(domain, input),
                     &AccessExecution { context },
                 )
                 .map_err(|error| error.to_string())?;
@@ -1069,7 +1006,7 @@ pub(crate) fn segment_fts_bounds_with_term(
 
 pub(crate) fn segment_fts_estimate_with_term(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     collection: &CollectionState,
     fts: &BoundFts,
     term: TermId,
@@ -1090,54 +1027,68 @@ pub(crate) fn segment_fts_estimate_with_term(
 
 fn with_segment_text_offer<T>(
     published_id: SegmentId,
-    segment: &IndexedCollectionSegment,
+    segment: &dyn SegmentReader,
     collection: &CollectionState,
     fts: &BoundFts,
     term: TermId,
     input_len: u64,
-    selected: impl FnOnce(
-        &crate::query_access::text::NativeSegmentTextProvider<'_>,
-        &ProviderCatalog<'_>,
-        Option<&AccessOffer>,
-    ) -> Result<T, String>,
+    selected: impl FnOnce(DomainId, &ProviderCatalog<'_>, Option<&AccessOffer>) -> Result<T, String>,
 ) -> Result<T, String> {
-    use crate::query_access::text::NativeSegmentTextProvider;
-
-    let provider = NativeSegmentTextProvider::new(published_id, segment, collection);
+    let collection_id = collection.generation.collection;
+    let domain = crate::query_execution::domain::domain_id(
+        collection.repository_instance,
+        collection_id.0,
+        collection.generation.generation,
+        Some(published_id.get()),
+    );
+    let access = SegmentTextAccess {
+        policy: collection.text_access_policy(),
+        domain,
+        instance: collection.repository_instance,
+        collection: collection_id,
+    };
     #[cfg(test)]
     let test_providers = crate::query_execution::request::all_test_access_providers();
-    let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
     #[cfg(test)]
     let suppress_native = crate::query_execution::request::test_native_access_suppressed(
         collection.repository_instance,
     );
     #[cfg(not(test))]
     let suppress_native = false;
-    if !suppress_native {
-        providers.push(&provider);
-    }
-    #[cfg(test)]
-    for test_provider in &test_providers {
-        providers.push(test_provider.as_ref());
-    }
-    let catalog = ProviderCatalog::new(providers);
-    let offers = catalog
-        .propose(
-            term,
-            AccessRequest::Text(fts),
-            InputEstimate {
-                domain: provider.domain(),
-                domain_len: segment.record_count() as u64,
-                input_len,
-                mean_record_bytes: collection.stats.mean_record_bytes(),
-                mean_records_per_file: collection.stats.mean_records_per_file(),
-                file_count: segment.file_count() as u64,
-            },
-        )
-        .map_err(|error| error.to_string())?;
-    let chosen = crate::query_plan::selection::choose_offer(term, &offers, input_len)
-        .map_err(|error| error.to_string())?;
-    selected(&provider, &catalog, chosen)
+    let estimate = InputEstimate {
+        domain,
+        domain_len: segment.descriptor().slots as u64,
+        input_len,
+        mean_record_bytes: collection.stats.mean_record_bytes(),
+        mean_records_per_file: collection.stats.mean_records_per_file(),
+        file_count: segment.file_count() as u64,
+    };
+    let mut selected = Some(selected);
+    let mut result = None;
+    segment.with_text_access(access, &mut |provider| {
+        let selected = selected.take().ok_or_else(|| {
+            StorageError::invalid("open segment text access", "provider callback repeated")
+        })?;
+        let mut providers: SmallVec<[&dyn IndexAccessProvider; 4]> = SmallVec::new();
+        if let Some(provider) = provider.filter(|_| !suppress_native) {
+            providers.push(provider);
+        }
+        #[cfg(test)]
+        for test_provider in &test_providers {
+            providers.push(test_provider.as_ref());
+        }
+        let catalog = ProviderCatalog::new(providers);
+        result = Some((|| {
+            let offers = catalog
+                .propose(term, AccessRequest::Text(fts), estimate)
+                .map_err(|error| error.to_string())?;
+            let chosen = crate::query_plan::selection::choose_offer(term, &offers, input_len)
+                .map_err(|error| error.to_string())?;
+            selected(domain, &catalog, chosen)
+        })());
+        Ok(())
+    })?;
+    result.ok_or_else(|| "segment text access omitted provider selection".to_owned())?
 }
 
 fn segment_text_candidates(
@@ -1623,15 +1574,10 @@ fn segment_raw_covers_identity_field(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
 ) -> bool {
-    let representation_covers = match segment.backing_kind() {
-        RecordBacking::FileRange => collection.source.as_ref().is_some_and(|source| {
-            source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
-        }),
-        RecordBacking::Retained | RecordBacking::Provider => segment.raw_covers_logical_fields,
-    };
-    representation_covers
-        && collection.definition.schema.raw.is_none()
-        && segment.raw.record_count as usize == segment.record_count()
+    crate::query_access::text::segment_raw_covers_identity_field(
+        segment,
+        collection.text_access_policy(),
+    )
 }
 
 /// Metadata is resident in the published record and file catalog. Evaluate it
@@ -2705,7 +2651,7 @@ pub(crate) struct Plan {
 /// Resolve this at planning time, before any record is visited. The source
 /// registration and raw binding versions are fixed by the collection's
 /// immutable generation and snapshot configuration.
-fn raw_covers_identity_field(collection: &CollectionState) -> Result<(), String> {
+pub(crate) fn raw_covers_identity_field(collection: &CollectionState) -> Result<(), String> {
     if collection
         .required_file_reader()
         .reader()
@@ -4176,224 +4122,11 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
         .candidates_prepared(term.gram_request.as_ref()?)
 }
 
-/// A prepared text access is a set of borrowed candidate providers. The same
-/// compatibility and coverage assessment feeds estimation and execution;
-/// grams and regex conditions never claim positive field proof.
-struct TextProbe<'a, 'b> {
-    index: &'a crate::index::bigram::BigramIndex,
-    request: &'b crate::index::bigram::BigramRequest,
-}
-
-struct PreparedFtsAccess<'a, 'b> {
-    probes: SmallVec<[TextProbe<'a, 'b>; 2]>,
-    regex: Option<&'b crate::query::regex::RegexCondition>,
-    literal_work: f64,
-    max_count: u64,
-}
-
-impl PreparedFtsAccess<'_, '_> {
-    fn estimate(&self) -> Option<(u64, f64)> {
-        let mut count = 0u64;
-        let mut work = self.literal_work;
-        for probe in &self.probes {
-            if let Some(condition) = self.regex {
-                let (next_count, next_work) = condition.estimate(probe.index)?;
-                count = count.saturating_add(next_count);
-                work += next_work;
-            } else {
-                count = count.saturating_add(probe.index.estimate_prepared(probe.request)?);
-            }
-        }
-        Some((count.min(self.max_count), work))
-    }
-
-    fn candidates(&self) -> Option<RoaringBitmap> {
-        let mut may = RoaringBitmap::new();
-        for probe in &self.probes {
-            may |= if let Some(condition) = self.regex {
-                condition.candidates(probe.index)?
-            } else {
-                probe.index.candidates_prepared(probe.request)?
-            };
-        }
-        Some(may)
-    }
-
-    #[allow(
-        dead_code,
-        reason = "retained as the unrestricted form of checked FTS candidates"
-    )]
-    fn candidates_checked(&self) -> Result<Option<RoaringBitmap>, String> {
-        let mut may = RoaringBitmap::new();
-        for probe in &self.probes {
-            let next = if let Some(condition) = self.regex {
-                condition.candidates_checked(probe.index)?
-            } else {
-                probe.index.candidates_prepared(probe.request)
-            };
-            let Some(next) = next else {
-                return Ok(None);
-            };
-            may |= next;
-        }
-        Ok(Some(may))
-    }
-
-    fn candidates_checked_restricted(
-        &self,
-        input: &RoaringBitmap,
-    ) -> Result<Option<RoaringBitmap>, String> {
-        let mut may = RoaringBitmap::new();
-        for probe in &self.probes {
-            let next = if let Some(condition) = self.regex {
-                condition
-                    .candidates_checked(probe.index)?
-                    .map(|candidates| candidates & input)
-            } else {
-                probe
-                    .index
-                    .candidates_prepared_restricted(probe.request, Some(input))
-            };
-            let Some(next) = next else {
-                return Ok(None);
-            };
-            may |= next;
-        }
-        Ok(Some(may & input))
-    }
-}
-
-fn prepare_fts_accesses<'a, 'b>(
-    indexes: &IndexCatalog<'a>,
-    collection: &CollectionState,
-    fts: &'b BoundFts,
-    raw_complete: bool,
-    has_fallback: bool,
-    raw_field_compatible: bool,
-    max_count: u64,
-) -> Option<PreparedFtsAccess<'a, 'b>> {
-    if fts.fields.iter().any(|field| field.related.is_some()) {
-        return None;
-    }
-    let regex = if matches!(fts.mode, FtsMode::Regex(_)) {
-        Some(fts.fallback_regex.as_ref()?.condition()?)
-    } else {
-        None
-    };
-    let mut probes = SmallVec::new();
-    let literal_work = if fts.fields.is_empty() {
-        if !raw_complete
-            || (regex.is_none()
-                && fts
-                    .raw_matcher
-                    .as_ref()
-                    .is_some_and(|matcher| !matcher.bigram_compatible()))
-            || collection
-                .definition
-                .schema
-                .raw
-                .as_ref()
-                .is_some_and(|binding| !binding.operation.complete_coverage())
-        {
-            return None;
-        }
-        probes.push(TextProbe {
-            index: indexes.raw_text,
-            request: &fts.gram_request,
-        });
-        if has_fallback {
-            probes.push(TextProbe {
-                index: indexes.fallback_text,
-                request: &fts.fallback_gram_request,
-            });
-        }
-        if regex.is_none() {
-            fts.literal.len() as f64
-        } else {
-            0.0
-        }
-    } else {
-        let logical_text_complete = collection.source.as_ref().is_some_and(|source| {
-            source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
-        });
-        for field in &fts.fields {
-            if field.path.root != PathRoot::Data
-                || field
-                    .matcher
-                    .as_ref()
-                    .is_some_and(|matcher| !matcher.bigram_compatible())
-            {
-                return None;
-            }
-            let index = indexes.field_text_for(
-                &collection.definition.schema,
-                &field.path.segments,
-                &field.binding_name,
-                field.operation.is_some(),
-                logical_text_complete,
-                raw_field_compatible,
-            )?;
-            probes.push(TextProbe {
-                index,
-                request: &field.gram_request,
-            });
-        }
-        if regex.is_none() {
-            fts.fields
-                .iter()
-                .map(|field| field.literal.len() as f64)
-                .sum()
-        } else {
-            0.0
-        }
-    };
-    Some(PreparedFtsAccess {
-        probes,
-        regex,
-        literal_work,
-        max_count,
-    })
-}
-
-pub(crate) fn native_fts_candidates(
-    collection: &CollectionState,
-    fts: &BoundFts,
-) -> Option<RoaringBitmap> {
-    let indexes = IndexCatalog::collection(collection);
-    prepare_fts_accesses(
-        &indexes,
-        collection,
-        fts,
-        true,
-        collection.logical_records.len() != collection.generation.records.len() as u64,
-        raw_covers_identity_field(collection).is_ok(),
-        collection.stats.record_count as u64,
-    )?
-    .candidates()
-}
-
-pub(crate) fn native_estimate_fts_candidates(
-    collection: &CollectionState,
-    fts: &BoundFts,
-) -> Option<(u64, f64)> {
-    let indexes = IndexCatalog::collection(collection);
-    prepare_fts_accesses(
-        &indexes,
-        collection,
-        fts,
-        true,
-        collection.logical_records.len() != collection.generation.records.len() as u64,
-        raw_covers_identity_field(collection).is_ok(),
-        collection.stats.record_count as u64,
-    )?
-    .estimate()
-}
-
 pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
-    native_estimate_fts_candidates(collection, fts)
+    crate::query_access::text::native_estimate_fts_candidates(collection, fts)
 }
 
 pub(crate) fn fts_candidates(

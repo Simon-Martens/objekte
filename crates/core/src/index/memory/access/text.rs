@@ -4,15 +4,19 @@ use std::sync::Mutex;
 
 use roaring::RoaringBitmap;
 
+use super::catalog::IndexCatalog;
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::storage::segment::{RecordBacking, SegmentReader};
+use crate::index::storage::text::SegmentTextAccess;
+use crate::index::storage::text::TextAccessPolicy;
+use crate::model::PathRoot;
+use crate::query::{FtsMode, binding::fts::BoundFts};
 use crate::query_execution::domain::domain_id;
-use crate::query_execution::restrictions::{
-    native_estimate_fts_candidates, native_fts_candidates, native_segment_estimate_fts_candidates,
-    native_segment_fts_candidates_restricted,
-};
+use crate::query_execution::restrictions::raw_covers_identity_field;
 use crate::query_predicate::PreparedPredicates;
 use crate::query_predicate::TermId;
 use crate::repository::state::CollectionState;
+use smallvec::SmallVec;
 
 use crate::query_access::contract::{
     AccessError, AccessExecution, AccessId, AccessKind, AccessOffer, AccessRequest, AccessResult,
@@ -49,38 +53,54 @@ struct TextProviderState {
 
 pub(crate) struct NativeSegmentTextProvider<'a> {
     segment: &'a IndexedCollectionSegment,
-    collection: &'a CollectionState,
-    domain: DomainId,
-    instance_id: u64,
+    access: SegmentTextAccess<'a>,
     operations: Mutex<TextProviderState>,
 }
 
 impl<'a> NativeSegmentTextProvider<'a> {
+    pub(crate) fn for_access(
+        segment: &'a IndexedCollectionSegment,
+        access: SegmentTextAccess<'a>,
+    ) -> Self {
+        Self {
+            segment,
+            access,
+            operations: Mutex::new(TextProviderState::default()),
+        }
+    }
+
+    #[cfg(test)]
     pub(crate) fn new(
         published_id: crate::index::segment::SegmentId,
         segment: &'a IndexedCollectionSegment,
         collection: &'a CollectionState,
     ) -> Self {
-        Self {
+        let instance = collection.repository_instance;
+        let collection_id = collection.generation.collection;
+        Self::for_access(
             segment,
-            collection,
-            domain: domain_id(
-                collection.repository_instance,
-                collection.generation.collection.0,
-                collection.generation.generation,
-                Some(published_id.get()),
-            ),
-            instance_id: collection.repository_instance,
-            operations: Mutex::new(TextProviderState::default()),
-        }
+            SegmentTextAccess {
+                domain: domain_id(
+                    instance,
+                    collection_id.0,
+                    collection.generation.generation,
+                    Some(published_id.get()),
+                ),
+                instance,
+                collection: collection_id,
+                policy: collection.text_access_policy(),
+            },
+        )
     }
 
+    #[cfg(test)]
     pub(crate) fn input_for<'b>(&self, input: &'b RoaringBitmap) -> SlotInput<'b> {
-        SlotInput::unrestricted(self.domain, input)
+        SlotInput::unrestricted(self.access.domain, input)
     }
 
+    #[cfg(test)]
     pub(crate) fn domain(&self) -> DomainId {
-        self.domain
+        self.access.domain
     }
 }
 
@@ -237,14 +257,14 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         input: InputEstimate,
         offers: &mut OfferList,
     ) -> AccessResult<()> {
-        if input.domain != self.domain {
+        if input.domain != self.access.domain {
             return Ok(());
         }
         let AccessRequest::Text(fts) = request else {
             return Ok(());
         };
         let Some((output, work)) =
-            native_segment_estimate_fts_candidates(self.segment, self.collection, fts)
+            native_segment_estimate_fts_candidates(self.segment, self.access.policy, fts)
         else {
             return Ok(());
         };
@@ -296,7 +316,7 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         {
             return Err(AccessError::StaleHandle);
         }
-        if input.domain() != self.domain {
+        if input.domain() != self.access.domain {
             return Err(AccessError::DomainMismatch);
         }
         if input.is_empty() {
@@ -310,7 +330,7 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         LAST_TEXT_INPUT.with(|value| value.set(input_ref.as_ref() as *const _ as usize));
         let slots = native_segment_fts_candidates_restricted(
             self.segment,
-            self.collection,
+            self.access.policy,
             fts,
             input_ref.as_ref(),
         )
@@ -323,11 +343,11 @@ impl IndexAccessProvider for NativeSegmentTextProvider<'_> {
         let output_count = result.len() as u64;
         crate::query_execution::request::record_observation_for_execution(
             execution,
-            self.instance_id,
+            self.access.instance,
             _term,
-            self.domain,
+            self.access.domain,
             choice,
-            self.collection.generation.collection.0,
+            self.access.collection.0,
             input_count,
             output_count,
             0,
@@ -440,4 +460,245 @@ pub(crate) fn prepared_text_estimate(
             .map_err(|error| error.to_string())?
             .map(|offer| (offer.estimated_output(), offer.estimated_work(input_len))),
     )
+}
+
+fn native_segment_fts_candidates_restricted(
+    segment: &IndexedCollectionSegment,
+    policy: TextAccessPolicy<'_>,
+    fts: &BoundFts,
+    input: &RoaringBitmap,
+) -> Result<Option<RoaringBitmap>, String> {
+    let indexes = IndexCatalog::segment_with_bindings(segment, policy.schema, policy.bindings);
+    let Some(prepared) = prepare_fts_accesses(
+        &indexes,
+        policy,
+        fts,
+        segment.raw.record_count as usize == segment.record_count(),
+        segment.logical_records.len() != segment.record_count() as u64,
+        segment_raw_covers_identity_field(segment, policy),
+        segment.record_count() as u64,
+    ) else {
+        return Ok(None);
+    };
+    prepared.candidates_checked_restricted(input)
+}
+
+fn native_segment_estimate_fts_candidates(
+    segment: &IndexedCollectionSegment,
+    policy: TextAccessPolicy<'_>,
+    fts: &BoundFts,
+) -> Option<(u64, f64)> {
+    let indexes = IndexCatalog::segment_with_bindings(segment, policy.schema, policy.bindings);
+    prepare_fts_accesses(
+        &indexes,
+        policy,
+        fts,
+        segment.raw.record_count as usize == segment.record_count(),
+        segment.logical_records.len() != segment.record_count() as u64,
+        segment_raw_covers_identity_field(segment, policy),
+        segment.record_count() as u64,
+    )?
+    .estimate()
+}
+
+pub(crate) fn segment_raw_covers_identity_field(
+    segment: &IndexedCollectionSegment,
+    policy: TextAccessPolicy<'_>,
+) -> bool {
+    let representation_covers = match segment.backing_kind() {
+        RecordBacking::FileRange => policy.logical_text_complete,
+        RecordBacking::Retained | RecordBacking::Provider => segment.raw_covers_logical_fields,
+    };
+    representation_covers
+        && policy.schema.raw.is_none()
+        && segment.raw.record_count as usize == segment.record_count()
+}
+
+/// A prepared text access is a set of borrowed candidate providers. The same
+/// compatibility and coverage assessment feeds estimation and execution;
+/// grams and regex conditions never claim positive field proof.
+struct TextProbe<'a, 'b> {
+    index: &'a crate::index::bigram::BigramIndex,
+    request: &'b crate::index::bigram::BigramRequest,
+}
+
+struct PreparedFtsAccess<'a, 'b> {
+    probes: SmallVec<[TextProbe<'a, 'b>; 2]>,
+    regex: Option<&'b crate::query::regex::RegexCondition>,
+    literal_work: f64,
+    max_count: u64,
+}
+
+impl PreparedFtsAccess<'_, '_> {
+    fn estimate(&self) -> Option<(u64, f64)> {
+        let mut count = 0u64;
+        let mut work = self.literal_work;
+        for probe in &self.probes {
+            if let Some(condition) = self.regex {
+                let (next_count, next_work) = condition.estimate(probe.index)?;
+                count = count.saturating_add(next_count);
+                work += next_work;
+            } else {
+                count = count.saturating_add(probe.index.estimate_prepared(probe.request)?);
+            }
+        }
+        Some((count.min(self.max_count), work))
+    }
+
+    fn candidates(&self) -> Option<RoaringBitmap> {
+        let mut may = RoaringBitmap::new();
+        for probe in &self.probes {
+            may |= if let Some(condition) = self.regex {
+                condition.candidates(probe.index)?
+            } else {
+                probe.index.candidates_prepared(probe.request)?
+            };
+        }
+        Some(may)
+    }
+
+    fn candidates_checked_restricted(
+        &self,
+        input: &RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        let mut may = RoaringBitmap::new();
+        for probe in &self.probes {
+            let next = if let Some(condition) = self.regex {
+                condition
+                    .candidates_checked(probe.index)?
+                    .map(|candidates| candidates & input)
+            } else {
+                probe
+                    .index
+                    .candidates_prepared_restricted(probe.request, Some(input))
+            };
+            let Some(next) = next else {
+                return Ok(None);
+            };
+            may |= next;
+        }
+        Ok(Some(may & input))
+    }
+}
+
+fn prepare_fts_accesses<'a, 'b>(
+    indexes: &IndexCatalog<'a>,
+    policy: TextAccessPolicy<'_>,
+    fts: &'b BoundFts,
+    raw_complete: bool,
+    has_fallback: bool,
+    raw_field_compatible: bool,
+    max_count: u64,
+) -> Option<PreparedFtsAccess<'a, 'b>> {
+    if fts.fields.iter().any(|field| field.related.is_some()) {
+        return None;
+    }
+    let regex = if matches!(fts.mode, FtsMode::Regex(_)) {
+        Some(fts.fallback_regex.as_ref()?.condition()?)
+    } else {
+        None
+    };
+    let mut probes = SmallVec::new();
+    let literal_work = if fts.fields.is_empty() {
+        if !raw_complete
+            || (regex.is_none()
+                && fts
+                    .raw_matcher
+                    .as_ref()
+                    .is_some_and(|matcher| !matcher.bigram_compatible()))
+            || policy
+                .schema
+                .raw
+                .as_ref()
+                .is_some_and(|binding| !binding.operation.complete_coverage())
+        {
+            return None;
+        }
+        probes.push(TextProbe {
+            index: indexes.raw_text,
+            request: &fts.gram_request,
+        });
+        if has_fallback {
+            probes.push(TextProbe {
+                index: indexes.fallback_text,
+                request: &fts.fallback_gram_request,
+            });
+        }
+        if regex.is_none() {
+            fts.literal.len() as f64
+        } else {
+            0.0
+        }
+    } else {
+        for field in &fts.fields {
+            if field.path.root != PathRoot::Data
+                || field
+                    .matcher
+                    .as_ref()
+                    .is_some_and(|matcher| !matcher.bigram_compatible())
+            {
+                return None;
+            }
+            let index = indexes.field_text_for(
+                policy.schema,
+                &field.path.segments,
+                &field.binding_name,
+                field.operation.is_some(),
+                policy.logical_text_complete,
+                raw_field_compatible,
+            )?;
+            probes.push(TextProbe {
+                index,
+                request: &field.gram_request,
+            });
+        }
+        if regex.is_none() {
+            fts.fields
+                .iter()
+                .map(|field| field.literal.len() as f64)
+                .sum()
+        } else {
+            0.0
+        }
+    };
+    Some(PreparedFtsAccess {
+        probes,
+        regex,
+        literal_work,
+        max_count,
+    })
+}
+
+pub(crate) fn native_fts_candidates(
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<RoaringBitmap> {
+    let indexes = IndexCatalog::collection(collection);
+    prepare_fts_accesses(
+        &indexes,
+        collection.text_access_policy(),
+        fts,
+        true,
+        collection.logical_records.len() != collection.generation.records.len() as u64,
+        raw_covers_identity_field(collection).is_ok(),
+        collection.stats.record_count as u64,
+    )?
+    .candidates()
+}
+
+pub(crate) fn native_estimate_fts_candidates(
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<(u64, f64)> {
+    let indexes = IndexCatalog::collection(collection);
+    prepare_fts_accesses(
+        &indexes,
+        collection.text_access_policy(),
+        fts,
+        true,
+        collection.logical_records.len() != collection.generation.records.len() as u64,
+        raw_covers_identity_field(collection).is_ok(),
+        collection.stats.record_count as u64,
+    )?
+    .estimate()
 }

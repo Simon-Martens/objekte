@@ -42,7 +42,7 @@ pub struct CollectionState {
     pub(crate) logical_records: RoaringBitmap,
     pub(crate) empty_array_records: RoaringBitmap,
     pub(crate) custom_text: HashMap<(Vec<String>, String), BigramIndex>,
-    pub(crate) text_bindings: crate::query_access::catalog::TextBindingCatalog,
+    pub(crate) text_bindings: crate::index::storage::text::TextBindingCatalog,
     pub(crate) sorting: SortCollection,
     /// Cached narrow gram/posting/sort estimate for status polling.
     pub(crate) index_family_bytes: usize,
@@ -53,6 +53,17 @@ pub struct CollectionState {
 }
 
 impl CollectionState {
+    pub(crate) fn text_access_policy(&self) -> crate::index::storage::text::TextAccessPolicy<'_> {
+        crate::index::storage::text::TextAccessPolicy {
+            schema: &self.definition.schema,
+            bindings: &self.text_bindings,
+            logical_text_complete: self.source.as_ref().is_some_and(|source| {
+                source.reader().logical_text_coverage()
+                    == crate::source::LogicalTextCoverage::AllStringFields
+            }),
+        }
+    }
+
     pub(crate) fn relation_reader(
         &self,
         ordinal: usize,

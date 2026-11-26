@@ -10,6 +10,7 @@ use crate::index::memory::inference::InferenceState;
 use crate::index::posting::ScalarKey;
 use crate::index::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::index::segment::IndexedCollectionSegment;
+use crate::index::storage::text::TextBindingCatalog;
 use crate::model::{LogicalType, PathRoot, Value};
 use crate::query::path::PathStep;
 use crate::query::{Operator, Quantifier};
@@ -415,30 +416,6 @@ pub(crate) struct IndexCatalog<'a> {
     pub fallback_text: &'a BigramIndex,
 }
 
-/// Derived once when a collection is published or restored. It contains only
-/// small binding names; postings and membership remain in their owners.
-#[derive(Clone, Debug, Default)]
-pub(crate) struct TextBindingCatalog {
-    canonical: HashMap<Vec<String>, String>,
-}
-
-impl TextBindingCatalog {
-    pub fn new(schema: &Schema) -> Self {
-        let mut canonical = HashMap::new();
-        for (path, name) in schema.custom.keys() {
-            canonical
-                .entry(path.clone())
-                .and_modify(|current: &mut String| {
-                    if name < current {
-                        current.clone_from(name);
-                    }
-                })
-                .or_insert_with(|| name.clone());
-        }
-        Self { canonical }
-    }
-}
-
 impl<'a> IndexCatalog<'a> {
     pub fn collection(state: &'a CollectionState) -> Self {
         Self {
@@ -455,13 +432,25 @@ impl<'a> IndexCatalog<'a> {
     }
 
     pub fn segment(state: &'a IndexedCollectionSegment, collection: &'a CollectionState) -> Self {
+        Self::segment_with_bindings(
+            state,
+            &collection.definition.schema,
+            &collection.text_bindings,
+        )
+    }
+
+    pub(crate) fn segment_with_bindings(
+        state: &'a IndexedCollectionSegment,
+        schema: &'a Schema,
+        bindings: &'a TextBindingCatalog,
+    ) -> Self {
         Self {
-            schema: &collection.definition.schema,
+            schema,
             postings: &state.postings,
             observed: state.inference.as_ref(),
             named: &state.custom_postings,
             text: &state.custom_text,
-            text_bindings: &collection.text_bindings,
+            text_bindings: bindings,
             logical: &state.logical_records,
             raw_text: &state.raw,
             fallback_text: &state.fallback_text,

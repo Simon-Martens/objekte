@@ -820,6 +820,17 @@ impl SegmentReader for IndexedCollectionSegment {
         Ok(())
     }
 
+    fn with_text_access(
+        &self,
+        access: crate::index::storage::text::SegmentTextAccess<'_>,
+        use_provider: &mut dyn FnMut(
+            Option<&dyn crate::query_access::contract::IndexAccessProvider>,
+        ) -> StorageResult<()>,
+    ) -> StorageResult<()> {
+        let provider = super::access::text::NativeSegmentTextProvider::for_access(self, access);
+        use_provider(Some(&provider))
+    }
+
     fn supports_posting_order(&self, path: &crate::model::FieldPath) -> StorageResult<bool> {
         Ok(super::access::catalog::sortable_segment_posting(self, &path.segments).is_some())
     }
