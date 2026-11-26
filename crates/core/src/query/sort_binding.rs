@@ -7,7 +7,6 @@ use std::sync::{Arc, Mutex, OnceLock};
 use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
-use crate::index::relation::RelationTarget;
 use crate::index::storage::order::OrderColumnReader;
 use crate::index::storage::order::{SortConfig, SortKey, SortOptions, make_collator};
 use crate::inventory::RecordClass;
@@ -1149,30 +1148,6 @@ impl SortTargetCache {
             .is_none_or(|domains| domains[collection.0 as usize].contains(slot)))
     }
 
-    fn resolve_target(
-        cache: &Mutex<Self>,
-        repo: &Repository,
-        collection: CollectionId,
-        target_id: &str,
-        static_target: &RelationTarget,
-    ) -> Result<Option<RecordSlot>, String> {
-        let state = cache.lock().map_err(|error| error.to_string())?;
-        if let Some(domains) = state
-            .execution
-            .as_ref()
-            .and_then(|execution| execution.active_records())
-        {
-            Ok(repo.collections[collection.0 as usize]
-                .base_slot_for_record(target_id)?
-                .filter(|slot| domains[collection.0 as usize].contains(*slot)))
-        } else {
-            Ok(match static_target {
-                RelationTarget::Resolved(slot) => Some(*slot),
-                RelationTarget::Unresolved(_) => None,
-            })
-        }
-    }
-
     fn edge(cache: &Mutex<Self>) -> Result<(), String> {
         let mut state = cache.lock().map_err(|error| error.to_string())?;
         if let Some(execution) = &state.execution {
@@ -1529,20 +1504,24 @@ impl ComputedSort {
             return Err("sort relation hop collection mismatch".into());
         }
         let source_collection = &repo.collections[hop.relation.source.0 as usize];
-        let relation = source_collection
-            .relations
-            .get(hop.relation.ordinal as usize)
-            .ok_or("sort relation index is missing")?;
-        if hop.direction == HopDirection::Forward && relation.unavailable().contains(slot.0) {
-            reduced.observe_unavailable()?;
-            return Ok(());
-        }
+        let declaration = repo.declared_relation(hop.relation)?.declaration;
+        let relation = if hop.direction == HopDirection::Forward {
+            let reader = source_collection
+                .relation_reader(hop.relation.ordinal as usize)?
+                .ok_or("sort relation reader is missing")?;
+            if reader.source_unavailable(slot)? {
+                reduced.observe_unavailable()?;
+                return Ok(());
+            }
+            Some(reader)
+        } else {
+            None
+        };
         let has_position = hop.selectors.iter().any(Option::is_some);
         reduced.expanded |= match hop.direction {
             HopDirection::Backlink => !has_position,
             HopDirection::Forward => {
-                relation.declaration.cardinality
-                    == crate::schema::relations::RelationCardinality::Many
+                declaration.cardinality == crate::schema::relations::RelationCardinality::Many
                     && !has_position
             }
         };
@@ -1562,7 +1541,7 @@ impl ComputedSort {
                     let mut positions = Vec::new();
                     visit_reference_occurrences(
                         value,
-                        &relation.declaration.path,
+                        &declaration.path,
                         &mut positions,
                         &mut |id, positions| {
                             if !positions_match(&hop.selectors, positions) {
@@ -1598,18 +1577,21 @@ impl ComputedSort {
                         },
                     )?;
                 } else {
-                    for edge in relation.edges(slot).ok_or("sort relation edges missing")? {
-                        if !positions_match(&hop.selectors, &edge.positions) {
+                    let row = relation.expect("forward relation checked").forward(slot)?;
+                    for (target_id, positions) in row.targets {
+                        if !positions_match(&hop.selectors, &positions) {
                             continue;
                         }
                         SortTargetCache::edge(cache)?;
-                        match SortTargetCache::resolve_target(
-                            cache,
-                            repo,
-                            hop.to,
-                            edge.target_id(),
-                            &edge.target,
-                        )? {
+                        let target =
+                            repo.collections[hop.to.0 as usize].base_slot_for_record(&target_id)?;
+                        let target = match target {
+                            Some(target) if SortTargetCache::is_active(cache, hop.to, target)? => {
+                                Some(target)
+                            }
+                            _ => None,
+                        };
+                        match target {
                             Some(target) => self.visit_related(
                                 repo,
                                 hops,
@@ -1625,14 +1607,17 @@ impl ComputedSort {
                             None => reduced.observe_unavailable()?,
                         }
                     }
-                    if relation.nulls().contains(slot.0) {
+                    if row.null {
                         reduced.observe_value(&Value::Null, self)?;
                     }
                 }
             }
             HopDirection::Backlink => {
-                let sources = repo.relation_reverse_sources(relation, &record.id.0);
+                let sources = repo.base_reverse_sources(hop.relation, &record.id.0)?;
                 if let Some(sources) = sources {
+                    let sources = sources
+                        .explicit_view()
+                        .ok_or("reverse relation membership missing")?;
                     if has_position {
                         let mut seen = 0usize;
                         let mut identity =

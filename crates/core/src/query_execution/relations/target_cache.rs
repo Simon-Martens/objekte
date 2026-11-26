@@ -4,7 +4,6 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 
 use roaring::RoaringBitmap;
 
-use crate::index::relation::RelationTarget;
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, PathRoot, RecordSlot, Value};
 use crate::query::binding::relation::HopDirection;
@@ -250,10 +249,12 @@ fn prepare_with_limits(
                 .collections
                 .get(hop.relation.source.0 as usize)
                 .ok_or("relation source collection missing")?;
+            if current.is_empty() {
+                break;
+            }
             let relation = collection
-                .relations
-                .get(hop.relation.ordinal as usize)
-                .ok_or("relation declaration missing")?;
+                .relation_reader(hop.relation.ordinal as usize)?
+                .ok_or("relation reader missing")?;
             let mut next = RoaringBitmap::new();
             for slot in current.iter() {
                 if active
@@ -269,17 +270,15 @@ fn prepare_with_limits(
                 {
                     return Err("stream cancelled".into());
                 }
-                if relation.unavailable().contains(slot) {
+                let row = relation.forward(RecordSlot(slot))?;
+                if row.unavailable {
                     continue;
                 }
-                for edge in relation
-                    .edges(RecordSlot(slot))
-                    .ok_or("relation source slot missing")?
-                {
+                for (target_id, positions) in row.targets {
                     if let Some(execution) = execution {
                         execution.charge_edges(1)?;
                     }
-                    if !positions_match(&hop.selectors, &edge.positions) {
+                    if !positions_match(&hop.selectors, &positions) {
                         continue;
                     }
                     work.edge_visits = work.edge_visits.checked_add(1).ok_or_else(|| {
@@ -296,15 +295,11 @@ fn prepare_with_limits(
                             execution,
                         ));
                     }
-                    let target = if let Some(domains) = active {
-                        repo.collections[hop.to.0 as usize]
-                            .base_slot_for_record(edge.target_id())?
-                            .filter(|slot| domains[hop.to.0 as usize].contains(*slot))
-                    } else if let RelationTarget::Resolved(target) = edge.target {
-                        Some(target)
-                    } else {
-                        None
-                    };
+                    let target = repo.collections[hop.to.0 as usize]
+                        .base_slot_for_record(&target_id)?
+                        .filter(|slot| {
+                            active.is_none_or(|domains| domains[hop.to.0 as usize].contains(*slot))
+                        });
                     if let Some(target) = target
                         && next.insert(target.0)
                         && max_retained_bytes.is_some()

@@ -278,7 +278,31 @@ fn resident_inspection_paginates_and_restores_without_source_files() {
     for name in ["entries", "mentions", "empty"] {
         std::fs::remove_dir_all(root.join(name)).unwrap();
     }
-    assert_eq!(inspect(&built), inspect(&restored));
+    let logical_inspection = |repository: &Repository| {
+        let (mut first, mut last, mut backlinks_first, mut backlinks_second, graph) =
+            inspect(repository);
+        // Separate builds can publish their segments in a different order.
+        let clear_local_address = |record: &mut InspectedRecord| {
+            record.segment_ordinal = None;
+            record.slot = RecordSlot(0);
+        };
+        for page in [&mut first, &mut last] {
+            clear_local_address(&mut page.source);
+            for reference in &mut page.references {
+                if let Some(target) = &mut reference.resolved {
+                    clear_local_address(target);
+                }
+            }
+        }
+        for page in [&mut backlinks_first, &mut backlinks_second] {
+            clear_local_address(&mut page.target);
+            for source in &mut page.sources {
+                clear_local_address(source);
+            }
+        }
+        (first, last, backlinks_first, backlinks_second, graph)
+    };
+    assert_eq!(logical_inspection(&built), logical_inspection(&restored));
     drop(restored);
     drop(built);
     std::fs::remove_dir_all(root).unwrap();

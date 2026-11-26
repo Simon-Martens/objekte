@@ -9,7 +9,6 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::index::relation::{RelationIndex, RelationTarget};
 use crate::index::segment::{SegmentRecordAddress, SegmentRecordSet};
 use crate::index::storage::publication::PublishedSegment;
 use crate::inventory::RecordClass;
@@ -220,12 +219,22 @@ fn eligible<'a>(repo: &Repository, term: &'a BoundTerm) -> Option<&'a [BoundRela
     Some(&related.hops)
 }
 
-fn relation<'a>(repo: &'a Repository, hop: &BoundRelationHop) -> Result<&'a RelationIndex, String> {
-    repo.collections
-        .get(hop.relation.source.0 as usize)
-        .and_then(|collection| collection.relations.get(hop.relation.ordinal as usize))
-        .filter(|relation| relation.target_collection == hop.to)
-        .ok_or_else(|| "relation semijoin declaration changed".into())
+fn relation<'a>(
+    repo: &'a Repository,
+    hop: &BoundRelationHop,
+) -> Result<crate::index::storage::relation::DeclaredRelation<'a>, String> {
+    let binding = repo.declared_relation(hop.relation)?;
+    if binding.target_collection != hop.to {
+        return Err("relation semijoin declaration changed".into());
+    }
+    Ok(binding)
+}
+
+fn base_relation_edge_count(repo: &Repository, hop: &BoundRelationHop) -> Result<usize, String> {
+    let binding = relation(repo, hop)?;
+    Ok(repo.collections[binding.id.source.0 as usize]
+        .relation_reader(binding.id.ordinal as usize)?
+        .map_or(0, |reader| reader.edge_count()))
 }
 
 fn segment_target_candidates(
@@ -413,11 +422,10 @@ pub(crate) fn planning_estimate_with_segments(
         .base_logical_count()?
         .max(1) as f64;
     let average_fanout = related.hops.iter().try_fold(1.0_f64, |fanout, hop| {
-        let index = relation(repo, hop)?;
+        let edges = base_relation_edge_count(repo, hop)?;
         let source = &repo.collections[hop.from.0 as usize];
         Ok::<_, String>(
-            (fanout * index.edge_count() as f64 / source.base_logical_count()?.max(1) as f64)
-                .max(1.0),
+            (fanout * edges as f64 / source.base_logical_count()?.max(1) as f64).max(1.0),
         )
     })?;
     let target_count = target.base_logical_count()?.max(1) as f64;
@@ -505,11 +513,10 @@ pub(crate) fn planning_fts_strategies(
                 .unwrap_or((target_count, 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
-            let index = relation(repo, hop)?;
+            let edges = base_relation_edge_count(repo, hop)?;
             let source = &repo.collections[hop.from.0 as usize];
             Ok::<_, String>(
-                (fanout * index.edge_count() as f64 / source.base_logical_count()?.max(1) as f64)
-                    .max(1.0),
+                (fanout * edges as f64 / source.base_logical_count()?.max(1) as f64).max(1.0),
             )
         })?;
         let reachable = (input_len as f64 * fanout).min(target_count as f64);
@@ -539,7 +546,13 @@ fn reachable_targets(
     }
     let mut current = input.clone();
     for hop in hops {
-        let index = relation(repo, hop)?;
+        if current.is_empty() {
+            break;
+        }
+        let binding = relation(repo, hop)?;
+        let index = repo.collections[binding.id.source.0 as usize]
+            .relation_reader(binding.id.ordinal as usize)?
+            .ok_or("relation semijoin source reader missing")?;
         let source_active = execution
             .and_then(ExecutionContext::active_records)
             .map(|domains| &domains[hop.from.0 as usize]);
@@ -548,26 +561,19 @@ fn reachable_targets(
             .map(|domains| &domains[hop.to.0 as usize]);
         let target_collection = &repo.collections[hop.to.0 as usize];
         let mut next = RoaringBitmap::new();
-        for slot in current.iter() {
-            if source_active.is_some_and(|active| !active.contains(RecordSlot(slot))) {
+        for slot in current.iter().map(RecordSlot) {
+            if source_active.is_some_and(|active| !active.contains(slot)) {
                 continue;
             }
-            if index.unavailable().contains(slot) {
+            let row = index.forward(slot)?;
+            if row.unavailable {
                 continue;
             }
-            for edge in index
-                .edges(RecordSlot(slot))
-                .ok_or("relation source slot missing")?
-            {
+            for (id, _) in row.targets {
                 visit_edge(work, execution)?;
-                if let Some(active) = target_active {
-                    if let Some(target) =
-                        target_collection.base_slot_for_record(edge.target_id())?
-                        && active.contains(target)
-                    {
-                        next.insert(target.0);
-                    }
-                } else if let RelationTarget::Resolved(target) = edge.target {
+                if let Some(target) = target_collection.base_slot_for_record(&id)?
+                    && target_active.is_none_or(|active| active.contains(target))
+                {
                     next.insert(target.0);
                 }
             }
@@ -1130,7 +1136,7 @@ fn reverse_sources(
     ensure_slots(terminal.len(), execution)?;
     let mut current = terminal.clone();
     for hop in hops.iter().rev() {
-        let index = relation(repo, hop)?;
+        let binding = relation(repo, hop)?;
         let target = &repo.collections[hop.to.0 as usize];
         let active = execution.and_then(ExecutionContext::active_records);
         let mut next = RoaringBitmap::new();
@@ -1140,10 +1146,15 @@ fn reverse_sources(
                 continue;
             }
             let record = target.base_record(crate::model::RecordSlot(slot))?;
-            if let Some(sources) = repo.relation_reverse_sources(index, &record.id.0) {
-                work.reverse_postings_visited += 1;
-                work.reverse_members_visited += sources.len();
-                next |= sources;
+            if let Some(sources) = repo.base_reverse_sources(binding.id, &record.id.0)? {
+                let sources = sources
+                    .explicit_view()
+                    .ok_or("reverse relation membership missing")?;
+                if !sources.is_empty() {
+                    work.reverse_postings_visited += 1;
+                    work.reverse_members_visited += sources.len() as u64;
+                    sources.union_into_bitmap(&mut next);
+                }
             }
             ensure_slots(next.len(), execution)?;
         }
@@ -1246,11 +1257,10 @@ pub(crate) fn fts_witnesses(
                 .unwrap_or((target_count, 0.0));
         let target_unit = 30.0 + target.stats.mean_record_bytes() / 128.0;
         let fanout = hops.iter().try_fold(1.0_f64, |fanout, hop| {
-            let index = relation(repo, hop)?;
+            let edges = base_relation_edge_count(repo, hop)?;
             let source = &repo.collections[hop.from.0 as usize];
             Ok::<_, String>(
-                (fanout * index.edge_count() as f64 / source.base_logical_count()?.max(1) as f64)
-                    .max(1.0),
+                (fanout * edges as f64 / source.base_logical_count()?.max(1) as f64).max(1.0),
             )
         })?;
         let reachable = (input.len() as f64 * fanout).min(target_count as f64);

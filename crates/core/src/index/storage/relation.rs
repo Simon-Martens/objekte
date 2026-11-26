@@ -36,6 +36,9 @@ pub(crate) type VisitRelationTarget<'a> = dyn FnMut(&str, &[u32]) -> StorageResu
 pub(crate) trait RelationReader: std::any::Any + Send + Sync {
     fn declaration(&self) -> &RelationDefinition;
     fn source_slots(&self) -> usize;
+    fn edge_count(&self) -> usize {
+        0
+    }
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>>;
 
     fn source_unavailable(&self, source: RecordSlot) -> StorageResult<bool> {

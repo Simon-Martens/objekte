@@ -46,6 +46,36 @@ impl RelationReader for RelationIndex {
         self.offsets.len().saturating_sub(1)
     }
 
+    fn edge_count(&self) -> usize {
+        self.edges.len()
+    }
+
+    fn source_unavailable(&self, source: RecordSlot) -> StorageResult<bool> {
+        if source.0 as usize >= self.source_slots() {
+            return Err(StorageError::invalid(
+                "read base relation",
+                "source slot outside relation",
+            ));
+        }
+        Ok(self.unavailable.contains(source.0))
+    }
+
+    fn visit_targets(
+        &self,
+        source: RecordSlot,
+        visit: &mut VisitRelationTarget<'_>,
+    ) -> StorageResult<()> {
+        let edges = self.edges(source).ok_or_else(|| {
+            StorageError::invalid("read base relation", "source slot outside relation")
+        })?;
+        for edge in edges {
+            if visit(edge.target_id(), &edge.positions)? {
+                break;
+            }
+        }
+        Ok(())
+    }
+
     fn forward(&self, source: RecordSlot) -> StorageResult<RelationRow<'_>> {
         let edges = self.edges(source).ok_or_else(|| {
             StorageError::invalid("read base relation", "source slot outside relation")
@@ -268,6 +298,10 @@ impl RelationReader for RelationContribution {
 
     fn source_slots(&self) -> usize {
         self.record_count as usize
+    }
+
+    fn edge_count(&self) -> usize {
+        self.references.len()
     }
 
     fn source_unavailable(&self, source: RecordSlot) -> StorageResult<bool> {

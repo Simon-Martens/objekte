@@ -112,6 +112,54 @@ impl Repository {
             .get(&crate::index::posting::ScalarKey::Id(target_id.to_owned()))
     }
 
+    pub(crate) fn base_reverse_sources(
+        &self,
+        relation: crate::schema::relations::RelationId,
+        target_id: &str,
+    ) -> StorageResult<Option<crate::query_access::membership::SlotSet<'_>>> {
+        use crate::query_access::membership::SlotSet;
+        const OP: &str = "read base reverse relation";
+        let source = self
+            .collections
+            .get(relation.source.0 as usize)
+            .ok_or_else(|| StorageError::invalid(OP, "source collection missing"))?;
+        let ordinal = relation.ordinal as usize;
+        if let Some(base) = &source.base_records {
+            let count = base.descriptor().slots;
+            if let Some(members) = base.reverse_relation(ordinal, target_id)? {
+                let view = members.explicit_view().ok_or_else(|| {
+                    StorageError::invalid(OP, "missing explicit reverse membership")
+                })?;
+                if view.last().is_some_and(|slot| slot as usize >= count) {
+                    return Err(StorageError::invalid(
+                        OP,
+                        "reverse membership outside base domain",
+                    ));
+                }
+                return Ok(Some(members));
+            }
+            let reader = source
+                .relation_reader(ordinal)?
+                .ok_or_else(|| StorageError::invalid(OP, "missing relation reader"))?;
+            let mut matches = RoaringBitmap::new();
+            for slot in 0..count {
+                reader.visit_targets(RecordSlot(slot as u32), &mut |id, _| {
+                    if id == target_id {
+                        matches.insert(slot as u32);
+                        return Ok(true);
+                    }
+                    Ok(false)
+                })?;
+            }
+            return Ok((!matches.is_empty()).then(|| SlotSet::from_owned(matches)));
+        }
+        Ok(source
+            .relations
+            .get(ordinal)
+            .and_then(|relation| self.relation_reverse_sources(relation, target_id))
+            .map(SlotSet::borrowed))
+    }
+
     pub fn build_parses(&self) -> u64 {
         self.build_parses
     }

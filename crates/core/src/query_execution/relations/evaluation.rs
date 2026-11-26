@@ -4,7 +4,6 @@ use crate::records::RecordIdSlot;
 use std::sync::Arc;
 
 use super::view::{MergedRecordSlot, MergedRelationView, positions_match, read_reference_value};
-use crate::index::relation::RelationTarget;
 use crate::inventory::RecordClass;
 use crate::model::{PathRoot, RecordSlot};
 use crate::query::Quantifier;
@@ -1008,10 +1007,7 @@ fn visit_hop(
         return Err("relation hop collection mismatch".into());
     }
     let source_collection = &repo.collections[hop.relation.source.0 as usize];
-    let relation = source_collection
-        .relations
-        .get(hop.relation.ordinal as usize)
-        .ok_or("relation hop index is missing")?;
+    let declaration = repo.declared_relation(hop.relation)?.declaration;
     if mode == EvaluationMode::Reference {
         match hop.direction {
             HopDirection::Forward => {
@@ -1020,7 +1016,7 @@ fn visit_hop(
                     merge_truth(truth, None, quantifier);
                     return Ok(());
                 };
-                let references = logical_references(&value, &relation.declaration.path)?;
+                let references = logical_references(&value, &declaration.path)?;
                 let present = references.present;
                 let null = references.null;
                 let target_collection = &repo.collections[hop.to.0 as usize];
@@ -1090,7 +1086,7 @@ fn visit_hop(
                     else {
                         continue;
                     };
-                    let references = logical_references(&value, &relation.declaration.path)?;
+                    let references = logical_references(&value, &declaration.path)?;
                     if !references
                         .values
                         .iter()
@@ -1130,29 +1126,24 @@ fn visit_hop(
     }
     match hop.direction {
         HopDirection::Forward => {
-            if relation.unavailable().contains(source_slot.0) {
+            let relation = source_collection
+                .relation_reader(hop.relation.ordinal as usize)?
+                .ok_or("relation hop reader is missing")?;
+            let row = relation.forward(source_slot)?;
+            if row.unavailable {
                 merge_truth(truth, None, quantifier);
                 return Ok(());
             }
-            let edges = relation
-                .edges(source_slot)
-                .ok_or("relation source slot is missing")?;
             let mut selected = 0;
-            for edge in edges {
-                if !positions_match(&hop.selectors, &edge.positions) {
+            for (target_id, positions) in row.targets {
+                if !positions_match(&hop.selectors, &positions) {
                     continue;
                 }
                 work.edge()?;
                 selected += 1;
-                let target = if work.has_active_domains() {
-                    repo.collections[hop.to.0 as usize]
-                        .base_slot_for_record(edge.target_id())?
-                        .filter(|slot| work.is_active(hop.to, *slot))
-                } else if let RelationTarget::Resolved(target) = edge.target {
-                    Some(target)
-                } else {
-                    None
-                };
+                let target = repo.collections[hop.to.0 as usize]
+                    .base_slot_for_record(&target_id)?
+                    .filter(|slot| work.is_active(hop.to, *slot));
                 match target {
                     Some(target) => visit_hop(
                         config,
@@ -1162,7 +1153,7 @@ fn visit_hop(
                         truth,
                         work,
                         if depth == 0 {
-                            &edge.positions
+                            &positions
                         } else {
                             source_positions
                         },
@@ -1175,19 +1166,20 @@ fn visit_hop(
                 }
             }
             if selected == 0
-                && (!relation.present().contains(source_slot.0)
-                    || relation.nulls().contains(source_slot.0)
-                    || hop.selectors.iter().any(Option::is_some))
+                && (!row.present || row.null || hop.selectors.iter().any(Option::is_some))
             {
                 merge_truth(truth, Some(false), quantifier);
             }
         }
         HopDirection::Backlink => {
             let target = &*repo.collections[collection_index].base_record(source_slot)?;
-            let sources = repo.relation_reverse_sources(relation, &target.id.0);
+            let sources = repo.base_reverse_sources(hop.relation, &target.id.0)?;
             let mut seen = 0usize;
             let mut selected = 0usize;
             if let Some(sources) = sources {
+                let sources = sources
+                    .explicit_view()
+                    .ok_or("reverse relation membership missing")?;
                 if hop.selectors.iter().all(Option::is_none) {
                     // Without a numeric selector, Boolean truth is independent
                     // of identity-order rank. Visit only actual reverse hits.
